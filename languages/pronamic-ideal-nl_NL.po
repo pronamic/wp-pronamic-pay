@@ -1,0 +1,882 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pronamic iDEAL\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-16 14:30+0100\n"
+"PO-Revision-Date: 2011-08-16 15:16+0100\n"
+"Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
+"Language-Team: Pronamic <info@pronamic.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__withdesc;_ewithdesc;_c;_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
+"X-Poedit-Basepath: W:\\rt.beta.pronamic.nl\\httpdocs\\wp-content\\plugins\\pronamic-ideal\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: views/settings.php:10
+#: views/gravityforms/feeds.php:95
+msgid "iDEAL Settings"
+msgstr "iDEAL instellingen"
+
+#: views/settings.php:17
+msgid "General Settings"
+msgstr "Algemene instellingen"
+
+#: views/settings.php:24
+msgid "Support License Key"
+msgstr "Support licentiecode"
+
+#: views/settings.php:32
+msgid "The license key is used for access to automatic upgrades and support."
+msgstr "De licentiecode wordt gebruikt voor automatische upgrades en support."
+
+#: views/settings.php:41
+#: views/configuration-edit.php:243
+#: views/gravityforms/feed-edit.php:306
+msgid "Save"
+msgstr "Opslaan"
+
+#: views/settings.php:41
+#: views/configuration-edit.php:243
+#: views/gravityforms/feed-edit.php:306
+msgid "Update"
+msgstr "Update"
+
+#: views/payment.php:18
+#, php-format
+msgid "The payment status is: %s"
+msgstr "De betaling status is: %s"
+
+#: views/payment.php:27
+msgid "iDEAL Payment"
+msgstr "iDEAL betaling"
+
+#: views/payment.php:42
+#: views/configuration-edit.php:89
+#: views/gravityforms/feed-edit.php:83
+msgid "General"
+msgstr "Algemeen"
+
+#: views/payment.php:48
+msgid "Purchase ID"
+msgstr "Aankoop ID"
+
+#: views/payment.php:59
+msgid "Transaction"
+msgstr "Transactie"
+
+#: views/payment.php:65
+#: views/payments.php:34
+msgid "Transaction ID"
+msgstr "Transactie ID"
+
+#: views/payment.php:73
+#: views/payments.php:36
+msgid "Description"
+msgstr "Beschrijving"
+
+#: views/payment.php:81
+#: views/payments.php:38
+msgid "Amount"
+msgstr "Bedrag"
+
+#: views/payment.php:90
+msgid "Expiration Period"
+msgstr "Vervalperiode"
+
+#: views/payment.php:98
+#: views/payments.php:39
+msgid "Status"
+msgstr "Status"
+
+#: views/payment.php:107
+#: views/payments.php:37
+msgid "Consumer"
+msgstr "Consument"
+
+#: views/payment.php:113
+#: views/payment.php:167
+#: views/configurations-form.php:54
+#: views/variants.php:22
+#: views/configuration-tests.php:44
+msgid "Name"
+msgstr "Naam"
+
+#: views/payment.php:121
+msgid "Account Number"
+msgstr "Rrekeningnummer"
+
+#: views/payment.php:129
+msgid "City"
+msgstr "Plaats"
+
+#: views/payment.php:142
+#: views/payment.php:148
+msgid "Configuration"
+msgstr "Configuratie"
+
+#: views/payment.php:161
+msgid "Source"
+msgstr "Bron"
+
+#: views/payment.php:175
+#: views/configuration-tests.php:36
+msgid "ID"
+msgstr "ID"
+
+#: views/payment.php:186
+msgid "Status Request"
+msgstr "Status verzoek"
+
+#: views/payments.php:12
+msgid "iDEAL Payments"
+msgstr "iDEAL betalingen"
+
+#: views/payments.php:19
+#: views/configurations-form.php:39
+#: views/gravityforms/feeds.php:58
+msgid "Bulk Actions"
+msgstr "Acties"
+
+#: views/payments.php:20
+#: views/configurations-form.php:40
+#: views/configurations-form.php:98
+#: views/configurations-form.php:99
+#: views/gravityforms/feeds.php:59
+#: views/gravityforms/feeds.php:134
+#: views/gravityforms/feeds.php:135
+msgid "Delete"
+msgstr "Verwijder"
+
+#: views/payments.php:23
+#: views/configurations-form.php:43
+#: views/gravityforms/feeds.php:62
+msgid "Apply"
+msgstr "Toepassen"
+
+#: views/payments.php:35
+msgid "Date"
+msgstr "Datum"
+
+#: views/payments.php:59
+msgid "Details"
+msgstr "Details"
+
+#: views/configurations.php:10
+msgid "iDEAL Configurations"
+msgstr "iDEAL configuraties"
+
+#: views/configurations.php:15
+#: views/gravityforms/feeds.php:38
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: views/documentation.php:10
+msgid "iDEAL Documentation"
+msgstr "iDEAL documentatie"
+
+#: views/documentation.php:106
+#, php-format
+msgid "version %s"
+msgstr "versie %s"
+
+#: views/configurations-form.php:29
+msgid "Configuration deleted."
+msgid_plural "Configurations deleted."
+msgstr[0] "Configuratie verwijderd."
+msgstr[1] "Configuraties verwijderd."
+
+#: views/configurations-form.php:55
+#: views/configuration-edit.php:116
+msgid "Merchant ID"
+msgstr "Winkelier ID"
+
+#: views/configurations-form.php:56
+#: views/configuration-edit.php:131
+msgid "Sub ID"
+msgstr "Sub ID"
+
+#: views/configurations-form.php:57
+#: views/configuration-edit.php:146
+#: views/configuration-edit.php:152
+msgid "Mode"
+msgstr "Modus"
+
+#: views/configurations-form.php:58
+#: views/configurations-form.php:115
+#: views/configurations-form.php:116
+#: views/variants.php:24
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: views/configurations-form.php:59
+msgid "Number Payments"
+msgstr "Aantal betalingen"
+
+#: views/configurations-form.php:82
+#: views/configurations-form.php:88
+#: views/configurations-form.php:89
+#: views/gravityforms/feeds.php:123
+#: views/gravityforms/feeds.php:129
+#: views/gravityforms/feeds.php:130
+msgid "Edit"
+msgstr "Bewerken"
+
+#: views/configurations-form.php:93
+#: views/configurations-form.php:94
+msgid "Tests"
+msgstr "Tests"
+
+#: views/configurations-form.php:119
+msgid "Not available"
+msgstr "Niet beschikbaar"
+
+#: views/variants.php:13
+msgid "iDEAL Variants"
+msgstr "iDEAL varianten"
+
+#: views/variants.php:23
+msgid "Method"
+msgstr "Methode"
+
+#: views/variants.php:49
+#: views/configuration-edit.php:172
+msgid "Basic"
+msgstr "Basis"
+
+#: views/variants.php:52
+#: views/configuration-edit.php:189
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: views/variants.php:55
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: views/variants.php:64
+#: views/configuration-edit.php:163
+#: views/configuration-tests.php:117
+msgid "Test"
+msgstr "Test"
+
+#: views/variants.php:70
+#: views/configuration-edit.php:158
+msgid "Live"
+msgstr "Live"
+
+#: views/uninstall-form.php:14
+msgid "Delete iDEAL plugin"
+msgstr "Verwijder iDEAL plugin"
+
+#: views/uninstall-form.php:19
+msgid "Warning! This will delete all iDEAL configurations, payments and options."
+msgstr "Waarschuwing! Deze operatie verwijderd alle iDEAL configuraties, betalingen en opties."
+
+#: views/uninstall-form.php:25
+msgid "Uninstall"
+msgstr "Verwijder"
+
+#: views/configuration-edit.php:54
+#, php-format
+msgid "Configuration updated, %s."
+msgstr "Configuratie geüpdate, %s."
+
+#: views/configuration-edit.php:55
+msgid "back to overview"
+msgstr "terug naar overzicht"
+
+#: views/configuration-edit.php:65
+#: views/gravityforms/feeds.php:75
+#: views/gravityforms/feed-edit.php:115
+msgid "iDEAL Configuration"
+msgstr "iDEAL configuratie"
+
+#: views/configuration-edit.php:96
+msgid "Variant"
+msgstr "Variant"
+
+#: views/configuration-edit.php:124
+msgid "You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider."
+msgstr "Je ontvangt de winkelier ID (ook wel: merchant ID of acceptant ID) van je iDEAL provider."
+
+#: views/configuration-edit.php:139
+#, php-format
+msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
+msgstr "Je ontvangt de sub ID van je iDEAL provider, standaard is dit: %s."
+
+#: views/configuration-edit.php:179
+msgid "Hash Key"
+msgstr "Hash sleutel"
+
+#: views/configuration-edit.php:196
+msgid "Private Key Password"
+msgstr "Privé sleutel wachtwoord"
+
+#: views/configuration-edit.php:206
+msgid "Private Key"
+msgstr "Privé sleutel"
+
+#: views/configuration-edit.php:218
+msgid "Private Certificate"
+msgstr "Privé certificaat"
+
+#: views/configuration-edit.php:231
+#, php-format
+msgid "SHA Fingerprint: %s"
+msgstr ""
+
+#: views/security-configuration.php:2
+#, fuzzy
+msgid "Security configuration"
+msgstr "Configuratie"
+
+#: views/security-configuration.php:6
+msgid "In order to create a private/public key pair that can be used by the plugin, the following steps have to be completed:"
+msgstr ""
+
+#: views/security-configuration.php:12
+msgid "Download the openssl library to your computer (<a href=\"http://www.openssl.org/\">http://www.openssl.org</a>). There are a number of binaries for different operating systems available."
+msgstr ""
+
+#: views/security-configuration.php:17
+msgid "Generate a RSA private key:"
+msgstr ""
+
+#: views/security-configuration.php:20
+#: views/security-configuration.php:28
+msgid "password"
+msgstr ""
+
+#: views/security-configuration.php:25
+msgid "Create a new Certificate based on this private key:"
+msgstr ""
+
+#: views/configuration-tests.php:17
+msgid "iDEAL Tests"
+msgstr "iDEAL tests"
+
+#: views/configuration-tests.php:23
+#, php-format
+msgid "We could not find any feed with the ID \"%s\"."
+msgstr "We konden geen feed vinden met de ID \"%s\"."
+
+#: views/configuration-tests.php:30
+msgid "Info"
+msgstr "Info"
+
+#: views/configuration-tests.php:57
+msgid "Retrieve Issuers Lists"
+msgstr "Ophalen issuers lijsten"
+
+#: views/configuration-tests.php:88
+msgid "Code"
+msgstr "Code"
+
+#: views/configuration-tests.php:91
+msgid "Message"
+msgstr "Bericht"
+
+#: views/configuration-tests.php:94
+msgid "Detail"
+msgstr "Detail"
+
+#: views/configuration-tests.php:97
+msgid "Consumer Message"
+msgstr "Consumenten bericht"
+
+#: views/configuration-tests.php:108
+msgid "Mandatory Tests"
+msgstr "Verplichte tests"
+
+#: views/configuration-tests.php:118
+msgid "Action"
+msgstr "Actie"
+
+#: views/configuration-tests.php:131
+#, php-format
+msgid "Test Case %s"
+msgstr "Test %s"
+
+#: views/configuration-tests.php:157
+msgid "Execute"
+msgstr "Uitvoeren"
+
+#: views/gravityforms/feeds.php:33
+msgid "iDEAL Feeds"
+msgstr "iDEAL feeds"
+
+#: views/gravityforms/feeds.php:48
+msgid "Feed deleted."
+msgid_plural "Feeds deleted."
+msgstr[0] "Feed verwijderd."
+msgstr[1] "Feeds verwijderd."
+
+#: views/gravityforms/feeds.php:74
+msgid "Form"
+msgstr "Formulier"
+
+#: views/gravityforms/feeds.php:76
+#: views/gravityforms/feed-edit.php:151
+msgid "Transaction Description"
+msgstr "Transactie beschrijving"
+
+#: views/gravityforms/feeds.php:77
+#: views/gravityforms/feed-edit.php:249
+msgid "Condition"
+msgstr "Conditie"
+
+#: views/gravityforms/feeds.php:92
+#, php-format
+msgid "To get started, please configure your %s."
+msgstr "Om te beginnen configureer je %s."
+
+#: views/gravityforms/feeds.php:112
+msgid "Active"
+msgstr "Actief"
+
+#: views/gravityforms/feeds.php:112
+msgid "Inactive"
+msgstr "Inactief"
+
+#: views/gravityforms/feeds.php:151
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: views/gravityforms/feeds.php:151
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: views/gravityforms/feed-edit.php:58
+msgid "iDEAL Feed"
+msgstr "iDEAL feed"
+
+#: views/gravityforms/feed-edit.php:68
+#, php-format
+msgid "Feed updated, %s."
+msgstr "Feed geüpdate, %s."
+
+#: views/gravityforms/feed-edit.php:69
+msgid "back to list"
+msgstr "terug naar lijst"
+
+#: views/gravityforms/feed-edit.php:90
+msgid "Gravity Form"
+msgstr "Gravity Form"
+
+#: views/gravityforms/feed-edit.php:100
+msgid "&mdash; Select a form &mdash;"
+msgstr "&mdash; Selecteer een formulier &mdash;"
+
+#: views/gravityforms/feed-edit.php:124
+#, php-format
+msgid "No iDEAL configurations found, %s."
+msgstr "Geen iDEAL configuraties gevonden, %s."
+
+#: views/gravityforms/feed-edit.php:128
+msgid "create an iDEAL configuration"
+msgstr "creëer een iDEAL configuratie"
+
+#: views/gravityforms/feed-edit.php:137
+msgid "&mdash; Select configuration &mdash; "
+msgstr "&mdash; Selecteer configuratie &mdash;"
+
+#: views/gravityforms/feed-edit.php:165
+msgid "Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated."
+msgstr "Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 tekens zal automatisch worden afgekapt."
+
+#: views/gravityforms/feed-edit.php:172
+msgid "Status Links"
+msgstr "Status koppelingen"
+
+#: views/gravityforms/feed-edit.php:179
+msgid "Open"
+msgstr "Open"
+
+#: views/gravityforms/feed-edit.php:180
+msgid "Success"
+msgstr "Succes"
+
+#: views/gravityforms/feed-edit.php:181
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: views/gravityforms/feed-edit.php:182
+msgid "Error"
+msgstr "Fout"
+
+#: views/gravityforms/feed-edit.php:183
+msgid "Expired"
+msgstr "Verlopen"
+
+#: views/gravityforms/feed-edit.php:222
+msgid "Page:"
+msgstr "Pagina:"
+
+#: views/gravityforms/feed-edit.php:230
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; Selecteren &mdash;"
+
+#: views/gravityforms/feed-edit.php:239
+msgid "URL:"
+msgstr "URL:"
+
+#: views/gravityforms/feed-edit.php:256
+msgid "iDEAL Condition"
+msgstr "iDEAL conditie"
+
+#: views/gravityforms/feed-edit.php:264
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: views/gravityforms/feed-edit.php:269
+msgid "Send to iDEAL if "
+msgstr "Verstuur naar iDEAL als"
+
+#: views/gravityforms/feed-edit.php:279
+msgid "is"
+msgstr "is"
+
+#: views/gravityforms/feed-edit.php:280
+msgid "is not"
+msgstr "is niet"
+
+#: views/gravityforms/feed-edit.php:300
+msgid "To create a condition, your form must have a drop down, checkbox or multiple choice field."
+msgstr "Om een conditie in te stellen moet je formulier een selectieveld, selectievakje of meerkeuzeveld bevatten."
+
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:223
+msgid "Cancelled"
+msgstr "Geannuleerd"
+
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:227
+msgid "Failure"
+msgstr "Storing"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:30
+#: classes/Pronamic/WordPress/IDeal/Admin.php:31
+msgid "iDEAL"
+msgstr "iDEAL"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:40
+#: classes/Pronamic/WordPress/IDeal/Admin.php:41
+msgid "Payments"
+msgstr "Betalingen"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:49
+#: classes/Pronamic/WordPress/IDeal/Admin.php:50
+msgid "Settings"
+msgstr "Instellingen"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:58
+#: classes/Pronamic/WordPress/IDeal/Admin.php:59
+msgid "Variants"
+msgstr "Varianten"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:67
+#: classes/Pronamic/WordPress/IDeal/Admin.php:68
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:77
+msgid "Configurations"
+msgstr "Configuraties"
+
+#: classes/Pronamic/GravityForms/IDeal/Fields.php:49
+msgid "Create iDEAL feed"
+msgstr "Creëer iDEAL feed"
+
+#: classes/Pronamic/GravityForms/IDeal/Fields.php:55
+msgid "Edit iDEAL feed"
+msgstr "Bewerk iDEAL feed"
+
+#: classes/Pronamic/GravityForms/IDeal/Fields.php:79
+msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
+msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op een andere manier."
+
+#: classes/Pronamic/GravityForms/IDeal/Fields.php:101
+msgid "Issuer Drop Down"
+msgstr "Issuer Drop Down"
+
+#: classes/Pronamic/GravityForms/IDeal/Fields.php:108
+msgid "iDEAL Fields"
+msgstr "iDEAL velden"
+
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:514
+#, php-format
+msgid "Gravity Forms payment %s"
+msgstr "Gravity Forms betaling %s"
+
+#, fuzzy
+#~ msgid "iDEAL Feed Settings"
+#~ msgstr "iDEAL instellingen"
+
+#~ msgid "iDEAL Form Settings"
+#~ msgstr "iDEAL formulier instellingen"
+
+#~ msgid "Links"
+#~ msgstr "Koppelingen"
+
+#~ msgid "Pay"
+#~ msgstr "Betalen"
+
+#, fuzzy
+#~ msgid "iDEAL Purchase"
+#~ msgstr "iDEAL aankopen"
+
+#~ msgid "iDEAL Transactions"
+#~ msgstr "iDEAL transacties"
+
+#~ msgid "Consumer City"
+#~ msgstr "Consument woonplaats"
+
+#~ msgid "Currency"
+#~ msgstr "Valuta"
+
+#~ msgid "Language"
+#~ msgstr "Taal"
+
+#~ msgid "Entrance Code"
+#~ msgstr "Entree code"
+
+#~ msgid "Issuer ID"
+#~ msgstr "Issuer ID"
+
+#~ msgid "Rabobank"
+#~ msgstr "Rabobank"
+
+#~ msgid "ING"
+#~ msgstr "ING"
+
+#~ msgid "Friesland Bank"
+#~ msgstr "Friesland Bank"
+
+#~ msgid "ABN AMRO"
+#~ msgstr "ABN AMRO"
+
+#~ msgid "iDEAL Simulator"
+#~ msgstr "iDEAL simulator"
+
+#~ msgid "Search Transactions"
+#~ msgstr "Zoek transacties"
+
+#, fuzzy
+#~ msgid "No links found."
+#~ msgstr "Geen blokken gevonden"
+
+#~ msgid "View all categories"
+#~ msgstr "Bekijk alle categorieën"
+#~ msgctxt "link name"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#, fuzzy
+#~ msgid "URL"
+#~ msgstr "URL:"
+
+#, fuzzy
+#~ msgid "Visible"
+#~ msgstr "Uitgeschakeld"
+
+#~ msgid "Production"
+#~ msgstr "Productie"
+
+#, fuzzy
+#~ msgid "iDEAL Setting"
+#~ msgstr "iDEAL instellingen"
+
+#~ msgid "Select a form"
+#~ msgstr "Selecteer een formulier"
+
+#~ msgid "Select settings"
+#~ msgstr "Selecteer conf"
+
+#~ msgid "Acquirer"
+#~ msgstr "Acquirer"
+
+#~ msgid "Acceptant ID"
+#~ msgstr "Acceptant ID"
+
+#~ msgid "Key"
+#~ msgstr "Sleutel"
+
+#~ msgid "Uninstall iDEAL Add-On"
+#~ msgstr "Verwijder iDEAL Add-On"
+
+#, fuzzy
+#~ msgid "Edit Feed"
+#~ msgstr "Bewerken"
+
+#~ msgid "Custom URL:"
+#~ msgstr "Maatwerk URL:"
+#~ msgctxt "post type general name"
+
+#~ msgid "Blocks"
+#~ msgstr "Blokken"
+#~ msgctxt "post type singular name"
+
+#~ msgid "Block"
+#~ msgstr "Blok"
+
+#~ msgid "Add New Block"
+#~ msgstr "Nieuw blok toevoegen"
+
+#~ msgid "Edit Block"
+#~ msgstr "Blok wijzigen"
+
+#~ msgid "New Block"
+#~ msgstr "Nieuw blok"
+
+#~ msgid "View Block"
+#~ msgstr "Bekijk blok"
+
+#~ msgid "Search Blocks"
+#~ msgstr "Blokken zoeken"
+
+#~ msgid "No blocks found in Trash"
+#~ msgstr "Geen blokken gevonden in prullenbak"
+
+#~ msgid "Parent Block:"
+#~ msgstr "Bovenliggende blok:"
+
+#~ msgid "Blocks"
+#~ msgstr "Blokken"
+
+#~ msgid "Pronamic"
+#~ msgstr "Pronamic"
+
+#~ msgid "http://pronamic.eu/"
+#~ msgstr "http://pronamic.nl/"
+
+#~ msgid "Contact"
+#~ msgstr "Contact"
+
+#~ msgid "http://pronamic.eu/contact/"
+#~ msgstr "http://pronamic.nl/contact/"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid "Telephone: %s"
+#~ msgstr "Telefoon: %s"
+
+#~ msgid "+31 516 481 200"
+#~ msgstr "0516 481 200"
+
+#~ msgid "E-mail: %s"
+#~ msgstr "E-mail: %s"
+
+#~ msgid "support@pronamic.eu"
+#~ msgstr "support@pronamic.nl"
+
+#~ msgid "News"
+#~ msgstr "Nieuws"
+
+#~ msgid "Pronamic News"
+#~ msgstr "Pronamic nieuws"
+
+#~ msgid "Concept and realisation by %s"
+#~ msgstr "Concept en realisatie door %s"
+
+#~ msgid "Pronamic - Internet, marketing & WordPress specialist"
+#~ msgstr "Pronamic - Internet, marketing & WordPress specialist"
+
+#~ msgid "Developed by:"
+#~ msgstr "Ontwikkeld door:"
+
+#~ msgid "info@pronamic.eu"
+#~ msgstr "info@pronamic.nl"
+
+#~ msgid "T: %s"
+#~ msgstr "T: %s"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Latitude"
+#~ msgstr "Breedtegraad"
+
+#~ msgid "Longitude"
+#~ msgstr "Lengtegraad"
+
+#~ msgid "Width"
+#~ msgstr "Breedte"
+
+#~ msgid "Height"
+#~ msgstr "Hoogte"
+
+#~ msgid "Show Google Maps"
+#~ msgstr "Google Maps weergeven"
+
+#~ msgid "Configuration - Pronamic Google Maps"
+#~ msgstr "Configuratie - Pronamic Google Maps"
+
+#~ msgid "Post type"
+#~ msgstr "Bericht type"
+
+#~ msgid "Activate Google Maps"
+#~ msgstr "Activeer Google Maps"
+
+#~ msgid "Use this widget to add an Google Maps as a widget."
+#~ msgstr "Gebruik deze widget om Google Maps toe te voegen."
+
+#~ msgid "Google Maps"
+#~ msgstr "Google Maps"
+
+#~ msgid "pixels"
+#~ msgstr "pixels"
+
+#~ msgid "percent"
+#~ msgstr "procent"
+
+#~ msgid "Pronamic Google Maps"
+#~ msgstr "Pronamic Google Maps"
+
+#~ msgid "Click to toggle"
+#~ msgstr "Klik om te wisselen"
+
+#~ msgid "Donate $10, $20 or $50!"
+#~ msgstr "Doneer $10, $20 of $50!"
+
+#~ msgid ""
+#~ "This plugin has cost us countless hours of work, if you use it, please "
+#~ "donate a token of your appreciation!"
+#~ msgstr ""
+#~ "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het "
+#~ "gebruikt, doneer a.u.b. voor je waardering!"
+
+#~ msgid "Latest news from Pronamic"
+#~ msgstr "Laatste nieuws van Pronamic"
+
+#~ msgid "no news items, feed might be broken..."
+#~ msgstr "geen nieuws items, feed is waarschijnlijk niet bereikbaar..."
+
+#~ msgid "Subscribe with RSS"
+#~ msgstr "Aanmelden voor RSS"
+
+#~ msgid "Subscribe by e-mail"
+#~ msgstr "Aanmelden via e-mail"
+
+#~ msgid "Like this plugin?"
+#~ msgstr "Vind je deze plugin leuk?"
+
+#~ msgid "Why not do any or all of the following:"
+#~ msgstr "Waarom doe je niet één van de volgende dingen:"
+
+#~ msgid "Link to it so other folks can find out about it."
+#~ msgstr "Link naar ons zodat anderen deze plugin ook ontdekken."
+
+#~ msgid "Give it a good rating on WordPress.org."
+#~ msgstr "Geef het een goede score op WordPress.org."
+
+#~ msgid "Let other people know that it works with your WordPress setup."
+#~ msgstr "Laat anderen weten dat het werk op je WordPress installatie."
+
+#~ msgid "Save Changes"
+#~ msgstr "Wijzigingen opslaan"
+
+#~ msgid "Found a bug?"
+#~ msgstr "Bug gevonden?"
