@@ -1,0 +1,60 @@
+#icon-pronamic_ideal {
+	background: url("../images/icon-32x32.png") no-repeat;	
+}
+
+td.column-version {
+	width: 5em;
+}
+
+/**
+ * iDEAL
+ */
+pre.security-data {
+	background-color: #EEE;
+
+    -moz-border-radius: 3px 3px 3px 3px;
+    border: 1px solid #DFDFDF;
+
+	height: 10em;
+	width: 40em;
+
+	overflow: auto;
+}
+
+/**
+ * Gravity Forms editor
+ */
+.gforms_edit_form .ginput_ideal {
+	background: url("../images/icon-16x16.png") no-repeat left center;
+
+	padding-left: 20px;
+}
+
+.gforms_edit_form .ideal-edit-link {
+	background: url("../images/icon-16x16.png") no-repeat;
+
+    display: none;
+
+    float: right;
+
+    font-size: 10px;
+
+    height: 16px;
+
+    line-height: 16px;
+
+    padding: 0 0 0 18px;
+
+    text-decoration: none;
+}
+
+.gforms_edit_form .field_hover .ideal-edit-link ,
+.gforms_edit_form .field_selected .ideal-edit-link {
+	display: block;
+}
+
+/* Add iDEAL fields */
+#add_ideal_fields .button {
+	/* The default Gravity Forms button width is to small */
+	width: 10em;
+}
