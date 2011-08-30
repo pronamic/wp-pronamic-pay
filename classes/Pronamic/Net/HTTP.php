@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\Net;
-
 /**
  * Title: HTTP
  * Description: 
@@ -11,7 +9,7 @@ namespace Pronamic\Net;
  * @doc http://www.w3.org/Protocols/rfc2616/rfc2616.html
  * @version 1.0
  */
-class HTTP {
+class Pronamic_Net_HTTP {
 	/**
 	 * US-ASCII CR, carriage return (13)
 	 *

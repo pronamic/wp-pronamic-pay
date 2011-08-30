@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\GravityForms\IDeal;
-
-use Pronamic\WordPress\IDeal\ConfigurationsRepository;
-
 /**
  * Title: Feeds repository
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\WordPress\IDeal\ConfigurationsRepository;
  * @author Remco Tolsma
  * @version 1.0
  */
-class FeedsRepository {
+class Pronamic_GravityForms_IDeal_FeedsRepository {
 	/**
 	 * Update table
 	 */
@@ -78,12 +74,12 @@ class FeedsRepository {
      * @param stdClass $result
      */
     private function getFeedByResult($result) {
-		$feed = new Feed();
+		$feed = new Pronamic_GravityForms_IDeal_Feed();
        	
        	$feed->id = $result->id;
        	$feed->formId = $result->formId;
        	$feed->title = $result->title;
-       	$feed->setIDealConfiguration(ConfigurationsRepository::getConfigurationById($result->configurationId));
+       	$feed->setIDealConfiguration(Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId));
 
 		$meta = json_decode($result->meta);
 
@@ -105,8 +101,8 @@ class FeedsRepository {
      */
 	private function getFeedQuery($extra = '') {
         $feedsTable = self::getFeedsTableName();
-        $configurationsTable = ConfigurationsRepository::getConfigurationsTableName();
-        $formsTable = \RGFormsModel::get_form_table_name();
+        $configurationsTable = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationsTableName();
+        $formsTable = RGFormsModel::get_form_table_name();
 
         $query = sprintf("
         	SELECT 
@@ -227,7 +223,7 @@ class FeedsRepository {
         $availableForms = array();
 
         $feeds = self::getFeeds();
-        $forms = \RGFormsModel::get_forms();
+        $forms = RGFormsModel::get_forms();
 
         foreach($forms as $form) {
 			if($form->id == $allowedId || !self::isIDealFeed($form->id, $feeds)) {

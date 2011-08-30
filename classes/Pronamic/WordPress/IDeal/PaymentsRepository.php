@@ -1,10 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\Transaction;
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: Payments repository
  * Description: 
@@ -13,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class PaymentsRepository {
+class Pronamic_WordPress_IDeal_PaymentsRepository {
 	/**
 	 * Update table
 	 */
@@ -92,7 +87,7 @@ class PaymentsRepository {
      * @return Transaction
      */
 	private function getTransactionFromResult($result) {
-		$transaction = new Transaction();
+		$transaction = new Pronamic_IDeal_Transaction();
 
 		$transaction->setId($result->transactionId);
 		$transaction->setDescription($result->description);
@@ -112,13 +107,13 @@ class PaymentsRepository {
 	//////////////////////////////////////////////////
 	
 	private function getPaymentFromResult($result) {
-		$payment = new Payment();
+		$payment = new Pronamic_WordPress_IDeal_Payment();
 
 		$payment->transaction = self::getTransactionFromResult($result);
 		$payment->setId($result->purchaseId);
-		$payment->setDate(new \DateTime($result->dateGmt, new \DateTimeZone('UTC')));
+		$payment->setDate(new DateTime($result->dateGmt, new DateTimeZone('UTC')));
 		$payment->setSource($result->source, $result->sourceId);
-		$payment->configuration = ConfigurationsRepository::getConfigurationById($result->configurationId);
+		$payment->configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId);
 
 		return $payment;
 	}

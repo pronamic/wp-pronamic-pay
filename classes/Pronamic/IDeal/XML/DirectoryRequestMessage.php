@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: iDEAL directory request XML message
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class DirectoryRequestMessage extends RequestMessage {
+class Pronamic_IDeal_XML_DirectoryRequestMessage extends Pronamic_IDeal_XML_RequestMessage {
 	/**
 	 * The document element name
 	 * 
@@ -53,12 +49,11 @@ class DirectoryRequestMessage extends RequestMessage {
 	/**
 	 * Get the sign values for this request message
 	 * 
-	 * @see Pronamic\IDeal\XML.RequestMessage::getSignValues()
 	 * @return array
 	 */
 	public function getSignValues() {
 		return array(
-			$this->getCreateDate()->format(IDeal::DATE_FORMAT) , 
+			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT) , 
 			$this->getMerchant()->id ,
 			$this->getMerchant()->subId
 		);

@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\HTML;
-
 /**
  * Title: iDEAL HTML helper
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal\HTML;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Helper {
+class Pronamic_IDeal_HTML_Helper {
 	/**
 	 * Create an issuer HTML select element
 	 * 

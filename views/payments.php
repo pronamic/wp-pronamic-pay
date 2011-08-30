@@ -1,28 +1,24 @@
 <?php 
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\Transaction;
-
-$payments = PaymentsRepository::getPayments();
+$payments = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments();
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Payments', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<form method="post" action="">
 		<div class="tablenav top">
 			<div class="alignleft actions">
 				<select name="action">
-					<option value="-1" selected="selected"><?php _e('Bulk Actions', Plugin::TEXT_DOMAIN); ?></option>
-					<option value="delete"><?php _e('Delete', Plugin::TEXT_DOMAIN); ?></option>
+					<option value="-1" selected="selected"><?php _e('Bulk Actions', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
+					<option value="delete"><?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
 				</select>
 
-				<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', Plugin::TEXT_DOMAIN); ?>"  />
+				<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>"  />
 			</div>
 		</div>
 
@@ -33,13 +29,13 @@ $payments = PaymentsRepository::getPayments();
 			<<?php echo $tag; ?>>
 				<tr>
 					<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
-					<th scope="col" class="manage-column"><?php _e('Transaction ID', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Date', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Description', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Consumer', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Amount', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Source', Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Status', Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Date', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Consumer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Amount', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Source', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Status', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 				</tr>
 			</<?php echo $tag; ?>>
 
@@ -56,10 +52,10 @@ $payments = PaymentsRepository::getPayments();
 					<td>
 						<?php 
 						
-						$detailsLink = Admin::getPaymentDetailsLink($payment->getId()); 
+						$detailsLink = Pronamic_WordPress_IDeal_Admin::getPaymentDetailsLink($payment->getId()); 
 
 						?>
-						<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Plugin::TEXT_DOMAIN); ?>">
+						<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
 							<?php echo $transaction->getId(); ?>
 						</a>
 					</td>
@@ -71,7 +67,7 @@ $payments = PaymentsRepository::getPayments();
 						$timezone = get_option('timezone_string');
 						if($timezone) {
 							$date = clone $date;
-							$date->setTimezone(new \DateTimeZone($timezone));
+							$date->setTimezone(new DateTimeZone($timezone));
 						}
 						
 						echo $date->format('d-m-Y @ H:i'); 
@@ -100,7 +96,7 @@ $payments = PaymentsRepository::getPayments();
 						?>
 					</td>
 					<td>
-						<?php echo IDeal::translateStatus($transaction->getStatus()); ?>
+						<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus($transaction->getStatus()); ?>
 					</td>
 				</tr>
 

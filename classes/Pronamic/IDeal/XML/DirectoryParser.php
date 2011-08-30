@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\Directory;
-
 /**
  * Title: Issuer XML parser
  * Description: 
@@ -12,15 +8,15 @@ use Pronamic\IDeal\Directory;
  * @author Remco Tolsma
  * @version 1.0
  */
-class DirectoryParser extends Parser {
-	public static function parse(\SimpleXMLElement $xml) {
-		$directory = new Directory();
+class Pronamic_IDeal_XML_DirectoryParser extends Pronamic_IDeal_XML_Parser {
+	public static function parse(SimpleXMLElement $xml) {
+		$directory = new Pronamic_IDeal_Directory();
 
 		$timestamp = (string) $xml->directoryDateTimeStamp;
-		$directory->setDate(new \DateTime($timestamp));
+		$directory->setDate(new DateTime($timestamp));
 		
 		foreach($xml->Issuer as $element) {
-			$issuer = IssuerParser::parse($element);
+			$issuer = Pronamic_IDeal_XML_IssuerParser::parse($element);
 			$directory->addIssuer($issuer);
 		}
 

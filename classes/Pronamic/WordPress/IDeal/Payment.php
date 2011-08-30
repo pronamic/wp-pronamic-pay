@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
 /**
  * Title: WordPress iDEAL payment
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\WordPress\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Payment {
+class Pronamic_WordPress_IDeal_Payment {
 	public $id;
 
 	public $configuration;
@@ -29,7 +27,7 @@ class Payment {
 	 * Constructs and initialize an payment
 	 */
 	public function __construct() {
-		$this->date = new \DateTime('now', new \DateTimeZone('UTC'));
+		$this->date = new DateTime('now', new DateTimeZone('UTC'));
 	}
 
 	//////////////////////////////////////////////////
@@ -68,9 +66,9 @@ class Payment {
 	/**
 	 * Set the date of this payment
 	 * 
-	 * @param \DateTime $date
+	 * @param DateTime $date
 	 */
-	public function setDate(\DateTime $date) {
+	public function setDate(DateTime $date) {
 		$this->date = $date;
 	}
 

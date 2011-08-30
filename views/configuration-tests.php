@@ -1,39 +1,34 @@
 <?php 
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\VariantAdvanced;
-use Pronamic\IDeal\HTML\Helper;
-
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
-$configuration = ConfigurationsRepository::getConfigurationById($id);
+$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Tests', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<?php if($configuration == null): ?>
 
 	<p>
-		<?php printf(__('We could not find any feed with the ID "%s".', Plugin::TEXT_DOMAIN), $id); ?>
+		<?php printf(__('We could not find any feed with the ID "%s".', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $id); ?>
 	</p>
 
 	<?php else: ?>
 
 	<div>
 		<h3>
-			<?php _e('Info', Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Info', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('ID', Plugin::TEXT_DOMAIN); ?>
+					<?php _e('ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 				</th>
 				<td>
 					<?php echo $configuration->getId(); ?>
@@ -41,7 +36,7 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Name', Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 				</th>
 				<td>
 					<?php echo $configuration->getName(); ?>
@@ -50,16 +45,16 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 		</table>
 	</div>
 
-	<?php if($configuration->variant instanceof VariantAdvanced): ?>
+	<?php if($configuration->variant instanceof Pronamic_IDeal_VariantAdvanced): ?>
 
 	<div>
 		<h3>
-			<?php _e('Retrieve Issuers Lists', Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Retrieve Issuers Lists', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</h3>
 
 		<?php 
 
-		$lists = IDeal::getIssuersLists($configuration);
+		$lists = Pronamic_WordPress_IDeal_IDeal::getIssuersLists($configuration);
 
 		if($lists): ?>
 
@@ -81,20 +76,20 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 			<?php endforeach; ?>
 		</ul>
 
-		<?php elseif($error = IDeal::getError()): ?>
+		<?php elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()): ?>
 
 		<div class="error inline below-h2">
 			<dl>
-				<dt><?php _e('Code', Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Code', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
 				<dd><?php echo $error->getCode(); ?></dd>
 
-				<dt><?php _e('Message', Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
 				<dd><?php echo $error->getMessage(); ?></dd>
 
-				<dt><?php _e('Detail', Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Detail', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
 				<dd><?php echo $error->getDetail(); ?></dd>
 
-				<dt><?php _e('Consumer Message', Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Consumer Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
 				<dd><?php echo $error->getConsumerMessage(); ?></dd>
 			</dl>
 		</div>
@@ -105,7 +100,7 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 	<?php endif; ?>
 	
 	<h3>
-		<?php _e('Mandatory Tests', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h3>
 
 	<table cellspacing="0" class="widefat fixed">
@@ -114,8 +109,8 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 
 		<<?php echo $tag; ?>>
 			<tr>
-				<th scope="col" class="manage-column"><?php _e('Test', Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Action', Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Test', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Action', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
 
@@ -128,7 +123,7 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 			<tr>
 				<?php 
 				
-				$name = sprintf(__('Test Case %s', Plugin::TEXT_DOMAIN), $testCase);
+				$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
 			
 				/*
 
@@ -154,7 +149,7 @@ $configuration = ConfigurationsRepository::getConfigurationById($id);
 						
 						<?php 
 						
-						$text = __('Execute', Plugin::TEXT_DOMAIN);
+						$text = __('Execute', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 				
 						submit_button($text, 'secondary', 'submit', false); 
 						

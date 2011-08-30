@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Basic
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Basic extends IDeal {
+class Pronamic_IDeal_Basic extends Pronamic_IDeal {
 	/**
 	 * An payment type indicator for iDEAL
 	 *
@@ -381,7 +379,7 @@ class Basic extends IDeal {
 	 */
 	public function getExpireDate($createNew = false) {
 		if($this->expireDate == null || $createNew) {
-			$this->expireDate = new \DateTime();
+			$this->expireDate = new DateTime();
 			$this->expireDate->modify($this->expireDateModifier);
 		}
 
@@ -531,7 +529,7 @@ class Basic extends IDeal {
 	/**
 	 * Add item
 	 */
-	public function addItem(Basic\Item $item) {
+	public function addItem(Pronamic_IDeal_Basic_Item $item) {
 		$this->items[] = $item;
 	}
 

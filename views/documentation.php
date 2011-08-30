@@ -1,13 +1,8 @@
-<?php 
-
-namespace Pronamic\WordPress\IDeal;
-
-?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Documentation', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<?php 
@@ -101,9 +96,9 @@ namespace Pronamic\WordPress\IDeal;
 		<?php foreach($provider['files'] as $file): ?>
 
 		<li>
-			<a href="<?php echo plugins_url($file['path'], Plugin::$file); ?>">
+			<a href="<?php echo plugins_url($file['path'], Pronamic_WordPress_IDeal_Plugin::$file); ?>">
 				<?php echo $file['name']; ?>
-				<small><?php printf(__('version %s', Plugin::TEXT_DOMAIN), $file['version']); ?> </small>
+				<small><?php printf(__('version %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $file['version']); ?> </small>
 			</a>
 		</li>
 

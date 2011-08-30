@@ -1,16 +1,8 @@
-<?php 
-
-use Pronamic\WordPress\IDeal\ConfigurationsRepository;
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\IDeal as IDealCore;
-
-?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Variants', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<table cellspacing="0" class="widefat fixed">
@@ -19,9 +11,9 @@ use Pronamic\IDeal\IDeal as IDealCore;
 
 		<<?php echo $tag; ?>>
 			<tr>
-				<th scope="col" class="manage-column"><?php _e('Name', Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Method', Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Dashboard', Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Method', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
 
@@ -29,7 +21,7 @@ use Pronamic\IDeal\IDeal as IDealCore;
 
 		<tbody>
 
-			<?php foreach(ConfigurationsRepository::getVariants() as $variant): ?>
+			<?php foreach(Pronamic_WordPress_IDeal_ConfigurationsRepository::getVariants() as $variant): ?>
 
 			<tr>
 				<td>
@@ -45,14 +37,14 @@ use Pronamic\IDeal\IDeal as IDealCore;
 					<?php 
 					
 					switch($variant->getMethod()) {
-						case IDealCore::METHOD_BASIC:
-							_e('Basic', Plugin::TEXT_DOMAIN);
+						case Pronamic_IDeal_IDeal::METHOD_BASIC:
+							_e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 							break;
-						case IDealCore::METHOD_ADVANCED:
-							_e('Advanced', Plugin::TEXT_DOMAIN);
+						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
+							_e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 							break;
 						default:
-							_e('Unknown', Plugin::TEXT_DOMAIN);
+							_e('Unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 							break;
 					}
 					
@@ -61,13 +53,13 @@ use Pronamic\IDeal\IDeal as IDealCore;
 				<td>
 					<?php if($variant->testSettings->dashboardUrl): ?>
 					<a href="<?php echo $variant->testSettings->dashboardUrl; ?>">
-						<?php _e('Test', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Test', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</a>
 					<?php endif; ?>
 
 					<?php if($variant->liveSettings->dashboardUrl): ?>
 					<a href="<?php echo $variant->liveSettings->dashboardUrl; ?>">
-						<?php _e('Live', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Live', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</a>
 					<?php endif; ?>
 				</td>

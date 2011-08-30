@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Variant
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Provider {
+class Pronamic_IDeal_Provider {
 	/**
 	 * The unique ID of this iDEAL provider
 	 * 

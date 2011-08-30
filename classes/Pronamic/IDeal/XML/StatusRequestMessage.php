@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: iDEAL status request XML message
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class StatusRequestMessage extends RequestMessage {
+class Pronamic_IDeal_XML_StatusRequestMessage extends Pronamic_IDeal_XML_RequestMessage {
 	/**
 	 * The document element name
 	 * 
@@ -68,12 +64,11 @@ class StatusRequestMessage extends RequestMessage {
 	/**
 	 * Get the sign values for this status message
 	 * 
-	 * @see Pronamic\IDeal\XML.RequestMessage::getSignValues()
 	 * @return array
 	 */
 	public function getSignValues() {
 		return array(
-			$this->getCreateDate()->format(IDeal::DATE_FORMAT) , 
+			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT) , 
 			$this->merchant->id , 
 			$this->merchant->subId , 
 			$this->transaction->getId()

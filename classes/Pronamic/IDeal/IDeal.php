@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: iDEAL
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class IDeal {
+class Pronamic_IDeal_IDeal {
 	/**
 	 * The date format (yyyy-MMddTHH:mm:ss.SSS Z)
 	 * The Z stands for the time zone (CET).
@@ -96,7 +94,7 @@ class IDeal {
 				$enabled = (string) $providerXml['disabled'] != 'disabled';
 
 				if($enabled) {
-					$provider = new Provider();
+					$provider = new Pronamic_IDeal_Provider();
 					$provider->setId((string) $providerXml->id);
 					$provider->setName((string) $providerXml->name);
 					$provider->setUrl((string) $providerXml->url);
@@ -107,13 +105,13 @@ class IDeal {
 						if($enabled) {
 							switch((string) $variantXml['method']) {
 								case self::METHOD_BASIC:
-									$variant = new VariantBasic();
+									$variant = new Pronamic_IDeal_VariantBasic();
 									break;
 								case self::METHOD_ADVANCED:
-									$variant = new VariantAdvanced();
+									$variant = new Pronamic_IDeal_VariantAdvanced();
 									break;
 								default:
-									$variant = new Variant();
+									$variant = new Pronamic_IDeal_Variant();
 									break;
 							}
 		
@@ -121,11 +119,11 @@ class IDeal {
 							$variant->setId((string) $variantXml->id);
 							$variant->setName((string) $variantXml->name);
 							
-							$variant->liveSettings = new \stdClass();
+							$variant->liveSettings = new stdClass();
 							$variant->liveSettings->dashboardUrl = (string) $variantXml->live->dashboardUrl;
 							$variant->liveSettings->paymentServerUrl = (string) $variantXml->live->paymentServerUrl;
 							
-							$variant->testSettings = new \stdClass();
+							$variant->testSettings = new stdClass();
 							$variant->testSettings->dashboardUrl = (string) $variantXml->test->dashboardUrl;
 							$variant->testSettings->paymentServerUrl = (string) $variantXml->test->paymentServerUrl;
 		

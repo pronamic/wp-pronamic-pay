@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Transaction
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Transaction {
+class Pronamic_IDeal_Transaction {
 	/**
 	 * Status indicator for success
 	 * 
