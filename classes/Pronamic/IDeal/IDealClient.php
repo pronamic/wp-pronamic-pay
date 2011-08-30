@@ -113,38 +113,24 @@ class Pronamic_IDeal_IDealClient {
 
 		$contentType = 'Content-Type: text/html; charset=' . Pronamic_IDeal_XML_Message::XML_ENCODING;
 
-		$url = $this->acquirerUrl;
-
-		$parts = parse_url($url);
-		$scheme = $parts['scheme'];
-		$host = $parts['host'];
-		$port = $parts['port'];
-		$path = $parts['path'];
-		$errorNumber = null;
-		$errorString = null;
+		$url = new Pronamic_Net_URL($this->acquirerUrl);
 		
-		$hostname = $scheme . '://' . $host;
+		$hostname = $url->getScheme() . '://' . $url->getHost();
 		
-		// Adjust the error reporting level
-		$previousErrorLevel = error_reporting(E_ERROR);
-
 		// Connect with acquirer, will throw an warning error if fails
-		$resource = fsockopen($hostname, $port, $errorNumber, $errorString, $timeout);
-
-		// Set the error reporting back to previous error reporting level
-		error_reporting($previousErrorLevel);
-
+		$resource = @fsockopen($hostname, $url->getPort(true), $errorNumber, $errorString, $timeout);
 		if($resource !== false) {
 			$message = (string) $data;
 			$message = utf8_decode($message);
 
-			fputs($resource, "POST $path HTTP/1.0\r\n");
-			fputs($resource, "Accept: text/html\r\n");
-			fputs($resource, "Accept: charset=ISO-8859-1\r\n");
-			fputs($resource, 'Content-Length: ' . strlen($data) . "\r\n");
-			fputs($resource, 'Content-Type: ' . $contentType . "\r\n\r\n");
+			fputs($resource, "POST $path HTTP/1.0" . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, "Accept: text/html" . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, "Accept: charset=ISO-8859-1" . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, 'Content-Length: ' . strlen($data) . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, 'Content-Type: ' . $contentType . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, Pronamic_Net_HTTP::CRLF);
 			fputs($resource, $message, strlen($message));
-		
+
 			$result = '';
 			while(!feof($resource)) {
 				$result .= fgets($resource, 128);
@@ -152,7 +138,7 @@ class Pronamic_IDeal_IDealClient {
 
 			fclose($resource);
 		
-			$position = strpos($result, "\r\n\r\n");
+			$position = strpos($result, Pronamic_Net_HTTP::CRLF . Pronamic_Net_HTTP::CRLF);
 
 			if($position !== false) {
 				$body = substr($result, $position + 4);
@@ -160,7 +146,8 @@ class Pronamic_IDeal_IDealClient {
 				$result = $body;
 			}
 		} else {
-			throw new Exception('Could not connect with the acquirer');
+			// throw new Exception('Could not connect with the acquirer');
+			// @todo what to do?
 		}
 		
 		return $result;

@@ -56,14 +56,7 @@ class Pronamic_IDeal_Security {
 
 		// The openssl_x509_read() function will throw an warning if the supplied 
 		// parameter cannot be coerced into an X509 certificate
-		$previousErrorLevel = error_reporting(E_ERROR);
-
-		// Try creating an X509 certificate resource
-		$resource = openssl_x509_read($certificate);
-
-		// Set the error reporting back to previous error reporting level
-		error_reporting($previousErrorLevel);
-
+		$resource = @openssl_x509_read($certificate);
 		if($resource !== false) {
 			$output = null;
 
