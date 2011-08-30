@@ -1,11 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\Merchant;
-use Pronamic\IDeal\Security;
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: iDEAL request XML message
  * Description: 
@@ -14,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class RequestMessage extends Message  {
+abstract class Pronamic_IDeal_XML_RequestMessage extends Pronamic_IDeal_XML_Message  {
 	/**
 	 * Merchant
 	 * 
@@ -32,7 +26,7 @@ abstract class RequestMessage extends Message  {
 	public function __construct($name) {
 		parent::__construct($name);
 
-		$this->merchant = new Merchant();
+		$this->merchant = new Pronamic_IDeal_Merchant();
 	}
 
 	//////////////////////////////////////////////////
@@ -54,7 +48,7 @@ abstract class RequestMessage extends Message  {
 	 * @return DOMDocument
 	 */
 	protected function getDocument() {
-		$document = new \DOMDocument(parent::XML_VERSION, parent::XML_ENCODING);
+		$document = new DOMDocument(parent::XML_VERSION, parent::XML_ENCODING);
 		$document->formatOutput = true;
 		
 		// Root
@@ -64,7 +58,7 @@ abstract class RequestMessage extends Message  {
 		$document->appendChild($root);
 		
 		// Create date timestamp
-		$timestamp = $this->getCreateDate()->format(IDeal::DATE_FORMAT);
+		$timestamp = $this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT);
 
 		$element = $document->createElement('createDateTimeStamp', $timestamp);
 
@@ -95,7 +89,7 @@ abstract class RequestMessage extends Message  {
 
 		$message = implode('', $values);
 
-		$sign = Security::signMessage($privateKeyFile, $privateKeyPassword, $message);
+		$sign = Pronamic_IDeal_Security::signMessage($privateKeyFile, $privateKeyPassword, $message);
 
 		$this->merchant->tokenCode = base64_encode($sign);
 	}

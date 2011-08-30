@@ -1,7 +1,5 @@
 <?php 
 
-namespace Pronamic\GravityForms;
-
 /**
  * Title: Gravity Forms
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\GravityForms;
  * @author Remco Tolsma
  * @version 1.0
  */
-class GravityForms {
+class Pronamic_GravityForms_GravityForms {
 	/**
 	 * Lead propery payment status
 	 * 

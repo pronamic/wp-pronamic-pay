@@ -1,21 +1,14 @@
 <?php 
 
-namespace Pronamic\GravityForms\IDeal;
-
-use Pronamic\GravityForms\GravityForms;
-use Pronamic\WordPress\IDeal\Plugin;
-use Pronamic\WordPress\IDeal\Admin;
-use Pronamic\WordPress\IDeal\ConfigurationsRepository;
-
 if(empty($_POST)) {
 	$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 } else {
 	$id = filter_input(INPUT_POST, 'pronamic_ideal_gf_id', FILTER_SANITIZE_STRING);
 }
 
-$feed = FeedsRepository::getFeedById($id, false);
+$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedById($id, false);
 if($feed == null) {
-	$feed = new Feed();
+	$feed = new Pronamic_GravityForms_IDeal_Feed();
 }
 
 $updated = null;
@@ -23,7 +16,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 	$feed->formId = filter_input(INPUT_POST, 'gf_ideal_form_id', FILTER_SANITIZE_STRING);
 	
 	$configurationId = filter_input(INPUT_POST, 'gf_ideal_configuration_id', FILTER_SANITIZE_STRING);
-	$feed->setIDealConfiguration(ConfigurationsRepository::getConfigurationById($configurationId));
+	$feed->setIDealConfiguration(Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($configurationId));
 
 	$feed->transactionDescription = filter_input(INPUT_POST, 'gf_ideal_transaction_description', FILTER_SANITIZE_STRING);
 	
@@ -37,7 +30,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 	$links = filter_input(INPUT_POST, 'gf_ideal_links', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);
 
 	foreach($links as $name => $data) {
-		$link = new \stdClass();
+		$link = new stdClass();
 
 		if(isset($data['type'])) {
 			$link->type = $data['type'];
@@ -49,15 +42,15 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 		$feed->setLink($name, $link);
 	}
 
-	$updated = FeedsRepository::updateFeed($feed);
+	$updated = Pronamic_GravityForms_IDeal_FeedsRepository::updateFeed($feed);
 }
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Feed', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Feed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<?php if($updated): ?>
@@ -67,8 +60,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<?php 
 			
 			printf(
-				__('Feed updated, %s.', Plugin::TEXT_DOMAIN) , 
-				'<a href="?page=gf_ideal">' . __('back to list', Plugin::TEXT_DOMAIN) . '</a>'
+				__('Feed updated, %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'<a href="?page=gf_ideal">' . __('back to list', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</a>'
 			);
 
 			?>
@@ -82,26 +75,26 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 		<input name="pronamic_ideal_gf_id" value="<?php echo esc_attr($feed->getId()); ?>" type="hidden" />
 
 		<h3>
-			<?php _e('General', Plugin::TEXT_DOMAIN); ?>
+			<?php _e('General', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
 					<label for="gf_ideal_form_id">
-						<?php _e('Gravity Form', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Gravity Form', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
-					<?php $data = \RGFormsModel::get_form_meta($feed->formId); ?>
+					<?php $data = RGFormsModel::get_form_meta($feed->formId); ?>
 
 					<input id="gf_ideal_gravity_form" name="gf_ideal_gravity_form" value="<?php echo esc_attr(json_encode($data)); ?>" type="hidden" />
 					<input id="gf_ideal_feed" name="gf_ideal_feed" value="<?php echo esc_attr(json_encode($feed)); ?>" type="hidden" />
 					
 	                <select id="gf_ideal_form_id" name="gf_ideal_form_id">
-	                    <option value=""><?php _e('&mdash; Select a form &mdash;', Plugin::TEXT_DOMAIN); ?></option>
+	                    <option value=""><?php _e('&mdash; Select a form &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
 
-	                    <?php foreach(FeedsRepository::getAvailableForms($feed->formId) as $form): ?>
+	                    <?php foreach(Pronamic_GravityForms_IDeal_FeedsRepository::getAvailableForms($feed->formId) as $form): ?>
 
 						<option value="<?php echo $form->id; ?>" <?php selected($feed->formId, $form->id); ?>>
 							<?php echo esc_html($form->title) ?>
@@ -114,20 +107,20 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<tr>
 				<th scope="row">
 					<label for="gf_ideal_configuration_id">
-						<?php _e('iDEAL Configuration', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('iDEAL Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
-					<?php $configurations = ConfigurationsRepository::getConfigurations(); ?>
+					<?php $configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations(); ?>
 					
 					<?php if(empty($configurations)):
 
 					printf(
-						__('No iDEAL configurations found, %s.', Plugin::TEXT_DOMAIN) ,
+						__('No iDEAL configurations found, %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
 						sprintf(
 							'<a href="%s">%s</a>' , 
-							Admin::getConfigurationEditLink() ,
-							__('create an iDEAL configuration', Plugin::TEXT_DOMAIN)
+							Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink() ,
+							__('create an iDEAL configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
 						)
 					);
 					
@@ -136,7 +129,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 					<?php $iDealConfigurationId = $feed->getIDealConfiguration() == null ? '' : $feed->getIDealConfiguration()->getId(); ?>
 
 	                <select id="gf_ideal_configuration_id" name="gf_ideal_configuration_id">
-	                    <option value=""><?php _e('&mdash; Select configuration &mdash; ', Plugin::TEXT_DOMAIN); ?></option>
+	                    <option value=""><?php _e('&mdash; Select configuration &mdash; ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
 	                    <?php foreach($configurations as $configuration): ?>
 						<option value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
 							<?php echo esc_html($configuration->getName()); ?>
@@ -150,13 +143,13 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<tr>
 				<th scope="row">
 					<label for="gf_ideal_transaction_description">
-						<?php _e('Transaction Description', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
 					<?php if(false): ?>
 					<div>
-						<?php \GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
+						<?php GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
 					</div>
 					<?php endif; ?>
 
@@ -164,25 +157,25 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 					<span class="description">
 						<br />
-						<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</span>
 				</td>
 			</tr>                                       
 		</table>
 		
 		<h3>
-			<?php _e('Status Links', Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Status Links', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</h3>
 
 		<table class="form-table">
 			<?php 
 			
 			$fields = array(
-				Feed::LINK_OPEN => __('Open', Plugin::TEXT_DOMAIN) ,
-				Feed::LINK_SUCCESS => __('Success', Plugin::TEXT_DOMAIN) , 
-				Feed::LINK_CANCEL => __('Cancel', Plugin::TEXT_DOMAIN) ,
-				Feed::LINK_ERROR => __('Error', Plugin::TEXT_DOMAIN) ,
-				Feed::LINK_EXPIRED => __('Expired', Plugin::TEXT_DOMAIN) 
+				Pronamic_GravityForms_IDeal_Feed::LINK_OPEN => __('Open', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+				Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS => __('Success', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL => __('Cancel', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+				Pronamic_GravityForms_IDeal_Feed::LINK_ERROR => __('Error', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+				Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED => __('Expired', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
 			);
 			
 			foreach($fields as $name => $label): ?>
@@ -221,7 +214,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 						<label>
 							<input type="radio" name="gf_ideal_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_page" value="page" <?php checked($type, 'page'); ?> />
-							<?php _e('Page:', Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Page:', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label> 
 						
 						<?php 
@@ -229,7 +222,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 						wp_dropdown_pages(array(
 							'selected' => $pageId , 
 							'name' => 'gf_ideal_links[' . $name . '][page_id]' , 
-							'show_option_none' => __('&mdash; Select &mdash;', Plugin::TEXT_DOMAIN)
+							'show_option_none' => __('&mdash; Select &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
 						));
 						
 						?> 
@@ -238,7 +231,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 						<label>
 							<input type="radio" name="gf_ideal_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_url" value="url" <?php checked($type, 'url'); ?> />
-							<?php _e('URL:', Plugin::TEXT_DOMAIN); ?>
+							<?php _e('URL:', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label> <input type="text" name="gf_ideal_links[<?php echo $name; ?>][url]" value="<?php echo esc_attr($url); ?>" class="regular-text" /> 
 					</fieldset>
 				<td>
@@ -248,14 +241,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 		</table>
 		
 		<h3>
-			<?php _e('Extra', Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Extra', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
 					<label for="gf_ideal_user_role_field_id">
-						<?php _e('Update user role', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Update user role', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
@@ -267,7 +260,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<tr>
 				<th scope="row">
 					<label for="gf_ideal_condition_enabled">
-						<?php _e('iDEAL Condition', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('iDEAL Condition', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
@@ -275,12 +268,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 						<input id="gf_ideal_condition_enabled" name="gf_ideal_condition_enabled" value="true" type="checkbox" <?php checked($feed->conditionEnabled); ?> />
 	
 						<label for="gf_ideal_condition_enabled">
-							<?php _e('Enable', Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Enable', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</div>
 
 					<div id="gf_ideal_condition_config">
-						<?php _e('Send to iDEAL if ', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Send to iDEAL if ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	
 	              		<select id="gf_ideal_condition_field_id" name="gf_ideal_condition_field_id">
 	
@@ -290,8 +283,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 						
 						$operators = array(
 							'' => '' , 
-							GravityForms::OPERATOR_IS => __('is', Plugin::TEXT_DOMAIN) ,
-							GravityForms::OPERATOR_IS_NOT => __('is not', Plugin::TEXT_DOMAIN) 
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS => __('is', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __('is not', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
 						);
 						
 						?>
@@ -311,12 +304,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 					</div>
 
 					<div id="gf_ideal_condition_message">
-						<?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Plugin::TEXT_DOMAIN); ?>
+						<?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</div>
 				</td>
 			</tr>
 		</table>
 
-		<?php submit_button(empty($feed->id) ? __('Save', Plugin::TEXT_DOMAIN) : __('Update', Plugin::TEXT_DOMAIN)); ?>
+		<?php submit_button(empty($feed->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)); ?>
 	</form>
 </div>

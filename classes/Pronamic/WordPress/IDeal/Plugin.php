@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\IDeal as IDealCore;
-
 /**
  * Title: WordPress iDEAL plugin
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\IDeal\IDeal as IDealCore;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Plugin {
+class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * The slug of this plugin
 	 * 
@@ -68,11 +64,11 @@ class Plugin {
 		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
 
 		// Gravity Forms Add-On
-		\Pronamic\GravityForms\IDeal\AddOn::bootstrap();
+		Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 
 		// Hooks and filters
 		if(is_admin()) {
-			Admin::bootstrap();
+			Pronamic_WordPress_IDeal_Admin::bootstrap();
 		}
 
 		add_action('plugins_loaded', array(__CLASS__, 'setup'));
@@ -83,27 +79,27 @@ class Plugin {
 	}
 	
 	public static function checkStatus($id) {
-		$payment = PaymentsRepository::getPaymentById($id);
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($id);
 	}
 
 	public static function checkPaymentStatus($payment) {
 		$configuration = $payment->configuration;
 		$variant = $configuration->getVariant();
 
-		$iDealClient = new \Pronamic\IDeal\IDealClient();
+		$iDealClient = new Pronamic_IDeal_IDealClient();
 		$iDealClient->setAcquirerUrl($configuration->getPaymentServerUrl());
 		$iDealClient->setPrivateKey($configuration->privateKey);
 		$iDealClient->setPrivateKeyPassword($configuration->privateKeyPassword);
 		$iDealClient->setPrivateCertificate($configuration->privateCertificate);
 		
-		$message = new \Pronamic\IDeal\XML\StatusRequestMessage();
+		$message = new Pronamic_IDeal_XML_StatusRequestMessage();
 
 		$merchant = $message->getMerchant();
 		$merchant->id = $configuration->merchantId;
 		$merchant->subId = $configuration->subId;
-		$merchant->authentication = IDealCore::AUTHENTICATION_SHA1_RSA;
+		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = home_url();
-		$merchant->token = \Pronamic\IDeal\Security::getShaFingerprint($configuration->privateCertificate);
+		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->merchant = $merchant;
 		$message->transaction = $payment->transaction;
@@ -111,7 +107,7 @@ class Plugin {
 
 		$responseMessage = $iDealClient->getStatus($message);
 
-		$updated = PaymentsRepository::updateStatus($payment);
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
 	}
 
 	//////////////////////////////////////////////////
@@ -124,7 +120,7 @@ class Plugin {
 		$entranceCode = filter_input(INPUT_GET, 'ec', FILTER_SANITIZE_STRING);
 
 		if(!empty($transactionId) && !empty($entranceCode)) {
-			$payment = PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
+			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
 
 			if($payment != null) {
 				self::checkPaymentStatus($payment);
@@ -141,8 +137,8 @@ class Plugin {
 	 */
 	public static function setup() {
 		if(get_option(self::OPTION_VERSION) != self::VERSION) {
-			ConfigurationsRepository::updateTable();
-			PaymentsRepository::updateTable();
+			Pronamic_WordPress_IDeal_ConfigurationsRepository::updateTable();
+			Pronamic_WordPress_IDeal_PaymentsRepository::updateTable();
 
 			update_option(self::OPTION_VERSION, self::VERSION);
 		}
@@ -155,13 +151,13 @@ class Plugin {
 	 */
 	public static function uninstall() {
 		// Drop tables
-		ConfigurationsRepository::dropTables();
-		PaymentsRepository::dropTables();
+		Pronamic_WordPress_IDeal_ConfigurationsRepository::dropTables();
+		Pronamic_WordPress_IDeal_PaymentsRepository::dropTables();
 
 		// Delete options
 		delete_option(self::OPTION_VERSION);
 		
 		// Uninstall Add-Ons
-		\Pronamic\GravityForms\IDeal\AddOn::uninstall();
+		Pronamic_GravityForms_IDeal_AddOn::uninstall();
 	}
 }

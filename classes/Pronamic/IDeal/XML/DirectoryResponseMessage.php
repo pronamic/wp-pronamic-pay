@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
 /**
  * Title: iDEAL directory response XML message
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal\XML;
  * @author Remco Tolsma
  * @version 1.0
  */
-class DirectoryResponseMessage extends ResponseMessage {
+class Pronamic_IDeal_XML_DirectoryResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 
@@ -54,11 +52,11 @@ class DirectoryResponseMessage extends ResponseMessage {
 	/**
 	 * Parse the specified XML into an directory response message object
 	 * 
-	 * @param \SimpleXMLElement $xml
+	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(\SimpleXMLElement $xml) {
+	public static function parse(SimpleXMLElement $xml) {
 		$message = parent::parse($xml, new self());
-		$message->directory = DirectoryParser::parse($xml->Directory);
+		$message->directory = Pronamic_IDeal_XML_DirectoryParser::parse($xml->Directory);
 		
 		return $message;
 	}

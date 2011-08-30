@@ -1,6 +1,6 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment, ideal
+Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment
 Requires at least: 3.0
 Tested up to: 3.0
 Stable tag: beta-0.1
@@ -23,6 +23,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= beta-0.2 =
+*	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+
+*	Fixed the link to the payment detail page in WordPress admin
+*	Fixed the link on the payment detail page to the iDEAL configuration page
 
 = beta-0.1 =
 *	Issuers list transient is now deleted after updating an iDEAL configuration

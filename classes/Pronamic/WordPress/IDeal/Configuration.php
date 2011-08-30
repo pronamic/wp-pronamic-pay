@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
 /**
  * Title: WordPress iDEAL configuration
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\WordPress\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Configuration {
+class Pronamic_WordPress_IDeal_Configuration {
 	/**
 	 * Unique ID of configuration
 	 * 

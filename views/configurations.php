@@ -1,18 +1,13 @@
-<?php 
-
-namespace Pronamic\WordPress\IDeal;
-
-?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Configurations', Plugin::TEXT_DOMAIN);
+		<?php _e('iDEAL Configurations', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 
 		if(true): ?>
 
-		<a class="button add-new-h2" href="<?php echo Admin::getConfigurationEditLink(); ?>">
-			<?php _e('Add New', Plugin::TEXT_DOMAIN); ?>
+		<a class="button add-new-h2" href="<?php echo Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink(); ?>">
+			<?php _e('Add New', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 		</a>
 
 		<?php endif; ?>

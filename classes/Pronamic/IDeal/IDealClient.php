@@ -1,24 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
-use Pronamic\IDeal\XML\StatusResponseMessage;
-
-use Pronamic\IDeal\XML\TransactionResponseMessage;
-
-use Pronamic\IDeal\XML\DirectoryResponseMessage;
-
-use Pronamic\IDeal\XML\ErrorResponseMessage;
-
-use Pronamic\IDeal\XML\StatusRequestMessage;
-
-use Pronamic\IDeal\XML\TransactionRequestMessage;
-
-use Pronamic\IDeal\XML\Message;
-use Pronamic\IDeal\XML\DirectoryRequestMessage;
-use Pronamic\IDeal\XML\DirectoryParser;
-use Pronamic\IDeal\XML\ErrorParser;
-
 /**
  * Title: iDEAL client
  * Description: 
@@ -27,7 +8,7 @@ use Pronamic\IDeal\XML\ErrorParser;
  * @author Remco Tolsma
  * @version 1.0
  */
-class IDealClient {
+class Pronamic_IDeal_IDealClient {
 	/**
 	 * The acquirer URL
 	 * 
@@ -130,7 +111,7 @@ class IDealClient {
 	private function doHttpRequest($data, $timeout = 30) {
 		$result = null;
 
-		$contentType = 'Content-Type: text/html; charset=' . Message::XML_ENCODING;
+		$contentType = 'Content-Type: text/html; charset=' . Pronamic_IDeal_XML_Message::XML_ENCODING;
 
 		$url = $this->acquirerUrl;
 
@@ -179,7 +160,7 @@ class IDealClient {
 				$result = $body;
 			}
 		} else {
-			throw new \Exception('Could not connect with the acquirer');
+			throw new Exception('Could not connect with the acquirer');
 		}
 		
 		return $result;
@@ -198,7 +179,7 @@ class IDealClient {
 			if($document !== false) {
 				$result = $this->parseDocument($document);
 			} else {
-				throw new \Exception('Unknown response message');
+				throw new Exception('Unknown response message');
 			}
 		}
 		
@@ -210,24 +191,24 @@ class IDealClient {
 	/**
 	 * Parse the specified document and return parsed result
 	 * 
-	 * @param unknown_type $document
+	 * @param SimpleXMLElement $document
 	 */
-	private function parseDocument($document) {
+	private function parseDocument(SimpleXMLElement $document) {
 		$this->error = null;
 
 		switch($document->getName()) {
-			case ErrorResponseMessage::NAME:
-				$message = ErrorResponseMessage::parse($document);
+			case Pronamic_IDeal_XML_ErrorResponseMessage::NAME:
+				$message = Pronamic_IDeal_XML_ErrorResponseMessage::parse($document);
 
 				$this->error = $message->error;
 
 				return $message;
-			case DirectoryResponseMessage::NAME:
-				return DirectoryResponseMessage::parse($document);
-			case TransactionResponseMessage::NAME:
-				return TransactionResponseMessage::parse($document);
-			case StatusResponseMessage::NAME:
-				return StatusResponseMessage::parse($document);
+			case Pronamic_IDeal_XML_DirectoryResponseMessage::NAME:
+				return Pronamic_IDeal_XML_DirectoryResponseMessage::parse($document);
+			case Pronamic_IDeal_XML_TransactionResponseMessage::NAME:
+				return Pronamic_IDeal_XML_TransactionResponseMessage::parse($document);
+			case Pronamic_IDeal_XML_StatusResponseMessage::NAME:
+				return Pronamic_IDeal_XML_StatusResponseMessage::parse($document);
 			default:
 				return null;
 		}
@@ -240,11 +221,11 @@ class IDealClient {
 	 * 
 	 * @return Directory
 	 */
-	public function getDirectory(DirectoryRequestMessage $message) {
+	public function getDirectory(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
 		$directory = null;
 
 		$response = $this->sendMessage($message);
-		if($response instanceof DirectoryResponseMessage) {
+		if($response instanceof Pronamic_IDeal_XML_DirectoryResponseMessage) {
 			$directory = $response->directory;
 		}
 
@@ -258,7 +239,7 @@ class IDealClient {
 	 * 
 	 * @return array
 	 */
-	public function getIssuers(DirectoryRequestMessage $message) {
+	public function getIssuers(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
 		$issuers = null;
 
 		$directory = $this->getDirectory($message);
@@ -274,7 +255,7 @@ class IDealClient {
 	 * 
 	 * @return array
 	 */
-	public function getIssuerLists(DirectoryRequestMessage $message) {
+	public function getIssuerLists(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
 		$lists = null;
 
 		$directory = $this->getDirectory($message);
@@ -292,9 +273,9 @@ class IDealClient {
 	 * 
 	 * @param TransactionRequestMessage $message
 	 */
-	public function createTransaction(TransactionRequestMessage $message) {
+	public function createTransaction(Pronamic_IDeal_XML_TransactionRequestMessage $message) {
 		$response = $this->sendMessage($message);
-		if($response instanceof TransactionResponseMessage) {
+		if($response instanceof Pronamic_IDeal_XML_TransactionResponseMessage) {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
 
 			$message->transaction->setId((string) $response->transaction->getId());
@@ -310,9 +291,9 @@ class IDealClient {
 	 * 
 	 * @param TransactionRequestMessage $message
 	 */
-	public function getStatus(StatusRequestMessage $message) {
+	public function getStatus(Pronamic_IDeal_XML_StatusRequestMessage $message) {
 		$response = $this->sendMessage($message);
-		if($response instanceof StatusResponseMessage) {
+		if($response instanceof Pronamic_IDeal_XML_StatusResponseMessage) {
 			$message->transaction->setStatus($response->transaction->getStatus());
 			$message->transaction->setConsumerName($response->transaction->getConsumerName());
 			$message->transaction->setConsumerAccountNumber($response->transaction->getConsumerAccountNumber());

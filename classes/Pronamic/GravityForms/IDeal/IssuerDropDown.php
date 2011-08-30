@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\GravityForms\IDeal;
-
 /**
  * Title: iDEAL Issuer Drop Down
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\GravityForms\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class IssuerDropDown {
+class Pronamic_GravityForms_IDeal_IssuerDropDown {
 	/**
 	 * Type
 	 * 
