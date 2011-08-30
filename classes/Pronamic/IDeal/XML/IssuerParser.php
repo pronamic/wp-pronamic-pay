@@ -11,7 +11,7 @@
 class Pronamic_IDeal_XML_IssuerParser extends Pronamic_IDeal_XML_Parser {
 	public static function parse(SimpleXMLElement $xml, $issuer = null) {
 		if(!$issuer instanceof Pronamic_IDeal_Issuer) {
-			$issuer = new Issuer();
+			$issuer = new Pronamic_IDeal_Issuer();
 		}
 
 		if($xml->issuerID) {

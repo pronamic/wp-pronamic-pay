@@ -28,6 +28,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+
 *	Fixed the link to the payment detail page in WordPress admin
 *	Fixed the link on the payment detail page to the iDEAL configuration page
+*	Fixed redirection problem with AJAX enabled Gravity Forms  
 
 = beta-0.1 =
 *	Issuers list transient is now deleted after updating an iDEAL configuration

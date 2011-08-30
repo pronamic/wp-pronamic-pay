@@ -102,7 +102,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 		$transient = 'pronamic-ideal-issuers-list-' . $configuration->getId();
 
-		$result = get_transient($transient);
+		//$result = get_transient($transient);
+		$result = false;
 
 		if($result instanceof Pronamic_IDeal_Error) {
 			self::$error = $result;

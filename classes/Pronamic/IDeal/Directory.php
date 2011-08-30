@@ -50,7 +50,7 @@ class Pronamic_IDeal_Directory {
 	 * 
 	 * @param Issuer $issuer
 	 */
-	public function addIssuer(Issuer $issuer) {
+	public function addIssuer(Pronamic_IDeal_Issuer $issuer) {
 		$this->issuers[] = $issuer;
 	}
 

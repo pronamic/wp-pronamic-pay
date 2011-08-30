@@ -61,7 +61,7 @@ class Pronamic_IDeal_XML_TransactionRequestMessage extends Pronamic_IDeal_XML_Re
 
 		$element = self::addElement($document, $document->documentElement, 'Transaction');
 		self::addElement($document, $element, 'purchaseID', $transaction->getPurchaseId());
-		self::addElement($document, $element, 'amount', IDeal::formatPrice($transaction->getAmount()));
+		self::addElement($document, $element, 'amount', Pronamic_IDeal_IDeal::formatPrice($transaction->getAmount()));
 		self::addElement($document, $element, 'currency', $transaction->getCurrency());
 		self::addElement($document, $element, 'expirationPeriod', $transaction->getExpirationPeriod());
 		self::addElement($document, $element, 'language', $transaction->getLanguage());

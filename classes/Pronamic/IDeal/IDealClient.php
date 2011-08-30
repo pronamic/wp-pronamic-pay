@@ -123,9 +123,9 @@ class Pronamic_IDeal_IDealClient {
 			$message = (string) $data;
 			$message = utf8_decode($message);
 
-			fputs($resource, "POST $path HTTP/1.0" . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, "Accept: text/html" . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, "Accept: charset=ISO-8859-1" . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, 'POST ' . $url->getPath(true) . ' HTTP/1.0' . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, 'Accept: text/html' . Pronamic_Net_HTTP::CRLF);
+			fputs($resource, 'Accept: charset=ISO-8859-1' . Pronamic_Net_HTTP::CRLF);
 			fputs($resource, 'Content-Length: ' . strlen($data) . Pronamic_Net_HTTP::CRLF);
 			fputs($resource, 'Content-Type: ' . $contentType . Pronamic_Net_HTTP::CRLF);
 			fputs($resource, Pronamic_Net_HTTP::CRLF);

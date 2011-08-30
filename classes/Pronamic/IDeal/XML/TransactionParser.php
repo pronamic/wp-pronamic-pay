@@ -9,9 +9,15 @@
  * @version 1.0
  */
 class Pronamic_IDeal_XML_TransactionParser extends Pronamic_IDeal_XML_Parser {
+	/**
+	 * Parse the specified XML element into an iDEAL transaction object
+	 * 
+	 * @param SimpleXMLElement $xml
+	 * @param Pronamic_IDeal_Transaction $transaction
+	 */
 	public static function parse(SimpleXMLElement $xml, $transaction = null) {
 		if(!$transaction instanceof Pronamic_IDeal_Transaction) {
-			$transaction = new Transaction();
+			$transaction = new Pronamic_IDeal_Transaction();
 		}
 
 		if($xml->transactionID) {

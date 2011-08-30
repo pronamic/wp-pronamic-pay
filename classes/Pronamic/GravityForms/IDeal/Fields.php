@@ -60,7 +60,8 @@ class Pronamic_GravityForms_IDeal_Fields {
 				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
 				
 				if($lists) {
-					$options = Helper::issuersSelectOptions($lists, '', $value);
+					$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions($lists, '', $value);
+					// Double quotes are not working, se we replace them with an single quote
 					$options = str_replace('"', '\'', $options);
 
 					$htmlInput  = '';

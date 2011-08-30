@@ -73,8 +73,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		add_action('plugins_loaded', array(__CLASS__, 'setup'));
 		
+		// On parsing the query parameter handle an possible return from iDEAL
 		add_action('parse_query', array(__CLASS__, 'handleIDealReturn'));
 		
+		// Check the payment status on an iDEAL return
+		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'));
+
+		// @todo Where was this for?
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
 	}
 	
@@ -82,7 +87,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($id);
 	}
 
-	public static function checkPaymentStatus($payment) {
+	/**
+	 * Check the status of the specified payment
+	 * 
+	 * @param unknown_type $payment
+	 */
+	public static function checkPaymentStatus(Pronamic_WordPress_IDeal_Payment $payment) {
 		$configuration = $payment->configuration;
 		$variant = $configuration->getVariant();
 
@@ -123,8 +133,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
 
 			if($payment != null) {
-				self::checkPaymentStatus($payment);
-
 				do_action('pronamic_ideal_return', $payment);
 			}
 		}

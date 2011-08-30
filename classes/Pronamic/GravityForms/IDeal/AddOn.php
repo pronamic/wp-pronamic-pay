@@ -91,7 +91,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			);
 		} else {
 			// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-			add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 1000, 4);
+			add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
 		}
 		
 		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
@@ -184,7 +184,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if($lead) {
 				$status = $transaction->getStatus();
 
-				RGFormsModel::update_lead_property($leadId, GravityForms::LEAD_PROPERTY_PAYMENT_STATUS, $status);
+				RGFormsModel::update_lead_property($leadId, Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS, $status);
 
 				$formId = $lead['form_id'];
 				
@@ -195,21 +195,21 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 					switch($status) {
 						case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-							$url = $feed->getUrl(Feed::LINK_CANCEL);
+							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-							$url = $feed->getUrl(Feed::LINK_EXPIRED);
+							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED);
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-							$url = $feed->getUrl(Feed::LINK_ERROR);
+							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
 							self::maybeUpdateUserRole($lead, $feed);
-							$url = $feed->getUrl(Feed::LINK_SUCCESS);
+							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_OPEN:
 						default:
-							$url = $feed->getUrl(Feed::LINK_OPEN);
+							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
 							break;
 					}
 					
@@ -438,13 +438,28 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				if($variant !== null) {
 					switch($variant->getMethod()) {
 						case Pronamic_IDeal_IDeal::METHOD_BASIC:
-							return self::handleIDealBasic($confirmation, $form, $lead, $ajax);
+							$confirmation = self::handleIDealBasic($confirmation, $form, $lead, $ajax);
+							break;
 						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-							return self::handleIDealAdvanced($confirmation, $form, $lead, $ajax);
+							$confirmation = self::handleIDealAdvanced($confirmation, $form, $lead, $ajax);
+							break;
 					}
 				}
 			}
 		}
+		
+		if((headers_sent() || $ajax) && is_array($confirmation) && isset($confirmation['redirect'])) {
+			$url = $confirmation['redirect'];
+
+			$confirmation = sprintf('<script>function gformRedirect() { document.location.href = "%s"; }', $url);
+			if(!$ajax) {
+				$confirmation .= 'gformRedirect();';
+			}
+
+			$confirmation .="</script>";
+		}
+		
+		return $confirmation;
 	}
 
 	/**
@@ -468,7 +483,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$configuration = $feed->getIDealConfiguration();
 		$variant = $configuration->getVariant();
 
-		$issuerDropDowns = GFCommon::get_fields_by_type($form, array(IssuerDropDown::TYPE));
+		$issuerDropDowns = GFCommon::get_fields_by_type($form, array(Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE));
 		$issuerDropDown = array_shift($issuerDropDowns);
 
 		if($issuerDropDown != null) {
@@ -484,7 +499,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$description = GFCommon::replace_variables($feed->transactionDescription, $form, $lead);
 			$transaction->setDescription($description);
 
-			$payment = new Pronamic_IDeal_Payment();
+			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
 			$payment->setSource(self::SLUG, $lead['id']);
@@ -501,7 +516,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	        RGFormsModel::update_lead($lead);
 
 			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
-			
+
 			$confirmation = array('redirect' => $url);
 		}
 
