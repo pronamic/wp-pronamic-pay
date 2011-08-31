@@ -456,7 +456,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				$confirmation .= 'gformRedirect();';
 			}
 
-			$confirmation .="</script>";
+			$confirmation .= '</script>';
 		}
 		
 		return $confirmation;
@@ -575,7 +575,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         $iDeal->setPurchaseId($id);
 
         // Success URL
-        $url = $feed->getSuccessUrl();
+        $url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
         if($url != null) {
         	$url = add_query_arg('transaction', $id, $url);
         	$url = add_query_arg('status', 'success', $url);
@@ -583,7 +583,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         }
 
         // Cancel URL
-        $url = $feed->getCancelUrl();
+        $url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
         if($url != null) {
         	$url = add_query_arg('transaction', $id, $url);
         	$url = add_query_arg('status', 'cancel', $url);
@@ -591,7 +591,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         }
 
         // Error URL
-        $url = $feed->getErrorUrl();
+        $url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
         if($url != null) {
         	$url = add_query_arg('transaction', $id, $url);
         	$url = add_query_arg('status', 'error', $url);
@@ -609,7 +609,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         	$iDeal->addItem($item);
 
-			if(is_array($product['options'])) {
+			if(isset($product['options']) && is_array($product['options'])) {
 				foreach($product['options'] as $j => $option) {
 		        	$item = new Pronamic_IDeal_Basic_Item();
 		        	$item->setNumber($j);
@@ -633,13 +633,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         // HTML
         $html  = '';
-        $html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
+        $html .= '<div id="gforms_confirmation_message">';
+        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, $nl2br);
+        $html .= 	sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
         $html .= 	$iDeal->getHtmlFields();
-        $html .= '	<input type="submit" name="ideal" value="Betaal via iDEAL" />';
-        $html .= '</form>';
+        $html .= '		<input type="submit" name="ideal" value="Betaal via iDEAL" />';
+        $html .= '	</form>';
+		$html .= '</div>';
 
         // Extend the confirmation with the iDEAL form
-        $confirmation .= $html;
+        $confirmation = $html;
 
         // Return
         return $confirmation;

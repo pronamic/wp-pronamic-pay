@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Advanced extends IDeal {
+class Pronamic_IDeal_Advanced extends Pronamic_IDeal_IDeal {
 	/**
 	 * The public certificates
 	 * 

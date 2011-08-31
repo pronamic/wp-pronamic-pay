@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Basic extends Pronamic_IDeal {
+class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	/**
 	 * An payment type indicator for iDEAL
 	 *
@@ -25,6 +25,13 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal {
 	 * @var string 
 	 */
 	const DATE_EXPIRE_FORMAT = 'Y-m-d\TH:i:s.000\Z';
+
+	/**
+	 * The default expire date modifier
+	 * 
+	 * @var string
+	 */
+	const EXPIRE_DATE_MODIFIER = '+1 hour';
 
 	//////////////////////////////////////////////////
 
@@ -186,6 +193,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal {
 
 		$this->setPaymentType(self::PAYMENT_TYPE_IDEAL);
 		$this->setExpireDateFormat(self::DATE_EXPIRE_FORMAT);
+		$this->setExpireDateModifier(self::EXPIRE_DATE_MODIFIER);
 		$this->setForbiddenCharachters(self::FORBIDDEN_CHARACHTERS);
 	}
 
