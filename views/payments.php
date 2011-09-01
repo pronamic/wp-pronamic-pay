@@ -29,8 +29,8 @@ $payments = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments();
 			<<?php echo $tag; ?>>
 				<tr>
 					<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
-					<th scope="col" class="manage-column"><?php _e('Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 					<th scope="col" class="manage-column"><?php _e('Date', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 					<th scope="col" class="manage-column"><?php _e('Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 					<th scope="col" class="manage-column"><?php _e('Consumer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 					<th scope="col" class="manage-column"><?php _e('Amount', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
@@ -54,14 +54,6 @@ $payments = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments();
 						
 						$detailsLink = Pronamic_WordPress_IDeal_Admin::getPaymentDetailsLink($payment->getId()); 
 
-						?>
-						<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-							<?php echo $transaction->getId(); ?>
-						</a>
-					</td>
-					<td>
-						<?php 
-
 						$date = $payment->getDate();
 
 						$timezone = get_option('timezone_string');
@@ -70,9 +62,15 @@ $payments = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments();
 							$date->setTimezone(new DateTimeZone($timezone));
 						}
 						
-						echo $date->format('d-m-Y @ H:i'); 
-						
 						?>
+						<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+							<?php echo $date->format('d-m-Y @ H:i'); ?> 
+						</a>
+					</td>
+					<td>
+						<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+							<?php echo $transaction->getId(); ?>
+						</a>
 					</td>
 					<td>
 						<?php echo $transaction->getDescription(); ?>

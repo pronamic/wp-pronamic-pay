@@ -75,7 +75,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 	<?php endif; ?>
 
-	<form enctype="multipart/form-data" action="" method="post">
+	<form id="pronamic-ideal-configration-editor" enctype="multipart/form-data" action="" method="post">
 		<?php wp_nonce_field('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce'); ?>
 		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr($configuration->getId()); ?>" type="hidden" />
 
@@ -97,7 +97,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	                	<?php foreach(Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider): ?>
 						<optgroup label="<?php echo $provider->getName(); ?>">
 							<?php foreach($provider->getVariants() as $variant): ?>
-							<option value="<?php echo $variant->getId(); ?>" <?php selected($variantId, $variant->getId()); ?>><?php echo $variant->getName(); ?></option>
+							<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected($variantId, $variant->getId()); ?>><?php echo $variant->getName(); ?></option>
 							<?php endforeach; ?>
 						</optgroup>
 						<?php endforeach; ?>
@@ -162,74 +162,78 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			</tr>
 		</table>
 
-		<h3>
-			<?php _e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-		</h3>
+		<div class="extra-settings method-basic">
+			<h3>
+				<?php _e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			</h3>
+	
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_hash_key">
+							<?php _e('Hash Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
+					</td>
+				</tr>
+			</table>
+		</div>
 
-		<table class="form-table">
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_hash_key">
-						<?php _e('Hash Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td>
-					<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
-				</td>
-			</tr>
-		</table>
-
-		<h3>
-			<?php _e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-		</h3>
-
-		<table class="form-table">
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_private_key_password">
-						<?php _e('Private Key Password', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td> 
-					<input id="pronamic_ideal_private_key_password" name="pronamic_ideal_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_private_key">
-						<?php _e('Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td>
-					<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
-					<br />
-					<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_private_certificate">
-						<?php _e('Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td>
-					<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
-					<br />
-					<?php 
-					
-					if(!empty($configuration->privateCertificate)) {
-						$fingerprint = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
-						$fingerprint = str_split($fingerprint, 2);
-						$fingerprint = implode(':', $fingerprint);
-					
-						echo sprintf(__('SHA Fingerprint: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $fingerprint), '<br />';
-					}
-
-					?>
-					<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
-				</td>
-			</tr>
-		</table>
+		<div class="extra-settings method-advanced">
+			<h3>
+				<?php _e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			</h3>
+	
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_private_key_password">
+							<?php _e('Private Key Password', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td> 
+						<input id="pronamic_ideal_private_key_password" name="pronamic_ideal_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_private_key">
+							<?php _e('Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
+						<br />
+						<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_private_certificate">
+							<?php _e('Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
+						<br />
+						<?php 
+						
+						if(!empty($configuration->privateCertificate)) {
+							$fingerprint = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+							$fingerprint = str_split($fingerprint, 2);
+							$fingerprint = implode(':', $fingerprint);
+						
+							echo sprintf(__('SHA Fingerprint: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $fingerprint), '<br />';
+						}
+	
+						?>
+						<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
+					</td>
+				</tr>
+			</table>
+		</div>
 
 		<?php 
 		

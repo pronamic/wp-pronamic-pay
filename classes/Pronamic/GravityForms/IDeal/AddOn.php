@@ -631,6 +631,19 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         RGFormsModel::update_lead($lead);
 
+        // Update payment
+		$transaction = new Pronamic_IDeal_Transaction();
+		$transaction->setAmount(GFCommon::get_order_total($form, $lead)); 
+		$transaction->setCurrency(GFCommon::get_currency());
+		$transaction->setLanguage('nl');
+
+		$payment = new Pronamic_WordPress_IDeal_Payment();
+		$payment->configuration = $configuration;
+		$payment->transaction = $transaction;
+		$payment->setSource(self::SLUG, $lead['id']);
+
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+
         // HTML
         $html  = '';
         $html .= '<div id="gforms_confirmation_message">';

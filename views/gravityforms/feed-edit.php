@@ -131,7 +131,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 	                <select id="gf_ideal_configuration_id" name="gf_ideal_configuration_id">
 	                    <option value=""><?php _e('&mdash; Select configuration &mdash; ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
 	                    <?php foreach($configurations as $configuration): ?>
-						<option value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
+						<option data-ideal-method="<?php echo $configuration->getVariant()->getMethod(); ?>" value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
 							<?php echo esc_html($configuration->getName()); ?>
 						</option>
 						<?php endforeach; ?>
@@ -142,25 +142,55 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			</tr>
 			<tr>
 				<th scope="row">
-					<label for="gf_ideal_transaction_description">
-						<?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<label for="gf_ideal_condition_enabled">
+						<?php _e('iDEAL Condition', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
-					<?php if(false): ?>
 					<div>
-						<?php GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
+						<input id="gf_ideal_condition_enabled" name="gf_ideal_condition_enabled" value="true" type="checkbox" <?php checked($feed->conditionEnabled); ?> />
+	
+						<label for="gf_ideal_condition_enabled">
+							<?php _e('Enable', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
 					</div>
-					<?php endif; ?>
 
-					<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" maxlength="32" type="text" class="regular-text" />
+					<div id="gf_ideal_condition_config">
+						<?php _e('Send to iDEAL if ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+	
+	              		<select id="gf_ideal_condition_field_id" name="gf_ideal_condition_field_id">
+	
+						</select>
+	
+						<?php 
+						
+						$operators = array(
+							'' => '' , 
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS => __('is', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __('is not', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
+						);
+						
+						?>
+	              		<select id="gf_ideal_condition_operator" name="gf_ideal_condition_operator">
+	              			<?php foreach($operators as $value => $label): ?>
 
-					<span class="description">
-						<br />
-						<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</span>
+							<option value="<?php echo $value; ?>" <?php selected($feed->conditionOperator, $value); ?>>
+								<?php echo $label; ?>
+							</option>
+							
+							<?php endforeach; ?>
+						</select>
+	
+						<select id="gf_ideal_condition_value" name="gf_ideal_condition_value">
+							
+						</select>
+					</div>
+
+					<div id="gf_ideal_condition_message">
+						<?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					</div>
 				</td>
-			</tr>                                       
+			</tr>                                   
 		</table>
 		
 		<h3>
@@ -239,76 +269,48 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 			<?php endforeach; ?>
 		</table>
-		
-		<h3>
-			<?php _e('Extra', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-		</h3>
 
-		<table class="form-table">
-			<tr>
-				<th scope="row">
-					<label for="gf_ideal_user_role_field_id">
-						<?php _e('Update user role', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td>
-					<select id="gf_ideal_user_role_field_id" name="gf_ideal_user_role_field_id">
-						
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="gf_ideal_condition_enabled">
-						<?php _e('iDEAL Condition', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</label>
-				</th>
-				<td>
-					<div>
-						<input id="gf_ideal_condition_enabled" name="gf_ideal_condition_enabled" value="true" type="checkbox" <?php checked($feed->conditionEnabled); ?> />
+		<div class="extra-settings method-advanced">
+			<h3>
+				<?php _e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			</h3>
 	
-						<label for="gf_ideal_condition_enabled">
-							<?php _e('Enable', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_transaction_description">
+							<?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
-					</div>
-
-					<div id="gf_ideal_condition_config">
-						<?php _e('Send to iDEAL if ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					</th>
+					<td>
+						<?php if(false): ?>
+						<div>
+							<?php GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
+						</div>
+						<?php endif; ?>
 	
-	              		<select id="gf_ideal_condition_field_id" name="gf_ideal_condition_field_id">
+						<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" maxlength="32" type="text" class="regular-text" />
 	
-						</select>
-	
-						<?php 
-						
-						$operators = array(
-							'' => '' , 
-							Pronamic_GravityForms_GravityForms::OPERATOR_IS => __('is', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-							Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __('is not', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
-						);
-						
-						?>
-	              		<select id="gf_ideal_condition_operator" name="gf_ideal_condition_operator">
-	              			<?php foreach($operators as $value => $label): ?>
-
-							<option value="<?php echo $value; ?>" <?php selected($feed->conditionOperator, $value); ?>>
-								<?php echo $label; ?>
-							</option>
-							
-							<?php endforeach; ?>
-						</select>
-	
-						<select id="gf_ideal_condition_value" name="gf_ideal_condition_value">
+						<span class="description">
+							<br />
+							<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_user_role_field_id">
+							<?php _e('Update user role', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_user_role_field_id" name="gf_ideal_user_role_field_id">
 							
 						</select>
-					</div>
-
-					<div id="gf_ideal_condition_message">
-						<?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-					</div>
-				</td>
-			</tr>
-		</table>
+					</td>
+				</tr>
+			</table>
+		</div>
 
 		<?php submit_button(empty($feed->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)); ?>
 	</form>

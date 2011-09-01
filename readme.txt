@@ -26,7 +26,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = beta-0.3 =
 *	Improved the Gravity Forms confirmation message when an iDEAL basic payment is executed, now working correct with AJAX
- 
+*	Improved the iDEAL configuration editor and the Gravity Forms iDEAL feed editor, display only necessary input fields
+
 = beta-0.2 =
 *	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+
 *	Fixed the link to the payment detail page in WordPress admin
