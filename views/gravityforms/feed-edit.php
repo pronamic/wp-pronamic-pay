@@ -142,6 +142,27 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			</tr>
 			<tr>
 				<th scope="row">
+					<label for="gf_ideal_transaction_description">
+						<?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					</label>
+				</th>
+				<td>
+					<?php if(false): ?>
+					<div>
+						<?php GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
+					</div>
+					<?php endif; ?>
+
+					<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" maxlength="32" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<label for="gf_ideal_condition_enabled">
 						<?php _e('iDEAL Condition', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
@@ -187,7 +208,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 					</div>
 
 					<div id="gf_ideal_condition_message">
-						<?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<span class="description"><?php _e('To create a condition, your form must have a drop down, checkbox or multiple choice field.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></span>
 					</div>
 				</td>
 			</tr>                                   
@@ -276,27 +297,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			</h3>
 	
 			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_transaction_description">
-							<?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-						</label>
-					</th>
-					<td>
-						<?php if(false): ?>
-						<div>
-							<?php GFCommon::insert_variables(array(), 'gf_ideal_transaction_description', true, '', ' '); ?>
-						</div>
-						<?php endif; ?>
-	
-						<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" maxlength="32" type="text" class="regular-text" />
-	
-						<span class="description">
-							<br />
-							<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-						</span>
-					</td>
-				</tr>
 				<tr>
 					<th scope="row">
 						<label for="gf_ideal_user_role_field_id">

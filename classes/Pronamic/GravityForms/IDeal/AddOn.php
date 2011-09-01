@@ -565,10 +565,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$currency = GFCommon::get_currency();
 		$iDeal->setCurrency($currency);
 
-        // Description
-        $description = sprintf(__('Gravity Forms payment %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $lead['id']);
-        $iDeal->setDescription($description);
-
         // Purchae ID, we use the Gravity Forms lead id
         $id = $lead['id'];
 
@@ -636,6 +632,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$transaction->setAmount(GFCommon::get_order_total($form, $lead)); 
 		$transaction->setCurrency(GFCommon::get_currency());
 		$transaction->setLanguage('nl');
+		$transaction->setEntranceCode(uniqid());
+
+		$description = GFCommon::replace_variables($feed->transactionDescription, $form, $lead);
+		$transaction->setDescription($description);
+        $iDeal->setDescription($description);
 
 		$payment = new Pronamic_WordPress_IDeal_Payment();
 		$payment->configuration = $configuration;
