@@ -22,6 +22,10 @@
 				<td>
 	                <input id="pronamic_ideal_license_key" name="pronamic_ideal_license_key" value="" class="regular-text" type="password" />
 
+					<?php if(Pronamic_WordPress_IDeal_Plugin::hasValidLicenseKey()): ?>
+					&#10003;
+					<?php endif; ?>
+
 					<span class="description">
 						<br />
 						<?php _e('The license key is used for access to automatic upgrades and support.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
@@ -65,13 +69,13 @@
 				</td>
 				<td>
 					<?php 
-					
+
 					if(version_compare($wpdb->db_version(), '5', '>')) {
 						echo '&#10003;';
 					} else {
 						_e('Pronamic iDEAL requires  MySQL 5 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 					}
-					
+
 					?>
 				</td>
 			</tr>

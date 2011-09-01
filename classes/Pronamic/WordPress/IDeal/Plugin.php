@@ -26,6 +26,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * 
+	 * @var unknown_type
+	 */
+	const LICENSE_PROVIDER_URL = 'http://in.pronamic.nl.beta.pronamic.nl/';
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Option version
 	 * 
 	 * @var string
@@ -135,6 +143,34 @@ class Pronamic_WordPress_IDeal_Plugin {
 			if($payment != null) {
 				do_action('pronamic_ideal_return', $payment);
 			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if there is an valid license key
+	 * 
+	 * @return boolean
+	 */
+	public static function hasValidLicenseKey() {
+		$key = 'test';
+		$url = get_bloginfo('url');
+		
+		$response = wp_remote_post(self::LICENSE_PROVIDER_URL, array(
+			'method' => 'POST' ,
+			'body' => array(
+				'key' => '1234xyz' , 
+				'url' => 'bob' 
+			)
+		));
+
+		if(is_wp_error($response)) {
+			echo 'Something went wrong!';
+		} else {
+			echo 'Response:<pre>';
+			print_r( $response );
+			echo '</pre>';
 		}
 	}
 
