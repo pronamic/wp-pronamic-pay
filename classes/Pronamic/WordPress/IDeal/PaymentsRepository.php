@@ -277,4 +277,16 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
         return $result;
 	}
+
+	//////////////////////////////////////////////////
+
+	public static function getNumberPayments() {
+		global $wpdb;
+
+		$table = self::getPaymentsTableName();
+
+		$numberPayments = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table;"));
+		
+		return $numberPayments;
+	}
 }

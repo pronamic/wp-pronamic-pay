@@ -26,10 +26,27 @@ class Pronamic_WordPress_IDeal_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * The license provider API URL
 	 * 
-	 * @var unknown_type
+	 * @var string
 	 */
-	const LICENSE_PROVIDER_URL = 'http://in.pronamic.nl.beta.pronamic.nl/';
+	const LICENSE_PROVIDER_API_URL = 'http://in.pronamic.nl.beta.pronamic.nl/api/';
+
+	/**
+	 * The maximum number of payments that can be done without an license
+	 * 
+	 * @var int
+	 */
+	const PAYMENTS_MAX_LICENSE_FREE = 20;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * The current version of this plugin
+	 * 
+	 * @var string
+	 */
+	const VERSION = '1.0';
 
 	//////////////////////////////////////////////////
 
@@ -39,13 +56,22 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @var string
 	 */
 	const OPTION_VERSION = 'pronamic_ideal_version';
-
+	
 	/**
-	 * The current version of this plugin
+	 * Option product / license key
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.0';
+	const OPTION_KEY = 'pronamic_ideal_key';
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Transient key for license information
+	 * 
+	 * @var string
+	 */
+	const TRANSIENT_LICENSE_INFO = 'pronamic_ideal_license_info';
 
 	//////////////////////////////////////////////////
 
@@ -72,7 +98,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
 
 		// Gravity Forms Add-On
-		Pronamic_GravityForms_IDeal_AddOn::bootstrap();
+		if(self::canBeUsed()) {
+			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
+		}
 
 		// Hooks and filters
 		if(is_admin()) {
@@ -89,6 +117,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// @todo Where was this for?
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
+		
+		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
 	}
 	
 	public static function checkStatus($id) {
@@ -147,31 +177,103 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	//////////////////////////////////////////////////
+	
+	public static function getKey() {
+		return get_option(self::OPTION_KEY);
+	}
+	
+	public static function setKey($key) {
+		$currentKey = get_option(self::OPTION_KEY);
+
+		if(empty($key)) {
+			delete_option(self::OPTION_KEY);
+		} elseif($key != $currentKey) {
+			update_option(self::OPTION_KEY, md5(trim($key)));
+			delete_transient(self::TRANSIENT_LICENSE_INFO);
+		}
+	}
+	
+	public static function getLicenseInfo() {
+		$licenseInfo = null;
+
+		$transient = get_transient(self::TRANSIENT_LICENSE_INFO);
+		if($transient === false) {
+			$response = wp_remote_post(self::LICENSE_PROVIDER_API_URL . 'licenses/show', array(
+				'method' => 'POST' ,
+				'body' => array(
+					'key' => self::getKey() , 
+					'url' => get_bloginfo('url') 
+				)
+			));
+	
+			if(is_wp_error($response)) {
+				
+			} else {
+				$licenseInfo = json_decode($response['body']);
+
+				// Check every day for new license information, an license kan expire every day (60 * 60 * 24)
+				set_transient(self::TRANSIENT_LICENSE_INFO, $licenseInfo, 86400);
+			}
+		} else {
+			$licenseInfo = $transient;
+		}
+		
+		return $licenseInfo;
+	}
 
 	/**
 	 * Check if there is an valid license key
 	 * 
 	 * @return boolean
 	 */
-	public static function hasValidLicenseKey() {
-		$key = 'test';
-		$url = get_bloginfo('url');
-		
-		$response = wp_remote_post(self::LICENSE_PROVIDER_URL, array(
-			'method' => 'POST' ,
-			'body' => array(
-				'key' => '1234xyz' , 
-				'url' => 'bob' 
-			)
-		));
+	public static function hasValidKey() {
+		$result = false;
 
-		if(is_wp_error($response)) {
-			echo 'Something went wrong!';
-		} else {
-			echo 'Response:<pre>';
-			print_r( $response );
-			echo '</pre>';
+		$licenseInfo = self::getLicenseInfo();
+		
+		if($licenseInfo != null && isset($licenseInfo->isValid)) {
+			$result = $licenseInfo->isValid;
 		}
+
+		return $result;
+	}
+
+	/**
+	 * Check if the plugin can be used
+	 * 
+	 * @return boolean true if plugin can be used, false otherwise
+	 */
+	public static function canBeUsed() {
+		return self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments() <= self::PAYMENTS_MAX_LICENSE_FREE;
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Maybe show an license message
+	 */
+	public static function maybeShowLicenseMessage() {
+		if(!self::canBeUsed()): ?>
+		
+		<div class="error">
+			<p>
+				<?php 
+				
+				printf(
+					__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', self::TEXT_DOMAIN) , 
+					self::PAYMENTS_MAX_LICENSE_FREE , 
+					sprintf(
+						'<a href="%s">%s</a>' , 
+						add_query_arg('page', 'pronamic_ideal_settings', get_admin_url(null, 'admin.php')) , 
+						__('iDEAL settings page', self::TEXT_DOMAIN)
+					) 
+				);
+				
+				?>
+			</p>
+		</div>
+		
+		<?php endif;
 	}
 
 	//////////////////////////////////////////////////

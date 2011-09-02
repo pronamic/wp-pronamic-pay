@@ -1,3 +1,12 @@
+<?php 
+
+if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronamic_ideal_nonce')) {
+	$key = filter_input(INPUT_POST, 'pronamic_ideal_key', FILTER_SANITIZE_STRING);
+
+	Pronamic_WordPress_IDeal_Plugin::setKey($key);
+}
+
+?>
 <div class="wrap">
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
@@ -15,14 +24,14 @@
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<label for="pronamic_ideal_license_key">
+					<label for="pronamic_ideal_key">
 						<?php _e('Support License Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</label>
 				</th>
 				<td>
-	                <input id="pronamic_ideal_license_key" name="pronamic_ideal_license_key" value="" class="regular-text" type="password" />
+	                <input id="pronamic_ideal_key" name="pronamic_ideal_key" value="<?php echo Pronamic_WordPress_IDeal_Plugin::getKey(); ?>" class="regular-text" type="password" />
 
-					<?php if(Pronamic_WordPress_IDeal_Plugin::hasValidLicenseKey()): ?>
+					<?php if(Pronamic_WordPress_IDeal_Plugin::hasValidKey()): ?>
 					&#10003;
 					<?php endif; ?>
 
@@ -54,7 +63,7 @@
 					if(version_compare(phpversion(), '5.2', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires PHP 5.3 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires PHP 5.2 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 					}
 					
 					?>
@@ -73,7 +82,7 @@
 					if(version_compare($wpdb->db_version(), '5', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires  MySQL 5 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires MySQL 5 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 					}
 
 					?>
@@ -92,7 +101,7 @@
 					if(version_compare(get_bloginfo('version'), '3.2', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires  WordPress 3.2 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires WordPress 3.2 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 					}
 					
 					?>
