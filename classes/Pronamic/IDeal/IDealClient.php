@@ -116,7 +116,7 @@ class Pronamic_IDeal_IDealClient {
 		$url = new Pronamic_Net_URL($this->acquirerUrl);
 		
 		$hostname = $url->getScheme() . '://' . $url->getHost();
-		
+
 		// Connect with acquirer, will throw an warning error if fails
 		$resource = @fsockopen($hostname, $url->getPort(true), $errorNumber, $errorString, $timeout);
 		if($resource !== false) {

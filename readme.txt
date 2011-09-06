@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: beta-0.2
+Stable tag: beta-0.3
 
 Integrates iDEAL in to WordPress
 
@@ -27,6 +27,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = beta-0.3 =
 *	Improved the Gravity Forms confirmation message when an iDEAL basic payment is executed, now working correct with AJAX
 *	Improved the iDEAL configuration editor and the Gravity Forms iDEAL feed editor, display only necessary input fields
+*	Fixed the Rabobank iDEAL payment server URLs in the ideal.xml configuration file
 
 = beta-0.2 =
 *	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+

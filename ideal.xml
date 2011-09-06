@@ -54,7 +54,6 @@
 
 			<certificates>
 				<file>certificates/frieslandbank-ideal-zakelijke-plus/cert.cer</file>
-				<file>certificates/frieslandbank-ideal-zakelijke-plus/cert0.cer</file>
 			</certificates>
 		</variant>
 	</provider>
@@ -160,13 +159,11 @@
 			<name>iDEAL Professional</name>
 
 			<test>
-				<!-- ssl://idealtest.rabobank.nl:443/ideal/iDeal -->
-				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>ssl://idealtest.rabobank.nl:443/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
 			</test>
 			<live>
-				<!-- ssl://ideal.rabobank.nl:443/ideal/iDeal -->
-				<paymentServerUrl>https://ideal.rabobank.nl/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>ssl://ideal.rabobank.nl:443/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
 			</live>
 
