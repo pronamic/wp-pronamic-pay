@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: iDEAL XML message
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Message {
+class Pronamic_IDeal_XML_Message {
 	/**
 	 * The XML version of the iDEAL messages
 	 * 
@@ -68,7 +64,7 @@ class Message {
 	 */
 	public function __construct($name) {
 		$this->name = $name;
-		$this->createDate = new \DateTime(null, new \DateTimeZone(IDeal::TIMEZONE));
+		$this->createDate = new DateTime(null, new DateTimeZone(Pronamic_IDeal_IDeal::TIMEZONE));
 	}
 
 	//////////////////////////////////////////////////
@@ -103,11 +99,11 @@ class Message {
 	 * @param string $name
 	 * @param string $value
 	 */
-	public static function addElement(\DOMDocument $document, \DOMNode $parent, $name, $value = null) {
+	public static function addElement(DOMDocument $document, DOMNode $parent, $name, $value = null) {
 		$element = $document->createElement($name);
 		
 		if($value !== null) {
-			$element->appendChild(new \DOMText($value));
+			$element->appendChild(new DOMText($value));
 		}
 
 		$parent->appendChild($element);

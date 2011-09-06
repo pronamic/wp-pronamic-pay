@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: iDEAL transaction request XML message
  * Description: 
@@ -12,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class TransactionRequestMessage extends RequestMessage {
+class Pronamic_IDeal_XML_TransactionRequestMessage extends Pronamic_IDeal_XML_RequestMessage {
 	/**
 	 * The document element name
 	 * 
@@ -65,7 +61,7 @@ class TransactionRequestMessage extends RequestMessage {
 
 		$element = self::addElement($document, $document->documentElement, 'Transaction');
 		self::addElement($document, $element, 'purchaseID', $transaction->getPurchaseId());
-		self::addElement($document, $element, 'amount', IDeal::formatPrice($transaction->getAmount()));
+		self::addElement($document, $element, 'amount', Pronamic_IDeal_IDeal::formatPrice($transaction->getAmount()));
 		self::addElement($document, $element, 'currency', $transaction->getCurrency());
 		self::addElement($document, $element, 'expirationPeriod', $transaction->getExpirationPeriod());
 		self::addElement($document, $element, 'language', $transaction->getLanguage());
@@ -81,18 +77,17 @@ class TransactionRequestMessage extends RequestMessage {
 	/**
 	 * Get the sign values for this transaction request message
 	 * 
-	 * @see Pronamic\IDeal\XML.RequestMessage::getSignValues()
 	 * @return array
 	 */
 	public function getSignValues() {
 		return array(
-			$this->getCreateDate()->format(IDeal::DATE_FORMAT) , 
+			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT) , 
 			$this->issuer->getId() , 
 			$this->getMerchant()->id , 
 			$this->getMerchant()->subId , 
 			$this->getMerchant()->returnUrl , 
 			$this->transaction->getPurchaseId() ,
-			IDeal::formatPrice($this->transaction->getAmount()) ,  
+			Pronamic_IDeal_IDeal::formatPrice($this->transaction->getAmount()) ,  
 			$this->transaction->getCurrency() , 
 			$this->transaction->getLanguage() , 
 			$this->transaction->getDescription() , 

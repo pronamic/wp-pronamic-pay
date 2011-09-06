@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
 /**
  * Title: iDEAL status response XML message
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal\XML;
  * @author Remco Tolsma
  * @version 1.0
  */
-class StatusResponseMessage extends ResponseMessage {
+class Pronamic_IDeal_XML_StatusResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 
@@ -38,11 +36,11 @@ class StatusResponseMessage extends ResponseMessage {
 	/**
 	 * Parse the specified XML into an directory response message object
 	 * 
-	 * @param \SimpleXMLElement $xml
+	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(\SimpleXMLElement $xml) {
+	public static function parse(SimpleXMLElement $xml) {
 		$message = parent::parse($xml, new self());
-		$message->transaction = TransactionParser::parse($xml->Transaction);
+		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse($xml->Transaction);
 		// $message->transaction = SignatureParser::parse($xml->Signature);
 
 		return $message;

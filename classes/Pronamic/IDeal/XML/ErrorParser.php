@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\Error;
-
 /**
  * Title: Error XML parser
  * Description: 
@@ -12,9 +8,9 @@ use Pronamic\IDeal\Error;
  * @author Remco Tolsma
  * @version 1.0
  */
-class ErrorParser extends Parser {
-	public static function parse(\SimpleXMLElement $xml) {
-		$error = new Error();
+class Pronamic_IDeal_XML_ErrorParser extends Pronamic_IDeal_XML_Parser {
+	public static function parse(SimpleXMLElement $xml) {
+		$error = new Pronamic_IDeal_Error();
 
 		$error->setCode((string) $xml->errorCode);
 		$error->setMessage((string) $xml->errorMessage);

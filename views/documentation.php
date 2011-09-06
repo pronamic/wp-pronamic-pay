@@ -1,13 +1,8 @@
-<?php 
-
-namespace Pronamic\WordPress\IDeal;
-
-?>
 <div class="wrap">
-	<?php screen_icon(Plugin::SLUG); ?>
+	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Documentation', Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h2>
 
 	<?php 
@@ -40,8 +35,7 @@ namespace Pronamic\WordPress\IDeal;
 				) ,
 				array(
 					'path' => 'docs/ing.nl/Wijzigen_van_een_acquiring_certificaat_in_iDEAL_Advanced_internet_tcm7-82882.pdf' ,
-					'name' => 'Wijzigen van een acquiring certificaat in iDEAL Advanced' , 
-					'version' => '?' 
+					'name' => 'Wijzigen van een acquiring certificaat in iDEAL Advanced' 
 				)
 			)
 		) ,
@@ -67,8 +61,7 @@ namespace Pronamic\WordPress\IDeal;
 			'files' => array(
 				array(
 					'path' => 'docs/ogone.nl/Ogone_eCom_STD_Integration_20041224_EN.pdf' ,
-					'name' => 'Ogone Document II: Ogone e-Commerce, integration in the merchant\'s WEB site' , 
-					'version' => '?'
+					'name' => 'Ogone Document II: Ogone e-Commerce, integration in the merchant\'s WEB site' 
 				) 
 			)
 		) , 
@@ -85,6 +78,10 @@ namespace Pronamic\WordPress\IDeal;
 					'path' => 'docs/rabobank.nl/handleiding_ideal_professional_2966322.pdf' ,
 					'name' => 'Handleiding iDEAL Professional' , 
 					'version' => '2.1'
+				) , 
+				array(
+					'path' => 'docs/rabobank.nl/kennismaking_rabobank_ideal_dashboard.pdf' ,
+					'name' => 'Kennismaking Rabobank iDEAL Dashboard' 
 				) 
 			)
 		)
@@ -101,9 +98,12 @@ namespace Pronamic\WordPress\IDeal;
 		<?php foreach($provider['files'] as $file): ?>
 
 		<li>
-			<a href="<?php echo plugins_url($file['path'], Plugin::$file); ?>">
+			<a href="<?php echo plugins_url($file['path'], Pronamic_WordPress_IDeal_Plugin::$file); ?>">
 				<?php echo $file['name']; ?>
-				<small><?php printf(__('version %s', Plugin::TEXT_DOMAIN), $file['version']); ?> </small>
+
+				<?php if(isset($file['version'])): ?>
+				<small><?php printf(__('version %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $file['version']); ?> </small>
+				<?php endif; ?>
 			</a>
 		</li>
 

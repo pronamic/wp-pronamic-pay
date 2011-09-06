@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Merchant
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Merchant {
+class Pronamic_IDeal_Merchant {
 	/**
 	 * ID of the merchant
 	 * 

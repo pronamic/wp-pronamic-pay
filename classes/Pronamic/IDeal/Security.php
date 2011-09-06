@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Security
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Security {
+class Pronamic_IDeal_Security {
 	/**
 	 * Indicator for the begin of an certificate
 	 * 
@@ -56,7 +54,9 @@ class Security {
 	public static function getFingerprint($certificate, $hash = null) {
 		$fingerprint = null;
 
-		$resource = openssl_x509_read($certificate);
+		// The openssl_x509_read() function will throw an warning if the supplied 
+		// parameter cannot be coerced into an X509 certificate
+		$resource = @openssl_x509_read($certificate);
 		if($resource !== false) {
 			$output = null;
 

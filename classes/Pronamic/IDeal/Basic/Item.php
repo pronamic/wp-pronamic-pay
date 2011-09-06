@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\Basic;
-
 /**
  * Title: iDEAL basic item
  * Description:
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal\Basic;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Item {
+class Pronamic_IDeal_Basic_Item {
 	/**
 	 * The number 
 	 * 

@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Advanced
  * Description: 
@@ -10,13 +8,30 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Advanced extends IDeal {
+class Pronamic_IDeal_Advanced extends Pronamic_IDeal_IDeal {
+	/**
+	 * The public certificates
+	 * 
+	 * @var array
+	 */
 	private $publicCertificates;
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an iDEAL advanced object
+	 */
 	public function __construct() {
 		$this->publicCertificates = array();
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Add the specified certificate
+	 * 
+	 * @param string $file
+	 */
 	public function addCertificate($file) {
 		$this->publicCertificates[] = $file;
 	}
