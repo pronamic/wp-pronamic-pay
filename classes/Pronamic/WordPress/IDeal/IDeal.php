@@ -1,14 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\Error;
-
-use Pronamic\IDeal\IDeal as IDealCore;
-use Pronamic\IDeal\Security;
-use Pronamic\IDeal\IDealClient;
-use Pronamic\IDeal\Transaction;
-
 /**
  * Title: iDEAL
  * Description: 
@@ -17,7 +8,7 @@ use Pronamic\IDeal\Transaction;
  * @author Remco Tolsma
  * @version 1.0
  */
-class IDeal {
+class Pronamic_WordPress_IDeal_IDeal {
 	/**
 	 * The global iDEAL client used within WordPress
 	 * 
@@ -43,7 +34,7 @@ class IDeal {
 	 */
 	public static function getClient() {
 		if(self::$client == null) {
-            self::$client = new IDealClient();
+            self::$client = new Pronamic_IDeal_IDealClient();
         }
 
         return self::$client;
@@ -67,7 +58,7 @@ class IDeal {
 	 * 
 	 * @param Configuration $configuration
 	 */
-	public static function getIssuersLists(Configuration $configuration) {
+	public static function getIssuersLists(Pronamic_WordPress_IDeal_Configuration $configuration) {
 		$lists = null;
 
 		$variant = $configuration->getVariant();
@@ -82,12 +73,12 @@ class IDeal {
 				$iDealClient->addPublicCertificate($certificate);
 			}
 			
-			$message = new \Pronamic\IDeal\XML\DirectoryRequestMessage();
+			$message = new Pronamic_IDeal_XML_DirectoryRequestMessage();
 			$merchant = $message->getMerchant();
 			$merchant->id = $configuration->merchantId;
 			$merchant->subId = $configuration->subId;
-			$merchant->authentication = IDealCore::AUTHENTICATION_SHA1_RSA;
-			$merchant->token = Security::getShaFingerprint($configuration->privateCertificate);
+			$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
+			$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
 
 			$result = $iDealClient->getIssuerLists($message);
@@ -106,14 +97,15 @@ class IDeal {
 	 * 
 	 * @param Configuration $configuration
 	 */
-	public static function getTransientIssuersLists(Configuration $configuration) {
+	public static function getTransientIssuersLists(Pronamic_WordPress_IDeal_Configuration $configuration) {
 		$issuersList = null;
 
 		$transient = 'pronamic-ideal-issuers-list-' . $configuration->getId();
 
-		$result = get_transient($transient);
+		//$result = get_transient($transient);
+		$result = false;
 
-		if($result instanceof Error) {
+		if($result instanceof Pronamic_IDeal_Error) {
 			self::$error = $result;
 		} elseif($result === false) {
 			$client = self::getClient();
@@ -141,7 +133,7 @@ class IDeal {
 	 * 
 	 * @param Configuration $configuration
 	 */
-	public static function deleteConfigurationTransient(Configuration $configuration) {
+	public static function deleteConfigurationTransient(Pronamic_WordPress_IDeal_Configuration $configuration) {
 		delete_transient('pronamic-ideal-issuers-list-' . $configuration->getId());
 	}
 
@@ -159,24 +151,24 @@ class IDeal {
 		$configuration = $payment->configuration;
 
 		// Transaction request message
-		$message = new \Pronamic\IDeal\XML\TransactionRequestMessage();
+		$message = new Pronamic_IDeal_XML_TransactionRequestMessage();
 
-		$issuer = new \Pronamic\IDeal\Issuer();
+		$issuer = new Pronamic_IDeal_Issuer();
 		$issuer->setId($issuerId);
 
 		$merchant = $message->getMerchant();
 		$merchant->id = $configuration->merchantId;
 		$merchant->subId = $configuration->subId;
-		$merchant->authentication = IDealCore::AUTHENTICATION_SHA1_RSA;
+		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = home_url();
-		$merchant->token = \Pronamic\IDeal\Security::getShaFingerprint($configuration->privateCertificate);
+		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->issuer = $issuer;
 		$message->merchant = $merchant;
 		$message->transaction = $transaction;
 		$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
 
-		$iDealClient = new \Pronamic\IDeal\IDealClient();
+		$iDealClient = new Pronamic_IDeal_IDealClient();
 		$iDealClient->setAcquirerUrl($configuration->getPaymentServerUrl());
 		$iDealClient->setPrivateKey($configuration->privateKey);
 		$iDealClient->setPrivateKeyPassword($configuration->privateKeyPassword);
@@ -188,13 +180,13 @@ class IDeal {
 
 		$responseMessage = $iDealClient->createTransaction($message);
 
-		$updated = PaymentsRepository::updatePayment($payment);
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
 
 		// http://rt.beta.pronamic.nl/wp-content/plugins/gravityformsideal/docs/ing.nl/iDEAL_Advanced_PHP_EN_V2.2.pdf 
 		// Page 19
 
 		// Schedule status requests
-		$date = new \DateTime('now', new \DateTimeZone('UTC'));
+		$date = new DateTime('now', new DateTimeZone('UTC'));
 
 		// 30 seconds after a transaction request is sent
 		$date1 = clone $date;
@@ -216,18 +208,18 @@ class IDeal {
 	 */
 	public static function translateStatus($status) {
 		switch($status) {
-			case Transaction::STATUS_CANCELLED:
-				return __('Cancelled', Plugin::TEXT_DOMAIN);
-			case Transaction::STATUS_EXPIRED:
-				return __('Expired', Plugin::TEXT_DOMAIN);
-			case Transaction::STATUS_FAILURE:
-				return __('Failure', Plugin::TEXT_DOMAIN);
-			case Transaction::STATUS_OPEN:
-				return __('Open', Plugin::TEXT_DOMAIN);
-			case Transaction::STATUS_SUCCESS:
-				return __('Success', Plugin::TEXT_DOMAIN);
+			case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+				return __('Cancelled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+				return __('Expired', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+				return __('Failure', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			case Pronamic_IDeal_Transaction::STATUS_OPEN:
+				return __('Open', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+				return __('Success', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 			default:
-				return __('Unknown', Plugin::TEXT_DOMAIN);
+				return __('Unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 		}
 	}
 }
