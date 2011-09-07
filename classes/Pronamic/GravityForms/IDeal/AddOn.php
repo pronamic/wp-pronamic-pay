@@ -83,12 +83,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			);
 
 			add_action('admin_enqueue_scripts', array(__CLASS__, 'enqueueAdminScripts'));
-
-			// Styles
-			wp_enqueue_style(
-				'gravityformsideal' , 
-				plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
-			);
 		} else {
 			// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 			add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);

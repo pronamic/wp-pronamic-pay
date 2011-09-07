@@ -178,42 +178,61 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	//////////////////////////////////////////////////
 	
+	/**
+	 * Get the key
+	 * 
+	 * @return string
+	 */
 	public static function getKey() {
 		return get_option(self::OPTION_KEY);
 	}
-	
+
+	/**
+	 * Set the key
+	 * 
+	 * @param string $key
+	 */
 	public static function setKey($key) {
 		$currentKey = get_option(self::OPTION_KEY);
 
 		if(empty($key)) {
 			delete_option(self::OPTION_KEY);
+			delete_transient(self::TRANSIENT_LICENSE_INFO);
 		} elseif($key != $currentKey) {
 			update_option(self::OPTION_KEY, md5(trim($key)));
 			delete_transient(self::TRANSIENT_LICENSE_INFO);
 		}
 	}
 	
+	/**
+	 * Get the license info for the current installation on the blogin
+	 * 
+	 * @return stdClass an onbject with license information or null
+	 */
 	public static function getLicenseInfo() {
 		$licenseInfo = null;
 
 		$transient = get_transient(self::TRANSIENT_LICENSE_INFO);
 		if($transient === false) {
-			$response = wp_remote_post(self::LICENSE_PROVIDER_API_URL . 'licenses/show', array(
-				'method' => 'POST' ,
+			$url = self::LICENSE_PROVIDER_API_URL . 'licenses/show';
+
+			$response = wp_remote_post($url, array(
 				'body' => array(
 					'key' => self::getKey() , 
-					'url' => get_bloginfo('url') 
+					'url' => home_url() 
 				)
 			));
-	
+
 			if(is_wp_error($response)) {
-				
+				$licenseInfo = new stdClass();
+				// Benefit of the doubt
+				$licenseInfo->isValid = true;
 			} else {
 				$licenseInfo = json_decode($response['body']);
-
-				// Check every day for new license information, an license kan expire every day (60 * 60 * 24)
-				set_transient(self::TRANSIENT_LICENSE_INFO, $licenseInfo, 86400);
 			}
+
+			// Check every day for new license information, an license kan expire every day (60 * 60 * 24)
+			set_transient(self::TRANSIENT_LICENSE_INFO, $licenseInfo, 86400);
 		} else {
 			$licenseInfo = $transient;
 		}

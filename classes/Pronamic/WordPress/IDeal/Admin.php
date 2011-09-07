@@ -14,6 +14,12 @@ class Pronamic_WordPress_IDeal_Admin {
 	 */
 	public static function bootstrap() {
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
+
+		// Styles
+		wp_enqueue_style(
+			'proanmic_ideal' , 
+			plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
+		);
 	}
 
 	//////////////////////////////////////////////////
