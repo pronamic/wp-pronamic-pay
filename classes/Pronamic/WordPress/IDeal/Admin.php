@@ -1,21 +1,25 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
 /**
- * Title: WordPress iDEAL plugin
+ * Title: WordPress iDEAL admin
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Admin {
+class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
+
+		// Styles
+		wp_enqueue_style(
+			'proanmic_ideal' , 
+			plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -27,54 +31,54 @@ class Admin {
 	 */
 	public static function adminMenu($menus) {
 		add_menu_page(
-			$pageTitle = __('iDEAL', Plugin::TEXT_DOMAIN) ,
-			$menuTitle = __('iDEAL', Plugin::TEXT_DOMAIN) ,
+			$pageTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+			$menuTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
 			$capability = 'manage_options' , 
-			$menuSlug = Plugin::SLUG , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$function = array(__CLASS__, 'pageIndex') , 
-			$iconUrl = plugins_url('images/icon-16x16.png', Plugin::$file)
+			$iconUrl = plugins_url('images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file)
 		);
 
 		add_submenu_page(
-			$parentSlug = Plugin::SLUG , 
-			$pageTitle = __('Payments', Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Payments', Plugin::TEXT_DOMAIN) , 
+			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
+			$pageTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$menuTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$capability = 'manage_options' , 
-			$menuSlug = Plugin::SLUG . '_payments' , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' , 
 			$function = array(__CLASS__, 'pagePayments')
 		);
 
 		add_submenu_page(
-			$parentSlug = Plugin::SLUG , 
-			$pageTitle = __('Settings', Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Settings', Plugin::TEXT_DOMAIN) , 
+			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
+			$pageTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$menuTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$capability = 'manage_options' , 
-			$menuSlug = Plugin::SLUG . '_settings' , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_settings' , 
 			$function = array(__CLASS__, 'pageSettings')
 		);
 
 		add_submenu_page(
-			$parentSlug = Plugin::SLUG , 
-			$pageTitle = __('Variants', Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Variants', Plugin::TEXT_DOMAIN) , 
+			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
+			$pageTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$menuTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$capability = 'manage_options' , 
-			$menuSlug = Plugin::SLUG . '_variants' , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_variants' , 
 			$function = array(__CLASS__, 'pageVariants')
 		);
 
 		add_submenu_page(
-			$parentSlug = Plugin::SLUG , 
-			$pageTitle = __('Documentation', Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Documentation', Plugin::TEXT_DOMAIN) , 
+			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
+			$pageTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$menuTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$capability = 'manage_options' , 
-			$menuSlug = Plugin::SLUG . '_documentation' , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_documentation' , 
 			$function = array(__CLASS__, 'pageDocumentation')
 		);
 
 		global $submenu;
 
-		if(isset($submenu[Plugin::SLUG])) {
-			$submenu[Plugin::SLUG][0][0] = __('Configurations', Plugin::TEXT_DOMAIN);
+		if(isset($submenu[Pronamic_WordPress_IDeal_Plugin::SLUG])) {
+			$submenu[Pronamic_WordPress_IDeal_Plugin::SLUG][0][0] = __('Configurations', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 		}
 	}
 
@@ -113,31 +117,41 @@ class Admin {
 	 * @return string url
 	 */
 	public static function getConfigurationsLink() {
-		return self::getLink(Plugin::SLUG);
+		return add_query_arg(array(
+			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG 
+		), 'admin.php');
 	}
 
 	public static function getConfigurationEditLink($id = null) {
-		return self::getLink(Plugin::SLUG, 'edit', $id);
+		return add_query_arg(array(
+			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
+			'view' => 'edit' ,
+			'id' => $id   
+		), 'admin.php');
 	}
 
 	public static function getConfigurationTestsLink($id = null) {
-		return self::getLink(Plugin::SLUG, 'tests', $id);
+		return add_query_arg(array(
+			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
+			'view' => 'tests' ,
+			'id' => $id   
+		), 'admin.php');
 	}
 
 	public static function getConfigurationDeleteLink($id = null) {
 		return add_query_arg(array(
-			'page' => Plugin::SLUG ,
+			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
 			'action' => 'delete' ,
 			'id' => $id   
 		), 'admin.php');
 	}
 
 	public static function getPaymentsLink($id = null) {
-		return self::getLink(Plugin::SLUG . '-payments');
+		return self::getLink(Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments');
 	}
 
 	public static function getPaymentDetailsLink($id = null) {
-		return self::getLink(Plugin::SLUG . '-payments', 'details', $id);
+		return self::getLink(Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments', 'details', $id);
 	}
 
 	//////////////////////////////////////////////////
@@ -192,7 +206,7 @@ class Admin {
 	public static function renderView($name) {
 		$result = false;
 
-		$file = plugin_dir_path(Plugin::$file) . 'views/' . $name . '.php';
+		$file = plugin_dir_path(Pronamic_WordPress_IDeal_Plugin::$file) . 'views/' . $name . '.php';
 
 		if(is_readable($file)) {
 			include $file;

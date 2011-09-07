@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
 /**
  * Title: XML parser
  * Description: 
@@ -10,6 +8,11 @@ namespace Pronamic\IDeal\XML;
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Parser {
-	public abstract static function parse(\SimpleXMLElement $xml);
+abstract class Pronamic_IDeal_XML_Parser {
+	/**
+	 * Parse the specified XML element
+	 * 
+	 * @param SimpleXMLElement $xml
+	 */
+	public abstract static function parse(SimpleXMLElement $xml);
 }

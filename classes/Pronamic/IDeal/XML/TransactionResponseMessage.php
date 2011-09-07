@@ -1,6 +1,4 @@
-<?php 
-
-namespace Pronamic\IDeal\XML;
+<?php
 
 /**
  * Title: iDEAL transaction response XML message
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal\XML;
  * @author Remco Tolsma
  * @version 1.0
  */
-class TransactionResponseMessage extends ResponseMessage {
+class Pronamic_IDeal_XML_TransactionResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 
@@ -32,12 +30,12 @@ class TransactionResponseMessage extends ResponseMessage {
 	/**
 	 * Parse the specified XML into an directory response message object
 	 * 
-	 * @param \SimpleXMLElement $xml
+	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(\SimpleXMLElement $xml) {
+	public static function parse(SimpleXMLElement $xml) {
 		$message = parent::parse($xml, new self());
-		$message->issuer = IssuerParser::parse($xml->Issuer);
-		$message->transaction = TransactionParser::parse($xml->Transaction);
+		$message->issuer = Pronamic_IDeal_XML_IssuerParser::parse($xml->Issuer);
+		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse($xml->Transaction);
 
 		return $message;
 	}

@@ -1,9 +1,9 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment, ideal
+Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: beta-0.1
+Stable tag: beta-0.4
 
 Integrates iDEAL in to WordPress
 
@@ -23,6 +23,21 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= beta-0.4 =
+*	Improved the retrieving of license information from the license provider
+*	Added some extra admin CSS styling like an iDEAL screen icon
+
+= beta-0.3 =
+*	Improved the Gravity Forms confirmation message when an iDEAL basic payment is executed, now working correct with AJAX
+*	Improved the iDEAL configuration editor and the Gravity Forms iDEAL feed editor, display only necessary input fields
+*	Fixed the Rabobank iDEAL payment server URLs in the ideal.xml configuration file
+
+= beta-0.2 =
+*	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+
+*	Fixed the link to the payment detail page in WordPress admin
+*	Fixed the link on the payment detail page to the iDEAL configuration page
+*	Fixed redirection problem with AJAX enabled Gravity Forms  
 
 = beta-0.1 =
 *	Issuers list transient is now deleted after updating an iDEAL configuration

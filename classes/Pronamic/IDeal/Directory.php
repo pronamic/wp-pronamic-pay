@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Directory
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Directory {
+class Pronamic_IDeal_Directory {
 	/**
 	 * The date the issuer list was modified
 	 * 
@@ -39,9 +37,9 @@ class Directory {
 	/**
 	 * Set the specified date
 	 * 
-	 * @param \DateTime $date
+	 * @param DateTime $date
 	 */
-	public function setDate(\DateTime $date) {
+	public function setDate(DateTime $date) {
 		$this->date = $date;
 	}
 
@@ -52,7 +50,7 @@ class Directory {
 	 * 
 	 * @param Issuer $issuer
 	 */
-	public function addIssuer(Issuer $issuer) {
+	public function addIssuer(Pronamic_IDeal_Issuer $issuer) {
 		$this->issuers[] = $issuer;
 	}
 

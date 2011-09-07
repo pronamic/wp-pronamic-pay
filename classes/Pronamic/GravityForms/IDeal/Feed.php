@@ -1,7 +1,4 @@
 <?php
-namespace Pronamic\GravityForms\IDeal;
-
-use Pronamic\WordPress\IDeal\Configuration;
 
 /**
  * Title: Feed
@@ -11,7 +8,7 @@ use Pronamic\WordPress\IDeal\Configuration;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Feed {
+class Pronamic_GravityForms_IDeal_Feed {
 	/**
 	 * Indicator for the open status link
 	 * 
@@ -185,7 +182,7 @@ class Feed {
 	 * 
 	 * @param Configuration $iDealConfiguration
 	 */
-	public function setIDealConfiguration(Configuration $iDealConfiguration = null) {
+	public function setIDealConfiguration(Pronamic_WordPress_IDeal_Configuration $iDealConfiguration = null) {
 		$this->iDealConfiguration = $iDealConfiguration;
 	}
 

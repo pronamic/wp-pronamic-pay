@@ -1,10 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
-use Pronamic\IDeal\Transaction;
-use Pronamic\IDeal\IDeal;
-
 /**
  * Title: Configurations repository
  * Description: 
@@ -13,7 +8,7 @@ use Pronamic\IDeal\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class ConfigurationsRepository {
+class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 	/**
 	 * The iDEAL providers
 	 * 
@@ -38,9 +33,9 @@ class ConfigurationsRepository {
 			self::$providers = array();
 			self::$variants = array();
 
-			$file = plugin_dir_path(Plugin::$file) . 'ideal.xml';
+			$file = plugin_dir_path(Pronamic_WordPress_IDeal_Plugin::$file) . 'ideal.xml';
 	
-			self::$providers = IDeal::getProvidersFromXml($file);
+			self::$providers = Pronamic_IDeal_IDeal::getProvidersFromXml($file);
 
 			foreach(self::$providers as $provider) {
 				foreach($provider->getVariants() as $variant) {
@@ -121,7 +116,7 @@ class ConfigurationsRepository {
      * @return Configuration
      */
 	private function getConfigurationFromResult($result) {
-		$configuration = new Configuration();
+		$configuration = new Pronamic_WordPress_IDeal_Configuration();
 
 		$configuration->setId($result->configurationId);
 		$configuration->setVariant(self::getVariantById($result->variantId));
@@ -139,7 +134,7 @@ class ConfigurationsRepository {
 	
 	private function getConfigurationQuery($extra = '') {
         $configurationsTable = self::getConfigurationsTableName();
-        $paymentsTable = PaymentsRepository::getPaymentsTableName();
+        $paymentsTable = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentsTableName();
 
         $query = sprintf("
         	SELECT 
@@ -218,7 +213,7 @@ class ConfigurationsRepository {
 
         $table = self::getConfigurationsTableName();
 
-        $query = $wpdb->prepare(self::getConfigurationQuery("WHERE configuration.id = %d") , $id);
+        $query = $wpdb->prepare(self::getConfigurationQuery('WHERE configuration.id = %d') , $id);
 
         return self::getConfigurationByQuery($query);
     }
