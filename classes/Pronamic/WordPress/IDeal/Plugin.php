@@ -30,7 +30,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const LICENSE_PROVIDER_API_URL = 'http://in.pronamic.nl.beta.pronamic.nl/api/';
+	const LICENSE_PROVIDER_API_URL = 'http://in.pronamic.nl/api/';
 
 	/**
 	 * The maximum number of payments that can be done without an license
