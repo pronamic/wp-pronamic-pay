@@ -11,6 +11,7 @@
 
 		<<?php echo $tag; ?>>
 			<tr>
+				<th scope="col" class="manage-column"><?php _e('Provider', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 				<th scope="col" class="manage-column"><?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 				<th scope="col" class="manage-column"><?php _e('Method', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
 				<th scope="col" class="manage-column"><?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
@@ -28,9 +29,10 @@
 					<?php if($provider = $variant->getProvider()): ?>
 					<a href="<?php echo $provider->getUrl(); ?>">
 						<?php echo $provider->getName(); ?>
-					</a> - 
+					</a>
 					<?php endif; ?>
-
+				</td>
+				<td>
 					<?php echo $variant->getName(); ?>
 				</td>
 				<td>

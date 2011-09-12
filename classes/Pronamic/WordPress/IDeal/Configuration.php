@@ -72,13 +72,7 @@ class Pronamic_WordPress_IDeal_Configuration {
 		$name = '';
 
 		$variant = $this->getVariant();
-		if($variant != null) {
-			$provider = $variant->getProvider();
-			
-			if($provider != null) {
-				$name .= $provider->getName() . ' - ';
-			}
-			
+		if($variant != null) {			
 			$name .= $variant->getName();
 		}
 

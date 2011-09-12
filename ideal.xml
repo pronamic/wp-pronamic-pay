@@ -8,7 +8,21 @@
 			
 		<variant type="basic" disabled="disabled">
 			<id>abnamro-ideal-easy</id>
-			<name>iDEAL Easy</name>
+			<name>ABN AMRO - iDEAL Easy</name>
+			<url>https://internetkassa.abnamro.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant type="advanced" disabled="disabled">
+			<id>abnamro-ideal-zelfbouw</id>
+			<name>ABN AMRO - iDEAL Zelfbouw</name>
 			<url>https://internetkassa.abnamro.nl/</url>
 
 			<test>
@@ -21,27 +35,28 @@
 			</live>
 		</variant>
 	</provider>
+
 	<provider>
 		<id>frieslandbank</id>
 		<name>Friesland Bank</name>
 		<url>http://frieslandbank.nl/</url>
 			
-		<variant method="basic" disabled="disabled">
+		<variant method="basic">
 			<id>frieslandbank-ideal-zakelijk</id>
-			<name>iDEAL Zakelijk</name>
+			<name>Friesland Bank - iDEAL Zakelijk</name>
 
 			<test>
-				<paymentServerUrl>ssl://testidealkassa.frieslandbank.nl:443/ideal/iDEAL</paymentServerUrl>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/mpiPayInitFriesland.do</paymentServerUrl>
 				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://idealkassa.frieslandbank.nl:443/ideal/iDEAL</paymentServerUrl>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/mpiPayInitFriesland.do</paymentServerUrl>
 				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
 			</live>
 		</variant>
 		<variant method="advanced">
 			<id>frieslandbank-ideal-zakelijk-plus</id>
-			<name>iDEAL Zakelijk Plus</name>
+			<name>Friesland Bank - iDEAL Zakelijk Plus</name>
 
 			<test>
 				<paymentServerUrl>ssl://testidealkassa.frieslandbank.nl:443/ideal/iDEAL</paymentServerUrl>
@@ -57,6 +72,7 @@
 			</certificates>
 		</variant>
 	</provider>
+
 	<provider>
 		<id>ideal-simulator</id>
 		<name>iDEAL Simulator</name>
@@ -64,7 +80,7 @@
 			
 		<variant method="basic">
 			<id>ideal-simulator-ideal-basic</id>
-			<name>iDEAL Lite / Basic</name>
+			<name>iDEAL Simulator - iDEAL Lite / Basic</name>
 
 			<test>
 				<paymentServerUrl>https://www.ideal-simulator.nl/lite/</paymentServerUrl>
@@ -75,7 +91,7 @@
 		</variant>
 		<variant method="advanced">
 			<id>ideal-simulator-ideal-advanced</id>
-			<name>iDEAL Professional / Advanced / Zelfbouw</name>
+			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</name>
 
 			<test>
 				<paymentServerUrl>ssl://www.ideal-simulator.nl:443/professional/</paymentServerUrl>
@@ -90,14 +106,15 @@
 			</certificates>
 		</variant>
 	</provider>
+
 	<provider>
 		<id>ing</id>
 		<name>ING</name>
 		<url>http://ing.nl/</url>
 
-		<variant method="basic" disabled="disabled">
+		<variant method="basic">
 			<id>ing-ideal-basic</id>
-			<name>iDEAL Basic</name>
+			<name>ING - iDEAL Basic</name>
 			<dateExpireFormat>Y-m-d\TH:i:s.000\Z</dateExpireFormat>
 			<forbiddenCharachters> \t\n</forbiddenCharachters>
 
@@ -110,20 +127,65 @@
 				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced" disabled="disabled">
+		<variant method="advanced">
 			<id>ing-ideal-advanced</id>
-			<name>iDEAL Advanced</name>
+			<name>ING - iDEAL Advanced</name>
 
 			<test>
-				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do</paymentServerUrl>
+				<paymentServerUrl>ssl://idealtest.secure-ing.com:443/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>https://ideal.secure-ing.com/ideal/mpiPayInitIng.do</paymentServerUrl>
+				<paymentServerUrl>ssl://ideal.secure-ing.com:443/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
 			</live>
+
+			<certificates>
+				<file>certificates/ing-ideal-advanced/ingbank.cer</file>
+				<file>certificates/ing-ideal-advanced/ingbank-0.cer</file>
+			</certificates>
 		</variant>
 	</provider>
+
+	<provider>
+		<id>mollie</id>
+		<name>Mollie</name>
+		<url>http://mollie/</url>
+
+		<variant method="basic">
+			<id>mollie-ideal-basic</id>
+			<name>Mollie - iDEAL Basic</name>
+			<dateExpireFormat>Y-m-d\TH:i:s.000\Z</dateExpireFormat>
+			<forbiddenCharachters> \t\n</forbiddenCharachters>
+
+			<test>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/lite/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant method="advanced">
+			<id>mollie-ideal-advanced</id>
+			<name>Mollie - iDEAL Advanced</name>
+
+			<test>
+				<paymentServerUrl>ssl://secure.mollie.nl:443/xml/idealAcquirer/testmode/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>ssl://secure.mollie.nl:443/xml/idealAcquirer/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/mollie-ideal-advanced/mollie.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
 	<provider disabled="disabled">
 		<id>ogone</id>
 		<name>Ogone</name>
@@ -134,6 +196,7 @@
 			<name>iDEAL</name>
 		</variant>
 	</provider>
+
 	<provider>
 		<id>rabobank</id>
 		<name>Rabobank</name>
@@ -141,7 +204,7 @@
 
 		<variant method="basic">
 			<id>rabobank-ideal-lite</id>
-			<name>iDEAL Lite</name>
+			<name>Rabobank - iDEAL Lite</name>
 			<dateExpireFormat>Y-m-d\TG:i:s\Z</dateExpireFormat>
 			<forbiddenCharachters>\t\n\r </forbiddenCharachters>
 
@@ -156,7 +219,7 @@
 		</variant>
 		<variant method="advanced">
 			<id>rabobank-ideal-professional</id>
-			<name>iDEAL Professional</name>
+			<name>Rabobank - iDEAL Professional</name>
 
 			<test>
 				<paymentServerUrl>ssl://idealtest.rabobank.nl:443/ideal/iDeal</paymentServerUrl>
@@ -174,7 +237,7 @@
 		</variant>
 		<variant disabled="disabled">
 			<id>rabobank-ideal-kassa</id>
-			<name>Rabo iDEAL Kassa</name>
+			<name>Rabobank - Rabo iDEAL Kassa</name>
 			<url>http://i-kassa.rabobank.nl/</url>
 
 			<test>
