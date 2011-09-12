@@ -1,16 +1,40 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment
+Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, rabobank, friesland bank, ing, mollie
 Requires at least: 3.0
 Tested up to: 3.0
 Stable tag: beta-0.6
 
-Integrates iDEAL in to WordPress
+The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
+WordPress website.
 
 == Description ==
 
-...
+*	Easy installation and configuration
+*	Automatic updates
 
+= Gravity Forms =
+
+The Pronamic iDEAL plugin is an Add-On for the Gravity Forms form builder which allows you
+to add the iDEAL payment method to your Gravity Forms.
+
+= Banks and variants =
+
+*	Friesland Bank
+	*	iDEAL Zakelijk
+	*	iDEAL Zakelijk Plus
+*	ING
+	*	iDEAL Basic
+	*	iDEAL Advanced
+*	Rabobank
+	*	iDEAL Lite
+	*	iDEAL Professional
+*	Mollie
+	*	iDEAL Lite/Basic
+	*	iDEAL Professional/Advanced
+*	iDEAL Simulator
+	*	iDEAL Lite / Basic
+	*	iDEAL Professional / Advanced / Zelfbouw
 
 == Installation ==
 
@@ -20,7 +44,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Screenshots ==
 
-
+1.	Configuration edit page
+2.	Gravity Forms form edit page(iDEAL advanced)
+3.	Gravity Forms form edit page(iDEAL advanced)
+4.	Gravity Forms feed edit page
+5.	Feeds overview page
+6.	Payments overview page
+7.	Gravity Forms form on site with iDEAL feed
+8.	Gravity Forms frontend issuer drop down
 
 == Changelog ==
 
