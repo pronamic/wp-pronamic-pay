@@ -180,7 +180,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
 
-		// http://rt.beta.pronamic.nl/wp-content/plugins/gravityformsideal/docs/ing.nl/iDEAL_Advanced_PHP_EN_V2.2.pdf 
+		// /wp-content/plugins/pronamic-ideal/docs/ing.nl/iDEAL_Advanced_PHP_EN_V2.2.pdf
 		// Page 19
 
 		// Schedule status requests

@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.0';
+	const VERSION = 'beta-0.6';
 
 	//////////////////////////////////////////////////
 
@@ -115,14 +115,21 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Check the payment status on an iDEAL return
 		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'));
 
-		// @todo Where was this for?
+		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
 		
 		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
 	}
+
+	//////////////////////////////////////////////////
 	
-	public static function checkStatus($id) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($id);
+	/**
+	 * Check status of the specified payment
+	 * 
+	 * @param string $paymentId
+	 */
+	public static function checkStatus($paymentId) {
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($paymentId);
 	}
 
 	/**
@@ -156,6 +163,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$responseMessage = $iDealClient->getStatus($message);
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+		
+		do_action('pronamic_ideal_status_update', $payment);
 	}
 
 	//////////////////////////////////////////////////
