@@ -98,6 +98,8 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	</div>
 	
 	<?php endif; ?>
+
+	<?php if(false): ?>
 	
 	<h3>
 		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
@@ -162,6 +164,8 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 		</tbody>
 	</table>
+
+	<?php endif; ?>
 
 	<?php endif; ?>
 </div>

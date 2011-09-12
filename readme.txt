@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, rabobank, friesland bank, bank, payment, gravity forms, gravity, forms, form, payment
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: beta-0.5
+Stable tag: beta-0.6
 
 Integrates iDEAL in to WordPress
 
@@ -23,6 +23,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= beta-0.6 =
+*	Added and activated some extra iDEAL banks / variants
+*	Enabled the Transient API for retrieving the issuers lists, was temporary disabled for debugging
 
 = beta-0.5 =
 *	Fixed some security issues
