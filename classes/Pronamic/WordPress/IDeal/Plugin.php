@@ -100,6 +100,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Gravity Forms Add-On
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
+			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
