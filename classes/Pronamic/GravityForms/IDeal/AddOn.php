@@ -456,6 +456,100 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		return $confirmation;
 	}
 
+	//////////////////////////////////////////////////
+
+	public static function transformGravityFormsFieldToIDealItems(Pronamic_IDeal_Basic $iDeal, $form, $lead) {
+		$number = 0;
+
+		// Products
+        $products = GFCommon::get_product_fields($form, $lead);
+
+        foreach($products['products'] as $product) {
+        	$description = $product['name'];
+        	$price = GFCommon::to_number($product['price']);
+        	$quantity = $product['quantity'];
+
+        	$item = new Pronamic_IDeal_Basic_Item();
+        	$item->setNumber($number++);
+        	$item->setDescription($description);
+        	$item->setPrice($price);
+        	$item->setQuantity($quantity);
+
+        	$iDeal->addItem($item);
+
+			if(isset($product['options']) && is_array($product['options'])) {
+				foreach($product['options'] as $option) {
+					$description = $option['option_label'];
+					$price = GFCommon::to_number($option['price']);
+
+		        	$item = new Pronamic_IDeal_Basic_Item();
+		        	$item->setNumber($number++);
+		        	$item->setDescription($description);
+		        	$item->setPrice($price);
+		        	$item->setQuantity($quantity); // Product quantity
+
+        			$iDeal->addItem($item);
+				}
+            }
+        }
+
+        // Shipping
+        if(isset($products['shipping'])) {
+        	$shipping = $products['shipping'];
+
+        	if(isset($shipping['price']) && !empty($shipping['price'])) {
+        		$description = $shipping['name'];
+				$price = GFCommon::to_number($shipping['price']);
+				$quantity = 1;
+
+				$item = new Pronamic_IDeal_Basic_Item();
+		        $item->setNumber($number++);
+		        $item->setDescription($description);
+		        $item->setPrice($price);
+	        	$item->setQuantity($quantity);
+
+        		$iDeal->addItem($item);
+        	}
+        }
+        
+        // Donations
+        $donationFields = GFCommon::get_fields_by_type($form, array('donation'));
+
+		foreach($donationFields as $i => $field) {
+			$value = RGFormsModel::get_lead_field_value($lead, $field);
+
+			if(!empty($value)) {
+				$description = '';
+				if(isset($field['adminLabel']) && !empty($field['adminLabel'])) {
+					$description = $field['adminLabel'];
+				} elseif(isset($field['label'])) {
+					$description = $field['label'];
+				}
+	
+				$separatorPosition = strpos($value, '|');
+				if($separatorPosition !== false) {
+					$label = substr($value, 0, $separatorPosition);
+					$value = substr($value, $separatorPosition + 1);
+					
+					$description .= ' - ' . $label;
+				}
+				
+				$price = GFCommon::to_number($value);
+				$quantity = 1;
+	
+				$item = new Pronamic_IDeal_Basic_Item();
+				$item->setNumber($i);
+				$item->setDescription($description);
+				$item->setQuantity($quantity);
+				$item->setPrice($price);
+	
+				$iDeal->addItem($item);
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Handle iDEAL advanced
 	 * 
@@ -483,8 +577,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		if($issuerDropDown != null) {
 			$issuerId =  RGFormsModel::get_field_value($issuerDropDown);
 
+			$iDeal = new Pronamic_IDeal_Basic();
+			self::transformGravityFormsFieldToIDealItems($iDeal, $form, $lead);
+
 			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount(GFCommon::get_order_total($form, $lead)); 
+			$transaction->setAmount($iDeal->getAmount()); 
 			$transaction->setCurrency(GFCommon::get_currency());
 			$transaction->setExpirationPeriod('PT1H');
 			$transaction->setLanguage('nl');
@@ -587,30 +684,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
         	$url = add_query_arg('status', 'error', $url);
         	$iDeal->setErrorUrl($url);
         }
-
-		// Products
-        $products = GFCommon::get_product_fields($form, $lead);
-        foreach($products['products'] as $i => $product) {
-        	$item = new Pronamic_IDeal_Basic_Item();
-        	$item->setNumber($i);
-        	$item->setDescription($product['name']);
-        	$item->setQuantity($product['quantity']);
-        	$item->setPrice(GFCommon::to_number($product['price']));
-
-        	$iDeal->addItem($item);
-
-			if(isset($product['options']) && is_array($product['options'])) {
-				foreach($product['options'] as $j => $option) {
-		        	$item = new Pronamic_IDeal_Basic_Item();
-		        	$item->setNumber($j);
-		        	$item->setDescription($option['option_name']);
-		        	$item->setQuantity(1);
-		        	$item->setPrice($option['price']);
-
-        			$iDeal->addItem($item);
-				}
-            }
-        }
+        
+        self::transformGravityFormsFieldToIDealItems($iDeal, $form, $lead);
 
 		// Updating lead's payment_status to Processing
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
