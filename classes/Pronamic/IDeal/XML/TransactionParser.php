@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\Transaction;
-
 /**
  * Title: Transaction XML parser
  * Description: 
@@ -12,10 +8,16 @@ use Pronamic\IDeal\Transaction;
  * @author Remco Tolsma
  * @version 1.0
  */
-class TransactionParser extends Parser {
-	public static function parse(\SimpleXMLElement $xml, $transaction = null) {
-		if(!$transaction instanceof Transaction) {
-			$transaction = new Transaction();
+class Pronamic_IDeal_XML_TransactionParser extends Pronamic_IDeal_XML_Parser {
+	/**
+	 * Parse the specified XML element into an iDEAL transaction object
+	 * 
+	 * @param SimpleXMLElement $xml
+	 * @param Pronamic_IDeal_Transaction $transaction
+	 */
+	public static function parse(SimpleXMLElement $xml, $transaction = null) {
+		if(!$transaction instanceof Pronamic_IDeal_Transaction) {
+			$transaction = new Pronamic_IDeal_Transaction();
 		}
 
 		if($xml->transactionID) {

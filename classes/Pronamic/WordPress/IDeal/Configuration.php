@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
 /**
  * Title: WordPress iDEAL configuration
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\WordPress\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Configuration {
+class Pronamic_WordPress_IDeal_Configuration {
 	/**
 	 * Unique ID of configuration
 	 * 
@@ -74,13 +72,7 @@ class Configuration {
 		$name = '';
 
 		$variant = $this->getVariant();
-		if($variant != null) {
-			$provider = $variant->getProvider();
-			
-			if($provider != null) {
-				$name .= $provider->getName() . ' - ';
-			}
-			
+		if($variant != null) {			
 			$name .= $variant->getName();
 		}
 

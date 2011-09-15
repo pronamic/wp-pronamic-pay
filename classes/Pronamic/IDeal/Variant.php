@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal;
-
 /**
  * Title: Variant
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Variant {
+class Pronamic_IDeal_Variant {
 	/**
 	 * The company who is providing this variant
 	 * 
@@ -109,9 +107,9 @@ class Variant {
 
 	public function getPaymentServerUrl($mode = IDeal::MODE_LIVE) {
 		switch($mode) {
-			case IDeal::MODE_LIVE:
+			case Pronamic_IDeal_IDeal::MODE_LIVE:
 				return $this->liveSettings->paymentServerUrl;
-			case IDeal::MODE_TEST:
+			case Pronamic_IDeal_IDeal::MODE_TEST:
 				return $this->testSettings->paymentServerUrl;
 		}
 	}
@@ -120,9 +118,9 @@ class Variant {
 
 	public function getDashboardUrl($mode = IDeal::MODE_LIVE) {
 		switch($mode) {
-			case IDeal::MODE_LIVE:
+			case Pronamic_IDeal_IDeal::MODE_LIVE:
 				return $this->liveSettings->dashboardUrl;
-			case IDeal::MODE_TEST:
+			case Pronamic_IDeal_IDeal::MODE_TEST:
 				return $this->testSettings->dashboardUrl;
 		}
 	}

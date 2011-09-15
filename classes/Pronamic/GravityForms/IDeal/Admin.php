@@ -1,7 +1,5 @@
 <?php
 
-namespace Pronamic\WordPress\IDeal;
-
 /**
  * Title: Gravity Forms iDEAL Add-On admin
  * Description: 
@@ -10,7 +8,7 @@ namespace Pronamic\WordPress\IDeal;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Admin {
+class Pronamic_GravityForms_IDeal_Admin {
 	/**
 	 * Bootstrap
 	 */

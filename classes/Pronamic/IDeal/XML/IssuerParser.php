@@ -1,9 +1,5 @@
 <?php
 
-namespace Pronamic\IDeal\XML;
-
-use Pronamic\IDeal\Issuer;
-
 /**
  * Title: Issuer XML parser
  * Description: 
@@ -12,10 +8,10 @@ use Pronamic\IDeal\Issuer;
  * @author Remco Tolsma
  * @version 1.0
  */
-class IssuerParser extends Parser {
-	public static function parse(\SimpleXMLElement $xml, $issuer = null) {
-		if(!$issuer instanceof Issuer) {
-			$issuer = new Issuer();
+class Pronamic_IDeal_XML_IssuerParser extends Pronamic_IDeal_XML_Parser {
+	public static function parse(SimpleXMLElement $xml, $issuer = null) {
+		if(!$issuer instanceof Pronamic_IDeal_Issuer) {
+			$issuer = new Pronamic_IDeal_Issuer();
 		}
 
 		if($xml->issuerID) {

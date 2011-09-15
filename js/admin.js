@@ -1,6 +1,6 @@
 (function($) {
 	/**
-	 * Pronamic Google Maps meta box prototype
+	 * Gravity Forms iDEAL feed editor
 	 */
 	var GravityFormsIDealFeedEditor = function(element, options) {
 		var obj = this;
@@ -11,6 +11,7 @@
 		elements.feed = element.find("#gf_ideal_feed");
 		elements.gravityForm = element.find("#gf_ideal_gravity_form");
 		elements.formId = element.find("#gf_ideal_form_id");
+		elements.configurationId = element.find("#gf_ideal_configuration_id");
 		elements.conditionEnabled = element.find("#gf_ideal_condition_enabled");
 		elements.conditionConfig = element.find("#gf_ideal_condition_config");
 		elements.conditionFieldId = element.find("#gf_ideal_condition_field_id");
@@ -139,9 +140,20 @@
 		};
 		
 		/**
+		 * Update configuration
+		 */
+		this.updateConfigurationFields = function() {
+			var method = elements.configurationId.find("option:selected").attr("data-ideal-method");
+
+			element.find(".extra-settings").hide();
+			element.find(".method-" + method).show();
+		};
+		
+		/**
 		 * Update fields
 		 */
 		this.updateFields = function() {
+			obj.updateConfigurationFields();
 			obj.toggleConditionConfig();
 			obj.updateConditionFields();
 			obj.updateConditionValues();
@@ -152,7 +164,7 @@
 		obj.updateFields();
 
 		elements.formId.change(obj.changeForm);
-
+		elements.configurationId.change(obj.updateConfigurationFields);
 		elements.conditionEnabled.change(obj.toggleConditionConfig);
 		elements.conditionFieldId.change(obj.updateConditionValues);
 	};
@@ -160,17 +172,68 @@
 	//////////////////////////////////////////////////
 
 	/**
-	 * jQuery plugin - Pronamic Google Maps geocoder
+	 * jQuery plugin - Gravity Forms iDEAL feed editor
 	 */
 	$.fn.gravityFormsIdealFeedEditor = function(options) {
 		return this.each(function() {
 			var element = $(this);
 
-			if(element.data('gf-ideal-feed-editor')) return;
+			if(element.data("gf-ideal-feed-editor")) return;
 
 			var editor = new GravityFormsIDealFeedEditor(this, options);
 
-			element.data('gf-ideal-feed-editor', editor);
+			element.data("gf-ideal-feed-editor", editor);
+		});
+	};
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Pronamic iDEAL configuration prototype
+	 */
+	var PronamicIDealConfigurationEditor = function(element, options) {
+		var obj = this;
+		var element = $(element);
+
+		// Elements
+		var elements = {};
+		elements.variantId = element.find("#pronamic_ideal_variant_id");
+
+		/**
+		 * Update configuration
+		 */
+		this.updateConfigurationFields = function() {
+			var method = elements.variantId.find("option:selected").attr("data-ideal-method");
+
+			element.find(".extra-settings").hide();
+			element.find(".method-" + method).show();
+		};
+		
+		/**
+		 * Update fields
+		 */
+		this.updateFields = function() {
+			obj.updateConfigurationFields();
+		};
+
+		// Function calls
+		obj.updateFields();
+
+		elements.variantId.change(obj.updateConfigurationFields);
+	};
+
+	/**
+	 * jQuery plugin - Pronamic iDEAL configuration editor
+	 */
+	$.fn.pronamicIdealConfigurationEditor = function(options) {
+		return this.each(function() {
+			var element = $(this);
+
+			if(element.data("pronamic-ideal-configuration-editor")) return;
+
+			var editor = new PronamicIDealConfigurationEditor(this, options);
+
+			element.data("pronamic-ideal-configuration-editor", editor);
 		});
 	};
 
@@ -187,5 +250,6 @@
 		}); 
 		
 		$("#gf-ideal-feed-editor").gravityFormsIdealFeedEditor();
+		$("#pronamic-ideal-configration-editor").pronamicIdealConfigurationEditor();
 	});
 })(jQuery);
