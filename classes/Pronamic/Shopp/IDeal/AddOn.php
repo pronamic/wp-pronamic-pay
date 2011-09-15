@@ -13,14 +13,29 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_action('shopp_loaded', array(__CLASS__, 'loaded'));
-		add_action('shopp_init', array(__CLASS__, 'init'));
+		if(self::isShoppSupported()) {
+			add_action('shopp_init', array(__CLASS__, 'init'));
+		}
 	}
-	
-	public static function loaded() {
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Checks if Shopp is supported
+	 * 
+	 * @return true if Shopp is supported, false otherwise
+	 */
+	public static function isShoppSupported() {
+		global $Shopp;
+
+		return isset($Shopp);
 	}
-	
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Shopp init
+	 */
 	public static function init() {
 		global $Shopp;
 		

@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.6';
+	const VERSION = 'beta-0.6.1';
 
 	//////////////////////////////////////////////////
 
@@ -100,7 +100,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Gravity Forms Add-On
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
-			Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			// Pronamic_Shopp_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
@@ -118,7 +118,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
-		
+
+		// Show license message if the license is not valid
 		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
 	}
 
