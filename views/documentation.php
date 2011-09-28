@@ -55,6 +55,20 @@
 				)
 			)
 		) , 
+		'mollie.nl' => array(
+			'name' => 'Mollie' ,
+			'url' => 'http://mollie.nl/' , 
+			'files' => array(
+				array(
+					'url' => 'http://www.mollie.nl/support/documentatie/betaaldiensten/ideal/lite/' ,
+					'name' => 'iDEAL Lite/Basic' 
+				) , 
+				array(
+					'url' => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/' ,
+					'name' => 'iDEAL Professional/Advanced' 
+				)
+			)
+		) , 
 		'ogone.nl' => array(
 			'name' => 'Ogone' ,
 			'url' => 'http://www.ogone.nl/' ,

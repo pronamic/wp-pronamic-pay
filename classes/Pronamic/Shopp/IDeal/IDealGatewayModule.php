@@ -140,7 +140,7 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 	}
 
 	function submit ($tag=false,$options=array(),$attrs=array()) {
-		$tag[$this->settings['label']] = '<input type="image" name="process" src="'.$this->buttonurl.'" alt="iDeal" width="75" height="75" '.inputattrs($options,$attrs).' />';
+		$tag[$this->settings['label']] = '<input type="image" name="process" src="'.$this->buttonurl.'" alt="iDEAL" width="75" height="75" '.inputattrs($options,$attrs).' />';
 		return $tag;
 	}
 
@@ -157,7 +157,7 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 		$result = '';
 		if ($banks = $Response->tag('bank')) {
 			$result .= '<div id="idealmollie-fields">';
-			$result .= '<h3 class="mast" for="idealmollie-bank">'.__('iDeal Payment','Shopp').'</h3>';
+			$result .= '<h3 class="mast" for="idealmollie-bank">'.__('iDEAL Payment','Shopp').'</h3>';
 			$result .= '<span><select name="idealmollie-bank" id="idealmollie-bank">';
 			while($bank = $banks->each()) {
 				$id = $bank->content('bank_id');
@@ -165,7 +165,7 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
  				$result .= '<option value="'.$id.'">'.$name.'</option>';
 			}
 			$result .= '</select>';
-			$result .= '<label for="idealmollie-bank">'.__('iDeal Bank','Shopp').'</label></span>';
+			$result .= '<label for="idealmollie-bank">'.__('iDEAL Bank','Shopp').'</label></span>';
 			$result .= '</div>';
 		}
 

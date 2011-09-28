@@ -32,6 +32,67 @@ class Pronamic_WordPress_IDeal_Configuration {
 	
 	public $privateCertificate;
 
+
+	//////////////////////////////////////////////////
+	// Variables for generatoring private key and certficate
+	//////////////////////////////////////////////////
+
+	/**
+	 * Number of days the certificate should be valid
+	 * 
+	 * @var int
+	 */
+	public $numberDaysValid;
+	
+	/**
+	 * Country name
+	 * 
+	 * @var string
+	 */
+	public $countryName;
+	
+	/**
+	 * State or province
+	 * 
+	 * @var string
+	 */
+	public $stateOrProvince;
+	
+	/**
+	 * Locality name
+	 * 
+	 * @var string
+	 */
+	public $localityName;
+	
+	/**
+	 * Organization name
+	 * 
+	 * @var string
+	 */
+	public $organizationName;
+	
+	/**
+	 * Organization unit name
+	 * 
+	 * @var string
+	 */
+	public $organizationUnitName;
+
+	/**
+	 * Common name
+	 * 
+	 * @var string
+	 */
+	public $commonName;
+
+	/**
+	 * E-mail address
+	 * 
+	 * @var string
+	 */
+	public $eMailAddress;
+
 	//////////////////////////////////////////////////
 
 	/**
