@@ -45,7 +45,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 		</table>
 	</div>
 
-	<?php if($configuration->variant instanceof Pronamic_IDeal_VariantAdvanced): ?>
+	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantAdvanced): ?>
 
 	<div>
 		<h3>
@@ -99,71 +99,63 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	
 	<?php endif; ?>
 
-	<?php if(false): ?>
+	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantBasic): ?>
 	
 	<h3>
 		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h3>
 
-	<table cellspacing="0" class="widefat fixed">
+	<?php $testsLink = admin_url(Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink($configuration->getId())); ?>
 
-		<?php foreach(array('thead', 'tfoot') as $tag): ?>
-
-		<<?php echo $tag; ?>>
-			<tr>
-				<th scope="col" class="manage-column"><?php _e('Test', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Action', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-			</tr>
-		</<?php echo $tag; ?>>
-
-		<?php endforeach; ?>
-
-		<tbody>
-		
-			<?php foreach(array(1, 2, 3, 4, 5, 6, 7) as $testCase): ?>
+	<?php foreach(array(1, 2, 3, 4, 5, 6, 7) as $testCase): ?>
 	
-			<tr>
-				<?php 
+	<?php 
 				
-				$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+	$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
 			
-				/*
+	$iDeal = new Pronamic_IDeal_Basic();
+	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+	$iDeal->setMerchantId($configuration->getMerchantId());
+	$iDeal->setSubId($configuration->getSubId());
+	$iDeal->setLanguage('nl');
+	$iDeal->setHashKey($configuration->hashKey);
+	$iDeal->setCurrency('EUR');
+	$iDeal->setPurchaseId(uniqid('test-' . $testCase));
+	$iDeal->setDescription('Test ' . $testCase);
 
-				$iDeal = Gravity_Forms_IDeal::getIDealForFeed($feed);
-			
-				$item = new Pronamic_IDealBasic_Item();
-				$item->setNumber($testCase);
-				$item->setDescription($name);
-				$item->setPrice($testCase);
-				$item->setNumber(1);
-			
-				$iDeal->addItem($item);
-				
-				*/
-				
-				?>
-				<th scope="row">
-					<?php echo $name; ?>
-				</th>
-				<td>
-					<form method="post" action="<?php // echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank">
-						<?php // echo $iDeal->getHtmlFields(); ?>
-						
-						<?php 
-						
-						$text = __('Execute', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
-				
-						submit_button($text, 'secondary', 'submit', false); 
-						
-						?>
-					</form>
-				</td>
-			</tr>
+	// Success URL
+	$url = add_query_arg('status', 'success', $testsLink);
+	$iDeal->setSuccessUrl($url);
+
+	// Cancel URL
+	$url = add_query_arg('status', 'cancel', $testsLink);
+	$iDeal->setCancelUrl($url);
+
+	// Error URL
+	$url = add_query_arg('status', 'error', $testsLink);
+	$iDeal->setErrorUrl($url);
+
+	// Test item
+	$item = new Pronamic_IDeal_Basic_Item();
+	$item->setNumber($testCase);
+	$item->setDescription($name);
+	$item->setPrice($testCase);
+	$item->setQuantity(1);
+
+	$iDeal->addItem($item);
+	
+	?>
+	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
+		<?php 
 		
-			<?php endforeach; ?>
+		echo $iDeal->getHtmlFields(); 
 
-		</tbody>
-	</table>
+		submit_button($name, 'secondary', 'submit', false); 
+						
+		?>
+	</form>
+
+	<?php endforeach; ?>
 
 	<?php endif; ?>
 

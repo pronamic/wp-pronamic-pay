@@ -100,10 +100,10 @@ if($action == 'delete') {
 					</div>
 				</td>
 				<td>
-					<?php echo $configuration->merchantId; ?>
+					<?php echo $configuration->getMerchantId(); ?>
 				</td>
 				<td>
-					<?php echo $configuration->subId; ?>
+					<?php echo $configuration->getSubId(); ?>
 				</td>
 				<td>
 					<?php echo $configuration->mode; ?>

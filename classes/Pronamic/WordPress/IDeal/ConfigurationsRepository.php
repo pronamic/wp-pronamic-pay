@@ -76,6 +76,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 			private_key TEXT NULL ,
 			private_key_password VARCHAR(64) NULL ,
 			private_certificate TEXT NULL , 
+			meta LONGTEXT , 
 			PRIMARY KEY (id) 
 			) $charsetCollate;";
 
@@ -120,14 +121,24 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 
 		$configuration->setId($result->configurationId);
 		$configuration->setVariant(self::getVariantById($result->variantId));
-		$configuration->merchantId = $result->merchantId;
-		$configuration->subId = $result->subId;
+		$configuration->setMerchantId($result->merchantId);
+		$configuration->setSubId($result->subId);
 		$configuration->mode = $result->mode;
 		$configuration->hashKey = $result->hashKey;
 		$configuration->privateKey = $result->privateKey;
 		$configuration->privateKeyPassword = $result->privateKeyPassword;
 		$configuration->privateCertificate = $result->privateCertificate;
        	$configuration->numberPayments = $result->numberPayments;
+      	
+		$meta = json_decode($result->meta);
+
+		if(isset($meta->country)) $configuration->country = $meta->country;
+       	if(isset($meta->stateOrProvince)) $configuration->stateOrProvince = $meta->stateOrProvince;
+       	if(isset($meta->locality)) $configuration->locality = $meta->locality;
+       	if(isset($meta->organization)) $configuration->organization = $meta->organization;
+       	if(isset($meta->organizationUnit)) $configuration->organizationUnit = $meta->organizationUnit;
+       	if(isset($meta->commonName)) $configuration->commonName = $meta->commonName;
+       	if(isset($meta->eMailAddress)) $configuration->eMailAddress = $meta->eMailAddress;
 
 		return $configuration;
 	}
@@ -147,6 +158,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
         		configuration.private_key AS privateKey ,
         		configuration.private_key_password AS privateKeyPassword ,
         		configuration.private_certificate AS privateCertificate ,
+        		configuration.meta AS meta , 
         		COUNT(payment.id) AS numberPayments
 			FROM 
 	        	$configurationsTable AS configuration
@@ -238,16 +250,17 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 
 		$data = array( 
 			'variant_id' => $variantId , 
-			'merchant_id' => $configuration->merchantId ,
-			'sub_id' => $configuration->subId ,  
+			'merchant_id' => $configuration->getMerchantId() ,
+			'sub_id' => $configuration->getSubId() ,  
 			'mode' => $configuration->mode ,
 			'hash_key' => $configuration->hashKey ,
 			'private_key' => $configuration->privateKey ,
 			'private_key_password' => $configuration->privateKeyPassword , 
-			'private_certificate' => $configuration->privateCertificate 
+			'private_certificate' => $configuration->privateCertificate , 
+			'meta' => json_encode($configuration)
 		);
 
-		$format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
+		$format = array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
 
         if(empty($id)) {
             // Insert

@@ -13,9 +13,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		if(self::isShoppSupported()) {
-			add_action('shopp_init', array(__CLASS__, 'init'));
-		}
+		add_action('shopp_init', array(__CLASS__, 'init'));
 	}
 
 	//////////////////////////////////////////////////

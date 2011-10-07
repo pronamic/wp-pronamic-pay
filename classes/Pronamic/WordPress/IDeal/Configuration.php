@@ -16,9 +16,21 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 */
 	private $id;
 
-	public $variant;
+	/**
+	 * The iDEAL variant information
+	 * 
+	 * @var Pronamic_IDeal_Variant
+	 */
+	private $variant;
 
-	public $merchantId;
+	/**
+	 * The merchant ID
+	 * 
+	 * @var string
+	 */
+	private $merchantId;
+
+	//////////////////////////////////////////////////
 
 	public $subId;
 
@@ -31,7 +43,6 @@ class Pronamic_WordPress_IDeal_Configuration {
 	public $privateKeyPassword;
 	
 	public $privateCertificate;
-
 
 	//////////////////////////////////////////////////
 	// Variables for generatoring private key and certficate
@@ -49,7 +60,7 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 * 
 	 * @var string
 	 */
-	public $countryName;
+	public $country;
 	
 	/**
 	 * State or province
@@ -63,21 +74,21 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 * 
 	 * @var string
 	 */
-	public $localityName;
+	public $locality;
 	
 	/**
 	 * Organization name
 	 * 
 	 * @var string
 	 */
-	public $organizationName;
+	public $organization;
 	
 	/**
 	 * Organization unit name
 	 * 
 	 * @var string
 	 */
-	public $organizationUnitName;
+	public $organizationUnit;
 
 	/**
 	 * Common name
@@ -172,12 +183,32 @@ class Pronamic_WordPress_IDeal_Configuration {
 	}
 
 	/**
+	 * Set the merchant ID
+	 * 
+	 * @param $merchantId
+	 */
+	public function setMerchantId($merchantId) {
+		$this->merchantId = $merchantId;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get the sub ID
 	 * 
 	 * @return string
 	 */
 	public function getSubId() {
 		return $this->subId;
+	}
+
+	/**
+	 * Set the sub ID
+	 * 
+	 * @param string $subId
+	 */
+	public function setSubId($subId) {
+		$this->subId = $subId;
 	}
 
 	//////////////////////////////////////////////////

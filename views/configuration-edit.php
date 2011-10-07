@@ -20,18 +20,14 @@ if(empty($configuration->numberDaysValid)) {
 	$configuration->numberDaysValid = 365;
 }
 
-if(empty($configuration->countryName)) {
+if(empty($configuration->country)) {
 	$language = get_option('WPLANG', WPLANG);
 
 	$configuration->countryName = substr($language, 3);
 }
 
-if(empty($configuration->organizationName)) {
-	$configuration->organizationName = get_bloginfo('name');
-}
-
-if(empty($configuration->organizationName)) {
-	$configuration->organizationName = get_bloginfo('name');
+if(empty($configuration->organization)) {
+	$configuration->organization = get_bloginfo('name');
 }
 
 if(empty($configuration->eMailAddress)) {
@@ -44,8 +40,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	$variant = Pronamic_WordPress_IDeal_ConfigurationsRepository::getVariantById($variantId);
 	
 	$configuration->setVariant($variant);
-	$configuration->merchantId = filter_input(INPUT_POST, 'pronamic_ideal_merchant_id', FILTER_SANITIZE_STRING);
-	$configuration->subId = filter_input(INPUT_POST, 'pronamic_ideal_sub_id', FILTER_SANITIZE_STRING);
+	$configuration->setMerchantId(filter_input(INPUT_POST, 'pronamic_ideal_merchant_id', FILTER_SANITIZE_STRING));
+	$configuration->setSubId(filter_input(INPUT_POST, 'pronamic_ideal_sub_id', FILTER_SANITIZE_STRING));
 	$configuration->mode = filter_input(INPUT_POST, 'pronamic_ideal_mode', FILTER_SANITIZE_STRING);
 
 	// Basic
@@ -64,24 +60,44 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	
 	// Generator
 	$configuration->numberDaysValid = filter_input(INPUT_POST, 'pronamic_ideal_number_days_valid', FILTER_SANITIZE_STRING);
-	$configuration->countryName = filter_input(INPUT_POST, 'pronamic_ideal_country_name', FILTER_SANITIZE_STRING);
-	$configuration->stateOrProvince = filter_input(INPUT_POST, 'pronamic_ideal_state_or_province_name', FILTER_SANITIZE_STRING);
-	$configuration->localityName = filter_input(INPUT_POST, 'pronamic_ideal_locality_name', FILTER_SANITIZE_STRING);
-	$configuration->organizationName = filter_input(INPUT_POST, 'pronamic_ideal_organization_name', FILTER_SANITIZE_STRING);
-	$configuration->organizationUnitName = filter_input(INPUT_POST, 'pronamic_ideal_organization_unit_name', FILTER_SANITIZE_STRING);
+	$configuration->country = filter_input(INPUT_POST, 'pronamic_ideal_country', FILTER_SANITIZE_STRING);
+	$configuration->stateOrProvince = filter_input(INPUT_POST, 'pronamic_ideal_state_or_province', FILTER_SANITIZE_STRING);
+	$configuration->locality = filter_input(INPUT_POST, 'pronamic_ideal_locality', FILTER_SANITIZE_STRING);
+	$configuration->organization = filter_input(INPUT_POST, 'pronamic_ideal_organization', FILTER_SANITIZE_STRING);
+	$configuration->organizationUnit = filter_input(INPUT_POST, 'pronamic_ideal_organization_unit', FILTER_SANITIZE_STRING);
 	$configuration->commonName = filter_input(INPUT_POST, 'pronamic_ideal_common_name', FILTER_SANITIZE_STRING);
 	$configuration->eMailAddress = filter_input(INPUT_POST, 'pronamic_ideal_email_address', FILTER_SANITIZE_STRING);
 
 	if(isset($_POST['generate'])) {
-		$dn = array(
-			'countryName' => 'XX' , 
-			'stateOrProvinceName' => 'State' , 
-			'localityName' => 'SomewhereCity' , 
-			'organizationName' => 'MySelf' , 
-			'organizationalUnitName' => 'Whatever' , 
-			'commonName' => 'mySelf' , 
-			'emailAddress' => 'user@domain.com'
-		);
+		$dn = array();
+		
+		if(!empty($configuration->country)) {
+			$dn['countryName'] = $configuration->country;
+		}
+		
+		if(!empty($configuration->stateOrProvince)) {
+			$dn['stateOrProvinceName'] = $configuration->stateOrProvince;
+		}
+		
+		if(!empty($configuration->locality)) {
+			$dn['localityName'] = $configuration->locality;
+		}
+		
+		if(!empty($configuration->organization)) {
+			$dn['organizationName'] = $configuration->organization;
+		}
+		
+		if(!empty($configuration->organizationUnit)) {
+			$dn['organizationalUnitName'] = $configuration->organizationUnit;
+		}
+		
+		if(!empty($configuration->commonName)) {
+			$dn['commonName'] = $configuration->commonName;
+		}
+		
+		if(!empty($configuration->eMailAddress)) {
+			$dn['emailAddress'] = $configuration->eMailAddress;
+		}
 
 		$privateKeyResource = openssl_pkey_new();
 		if($privateKey !== false) {
@@ -185,7 +201,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</label>
 				</th>
 				<td>
-	                <input id="pronamic_ideal_merchant_id" name="pronamic_ideal_merchant_id" value="<?php echo $configuration->merchantId; ?>" type="text" />
+	                <input id="pronamic_ideal_merchant_id" name="pronamic_ideal_merchant_id" value="<?php echo $configuration->getMerchantId(); ?>" type="text" />
 
 					<span class="description">
 						<br />
@@ -200,7 +216,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</label>
 				</th>
 				<td>
-	                <input id="pronamic_ideal_sub_id" name="pronamic_ideal_sub_id" value="<?php echo $configuration->subId; ?>" type="text" />
+	                <input id="pronamic_ideal_sub_id" name="pronamic_ideal_sub_id" value="<?php echo $configuration->getSubId(); ?>" type="text" />
 
 					<span class="description">
 						<br />
@@ -279,8 +295,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</th>
 					<td>
 						<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
-						<a href="#"><?php _e('Download Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></a>
-						<br />
+						<?php 
+
+						submit_button(
+							__('Download Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+							'secondary' , 'download_private_key' 
+						);
+
+						?>
 						<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
 					</td>
 				</tr>
@@ -292,8 +314,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</th>
 					<td>
 						<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
-						<a href="#"><?php _e('Download Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></a>
-						<br />
 						<?php 
 						
 						if(!empty($configuration->privateCertificate)) {
@@ -304,22 +324,29 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 							echo sprintf(__('SHA Fingerprint: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $fingerprint), '<br />';
 						}
 
+						submit_button(
+							__('Download Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+							'secondary' , 'download_private_certificate'
+						);
+
 						?>
 						<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
 					</td>
 				</tr>
 			</table>
-		
-			<?php 
-			
-			submit_button(
-				empty($configuration->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-				'primary' , 
-				'submit'
-			);
-		
-			?>
+		</div>
 
+		<?php 
+		
+		submit_button(
+			empty($configuration->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'primary' , 
+			'submit'
+		);
+	
+		?>
+
+		<div class="extra-settings method-advanced">
 			<h4>
 				<?php _e('Private Key and Certificate Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 			</h4>
@@ -353,11 +380,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_country_name">
-							<?php _e('Country Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Country', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</th>
 					<td> 
-						<input id="pronamic_ideal_country_name" name="pronamic_ideal_country_name" value="<?php echo $configuration->countryName; ?>" type="text" />
+						<input id="pronamic_ideal_country" name="pronamic_ideal_country" value="<?php echo $configuration->country; ?>" type="text" />
 
 						<span class="description">
 							<br />
@@ -367,12 +394,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="pronamic_ideal_state_or_province_name">
-							<?php _e('State or Province Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<label for="pronamic_ideal_state_or_province">
+							<?php _e('State or Province', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</th>
 					<td> 
-						<input id="pronamic_ideal_state_or_province_name" name="pronamic_ideal_state_or_province_name" value="<?php echo $configuration->stateOrProvince; ?>" type="text" />
+						<input id="pronamic_ideal_state_or_province" name="pronamic_ideal_state_or_province" value="<?php echo $configuration->stateOrProvince; ?>" type="text" />
 
 						<span class="description">
 							<br />
@@ -382,12 +409,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="pronamic_ideal_locality_name">
-							<?php _e('Locality Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<label for="pronamic_ideal_locality">
+							<?php _e('Locality', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</th>
 					<td> 
-						<input id="pronamic_ideal_locality_name" name="pronamic_ideal_locality_name" value="<?php echo $configuration->localityName; ?>" type="text" />
+						<input id="pronamic_ideal_locality" name="pronamic_ideal_locality" value="<?php echo $configuration->locality; ?>" type="text" />
 
 						<span class="description">
 							<br />
@@ -397,12 +424,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="pronamic_ideal_organization_name">
-							<?php _e('Organization Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<label for="pronamic_ideal_organization">
+							<?php _e('Organization', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</th>
 					<td> 
-						<input id="pronamic_ideal_organization_name" name="pronamic_ideal_organization_name" value="<?php echo $configuration->organizationName; ?>" type="text" />
+						<input id="pronamic_ideal_organization" name="pronamic_ideal_organization" value="<?php echo $configuration->organization; ?>" type="text" />
 
 						<span class="description">
 							<br />
@@ -412,12 +439,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="pronamic_ideal_organization_unit_name">
-							<?php _e('Organization Unit Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<label for="pronamic_ideal_organization_unit">
+							<?php _e('Organization Unit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>
 					</th>
 					<td> 
-						<input id="pronamic_ideal_organization_unit_name" name="pronamic_ideal_organization_unit_name" value="<?php echo $configuration->organizationUnitName; ?>" type="text" />
+						<input id="pronamic_ideal_organization_unit" name="pronamic_ideal_organization_unit" value="<?php echo $configuration->organizationUnit; ?>" type="text" />
 
 						<span class="description">
 							<br />

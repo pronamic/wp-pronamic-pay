@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.6.1';
+	const VERSION = 'beta-0.6.2';
 
 	//////////////////////////////////////////////////
 
@@ -100,7 +100,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Gravity Forms Add-On
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
-			// Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
@@ -109,6 +110,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 		}
 
 		add_action('plugins_loaded', array(__CLASS__, 'setup'));
+		
+		// Initialize
+		add_action('init', array(__CLASS__, 'init'));
 		
 		// On parsing the query parameter handle an possible return from iDEAL
 		add_action('parse_query', array(__CLASS__, 'handleIDealReturn'));
@@ -121,6 +125,58 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Show license message if the license is not valid
 		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Initialize
+	 */
+	public static function init() {
+		self::maybeDownloadPrivateCertificate();
+		self::maybeDownloadPrivateKey();
+	}
+
+	/**
+	 * Download private certificate
+	 */
+	public static function maybeDownloadPrivateCertificate() {
+		if(isset($_POST['download_private_certificate'])) {
+			$id = filter_input(INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING);
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
+
+			if(!empty($configuration)) {
+				$filename = "ideal-private-certificate-" . $id . ".cer";
+
+				header('Content-Description: File Transfer');
+				header("Content-Disposition: attachment; filename=$filename");
+				header('Content-Type: application/x-x509-ca-cert; charset=' . get_option('blog_charset'), true);
+				echo $configuration->privateCertificate;
+				die();
+			}
+		}
+	}
+
+	/**
+	 * Download private key
+	 */
+	public static function maybeDownloadPrivateKey() {
+		if(isset($_POST['download_private_key'])) {
+			$id = filter_input(INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING);
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
+
+			if(!empty($configuration)) {
+				$filename = "ideal-private-key-" . $id . ".key";
+
+				header('Content-Description: File Transfer');
+				header("Content-Disposition: attachment; filename=$filename");
+				header('Content-Type: application/pgp-keys; charset=' . get_option('blog_charset'), true);
+				echo $configuration->privateKey;
+				die();
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -152,8 +208,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$message = new Pronamic_IDeal_XML_StatusRequestMessage();
 
 		$merchant = $message->getMerchant();
-		$merchant->id = $configuration->merchantId;
-		$merchant->subId = $configuration->subId;
+		$merchant->id = $configuration->getMerchantId();
+		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = home_url();
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);

@@ -55,6 +55,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= beta-0.6.2 =
+*	Gravity Forms iDEAL Lite button is now translatable
+*	For iDEAL Lite you can now easily run the mandatory tests
+*	Added an private key and certificate generator
+
 = beta-0.6.1 = 
 *	Improved the calculation of the Gravity Forms price fields and the total amount 
 

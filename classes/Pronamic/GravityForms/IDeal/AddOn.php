@@ -636,20 +636,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$variant = $configuration->getVariant();
 
 		$iDeal = new Pronamic_IDeal_Basic();
-		
-		// Payment server URL
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-		
-		// Merchant ID
-		$iDeal->setMerchantId($configuration->merchantId);
-		
-		// Sub ID
-		$iDeal->setSubId($configuration->subId);
-		
-		// Language
+		$iDeal->setMerchantId($configuration->getMerchantId());
+		$iDeal->setSubId($configuration->getSubId());
 		$iDeal->setLanguage('nl');
-		
-		// Hash key
 		$iDeal->setHashKey($configuration->hashKey);
 		
 		// Currency
@@ -720,7 +710,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, $nl2br);
         $html .= 	sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
         $html .= 	$iDeal->getHtmlFields();
-        $html .= '		<input type="submit" name="ideal" value="Betaal via iDEAL" />';
+        $html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
         $html .= '	</form>';
 		$html .= '</div>';
 

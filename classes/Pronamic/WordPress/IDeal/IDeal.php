@@ -75,8 +75,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 			
 			$message = new Pronamic_IDeal_XML_DirectoryRequestMessage();
 			$merchant = $message->getMerchant();
-			$merchant->id = $configuration->merchantId;
-			$merchant->subId = $configuration->subId;
+			$merchant->id = $configuration->getMerchantId();
+			$merchant->subId = $configuration->getSubId();
 			$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 			$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
@@ -155,8 +155,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$issuer->setId($issuerId);
 
 		$merchant = $message->getMerchant();
-		$merchant->id = $configuration->merchantId;
-		$merchant->subId = $configuration->subId;
+		$merchant->id = $configuration->getMerchantId();
+		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = home_url();
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
