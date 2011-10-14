@@ -87,9 +87,11 @@ $payments = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments();
 					<td>
 						<?php 
 						
-						$source = $payment->getSource() . '<br />' . $payment->getSourceId();
+						$text = $payment->getSource() . '<br />' . $payment->getSourceId();
+						$text = apply_filters('pronamic_ideal_source_column_' . $payment->getSource(), $text, $payment);
+						$text = apply_filters('pronamic_ideal_source_column', $text, $payment);
 						
-						echo apply_filters('pronamic_ideal_source_column', $source);
+						echo $text;
 						
 						?>
 					</td>

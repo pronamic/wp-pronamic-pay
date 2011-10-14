@@ -10,10 +10,23 @@
  */
 class Pronamic_WooCommerce_IDeal_AddOn {
 	/**
+	 * Slug
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'woocommerce';
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
 		add_filter('woocommerce_payment_gateways', array(__CLASS__, 'addGateway'));
+		
+		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+		
+		add_filter('pronamic_ideal_source_column_woocommerce', array(__CLASS__, 'sourceColumn'), 10, 2);
 	}
 
 	//////////////////////////////////////////////////
@@ -36,5 +49,63 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		$methods[] = 'Pronamic_WooCommerce_IDeal_IDealGateway';
 
 		return $methods;
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Update lead status of the specified payment
+	 * 
+	 * @param string $payment
+	 */
+	public static function updateStatus($payment) {
+		if($payment->getSource() == self::SLUG && self::isWooCommerceSupported()) {
+			$id = $payment->getSourceId();
+			$transaction = $payment->transaction;
+
+			$order = new woocommerce_order((int) $id);
+
+			if ($order->status !== 'completed') {
+				$status = $transaction->getStatus();
+
+				switch($status) {
+					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+						$order->update_status('cancelled', __('iDEAL payment cancelled.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+		            	// Payment completed
+		                $order->add_order_note(__('iDEAL payment completed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		                $order->payment_complete();
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_OPEN:
+						$order->update_status('open', __('iDEAL payment open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						break;
+					default:
+						$order->update_status('unknown', __('iDEAL payment unknown.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						break;
+				}
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Source column
+	 */
+	public static function sourceColumn($text, $payment) {
+		$text  = '';
+		$text .= __('WooCommerce', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= sprintf('<a href="%s">', get_edit_post_link($payment->getSourceId()));
+		$text .= sprintf(__('Order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= '</a>';
+
+		return $text;
 	}
 }

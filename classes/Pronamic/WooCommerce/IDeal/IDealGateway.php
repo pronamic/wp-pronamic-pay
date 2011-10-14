@@ -34,14 +34,14 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$this->init_settings();
 		
 		// Define user set variables
-		$this->title 			= $this->settings['title'];
-		$this->description      = $this->settings['description'];
+		$this->title = $this->settings['title'];
+		$this->description = $this->settings['description'];
 		$this->configurationId = $this->settings['configuration_id'];
 		
 		// Actions
 		add_action('woocommerce_update_options_payment_gateways', array(&$this, 'process_admin_options'));
-    	add_action('woocommerce_thankyou_' . self::ID, array(&$this, 'thankyou_page'));
-		add_action('woocommerce_receipt_' . self::ID, array(&$this, 'receipt_page'));
+
+		add_action('woocommerce_receipt_' . self::ID, array(&$this, 'receiptPage'));
     } 
 
 	/**
@@ -56,27 +56,27 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     
     	$this->form_fields = array(
     		'enabled' => array(
-				'title' => __( 'Enable/Disable', 'woothemes' ) , 
+				'title' => __('Enable/Disable', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'checkbox' , 
-				'label' => __( 'Enable iDEAL', 'woothemes' ) , 
-				'default' => 'yes'
+				'label' => __( 'Enable iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'default' => 'yes' 
 			) ,  
 			'title' => array(
-				'title' => __( 'Title', 'woothemes' ) , 
+				'title' => __('Title', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'text' , 
-				'description' => __( 'This controls the title which the user sees during checkout.', 'woothemes' ) , 
-				'default' => __( 'iDEAL', 'woothemes' ) 
+				'description' => '<br />' . __('This controls the title which the user sees during checkout.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'default' => __( 'iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
 			) , 
 			'description' => array(
-				'title' => __( 'Customer Message', 'woothemes' ) , 
+				'title' => __( 'Customer Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'textarea' , 
-				'description' => __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'woothemes' ) , 
-				'default' => __('Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order wont be shipped until the funds have cleared in our account.', 'woothemes')
+				'description' => '<br />' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'default' => __('With iDEAL you can easily pay online in the secure environment of your own bank.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
 			) , 
 			'configuration_id' => array(
-				'title' => __( 'Configuration', 'woothemes' ) , 
+				'title' => __( 'Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'select' , 
-				'description' => __( 'Select an iDEAL configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'description' => '<br />' . __( 'Select an iDEAL configuration.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'default' => '' , 
 				'options' => $configurationOptions 
 			)
@@ -94,7 +94,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 	public function admin_options() {
     	?>
     	<h3>
-    		<?php _e('Pronamic iDEAL', 'woothemes'); ?>
+    		<?php _e('Pronamic iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
     	</h3>
     	
     	<table class="form-table">
@@ -112,27 +112,128 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		if($this->description) {
 			echo wpautop(wptexturize($this->description));
 		}
+
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
+
+			if($variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
+				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
+				
+				if($lists) {
+					?>
+					<p>
+						<label for="pronamic_ideal_issuer_id">
+							<?php _e('Choose your bank', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+						
+						<?php echo Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists); ?>
+					</p>
+					<?php 
+				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
+					?>
+					<div class="woocommerce_error">
+						<?php echo $error->getConsumerMessage(); ?>
+					</div>
+					<?php
+				} else {
+					?>
+					<div class="woocommerce_error">
+						<?php echo __('Paying with iDEAL is not possible. Please try again later or pay another way.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					</div>
+					<?php 
+				}
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Thankyou page
-	 */
-    function thankyou_page() {
-		if($this->description) {
-			echo wpautop(wptexturize($this->description));
-		}
-    }
 	
 	/**
 	 * receipt_page
 	 **/
-	function receipt_page( $order ) {
+	function receiptPage( $order_id ) {
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
+	
+			if($variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_BASIC) {
 		
-		echo '<p>'.__('Thank you for your order, please click the button below to pay with iDEAL.', 'woothemes').'</p>';
+				global $woocommerce;
+				
+				$order = &new woocommerce_order( $order_id );
 		
+				echo '<p>'.__('Thank you for your order, please click the button below to pay with iDEAL.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN).'</p>';
 		
+				$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
+				
+				if($configuration !== null) {
+					$iDeal = new Pronamic_IDeal_Basic();
+					$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+					$iDeal->setMerchantId($configuration->getMerchantId());
+					$iDeal->setSubId($configuration->getSubId());
+					$iDeal->setLanguage('nl');
+					$iDeal->setHashKey($configuration->hashKey);
+					$iDeal->setCurrency(get_option('woocommerce_currency'));	
+			        $iDeal->setPurchaseId($order_id);
+			        $iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order_id));
+		
+					foreach($order->items as $item) {
+						$product = $order->get_product_from_item($item);
+
+						$description = $item['name'];
+						
+						if(isset($item['item_meta'])) {
+							if($meta = woocommerce_get_formatted_variation($item['item_meta'], true)) {
+								$description .= ' (' . $meta . ')';
+							}
+						}
+		
+			        	$iDealItem = new Pronamic_IDeal_Basic_Item();
+		    	    	$iDealItem->setNumber($product->sku);
+		        		$iDealItem->setDescription($item['name']);
+		        		$iDealItem->setPrice($item['cost']);
+		        		$iDealItem->setQuantity($item['qty']);
+		
+		        		$iDeal->addItem($iDealItem);
+					}
+					
+					if($order->order_shipping > 0) {
+			        	$iDealItem = new Pronamic_IDeal_Basic_Item();
+		    	    	$iDealItem->setNumber(__('shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		        		$iDealItem->setDescription(__('Shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		        		$iDealItem->setPrice($order->order_shipping);
+		        		$iDealItem->setQuantity(1);
+		
+		        		$iDeal->addItem($iDealItem);
+					}
+		
+			        // Update payment
+					$transaction = new Pronamic_IDeal_Transaction();
+					$transaction->setAmount($iDeal->getAmount()); 
+					$transaction->setCurrency($iDeal->getCurrency());
+					$transaction->setLanguage('nl');
+					$transaction->setEntranceCode(uniqid());
+					$transaction->setDescription($iDeal->getDescription());
+		
+					$payment = new Pronamic_WordPress_IDeal_Payment();
+					$payment->configuration = $configuration;
+					$payment->transaction = $transaction;
+					$payment->setSource('woocommerce', $order_id);
+		
+					$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+		
+			        // HTML
+			        $html  = '';
+			        $html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
+			        $html .= 	$iDeal->getHtmlFields();
+			        $html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+			        $html .= '</form>';
+			        
+			        echo $html;
+				}
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -144,20 +245,50 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     	global $woocommerce;
     	
 		$order = &new woocommerce_order( $order_id );
-		
-		// Mark as on-hold (we're awaiting the payment)
-		$order->update_status('on-hold', __('Awaiting BACS payment', 'woothemes'));
-		
-		// Remove cart
-		$woocommerce->cart->empty_cart();
-		
-		// Empty awaiting payment session
-		unset($_SESSION['order_awaiting_payment']);
-		
-		// Return thankyou redirect
+
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
+	
+			if($variant !== null) {
+				switch($variant->getMethod()) {
+					case Pronamic_IDeal_IDeal::METHOD_BASIC:
+						return $this->processIDealBasicPayment($order, $configuration, $variant);
+					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
+						return $this->processIDealAdvancedPayment($order, $configuration, $variant);
+				}
+			}
+		}
+    }
+    
+    private function processIDealBasicPayment($order, $configuration, $variant) {
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('key', $order->order_key, add_query_arg('order', $order_id, get_permalink(get_option('woocommerce_thanks_page_id'))))
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
+		);
+    }
+    
+    private function processIDealAdvancedPayment($order, $configuration, $variant) {
+		$transaction = new Pronamic_IDeal_Transaction();
+		$transaction->setAmount($order->order_total); 
+		$transaction->setCurrency(get_option('woocommerce_currency'));
+		$transaction->setExpirationPeriod('PT1H');
+		$transaction->setLanguage('nl');
+		$transaction->setEntranceCode(uniqid());
+		$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
+
+		$payment = new Pronamic_WordPress_IDeal_Payment();
+		$payment->configuration = $configuration;
+		$payment->transaction = $transaction;
+		$payment->setSource('woocommerce', $order->id);
+
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+
+		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
+
+		return array(
+			'result' 	=> 'success',
+			'redirect'	=> $url
 		);
     }
 }

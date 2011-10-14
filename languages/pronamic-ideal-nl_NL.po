@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-05 10:20+0100\n"
-"PO-Revision-Date: 2011-10-05 10:21+0100\n"
+"POT-Creation-Date: 2011-10-14 16:10+0100\n"
+"PO-Revision-Date: 2011-10-14 16:10+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -62,13 +62,13 @@ msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 
 #: views/settings.php:115
-#: views/configuration-edit.php:341
+#: views/configuration-edit.php:342
 #: views/gravityforms/feed-edit.php:315
 msgid "Save"
 msgstr "Opslaan"
 
 #: views/settings.php:115
-#: views/configuration-edit.php:341
+#: views/configuration-edit.php:342
 #: views/gravityforms/feed-edit.php:315
 msgid "Update"
 msgstr "Update"
@@ -354,7 +354,7 @@ msgid "Hash Key"
 msgstr "Hash sleutel"
 
 #: views/configuration-edit.php:283
-#: views/configuration-edit.php:356
+#: views/configuration-edit.php:358
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
@@ -379,79 +379,79 @@ msgstr "SHA vingerafdruk: %s"
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/configuration-edit.php:349
+#: views/configuration-edit.php:351
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/configuration-edit.php:366
+#: views/configuration-edit.php:368
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/configuration-edit.php:374
+#: views/configuration-edit.php:376
 msgid "specify the length of time for which the generated certificate will be valid, in days. "
 msgstr "specificieer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/configuration-edit.php:381
+#: views/configuration-edit.php:383
 msgid "Country"
 msgstr "Land"
 
-#: views/configuration-edit.php:389
+#: views/configuration-edit.php:391
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/configuration-edit.php:396
+#: views/configuration-edit.php:398
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/configuration-edit.php:404
+#: views/configuration-edit.php:406
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/configuration-edit.php:411
+#: views/configuration-edit.php:413
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/configuration-edit.php:419
+#: views/configuration-edit.php:421
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/configuration-edit.php:426
+#: views/configuration-edit.php:428
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/configuration-edit.php:434
+#: views/configuration-edit.php:436
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/configuration-edit.php:441
+#: views/configuration-edit.php:443
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/configuration-edit.php:449
+#: views/configuration-edit.php:451
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/configuration-edit.php:456
+#: views/configuration-edit.php:458
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/configuration-edit.php:464
+#: views/configuration-edit.php:466
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/configuration-edit.php:465
+#: views/configuration-edit.php:467
 msgid "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website."
 msgstr "Heb je een iDEAL abonnement bij de Rabobank of ING bank, vul dan de domeinnaam van deze website in."
 
-#: views/configuration-edit.php:466
+#: views/configuration-edit.php:468
 msgid "Do you have an iDEAL subscription with ABN AMRO, please fill in \"ideal_<strong>company</strong>\", where \"company\" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters."
 msgstr "Heb je een iDEAL abonnement bij ABN AMRO, vul dan \"ideal_<strong>bedrijf</strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/configuration-edit.php:473
+#: views/configuration-edit.php:475
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/configuration-edit.php:485
+#: views/configuration-edit.php:487
 msgid "Generate"
 msgstr "Genereer"
 
@@ -649,12 +649,12 @@ msgstr "URL:"
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:348
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:349
 #, php-format
 msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
 msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:353
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:354
 msgid "iDEAL settings page"
 msgstr "iDEAL instellingen pagina"
 
@@ -668,6 +668,7 @@ msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:34
 #: classes/Pronamic/WordPress/IDeal/Admin.php:35
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:68
 msgid "iDEAL"
 msgstr "iDEAL"
 
@@ -695,6 +696,103 @@ msgstr "Documentatie"
 msgid "Configurations"
 msgstr "Configuraties"
 
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:73
+msgid "iDEAL payment cancelled."
+msgstr "iDEAL betaling geannuleerd."
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:76
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:79
+msgid "iDEAL payment expired."
+msgstr "iDEAL betaling verlopen."
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:83
+msgid "iDEAL payment completed."
+msgstr "iDEAL betaling voltooid."
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:87
+msgid "iDEAL payment open."
+msgstr "iDEAL betaling open."
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:90
+msgid "iDEAL payment unknown."
+msgstr "iDEAL betaling onbekend."
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:104
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:106
+#, php-format
+msgid "Order #%s"
+msgstr "Bestelling #%s"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
+msgid "Pronamic iDEAL"
+msgstr "Pronamic iDEAL"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:59
+msgid "Enable/Disable"
+msgstr "Inschakelen/uitschakelen"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:61
+msgid "Enable iDEAL"
+msgstr "iDEAL inschakelen"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:65
+msgid "Title"
+msgstr "Titel"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:67
+msgid "This controls the title which the user sees during checkout."
+msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:71
+msgid "Customer Message"
+msgstr "Klant  bericht"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73
+msgid "Give the customer instructions for paying via iDEAL, and let them know that their order won't be shipping until the money is received."
+msgstr "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:74
+msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
+msgstr "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de veilige omgeving van uw eigen bank."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:79
+msgid "Select an iDEAL configuration."
+msgstr "Selecteer een iDEAL configuratie."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:127
+msgid "Choose your bank"
+msgstr "Kies uw bank"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:142
+msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
+msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op een andere manier."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:166
+msgid "Thank you for your order, please click the button below to pay with iDEAL."
+msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te betalen met iDEAL."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:179
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:278
+#, php-format
+msgid "Order %s"
+msgstr "Bestelling %s"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:203
+msgid "shipping"
+msgstr "verzending"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:204
+msgid "Shipping"
+msgstr "Verzending"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:230
+msgid "Pay with iDEAL"
+msgstr "Betaal met iDEAL"
+
 #: classes/Pronamic/Shopp/IDeal/IDealGatewayModule.php:96
 msgid "There is not enough customer information to process the order."
 msgstr ""
@@ -719,10 +817,6 @@ msgstr "Creëer iDEAL feed"
 msgid "Edit iDEAL feed"
 msgstr "Bewerk iDEAL feed"
 
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:74
-msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
-msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op een andere manier."
-
 #: classes/Pronamic/GravityForms/IDeal/Fields.php:96
 msgid "Issuer Drop Down"
 msgstr "Issuer Drop Down"
@@ -731,9 +825,8 @@ msgstr "Issuer Drop Down"
 msgid "iDEAL Fields"
 msgstr "iDEAL velden"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:723
-msgid "Pay with iDEAL"
-msgstr "Betaal met iDEAL"
+#~ msgid "Awaiting iDEAL payment"
+#~ msgstr "In afwachting van iDEAL betaling"
 
 #~ msgid "Action"
 #~ msgstr "Actie"
@@ -887,9 +980,6 @@ msgstr "Betaal met iDEAL"
 #~ msgid "Blocks"
 #~ msgstr "Blokken"
 
-#~ msgid "Pronamic"
-#~ msgstr "Pronamic"
-
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://pronamic.nl/"
 
@@ -931,9 +1021,6 @@ msgstr "Betaal met iDEAL"
 
 #~ msgid "T: %s"
 #~ msgstr "T: %s"
-
-#~ msgid "Title"
-#~ msgstr "Titel"
 
 #~ msgid "Latitude"
 #~ msgstr "Breedtegraad"

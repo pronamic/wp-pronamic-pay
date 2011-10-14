@@ -688,8 +688,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         // Update payment
 		$transaction = new Pronamic_IDeal_Transaction();
-		$transaction->setAmount(GFCommon::get_order_total($form, $lead)); 
-		$transaction->setCurrency(GFCommon::get_currency());
+		$transaction->setAmount($iDeal->getAmount()); 
+		$transaction->setCurrency($iDeal->getCurrency());
 		$transaction->setLanguage('nl');
 		$transaction->setEntranceCode(uniqid());
 
