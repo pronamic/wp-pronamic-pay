@@ -118,9 +118,68 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		return $payment;
 	}
 	
-	private function getPaymentQuery($condition = '') {
+	private function getPaymentQuery($query = array()) {
+		global $wpdb;
+
 		$table = self::getPaymentsTableName();
 
+		$query = wp_parse_args($query, array(
+			'payment_id' => null , 
+			'transaction_id' => null , 
+			'entrance_code' => null , 
+			'source' => null , 
+			'source_id' => null , 
+			'number' => null , 
+			'offset' => null ,
+			'orderby' => 'date_gmt' , 
+			'order' => null 
+		));
+
+		// Where
+		$where = ' WHERE 1 = 1';
+
+		if(isset($query['payment_id'])) {
+			$where .= $wpdb->prepare(' AND payment.id = %s', $query['payment_id']);
+		}
+		
+		if(isset($query['transaction_id'])) {
+			$where .= $wpdb->prepare(' AND payment.transaction.id = %s', $query['transaction_id']);
+		}
+
+		if(isset($query['entrance_code'])) {
+			$where .= $wpdb->prepare(' AND payment.entrance_code = %s', $query['entrance_code']);
+		}
+
+		if(isset($query['source'])) {
+			$where .= $wpdb->prepare(' AND payment.source = %s', $query['source']);
+		}
+
+		if(isset($query['source_id'])) {
+			$where .= $wpdb->prepare(' AND payment.source_id = %s', $query['source_id']);
+		}
+		
+		// Limit
+		$limit = '';
+		if(isset($query['number'])) {
+			if(isset($query['offset'])) {
+				$limit = $wpdb->prepare("LIMIT %d, %d", $query['offset'], $query['number']);
+			} else {
+				$limit = $wpdb->prepare("LIMIT %d", $query['number']);
+			}
+		}
+
+		// Order by
+		$query['order'] = strtoupper($query['order']);
+		if($query['order'] == 'ASC') {
+			$order = 'ASC';
+		} else {
+			$order = 'DESC';
+		}
+
+		$orderby = $query['orderby'];
+		$orderby = "ORDER BY $orderby $order";
+
+		// Query
         $query = "
         	SELECT 
         		payment.id AS purchaseId ,
@@ -142,9 +201,9 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         		payment.source_id AS sourceId  
 			FROM 
 	        	$table AS payment
-	        $condition
-	        ORDER BY
-	        	payment.date_gmt DESC
+	        $where 
+	        $orderby
+	        $limit
         ";
 
 		return $query;
@@ -155,11 +214,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return array
      */
-    public static function getPayments() {
+    public static function getPayments($query = array()) {
         global $wpdb;
 
 		$payments = array();
-        $results = $wpdb->get_results(self::getPaymentQuery(), OBJECT_K);
+        $results = $wpdb->get_results(self::getPaymentQuery($query), OBJECT_K);
 
         foreach($results as $result) {
         	$payments[] = self::getPaymentFromResult($result); 
@@ -190,25 +249,23 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * @param string $id
      */
     public static function getPaymentByIdAndEc($transactionId, $entranceCode) {
-		global $wpdb;
-
-        return self::getPaymentByQuery($wpdb->prepare(self::getPaymentQuery("
-			WHERE 
-				payment.transaction_id = %s 
-					AND
-				payment.entrance_code = %s
-        	") , $transactionId , $entranceCode
-        ));
+        return self::getPaymentByQuery(self::getPaymentQuery(array(
+			'transaction_id' => $transactionId , 
+        	'entrance_code' => $entranceCode
+        )));
     }
 
     public static function getPaymentById($id) {
-		global $wpdb;
+        return self::getPaymentByQuery(self::getPaymentQuery(array(
+        	'payment_id' => $id 
+        )));
+    }
 
-        return self::getPaymentByQuery($wpdb->prepare(self::getPaymentQuery("
-			WHERE 
-				payment.id = %d
-        	") , $id 
-        ));
+    public static function getPaymentBySource($source, $id = null) {
+        return self::getPaymentByQuery(self::getPaymentQuery(array(
+        	'source' => $source ,
+        	'source_id' => $id
+        )));
     }
     
     public static function updateStatus($payment) {

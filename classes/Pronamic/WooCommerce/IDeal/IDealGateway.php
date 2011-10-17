@@ -207,21 +207,25 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		
 		        		$iDeal->addItem($iDealItem);
 					}
-		
-			        // Update payment
-					$transaction = new Pronamic_IDeal_Transaction();
-					$transaction->setAmount($iDeal->getAmount()); 
-					$transaction->setCurrency($iDeal->getCurrency());
-					$transaction->setLanguage('nl');
-					$transaction->setEntranceCode(uniqid());
-					$transaction->setDescription($iDeal->getDescription());
-		
-					$payment = new Pronamic_WordPress_IDeal_Payment();
-					$payment->configuration = $configuration;
-					$payment->transaction = $transaction;
-					$payment->setSource('woocommerce', $order_id);
-		
-					$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+
+				  	$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
+    	
+    				if($payment == null) {
+				        // Update payment
+						$transaction = new Pronamic_IDeal_Transaction();
+						$transaction->setAmount($iDeal->getAmount()); 
+						$transaction->setCurrency($iDeal->getCurrency());
+						$transaction->setLanguage('nl');
+						$transaction->setEntranceCode(uniqid());
+						$transaction->setDescription($iDeal->getDescription());
+			
+						$payment = new Pronamic_WordPress_IDeal_Payment();
+						$payment->configuration = $configuration;
+						$payment->transaction = $transaction;
+						$payment->setSource('woocommerce', $order_id);
+			
+						$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+    				}
 		
 			        // HTML
 			        $html  = '';
@@ -269,20 +273,24 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
-		$transaction = new Pronamic_IDeal_Transaction();
-		$transaction->setAmount($order->order_total); 
-		$transaction->setCurrency(get_option('woocommerce_currency'));
-		$transaction->setExpirationPeriod('PT1H');
-		$transaction->setLanguage('nl');
-		$transaction->setEntranceCode(uniqid());
-		$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-
-		$payment = new Pronamic_WordPress_IDeal_Payment();
-		$payment->configuration = $configuration;
-		$payment->transaction = $transaction;
-		$payment->setSource('woocommerce', $order->id);
-
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+    	$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
+    	
+    	if($payment == null) {
+			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setAmount($order->order_total); 
+			$transaction->setCurrency(get_option('woocommerce_currency'));
+			$transaction->setExpirationPeriod('PT1H');
+			$transaction->setLanguage('nl');
+			$transaction->setEntranceCode(uniqid());
+			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
+	
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
+			$payment->transaction = $transaction;
+			$payment->setSource('woocommerce', $order->id);
+	
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+    	}
 
 		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
 

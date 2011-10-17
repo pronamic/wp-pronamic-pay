@@ -65,7 +65,9 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 			$order = new woocommerce_order((int) $id);
 
-			if ($order->status !== 'completed') {
+			if ($order->status !== 'completed') {				
+				$url = null;
+
 				$status = $transaction->getStatus();
 
 				switch($status) {
@@ -82,6 +84,9 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		            	// Payment completed
 		                $order->add_order_note(__('iDEAL payment completed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 		                $order->payment_complete();
+		                
+		                $url = add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('woocommerce_thanks_page_id'))));
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
 						$order->update_status('open', __('iDEAL payment open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
@@ -89,6 +94,12 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 					default:
 						$order->update_status('unknown', __('iDEAL payment unknown.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 						break;
+				}
+				
+				if($url) {
+					wp_redirect($url, 303);
+
+					exit;
 				}
 			}
 		}

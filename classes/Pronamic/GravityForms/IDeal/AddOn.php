@@ -89,9 +89,24 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 		
 		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+		
+		add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
 
 		// iDEAL fields
 		Pronamic_GravityForms_IDeal_Fields::bootstrap();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Source column
+	 */
+	public static function sourceColumn($text, $payment) {
+		$text  = '';
+		$text .= __('Gravity Forms', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= sprintf(__('Entry #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+
+		return $text;
 	}
 
 	//////////////////////////////////////////////////

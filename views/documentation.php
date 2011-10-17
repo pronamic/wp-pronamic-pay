@@ -55,6 +55,16 @@
 				)
 			)
 		) , 
+		'idealdesk.com' => array(
+			'name' => 'iDEALdesk' ,
+			'url' => 'https://www.idealdesk.com/' , 
+			'files' => array(
+				array(
+					'url' => 'http://huisstijl.idealdesk.com/' ,
+					'name' => 'Online styleguide van iDEAL' 
+				) 
+			)
+		) , 
 		'mollie.nl' => array(
 			'name' => 'Mollie' ,
 			'url' => 'http://mollie.nl/' , 
@@ -112,7 +122,20 @@
 		<?php foreach($provider['files'] as $file): ?>
 
 		<li>
-			<a href="<?php echo plugins_url($file['path'], Pronamic_WordPress_IDeal_Plugin::$file); ?>">
+			<?php 
+			
+			$href = null;
+
+			if(isset($file['path'])) {
+				$href = plugins_url($file['path'], Pronamic_WordPress_IDeal_Plugin::$file);
+			}
+
+			if(isset($file['url'])) {
+				$href = $file['url'];
+			}
+			
+			?>
+			<a href="<?php echo $href; ?>">
 				<?php echo $file['name']; ?>
 
 				<?php if(isset($file['version'])): ?>

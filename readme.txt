@@ -55,6 +55,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= beta-0.7 =
+*	Added support for the WooCommerce WordPress plugin
+*	Improved the payments repository class
+*	Improved the payments overview page (now with pagination)
+
 = beta-0.6.2 =
 *	Gravity Forms iDEAL Lite button is now translatable
 *	For iDEAL Lite you can now easily run the mandatory tests

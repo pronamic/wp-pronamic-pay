@@ -15,11 +15,21 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function bootstrap() {
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
 
+		add_action('load-ideal_page_pronamic_ideal_payments', array(__CLASS__, 'loadPaymentsPage'));
+
 		// Styles
 		wp_enqueue_style(
 			'proanmic_ideal' , 
 			plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
 		);
+	}
+
+	//////////////////////////////////////////////////
+	
+	public static function loadPaymentsPage() {
+		global $wp_list_table;
+		
+		$wp_list_table = new Pronamic_WordPress_IDeal_PaymentsListTable();
 	}
 
 	//////////////////////////////////////////////////
