@@ -45,13 +45,15 @@ WordPress installation and then activate the Plugin from Plugins page.
 == Screenshots ==
 
 1.	Configuration edit page
-2.	Gravity Forms form edit page(iDEAL advanced)
-3.	Gravity Forms form edit page(iDEAL advanced)
-4.	Gravity Forms feed edit page
-5.	Feeds overview page
-6.	Payments overview page
-7.	Gravity Forms form on site with iDEAL feed
-8.	Gravity Forms frontend issuer drop down
+2.	WooCommerce - Settings - Payment Gateways
+3.	WooCommerce - Wootique theme - Checkout
+4.	Gravity Forms form edit page(iDEAL advanced)
+5.	Gravity Forms form edit page(iDEAL advanced)
+6.	Gravity Forms feed edit page
+7.	Feeds overview page
+8.	Payments overview page
+9.	Gravity Forms form on site with iDEAL feed
+10.	Gravity Forms frontend issuer drop down
 
 == Changelog ==
 
@@ -59,6 +61,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Added support for the WooCommerce WordPress plugin
 *	Improved the payments repository class
 *	Improved the payments overview page (now with pagination)
+*	Improved the loading of the admin JavaScripts and stylesheets
 
 = beta-0.6.2 =
 *	Gravity Forms iDEAL Lite button is now translatable
