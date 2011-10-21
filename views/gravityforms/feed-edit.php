@@ -61,7 +61,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			
 			printf(
 				__('Feed updated, %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-				'<a href="?page=gf_ideal">' . __('back to list', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</a>'
+				'<a href="?page=gf_pronamic_ideal">' . __('back to list', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</a>'
 			);
 
 			?>

@@ -294,7 +294,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						</label>
 					</th>
 					<td>
-						<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
+						<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
+						
+						<p>
+							<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
+						</p>
 						<?php 
 
 						submit_button(
@@ -303,7 +307,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						);
 
 						?>
-						<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
 					</td>
 				</tr>
 				<tr>
@@ -313,7 +316,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						</label>
 					</th>
 					<td>
-						<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
+						<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
+						
+						<p>
+							<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
+						</p>
 						<?php 
 						
 						if(!empty($configuration->privateCertificate)) {
@@ -330,7 +337,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						);
 
 						?>
-						<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
 					</td>
 				</tr>
 			</table>

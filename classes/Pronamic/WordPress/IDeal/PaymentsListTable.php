@@ -29,6 +29,8 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 * Prepares the list of items for displaying
 	 */
 	function prepare_items() {
+		global $orderby, $order;
+
 		$per_page = $this->get_items_per_page('payments_per_page');
 
 		$paged = $this->get_pagenum();
@@ -40,10 +42,20 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 			'per_page' => $per_page
 		));
 
-		$this->items = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments(array(
+		$args = array(
 			'number' => $per_page , 
 			'offset' => ($paged - 1) * $per_page,
-		));
+		);
+
+		if(isset($_REQUEST['orderby'])) {
+			$args['orderby'] = $_REQUEST['orderby'];
+		}
+
+		if(isset($_REQUEST['order'])) {
+			$args['order'] = $_REQUEST['order'];
+		}
+
+		$this->items = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments($args);
 	}
 
 	/**

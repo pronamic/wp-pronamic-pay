@@ -143,7 +143,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		}
 		
 		if(isset($query['transaction_id'])) {
-			$where .= $wpdb->prepare(' AND payment.transaction.id = %s', $query['transaction_id']);
+			$where .= $wpdb->prepare(' AND payment.transaction_id = %s', $query['transaction_id']);
 		}
 
 		if(isset($query['entrance_code'])) {

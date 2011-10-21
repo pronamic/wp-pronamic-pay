@@ -122,7 +122,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 				
 				if($lists) {
 					?>
-					<p>
+					<p class="pronamic_ideal_issuer">
 						<label for="pronamic_ideal_issuer_id">
 							<?php _e('Choose your bank', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 						</label>

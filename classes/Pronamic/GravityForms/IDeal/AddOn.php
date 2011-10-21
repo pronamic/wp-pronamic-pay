@@ -74,15 +74,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			// AJAX
 			add_action('wp_ajax_gf_get_form_data', array(__CLASS__, 'ajaxGetFormData'));
-
-			// Scripts
-			wp_register_script(
-				'gf_ideal_admin' , 
-				plugins_url('js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file) ,
-				array('jquery')
-			);
-
-			add_action('admin_enqueue_scripts', array(__CLASS__, 'enqueueAdminScripts'));
 		} else {
 			// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 			add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
@@ -255,22 +246,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$permission = 'gravityforms_ideal';
 
 		$menus[] = array(
-			'name' => 'gf_ideal' , 
+			'name' => 'gf_pronamic_ideal' , 
 			'label' => __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			'callback' =>  array(__CLASS__, 'page') , 
 			'permission' => $permission
 		);
 
         return $menus;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Enqueue admin scripts
-	 */
-	public static function enqueueAdminScripts() {
-		wp_enqueue_script('gf_ideal_admin');
 	}
 	
 	/**
@@ -336,7 +318,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	public static function getEditFeedLink($id = null) {
 		$link = 'admin.php';
-		$link = add_query_arg('page', 'gf_ideal', $link);
+		$link = add_query_arg('page', 'gf_pronamic_ideal', $link);
 		$link = add_query_arg('view', 'edit', $link);
 
 		if($id != null) {
@@ -354,7 +336,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	public static function getDeleteFeedLink($id = null) {
 		$link = 'admin.php';
-		$link = add_query_arg('page', 'gf_ideal', $link);
+		$link = add_query_arg('page', 'gf_pronamic_ideal', $link);
 		$link = add_query_arg('action', 'delete', $link);
 
 		if($id != null) {
