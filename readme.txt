@@ -72,7 +72,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	For iDEAL Lite you can now easily run the mandatory tests
 *	Added an private key and certificate generator
 
-= beta-0.6.1 = 
+= beta-0.6.1 =
 *	Improved the calculation of the Gravity Forms price fields and the total amount 
 
 = beta-0.6 =
