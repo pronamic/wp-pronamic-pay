@@ -1,9 +1,9 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, rabobank, friesland bank, ing, mollie
+Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, rabobank, friesland bank, ing, mollie
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.6.1
+Stable tag: beta-0.7
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -17,6 +17,10 @@ WordPress website.
 
 The Pronamic iDEAL plugin is an Add-On for the Gravity Forms form builder which allows you
 to add the iDEAL payment method to your Gravity Forms.
+
+= WooCommerce =
+
+The Pronamic iDEAL plugin is an payment gateway for the WooCommerce e-commerce plugin.
 
 = Banks and variants =
 
@@ -68,7 +72,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	For iDEAL Lite you can now easily run the mandatory tests
 *	Added an private key and certificate generator
 
-= beta-0.6.1 = 
+= beta-0.6.1 =
 *	Improved the calculation of the Gravity Forms price fields and the total amount 
 
 = beta-0.6 =
