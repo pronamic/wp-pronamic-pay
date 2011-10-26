@@ -61,6 +61,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= beta-0.7.1 =
+*	Fixed issue with loading JavaScripts on the Gravity Forms edit / new form page
+*	Added some extra data length checks for iDEAL lite payments
+
 = beta-0.7 =
 *	Added support for the WooCommerce WordPress plugin
 *	Improved the payments repository class

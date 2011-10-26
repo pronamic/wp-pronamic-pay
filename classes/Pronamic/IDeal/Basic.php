@@ -270,6 +270,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the hash key
+	 * N..max50
 	 *
 	 * @param string $hashKey
 	 */
@@ -290,11 +291,12 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the purchase id
+	 * AN..max16 (AN = Alphanumeric, free text)
 	 *
 	 * @param sub id
 	 */
 	public function setPurchaseId($purchaseId) {
-		$this->purchaseId = $purchaseId;
+		$this->purchaseId = substr($purchaseId, 0, 16);
 	}
 
 	//////////////////////////////////////////////////
@@ -330,11 +332,12 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the description
+	 * AN..max32 (AN = Alphanumeric, free text)
 	 *
 	 * @param string $description
 	 */
 	public function setDescription($description) {
-		$this->description = $description;
+		$this->description = substr($description, 0, 32);
 	}
 
 	//////////////////////////////////////////////////
@@ -370,6 +373,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	
 	/**
 	 * Set the payment type
+	 * AN..max10
 	 *
 	 * @param string $paymentType an payment type
 	 */

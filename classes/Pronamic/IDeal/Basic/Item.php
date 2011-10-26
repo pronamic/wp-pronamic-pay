@@ -82,11 +82,12 @@ class Pronamic_IDeal_Basic_Item {
 
 	/**
 	 * Set the description of this item
+	 * AN..max32 (AN = Alphanumeric, free text)
 	 * 
 	 * @param string $description
 	 */
 	public function setDescription($description) {
-		$this->description = $description;
+		$this->description = substr($description, 0, 32);
 	}
 
 	//////////////////////////////////////////////////

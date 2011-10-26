@@ -39,7 +39,10 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Enqueue admin scripts
 	 */
 	public static function enqueueAdminScripts($hook) {
-		if(strpos($hook, 'pronamic_ideal') !== false) {
+		$isPronamicIDeal = strpos($hook, 'pronamic_ideal') !== false;
+		$editGravityForms = (strpos($hook, 'page_gf_new_form')) !== false || (strpos($hook, 'page_gf_edit_forms') !== false);
+
+		if($isPronamicIDeal || $editGravityForms) {
 			wp_enqueue_style('proanmic_ideal_admin');
 			wp_enqueue_script('proanmic_ideal_admin');
 		}
@@ -234,7 +237,7 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	//////////////////////////////////////////////////
 
-	/***
+	/**
 	 * Render the specified view
 	 */
 	public static function renderView($name) {
