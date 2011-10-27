@@ -64,6 +64,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 = beta-0.7.1 =
 *	Fixed issue with loading JavaScripts on the Gravity Forms edit / new form page
 *	Added some extra data length checks for iDEAL lite payments
+*	Added an extra role iDEAL Administrator, so you can outsource the configuration of iDEAL
+*	Added extra capabilities so you can easily grant users to the iDEAL admin pages
+*	Fixed bug with ordering the iDEAL payment by date
+*	Added an pages generator to easily create pages for each iDEAL payment status
 
 = beta-0.7 =
 *	Added support for the WooCommerce WordPress plugin

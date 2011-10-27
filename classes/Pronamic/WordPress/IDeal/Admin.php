@@ -70,7 +70,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		add_menu_page(
 			$pageTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
 			$menuTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-			$capability = 'manage_options' , 
+			$capability = 'pronamic_ideal' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$function = array(__CLASS__, 'pageIndex') , 
 			$iconUrl = plugins_url('images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file)
@@ -80,7 +80,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$pageTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$menuTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$capability = 'manage_options' , 
+			$capability = 'pronamic_ideal_payments' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' , 
 			$function = array(__CLASS__, 'pagePayments')
 		);
@@ -89,16 +89,25 @@ class Pronamic_WordPress_IDeal_Admin {
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$pageTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$menuTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$capability = 'manage_options' , 
+			$capability = 'pronamic_ideal_settings' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_settings' , 
 			$function = array(__CLASS__, 'pageSettings')
 		);
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
+			$pageTitle = __('Pages Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$menuTitle = __('Pages Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$capability = 'pronamic_ideal_pages_generator' , 
+			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_pages_generator' , 
+			$function = array(__CLASS__, 'pagePagesGenerator')
+		);
+
+		add_submenu_page(
+			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$pageTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$menuTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$capability = 'manage_options' , 
+			$capability = 'pronamic_ideal_variants' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_variants' , 
 			$function = array(__CLASS__, 'pageVariants')
 		);
@@ -107,7 +116,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$pageTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			$menuTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$capability = 'manage_options' , 
+			$capability = 'pronamic_ideal_documentation' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_documentation' , 
 			$function = array(__CLASS__, 'pageDocumentation')
 		);
@@ -212,6 +221,10 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function pageSettings() {
 		self::renderView('settings');
+	}
+
+	public static function pagePagesGenerator() {
+		self::renderView('pages-generator');
 	}
 
 	public static function pageVariants() {
