@@ -288,7 +288,7 @@ class Pronamic_IDeal_Transaction {
 	 * @param string $description
 	 */
 	public function setDescription($description) {
-		$this->description = substr($description, 0, 33);
+		$this->description = substr($description, 0, 32);
 	}
 
 	//////////////////////////////////////////////////

@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.1';
+	const VERSION = 'beta-0.7.1';
 
 	//////////////////////////////////////////////////
 
@@ -45,10 +45,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		if(self::isGravityFormsSupported()) {
-			add_action('init',  array(__CLASS__, 'initialize'));
-			add_action('plugins_loaded', array(__CLASS__, 'setup'));
-		}
+		// Initialize hook, Gravity Forms uses the default priority
+		add_action('init',  array(__CLASS__, 'initialize'), 20);
+
+		add_action('plugins_loaded', array(__CLASS__, 'setup'));
 	}
 
 	//////////////////////////////////////////////////
@@ -57,34 +57,33 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Initialize
 	 */
 	public static function initialize() {
-		// Activation hook
-		register_activation_hook(Pronamic_WordPress_IDeal_Plugin::$file, array(__CLASS__, 'activate'));
-
-		// Admin
-		if(is_admin()) {
-			add_filter('gform_addon_navigation', array(__CLASS__, 'createMenu'));
+		if(self::isGravityFormsSupported()) {
+			// Admin
+			if(is_admin()) {
+				add_filter('gform_addon_navigation', array(__CLASS__, 'createMenu'));
+				
+				add_filter('gform_entry_info', array(__CLASS__, 'entryInfo'), 10, 3);
+	
+				RGForms::add_settings_page(
+					__('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), 
+					array(__CLASS__, 'pageSettings') , 
+					plugins_url('/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file)
+				);
+	
+				// AJAX
+				add_action('wp_ajax_gf_get_form_data', array(__CLASS__, 'ajaxGetFormData'));
+			} else {
+				// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
+				add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
+			}
 			
-			add_filter('gform_entry_info', array(__CLASS__, 'entryInfo'), 10, 3);
-
-			RGForms::add_settings_page(
-				__('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), 
-				array(__CLASS__, 'pageSettings') , 
-				plugins_url('/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file)
-			);
-
-			// AJAX
-			add_action('wp_ajax_gf_get_form_data', array(__CLASS__, 'ajaxGetFormData'));
-		} else {
-			// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-			add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
+			add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+			
+			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
+	
+			// iDEAL fields
+			Pronamic_GravityForms_IDeal_Fields::bootstrap();
 		}
-		
-		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
-		
-		add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
-
-		// iDEAL fields
-		Pronamic_GravityForms_IDeal_Fields::bootstrap();
 	}
 
 	//////////////////////////////////////////////////
@@ -103,25 +102,34 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Activate the plugin
-	 */
-	public static function activate() {
-		// Add some new capabilities
-		global $wp_roles;
-
-		$wp_roles->add_cap('administrator', 'gravityforms_ideal');
-		$wp_roles->add_cap('administrator', 'gravityforms_ideal_uninstall');
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
-		if(get_option(self::OPTION_VERSION) != self::VERSION) {
+		if(self::isGravityFormsSupported() && (get_option(self::OPTION_VERSION) != self::VERSION)) {
+			// Update tables
 			Pronamic_GravityForms_IDeal_FeedsRepository::updateTable();
 
+			// Add some new capabilities
+			$capabilities = array(
+				'read' => true , 
+				'gravityforms_ideal' => true ,
+				'gravityforms_ideal_uninstall' => true 
+			);
+			
+			$roles = array(
+				'pronamic_ideal_administrator' => array(
+					'display_name' => __('iDEAL Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'capabilities' => $capabilities
+				) , 
+				'administrator' => array(
+					'display_name' => __('Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'capabilities' => $capabilities
+				)
+			);
+			
+			Pronamic_WordPress_IDeal_Plugin::setRoles($roles);
+				
+			// Update version
 			update_option(self::OPTION_VERSION, self::VERSION);
 		}
 	}
