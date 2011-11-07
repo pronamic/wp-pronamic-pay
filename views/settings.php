@@ -107,13 +107,23 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 					?>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<?php _e('Time', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+				</th>
+				<td class="column-version">
+	                <?php echo date(__('Y/m/d g:i:s A', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)); ?><br />
+	                <?php echo date(Pronamic_IDeal_IDeal::DATE_FORMAT); ?>
+				</td>
+			</tr>
 		</table>
 
 		<?php 
 		
 		submit_button(
 			empty($configuration->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'primary' 
+			'primary' ,
+			'save_settings'
 		);
 
 		?>

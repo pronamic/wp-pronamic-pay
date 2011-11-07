@@ -19,7 +19,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The expire date format (yyyy-MMddTHH:mm:ss.SSS Z)
+	 * The expire date format (yyyy-MMddTHH:mm:ss.SSSZ)
 	 * The Z stands for the time zone (CET).
 	 * 
 	 * @var string 
@@ -270,6 +270,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the hash key
+	 * N..max50
 	 *
 	 * @param string $hashKey
 	 */
@@ -290,11 +291,12 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the purchase id
+	 * AN..max16 (AN = Alphanumeric, free text)
 	 *
 	 * @param sub id
 	 */
 	public function setPurchaseId($purchaseId) {
-		$this->purchaseId = $purchaseId;
+		$this->purchaseId = substr($purchaseId, 0, 16);
 	}
 
 	//////////////////////////////////////////////////
@@ -330,11 +332,12 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set the description
+	 * AN..max32 (AN = Alphanumeric, free text)
 	 *
 	 * @param string $description
 	 */
 	public function setDescription($description) {
-		$this->description = $description;
+		$this->description = substr($description, 0, 32);
 	}
 
 	//////////////////////////////////////////////////
@@ -370,6 +373,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	
 	/**
 	 * Set the payment type
+	 * AN..max10
 	 *
 	 * @param string $paymentType an payment type
 	 */
@@ -387,7 +391,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 */
 	public function getExpireDate($createNew = false) {
 		if($this->expireDate == null || $createNew) {
-			$this->expireDate = new DateTime();
+			$this->expireDate = new DateTime(null, new DateTimeZone(Pronamic_IDeal_IDeal::TIMEZONE));
 			$this->expireDate->modify($this->expireDateModifier);
 		}
 
@@ -619,7 +623,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 		$concatString = str_replace($forbiddenCharacters, '', $concatString);
 
 		// Delete special HTML entities
-		$concatString = html_entity_decode($concatString);
+		$concatString = html_entity_decode($concatString, ENT_COMPAT, 'UTF-8');
 
 		return $concatString;
 	}

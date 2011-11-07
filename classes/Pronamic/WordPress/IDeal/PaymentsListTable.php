@@ -86,8 +86,8 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 */
 	function get_sortable_columns() {
 		return array(
-			'date'    => 'date',
-			'amount'     => 'amount',
+			'date' => 'date_gmt' , 
+			'amount' => 'amount' , 
 			'status' => 'status'
 		);
 	}

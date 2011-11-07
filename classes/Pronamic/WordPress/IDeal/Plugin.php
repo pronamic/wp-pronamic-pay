@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.7';
+	const VERSION = 'beta-0.7.2';
 
 	//////////////////////////////////////////////////
 
@@ -100,7 +100,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Gravity Forms Add-On
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
-			Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			// Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			// Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
 
@@ -168,10 +169,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
 
 			if(!empty($configuration)) {
-				$filename = "ideal-private-key-" . $id . ".key";
+				$filename = 'ideal-private-key-' . $id . '.key';
 
 				header('Content-Description: File Transfer');
-				header("Content-Disposition: attachment; filename=$filename");
+				header('Content-Disposition: attachment; filename=' . $filename);
 				header('Content-Type: application/pgp-keys; charset=' . get_option('blog_charset'), true);
 				echo $configuration->privateKey;
 				die();
@@ -365,13 +366,70 @@ class Pronamic_WordPress_IDeal_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Configure the specified roles
+	 * 
+	 * @param array $roles
+	 */
+	public static function setRoles($roles) {
+		global $wp_roles;
+
+		if(!isset($wp_roles)) {
+			$wp_roles = new WP_Roles();
+		}
+
+		foreach($roles as $role => $data) {
+			if(isset($data['display_name'], $data['capabilities'])) {
+				$display_name = $data['display_name'];
+				$capabilities = $data['capabilities'];
+	
+				if($wp_roles->is_role($role)) {
+					foreach($capabilities as $cap => $grant) {
+						$wp_roles->add_cap($role, $cap, $grant);
+					}
+				} else {
+					$wp_roles->add_role($role, $display_name, $capabilities);
+				}
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
 		if(get_option(self::OPTION_VERSION) != self::VERSION) {
+			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::updateTable();
 			Pronamic_WordPress_IDeal_PaymentsRepository::updateTable();
 
+			// Add some new capabilities
+			$capabilities = array(
+				'read' => true , 
+				'pronamic_ideal' => true ,
+				'pronamic_ideal_configurations' => true ,
+				'pronamic_ideal_payments' => true ,  
+				'pronamic_ideal_settings' => true ,
+				'pronamic_ideal_pages_generator' => true , 
+				'pronamic_ideal_variants' => true ,
+				'pronamic_ideal_documentation' => true
+			);
+			
+			$roles = array(
+				'pronamic_ideal_administrator' => array(
+					'display_name' => __('iDEAL Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'capabilities' => $capabilities
+				) , 
+				'administrator' => array(
+					'display_name' => __('Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'capabilities' => $capabilities
+				)
+			);
+			
+			self::setRoles($roles);
+
+			// Update version
 			update_option(self::OPTION_VERSION, self::VERSION);
 		}
 	}

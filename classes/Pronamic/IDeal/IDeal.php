@@ -10,7 +10,7 @@
  */
 class Pronamic_IDeal_IDeal {
 	/**
-	 * The date format (yyyy-MMddTHH:mm:ss.SSS Z)
+	 * The date format (yyyy-MMddTHH:mm:ss.SSSZ)
 	 * The Z stands for the time zone (CET).
 	 * 
 	 * @var string 
