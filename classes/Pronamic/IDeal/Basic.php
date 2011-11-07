@@ -19,7 +19,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The expire date format (yyyy-MMddTHH:mm:ss.SSS Z)
+	 * The expire date format (yyyy-MMddTHH:mm:ss.SSSZ)
 	 * The Z stands for the time zone (CET).
 	 * 
 	 * @var string 
@@ -391,7 +391,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 */
 	public function getExpireDate($createNew = false) {
 		if($this->expireDate == null || $createNew) {
-			$this->expireDate = new DateTime();
+			$this->expireDate = new DateTime(null, new DateTimeZone(Pronamic_IDeal_IDeal::TIMEZONE));
 			$this->expireDate->modify($this->expireDateModifier);
 		}
 
@@ -623,7 +623,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 		$concatString = str_replace($forbiddenCharacters, '', $concatString);
 
 		// Delete special HTML entities
-		$concatString = html_entity_decode($concatString);
+		$concatString = html_entity_decode($concatString, ENT_COMPAT, 'UTF-8');
 
 		return $concatString;
 	}

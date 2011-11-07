@@ -177,40 +177,20 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 					$iDeal->setCurrency(get_option('woocommerce_currency'));	
 			        $iDeal->setPurchaseId($order_id);
 			        $iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order_id));
-		
-					foreach($order->items as $item) {
-						$product = $order->get_product_from_item($item);
 
-						$description = $item['name'];
-						
-						if(isset($item['item_meta'])) {
-							if($meta = woocommerce_get_formatted_variation($item['item_meta'], true)) {
-								$description .= ' (' . $meta . ')';
-							}
-						}
-		
-			        	$iDealItem = new Pronamic_IDeal_Basic_Item();
-		    	    	$iDealItem->setNumber($product->sku);
-		        		$iDealItem->setDescription($item['name']);
-		        		$iDealItem->setPrice($item['cost']);
-		        		$iDealItem->setQuantity($item['qty']);
-		
-		        		$iDeal->addItem($iDealItem);
-					}
-					
-					if($order->order_shipping > 0) {
-			        	$iDealItem = new Pronamic_IDeal_Basic_Item();
-		    	    	$iDealItem->setNumber(__('shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		        		$iDealItem->setDescription(__('Shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		        		$iDealItem->setPrice($order->order_shipping);
-		        		$iDealItem->setQuantity(1);
-		
-		        		$iDeal->addItem($iDealItem);
-					}
+			        // Items
+		        	$iDealItem = new Pronamic_IDeal_Basic_Item();
+	    	    	$iDealItem->setNumber($order_id);
+	        		$iDealItem->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order_id));
+	        		$iDealItem->setPrice($order->order_total);
+	        		$iDealItem->setQuantity(1);
 
-				  	$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
+	        		$iDeal->addItem($iDealItem);
+
+	        		// Payment
+					$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
     	
-    				if($payment == null) {
+					if($payment == null) {
 				        // Update payment
 						$transaction = new Pronamic_IDeal_Transaction();
 						$transaction->setAmount($iDeal->getAmount()); 
