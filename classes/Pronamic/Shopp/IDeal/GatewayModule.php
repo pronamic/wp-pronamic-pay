@@ -7,12 +7,12 @@
  * @copyright Pronamic
  * @package shopp
  * @since 1.1.9
- * @subpackage IDealGatewayModule
+ * @subpackage Pronamic_Shopp_IDeal_GatewayModule
  **/
 
 require_once(SHOPP_PATH."/core/model/XML.php");
 
-class IDealGatewayModule extends GatewayFramework implements GatewayModule {
+class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
 	public $secure = false;
 	private $buttonurl = 'ideal.png';
 	private $configurationId;
@@ -28,14 +28,10 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 		// ConfigurationId
 		$this->configurationId = $this->settings['pronamic_shopp_ideal_configuration'];
 		
-		// Setup extra checkout inputs here so they are available
-		// any time the gateway is active
+		// Setup extra checkout inputs here so they are available any time the gateway is active
 		add_filter('shopp_checkout_gateway_inputs', array(&$this, 'inputs'));
 		add_filter('shopp_checkout_submit_button', array(&$this, 'submit'), 10, 3);
 		add_filter('shopp_order_receipt', array(&$this, 'form'));
-		
-		//add_filter('shopp_order_receipt', array(&$this, 'form'));
-		//add_filter('shopp_confirm_form',array(&$this,'form'));
 	}
 	
 	/**
@@ -43,22 +39,7 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 	 */
 	function actions() {
 		add_action('shopp_checkout_processed', array(&$this,'checkout'));
-		//add_action('shopp_process_checkout', array(&$this, 'form'), 9);
 		add_action('shopp_init_checkout', array(&$this, 'process'));
-		
-		//add_action('shopp_process_order', array(&$this, 'process'));
-		//add_action('shopp_order_succes', array(&$this, 'process'));
-		//add_action('shopp_init', array(&$this, 'test'));
-		//add_action('shopp_init_confirmation', array(&$this, 'confirmation'));
-		//add_action('wp_loaded', array(&$this, 'returned'));
-		//add_action('shopp_process_order', array(&$this, 'process'));
-	}
-	
-	/**
-	 * Show receipt
-	 */
-	function confirmation() {
-		
 	}
 	
 	/**
@@ -126,10 +107,10 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 					$form .= '<input type="submit" value="'.__('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN).'" name="submit" /></form>';
 				}elseif($this->isAdvancedPayment()){ // ADVANCED (Is called earlier in process because of the headers it needs to modify)
 					// Get tansaction url.
-					$issuerId = $Shopp->Order->data['Pronamic iDeal Issuer'];
+					$issuerId = $_POST['pronamic_ideal_issuer'];
 					$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
 					
-					// Output
+					// Direct to advanced ideal payment site
 					header('Location: '.$url);
 					die;
 				}
@@ -183,40 +164,6 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 			$iDeal->addItem($tax);
 		}
 		
-		/*// Items (price)
-		$items = array();
-		foreach($Shopp->Order->Cart->contents as $key => $item){
-			// Item
-			$items[$key] = new Pronamic_IDeal_Basic_Item();
-			$items[$key]->setNumber($item->sku);
-			$items[$key]->setDescription($item->name);
-			$items[$key]->setQuantity($item->quantity);
-			$items[$key]->setPrice($item->unitprice);
-			
-			// Add item to iDeal Object
-			$iDeal->addItem($items[$key]);
-		}
-		
-		// Add shipping costs if the product needs shipping
-		if($Shopp->Order->Cart->Totals->shipping > 0){
-			$shipping = new Pronamic_IDeal_Basic_Item();
-			$shipping->setNumber(-9001);
-			$shipping->setDescription(__('Shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-			$shipping->setQuantity(1);
-			$shipping->setPrice($Shopp->Order->Cart->Totals->shipping);
-			$iDeal->addItem($shipping);
-		}
-		
-		// Add tax if there is any
-		if($Shopp->Order->Cart->Totals->tax > 0){
-			$tax = new Pronamic_IDeal_Basic_Item();
-			$tax->setNumber(-9002);
-			$tax->setDescription(__('Tax', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-			$tax->setQuantity(1);
-			$tax->setPrice($Shopp->Order->Cart->Totals->tax);
-			$iDeal->addItem($tax);
-		}*/
-		
 		// Data
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());
@@ -227,14 +174,6 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 		$iDeal->setCurrency('EUR');
 		
 		return $iDeal;
-	}
-	
-	/**
-	 * Checks if we were returned here from a succesful payment
-	 */
-	function returned() {
-		$orderID = $_GET['orderID'];
-		if(!empty($orderID) && is_numeric($orderID) && $_GET['page_id'] == 201 && $_GET['shopp_proc'] == 'thanks') $this->process();
 	}
 	
 	/**
@@ -282,7 +221,7 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 								<label for="pronamic_ideal_issuer_id">
 									'.__('Choose your bank', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN).'
 								</label>
-								<select name="data[Pronamic iDeal Issuer]" id="order-data-pronamic-ideal-issuer"  title="" value="" class="required">';
+								<select name="pronamic_ideal_issuer" id="order-data-pronamic-ideal-issuer"  title="" value="" class="required">';
 									foreach($lists as $list){
 										foreach($list as $value) $result .= '<option value="'.$value->getId().'">'.$value->getName().'</option>';
 									}
@@ -352,8 +291,5 @@ class IDealGatewayModule extends GatewayFramework implements GatewayModule {
 			'label' => __('Select configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN),
 			'selected' => $this->settings['pronamic_shopp_ideal_configuration']
 		),$configurationOptions);
-	}
-	
-} // END class IDealGatewayModule
-
-?>
+	}	
+}

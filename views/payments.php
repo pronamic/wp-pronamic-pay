@@ -15,6 +15,8 @@ $wp_list_table->prepare_items();
 	<?php $wp_list_table->views(); ?>
 
 	<form method="post" action="">
+		<?php $wp_list_table->search_box(__('Search Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), 'payment'); ?>
+
 		<?php $wp_list_table->display(); ?>
 	</form>
 

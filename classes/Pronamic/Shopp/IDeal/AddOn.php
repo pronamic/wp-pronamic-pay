@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * Title: Shopp iDEAL Add-On
  * Description: 
@@ -19,7 +18,18 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function bootstrap() {
 		// Actions
-		add_action('shopp_init', array(__CLASS__, 'addGateway'));
+		add_action('shopp_init', array(__CLASS__, 'intialize'));
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Initialize the Shopp Add-On
+	 */
+	public static function intialize() {
+		self::addGateway();
+
+		// Actions
 		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
 		
 		// Filters
@@ -51,16 +61,16 @@ class Pronamic_Shopp_IDeal_AddOn {
 		global $Shopp;
 		
 		$path = dirname(__FILE__);
-		$file = '/IDealGatewayModule.php';
-
+		$file = '/GatewayModule.php';
+		
 		$module = new ModuleFile($path, $file);
-		if($module->addon) {
+		if($module->addon){
 			$Shopp->Gateways->modules[$module->subpackage] = $module;
 		} else {
 			$Shopp->Gateways->legacy[] = md5_file($path . $file);
 		}
-		if(strpos($Shopp->Settings->registry['active_gateways'], 'IDealGatewayModule') !== false){
-			$Shopp->Gateways->activated[] = 'IDealGatewayModule';
+		if(strpos($Shopp->Settings->registry['active_gateways'], 'Pronamic_Shopp_IDeal_GatewayModule') !== false){
+			$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 		}
 	}
 	

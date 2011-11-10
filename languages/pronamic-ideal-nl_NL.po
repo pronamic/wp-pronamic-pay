@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-07 14:56+0100\n"
-"PO-Revision-Date: 2011-11-07 14:56+0100\n"
+"POT-Creation-Date: 2011-11-10 13:31+0100\n"
+"PO-Revision-Date: 2011-11-10 13:31+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__withdesc;_ewithdesc;_c;_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
-"X-Poedit-Basepath: W:\\rt.beta.pronamic.nl\\httpdocs\\wp-content\\plugins\\pronamic-ideal\n"
+"X-Poedit-Basepath: ../\n"
 "X-Poedit-Language: Dutch\n"
 "X-Poedit-Country: NETHERLANDS\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -69,13 +69,13 @@ msgstr "Tijd"
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
-#: views/settings.php:123
+#: views/settings.php:124
 #: views/configuration-edit.php:348
 #: views/gravityforms/feed-edit.php:315
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/settings.php:123
+#: views/settings.php:124
 #: views/configuration-edit.php:348
 #: views/gravityforms/feed-edit.php:315
 msgid "Update"
@@ -257,6 +257,11 @@ msgstr "Status verzoek"
 #: views/payments.php:12
 msgid "iDEAL Payments"
 msgstr "iDEAL betalingen"
+
+#: views/payments.php:18
+#: views/payments.php:19
+msgid "Search Payments"
+msgstr "Betalingen zoeken"
 
 #: views/configurations.php:5
 msgid "iDEAL Configurations"
@@ -785,16 +790,16 @@ msgstr "Documentatie"
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:65
+#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:69
 msgid "No payments found."
 msgstr "Geen betalingen gevonden."
 
-#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:74
+#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:78
 msgid "Date"
 msgstr "Datum"
 
-#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:142
-#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:151
+#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:146
+#: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:155
 msgid "Details"
 msgstr "Details"
 
@@ -832,6 +837,10 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:52
+msgid "&mdash; Select configuration &mdash;"
+msgstr "&mdash; Selecteer configuratie &mdash;"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:59
 msgid "Enable/Disable"
@@ -874,38 +883,55 @@ msgid "Thank you for your order, please click the button below to pay with iDEAL
 msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te betalen met iDEAL."
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:179
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:285
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:188
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:269
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:203
-msgid "shipping"
-msgstr "verzending"
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:204
-msgid "Shipping"
-msgstr "Verzending"
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:234
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:218
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
-#: classes/Pronamic/Shopp/IDeal/IDealGatewayModule.php:96
-msgid "There is not enough customer information to process the order."
-msgstr ""
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:151
+msgid "Shipping"
+msgstr "Verzending"
 
-#: classes/Pronamic/Shopp/IDeal/IDealGatewayModule.php:103
-msgid "Order validation failed. Received duplicate transaction id: "
-msgstr ""
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:161
+msgid "Tax"
+msgstr "BTW"
 
-#: classes/Pronamic/Shopp/IDeal/IDealGatewayModule.php:119
-msgid "Payment could not be confirmed, this order cannot be processed."
-msgstr ""
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:291
+msgid "Select configuration"
+msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/IDealGatewayModule.php:168
-msgid "iDEAL Bank"
-msgstr "iDEAL bank"
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:141
+msgid "Payment of the order has been cancelled."
+msgstr "Betaling van de bestelling is geannuleerd."
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:144
+msgid "An unexpected error occured during transaction."
+msgstr "Een overwachte fout vond plaats tijdens de transactie."
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:147
+msgid "The maximum transaction time expired."
+msgstr "De maximale transactie tijd is verlopen."
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:150
+msgid "The transaction failed for an unknown reason."
+msgstr "De transactie is mislukt om een onbekende reden."
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:153
+msgid "Transaction was not finished and was left open."
+msgstr "Transactie is niet afgerond en is open gelaten."
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:162
+msgid "Errors"
+msgstr "Fouten"
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:179
+msgid "Shopp"
+msgstr "Shopp"
 
 #: classes/Pronamic/GravityForms/IDeal/Fields.php:43
 msgid "Create iDEAL feed"
@@ -944,8 +970,11 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nee"
 
-#~ msgid "Search Payments"
-#~ msgstr "Betalingen zoeken"
+#~ msgid "shipping"
+#~ msgstr "verzending"
+
+#~ msgid "iDEAL Bank"
+#~ msgstr "iDEAL bank"
 
 #~ msgid "Awaiting iDEAL payment"
 #~ msgstr "In afwachting van iDEAL betaling"
@@ -958,10 +987,6 @@ msgstr "Nee"
 
 #~ msgid "iDeal Payment"
 #~ msgstr "iDEAL betaling"
-
-#, fuzzy
-#~ msgid "Security configuration"
-#~ msgstr "Configuratie"
 
 #~ msgid "password"
 #~ msgstr "wachtwoord"

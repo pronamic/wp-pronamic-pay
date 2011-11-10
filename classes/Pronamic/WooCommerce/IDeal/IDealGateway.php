@@ -49,7 +49,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
      */
     function init_form_fields() {
     	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash; ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
     	foreach($configurations as $configuration) {
     		$configurationOptions[$configuration->getId()] = $configuration->getName();
     	}
