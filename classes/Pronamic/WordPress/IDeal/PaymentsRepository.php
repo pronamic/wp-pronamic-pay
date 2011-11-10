@@ -129,6 +129,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			'entrance_code' => null , 
 			'source' => null , 
 			'source_id' => null , 
+			's' => null , 
 			'number' => null , 
 			'offset' => null ,
 			'orderby' => 'date_gmt' , 
@@ -156,6 +157,27 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		if(isset($query['source_id'])) {
 			$where .= $wpdb->prepare(' AND payment.source_id = %s', $query['source_id']);
+		}
+
+		if(isset($query['s'])) {
+			$term = $query['s'];
+			
+			if(!empty($term)) {
+				$n = '%';
+					
+				$term = esc_sql(like_escape($term));
+
+				$conditions = array();
+
+				$columns = array('transaction_id', 'consumer_name', 'consumer_account_number', 'consumer_city');
+				foreach($columns as $column) {
+					$conditions[] = "payment.{$column} LIKE '{$n}{$term}{$n}'";
+				}
+	
+				$search  = ' AND (' . implode(' OR ', $conditions) . ')';
+	
+				$where .= $search;
+			}
 		}
 		
 		// Limit
