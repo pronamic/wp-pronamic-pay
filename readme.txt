@@ -72,6 +72,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
 *	Added support for the [Shopp plugin](http://shopplugin.net/)
 *	Added search box on the payments page so you can search on transaction ID, consumer name, account number and city
+*	Adjusted the default expiration date modifier from +1 hour to +30 minutes
 
 = beta-0.7.2 =
 *	Fixed an issue with character set in the iDEAL lite variant with the decoding of HTML entities
