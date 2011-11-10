@@ -177,6 +177,10 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 					$iDeal->setCurrency(get_option('woocommerce_currency'));	
 			        $iDeal->setPurchaseId($order_id);
 			        $iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order_id));
+			        
+			        $iDeal->setCancelUrl($order->get_cancel_order_url());
+			        $iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order_id, get_permalink(get_option('woocommerce_thanks_page_id')))));
+			        $iDeal->setErrorUrl($order->get_checkout_payment_url());
 
 			        // Items
 		        	$iDealItem = new Pronamic_IDeal_Basic_Item();

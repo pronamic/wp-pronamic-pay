@@ -61,6 +61,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= to do =
+*	Add search box on the payments page
+
+= beta-0.7.3 =
+*	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
+
 = beta-0.7.2 =
 *	Fixed an issue with character set in the iDEAL lite variant with the decoding of HTML entities
 *	Added the current time to the iDEAL settings page so users can easily check the server time
