@@ -67,6 +67,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = todo =
 *	Fix the pagination while searching payments 
+*	Check the Mollie tests for the lite variant
 
 = beta-0.8 =
 *	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
