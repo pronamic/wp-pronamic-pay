@@ -234,6 +234,16 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     	
 		$order = &new woocommerce_order( $order_id );
 
+		// Mark as on-hold (we're awaiting the payment)
+		$order->update_status('on-hold', __('Awaiting iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		
+		// Remove cart
+		$woocommerce->cart->empty_cart();
+		
+		// Empty awaiting payment session
+		unset($_SESSION['order_awaiting_payment']);
+
+		// Do specifiek iDEAL variant processing
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 		if($configuration !== null) {
 			$variant = $configuration->getVariant();
@@ -250,6 +260,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealBasicPayment($order, $configuration, $variant) {
+		// Return thankyou redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))

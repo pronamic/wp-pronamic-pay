@@ -69,6 +69,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fix the pagination while searching payments 
 *	Check the Mollie tests for the lite variant
 
+= beta-0.8.1 =
+*	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated 
+
 = beta-0.8 =
 *	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
 *	Added support for the [Shopp plugin](http://shopplugin.net/)
