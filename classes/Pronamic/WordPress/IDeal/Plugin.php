@@ -223,7 +223,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
 		
-		do_action('pronamic_ideal_status_update', $payment);
+		$return = true;
+
+		do_action('pronamic_ideal_status_update', $payment, $return);
 	}
 
 	//////////////////////////////////////////////////

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-10 13:31+0100\n"
-"PO-Revision-Date: 2011-11-10 13:31+0100\n"
+"POT-Creation-Date: 2011-11-17 14:26+0100\n"
+"PO-Revision-Date: 2011-11-17 14:26+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -259,7 +259,6 @@ msgid "iDEAL Payments"
 msgstr "iDEAL betalingen"
 
 #: views/payments.php:18
-#: views/payments.php:19
 msgid "Search Payments"
 msgstr "Betalingen zoeken"
 
@@ -736,20 +735,20 @@ msgstr "URL:"
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:350
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:352
 #, php-format
 msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
 msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:355
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:357
 msgid "iDEAL settings page"
 msgstr "iDEAL instellingen pagina"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:421
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:423
 msgid "iDEAL Administrator"
 msgstr "iDEAL beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:425
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:427
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -884,7 +883,7 @@ msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om t
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:179
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:188
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:269
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:280
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -892,6 +891,10 @@ msgstr "Bestelling %s"
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:218
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:238
+msgid "Awaiting iDEAL payment."
+msgstr "In afwachting van iDEAL betaling."
 
 #: classes/Pronamic/Shopp/IDeal/GatewayModule.php:151
 msgid "Shipping"
@@ -905,31 +908,31 @@ msgstr "BTW"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:141
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:143
 msgid "Payment of the order has been cancelled."
 msgstr "Betaling van de bestelling is geannuleerd."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:144
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:146
 msgid "An unexpected error occured during transaction."
 msgstr "Een overwachte fout vond plaats tijdens de transactie."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:147
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:149
 msgid "The maximum transaction time expired."
 msgstr "De maximale transactie tijd is verlopen."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:150
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:152
 msgid "The transaction failed for an unknown reason."
 msgstr "De transactie is mislukt om een onbekende reden."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:153
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:155
 msgid "Transaction was not finished and was left open."
 msgstr "Transactie is niet afgerond en is open gelaten."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:162
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:164
 msgid "Errors"
 msgstr "Fouten"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:179
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:181
 msgid "Shopp"
 msgstr "Shopp"
 
@@ -975,9 +978,6 @@ msgstr "Nee"
 
 #~ msgid "iDEAL Bank"
 #~ msgstr "iDEAL bank"
-
-#~ msgid "Awaiting iDEAL payment"
-#~ msgstr "In afwachting van iDEAL betaling"
 
 #~ msgid "Action"
 #~ msgstr "Actie"

@@ -30,7 +30,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 		self::addGateway();
 
 		// Actions
-		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'));
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 		
 		// Filters
 		add_filter('pronamic_ideal_source_column_shopp', array(__CLASS__, 'sourceColumn'), 10, 2);
@@ -82,7 +82,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment){
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
 		if($payment->getSource() == self::SLUG && self::isShoppSupported()){
 			global $Shopp, $wpdb;
 			
@@ -120,8 +120,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
 				}
 							
-				if($url){
+				if($url && $return) {
 					wp_redirect($url, 303);
+
 					exit;
 				}
 			}
