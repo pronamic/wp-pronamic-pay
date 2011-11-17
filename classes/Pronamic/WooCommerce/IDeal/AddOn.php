@@ -24,7 +24,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	public static function bootstrap() {
 		add_filter('woocommerce_payment_gateways', array(__CLASS__, 'addGateway'));
 		
-		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 		
 		add_filter('pronamic_ideal_source_column_woocommerce', array(__CLASS__, 'sourceColumn'), 10, 2);
 	}
@@ -58,7 +58,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus($payment) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
 		if($payment->getSource() == self::SLUG && self::isWooCommerceSupported()) {
 			$id = $payment->getSourceId();
 			$transaction = $payment->transaction;
@@ -96,7 +96,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						break;
 				}
 				
-				if($url) {
+				if($url && $return) {
 					wp_redirect($url, 303);
 
 					exit;

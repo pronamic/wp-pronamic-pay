@@ -55,6 +55,10 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 			$args['order'] = $_REQUEST['order'];
 		}
 
+		if(isset($_REQUEST['s'])) {
+			$args['s'] = $_REQUEST['s'];
+		}
+
 		$this->items = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments($args);
 	}
 

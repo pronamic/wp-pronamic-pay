@@ -1,9 +1,9 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, rabobank, friesland bank, ing, mollie
+Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.7.2
+Stable tag: beta-0.8.1
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -20,7 +20,11 @@ to add the iDEAL payment method to your Gravity Forms.
 
 = WooCommerce =
 
-The Pronamic iDEAL plugin is an payment gateway for the WooCommerce e-commerce plugin.
+The Pronamic iDEAL plugin is an payment gateway for the [WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/).
+
+= Shopp =
+
+The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://shopplugin.net/).
 
 = Banks and variants =
 
@@ -60,6 +64,20 @@ WordPress installation and then activate the Plugin from Plugins page.
 10.	Gravity Forms frontend issuer drop down
 
 == Changelog ==
+
+= todo =
+*	Fix the pagination while searching payments 
+*	Check the Mollie tests for the lite variant
+
+= beta-0.8.1 =
+*	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated
+*	Improved the payment status update of the Shopp and Gravity Forms add-ons
+
+= beta-0.8 =
+*	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
+*	Added support for the [Shopp plugin](http://shopplugin.net/)
+*	Added search box on the payments page so you can search on transaction ID, consumer name, account number and city
+*	Adjusted the default expiration date modifier from +1 hour to +30 minutes
 
 = beta-0.7.2 =
 *	Fixed an issue with character set in the iDEAL lite variant with the decoding of HTML entities

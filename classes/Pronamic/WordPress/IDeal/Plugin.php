@@ -97,10 +97,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
 
-		// Gravity Forms Add-On
+		// Bootstrap the add-ons
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
-			// Pronamic_Shopp_IDeal_AddOn::bootstrap();
+			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			// Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
@@ -223,7 +223,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
 		
-		do_action('pronamic_ideal_status_update', $payment);
+		$return = true;
+
+		do_action('pronamic_ideal_status_update', $payment, $return);
 	}
 
 	//////////////////////////////////////////////////

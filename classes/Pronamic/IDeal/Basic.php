@@ -31,7 +31,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 * 
 	 * @var string
 	 */
-	const EXPIRE_DATE_MODIFIER = '+1 hour';
+	const EXPIRE_DATE_MODIFIER = '+30 minutes';
 
 	//////////////////////////////////////////////////
 

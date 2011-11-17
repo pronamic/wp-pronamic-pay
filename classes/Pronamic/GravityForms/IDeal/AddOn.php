@@ -77,7 +77,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
 			}
 			
-			add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 			
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
 	
@@ -182,7 +182,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus($payment) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
 		if($payment->getSource() == self::SLUG) {
 			$leadId = $payment->getSourceId();
 			$transaction = $payment->transaction;
@@ -221,7 +221,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 							break;
 					}
 					
-					if($url) {
+					if($url && $return) {
 						wp_redirect($url, 303);
 
 						exit;
