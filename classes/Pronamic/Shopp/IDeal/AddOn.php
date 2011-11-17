@@ -30,10 +30,11 @@ class Pronamic_Shopp_IDeal_AddOn {
 		self::addGateway();
 
 		// Actions
-		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'));
 		
 		// Filters
 		add_filter('pronamic_ideal_source_column_shopp', array(__CLASS__, 'sourceColumn'), 10, 2);
+
 		add_filter('shopp_checkout_form', array(__CLASS__, 'showMessage'));
 		add_filter('shopp_cart_template', array(__CLASS__, 'showMessage'));
 		add_filter('shopp_catalog', array(__CLASS__, 'showMessage'));

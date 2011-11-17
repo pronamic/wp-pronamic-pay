@@ -77,7 +77,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
 			}
 			
-			add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'));
 			
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
 	

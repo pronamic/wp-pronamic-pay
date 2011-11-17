@@ -24,7 +24,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	public static function bootstrap() {
 		add_filter('woocommerce_payment_gateways', array(__CLASS__, 'addGateway'));
 		
-		add_action('pronamic_ideal_return', array(__CLASS__, 'updateStatus'));
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'));
 		
 		add_filter('pronamic_ideal_source_column_woocommerce', array(__CLASS__, 'sourceColumn'), 10, 2);
 	}
