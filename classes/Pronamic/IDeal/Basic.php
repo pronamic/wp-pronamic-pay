@@ -187,7 +187,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 * Constructs and initialize a iDEAL basic object
 	 */
 	public function __construct() {
-		$this->items = array();
+		$this->items = new Pronamic_IDeal_Items();
 
 		$this->forbiddenCharacters = array();
 
@@ -527,31 +527,21 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Format the price according to the documentation in whole cents
-	 * 
-	 * @param float $price
-	 * @return int
-	 */
-	public static function formatPrice($price) {
-		return round($price * 100);
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Add item
-	 */
-	public function addItem(Pronamic_IDeal_Basic_Item $item) {
-		$this->items[] = $item;
-	}
-
-	/**
 	 * Get the items
 	 * 
-	 * @return array
+	 * @return Pronamic_IDeal_Items
 	 */
 	public function getItems() {
 		return $this->items;
+	}
+	
+	/**
+	 * Set the items
+	 * 
+	 * @param Pronamic_IDeal_Items $items
+	 */
+	public function setItems(Pronamic_IDeal_Items $items) {
+		$this->items = $items;
 	}
 
 	//////////////////////////////////////////////////
@@ -560,13 +550,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 * Calculate the total amount of all items
 	 */
 	public function getAmount() {
-		$amount = 0;
-
-		foreach($this->getItems() as $item) {
-			$amount += $item->getAmount();
-		}
-
-		return $amount;
+		return $this->items->getAmount();
 	}
 
 	//////////////////////////////////////////////////
@@ -587,7 +571,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 		$string[] = $this->getSubId();
 
 		// Total amount of transaction
-		$string[] = self::formatPrice($this->getAmount());
+		$string[] = Pronamic_IDeal_IDeal::formatPrice($this->getAmount());
 
 		// The online shop's unique order number, also known as purchase id
 		$string[] = $this->getPurchaseId(); 
@@ -613,7 +597,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 			$string[] = $item->getQuantity();
 
 			// Price of article <n> in whole eurocents
-			$string[] = self::formatPrice($item->getPrice()); // Price of article in whole cents
+			$string[] = Pronamic_IDeal_IDeal::formatPrice($item->getPrice()); // Price of article in whole cents
 		}
 
 		$concatString = implode('', $string);
@@ -647,7 +631,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 		$html .= sprintf('<input type="hidden" name="merchantID" value="%s" />', $this->getMerchantId());
 		$html .= sprintf('<input type="hidden" name="subID" value="%s" />', $this->getSubId());
 
-		$html .= sprintf('<input type="hidden" name="amount" value="%d" />', self::formatPrice($this->getAmount()));
+		$html .= sprintf('<input type="hidden" name="amount" value="%d" />', Pronamic_IDeal_IDeal::formatPrice($this->getAmount()));
 		$html .= sprintf('<input type="hidden" name="purchaseID" value="%s" />', $this->getPurchaseId());
 		$html .= sprintf('<input type="hidden" name="language" value="%s" />', $this->getLanguage());
 		$html .= sprintf('<input type="hidden" name="currency" value="%s" />', $this->getCurrency());
@@ -661,7 +645,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 			$html .= sprintf('<input type="hidden" name="itemNumber%d" value="%s" />', $serialNumber, $item->getNumber());
 			$html .= sprintf('<input type="hidden" name="itemDescription%d" value="%s" />', $serialNumber, $item->getDescription());
 			$html .= sprintf('<input type="hidden" name="itemQuantity%d" value="%s" />', $serialNumber, $item->getQuantity());
-			$html .= sprintf('<input type="hidden" name="itemPrice%d" value="%d" />', $serialNumber, self::formatPrice($item->getPrice()));
+			$html .= sprintf('<input type="hidden" name="itemPrice%d" value="%d" />', $serialNumber, Pronamic_IDeal_IDeal::formatPrice($item->getPrice()));
 
 			$serialNumber++;
 		}

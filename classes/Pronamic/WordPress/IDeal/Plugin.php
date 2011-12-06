@@ -101,7 +101,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		if(self::canBeUsed()) {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
-			// Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
+			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
 

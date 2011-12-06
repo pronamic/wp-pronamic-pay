@@ -6,13 +6,13 @@
 		<name>ABN AMRO</name>
 		<url>http://abnamro.nl/</url>
 			
-		<variant type="basic" disabled="disabled">
+		<variant method="easy">
 			<id>abnamro-ideal-easy</id>
 			<name>ABN AMRO - iDEAL Easy</name>
 			<url>https://internetkassa.abnamro.nl/</url>
 
 			<test>
-				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
 			</test>
 			<live>
@@ -20,7 +20,7 @@
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant type="advanced" disabled="disabled">
+		<variant method="advanced" disabled="disabled">
 			<id>abnamro-ideal-zelfbouw</id>
 			<name>ABN AMRO - iDEAL Zelfbouw</name>
 			<url>https://internetkassa.abnamro.nl/</url>

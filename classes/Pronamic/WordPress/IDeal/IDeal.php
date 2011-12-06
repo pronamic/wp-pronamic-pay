@@ -191,7 +191,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$date1->modify('+30 second');
 		
 		$args = array($payment->getId());
-		wp_schedule_single_event($date1->getTimestamp(), 'pronamic_ideal_check_transaction_status', $args);
+		wp_schedule_single_event($date1->format('U'), 'pronamic_ideal_check_transaction_status', $args);
 
 		return $issuer->authenticationUrl;
 	}

@@ -39,6 +39,9 @@
 					<?php 
 					
 					switch($variant->getMethod()) {
+						case Pronamic_IDeal_IDeal::METHOD_EASY:
+							_e('Easy', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+							break;
 						case Pronamic_IDeal_IDeal::METHOD_BASIC:
 							_e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 							break;

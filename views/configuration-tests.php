@@ -136,13 +136,17 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->setErrorUrl($url);
 
 	// Test item
-	$item = new Pronamic_IDeal_Basic_Item();
+	$items = new Pronamic_IDeal_Items();
+
+	$item = new Pronamic_IDeal_Item();
 	$item->setNumber($testCase);
 	$item->setDescription($name);
 	$item->setPrice($testCase);
 	$item->setQuantity(1);
+	
+	$items->addItem($item);
 
-	$iDeal->addItem($item);
+	$iDeal->setItems($items);
 	
 	?>
 	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">

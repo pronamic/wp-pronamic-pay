@@ -8,6 +8,26 @@
 	<?php 
 	
 	$providers = array(
+		'abnamro.nl' => array(
+			'name' => 'ABN AMRO' ,
+			'url' => 'http://abnamro.nl/' , 
+			'files' => array(
+				array(
+					'path' => 'docs/abnamro.nl/iDEALeasy_NL.pdf' ,
+					'name' => 'Handleiding IDEAL EASY' 
+				) , 
+				array(
+					'path' => 'docs/abnamro.nl/User_Manual_NL.pdf' ,
+					'name' => 'Handleiding iDEAL' ,  
+					'version' => '1.17' 
+				) , 
+				array(
+					'path' => 'docs/abnamro.nl/iDEAL_Merchant_Integratie_Gids_NL_v2.2.3.pdf' ,
+					'name' => 'iDEAL Merchant Integratie gids' ,  
+					'version' => '2.2.3' 
+				)
+			)
+		) ,
 		'currence.nl' => array(
 			'name' => 'Currence' ,
 			'url' => 'http://currence.nl/' , 

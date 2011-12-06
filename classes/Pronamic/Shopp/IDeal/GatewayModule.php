@@ -134,7 +134,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$items = array();
 		foreach($Shopp->Purchase->purchased as $key => $item){
 			// Item
-			$items[$key] = new Pronamic_IDeal_Basic_Item();
+			$items[$key] = new Pronamic_IDeal_Item();
 			$items[$key]->setNumber($item->id);
 			$items[$key]->setDescription($item->name);
 			$items[$key]->setQuantity($item->quantity);
@@ -146,7 +146,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		// Add shipping costs if the product needs shipping
 		if($Shopp->Purchase->freight > 0){
-			$shipping = new Pronamic_IDeal_Basic_Item();
+			$shipping = new Pronamic_IDeal_Item();
 			$shipping->setNumber(-9001);
 			$shipping->setDescription(__('Shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 			$shipping->setQuantity(1);
@@ -156,7 +156,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		// Add tax if there is any
 		if($Shopp->Purchase->tax > 0){
-			$tax = new Pronamic_IDeal_Basic_Item();
+			$tax = new Pronamic_IDeal_Item();
 			$tax->setNumber(-9002);
 			$tax->setDescription(__('Tax', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 			$tax->setQuantity(1);

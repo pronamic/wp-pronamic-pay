@@ -183,7 +183,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			        $iDeal->setErrorUrl($order->get_checkout_payment_url());
 
 			        // Items
-		        	$iDealItem = new Pronamic_IDeal_Basic_Item();
+		        	$iDealItem = new Pronamic_IDeal_Item();
 	    	    	$iDealItem->setNumber($order_id);
 	        		$iDealItem->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order_id));
 	        		$iDealItem->setPrice($order->order_total);

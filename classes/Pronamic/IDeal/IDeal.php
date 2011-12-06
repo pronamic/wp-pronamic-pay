@@ -52,6 +52,13 @@ class Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Easy
+	 * 
+	 * @var string
+	 */
+	const METHOD_EASY = 'easy';
+
+	/**
 	 * Basic
 	 * 
 	 * @var string
@@ -104,6 +111,9 @@ class Pronamic_IDeal_IDeal {
 	
 						if($enabled) {
 							switch((string) $variantXml['method']) {
+								case self::METHOD_EASY:
+									$variant = new Pronamic_IDeal_VariantEasy();
+									break;
 								case self::METHOD_BASIC:
 									$variant = new Pronamic_IDeal_VariantBasic();
 									break;

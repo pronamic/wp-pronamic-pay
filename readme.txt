@@ -28,6 +28,8 @@ The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://sh
 
 = Banks and variants =
 
+*	ANB AMRO
+	*	iDEAL Easy
 *	Friesland Bank
 	*	iDEAL Zakelijk
 	*	iDEAL Zakelijk Plus
@@ -69,6 +71,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fix the pagination while searching payments 
 *	Check the Mollie tests for the lite variant
 
+= beta-0.8.2 =
+*	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
+*	Removed the addItem function from the iDEAL basic class and added an extra items class
+*	Improved the way we load iDEAL items in the Gravity Forms iDEAL Add-On 
+ 
 = beta-0.8.1 =
 *	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated
 *	Improved the payment status update of the Shopp and Gravity Forms add-ons
