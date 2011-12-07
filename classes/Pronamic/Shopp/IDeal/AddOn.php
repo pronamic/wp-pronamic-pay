@@ -70,6 +70,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 		} else {
 			$Shopp->Gateways->legacy[] = md5_file($path . $file);
 		}
+
 		if(strpos($Shopp->Settings->registry['active_gateways'], 'Pronamic_Shopp_IDeal_GatewayModule') !== false){
 			$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 		}

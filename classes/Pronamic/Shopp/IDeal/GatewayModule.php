@@ -241,7 +241,24 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 						</div>
 					';
 				}
-				
+		
+				// Only show extra fields on this paymethod/gateway
+				$script = '
+					$(document).bind("shopp_paymethod", function(event, paymethod) {
+						if(paymethod) {
+							var fields = $("#pronamic_ideal_issuer");
+		
+							if(paymethod.indexOf("' . sanitize_title_with_dashes($this->settings['label']) . '") !== -1) {
+								fields.show();
+							} else {
+								fields.hide();
+							}
+						}
+					});
+				';
+		
+				add_storefrontjs($script);
+
 				// Script to hide banks when another gateway is selected
 				$script = array();
 				$script[] = "$(document).bind('shopp_paymethod',function (e,pm) {";
