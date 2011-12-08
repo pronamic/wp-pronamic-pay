@@ -30,7 +30,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	/**
 	 * Get the iDEAL client
 	 * 
-	 * @return IDealClient
+	 * @return Pronamic_IDeal_IDealClient
 	 */
 	public static function getClient() {
 		if(self::$client == null) {

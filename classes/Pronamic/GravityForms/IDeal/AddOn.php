@@ -240,9 +240,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $lead
 	 */
 	public static function entryInfo($formId, $lead) {
+		if(false):
+
 		_e('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>: 
 		<a href="#" target="_blank">transaction 1</a>
 		<br /><br /><?php
+		
+		endif;
 	}
 
 	//////////////////////////////////////////////////
@@ -772,10 +776,12 @@ class Pronamic_GravityForms_IDeal_AddOn {
         
         // Items
         $items = self::getIDealItemsFromGravityFormsLead($form, $lead);
+        
+        $iDeal->setAmount($items->getAmount());
 
 		// Updating lead's payment_status to Processing
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $basic->getAmount();
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $items->getAmount();
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = gmdate('y-m-d H:i:s');
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $lead['id'];
@@ -784,7 +790,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         // Update payment
 		$transaction = new Pronamic_IDeal_Transaction();
-		$transaction->setAmount($basic->getAmount()); 
+		$transaction->setAmount($items->getAmount()); 
 		$transaction->setCurrency($iDeal->getCurrency());
 		$transaction->setLanguage('nl');
 		$transaction->setEntranceCode(uniqid());

@@ -9,9 +9,11 @@
  */
 class Pronamic_Shopp_IDeal_AddOn {
 	/**
-	 * SLUG
+	 * Slug
 	 */
 	const SLUG = 'shopp';
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Bootstrap

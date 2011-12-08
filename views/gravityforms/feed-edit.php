@@ -291,6 +291,75 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<?php endforeach; ?>
 		</table>
 
+		<div class="extra-settings method-easy">
+			<h3>
+				<?php _e('Easy', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			</h3>
+	
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_customer_name_field_id">
+							<?php _e('Customer Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_customer_name_field_id" name="gf_ideal_customer_name_field_id">
+							
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_e_mail_address_field_id">
+							<?php _e('E-Mail Address', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_e_mail_address_field_id" name="gf_ideal_e_mail_address_field_id">
+							
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_owner_address_field_id">
+							<?php _e('Owner Address', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_owner_address_field_id" name="gf_ideal_owner_address_field_id">
+							
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_owner_city_field_id">
+							<?php _e('Owner City', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_owner_city_field_id" name="gf_ideal_owner_city_field_id">
+							
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="gf_ideal_owner_zip_field_id">
+							<?php _e('Owner ZIP', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</label>
+					</th>
+					<td>
+						<select id="gf_ideal_owner_zip_field_id" name="gf_ideal_owner_zip_field_id">
+							
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+
 		<div class="extra-settings method-advanced">
 			<h3>
 				<?php _e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>

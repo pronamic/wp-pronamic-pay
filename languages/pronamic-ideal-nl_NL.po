@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-17 14:30+0100\n"
-"PO-Revision-Date: 2011-11-17 14:30+0100\n"
+"POT-Creation-Date: 2011-12-08 15:44+0100\n"
+"PO-Revision-Date: 2011-12-08 15:44+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -71,13 +71,13 @@ msgstr "d-m-Y H:i"
 
 #: views/settings.php:124
 #: views/configuration-edit.php:348
-#: views/gravityforms/feed-edit.php:315
+#: views/gravityforms/feed-edit.php:384
 msgid "Save"
 msgstr "Opslaan"
 
 #: views/settings.php:124
 #: views/configuration-edit.php:348
-#: views/gravityforms/feed-edit.php:315
+#: views/gravityforms/feed-edit.php:384
 msgid "Update"
 msgstr "Update"
 
@@ -275,7 +275,7 @@ msgstr "Nieuwe toevoegen"
 msgid "iDEAL Documentation"
 msgstr "iDEAL documentatie"
 
-#: views/documentation.php:142
+#: views/documentation.php:162
 #, php-format
 msgid "version %s"
 msgstr "versie %s"
@@ -363,26 +363,31 @@ msgid "Method"
 msgstr "Methode"
 
 #: views/variants.php:43
+#: views/gravityforms/feed-edit.php:296
+msgid "Easy"
+msgstr "Easy"
+
+#: views/variants.php:46
 #: views/configuration-edit.php:257
 msgid "Basic"
 msgstr "Basis"
 
-#: views/variants.php:46
+#: views/variants.php:49
 #: views/configuration-edit.php:276
-#: views/gravityforms/feed-edit.php:296
+#: views/gravityforms/feed-edit.php:365
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/variants.php:49
+#: views/variants.php:52
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: views/variants.php:58
+#: views/variants.php:61
 #: views/configuration-edit.php:247
 msgid "Test"
 msgstr "Test"
 
-#: views/variants.php:64
+#: views/variants.php:67
 #: views/configuration-edit.php:242
 msgid "Live"
 msgstr "Live"
@@ -732,6 +737,26 @@ msgid "URL:"
 msgstr "URL:"
 
 #: views/gravityforms/feed-edit.php:303
+msgid "Customer Name"
+msgstr "Klant  naam"
+
+#: views/gravityforms/feed-edit.php:315
+msgid "E-Mail Address"
+msgstr "E-mailadres"
+
+#: views/gravityforms/feed-edit.php:327
+msgid "Owner Address"
+msgstr "Eigenaar adres"
+
+#: views/gravityforms/feed-edit.php:339
+msgid "Owner City"
+msgstr "Eigenaar woonplaats"
+
+#: views/gravityforms/feed-edit.php:351
+msgid "Owner ZIP"
+msgstr "Eigenaar postcode"
+
+#: views/gravityforms/feed-edit.php:372
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
@@ -833,106 +858,109 @@ msgid "Order #%s"
 msgstr "Bestelling #%s"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:52
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:54
 msgid "&mdash; Select configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:59
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:61
 msgid "Enable/Disable"
 msgstr "Inschakelen/uitschakelen"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:61
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:63
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:67
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:69
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:71
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73
 msgid "Customer Message"
 msgstr "Klant  bericht"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
 msgid "Give the customer instructions for paying via iDEAL, and let them know that their order won't be shipping until the money is received."
 msgstr "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:74
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:76
 msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
 msgstr "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:79
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:81
 msgid "Select an iDEAL configuration."
 msgstr "Selecteer een iDEAL configuratie."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:127
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:129
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:142
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:144
 msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op een andere manier."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:166
-msgid "Thank you for your order, please click the button below to pay with iDEAL."
-msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te betalen met iDEAL."
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:179
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:188
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:280
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:162
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:203
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:254
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:358
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:218
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:234
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:288
+msgid "Thank you for your order, please click the button below to pay with iDEAL."
+msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te betalen met iDEAL."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:238
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:292
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:238
-msgid "Awaiting iDEAL payment."
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:309
+msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL betaling."
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:151
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:166
 msgid "Shipping"
 msgstr "Verzending"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:161
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:176
 msgid "Tax"
 msgstr "BTW"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:291
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:310
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:143
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:146
 msgid "Payment of the order has been cancelled."
 msgstr "Betaling van de bestelling is geannuleerd."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:146
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:149
 msgid "An unexpected error occured during transaction."
 msgstr "Een overwachte fout vond plaats tijdens de transactie."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:149
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:152
 msgid "The maximum transaction time expired."
 msgstr "De maximale transactie tijd is verlopen."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:152
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:155
 msgid "The transaction failed for an unknown reason."
 msgstr "De transactie is mislukt om een onbekende reden."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:155
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:158
 msgid "Transaction was not finished and was left open."
 msgstr "Transactie is niet afgerond en is open gelaten."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:164
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:167
 msgid "Errors"
 msgstr "Fouten"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:181
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:184
 msgid "Shopp"
 msgstr "Shopp"
 
@@ -1013,9 +1041,6 @@ msgstr "Nee"
 
 #~ msgid "iDEAL Transactions"
 #~ msgstr "iDEAL transacties"
-
-#~ msgid "Consumer City"
-#~ msgstr "Consument woonplaats"
 
 #~ msgid "Currency"
 #~ msgstr "Valuta"

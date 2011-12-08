@@ -13,23 +13,37 @@
 require_once(SHOPP_PATH."/core/model/XML.php");
 
 class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
+	/**
+	 * Flag to let Shopp know that this is gateway module doesn't require an secure connection
+	 * 
+	 * @var boolean
+	 */
 	public $secure = false;
-	private $buttonurl = 'ideal.png';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * The unique iDEAL configuration ID
+	 * 
+	 * @var string
+	 */
 	private $configurationId;
+
+	//////////////////////////////////////////////////
 	
 	/**
-	 * Constructor
+	 * Constructs and initialize an iDEAL gateway module
 	 */
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
+
 		$this->setup('pronamic_shopp_ideal_configuration');
-		$this->buttonurl = plugins_url('', __FILE__ ).'/'.$this->buttonurl;
 		
-		// ConfigurationId
+		// Configuration ID
 		$this->configurationId = $this->settings['pronamic_shopp_ideal_configuration'];
 		
 		// Setup extra checkout inputs here so they are available any time the gateway is active
-		add_filter('shopp_checkout_gateway_inputs', array(&$this, 'inputs'));
+		add_filter('shopp_checkout_gateway_inputs', array(&$this, 'inputs'), 50);
 		add_filter('shopp_checkout_submit_button', array(&$this, 'submit'), 10, 3);
 		add_filter('shopp_order_receipt', array(&$this, 'form'));
 	}
@@ -111,8 +125,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 					$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
 					
 					// Direct to advanced ideal payment site
-					header('Location: '.$url);
-					die;
+					wp_redirect($url, 303);
+
+					exit;
 				}
 			}
 		}
@@ -181,7 +196,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 */
 	function process(){
 		global $Shopp, $wpdb; DatabaseObject::updates();
-		var_dump();
+
 		if(!$this->isAdvancedPayment() && !isset($_GET['messagetype'])){ // BASIC
 			if(isset($_GET['purchase']) && isset($_GET['transactid']) && isset($_GET['ec'])){
 				if($_GET['ec'] == sha1($_SESSION['ec'])){
@@ -205,7 +220,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	/**
 	 * Add extra fields to your checkout form here.
 	 */
-	function inputs ($options) {
+	function inputs($inputs) {
 		$result = '';
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 		if($configuration !== null){
@@ -258,23 +273,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 				';
 		
 				add_storefrontjs($script);
-
-				// Script to hide banks when another gateway is selected
-				$script = array();
-				$script[] = "$(document).bind('shopp_paymethod',function (e,pm) {";
-				// Explicitly use the default when establishing the callback, as this handler is established after
-				// the checkout.js behaviors are loaded and processed because of order of operations
-				$script[] = "	if (!pm) pm = d_pm;";
-				$script[] = "	var f = $('#pronamic_ideal_issuer');";
-				$script[] = "	if (pm && pm.indexOf('".sanitize_title_with_dashes($this->settings['label'])."') !== -1) f.show();";
-				$script[] = "	else f.hide();";
-				$script[] =  "});";
-				
-				// Add script to WordPress
-				add_storefrontjs(join("\n",$script));
 			}
 		}
-		return $result;
+
+		return $inputs . $result;
 	}
 	
 	/**
@@ -298,15 +300,15 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 */
 	function settings () {
 		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-		$configurationOptions = array('' => __('&mdash; Select configuration &mdash; ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 		foreach($configurations as $configuration) {
     		$configurationOptions[$configuration->getId()] = $configuration->getName();
     	}
 		
-		$this->ui->menu(1,array(
-			'name' => 'pronamic_shopp_ideal_configuration',
-			'label' => __('Select configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN),
+		$this->ui->menu(1, array(
+			'name' => 'pronamic_shopp_ideal_configuration' , 
+			'label' => __('Select configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			'selected' => $this->settings['pronamic_shopp_ideal_configuration']
-		),$configurationOptions);
+		), $configurationOptions);
 	}	
 }

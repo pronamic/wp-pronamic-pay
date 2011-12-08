@@ -18,6 +18,7 @@
 		elements.conditionOperator = element.find("#gf_ideal_condition_operator");
 		elements.conditionValue = element.find("#gf_ideal_condition_value");
 		elements.userRoleFieldId = element.find("#gf_ideal_user_role_field_id");
+		elements.fieldSelectFields = element.find("select.field-select");
 
 		// Data
 		var feed = $.parseJSON(elements.feed.val());

@@ -32,16 +32,48 @@ class Pronamic_WordPress_IDeal_Configuration {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Sub ID
+	 * 
+	 * @var string
+	 */
 	public $subId;
 
+	/**
+	 * Mode (live or test)
+	 * 
+	 * @var string
+	 */
 	public $mode;
 
+	/**
+	 * Hash key
+	 * 
+	 * @var string
+	 */
 	public $hashKey;
+
+	//////////////////////////////////////////////////
 	
+	/**
+	 * Private key
+	 * 
+	 * @var string
+	 */
 	public $privateKey;
-	
+
+	/**
+	 * Private key password
+	 * 
+	 * @var string
+	 */
 	public $privateKeyPassword;
 	
+	/**
+	 * Private certificate
+	 * 
+	 * @var string
+	 */
 	public $privateCertificate;
 
 	//////////////////////////////////////////////////

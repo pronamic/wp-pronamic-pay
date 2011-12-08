@@ -79,6 +79,45 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Name of the customer
+	 * 
+	 * @var string
+	 */
+	private $customerName;
+
+	/**
+	 * E-mailaddress
+	 * 
+	 * @var string
+	 */
+	private $eMailAddress;
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Owner address
+	 * 
+	 * @var string
+	 */
+	private $ownerAddress;
+
+	/**
+	 * Owner city
+	 * 
+	 * @var string
+	 */
+	private $ownerCity;
+
+	/**
+	 * Owner ZIP
+	 * 
+	 * @var string
+	 */
+	private $ownerZip;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initialize a iDEAL easy object
 	 */
 	public function __construct() {
@@ -260,42 +299,42 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	public function getCustomerEMail() {
-		return $this->customerEMail;
+	public function getEMailAddress() {
+		return $this->eMailAddress;
 	}
 
-	public function setCustomerEMail() {
-		$this->customerEMail = $customerEMail;
-	}
-
-	//////////////////////////////////////////////////
-
-	public function getCustomerAddress() {
-		return $this->customerAddress;
-	}
-
-	public function setCustomerAddress($customerAddress) {
-		$this->customerAddress = $customerAddress;
+	public function setEMailAddress($eMailAddress) {
+		$this->eMailAddress = $eMailAddress;
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getCustomerCity() {
-		return $this->customerCity;
+	public function getOwnerAddress() {
+		return $this->ownerAddress;
 	}
 
-	public function setCustomerCity($customerCity) {
-		$this->customerCity = $customerCity;
+	public function setOwnerAddress($ownerAddress) {
+		$this->ownerAddress = $ownerAddress;
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getCustomerZip() {
-		return $this->customerZip;
+	public function getOwnerCity() {
+		return $this->ownerCity;
 	}
 
-	public function setCustomerZip($customerZip) {
-		$this->customerZip = $customerZip;
+	public function setOwnerCity($ownerCity) {
+		$this->ownerCity = $ownerCity;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function getOwnerZip() {
+		return $this->ownerZip;
+	}
+
+	public function setOwnerZip($ownerZip) {
+		$this->ownerZip = $ownerZip;
 	}
 
 	//////////////////////////////////////////////////
@@ -316,11 +355,11 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 		$html .= sprintf('<input type="hidden" name="PM" value="%s" />', $this->getPaymentType());
 
 		$html .= sprintf('<input type="hidden" name="CN" value="%s" />', $this->getCustomerName());
-		$html .= sprintf('<input type="hidden" name="EMAIL" value="%s" />', $this->getCustomerEMail());
+		$html .= sprintf('<input type="hidden" name="EMAIL" value="%s" />', $this->getEMailAddress());
 
-		$html .= sprintf('<input type="hidden" name="owneraddress" value="%s" />', $this->getCustomerAddress());
-		$html .= sprintf('<input type="hidden" name="ownertown" value="%s" />', $this->getCustomerCity());
-		$html .= sprintf('<input type="hidden" name="ownerzip" value="%s" />', $this->getCustomerZip());
+		$html .= sprintf('<input type="hidden" name="owneraddress" value="%s" />', $this->getOwnerAddress());
+		$html .= sprintf('<input type="hidden" name="ownertown" value="%s" />', $this->getOwnerCity());
+		$html .= sprintf('<input type="hidden" name="ownerzip" value="%s" />', $this->getOwnerZip());
 
 		return $html;
 	}

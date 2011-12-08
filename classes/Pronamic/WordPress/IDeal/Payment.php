@@ -9,16 +9,48 @@
  * @version 1.0
  */
 class Pronamic_WordPress_IDeal_Payment {
+	/**
+	 * The unique ID of this iDEAL payment
+	 * 
+	 * @var string
+	 */
 	public $id;
 
+	/**
+	 * The used iDEAL configuration for this iDEAL payment
+	 * 
+	 * @var unknown_type
+	 */
 	public $configuration;
 
+	/**
+	 * The transaction
+	 * 
+	 * @var unknown_type
+	 */
 	public $transaction;
-	
+
+	/**
+	 * The name of the source wich initiated this iDEAL payment
+	 * 
+	 * @var string
+	 */
 	private $source;
 
+	/**
+	 * The unique ID of the external source
+	 * 
+	 * @var string
+	 */
 	private $sourceId;
-	
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * The date of this iDEAL payment
+	 * 
+	 * @var DateTime
+	 */
 	private $date;
 
 	//////////////////////////////////////////////////

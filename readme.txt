@@ -70,12 +70,15 @@ WordPress installation and then activate the Plugin from Plugins page.
 = todo =
 *	Fix the pagination while searching payments 
 *	Check the Mollie tests for the lite variant
+*	Gravity Forms bind fields for iDEAL Easy
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
 *	Removed the addItem function from the iDEAL basic class and added an extra items class
 *	Improved the way we load iDEAL items in the Gravity Forms iDEAL Add-On
 *	Improved the Shopp add_storefrontjs script to hide / show the iDEAL fields
+*	Added the ABN AMRO iDEAL Easy variant
+*	Improved and fixed the WooCommerce iDEAL gateway, the status of orders is now set to pending iDEAL payment
  
 = beta-0.8.1 =
 *	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated
