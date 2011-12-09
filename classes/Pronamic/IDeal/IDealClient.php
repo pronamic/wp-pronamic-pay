@@ -266,6 +266,8 @@ class Pronamic_IDeal_IDealClient {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
 
 			$message->transaction->setId((string) $response->transaction->getId());
+		} else {
+
 		}
 
 		return $response;

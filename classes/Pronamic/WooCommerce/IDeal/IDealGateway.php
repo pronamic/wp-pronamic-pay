@@ -202,7 +202,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$iDeal->setOrderId($order->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
         $iDeal->setAmount($order->order_total);
-        
         $iDeal->setCustomerName($order->billing_first_name . ' ' . $order->billing_last_name);
         $iDeal->setOwnerAddress($order->billing_address_1);
         $iDeal->setOwnerCity($order->billing_city);
@@ -346,9 +345,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
-    	$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
     	
-    	if($payment == null) {
+		if($payment == null) {
 			$transaction = new Pronamic_IDeal_Transaction();
 			$transaction->setAmount($order->order_total); 
 			$transaction->setCurrency(get_option('woocommerce_currency'));

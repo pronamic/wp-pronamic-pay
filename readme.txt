@@ -71,6 +71,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fix the pagination while searching payments 
 *	Check the Mollie tests for the lite variant
 *	Gravity Forms bind fields for iDEAL Easy
+*	Add bank images and options to show issuer list with radiobuttons
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
