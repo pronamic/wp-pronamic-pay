@@ -56,7 +56,57 @@
 				array(
 					'path' => 'docs/ing.nl/Wijzigen_van_een_acquiring_certificaat_in_iDEAL_Advanced_internet_tcm7-82882.pdf' ,
 					'name' => 'Wijzigen van een acquiring certificaat in iDEAL Advanced' 
-				)
+				) ,
+				array(
+					'path' => 'docs/ing.nl/20100519_iDEAL_Merchant_Integratie_Gids_v2.2.3.pdf' ,
+					'name' => 'iDEAL Merchant Integratie gids' ,  
+					'version' => '2.2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/20100519_iDEAL_Merchant_Integration_Guide_v2.2.3.pdf' ,
+					'name' => 'iDEAL Merchant Integration Guide' ,  
+					'version' => '2.2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Advanced_PHP_EN_V2.3.pdf' ,
+					'name' => 'PHP integration manual - iDEAL advanced' ,  
+					'version' => '2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Advanced_PHP_NL_V2.3.pdf' ,
+					'name' => 'Integratiehandleiding PHP voor iDEAL Advanced' ,  
+					'version' => '2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Algemeen_NL_v2.3.pdf' ,
+					'name' => 'Introductie en procedure voor iDEAL' ,  
+					'version' => '2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Basic_EN_v2.3.pdf' ,
+					'name' => 'Integration manual for iDEAL Basic' ,  
+					'version' => '2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Basic_NL_v2.3.pdf' ,
+					'name' => 'Integratiehandleiding voor iDEAL Basic' ,  
+					'version' => '2.3' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Download_guide_EN_v2.2.pdf' ,
+					'name' => 'iDEAL Download Guide' ,  
+					'version' => '2.2' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_Downloadwijzer_NL_v2.2.pdf' ,
+					'name' => 'iDEAL Downloadwijzer' ,  
+					'version' => '2.2' 
+				) ,
+				array(
+					'path' => 'docs/ing.nl/iDEAL_General_EN_v2.3.pdf' ,
+					'name' => 'Introduction and procedure for iDEAL' ,  
+					'version' => '2.3' 
+				) ,
 			)
 		) ,
 		'frieslandbank.nl' => array(
