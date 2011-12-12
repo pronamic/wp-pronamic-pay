@@ -80,7 +80,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Improved the Shopp add_storefrontjs script to hide / show the iDEAL fields
 *	Added the ABN AMRO iDEAL Easy variant
 *	Improved and fixed the WooCommerce iDEAL gateway, the status of orders is now set to pending iDEAL payment
-*	Moved all the documentation files to an external server, plugin is now much smaller (from 17 MB to MB)
+*	Moved all the documentation files to an external server, plugin is now much smaller (from 20 MB to 3 MB)
 
 = beta-0.8.1 =
 *	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated
