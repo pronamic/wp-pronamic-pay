@@ -291,6 +291,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			<?php endforeach; ?>
 		</table>
 
+		<?php if(false): ?>
+
 		<div class="extra-settings method-easy">
 			<h3>
 				<?php _e('Easy', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
@@ -359,6 +361,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 				</tr>
 			</table>
 		</div>
+
+		<?php endif; ?>
 
 		<div class="extra-settings method-advanced">
 			<h3>

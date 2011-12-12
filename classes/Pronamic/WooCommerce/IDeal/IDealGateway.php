@@ -158,7 +158,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($order_id);
+		$item->setNumber($order->id);
 		$item->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
 		$item->setPrice($order->order_total);
 		$item->setQuantity(1);
