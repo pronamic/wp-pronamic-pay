@@ -74,6 +74,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		 * added by other plugins are executed.
 		 */
 		add_action('shopp_process_order', array($this, 'processOrder'), 50);
+		
+		add_action('shopp_order_success', array($this, 'orderSuccess'));
 	}
 
 	//////////////////////////////////////////////////
@@ -96,8 +98,17 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 * Process order
 	 */
 	public function processOrder() {
-		global $Shopp;
+		// Sets transaction information to create the purchase record
+		$this->Order->transaction($this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING);
+	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Order success
+	 */
+	public function orderSuccess($purchase) {
+		// Check iDEAL configuration
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
 		if($configuration !== null) {
@@ -111,7 +122,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 					// Nothing to do here
 					break;
 				case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-					$this->processOrderIDealAdvanced($configuration, $Shopp->Order);
+					$this->processIDealAdvanced($configuration, $purchase);
 					break;
 			}
 		}
@@ -122,15 +133,15 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	/**
 	 * Process order iDEAL advanced
 	 */
-	public function processOrderIDealAdvanced($configuration, $order) {
+	public function processIDealAdvanced($configuration, $purchase) {
 		global $Shopp;
 
-		$id = $order->purchase;
+		$id = $purchase->id;
 
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('shopp', $id);
 
 		if($payment == null) {
-			$amount = $order->Cart->Totals->total;
+			$amount = $this->Order->Cart->Totals->total;
 			$currency = $this->baseop['currency']['code'];
 
 			$transaction = new Pronamic_IDeal_Transaction();
@@ -145,7 +156,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
 			$payment->setSource('shopp', $id);
-	
+
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
     	}
 
@@ -165,8 +176,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 */
 	public function iDealForm($content = '') {
 		global $Shopp;
+		
+		$purchase = $Shopp->Purchase;
 
-		if($Shopp->Purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
+		if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
 			if($configuration !== null) {
@@ -174,9 +187,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 				switch($variant->getMethod()) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						return $content;
+						return $this->iDealEasyForm($configuration, $purchase) . $content;
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return $this->iDealBasicForm($content, $configuration, $Shopp->Purchase);
+						return $this->iDealBasicForm($configuration, $purchase) . $content;
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 						return $content;
 				}
@@ -187,9 +200,61 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	}
 	
 	/**
+	 * iDEAL Easy Form
+	 */
+	private function iDealEasyForm($configuration, $purchase) {
+		$iDeal = new Pronamic_IDeal_Easy();
+
+		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+		$iDeal->setMerchantId($configuration->getMerchantId());
+		$iDeal->setLanguage('nl');
+		$iDeal->setCurrency($this->baseop['currency']['code']);
+		$iDeal->setOrderId($purchase->id);
+		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $purchase->id));
+        $iDeal->setAmount($purchase->total);
+        $iDeal->setEMailAddress($purchase->email);
+        $iDeal->setCustomerName($purchase->firstname . ' ' . $purchase->lastname);
+        $iDeal->setOwnerAddress($purchase->address);
+        $iDeal->setOwnerCity($purchase->city);
+        $iDeal->setOwnerZip($purchase->postcode);
+
+		// Payment
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $purchase->id);
+    	
+		if($payment == null) {
+			// Update payment
+			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setAmount($iDeal->getAmount()); 
+			$transaction->setCurrency($iDeal->getCurrency());
+			$transaction->setLanguage('nl');
+			$transaction->setEntranceCode(uniqid());
+			$transaction->setDescription($iDeal->getDescription());
+			
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
+			$payment->transaction = $transaction;
+			$payment->setSource('woocommerce', $order->id);
+			
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+		}
+		
+		// HTML
+		$html  = '';
+		$html .= '<p>';
+		$html .= __('Thank you for your order, please click the button below to pay with iDEAL.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		$html .= '</p>';
+		$html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
+		$html .= 	$iDeal->getHtmlFields();
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= '</form>';
+			        
+		echo $html;
+	}
+	
+	/**
 	 * iDEAL Basic Form
 	 */
-	private function iDealBasicForm($content = '', $configuration, $purchase) {
+	private function iDealBasicForm($configuration, $purchase) {
 		$iDeal = new Pronamic_IDeal_Basic();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
@@ -197,9 +262,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$iDeal->setSubId($configuration->getSubId());
 		$iDeal->setHashKey($configuration->hashKey);
 		$iDeal->setLanguage('nl');
+		$iDeal->setPurchaseId($purchase->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $iDeal->getPurchaseId()));
-		$iDeal->setCurrency('EUR');
-		$iDeal->setPurchaseId($Shopp->Order->purchase);
+		$iDeal->setCurrency($this->baseop['currency']['code']);
 
 		$iDeal->setSuccessUrl(shoppurl(false, 'thanks'));
 		$iDeal->setCancelUrl(shoppurl(array('messagetype' => 'cancelled'), 'receipt'));
@@ -212,7 +277,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('shopp', $iDeal->getPurchaseId());
-		if($payment == null){
+
+		if($payment == null) {
 			// Update payment
 			$transaction = new Pronamic_IDeal_Transaction();
 			$transaction->setAmount($iDeal->getAmount()); 
@@ -235,34 +301,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$form .= '	<input type="submit" value="'.__('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN).'" name="submit" />';
 		$form .= '</form>';
 
-		return $form . $content;
-
-		/*
-		// Basic and Advanced payment
-		if(!$this->isAdvancedPayment()){ // BASIC
-			// Set urls for basic transaction
-			$_SESSION['ec'] = $entranceCode;
-			$iDeal->setSuccessUrl(add_query_arg(array('purchase' => $iDeal->getPurchaseId(), 'transactid' => $Shopp->Purchase->txnid, 'ec' => sha1($entranceCode)), shoppurl(false, 'thanks')));
-			$iDeal->setCancelUrl(shoppurl(array('messagetype' => 'cancelled'), 'thanks'));
-			$iDeal->setErrorUrl(shoppurl(array('messagetype' => 'error'), 'thanks'));
-			
-			// Output
-			$form .= '<form method="post" action="'.$configuration->getPaymentServerUrl().'">';
-			$form .= '	' . $iDeal->getHtmlFields();
-			$form .= '	<input type="submit" value="'.__('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN).'" name="submit" />';
-			$form .= '</form>';
-		}elseif($this->isAdvancedPayment()){ // ADVANCED (Is called earlier in process because of the headers it needs to modify)
-			// Get tansaction url.
-			$issuerId = $_POST['pronamic_ideal_issuer'];
-			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
-			
-			// Direct to advanced ideal payment site
-			wp_redirect($url, 303);
-
-			exit;
-		}
-		*/
+		return $form;
 	}
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Build the iDeal object for both payment configurations,
@@ -382,27 +424,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 	
 	/**
-	 * Tests wether the payment is an advanced payment or not
-	 * 
-	 * @return boolean $advanced (true on advanced)
-	 */
-	function isAdvancedPayment(){
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->settings['pronamic_shopp_ideal_configuration']);
-		if($configuration !== null){
-			$variant = $configuration->getVariant();
-			if($variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	//////////////////////////////////////////////////
-	
-	/**
 	 * Settings
 	 */
-	function settings () {
+	function settings() {
 		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
 		$options = array(__('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));

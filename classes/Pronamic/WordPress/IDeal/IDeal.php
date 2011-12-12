@@ -116,8 +116,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 			} elseif($error = $client->getError()) {
 				self::$error = $error;
 
-				// 60 * 60 = 1 hour
-				set_transient($transient, $error, 60 * 60 * 1);
+				// 60 * 30 = 30 minutes
+				set_transient($transient, $error, 60 * 30 * 1);
 			}
 		} elseif(is_array($result)) {
 			$issuersList = $result;

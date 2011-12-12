@@ -11,7 +11,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 	$status = $transaction->getStatus();
 
 	if(!in_array($status, array(Pronamic_IDeal_Transaction::STATUS_OPEN, null), true)) {
-		$update = sprintf(__('The payment status is: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), IDeal::translateStatus($status));
+		$update = sprintf(__('The payment status is: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), Pronamic_WordPress_IDeal_IDeal::translateStatus($status));
 	}
 }
 

@@ -41,9 +41,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$this->configurationId = $this->settings['configuration_id'];
 		
 		// Actions
-		add_action('woocommerce_update_options_payment_gateways', array(&$this, 'process_admin_options'));
+		add_action('woocommerce_update_options_payment_gateways', array($this, 'process_admin_options'));
 
-		add_action('woocommerce_receipt_' . self::ID, array(&$this, 'receiptPage'));
+		add_action('woocommerce_receipt_' . self::ID, array($this, 'receiptPage'));
     } 
 
 	/**
@@ -195,6 +195,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 	
 	function receiptPageIDealEasy($order, $configuration, $variant) {
 		$iDeal = new Pronamic_IDeal_Easy();
+
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());
 		$iDeal->setLanguage('nl');
@@ -202,6 +203,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$iDeal->setOrderId($order->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
         $iDeal->setAmount($order->order_total);
+        $iDeal->setEMailAddress($order->billing_email);
         $iDeal->setCustomerName($order->billing_first_name . ' ' . $order->billing_last_name);
         $iDeal->setOwnerAddress($order->billing_address_1);
         $iDeal->setOwnerCity($order->billing_city);
@@ -229,9 +231,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		
 		// HTML
 		$html  = '';
-		$html .= '<p>';
-		$html .= __('Thank you for your order, please click the button below to pay with iDEAL.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
-		$html .= '</p>';
 		$html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
@@ -283,9 +282,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		
 		// HTML
 		$html  = '';
-		$html .= '<p>';
-		$html .= __('Thank you for your order, please click the button below to pay with iDEAL.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
-		$html .= '</p>';
 		$html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
