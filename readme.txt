@@ -73,6 +73,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Gravity Forms bind fields for iDEAL Easy
 *	Add bank images and options to show issuer list with radiobuttons
 
+= beta-0.8.3 =
+*	Fixed notice wp_register_style was called incorrectly in admin
+
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
 *	Removed the addItem function from the iDEAL basic class and added an extra items class
