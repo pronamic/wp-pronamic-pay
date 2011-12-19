@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Pronamic iDEAL
-Plugin URI: http://pronamic.eu/wordpress/ideal/
+Plugin URI: http://pronamic.eu/wp-plugins/ideal/
 Description: Integrates iDEAL in to WordPress 
 Version: beta-0.8.2
 Requires at least: 3.0

@@ -31,13 +31,13 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		if($isPronamicIDeal || $editGravityForms) {
 			// Styles
-			wp_register_style(
+			wp_enqueue_style(
 				'proanmic_ideal_admin' , 
 				plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
 			);
 	
 			// Scripts
-			wp_register_script(
+			wp_enqueue_script(
 				'proanmic_ideal_admin' , 
 				plugins_url('js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file) ,
 				array('jquery')

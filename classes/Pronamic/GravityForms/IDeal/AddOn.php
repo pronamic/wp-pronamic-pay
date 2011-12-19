@@ -725,7 +725,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         // HTML
         $html  = '';
         $html .= '<div id="gforms_confirmation_message">';
-        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, $nl2br);
+        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, true);
         $html .= 	sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
         $html .= 	$iDeal->getHtmlFields();
         $html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));

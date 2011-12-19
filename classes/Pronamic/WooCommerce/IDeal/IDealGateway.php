@@ -205,9 +205,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
         $iDeal->setAmount($order->order_total);
         $iDeal->setEMailAddress($order->billing_email);
         $iDeal->setCustomerName($order->billing_first_name . ' ' . $order->billing_last_name);
-        $iDeal->setOwnerAddress($order->billing_address_1);
-        $iDeal->setOwnerCity($order->billing_city);
-        $iDeal->setOwnerZip($order->billing_postcode);
+		$iDeal->setOwnerAddress($order->billing_address_1);
+		$iDeal->setOwnerCity($order->billing_city);
+		$iDeal->setOwnerZip($order->billing_postcode);
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
