@@ -76,6 +76,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin
 *	Fixed notice undefined variable: nl2br in the Gravity Forms Add-On
+*	Fixed issue in WooCommerce with building the iDEAL basic succes URL, Google Analytics e-commerce tracking was not possible
+*	Fixed issue with the purchase ID passing through to iDEAL
+*	Added extra description to the hash key field on the iDEAL configuration edit page 
+*	Removed the maxlength="32" attribute from the Gravity Forms iDEAL feed transaction description field
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)

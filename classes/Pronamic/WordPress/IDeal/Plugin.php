@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.7.2';
+	const VERSION = 'beta-0.8.3';
 
 	//////////////////////////////////////////////////
 

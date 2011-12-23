@@ -151,6 +151,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $id));
+			$transaction->setPurchaseId($id);
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -229,6 +230,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -286,6 +288,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage($iDeal->getLanguage());
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;

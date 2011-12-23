@@ -601,6 +601,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$transaction->setExpirationPeriod('PT1H');
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
+			$transaction->setPurchaseId($lead['id']);
 
 			$description = GFCommon::replace_variables($feed->transactionDescription, $form, $lead);
 			$transaction->setDescription($description);
@@ -710,6 +711,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$transaction->setCurrency($iDeal->getCurrency());
 		$transaction->setLanguage('nl');
 		$transaction->setEntranceCode(uniqid());
+		$transaction->setPurchaseId($lead['id']);
 
 		$description = GFCommon::replace_variables($feed->transactionDescription, $form, $lead);
 		$transaction->setDescription($description);
@@ -794,6 +796,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$transaction->setCurrency($iDeal->getCurrency());
 		$transaction->setLanguage('nl');
 		$transaction->setEntranceCode(uniqid());
+		$transaction->setPurchaseId($lead['id']);
 
 		$description = GFCommon::replace_variables($feed->transactionDescription, $form, $lead);
 		$transaction->setDescription($description);

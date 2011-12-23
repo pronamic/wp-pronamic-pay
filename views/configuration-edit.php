@@ -266,6 +266,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</th>
 					<td>
 						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</span>
 					</td>
 				</tr>
 			</table>

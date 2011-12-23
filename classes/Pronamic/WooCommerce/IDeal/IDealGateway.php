@@ -220,6 +220,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($order->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -252,7 +253,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
 			        
 		$iDeal->setCancelUrl($order->get_cancel_order_url());
-		$iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order_id, get_permalink(get_option('woocommerce_thanks_page_id')))));
+		$iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('woocommerce_thanks_page_id')))));
 		$iDeal->setErrorUrl($order->get_checkout_payment_url());
 
         // Items
@@ -271,6 +272,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($order->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -351,6 +353,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
+			$transaction->setPurchaseId($order->id);
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
