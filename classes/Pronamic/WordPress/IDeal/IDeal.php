@@ -189,6 +189,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 		// 30 seconds after a transaction request is sent
 		$date1 = clone $date;
 		$date1->modify('+30 second');
+
+		// @todo Dit gaat niet helemaal ok
 		
 		$args = array($payment->getId());
 		wp_schedule_single_event($date1->format('U'), 'pronamic_ideal_check_transaction_status', $args);
