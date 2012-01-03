@@ -215,6 +215,7 @@ class Pronamic_GravityForms_IDeal_Feed {
 		$url = null;
 
 		$link = $this->getLink($name);
+
 		if($link != null) {
 			switch($link->type) {
 				case self::LINK_TYPE_PAGE:

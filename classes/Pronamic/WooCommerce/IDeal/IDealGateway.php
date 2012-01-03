@@ -173,7 +173,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 	/**
 	 * Receipt page
 	 */
-	function receiptPage( $order_id ) {
+	function receiptPage($order_id) {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 		if($configuration !== null) {
 			$variant = $configuration->getVariant();
@@ -299,7 +299,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
      */
     function process_payment($order_id) {
     	global $woocommerce;
-    	
+
 		$order = &new woocommerce_order($order_id);
 
 		// Mark as on-hold (we're awaiting the payment)
@@ -307,6 +307,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		
 		// Empty cart
 		$woocommerce->cart->empty_cart();
+		
+		// Empty awaiting payment session
+		unset($_SESSION['order_awaiting_payment']);
 
 		// Do specifiek iDEAL variant processing
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
@@ -343,6 +346,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
+    	$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
+
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
     	
 		if($payment == null) {

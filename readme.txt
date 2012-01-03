@@ -78,6 +78,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Add bank images and options to show issuer list with radiobuttons
 *	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
 *	Add notice like: "Gebruiker is succesvol terug na iDEAL"
+*	Test iDEAL basic
 
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin
@@ -90,6 +91,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Moved the return from iDEAL routine form the 'parse_query' routine to the 'template_redirect' routine
 *	Improved the 'pronamic_ideal_return' and 'pronamic_ideal_status_update' routines with an 'can redirect' paramter
 *	Improved the status update of WooCommerce and Jigoshop orders after an failure status update (from expired to failed)
+*	Improved the scheduling of status requests of iDEAL advanced payments
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
