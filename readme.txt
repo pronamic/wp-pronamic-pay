@@ -22,6 +22,10 @@ to add the iDEAL payment method to your Gravity Forms.
 
 The Pronamic iDEAL plugin is an payment gateway for the [WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/).
 
+= Jigoshop =
+
+The Pronamic iDEAL plugin is an payment gateway for the [Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/).
+
 = Shopp =
 
 The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://shopplugin.net/).
@@ -72,6 +76,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Check the Mollie tests for the lite variant
 *	Gravity Forms bind fields for iDEAL Easy
 *	Add bank images and options to show issuer list with radiobuttons
+*	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
+*	Add notice like: "Gebruiker is succesvol terug na iDEAL"
 
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin
@@ -80,6 +86,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fixed issue with the purchase ID passing through to iDEAL
 *	Added extra description to the hash key field on the iDEAL configuration edit page 
 *	Removed the maxlength="32" attribute from the Gravity Forms iDEAL feed transaction description field
+*	Now it is also possible to search on the amount of an payment
+*	Moved the return from iDEAL routine form the 'parse_query' routine to the 'template_redirect' routine
+*	Improved the 'pronamic_ideal_return' and 'pronamic_ideal_status_update' routines with an 'can redirect' paramter
+*	Improved the status update of WooCommerce and Jigoshop orders after an failure status update (from expired to failed)
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)

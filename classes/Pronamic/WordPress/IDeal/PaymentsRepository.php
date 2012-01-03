@@ -188,7 +188,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 				$conditions = array();
 
-				$columns = array('purchase_id', 'transaction_id', 'consumer_name', 'consumer_account_number', 'consumer_city');
+				$columns = array('purchase_id', 'transaction_id', 'amount', 'consumer_name', 'consumer_account_number', 'consumer_city');
 				foreach($columns as $column) {
 					$conditions[] = "payment.{$column} LIKE '{$n}{$term}{$n}'";
 				}

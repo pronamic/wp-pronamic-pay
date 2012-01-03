@@ -45,7 +45,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		// Initialize hook, Gravity Forms uses the default priority
+		// Initialize hook, Gravity Forms uses the default priority (10)
 		add_action('init',  array(__CLASS__, 'initialize'), 20);
 
 		add_action('plugins_loaded', array(__CLASS__, 'setup'));
@@ -78,7 +78,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			}
 			
 			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
-			
+
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
 	
 			// iDEAL fields
@@ -182,7 +182,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		if($payment->getSource() == self::SLUG) {
 			$leadId = $payment->getSourceId();
 			$transaction = $payment->transaction;
@@ -221,7 +221,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 							break;
 					}
 					
-					if($url && $return) {
+					if($url && $canRedirect) {
 						wp_redirect($url, 303);
 
 						exit;
@@ -461,7 +461,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if(!$ajax) {
 				$confirmation .= 'gformRedirect();';
 			}
-
 			$confirmation .= '</script>';
 		}
 		
@@ -470,6 +469,12 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get iDEAL items form Gravity Forms lead
+	 * 
+	 * @param array $form
+	 * @param array $lead
+	 */
 	public static function getIDealItemsFromGravityFormsLead($form, $lead) {
 		$items = new Pronamic_IDeal_Items();
 
@@ -612,18 +617,20 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$payment->setSource(self::SLUG, $lead['id']);
 
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+			
+			// Handle transaction
+			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
 
 			// Updating lead's payment_status to Processing
 	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
 	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $transaction->getAmount();
 	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
 	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $payment->getId();
+	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();
 	
 	        RGFormsModel::update_lead($lead);
 
-			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
-
+			// Redirect user to the issuer
 			$confirmation = array('redirect' => $url);
 		}
 

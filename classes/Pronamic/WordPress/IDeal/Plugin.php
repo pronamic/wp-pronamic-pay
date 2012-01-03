@@ -99,10 +99,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Bootstrap the add-ons
 		if(self::canBeUsed()) {
+			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
-			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
@@ -115,11 +115,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Initialize
 		add_action('init', array(__CLASS__, 'init'));
 		
-		// On parsing the query parameter handle an possible return from iDEAL
-		add_action('parse_query', array(__CLASS__, 'handleIDealReturn'));
+		// On template redirect handle an possible return from iDEAL
+		add_action('template_redirect', array(__CLASS__, 'handleIDealReturn'));
 		
 		// Check the payment status on an iDEAL return
-		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'));
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
@@ -189,6 +189,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 */
 	public static function checkStatus($paymentId) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($paymentId);
+
+		self::checkPaymentStatus();
 	}
 
 	/**
@@ -196,7 +198,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param unknown_type $payment
 	 */
-	public static function checkPaymentStatus(Pronamic_WordPress_IDeal_Payment $payment) {
+	public static function checkPaymentStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		$configuration = $payment->configuration;
 		$variant = $configuration->getVariant();
 
@@ -222,10 +224,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$responseMessage = $iDealClient->getStatus($message);
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
-		
-		$return = true;
 
-		do_action('pronamic_ideal_status_update', $payment, $return);
+		do_action('pronamic_ideal_status_update', $payment, $canRedirect);
 	}
 
 	//////////////////////////////////////////////////
@@ -241,7 +241,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
 
 			if($payment != null) {
-				do_action('pronamic_ideal_return', $payment);
+				$canRedirect = true;
+
+				do_action('pronamic_ideal_return', $payment, $canRedirect);
 			}
 		}
 	}

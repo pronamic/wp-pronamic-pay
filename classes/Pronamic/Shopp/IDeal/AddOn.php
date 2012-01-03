@@ -85,7 +85,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		if($payment->getSource() == self::SLUG && self::isShoppSupported()){
 			global $Shopp, $wpdb;
 			
@@ -123,7 +123,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
 				}
 							
-				if($url && $return) {
+				if($url && $canRedirect) {
 					wp_redirect($url, 303);
 
 					exit;

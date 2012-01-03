@@ -70,9 +70,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 				'default' => __( 'iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
 			) , 
 			'description' => array(
-				'title' => __( 'Customer Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'title' => __( 'Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'textarea' , 
-				'description' => '<br />' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'description' => '' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'default' => __('With iDEAL you can easily pay online in the secure environment of your own bank.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
 			) , 
 			'configuration_id' => array(
@@ -171,8 +171,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 	//////////////////////////////////////////////////
 	
 	/**
-	 * receipt_page
-	 **/
+	 * Receipt page
+	 */
 	function receiptPage( $order_id ) {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 		if($configuration !== null) {
@@ -305,7 +305,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status('pending', __('Pending iDEAL payment.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 		
-		// Remove cart
+		// Empty cart
 		$woocommerce->cart->empty_cart();
 
 		// Do specifiek iDEAL variant processing
@@ -327,7 +327,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealEasyPayment($order, $configuration, $variant) {
-		// Return thankyou redirect
+		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
@@ -335,7 +335,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealBasicPayment($order, $configuration, $variant) {
-		// Return thankyou redirect
+		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
