@@ -17,19 +17,6 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_action('load-ideal_page_pronamic_ideal_payments', array(__CLASS__, 'loadPaymentsPage'));
 
-		// Styles
-		wp_register_style(
-			'proanmic_ideal_admin' , 
-			plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
-		);
-
-		// Scripts
-		wp_register_script(
-			'proanmic_ideal_admin' , 
-			plugins_url('js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file) ,
-			array('jquery')
-		);
-
 		add_action('admin_enqueue_scripts', array(__CLASS__, 'enqueueAdminScripts'));
 	}
 
@@ -43,8 +30,18 @@ class Pronamic_WordPress_IDeal_Admin {
 		$editGravityForms = (strpos($hook, 'page_gf_new_form')) !== false || (strpos($hook, 'page_gf_edit_forms') !== false);
 
 		if($isPronamicIDeal || $editGravityForms) {
-			wp_enqueue_style('proanmic_ideal_admin');
-			wp_enqueue_script('proanmic_ideal_admin');
+			// Styles
+			wp_enqueue_style(
+				'proanmic_ideal_admin' , 
+				plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
+			);
+	
+			// Scripts
+			wp_enqueue_script(
+				'proanmic_ideal_admin' , 
+				plugins_url('js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file) ,
+				array('jquery')
+			);
 		}
 	}
 

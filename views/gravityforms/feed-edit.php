@@ -153,11 +153,13 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 					</div>
 					<?php endif; ?>
 
-					<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" maxlength="32" type="text" class="regular-text" />
+					<input id="gf_ideal_transaction_description" name="gf_ideal_transaction_description" value="<?php echo esc_attr($feed->transactionDescription); ?>" type="text" class="regular-text" />
 
 					<span class="description">
 						<br />
 						<?php _e('Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<br />
+						<?php _e('Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 					</span>
 				</td>
 			</tr>

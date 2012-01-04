@@ -151,6 +151,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $id));
+			$transaction->setPurchaseId($id);
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -211,12 +212,12 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$iDeal->setCurrency($this->baseop['currency']['code']);
 		$iDeal->setOrderId($purchase->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $purchase->id));
-        $iDeal->setAmount($purchase->total);
-        $iDeal->setEMailAddress($purchase->email);
-        $iDeal->setCustomerName($purchase->firstname . ' ' . $purchase->lastname);
-        $iDeal->setOwnerAddress($purchase->address);
-        $iDeal->setOwnerCity($purchase->city);
-        $iDeal->setOwnerZip($purchase->postcode);
+		$iDeal->setAmount($purchase->total);
+		$iDeal->setEMailAddress($purchase->email);
+		$iDeal->setCustomerName($purchase->firstname . ' ' . $purchase->lastname);
+		$iDeal->setOwnerAddress($purchase->address);
+		$iDeal->setOwnerCity($purchase->city);
+		$iDeal->setOwnerZip($purchase->postcode);
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $purchase->id);
@@ -229,6 +230,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -286,6 +288,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage($iDeal->getLanguage());
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;

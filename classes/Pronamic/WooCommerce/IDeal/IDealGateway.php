@@ -70,9 +70,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 				'default' => __( 'iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) 
 			) , 
 			'description' => array(
-				'title' => __( 'Customer Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'title' => __( 'Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'type' => 'textarea' , 
-				'description' => '<br />' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'description' => '' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 				'default' => __('With iDEAL you can easily pay online in the secure environment of your own bank.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
 			) , 
 			'configuration_id' => array(
@@ -171,9 +171,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 	//////////////////////////////////////////////////
 	
 	/**
-	 * receipt_page
-	 **/
-	function receiptPage( $order_id ) {
+	 * Receipt page
+	 */
+	function receiptPage($order_id) {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 		if($configuration !== null) {
 			$variant = $configuration->getVariant();
@@ -205,9 +205,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
         $iDeal->setAmount($order->order_total);
         $iDeal->setEMailAddress($order->billing_email);
         $iDeal->setCustomerName($order->billing_first_name . ' ' . $order->billing_last_name);
-        $iDeal->setOwnerAddress($order->billing_address_1);
-        $iDeal->setOwnerCity($order->billing_city);
-        $iDeal->setOwnerZip($order->billing_postcode);
+		$iDeal->setOwnerAddress($order->billing_address_1);
+		$iDeal->setOwnerCity($order->billing_city);
+		$iDeal->setOwnerZip($order->billing_postcode);
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
@@ -220,6 +220,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($order->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -252,7 +253,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
 			        
 		$iDeal->setCancelUrl($order->get_cancel_order_url());
-		$iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order_id, get_permalink(get_option('woocommerce_thanks_page_id')))));
+		$iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('woocommerce_thanks_page_id')))));
 		$iDeal->setErrorUrl($order->get_checkout_payment_url());
 
         // Items
@@ -271,6 +272,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($order->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -297,14 +299,17 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
      */
     function process_payment($order_id) {
     	global $woocommerce;
-    	
+
 		$order = &new woocommerce_order($order_id);
 
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status('pending', __('Pending iDEAL payment.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 		
-		// Remove cart
+		// Empty cart
 		$woocommerce->cart->empty_cart();
+		
+		// Empty awaiting payment session
+		unset($_SESSION['order_awaiting_payment']);
 
 		// Do specifiek iDEAL variant processing
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
@@ -325,7 +330,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealEasyPayment($order, $configuration, $variant) {
-		// Return thankyou redirect
+		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
@@ -333,7 +338,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealBasicPayment($order, $configuration, $variant) {
-		// Return thankyou redirect
+		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
@@ -341,6 +346,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     }
     
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
+    	$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
+
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
     	
 		if($payment == null) {
@@ -351,6 +358,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
+			$transaction->setPurchaseId($order->id);
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;

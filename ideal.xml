@@ -115,8 +115,6 @@
 		<variant method="basic">
 			<id>ing-ideal-basic</id>
 			<name>ING - iDEAL Basic</name>
-			<dateExpireFormat>Y-m-d\TH:i:s.000\Z</dateExpireFormat>
-			<forbiddenCharachters> \t\n</forbiddenCharachters>
 
 			<test>
 				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do</paymentServerUrl>
@@ -155,8 +153,6 @@
 		<variant method="basic">
 			<id>mollie-ideal-basic</id>
 			<name>Mollie - iDEAL Basic</name>
-			<dateExpireFormat>Y-m-d\TH:i:s.000\Z</dateExpireFormat>
-			<forbiddenCharachters> \t\n</forbiddenCharachters>
 
 			<test>
 				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/</paymentServerUrl>
@@ -205,8 +201,6 @@
 		<variant method="basic">
 			<id>rabobank-ideal-lite</id>
 			<name>Rabobank - iDEAL Lite</name>
-			<dateExpireFormat>Y-m-d\TG:i:s\Z</dateExpireFormat>
-			<forbiddenCharachters>\t\n\r </forbiddenCharachters>
 
 			<test>
 				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/mpiPayInitRabo.do</paymentServerUrl>

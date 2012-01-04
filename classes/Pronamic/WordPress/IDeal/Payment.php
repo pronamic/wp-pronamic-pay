@@ -80,8 +80,6 @@ class Pronamic_WordPress_IDeal_Payment {
 	 */
 	public function setId($id) {
 		$this->id = $id;
-
-		$this->transaction->setPurchaseId($id);
 	}
 
 	//////////////////////////////////////////////////

@@ -41,7 +41,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('Purchase ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 				</th>
 				<td>
 					<?php echo $payment->getId(); ?>
@@ -56,6 +56,14 @@ if(isset($_POST['status-request']) && $payment != null) {
 		</h3>
 	
 		<table class="form-table">
+			<tr>
+				<th scope="row">
+					<?php _e('Purchase ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+				</th>
+				<td>
+					<?php echo $transaction->getPurchaseId(); ?>
+				</td>
+			</tr>
 			<tr>
 				<th scope="row">
 					<?php _e('Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
