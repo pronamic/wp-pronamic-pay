@@ -367,6 +367,8 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     }
     
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
+    	$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
+
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('jigoshop', $order->id);
     	
 		if($payment == null) {

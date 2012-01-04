@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.8.2
+Stable tag: beta-0.8.3
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -92,6 +92,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Improved the 'pronamic_ideal_return' and 'pronamic_ideal_status_update' routines with an 'can redirect' paramter
 *	Improved the status update of WooCommerce and Jigoshop orders after an failure status update (from expired to failed)
 *	Improved the scheduling of status requests of iDEAL advanced payments
+*	Fixed the notice if no status pages or URL's are configured in an Gravity Forms iDEAL feed
 
 = beta-0.8.2 =
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)

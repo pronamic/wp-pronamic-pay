@@ -119,7 +119,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action('template_redirect', array(__CLASS__, 'handleIDealReturn'));
 		
 		// Check the payment status on an iDEAL return
-		// add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
+		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
