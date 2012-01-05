@@ -79,7 +79,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
 *	Add notice like: "Gebruiker is succesvol terug na iDEAL"
 *	Test iDEAL basic
-
+*	Comments and no-index by default disable in page generator
+*	Status change payment e-mail notification in request of
+	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
+	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+	
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin
 *	Fixed notice undefined variable: nl2br in the Gravity Forms Add-On
