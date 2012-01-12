@@ -76,7 +76,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 				add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
 			}
-			
+
+			add_action('admin_init', array(__CLASS__, 'maybeRedirectToEntry'));
+
 			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
@@ -94,7 +96,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
 		$text .= __('Gravity Forms', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId()), admin_url('admin.php')));
 		$text .= sprintf(__('Entry #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= '</a>';
 
 		return $text;
 	}
@@ -252,6 +256,36 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Maybed redirect to Gravity Forms entry
+	 */
+	public static function maybeRedirectToEntry() {
+		$page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
+		if($page == 'gf_pronamic_ideal') {
+			$leadId = filter_input(INPUT_GET, 'lid', FILTER_SANITIZE_STRING);
+
+			if(!empty($leadId)) {
+				$lead = RGFormsModel::get_lead($leadId);
+
+				if(!empty($lead)) {
+					$url = add_query_arg(array(
+						'page' => 'gf_entries' , 
+						'view' => 'entry' ,
+						'id' => $lead['form_id'] ,
+						'lid' => $leadId ,
+						) ,  admin_url('admin.php')
+					);
+
+					wp_redirect($url, 303);
+					
+					exit;
+				}
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Create the admin menu
 	 */
 	public static function createMenu($menus) {
@@ -291,8 +325,14 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Page
 	 */
 	public static function page() {
-		$view = filter_input(INPUT_GET, 'view', FILTER_SANITIZE_STRING);
+		$entryId = filter_input(INPUT_GET, 'lid', FILTER_SANITIZE_STRING);
 
+		if(!empty($entryId)) {
+			
+		}
+
+		$view = filter_input(INPUT_GET, 'view', FILTER_SANITIZE_STRING);
+		
 		switch($view) {
 			case 'edit':
 				return self::pageFeedEdit();

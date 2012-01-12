@@ -11,13 +11,30 @@
  **/
 
 class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
+	//////////////////////////////////////////////////
+	// Supported features
+	//////////////////////////////////////////////////
+
 	/**
-	 * Flag to let Shopp know that this is gateway module doesn't require an secure connection
+	 * Flag to let Shopp know that this gateway module only supports sale only order processing
+	 * 
+	 * @var boolean
+	 */
+	public $saleonly = true;
+	
+	//////////////////////////////////////////////////
+	// Config settings
+	//////////////////////////////////////////////////
+
+	/**
+	 * Flag to let Shopp know that this gateway module doesn't require an secure connection
 	 * 
 	 * @var boolean
 	 */
 	public $secure = false;
 
+	//////////////////////////////////////////////////
+	// Other
 	//////////////////////////////////////////////////
 
 	/**
@@ -47,6 +64,15 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		// Order receipt
 		add_filter('shopp_order_receipt', array($this, 'iDealForm'));
 		add_filter('shopp_order_lookup', array($this, 'iDealForm'));
+
+		// Actions
+		$name = strtolower(__CLASS__);
+
+		add_action('shopp_' . $name . '_sale', array($this, 'sale'));
+		add_action('shopp_' . $name . '_auth', array($this, 'auth'));
+		add_action('shopp_' . $name . '_capture', array($this, 'capture'));
+		add_action('shopp_' . $name . '_refund', array($this, 'refund'));
+		add_action('shopp_' . $name . '_void', array($this, 'void'));
 	}
 
 	//////////////////////////////////////////////////
@@ -81,6 +107,46 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 
 	/**
+	 * Sale
+	 * 
+	 * @return string
+	 */
+	public function sale(OrderEventMessage $event) {
+		$Order = $this->Order;
+		$OrderTotals = $Order->Cart->Totals;
+		$Billing = $Order->Billing;
+		$Paymethod = $Order->paymethod();
+
+		shopp_add_order_event(false, 'authed', array(
+			'txnid' => time() , 
+			'amount' => $OrderTotals->total , 
+			'fees' => 0 , 
+			'gateway' => $Paymethod->processor , 
+			'paymethod' => $Paymethod->label , 
+			'paytype' => $Billing->cardtype , 
+			'payid' => $Billing->card 
+		));
+	}
+
+	function auth(OrderEventMessage $Event) {
+		
+	}
+
+	function capture(OrderEventMessage $Event) {
+		
+	}
+
+	function refund(OrderEventMessage $Event) {
+		
+	}
+
+	function void(OrderEventMessage $Event) {
+		
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Checkout processed
 	 */
 	public function checkoutProcessed() {
@@ -99,7 +165,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 */
 	public function processOrder() {
 		// Sets transaction information to create the purchase record
+		// This call still exists for backward-compatibility (< 1.2)
 		$this->Order->transaction($this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING);
+
+		return true;
 	}
 
 	//////////////////////////////////////////////////

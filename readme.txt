@@ -82,7 +82,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
-	
+
+= beta-0.8.4 =
+*	Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1
+*	Added link to Gravity Forms entry / lead details on the iDEAL payments page
+
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin
 *	Fixed notice undefined variable: nl2br in the Gravity Forms Add-On

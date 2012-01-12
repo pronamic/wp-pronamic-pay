@@ -50,9 +50,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * @return true if Shopp is supported, false otherwise
 	 */
 	public static function isShoppSupported() {
-		global $Shopp;
-
-		return isset($Shopp);
+		return defined('SHOPP_VERSION');
 	}
 
 	//////////////////////////////////////////////////
@@ -73,7 +71,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 			$Shopp->Gateways->legacy[] = md5_file($path . $file);
 		}
 
-		if(strpos($Shopp->Settings->registry['active_gateways'], 'Pronamic_Shopp_IDeal_GatewayModule') !== false){
+		$activeGateways = $Shopp->Settings->get('active_gateways');
+
+		if(strpos($activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule') !== false) {
 			$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 		}
 	}
