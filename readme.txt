@@ -84,8 +84,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 
 = beta-0.8.4 =
-*	Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1
-*	Added link to Gravity Forms entry / lead details on the iDEAL payments page
+*	Shopp - Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1
+*	Gravity Forms - Added link to Gravity Forms entry / lead details on the iDEAL payments page
+*	Shopp - Improved the not paid check for the Shopp iDEAL gateway module, now also works with 1.2+
+*	Shopp - Changed function for store front JavaScript from 'sanitize_title_with_dashes' to 'sanitize_key'
+*	Shopp - Changed the 'shopp_order_success' action functions, in 1.2+ the purchase parameter was removed
 
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin

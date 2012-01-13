@@ -163,9 +163,6 @@ if($action == 'delete') {
 		$id = filter_input(INPUT_POST, 's', FILTER_SANITIZE_STRING);
 
 		$results = $wpdb->get_results($wpdb->prepare('SELECT * FROM wp_rg_lead WHERE id = %s', $id));
-		echo '<pre>';
-		var_dump($results);
-		echo '</pre>';
 	}
 
 	?>

@@ -67,6 +67,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 		// Actions
 		$name = strtolower(__CLASS__);
+		// sanitize_key
 
 		add_action('shopp_' . $name . '_sale', array($this, 'sale'));
 		add_action('shopp_' . $name . '_auth', array($this, 'auth'));
@@ -86,6 +87,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		 * checkout page. We will store the chosen issuer ID in the 'shopp_checkout_processed'
 		 * action routine. This routine is triggered after processing all the 
 		 * checkout information.
+		 * 
+		 * We don't have to confuse the 'shopp_process_checkout' action routine with 
+		 * the 'shopp_checkout_processed' routine. The 'shopp_checkout_processed' is called
+		 * after / within the 'shopp_process_checkout' routine.
 		 */
 		add_action('shopp_checkout_processed', array($this, 'checkoutProcessed'));
 
@@ -124,7 +129,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			'gateway' => $Paymethod->processor , 
 			'paymethod' => $Paymethod->label , 
 			'paytype' => $Billing->cardtype , 
-			'payid' => $Billing->card 
+			'payid' => $Billing->card , 
+			'capture' => true
 		));
 	}
 
@@ -162,6 +168,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 	/**
 	 * Process order
+	 * 
+	 * This function is called in the 'shopp_process_order' action routine. 
+	 * The 'shopp_process_order' action routine is only executed after the 
+	 * confirmation or directly when confirmation is not required. 
 	 */
 	public function processOrder() {
 		// Sets transaction information to create the purchase record
@@ -175,8 +185,19 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 	/**
 	 * Order success
+	 * 
+	 * In Shopp version 1.1.9 the 'shopp_order_success' the purchase is given as first parameter, 
+	 * in Shopp version 1.2+ the 'shopp_order_success' the purchase is not passed as parameter anymore
 	 */
-	public function orderSuccess($purchase) {
+	public function orderSuccess($purchase = null) {
+		// Check if the purchases is passed as first parameter, if not we 
+		// will load the purchase from the global Shopp variable
+		if(empty($purchase)) {
+			global $Shopp;
+
+			$purchase = $Shopp->Purchase;
+		}
+
 		// Check iDEAL configuration
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
@@ -249,7 +270,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		$purchase = $Shopp->Purchase;
 
-		if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
+		// if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
+		if(shopp('purchase', 'notpaid')) {
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
 			if($configuration !== null) {
@@ -344,7 +366,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
         // Items
 		$items = self::getIDealItemsFromShoppPurchase($purchase);
 		
-		$iDeal->setItems($items);		
+		$iDeal->setItems($items);
 		
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('shopp', $iDeal->getPurchaseId());
@@ -477,7 +499,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 						if(paymethod) {
 							var fields = $("#pronamic_ideal_issuer");
 		
-							if(paymethod.indexOf("' . sanitize_title_with_dashes($this->settings['label']) . '") !== -1) {
+							if(paymethod.indexOf("' . sanitize_key($this->settings['label']) . '") !== -1) {
 								fields.show();
 							} else {
 								fields.hide();

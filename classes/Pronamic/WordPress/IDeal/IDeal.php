@@ -82,7 +82,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
 
 			$result = $iDealClient->getIssuerLists($message);
-			if($result) {
+			if($result !== null) {
 				$lists = $result;
 			} elseif($error = $iDealClient->getError()) {
 				self::$error = $error;

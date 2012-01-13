@@ -148,6 +148,7 @@ class Pronamic_IDeal_IDealClient {
 		} else {
 			// throw new Exception('Could not connect with the acquirer');
 			// @todo what to do?
+			
 		}
 		
 		return $result;
@@ -262,6 +263,7 @@ class Pronamic_IDeal_IDealClient {
 	 */
 	public function createTransaction(Pronamic_IDeal_XML_TransactionRequestMessage $message) {
 		$response = $this->sendMessage($message);
+
 		if($response instanceof Pronamic_IDeal_XML_TransactionResponseMessage) {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
 
@@ -282,6 +284,7 @@ class Pronamic_IDeal_IDealClient {
 	 */
 	public function getStatus(Pronamic_IDeal_XML_StatusRequestMessage $message) {
 		$response = $this->sendMessage($message);
+
 		if($response instanceof Pronamic_IDeal_XML_StatusResponseMessage) {
 			$message->transaction->setStatus($response->transaction->getStatus());
 			$message->transaction->setConsumerName($response->transaction->getConsumerName());
