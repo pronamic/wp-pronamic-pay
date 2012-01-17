@@ -50,9 +50,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * @return true if Shopp is supported, false otherwise
 	 */
 	public static function isShoppSupported() {
-		global $Shopp;
-
-		return isset($Shopp);
+		return defined('SHOPP_VERSION');
 	}
 
 	//////////////////////////////////////////////////
@@ -73,7 +71,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 			$Shopp->Gateways->legacy[] = md5_file($path . $file);
 		}
 
-		if(strpos($Shopp->Settings->registry['active_gateways'], 'Pronamic_Shopp_IDeal_GatewayModule') !== false){
+		$activeGateways = $Shopp->Settings->get('active_gateways');
+
+		if(strpos($activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule') !== false) {
 			$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 		}
 	}
@@ -85,7 +85,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		if($payment->getSource() == self::SLUG && self::isShoppSupported()){
 			global $Shopp, $wpdb;
 			
@@ -123,7 +123,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
 				}
 							
-				if($url && $return) {
+				if($url && $canRedirect) {
 					wp_redirect($url, 303);
 
 					exit;

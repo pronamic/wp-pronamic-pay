@@ -215,14 +215,18 @@ class Pronamic_GravityForms_IDeal_Feed {
 		$url = null;
 
 		$link = $this->getLink($name);
+
 		if($link != null) {
-			switch($link->type) {
-				case self::LINK_TYPE_PAGE:
-					$url = get_permalink($link->pageId);
-					break;
-				case self::LINK_TYPE_URL:
-					$url = $link->url;
-					break;
+			// link is een standard class object, the type variable could not be defined
+			if(isset($link->type)) {
+				switch($link->type) {
+					case self::LINK_TYPE_PAGE:
+						$url = get_permalink($link->pageId);
+						break;
+					case self::LINK_TYPE_URL:
+						$url = $link->url;
+						break;
+				}
 			}
 		}
 		

@@ -100,10 +100,10 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		}
 
 		$privateKeyResource = openssl_pkey_new();
-		if($privateKey !== false) {
-			$csr = openssl_csr_new($dn, $privateKey);
+		if($privateKeyResource !== false) {
+			$csr = openssl_csr_new($dn, $privateKeyResource);
 			
-			$certificateResource = openssl_csr_sign($csr, null, $privateKey, $configuration->numberDaysValid);
+			$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, $configuration->numberDaysValid);
 			
 			if($certificateResource !== false) {
 				$privateKeyPassword = filter_input(INPUT_POST, 'pronamic_ideal_generate_private_key_password', FILTER_SANITIZE_STRING);
@@ -130,14 +130,17 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	// Update
 	$updated = Pronamic_WordPress_IDeal_ConfigurationsRepository::updateConfiguration($configuration);
 
-	// Transient
-	Pronamic_WordPress_IDeal_IDeal::deleteConfigurationTransient($configuration);
-
 	if($updated) {
+		// Transient
+		Pronamic_WordPress_IDeal_IDeal::deleteConfigurationTransient($configuration);
+
 		$update = sprintf(
 			__('Configuration updated, %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</a>'
 		);
+	} else {
+		global $wpdb;
+		$wpdb->print_error();
 	}
 }
 
@@ -266,6 +269,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</th>
 					<td>
 						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						</span>
 					</td>
 				</tr>
 			</table>

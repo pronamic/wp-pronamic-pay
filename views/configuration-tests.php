@@ -20,6 +20,8 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 	<?php else: ?>
 
+	<?php $testsLink = admin_url(Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink($configuration->getId())); ?>
+
 	<div>
 		<h3>
 			<?php _e('Info', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
@@ -75,6 +77,26 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 			</li>
 			<?php endforeach; ?>
 		</ul>
+		
+		<h3>
+			<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		</h3>
+
+		<form method="post" action="" target="_blank">
+			<?php 
+			
+			wp_nonce_field('test', 'pronamic_ideal_nonce');
+
+			echo Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists);
+			
+			foreach(array(1, 2, 3, 4, 5, 7) as $testCase) {
+				$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+				
+				submit_button($name, 'secondary', 'test[' . $testCase . ']', false);
+			}
+			
+			?>
+		</form>
 
 		<?php elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()): ?>
 
@@ -104,8 +126,6 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	<h3>
 		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 	</h3>
-
-	<?php $testsLink = admin_url(Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink($configuration->getId())); ?>
 
 	<?php foreach(array(1, 2, 3, 4, 5, 6, 7) as $testCase): ?>
 	

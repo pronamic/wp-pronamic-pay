@@ -82,7 +82,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
 
 			$result = $iDealClient->getIssuerLists($message);
-			if($result) {
+			if($result !== null) {
 				$lists = $result;
 			} elseif($error = $iDealClient->getError()) {
 				self::$error = $error;
@@ -180,18 +180,38 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
 
-		// /wp-content/plugins/pronamic-ideal/docs/ing.nl/iDEAL_Advanced_PHP_EN_V2.2.pdf
-		// Page 19
+		/*
+		 * Schedule status requests	
+		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
+		 * 
+		 * @todo
+		 * Considering the number of status requests per transaction:
+		 * - Maximum of five times per transaction;
+		 * - Maximum of two times during the expirationPeriod;
+		 * - After the expirationPeriod not more often than once per 60 minutes;
+		 * - No status request after a final status has been received for a transaction;
+		 * - No status request for transactions older than 7 days.
+		 */
+		$args = array($payment->getId());
+	
+		/*
+		 * The function wp_schedule_single_event() uses the arguments array as an key for the event, 
+		 * that's why we also add the time to this array, besides that it's also much clearer on 
+		 * the Cron View (http://wordpress.org/extend/plugins/cron-view/) page
+		 */
 
-		// Schedule status requests
-		$date = new DateTime('now', new DateTimeZone('UTC'));
+		$time = time();
+
+		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
-		$date1 = clone $date;
-		$date1->modify('+30 second');
-		
-		$args = array($payment->getId());
-		wp_schedule_single_event($date1->format('U'), 'pronamic_ideal_check_transaction_status', $args);
+		wp_schedule_single_event($time +    30, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 30));
+		// Half-way through an expirationPeriod
+		wp_schedule_single_event($time +  1800, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 1800));
+		// Just after an expirationPeriod
+		wp_schedule_single_event($time +  3600, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 3600));
+		// A certain period after the end of the expirationPeriod
+		wp_schedule_single_event($time + 86400, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 86400));
 
 		return $issuer->authenticationUrl;
 	}
@@ -202,7 +222,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * Get the translaction of the specified status notifier
 	 * 
 	 * @param string $status
-	 * @return status
+	 * @return string
 	 */
 	public static function translateStatus($status) {
 		switch($status) {

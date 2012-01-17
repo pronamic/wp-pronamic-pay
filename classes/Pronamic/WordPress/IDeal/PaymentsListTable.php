@@ -77,6 +77,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 			'cb' => '<input type="checkbox" />' , 
 			'date' => __( 'Date', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			'transaction_id' => __( 'Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'purchase_id' => __( 'Purchase ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
 			'description' => __( 'Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			'consumer' => __( 'Consumer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
 			'amount' => __( 'Amount', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
@@ -155,6 +156,13 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
 								<?php echo $transaction->getId(); ?> 
 							</a>
+						</td>
+						<?php
+						break;
+					case 'purchase_id':
+						?>
+						<td <?php echo $attributes ?>>
+							<?php echo $transaction->getPurchaseId(); ?> 
 						</td>
 						<?php
 						break;

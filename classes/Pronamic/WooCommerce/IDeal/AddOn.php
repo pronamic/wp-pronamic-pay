@@ -58,7 +58,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $return = false) {
+	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		if($payment->getSource() == self::SLUG && self::isWooCommerceSupported()) {
 			$id = $payment->getSourceId();
 			$transaction = $payment->transaction;
@@ -78,7 +78,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('failed', __('iDEAL payment failed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
 		            	// Payment completed
@@ -96,7 +96,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						break;
 				}
 				
-				if($url && $return) {
+				if($url && $canRedirect) {
 					wp_redirect($url, 303);
 
 					exit;

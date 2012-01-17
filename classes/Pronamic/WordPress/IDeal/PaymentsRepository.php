@@ -30,7 +30,8 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
         $sql = "CREATE TABLE $tableName (
 			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT , 
-			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,    
+			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,
+			purchase_id VARCHAR(16) NULL , 
 			transaction_id VARCHAR(16) NULL , 
   			date_gmt DATETIME NOT NULL , 
 			amount DECIMAL(10, 2) NOT NULL , 
@@ -90,6 +91,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$transaction = new Pronamic_IDeal_Transaction();
 
 		$transaction->setId($result->transactionId);
+		$transaction->setPurchaseId($result->purchaseId);
 		$transaction->setDescription($result->description);
 		$transaction->setAmount($result->amount);
 		$transaction->setCurrency($result->currency);
@@ -105,19 +107,31 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	}
 
 	//////////////////////////////////////////////////
-	
+
+	/**
+	 * Get payment from result
+	 * 
+	 * @param mixed $result
+	 */
 	private function getPaymentFromResult($result) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
 
 		$payment->transaction = self::getTransactionFromResult($result);
-		$payment->setId($result->purchaseId);
+		$payment->setId($result->paymentId);
 		$payment->setDate(new DateTime($result->dateGmt, new DateTimeZone('UTC')));
 		$payment->setSource($result->source, $result->sourceId);
 		$payment->configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId);
 
 		return $payment;
 	}
-	
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get payment query
+	 * 
+	 * @param array $query
+	 */
 	private function getPaymentQuery($query = array()) {
 		global $wpdb;
 
@@ -125,6 +139,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		$query = wp_parse_args($query, array(
 			'payment_id' => null , 
+			'purchase_id' => null , 
 			'transaction_id' => null , 
 			'entrance_code' => null , 
 			'source' => null , 
@@ -141,6 +156,10 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		if(isset($query['payment_id'])) {
 			$where .= $wpdb->prepare(' AND payment.id = %s', $query['payment_id']);
+		}
+		
+		if(isset($query['purchase_id'])) {
+			$where .= $wpdb->prepare(' AND payment.purchase_id = %s', $query['purchase_id']);
 		}
 		
 		if(isset($query['transaction_id'])) {
@@ -169,7 +188,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 				$conditions = array();
 
-				$columns = array('transaction_id', 'consumer_name', 'consumer_account_number', 'consumer_city');
+				$columns = array('purchase_id', 'transaction_id', 'amount', 'consumer_name', 'consumer_account_number', 'consumer_city');
 				foreach($columns as $column) {
 					$conditions[] = "payment.{$column} LIKE '{$n}{$term}{$n}'";
 				}
@@ -204,8 +223,9 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		// Query
         $query = "
         	SELECT 
-        		payment.id AS purchaseId ,
-        		payment.configuration_id AS configurationId , 
+        		payment.id AS paymentId ,
+        		payment.configuration_id AS configurationId ,
+        		payment.purchase_id AS purchaseId , 
         		payment.transaction_id AS transactionId ,
         		payment.date_gmt AS dateGmt ,
         		payment.description AS description , 
@@ -232,7 +252,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	}
 
     /**
-     * Get the payments
+     * Get payments by query
      * 
      * @return array
      */
@@ -251,6 +271,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 	//////////////////////////////////////////////////
 
+    /**
+     * Get payment by query
+     * 
+     * @return Pronamic_WordPress_IDeal_Payment 
+     */
     public static function getPaymentByQuery($query) {
 		global $wpdb;
 
@@ -266,9 +291,9 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
     }
 
     /**
-     * Get iDEAL configuration by the specified ID
+     * Get payment by transaction id and entrance code
      * 
-     * @param string $id
+     * @return Pronamic_WordPress_IDeal_Payment 
      */
     public static function getPaymentByIdAndEc($transactionId, $entranceCode) {
         return self::getPaymentByQuery(self::getPaymentQuery(array(
@@ -277,20 +302,37 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         )));
     }
 
+    /**
+     * Get payment by id
+     * 
+     * @return Pronamic_WordPress_IDeal_Payment 
+     */
     public static function getPaymentById($id) {
         return self::getPaymentByQuery(self::getPaymentQuery(array(
         	'payment_id' => $id 
         )));
     }
 
+    /**
+     * Get payment by source
+     * 
+     * @return Pronamic_WordPress_IDeal_Payment 
+     */
     public static function getPaymentBySource($source, $id = null) {
         return self::getPaymentByQuery(self::getPaymentQuery(array(
         	'source' => $source ,
         	'source_id' => $id
         )));
     }
-    
-    public static function updateStatus($payment) {
+
+	//////////////////////////////////////////////////
+
+    /**
+     * Update status
+     * 
+     * @param unknown_type $payment
+     */
+    public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment) {
 		global $wpdb;
 
 		$transaction = $payment->transaction;
@@ -313,7 +355,14 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         return $result;
     }
 
-	public static function updatePayment($payment) {
+	//////////////////////////////////////////////////
+
+    /**
+     * Update payment
+     * 
+     * @param Pronamic_WordPress_IDeal_Payment $payment
+     */
+	public static function updatePayment(Pronamic_WordPress_IDeal_Payment $payment) {
 		global $wpdb;
 
 		$table = self::getPaymentsTableName();
@@ -323,6 +372,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		$data = array( 
 			'configuration_id' => $configuration->getId() ,
+			'purchase_id' => $transaction->getPurchaseId() , 
 			'transaction_id' => $transaction->getId() , 
 			'amount' => $transaction->getAmount() , 
 			'currency' => $transaction->getCurrency() ,
@@ -339,7 +389,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			'source_id' => $payment->getSourceId() 
 		);
 
-		$format = array('%d', '%s', '%F', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
+		$format = array('%d', '%s', '%s', '%F', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
 
 		// Insert
         if(empty($payment->id)) {
@@ -359,6 +409,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get the number of payments
+	 * 
+	 * @return int
+	 */
 	public static function getNumberPayments() {
 		global $wpdb;
 

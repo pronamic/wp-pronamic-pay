@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.7.2';
+	const VERSION = 'beta-0.8.4';
 
 	//////////////////////////////////////////////////
 
@@ -99,10 +99,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Bootstrap the add-ons
 		if(self::canBeUsed()) {
+			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
-			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
@@ -115,11 +115,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Initialize
 		add_action('init', array(__CLASS__, 'init'));
 		
-		// On parsing the query parameter handle an possible return from iDEAL
-		add_action('parse_query', array(__CLASS__, 'handleIDealReturn'));
+		// On template redirect handle an possible return from iDEAL
+		add_action('template_redirect', array(__CLASS__, 'handleIDealReturn'));
 		
 		// Check the payment status on an iDEAL return
-		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'));
+		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
@@ -187,8 +187,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param string $paymentId
 	 */
-	public static function checkStatus($paymentId) {
+	public static function checkStatus($paymentId = null) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($paymentId);
+
+		if($payment !== null) {
+			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
+			// - No status request after a final status has been received for a transaction;
+			$status = $payment->transaction->getStatus();
+
+			if(empty($status) || $status === Pronamic_IDeal_Transaction::STATUS_OPEN) {
+				self::checkPaymentStatus($payment);
+			}
+		} else {
+			// Payment with the specified ID could not be found, can't check the status
+		}
 	}
 
 	/**
@@ -196,7 +208,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param unknown_type $payment
 	 */
-	public static function checkPaymentStatus(Pronamic_WordPress_IDeal_Payment $payment) {
+	public static function checkPaymentStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		$configuration = $payment->configuration;
 		$variant = $configuration->getVariant();
 
@@ -222,10 +234,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$responseMessage = $iDealClient->getStatus($message);
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
-		
-		$return = true;
 
-		do_action('pronamic_ideal_status_update', $payment, $return);
+		do_action('pronamic_ideal_status_update', $payment, $canRedirect);
 	}
 
 	//////////////////////////////////////////////////
@@ -241,7 +251,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
 
 			if($payment != null) {
-				do_action('pronamic_ideal_return', $payment);
+				$canRedirect = true;
+
+				do_action('pronamic_ideal_return', $payment, $canRedirect);
 			}
 		}
 	}

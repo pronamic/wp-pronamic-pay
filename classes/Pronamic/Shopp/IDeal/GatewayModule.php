@@ -11,13 +11,30 @@
  **/
 
 class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
+	//////////////////////////////////////////////////
+	// Supported features
+	//////////////////////////////////////////////////
+
 	/**
-	 * Flag to let Shopp know that this is gateway module doesn't require an secure connection
+	 * Flag to let Shopp know that this gateway module only supports sale only order processing
+	 * 
+	 * @var boolean
+	 */
+	public $saleonly = true;
+	
+	//////////////////////////////////////////////////
+	// Config settings
+	//////////////////////////////////////////////////
+
+	/**
+	 * Flag to let Shopp know that this gateway module doesn't require an secure connection
 	 * 
 	 * @var boolean
 	 */
 	public $secure = false;
 
+	//////////////////////////////////////////////////
+	// Other
 	//////////////////////////////////////////////////
 
 	/**
@@ -47,6 +64,16 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		// Order receipt
 		add_filter('shopp_order_receipt', array($this, 'iDealForm'));
 		add_filter('shopp_order_lookup', array($this, 'iDealForm'));
+
+		// Actions
+		$name = strtolower(__CLASS__);
+		// sanitize_key
+
+		add_action('shopp_' . $name . '_sale', array($this, 'sale'));
+		add_action('shopp_' . $name . '_auth', array($this, 'auth'));
+		add_action('shopp_' . $name . '_capture', array($this, 'capture'));
+		add_action('shopp_' . $name . '_refund', array($this, 'refund'));
+		add_action('shopp_' . $name . '_void', array($this, 'void'));
 	}
 
 	//////////////////////////////////////////////////
@@ -60,6 +87,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		 * checkout page. We will store the chosen issuer ID in the 'shopp_checkout_processed'
 		 * action routine. This routine is triggered after processing all the 
 		 * checkout information.
+		 * 
+		 * We don't have to confuse the 'shopp_process_checkout' action routine with 
+		 * the 'shopp_checkout_processed' routine. The 'shopp_checkout_processed' is called
+		 * after / within the 'shopp_process_checkout' routine.
 		 */
 		add_action('shopp_checkout_processed', array($this, 'checkoutProcessed'));
 
@@ -81,6 +112,47 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 
 	/**
+	 * Sale
+	 * 
+	 * @return string
+	 */
+	public function sale(OrderEventMessage $event) {
+		$Order = $this->Order;
+		$OrderTotals = $Order->Cart->Totals;
+		$Billing = $Order->Billing;
+		$Paymethod = $Order->paymethod();
+
+		shopp_add_order_event(false, 'authed', array(
+			'txnid' => time() , 
+			'amount' => $OrderTotals->total , 
+			'fees' => 0 , 
+			'gateway' => $Paymethod->processor , 
+			'paymethod' => $Paymethod->label , 
+			'paytype' => $Billing->cardtype , 
+			'payid' => $Billing->card , 
+			'capture' => true
+		));
+	}
+
+	function auth(OrderEventMessage $Event) {
+		
+	}
+
+	function capture(OrderEventMessage $Event) {
+		
+	}
+
+	function refund(OrderEventMessage $Event) {
+		
+	}
+
+	function void(OrderEventMessage $Event) {
+		
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Checkout processed
 	 */
 	public function checkoutProcessed() {
@@ -96,18 +168,36 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 	/**
 	 * Process order
+	 * 
+	 * This function is called in the 'shopp_process_order' action routine. 
+	 * The 'shopp_process_order' action routine is only executed after the 
+	 * confirmation or directly when confirmation is not required. 
 	 */
 	public function processOrder() {
 		// Sets transaction information to create the purchase record
+		// This call still exists for backward-compatibility (< 1.2)
 		$this->Order->transaction($this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING);
+
+		return true;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Order success
+	 * 
+	 * In Shopp version 1.1.9 the 'shopp_order_success' the purchase is given as first parameter, 
+	 * in Shopp version 1.2+ the 'shopp_order_success' the purchase is not passed as parameter anymore
 	 */
-	public function orderSuccess($purchase) {
+	public function orderSuccess($purchase = null) {
+		// Check if the purchases is passed as first parameter, if not we 
+		// will load the purchase from the global Shopp variable
+		if(empty($purchase)) {
+			global $Shopp;
+
+			$purchase = $Shopp->Purchase;
+		}
+
 		// Check iDEAL configuration
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
@@ -151,6 +241,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $id));
+			$transaction->setPurchaseId($id);
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -179,7 +270,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		$purchase = $Shopp->Purchase;
 
-		if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
+		// if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
+		if(shopp('purchase', 'notpaid')) {
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
 			if($configuration !== null) {
@@ -211,12 +303,12 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$iDeal->setCurrency($this->baseop['currency']['code']);
 		$iDeal->setOrderId($purchase->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $purchase->id));
-        $iDeal->setAmount($purchase->total);
-        $iDeal->setEMailAddress($purchase->email);
-        $iDeal->setCustomerName($purchase->firstname . ' ' . $purchase->lastname);
-        $iDeal->setOwnerAddress($purchase->address);
-        $iDeal->setOwnerCity($purchase->city);
-        $iDeal->setOwnerZip($purchase->postcode);
+		$iDeal->setAmount($purchase->total);
+		$iDeal->setEMailAddress($purchase->email);
+		$iDeal->setCustomerName($purchase->firstname . ' ' . $purchase->lastname);
+		$iDeal->setOwnerAddress($purchase->address);
+		$iDeal->setOwnerCity($purchase->city);
+		$iDeal->setOwnerZip($purchase->postcode);
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $purchase->id);
@@ -229,6 +321,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage('nl');
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -273,7 +366,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
         // Items
 		$items = self::getIDealItemsFromShoppPurchase($purchase);
 		
-		$iDeal->setItems($items);		
+		$iDeal->setItems($items);
 		
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('shopp', $iDeal->getPurchaseId());
@@ -286,6 +379,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$transaction->setLanguage($iDeal->getLanguage());
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($iDeal->getDescription());
+			$transaction->setPurchaseId($purchase->id);
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
@@ -405,7 +499,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 						if(paymethod) {
 							var fields = $("#pronamic_ideal_issuer");
 		
-							if(paymethod.indexOf("' . sanitize_title_with_dashes($this->settings['label']) . '") !== -1) {
+							if(paymethod.indexOf("' . sanitize_key($this->settings['label']) . '") !== -1) {
 								fields.show();
 							} else {
 								fields.hide();
