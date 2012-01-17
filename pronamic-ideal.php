@@ -3,7 +3,7 @@
 Plugin Name: Pronamic iDEAL
 Plugin URI: http://pronamic.eu/wp-plugins/ideal/
 Description: Integrates iDEAL in to WordPress 
-Version: beta-0.8.3
+Version: beta-0.8.4
 Requires at least: 3.0
 Author: Pronamic
 Author URI: http://pronamic.eu/
