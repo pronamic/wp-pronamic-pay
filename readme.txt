@@ -69,6 +69,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 9.	Gravity Forms form on site with iDEAL feed
 10.	Gravity Forms frontend issuer drop down
 
+
 == Changelog ==
 
 = todo =
@@ -89,6 +90,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Shopp - Improved the not paid check for the Shopp iDEAL gateway module, now also works with 1.2+
 *	Shopp - Changed function for store front JavaScript from 'sanitize_title_with_dashes' to 'sanitize_key'
 *	Shopp - Changed the 'shopp_order_success' action functions, in 1.2+ the purchase parameter was removed
+*	Fixed notice and bug while generating security certificates and keys
+*	Added mandatory tests for the iDEAL advanced variants
 
 = beta-0.8.3 =
 *	Fixed notice wp_register_style was called incorrectly in admin

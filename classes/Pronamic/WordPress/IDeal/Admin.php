@@ -16,6 +16,8 @@ class Pronamic_WordPress_IDeal_Admin {
 		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
 
 		add_action('load-ideal_page_pronamic_ideal_payments', array(__CLASS__, 'loadPaymentsPage'));
+		
+		add_action('load-toplevel_page_pronamic_ideal', array(__CLASS__, 'maybeTestPayment'));
 
 		add_action('admin_enqueue_scripts', array(__CLASS__, 'enqueueAdminScripts'));
 	}
@@ -54,6 +56,57 @@ class Pronamic_WordPress_IDeal_Admin {
 		global $wp_list_table;
 		
 		$wp_list_table = new Pronamic_WordPress_IDeal_PaymentsListTable();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe test payment
+	 */
+	public static function maybeTestPayment() {
+		if(!empty($_POST) && check_admin_referer('test', 'pronamic_ideal_nonce')) {
+			$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
+
+			if($configuration != null) {
+				$variant = $configuration->getVariant();
+		
+				if($variant !== null) {
+					$data = filter_input(INPUT_POST, 'test', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);
+					$testCase = key($data);
+					
+					$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+
+					$entranceCode = uniqid();
+					$purchaseId = $name;
+
+					$transaction = new Pronamic_IDeal_Transaction();
+					$transaction->setAmount($testCase); 
+					$transaction->setCurrency('EUR');
+					$transaction->setExpirationPeriod('PT1H');
+					$transaction->setLanguage('nl');
+					$transaction->setEntranceCode($entranceCode);
+					$transaction->setDescription($name);
+					$transaction->setPurchaseId($purchaseId);
+		
+					$payment = new Pronamic_WordPress_IDeal_Payment();
+					$payment->configuration = $configuration;
+					$payment->transaction = $transaction;
+					// $payment->setSource('pronamic_ideal', uniqid());
+		
+					$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+					
+					$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
+
+					$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
+
+					wp_redirect($url, 303);
+
+					exit;
+				}
+			}
+    	}
 	}
 
 	//////////////////////////////////////////////////
