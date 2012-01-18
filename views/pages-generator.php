@@ -7,7 +7,8 @@ function pronamic_ideal_create_pages($pages, $parent = null) {
 			'post_name' => $page['post_title'] ,
 			'post_content' => $page['post_content'] ,  
 			'post_status' => 'publish' , 
-			'post_type' => 'page' 
+			'post_type' => 'page' , 
+			'comment_status' => 'closed' 
 		);
 		
 		if(isset($parent)) {

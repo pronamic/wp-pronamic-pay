@@ -64,7 +64,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe test payment
 	 */
 	public static function maybeTestPayment() {
-		if(!empty($_POST) && check_admin_referer('test', 'pronamic_ideal_nonce')) {
+		if(isset($_POST['test']) && check_admin_referer('test', 'pronamic_ideal_nonce')) {
 			$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
