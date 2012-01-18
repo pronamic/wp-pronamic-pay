@@ -46,7 +46,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.8.4';
+	const VERSION = 'beta-0.8.5';
 
 	//////////////////////////////////////////////////
 
@@ -126,6 +126,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Show license message if the license is not valid
 		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
+
+		// Uninstall
+		register_uninstall_hook(self::$file, array(__CLASS__, 'uninstall'));
 	}
 
 	//////////////////////////////////////////////////
@@ -340,12 +343,19 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	/**
+	 * Checks if the plugin is installed
+	 */
+	public static function isInstalled() {
+		return get_option(self::OPTION_VERSION, false) !== false;
+	}
+
+	/**
 	 * Check if the plugin can be used
 	 * 
 	 * @return boolean true if plugin can be used, false otherwise
 	 */
 	public static function canBeUsed() {
-		return self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments() <= self::PAYMENTS_MAX_LICENSE_FREE;
+		return self::isInstalled() && (self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments() <= self::PAYMENTS_MAX_LICENSE_FREE);
 	}
 
 	//////////////////////////////////////////////////

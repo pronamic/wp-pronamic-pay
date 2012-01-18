@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.8.3
+Stable tag: beta-0.8.5
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -79,10 +79,17 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Add bank images and options to show issuer list with radiobuttons
 *	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
 *	Add notice like: "Gebruiker is succesvol terug na iDEAL"
-*	Comments and no-index by default disable in page generator
+*	No-index by default enabled in page generator, check third party SEO plugins
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+
+= beta-0.8.5 =
+*	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices
+*	Added an uninstall hook wich will delete all extra database tables and options
+*	Removed the custom made uninstall block from the iDEAL configurations page
+*	Fixed database errors / unexpected output while installing the plugin
+*	Pages generator will now generate pages with comments closed by default
 
 = beta-0.8.4 =
 *	Shopp - Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1

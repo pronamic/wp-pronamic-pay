@@ -14,6 +14,4 @@
 	</h2>
 
 	<?php include 'configurations-form.php'; ?>
-	
-	<?php include 'uninstall-form.php'; ?>
 </div>
