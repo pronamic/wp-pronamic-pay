@@ -84,6 +84,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 
+= beta-0.8.5 =
+*	Fixed an nonce check wich was causing a lot "" notices
+*	Added an uninstall hook wich will delete all extra database tables and options
+*	Removed the custom made uninstall block from the iDEAL settings page
+*	Fixed database errors / unexpected output while installing the plugin
+
 = beta-0.8.4 =
 *	Shopp - Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1
 *	Gravity Forms - Added link to Gravity Forms entry / lead details on the iDEAL payments page
