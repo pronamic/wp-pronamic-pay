@@ -176,6 +176,21 @@
 				array(
 					'url' => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf' ,
 					'name' => 'Kennismaking Rabobank iDEAL Dashboard' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf' ,
+					'name' => 'Gebruikshandleiding Rabo OmniKassa Dashboard' ,  
+					'version' => '2.0' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf' ,
+					'name' => 'Gebruikshandleiding Rabo OmniKassa Downloadsite' ,  
+					'version' => '2.0' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf' ,
+					'name' => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012' ,  
+					'version' => '1.0.10' 
 				) 
 			)
 		)

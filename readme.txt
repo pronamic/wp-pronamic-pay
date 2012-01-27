@@ -84,6 +84,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 
+= beta-0.8.6 = 
+*	Added documentation for the Rabobank OmniKassa payment method
+
 = beta-0.8.5 =
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices
 *	Added an uninstall hook wich will delete all extra database tables and options
