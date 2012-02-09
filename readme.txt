@@ -85,6 +85,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+*	Check betaling return iDEAL Easy variant
 
 = beta-0.8.6 = 
 *	Added documentation for the Rabobank OmniKassa payment method

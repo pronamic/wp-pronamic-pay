@@ -192,13 +192,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			}
 		}
 	}
-	
+
 	function receiptPageIDealEasy($order, $configuration, $variant) {
 		$iDeal = new Pronamic_IDeal_Easy();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());
-		$iDeal->setLanguage('nl');
+		$iDeal->setLanguage('nl'); // @todo nl_NL
 		$iDeal->setCurrency(get_option('woocommerce_currency'));
 		$iDeal->setOrderId($order->id);
 		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
@@ -304,7 +304,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status('pending', __('Pending iDEAL payment.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		
+
 		// Empty cart
 		$woocommerce->cart->empty_cart();
 		

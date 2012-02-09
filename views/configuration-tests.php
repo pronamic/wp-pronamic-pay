@@ -183,5 +183,62 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 	<?php endif; ?>
 
+	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantKassa): ?>
+	
+	<?php 
+	
+	$user = wp_get_current_user();
+
+	$iDeal = new Pronamic_IDeal_Kassa();
+	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+	$iDeal->setPspId($configuration->getMerchantId());
+	$iDeal->setOrderId(time());
+	$iDeal->setAmount(1);
+	$iDeal->setCurrency('EUR');
+	$iDeal->setLanguage('nl');
+	$iDeal->setCustomerName($user->user_firstname . ' ' . $user->user_lastname);
+	$iDeal->setEMailAddress($user->user_email);
+
+	$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-in.txt';
+	$iDeal->calculationsParametersShaIn = file($file, FILE_IGNORE_NEW_LINES);
+	
+	$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-out.txt';
+	$iDeal->calculationsParametersShaOut = file($file, FILE_IGNORE_NEW_LINES);
+
+	?>
+	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
+		<?php 
+		
+		echo $iDeal->getHtmlFields(); 
+
+		submit_button('Test', 'secondary', 'submit', false); 
+						
+		?>
+	</form>
+
+	<?php endif; ?>
+
+	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantOmniKassa): ?>
+	
+	<?php 
+	
+	$user = wp_get_current_user();
+
+	$iDeal = new Pronamic_IDeal_OmniKassa();
+	$iDeal->setCurrencyCode(978)
+	
+	?>
+	<form method="post" action="<?php echo esc_attr(''); ?>" target="_blank" style="display: inline">
+		<?php 
+		
+		 
+
+		submit_button('Test', 'secondary', 'submit', false); 
+						
+		?>
+	</form>
+
+	<?php endif; ?>
+
 	<?php endif; ?>
 </div>
