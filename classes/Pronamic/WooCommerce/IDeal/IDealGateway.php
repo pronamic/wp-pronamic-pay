@@ -303,7 +303,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		$order = &new woocommerce_order($order_id);
 
 		// Mark as on-hold (we're awaiting the payment)
-		$order->update_status('pending', __('Pending iDEAL payment.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$order->update_status('on-hold', __('Awaiting iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 
 		// Empty cart
 		$woocommerce->cart->empty_cart();

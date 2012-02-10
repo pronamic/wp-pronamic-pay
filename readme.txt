@@ -87,8 +87,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 *	Check betaling return iDEAL Easy variant
 
-= beta-0.8.6 = 
+= beta-0.8.6 =
 *	Added documentation for the Rabobank OmniKassa payment method
+*	Added documentation for the ABN AMRO iDEAL Only Kassa payment method
+*	WooCommerce iDEAL payment orders now get the status "on-hold" instead of "pending" 
 
 = beta-0.8.5 =
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices
