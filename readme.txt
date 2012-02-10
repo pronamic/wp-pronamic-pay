@@ -91,6 +91,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Added documentation for the Rabobank OmniKassa payment method
 *	Added documentation for the ABN AMRO iDEAL Only Kassa payment method
 *	WooCommerce iDEAL payment orders now get the status "on-hold" instead of "pending" 
+*	Changed WooCommerce class 'woocommerce_order' to 'WC_Order'
+*	Changed WooCommerce class 'woocommerce_payment_gateway' to 'WC_Payment_Gateway'
+*	Replaced get_permalink(get_option('woocommerce_pay_page_id')) with get_permalink(woocommerce_get_page_id('pay'))
 
 = beta-0.8.5 =
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices

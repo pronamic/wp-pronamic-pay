@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gateway {
+class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	/**
 	 * The unique ID of this payment gateway
 	 * 
@@ -179,7 +179,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 			$variant = $configuration->getVariant();
 	
 			if($variant !== null) {				
-				$order = &new woocommerce_order($order_id);
+				$order = new WC_Order($order_id);
 
 				switch($variant->getMethod()) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
@@ -300,10 +300,20 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
     function process_payment($order_id) {
     	global $woocommerce;
 
-		$order = &new woocommerce_order($order_id);
+		$order = new WC_Order($order_id);
 
-		// Mark as on-hold (we're awaiting the payment)
-		$order->update_status('on-hold', __('Awaiting iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		// Mark as pending (we're awaiting the payment)
+		$order->update_status('pending', __('Awaiting iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+
+		// Setting the order status to 'pending' will not send and new order mail, we trigger this manual
+		$mailer = $woocommerce->mailer();
+		$mailer->new_order($order_id);
+
+		$note = sprintf(__('We are awaiting your payment, to pay for this order please use the following link: <a href="%s">Pay</a>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->get_checkout_payment_url());
+
+		$order->add_order_note($note, true);
+
+		// $mailer->customer_invoice($order);
 
 		// Empty cart
 		$woocommerce->cart->empty_cart();
@@ -333,7 +343,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(woocommerce_get_page_id('pay'))))
 		);
     }
     
@@ -341,7 +351,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends woocommerce_payment_gatewa
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('woocommerce_pay_page_id'))))
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(woocommerce_get_page_id('pay'))))
 		);
     }
     

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-10 14:49+0100\n"
-"PO-Revision-Date: 2012-02-10 14:49+0100\n"
+"POT-Creation-Date: 2012-02-10 16:20+0100\n"
+"PO-Revision-Date: 2012-02-10 16:20+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -903,7 +903,7 @@ msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of bet
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:162
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:204
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:253
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:360
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:370
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -916,6 +916,11 @@ msgstr "Betaal met iDEAL"
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:306
 msgid "Awaiting iDEAL payment"
 msgstr "In afwachting van iDEAL betaling"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:312
+#, php-format
+msgid "We are awaiting your payment, to pay for this order please use the following link: <a href=\"%s\">Pay</a>"
+msgstr "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de volgende link gebruiken: <a href=\"%s\">Betalen</a>"
 
 #: classes/Pronamic/Shopp/IDeal/GatewayModule.php:337
 msgid "Thank you for your order, please click the button below to pay with iDEAL."
