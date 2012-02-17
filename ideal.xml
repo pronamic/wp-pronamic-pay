@@ -12,7 +12,21 @@
 			<url>https://internetkassa.abnamro.nl/</url>
 
 			<test>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
+			</test>
+			<live>
 				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant method="kassa" disabled="disabled">
+			<id>abnamro-ideal-only-kassa</id>
+			<name>ABN AMRO - iDEAL Only Kassa</name>
+			<url>https://internetkassa.abnamro.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
 			</test>
 			<live>
@@ -23,15 +37,15 @@
 		<variant method="advanced" disabled="disabled">
 			<id>abnamro-ideal-zelfbouw</id>
 			<name>ABN AMRO - iDEAL Zelfbouw</name>
-			<url>https://internetkassa.abnamro.nl/</url>
+			<url>https://abnamro.ideal-payment.de/</url>
 
 			<test>
-				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
-				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
+				<paymentServerUrl>ssl://abnamro-test.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
-				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
+				<paymentServerUrl>ssl://abnamro.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
 		</variant>
 	</provider>
@@ -209,6 +223,19 @@
 			<live>
 				<paymentServerUrl>https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do</paymentServerUrl>
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant method="omnikassa" disabled="disabled">
+			<id>rabobank-omnikassa</id>
+			<name>Rabobank - OmniKassa</name>
+
+			<test>
+				<paymentServerUrl>https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet</paymentServerUrl>
+				<dashboardUrl>https://download.omnikassa.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://payment-webinit.omnikassa.rabobank.nl/paymentServlet</paymentServerUrl>
+				<dashboardUrl>https://download.omnikassa.rabobank.nl/</dashboardUrl>
 			</live>
 		</variant>
 		<variant method="advanced">

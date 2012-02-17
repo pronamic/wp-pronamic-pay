@@ -1,9 +1,11 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie
+Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.8.5
+Stable tag: beta-0.8.6
+Text Domain: pronamic-ideal
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -77,12 +79,19 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Check the Mollie tests for the lite variant
 *	Gravity Forms bind fields for iDEAL Easy
 *	Add bank images and options to show issuer list with radiobuttons
-*	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
-*	Add notice like: "Gebruiker is succesvol terug na iDEAL"
 *	No-index by default enabled in page generator, check third party SEO plugins
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+
+= beta-0.8.6 =
+*	Added documentation for the Rabobank OmniKassa payment method
+*	Added documentation for the ABN AMRO iDEAL Only Kassa payment method
+*	WooCommerce iDEAL payment orders now get the status "on-hold" instead of "pending" 
+*	Changed WooCommerce class 'woocommerce_order' to 'WC_Order'
+*	Changed WooCommerce class 'woocommerce_payment_gateway' to 'WC_Payment_Gateway'
+*	Replaced get_permalink(get_option('woocommerce_pay_page_id')) with get_permalink(woocommerce_get_page_id('pay'))
+*	WooCommerce iDEAL Easy and Basic payments send an check payment mail and add note to order
 
 = beta-0.8.5 =
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices

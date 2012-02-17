@@ -25,6 +25,41 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Merchant_Integratie_Gids_NL_v2.2.3.pdf' ,
 					'name' => 'iDEAL Merchant Integratie gids' ,  
 					'version' => '2.2.3' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/FAQ-NL-V1.17.pdf' ,
+					'name' => 'Veelgestelde vragen iDEAL' ,  
+					'version' => '1.17' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/iDEAL_ABN_AMRO_Integrated_JAVA.pdf' ,
+					'name' => 'iDEAL Integrated JAVA - Shop Integration Guide' ,  
+					'version' => '1.7' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/iDEAL_ABN_AMRO_Integrated_NET.pdf' ,
+					'name' => 'iDEAL Integrated Asp.NET - Shop Integration Guide' ,  
+					'version' => '1.7' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/iDEAL_ABN_AMRO_Integrated_PHP.pdf' ,
+					'name' => 'iDEAL Integrated PHP - Shop Integration Guide' ,  
+					'version' => '1.7' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/Opzegbrief_V2.0.pdf' ,
+					'name' => 'Opzegbrief' ,  
+					'version' => '2.0' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-ADV_EN.pdf' ,
+					'name' => 'e-Commerce Advanced - Technical Integration Guide for e-Commerce' ,  
+					'version' => '5.3.3' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf' ,
+					'name' => 'Basic e-Commerce - Technical Integration Guide for e-Commerce' ,  
+					'version' => '3.2.2' 
 				)
 			)
 		) ,
@@ -176,6 +211,21 @@
 				array(
 					'url' => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf' ,
 					'name' => 'Kennismaking Rabobank iDEAL Dashboard' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf' ,
+					'name' => 'Gebruikshandleiding Rabo OmniKassa Dashboard' ,  
+					'version' => '2.0' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf' ,
+					'name' => 'Gebruikshandleiding Rabo OmniKassa Downloadsite' ,  
+					'version' => '2.0' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf' ,
+					'name' => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012' ,  
+					'version' => '1.0.10' 
 				) 
 			)
 		)
