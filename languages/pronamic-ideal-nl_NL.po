@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-10 16:20+0100\n"
-"PO-Revision-Date: 2012-02-10 16:20+0100\n"
+"POT-Creation-Date: 2012-02-17 15:51+0100\n"
+"PO-Revision-Date: 2012-02-17 15:51+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -903,7 +903,7 @@ msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of bet
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:162
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:204
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:253
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:370
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:400
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -917,10 +917,19 @@ msgstr "Betaal met iDEAL"
 msgid "Awaiting iDEAL payment"
 msgstr "In afwachting van iDEAL betaling"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:312
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:348
+msgid "Check iDEAL payment"
+msgstr "Controleer iDEAL betaling"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:350
 #, php-format
-msgid "We are awaiting your payment, to pay for this order please use the following link: <a href=\"%s\">Pay</a>"
-msgstr "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de volgende link gebruiken: <a href=\"%s\">Betalen</a>"
+msgid "Check the payment of order #%s in your <a href=\"%s\">iDEAL dashboard</a> and <a href=\"%s\">update the status of the order</a>."
+msgstr "Controleer de betaling voor bestelling #%s in uw <a href=\"%s\">iDEAL dashboard</a> en <a href=\"%s\">update de status van de bestelling</a>."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:361
+#, php-format
+msgid "Check iDEAL payment for order #%s"
+msgstr "Controleer iDEAL betaling voor bestelling #%s"
 
 #: classes/Pronamic/Shopp/IDeal/GatewayModule.php:337
 msgid "Thank you for your order, please click the button below to pay with iDEAL."
@@ -1014,6 +1023,13 @@ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:330
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL betaling."
+
+#~ msgid ""
+#~ "We are awaiting your payment, to pay for this order please use the "
+#~ "following link: <a href=\"%s\">Pay</a>"
+#~ msgstr ""
+#~ "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de "
+#~ "volgende link gebruiken: <a href=\"%s\">Betalen</a>"
 
 #~ msgid "Delete iDEAL plugin"
 #~ msgstr "Verwijder iDEAL plugin"

@@ -305,16 +305,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// Mark as pending (we're awaiting the payment)
 		$order->update_status('pending', __('Awaiting iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 
-		// Setting the order status to 'pending' will not send and new order mail, we trigger this manual
-		$mailer = $woocommerce->mailer();
-		$mailer->new_order($order_id);
-
-		$note = sprintf(__('We are awaiting your payment, to pay for this order please use the following link: <a href="%s">Pay</a>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->get_checkout_payment_url());
-
-		$order->add_order_note($note, true);
-
-		// $mailer->customer_invoice($order);
-
 		// Empty cart
 		$woocommerce->cart->empty_cart();
 		
@@ -338,8 +328,50 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			}
 		}
     }
+
+    /**
+     * Mail the new order e-mail recipient
+     * 
+     * @param WC_Order $order
+     * @param Pronamic_WordPress_IDeal_Configuration $configuration
+     */
+    private function mailCheckIDealPayment($order, $configuration) {
+		global $woocommerce;
+		
+		// Note
+		$note = sprintf(
+			__('Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$order->id , 
+			esc_attr($configuration->getDashboardUrl()) , 
+			esc_attr(get_edit_post_link($order->id)) 
+		);
+    	
+		$order->add_order_note($note, false);
+		
+		// E-mail
+		$mailer = $woocommerce->mailer();
+
+		$message = $mailer->wrap_message( 
+			__('Check iDEAL payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN),
+			$note
+		);
+		
+		// Send the mail
+		woocommerce_mail(
+			get_option('woocommerce_new_order_email_recipient') , 
+			sprintf(
+				__('Check iDEAL payment for order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				$order->id
+			) , 
+			$message
+		);
+    }
+
+	//////////////////////////////////////////////////
     
     private function processIDealEasyPayment($order, $configuration, $variant) {
+    	$this->mailCheckIDealPayment($order, $configuration);
+
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
@@ -348,6 +380,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     }
     
     private function processIDealBasicPayment($order, $configuration, $variant) {
+    	$this->mailCheckIDealPayment($order, $configuration);
+
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
