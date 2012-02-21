@@ -103,6 +103,6 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	}
 
 	public function getErrorUrl() {
-		return $thisorder->get_checkout_payment_url();
+		return $this->order->get_checkout_payment_url();
 	}
 }

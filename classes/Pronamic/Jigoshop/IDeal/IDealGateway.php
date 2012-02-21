@@ -177,25 +177,6 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 	//////////////////////////////////////////////////
 	
-	public static function getIDealItemsFromJigoshopOrder($order) {
-		// Items
-		$items = new Pronamic_IDeal_Items();
-
-		// Item
-		// We only add one total item, because iDEAL cant work with negative price items (discount)
-		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($order->id);
-		$item->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-		$item->setPrice($order->order_total);
-		$item->setQuantity(1);
-
-		$items->addItem($item);
-
-		return $items;
-	}
-
-	//////////////////////////////////////////////////
-	
 	/**
 	 * Receipt page
 	 */
