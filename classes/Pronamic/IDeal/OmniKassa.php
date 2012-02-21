@@ -16,6 +16,22 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 */
 	const INTERFACE_VERSION_HP_1_0 = 'HP_1.0';
 
+	/**
+	 * Hash algorithm SHA256 indicator
+	 * 
+	 * @var string
+	 */
+	const HASH_ALGORITHM_SHA256 = 'sha256';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * The payment server URL
+	 * 
+	 * @var string
+	 */
+	private $paymentServerUrl;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -113,12 +129,41 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Secret key
+	 * 
+	 * @var string
+	 */
+	private $secretKey;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initalize an OmniKassa object
 	 */
 	public function __construct() {
 		$this->paymentMeanBrandList = array();
 
 		$this->setInterfaceVersion(self::INTERFACE_VERSION_HP_1_0);
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Get the payment server URL
+	 *
+	 * @return the payment server URL
+	 */
+	public function getPaymentServerUrl() {
+		return $this->paymentServerUrl;
+	}
+	
+	/**
+	 * Set the payment server URL
+	 *
+	 * @param string $url an URL
+	 */
+	public function setPaymentServerUrl($url) {
+		$this->paymentServerUrl = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -129,7 +174,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * @return string
 	 */
 	public function getInterfaceVersion() {
-		$this->interfaceVersion;
+		return $this->interfaceVersion;
 	}
 
 	/**
@@ -177,8 +222,8 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * 
 	 * @param string $merchantdId
 	 */
-	public function setMerchantId($merchantdId) {
-		$this->merchantdId = $merchantdId;
+	public function setMerchantId($merchantId) {
+		$this->merchantId = $merchantId;
 	}
 
 	//////////////////////////////////////////////////
@@ -257,7 +302,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * 
 	 * @return string
 	 */
-	public function getkeyVersion() {
+	public function getKeyVersion() {
 		return $this->keyVersion;
 	}
 
@@ -266,7 +311,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * 
 	 * @param string $keyVersion
 	 */
-	public function setkeyVersion($keyVersion) {
+	public function setKeyVersion($keyVersion) {
 		$this->keyVersion = $keyVersion;
 	}
 
@@ -445,11 +490,20 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 		$data = $this->getData();
 		$secretKey = $this->getSecretKey();
 
-		return self::createSeal($data, $secretKey);
+		return self::computeSeal($data, $secretKey);
 	}
 
-	public static function generateSeal($data, $secretKey) {
-		return hash('sha256', $data . $secretKey);
+	/**
+	 * Compute seal
+	 * 
+	 * @param string $data
+	 * @param string $secretKey
+	 */
+	public static function computeSeal($data, $secretKey) {
+		$value = $data . $secretKey;
+		$value = utf8_encode($value);
+
+		return hash(self::HASH_ALGORITHM_SHA256, $value);
 	}
 
 	//////////////////////////////////////////////////
@@ -464,7 +518,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 
 		$html .= sprintf('<input type="hidden" name="Data" value="%s" />', $this->getData());
 		$html .= sprintf('<input type="hidden" name="InterfaceVersion" value="%s" />', $this->getInterfaceVersion());
-		$html .= sprintf('<input type="hidden" name="Seal" value="%d" />', $this->getSeal());
+		$html .= sprintf('<input type="hidden" name="Seal" value="%s" />', $this->getSeal());
 		
 		return $html;
 	}
@@ -481,7 +535,9 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 		$pairs = array();
 
 		foreach($data as $key => $value) {
-			$pairs[] = $key . '=' . $value;
+			if(!empty($value)) {
+				$pairs[] = $key . '=' . $value;
+			}
 		}
 
 		$pipedString = implode('|', $pairs);
@@ -541,7 +597,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * 
 	 * @return mixed
 	 */
-	public function validate() {
+	public static function validate() {
 		$result = false;
 
 		if(isset($_POST['Data'], $_POST['Seal'])) {

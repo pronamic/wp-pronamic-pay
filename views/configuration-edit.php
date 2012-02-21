@@ -255,7 +255,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			</tr>
 		</table>
 
-		<div class="extra-settings method-basic">
+		<div class="extra-settings method-basic method-omnikassa">
 			<h3>
 				<?php _e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
 			</h3>

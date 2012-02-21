@@ -206,6 +206,11 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->calculationsParametersShaOut = file($file, FILE_IGNORE_NEW_LINES);
 
 	?>
+	
+	<h3>
+		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+	</h3>
+
 	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
 		<?php 
 		
@@ -219,19 +224,31 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	<?php endif; ?>
 
 	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantOmniKassa): ?>
-	
+
 	<?php 
-	
-	$user = wp_get_current_user();
 
 	$iDeal = new Pronamic_IDeal_OmniKassa();
-	$iDeal->setCurrencyCode(978)
-	
+	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+	$iDeal->setMerchantId($configuration->getMerchantId());
+	$iDeal->setKeyVersion($configuration->getSubId());
+	$iDeal->setSecretKey($configuration->hashKey);
+	$iDeal->setCurrencyNumericCode(978);
+	$iDeal->setNormalReturnUrl(home_url());
+	$iDeal->setAmount(1);
+	$iDeal->setTransactionReference(uniqid('test'));
+	// $iDeal->setOrderId(1);
+	$iDeal->setCustomerLanguage(Pronamic_WordPress_IDeal_Plugin::getLanguage());
+
 	?>
-	<form method="post" action="<?php echo esc_attr(''); ?>" target="_blank" style="display: inline">
+	
+	<h3>
+		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+	</h3>
+
+	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
 		<?php 
-		
-		 
+
+		echo $iDeal->getHtmlFields();
 
 		submit_button('Test', 'secondary', 'submit', false); 
 						

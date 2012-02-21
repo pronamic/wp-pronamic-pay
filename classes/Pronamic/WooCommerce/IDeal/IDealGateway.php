@@ -151,144 +151,18 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 	//////////////////////////////////////////////////
 	
-	public static function getIDealItemsFromWooCommerceOrder($order) {
-		// Items
-		$items = new Pronamic_IDeal_Items();
-
-		// Item
-		// We only add one total item, because iDEAL cant work with negative price items (discount)
-		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($order->id);
-		$item->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-		$item->setPrice($order->order_total);
-		$item->setQuantity(1);
-
-		$items->addItem($item);
-
-		return $items;
-	}
-
-	//////////////////////////////////////////////////
-	
 	/**
 	 * Receipt page
 	 */
 	function receiptPage($order_id) {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
-		if($configuration !== null) {
-			$variant = $configuration->getVariant();
-	
-			if($variant !== null) {				
-				$order = new WC_Order($order_id);
-
-				switch($variant->getMethod()) {
-					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						$this->receiptPageIDealEasy($order, $configuration, $variant);
-						break;
-					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						$this->receiptPageIDealBasic($order, $configuration, $variant);
-						break;
-				}
-			}
-		}
-	}
-
-	function receiptPageIDealEasy($order, $configuration, $variant) {
-		$iDeal = new Pronamic_IDeal_Easy();
-
-		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-		$iDeal->setMerchantId($configuration->getMerchantId());
-		$iDeal->setLanguage('nl'); // @todo nl_NL
-		$iDeal->setCurrency(get_option('woocommerce_currency'));
-		$iDeal->setOrderId($order->id);
-		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-        $iDeal->setAmount($order->order_total);
-        $iDeal->setEMailAddress($order->billing_email);
-        $iDeal->setCustomerName($order->billing_first_name . ' ' . $order->billing_last_name);
-		$iDeal->setOwnerAddress($order->billing_address_1);
-		$iDeal->setOwnerCity($order->billing_city);
-		$iDeal->setOwnerZip($order->billing_postcode);
-
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
-    	
-		if($payment == null) {
-			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount($iDeal->getAmount()); 
-			$transaction->setCurrency($iDeal->getCurrency());
-			$transaction->setLanguage('nl');
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($iDeal->getDescription());
-			$transaction->setPurchaseId($order->id);
-			
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource('woocommerce', $order->id);
-			
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-		}
 		
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
-		$html .= 	$iDeal->getHtmlFields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		$html .= '</form>';
-			        
-		echo $html;
-	}
-	
-	function receiptPageIDealBasic($order, $configuration, $variant) {
-		$iDeal = new Pronamic_IDeal_Basic();
-
-		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-		$iDeal->setMerchantId($configuration->getMerchantId());
-		$iDeal->setSubId($configuration->getSubId());
-		$iDeal->setLanguage('nl');
-		$iDeal->setHashKey($configuration->hashKey);
-		$iDeal->setCurrency(get_option('woocommerce_currency'));
-		$iDeal->setPurchaseId($order->id);
-		$iDeal->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-			        
-		$iDeal->setCancelUrl($order->get_cancel_order_url());
-		$iDeal->setSuccessUrl(add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('woocommerce_thanks_page_id')))));
-		$iDeal->setErrorUrl($order->get_checkout_payment_url());
-
-        // Items
-        $items = self::getIDealItemsFromWooCommerceOrder($order);
+		$order = new WC_Order($order_id);
 		
-		$iDeal->setItems($items);
+		$dataProxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy($order);
 
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
-    	
-		if($payment == null) {
-			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount($iDeal->getAmount()); 
-			$transaction->setCurrency($iDeal->getCurrency());
-			$transaction->setLanguage('nl');
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($iDeal->getDescription());
-			$transaction->setPurchaseId($order->id);
-			
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource('woocommerce', $order->id);
-			
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-		}
+		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
 		
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form method="post" action="%s">', esc_attr($iDeal->getPaymentServerUrl()));
-		$html .= 	$iDeal->getHtmlFields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		$html .= '</form>';
-			        
 		echo $html;
 	}
 
@@ -322,6 +196,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 						return $this->processIDealEasyPayment($order, $configuration, $variant);
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
 						return $this->processIDealBasicPayment($order, $configuration, $variant);
+					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+						return $this->processIDealOmniKassaPayment($order, $configuration, $variant);
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 						return $this->processIDealAdvancedPayment($order, $configuration, $variant);
 				}
@@ -389,25 +265,35 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		);
     }
     
+    private function processIDealOmniKassaPayment($order, $configuration, $variant) {
+		// Return pay page redirect
+		return array(
+			'result' 	=> 'success',
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(woocommerce_get_page_id('pay'))))
+		);
+    }
+    
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
+		$dataProxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy($order);
+
     	$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
 
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource('woocommerce', $order->id);
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
     	
 		if($payment == null) {
 			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount($order->order_total); 
-			$transaction->setCurrency(get_option('woocommerce_currency'));
+			$transaction->setAmount($dataProxy->getAmount()); 
+			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setExpirationPeriod('PT1H');
-			$transaction->setLanguage('nl');
+			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
 			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $order->id));
-			$transaction->setPurchaseId($order->id);
+			$transaction->setDescription($dataProxy->getDescription());
+			$transaction->setPurchaseId($dataProxy->getOrderId());
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
-			$payment->setSource('woocommerce', $order->id);
+			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
 	
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
     	}

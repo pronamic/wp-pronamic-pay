@@ -240,4 +240,173 @@ class Pronamic_WordPress_IDeal_IDeal {
 				return __('Unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
 		}
 	}
+
+	//////////////////////////////////////////////////
+
+	public static function getHtmlForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration = null) {
+		$html = '';
+
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
+	
+			if($variant !== null) {
+				switch($variant->getMethod()) {
+					case Pronamic_IDeal_IDeal::METHOD_EASY:
+						$html = self::getHtmlIDealEasyForm($dataProxy, $configuration);
+						break;
+					case Pronamic_IDeal_IDeal::METHOD_BASIC:
+						$html = self::getHtmlIDealBasicForm($dataProxy, $configuration);
+						break;
+					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+						$html = self::getHtmlIDealOmniKassaForm($dataProxy, $configuration);
+						break;
+				}
+			}
+		}
+		
+		return $html;
+	}
+	
+	public static function getHtmlIDealEasyForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration) {
+		$iDeal = new Pronamic_IDeal_Easy();
+
+		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+		$iDeal->setMerchantId($configuration->getMerchantId());
+
+		$iDeal->setLanguage($dataProxy->getLanguageIso639AndCountryIso3166Code());
+		$iDeal->setCurrency($dataProxy->getCurrencyAlphabeticCode());
+		$iDeal->setOrderId($dataProxy->getOrderId());
+		$iDeal->setDescription($dataProxy->getDescription());
+        $iDeal->setAmount($dataProxy->getAmount());
+        $iDeal->setEMailAddress($dataProxy->getEMailAddress());
+        $iDeal->setCustomerName($dataProxy->getCustomerName());
+		$iDeal->setOwnerAddress($dataProxy->getOwnerAddress());
+		$iDeal->setOwnerCity($dataProxy->getOwnerCity());
+		$iDeal->setOwnerZip($dataProxy->getOwnerZip());
+
+		// Payment
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
+    	
+		if($payment == null) {
+			// Update payment
+			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setAmount($dataProxy->getAmount()); 
+			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
+			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
+			$transaction->setEntranceCode(uniqid());
+			$transaction->setDescription($dataProxy->getDescription());
+			$transaction->setPurchaseId($dataProxy->getOrderId());
+			
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
+			$payment->transaction = $transaction;
+			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
+			
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+		}
+		
+		// HTML
+		$html  = '';
+		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= 	$iDeal->getHtmlFields();
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= '</form>';
+
+		return $html;
+	}
+	
+	public static function getHtmlIDealBasicForm($dataProxy, $configuration) {
+		$iDeal = new Pronamic_IDeal_Basic();
+
+		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+		$iDeal->setMerchantId($configuration->getMerchantId());
+		$iDeal->setSubId($configuration->getSubId());
+		$iDeal->setHashKey($configuration->hashKey);
+		
+		$iDeal->setLanguage($dataProxy->getLanguageIso639Code());
+		$iDeal->setCurrency($dataProxy->getCurrencyAlphabeticCode());
+		$iDeal->setPurchaseId($dataProxy->getOrderId());
+		$iDeal->setDescription($dataProxy->getDescription());
+		$iDeal->setItems($dataProxy->getItems());
+		$iDeal->setCancelUrl($dataProxy->getCancelUrl());
+		$iDeal->setSuccessUrl($dataProxy->getSuccessUrl());
+		$iDeal->setErrorUrl($dataProxy->getErrorUrl());
+
+		// Payment
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
+    	
+		if($payment == null) {
+			// Update payment
+			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setAmount($dataProxy->getAmount()); 
+			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
+			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
+			$transaction->setEntranceCode(uniqid());
+			$transaction->setDescription($dataProxy->getDescription());
+			$transaction->setPurchaseId($dataProxy->getOrderId());
+			
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
+			$payment->transaction = $transaction;
+			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
+			
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+		}
+		
+		// HTML
+		$html  = '';
+		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= 	$iDeal->getHtmlFields();
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= '</form>';
+			        
+		return $html;
+	}
+	
+	public static function getHtmlIDealOmniKassaForm($dataProxy, $configuration) {
+		$iDeal = new Pronamic_IDeal_OmniKassa();
+
+		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
+		$iDeal->setMerchantId($configuration->getMerchantId());
+		$iDeal->setKeyVersion($configuration->getSubId());
+		$iDeal->setSecretKey($configuration->hashKey);
+
+		$iDeal->setCustomerLanguage($dataProxy->getLanguageIso639Code());
+		$iDeal->setCurrencyNumericCode($dataProxy->getCurrencyNumericCode());
+		$iDeal->setOrderId($dataProxy->getOrderId());
+		$iDeal->setNormalReturnUrl($dataProxy->getNormalReturnUrl());
+		$iDeal->setAmount($dataProxy->getAmount());
+
+		// Payment
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
+    	
+		if($payment == null) {
+			// Update payment
+			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setAmount($dataProxy->getAmount()); 
+			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
+			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
+			$transaction->setEntranceCode(uniqid());
+			$transaction->setDescription($dataProxy->getDescription());
+			$transaction->setPurchaseId($dataProxy->getOrderId());
+			
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
+			$payment->transaction = $transaction;
+			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
+			
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+		}
+		
+		$iDeal->setTransactionReference($payment->getId());
+		
+		// HTML
+		$html  = '';
+		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= 	$iDeal->getHtmlFields();
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= '</form>';
+
+		echo $html;
+	}
 }

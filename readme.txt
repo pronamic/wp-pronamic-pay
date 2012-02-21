@@ -44,6 +44,7 @@ The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://sh
 	*	iDEAL Advanced
 *	Rabobank
 	*	iDEAL Lite
+	*	OmniKassa
 	*	iDEAL Professional
 *	Mollie
 	*	iDEAL Lite/Basic

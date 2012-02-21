@@ -103,6 +103,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
+			Pronamic_WPeCommerce_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
@@ -259,6 +260,38 @@ class Pronamic_WordPress_IDeal_Plugin {
 				do_action('pronamic_ideal_return', $payment, $canRedirect);
 			}
 		}
+	}
+
+	//////////////////////////////////////////////////
+
+	public static function getLanguage() {
+		$language = get_option('WPLANG', WPLANG);
+	
+		return substr($language, 0, 2);
+	}
+
+	//////////////////////////////////////////////////
+
+	public static function transformCurrencyCodeToNumber($code) {
+		$currencies = array();
+
+		$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/dl_iso_table_a1.xml';
+		$xmlFile = simplexml_load_file($file);
+	
+		foreach($xmlFile->ISO_CURRENCY as $currency) {
+			$alphabeticCode = (string) $currency->ALPHABETIC_CODE;
+			$numericCode = (string) $currency->NUMERIC_CODE;
+		
+			$currencies[$alphabeticCode] = $numericCode;
+		}
+
+		$number = null;
+
+		if(isset($currencies[$code])) {
+			$number = $currencies[$code];
+		}
+
+		return $number;
 	}
 
 	//////////////////////////////////////////////////

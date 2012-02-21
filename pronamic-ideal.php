@@ -25,6 +25,8 @@ function pronamic_ideal_autoload($name) {
 
 spl_autoload_register('pronamic_ideal_autoload');
 
+require_once 'functions/wp-e-commerce.php';
+
 Pronamic_WordPress_IDeal_Plugin::bootstrap(__FILE__);
 
 endif;
