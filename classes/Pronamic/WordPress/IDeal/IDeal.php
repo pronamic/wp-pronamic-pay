@@ -376,6 +376,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$iDeal->setOrderId($dataProxy->getOrderId());
 		$iDeal->setNormalReturnUrl($dataProxy->getNormalReturnUrl());
 		$iDeal->setAmount($dataProxy->getAmount());
+		$iDeal->setTransactionReference($dataProxy->getOrderId());
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
@@ -389,16 +390,14 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$transaction->setEntranceCode(uniqid());
 			$transaction->setDescription($dataProxy->getDescription());
 			$transaction->setPurchaseId($dataProxy->getOrderId());
-			
+
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
 			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
-			
+
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
 		}
-		
-		$iDeal->setTransactionReference($payment->getId());
 		
 		// HTML
 		$html  = '';
@@ -407,6 +406,6 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
 		$html .= '</form>';
 
-		echo $html;
+		return $html;
 	}
 }

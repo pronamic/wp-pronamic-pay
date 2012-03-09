@@ -473,22 +473,27 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
 
 		if($feed !== null) {
-			$configuration = $feed->getIDealConfiguration();
+			if(self::isConditionTrue($form, $feed)) {
+				$configuration = $feed->getIDealConfiguration();
 
-			if($configuration !== null) {
-				$variant = $configuration->getVariant();
-
-				if($variant !== null) {
-					switch($variant->getMethod()) {
-						case Pronamic_IDeal_IDeal::METHOD_EASY:
-							$confirmation = self::handleIDealEasy($confirmation, $form, $lead, $ajax);
-							break;
-						case Pronamic_IDeal_IDeal::METHOD_BASIC:
-							$confirmation = self::handleIDealBasic($confirmation, $form, $lead, $ajax);
-							break;
-						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-							$confirmation = self::handleIDealAdvanced($confirmation, $form, $lead, $ajax);
-							break;
+				if($configuration !== null) {
+					$variant = $configuration->getVariant();
+	
+					if($variant !== null) {
+						switch($variant->getMethod()) {
+							case Pronamic_IDeal_IDeal::METHOD_EASY:
+								$confirmation = self::handleIDealEasy($confirmation, $form, $feed, $lead);
+								break;
+							case Pronamic_IDeal_IDeal::METHOD_BASIC:
+								$confirmation = self::handleIDealBasic($confirmation, $form, $feed, $lead);
+								break;
+							case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+								$confirmation = self::handleIDealOmniKassa($confirmation, $form, $feed, $lead);
+								break;
+							case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
+								$confirmation = self::handleIDealAdvanced($confirmation, $form, $feed, $lead);
+								break;
+						}
 					}
 				}
 			}
@@ -514,19 +519,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealAdvanced($confirmation, $form, $lead, $ajax) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
-
-		// Check if there is an iDEAL feed mapped to the specified form
-		if($feed == null) {
-			return $confirmation;
-		}
-
-		// Check if the iDEAL condition is specified in the feed is true
-		if(!self::isConditionTrue($form, $feed)) {
-			return $confirmation;
-		}
-
+	public static function handleIDealAdvanced($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
 		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
@@ -579,19 +572,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealBasic($confirmation, $form, $lead, $ajax) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
-
-		// Check if there is an iDEAL feed mapped to the specified form
-		if($feed == null) {
-			return $confirmation;
-		}
-
-		// Check if the iDEAL condition is specified in the feed is true
-		if(!self::isConditionTrue($form, $feed)) {
-			return $confirmation;
-		}
-		
+	public static function handleIDealBasic($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
 		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
@@ -624,19 +605,40 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealEasy($confirmation, $form, $lead, $ajax) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
+	public static function handleIDealEasy($confirmation, $form, $feed, $lead) {
+		$configuration = $feed->getIDealConfiguration();
 
-		// Check if there is an iDEAL feed mapped to the specified form
-		if($feed == null) {
-			return $confirmation;
-		}
+		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
 
-		// Check if the iDEAL condition is specified in the feed is true
-		if(!self::isConditionTrue($form, $feed)) {
-			return $confirmation;
-		}
-		
+		// Updating lead's payment_status to Processing
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = gmdate('y-m-d H:i:s');
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
+        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $lead['id'];
+
+        RGFormsModel::update_lead($lead);
+
+        // HTML
+        $html  = '';
+        $html .= '<div id="gforms_confirmation_message">';
+        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, true);
+        $html .= 	Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
+		$html .= '</div>';
+
+        // Extend the confirmation with the iDEAL form
+        $confirmation = $html;
+
+        // Return
+        return $confirmation;
+	}
+
+	/**
+	 * Handle iDEAL OmniKassa
+	 * 
+	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
+	 */
+	public static function handleIDealOmniKassa($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
 		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);

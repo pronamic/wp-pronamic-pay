@@ -84,6 +84,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+*	Let visitors pay later
 
 = beta-0.? =
 *	Added an data proxy class, all add-ons are now optimized
