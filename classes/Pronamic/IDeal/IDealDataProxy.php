@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Title: iDEAL data proxy
+ * Description: 
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Remco Tolsma
+ * @version 1.0
+ */
 abstract class Pronamic_IDeal_IDealDataProxy {
 	public abstract function getSource();
 	
@@ -34,7 +42,7 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	public abstract function getCurrencyAlphabeticCode();
 
 	public function getCurrencyNumericCode() {
-		return Pronamic_WordPress_IDeal_Plugin::transformCurrencyCodeToNumber($this->getCurrencyAlphabeticCode());
+		return Pronamic_WordPress_IDeal_Util::transformCurrencyCodeToNumber($this->getCurrencyAlphabeticCode());
 	}
 
 	//////////////////////////////////////////////////

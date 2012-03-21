@@ -522,7 +522,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handleIDealAdvanced($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
+		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
 
 		$variant = $configuration->getVariant();
 
@@ -575,7 +575,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handleIDealBasic($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
+		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
 
 		// Updating lead's payment_status to Processing
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
@@ -608,7 +608,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handleIDealEasy($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
+		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
 
 		// Updating lead's payment_status to Processing
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
@@ -641,7 +641,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handleIDealOmniKassa($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $feed, $lead);
+		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
 
 		// Updating lead's payment_status to Processing
         $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;

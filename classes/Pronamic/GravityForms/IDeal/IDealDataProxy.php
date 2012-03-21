@@ -1,36 +1,93 @@
 <?php
 
+/**
+ * Title: Gravity Forms iDEAL data proxy
+ * Description: 
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Remco Tolsma
+ * @version 1.0
+ */
 class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+	/**
+	 * Gravity Forms form object
+	 * 
+	 * @see http://www.gravityhelp.com/documentation/page/Form_Object
+	 * @var array
+	 */
 	private $form;
-	
-	private $feed;
 
+	/**
+	 * Gravity Forms entry object
+	 * 
+	 * @see http://www.gravityhelp.com/documentation/page/Entry_Object
+	 * @var array
+	 */
 	private $lead;
+
+	/**
+	 * Pronamic iDEAL feed object
+	 * 
+	 * @var Pronamic_GravityForms_IDeal_Feed
+	 */
+	private $feed;
 
 	//////////////////////////////////////////////////
 
-	public function __construct($form, $feed, $lead) {
+	/**
+	 * Constructs and initialize an Gravity Forms iDEAL data proxy
+	 * 
+	 * @param array $form
+	 * @param array $lead
+	 * @param Pronamic_GravityForms_IDeal_Feed $feed
+	 */
+	public function __construct($form, $lead, $feed) {
 		$this->form = $form;
-		$this->feed = $feed;
 		$this->lead = $lead;
+		$this->feed = $feed;
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get source indicator
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @return string
+	 */
 	public function getSource() {
 		return 'gravityformsideal';
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get description
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @return string
+	 */
 	public function getDescription() {
 		return GFCommon::replace_variables($this->feed->transactionDescription, $this->form, $this->lead);
 	}
 
+	/**
+	 * Get order ID
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getOrderId()
+	 * @return string
+	 */
 	public function getOrderId() {
+		// @see http://www.gravityhelp.com/documentation/page/Entry_Object#Standard
 		return $this->lead['id'];
 	}
 
+	/**
+	 * Get items
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getItems()
+	 * @return Pronamic_IDeal_Items
+	 */
 	public function getItems() {
 		$items = new Pronamic_IDeal_Items();
 
@@ -129,6 +186,12 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	// Currency
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get currency alphabetic code
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getCurrencyAlphabeticCode()
+	 * @return string
+	 */
 	public function getCurrencyAlphabeticCode() {
 		return GFCommon::get_currency();
 	}

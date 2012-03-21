@@ -39,7 +39,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.8.6';
+	const VERSION = 'beta-0.8.7';
 
 	//////////////////////////////////////////////////
 
@@ -110,10 +110,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action('init', array(__CLASS__, 'init'));
 		
 		// On template redirect handle an possible return from iDEAL
-		add_action('template_redirect', array(__CLASS__, 'handleIDealReturn'));
+		add_action('template_redirect', array(__CLASS__, 'handleIDealAdvancedReturn'));
+		add_action('template_redirect', array(__CLASS__, 'handleOmniKassaReturn'));
 		
 		// Check the payment status on an iDEAL return
 		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
+		add_action('pronamic_ideal_omnikassa_return', array(__CLASS__, 'updateOmniKassaPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
@@ -221,7 +223,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$merchant->id = $configuration->getMerchantId();
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = home_url();
+		$merchant->returnUrl = site_url();
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->merchant = $merchant;
@@ -238,53 +240,81 @@ class Pronamic_WordPress_IDeal_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Handle iDEAL
+	 * Handle iDEAL advanced return
 	 */
-	public static function handleIDealReturn() {
-		$transactionId = filter_input(INPUT_GET, 'trxid', FILTER_SANITIZE_STRING);
-		$entranceCode = filter_input(INPUT_GET, 'ec', FILTER_SANITIZE_STRING);
-
-		if(!empty($transactionId) && !empty($entranceCode)) {
-			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
-
-			if($payment != null) {
-				$canRedirect = true;
-
-				do_action('pronamic_ideal_return', $payment, $canRedirect);
+	public static function handleIDealAdvancedReturn() {
+		if(isset($_GET['trxid'], $_GET['ec'])) {
+			$transactionId = filter_input(INPUT_GET, 'trxid', FILTER_SANITIZE_STRING);
+			$entranceCode = filter_input(INPUT_GET, 'ec', FILTER_SANITIZE_STRING);
+	
+			if(!empty($transactionId) && !empty($entranceCode)) {
+				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
+	
+				if($payment != null) {
+					$canRedirect = true;
+	
+					do_action('pronamic_ideal_return', $payment, $canRedirect);
+				}
 			}
 		}
 	}
 
-	//////////////////////////////////////////////////
+	/**
+	 * Handle OmniKassa return
+	 */
+	public static function handleOmniKassaReturn() {
+		if(isset($_POST['Data'], $_POST['Seal'])) {
+			$postData = filter_input(INPUT_POST, 'Data', FILTER_SANITIZE_STRING);
+			$postSeal = filter_input(INPUT_POST, 'Seal', FILTER_SANITIZE_STRING);
+			
+			$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
 
-	public static function getLanguage() {
-		$language = get_option('WPLANG', WPLANG);
+			$transactionReference = $data['transactionReference'];
 
-		return substr($language, 0, 2);
+			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
+
+			if($payment != null) {
+				$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
+
+				// Check if the posted seal is equal to our seal
+				if(strcasecmp($postSeal, $seal) === 0) {
+					do_action('pronamic_ideal_omnikassa_return', $data, $canRedirect = true);
+				}
+			}
+		}
 	}
 
-	//////////////////////////////////////////////////
-
-	public static function transformCurrencyCodeToNumber($code) {
-		$currencies = array();
-
-		$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/dl_iso_table_a1.xml';
-		$xmlFile = simplexml_load_file($file);
-	
-		foreach($xmlFile->ISO_CURRENCY as $currency) {
-			$alphabeticCode = (string) $currency->ALPHABETIC_CODE;
-			$numericCode = (string) $currency->NUMERIC_CODE;
+	/**
+	 * Update OmniKassa payment status
+	 * 
+	 * @param array $result
+	 * @param boolean $canRedirect
+	 */
+	public static function updateOmniKassaPaymentStatus($result, $canRedirect = false) {
+		$transactionReference = $result['transactionReference'];
 		
-			$currencies[$alphabeticCode] = $numericCode;
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
+		
+		if($payment != null) {
+			$responseCode = $result['responseCode'];
+
+			$status = Pronamic_IDeal_Transaction::STATUS_OPEN;
+
+			switch($responseCode) {
+				case Pronamic_IDeal_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
+					$status = Pronamic_IDeal_Transaction::STATUS_SUCCESS;
+					break;
+				case Pronamic_IDeal_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
+					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
+					break;
+			}
+			
+			$payment->transaction->setStatus($status);
+
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+
+			do_action('pronamic_ideal_status_update', $payment, $canRedirect);
 		}
-
-		$number = null;
-
-		if(isset($currencies[$code])) {
-			$number = $currencies[$code];
-		}
-
-		return $number;
 	}
 
 	//////////////////////////////////////////////////

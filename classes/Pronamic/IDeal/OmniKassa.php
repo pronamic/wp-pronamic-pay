@@ -25,6 +25,28 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
+	const RESPONSE_CODE_TRANSACTION_SUCCES = '00';
+	const RESPONSE_CODE_AUTHORIZATION_LIMIT = '02';
+	const RESPONSE_CODE_INVALID_MERCHANT_CONTRACT = '03';
+	const RESPONSE_CODE_AUTHORIZATION_REFUSED = '05';
+	const RESPONSE_CODE_INVALID_TRANSACTION = '12';
+	const RESPONSE_CODE_INVALID_CARD_NUMBER = '14';
+	const RESPONSE_CODE_CANCELLATION_OF_PAYMENT = '17';
+	const RESPONSE_CODE_INVALID_STATUS = '24';
+	const RESPONSE_CODE_TRANSACTION_NOT_FOUND_IN_DATABASE = '25';
+	const RESPONSE_CODE_INVALID_FORMAT = '30';
+	const RESPONSE_CODE_FRAUD_SUSPICION = '34';
+	const RESPONSE_CODE_OPERATION_NOT_ALLOWED = '40';
+	const RESPONSE_CODE_PENDING_TRANSACTION = '60';
+	const RESPONSE_CODE_SECURITY_BREACH_DETECTED = '63';
+	const RESPONSE_CODE_NUMBER_ATTEMPT_EXCEEDED = '75';
+	const RESPONSE_CODE_ACQUIRER_SERVER_TEMPORARILY_UNAVAILABLE = '90';
+	const RESPONSE_CODE_DUPLICATE_TRANSACTION = '94';
+	const RESPONSE_CODE_REQUEST_TIMEOUT = '97';
+	const RESPONSE_CODE_PAYMENT_PAGE_TEMPORARILY_UNAVAILABLE = '99';
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * The payment server URL
 	 * 
@@ -240,6 +262,8 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	/**
 	 * Set the normal return URL
 	 * 
+	 * LET OP! De URL mag geen parameters bevatten.
+	 * 
 	 * @param string $normalReturnUrl
 	 */
 	public function setNormalReturnUrl($normalReturnUrl) {
@@ -288,11 +312,12 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set transaction reference
+	 * AN..max35 (AN = Alphanumeric, free text)
 	 * 
 	 * @param string $transactionReference
 	 */
 	public function setTransactionReference($transactionReference) {
-		$this->transactionReference = $transactionReference;
+		$this->transactionReference = substr($transactionReference, 0, 35);
 	}
 
 	//////////////////////////////////////////////////
@@ -328,6 +353,8 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 
 	/**
 	 * Set automatic response URL
+	 * 
+	 * LET OP! De URL mag geen parameters bevatten.
 	 * 
 	 * @param string $automaticResponseUrl
 	 */
@@ -532,6 +559,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	 * @return string
 	 */
 	public static function createPipedString(array $data) {
+		/*
 		$pairs = array();
 
 		foreach($data as $key => $value) {
@@ -543,6 +571,10 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 		$pipedString = implode('|', $pairs);
 
 		return $pipedString;
+		*/
+
+		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
+		return _http_build_query($data, null, '|', '', false);
 	}
 
 	/**
@@ -588,30 +620,5 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 			'97' => 'Request time-out; transaction refused' , 
 			'99' => 'Payment page temporarily unavailable' 
 		);
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Validate return / notification
-	 * 
-	 * @return mixed
-	 */
-	public static function validate() {
-		$result = false;
-
-		if(isset($_POST['Data'], $_POST['Seal'])) {
-			$postData = filter_input(INPUT_POST, 'Data', FILTER_SANITIZE_STRING);
-			$postSeal = filter_input(INPUT_POST, 'Seal', FILTER_SANITIZE_STRING);
-
-			$seal = self::createSeal($postData, $this->getSecretKey());
-
-			// Check if the posted seal is equal to our seal
-			if(strcasecmp($postSeal, $seal) === 0) {
-				$result = self::parsePipedString($postData);
-			}
-		}
-		
-		return $result;
 	}
 }

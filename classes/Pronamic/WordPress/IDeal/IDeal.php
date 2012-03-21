@@ -158,7 +158,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$merchant->id = $configuration->getMerchantId();
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = home_url();
+		$merchant->returnUrl = site_url();
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->issuer = $issuer;
@@ -369,14 +369,15 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());
 		$iDeal->setKeyVersion($configuration->getSubId());
-		$iDeal->setSecretKey($configuration->hashKey);
+		$iDeal->setSecretKey($configuration->getHashKey());
 
 		$iDeal->setCustomerLanguage($dataProxy->getLanguageIso639Code());
 		$iDeal->setCurrencyNumericCode($dataProxy->getCurrencyNumericCode());
 		$iDeal->setOrderId($dataProxy->getOrderId());
-		$iDeal->setNormalReturnUrl($dataProxy->getNormalReturnUrl());
+		$iDeal->setNormalReturnUrl(site_url());
+		$iDeal->setAutomaticResponseUrl(site_url());
 		$iDeal->setAmount($dataProxy->getAmount());
-		$iDeal->setTransactionReference($dataProxy->getOrderId());
+		$iDeal->setTransactionReference(md5(time() . $dataProxy->getOrderId()));
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
@@ -384,6 +385,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		if($payment == null) {
 			// Update payment
 			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction->setId($iDeal->getTransactionReference());
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
