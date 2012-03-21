@@ -120,10 +120,10 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					$configuration->privateCertificate = $privateCertificate;
 				}
 			} else {
-				$error = __('Unfortunately we could not generate a certificate resource from the given CSR (Certificate Signing Request).', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$error = __('Unfortunately we could not generate a certificate resource from the given CSR (Certificate Signing Request).', 'pronamic_ideal');
 			}
 		} else {
-			$error = __('Unfortunately we could not generate a private key.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			$error = __('Unfortunately we could not generate a private key.', 'pronamic_ideal');
 		}
 	}
 
@@ -135,8 +135,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		Pronamic_WordPress_IDeal_IDeal::deleteConfigurationTransient($configuration);
 
 		$update = sprintf(
-			__('Configuration updated, %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</a>'
+			__('Configuration updated, %s.', 'pronamic_ideal') , 
+			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', 'pronamic_ideal') . '</a>'
 		);
 	} else {
 		global $wpdb;
@@ -149,7 +149,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Configuration', 'pronamic_ideal'); ?>
 	</h2>
 
 	<?php if($update): ?>
@@ -173,14 +173,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr($configuration->getId()); ?>" type="hidden" />
 
 		<h3>
-			<?php _e('General', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('General', 'pronamic_ideal'); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_variant_id">
-						<?php _e('Variant', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Variant', 'pronamic_ideal'); ?>
 					</label>
 				</th>
 				<td>
@@ -200,7 +200,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_merchant_id">
-						<?php _e('Merchant ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
 					</label>
 				</th>
 				<td>
@@ -208,14 +208,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal'); ?>
 					</span>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_sub_id">
-						<?php _e('Sub ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Sub ID', 'pronamic_ideal'); ?>
 					</label>
 				</th>
 				<td>
@@ -223,31 +223,31 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php printf(__('You receive the sub ID from your iDEAL provider, the default is: %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), 0); ?>
+						<?php printf(__('You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal'), 0); ?>
 					</span>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_mode">
-						<?php _e('Mode', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Mode', 'pronamic_ideal'); ?>
 					</label>
 				</th>
 				<td>
 					<fieldset>
 						<legend class="screen-reader-text">
-							<?php _e('Mode', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Mode', 'pronamic_ideal'); ?>
 						</legend>
 					
 						<p>		
 							<label>
 								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_LIVE; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_LIVE); ?> />
-								<?php _e('Live', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+								<?php _e('Live', 'pronamic_ideal'); ?>
 							</label><br />
 			
 							<label>
 								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_TEST; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_TEST); ?> />
-								<?php _e('Test', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+								<?php _e('Test', 'pronamic_ideal'); ?>
 							</label>
 						</p>
 					</fieldset>
@@ -257,14 +257,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 		<div class="extra-settings method-basic method-omnikassa">
 			<h3>
-				<?php _e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+				<?php _e('Basic', 'pronamic_ideal'); ?>
 			</h3>
 	
 			<table class="form-table">
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_hash_key">
-							<?php _e('Hash Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Hash Key', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td>
@@ -272,7 +272,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	
 						<span class="description">
 							<br />
-							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
@@ -281,14 +281,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 		<div class="extra-settings method-advanced">
 			<h3>
-				<?php _e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+				<?php _e('Advanced', 'pronamic_ideal'); ?>
 			</h3>
 	
 			<table class="form-table">
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_private_key_password">
-							<?php _e('Private Key Password', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Private Key Password', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -298,7 +298,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_private_key">
-							<?php _e('Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Private Key', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td>
@@ -310,7 +310,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						<?php 
 
 						submit_button(
-							__('Download Private Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+							__('Download Private Key', 'pronamic_ideal') , 
 							'secondary' , 'download_private_key' 
 						);
 
@@ -320,7 +320,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_private_certificate">
-							<?php _e('Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Private Certificate', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td>
@@ -336,11 +336,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 							$fingerprint = str_split($fingerprint, 2);
 							$fingerprint = implode(':', $fingerprint);
 						
-							echo sprintf(__('SHA Fingerprint: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $fingerprint), '<br />';
+							echo sprintf(__('SHA Fingerprint: %s', 'pronamic_ideal'), $fingerprint), '<br />';
 						}
 
 						submit_button(
-							__('Download Private Certificate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+							__('Download Private Certificate', 'pronamic_ideal') , 
 							'secondary' , 'download_private_certificate'
 						);
 
@@ -353,7 +353,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		<?php 
 		
 		submit_button(
-			empty($configuration->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			empty($configuration->id) ? __('Save', 'pronamic_ideal') : __('Update', 'pronamic_ideal') , 
 			'primary' , 
 			'submit'
 		);
@@ -362,14 +362,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 		<div class="extra-settings method-advanced">
 			<h4>
-				<?php _e('Private Key and Certificate Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+				<?php _e('Private Key and Certificate Generator', 'pronamic_ideal'); ?>
 			</h4>
 
 			<table class="form-table">
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_generate_private_key_password">
-							<?php _e('Private Key Password', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Private Key Password', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -379,7 +379,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_days">
-							<?php _e('Number Days Valid', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Number Days Valid', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -387,14 +387,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('specify the length of time for which the generated certificate will be valid, in days. ', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('specify the length of time for which the generated certificate will be valid, in days. ', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_country_name">
-							<?php _e('Country', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Country', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -402,14 +402,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('2 letter code [NL]', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('2 letter code [NL]', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_state_or_province">
-							<?php _e('State or Province', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('State or Province', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -417,14 +417,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('full name [Friesland]', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('full name [Friesland]', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_locality">
-							<?php _e('Locality', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Locality', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -432,14 +432,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, city', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('eg, city', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_organization">
-							<?php _e('Organization', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Organization', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -447,14 +447,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, company [Pronamic]', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('eg, company [Pronamic]', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_organization_unit">
-							<?php _e('Organization Unit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Organization Unit', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -462,14 +462,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, section', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('eg, section', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_common_name">
-							<?php _e('Common Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Common Name', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -477,16 +477,16 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, YOUR name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-							<?php _e('Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
-							<?php _e('Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('eg, YOUR name', 'pronamic_ideal'); ?>
+							<?php _e('Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal'); ?>
+							<?php _e('Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_email_address">
-							<?php _e('Email Address', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Email Address', 'pronamic_ideal'); ?>
 						</label>
 					</th>
 					<td> 
@@ -498,7 +498,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<?php 
 			
 			submit_button(
-				__('Generate', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,  
+				__('Generate', 'pronamic_ideal') ,  
 				'secundary' , 
 				'generate'
 			);

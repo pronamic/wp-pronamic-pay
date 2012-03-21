@@ -15,7 +15,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	public function __construct($purchase_id = null, $is_receiving = false) {
 		parent::__construct($purchase_id, $is_receiving);
 
-		$this->name = __('Pronamic iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		$this->name = __('Pronamic iDEAL', 'pronamic_ideal');
 	}
 
 	//////////////////////////////////////////////////
@@ -72,11 +72,11 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 
 		$html .= '<tr>';
 		$html .= '	<td class="wpsc_CC_details">';
-		$html .= '		' . __( 'iDEAL Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		$html .= '		' . __( 'iDEAL Configuration', 'pronamic_ideal');
 		$html .= '	</td>';
 		$html .= '	<td>';
 		$html .= '		<select name="pronamic_ideal_wpsc_configuration_id">';
-		$html .= '			<option>' . __('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '</option>';
+		$html .= '			<option>' . __('&mdash; Select configuration &mdash;', 'pronamic_ideal') . '</option>';
 
 		foreach($configurations as $configuration) {
 			$html .= sprintf(

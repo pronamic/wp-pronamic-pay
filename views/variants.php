@@ -2,7 +2,7 @@
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Variants', 'pronamic_ideal'); ?>
 	</h2>
 
 	<table cellspacing="0" class="widefat fixed">
@@ -11,10 +11,10 @@
 
 		<<?php echo $tag; ?>>
 			<tr>
-				<th scope="col" class="manage-column"><?php _e('Provider', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Method', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Provider', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Name', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Method', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Dashboard', 'pronamic_ideal') ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
 
@@ -40,16 +40,16 @@
 					
 					switch($variant->getMethod()) {
 						case Pronamic_IDeal_IDeal::METHOD_EASY:
-							_e('Easy', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+							_e('Easy', 'pronamic_ideal');
 							break;
 						case Pronamic_IDeal_IDeal::METHOD_BASIC:
-							_e('Basic', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+							_e('Basic', 'pronamic_ideal');
 							break;
 						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-							_e('Advanced', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+							_e('Advanced', 'pronamic_ideal');
 							break;
 						default:
-							_e('Unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+							_e('Unknown', 'pronamic_ideal');
 							break;
 					}
 					
@@ -58,13 +58,13 @@
 				<td>
 					<?php if($variant->testSettings->dashboardUrl): ?>
 					<a href="<?php echo $variant->testSettings->dashboardUrl; ?>">
-						<?php _e('Test', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Test', 'pronamic_ideal'); ?>
 					</a>
 					<?php endif; ?>
 
 					<?php if($variant->liveSettings->dashboardUrl): ?>
 					<a href="<?php echo $variant->liveSettings->dashboardUrl; ?>">
-						<?php _e('Live', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Live', 'pronamic_ideal'); ?>
 					</a>
 					<?php endif; ?>
 				</td>

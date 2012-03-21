@@ -85,11 +85,16 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 *	Let visitors pay later
+*	Make simulator payments free
+*	info@onderneemvitaal.nl
 
 = beta-0.? =
 *	Added an data proxy class, all add-ons are now optimized
 *	Added OmniKassa support for all add-ons
 *	Added support for the WP e-Commerce plugin
+*	Improved the redirection if returned from an iDEAL advanced payment to WooComnmerce
+*	Changed the text domain from 'pronamic-ideal' to 'pronamic_ideal'
+*	Replaced all references to class constant TEXT_DOMAIN to an string
 
 = beta-0.8.6 =
 *	Added documentation for the Rabobank OmniKassa payment method

@@ -18,7 +18,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	//////////////////////////////////////////////////
 
 	public function getDescription() {
-		return sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $this->order->id);
+		return sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id);
 	}
 
 	public function getOrderId() {
@@ -33,7 +33,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber($this->order->id);
-		$item->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $this->order->id));
+		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id));
 		$item->setPrice($this->order->order_total);
 		$item->setQuantity(1);
 

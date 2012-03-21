@@ -26,7 +26,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$this->id = self::ID;
 
 		// The method title that Jigoshop will display in the admin
-		$this->method_title = __('Pronamic iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		$this->method_title = __('Pronamic iDEAL', 'pronamic_ideal');
 		
 		// The icon that Jigoshop will display on the payment methods radio list
 		$this->icon = plugins_url('images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file);
@@ -50,8 +50,8 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		// Add options
 		add_option('jigoshop_pronamic_ideal_enabled', 'yes');
-		add_option('jigoshop_pronamic_ideal_title', __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
-		add_option('jigoshop_pronamic_ideal_description', __('With iDEAL you can easily pay online in the secure environment of your own bank.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		add_option('jigoshop_pronamic_ideal_title', __('iDEAL', 'pronamic_ideal'));
+		add_option('jigoshop_pronamic_ideal_description', __('With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal'));
 		add_option('jigoshop_pronamic_ideal_configuration_id', '');
     } 
 
@@ -65,7 +65,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 */
 	public function admin_options() {
     	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
     	foreach($configurations as $configuration) {
     		$configurationOptions[$configuration->getId()] = $configuration->getName();
     	}
@@ -74,7 +74,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     	<thead>
     		<tr>
     			<th scope="col" width="200px">
-    				<?php _e('Pronamic iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+    				<?php _e('Pronamic iDEAL', 'pronamic_ideal'); ?>
     			</th>
     			<th scope="col" class="desc">
     			
@@ -83,30 +83,30 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     	</thead>
 		<tr>
 			<td class="titledesc">
-				<?php _e('Enable iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?>:
+				<?php _e('Enable iDEAL', 'pronamic_ideal') ?>:
 			</td>
 			<td class="forminp">
 				<select name="jigoshop_pronamic_ideal_enabled" id="jigoshop_pronamic_ideal_enabled" style="min-width:100px;">
-					<option value="yes" <?php selected($this->enabled, 'yes'); ?>><?php _e('Yes', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
-					<option value="no" <?php selected($this->enabled, 'no'); ?>><?php _e('No', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
+					<option value="yes" <?php selected($this->enabled, 'yes'); ?>><?php _e('Yes', 'pronamic_ideal'); ?></option>
+					<option value="no" <?php selected($this->enabled, 'no'); ?>><?php _e('No', 'pronamic_ideal'); ?></option>
 				</select>
 	        </td>
 	    </tr>
 	    <tr>
-	        <td class="titledesc"><a href="#" tip="<?php _e('This controls the title which the user sees during checkout.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?>" class="tips" tabindex="99"></a><?php _e('Title', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>:</td>
+	        <td class="titledesc"><a href="#" tip="<?php _e('This controls the title which the user sees during checkout.', 'pronamic_ideal') ?>" class="tips" tabindex="99"></a><?php _e('Title', 'pronamic_ideal'); ?>:</td>
 	        <td class="forminp">
-		        <input class="input-text" type="text" name="jigoshop_pronamic_ideal_title" id="jigoshop_pronamic_ideal_title" style="min-width:50px;" value="<?php if ($value = get_option('jigoshop_pronamic_ideal_title')) echo $value; else _e('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>" />
+		        <input class="input-text" type="text" name="jigoshop_pronamic_ideal_title" id="jigoshop_pronamic_ideal_title" style="min-width:50px;" value="<?php if ($value = get_option('jigoshop_pronamic_ideal_title')) echo $value; else _e('iDEAL', 'pronamic_ideal'); ?>" />
 	        </td>
 	    </tr>
 	    <tr>
-	        <td class="titledesc"><a href="#" tip="<?php _e('This controls the description which the user sees during checkout.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?>" class="tips" tabindex="99"></a><?php _e('Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?>:</td>
+	        <td class="titledesc"><a href="#" tip="<?php _e('This controls the description which the user sees during checkout.', 'pronamic_ideal') ?>" class="tips" tabindex="99"></a><?php _e('Description', 'pronamic_ideal') ?>:</td>
 	        <td class="forminp">
 		        <input class="input-text wide-input" type="text" name="jigoshop_pronamic_ideal_description" id="jigoshop_pronamic_ideal_description" style="min-width:50px;" value="<?php if ($value = get_option('jigoshop_pronamic_ideal_description')) echo $value; ?>" />
 	        </td>
 	    </tr>
 		<tr>
 			<td class="titledesc">
-				<?php _e('Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?>:
+				<?php _e('Configuration', 'pronamic_ideal') ?>:
 			</td>
 			<td class="forminp">
 				<select name="jigoshop_pronamic_ideal_configuration_id" id="jigoshop_pronamic_ideal_configuration_id" style="min-width:100px;">
@@ -152,7 +152,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 					?>
 					<p class="pronamic_ideal_issuer">
 						<label for="pronamic_ideal_issuer_id">
-							<?php _e('Choose your bank', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<?php _e('Choose your bank', 'pronamic_ideal'); ?>
 						</label>
 						
 						<?php echo Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists); ?>
@@ -167,7 +167,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 				} else {
 					?>
 					<div class="jigoshop_error">
-						<?php echo __('Paying with iDEAL is not possible. Please try again later or pay another way.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php echo __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal'); ?>
 					</div>
 					<?php 
 				}
@@ -201,7 +201,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$order = &new jigoshop_order($order_id);
 
 		// Mark as on-hold (we're awaiting the payment)
-		$order->update_status('pending', __('Pending iDEAL payment.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$order->update_status('pending', __('Pending iDEAL payment.', 'pronamic_ideal'));
 
 		// Empty cart
 		jigoshop_cart::empty_cart();

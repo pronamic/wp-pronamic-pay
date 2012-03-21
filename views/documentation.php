@@ -2,7 +2,7 @@
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Documentation', 'pronamic_ideal'); ?>
 	</h2>
 
 	<?php 
@@ -259,7 +259,7 @@
 				<?php echo $file['name']; ?>
 
 				<?php if(isset($file['version'])): ?>
-				<small><?php printf(__('version %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $file['version']); ?> </small>
+				<small><?php printf(__('version %s', 'pronamic_ideal'), $file['version']); ?> </small>
 				<?php endif; ?>
 			</a>
 		</li>

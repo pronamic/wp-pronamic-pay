@@ -2,12 +2,12 @@
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Configurations', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		<?php _e('iDEAL Configurations', 'pronamic_ideal');
 
 		if(true): ?>
 
 		<a class="button add-new-h2" href="<?php echo Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink(); ?>">
-			<?php _e('Add New', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Add New', 'pronamic_ideal'); ?>
 		</a>
 
 		<?php endif; ?>

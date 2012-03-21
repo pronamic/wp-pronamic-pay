@@ -18,7 +18,7 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 
 	public function getDescription() {
-		return sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $this->merchant->purchase_id);
+		return sprintf(__('Order %s', 'pronamic_ideal'), $this->merchant->purchase_id);
 	}
 
 	public function getOrderId() {
@@ -33,7 +33,7 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber($this->merchant->purchase_id);
-		$item->setDescription(sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $this->merchant->purchase_id));
+		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->merchant->purchase_id));
 		$item->setPrice($this->merchant->cart_data['total_price']);
 		$item->setQuantity(1);
 

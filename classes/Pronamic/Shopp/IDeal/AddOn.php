@@ -145,19 +145,19 @@ class Pronamic_Shopp_IDeal_AddOn {
 		// Pick something to display
 		switch(strtolower($_GET['messagetype'])){
 			case 'cancelled':
-				$message .= __('Payment of the order has been cancelled.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('Payment of the order has been cancelled.', 'pronamic_ideal');
 				break;
 			case 'error':
-				$message .= __('An unexpected error occured during transaction.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('An unexpected error occured during transaction.', 'pronamic_ideal');
 				break;
 			case 'expired':
-				$message .= __('The maximum transaction time expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('The maximum transaction time expired.', 'pronamic_ideal');
 				break;
 			case 'failure':
-				$message .= __('The transaction failed for an unknown reason.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('The transaction failed for an unknown reason.', 'pronamic_ideal');
 				break;
 			case 'open':
-				$message .= __('Transaction was not finished and was left open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('Transaction was not finished and was left open.', 'pronamic_ideal');
 				break;
 		}
 		
@@ -183,9 +183,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('Shopp', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= __('Shopp', 'pronamic_ideal') . '<br />';
 		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'shopp-orders', 'id' => $payment->getSourceId()), admin_url('admin.php')));
-		$text .= sprintf(__('Order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
 		$text .= '</a>';
 
 		return $text;

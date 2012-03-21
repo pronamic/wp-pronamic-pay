@@ -314,7 +314,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 					$result .= '		</select>';
 
 					$result .= '		<label for="pronamic_ideal_issuer_id">';
-					$result .= '			' . __('iDEAL Issuer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+					$result .= '			' . __('iDEAL Issuer', 'pronamic_ideal');
 					$result .= '		</label>';
 					$result .= '	</div>';
 					$result .= '</div>';
@@ -324,7 +324,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 					$result .= '</div>';
 				} else {
 					$result .= '<div class="shopp_error">';
-					$result .= '	' . __('Paying with iDEAL is not possible. Please try again later or pay another way.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+					$result .= '	' . __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
 					$result .= '</div>';
 				}
 		
@@ -358,14 +358,14 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	function settings() {
 		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
-		$options = array(__('&mdash; Select configuration &mdash;', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$options = array(__('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
 		foreach($configurations as $configuration) {
     		$options[$configuration->getId()] = $configuration->getName();
     	}
 		
 		$this->ui->menu(1, array(
 			'name' => 'pronamic_shopp_ideal_configuration' , 
-			'label' => __('Select configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'label' => __('Select configuration', 'pronamic_ideal') , 
 			'selected' => $this->settings['pronamic_shopp_ideal_configuration']
 		), $options);
 	}	

@@ -9,13 +9,13 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Tests', 'pronamic_ideal'); ?>
 	</h2>
 
 	<?php if($configuration == null): ?>
 
 	<p>
-		<?php printf(__('We could not find any feed with the ID "%s".', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $id); ?>
+		<?php printf(__('We could not find any feed with the ID "%s".', 'pronamic_ideal'), $id); ?>
 	</p>
 
 	<?php else: ?>
@@ -24,13 +24,13 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 	<div>
 		<h3>
-			<?php _e('Info', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Info', 'pronamic_ideal'); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('ID', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $configuration->getId(); ?>
@@ -38,7 +38,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Name', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $configuration->getName(); ?>
@@ -51,7 +51,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 	<div>
 		<h3>
-			<?php _e('Retrieve Issuers Lists', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Retrieve Issuers Lists', 'pronamic_ideal'); ?>
 		</h3>
 
 		<?php 
@@ -79,7 +79,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 		</ul>
 		
 		<h3>
-			<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Mandatory Tests', 'pronamic_ideal'); ?>
 		</h3>
 
 		<form method="post" action="" target="_blank">
@@ -90,7 +90,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 			echo Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists);
 			
 			foreach(array(1, 2, 3, 4, 5, 7) as $testCase) {
-				$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+				$name = sprintf(__('Test Case %s', 'pronamic_ideal'), $testCase);
 				
 				submit_button($name, 'secondary', 'test[' . $testCase . ']', false);
 			}
@@ -102,16 +102,16 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 
 		<div class="error inline below-h2">
 			<dl>
-				<dt><?php _e('Code', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Code', 'pronamic_ideal'); ?></dt>
 				<dd><?php echo $error->getCode(); ?></dd>
 
-				<dt><?php _e('Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Message', 'pronamic_ideal'); ?></dt>
 				<dd><?php echo $error->getMessage(); ?></dd>
 
-				<dt><?php _e('Detail', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Detail', 'pronamic_ideal'); ?></dt>
 				<dd><?php echo $error->getDetail(); ?></dd>
 
-				<dt><?php _e('Consumer Message', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></dt>
+				<dt><?php _e('Consumer Message', 'pronamic_ideal'); ?></dt>
 				<dd><?php echo $error->getConsumerMessage(); ?></dd>
 			</dl>
 		</div>
@@ -124,14 +124,14 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantBasic): ?>
 	
 	<h3>
-		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('Mandatory Tests', 'pronamic_ideal'); ?>
 	</h3>
 
 	<?php foreach(array(1, 2, 3, 4, 5, 6, 7) as $testCase): ?>
 	
 	<?php 
 				
-	$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+	$name = sprintf(__('Test Case %s', 'pronamic_ideal'), $testCase);
 			
 	$iDeal = new Pronamic_IDeal_Basic();
 	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
@@ -208,7 +208,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	?>
 	
 	<h3>
-		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('Mandatory Tests', 'pronamic_ideal'); ?>
 	</h3>
 
 	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
@@ -242,7 +242,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	?>
 	
 	<h3>
-		<?php _e('Mandatory Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('Mandatory Tests', 'pronamic_ideal'); ?>
 	</h3>
 
 	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">

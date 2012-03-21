@@ -21,7 +21,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	//////////////////////////////////////////////////
 
 	public function getDescription() {
-		return sprintf(__('Order %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $this->purchase->id);
+		return sprintf(__('Order %s', 'pronamic_ideal'), $this->purchase->id);
 	}
 
 	public function getOrderId() {
@@ -47,7 +47,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		if(!empty($this->purchase->freight)) {
 			$item = new Pronamic_IDeal_Item();
 			$item->setNumber('freight');
-			$item->setDescription(__('Shipping', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+			$item->setDescription(__('Shipping', 'pronamic_ideal'));
 			$item->setQuantity(1);
 			$item->setPrice($this->purchase->freight);
 
@@ -58,7 +58,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		if(!empty($this->purchase->tax)) {
 			$item = new Pronamic_IDeal_Item();
 			$item->setNumber('tax');
-			$item->setDescription(__('Tax', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+			$item->setDescription(__('Tax', 'pronamic_ideal'));
 			$item->setQuantity(1);
 			$item->setPrice($this->purchase->tax);
 

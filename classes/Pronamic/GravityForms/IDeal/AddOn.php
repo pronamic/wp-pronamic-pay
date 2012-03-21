@@ -65,7 +65,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter('gform_entry_info', array(__CLASS__, 'entryInfo'), 10, 3);
 	
 				RGForms::add_settings_page(
-					__('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), 
+					__('iDEAL', 'pronamic_ideal'), 
 					array(__CLASS__, 'pageSettings') , 
 					plugins_url('/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file)
 				);
@@ -95,9 +95,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('Gravity Forms', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= __('Gravity Forms', 'pronamic_ideal') . '<br />';
 		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId()), admin_url('admin.php')));
-		$text .= sprintf(__('Entry #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= sprintf(__('Entry #%s', 'pronamic_ideal'), $payment->getSourceId());
 		$text .= '</a>';
 
 		return $text;
@@ -122,11 +122,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
-					'display_name' => __('iDEAL Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'display_name' => __('iDEAL Administrator', 'pronamic_ideal') ,	
 					'capabilities' => $capabilities
 				) , 
 				'administrator' => array(
-					'display_name' => __('Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'display_name' => __('Administrator', 'pronamic_ideal') ,	
 					'capabilities' => $capabilities
 				)
 			);
@@ -246,7 +246,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function entryInfo($formId, $lead) {
 		if(false):
 
-		_e('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>: 
+		_e('iDEAL', 'pronamic_ideal'); ?>: 
 		<a href="#" target="_blank">transaction 1</a>
 		<br /><br /><?php
 		
@@ -293,7 +293,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		$menus[] = array(
 			'name' => 'gf_pronamic_ideal' , 
-			'label' => __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'label' => __('iDEAL', 'pronamic_ideal') , 
 			'callback' =>  array(__CLASS__, 'page') , 
 			'permission' => $permission
 		);

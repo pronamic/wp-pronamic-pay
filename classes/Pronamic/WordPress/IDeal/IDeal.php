@@ -227,17 +227,17 @@ class Pronamic_WordPress_IDeal_IDeal {
 	public static function translateStatus($status) {
 		switch($status) {
 			case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-				return __('Cancelled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Cancelled', 'pronamic_ideal');
 			case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-				return __('Expired', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Expired', 'pronamic_ideal');
 			case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-				return __('Failure', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Failure', 'pronamic_ideal');
 			case Pronamic_IDeal_Transaction::STATUS_OPEN:
-				return __('Open', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Open', 'pronamic_ideal');
 			case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
-				return __('Success', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Success', 'pronamic_ideal');
 			default:
-				return __('Unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				return __('Unknown', 'pronamic_ideal');
 		}
 	}
 
@@ -309,7 +309,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$html  = '';
 		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';
 
 		return $html;
@@ -357,7 +357,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$html  = '';
 		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';
 			        
 		return $html;
@@ -403,7 +403,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$html  = '';
 		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';
 
 		return $html;

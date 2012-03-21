@@ -16,13 +16,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 */
 	const SLUG = 'pronamic_ideal';
 
-	/**
-	 * The text domain of this plugin
-	 * 
-	 * @var string
-	 */
-	const TEXT_DOMAIN = 'pronamic-ideal';
-
 	//////////////////////////////////////////////////
 
 	/**
@@ -95,7 +88,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Load plugin text domain
 		$relPath = dirname(plugin_basename(self::$file)) . '/languages/';
 
-		load_plugin_textdomain(self::TEXT_DOMAIN, false, $relPath);
+		load_plugin_textdomain('pronamic_ideal', false, $relPath);
 
 		// Bootstrap the add-ons
 		if(self::canBeUsed()) {
@@ -266,7 +259,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	public static function getLanguage() {
 		$language = get_option('WPLANG', WPLANG);
-	
+
 		return substr($language, 0, 2);
 	}
 
@@ -404,12 +397,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 				<?php 
 				
 				printf(
-					__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', self::TEXT_DOMAIN) , 
+					__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', 'pronamic_ideal') , 
 					self::PAYMENTS_MAX_LICENSE_FREE , 
 					sprintf(
 						'<a href="%s">%s</a>' , 
 						add_query_arg('page', 'pronamic_ideal_settings', get_admin_url(null, 'admin.php')) , 
-						__('iDEAL settings page', self::TEXT_DOMAIN)
+						__('iDEAL settings page', 'pronamic_ideal')
 					) 
 				);
 				
@@ -475,11 +468,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 			
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
-					'display_name' => __('iDEAL Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'display_name' => __('iDEAL Administrator', 'pronamic_ideal') ,	
 					'capabilities' => $capabilities
 				) , 
 				'administrator' => array(
-					'display_name' => __('Administrator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,	
+					'display_name' => __('Administrator', 'pronamic_ideal') ,	
 					'capabilities' => $capabilities
 				)
 			);
@@ -503,6 +496,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Delete options
 		delete_option(self::OPTION_VERSION);
+		delete_option(self::OPTION_KEY);
+		
+		// Delete transient
+		delete_transient(self::TRANSIENT_LICENSE_INFO);
 		
 		// Uninstall Add-Ons
 		Pronamic_GravityForms_IDeal_AddOn::uninstall();

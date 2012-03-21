@@ -25,12 +25,12 @@ if($action == 'delete') {
 	<h2>
 		<?php 
 		
-		_e('iDEAL Feeds', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); 
+		_e('iDEAL Feeds', 'pronamic_ideal'); 
 
 		if(true): ?>
 
 		<a class="button add-new-h2" href="<?php echo Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink(); ?>">
-			<?php _e('Add New', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Add New', 'pronamic_ideal'); ?>
 		</a>
 
 		<?php endif; ?>
@@ -40,7 +40,7 @@ if($action == 'delete') {
 	
 	<div class="updated inline below-h2">
 		<p>
-			<?php echo _n('Feed deleted.', 'Feeds deleted.', $numberToDelete, Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php echo _n('Feed deleted.', 'Feeds deleted.', $numberToDelete, 'pronamic_ideal'); ?>
 		</p>
 	</div>
 
@@ -50,11 +50,11 @@ if($action == 'delete') {
 		<div class="tablenav top">
 			<div class="alignleft actions">
 				<select name="action">
-					<option value="-1" selected="selected"><?php _e('Bulk Actions', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
-					<option value="delete"><?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
+					<option value="-1" selected="selected"><?php _e('Bulk Actions', 'pronamic_ideal'); ?></option>
+					<option value="delete"><?php _e('Delete', 'pronamic_ideal'); ?></option>
 				</select>
 
-				<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>"  />
+				<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', 'pronamic_ideal'); ?>"  />
 			</div>
 		</div>
 
@@ -66,10 +66,10 @@ if($action == 'delete') {
 				<tr>
 					<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
 					<th scope="col" id="active" class="manage-column check-column"></th>
-					<th scope="col" class="manage-column"><?php _e('Form', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('iDEAL Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Transaction Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-					<th scope="col" class="manage-column"><?php _e('Condition', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+					<th scope="col" class="manage-column"><?php _e('Form', 'pronamic_ideal') ?></th>
+					<th scope="col" class="manage-column"><?php _e('iDEAL Configuration', 'pronamic_ideal') ?></th>
+					<th scope="col" class="manage-column"><?php _e('Transaction Description', 'pronamic_ideal') ?></th>
+					<th scope="col" class="manage-column"><?php _e('Condition', 'pronamic_ideal') ?></th>
 				</tr>
 			</<?php echo $tag; ?>>
 
@@ -84,10 +84,10 @@ if($action == 'delete') {
 						<?php 
 
 						printf(
-							__('To get started, please configure your %s.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+							__('To get started, please configure your %s.', 'pronamic_ideal') , 
 							sprintf(
 								'<a href="admin.php?page=gf_settings&addon=iDEAL">%s</a>', 
-								__('iDEAL Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+								__('iDEAL Settings', 'pronamic_ideal')
 							)
 						); 
 
@@ -104,7 +104,7 @@ if($action == 'delete') {
 						<input type="checkbox" name="feeds[]" value="<?php echo $feed->id; ?>"/>
 					</th>
 					<td>
-						<?php $title = $feed->isActive ? __('Active', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Inactive', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php $title = $feed->isActive ? __('Active', 'pronamic_ideal') : __('Inactive', 'pronamic_ideal'); ?>
 						<img src="<?php echo plugins_url('images/active1.png', Pronamic_WordPress_IDeal_Plugin::$file); ?>" alt="<?php echo $title; ?>" title="<?php echo $title; ?>" />
 					</td>
 					<td>
@@ -115,19 +115,19 @@ if($action == 'delete') {
 
 						?>
 
-						<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+						<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', 'pronamic_ideal'); ?>">
 							<?php echo $feed->title; ?>
 						</a>
 
 						<div class="row-actions">
 							<span class="edit">
-								<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-									<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+								<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', 'pronamic_ideal'); ?>">
+									<?php _e('Edit', 'pronamic_ideal'); ?>
 								</a> |
 							</span>
 							<span class="trash">
-								<a href="<?php echo $deleteLink; ?>" title="<?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-									<?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+								<a href="<?php echo $deleteLink; ?>" title="<?php _e('Delete', 'pronamic_ideal'); ?>">
+									<?php _e('Delete', 'pronamic_ideal'); ?>
 								</a>
 							</span>
 						</div>
@@ -143,7 +143,7 @@ if($action == 'delete') {
 						<?php echo $feed->transactionDescription; ?>
 					</td>
 					<td>
-						<?php echo $feed->conditionEnabled ? __('Enabled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) :  __('Disabled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php echo $feed->conditionEnabled ? __('Enabled', 'pronamic_ideal') :  __('Disabled', 'pronamic_ideal'); ?>
 					</td>
 				</tr>
 
@@ -169,14 +169,14 @@ if($action == 'delete') {
 	<form method="post" action="">
 		<?php wp_nonce_field('pronamic_ideal_search_lead', 'pronamic_ideal_nonce'); ?>
 
-		<h3><?php _e('Search Lead', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></h3>
+		<h3><?php _e('Search Lead', 'pronamic_ideal'); ?></h3>
 
 		<p>
-			<label for="post-search-input" class="screen-reader-text"><?php _e('Search Lead', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></label>
+			<label for="post-search-input" class="screen-reader-text"><?php _e('Search Lead', 'pronamic_ideal'); ?></label>
 
 			<input type="text" name="s" id="post-search-input" />
 
-			<input type="submit" value="<?php _e('Search Lead', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>" class="button" id="search-submit" />
+			<input type="submit" value="<?php _e('Search Lead', 'pronamic_ideal'); ?>" class="button" id="search-submit" />
 		</p>
 
 		<?php if($results): ?>
