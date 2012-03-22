@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.8.6';
+	const VERSION = 'beta-0.9';
 
 	//////////////////////////////////////////////////
 
