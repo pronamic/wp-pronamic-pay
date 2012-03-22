@@ -17,20 +17,32 @@ WordPress website.
 
 = Gravity Forms =
 
-The Pronamic iDEAL plugin is an Add-On for the Gravity Forms form builder which allows you
-to add the iDEAL payment method to your Gravity Forms.
+The Pronamic iDEAL plugin contains the IDEAL Add-On for the 
+[Gravity Forms plugin](http://www.gravityforms.com/) which allows 
+you to add the iDEAL payment method to your Gravity Forms.
 
 = WooCommerce =
 
-The Pronamic iDEAL plugin is an payment gateway for the [WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/) 
+from [WooThemes](http://www.woothemes.com/).
 
 = Jigoshop =
 
-The Pronamic iDEAL plugin is an payment gateway for the [Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/) 
+from [Jigowatt](http://jigowatt.co.uk/).
+
+= WP e-Commerce =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/) 
+from [getShopped.org](http://getshopped.org/).
 
 = Shopp =
 
-The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://shopplugin.net/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Shopp plugin](http://shopplugin.net/).
 
 = Banks and variants =
 

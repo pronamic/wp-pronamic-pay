@@ -217,29 +217,39 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 						return $this->processIDealEasyPayment($order, $configuration, $variant);
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
 						return $this->processIDealBasicPayment($order, $configuration, $variant);
+					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+						return $this->processIDealOmniKassaPayment($order, $configuration, $variant);
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 						return $this->processIDealAdvancedPayment($order, $configuration, $variant);
 				}
 			}
 		}
     }
-    
-    private function processIDealEasyPayment($order, $configuration, $variant) {
+
+	private function processIDealEasyPayment($order, $configuration, $variant) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('jigoshop_pay_page_id'))))
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(jigoshop_get_page_id('pay'))))
 		);
-    }
-    
-    private function processIDealBasicPayment($order, $configuration, $variant) {
+	}
+
+	private function processIDealBasicPayment($order, $configuration, $variant) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(get_option('jigoshop_pay_page_id'))))
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(jigoshop_get_page_id('pay'))))
+		);
+	}
+
+    private function processIDealOmniKassaPayment($order, $configuration, $variant) {
+		// Return pay page redirect
+		return array(
+			'result' 	=> 'success',
+			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(jigoshop_get_page_id('pay'))))
 		);
     }
-    
+
     private function processIDealAdvancedPayment($order, $configuration, $variant) {
 		$dataProxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy($order);
 

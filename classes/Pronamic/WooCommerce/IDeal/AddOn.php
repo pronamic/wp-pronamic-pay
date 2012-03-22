@@ -97,7 +97,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						break;
 				}
 				
-				if($url && $canRedirect) {
+				if($canRedirect) {
 					wp_redirect($url, 303);
 
 					exit;

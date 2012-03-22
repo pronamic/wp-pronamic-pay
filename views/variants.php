@@ -45,6 +45,9 @@
 						case Pronamic_IDeal_IDeal::METHOD_BASIC:
 							_e('Basic', 'pronamic_ideal');
 							break;
+						case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+							_e('OmniKassa', 'pronamic_ideal');
+							break;
 						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 							_e('Advanced', 'pronamic_ideal');
 							break;

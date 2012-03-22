@@ -159,6 +159,6 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 	
 	public function getErrorUrl() {
-		return $thisorder->get_checkout_payment_url();
+		return $this->order->get_checkout_payment_url();
 	}
 }

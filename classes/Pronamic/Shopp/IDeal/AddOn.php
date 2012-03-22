@@ -124,7 +124,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 				if($setstatus){
 					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
 				}
-							
+
 				if($url && $canRedirect) {
 					wp_redirect($url, 303);
 

@@ -267,18 +267,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$postData = filter_input(INPUT_POST, 'Data', FILTER_SANITIZE_STRING);
 			$postSeal = filter_input(INPUT_POST, 'Seal', FILTER_SANITIZE_STRING);
 			
-			$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
-
-			$transactionReference = $data['transactionReference'];
-
-			$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
-
-			if($payment != null) {
-				$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
-
-				// Check if the posted seal is equal to our seal
-				if(strcasecmp($postSeal, $seal) === 0) {
-					do_action('pronamic_ideal_omnikassa_return', $data, $canRedirect = true);
+			if(!empty($postData) && !empty($postSeal)) {
+				$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
+	
+				$transactionReference = $data['transactionReference'];
+	
+				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
+	
+				if($payment != null) {
+					$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
+	
+					// Check if the posted seal is equal to our seal
+					if(strcasecmp($postSeal, $seal) === 0) {
+						do_action('pronamic_ideal_omnikassa_return', $data, $canRedirect = true);
+					}
 				}
 			}
 		}
@@ -290,13 +292,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
-	public static function updateOmniKassaPaymentStatus($result, $canRedirect = false) {
-		$transactionReference = $result['transactionReference'];
+	public static function updateOmniKassaPaymentStatus($data, $canRedirect = false) {
+		$transactionReference = $data['transactionReference'];
 		
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
 		
 		if($payment != null) {
-			$responseCode = $result['responseCode'];
+			$responseCode = $data['responseCode'];
 
 			$status = Pronamic_IDeal_Transaction::STATUS_OPEN;
 
