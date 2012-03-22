@@ -63,40 +63,41 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 			$id = $payment->getSourceId();
 			$transaction = $payment->transaction;
 
-			$order = new woocommerce_order((int) $id);
+			$order = new WC_Order((int) $id);
+			$dataProxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy($order);
 
-			if ($order->status !== 'completed') {				
-				$url = null;
+			if($order->status !== 'completed') {				
+				$url = $dataProxy->getNormalReturnUrl();
 
 				$status = $transaction->getStatus();
 
 				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-						$order->update_status('cancelled', __('iDEAL payment cancelled.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('cancelled', __('iDEAL payment cancelled.', 'pronamic_ideal'));
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('expired', __('iDEAL payment expired.', 'pronamic_ideal'));
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$order->update_status('failed', __('iDEAL payment failed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('failed', __('iDEAL payment failed.', 'pronamic_ideal'));
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
 		            	// Payment completed
-		                $order->add_order_note(__('iDEAL payment completed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		                $order->add_order_note(__('iDEAL payment completed.', 'pronamic_ideal'));
 		                $order->payment_complete();
 		                
-		                $url = add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('woocommerce_thanks_page_id'))));
+		                $url = $dataProxy->getSuccessUrl();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
-						$order->update_status('open', __('iDEAL payment open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('open', __('iDEAL payment open.', 'pronamic_ideal'));
 						break;
 					default:
-						$order->update_status('unknown', __('iDEAL payment unknown.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status('unknown', __('iDEAL payment unknown.', 'pronamic_ideal'));
 						break;
 				}
 				
-				if($url && $canRedirect) {
+				if($canRedirect) {
 					wp_redirect($url, 303);
 
 					exit;
@@ -112,9 +113,9 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('WooCommerce', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= __('WooCommerce', 'pronamic_ideal') . '<br />';
 		$text .= sprintf('<a href="%s">', get_edit_post_link($payment->getSourceId()));
-		$text .= sprintf(__('Order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
 		$text .= '</a>';
 
 		return $text;

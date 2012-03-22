@@ -66,6 +66,20 @@ class Pronamic_IDeal_IDeal {
 	const METHOD_BASIC = 'basic';
 
 	/**
+	 * Method kassa
+	 * 
+	 * @var string
+	 */
+	const METHOD_KASSA = 'kassa';
+
+	/**
+	 * Method OmniKassa
+	 * 
+	 * @var string
+	 */
+	const METHOD_OMNIKASSA = 'omnikassa';
+
+	/**
 	 * Method advanced
 	 * 
 	 * @var string
@@ -116,6 +130,12 @@ class Pronamic_IDeal_IDeal {
 									break;
 								case self::METHOD_BASIC:
 									$variant = new Pronamic_IDeal_VariantBasic();
+									break;
+								case self::METHOD_KASSA:
+									$variant = new Pronamic_IDeal_VariantKassa();
+									break;
+								case self::METHOD_OMNIKASSA:
+									$variant = new Pronamic_IDeal_VariantOmniKassa();
 									break;
 								case self::METHOD_ADVANCED:
 									$variant = new Pronamic_IDeal_VariantAdvanced();
