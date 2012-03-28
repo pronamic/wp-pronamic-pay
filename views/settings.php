@@ -115,6 +115,34 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 	                <?php echo date(__('Y/m/d g:i:s A', 'pronamic_ideal')); ?><br />
 	                <?php echo date(Pronamic_IDeal_IDeal::DATE_FORMAT); ?>
 				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<?php _e('Registered Hashing Algorithms', 'pronamic_ideal'); ?>
+				</th>
+				<td class="column-version">
+					<?php 
+					
+					$algorithms = hash_algos();
+					
+					echo implode(', ', $algorithms);
+					
+					?>
+				</td>
+				<td>
+					<?php 
+					
+					if(in_array('sha1', $algorithms)) {
+						echo '&#10003;';
+					} else {
+						_e('Pronamic iDEAL requires the "sha1" hashing algorithm.', 'pronamic_ideal');
+					}
+					
+					?>
+				</td>
 			</tr>
 		</table>
 

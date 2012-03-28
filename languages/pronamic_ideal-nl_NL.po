@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-21 08:23+0100\n"
-"PO-Revision-Date: 2012-03-21 08:23+0100\n"
+"POT-Creation-Date: 2012-03-28 11:55+0100\n"
+"PO-Revision-Date: 2012-03-28 11:55+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -70,12 +70,20 @@ msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
 #: views/settings.php:124
+msgid "Registered Hashing Algorithms"
+msgstr "Geregistreerde hashing algoritmen"
+
+#: views/settings.php:141
+msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
+msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
+
+#: views/settings.php:152
 #: views/configuration-edit.php:356
 #: views/gravityforms/feed-edit.php:390
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/settings.php:124
+#: views/settings.php:152
 #: views/configuration-edit.php:356
 #: views/gravityforms/feed-edit.php:390
 msgid "Update"
@@ -374,21 +382,25 @@ msgid "Basic"
 msgstr "Basis"
 
 #: views/variants.php:49
+msgid "OmniKassa"
+msgstr "OmniKassa"
+
+#: views/variants.php:52
 #: views/configuration-edit.php:284
 #: views/gravityforms/feed-edit.php:371
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/variants.php:52
+#: views/variants.php:55
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: views/variants.php:61
+#: views/variants.php:64
 #: views/configuration-edit.php:250
 msgid "Test"
 msgstr "Test"
 
-#: views/variants.php:67
+#: views/variants.php:70
 #: views/configuration-edit.php:245
 msgid "Live"
 msgstr "Live"
@@ -761,10 +773,8 @@ msgstr "Eigenaar postcode"
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:21
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:36
-#: classes/Pronamic/WooCommerce/IDeal/IDealDataProxy.php:21
-#: classes/Pronamic/WooCommerce/IDeal/IDealDataProxy.php:36
+#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:53
+#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:81
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -775,25 +785,25 @@ msgstr "Bestelling %s"
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:79
+#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:81
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:54
 msgid "&mdash; Select configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:400
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:432
 #, php-format
 msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
 msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:405
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:437
 msgid "iDEAL settings page"
 msgstr "iDEAL instellingen pagina"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:471
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:503
 msgid "iDEAL Administrator"
 msgstr "iDEAL beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:475
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:507
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -807,7 +817,7 @@ msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:312
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:360
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:406
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:408
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -972,11 +982,11 @@ msgstr "Fouten"
 msgid "Shopp"
 msgstr "Shopp"
 
-#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:50
+#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:100
 msgid "Shipping"
 msgstr "Verzending"
 
-#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:61
+#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:111
 msgid "Tax"
 msgstr "BTW"
 

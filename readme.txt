@@ -99,6 +99,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Let visitors pay later
 *	Make simulator payments free
 
+= ? =
+*	Added an overview of the registered hashing algorithms and check for sha1 algorithm
+*	Fixed plugins_url() function call in the WP e-Commerce Add-On
+*	
+ 
 = beta-0.9 =
 *	Added an data proxy class, all add-ons are now optimized
 *	Added OmniKassa support for all add-ons
