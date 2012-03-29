@@ -247,7 +247,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	}
 	
 	public function getSuccessUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
+		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
 
         if($url != null) {
         	$url = add_query_arg('transaction', $this->getOrderId(), $url);

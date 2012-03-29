@@ -102,7 +102,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = ? =
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm
 *	Fixed plugins_url() function call in the WP e-Commerce Add-On
-*	
+*	Fixed retrieving succes URL in the Gravity Forms Add-On from an iDEAL feed 
  
 = beta-0.9 =
 *	Added an data proxy class, all add-ons are now optimized
