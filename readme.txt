@@ -99,6 +99,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Let visitors pay later
 *	Make simulator payments free
 
+= ? =
+*	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
+
 = beta-0.9.1 =
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm
 *	Fixed plugins_url() function call in the WP e-Commerce Add-On
