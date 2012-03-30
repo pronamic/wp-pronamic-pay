@@ -130,8 +130,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 	                <select id="gf_ideal_configuration_id" name="gf_ideal_configuration_id">
 	                    <option value=""><?php _e('&mdash; Select configuration &mdash; ', 'pronamic_ideal'); ?></option>
-	                    <?php foreach($configurations as $configuration): ?>
-						<option data-ideal-method="<?php echo $configuration->getVariant()->getMethod(); ?>" value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
+	                    <?php 
+	                    
+	                    foreach($configurations as $configuration): 
+	                    
+	                    $variant = $configuration->getVariant();
+
+	                    ?>
+						<option <?php if($variant != null): ?>data-ideal-method="<?php echo $variant->getMethod(); ?>"<?php endif; ?> value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
 							<?php echo esc_html($configuration->getName()); ?>
 						</option>
 						<?php endforeach; ?>

@@ -225,11 +225,11 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
+		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
 
         if($url != null) {
         	$url = add_query_arg('transaction', $this->getOrderId(), $url);
-        	$url = add_query_arg('status', 'success', $url);
+        	$url = add_query_arg('status', 'normal', $url);
         }
         
         return $url;
@@ -258,7 +258,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	}
 
 	public function getErrorUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
+		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
 
         if($url != null) {
         	$url = add_query_arg('transaction', $this->getOrderId(), $url);

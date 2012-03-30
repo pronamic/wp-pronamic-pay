@@ -215,11 +215,16 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		global $woocommerce;
 		
 		// Note
+
+		// $editOrderLink = get_edit_post_link($order->id);
+		// get_edit_post_link() will not work, has permissions check for current user
+		$editOrderLink = add_query_arg(array('post' => $order->id, 'action' => 'edit'), admin_url('post.php'));
+
 		$note = sprintf(
 			__('Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal') , 
 			$order->id , 
 			esc_attr($configuration->getDashboardUrl()) , 
-			esc_attr(get_edit_post_link($order->id)) 
+			esc_attr($editOrderLink)
 		);
     	
 		$order->add_order_note($note, false);
