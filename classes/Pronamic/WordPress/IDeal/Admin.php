@@ -76,7 +76,7 @@ class Pronamic_WordPress_IDeal_Admin {
 					$data = filter_input(INPUT_POST, 'test', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);
 					$testCase = key($data);
 					
-					$name = sprintf(__('Test Case %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $testCase);
+					$name = sprintf(__('Test Case %s', 'pronamic_ideal'), $testCase);
 
 					$entranceCode = uniqid();
 					$purchaseId = $name;
@@ -118,8 +118,8 @@ class Pronamic_WordPress_IDeal_Admin {
 	 */
 	public static function adminMenu($menus) {
 		add_menu_page(
-			$pageTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-			$menuTitle = __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+			$pageTitle = __('iDEAL', 'pronamic_ideal') ,
+			$menuTitle = __('iDEAL', 'pronamic_ideal') ,
 			$capability = 'pronamic_ideal' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
 			$function = array(__CLASS__, 'pageIndex') , 
@@ -128,8 +128,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$pageTitle = __('Payments', 'pronamic_ideal') , 
+			$menuTitle = __('Payments', 'pronamic_ideal') , 
 			$capability = 'pronamic_ideal_payments' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' , 
 			$function = array(__CLASS__, 'pagePayments')
@@ -137,8 +137,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$pageTitle = __('Settings', 'pronamic_ideal') , 
+			$menuTitle = __('Settings', 'pronamic_ideal') , 
 			$capability = 'pronamic_ideal_settings' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_settings' , 
 			$function = array(__CLASS__, 'pageSettings')
@@ -146,8 +146,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Pages Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Pages Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$pageTitle = __('Pages Generator', 'pronamic_ideal') , 
+			$menuTitle = __('Pages Generator', 'pronamic_ideal') , 
 			$capability = 'pronamic_ideal_pages_generator' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_pages_generator' , 
 			$function = array(__CLASS__, 'pagePagesGenerator')
@@ -155,8 +155,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Variants', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$pageTitle = __('Variants', 'pronamic_ideal') , 
+			$menuTitle = __('Variants', 'pronamic_ideal') , 
 			$capability = 'pronamic_ideal_variants' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_variants' , 
 			$function = array(__CLASS__, 'pageVariants')
@@ -164,8 +164,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			$menuTitle = __('Documentation', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			$pageTitle = __('Documentation', 'pronamic_ideal') , 
+			$menuTitle = __('Documentation', 'pronamic_ideal') , 
 			$capability = 'pronamic_ideal_documentation' , 
 			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_documentation' , 
 			$function = array(__CLASS__, 'pageDocumentation')
@@ -174,7 +174,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		global $submenu;
 
 		if(isset($submenu[Pronamic_WordPress_IDeal_Plugin::SLUG])) {
-			$submenu[Pronamic_WordPress_IDeal_Plugin::SLUG][0][0] = __('Configurations', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+			$submenu[Pronamic_WordPress_IDeal_Plugin::SLUG][0][0] = __('Configurations', 'pronamic_ideal');
 		}
 	}
 

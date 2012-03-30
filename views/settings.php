@@ -11,21 +11,21 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Settings', 'pronamic_ideal'); ?>
 	</h2>
 
 	<form action="" method="post">
 		<?php wp_nonce_field('pronamic_ideal_save_settings', 'pronamic_ideal_nonce'); ?>
 
 		<h3>
-			<?php _e('General Settings', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('General Settings', 'pronamic_ideal'); ?>
 		</h3>
 
 		<table class="form-table">
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_key">
-						<?php _e('Support License Key', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('Support License Key', 'pronamic_ideal'); ?>
 					</label>
 				</th>
 				<td>
@@ -37,14 +37,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 
 					<span class="description">
 						<br />
-						<?php _e('The license key is used for access to automatic upgrades and support.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+						<?php _e('The license key is used for access to automatic upgrades and support.', 'pronamic_ideal'); ?>
 					</span>
 				</td>
 			</tr>
 		</table>
 
 		<h3>
-			<?php _e('Installation Status', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Installation Status', 'pronamic_ideal'); ?>
 		</h3>
 
 		<?php global $wpdb; ?>
@@ -52,7 +52,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('PHP Version', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('PHP Version', 'pronamic_ideal'); ?>
 				</th>
 				<td class="column-version">
 	                <?php echo phpversion(); ?>
@@ -63,7 +63,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 					if(version_compare(phpversion(), '5.2', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires PHP 5.2 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires PHP 5.2 or above.', 'pronamic_ideal');
 					}
 					
 					?>
@@ -71,7 +71,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('MySQL Version', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('MySQL Version', 'pronamic_ideal'); ?>
 				</th>
 				<td class="column-version">
 	                <?php echo $wpdb->db_version(); ?>
@@ -82,7 +82,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 					if(version_compare($wpdb->db_version(), '5', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires MySQL 5 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires MySQL 5 or above.', 'pronamic_ideal');
 					}
 
 					?>
@@ -90,7 +90,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('WordPress Version', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('WordPress Version', 'pronamic_ideal'); ?>
 				</th>
 				<td class="column-version">
 	                <?php echo get_bloginfo('version'); ?>
@@ -101,7 +101,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 					if(version_compare(get_bloginfo('version'), '3.2', '>')) {
 						echo '&#10003;';
 					} else {
-						_e('Pronamic iDEAL requires WordPress 3.2 or above.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+						_e('Pronamic iDEAL requires WordPress 3.2 or above.', 'pronamic_ideal');
 					}
 					
 					?>
@@ -109,11 +109,39 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Time', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Time', 'pronamic_ideal'); ?>
 				</th>
 				<td class="column-version">
-	                <?php echo date(__('Y/m/d g:i:s A', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)); ?><br />
+	                <?php echo date(__('Y/m/d g:i:s A', 'pronamic_ideal')); ?><br />
 	                <?php echo date(Pronamic_IDeal_IDeal::DATE_FORMAT); ?>
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<?php _e('Registered Hashing Algorithms', 'pronamic_ideal'); ?>
+				</th>
+				<td class="column-version">
+					<?php 
+					
+					$algorithms = hash_algos();
+					
+					echo implode(', ', $algorithms);
+					
+					?>
+				</td>
+				<td>
+					<?php 
+					
+					if(in_array('sha1', $algorithms)) {
+						echo '&#10003;';
+					} else {
+						_e('Pronamic iDEAL requires the "sha1" hashing algorithm.', 'pronamic_ideal');
+					}
+					
+					?>
 				</td>
 			</tr>
 		</table>
@@ -121,7 +149,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 		<?php 
 		
 		submit_button(
-			empty($configuration->id) ? __('Save', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) : __('Update', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			empty($configuration->id) ? __('Save', 'pronamic_ideal') : __('Update', 'pronamic_ideal') , 
 			'primary' ,
 			'save_settings'
 		);
