@@ -467,21 +467,30 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 	public function getData() {
 		$expirationDate = $this->getExpirationDate();
 
-		$data = array(
-			// Payment Request - required fields 
+		// Payment Request - required fields
+		$requiredFields = array( 
 			'currencyCode' => $this->getCurrencyNumericCode() ,
 			'merchantId' => $this->getMerchantId() ,  
 			'normalReturnUrl' => $this->getNormalReturnUrl() , 
 			'amount' => $this->getFormattedAmount() , 
 			'transactionReference' => $this->getTransactionReference() ,
-			'keyVersion' => $this->getkeyVersion() ,
-			// Payment request - optional fields
+			'keyVersion' => $this->getkeyVersion()
+		);
+		
+		// Payment request - optional fields
+		$optionalFields = array(
 			'automaticResponseUrl' => $this->getAutomaticResponseUrl() , 
 			'customerLanguage' => $this->getCustomerLanguage() , 
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList() ,
 			'orderId' => $this->getOrderId() ,  
 			'expirationDate' => $this->getFormattedExpirationDate()
 		);
+
+		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
+		$optionalFields = array_filter($optionalFields);
+
+		// Data
+		$data = $requiredFields + $optionalFields;
 
 		return self::createPipedString($data);
 	}

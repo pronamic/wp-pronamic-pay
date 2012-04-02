@@ -98,9 +98,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
 *	Let visitors pay later
 *	Make simulator payments free
+*	MultiSafePay - http://www.multisafepay.com/
+*	TargetPay.com - https://www.targetpay.com/
 
 = ? =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
+*	Added an array_filter() to the optional OmniKassa data fields
 
 = beta-0.9.1 =
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm
