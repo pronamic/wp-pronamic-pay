@@ -11,16 +11,23 @@
  **/
 
 class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
+	/**
+	 * Shopp 1.1 or lower will retrieve this from the documentation block above
+	 * 
+	 * @var string
+	 */
+	const NAME = 'Pronamic iDEAL';
+
 	//////////////////////////////////////////////////
 	// Supported features
 	//////////////////////////////////////////////////
 
 	/**
-	 * Flag to let Shopp know that this gateway module only supports sale only order processing
+	 * Flag to let Shopp know that this gateway module capture separate of authorization
 	 * 
 	 * @var boolean
 	 */
-	public $saleonly = true;
+	public $captures = true;
 	
 	//////////////////////////////////////////////////
 	// Config settings
@@ -57,7 +64,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		// Configuration ID
 		$this->configurationId = $this->settings['pronamic_shopp_ideal_configuration'];
-		
+
+		// Order processing
+		//add_filter('shopp_purchase_order_processing', array($this, 'orderProcessing'), 20, 2);
+
 		// Checkout gateway inputs
 		add_filter('shopp_checkout_gateway_inputs', array($this, 'inputs'), 50);
 
@@ -66,8 +76,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		add_filter('shopp_order_lookup', array($this, 'iDealForm'));
 
 		// Actions
-		$name = strtolower(__CLASS__);
-		// sanitize_key
+		// @see /shopp/core/model/Gateway.php#L122
+		$name = sanitize_key(__CLASS__);
 
 		add_action('shopp_' . $name . '_sale', array($this, 'sale'));
 		add_action('shopp_' . $name . '_auth', array($this, 'auth'));
@@ -106,7 +116,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		 */
 		add_action('shopp_process_order', array($this, 'processOrder'), 50);
 		
-		add_action('shopp_order_success', array($this, 'orderSuccess'));
+		add_action('shopp_order_success', array($this, 'orderSuccess'));		
 	}
 
 	//////////////////////////////////////////////////
@@ -114,39 +124,58 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	/**
 	 * Sale
 	 * 
-	 * @return string
+	 * @param OrderEventMessage $event
 	 */
-	public function sale(OrderEventMessage $event) {
+	public function sale($event) {
+		$this->auth($event);
+	}
+
+	/**
+	 * Auth
+	 * 
+	 * @param OrderEventMessage $event
+	 */
+	function auth($event) {
 		$Order = $this->Order;
 		$OrderTotals = $Order->Cart->Totals;
 		$Billing = $Order->Billing;
 		$Paymethod = $Order->paymethod();
 
-		shopp_add_order_event(false, 'authed', array(
-			'txnid' => time() , 
-			'amount' => $OrderTotals->total , 
-			'fees' => 0 , 
-			'gateway' => $Paymethod->processor , 
-			'paymethod' => $Paymethod->label , 
-			'paytype' => $Billing->cardtype , 
-			'payid' => $Billing->card , 
-			'capture' => true
+		shopp_add_order_event($event->order, 'authed', array(
+			'txnid' => time(),
+			'amount' => $OrderTotals->total,
+			'fees' => 0,
+			'gateway' => $Paymethod->processor,
+			'paymethod' => $Paymethod->label,
+			'paytype' => $Billing->cardtype,
+			'payid' => $Billing->card
 		));
 	}
 
-	function auth(OrderEventMessage $Event) {
-		
+	/**
+	 * Capture
+	 * 
+	 * @param OrderEventMessage $event
+	 */
+	function capture(OrderEventMessage $event) {
+
 	}
 
-	function capture(OrderEventMessage $Event) {
-		
+	/**
+	 * Refund
+	 * 
+	 * @param OrderEventMessage $event
+	 */
+	function refund(OrderEventMessage $event) {
+
 	}
 
-	function refund(OrderEventMessage $Event) {
-		
-	}
-
-	function void(OrderEventMessage $Event) {
+	/**
+	 * Void
+	 * 
+	 * @param OrderEventMessage $event
+	 */
+	function void(OrderEventMessage $event) {
 		
 	}
 
@@ -176,7 +205,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	public function processOrder() {
 		// Sets transaction information to create the purchase record
 		// This call still exists for backward-compatibility (< 1.2)
-		$this->Order->transaction($this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING);
+		if(version_compare(SHOPP_VERSION, '1.2', '<')) {
+			$this->Order->transaction($this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING);
+		}
 
 		return true;
 	}
@@ -211,8 +242,12 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 				case Pronamic_IDeal_IDeal::METHOD_BASIC:
 					// Nothing to do here
 					break;
+				case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+					// Nothing to do here
+					break;
 				case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 					$this->processIDealAdvanced($configuration, $purchase);
+
 					break;
 			}
 		}
@@ -260,6 +295,25 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Is used
+	 * 
+	 * @param unknown_type $purchase
+	 */
+	private static function isUsed($purchase) {
+		$isUsed = false;
+
+		if(version_compare(SHOPP_VERSION, '1.2', '<')) {
+			$isUsed = $purchase->gateway == self::NAME;
+		} else {
+			$isUsed = $purchase->gateway == __CLASS__;
+		}
+
+		return $isUsed;
+	}
+	
+	//////////////////////////////////////////////////
 	
 	/**
 	 * iDEAL Form
@@ -269,15 +323,16 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 		$purchase = $Shopp->Purchase;
 
-		// if($purchase->txnstatus == Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING) {
-		if(shopp('purchase', 'notpaid')) {
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
+		if(self::isUsed($purchase)) {
+			if(!Pronamic_Shopp_Shopp::isPurchasePaid($purchase)) { 
+				$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
 
-			$dataProxy = new Pronamic_Shopp_IDeal_IDealDataProxy($purchase, $this);
+				$dataProxy = new Pronamic_Shopp_IDeal_IDealDataProxy($purchase, $this);
 
-			$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
+				$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
 
-			$content = $html . $content;
+				$content = $html . $content;
+			}
 		}
 
 		return $content;

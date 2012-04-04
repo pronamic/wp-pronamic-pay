@@ -140,7 +140,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * Gets the $_GET['mesagetype'] from the url and returns
 	 * the queued page with the message to Shopp.
 	 */
-	static function showMessage($output){
+	public static function showMessage($output){
 		$message = '';
 		// Pick something to display
 		switch(strtolower($_GET['messagetype'])){

@@ -104,6 +104,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = ? =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
 *	Added an array_filter() to the optional OmniKassa data fields
+*	Fixed an issue in the Shopp Add-On caused by an Shopp bug (see ticket https://shopp.lighthouseapp.com/projects/47561/tickets/1536-shoppcheckoutoffline-instructions-tag-seemingly-absent-from-12)
 
 = beta-0.9.1 =
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm
