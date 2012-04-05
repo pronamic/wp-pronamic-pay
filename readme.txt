@@ -100,6 +100,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Make simulator payments free
 *	MultiSafePay - http://www.multisafepay.com/
 *	TargetPay.com - https://www.targetpay.com/
+*	OmniKassa testen inbouwen
 
 = beta-0.9.2 =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
