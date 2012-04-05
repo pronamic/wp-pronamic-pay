@@ -34,11 +34,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Pages Generator', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Pages Generator', 'pronamic_ideal'); ?>
 	</h2>
 
 	<p>
-		<?php _e('This page allows you to easily create pages for each iDEAL payment status.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('This page allows you to easily create pages for each iDEAL payment status.', 'pronamic_ideal'); ?>
 	</p>
 
 	<form action="" method="post">
@@ -48,34 +48,34 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 		
 		$pages = array(
 			'ideal' => array(
-				'post_title' => __('iDEAL', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-				'post_name' => __('ideal', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
+				'post_title' => __('iDEAL', 'pronamic_ideal') , 
+				'post_name' => __('ideal', 'pronamic_ideal') ,
 				'post_content' => '' ,  
 				'children' => array(
 					'error' => array(
-						'post_title' => __('iDEAL payment error', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-						'post_name' => __('error', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-						'post_content' => __('<p>Unfortunately an error has occurred during your iDEAL payment.</p>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						'post_title' => __('iDEAL payment error', 'pronamic_ideal') , 
+						'post_name' => __('error', 'pronamic_ideal') ,
+						'post_content' => __('<p>Unfortunately an error has occurred during your iDEAL payment.</p>', 'pronamic_ideal')
 					) , 
 					'cancel' => array(
-						'post_title' => __('iDEAL payment canceled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-						'post_name' => __('cancelled', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-						'post_content' => __('<p>You canceled the iDEAL payment.</p>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						'post_title' => __('iDEAL payment canceled', 'pronamic_ideal') , 
+						'post_name' => __('cancelled', 'pronamic_ideal') ,
+						'post_content' => __('<p>You canceled the iDEAL payment.</p>', 'pronamic_ideal')
 					) , 
 					'unknown' => array(
-						'post_title' => __('iDEAL payment unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-						'post_name' => __('unknown', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-						'post_content' => __('<p>The status of your iDEAL payment is unknown.</p>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						'post_title' => __('iDEAL payment unknown', 'pronamic_ideal') , 
+						'post_name' => __('unknown', 'pronamic_ideal') ,
+						'post_content' => __('<p>The status of your iDEAL payment is unknown.</p>', 'pronamic_ideal')
 					) , 
 					'expired' => array(
-						'post_title' => __('iDEAL payment expired', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-						'post_name' => __('expired', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-						'post_content' => __('<p>Unfortunately your iDEAL payment session has expired.</p>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						'post_title' => __('iDEAL payment expired', 'pronamic_ideal') , 
+						'post_name' => __('expired', 'pronamic_ideal') ,
+						'post_content' => __('<p>Unfortunately your iDEAL payment session has expired.</p>', 'pronamic_ideal')
 					) , 
 					'completed' => array(
-						'post_title' => __('iDEAL payment completed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-						'post_name' => __('completed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-						'post_content' => __('<p>The payment process is successfully completed.</p>', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						'post_title' => __('iDEAL payment completed', 'pronamic_ideal') , 
+						'post_name' => __('completed', 'pronamic_ideal') ,
+						'post_content' => __('<p>The payment process is successfully completed.</p>', 'pronamic_ideal')
 					)
 				)
 			)
@@ -96,7 +96,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 						<tr>
 							<th scope="row">
 								<label for="pronamic_ideal_page_<?php echo $i; ?>_post_title">
-									<?php _e('Title', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+									<?php _e('Title', 'pronamic_ideal'); ?>
 								</label>
 							</th>
 							<td>
@@ -106,7 +106,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 						<tr>
 							<th scope="row">
 								<label for="pronamic_ideal_page_<?php echo $i; ?>_post_name">
-									<?php _e('Slug', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+									<?php _e('Slug', 'pronamic_ideal'); ?>
 								</label>
 							</th>
 							<td>
@@ -116,7 +116,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 						<tr>
 							<th scope="row">
 								<label for="pronamic_ideal_page_<?php echo $i; ?>_post_content">
-									<?php _e('Content', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+									<?php _e('Content', 'pronamic_ideal'); ?>
 								</label>
 							</th>
 							<td>
@@ -143,7 +143,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_pages_generator', 'pron
 		pronamic_ideal_pages($pages, 'pronamic_ideal_pages');
 
 		submit_button(
-			__('Generate Pages', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			__('Generate Pages', 'pronamic_ideal') , 
 			'primary' ,
 			'create_pages'
 		);

@@ -32,7 +32,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT , 
 			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,
 			purchase_id VARCHAR(16) NULL , 
-			transaction_id VARCHAR(16) NULL , 
+			transaction_id VARCHAR(32) NULL , 
   			date_gmt DATETIME NOT NULL , 
 			amount DECIMAL(10, 2) NOT NULL , 
 			currency VARCHAR(8) NOT NULL , 
@@ -295,7 +295,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentByIdAndEc($transactionId, $entranceCode) {
+    public static function getPaymentByIdAndEc($transactionId, $entranceCode = null) {
         return self::getPaymentByQuery(self::getPaymentQuery(array(
 			'transaction_id' => $transactionId , 
         	'entrance_code' => $entranceCode

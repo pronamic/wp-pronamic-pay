@@ -66,7 +66,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 * Message to be displayed when there are no items
 	 */
 	function no_items() {
-		_e('No payments found.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+		_e('No payments found.', 'pronamic_ideal');
 	}
 
 	/**
@@ -75,14 +75,14 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	function get_columns() {
 		return array(
 			'cb' => '<input type="checkbox" />' , 
-			'date' => __( 'Date', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'transaction_id' => __( 'Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'purchase_id' => __( 'Purchase ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ,
-			'description' => __( 'Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'consumer' => __( 'Consumer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'amount' => __( 'Amount', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'source' => __( 'Source', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
-			'status' => __( 'Status', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+			'date' => __( 'Date', 'pronamic_ideal') , 
+			'transaction_id' => __( 'Transaction ID', 'pronamic_ideal') , 
+			'purchase_id' => __( 'Purchase ID', 'pronamic_ideal') ,
+			'description' => __( 'Description', 'pronamic_ideal') , 
+			'consumer' => __( 'Consumer', 'pronamic_ideal') , 
+			'amount' => __( 'Amount', 'pronamic_ideal') , 
+			'source' => __( 'Source', 'pronamic_ideal') , 
+			'status' => __( 'Status', 'pronamic_ideal')
 		);
 	}
 
@@ -144,7 +144,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'date':
 						?>
 						<td <?php echo $attributes ?>>
-							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', 'pronamic_ideal'); ?>">
 								<?php echo $date->format('d-m-Y @ H:i'); ?> 
 							</a>
 						</td>
@@ -153,7 +153,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'transaction_id':
 						?>
 						<td <?php echo $attributes ?>>
-							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', 'pronamic_ideal'); ?>">
 								<?php echo $transaction->getId(); ?> 
 							</a>
 						</td>
