@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.9.1
+Stable tag: beta-0.9.2
 Text Domain: pronamic_ideal
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
@@ -101,10 +101,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	MultiSafePay - http://www.multisafepay.com/
 *	TargetPay.com - https://www.targetpay.com/
 
-= ? =
+= beta-0.9.2 =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
 *	Added an array_filter() to the optional OmniKassa data fields
 *	Fixed an issue in the Shopp Add-On caused by an Shopp bug (see ticket https://shopp.lighthouseapp.com/projects/47561/tickets/1536-shoppcheckoutoffline-instructions-tag-seemingly-absent-from-12)
+*	Added support plugins section to the settings page
 
 = beta-0.9.1 =
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-28 11:55+0100\n"
-"PO-Revision-Date: 2012-03-28 11:55+0100\n"
+"POT-Creation-Date: 2012-04-05 15:41+0100\n"
+"PO-Revision-Date: 2012-04-05 15:41+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -34,58 +34,82 @@ msgid "The license key is used for access to automatic upgrades and support."
 msgstr "De licentiecode wordt gebruikt voor automatische upgrades en support."
 
 #: views/settings.php:47
+msgid "Supported Plugins"
+msgstr "Ondersteunde plugins"
+
+#: views/settings.php:54
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: views/settings.php:67
+msgid "Jigoshop"
+msgstr "Jigoshop"
+
+#: views/settings.php:80
+msgid "Shopp"
+msgstr "Shopp"
+
+#: views/settings.php:93
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: views/settings.php:106
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
+
+#: views/settings.php:119
 msgid "Installation Status"
 msgstr "Installatie status"
 
-#: views/settings.php:55
+#: views/settings.php:127
 msgid "PHP Version"
 msgstr "PHP versie"
 
-#: views/settings.php:66
+#: views/settings.php:138
 msgid "Pronamic iDEAL requires PHP 5.2 or above."
 msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
 
-#: views/settings.php:74
+#: views/settings.php:146
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: views/settings.php:85
+#: views/settings.php:157
 msgid "Pronamic iDEAL requires MySQL 5 or above."
 msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
 
-#: views/settings.php:93
+#: views/settings.php:165
 msgid "WordPress Version"
 msgstr "WordPress versie"
 
-#: views/settings.php:104
+#: views/settings.php:176
 msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 
-#: views/settings.php:112
+#: views/settings.php:184
 msgid "Time"
 msgstr "Tijd"
 
-#: views/settings.php:115
+#: views/settings.php:187
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
-#: views/settings.php:124
+#: views/settings.php:196
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: views/settings.php:141
+#: views/settings.php:213
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: views/settings.php:152
+#: views/settings.php:224
 #: views/configuration-edit.php:356
-#: views/gravityforms/feed-edit.php:390
+#: views/gravityforms/feed-edit.php:396
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/settings.php:152
+#: views/settings.php:224
 #: views/configuration-edit.php:356
-#: views/gravityforms/feed-edit.php:390
+#: views/gravityforms/feed-edit.php:396
 msgid "Update"
 msgstr "Update"
 
@@ -372,7 +396,7 @@ msgid "Method"
 msgstr "Methode"
 
 #: views/variants.php:43
-#: views/gravityforms/feed-edit.php:300
+#: views/gravityforms/feed-edit.php:306
 msgid "Easy"
 msgstr "Easy"
 
@@ -387,7 +411,7 @@ msgstr "OmniKassa"
 
 #: views/variants.php:52
 #: views/configuration-edit.php:284
-#: views/gravityforms/feed-edit.php:371
+#: views/gravityforms/feed-edit.php:377
 msgid "Advanced"
 msgstr "Geavanceerd"
 
@@ -612,7 +636,7 @@ msgid "Form"
 msgstr "Formulier"
 
 #: views/gravityforms/feeds.php:71
-#: views/gravityforms/feed-edit.php:146
+#: views/gravityforms/feed-edit.php:152
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
@@ -681,109 +705,115 @@ msgstr "creëer een iDEAL configuratie"
 msgid "&mdash; Select configuration &mdash; "
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: views/gravityforms/feed-edit.php:160
+#: views/gravityforms/feed-edit.php:166
 msgid "Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated."
 msgstr "Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 tekens zal automatisch worden afgekapt."
 
-#: views/gravityforms/feed-edit.php:162
+#: views/gravityforms/feed-edit.php:168
 msgid "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 msgstr "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</code>"
 
-#: views/gravityforms/feed-edit.php:169
+#: views/gravityforms/feed-edit.php:175
 msgid "iDEAL Condition"
 msgstr "iDEAL conditie"
 
-#: views/gravityforms/feed-edit.php:177
+#: views/gravityforms/feed-edit.php:183
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: views/gravityforms/feed-edit.php:182
+#: views/gravityforms/feed-edit.php:188
 msgid "Send to iDEAL if "
 msgstr "Verstuur naar iDEAL als"
 
-#: views/gravityforms/feed-edit.php:192
+#: views/gravityforms/feed-edit.php:198
 msgid "is"
 msgstr "is"
 
-#: views/gravityforms/feed-edit.php:193
+#: views/gravityforms/feed-edit.php:199
 msgid "is not"
 msgstr "is niet"
 
-#: views/gravityforms/feed-edit.php:213
+#: views/gravityforms/feed-edit.php:219
 msgid "To create a condition, your form must have a drop down, checkbox or multiple choice field."
 msgstr "Om een conditie in te stellen moet je formulier een selectieveld, selectievakje of meerkeuzeveld bevatten."
 
-#: views/gravityforms/feed-edit.php:220
+#: views/gravityforms/feed-edit.php:226
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: views/gravityforms/feed-edit.php:227
+#: views/gravityforms/feed-edit.php:233
 msgid "Open"
 msgstr "Open"
 
-#: views/gravityforms/feed-edit.php:228
+#: views/gravityforms/feed-edit.php:234
 msgid "Success"
 msgstr "Succes"
 
-#: views/gravityforms/feed-edit.php:229
+#: views/gravityforms/feed-edit.php:235
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: views/gravityforms/feed-edit.php:230
+#: views/gravityforms/feed-edit.php:236
 msgid "Error"
 msgstr "Fout"
 
-#: views/gravityforms/feed-edit.php:231
+#: views/gravityforms/feed-edit.php:237
 msgid "Expired"
 msgstr "Verlopen"
 
-#: views/gravityforms/feed-edit.php:270
+#: views/gravityforms/feed-edit.php:276
 msgid "Page:"
 msgstr "Pagina:"
 
-#: views/gravityforms/feed-edit.php:278
+#: views/gravityforms/feed-edit.php:284
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Selecteren &mdash;"
 
-#: views/gravityforms/feed-edit.php:287
+#: views/gravityforms/feed-edit.php:293
 msgid "URL:"
 msgstr "URL:"
 
-#: views/gravityforms/feed-edit.php:307
+#: views/gravityforms/feed-edit.php:313
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: views/gravityforms/feed-edit.php:319
+#: views/gravityforms/feed-edit.php:325
 msgid "E-Mail Address"
 msgstr "E-mailadres"
 
-#: views/gravityforms/feed-edit.php:331
+#: views/gravityforms/feed-edit.php:337
 msgid "Owner Address"
 msgstr "Eigenaar adres"
 
-#: views/gravityforms/feed-edit.php:343
+#: views/gravityforms/feed-edit.php:349
 msgid "Owner City"
 msgstr "Eigenaar woonplaats"
 
-#: views/gravityforms/feed-edit.php:355
+#: views/gravityforms/feed-edit.php:361
 msgid "Owner ZIP"
 msgstr "Eigenaar postcode"
 
-#: views/gravityforms/feed-edit.php:378
+#: views/gravityforms/feed-edit.php:384
 msgid "Update user role"
 msgstr "Update gebruikersrol"
+
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:42
+#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
+msgid "Pronamic iDEAL"
+msgstr "Pronamic iDEAL"
+
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:121
+#, php-format
+msgid "Purchase #%s"
+msgstr "Aankoop #%s"
 
 #: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:53
 #: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:81
 #, php-format
 msgid "Order %s"
 msgstr "Bestelling %s"
-
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
-msgid "Pronamic iDEAL"
-msgstr "Pronamic iDEAL"
 
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:81
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:54
@@ -887,10 +917,6 @@ msgstr "iDEAL betaling open."
 msgid "iDEAL payment unknown."
 msgstr "iDEAL betaling onbekend."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:116
-msgid "WooCommerce"
-msgstr "WooCommerce"
-
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:118
 #, php-format
 msgid "Order #%s"
@@ -932,25 +958,25 @@ msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of bet
 msgid "Awaiting iDEAL payment"
 msgstr "In afwachting van iDEAL betaling"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:219
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:224
 #, php-format
 msgid "Check the payment of order #%s in your <a href=\"%s\">iDEAL dashboard</a> and <a href=\"%s\">update the status of the order</a>."
 msgstr "Controleer de betaling voor bestelling #%s in uw <a href=\"%s\">iDEAL dashboard</a> en <a href=\"%s\">update de status van de bestelling</a>."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:231
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:236
 msgid "Check iDEAL payment"
 msgstr "Controleer iDEAL betaling"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:239
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:244
 #, php-format
 msgid "Check iDEAL payment for order #%s"
 msgstr "Controleer iDEAL betaling voor bestelling #%s"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:317
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:372
 msgid "iDEAL Issuer"
 msgstr "iDEAL issuer"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:368
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:423
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
@@ -978,10 +1004,6 @@ msgstr "Transactie is niet afgerond en is open gelaten."
 msgid "Errors"
 msgstr "Fouten"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:186
-msgid "Shopp"
-msgstr "Shopp"
-
 #: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:100
 msgid "Shipping"
 msgstr "Verzending"
@@ -1006,18 +1028,10 @@ msgstr "Issuer Drop Down"
 msgid "iDEAL Fields"
 msgstr "iDEAL velden"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:98
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:100
 #, php-format
 msgid "Entry #%s"
 msgstr "Inzending #%s"
-
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:115
-msgid "Jigoshop"
-msgstr "Jigoshop"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:90
 msgid "Yes"

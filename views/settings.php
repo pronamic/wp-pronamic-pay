@@ -44,6 +44,78 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 		</table>
 
 		<h3>
+			<?php _e('Supported Plugins', 'pronamic_ideal'); ?>
+		</h3>
+
+		<table class="form-table">
+			<tr>
+				<th scope="row">
+					<a href="http://www.gravityforms.com/" target="_blank">
+						<?php _e('Gravity Forms', 'pronamic_ideal'); ?>
+					</a>
+				</th>
+				<td class="column-version">
+	                1.6 &gt;
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">
+						<?php _e('Jigoshop', 'pronamic_ideal'); ?>
+					</a>
+				</th>
+				<td class="column-version">
+	                1.1 &gt;
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a href="https://shopplugin.net/" target="_blank">
+						<?php _e('Shopp', 'pronamic_ideal'); ?>
+					</a>
+				</th>
+				<td class="column-version">
+	                1.1 &gt;
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">
+						<?php _e('WooCommerce', 'pronamic_ideal'); ?>
+					</a>
+				</th>
+				<td class="column-version">
+	                1.4 &gt;
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">
+						<?php _e('WP e-Commerce', 'pronamic_ideal'); ?>
+					</a>
+				</th>
+				<td class="column-version">
+	                3.8 &gt;
+				</td>
+				<td>
+					&#10003;
+				</td>
+			</tr>
+		</table>
+
+		<h3>
 			<?php _e('Installation Status', 'pronamic_ideal'); ?>
 		</h3>
 
