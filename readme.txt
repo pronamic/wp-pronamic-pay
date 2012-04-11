@@ -101,6 +101,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	MultiSafePay - http://www.multisafepay.com/
 *	TargetPay.com - https://www.targetpay.com/
 *	OmniKassa testen inbouwen
+*	Do something with no configuratin selected in WooCommerce, show error on checkout
 
 = beta-0.9.2 =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
