@@ -103,6 +103,13 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	OmniKassa testen inbouwen
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 
+= trunk =
+*	Added some icons for the iDEAL banks to create a nicer issuer select element
+*	Added exprimental support for ClassiPress
+*	Added Gravity Forms delay admin notification option
+*	Added Gravity Forms delay user notification option
+*	Added Gravity Forms delay post creation option
+
 = beta-0.9.2 =
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
 *	Added an array_filter() to the optional OmniKassa data fields

@@ -75,6 +75,14 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			} else {
 				// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 				add_filter('gform_confirmation', array(__CLASS__, 'handleIDeal'), 10, 4);
+
+	            // Set entry meta after submission
+	            add_action('gform_after_submission', array(__CLASS__, 'setEntryMeta'), 5, 2);
+
+	            // Delay
+	            add_filter('gform_disable_admin_notification', array(__CLASS__, 'maybeDelayAdminNotification'), 10, 3);
+	            add_filter('gform_disable_user_notification', array(__CLASS__, 'maybeDelayUserNotification'), 10, 3);
+				add_filter('gform_disable_post_creation', array(__CLASS__, 'maybeDelayPostCreation'), 10, 3);				
 			}
 
 			add_action('admin_init', array(__CLASS__, 'maybeRedirectToEntry'));
@@ -160,6 +168,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param Feed $feed
 	 */
 	private static function maybeUpdateUserRole($lead, $feed) {
+		$user = false;
+
 		// Gravity Forms User Registration Add-On 
 		if(class_exists('GFUserData')) {
 			$user = GFUserData::get_user_by_entry_id($lead['id']);
@@ -208,20 +218,26 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					switch($status) {
 						case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
+
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED);
+
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_FAILURE:
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
+
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
-							self::maybeUpdateUserRole($lead, $feed);
+							self::fulfillOrder($lead);
+
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
+
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_OPEN:
 						default:
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
+
 							break;
 					}
 					
@@ -234,6 +250,38 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			}
 		}
 	}
+
+	/**
+	 * Fulfill order
+	 * 
+	 * @param array $entry
+	 * @param string $transaction_id
+	 * @param string $amount
+	 */
+    public static function fulfillOrder($entry) {
+        $formMeta = RGFormsModel::get_form_meta($entry['form_id']);
+
+        $feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($entry['form_id']);
+
+        if($feed !== null) {
+        	self::maybeUpdateUserRole($entry, $feed);
+
+			if($feed->delayAdminNotification) {
+				GFCommon::send_admin_notification($formMeta, $entry);
+			}
+
+			if($feed->delayUserNotification) {
+				GFCommon::send_user_notification($formMeta, $entry);
+			}
+
+			if($feed->delayPostCreation) {
+				RGFormsModel::create_post($formMeta, $entry);
+			}
+        }
+
+        // The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
+        do_action('gform_ideal_fulfillment', $entry, $feed);
+    }
 
 	//////////////////////////////////////////////////
 
@@ -462,6 +510,94 @@ class Pronamic_GravityForms_IDeal_AddOn {
         return $result;
 	}
 
+	//////////////////////////////////////////////////
+	// Maybe delay functions
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe delay admin notification
+	 * 
+	 * @param boolean $isDisabled
+	 * @param array $form
+	 * @param array $lead
+	 * @return boolean true if admin notification is disabled / delayed, false otherwise
+	 */
+	public static function maybeDelayAdminNotification($isDisabled, $form, $lead) {
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
+
+		if($feed !== null) {
+			if(self::isConditionTrue($form, $feed)) {
+				$isDisabled = $feed->delayAdminNotification;
+			}
+		}
+		
+		return $isDisabled;
+	}
+
+	/**
+	 * Maybe delay user notification
+	 * 
+	 * @param boolean $isDisabled
+	 * @param array $form
+	 * @param array $lead
+	 * @return boolean true if user notification is disabled / delayed, false otherwise
+	 */
+	public static function maybeDelayUserNotification($isDisabled, $form, $lead) {
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
+
+		if($feed !== null) {
+			if(self::isConditionTrue($form, $feed)) {
+				$isDisabled = $feed->delayUserNotification;
+			}
+		}
+		
+		return $isDisabled;
+	}
+
+	/**
+	 * Maybe delay post creation
+	 * 
+	 * @param boolean $isDisabled
+	 * @param array $form
+	 * @param array $lead
+	 * @return boolean true if post creation is disabled / delayed, false otherwise
+	 */
+	public static function maybeDelayPostCreation($isDisabled, $form, $lead) {
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
+
+		if($feed !== null) {
+			if(self::isConditionTrue($form, $feed)) {
+				$isDisabled = $feed->delayPostCreation;
+			}
+		}
+		
+		return $isDisabled;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set entry meta
+	 * 
+	 * @param array $entry
+	 * @param array $form
+	 */
+    public static function setEntryMeta($entry, $form) {
+		// ignore requests that are not the current form's submissions
+		if(rgpost('gform_submit') != $form['id']) {
+			return;
+		}
+
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($form['id']);
+		if($feed !== null) {
+			// Update form meta with current feed id
+			gform_update_meta($entry['id'], 'ideal_feed_id', $feed->id);
+
+			// Update form meta with current payment gateway
+			gform_update_meta($entry['id'], 'payment_gateway', 'ideal');			
+		}
+    }
+	
 	//////////////////////////////////////////////////
 
 	/**

@@ -9,11 +9,23 @@
  * @version 1.0
  */
 class Pronamic_GravityForms_IDeal_Fields {
+	/**
+	 * Bootstrap
+	 */
 	public static function bootstrap() {
 		add_filter('gform_add_field_buttons', array(__CLASS__, 'addFieldButtons'));
 		add_filter('gform_field_input', array(__CLASS__, 'acquirerFieldInput'), 10, 5);
 	}
-	
+
+	/**
+	 * Acquirrer field input
+	 * 
+	 * @param string $field_content
+	 * @param string $field
+	 * @param string $value
+	 * @param string $lead_id
+	 * @param string $form_id
+	 */
 	public static function acquirerFieldInput($field_content, $field, $value, $lead_id, $form_id) {
 		$type = RGFormsModel::get_input_type($field);
 
@@ -89,6 +101,11 @@ class Pronamic_GravityForms_IDeal_Fields {
 		}
 	}
 
+	/**
+	 * Add field buttons
+	 * 
+	 * @param array $groups
+	 */
 	public static function addFieldButtons($groups) {
 		$fields = array(
 			array(

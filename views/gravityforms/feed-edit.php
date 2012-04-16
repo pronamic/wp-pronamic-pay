@@ -20,6 +20,10 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 	$feed->transactionDescription = filter_input(INPUT_POST, 'gf_ideal_transaction_description', FILTER_SANITIZE_STRING);
 	
+	$feed->delayAdminNotification = filter_input(INPUT_POST, 'gf_ideal_delay_admin_notification', FILTER_VALIDATE_BOOLEAN);
+	$feed->delayUserNotification = filter_input(INPUT_POST, 'gf_ideal_delay_user_notification', FILTER_VALIDATE_BOOLEAN);
+	$feed->delayPostCreation = filter_input(INPUT_POST, 'gf_ideal_delay_post_creation', FILTER_VALIDATE_BOOLEAN);
+
 	$feed->conditionEnabled = filter_input(INPUT_POST, 'gf_ideal_condition_enabled', FILTER_VALIDATE_BOOLEAN);
 	$feed->conditionFieldId = filter_input(INPUT_POST, 'gf_ideal_condition_field_id', FILTER_SANITIZE_STRING);
 	$feed->conditionOperator = filter_input(INPUT_POST, 'gf_ideal_condition_operator', FILTER_SANITIZE_STRING);
@@ -72,6 +76,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 	<form id="gf-ideal-feed-editor" method="post" action="">
 		<?php wp_nonce_field('pronamic_ideal_save_gf_feed', 'pronamic_ideal_nonce'); ?>
+
 		<input name="pronamic_ideal_gf_id" value="<?php echo esc_attr($feed->getId()); ?>" type="hidden" />
 
 		<h3>
@@ -167,6 +172,36 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 						<br />
 						<?php _e('Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>', 'pronamic_ideal'); ?>
 					</span>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<?php _e('Options', 'pronamic_ideal'); ?>
+				</th>
+				<td>
+					<ul>
+						<li id="gf_ideal_delay_admin_notification_item">
+							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked($feed->delayAdminNotification); ?> />
+
+							<label for="gf_ideal_delay_admin_notification">
+								<?php _e('Send admin notification only when payment is received.', 'pronamic_ideal'); ?>
+							</label>
+						</li>
+						<li id="gf_ideal_delay_user_notification_item">
+							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked($feed->delayUserNotification); ?> />
+
+							<label for="gf_ideal_delay_user_notification">
+								<?php _e('Send user notification only when payment is received.', 'pronamic_ideal'); ?>
+							</label>
+						</li>
+                        <li id="gf_ideal_delay_post_creation_item">
+                        	<input type="checkbox" name="gf_ideal_delay_post_creation" id="gf_ideal_delay_post_creation" value="true" <?php checked($feed->delayPostCreation); ?> />
+
+							<label for="gf_ideal_delay_post_creation">
+								<?php _e('Create post only when payment is received.', 'pronamic_ideal'); ?>
+							</label>
+                        </li>
+					</ul>
 				</td>
 			</tr>
 			<tr>
