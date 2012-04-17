@@ -168,24 +168,6 @@ class Pronamic_WordPress_IDeal_Configuration {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the name of this configuration
-	 * 
-	 * @return string
-	 */
-	public function getName() {
-		$name = '';
-
-		$variant = $this->getVariant();
-		if($variant != null) {			
-			$name .= $variant->getName();
-		}
-
-		return $name;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Get the variant
 	 * 
 	 * @return string
@@ -201,6 +183,24 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 */
 	public function setVariant($variant) {
 		$this->variant = $variant;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the name of this configuration
+	 * 
+	 * @return string
+	 */
+	public function getName() {
+		$name = '';
+
+		$variant = $this->getVariant();
+		if($variant != null) {			
+			$name .= $variant->getName();
+		}
+
+		return $name;
 	}
 
 	//////////////////////////////////////////////////
@@ -246,6 +246,46 @@ class Pronamic_WordPress_IDeal_Configuration {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get mode
+	 * 
+	 * @return string
+	 */
+	public function getMode() {
+		return $this->mode;
+	}
+
+	/**
+	 * Set mode
+	 * 
+	 * @param string $mode
+	 */
+	public function setMode($mode) {
+		$this->mode = $mode;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get hash key
+	 * 
+	 * @return string
+	 */
+	public function getHashKey() {
+		return $this->hashKey;
+	}
+
+	/**
+	 * Set hash key
+	 * 
+	 * @param string $hashKey
+	 */
+	public function setHashKey($hashKey) {
+		$this->hashKey = $hashKey;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get the payment server URL
 	 * 
 	 * @return string
@@ -254,7 +294,7 @@ class Pronamic_WordPress_IDeal_Configuration {
 		$url = null;
 		
 		if($variant = $this->getVariant()) {
-			$url = $variant->getPaymentServerUrl($this->mode);
+			$url = $variant->getPaymentServerUrl($this->getMode());
 		}
 	
 		return $url;
@@ -269,7 +309,7 @@ class Pronamic_WordPress_IDeal_Configuration {
 		$url = null;
 		
 		if($variant = $this->getVariant()) {
-			$url = $variant->getDashboardUrl($this->mode);
+			$url = $variant->getDashboardUrl($this->getMode());
 		}
 	
 		return $url;

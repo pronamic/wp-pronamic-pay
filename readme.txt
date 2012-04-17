@@ -1,9 +1,11 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie
+Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
+Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.8.5
+Stable tag: beta-0.9.3
+Text Domain: pronamic_ideal
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -15,20 +17,32 @@ WordPress website.
 
 = Gravity Forms =
 
-The Pronamic iDEAL plugin is an Add-On for the Gravity Forms form builder which allows you
-to add the iDEAL payment method to your Gravity Forms.
+The Pronamic iDEAL plugin contains the IDEAL Add-On for the 
+[Gravity Forms plugin](http://www.gravityforms.com/) which allows 
+you to add the iDEAL payment method to your Gravity Forms.
 
 = WooCommerce =
 
-The Pronamic iDEAL plugin is an payment gateway for the [WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/) 
+from [WooThemes](http://www.woothemes.com/).
 
 = Jigoshop =
 
-The Pronamic iDEAL plugin is an payment gateway for the [Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/) 
+from [Jigowatt](http://jigowatt.co.uk/).
+
+= WP e-Commerce =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/) 
+from [getShopped.org](http://getshopped.org/).
 
 = Shopp =
 
-The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://shopplugin.net/).
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Shopp plugin](http://shopplugin.net/).
 
 = Banks and variants =
 
@@ -42,6 +56,7 @@ The Pronamic iDEAL plugin is an payment gateway for the [Shopp plugin](http://sh
 	*	iDEAL Advanced
 *	Rabobank
 	*	iDEAL Lite
+	*	OmniKassa
 	*	iDEAL Professional
 *	Mollie
 	*	iDEAL Lite/Basic
@@ -77,12 +92,53 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Check the Mollie tests for the lite variant
 *	Gravity Forms bind fields for iDEAL Easy
 *	Add bank images and options to show issuer list with radiobuttons
-*	Add notice like: "Gebruiker is doorgestuurd naar iDEAL. Controleer de status van de transactie via het iDEAL Dashboard voordat de levering plaatsvindt."
-*	Add notice like: "Gebruiker is succesvol terug na iDEAL"
 *	No-index by default enabled in page generator, check third party SEO plugins
 *	Status change payment e-mail notification in request of
 	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
 	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
+*	Let visitors pay later
+*	Make simulator payments free
+*	MultiSafePay - http://www.multisafepay.com/
+*	TargetPay.com - https://www.targetpay.com/
+*	OmniKassa testen inbouwen
+*	Do something with no configuratin selected in WooCommerce, show error on checkout
+
+= beta-0.9.3 =
+*	Added some icons for the iDEAL banks to create a nicer issuer select element
+*	Added exprimental support for ClassiPress
+*	Added Gravity Forms delay admin notification option
+*	Added Gravity Forms delay user notification option
+*	Added Gravity Forms delay post creation option
+
+= beta-0.9.2 =
+*	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
+*	Added an array_filter() to the optional OmniKassa data fields
+*	Fixed an issue in the Shopp Add-On caused by an Shopp bug (see ticket https://shopp.lighthouseapp.com/projects/47561/tickets/1536-shoppcheckoutoffline-instructions-tag-seemingly-absent-from-12)
+*	Added support plugins section to the settings page
+
+= beta-0.9.1 =
+*	Added an overview of the registered hashing algorithms and check for sha1 algorithm
+*	Fixed plugins_url() function call in the WP e-Commerce Add-On
+*	Fixed retrieving succes URL in the Gravity Forms Add-On from an iDEAL feed 
+*	Fixed edit order link in check iDEAL payment e-mail in the WooCommerce Add-On
+*	Added check for unavailable or removed iDEAL variant in Gravity Forms iDEAL feed editor
+
+= beta-0.9 =
+*	Added an data proxy class, all add-ons are now optimized
+*	Added OmniKassa support for all add-ons
+*	Added support for the WP e-Commerce plugin
+*	Improved the redirection if returned from an iDEAL advanced payment to WooComnmerce
+*	Changed the text domain from 'pronamic-ideal' to 'pronamic_ideal'
+*	Replaced all references to class constant TEXT_DOMAIN to an string
+
+= beta-0.8.6 =
+*	Added documentation for the Rabobank OmniKassa payment method
+*	Added documentation for the ABN AMRO iDEAL Only Kassa payment method
+*	WooCommerce iDEAL payment orders now get the status "on-hold" instead of "pending" 
+*	Changed WooCommerce class 'woocommerce_order' to 'WC_Order'
+*	Changed WooCommerce class 'woocommerce_payment_gateway' to 'WC_Payment_Gateway'
+*	Replaced get_permalink(get_option('woocommerce_pay_page_id')) with get_permalink(woocommerce_get_page_id('pay'))
+*	WooCommerce iDEAL Easy and Basic payments send an check payment mail and add note to order
 
 = beta-0.8.5 =
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices

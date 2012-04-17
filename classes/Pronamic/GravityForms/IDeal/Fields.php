@@ -9,11 +9,23 @@
  * @version 1.0
  */
 class Pronamic_GravityForms_IDeal_Fields {
+	/**
+	 * Bootstrap
+	 */
 	public static function bootstrap() {
 		add_filter('gform_add_field_buttons', array(__CLASS__, 'addFieldButtons'));
 		add_filter('gform_field_input', array(__CLASS__, 'acquirerFieldInput'), 10, 5);
 	}
-	
+
+	/**
+	 * Acquirrer field input
+	 * 
+	 * @param string $field_content
+	 * @param string $field
+	 * @param string $value
+	 * @param string $lead_id
+	 * @param string $form_id
+	 */
 	public static function acquirerFieldInput($field_content, $field, $value, $lead_id, $form_id) {
 		$type = RGFormsModel::get_input_type($field);
 
@@ -40,13 +52,13 @@ class Pronamic_GravityForms_IDeal_Fields {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>" , 
 						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink() , 
-						__('Create iDEAL feed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						__('Create iDEAL feed', 'pronamic_ideal')
 					);
 				} else {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>" , 
 						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink($iDealFeed->getId()) , 
-						__('Edit iDEAL feed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						__('Edit iDEAL feed', 'pronamic_ideal')
 					);
 				}
 			}
@@ -71,7 +83,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
 					$htmlError = $error->getConsumerMessage();
 				} else {
-					$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+					$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
 				}
 			}
 			
@@ -89,18 +101,23 @@ class Pronamic_GravityForms_IDeal_Fields {
 		}
 	}
 
+	/**
+	 * Add field buttons
+	 * 
+	 * @param array $groups
+	 */
 	public static function addFieldButtons($groups) {
 		$fields = array(
 			array(
 				'class' => 'button' , 
-				'value' => __('Issuer Drop Down', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'value' => __('Issuer Drop Down', 'pronamic_ideal') , 
 				'onclick' => sprintf("StartAddField('%s');", Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE)
 			)
 		);
 
 		$group = array(
 			'name' => 'ideal_fields',
-			'label' => __('iDEAL Fields', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'label' => __('iDEAL Fields', 'pronamic_ideal') , 
 			'fields' => $fields
 		);
 

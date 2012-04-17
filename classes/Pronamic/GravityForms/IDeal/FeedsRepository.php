@@ -85,6 +85,9 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
        	$feed->transactionDescription = $meta->transactionDescription;
 		$feed->links = (array) $meta->links;
+		$feed->delayAdminNotification = $meta->delayAdminNotification;
+		$feed->delayUserNotification = $meta->delayUserNotification;
+		$feed->delayPostCreation = $meta->delayPostCreation;
 		$feed->conditionEnabled = $meta->conditionEnabled;
 		$feed->conditionFieldId = $meta->conditionFieldId;
 		$feed->conditionOperator = $meta->conditionOperator;
@@ -196,6 +199,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
      * 
      * @param string $id
      * @param boolean $active
+     * @return Pronamic_GravityForms_IDeal_Feed
      */
     public static function getFeedByFormId($id, $active = true) {
 		global $wpdb;
