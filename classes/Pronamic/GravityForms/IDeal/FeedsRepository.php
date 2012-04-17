@@ -34,7 +34,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,   
 			is_active TINYINT(1) NOT NULL DEFAULT 1 ,  
 			meta LONGTEXT ,  
-			PRIMARY KEY (id) , 
+			PRIMARY KEY  (id) , 
 			KEY form_id (form_id) , 
 			KEY configuration_id (configuration_id)
 			) $charsetCollate;";

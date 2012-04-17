@@ -77,7 +77,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 			private_key_password VARCHAR(64) NULL ,
 			private_certificate TEXT NULL , 
 			meta LONGTEXT , 
-			PRIMARY KEY (id) 
+			PRIMARY KEY  (id) 
 			) $charsetCollate;";
 
         dbDelta($sql);

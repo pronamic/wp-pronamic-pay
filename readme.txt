@@ -102,6 +102,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	TargetPay.com - https://www.targetpay.com/
 *	OmniKassa testen inbouwen
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
+*	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
+	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
+
+= trunk =
+*	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
 
 = beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
