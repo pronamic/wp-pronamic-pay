@@ -88,8 +88,8 @@ class Pronamic_Shopp_Shopp {
 				)
 			);
 		} else {
-			// In Shopp >= 1.2 an paid purchase has not the 'captured' status
-			$isPaid = !in_array(
+			// In Shopp >= 1.2 an paid purchase has the 'captured' status
+			$isPaid = in_array(
 				$purchase->txnstatus , 
 				array(
 					self::PAYMENT_STATUS_CAPTURED

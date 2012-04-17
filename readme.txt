@@ -107,6 +107,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = trunk =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
+*	Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
 
 = beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
