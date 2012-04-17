@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.9.2
+Stable tag: beta-0.9.3
 Text Domain: pronamic_ideal
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
@@ -103,7 +103,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	OmniKassa testen inbouwen
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 
-= trunk =
+= beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
 *	Added exprimental support for ClassiPress
 *	Added Gravity Forms delay admin notification option
