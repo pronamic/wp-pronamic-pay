@@ -48,7 +48,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Order %s', 'pronamic_ideal'), '???');
+		return sprintf(__('Advertisement %s', 'pronamic_ideal'), $this->getOrderId());
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getOrderId() {
-		return '???';
+		return $this->orderValues['post_id'];
 	}
 
 	/**
@@ -74,8 +74,8 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber('???');
-		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), '???'));
+		$item->setNumber($this->orderValues['item_number']);
+		$item->setDescription($this->orderValues['item_name']);
 		$item->setPrice($this->orderValues['item_amount']);
 		$item->setQuantity(1);
 
@@ -89,7 +89,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 
 	public function getCurrencyAlphabeticCode() {
-		return 'EUR';
+		return get_option('cp_curr_pay_type');
 	}
 
 	//////////////////////////////////////////////////
@@ -97,23 +97,27 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 
 	public function getEMailAddress() {
+		$userId = $this->orderValues['user_id'];
 		
+		return get_the_author_meta('user_email', $userId);
 	}
 
 	public function getCustomerName() {
+		$userId = $this->orderValues['user_id'];
 		
+		return get_the_author_meta('first_name', $userId) . ' ' . get_the_author_meta('last_name', $userId);
 	}
 
 	public function getOwnerAddress() {
-		
+		return $this->orderValues['cp_street'];
 	}
 
 	public function getOwnerCity() {
-		
+		return $this->orderValues['cp_city'];
 	}
 
 	public function getOwnerZip() {
-		
+		return $this->orderValues['cp_zipcode'];
 	}
 
 	//////////////////////////////////////////////////
@@ -125,7 +129,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 	
 	public function getCancelUrl() {
-		return $this->orderValues['return_url'];
+		return $this->orderValues['notify_url'];
 	}
 	
 	public function getSuccessUrl() {
@@ -133,6 +137,6 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 
 	public function getErrorUrl() {
-		return $this->orderValues['return_url'];
+		return $this->orderValues['notify_url'];
 	}
 }

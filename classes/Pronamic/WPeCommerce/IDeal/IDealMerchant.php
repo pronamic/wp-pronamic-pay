@@ -52,7 +52,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 
 		$dataProxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy($this);
 
-		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
+		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration, true);
 
 		// Hide the checkout page container HTML element
 		echo '<style type="text/css">#checkout_page_container { display: none; }</style>';

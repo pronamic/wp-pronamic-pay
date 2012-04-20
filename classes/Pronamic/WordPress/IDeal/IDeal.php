@@ -243,7 +243,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	public static function getHtmlForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration = null) {
+	public static function getHtmlForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration = null, $autoSubmit = false) {
 		$html = '';
 
 		if($configuration !== null) {
@@ -260,6 +260,12 @@ class Pronamic_WordPress_IDeal_IDeal {
 					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
 						$html = self::getHtmlIDealOmniKassaForm($dataProxy, $configuration);
 						break;
+				}
+		
+				if($autoSubmit) {
+					$html .= '<script type="text/javascript">';
+					$html .= '	document.pronamic_ideal_form.submit();';
+					$html .= '</script>';
 				}
 			}
 		}
@@ -307,7 +313,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 		// HTML
 		$html  = '';
-		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';
@@ -355,7 +361,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 		// HTML
 		$html  = '';
-		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';
@@ -403,7 +409,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 		// HTML
 		$html  = '';
-		$html .= sprintf('<form method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
 		$html .= 	$iDeal->getHtmlFields();
 		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 		$html .= '</form>';

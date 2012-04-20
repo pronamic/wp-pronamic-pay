@@ -15,6 +15,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 	public static function bootstrap() {
 		add_filter('gform_add_field_buttons', array(__CLASS__, 'addFieldButtons'));
 		add_filter('gform_field_input', array(__CLASS__, 'acquirerFieldInput'), 10, 5);
+		add_filter('gform_field_type_title', array(__CLASS__, 'fieldTypeTitle'));
 	}
 
 	/**
@@ -66,24 +67,26 @@ class Pronamic_GravityForms_IDeal_Fields {
 			$htmlInput = '';
 			$htmlError = '';
 
-			if($iDealFeed !== null) {
+			if($iDealFeed != null) {
 				$configuration = $iDealFeed->getIDealConfiguration();
-				
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
-				
-				if($lists) {
-					$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions($lists, '', $value);
-					// Double quotes are not working, se we replace them with an single quote
-					$options = str_replace('"', '\'', $options);
 
-					$htmlInput  = '';
-					$htmlInput .= sprintf("	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText);
-					$htmlInput .= sprintf("		%s", $options);
-					$htmlInput .= sprintf("	</select>");
-				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
-					$htmlError = $error->getConsumerMessage();
-				} else {
-					$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
+				if($configuration != null) {
+					$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
+					
+					if($lists) {
+						$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions($lists, '', $value);
+						// Double quotes are not working, se we replace them with an single quote
+						$options = str_replace('"', '\'', $options);
+	
+						$htmlInput  = '';
+						$htmlInput .= sprintf("	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText);
+						$htmlInput .= sprintf("		%s", $options);
+						$htmlInput .= sprintf("	</select>");
+					} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
+						$htmlError = $error->getConsumerMessage();
+					} else {
+						$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
+					}
 				}
 			}
 			
@@ -125,5 +128,19 @@ class Pronamic_GravityForms_IDeal_Fields {
 
 		return $groups;
 		
+	}
+
+	/**
+	 * Field type title
+	 * 
+	 * @param string $type
+	 */
+	public static function fieldTypeTitle($type) {
+		switch($type) {
+			case Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE:
+				return __('Issuer Drop Down', 'pronamic_ideal');
+		}
+
+		return $type;
 	}
 }

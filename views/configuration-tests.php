@@ -251,7 +251,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 		echo $iDeal->getHtmlFields();
 
 		submit_button('Test', 'secondary', 'submit', false); 
-						
+
 		?>
 	</form>
 

@@ -104,10 +104,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 *	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
 	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
+*	In case of some iDEAL variants the return (success) URL should always be to the WordPress website itself (Gravity Forms)
+*	Check the IDEAL feed for Gravity Forms in combination with an redirection to URL or page confirmation
 
 = trunk =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
 *	Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
+*	Gravity Forms - Added field type title for the issuer drop down field
+*	Gravity Forms - Changed Dutch translation of "Issuer Drop Down" field to "Banken uitschuifkeuzelijst"
 
 = beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
