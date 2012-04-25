@@ -112,6 +112,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
 *	Gravity Forms - Added field type title for the issuer drop down field
 *	Gravity Forms - Changed Dutch translation of "Issuer Drop Down" field to "Banken uitschuifkeuzelijst"
+*	http://www.sisow.nl/algemeen/implementatie
+*	https://www.targetpay.com/
+*	http://www.buckaroo.nl/zakelijk/partners/plugins.aspx
+*	http://www.multisafepay.com/shop-plugins/wordpress.html
 
 = beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
