@@ -106,6 +106,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
 *	In case of some iDEAL variants the return (success) URL should always be to the WordPress website itself (Gravity Forms)
 *	Check the IDEAL feed for Gravity Forms in combination with an redirection to URL or page confirmation
+*	Add the option to use Mollie profile keys
+*	Check Array string bug with Mollie and an subId and certificates 
 
 = trunk =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
