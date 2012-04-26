@@ -638,7 +638,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		if((headers_sent() || $ajax) && is_array($confirmation) && isset($confirmation['redirect'])) {
 			$url = $confirmation['redirect'];
 
-			$confirmation = sprintf('<script>function gformRedirect() { document.location.href = "%s"; }', $url);
+			$confirmation = sprintf('<script>function gformRedirect(){document.location.href = "%s";}', esc_js($url));
 			if(!$ajax) {
 				$confirmation .= 'gformRedirect();';
 			}
