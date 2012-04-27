@@ -1,6 +1,6 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
+Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
@@ -43,6 +43,11 @@ from [getShopped.org](http://getshopped.org/).
 
 The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
 [Shopp plugin](http://shopplugin.net/).
+
+= ClassiPress =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[ClassiPress theme](http://www.appthemes.com/themes/classipress/).
 
 = Banks and variants =
 
