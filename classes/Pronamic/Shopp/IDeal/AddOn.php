@@ -88,41 +88,59 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
-		if($payment->getSource() == self::SLUG && self::isShoppSupported()){
+		if($payment->getSource() == self::SLUG && self::isShoppSupported()) {
 			global $Shopp, $wpdb;
 			
-			$transaction = $payment->transaction;			
-			if($order->status !== 'completed'){								
+			$transaction = $payment->transaction;
+
+			if($order->status !== 'completed') {
 				$url = null;
-				$setstatus = null;
+				$setStatus = null;
+
 				$status = $transaction->getStatus();
-				switch($status){
+				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-						$setstatus = 'CANCELLED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED;
+
 						$url = shoppurl(array('messagetype' => 'cancelled'), 'catalog');
+
 						$Shopp->resession();
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-						$setstatus = 'EXPIRED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED;
+
 						$url = shoppurl(array('messagetype' => 'expired'), 'checkout');
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$setstatus = 'FAILURE';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE;
+
 						$url = shoppurl(array('messagetype' => 'failure'), 'checkout');
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
-						$setstatus = 'CHARGED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CHARGED;
+
 						$url = $url = shoppurl(false, 'thanks');
+
 						$Shopp->resession();
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
-						$setstatus = 'OPEN';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN;
+
 						$url = shoppurl(array('messagetype' => 'open'), 'checkout');
+
 						break;
 				}
 				
-				if($setstatus){
-					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
+				if($setStatus) {
+					$wpdb->update(
+						$wpdb->prefix . SHOPP_DBPREFIX . 'purchase' , 
+						array('txnstatus' => $setStatus) , 
+						array('id' => $payment->getSourceId())
+					);
 				}
 
 				if($url && $canRedirect) {

@@ -25,6 +25,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		add_action('cp_action_gateway_values', array(__CLASS__, 'gatewayValues'));
 		add_action('cp_action_payment_method', array(__CLASS__, 'paymentMethod'));
 		add_action('cp_action_gateway', array(__CLASS__, 'gatewayProcess'));
+
+		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 	}
 
 	//////////////////////////////////////////////////
@@ -106,15 +108,15 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Process gateway
 	 */
-	public static function gatewayProcess($order_vals) {
+	public static function gatewayProcess($orderValues) {
 		global $gateway_name, $app_abbr, $post_url;
 
 		// if gateway wasn't selected then exit
-		if($order_vals['cp_payment_method'] != 'pronamic_ideal') { 
+		if($orderValues['cp_payment_method'] != 'pronamic_ideal') { 
 			return;
 		}
 
-		$dataProxy = new Pronamic_ClassiPress_IDeal_IDealDataProxy($order_vals);
+		$dataProxy = new Pronamic_ClassiPress_IDeal_IDealDataProxy($orderValues);
 
 		$configurationId = get_option($app_abbr . '_pronamic_ideal_configuration_id');
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($configurationId);
@@ -134,7 +136,51 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
-		
+		if($payment->getSource() == self::SLUG) {
+			$id = $payment->getSourceId();
+			$transaction = $payment->transaction;
+
+			$orderValues = Pronamic_ClassiPress_ClassiPress::getOrderValuesById($id);
+			$dataProxy = new Pronamic_ClassiPress_IDeal_IDealDataProxy($orderValues);
+
+			$post = get_post($id);
+
+			if($post->post_status == 'pending') {
+				$url = $dataProxy->getNormalReturnUrl();
+
+				$status = $transaction->getStatus();
+
+				switch($status) {
+					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+						
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+						
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+						
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+		            	Pronamic_ClassiPress_ClassiPress::updateAdStatus($id, 'publish');
+		            	
+		            	$url = $dataProxy->getSuccessUrl();
+
+						break;
+					case Pronamic_IDeal_Transaction::STATUS_OPEN:
+						
+						break;
+					default:
+						
+						break;
+				}
+				
+				if($canRedirect) {
+					wp_redirect($url, 303);
+
+					exit;
+				}
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////

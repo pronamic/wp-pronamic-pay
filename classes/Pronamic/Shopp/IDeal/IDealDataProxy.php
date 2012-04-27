@@ -185,6 +185,6 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getErrorUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		shoppurl(array('messagetype' => 'error'), 'receipt');
+		return shoppurl(array('messagetype' => 'error'), 'receipt');
 	}
 }

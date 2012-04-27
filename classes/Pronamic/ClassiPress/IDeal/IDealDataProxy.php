@@ -125,7 +125,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		return $this->orderValues['return_url'];
+		return $this->orderValues['notify_url'];
 	}
 	
 	public function getCancelUrl() {
@@ -133,7 +133,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 	
 	public function getSuccessUrl() {
-		return $this->orderValues['return_url'];
+		return $this->orderValues['notify_url'];
 	}
 
 	public function getErrorUrl() {

@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.9.3
+Stable tag: beta-0.9.4
 Text Domain: pronamic_ideal
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
@@ -85,9 +85,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 10.	Gravity Forms frontend issuer drop down
 
 
-== Changelog ==
-
-= todo =
+== Todo ==
 *	Fix the pagination while searching payments 
 *	Check the Mollie tests for the lite variant
 *	Gravity Forms bind fields for iDEAL Easy
@@ -111,12 +109,16 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Add the option to use Mollie profile keys
 *	Check Array string bug with Mollie and an subId and certificates 
 
-= trunk =
+
+== Changelog ==
+
+= beta-0.9.4 =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
 *	Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
 *	Gravity Forms - Added field type title for the issuer drop down field
 *	Gravity Forms - Changed Dutch translation of "Issuer Drop Down" field to "Banken uitschuifkeuzelijst"
 *	Gravity Forms - Fixed redirecting issue with an AJAX enabled Gravity Forms form
+*	ClassiPress - Added experimental iDEAL gateway
 
 = beta-0.9.3 =
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
