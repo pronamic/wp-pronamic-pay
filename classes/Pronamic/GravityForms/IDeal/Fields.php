@@ -9,11 +9,24 @@
  * @version 1.0
  */
 class Pronamic_GravityForms_IDeal_Fields {
+	/**
+	 * Bootstrap
+	 */
 	public static function bootstrap() {
 		add_filter('gform_add_field_buttons', array(__CLASS__, 'addFieldButtons'));
 		add_filter('gform_field_input', array(__CLASS__, 'acquirerFieldInput'), 10, 5);
+		add_filter('gform_field_type_title', array(__CLASS__, 'fieldTypeTitle'));
 	}
-	
+
+	/**
+	 * Acquirrer field input
+	 * 
+	 * @param string $field_content
+	 * @param string $field
+	 * @param string $value
+	 * @param string $lead_id
+	 * @param string $form_id
+	 */
 	public static function acquirerFieldInput($field_content, $field, $value, $lead_id, $form_id) {
 		$type = RGFormsModel::get_input_type($field);
 
@@ -40,13 +53,13 @@ class Pronamic_GravityForms_IDeal_Fields {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>" , 
 						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink() , 
-						__('Create iDEAL feed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						__('Create iDEAL feed', 'pronamic_ideal')
 					);
 				} else {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>" , 
 						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink($iDealFeed->getId()) , 
-						__('Edit iDEAL feed', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN)
+						__('Edit iDEAL feed', 'pronamic_ideal')
 					);
 				}
 			}
@@ -54,24 +67,26 @@ class Pronamic_GravityForms_IDeal_Fields {
 			$htmlInput = '';
 			$htmlError = '';
 
-			if($iDealFeed !== null) {
+			if($iDealFeed != null) {
 				$configuration = $iDealFeed->getIDealConfiguration();
-				
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
-				
-				if($lists) {
-					$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions($lists, '', $value);
-					// Double quotes are not working, se we replace them with an single quote
-					$options = str_replace('"', '\'', $options);
 
-					$htmlInput  = '';
-					$htmlInput .= sprintf("	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText);
-					$htmlInput .= sprintf("		%s", $options);
-					$htmlInput .= sprintf("	</select>");
-				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
-					$htmlError = $error->getConsumerMessage();
-				} else {
-					$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				if($configuration != null) {
+					$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
+					
+					if($lists) {
+						$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions($lists, '', $value);
+						// Double quotes are not working, se we replace them with an single quote
+						$options = str_replace('"', '\'', $options);
+	
+						$htmlInput  = '';
+						$htmlInput .= sprintf("	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText);
+						$htmlInput .= sprintf("		%s", $options);
+						$htmlInput .= sprintf("	</select>");
+					} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
+						$htmlError = $error->getConsumerMessage();
+					} else {
+						$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
+					}
 				}
 			}
 			
@@ -89,18 +104,23 @@ class Pronamic_GravityForms_IDeal_Fields {
 		}
 	}
 
+	/**
+	 * Add field buttons
+	 * 
+	 * @param array $groups
+	 */
 	public static function addFieldButtons($groups) {
 		$fields = array(
 			array(
 				'class' => 'button' , 
-				'value' => __('Issuer Drop Down', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+				'value' => __('Issuer Drop Down', 'pronamic_ideal') , 
 				'onclick' => sprintf("StartAddField('%s');", Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE)
 			)
 		);
 
 		$group = array(
 			'name' => 'ideal_fields',
-			'label' => __('iDEAL Fields', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			'label' => __('iDEAL Fields', 'pronamic_ideal') , 
 			'fields' => $fields
 		);
 
@@ -108,5 +128,19 @@ class Pronamic_GravityForms_IDeal_Fields {
 
 		return $groups;
 		
+	}
+
+	/**
+	 * Field type title
+	 * 
+	 * @param string $type
+	 */
+	public static function fieldTypeTitle($type) {
+		switch($type) {
+			case Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE:
+				return __('Issuer Drop Down', 'pronamic_ideal');
+		}
+
+		return $type;
 	}
 }
