@@ -206,8 +206,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if($lead) {
 				$status = $transaction->getStatus();
 
-				RGFormsModel::update_lead_property($leadId, Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS, $status);
-
 				$formId = $lead['form_id'];
 				
 				$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($formId);
@@ -217,18 +215,26 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 					switch($status) {
 						case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
+
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
 
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
+
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED);
 
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
+
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
 
 							break;
 						case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
+
 							self::fulfillOrder($lead);
 
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
@@ -240,7 +246,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 							break;
 					}
-					
+
+					RGFormsModel::update_lead($lead);
+
 					if($url && $canRedirect) {
 						wp_redirect($url, 303);
 
