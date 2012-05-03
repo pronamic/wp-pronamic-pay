@@ -98,6 +98,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
 			Pronamic_WPeCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
+			Pronamic_EShop_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters
