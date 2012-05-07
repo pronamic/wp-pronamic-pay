@@ -120,6 +120,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 = trunk =
 *	Gravity Forms - Added extra constants for the payment statuses
 *	Gravity Forms - Improved the way we update the entry payment status
+*	WooCommerce - Added WooCommerce utility base class
+*	Jigoshop - Added Jigoshop utility base class
 
 = beta-0.9.4 =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
