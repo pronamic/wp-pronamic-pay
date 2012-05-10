@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.9.4
+Stable tag: beta-0.9.5
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -116,11 +116,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
-= trunk =
+= beta-0.9.5 =
 *	Gravity Forms - Added extra constants for the payment statuses
 *	Gravity Forms - Improved the way we update the entry payment status
 *	WooCommerce - Added WooCommerce utility base class
 *	Jigoshop - Added Jigoshop utility base class
+*	OmniKassa - Changed the use of the site_url() function, now called with an slash
 
 = beta-0.9.4 =
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors

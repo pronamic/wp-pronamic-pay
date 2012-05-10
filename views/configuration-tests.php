@@ -233,7 +233,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->setKeyVersion($configuration->getSubId());
 	$iDeal->setSecretKey($configuration->hashKey);
 	$iDeal->setCurrencyNumericCode(978);
-	$iDeal->setNormalReturnUrl(site_url());
+	$iDeal->setNormalReturnUrl(site_url('/'));
 	$iDeal->setAmount(1);
 	$iDeal->setTransactionReference(uniqid('test'));
 	// $iDeal->setOrderId(1);

@@ -39,7 +39,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.4';
+	const VERSION = 'beta-0.9.5';
 
 	//////////////////////////////////////////////////
 
@@ -225,7 +225,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$merchant->id = $configuration->getMerchantId();
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = site_url();
+		$merchant->returnUrl = site_url('/');
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->merchant = $merchant;

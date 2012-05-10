@@ -158,7 +158,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$merchant->id = $configuration->getMerchantId();
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = site_url();
+		$merchant->returnUrl = site_url('/');
 		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->issuer = $issuer;
@@ -380,8 +380,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$iDeal->setCustomerLanguage($dataProxy->getLanguageIso639Code());
 		$iDeal->setCurrencyNumericCode($dataProxy->getCurrencyNumericCode());
 		$iDeal->setOrderId($dataProxy->getOrderId());
-		$iDeal->setNormalReturnUrl(site_url());
-		$iDeal->setAutomaticResponseUrl(site_url());
+		$iDeal->setNormalReturnUrl(site_url('/'));
+		$iDeal->setAutomaticResponseUrl(site_url('/'));
 		$iDeal->setAmount($dataProxy->getAmount());
 		$iDeal->setTransactionReference(md5(time() . $dataProxy->getOrderId()));
 
