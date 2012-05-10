@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-20 16:30+0100\n"
-"PO-Revision-Date: 2012-04-20 16:30+0100\n"
+"POT-Creation-Date: 2012-05-10 12:06+0100\n"
+"PO-Revision-Date: 2012-05-10 12:06+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -815,8 +815,6 @@ msgstr "Update gebruikersrol"
 
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:42
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -832,24 +830,23 @@ msgid "Order %s"
 msgstr "Bestelling %s"
 
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:81
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:54
 msgid "&mdash; Select configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:433
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:434
 #, php-format
 msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
 msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:438
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:439
 msgid "iDEAL settings page"
 msgstr "iDEAL instellingen pagina"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:504
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:505
 msgid "iDEAL Administrator"
 msgstr "iDEAL beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:508
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:509
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -913,27 +910,27 @@ msgstr "Details"
 msgid "iDEAL payment cancelled."
 msgstr "iDEAL betaling geannuleerd."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:79
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:82
 msgid "iDEAL payment expired."
 msgstr "iDEAL betaling verlopen."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:82
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:86
 msgid "iDEAL payment failed."
 msgstr "iDEAL betaling mislukt."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:86
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:91
 msgid "iDEAL payment completed."
 msgstr "iDEAL betaling voltooid."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:93
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:98
 msgid "iDEAL payment open."
 msgstr "iDEAL betaling open."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:96
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:102
 msgid "iDEAL payment unknown."
 msgstr "iDEAL betaling onbekend."
 
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:118
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:125
 #, php-format
 msgid "Order #%s"
 msgstr "Bestelling #%s"
@@ -943,6 +940,7 @@ msgid "Enable/Disable"
 msgstr "Inschakelen/uitschakelen"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:63
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
@@ -988,19 +986,19 @@ msgstr "Controleer iDEAL betaling"
 msgid "Check iDEAL payment for order #%s"
 msgstr "Controleer iDEAL betaling voor bestelling #%s"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:58
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:60
 msgid "iDEAL Options"
 msgstr "iDEAL opties"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:74
 msgid "Yes"
 msgstr "Ja"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:73
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:75
 msgid "No"
 msgstr "Nee"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:147
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:193
 msgid "ClassiPress"
 msgstr "ClassiPress"
 
@@ -1008,6 +1006,14 @@ msgstr "ClassiPress"
 #, php-format
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
+
+#: classes/Pronamic/EShop/IDeal/AddOn.php:140
+msgid "Accept payment by iDEAL"
+msgstr "Accepteeer betaling via iDEAL"
+
+#: classes/Pronamic/EShop/IDeal/AddOn.php:164
+msgid "eShop"
+msgstr "eShop"
 
 #: classes/Pronamic/Shopp/IDeal/GatewayModule.php:372
 msgid "iDEAL Issuer"
@@ -1017,27 +1023,27 @@ msgstr "iDEAL bank"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:148
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:166
 msgid "Payment of the order has been cancelled."
 msgstr "Betaling van de bestelling is geannuleerd."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:151
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:169
 msgid "An unexpected error occured during transaction."
 msgstr "Een overwachte fout vond plaats tijdens de transactie."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:154
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:172
 msgid "The maximum transaction time expired."
 msgstr "De maximale transactie tijd is verlopen."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:157
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:175
 msgid "The transaction failed for an unknown reason."
 msgstr "De transactie is mislukt om een onbekende reden."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:160
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:178
 msgid "Transaction was not finished and was left open."
 msgstr "Transactie is niet afgerond en is open gelaten."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:169
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:187
 msgid "Errors"
 msgstr "Fouten"
 
@@ -1070,6 +1076,10 @@ msgstr "iDEAL velden"
 #, php-format
 msgid "Entry #%s"
 msgstr "Inzending #%s"
+
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:80
+msgid "Allow iDEAL payments."
+msgstr "iDEAL betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
 msgid "This controls the description which the user sees during checkout."
@@ -1207,9 +1217,6 @@ msgstr "In afwachting van iDEAL betaling."
 
 #~ msgid "Acquirer"
 #~ msgstr "Acquirer"
-
-#~ msgid "Acceptant ID"
-#~ msgstr "Acceptant ID"
 
 #~ msgid "Key"
 #~ msgstr "Sleutel"
