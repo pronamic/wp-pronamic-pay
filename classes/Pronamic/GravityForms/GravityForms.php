@@ -60,6 +60,76 @@ class Pronamic_GravityForms_GravityForms {
 	 */
 	const PAYMENT_STATUS_PROCESSING = 'Processing';
 
+	/**
+	 * Payment status active
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_ACTIVE = 'Active';
+
+	/**
+	 * Payment status cancelled
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_CANCELLED = 'Cancelled';
+
+	/**
+	 * Payment status expired
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_EXPIRED = 'Expired';
+
+	/**
+	 * Payment status failed
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_FAILED = 'Failed';
+
+	/**
+	 * Payment status reversed
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_REVERSED = 'Reversed';
+
+	/**
+	 * Payment status approved
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_APPROVED = 'Approved';
+
+	/**
+	 * Payment status denied
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_DENIED = 'Denied';
+
+	/**
+	 * Payment status pending
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_PENDING = 'Pending';
+
+	/**
+	 * Payment status refunded
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_REFUNDED = 'Refunded';
+
+	/**
+	 * Payment status voided
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_VOIDED = 'Voided';
+
 	//////////////////////////////////////////////////
 
 	/**

@@ -12,6 +12,7 @@
 		elements.gravityForm = element.find("#gf_ideal_gravity_form");
 		elements.formId = element.find("#gf_ideal_form_id");
 		elements.configurationId = element.find("#gf_ideal_configuration_id");
+		elements.delayPostCreationItem = element.find("#gf_ideal_delay_post_creation_item");
 		elements.conditionEnabled = element.find("#gf_ideal_condition_enabled");
 		elements.conditionConfig = element.find("#gf_ideal_condition_config");
 		elements.conditionFieldId = element.find("#gf_ideal_condition_field_id");
@@ -23,6 +24,24 @@
 		// Data
 		var feed = $.parseJSON(elements.feed.val());
 		var gravityForm = $.parseJSON(elements.gravityForm.val());
+
+		/**
+		 * Update delay post creation item
+		 */
+		this.updateDelayPostCreationItem = function() {
+			var display = false;
+
+			if(gravityForm) {
+                // Displaying delayed post creation setting if current form has a post field
+                var postFields = obj.getFieldsByType(["post_title", "post_content", "post_excerpt", "post_category", "post_custom_field", "post_image", "post_tag"]);
+
+                if(postFields.length > 0) {
+                	display = true;
+                }
+			}
+			
+			elements.delayPostCreationItem.toggle(display);
+		};
 
 		/**
 		 * Toggle condition config
@@ -100,6 +119,26 @@
 			
 			return null;
 		};
+
+		/**
+		 * Get fields by types
+		 * 
+		 * @param types
+		 * @return Array
+		 */
+		this.getFieldsByType = function(types) {
+			var fields = new Array();
+
+			if(gravityForm) {				
+				for(var i = 0; i < gravityForm.fields.length; i++) {
+                    if($.inArray(gravityForm.fields[i].type, types) >= 0) {
+                    	fields.push(gravityForm.fields[i]);
+                    }
+                }
+			}
+
+            return fields;
+		};
 		
 		/**
 		 * Change form
@@ -155,6 +194,7 @@
 		 */
 		this.updateFields = function() {
 			obj.updateConfigurationFields();
+			obj.updateDelayPostCreationItem();
 			obj.toggleConditionConfig();
 			obj.updateConditionFields();
 			obj.updateConditionValues();

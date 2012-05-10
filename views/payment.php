@@ -11,7 +11,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 	$status = $transaction->getStatus();
 
 	if(!in_array($status, array(Pronamic_IDeal_Transaction::STATUS_OPEN, null), true)) {
-		$update = sprintf(__('The payment status is: %s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), Pronamic_WordPress_IDeal_IDeal::translateStatus($status));
+		$update = sprintf(__('The payment status is: %s', 'pronamic_ideal'), Pronamic_WordPress_IDeal_IDeal::translateStatus($status));
 	}
 }
 
@@ -20,7 +20,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
 
 	<h2>
-		<?php _e('iDEAL Payment', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php _e('iDEAL Payment', 'pronamic_ideal'); ?>
 	</h2>
 
 	<?php if($update): ?>
@@ -35,13 +35,13 @@ if(isset($_POST['status-request']) && $payment != null) {
 
 	<form method="post" action="">
 		<h3>
-			<?php _e('General', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('General', 'pronamic_ideal'); ?>
 		</h3>
 	
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('ID', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $payment->getId(); ?>
@@ -52,13 +52,13 @@ if(isset($_POST['status-request']) && $payment != null) {
 		<?php if($transaction = $payment->transaction): ?>
 	
 		<h3>
-			<?php _e('Transaction', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Transaction', 'pronamic_ideal'); ?>
 		</h3>
 	
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('Purchase ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Purchase ID', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getPurchaseId(); ?>
@@ -66,7 +66,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Transaction ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Transaction ID', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getId(); ?>
@@ -74,7 +74,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Description', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Description', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getDescription(); ?>
@@ -82,7 +82,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Amount', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Amount', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getAmount(); ?>
@@ -91,7 +91,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Expiration Period', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Expiration Period', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getExpirationPeriod(); ?>
@@ -99,7 +99,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Status', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Status', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus($transaction->getStatus()); ?>
@@ -108,13 +108,13 @@ if(isset($_POST['status-request']) && $payment != null) {
 		</table>
 	
 		<h3>
-			<?php _e('Consumer', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Consumer', 'pronamic_ideal'); ?>
 		</h3>
 		
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Name', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getConsumerName(); ?>
@@ -122,7 +122,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>		
 			<tr>
 				<th scope="row">
-					<?php _e('Account Number', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Account Number', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getConsumerAccountNumber(); ?>
@@ -130,7 +130,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('City', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('City', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $transaction->getConsumerCity(); ?>
@@ -143,13 +143,13 @@ if(isset($_POST['status-request']) && $payment != null) {
 		<?php if($configuration = $payment->configuration): ?>
 	
 		<h3>
-			<?php _e('Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Configuration', 'pronamic_ideal'); ?>
 		</h3>
 	
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('Configuration', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Configuration', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<a href="<?php echo Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink($configuration->getId()); ?>">
@@ -162,13 +162,13 @@ if(isset($_POST['status-request']) && $payment != null) {
 		<?php endif; ?>
 	
 		<h3>
-			<?php _e('Source', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+			<?php _e('Source', 'pronamic_ideal'); ?>
 		</h3>
 		
 		<table class="form-table">
 			<tr>
 				<th scope="row">
-					<?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Name', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $payment->getSource(); ?>
@@ -176,7 +176,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('ID', 'pronamic_ideal'); ?>
 				</th>
 				<td>
 					<?php echo $payment->getSourceId(); ?>
@@ -187,7 +187,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 		<?php 
 		
 		submit_button(
-			__('Status Request', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) , 
+			__('Status Request', 'pronamic_ideal') , 
 			'secondary' ,
 			'status-request'
 		);

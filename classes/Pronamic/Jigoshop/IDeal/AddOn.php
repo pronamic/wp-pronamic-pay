@@ -64,35 +64,45 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			$transaction = $payment->transaction;
 
 			$order = &new jigoshop_order((int) $id);
+			$dataProxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy($order);
 
-			if($order->status !== 'completed') {				
+			if($order->status !== Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED) {				
 				$url = null;
 
 				$status = $transaction->getStatus();
 
 				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-						$order->update_status('cancelled', __('iDEAL payment cancelled.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						$order->update_status(Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __('iDEAL payment cancelled.', 'pronamic_ideal'));
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-						$order->update_status('expired', __('iDEAL payment expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						// Jigoshop PayPal gateway uses 'on-hold' order status for an 'expired' payment
+						// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L430
+						$order->update_status(Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_ON_HOLD, __('iDEAL payment expired.', 'pronamic_ideal'));
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$order->update_status('failed', __('iDEAL payment failed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+						// Jigoshop PayPal gateway uses 'on-hold' order status for an 'failure' in the payment
+						// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L431
+						$order->update_status('failed', __('iDEAL payment failed.', 'pronamic_ideal'));
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
 		            	// Payment completed
-		                $order->add_order_note(__('iDEAL payment completed.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		                $order->add_order_note(__('iDEAL payment completed.', 'pronamic_ideal'));
 		                $order->payment_complete();
 		                
-		                $url = add_query_arg('key', $order->order_key, add_query_arg('order', $order->id, get_permalink(get_option('jigoshop_thanks_page_id'))));
+		                $url = $dataProxy->getSuccessUrl();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
-						$order->update_status('open', __('iDEAL payment open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		                $order->add_order_note(__('iDEAL payment open.', 'pronamic_ideal'));
+
 						break;
 					default:
-						$order->update_status('unknown', __('iDEAL payment unknown.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN));
+		                $order->add_order_note(__('iDEAL payment unknown.', 'pronamic_ideal'));
+
 						break;
 				}
 
@@ -112,9 +122,9 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('Jigoshop', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= __('Jigoshop', 'pronamic_ideal') . '<br />';
 		$text .= sprintf('<a href="%s">', get_edit_post_link($payment->getSourceId()));
-		$text .= sprintf(__('Order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
 		$text .= '</a>';
 
 		return $text;
