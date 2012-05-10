@@ -98,6 +98,14 @@ class Pronamic_GravityForms_IDeal_Feed {
 	public $transactionDescription;
 
 	//////////////////////////////////////////////////
+
+	public $delayAdminNotification;
+
+	public $delayUserNotification;
+
+	public $delayPostCreation;
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Flag for enabled or disabled condition

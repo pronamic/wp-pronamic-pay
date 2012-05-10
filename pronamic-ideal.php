@@ -2,11 +2,17 @@
 /*
 Plugin Name: Pronamic iDEAL
 Plugin URI: http://pronamic.eu/wp-plugins/ideal/
-Description: Integrates iDEAL in to WordPress 
-Version: beta-0.8.5
+Description: Integrates iDEAL in to WordPress
+ 
+Version: beta-0.9.5
 Requires at least: 3.0
+
 Author: Pronamic
 Author URI: http://pronamic.eu/
+
+Text Domain: pronamic_ideal
+Domain Path: /languages/
+
 License: GPL
 */
 
@@ -24,6 +30,8 @@ function pronamic_ideal_autoload($name) {
 }
 
 spl_autoload_register('pronamic_ideal_autoload');
+
+require_once 'functions/wp-e-commerce.php';
 
 Pronamic_WordPress_IDeal_Plugin::bootstrap(__FILE__);
 

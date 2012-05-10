@@ -71,10 +71,12 @@ class Pronamic_Shopp_IDeal_AddOn {
 			$Shopp->Gateways->legacy[] = md5_file($path . $file);
 		}
 
-		$activeGateways = $Shopp->Settings->get('active_gateways');
+		if(isset($Shopp->Settings)) {
+			$activeGateways = $Shopp->Settings->get('active_gateways');
 
-		if(strpos($activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule') !== false) {
-			$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
+			if(strpos($activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule') !== false) {
+				$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
+			}
 		}
 	}
 	
@@ -86,43 +88,61 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
-		if($payment->getSource() == self::SLUG && self::isShoppSupported()){
+		if($payment->getSource() == self::SLUG && self::isShoppSupported()) {
 			global $Shopp, $wpdb;
 			
-			$transaction = $payment->transaction;			
-			if($order->status !== 'completed'){								
+			$transaction = $payment->transaction;
+
+			if($order->status !== 'completed') {
 				$url = null;
-				$setstatus = null;
+				$setStatus = null;
+
 				$status = $transaction->getStatus();
-				switch($status){
+				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-						$setstatus = 'CANCELLED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED;
+
 						$url = shoppurl(array('messagetype' => 'cancelled'), 'catalog');
+
 						$Shopp->resession();
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-						$setstatus = 'EXPIRED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED;
+
 						$url = shoppurl(array('messagetype' => 'expired'), 'checkout');
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$setstatus = 'FAILURE';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE;
+
 						$url = shoppurl(array('messagetype' => 'failure'), 'checkout');
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
-						$setstatus = 'CHARGED';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CHARGED;
+
 						$url = $url = shoppurl(false, 'thanks');
+
 						$Shopp->resession();
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
-						$setstatus = 'OPEN';
+						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN;
+
 						$url = shoppurl(array('messagetype' => 'open'), 'checkout');
+
 						break;
 				}
 				
-				if($setstatus){
-					$wpdb->update($wpdb->prefix.SHOPP_DBPREFIX.'purchase', array('txnstatus' => $setstatus), array('id' => $payment->getSourceId()));
+				if($setStatus) {
+					$wpdb->update(
+						$wpdb->prefix . SHOPP_DBPREFIX . 'purchase' , 
+						array('txnstatus' => $setStatus) , 
+						array('id' => $payment->getSourceId())
+					);
 				}
-							
+
 				if($url && $canRedirect) {
 					wp_redirect($url, 303);
 
@@ -138,24 +158,24 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * Gets the $_GET['mesagetype'] from the url and returns
 	 * the queued page with the message to Shopp.
 	 */
-	static function showMessage($output){
+	public static function showMessage($output){
 		$message = '';
 		// Pick something to display
 		switch(strtolower($_GET['messagetype'])){
 			case 'cancelled':
-				$message .= __('Payment of the order has been cancelled.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('Payment of the order has been cancelled.', 'pronamic_ideal');
 				break;
 			case 'error':
-				$message .= __('An unexpected error occured during transaction.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('An unexpected error occured during transaction.', 'pronamic_ideal');
 				break;
 			case 'expired':
-				$message .= __('The maximum transaction time expired.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('The maximum transaction time expired.', 'pronamic_ideal');
 				break;
 			case 'failure':
-				$message .= __('The transaction failed for an unknown reason.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('The transaction failed for an unknown reason.', 'pronamic_ideal');
 				break;
 			case 'open':
-				$message .= __('Transaction was not finished and was left open.', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN);
+				$message .= __('Transaction was not finished and was left open.', 'pronamic_ideal');
 				break;
 		}
 		
@@ -181,9 +201,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('Shopp', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) . '<br />';
+		$text .= __('Shopp', 'pronamic_ideal') . '<br />';
 		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'shopp-orders', 'id' => $payment->getSourceId()), admin_url('admin.php')));
-		$text .= sprintf(__('Order #%s', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN), $payment->getSourceId());
+		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
 		$text .= '</a>';
 
 		return $text;

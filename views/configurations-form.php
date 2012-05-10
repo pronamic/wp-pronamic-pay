@@ -24,7 +24,7 @@ if($action == 'delete') {
 
 <div class="updated inline below-h2">
 	<p>
-		<?php echo _n('Configuration deleted.', 'Configurations deleted.', $numberToDelete, Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+		<?php echo _n('Configuration deleted.', 'Configurations deleted.', $numberToDelete, 'pronamic_ideal'); ?>
 	</p>
 </div>
 
@@ -34,11 +34,11 @@ if($action == 'delete') {
 	<div class="tablenav top">
 		<div class="alignleft actions">
 			<select name="action">
-				<option value="-1" selected="selected"><?php _e('Bulk Actions', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
-				<option value="delete"><?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?></option>
+				<option value="-1" selected="selected"><?php _e('Bulk Actions', 'pronamic_ideal'); ?></option>
+				<option value="delete"><?php _e('Delete', 'pronamic_ideal'); ?></option>
 			</select>
 
-			<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>"  />
+			<input type="submit" name="" id="doaction" class="button-secondary action" value="<?php _e('Apply', 'pronamic_ideal'); ?>"  />
 		</div>
 	</div>
 
@@ -49,12 +49,12 @@ if($action == 'delete') {
 		<<?php echo $tag; ?>>
 			<tr>
 				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
-				<th scope="col" class="manage-column"><?php _e('Name', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Merchant ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Sub ID', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Mode', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
-				<th scope="col" class="manage-column"><?php _e('Number Payments', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN) ?></th>
+				<th scope="col" class="manage-column"><?php _e('Name', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Merchant ID', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Sub ID', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Mode', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Dashboard', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e('Number Payments', 'pronamic_ideal') ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
 
@@ -77,24 +77,24 @@ if($action == 'delete') {
 
 					?>
 
-					<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
+					<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', 'pronamic_ideal'); ?>">
 						<?php echo $configuration->getName(); ?>
 					</a>
 
 					<div class="row-actions">
 						<span class="edit">
-							<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-								<?php _e('Edit', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<a href="<?php echo $editLink; ?>" title="<?php _e('Edit', 'pronamic_ideal'); ?>">
+								<?php _e('Edit', 'pronamic_ideal'); ?>
 							</a> |
 						</span>
 						<span class="tests">
-							<a href="<?php echo $testsLink; ?>" title="<?php _e('Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-								<?php _e('Tests', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<a href="<?php echo $testsLink; ?>" title="<?php _e('Tests', 'pronamic_ideal'); ?>">
+								<?php _e('Tests', 'pronamic_ideal'); ?>
 							</a> |
 						</span>
 						<span class="trash">
-							<a href="<?php echo $deleteLink; ?>" title="<?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-								<?php _e('Delete', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+							<a href="<?php echo $deleteLink; ?>" title="<?php _e('Delete', 'pronamic_ideal'); ?>">
+								<?php _e('Delete', 'pronamic_ideal'); ?>
 							</a>
 						</span>
 					</div>
@@ -110,11 +110,11 @@ if($action == 'delete') {
 				</td>
 				<td>
 					<?php if($url = $configuration->getDashboardUrl()): ?>
-					<a href="<?php echo $url; ?>" title="<?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>">
-						<?php _e('Dashboard', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<a href="<?php echo $url; ?>" title="<?php _e('Dashboard', 'pronamic_ideal'); ?>">
+						<?php _e('Dashboard', 'pronamic_ideal'); ?>
 					</a>
 					<?php else: ?>
-					<?php _e('Not available', Pronamic_WordPress_IDeal_Plugin::TEXT_DOMAIN); ?>
+					<?php _e('Not available', 'pronamic_ideal'); ?>
 					<?php endif; ?>
 				</td>
 				<td>
