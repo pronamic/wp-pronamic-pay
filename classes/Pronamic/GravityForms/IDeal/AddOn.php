@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.5';
+	const VERSION = 'beta-0.9.6';
 
 	//////////////////////////////////////////////////
 
@@ -490,8 +490,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				$isHidden = RGFormsModel::is_field_hidden($form, $field, array());
 
 				if($isHidden) {
-					// hidden field
-					$result = true;
+					// if conditional is enabled, but the field is hidden, ignore conditional
+					$result = false;
 				} else {
 					$value = RGFormsModel::get_field_value($field, array());
 
