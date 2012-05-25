@@ -104,7 +104,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	TargetPay.com - https://www.targetpay.com/
 *	http://www.sisow.nl/algemeen/implementatie
 *	http://www.buckaroo.nl/zakelijk/partners/plugins.aspx
-*	OmniKassa testen inbouwen
+*	IcePay
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 *	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
 	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
@@ -116,6 +116,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= beta-0.9.7 =
+*	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
+*	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions
+ 
 = beta-0.9.6 =
 *	Gravity Forms - Fixed bug with hidden conditional field, ignore iDEAL
 

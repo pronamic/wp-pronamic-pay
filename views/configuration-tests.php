@@ -224,8 +224,16 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	<?php endif; ?>
 
 	<?php if($configuration->getVariant() instanceof Pronamic_IDeal_VariantOmniKassa): ?>
+	
+	<h3>
+		<?php _e('Tests', 'pronamic_ideal'); ?>
+	</h3>
+
+	<?php foreach(array(2, 3, 4, 5, 1) as $testCase): ?>
 
 	<?php 
+				
+	$name = sprintf(__('Test &euro; %s', 'pronamic_ideal'), $testCase);
 
 	$iDeal = new Pronamic_IDeal_OmniKassa();
 	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
@@ -234,26 +242,24 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->setSecretKey($configuration->hashKey);
 	$iDeal->setCurrencyNumericCode(978);
 	$iDeal->setNormalReturnUrl(site_url('/'));
-	$iDeal->setAmount(1);
+	$iDeal->setAmount($testCase);
 	$iDeal->setTransactionReference(uniqid('test'));
 	// $iDeal->setOrderId(1);
 	$iDeal->setCustomerLanguage(Pronamic_WordPress_IDeal_Util::getLanguage());
 
 	?>
-	
-	<h3>
-		<?php _e('Mandatory Tests', 'pronamic_ideal'); ?>
-	</h3>
 
 	<form method="post" action="<?php echo esc_attr($iDeal->getPaymentServerUrl()); ?>" target="_blank" style="display: inline">
 		<?php 
 
 		echo $iDeal->getHtmlFields();
 
-		submit_button('Test', 'secondary', 'submit', false); 
+		submit_button($name, 'secondary', 'submit', false); 
 
 		?>
 	</form>
+
+	<?php endforeach; ?>
 
 	<?php endif; ?>
 

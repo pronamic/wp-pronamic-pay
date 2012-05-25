@@ -226,6 +226,11 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf' ,
 					'name' => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012' ,  
 					'version' => '1.0.10' 
+				)  , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf' ,
+					'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa' ,  
+					'date' => new DateTime('17-04-2012') 
 				) 
 			)
 		)
@@ -260,6 +265,10 @@
 
 				<?php if(isset($file['version'])): ?>
 				<small><?php printf(__('version %s', 'pronamic_ideal'), $file['version']); ?> </small>
+				<?php endif; ?>
+
+				<?php if(isset($file['date'])): ?>
+				<small><?php printf(__('%s', 'pronamic_ideal'), $file['date']->format('d-m-Y')); ?> </small>
 				<?php endif; ?>
 			</a>
 		</li>
