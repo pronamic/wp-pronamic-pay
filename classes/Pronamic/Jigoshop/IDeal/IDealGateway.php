@@ -73,11 +73,14 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     	?>
     	<thead>
     		<tr>
-    			<th scope="col" width="200px">
-    				<?php _e('Pronamic iDEAL', 'pronamic_ideal'); ?>
-    			</th>
-    			<th scope="col" class="desc">
-    				<?php _e('Allow iDEAL payments.', 'pronamic_ideal'); ?>
+    			<th scope="col" colspan="2">
+    				<h3 class="title">
+    					<?php _e('Pronamic iDEAL', 'pronamic_ideal'); ?>
+    				</h3>
+    				
+    				<p>
+    					<?php _e('Allow iDEAL payments.', 'pronamic_ideal'); ?>
+    				</p>
     			</th>
     		</tr>
     	</thead>

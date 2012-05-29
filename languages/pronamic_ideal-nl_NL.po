@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 12:06+0100\n"
-"PO-Revision-Date: 2012-05-10 12:06+0100\n"
+"POT-Creation-Date: 2012-05-29 09:33+0100\n"
+"PO-Revision-Date: 2012-05-29 09:33+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -308,10 +308,15 @@ msgstr "Nieuwe toevoegen"
 msgid "iDEAL Documentation"
 msgstr "iDEAL documentatie"
 
-#: views/documentation.php:262
+#: views/documentation.php:267
 #, php-format
 msgid "version %s"
 msgstr "versie %s"
+
+#: views/documentation.php:271
+#, php-format
+msgid "%s"
+msgstr "%s"
 
 #: views/configurations-form.php:27
 msgid "Configuration deleted."
@@ -376,6 +381,7 @@ msgstr "Bewerken"
 
 #: views/configurations-form.php:91
 #: views/configurations-form.php:92
+#: views/configuration-tests.php:229
 msgid "Tests"
 msgstr "Tests"
 
@@ -595,7 +601,6 @@ msgstr "Ophalen banken lijsten"
 #: views/configuration-tests.php:82
 #: views/configuration-tests.php:127
 #: views/configuration-tests.php:211
-#: views/configuration-tests.php:245
 msgid "Mandatory Tests"
 msgstr "Verplichte tests"
 
@@ -620,6 +625,11 @@ msgstr "Detail"
 #: views/configuration-tests.php:114
 msgid "Consumer Message"
 msgstr "Consumenten bericht"
+
+#: views/configuration-tests.php:236
+#, php-format
+msgid "Test &euro; %s"
+msgstr "Test &euro; %s"
 
 #: views/gravityforms/feeds.php:28
 msgid "iDEAL Feeds"
@@ -1077,15 +1087,15 @@ msgstr "iDEAL velden"
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:80
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
 msgstr "iDEAL betalingen toestaan."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:105
 msgid "This controls the description which the user sees during checkout."
 msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:204
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:207
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL betaling."
 
