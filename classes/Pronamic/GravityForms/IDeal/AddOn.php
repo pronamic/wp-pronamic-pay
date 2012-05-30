@@ -705,6 +705,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	        RGFormsModel::update_lead($lead);
 
 			// Redirect user to the issuer
+			// @todo $url could be null, resulting in display of text Array instead of redirecting user to iDEAL
 			$confirmation = array('redirect' => $url);
 		}
 

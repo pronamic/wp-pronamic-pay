@@ -120,7 +120,8 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
 *	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions
 *	Jigoshop - Updated the HTML options table head of the IDEAL gateway to the default Jigoshop format
- 
+*	iDEAL Advanced - Fixed an issue with an empty WordPress WPLANG constant, causing field generating error: language. Parameter '' has less than 2 characters
+
 = beta-0.9.6 =
 *	Gravity Forms - Fixed bug with hidden conditional field, ignore iDEAL
 

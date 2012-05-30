@@ -269,7 +269,8 @@ class Pronamic_IDeal_IDealClient {
 
 			$message->transaction->setId((string) $response->transaction->getId());
 		} else {
-
+			// @todo what if response is an error repsonse message, for example:
+			// Field generating error: language. Parameter '' has less than 2 characters
 		}
 
 		return $response;
