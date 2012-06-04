@@ -20,6 +20,17 @@
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
 			</live>
 		</variant>
+		<variant method="basic">
+			<id>abnamro-ideal-hosted</id>
+			<name>ABN AMRO - iDEAL Hosted</name>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+			</live>
+		</variant>
 		<variant method="kassa" disabled="disabled">
 			<id>abnamro-ideal-only-kassa</id>
 			<name>ABN AMRO - iDEAL Only Kassa</name>
@@ -41,12 +52,54 @@
 
 			<test>
 				<paymentServerUrl>ssl://abnamro-test.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<directoryRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
+				<transactionRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
+				<statusRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
 				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
 			</test>
 			<live>
 				<paymentServerUrl>ssl://abnamro.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<directoryRequestUrl>ssl://idealm.abnamro.nl:443/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
+				<transactionRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
+				<statusRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
 				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
+
+			<certificates>
+				<file>certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>fortis-bank</id>
+		<name>Fortis Bank</name>
+			
+		<variant method="basic">
+			<id>fortis-bank-ideal-hosted</id>
+			<name>Fortis Bank - iDEAL Hosted</name>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+			</live>
+		</variant>
+		<variant method="advanced">
+			<id>fortis-bank-ideal-integrated</id>
+			<name>Fortis Bank - iDEAL Integrated</name>
+
+			<test>
+				<paymentServerUrl>ssl://acquirer-ideal.test.nl.fortis.com:443/ideal/iDeal</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>ssl://acquirer-ideal.bank.nl.fortis.com:443/ideal/iDeal</paymentServerUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/fortis-bank-ideal-integrated/fortisbank-0.cer</file>
+			</certificates>
 		</variant>
 	</provider>
 
@@ -267,6 +320,34 @@
 			<live>
 				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
 			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>sisow</id>
+		<name>Sisow</name>
+		<url>http://sisow.nl/</url>
+
+		<variant method="advanced">
+			<id>sisow-ideal-professional</id>
+			<name>Sisow - iDEAL Professional</name>
+
+			<test>
+				<directoryRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
+				<transactionRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
+				<statusRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<directoryRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
+				<transactionRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
+				<statusRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+
+			<certificates>
+				
+			</certificates>
 		</variant>
 	</provider>
 </ideal>
