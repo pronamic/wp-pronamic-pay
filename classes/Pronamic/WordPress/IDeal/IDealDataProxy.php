@@ -10,42 +10,13 @@
  */
 abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_IDealDataProxy {
 	/**
-	 * Language default
-	 * 
-	 * @var string
-	 */
-	const LANGUAGE_DEFAULT = 'en_US';
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Helper function to retrieve the WordPress language
-	 * 
-	 * @return string
-	 */
-	private function getWordPressLanguage() {
-		$language = get_option('WPLANG', WPLANG);
-
-		if(empty($language)) {
-			// Prevent field generating error: language. Parameter '' has less than 2 characters
-			$language = self::LANGUAGE_DEFAULT;
-		}
-
-		return $language;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Get the ISO 639 language code
 	 * 
 	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639Code()
 	 * @return string
 	 */
 	public function getLanguageIso639Code() {
-		$language = self::getWordPressLanguage();
-	
-		return substr($language, 0, 2);
+		return Pronamic_WordPress_IDeal_Util::getLanguageIso639Code();
 	}
 
 	/**
@@ -55,6 +26,6 @@ abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_ID
 	 * @return string
 	 */
 	public function getLanguageIso639AndCountryIso3166Code() {
-		return self::getWordPressLanguage();
+		return Pronamic_WordPress_IDeal_Util::getLanguageIso639AndCountryIso3166Code();
 	}
 }

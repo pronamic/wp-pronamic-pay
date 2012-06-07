@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-29 09:33+0100\n"
-"PO-Revision-Date: 2012-05-29 09:33+0100\n"
+"POT-Creation-Date: 2012-06-07 13:52+0100\n"
+"PO-Revision-Date: 2012-06-07 13:52+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -308,12 +308,12 @@ msgstr "Nieuwe toevoegen"
 msgid "iDEAL Documentation"
 msgstr "iDEAL documentatie"
 
-#: views/documentation.php:267
+#: views/documentation.php:277
 #, php-format
 msgid "version %s"
 msgstr "versie %s"
 
-#: views/documentation.php:271
+#: views/documentation.php:281
 #, php-format
 msgid "%s"
 msgstr "%s"
@@ -860,17 +860,17 @@ msgstr "iDEAL beheerder"
 msgid "Administrator"
 msgstr "Beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:230
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:236
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:234
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:240
 msgid "Failure"
 msgstr "Storing"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:318
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:366
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:414
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:324
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:372
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:420
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -941,6 +941,7 @@ msgid "iDEAL payment unknown."
 msgstr "iDEAL betaling onbekend."
 
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:125
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:195
 #, php-format
 msgid "Order #%s"
 msgstr "Bestelling #%s"
@@ -1086,6 +1087,11 @@ msgstr "iDEAL velden"
 #, php-format
 msgid "Entry #%s"
 msgstr "Inzending #%s"
+
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:703
+#, php-format
+msgid "%s (error code: %s)"
+msgstr "%s (foutcode: %s)"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."

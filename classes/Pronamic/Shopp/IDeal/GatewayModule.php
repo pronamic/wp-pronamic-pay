@@ -421,7 +421,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$this->ui->menu(1, array(
 			'name' => 'pronamic_shopp_ideal_configuration' , 
 			'label' => __('Select configuration', 'pronamic_ideal') , 
-			'selected' => $this->settings['pronamic_shopp_ideal_configuration']
+			'selected' => $this->settings['pronamic_shopp_ideal_configuration'] , 
+			'keyed' => true
 		), $options);
 	}	
 }

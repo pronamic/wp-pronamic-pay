@@ -646,7 +646,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		if((headers_sent() || $ajax) && is_array($confirmation) && isset($confirmation['redirect'])) {
 			$url = $confirmation['redirect'];
 
-			$confirmation = sprintf('<script>function gformRedirect(){document.location.href = "%s";}', esc_js($url));
+			// Using esc_js() and esc_url() on the URL is causing problems, the & in the URL is modified to &amp; or &#038;
+			$confirmation = sprintf('<script>function gformRedirect(){document.location.href = %s;}', json_encode($url));
 			if(!$ajax) {
 				$confirmation .= 'gformRedirect();';
 			}
@@ -695,18 +696,28 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			// Handle transaction
 			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
 
-			// Updating lead's payment_status to Processing
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-	        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();
+			if(empty($url)) {
+				$error = Pronamic_WordPress_IDeal_IDeal::getError();
+				if(!empty($error)) {
+					$confirmation = sprintf(
+						__('%s (error code: %s)', 'pronamic_ideal') , 
+						$error->getConsumerMessage() , 
+						$error->getCode()
+					);	
+				}
+			} else {
+				// Updating lead's payment_status to Processing
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();
+		
+		        RGFormsModel::update_lead($lead);
 	
-	        RGFormsModel::update_lead($lead);
-
-			// Redirect user to the issuer
-			// @todo $url could be null, resulting in display of text Array instead of redirecting user to iDEAL
-			$confirmation = array('redirect' => $url);
+				// Redirect user to the issuer
+				$confirmation = array('redirect' => $url);
+			}
 		}
 
 		return $confirmation;

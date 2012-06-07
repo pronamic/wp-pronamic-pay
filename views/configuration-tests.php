@@ -137,7 +137,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 	$iDeal->setMerchantId($configuration->getMerchantId());
 	$iDeal->setSubId($configuration->getSubId());
-	$iDeal->setLanguage('nl');
+	$iDeal->setLanguage(Pronamic_WordPress_IDeal_Util::getLanguageIso639Code());
 	$iDeal->setHashKey($configuration->hashKey);
 	$iDeal->setCurrency('EUR');
 	$iDeal->setPurchaseId(uniqid('test-' . $testCase));
@@ -245,7 +245,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	$iDeal->setAmount($testCase);
 	$iDeal->setTransactionReference(uniqid('test'));
 	// $iDeal->setOrderId(1);
-	$iDeal->setCustomerLanguage(Pronamic_WordPress_IDeal_Util::getLanguage());
+	$iDeal->setCustomerLanguage(Pronamic_WordPress_IDeal_Util::getLanguageIso639Code());
 
 	?>
 

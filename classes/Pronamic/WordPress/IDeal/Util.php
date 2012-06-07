@@ -10,30 +10,50 @@
  */
 class Pronamic_WordPress_IDeal_Util {
 	/**
-	 * Remove query from URL
+	 * Language default
 	 * 
-	 * @param string $url
-	 * @return string
+	 * @var string
 	 */
-	public static function removeQueryFromUrl($url) {
-		// @todo see if we can use: 
-		// http://php.net/parse_url and http://php.net/manual/en/function.http-build-url.php
-		$url = preg_replace('/\?.*/', '', $url);
-
-		return $url;
-	}
+	const LANGUAGE_DEFAULT = 'en_US';
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the language from WordPress WPLANG options or constant
+	 * Helper function to retrieve the WordPress language
 	 * 
 	 * @return string
 	 */
 	public static function getLanguage() {
 		$language = get_option('WPLANG', WPLANG);
 
+		if(empty($language)) {
+			// Prevent field generating error: language. Parameter '' has less than 2 characters
+			$language = self::LANGUAGE_DEFAULT;
+		}
+
+		return $language;
+	}
+
+	/**
+	 * Get the ISO 639 language code
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639Code()
+	 * @return string
+	 */
+	public static function getLanguageIso639Code() {
+		$language = self::getLanguage();
+	
 		return substr($language, 0, 2);
+	}
+
+	/**
+	 * Get the language ISO 639 and ISO 3166 country code
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639AndCountryIso3166Code()
+	 * @return string
+	 */
+	public static function getLanguageIso639AndCountryIso3166Code() {
+		return self::getLanguage();
 	}
 
 	//////////////////////////////////////////////////
