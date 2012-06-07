@@ -237,6 +237,10 @@ class Pronamic_GravityForms_IDeal_Feed {
 				}
 			}
 		}
+
+		if(empty($url)) {
+			$url = site_url('/');
+		}
 		
 		return $url;
 	}

@@ -117,13 +117,11 @@ Here is a list of known plugin conflicts:
 *	Make simulator payments free
 *	MultiSafePay - http://www.multisafepay.com/
 *	TargetPay.com - https://www.targetpay.com/
-*	http://www.sisow.nl/algemeen/implementatie
 *	http://www.buckaroo.nl/zakelijk/partners/plugins.aspx
 *	IcePay
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 *	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
 	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
-*	In case of some iDEAL variants the return (success) URL should always be to the WordPress website itself (Gravity Forms)
 *	Check the IDEAL feed for Gravity Forms in combination with an redirection to URL or page confirmation
 *	Add the option to use Mollie profile keys
 *	Check Array string bug with Mollie and an subId and certificates 
@@ -136,6 +134,16 @@ Here is a list of known plugin conflicts:
 *	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions
 *	Jigoshop - Updated the HTML options table head of the IDEAL gateway to the default Jigoshop format
 *	iDEAL Advanced - Fixed an issue with an empty WordPress WPLANG constant, causing field generating error: language. Parameter '' has less than 2 characters
+*	Sisow - Added the "Sisow - Pronamic iDEAL" PDF file to the documentation page
+*	Gravity Forms - Improved the determination of the status URL
+*	Sisow - Added support for "Sisow - iDEAL Basic" variant
+*	Sisow - Added support for "Sisow - iDEAL Advanced" variant
+*	Gravity Forms - Display error code if somehting is going wrong with the iDEAL Advanced variant
+*	Shopp - Added 'keyed' => true parameter to the module settings UI render drop-down menu function
+*	Tweak - Removed the utility function remove query arguments from URL, no longer used
+*	Tweak - Improved the utility class and the retrieval of the ISO 639 and ISO 3166 values
+*	Tweak - Improved the iDEAL Basic test page, the WordPress language value is now used 
+*	Gravity Forms - Fix - Removed the esc_js() function from the AJAX redirection JavaScript function
 
 = beta-0.9.6 =
 *	Gravity Forms - Fixed bug with hidden conditional field, ignore iDEAL
