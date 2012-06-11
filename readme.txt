@@ -48,26 +48,38 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
 [ClassiPress theme](http://www.appthemes.com/themes/classipress/).
 
+= Event Espresso =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Event Espresso plugin](http://eventespresso.com/).
+
 = Banks and variants =
 
-*	ANB AMRO
+*	ABN AMRO
 	*	iDEAL Easy
+	*	iDEAL Hosted
+*	Fortis Bank
+	*	iDEAL Hosted
+	*	iDEAL Integrated
 *	Friesland Bank
 	*	iDEAL Zakelijk
 	*	iDEAL Zakelijk Plus
+*	iDEAL Simulator
+	*	iDEAL Lite / Basic
+	*	iDEAL Professional / Advanced / Zelfbouw
 *	ING
+	*	iDEAL Basic
+	*	iDEAL Advanced
+*	Mollie
 	*	iDEAL Basic
 	*	iDEAL Advanced
 *	Rabobank
 	*	iDEAL Lite
 	*	OmniKassa
-	*	iDEAL Professional
-*	Mollie
-	*	iDEAL Lite/Basic
-	*	iDEAL Professional/Advanced
-*	iDEAL Simulator
-	*	iDEAL Lite / Basic
-	*	iDEAL Professional / Advanced / Zelfbouw
+	*	iDEAL  Professional
+*	Sisow
+	*	iDEAL Basic
+	*	iDEAL Advanced
 
 == Installation ==
 
@@ -129,9 +141,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
-= trunk =
+= beta-0.9.8 =
 *	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive
 *	Shopp - Fix - Added wrapper code to JavaScript so $ will work for calling jQuery
+*	Event Espresso - Added support for the Event Espresso plugin
 
 = beta-0.9.7 =
 *	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
