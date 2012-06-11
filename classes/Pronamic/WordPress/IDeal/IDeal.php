@@ -389,15 +389,16 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$iDeal->setNormalReturnUrl(site_url('/'));
 		$iDeal->setAutomaticResponseUrl(site_url('/'));
 		$iDeal->setAmount($dataProxy->getAmount());
-		$iDeal->setTransactionReference(md5(time() . $dataProxy->getOrderId()));
 
 		// Payment
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
     	
 		if($payment == null) {
+			$id = md5(time() . $dataProxy->getOrderId());
+
 			// Update payment
 			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setId($iDeal->getTransactionReference());
+			$transaction->setId($id);
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
@@ -413,6 +414,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
 		}
 		
+		$iDeal->setTransactionReference($payment->transaction->getId());
+
 		// HTML
 		$html  = '';
 		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));

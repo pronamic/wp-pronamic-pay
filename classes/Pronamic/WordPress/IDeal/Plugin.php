@@ -274,7 +274,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
 	
 				$transactionReference = $data['transactionReference'];
-	
+
 				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
 	
 				if($payment != null) {
