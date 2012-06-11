@@ -233,6 +233,16 @@
 					'date' => new DateTime('17-04-2012') 
 				) 
 			)
+		) , 
+		'sisow.nl' => array(
+			'name' => 'Sisow' ,
+			'url' => 'http://sisow.nl/' , 
+			'resources' => array(
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf' ,
+					'name' => 'Sisow - Pronamic iDEAL' 
+				) 
+			)
 		)
 	);
 	

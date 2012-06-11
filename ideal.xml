@@ -328,9 +328,9 @@
 		<name>Sisow</name>
 		<url>http://sisow.nl/</url>
 
-		<variant method="advanced">
-			<id>sisow-ideal-professional</id>
-			<name>Sisow - iDEAL Professional</name>
+		<variant method="sisow-ideal" disabled="disabled">
+			<id>sisow-ideal</id>
+			<name>Sisow - iDEAL</name>
 
 			<test>
 				<directoryRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
@@ -347,6 +347,36 @@
 
 			<certificates>
 				
+			</certificates>
+		</variant>
+		<variant method="basic">
+			<id>sisow-ideal-basic</id>
+			<name>Sisow - iDEAL Basic</name>
+
+			<test>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+		</variant>
+		<variant method="advanced">
+			<id>sisow-ideal-advanced</id>
+			<name>Sisow - iDEAL Advanced</name>
+
+			<test>
+				<paymentServerUrl>ssl://www.sisow.nl:443/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>ssl://www.sisow.nl:443/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/sisow-ideal-advanced/sisowideal.cer</file>
 			</certificates>
 		</variant>
 	</provider>

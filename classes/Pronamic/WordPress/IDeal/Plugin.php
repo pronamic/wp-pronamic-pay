@@ -39,7 +39,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.6';
+	const VERSION = 'beta-0.9.8';
 
 	//////////////////////////////////////////////////
 
@@ -99,6 +99,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_WPeCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
 			Pronamic_EShop_IDeal_AddOn::bootstrap();
+			Pronamic_EventEspresso_IDeal_AddOn::bootstrap();
 		}
 
 		// Hooks and filters

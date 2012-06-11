@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: beta-0.9.6
+Stable tag: beta-0.9.8
 
 The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
 WordPress website.
@@ -48,26 +48,38 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
 [ClassiPress theme](http://www.appthemes.com/themes/classipress/).
 
+= Event Espresso =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Event Espresso plugin](http://eventespresso.com/).
+
 = Banks and variants =
 
-*	ANB AMRO
+*	ABN AMRO
 	*	iDEAL Easy
+	*	iDEAL Hosted
+*	Fortis Bank
+	*	iDEAL Hosted
+	*	iDEAL Integrated
 *	Friesland Bank
 	*	iDEAL Zakelijk
 	*	iDEAL Zakelijk Plus
+*	iDEAL Simulator
+	*	iDEAL Lite / Basic
+	*	iDEAL Professional / Advanced / Zelfbouw
 *	ING
+	*	iDEAL Basic
+	*	iDEAL Advanced
+*	Mollie
 	*	iDEAL Basic
 	*	iDEAL Advanced
 *	Rabobank
 	*	iDEAL Lite
 	*	OmniKassa
-	*	iDEAL Professional
-*	Mollie
-	*	iDEAL Lite/Basic
-	*	iDEAL Professional/Advanced
-*	iDEAL Simulator
-	*	iDEAL Lite / Basic
-	*	iDEAL Professional / Advanced / Zelfbouw
+	*	iDEAL  Professional
+*	Sisow
+	*	iDEAL Basic
+	*	iDEAL Advanced
 
 == Installation ==
 
@@ -117,13 +129,11 @@ Here is a list of known plugin conflicts:
 *	Make simulator payments free
 *	MultiSafePay - http://www.multisafepay.com/
 *	TargetPay.com - https://www.targetpay.com/
-*	http://www.sisow.nl/algemeen/implementatie
 *	http://www.buckaroo.nl/zakelijk/partners/plugins.aspx
 *	IcePay
 *	Do something with no configuratin selected in WooCommerce, show error on checkout
 *	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
 	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
-*	In case of some iDEAL variants the return (success) URL should always be to the WordPress website itself (Gravity Forms)
 *	Check the IDEAL feed for Gravity Forms in combination with an redirection to URL or page confirmation
 *	Add the option to use Mollie profile keys
 *	Check Array string bug with Mollie and an subId and certificates 
@@ -131,11 +141,26 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
-= trunk =
+= beta-0.9.8 =
+*	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive
+*	Shopp - Fix - Added wrapper code to JavaScript so $ will work for calling jQuery
+*	Event Espresso - Added support for the Event Espresso plugin
+
+= beta-0.9.7 =
 *	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
 *	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions
 *	Jigoshop - Updated the HTML options table head of the IDEAL gateway to the default Jigoshop format
 *	iDEAL Advanced - Fixed an issue with an empty WordPress WPLANG constant, causing field generating error: language. Parameter '' has less than 2 characters
+*	Sisow - Added the "Sisow - Pronamic iDEAL" PDF file to the documentation page
+*	Gravity Forms - Improved the determination of the status URL
+*	Sisow - Added support for "Sisow - iDEAL Basic" variant
+*	Sisow - Added support for "Sisow - iDEAL Advanced" variant
+*	Gravity Forms - Display error code if somehting is going wrong with the iDEAL Advanced variant
+*	Shopp - Added 'keyed' => true parameter to the module settings UI render drop-down menu function
+*	Tweak - Removed the utility function remove query arguments from URL, no longer used
+*	Tweak - Improved the utility class and the retrieval of the ISO 639 and ISO 3166 values
+*	Tweak - Improved the iDEAL Basic test page, the WordPress language value is now used 
+*	Gravity Forms - Fix - Removed the esc_js() function from the AJAX redirection JavaScript function
 
 = beta-0.9.6 =
 *	Gravity Forms - Fixed bug with hidden conditional field, ignore iDEAL

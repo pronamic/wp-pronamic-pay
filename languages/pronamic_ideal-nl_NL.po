@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-29 09:33+0100\n"
-"PO-Revision-Date: 2012-05-29 09:33+0100\n"
+"POT-Creation-Date: 2012-06-11 15:01+0100\n"
+"PO-Revision-Date: 2012-06-11 15:02+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -308,12 +308,12 @@ msgstr "Nieuwe toevoegen"
 msgid "iDEAL Documentation"
 msgstr "iDEAL documentatie"
 
-#: views/documentation.php:267
+#: views/documentation.php:277
 #, php-format
 msgid "version %s"
 msgstr "versie %s"
 
-#: views/documentation.php:271
+#: views/documentation.php:281
 #, php-format
 msgid "%s"
 msgstr "%s"
@@ -843,34 +843,34 @@ msgstr "Bestelling %s"
 msgid "&mdash; Select configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:434
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:435
 #, php-format
 msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
 msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:439
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:440
 msgid "iDEAL settings page"
 msgstr "iDEAL instellingen pagina"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:505
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:506
 msgid "iDEAL Administrator"
 msgstr "iDEAL beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:509
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:510
 msgid "Administrator"
 msgstr "Beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:230
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:236
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:234
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:240
 msgid "Failure"
 msgstr "Storing"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:318
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:366
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:414
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:324
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:372
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:420
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -941,6 +941,7 @@ msgid "iDEAL payment unknown."
 msgstr "iDEAL betaling onbekend."
 
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:125
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:195
 #, php-format
 msgid "Order #%s"
 msgstr "Bestelling #%s"
@@ -1029,7 +1030,7 @@ msgstr "eShop"
 msgid "iDEAL Issuer"
 msgstr "iDEAL bank"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:423
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:425
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
@@ -1087,6 +1088,11 @@ msgstr "iDEAL velden"
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:703
+#, php-format
+msgid "%s (error code: %s)"
+msgstr "%s (foutcode: %s)"
+
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
 msgstr "iDEAL betalingen toestaan."
@@ -1099,9 +1105,36 @@ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL betaling."
 
-#, fuzzy
-#~ msgid "Ad %s"
-#~ msgstr "Bestelling %s"
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:112
+msgid "Click to toggle"
+msgstr "Klik om te wisselen"
+
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:122
+msgid "Deactivate Pronamic iDEAL?"
+msgstr "Deactiveer Pronamic iDEAL?"
+
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:159
+msgid "Update Settings"
+msgstr "Instellingen bijwerken"
+
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:165
+msgid "Activate Pronamic iDEAL?"
+msgstr "Activeer Pronamic iDEAL?"
+
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:240
+msgid "Event Espresso"
+msgstr "Event Espresso"
+
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:242
+#, php-format
+msgid "Attendee #%s"
+msgstr "Deelnemer #%s"
+
+#: classes/Pronamic/EventEspresso/IDeal/IDealDataProxy.php:56
+#: classes/Pronamic/EventEspresso/IDeal/IDealDataProxy.php:83
+#, php-format
+msgid "Attendee %s"
+msgstr "Deelnemer %s"
 
 #~ msgid ""
 #~ "Thank you for your order, please click the button below to pay with iDEAL."
@@ -1350,9 +1383,6 @@ msgstr "In afwachting van iDEAL betaling."
 
 #~ msgid "Pronamic Google Maps"
 #~ msgstr "Pronamic Google Maps"
-
-#~ msgid "Click to toggle"
-#~ msgstr "Klik om te wisselen"
 
 #~ msgid "Donate $10, $20 or $50!"
 #~ msgstr "Doneer $10, $20 of $50!"
