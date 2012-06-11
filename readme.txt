@@ -129,6 +129,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= trunk =
+*	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive
+*	Shopp - Fix - Added wrapper code to JavaScript so $ will work for calling jQuery
+
 = beta-0.9.7 =
 *	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
 *	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions

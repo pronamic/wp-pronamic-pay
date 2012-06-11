@@ -63,7 +63,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$this->setup('pronamic_shopp_ideal_configuration');
 		
 		// Configuration ID
-		$this->configurationId = $this->settings['pronamic_shopp_ideal_configuration'];
+		$this->configurationId = filter_var($this->settings['pronamic_shopp_ideal_configuration'], FILTER_VALIDATE_INT);
 
 		// Order processing
 		//add_filter('shopp_purchase_order_processing', array($this, 'orderProcessing'), 20, 2);
@@ -385,17 +385,19 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		
 				// Only show extra fields on this paymethod/gateway
 				$script = '
-					$(document).bind("shopp_paymethod", function(event, paymethod) {
-						if(paymethod) {
-							var fields = $("#pronamic_ideal_issuer");
+					(function($) {
+						$(document).bind("shopp_paymethod", function(event, paymethod) {
+							if(paymethod) {
+								var fields = $("#pronamic_ideal_issuer");
 		
-							if(paymethod.indexOf("' . sanitize_key($this->settings['label']) . '") !== -1) {
-								fields.show();
-							} else {
-								fields.hide();
+								if(paymethod.indexOf("' . sanitize_key($this->settings['label']) . '") !== -1) {
+									fields.show();
+								} else {
+									fields.hide();
+								}
 							}
-						}
-					});
+						});
+					})(jQuery);
 				';
 		
 				add_storefrontjs($script);
@@ -417,11 +419,11 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		foreach($configurations as $configuration) {
     		$options[$configuration->getId()] = $configuration->getName();
     	}
-		
+
 		$this->ui->menu(1, array(
 			'name' => 'pronamic_shopp_ideal_configuration' , 
 			'label' => __('Select configuration', 'pronamic_ideal') , 
-			'selected' => $this->settings['pronamic_shopp_ideal_configuration'] , 
+			'selected' => $this->configurationId , 
 			'keyed' => true
 		), $options);
 	}	
