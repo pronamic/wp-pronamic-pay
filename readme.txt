@@ -141,6 +141,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= trunk =
+*	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)
+*	Shopp - Fix - Shopp is not showing the new payments settings after saving, bug in Shopp
+
 = beta-0.9.8 =
 *	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive
 *	Shopp - Fix - Added wrapper code to JavaScript so $ will work for calling jQuery
