@@ -167,13 +167,13 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getNormalReturnUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(false, 'thanks');
+		return shoppurl(array('messagetype' => 'open'), 'thanks');
 	}
 	
 	public function getCancelUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'cancelled'), 'receipt');
+		return shoppurl(array('messagetype' => 'cancelled'), 'thanks');
 	}
 	
 	public function getSuccessUrl() {
@@ -185,6 +185,6 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getErrorUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'error'), 'receipt');
+		return shoppurl(array('messagetype' => 'error'), 'thanks');
 	}
 }

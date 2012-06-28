@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 15:01+0100\n"
-"PO-Revision-Date: 2012-06-11 15:02+0100\n"
+"POT-Creation-Date: 2012-06-28 09:20+0100\n"
+"PO-Revision-Date: 2012-06-28 09:20+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -33,85 +33,109 @@ msgstr "Support licentiecode"
 msgid "The license key is used for access to automatic upgrades and support."
 msgstr "De licentiecode wordt gebruikt voor automatische upgrades en support."
 
-#: views/settings.php:47
-msgid "Supported Plugins"
-msgstr "Ondersteunde plugins"
-
-#: views/settings.php:54
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
-#: views/settings.php:67
-msgid "Jigoshop"
-msgstr "Jigoshop"
-
-#: views/settings.php:80
-msgid "Shopp"
-msgstr "Shopp"
-
-#: views/settings.php:93
-msgid "WooCommerce"
-msgstr "WooCommerce"
-
-#: views/settings.php:106
-msgid "WP e-Commerce"
-msgstr "WP e-Commerce"
-
-#: views/settings.php:119
-msgid "Installation Status"
-msgstr "Installatie status"
-
-#: views/settings.php:127
-msgid "PHP Version"
-msgstr "PHP versie"
-
-#: views/settings.php:138
-msgid "Pronamic iDEAL requires PHP 5.2 or above."
-msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
-
-#: views/settings.php:146
-msgid "MySQL Version"
-msgstr "MySQL versie"
-
-#: views/settings.php:157
-msgid "Pronamic iDEAL requires MySQL 5 or above."
-msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
-
-#: views/settings.php:165
-msgid "WordPress Version"
-msgstr "WordPress versie"
-
-#: views/settings.php:176
-msgid "Pronamic iDEAL requires WordPress 3.2 or above."
-msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
-
-#: views/settings.php:184
-msgid "Time"
-msgstr "Tijd"
-
-#: views/settings.php:187
-msgid "Y/m/d g:i:s A"
-msgstr "d-m-Y H:i"
-
-#: views/settings.php:196
-msgid "Registered Hashing Algorithms"
-msgstr "Geregistreerde hashing algoritmen"
-
-#: views/settings.php:213
-msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
-msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
-
-#: views/settings.php:224
+#: views/settings.php:49
 #: views/configuration-edit.php:356
 #: views/gravityforms/feed-edit.php:431
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/settings.php:224
-#: views/configuration-edit.php:356
-#: views/gravityforms/feed-edit.php:431
-msgid "Update"
-msgstr "Update"
+#: views/settings.php:58
+msgid "License Information"
+msgstr "Licentie informatie"
+
+#: views/settings.php:66
+msgid "No license information available."
+msgstr "Geen licentie informatie beschikbaar."
+
+#: views/settings.php:77
+msgid "Activation Date"
+msgstr "Activatie datum"
+
+#: views/settings.php:80
+#: views/settings.php:93
+#: views/settings.php:279
+msgid "Y/m/d g:i:s A"
+msgstr "d-m-Y H:i"
+
+#: views/settings.php:90
+msgid "Expiration Date"
+msgstr "Verval datum"
+
+#: views/settings.php:104
+msgid "Supported Plugins"
+msgstr "Ondersteunde plugins"
+
+#: views/settings.php:111
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: views/settings.php:124
+msgid "Jigoshop"
+msgstr "Jigoshop"
+
+#: views/settings.php:137
+msgid "Shopp"
+msgstr "Shopp"
+
+#: views/settings.php:150
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: views/settings.php:163
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
+
+#: views/settings.php:176
+msgid "Event Espresso"
+msgstr "Event Espresso"
+
+#: views/settings.php:189
+msgid "Installation Status"
+msgstr "Installatie status"
+
+#: views/settings.php:197
+msgid "Site URL"
+msgstr "Site URL"
+
+#: views/settings.php:208
+msgid "Home URL"
+msgstr "Home URL"
+
+#: views/settings.php:219
+msgid "PHP Version"
+msgstr "PHP versie"
+
+#: views/settings.php:230
+msgid "Pronamic iDEAL requires PHP 5.2 or above."
+msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
+
+#: views/settings.php:238
+msgid "MySQL Version"
+msgstr "MySQL versie"
+
+#: views/settings.php:249
+msgid "Pronamic iDEAL requires MySQL 5 or above."
+msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
+
+#: views/settings.php:257
+msgid "WordPress Version"
+msgstr "WordPress versie"
+
+#: views/settings.php:268
+msgid "Pronamic iDEAL requires WordPress 3.2 or above."
+msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
+
+#: views/settings.php:276
+msgid "Time"
+msgstr "Tijd"
+
+#: views/settings.php:288
+msgid "Registered Hashing Algorithms"
+msgstr "Geregistreerde hashing algoritmen"
+
+#: views/settings.php:305
+msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
+msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
 #: views/pages-generator.php:37
 msgid "iDEAL Pages Generator"
@@ -505,6 +529,11 @@ msgstr "SHA vingerafdruk: %s"
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
+#: views/configuration-edit.php:356
+#: views/gravityforms/feed-edit.php:431
+msgid "Update"
+msgstr "Update"
+
 #: views/configuration-edit.php:365
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
@@ -870,7 +899,7 @@ msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:324
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:372
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:420
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:423
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -1030,7 +1059,7 @@ msgstr "eShop"
 msgid "iDEAL Issuer"
 msgstr "iDEAL bank"
 
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:425
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:426
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
@@ -1120,10 +1149,6 @@ msgstr "Instellingen bijwerken"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:165
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:240
-msgid "Event Espresso"
-msgstr "Event Espresso"
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:242
 #, php-format
@@ -1270,9 +1295,6 @@ msgstr "Deelnemer %s"
 #, fuzzy
 #~ msgid "Edit Feed"
 #~ msgstr "Bewerken"
-
-#~ msgid "Custom URL:"
-#~ msgstr "Maatwerk URL:"
 #~ msgctxt "post type general name"
 
 #~ msgid "Blocks"

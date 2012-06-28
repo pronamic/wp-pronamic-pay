@@ -134,12 +134,14 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 
 	//////////////////////////////////////////////////
 	// URL's
+	// @todo we could also use $this->merchant->cart_data['transaction_results_url']
+	// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-includes/merchant.class.php#L184
 	//////////////////////////////////////////////////
 
 	public function getNormalReturnUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'], 
+				'sessionid' => $this->merchant->cart_data['session_id'] ,  
 				'gateway' => 'wpsc_merchant_pronamic_ideal'
 			) , 
 			get_option('transact_url')
@@ -149,10 +151,11 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	public function getCancelUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'], 
+				'sessionid' => $this->merchant->cart_data['session_id'] ,  
+				'gateway' => 'wpsc_merchant_pronamic_ideal' , 
 				'return' => 'cancel'
 			) , 
-			get_option('shopping_cart_url')
+			get_option('transact_url')
 		);
 	}
 
@@ -169,10 +172,11 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	public function getErrorUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'], 
+				'sessionid' => $this->merchant->cart_data['session_id'] , 
+				'gateway' => 'wpsc_merchant_pronamic_ideal' , 
 				'return' => 'error'
 			) , 
-			get_option('shopping_cart_url')
+			get_option('transact_url')
 		);
 	}
 }

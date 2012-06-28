@@ -144,6 +144,14 @@ Here is a list of known plugin conflicts:
 = trunk =
 *	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)
 *	Shopp - Fix - Shopp is not showing the new payments settings after saving, bug in Shopp
+*	Tweak - Changed home_url() to site_url() for retrieving license information
+*	Event Espresso - Tweak - Improved the documentation of some functions and constants
+*	Event Espresso - Fix - Removed debug information from choose payment option page 
+*	Jigoshop - Tweak - Return visitor to view order page after expired payment
+*	WP e-Commerce - Test - Version 3.8.8.2 and 3.8.8.3
+*	WP e-Commerce - Tweak - Improved the return, cancel, success and error URL's
+*	Shopp - Tweak - Improved the return, cancel, success and error URL's
+*	Shopp - Tweak - Improved the automatic status update of purchases
 
 = beta-0.9.8 =
 *	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive

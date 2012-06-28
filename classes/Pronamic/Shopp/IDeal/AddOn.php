@@ -89,58 +89,49 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
 		if($payment->getSource() == self::SLUG && self::isShoppSupported()) {
-			global $Shopp, $wpdb;
-			
-			$transaction = $payment->transaction;
+			global $Shopp;
 
-			if($order->status !== 'completed') {
-				$url = null;
-				$setStatus = null;
+			$id = $payment->getSourceId();
+			$transaction = $payment->transaction;
+			
+			$purchase = new Purchase($id);
+			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
+			$dataProxy = new Pronamic_Shopp_IDeal_IDealDataProxy($purchase, $gateway);
+			
+			if(!Pronamic_Shopp_Shopp::isPurchasePaid($purchase)) {
+				$url = $dataProxy->getNormalReturnUrl();
 
 				$status = $transaction->getStatus();
+
 				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
-						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED;
+						Pronamic_Shopp_Shopp::updatePurchaseStatus($purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED);
 
-						$url = shoppurl(array('messagetype' => 'cancelled'), 'catalog');
-
-						$Shopp->resession();
+						$url = $dataProxy->getCancelUrl();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
-						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED;
-
-						$url = shoppurl(array('messagetype' => 'expired'), 'checkout');
+						Pronamic_Shopp_Shopp::updatePurchaseStatus($purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED);
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
-						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE;
+						Pronamic_Shopp_Shopp::updatePurchaseStatus($purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE);
 
-						$url = shoppurl(array('messagetype' => 'failure'), 'checkout');
+						$url = $dataProxy->getErrorUrl();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
-						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_CHARGED;
+						Pronamic_Shopp_Shopp::updatePurchaseStatus($purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CAPTURED);
 
-						$url = $url = shoppurl(false, 'thanks');
+						$url = $dataProxy->getSuccessUrl();
 
 						$Shopp->resession();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_OPEN:
-						$setStatus = Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN;
-
-						$url = shoppurl(array('messagetype' => 'open'), 'checkout');
+						Pronamic_Shopp_Shopp::updatePurchaseStatus($purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN);
 
 						break;
-				}
-				
-				if($setStatus) {
-					$wpdb->update(
-						$wpdb->prefix . SHOPP_DBPREFIX . 'purchase' , 
-						array('txnstatus' => $setStatus) , 
-						array('id' => $payment->getSourceId())
-					);
 				}
 
 				if($url && $canRedirect) {

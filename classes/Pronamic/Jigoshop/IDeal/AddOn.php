@@ -67,13 +67,15 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			$dataProxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy($order);
 
 			if($order->status !== Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED) {				
-				$url = null;
+				$url = $dataProxy->getNormalReturnUrl();
 
 				$status = $transaction->getStatus();
 
 				switch($status) {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
 						$order->update_status(Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __('iDEAL payment cancelled.', 'pronamic_ideal'));
+
+						$url = $dataProxy->getCancelUrl();
 
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:

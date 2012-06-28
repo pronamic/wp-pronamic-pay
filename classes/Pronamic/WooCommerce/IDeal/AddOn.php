@@ -75,6 +75,8 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
 						$order->update_status(Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __('iDEAL payment cancelled.', 'pronamic_ideal'));
 
+						$url = $dataProxy->getCancelUrl();
+
 						break;
 					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
 						// WooCommerce PayPal gateway uses 'failed' order status for an 'expired' payment
