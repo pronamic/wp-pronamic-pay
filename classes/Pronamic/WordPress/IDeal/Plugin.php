@@ -39,7 +39,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.8';
+	const VERSION = 'beta-0.9.9';
 
 	//////////////////////////////////////////////////
 
@@ -274,9 +274,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 				$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
 	
 				$transactionReference = $data['transactionReference'];
-	
+
 				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
-	
+
 				if($payment != null) {
 					$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
 	
@@ -365,7 +365,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$response = wp_remote_post($url, array(
 				'body' => array(
 					'key' => self::getKey() , 
-					'url' => home_url() 
+					'url' => site_url() 
 				)
 			));
 

@@ -9,14 +9,34 @@
  * @version 1.0
  */
 class Pronamic_EventEspresso_EventEspresso {
+	/**
+	 * Payment status incomplete indicator
+	 * 
+	 * @var string
+	 */
 	const PAYMENT_STATUS_INCOMPLETE = 'Incomplete';
 
+	/**
+	 * Payment status pending indicator
+	 * 
+	 * @var string
+	 */
 	const PAYMENT_STATUS_PENDING = 'Pending';
 
+	/**
+	 * Payment status completed indicator
+	 * 
+	 * @var string
+	 */
 	const PAYMENT_STATUS_COMPLETED = 'Completed';
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get payment data by attendee ID
+	 * 
+	 * @param string $id
+	 */
 	public static function getPaymentDataByAttendeeId($id) {
 		event_espresso_require_gateway('process_payments.php');
 
