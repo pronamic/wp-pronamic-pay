@@ -141,6 +141,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= trunk =
+*	Tweak - Added extra check in loading certificates files from the iDEAL XML file
+
 = beta-0.9.9 =
 *	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)
 *	Shopp - Fix - Shopp is not showing the new payments settings after saving, bug in Shopp

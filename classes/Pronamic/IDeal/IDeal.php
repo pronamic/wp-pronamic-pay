@@ -156,9 +156,13 @@ class Pronamic_IDeal_IDeal {
 							$variant->testSettings = new stdClass();
 							$variant->testSettings->dashboardUrl = (string) $variantXml->test->dashboardUrl;
 							$variant->testSettings->paymentServerUrl = (string) $variantXml->test->paymentServerUrl;
-		
-							foreach($variantXml->xpath('certificates/file') as $fileXml) {
-								$variant->certificates[] = (string) $fileXml;
+
+							$element = $variantXml->xpath('certificates/file');
+
+							if($element !== false) {
+								foreach($variantXml->xpath('certificates/file') as $fileXml) {
+									$variant->certificates[] = (string) $fileXml;
+								}
 							}
 							
 							$provider->addVariant($variant);
