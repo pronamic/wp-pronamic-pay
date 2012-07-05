@@ -31,7 +31,7 @@
 				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
 			</live>
 		</variant>
-		<variant method="kassa" disabled="disabled">
+		<variant method="kassa">
 			<id>abnamro-ideal-only-kassa</id>
 			<name>ABN AMRO - iDEAL Only Kassa</name>
 			<url>https://internetkassa.abnamro.nl/</url>
@@ -52,16 +52,20 @@
 
 			<test>
 				<paymentServerUrl>ssl://abnamro-test.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+
 				<directoryRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
 				<transactionRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
 				<statusRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
+
 				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
 			</test>
 			<live>
 				<paymentServerUrl>ssl://abnamro.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+
 				<directoryRequestUrl>ssl://idealm.abnamro.nl:443/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
 				<transactionRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
 				<statusRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
+
 				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
 
@@ -278,6 +282,20 @@
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
 			</live>
 		</variant>
+		<variant method="kassa">
+			<id>rabobank-ideal-kassa</id>
+			<name>Rabobank - Rabo iDEAL Kassa</name>
+			<url>http://i-kassa.rabobank.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/test/admin_RIK.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
+			</live>
+		</variant>
 		<variant method="omnikassa">
 			<id>rabobank-omnikassa</id>
 			<name>Rabobank - OmniKassa</name>
@@ -308,18 +326,6 @@
 				<file>certificates/rabobank-ideal-professional/cert.cer</file>
 				<file>certificates/rabobank-ideal-professional/cert-0.cer</file>
 			</certificates>
-		</variant>
-		<variant disabled="disabled">
-			<id>rabobank-ideal-kassa</id>
-			<name>Rabobank - Rabo iDEAL Kassa</name>
-			<url>http://i-kassa.rabobank.nl/</url>
-
-			<test>
-				<dashboardUrl>https://i-kassa.rabobank.nl/rik/test/admin_RIK.asp</dashboardUrl>
-			</test>
-			<live>
-				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
-			</live>
 		</variant>
 	</provider>
 

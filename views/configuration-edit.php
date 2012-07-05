@@ -46,6 +46,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 	// Basic
 	$configuration->hashKey = filter_input(INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING);
+
+	// Kassa
+	$configuration->pspId = filter_input(INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING);
+	$configuration->shaInPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING);
+	$configuration->shaOutPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_out_pass_phrase', FILTER_SANITIZE_STRING);
 	
 	// Advanced
 	if($_FILES['pronamic_ideal_private_key']['error'] == UPLOAD_ERR_OK) {
@@ -138,8 +143,9 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			__('Configuration updated, %s.', 'pronamic_ideal') , 
 			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', 'pronamic_ideal') . '</a>'
 		);
-	} else {
+	} elseif($updated === false) {
 		global $wpdb;
+
 		$wpdb->print_error();
 	}
 }
@@ -199,6 +205,32 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			</tr>
 			<tr>
 				<th scope="row">
+					<label for="pronamic_ideal_mode">
+						<?php _e('Mode', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<fieldset>
+						<legend class="screen-reader-text">
+							<?php _e('Mode', 'pronamic_ideal'); ?>
+						</legend>
+					
+						<p>		
+							<label>
+								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_LIVE; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_LIVE); ?> />
+								<?php _e('Live', 'pronamic_ideal'); ?>
+							</label><br />
+			
+							<label>
+								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_TEST; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_TEST); ?> />
+								<?php _e('Test', 'pronamic_ideal'); ?>
+							</label>
+						</p>
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<label for="pronamic_ideal_merchant_id">
 						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
 					</label>
@@ -227,32 +259,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</span>
 				</td>
 			</tr>
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_mode">
-						<?php _e('Mode', 'pronamic_ideal'); ?>
-					</label>
-				</th>
-				<td>
-					<fieldset>
-						<legend class="screen-reader-text">
-							<?php _e('Mode', 'pronamic_ideal'); ?>
-						</legend>
-					
-						<p>		
-							<label>
-								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_LIVE; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_LIVE); ?> />
-								<?php _e('Live', 'pronamic_ideal'); ?>
-							</label><br />
-			
-							<label>
-								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_TEST; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_TEST); ?> />
-								<?php _e('Test', 'pronamic_ideal'); ?>
-							</label>
-						</p>
-					</fieldset>
-				</td>
-			</tr>
 		</table>
 
 		<div class="extra-settings method-basic method-omnikassa">
@@ -268,11 +274,89 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 						</label>
 					</th>
 					<td>
-						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
+						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" class="regular-text" />
 	
 						<span class="description">
 							<br />
 							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="extra-settings method-kassa">
+			<h3>
+				<?php _e('Kassa', 'pronamic_ideal'); ?>
+			</h3>
+	
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_pspid">
+							<?php _e('PSPID', 'pronamic_ideal'); ?>
+						</label>
+					</th>
+					<td>
+						<input id="pronamic_ideal_pspid" name="pronamic_ideal_pspid" value="<?php echo $configuration->pspId; ?>" type="text" class="regular-text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You receive the PSPID from your iDEAL provider.', 'pronamic_ideal'); ?>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_sha_in_pass_phrase">
+							<?php _e('SHA-IN Pass phrase', 'pronamic_ideal'); ?>
+						</label>
+					</th>
+					<td>
+						<input id="pronamic_ideal_sha_in_pass_phrase" name="pronamic_ideal_sha_in_pass_phrase" value="<?php echo $configuration->shaInPassPhrase; ?>" type="text" class="regular-text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal'); ?>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_sha_out_pass_phrase">
+							<?php _e('SHA-OUT Pass phrase', 'pronamic_ideal'); ?>
+						</label>
+					</th>
+					<td>
+						<input id="pronamic_ideal_sha_out_pass_phrase" name="pronamic_ideal_sha_out_pass_phrase" value="<?php echo $configuration->shaOutPassPhrase; ?>" type="text" class="regular-text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal'); ?>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="extra-settings method-omnikassa">
+			<h3>
+				<?php _e('OmniKassa', 'pronamic_ideal'); ?>
+			</h3>
+	
+			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<label for="pronamic_ideal_omnikassa_version_id">
+							<?php _e('Version ID', 'pronamic_ideal'); ?>
+						</label>
+					</th>
+					<td>
+						<input id="pronamic_ideal_omnikassa_version_id" name="pronamic_ideal_omnikassa_version_id" value="<?php echo $configuration->versionId; ?>" type="text" />
+	
+						<span class="description">
+							<br />
+							<?php _e('You can find the version ID in the OmniKassa dashboard.', 'pronamic_ideal'); ?>
 						</span>
 					</td>
 				</tr>
@@ -496,13 +580,13 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			</table>
 
 			<?php 
-			
+
 			submit_button(
 				__('Generate', 'pronamic_ideal') ,  
 				'secundary' , 
 				'generate'
 			);
-		
+
 			?>
 		</div>
 	</form>
