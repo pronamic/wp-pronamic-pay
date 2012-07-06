@@ -394,7 +394,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 		$iDeal->setLanguage($dataProxy->getLanguageIso639AndCountryIso3166Code());
 		$iDeal->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-		$iDeal->setDescription($dataProxy->getDescription());
+		$iDeal->setOrderDescription($dataProxy->getDescription());
 		$iDeal->setAmount($dataProxy->getAmount());
 
 		// Payment
