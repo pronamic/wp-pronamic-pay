@@ -9,58 +9,6 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
-	//////////////////////////////////////////////////
-	// Parameters
-	//////////////////////////////////////////////////
-
-	/**
-	 * Indicator for the PSPID parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_PSPID = 'PSPID';
-
-	/**
-	 * Indicator for the ORDERID parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_ORDERID = 'ORDERID';
-
-	/**
-	 * Indicator for the AMOUNT parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_AMOUNT = 'AMOUNT';
-
-	/**
-	 * Indicator for the CURRENCY parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_CURRENCY = 'CURRENCY';
-
-	/**
-	 * Indicator for the AMOUNT parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_LANGUAGE = 'LANGUAGE';
-
-	//////////////////////////////////////////////////
-	// Parameters
-	//////////////////////////////////////////////////
-
-	/**
-	 * Indicator for the STATUS parameter
-	 * 
-	 * @var string
-	 */
-	const PARAMETER_STATUS = 'STATUS';
-
-	//////////////////////////////////////////////////
-
 	/**
 	 * Indicator for hash algorithm SHA-1
 	 * 
@@ -94,94 +42,27 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The PSP ID
-	 * 
-	 * @var string
-	 */
-	private $pspId;
-
-	/**
-	 * The order ID
-	 * 
-	 * @var string
-	 */
-	private $orderId;
-
-	/**
 	 * The amount
 	 *
 	 * @var int
 	 */
 	private $amount;
 
-	/**
-	 * The currency
-	 *
-	 * @var string
-	 */
-	private $currency;
-
-	/**
-	 * The language
-	 * 
-	 * @var string
-	 */
-	private $language;
-
 	//////////////////////////////////////////////////
 
 	/**
-	 * Name of the customer
-	 * 
-	 * @var string
-	 */
-	private $customerName;
-
-	/**
-	 * E-mailaddress
-	 * 
-	 * @var string
-	 */
-	private $eMailAddress;
-
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Owner address
-	 * 
-	 * @var string
-	 */
-	private $ownerAddress;
-
-	/**
-	 * Owner city
-	 * 
-	 * @var string
-	 */
-	private $ownerCity;
-
-	/**
-	 * Owner ZIP
-	 * 
-	 * @var string
-	 */
-	private $ownerZip;
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Calculations parameters SHA-IN
+	 * Signature parameters IN
 	 * 
 	 * @var array
 	 */
-	public $calculationsParametersIn;
+	private $calculationsParametersIn;
 
 	/**
-	 * Calculations parameters SHA-OUT
+	 * Signature parameters OUT
 	 * 
 	 * @var array
 	 */
-	public $calculationsParametersOut;
+	private $calculationsParametersOut;
 
 	//////////////////////////////////////////////////
 
@@ -206,6 +87,130 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		$this->hashAlgorithm = self::HASH_ALGORITHM_SHA_1;
 	}
 
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Get the payment server URL
+	 *
+	 * @return the payment server URL
+	 */
+	public function getPaymentServerUrl() {
+		return $this->paymentServerUrl;
+	}
+	
+	/**
+	 * Set the payment server URL
+	 *
+	 * @param string $url an URL
+	 */
+	public function setPaymentServerUrl($url) {
+		$this->paymentServerUrl = $url;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get hash algorithm
+	 * 
+	 * @return string
+	 */
+	public function getHashAlgorithm() {
+		return $this->hashAlgorithm;
+	}
+
+	/**
+	 * Set hash algorithm
+	 * 
+	 * @param string $hashAlgorithm
+	 */
+	public function setHashAlgorithm($hashAlgorithm) {
+		$this->hashAlgorithm = $hashAlgorithm;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get password phrase IN
+	 * 
+	 * @return string
+	 */
+	public function getPassPhraseIn() {
+		return $this->passPhraseIn;
+	}
+
+	/**
+	 * Set password phrase IN
+	 * 
+	 * @param string $passPhraseIn
+	 */
+	public function setPassPhraseIn($passPhraseIn) {
+		$this->passPhraseIn = $passPhraseIn;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get password phrase OUT
+	 * 
+	 * @return string
+	 */
+	public function getPassPhraseOut() {
+		return $this->passPhraseOut;
+	}
+
+	/**
+	 * Set password phrase OUT
+	 * 
+	 * @param string $passPhraseOut
+	 */
+	public function setPassPhraseOut($passPhraseOut) {
+		$this->passPhraseOut = $passPhraseOut;
+	}
+
+	//////////////////////////////////////////////////
+	// Calculation parameters
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get calculations parameters IN
+	 * 
+	 * @return array
+	 */
+	public function getCalculationsParametersIn() {
+		return $this->calculationsParametersIn;
+	}
+
+	/**
+	 * Set calculations parameters IN
+	 * 
+	 * @param array $parameters
+	 */
+	public function setCalculationsParametersIn(array $parameters) {
+		$this->calculationsParametersIn = $parameters;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get calculations parameters OUT
+	 * 
+	 * @return array
+	 */
+	public function getCalculationsParametersOut() {
+		return $this->calculationsParametersOut;
+	}
+
+	/**
+	 * Set calculations parameters OUT
+	 * 
+	 * @param array $parameters
+	 */
+	public function setCalculationsParametersOut(array $parameters) {
+		$this->calculationsParametersOut = $parameters;
+	}
+
+	//////////////////////////////////////////////////
+	// Fields
 	//////////////////////////////////////////////////
 
 	/**
@@ -234,25 +239,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	}
 
 	//////////////////////////////////////////////////
-	
-	/**
-	 * Get the payment server URL
-	 *
-	 * @return the payment server URL
-	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
-	}
-	
-	/**
-	 * Set the payment server URL
-	 *
-	 * @param string $url an URL
-	 */
-	public function setPaymentServerUrl($url) {
-		$this->paymentServerUrl = $url;
-	}
-
+	// Fields helper functinos
 	//////////////////////////////////////////////////
 
 	/**
@@ -261,16 +248,19 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an PSP id
 	 */
 	public function getPspId() {
-		return $this->getField(self::PARAMETER_PSPID);
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID);
 	}
 
 	/**
 	 * Set the PSP id
+	 * 
+	 * Your affiliation name in our system, chosen by yourself when opening your account 
+	 * with us. This is a unique identifier and can’t ever be changed. 
 	 *
-	 * @param PSP id
+	 * @param string PSP id
 	 */
 	public function setPspId($pspId) {
-		$this->setField(self::PARAMETER_PSPID, $pspId);
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID, $pspId);
 	}
 
 	//////////////////////////////////////////////////
@@ -281,16 +271,16 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an order id
 	 */
 	public function getOrderId() {
-		return $this->getField(self::PARAMETER_ORDERID);
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID);
 	}
 
 	/**
 	 * Set the order id
 	 *
-	 * @param sub id
+	 * @param string $orderId
 	 */
 	public function setOrderId($orderId) {
-		$this->setField(self::PARAMETER_ORDERID, $orderId);
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID, $orderId);
 	}
 
 	//////////////////////////////////////////////////
@@ -301,16 +291,20 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an language
 	 */
 	public function getLanguage() {
-		return $this->getField(self::PARAMETER_LANGUAGE);
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE);
 	}
 
 	/**
 	 * Set the language
+	 * 
+	 * The format is "language_Country".
+	 * The language value is based on ISO 639-1.
+	 * The country value is based on ISO 3166-1.
 	 *
 	 * @param string $language
 	 */
 	public function setLanguage($language) {
-		$this->setField(self::PARAMETER_LANGUAGE, $language);
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE, $language);
 	}
 
 	//////////////////////////////////////////////////
@@ -321,16 +315,19 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getCurrency() {
-		return $this->getField(self::PARAMETER_CURRENCY);
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY);
 	}
 	
 	/**
 	 * Set the currency
+	 * 
+	 * Currency of the amount in alphabetic ISO code as can be found on 
+	 * http://www.currency-iso.org/iso_index/iso_tables/iso_tables_a1.htm
 	 *
-	 * @return string
+	 * @return string $currency
 	 */
 	public function setCurrency($currency) {
-		$this->setField(self::PARAMETER_CURRENCY, $currency);
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY, $currency);
 	}
 
 	//////////////////////////////////////////////////
@@ -352,102 +349,278 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function setAmount($amount) {
 		$this->amount = $amount;
 
-		$this->setField(self::PARAMETER_AMOUNT, Pronamic_IDeal_IDeal::formatPrice($amount));
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT, Pronamic_IDeal_IDeal::formatPrice($amount));
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get customer name
+	 * 
+	 * @return string
+	 */
 	public function getCustomerName() {
-		return $this->customerName;
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME);
 	}
 
+	/**
+	 * Set customer name
+	 * 
+	 * Special characters are allowed, but quotes must be avoided. Most acquirers don’t check the 
+	 * customer name since names can be written in different ways. 
+	 * 
+	 * @param string $customerName
+	 */
 	public function setCustomerName($customerName) {
-		$this->customerName = $customerName;
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME, $customerName);
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get e-mailaddress
+	 * 
+	 * @return string
+	 */
 	public function getEMailAddress() {
-		return $this->eMailAddress;
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL);
 	}
 
+	/**
+	 * Set e-mailaddress
+	 * 
+	 * @param string $eMailAddress
+	 */
 	public function setEMailAddress($eMailAddress) {
-		$this->eMailAddress = $eMailAddress;
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL, $eMailAddress);
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get owner addresss
+	 * 
+	 * @return string
+	 */
 	public function getOwnerAddress() {
-		return $this->ownerAddress;
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS);
 	}
 
+	/**
+	 * Set owner address
+	 * 
+	 * @param string $ownerAddress
+	 */
 	public function setOwnerAddress($ownerAddress) {
-		$this->ownerAddress = $ownerAddress;
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS, $ownerAddress);
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getOwnerCity() {
-		return $this->ownerCity;
+	/**
+	 * Get owner country
+	 * 
+	 * @return string
+	 */
+	public function getOwnerCountry() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY);
 	}
 
-	public function setOwnerCity($ownerCity) {
-		$this->ownerCity = $ownerCity;
+	/**
+	 * Set owner country
+	 * 
+	 * Country in ISO 3166-1-alpha-2 code as can be found on http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm 
+	 * 
+	 * @param string $ownerCountry
+	 */
+	public function setOwnerCountry($ownerCountry) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY, $ownerCountry);
 	}
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get owner ZIP
+	 * 
+	 * @return string
+	 */
 	public function getOwnerZip() {
-		return $this->ownerZip;
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP);
 	}
 
+	/**
+	 * Set owner ZIP
+	 * 
+	 * @param string $ownerZip
+	 */
 	public function setOwnerZip($ownerZip) {
-		$this->ownerZip = $ownerZip;
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP, $ownerZip);
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getPassPhraseIn() {
-		return $this->passPhraseIn;
+	/**
+	 * Get order description
+	 * 
+	 * The com field is sometimes transmitted to the acquirer (depending on the acquirer), 
+	 * in order to be shown on the account statements of the merchant or the customer. 
+	 * 
+	 * @return string
+	 */
+	public function getOrderDescription() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::COM);
 	}
 
-	public function setPassPhraseIn($passPhraseIn) {
-		$this->passPhraseIn = $passPhraseIn;
-	}
-
-	public function getPassPhraseOut() {
-		return $this->passPhraseOut;
-	}
-
-	public function setPassPhraseOut($passPhraseOut) {
-		$this->passPhraseOut = $passPhraseOut;
+	/**
+	 * Set order description
+	 * 
+	 * The com field is sometimes transmitted to the acquirer (depending on the acquirer), 
+	 * in order to be shown on the account statements of the merchant or the customer. 
+	 * 
+	 * @param string $description
+	 */
+	public function setOrderDescription($description) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::COM, $description);
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getHashAlgorithm() {
-		return $this->hashAlgorithm;
+	/**
+	 * Get accept URL
+	 * 
+	 * URL of the web page to show the customer when the payment is authorized. 
+	 * 
+	 * @reutnr string
+	 */
+	public function getAcceptUrl() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL);
 	}
 
-	public function setHashAlgorithm($hashAlgorithm) {
-		$this->hashAlgorithm = $hashAlgorithm;
+	/**
+	 * Set accept URL
+	 * 
+	 * URL of the web page to show the customer when the payment is authorized. 
+	 * 
+	 * @param string $url
+	 */
+	public function setAcceptUrl($url) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL, $url);
 	}
 
 	//////////////////////////////////////////////////
 
-	public function getShaInFields($fields) {
+	/**
+	 * Get cancel URL
+	 * 
+	 * URL of the web page to show the customer when he cancels the payment. 
+	 * 
+	 * @return string
+	 */
+	public function getCancelUrl() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL);
+	}
+
+	/**
+	 * Set cancel URL
+	 * 
+	 * URL of the web page to show the customer when he cancels the payment. 
+	 * 
+	 * @param string $url
+	 */
+	public function setCancelUrl($url) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL, $url);
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get exception URL
+	 * 
+	 * URL of the web page to show the customer when the payment result is uncertain.
+	 * 
+	 * @return string
+	 */
+	public function getExceptionUrl() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL);
+	}
+
+	/**
+	 * Set exception URL
+	 * 
+	 * URL of the web page to show the customer when the payment result is uncertain.
+	 * 
+	 * @param string $url
+	 */
+	public function setExceptionUrl($url) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL, $url);
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get decline URL
+	 * 
+	 * URL of the web page to show the customer when the acquirer rejects the authorisation more 
+	 * than the maximum of authorised tries (10 by default, but can be changed in the technical 
+	 * information page). 
+	 * 
+	 * @return string
+	 */
+	public function getDeclineUrl() {
+		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL);
+	}
+
+	/**
+	 * Set decline URL
+	 * 
+	 * URL of the web page to show the customer when the acquirer rejects the authorisation more 
+	 * than the maximum of authorised tries (10 by default, but can be changed in the technical 
+	 * information page). 
+	 * 
+	 * @param string $url
+	 */
+	public function setDeclineUrl($url) {
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL, $url);
+	}
+
+	//////////////////////////////////////////////////
+	// Signature functions
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get signature fields IN
+	 * 
+	 * @param array $fields
+	 * @return array
+	 */
+	private function getSignatureFieldsIn($fields) {
 		$calculationsParameters = array_flip($this->calculationsParametersIn);
 
 		return array_intersect_key($fields, $calculationsParameters);
 	}
 
-	public function getShaOutFields($fields) {
+	/**
+	 * Get signature fields OUT
+	 * 
+	 * @param array $fields
+	 * @return array
+	 */
+	private function getSignatureFieldsOut($fields) {
 		$calculationsParameters = array_flip($this->calculationsParametersOut);
 
 		return array_intersect_key($fields, $calculationsParameters);
 	}
 
-	public function getShaSign($fields, $passprahse) {
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get signature
+	 * 
+	 * @param array $fields
+	 * @param string $passprahse
+	 * @return string
+	 */
+	private function getSignature($fields, $passprahse) {
 		// This string is constructed by concatenating the values of the fields sent with the order (sorted
 		// alphabetically, in the format ‘parameter=value’), separated by a passphrase.		
 		$string = '';
@@ -465,7 +638,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			}
 		}
 
-		// SHA sign
+		// Hash
 		$result = hash($this->hashAlgorithm, $string);
 
 		// String to uppercase
@@ -476,22 +649,34 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 
 	//////////////////////////////////////////////////
 
-	public function getShaInSign() {
-		$fields = $this->getShaInFields($this->parameters);
+	/**
+	 * Get signature IN
+	 * 
+	 * @return string
+	 */
+	public function getSignatureIn() {
+		$fields = $this->getSignatureFieldsIn($this->fields);
 
-		return $this->getShaSign($fields, $this->getPassPhraseIn());
+		return $this->getSignature($fields, $this->getPassPhraseIn());
 	}
 
-	public function getShaOutSign($fields) {
-		$fields = $this->getShaOutFields($fields);
+	/**
+	 * Get signature OUT
+	 * 
+	 * @param array $fields
+	 */
+	public function getSignatureOut($fields) {
+		$fields = $this->getSignatureFieldsOut($fields);
 
-		return $this->getShaSign($fields, $this->getPassPhraseOut());
+		return $this->getSignature($fields, $this->getPassPhraseOut());
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the iDEAL HTML
+	 * Get HTML fields
+	 * 
+	 * @return string
 	 */
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields(array(
@@ -505,38 +690,60 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			'CN' => $this->getCustomerName() , 
 			'EMAIL' => $this->getEMailAddress() ,
 
-			'ownerZIP' => $this->getEMailAddress() , 
-			'owneraddress' => $this->getEMailAddress() , 
-			'ownercty' => $this->getEMailAddress() , 
-			'ownertown' => $this->getEMailAddress() , 
-			'ownertelno' => $this->getEMailAddress() , 
+			'owneraddress' => $this->getOwnerAddress() , 
+			'ownerZIP' => $this->getOwnerZip() , 
+			'ownertown' => '' ,
+			'ownercty' => $this->getOwnerCountry() ,  
+			'ownertelno' => '' , 
+
+			'COM' => $this->getOrderDescription() , 
 
 			// check before the payment: see Security: Check before the Payment
-			'SHASign' => $this->getShaInSign() , 
+			'SHASign' => $this->getSignatureIn() , 
+
+			// layout information: see Look and Feel of the Payment Page
+			// ?
 
 			// post payment redirection: see Transaction Feedback to the Customer
-			'accepturl' => '' , 
-			'declineurl' => '' , 
-			'exceptionurl' => '' , 
-			'cancelurl' => '' 
+			'accepturl' => $this->getAcceptUrl() , 
+			'declineurl' => $this->getDeclineUrl() , 
+			'exceptionurl' => $this->getExceptionUrl() , 
+			'cancelurl' => $this->getCancelUrl()
 		));
 	}
 
 	//////////////////////////////////////////////////
 
-	public function validate() {
-		if(isset($_GET)) {
-			$fields = array_change_key_case($_GET, CASE_UPPER);
+	/**
+	 * Verify request
+	 */
+	public function verifyRequest($data) {
+		$result = false;
 
-			$hash = $this->getShaOutSign($fields);
+		$data = array_change_key_case($data, CASE_UPPER);
 
-			$shasign = filter_input(INPUT_GET, 'SHASIGN', FILTER_SANITIZE_STRING);
+		if(isset($data['SHASIGN'])) {
+			$signature = $data['SHASIGN'];
 
-			if($shasign == $hash) {
-				$status = filter_input(INPUT_GET, self::PARAMETER_STATUS, FILTER_VALIDATE_INT);
+			$signatureOut = $this->getSignatureOut($data);
 
-				var_dump($status);
+			if(strcasecmp($signature, $signatureOut) === 0) {
+				$result = filter_var_array($data, array(
+					Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID => FILTER_SANITIZE_STRING ,
+					Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT => FILTER_VALIDATE_FLOAT , 
+					Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY => FILTER_SANITIZE_STRING ,
+					'PM' => FILTER_SANITIZE_STRING , 
+					'ACCEPTANCE' => FILTER_SANITIZE_STRING , 
+					'STATUS' => FILTER_VALIDATE_INT , 
+					'CARDNO' => FILTER_SANITIZE_STRING , 
+					'PAYID' => FILTER_VALIDATE_INT , 
+					'NCERROR' => FILTER_SANITIZE_STRING , 
+					'BRAND' => FILTER_SANITIZE_STRING , 
+					'SHASIGN' => FILTER_SANITIZE_STRING 
+				));
 			} 
 		}
+		
+		return $result;
 	}
 }

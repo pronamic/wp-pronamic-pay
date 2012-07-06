@@ -143,6 +143,8 @@ Here is a list of known plugin conflicts:
 
 = trunk =
 *	Tweak - Added extra check in loading certificates files from the iDEAL XML file
+*	Shopp - Fix - Purchases with discount payments fix
+*	Tweak - Added ABN AMRO Bank : Parameter Cookbook documentation link
 
 = beta-0.9.9 =
 *	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)

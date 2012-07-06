@@ -159,7 +159,7 @@ class Pronamic_Gateways_IDealInternetKassa_Statuses {
 	 * Payment deleted
 	 * @var int
 	 */
-	const PAYMENT_DELETED = 74;
+	const PAYMENT_DELETED_74 = 74;
 
 	/**
 	 * Deletion processed by merchant
