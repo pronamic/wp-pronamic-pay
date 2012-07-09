@@ -263,7 +263,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
 						$html = self::getHtmlIDealBasicForm($dataProxy, $configuration);
 						break;
-					case Pronamic_IDeal_IDeal::METHOD_KASSA:
+					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
 						$html = self::getHtmlIDealKassaForm($dataProxy, $configuration);
 						break;
 					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:

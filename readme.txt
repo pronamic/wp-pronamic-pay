@@ -57,9 +57,13 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 
 *	ABN AMRO
 	*	iDEAL Easy
+	*	iDEAL Only Kassa
+	*	iDEAL Internetkassa
 	*	iDEAL Hosted
+	*	iDEAL Zelfbouw (zonder kassa)
 *	Fortis Bank
 	*	iDEAL Hosted
+	*	iDEAL Internet Kassa (NEOS Solutions)
 	*	iDEAL Integrated
 *	Friesland Bank
 	*	iDEAL Zakelijk
@@ -69,12 +73,16 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 	*	iDEAL Professional / Advanced / Zelfbouw
 *	ING
 	*	iDEAL Basic
+	*	iDEAL Internet Kassa (The Way You Pay (TWYP))
 	*	iDEAL Advanced
 *	Mollie
 	*	iDEAL Basic
 	*	iDEAL Advanced
+*	Ogone
+	*	Ogone
 *	Rabobank
 	*	iDEAL Lite
+	*	iDEAL Internetkassa
 	*	OmniKassa
 	*	iDEAL  Professional
 *	Sisow
@@ -145,6 +153,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - Added extra check in loading certificates files from the iDEAL XML file
 *	Shopp - Fix - Purchases with discount payments fix
 *	Tweak - Added ABN AMRO Bank : Parameter Cookbook documentation link
+*	Feature - Added support for the iDEAL Internet Kassa of Ogone
 
 = beta-0.9.9 =
 *	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)

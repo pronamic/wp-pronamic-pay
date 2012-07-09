@@ -70,7 +70,7 @@ class Pronamic_IDeal_IDeal {
 	 * 
 	 * @var string
 	 */
-	const METHOD_KASSA = 'kassa';
+	const METHOD_INTERNETKASSA = 'internetkassa';
 
 	/**
 	 * Method OmniKassa
@@ -143,8 +143,8 @@ class Pronamic_IDeal_IDeal {
 								case self::METHOD_BASIC:
 									$variant = new Pronamic_IDeal_VariantBasic();
 									break;
-								case self::METHOD_KASSA:
-									$variant = new Pronamic_IDeal_VariantKassa();
+								case self::METHOD_INTERNETKASSA:
+									$variant = new Pronamic_IDeal_VariantInternetKassa();
 									break;
 								case self::METHOD_OMNIKASSA:
 									$variant = new Pronamic_IDeal_VariantOmniKassa();

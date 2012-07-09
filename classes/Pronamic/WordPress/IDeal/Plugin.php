@@ -114,12 +114,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 		
 		// On template redirect handle an possible return from iDEAL
 		add_action('template_redirect', array(__CLASS__, 'handleIDealAdvancedReturn'));
-		add_action('template_redirect', array(__CLASS__, 'handleIDealKassaReturn'));
+		add_action('template_redirect', array(__CLASS__, 'handleIDealInternetKassaReturn'));
 		add_action('template_redirect', array(__CLASS__, 'handleOmniKassaReturn'));
 		
 		// Check the payment status on an iDEAL return
 		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
-		add_action('pronamic_ideal_kassa_return', array(__CLASS__, 'updateKassaPaymentStatus'), 10, 2);
+		add_action('pronamic_ideal_internetkassa_return', array(__CLASS__, 'updateInternetKassaPaymentStatus'), 10, 2);
 		add_action('pronamic_ideal_omnikassa_return', array(__CLASS__, 'updateOmniKassaPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
@@ -267,12 +267,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Handle iDEAL kassa return
 	 */
-	public static function handleIDealKassaReturn() {
+	public static function handleIDealInternetKassaReturn() {
 		if(isset($_GET['SHASIGN'])) {
 			$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
 			foreach($configurations as $configuration) {
-				if($configuration->getVariant() instanceof Pronamic_IDeal_VariantKassa) {
+				if($configuration->getVariant() instanceof Pronamic_IDeal_VariantInternetKassa) {
 					$iDeal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
 					$iDeal->setPspId($configuration->pspId);
@@ -288,7 +288,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$result = $iDeal->verifyRequest($_GET);
 
 					if($result !== false) {
-						do_action('pronamic_ideal_kassa_return', $result, $canRedirect = true);
+						do_action('pronamic_ideal_internetkassa_return', $result, $canRedirect = true);
 						
 						break;
 					}
@@ -303,7 +303,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param array $data
 	 * @param boolean $canRedirect
 	 */
-	public static function updateKassaPaymentStatus($data, $canRedirect = false) {
+	public static function updateInternetKassaPaymentStatus($data, $canRedirect = false) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($data['ORDERID']);
 
 		if($payment != null) {

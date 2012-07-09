@@ -283,7 +283,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Kassa */ ?>
 
-			<tr class="extra-settings method-kassa">
+			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_pspid">
 						<?php _e('PSPID', 'pronamic_ideal'); ?>
@@ -298,7 +298,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</span>
 				</td>
 			</tr>
-			<tr class="extra-settings method-kassa">
+			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_sha_in_pass_phrase">
 						<?php _e('SHA-IN Pass phrase', 'pronamic_ideal'); ?>
@@ -313,7 +313,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</span>
 				</td>
 			</tr>
-			<tr class="extra-settings method-kassa">
+			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_sha_out_pass_phrase">
 						<?php _e('SHA-OUT Pass phrase', 'pronamic_ideal'); ?>
