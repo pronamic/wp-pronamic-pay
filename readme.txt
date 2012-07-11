@@ -149,7 +149,7 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
-= trunk =
+= beta-0.10 =
 *	Tweak - Added extra check in loading certificates files from the iDEAL XML file
 *	Shopp - Fix - Purchases with discount payments fix
 *	Tweak - Added ABN AMRO Bank : Parameter Cookbook documentation link
