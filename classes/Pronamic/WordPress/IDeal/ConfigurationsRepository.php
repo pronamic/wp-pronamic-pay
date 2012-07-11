@@ -132,7 +132,13 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
       	
 		$meta = json_decode($result->meta);
 
-		if(isset($meta->country)) $configuration->country = $meta->country;
+		// Kassa
+		if(isset($meta->pspId)) $configuration->pspId = $meta->pspId;
+		if(isset($meta->shaInPassPhrase)) $configuration->shaInPassPhrase = $meta->shaInPassPhrase;
+		if(isset($meta->shaOutPassPhrase)) $configuration->shaOutPassPhrase = $meta->shaOutPassPhrase;
+		
+		// Private key and certificates generator
+		if(isset($meta->country)) $configuration->country = $meta->country; 
        	if(isset($meta->stateOrProvince)) $configuration->stateOrProvince = $meta->stateOrProvince;
        	if(isset($meta->locality)) $configuration->locality = $meta->locality;
        	if(isset($meta->organization)) $configuration->organization = $meta->organization;

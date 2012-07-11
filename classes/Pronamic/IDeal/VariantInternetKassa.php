@@ -8,13 +8,13 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_VariantKassa extends Pronamic_IDeal_Variant {
+class Pronamic_IDeal_VariantInternetKassa extends Pronamic_IDeal_Variant {
 	/**
 	 * Constructs and initializes an iDEAL kassa variant
 	 */
 	public function __construct() {
 		parent::__construct();
 
-		$this->setMethod(Pronamic_IDeal_IDeal::METHOD_KASSA);
+		$this->setMethod(Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA);
 	}
 }

@@ -101,6 +101,7 @@ if($action == 'delete') {
 				</td>
 				<td>
 					<?php echo $configuration->getMerchantId(); ?>
+					<?php echo $configuration->pspId; ?>
 				</td>
 				<td>
 					<?php echo $configuration->getSubId(); ?>
