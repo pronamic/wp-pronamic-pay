@@ -74,7 +74,7 @@ class Pronamic_Shopp_Shopp {
 	/**
 	 * Check if the purchase is paid
 	 * 
-	 * @param unknown_type $purchase
+	 * @param Purchase $purchase
 	 */
 	public static function isPurchasePaid($purchase) {
 		$isPaid = false;
@@ -98,5 +98,23 @@ class Pronamic_Shopp_Shopp {
 		}
 		
 		return $isPaid;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Update purchase status
+	 * 
+	 * @param Purchase $purchase
+	 * @param string $status
+	 */
+	public static function updatePurchaseStatus($purchase, $status) {
+		global $wpdb;
+
+		$wpdb->update(
+			$wpdb->prefix . SHOPP_DBPREFIX . 'purchase' , 
+			array( 'txnstatus' => $status ) , 
+			array( 'id' => $purchase->id )
+		);
 	}
 }

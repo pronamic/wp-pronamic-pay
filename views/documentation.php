@@ -60,6 +60,10 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf' ,
 					'name' => 'Basic e-Commerce - Technical Integration Guide for e-Commerce' ,  
 					'version' => '3.2.2' 
+				) , 
+				array(
+					'url' => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp' , 
+					'name' => 'Parameter Cookbook'
 				)
 			)
 		) ,

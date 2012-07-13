@@ -46,6 +46,11 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 	// Basic
 	$configuration->hashKey = filter_input(INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING);
+
+	// Kassa
+	$configuration->pspId = filter_input(INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING);
+	$configuration->shaInPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING);
+	$configuration->shaOutPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_out_pass_phrase', FILTER_SANITIZE_STRING);
 	
 	// Advanced
 	if($_FILES['pronamic_ideal_private_key']['error'] == UPLOAD_ERR_OK) {
@@ -138,8 +143,9 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			__('Configuration updated, %s.', 'pronamic_ideal') , 
 			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', 'pronamic_ideal') . '</a>'
 		);
-	} else {
+	} elseif($updated === false) {
 		global $wpdb;
+
 		$wpdb->print_error();
 	}
 }
@@ -172,10 +178,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		<?php wp_nonce_field('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce'); ?>
 		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr($configuration->getId()); ?>" type="hidden" />
 
-		<h3>
-			<?php _e('General', 'pronamic_ideal'); ?>
-		</h3>
-
 		<table class="form-table">
 			<tr>
 				<th scope="row">
@@ -197,36 +199,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	                </select>
 				</td>
 			</tr>
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_merchant_id">
-						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
-					</label>
-				</th>
-				<td>
-	                <input id="pronamic_ideal_merchant_id" name="pronamic_ideal_merchant_id" value="<?php echo $configuration->getMerchantId(); ?>" type="text" />
 
-					<span class="description">
-						<br />
-						<?php _e('You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal'); ?>
-					</span>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_sub_id">
-						<?php _e('Sub ID', 'pronamic_ideal'); ?>
-					</label>
-				</th>
-				<td>
-	                <input id="pronamic_ideal_sub_id" name="pronamic_ideal_sub_id" value="<?php echo $configuration->getSubId(); ?>" type="text" />
-
-					<span class="description">
-						<br />
-						<?php printf(__('You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal'), 0); ?>
-					</span>
-				</td>
-			</tr>
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_mode">
@@ -253,102 +226,174 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</fieldset>
 				</td>
 			</tr>
+
+			<?php /* Easy, Basic, OmniKassa, Advanced */ ?>
+
+			<tr class="extra-settings method-easy method-basic method-omnikassa method-advanced">
+				<th scope="row">
+					<label for="pronamic_ideal_merchant_id">
+						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+	                <input id="pronamic_ideal_merchant_id" name="pronamic_ideal_merchant_id" value="<?php echo $configuration->getMerchantId(); ?>" type="text" />
+
+					<span class="description">
+						<br />
+						<?php _e('You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Basic, OmniKassa, Advanced */ ?>
+
+			<tr class="extra-settings method-basic method-omnikassa method-advanced">
+				<th scope="row">
+					<label for="pronamic_ideal_sub_id">
+						<?php _e('Sub ID', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+	                <input id="pronamic_ideal_sub_id" name="pronamic_ideal_sub_id" value="<?php echo $configuration->getSubId(); ?>" type="text" />
+
+					<span class="description">
+						<br />
+						<?php printf(__('You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal'), 0); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Basic */ ?>
+
+			<tr class="extra-settings method-basic method-omnikassa">
+				<th scope="row">
+					<label for="pronamic_ideal_hash_key">
+						<?php _e('Hash Key', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Kassa */ ?>
+
+			<tr class="extra-settings method-internetkassa">
+				<th scope="row">
+					<label for="pronamic_ideal_pspid">
+						<?php _e('PSPID', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_pspid" name="pronamic_ideal_pspid" value="<?php echo $configuration->pspId; ?>" type="text" />
+
+					<span class="description">
+						<br />
+						<?php _e('You receive the PSPID from your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+			<tr class="extra-settings method-internetkassa">
+				<th scope="row">
+					<label for="pronamic_ideal_sha_in_pass_phrase">
+						<?php _e('SHA-IN Pass phrase', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_sha_in_pass_phrase" name="pronamic_ideal_sha_in_pass_phrase" value="<?php echo $configuration->shaInPassPhrase; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+			<tr class="extra-settings method-internetkassa">
+				<th scope="row">
+					<label for="pronamic_ideal_sha_out_pass_phrase">
+						<?php _e('SHA-OUT Pass phrase', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_sha_out_pass_phrase" name="pronamic_ideal_sha_out_pass_phrase" value="<?php echo $configuration->shaOutPassPhrase; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Advanced */ ?>
+
+			<tr class="extra-settings method-advanced">
+				<th scope="row">
+					<label for="pronamic_ideal_private_key_password">
+						<?php _e('Private Key Password', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td> 
+					<input id="pronamic_ideal_private_key_password" name="pronamic_ideal_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" class="regular-text" />
+				</td>
+			</tr>
+			<tr class="extra-settings method-advanced">
+				<th scope="row">
+					<label for="pronamic_ideal_private_key">
+						<?php _e('Private Key', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
+					
+					<p>
+						<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
+					</p>
+					<?php 
+
+					submit_button(
+						__('Download Private Key', 'pronamic_ideal') , 
+						'secondary' , 'download_private_key' 
+					);
+
+					?>
+				</td>
+			</tr>
+			<tr class="extra-settings method-advanced">
+				<th scope="row">
+					<label for="pronamic_ideal_private_certificate">
+						<?php _e('Private Certificate', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
+
+					<p>
+						<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
+					</p>
+					<?php 
+					
+					if(!empty($configuration->privateCertificate)) {
+						$fingerprint = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+						$fingerprint = str_split($fingerprint, 2);
+						$fingerprint = implode(':', $fingerprint);
+					
+						echo sprintf(__('SHA Fingerprint: %s', 'pronamic_ideal'), $fingerprint), '<br />';
+					}
+
+					submit_button(
+						__('Download Private Certificate', 'pronamic_ideal') , 
+						'secondary' , 'download_private_certificate'
+					);
+
+					?>
+				</td>
+			</tr>
 		</table>
-
-		<div class="extra-settings method-basic method-omnikassa">
-			<h3>
-				<?php _e('Basic', 'pronamic_ideal'); ?>
-			</h3>
-	
-			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_hash_key">
-							<?php _e('Hash Key', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<input id="pronamic_ideal_hash_key" name="pronamic_ideal_hash_key" value="<?php echo $configuration->hashKey; ?>" type="text" />
-	
-						<span class="description">
-							<br />
-							<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
-						</span>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<div class="extra-settings method-advanced">
-			<h3>
-				<?php _e('Advanced', 'pronamic_ideal'); ?>
-			</h3>
-	
-			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_private_key_password">
-							<?php _e('Private Key Password', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_private_key_password" name="pronamic_ideal_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" />
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_private_key">
-							<?php _e('Private Key', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<input id="pronamic_ideal_private_key" name="pronamic_ideal_private_key" type="file" />
-						
-						<p>
-							<pre class="security-data"><?php echo $configuration->privateKey; ?></pre>
-						</p>
-						<?php 
-
-						submit_button(
-							__('Download Private Key', 'pronamic_ideal') , 
-							'secondary' , 'download_private_key' 
-						);
-
-						?>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_private_certificate">
-							<?php _e('Private Certificate', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<input id="pronamic_ideal_private_certificate" name="pronamic_ideal_private_certificate" type="file" />
-						
-						<p>
-							<pre class="security-data"><?php echo $configuration->privateCertificate; ?></pre>
-						</p>
-						<?php 
-						
-						if(!empty($configuration->privateCertificate)) {
-							$fingerprint = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
-							$fingerprint = str_split($fingerprint, 2);
-							$fingerprint = implode(':', $fingerprint);
-						
-							echo sprintf(__('SHA Fingerprint: %s', 'pronamic_ideal'), $fingerprint), '<br />';
-						}
-
-						submit_button(
-							__('Download Private Certificate', 'pronamic_ideal') , 
-							'secondary' , 'download_private_certificate'
-						);
-
-						?>
-					</td>
-				</tr>
-			</table>
-		</div>
 
 		<?php 
 		
@@ -496,13 +541,13 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			</table>
 
 			<?php 
-			
+
 			submit_button(
 				__('Generate', 'pronamic_ideal') ,  
 				'secundary' , 
 				'generate'
 			);
-		
+
 			?>
 		</div>
 	</form>

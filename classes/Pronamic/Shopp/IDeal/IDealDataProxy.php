@@ -81,39 +81,15 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getItems() {
 		$items = new Pronamic_IDeal_Items();
 
-		// Purchased
-		foreach($this->purchase->purchased as $p) {
-			// Item
-			$item = new Pronamic_IDeal_Item();
-			$item->setNumber($p->id);
-			$item->setDescription($p->name);
-			$item->setQuantity($p->quantity);
-			$item->setPrice($p->unitprice);
+		// Item
+		// We only add one total item, because iDEAL cant work with negative price items (discount)
+		$item = new Pronamic_IDeal_Item();
+		$item->setNumber($this->purchase->id);
+		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->purchase->id));
+		$item->setPrice($this->purchase->total);
+		$item->setQuantity(1);
 
-			$items->addItem($item);
-		}
-		
-		// Freight
-		if(!empty($this->purchase->freight)) {
-			$item = new Pronamic_IDeal_Item();
-			$item->setNumber('freight');
-			$item->setDescription(__('Shipping', 'pronamic_ideal'));
-			$item->setQuantity(1);
-			$item->setPrice($this->purchase->freight);
-
-			$items->addItem($item);
-		}
-		
-		// Tax
-		if(!empty($this->purchase->tax)) {
-			$item = new Pronamic_IDeal_Item();
-			$item->setNumber('tax');
-			$item->setDescription(__('Tax', 'pronamic_ideal'));
-			$item->setQuantity(1);
-			$item->setPrice($this->purchase->tax);
-
-			$items->addItem($item);
-		}
+		$items->addItem($item);
 
 		return $items;
 	}
@@ -167,13 +143,13 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getNormalReturnUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(false, 'thanks');
+		return shoppurl(array('messagetype' => 'open'), 'thanks');
 	}
 	
 	public function getCancelUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'cancelled'), 'receipt');
+		return shoppurl(array('messagetype' => 'cancelled'), 'thanks');
 	}
 	
 	public function getSuccessUrl() {
@@ -185,6 +161,6 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getErrorUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'error'), 'receipt');
+		return shoppurl(array('messagetype' => 'error'), 'thanks');
 	}
 }

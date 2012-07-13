@@ -54,6 +54,33 @@ class Pronamic_WordPress_IDeal_Configuration {
 	public $hashKey;
 
 	//////////////////////////////////////////////////
+	// Kassa
+	//////////////////////////////////////////////////
+
+	/**
+	 * PSP ID
+	 * 
+	 * @var string
+	 */
+	public $pspId;
+
+	/**
+	 * SHA-IN Pass Phrase
+	 * 
+	 * @var string
+	 */
+	public $shaInPassPhrase;
+
+	/**
+	 * SHA-OUT Pass Phrase
+	 * 
+	 * @var string
+	 */
+	public $shaOutPassPhrase;
+	
+	//////////////////////////////////////////////////
+	// Private key and certificates
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Private key

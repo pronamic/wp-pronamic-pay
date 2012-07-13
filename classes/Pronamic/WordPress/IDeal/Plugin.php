@@ -39,7 +39,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.8';
+	const VERSION = 'beta-0.10.1';
 
 	//////////////////////////////////////////////////
 
@@ -114,10 +114,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 		
 		// On template redirect handle an possible return from iDEAL
 		add_action('template_redirect', array(__CLASS__, 'handleIDealAdvancedReturn'));
+		add_action('template_redirect', array(__CLASS__, 'handleIDealInternetKassaReturn'));
 		add_action('template_redirect', array(__CLASS__, 'handleOmniKassaReturn'));
 		
 		// Check the payment status on an iDEAL return
 		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
+		add_action('pronamic_ideal_internetkassa_return', array(__CLASS__, 'updateInternetKassaPaymentStatus'), 10, 2);
 		add_action('pronamic_ideal_omnikassa_return', array(__CLASS__, 'updateOmniKassaPaymentStatus'), 10, 2);
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
@@ -263,6 +265,109 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	/**
+	 * Handle iDEAL kassa return
+	 */
+	public static function handleIDealInternetKassaReturn() {
+		if(isset($_GET['SHASIGN'])) {
+			$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
+
+			foreach($configurations as $configuration) {
+				if($configuration->getVariant() instanceof Pronamic_IDeal_VariantInternetKassa) {
+					$iDeal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+
+					$iDeal->setPspId($configuration->pspId);
+					$iDeal->setPassPhraseIn($configuration->shaInPassPhrase);
+					$iDeal->setPassPhraseOut($configuration->shaOutPassPhrase);
+
+					$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-in.txt';
+					$iDeal->setCalculationsParametersIn( file($file, FILE_IGNORE_NEW_LINES) );
+
+					$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-out.txt';
+					$iDeal->setCalculationsParametersOut( file($file, FILE_IGNORE_NEW_LINES) );
+
+					$result = $iDeal->verifyRequest($_GET);
+
+					if($result !== false) {
+						do_action('pronamic_ideal_internetkassa_return', $result, $canRedirect = true);
+						
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Update kassa payment status
+	 * 
+	 * @param array $data
+	 * @param boolean $canRedirect
+	 */
+	public static function updateInternetKassaPaymentStatus($data, $canRedirect = false) {
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($data['ORDERID']);
+
+		if($payment != null) {
+			$status = null;
+
+			switch($data['STATUS']) {
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::INCOMPLETE_OR_INVALID:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_REFUSED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_REFUSED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_REFUSED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_REFUSED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REFUSED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER:
+					$status = Pronamic_IDeal_Transaction::STATUS_FAILURE;
+					break;
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::CANCELLED_BY_CLIENT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED:
+					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
+					break;
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::ORDER_STORED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::STORED_WAITING_EXTERNAL_RESULT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::WAITING_CLIENT_PAYMENT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUHTORIZED_WAITING_EXTERNAL_RESULT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_WAITING:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_NOT_KNOWN:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::STAND_BY:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::OK_WITH_SCHEDULED_PAYMENTS:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::ERROR_IN_SCHEDULED_PAYMENTS:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUHORIZ_TO_GET_MANUALLY:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_WAITING:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_UNCERTAIN:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_PENDING:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_UNCERTAIN:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETED_74:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::DELETION_PROCESSED_BY_MERCHANT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_PENDING:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_UNCERTAIN:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_UNCERTAIN:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_PROCESSING:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::BEING_PROCESSED:
+					// pending
+					break;
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_PROCESSED_BY_MERCHANT:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REQUESTED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_PROCESSED_BY_MERCHANT:
+					$status = Pronamic_IDeal_Transaction::STATUS_SUCCESS;
+					break;
+			}
+			
+			if($status != null) {
+				$payment->transaction->setStatus($status);
+
+				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+			}
+
+			do_action('pronamic_ideal_status_update', $payment, $canRedirect);
+		}
+	}
+
+	/**
 	 * Handle OmniKassa return
 	 */
 	public static function handleOmniKassaReturn() {
@@ -274,9 +379,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 				$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
 	
 				$transactionReference = $data['transactionReference'];
-	
+
 				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
-	
+
 				if($payment != null) {
 					$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
 	
@@ -365,7 +470,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$response = wp_remote_post($url, array(
 				'body' => array(
 					'key' => self::getKey() , 
-					'url' => home_url() 
+					'url' => site_url() 
 				)
 			));
 
