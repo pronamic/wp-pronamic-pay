@@ -149,6 +149,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= beta-0.10.1 =
+*	Fix - OmniKassa configuration could net input hash key 
+
 = beta-0.10 =
 *	Tweak - Added extra check in loading certificates files from the iDEAL XML file
 *	Shopp - Fix - Purchases with discount payments fix

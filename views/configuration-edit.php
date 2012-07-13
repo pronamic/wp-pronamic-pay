@@ -265,7 +265,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Basic */ ?>
 
-			<tr class="extra-settings method-basic">
+			<tr class="extra-settings method-basic method-omnikassa">
 				<th scope="row">
 					<label for="pronamic_ideal_hash_key">
 						<?php _e('Hash Key', 'pronamic_ideal'); ?>
