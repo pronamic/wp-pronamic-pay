@@ -286,7 +286,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$iDeal = new Pronamic_IDeal_Easy();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-		$iDeal->setMerchantId($configuration->getMerchantId());
+		$iDeal->setMerchantId($configuration->pspId);
 
 		$iDeal->setLanguage($dataProxy->getLanguageIso639AndCountryIso3166Code());
 		$iDeal->setCurrency($dataProxy->getCurrencyAlphabeticCode());

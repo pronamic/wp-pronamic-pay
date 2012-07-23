@@ -229,7 +229,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Easy, Basic, OmniKassa, Advanced */ ?>
 
-			<tr class="extra-settings method-easy method-basic method-omnikassa method-advanced">
+			<tr class="extra-settings method-basic method-omnikassa method-advanced">
 				<th scope="row">
 					<label for="pronamic_ideal_merchant_id">
 						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
@@ -283,7 +283,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Kassa */ ?>
 
-			<tr class="extra-settings method-internetkassa">
+			<tr class="extra-settings method-easy method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_pspid">
 						<?php _e('PSPID', 'pronamic_ideal'); ?>
