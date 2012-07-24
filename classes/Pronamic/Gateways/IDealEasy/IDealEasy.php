@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
+class Pronamic_Gateways_IDealEasy_IDealEasy {
 	/**
 	 * An payment type indicator for iDEAL
 	 *
@@ -54,13 +54,6 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 	 * @var string
 	 */
 	private $description;
-
-	/**
-	 * The mode the iDEAL integration is running in (test or production)
-	 *
-	 * @var int
-	 */
-	private $mode = self::MODE_TEST;
 
 	/**
 	 * The currency
@@ -147,21 +140,21 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the merchant id
+	 * Get the PSP id
 	 *
-	 * @return an merchant id
+	 * @return an PSP id
 	 */
-	public function getMerchantId() {
-		return $this->merchantId;
+	public function getPspId() {
+		return $this->pspId;
 	}
 
 	/**
-	 * Set the merchant id
+	 * Set the PSP id
 	 *
-	 * @param merchant id
+	 * @param string $pspId
 	 */
-	public function setMerchantId($merchantId) {
-		$this->merchantId = $merchantId;
+	public function setPspId($pspId) {
+		$this->pspId = $pspId;
 	}
 
 	//////////////////////////////////////////////////
@@ -343,24 +336,23 @@ class Pronamic_IDeal_Easy extends Pronamic_IDeal_IDeal {
 	 * Get the iDEAL HTML
 	 */
 	public function getHtmlFields() {
-		$html  = '';
+		return Pronamic_IDeal_IDeal::htmlHiddenFields(array(
+			'PSPID' => $this->getPspId() ,
 
-		$html .= sprintf('<input type="hidden" name="PSPID" value="%s" />', $this->getMerchantId());
+			'orderID' => $this->getOrderId() , 
+			'amount' => Pronamic_IDeal_IDeal::formatPrice($this->getAmount()) , 
+			'currency' => $this->getCurrency() , 
+			'language' => $this->getLanguage() , 
 
-		$html .= sprintf('<input type="hidden" name="orderID" value="%s" />', $this->getOrderId());
-		$html .= sprintf('<input type="hidden" name="amount" value="%d" />', Pronamic_IDeal_IDeal::formatPrice($this->getAmount()));
-		$html .= sprintf('<input type="hidden" name="currency" value="%s" />', $this->getCurrency());
-		$html .= sprintf('<input type="hidden" name="language" value="%s" />', $this->getLanguage());
-		$html .= sprintf('<input type="hidden" name="COM" value="%s" />', $this->getDescription());
-		$html .= sprintf('<input type="hidden" name="PM" value="%s" />', $this->getPaymentType());
+			'COM' => $this->getDescription() , 
+			'PM' => $this->getPaymentType() , 
 
-		$html .= sprintf('<input type="hidden" name="CN" value="%s" />', $this->getCustomerName());
-		$html .= sprintf('<input type="hidden" name="EMAIL" value="%s" />', $this->getEMailAddress());
-
-		$html .= sprintf('<input type="hidden" name="owneraddress" value="%s" />', $this->getOwnerAddress());
-		$html .= sprintf('<input type="hidden" name="ownertown" value="%s" />', $this->getOwnerCity());
-		$html .= sprintf('<input type="hidden" name="ownerzip" value="%s" />', $this->getOwnerZip());
-
-		return $html;
+			'CN' => $this->getCustomerName() , 
+			'EMAIL' => $this->getEMailAddress() ,
+		
+			'owneraddress' => $this->getOwnerAddress() , 
+			'ownertown' => $this->getOwnerCity() ,
+			'ownerzip' => $this->getOwnerZip()
+		));
 	}
 }

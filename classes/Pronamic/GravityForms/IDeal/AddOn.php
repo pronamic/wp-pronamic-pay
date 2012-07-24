@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = 'beta-0.9.6';
+	const VERSION = 'beta-0.11.0';
 
 	//////////////////////////////////////////////////
 
@@ -63,6 +63,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter('gform_addon_navigation', array(__CLASS__, 'createMenu'));
 				
 				add_filter('gform_entry_info', array(__CLASS__, 'entryInfo'), 10, 3);
+				
+				add_filter('gform_custom_merge_tags', array(__CLASS__, 'custom_merge_tags'), 10, 3);
 	
 				RGForms::add_settings_page(
 					__('iDEAL', 'pronamic_ideal'), 
@@ -90,7 +92,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
-	
+
+			add_filter('gform_replace_merge_tags', array(__CLASS__, 'replace_merge_tags'), 10, 7);
+
 			// iDEAL fields
 			Pronamic_GravityForms_IDeal_Fields::bootstrap();
 		}
@@ -625,17 +629,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	
 					if($variant !== null) {
 						switch($variant->getMethod()) {
-							case Pronamic_IDeal_IDeal::METHOD_EASY:
-								$confirmation = self::handleIDealEasy($confirmation, $form, $feed, $lead);
-								break;
-							case Pronamic_IDeal_IDeal::METHOD_BASIC:
-								$confirmation = self::handleIDealBasic($confirmation, $form, $feed, $lead);
-								break;
-							case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-								$confirmation = self::handleIDealOmniKassa($confirmation, $form, $feed, $lead);
-								break;
 							case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 								$confirmation = self::handleIDealAdvanced($confirmation, $form, $feed, $lead);
+								break;
+							default:
+								$confirmation = self::handleIDealForm($confirmation, $form, $feed, $lead);
 								break;
 						}
 					}
@@ -724,11 +722,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	}
 
 	/**
-	 * Handle iDEAL basic
+	 * Handle iDEAL form
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealBasic($confirmation, $form, $feed, $lead) {
+	public static function handleIDealForm($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
 		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
@@ -756,69 +754,67 @@ class Pronamic_GravityForms_IDeal_AddOn {
         return $confirmation;
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
-	 * Handle iDEAL easy
-	 * 
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
+	 * Custom merge tags
 	 */
-	public static function handleIDealEasy($confirmation, $form, $feed, $lead) {
-		$configuration = $feed->getIDealConfiguration();
+	public static function custom_merge_tags( $merge_tags, $form_id, $fields, $element_id ) {
+		$merge_tags[] = array(
+			'label' => __('Payment Status', 'pronamic_ideal') , 
+			'tag' => '{payment_status}'
+		);
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
+		$merge_tags[] = array(
+			'label' => __('Payment Date', 'pronamic_ideal') , 
+			'tag' => '{payment_date}'
+		);
 
-		// Updating lead's payment_status to Processing
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = gmdate('y-m-d H:i:s');
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $lead['id'];
+		$merge_tags[] = array(
+			'label' => __('Transaction Id', 'pronamic_ideal') , 
+			'tag' => '{transaction_id}'
+		);
 
-        RGFormsModel::update_lead($lead);
+		$merge_tags[] = array(
+			'label' => __('Payment Amount', 'pronamic_ideal') , 
+			'tag' => '{payment_amount}'
+		);
 
-        // HTML
-        $html  = '';
-        $html .= '<div id="gforms_confirmation_message">';
-        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, true);
-        $html .= 	Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
-		$html .= '</div>';
-
-        // Extend the confirmation with the iDEAL form
-        $confirmation = $html;
-
-        // Return
-        return $confirmation;
+		return $merge_tags;
 	}
 
 	/**
-	 * Handle iDEAL OmniKassa
+	 * Replace merge tags
 	 * 
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
+	 * @param string $text
+	 * @param array $form
+	 * @param array $entry
+	 * @param boolean $url_encode
+	 * @param boolean $esc_html
+	 * @param boolean $nl2br
+	 * @param string $format
 	 */
-	public static function handleIDealOmniKassa($confirmation, $form, $feed, $lead) {
-		$configuration = $feed->getIDealConfiguration();
+	function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
+		$search = array(
+			'{payment_status}' , 
+    		'{payment_date}' , 
+    		'{transaction_id}' , 
+    		'{payment_amount}'
+    	);
+    	
+    	$replace = array(
+    		rgar( $entry, 'payment_status' ) , 
+    		rgar( $entry, 'payment_date' ) , 
+    		rgar( $entry, 'transaction_id' ) ,
+    		GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
+    	);
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
+    	if( $url_encode ) {
+    		array_walk( $replace, 'urlencode' );
+    	}
 
-		// Updating lead's payment_status to Processing
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = gmdate('y-m-d H:i:s');
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $lead['id'];
-
-        RGFormsModel::update_lead($lead);
-
-        // HTML
-        $html  = '';
-        $html .= '<div id="gforms_confirmation_message">';
-        $html .= 	GFCommon::replace_variables($form['confirmation']['message'], $form, $lead, false, true, true);
-        $html .= 	Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration);
-		$html .= '</div>';
-
-        // Extend the confirmation with the iDEAL form
-        $confirmation = $html;
-
-        // Return
-        return $confirmation;
+    	$text = str_replace( $search, $replace, $text);
+    
+		return $text;
 	}
 }

@@ -31,7 +31,7 @@
 				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
 			</live>
 		</variant>
-		<variant method="kassa" disabled="disabled">
+		<variant method="internetkassa">
 			<id>abnamro-ideal-only-kassa</id>
 			<name>ABN AMRO - iDEAL Only Kassa</name>
 			<url>https://internetkassa.abnamro.nl/</url>
@@ -52,16 +52,20 @@
 
 			<test>
 				<paymentServerUrl>ssl://abnamro-test.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+
 				<directoryRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
 				<transactionRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
 				<statusRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
+
 				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
 			</test>
 			<live>
 				<paymentServerUrl>ssl://abnamro.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+
 				<directoryRequestUrl>ssl://idealm.abnamro.nl:443/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
 				<transactionRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
 				<statusRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
+
 				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
 
@@ -75,15 +79,28 @@
 		<id>fortis-bank</id>
 		<name>Fortis Bank</name>
 			
-		<variant method="basic">
+		<variant method="basic" disabled="disabled">
 			<id>fortis-bank-ideal-hosted</id>
 			<name>Fortis Bank - iDEAL Hosted</name>
 
 			<test>
-				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+				<paymentServerUrl></paymentServerUrl>
 			</test>
 			<live>
-				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+				<paymentServerUrl></paymentServerUrl>
+			</live>
+		</variant>
+		<variant method="internetkassa">
+			<id>fortis-bank-internetkassa</id>
+			<name>Fortis Bank - iDEAL Internet Kassa</name>
+
+			<test>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/test/admin_NEOS.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp</dashboardUrl>
 			</live>
 		</variant>
 		<variant method="advanced">
@@ -192,6 +209,20 @@
 				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
 			</live>
 		</variant>
+		<variant method="internetkassa">
+			<id>ing-ideal-internetkassa</id>
+			<name>ING - iDEAL Internet Kassa</name>
+			<url>https://twyp.secure-ing.com/</url>
+
+			<test>
+				<paymentServerUrl>https://twyp.secure-ing.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://twyp.secure-ing.com/ncol/test/admin_TWYP.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://twyp.secure-ing.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://twyp.secure-ing.com/ncol/prod/admin_TWYP.asp</dashboardUrl>
+			</live>
+		</variant>
 		<variant method="advanced">
 			<id>ing-ideal-advanced</id>
 			<name>ING - iDEAL Advanced</name>
@@ -249,14 +280,44 @@
 		</variant>
 	</provider>
 
-	<provider disabled="disabled">
+	<provider>
+		<id>neos</id>
+		<name>NEOS</name>
+		<url>http://neossolution.com/</url>
+
+		<variant method="internetkassa">
+			<id>neos-internetkassa</id>
+			<name>NEOS - Internet Kassa</name>
+
+			<test>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/test/admin_NEOS.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
 		<id>ogone</id>
 		<name>Ogone</name>
-		<url>http://ogone.nl/</url>
-			
-		<variant method="basic" disabled="disabled">
-			<id>ogone</id>
-			<name>iDEAL</name>
+		<url>http://ogone.com/</url>
+
+		<variant method="internetkassa">
+			<id>ogone-internetkassa</id>
+			<name>Ogone - Internet Kassa</name>
+			<url>https://secure.ogone.com/</url>
+
+			<test>
+				<paymentServerUrl>https://secure.ogone.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/test/admin_ogone.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/prod/admin_ogone.asp</dashboardUrl>
+			</live>
 		</variant>
 	</provider>
 
@@ -276,6 +337,20 @@
 			<live>
 				<paymentServerUrl>https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do</paymentServerUrl>
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant method="internetkassa">
+			<id>rabobank-ideal-kassa</id>
+			<name>Rabobank - Rabo iDEAL Kassa</name>
+			<url>http://i-kassa.rabobank.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/test/admin_RIK.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
 			</live>
 		</variant>
 		<variant method="omnikassa">
@@ -308,18 +383,6 @@
 				<file>certificates/rabobank-ideal-professional/cert.cer</file>
 				<file>certificates/rabobank-ideal-professional/cert-0.cer</file>
 			</certificates>
-		</variant>
-		<variant disabled="disabled">
-			<id>rabobank-ideal-kassa</id>
-			<name>Rabobank - Rabo iDEAL Kassa</name>
-			<url>http://i-kassa.rabobank.nl/</url>
-
-			<test>
-				<dashboardUrl>https://i-kassa.rabobank.nl/rik/test/admin_RIK.asp</dashboardUrl>
-			</test>
-			<live>
-				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
-			</live>
 		</variant>
 	</provider>
 

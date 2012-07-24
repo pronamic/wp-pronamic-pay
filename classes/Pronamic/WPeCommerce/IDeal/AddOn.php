@@ -79,6 +79,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 			switch($status) {
 				case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+	                $url = $dataProxy->getCancelUrl();
 
 					break;
 				case Pronamic_IDeal_Transaction::STATUS_EXPIRED:

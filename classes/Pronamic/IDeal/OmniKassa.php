@@ -480,7 +480,7 @@ class Pronamic_IDeal_OmniKassa extends Pronamic_IDeal_IDeal {
 		// Payment request - optional fields
 		$optionalFields = array(
 			'automaticResponseUrl' => $this->getAutomaticResponseUrl() , 
-			'customerLanguage' => $this->getCustomerLanguage() , 
+			// 'customerLanguage' => $this->getCustomerLanguage() , 
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList() ,
 			'orderId' => $this->getOrderId() ,  
 			'expirationDate' => $this->getFormattedExpirationDate()

@@ -70,7 +70,7 @@ class Pronamic_IDeal_IDeal {
 	 * 
 	 * @var string
 	 */
-	const METHOD_KASSA = 'kassa';
+	const METHOD_INTERNETKASSA = 'internetkassa';
 
 	/**
 	 * Method OmniKassa
@@ -97,6 +97,18 @@ class Pronamic_IDeal_IDeal {
 	public static function formatPrice($price) {
 		return round($price * 100);
 	}
+
+	//////////////////////////////////////////////////
+
+	public static function htmlHiddenFields($data) {
+		$html = '';
+
+		foreach($data as $name => $value) {
+			$html .= sprintf('<input type="hidden" name="%s" value="%s" />', esc_attr($name), esc_attr($value));
+		}
+
+		return $html;
+	} 
 
 	//////////////////////////////////////////////////
 
@@ -131,8 +143,8 @@ class Pronamic_IDeal_IDeal {
 								case self::METHOD_BASIC:
 									$variant = new Pronamic_IDeal_VariantBasic();
 									break;
-								case self::METHOD_KASSA:
-									$variant = new Pronamic_IDeal_VariantKassa();
+								case self::METHOD_INTERNETKASSA:
+									$variant = new Pronamic_IDeal_VariantInternetKassa();
 									break;
 								case self::METHOD_OMNIKASSA:
 									$variant = new Pronamic_IDeal_VariantOmniKassa();
@@ -156,9 +168,13 @@ class Pronamic_IDeal_IDeal {
 							$variant->testSettings = new stdClass();
 							$variant->testSettings->dashboardUrl = (string) $variantXml->test->dashboardUrl;
 							$variant->testSettings->paymentServerUrl = (string) $variantXml->test->paymentServerUrl;
-		
-							foreach($variantXml->xpath('certificates/file') as $fileXml) {
-								$variant->certificates[] = (string) $fileXml;
+
+							$element = $variantXml->xpath('certificates/file');
+
+							if($element !== false) {
+								foreach($variantXml->xpath('certificates/file') as $fileXml) {
+									$variant->certificates[] = (string) $fileXml;
+								}
 							}
 							
 							$provider->addVariant($variant);

@@ -23,6 +23,13 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 
 	/**
+	 * Flag to let Shopp force auth-only order processing
+	 * 
+	 * @var boolean
+	 */
+	public $authonly = true;
+
+	/**
 	 * Flag to let Shopp know that this gateway module capture separate of authorization
 	 * 
 	 * @var boolean
@@ -63,7 +70,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$this->setup('pronamic_shopp_ideal_configuration');
 		
 		// Configuration ID
-		$this->configurationId = filter_var($this->settings['pronamic_shopp_ideal_configuration'], FILTER_VALIDATE_INT);
+		$this->configurationId = $this->settings['pronamic_shopp_ideal_configuration'];
 
 		// Order processing
 		//add_filter('shopp_purchase_order_processing', array($this, 'orderProcessing'), 20, 2);
@@ -420,11 +427,11 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
     		$options[$configuration->getId()] = $configuration->getName();
     	}
 
-		$this->ui->menu(1, array(
+		$this->ui->menu(0, array(
 			'name' => 'pronamic_shopp_ideal_configuration' , 
+			'keyed' => true , 
 			'label' => __('Select configuration', 'pronamic_ideal') , 
-			'selected' => $this->configurationId , 
-			'keyed' => true
+			'selected' => $this->settings['pronamic_shopp_ideal_configuration'] 
 		), $options);
 	}	
 }
