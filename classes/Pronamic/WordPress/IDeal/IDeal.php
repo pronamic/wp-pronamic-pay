@@ -283,10 +283,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 	
 	public static function getHtmlIDealEasyForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration) {
-		$iDeal = new Pronamic_IDeal_Easy();
+		$iDeal = new Pronamic_Gateways_IDealEasy_IDealEasy();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-		$iDeal->setMerchantId($configuration->pspId);
+		$iDeal->setPspId($configuration->pspId);
 
 		$iDeal->setLanguage($dataProxy->getLanguageIso639AndCountryIso3166Code());
 		$iDeal->setCurrency($dataProxy->getCurrencyAlphabeticCode());

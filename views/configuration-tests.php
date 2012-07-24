@@ -285,10 +285,10 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	
 	$user = wp_get_current_user();
 
-	$iDeal = new Pronamic_IDeal_Easy();
+	$iDeal = new Pronamic_Gateways_IDealEasy_IDealEasy();
 
 	$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
-	$iDeal->setMerchantId($configuration->getMerchantId());
+	$iDeal->setPspId($configuration->pspId);
 
 	$iDeal->setLanguage(Pronamic_WordPress_IDeal_Util::getLanguageIso639AndCountryIso3166Code());
 	$iDeal->setCurrency('EUR');

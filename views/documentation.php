@@ -235,6 +235,12 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf' ,
 					'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa' ,  
 					'date' => new DateTime('17-04-2012') 
+				)  , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/07/integration_guide_rabo_omnikassa_v2_0_1_final_29451215.pdf' ,
+					'name' => 'Integration guide Rabo OmniKassa' ,  
+					'date' => new DateTime('01-04-2012') , 
+					'version' => '2.0.1' 
 				) 
 			)
 		) , 

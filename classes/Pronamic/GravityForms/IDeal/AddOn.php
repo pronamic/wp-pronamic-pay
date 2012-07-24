@@ -63,6 +63,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter('gform_addon_navigation', array(__CLASS__, 'createMenu'));
 				
 				add_filter('gform_entry_info', array(__CLASS__, 'entryInfo'), 10, 3);
+				
+				add_filter('gform_custom_merge_tags', array(__CLASS__, 'custom_merge_tags'), 10, 3);
 	
 				RGForms::add_settings_page(
 					__('iDEAL', 'pronamic_ideal'), 
@@ -90,7 +92,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
 
 			add_filter('pronamic_ideal_source_column_gravityformsideal', array(__CLASS__, 'sourceColumn'), 10, 2);
-	
+
+			add_filter('gform_replace_merge_tags', array(__CLASS__, 'replace_merge_tags'), 10, 7);
+
 			// iDEAL fields
 			Pronamic_GravityForms_IDeal_Fields::bootstrap();
 		}
@@ -748,5 +752,69 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         // Return
         return $confirmation;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Custom merge tags
+	 */
+	public static function custom_merge_tags( $merge_tags, $form_id, $fields, $element_id ) {
+		$merge_tags[] = array(
+			'label' => __('Payment Status', 'pronamic_ideal') , 
+			'tag' => '{payment_status}'
+		);
+
+		$merge_tags[] = array(
+			'label' => __('Payment Date', 'pronamic_ideal') , 
+			'tag' => '{payment_date}'
+		);
+
+		$merge_tags[] = array(
+			'label' => __('Transaction Id', 'pronamic_ideal') , 
+			'tag' => '{transaction_id}'
+		);
+
+		$merge_tags[] = array(
+			'label' => __('Payment Amount', 'pronamic_ideal') , 
+			'tag' => '{payment_amount}'
+		);
+
+		return $merge_tags;
+	}
+
+	/**
+	 * Replace merge tags
+	 * 
+	 * @param string $text
+	 * @param array $form
+	 * @param array $entry
+	 * @param boolean $url_encode
+	 * @param boolean $esc_html
+	 * @param boolean $nl2br
+	 * @param string $format
+	 */
+	function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
+		$search = array(
+			'{payment_status}' , 
+    		'{payment_date}' , 
+    		'{transaction_id}' , 
+    		'{payment_amount}'
+    	);
+    	
+    	$replace = array(
+    		rgar( $entry, 'payment_status' ) , 
+    		rgar( $entry, 'payment_date' ) , 
+    		rgar( $entry, 'transaction_id' ) ,
+    		GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
+    	);
+
+    	if( $url_encode ) {
+    		array_walk( $replace, 'urlencode' );
+    	}
+
+    	$text = str_replace( $search, $replace, $text);
+    
+		return $text;
 	}
 }

@@ -23,6 +23,13 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 
 	/**
+	 * Flag to let Shopp force auth-only order processing
+	 * 
+	 * @var boolean
+	 */
+	public $authonly = true;
+
+	/**
 	 * Flag to let Shopp know that this gateway module capture separate of authorization
 	 * 
 	 * @var boolean

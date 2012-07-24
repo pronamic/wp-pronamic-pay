@@ -149,6 +149,13 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= beta-0.11.0 =
+*	Tweak - Improved support for the iDEAL Easy variant, this variant requires an PSP ID
+*	Shopp - Fix - Force auth only for the iDEAL gateway
+*	OmniKassa - Removed the optional parameter 'customerLanguage', was giving "Ongeldige waarde  : customerLanguage=NL" error
+*	OmniKassa - Added documentation "Integration guide Rabo OmniKassa – Version 2.0.1 April 2012"
+*	Gravity Forms - Added custom merge tags for payment status, date, amount and transaction id
+
 = beta-0.10.1 =
 *	Fix - OmniKassa configuration could net input hash key 
 
