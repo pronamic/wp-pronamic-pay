@@ -38,6 +38,8 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 * Add gateway
 	 */
 	public static function merchantModules($gateways) {
+		global $nzshpcrt_gateways, $num, $wpsc_gateways, $gateway_checkout_form_fields;
+
 		$gateways[] = array(
 			'name' => __('Pronamic iDEAL', 'pronamic_ideal') ,
 			'api_version' => 2.0 , 
@@ -56,7 +58,56 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			'internalname' => 'wpsc_merchant_pronamic_ideal'
 		);
 
+		$gateway_checkout_form_fields['wpsc_merchant_pronamic_ideal'] = self::advanced_inputs();
+
 		return $gateways;
+	}
+
+	private function advanced_inputs() {
+		$output = '';
+
+		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
+
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
+
+			if($variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
+				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
+				
+				if($lists) {
+					$output .= '<tr>';
+					$output .= '	<td>';
+					$output .= '		' . __( 'Choose your bank', 'pronamic_ideal' );
+					$output .= '	</td>';
+					$output .= '	<td>';
+					$output .= '		' . Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists);
+					$output .= '	</td>';
+					$output .= '</tr>'; 
+				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
+					$output .= '<tr>';
+					$output .= '	<td>';
+					$output .= '		';
+					$output .= '	</td>';
+					$output .= '	<td>';
+					$output .= '		' . $error->getConsumerMessage();
+					$output .= '	</td>';
+					$output .= '</tr>'; 
+				} else {
+					$output .= '<tr>';
+					$output .= '	<td>';
+					$output .= '		';
+					$output .= '	</td>';
+					$output .= '	<td>';
+					$output .= '		' . __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
+					$output .= '	</td>';
+					$output .= '</tr>'; 
+				}
+			}
+		}
+	
+		return $output;
 	}
 	
 	//////////////////////////////////////////////////
