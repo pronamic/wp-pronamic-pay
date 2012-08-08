@@ -10,6 +10,19 @@
  */
 class Pronamic_ClassiPress_ClassiPress {
 	/**
+	 * Get the current ClassPress version number
+	 * 
+	 * @return string
+	 */	
+	public static function get_version() {
+		global $app_version;
+
+		return $app_version;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get order values by ID
 	 * 
 	 * @see /classipress/includes/gateways/gateway.php#L40
