@@ -172,7 +172,7 @@ class Pronamic_IDeal_IDeal {
 							$element = $variantXml->xpath('certificates/file');
 
 							if($element !== false) {
-								foreach($variantXml->xpath('certificates/file') as $fileXml) {
+								foreach($element as $fileXml) {
 									$variant->certificates[] = (string) $fileXml;
 								}
 							}
