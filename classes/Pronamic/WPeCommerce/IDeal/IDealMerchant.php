@@ -53,13 +53,13 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 						
 						break;
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-						return $this->submit_advanced( $configuration );
+						return $this->submit_advanced( $configuration, $variant );
 				}
 			}
 		}
 	}
 
-	private function submit_advanced( $configuration ) {
+	private function submit_advanced( $configuration, $variant ) {
 		$data_proxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $this );
 
     	$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
