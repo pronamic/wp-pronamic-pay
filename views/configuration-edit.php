@@ -106,7 +106,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 		$privateKeyResource = openssl_pkey_new();
 		if($privateKeyResource !== false) {
-			$csr = openssl_csr_new($dn, $privateKeyResource);
+			$configargs = array(
+				'private_key_bits' => 1024 , 
+				'private_key_type' => OPENSSL_KEYTYPE_RSA
+			);
+
+			$csr = openssl_csr_new($dn, $privateKeyResource, $configargs);
 			
 			$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, $configuration->numberDaysValid);
 			
