@@ -75,7 +75,27 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2011/12/Merchant_Integratie_Gids_2.3_NL.pdf' ,
 					'name' => 'iDEAL Merchant Integratie gids' ,  
 					'version' => '2.2.3' 
-				)
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids_v3.3.1_NL.pdf' ,
+					'name' => 'iDEAL Merchant Integratie Gids' ,  
+					'version' => '3.3.1' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids__Overzicht_van_Wijzigingen_v3.3.1_NL.pdf' ,
+					'name' => 'iDEAL Merchant Integratie Gids - Overzicht van Wijzigingen' ,  
+					'version' => '3.3.1' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integration-Guide-Mobile-Addendum-EN.pdf' ,
+					'name' => 'iDEAL Merchant Integration Guide - Mobile Addendum' ,  
+					'version' => '2.2.3' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf' ,
+					'name' => 'iDEAL Merchant Integratie gids' ,  
+					'version' => '2.2.3' 
+				) 
 			)
 		) ,
 		'frieslandbank.nl' => array(
@@ -230,17 +250,29 @@
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf' ,
 					'name' => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012' ,  
 					'version' => '1.0.10' 
-				)  , 
+				) , 
 				array(
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf' ,
 					'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa' ,  
 					'date' => new DateTime('17-04-2012') 
-				)  , 
+				) , 
 				array(
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/07/integration_guide_rabo_omnikassa_v2_0_1_final_29451215.pdf' ,
 					'name' => 'Integration guide Rabo OmniKassa' ,  
 					'date' => new DateTime('01-04-2012') , 
 					'version' => '2.0.1' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Professional.pdf' ,
+					'name' => 'Handleiding iDEAL Professional' ,  
+					'date' => new DateTime('01-05-2012') , 
+					'version' => '1.1' 
+				) , 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Lite.pdf' ,
+					'name' => 'Handleiding iDEAL Lite' ,  
+					'date' => new DateTime('01-01-2012') , 
+					'version' => '2.6' 
 				) 
 			)
 		) , 
