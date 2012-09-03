@@ -104,16 +104,18 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			$dn['emailAddress'] = $configuration->eMailAddress;
 		}
 
-		$privateKeyResource = openssl_pkey_new();
+		$configargs = array(
+			'private_key_bits' => 1024 , 
+			'private_key_type' => OPENSSL_KEYTYPE_RSA , 
+			'encrypt_key' => false
+		);
+
+		$privateKeyResource = openssl_pkey_new($configargs);
 		if($privateKeyResource !== false) {
-			$configargs = array(
-				'private_key_bits' => 1024 , 
-				'private_key_type' => OPENSSL_KEYTYPE_RSA
-			);
 
 			$csr = openssl_csr_new($dn, $privateKeyResource, $configargs);
 			
-			$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, $configuration->numberDaysValid);
+			$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, $configuration->numberDaysValid, $configargs);
 			
 			if($certificateResource !== false) {
 				$privateKeyPassword = filter_input(INPUT_POST, 'pronamic_ideal_generate_private_key_password', FILTER_SANITIZE_STRING);
@@ -122,7 +124,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				$exportedCertificate = openssl_x509_export($certificateResource, $privateCertificate);
 								
 				$privateKey = null;
-				$exportedKey = openssl_pkey_export($privateKeyResource, $privateKey, $privateKeyPassword);
+				$exportedKey = openssl_pkey_export($privateKeyResource, $privateKey, $privateKeyPassword, $configargs);
 
 				if($exportedCertificate && $exportedKey) {
 					$configuration->privateKey = $privateKey;
