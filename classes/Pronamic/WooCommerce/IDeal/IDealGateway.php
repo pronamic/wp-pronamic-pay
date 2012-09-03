@@ -52,7 +52,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     function init_form_fields() {
     	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
     	$configuration_options = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
-    	foreach($configuration_options as $configuration) {
+
+    	foreach ($configurations as $configuration) {
     		$configuration_options[$configuration->getId()] = $configuration->getName();
     	}
     
@@ -96,7 +97,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	public function admin_options() {
     	?>
     	<h3>
-    		<?php _e('Pronamic iDEAL', 'pronamic_ideal'); ?>
+    		<?php _e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?>
     	</h3>
     	
     	<table class="form-table">
@@ -111,28 +112,28 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 * There are no payment fields for bacs, but we want to show the description if set.
 	 */
 	function payment_fields() {
-		if($this->description) {
-			echo wpautop(wptexturize($this->description));
+		if ( $this->description ) {
+			echo wpautop( wptexturize( $this->description ) );
 		}
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
-		if($configuration !== null) {
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
 
-			if($variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists($configuration);
+			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
+				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
 				
-				if($lists) {
+				if ( $lists ) {
 					?>
 					<p class="pronamic_ideal_issuer">
 						<label for="pronamic_ideal_issuer_id">
-							<?php _e('Choose your bank', 'pronamic_ideal'); ?>
+							<?php _e( 'Choose your bank', 'pronamic_ideal' ); ?>
 						</label>
 						
-						<?php echo Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists); ?>
+						<?php echo Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists ); ?>
 					</p>
 					<?php 
-				} elseif($error = Pronamic_WordPress_IDeal_IDeal::getError()) {
+				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
 					?>
 					<div class="woocommerce_error">
 						<?php echo $error->getConsumerMessage(); ?>
@@ -141,7 +142,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				} else {
 					?>
 					<div class="woocommerce_error">
-						<?php echo __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal'); ?>
+						<?php echo __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' ); ?>
 					</div>
 					<?php 
 				}
@@ -159,46 +160,48 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		
 		$order = new WC_Order( $order_id );
 		
-		$dataProxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+		$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
-		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $dataProxy, $configuration );
+		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data_proxy, $configuration );
 		
 		echo $html;
 	}
 
 	//////////////////////////////////////////////////
 
-    /**
-     * Process the payment and return the result
-     */
-    function process_payment($order_id) {
+	/**
+	 * Process the payment and return the result
+	 * 
+	 * @param string $order_id
+	 */
+    function process_payment( $order_id ) {
     	global $woocommerce;
 
-		$order = new WC_Order($order_id);
+		$order = new WC_Order( $order_id );
 
 		// Mark as pending (we're awaiting the payment)
-		$order->update_status('pending', __('Awaiting iDEAL payment', 'pronamic_ideal'));
+		$order->update_status( 'pending', __( 'Awaiting iDEAL payment', 'pronamic_ideal' ) );
 
 		// Empty cart
 		$woocommerce->cart->empty_cart();
 		
 		// Empty awaiting payment session
-		unset($_SESSION['order_awaiting_payment']);
+		unset( $_SESSION['order_awaiting_payment'] );
 
 		// Do specifiek iDEAL variant processing
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($this->configurationId);
-		if($configuration !== null) {
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
 	
-			if($variant !== null) {
-				switch($variant->getMethod()) {
+			if ( $variant !== null ) {
+				switch ( $variant->getMethod() ) {
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-						return $this->processIDealAdvancedPayment($order, $configuration, $variant);
+						return $this->process_ideal_advanced_payment( $order, $configuration, $variant );
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return $this->processIDealPayment( $order, $configuration, $variant, true );
+						return $this->process_ideal_payment( $order, $configuration, $variant, true );
 					default: 
-						return $this->processIDealPayment( $order, $configuration, $variant, false );
+						return $this->process_ideal_payment( $order, $configuration, $variant, false );
 				}
 			}
 		}
@@ -210,39 +213,45 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param WC_Order $order
      * @param Pronamic_WordPress_IDeal_Configuration $configuration
      */
-    private function mailCheckIDealPayment($order, $configuration) {
+    private function mail_check_payment( $order, $configuration ) {
 		global $woocommerce;
 		
 		// Note
 
 		// $editOrderLink = get_edit_post_link($order->id);
 		// get_edit_post_link() will not work, has permissions check for current user
-		$editOrderLink = add_query_arg(array('post' => $order->id, 'action' => 'edit'), admin_url('post.php'));
+		$edit_order_link = add_query_arg( 
+			array(
+				'post'   => $order->id, 
+				'action' => 'edit' 
+			), 
+			admin_url('post.php')
+		);
 
 		$note = sprintf(
-			__('Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal') , 
+			__( 'Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal' ) , 
 			$order->id , 
-			esc_attr($configuration->getDashboardUrl()) , 
-			esc_attr($editOrderLink)
+			esc_attr( $configuration->getDashboardUrl() ) , 
+			esc_attr( $edit_order_link )
 		);
     	
-		$order->add_order_note($note, false);
+		$order->add_order_note( $note, false );
 		
 		// E-mail
 		$mailer = $woocommerce->mailer();
 
 		$message = $mailer->wrap_message( 
-			__('Check iDEAL payment', 'pronamic_ideal'),
+			__( 'Check iDEAL payment', 'pronamic_ideal' ),
 			$note
 		);
 		
 		// Send the mail
 		woocommerce_mail(
-			get_option('woocommerce_new_order_email_recipient') , 
+			get_option( 'woocommerce_new_order_email_recipient' ), 
 			sprintf(
-				__('Check iDEAL payment for order #%s', 'pronamic_ideal') , 
+				__( 'Check iDEAL payment for order #%s', 'pronamic_ideal' ) , 
 				$order->id
-			) , 
+			), 
 			$message
 		);
     }
@@ -252,50 +261,64 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     /**
      * Process iDEAL payment
      * 
-     * @param unknown_type $order
-     * @param unknown_type $configuration
-     * @param unknown_type $variant
-     * @param unknown_type $mail_check_payment
+     * @param WC_Order $order
+     * @param Pronamic_WordPress_IDeal_Configuration $configuration
+     * @param Pronamic_IDeal_Variant $variant
+     * @param boolean $mail_check_payment
      * @return array
      */
-    private function processIDealPayment( $order, $configuration, $variant, $mail_check_payment = false ) {
+    private function process_ideal_payment( $order, $configuration, $variant, $mail_check_payment = false ) {
     	if( $mail_check_payment ) {
-    		$this->mailCheckIDealPayment($order, $configuration);
+    		$this->mail_check_payment( $order, $configuration );
     	}
 
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg('order', $order->id, add_query_arg('key', $order->order_key, get_permalink(woocommerce_get_page_id('pay'))))
+			'redirect'	=> add_query_arg( 
+				array(
+					'order' => $order->id, 
+					'key'   => $order->order_key
+				),
+				get_permalink( woocommerce_get_page_id( 'pay' ) )
+			)
 		);
     }
-    
-    private function processIDealAdvancedPayment($order, $configuration, $variant) {
-		$dataProxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy($order);
 
-    	$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
+    /**
+     * Process iDEAL advanced payment
+     * 
+     * @param WC_Order $order
+     * @param Pronamic_WordPress_IDeal_Configuration $configuration
+     * @param Pronamic_IDeal_Variant $variant
+     * @return array
+     */
+    private function process_ideal_advanced_payment( $order, $configuration, $variant ) {
+		$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
+    	$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
+
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
     	
-		if($payment == null) {
+		if ( $payment == null ) {
 			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount($dataProxy->getAmount()); 
-			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-			$transaction->setExpirationPeriod('PT1H');
-			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($dataProxy->getDescription());
-			$transaction->setPurchaseId($dataProxy->getOrderId());
+			$transaction->setAmount( $data_proxy->getAmount() ); 
+			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
+			$transaction->setExpirationPeriod( 'PT1H' );
+			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
+			$transaction->setEntranceCode( uniqid() );
+			$transaction->setDescription( $data_proxy->getDescription() );
+			$transaction->setPurchaseId( $data_proxy->getOrderId() );
 	
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
-			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
+			$payment->setSource( $data_proxy->getSource(), $data_proxy->getOrderId() );
 	
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
     	}
 
-		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
+		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction( $issuer_id, $payment, $variant );
 
 		return array(
 			'result' 	=> 'success',
