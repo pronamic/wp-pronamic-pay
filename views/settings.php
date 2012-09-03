@@ -285,6 +285,23 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php _e('OpenSSL', 'pronamic_ideal'); ?>
+			</th>
+			<td class="column-version">
+				<?php 
+
+				if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
+					echo OPENSSL_VERSION_TEXT;
+				}
+
+				?>
+			</td>
+			<td>
+				&#10003;
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php _e('Registered Hashing Algorithms', 'pronamic_ideal'); ?>
 			</th>
 			<td class="column-version">
