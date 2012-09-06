@@ -150,7 +150,7 @@ Here is a list of known plugin conflicts:
 == Changelog ==
 
 = 1.0 =
-*	First official release.
+*	First official release, removed the 'beta' label.
 
 = beta-0.11.1 =
 *	WP e-Commerce - Tweak - Improved the support for iDEAL Advanced variants.
