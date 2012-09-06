@@ -11,10 +11,10 @@
 
 		<<?php echo $tag; ?>>
 			<tr>
-				<th scope="col" class="manage-column"><?php _e('Provider', 'pronamic_ideal') ?></th>
-				<th scope="col" class="manage-column"><?php _e('Name', 'pronamic_ideal') ?></th>
-				<th scope="col" class="manage-column"><?php _e('Method', 'pronamic_ideal') ?></th>
-				<th scope="col" class="manage-column"><?php _e('Dashboard', 'pronamic_ideal') ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Provider', 'pronamic_ideal' ); ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Method', 'pronamic_ideal' );  ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Dashboard', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
 
