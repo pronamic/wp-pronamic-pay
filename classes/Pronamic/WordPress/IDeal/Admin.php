@@ -13,7 +13,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_action('admin_menu', array(__CLASS__, 'adminMenu'));
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu') );
 
 		add_action('load-ideal_page_pronamic_ideal_payments', array(__CLASS__, 'loadPaymentsPage'));
 		
@@ -113,68 +113,66 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	/**
 	 * Create the admin menu
-	 * 
-	 * @param array $menus
 	 */
-	public static function adminMenu($menus) {
+	public static function admin_menu() {
 		add_menu_page(
-			$pageTitle = __('iDEAL', 'pronamic_ideal') ,
-			$menuTitle = __('iDEAL', 'pronamic_ideal') ,
-			$capability = 'pronamic_ideal' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$function = array(__CLASS__, 'pageIndex') , 
-			$iconUrl = plugins_url('images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file)
+			__( 'iDEAL', 'pronamic_ideal' ),
+			__( 'iDEAL', 'pronamic_ideal' ),
+			'pronamic_ideal', 
+			'pronamic_ideal', 
+			array( __CLASS__, 'pageIndex' ), 
+			plugins_url( 'images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file )
 		);
 
 		add_submenu_page(
-			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Payments', 'pronamic_ideal') , 
-			$menuTitle = __('Payments', 'pronamic_ideal') , 
-			$capability = 'pronamic_ideal_payments' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' , 
-			$function = array(__CLASS__, 'pagePayments')
+			'pronamic_ideal', 
+			__( 'Payments', 'pronamic_ideal' ), 
+			__( 'Payments', 'pronamic_ideal' ), 
+			'pronamic_ideal_payments', 
+			'pronamic_ideal_payments', 
+			array( __CLASS__, 'pagePayments' )
 		);
 
 		add_submenu_page(
-			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Settings', 'pronamic_ideal') , 
-			$menuTitle = __('Settings', 'pronamic_ideal') , 
-			$capability = 'pronamic_ideal_settings' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_settings' , 
-			$function = array(__CLASS__, 'pageSettings')
+			'pronamic_ideal', 
+			__( 'Settings', 'pronamic_ideal' ), 
+			__( 'Settings', 'pronamic_ideal' ), 
+			'pronamic_ideal_settings', 
+			'pronamic_ideal_settings', 
+			array( __CLASS__, 'pageSettings' )
 		);
 
 		add_submenu_page(
-			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Pages Generator', 'pronamic_ideal') , 
-			$menuTitle = __('Pages Generator', 'pronamic_ideal') , 
-			$capability = 'pronamic_ideal_pages_generator' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_pages_generator' , 
-			$function = array(__CLASS__, 'pagePagesGenerator')
+			'pronamic_ideal', 
+			__( 'Pages Generator', 'pronamic_ideal' ), 
+			__( 'Pages Generator', 'pronamic_ideal' ), 
+			'pronamic_ideal_pages_generator', 
+			'pronamic_ideal_pages_generator', 
+			array( __CLASS__, 'pagePagesGenerator' )
 		);
 
 		add_submenu_page(
-			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Variants', 'pronamic_ideal') , 
-			$menuTitle = __('Variants', 'pronamic_ideal') , 
-			$capability = 'pronamic_ideal_variants' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_variants' , 
-			$function = array(__CLASS__, 'pageVariants')
+			'pronamic_ideal', 
+			__( 'Variants', 'pronamic_ideal' ), 
+			__( 'Variants', 'pronamic_ideal' ), 
+			'pronamic_ideal_variants', 
+			'pronamic_ideal_variants', 
+			array( __CLASS__, 'pageVariants' )
 		);
 
 		add_submenu_page(
-			$parentSlug = Pronamic_WordPress_IDeal_Plugin::SLUG , 
-			$pageTitle = __('Documentation', 'pronamic_ideal') , 
-			$menuTitle = __('Documentation', 'pronamic_ideal') , 
-			$capability = 'pronamic_ideal_documentation' , 
-			$menuSlug = Pronamic_WordPress_IDeal_Plugin::SLUG . '_documentation' , 
-			$function = array(__CLASS__, 'pageDocumentation')
+			'pronamic_ideal', 
+			__( 'Documentation', 'pronamic_ideal' ), 
+			__( 'Documentation', 'pronamic_ideal' ), 
+			'pronamic_ideal_documentation', 
+			'pronamic_ideal_documentation', 
+			array( __CLASS__, 'pageDocumentation' )
 		);
 
 		global $submenu;
 
-		if(isset($submenu[Pronamic_WordPress_IDeal_Plugin::SLUG])) {
-			$submenu[Pronamic_WordPress_IDeal_Plugin::SLUG][0][0] = __('Configurations', 'pronamic_ideal');
+		if ( isset( $submenu['pronamic_ideal'] ) ) {
+			$submenu['pronamic_ideal'][0][0] = __( 'Configurations', 'pronamic_ideal' );
 		}
 	}
 
