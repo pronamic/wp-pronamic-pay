@@ -82,16 +82,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param string $file
 	 */
-	public static function bootstrap($file) {
+	public static function bootstrap( $file ) {
 		self::$file = $file;
 
 		// Load plugin text domain
-		$relPath = dirname(plugin_basename(self::$file)) . '/languages/';
+		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
-		load_plugin_textdomain('pronamic_ideal', false, $relPath);
+		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		// Bootstrap the add-ons
-		if(self::canBeUsed()) {
+		if ( self::canBeUsed() ) {
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
@@ -104,33 +104,33 @@ class Pronamic_WordPress_IDeal_Plugin {
 		}
 
 		// Hooks and filters
-		if(is_admin()) {
+		if ( is_admin() ) {
 			Pronamic_WordPress_IDeal_Admin::bootstrap();
 		}
 
-		add_action('plugins_loaded', array(__CLASS__, 'setup'));
+		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
 		
 		// Initialize
-		add_action('init', array(__CLASS__, 'init'));
+		add_action( 'init', array( __CLASS__, 'init' ) );
 		
 		// On template redirect handle an possible return from iDEAL
-		add_action('template_redirect', array(__CLASS__, 'handleIDealAdvancedReturn'));
-		add_action('template_redirect', array(__CLASS__, 'handleIDealInternetKassaReturn'));
-		add_action('template_redirect', array(__CLASS__, 'handleOmniKassaReturn'));
+		add_action( 'template_redirect', array( __CLASS__, 'handleIDealAdvancedReturn' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handleIDealInternetKassaReturn' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handleOmniKassaReturn' ) );
 		
 		// Check the payment status on an iDEAL return
-		add_action('pronamic_ideal_return', array(__CLASS__, 'checkPaymentStatus'), 10, 2);
-		add_action('pronamic_ideal_internetkassa_return', array(__CLASS__, 'updateInternetKassaPaymentStatus'), 10, 2);
-		add_action('pronamic_ideal_omnikassa_return', array(__CLASS__, 'updateOmniKassaPaymentStatus'), 10, 2);
+		add_action( 'pronamic_ideal_return',               array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
+		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'updateInternetKassaPaymentStatus' ), 10, 2 );
+		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'updateOmniKassaPaymentStatus' ),     10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action('pronamic_ideal_check_transaction_status', array(__CLASS__, 'checkStatus'));
+		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
 
 		// Show license message if the license is not valid
-		add_action('admin_notices', array(__CLASS__, 'maybeShowLicenseMessage'));
+		add_action( 'admin_notices', array( __CLASS__, 'maybeShowLicenseMessage' ) );
 
 		// Uninstall
-		register_uninstall_hook(self::$file, array(__CLASS__, 'uninstall'));
+		register_uninstall_hook( self::$file, array( __CLASS__, 'uninstall' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -636,11 +636,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_WordPress_IDeal_PaymentsRepository::dropTables();
 
 		// Delete options
-		delete_option(self::OPTION_VERSION);
-		delete_option(self::OPTION_KEY);
+		delete_option( self::OPTION_VERSION );
+		delete_option( self::OPTION_KEY );
 		
 		// Delete transient
-		delete_transient(self::TRANSIENT_LICENSE_INFO);
+		delete_transient( self::TRANSIENT_LICENSE_INFO );
 		
 		// Uninstall Add-Ons
 		Pronamic_GravityForms_IDeal_AddOn::uninstall();
