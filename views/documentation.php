@@ -87,6 +87,11 @@
 					'version' => '3.3.1' 
 				) , 
 				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integration_Guide_Summary_of_Changes_v3.3.1_ENG.pdf' ,
+					'name' => 'iDEAL Merchant Integration Guide - Summary of Changes' ,  
+					'version' => '3.3.1' 
+				) , 
+				array(
 					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integration-Guide-Mobile-Addendum-EN.pdf' ,
 					'name' => 'iDEAL Merchant Integration Guide - Mobile Addendum' ,  
 					'version' => '2.2.3' 
