@@ -14,17 +14,17 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * 
 	 * @var array
 	 */
-	private $orderValues;
+	private $order_values;
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Construct and intializes an ClassiPress iDEAL data proxy
 	 * 
-	 * @param array $orderValues
+	 * @param array $order_values
 	 */
-	public function __construct($orderValues) {
-		$this->orderValues = $orderValues;
+	public function __construct( $order_values ) {
+		$this->order_values = $order_values;
 	}
 
 	//////////////////////////////////////////////////
@@ -48,7 +48,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Advertisement %s', 'pronamic_ideal'), $this->getOrderId());
+		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->getOrderId() );
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getOrderId() {
-		return $this->orderValues['post_id'];
+		return $this->order_values['oid'];
 	}
 
 	/**
@@ -74,12 +74,12 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->orderValues['item_number']);
-		$item->setDescription($this->orderValues['item_name']);
-		$item->setPrice($this->orderValues['item_amount']);
-		$item->setQuantity(1);
+		$item->setNumber( $this->order_values['item_number'] );
+		$item->setDescription( $this->order_values['item_name'] );
+		$item->setPrice( $this->order_values['item_amount'] );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -89,7 +89,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 
 	public function getCurrencyAlphabeticCode() {
-		return get_option('cp_curr_pay_type');
+		return get_option( 'cp_curr_pay_type' );
 	}
 
 	//////////////////////////////////////////////////
@@ -97,27 +97,27 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 
 	public function getEMailAddress() {
-		$userId = $this->orderValues['user_id'];
+		$user_id = $this->order_values['user_id'];
 		
-		return get_the_author_meta('user_email', $userId);
+		return get_the_author_meta( 'user_email', $user_id );
 	}
 
 	public function getCustomerName() {
-		$userId = $this->orderValues['user_id'];
+		$user_id = $this->order_values['user_id'];
 		
-		return get_the_author_meta('first_name', $userId) . ' ' . get_the_author_meta('last_name', $userId);
+		return get_the_author_meta( 'first_name', $user_id ) . ' ' . get_the_author_meta( 'last_name', $user_id );
 	}
 
 	public function getOwnerAddress() {
-		return $this->orderValues['cp_street'];
+		return $this->order_values['cp_street'];
 	}
 
 	public function getOwnerCity() {
-		return $this->orderValues['cp_city'];
+		return $this->order_values['cp_city'];
 	}
 
 	public function getOwnerZip() {
-		return $this->orderValues['cp_zipcode'];
+		return $this->order_values['cp_zipcode'];
 	}
 
 	//////////////////////////////////////////////////
@@ -125,18 +125,18 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		return $this->orderValues['notify_url'];
+		return $this->order_values['notify_url'];
 	}
 	
 	public function getCancelUrl() {
-		return $this->orderValues['notify_url'];
+		return $this->order_values['notify_url'];
 	}
 	
 	public function getSuccessUrl() {
-		return $this->orderValues['notify_url'];
+		return $this->order_values['notify_url'];
 	}
 
 	public function getErrorUrl() {
-		return $this->orderValues['notify_url'];
+		return $this->order_values['notify_url'];
 	}
 }
