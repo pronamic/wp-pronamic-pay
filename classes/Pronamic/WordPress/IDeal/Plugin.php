@@ -604,7 +604,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 				'pronamic_ideal_settings' => true ,
 				'pronamic_ideal_pages_generator' => true , 
 				'pronamic_ideal_variants' => true ,
-				'pronamic_ideal_documentation' => true
+				'pronamic_ideal_documentation' => true , 
+				'pronamic_ideal_branding' => true
 			);
 			
 			$roles = array(
