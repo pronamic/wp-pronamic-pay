@@ -124,33 +124,13 @@ Here is a list of known plugin conflicts:
 	results in OmniKassa data that no longer matches the signature.
 
 
-== Todo ==
-*	Fix the pagination while searching payments 
-*	Check the Mollie tests for the lite variant
-*	Gravity Forms bind fields for iDEAL Easy
-*	Add bank images and options to show issuer list with radiobuttons
-*	No-index by default enabled in page generator, check third party SEO plugins
-*	Status change payment e-mail notification in request of
-	*	Henk Valk - YH Webdesign <webdesign@yourhosting.nl>
-	*	Jan Egbert Krikken - Eisma Media Groep <j.krikken@eisma.nl>
-*	Let visitors pay later
-*	Make simulator payments free
-*	MultiSafePay - http://www.multisafepay.com/
-*	TargetPay.com - https://www.targetpay.com/
-*	http://www.buckaroo.nl/zakelijk/partners/plugins.aspx
-*	IcePay
-*	Do something with no configuratin selected in WooCommerce, show error on checkout
-*	Maybe add support for [Fast Secure Contact Form](http://wordpress.org/extend/plugins/si-contact-form/)
-	*	Also see the topic wordpress.org/support/topic/plugin-pronamic-ideal-ideal-by-mollie-for-gravity-forms
-*	Check the IDEAL feed for Gravity Forms in combination with an redirection to URL or page confirmation
-*	Add the option to use Mollie profile keys
-*	Check Array string bug with Mollie and an subId and certificates 
-
-
 == Changelog ==
 
 = 1.0 =
 *	First official release, removed the 'beta' label.
+*	Added an 'Branding' page for easy adding iDEAL banners.
+*	Added English documentation for changes in v3.3.1.
+*	ClassiPress - Tweak - Improved support for the ClassiPress theme.
 
 = beta-0.11.1 =
 *	WP e-Commerce - Tweak - Improved the support for iDEAL Advanced variants.
