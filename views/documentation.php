@@ -119,6 +119,20 @@
 				)
 			)
 		) , 
+		'ideal.nl' => array(
+			'name' => 'iDEAL' ,
+			'url' => 'http://ideal.nl/' , 
+			'resources' => array(
+				array(
+					'url' => 'http://www.ideal.nl/' ,
+					'name' => 'iDEAL' 
+				) , 
+				array(
+					'url' => 'http://www.ideal.nl/acceptant/?s=banner' ,
+					'name' => 'iDEAL-banners die altijd actueel blijven' 
+				)
+			)
+		) , 
 		'ing.nl' => array(
 			'name' => 'ING' ,
 			'url' => 'http://ing.nl/' , 
