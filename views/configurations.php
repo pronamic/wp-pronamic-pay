@@ -14,4 +14,6 @@
 	</h2>
 
 	<?php include 'configurations-form.php'; ?>
+
+	<?php include 'pronamic.php'; ?>
 </div>

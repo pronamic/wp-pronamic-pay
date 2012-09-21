@@ -348,4 +348,6 @@
 	</ul>
 	
 	<?php endforeach; ?>
+
+	<?php include 'pronamic.php'; ?>
 </div>

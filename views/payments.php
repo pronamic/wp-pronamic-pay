@@ -20,5 +20,5 @@ $wp_list_table->prepare_items();
 		<?php $wp_list_table->display(); ?>
 	</form>
 
-	<br class="clear" />
+	<?php include 'pronamic.php'; ?>
 </div>

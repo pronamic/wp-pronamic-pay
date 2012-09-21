@@ -77,4 +77,6 @@
 
 		</tbody>
 	</table>
+
+	<?php include 'pronamic.php'; ?>
 </div>

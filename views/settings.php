@@ -326,4 +326,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 			</td>
 		</tr>
 	</table>
+
+	<?php include 'pronamic.php'; ?>
 </div>
