@@ -169,6 +169,15 @@ class Pronamic_WordPress_IDeal_Admin {
 			array( __CLASS__, 'pageDocumentation' )
 		);
 
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Branding', 'pronamic_ideal' ), 
+			__( 'Branding', 'pronamic_ideal' ), 
+			'pronamic_ideal_branding', 
+			'pronamic_ideal_branding', 
+			array( __CLASS__, 'page_branding' )
+		);
+
 		global $submenu;
 
 		if ( isset( $submenu['pronamic_ideal'] ) ) {
@@ -281,6 +290,10 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function pageDocumentation() {
 		self::renderView('documentation');
+	}
+
+	public static function page_branding() {
+		self::renderView( 'branding' );
 	}
 
 	public static function pagePayments() {
