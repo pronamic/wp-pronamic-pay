@@ -14,6 +14,8 @@ Text Domain: pronamic_ideal
 Domain Path: /languages/
 
 License: GPL
+
+GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
 */
 
 if ( function_exists( 'spl_autoload_register' ) ) {
