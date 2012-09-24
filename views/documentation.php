@@ -292,7 +292,19 @@
 					'name' => 'Handleiding iDEAL Lite' ,  
 					'date' => new DateTime('01-01-2012') , 
 					'version' => '2.6' 
-				) 
+				), 
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/Integratiehandleiding_Rabo_Omnikassa_v300_nl.pdf',
+					'name' => 'Integratiehandleiding Rabo OmniKassa - Versie 3.0 September 2012',  
+					'version' => '3.0',
+					'date' => new DateTime('01-09-2012')
+				),
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/Integration_Guide_Rabo_Omnikassa_v300_en.pdf',
+					'name' => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',  
+					'version' => '3.0',
+					'date' => new DateTime('01-09-2012')
+				)
 			)
 		) , 
 		'sisow.nl' => array(
