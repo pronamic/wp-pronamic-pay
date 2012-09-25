@@ -304,6 +304,11 @@
 					'name' => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',  
 					'version' => '3.0',
 					'date' => new DateTime('01-09-2012')
+				),
+				array(
+					'url' => 'http://pronamic.nl/wp-content/uploads/2012/09/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
+					'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',  
+					'date' => new DateTime('03-09-2012')
 				)
 			)
 		) , 
