@@ -33,7 +33,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	 * @param Purchase $purchase
 	 * @param GatewayFramework $gateway
 	 */
-	public function __construct($purchase, $gateway) {
+	public function __construct( $purchase, $gateway ) {
 		$this->purchase = $purchase;
 		$this->gateway = $gateway;
 	}
@@ -59,7 +59,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Order %s', 'pronamic_ideal'), $this->purchase->id);
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->purchase->id );
 	}
 
 	/**
@@ -84,12 +84,12 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->purchase->id);
-		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->purchase->id));
-		$item->setPrice($this->purchase->total);
-		$item->setQuantity(1);
+		$item->setNumber( $this->purchase->id );
+		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->purchase->id ) );
+		$item->setPrice( $this->purchase->total );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -143,24 +143,24 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	public function getNormalReturnUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'open'), 'thanks');
+		return shoppurl( array( 'messagetype' => 'open' ), 'thanks' );
 	}
 	
 	public function getCancelUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'cancelled'), 'thanks');
+		return shoppurl( array( 'messagetype' => 'cancelled' ), 'thanks' );
 	}
 	
 	public function getSuccessUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(false, 'thanks');
+		return shoppurl( false, 'thanks' );
 	}
 	
 	public function getErrorUrl() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
-		return shoppurl(array('messagetype' => 'error'), 'thanks');
+		return shoppurl( array( 'messagetype' => 'error' ), 'thanks' );
 	}
 }
