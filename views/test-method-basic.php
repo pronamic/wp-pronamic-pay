@@ -18,6 +18,9 @@ $iDeal->setCurrency('EUR');
 $iDeal->setPurchaseId(uniqid('test-' . $testCase));
 $iDeal->setDescription('Test ' . $testCase);
 
+// URL's
+$testsLink = admin_url(Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink($configuration->getId()));
+
 // Success URL
 $url = add_query_arg('status', 'success', $testsLink);
 $iDeal->setSuccessUrl($url);

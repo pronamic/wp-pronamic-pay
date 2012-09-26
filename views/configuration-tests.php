@@ -1,36 +1,34 @@
 <?php 
 
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
-$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
+$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
+	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2>
-		<?php _e('iDEAL Tests', 'pronamic_ideal'); ?>
+		<?php _e( 'iDEAL Tests', 'pronamic_ideal' ); ?>
 	</h2>
 
 	<?php if($configuration == null): ?>
 
 		<p>
-			<?php printf(__('We could not find any feed with the ID "%s".', 'pronamic_ideal'), $id); ?>
+			<?php printf( __( 'We could not find any feed with the ID "%s".', 'pronamic_ideal' ), $id ); ?>
 		</p>
 
 	<?php else: ?>
 
-	<?php $testsLink = admin_url(Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink($configuration->getId())); ?>
-
 		<div>
 			<h3>
-				<?php _e('Info', 'pronamic_ideal'); ?>
+				<?php _e( 'Info', 'pronamic_ideal' ); ?>
 			</h3>
 	
 			<table class="form-table">
 				<tr>
 					<th scope="row">
-						<?php _e('ID', 'pronamic_ideal'); ?>
+						<?php _e( 'ID', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
 						<?php echo $configuration->getId(); ?>
@@ -38,7 +36,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				</tr>
 				<tr>
 					<th scope="row">
-						<?php _e('Name', 'pronamic_ideal'); ?>
+						<?php _e( 'Name', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
 						<?php echo $configuration->getName(); ?>
