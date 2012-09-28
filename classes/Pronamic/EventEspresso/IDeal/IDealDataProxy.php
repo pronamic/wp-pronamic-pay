@@ -23,9 +23,9 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	 * 
 	 * @param array $data
 	 */
-	public function __construct($data) {
-		$data = apply_filters('filter_hook_espresso_prepare_payment_data_for_gateways', $data);
-		$data = apply_filters('filter_hook_espresso_get_total_cost', $data);
+	public function __construct( $data ) {
+		$data = apply_filters( 'filter_hook_espresso_prepare_payment_data_for_gateways', $data );
+		$data = apply_filters( 'filter_hook_espresso_get_total_cost', $data );
 
 		$this->data = $data;
 	}
@@ -51,7 +51,7 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Attendee %s', 'pronamic_ideal'), $this->data['attendee_id']);
+		return sprintf( __( 'Attendee %s', 'pronamic_ideal' ), $this->data['attendee_id'] );
 	}
 
 	/**
@@ -77,12 +77,12 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->data['attendee_id']);
-		$item->setDescription(sprintf(__('Attendee %s', 'pronamic_ideal'), $this->data['attendee_id']));
-		$item->setPrice($this->data['total_cost']);
-		$item->setQuantity(1);
+		$item->setNumber( $this->data['attendee_id'] );
+		$item->setDescription( sprintf( __( 'Attendee %s', 'pronamic_ideal' ), $this->data['attendee_id'] ) );
+		$item->setPrice( $this->data['total_cost'] );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -129,53 +129,53 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	// URL's
 	//////////////////////////////////////////////////
 
-	private function getNotifyUrl() {
+	private function get_notify_url() {
 		global $org_options;
 
 		return add_query_arg(
 			array(
-				'id' => $this->data['attendee_id'] ,
-				'registration_id' => $this->data['registration_id'] , 
-				'event_id' => $this->data['event_id']
-			) , 
-			get_permalink($org_options['notify_url'])
+				'id'              => $this->data['attendee_id'],
+				'registration_id' => $this->data['registration_id'], 
+				'event_id'        => $this->data['event_id']
+			),
+			get_permalink( $org_options['notify_url'] )
 		);
 	}
 
-	private function getReturnUrl() {
+	private function get_return_url() {
 		global $org_options;
 
 		return add_query_arg(
 			array(
-				'id' => $this->data['attendee_id'] ,
-				'registration_id' => $this->data['registration_id'] , 
-				'event_id' => $this->data['event_id']
-			) , 
-			get_permalink($org_options['return_url'])
+				'id'              => $this->data['attendee_id'],
+				'registration_id' => $this->data['registration_id'], 
+				'event_id'        => $this->data['event_id']
+			),
+			get_permalink( $org_options['return_url'] )
 		);
 	}
 
-	private function getCancelReturn() {
+	private function get_cancel_return() {
 		global $org_options;
 
-		return get_permalink($org_options['cancel_return']);
+		return get_permalink( $org_options['cancel_return'] );
 	}
 
 	//////////////////////////////////////////////////
 
 	public function getNormalReturnUrl() {
-		return $this->getReturnUrl();
+		return $this->get_return_url();
 	}
 	
 	public function getCancelUrl() {
-		return $this->getCancelReturn();
+		return $this->get_cancel_return();
 	}
 	
 	public function getSuccessUrl() {
-		return $this->getReturnUrl();
+		return $this->get_return_url();
 	}
 	
 	public function getErrorUrl() {
-		return $this->getReturnUrl();
+		return $this->get_return_url();
 	}
 }

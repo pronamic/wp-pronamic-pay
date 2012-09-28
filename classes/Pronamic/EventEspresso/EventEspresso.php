@@ -38,12 +38,12 @@ class Pronamic_EventEspresso_EventEspresso {
 	 * @param string $id
 	 */
 	public static function getPaymentDataByAttendeeId($id) {
-		event_espresso_require_gateway('process_payments.php');
+		event_espresso_require_gateway( 'process_payments.php' );
 
-		$data = array('attendee_id' => $id);
+		$data = array( 'attendee_id' => $id );
 
-		$data = apply_filters('filter_hook_espresso_prepare_payment_data_for_gateways', $data);
-		$data = apply_filters('filter_hook_espresso_get_total_cost', $data);
+		$data = apply_filters( 'filter_hook_espresso_prepare_payment_data_for_gateways', $data );
+		$data = apply_filters( 'filter_hook_espresso_get_total_cost', $data );
 
 		return $data; 
 	}

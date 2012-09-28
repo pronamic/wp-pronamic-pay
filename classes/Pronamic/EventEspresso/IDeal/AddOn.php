@@ -22,15 +22,15 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_filter('action_hook_espresso_display_gateway_settings', array(__CLASS__, 'displayGatewaySettings'));
+		add_filter( 'action_hook_espresso_display_gateway_settings',       array( __CLASS__, 'displayGatewaySettings' ) );
 
-		add_action('action_hook_espresso_display_onsite_payment_header', 'espresso_display_onsite_payment_header');
-		add_action('action_hook_espresso_display_onsite_payment_footer', 'espresso_display_onsite_payment_footer');
-		add_action('action_hook_espresso_display_onsite_payment_gateway', array(__CLASS__, 'displayGateway'));
+		add_action( 'action_hook_espresso_display_onsite_payment_header',  'espresso_display_onsite_payment_header' );
+		add_action( 'action_hook_espresso_display_onsite_payment_footer',  'espresso_display_onsite_payment_footer' );
+		add_action( 'action_hook_espresso_display_onsite_payment_gateway', array( __CLASS__, 'displayGateway' ) );
 
-		add_action('pronamic_ideal_status_update', array(__CLASS__, 'updateStatus'), 10, 2);
+		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'updateStatus' ), 10, 2 );
 		
-		add_filter('pronamic_ideal_source_column_event-espresso', array(__CLASS__, 'sourceColumn'), 10, 2);
+		add_filter( 'pronamic_ideal_source_column_event-espresso', array( __CLASS__, 'sourceColumn' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -38,19 +38,19 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	/**
 	 * Display gateway
 	 */
-	public static function displayGateway($data) {
-		$configurationId = get_option('pronamic_ideal_event_espresso_configuration_id');
+	public static function displayGateway( $data ) {
+		$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($configurationId);
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
 
-		$dataProxy = new Pronamic_EventEspresso_IDeal_IDealDataProxy($data);
+		$data_proxy = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $data );
 
-		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm($dataProxy, $configuration, false);
+		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data_proxy, $configuration, false );
 
 		?>
 		<div class="event-display-boxes">
 			<h3 class="payment_header">
-				<?php _e('iDEAL', 'pronamic_ideal'); ?>
+				<?php _e( 'iDEAL', 'pronamic_ideal' ); ?>
 			</h3>
 
 			<?php echo $html; ?>
@@ -67,20 +67,20 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		global $espresso_premium, $active_gateways;
 
 		// Handle request
-		if(isset($_REQUEST['activate_pronamic_ideal'])) {
-			$active_gateways['pronamic_ideal'] = dirname(__FILE__);
+		if ( isset( $_REQUEST['activate_pronamic_ideal'] ) ) {
+			$active_gateways['pronamic_ideal'] = dirname( __FILE__ );
 
-			update_option('event_espresso_active_gateways', $active_gateways);
+			update_option( 'event_espresso_active_gateways', $active_gateways );
 		}
 
-		if(isset($_REQUEST['deactivate_pronamic_ideal'])) {
-			unset($active_gateways['pronamic_ideal']);
+		if ( isset( $_REQUEST['deactivate_pronamic_ideal'] ) ) {
+			unset( $active_gateways['pronamic_ideal'] );
 
-			update_option('event_espresso_active_gateways', $active_gateways);
+			update_option( 'event_espresso_active_gateways', $active_gateways );
 		}
 
 		// Configuration 
-		$configurationId = get_option('pronamic_ideal_event_espresso_configuration_id');
+		$configurationId = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
 
 		if(isset($_POST['pronamic_ideal_event_espresso_configuration_id'])) {
 			$configurationId = filter_input(INPUT_POST, 'pronamic_ideal_event_espresso_configuration_id', FILTER_VALIDATE_INT);
@@ -181,7 +181,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false) {
+	public static function updateStatus( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if($payment->getSource() == self::SLUG) {
 			$id = $payment->getSourceId();
 			$transaction = $payment->transaction;
@@ -214,10 +214,10 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					break;
 			}
 			
-			$data = apply_filters('filter_hook_espresso_update_attendee_payment_data_in_db', $data);
+			$data = apply_filters( 'filter_hook_espresso_update_attendee_payment_data_in_db', $data );
 				
-			if($canRedirect) {
-				wp_redirect($url, 303);
+			if ( $can_redirect ) {
+				wp_redirect( $url, 303 );
 
 				exit;
 			}
@@ -229,18 +229,20 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function sourceColumn($text, $payment) {
-		$url = add_query_arg(array(
-			'page' => 'events' ,
+	public static function sourceColumn( $text, $payment ) {
+		$url = add_query_arg( array(
+			'page'                => 'events' ,
 			'event_admin_reports' => 'event_list_attendees' , 
-			'all_a' => 'true'
-		), admin_url('admin.php'));
+			'all_a'               => 'true'
+		), admin_url( 'admin.php' ) );
 
 		$text  = '';
-		$text .= __('Event Espresso', 'pronamic_ideal') . '<br />';
-		$text .= sprintf('<a href="%s">', esc_attr($url));
-		$text .= sprintf(__('Attendee #%s', 'pronamic_ideal'), $payment->getSourceId());
-		$text .= '</a>';
+		$text .= __( 'Event Espresso', 'pronamic_ideal' ) . '<br />';
+		$text .= sprintf( 
+			'<a href="%s">%s</a>', 
+			esc_attr( $url ),
+			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+		);
 
 		return $text;
 	}
