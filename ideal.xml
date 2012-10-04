@@ -283,6 +283,17 @@
 	</provider>
 
 	<provider>
+		<id>multisafepay</id>
+		<name>MultiSafepay</name>
+		<url>http://www.multisafepay.com/</url>
+
+		<method gateway="multisafepay">
+			<id>multisafepay</id>
+			<name>MultiSafepay</name>
+		</method>
+	</provider>
+
+	<provider>
 		<id>neos</id>
 		<name>NEOS</name>
 		<url>http://neossolution.com/</url>
@@ -451,9 +462,9 @@
 		<name>TargetPay</name>
 		<url>https://www.targetpay.com/</url>
 
-		<variant method="targetpay-ideal">
+		<method gateway="targetpay">
 			<id>targetpay-ideal</id>
 			<name>TargetPay - iDEAL</name>
-		</variant>
+		</method>
 	</provider>
 </ideal>
