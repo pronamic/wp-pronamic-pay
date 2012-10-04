@@ -16,5 +16,7 @@ class Pronamic_IDeal_VariantBasic extends  Pronamic_IDeal_Variant {
 		parent::__construct();
 
 		$this->setMethod(Pronamic_IDeal_IDeal::METHOD_BASIC);
+
+		$this->feedback_payment_status = false;
 	}
 }
