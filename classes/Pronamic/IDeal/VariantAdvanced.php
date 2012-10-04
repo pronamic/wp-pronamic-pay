@@ -16,5 +16,7 @@ class Pronamic_IDeal_VariantAdvanced extends Pronamic_IDeal_Variant {
 		parent::__construct();
 
 		$this->setMethod(Pronamic_IDeal_IDeal::METHOD_ADVANCED);
+		
+		$this->method_id = Pronamic_IDeal_Variant::METHOD_HTTP_REDIRECT;
 	}
 }
