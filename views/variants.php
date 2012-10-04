@@ -13,7 +13,9 @@
 			<tr>
 				<th scope="col" class="manage-column"><?php _e( 'Provider', 'pronamic_ideal' ); ?></th>
 				<th scope="col" class="manage-column"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Type', 'pronamic_ideal' );  ?></th>
 				<th scope="col" class="manage-column"><?php _e( 'Method', 'pronamic_ideal' );  ?></th>
+				<th scope="col" class="manage-column"><?php _e( 'Feedback Payment Status', 'pronamic_ideal' );  ?></th>
 				<th scope="col" class="manage-column"><?php _e( 'Dashboard', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</<?php echo $tag; ?>>
@@ -57,6 +59,28 @@
 					}
 					
 					?>
+				</td>
+				<td>
+					<?php 
+					
+					switch ( $variant->method_id ) {
+						case Pronamic_IDeal_Variant::METHOD_HTML_FORM:
+							_e( 'HTML Form', 'pronamic_ideal' );
+							break;
+						
+						case Pronamic_IDeal_Variant::METHOD_HTTP_REDIRECT:
+							_e( 'HTTP Redirect', 'pronamic_ideal' );
+							break;
+						
+						default:
+							_e( 'Unkown', 'pronamic_ideal' );
+							break;
+					}
+					
+					?>
+				</td>
+				<td>
+					<?php $variant->feedback_payment_status ? _e( 'Yes', 'pronamic_ideal' ) : _e( 'No', 'pronamic_ideal ' ); ?>
 				</td>
 				<td>
 					<?php if($variant->testSettings->dashboardUrl): ?>
