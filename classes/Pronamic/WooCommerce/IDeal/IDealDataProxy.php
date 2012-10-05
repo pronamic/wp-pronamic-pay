@@ -24,7 +24,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * 
 	 * @param WC_Order $order
 	 */
-	public function __construct($order) {
+	public function __construct( $order ) {
 		$this->order = $order;
 	}
 
@@ -49,7 +49,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id);
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id );
 	}
 
 	/**
@@ -76,13 +76,13 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->order->id);
-		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id));
+		$item->setNumber( $this->order->id );
+		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id ) );
 		// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/classes/class-wc-order.php#L50
-		$item->setPrice($this->order->order_total);
-		$item->setQuantity(1);
+		$item->setPrice( $this->order->order_total );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -99,7 +99,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 */
 	public function getCurrencyAlphabeticCode() {
 		// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/admin/woocommerce-admin-settings.php#L32
-		return get_option('woocommerce_currency');
+		return get_option( 'woocommerce_currency' );
 	}
 
 	//////////////////////////////////////////////////
@@ -137,10 +137,10 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	public function getNormalReturnUrl() {
 		return add_query_arg(
 			array(
-				'key' => $this->order->order_key , 
+				'key'   => $this->order->order_key,
 				'order' => $this->order->id
-			) , 
-			get_permalink(woocommerce_get_page_id('view_order'))
+			),
+			get_permalink( woocommerce_get_page_id( 'view_order' ) )
 		);
 	}
 	
@@ -151,10 +151,10 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	public function getSuccessUrl() {
 		return add_query_arg(
 			array(
-				'key' => $this->order->order_key , 
+				'key'   => $this->order->order_key,
 				'order' => $this->order->id
-			) , 
-			get_permalink(woocommerce_get_page_id('thanks'))
+			),
+			get_permalink( woocommerce_get_page_id( 'thanks' ) )
 		);
 	}
 	
