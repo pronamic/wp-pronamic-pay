@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 09:29+0100\n"
-"PO-Revision-Date: 2012-09-21 09:29+0100\n"
+"POT-Creation-Date: 2012-10-05 10:55+0100\n"
+"PO-Revision-Date: 2012-10-05 10:55+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -71,7 +71,7 @@ msgstr "Gravity Forms"
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
-#: views/settings.php:137 classes/Pronamic/Shopp/IDeal/AddOn.php:195
+#: views/settings.php:137 classes/Pronamic/Shopp/IDeal/AddOn.php:196
 msgid "Shopp"
 msgstr "Shopp"
 
@@ -138,6 +138,16 @@ msgstr "Geregistreerde hashing algoritmen"
 #: views/settings.php:322
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
+
+#: views/test-method-omnikassa.php:2 views/test-method-easy.php:2
+#: views/configurations-form.php:91 views/configurations-form.php:92
+msgid "Tests"
+msgstr "Tests"
+
+#: views/test-method-omnikassa.php:9 views/test-method-easy.php:9
+#, php-format
+msgid "Test &euro; %s"
+msgstr "Test &euro; %s"
 
 #: views/pages-generator.php:37
 msgid "iDEAL Pages Generator"
@@ -261,7 +271,7 @@ msgstr "iDEAL betaling"
 msgid "General"
 msgstr "Algemeen"
 
-#: views/payment.php:44 views/payment.php:179 views/configuration-tests.php:33
+#: views/payment.php:44 views/payment.php:179 views/configuration-tests.php:31
 msgid "ID"
 msgstr "ID"
 
@@ -307,7 +317,7 @@ msgstr "Consument"
 
 #: views/payment.php:117 views/payment.php:171
 #: views/configurations-form.php:52 views/variants.php:15
-#: views/configuration-tests.php:41
+#: views/configuration-tests.php:39
 msgid "Name"
 msgstr "Naam"
 
@@ -351,6 +361,17 @@ msgstr "iDEAL configuraties"
 #: views/configurations.php:10 views/gravityforms/feeds.php:33
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
+
+#: views/test-method-basic.php:2 views/test-method-internetkassa.php:31
+#: views/test-method-advanced.php:31
+msgid "Mandatory Tests"
+msgstr "Verplichte tests"
+
+#: views/test-method-basic.php:9 views/test-method-advanced.php:42
+#: classes/Pronamic/WordPress/IDeal/Admin.php:79
+#, php-format
+msgid "Test Case %s"
+msgstr "Test %s"
 
 #: views/branding.php:5
 msgid "iDEAL Branding"
@@ -404,7 +425,7 @@ msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 msgid "Image"
 msgstr "Afbeelding"
 
-#: views/branding.php:111 views/configuration-tests.php:105
+#: views/branding.php:111 views/test-method-advanced.php:54
 msgid "Code"
 msgstr "Code"
 
@@ -412,12 +433,12 @@ msgstr "Code"
 msgid "iDEAL Documentation"
 msgstr "iDEAL documentatie"
 
-#: views/documentation.php:338
+#: views/documentation.php:355
 #, php-format
 msgid "version %s"
 msgstr "versie %s"
 
-#: views/documentation.php:342
+#: views/documentation.php:359
 #, php-format
 msgid "%s"
 msgstr "%s"
@@ -469,11 +490,6 @@ msgstr "Aantal betalingen"
 #: views/gravityforms/feeds.php:124 views/gravityforms/feeds.php:125
 msgid "Edit"
 msgstr "Bewerken"
-
-#: views/configurations-form.php:91 views/configurations-form.php:92
-#: views/configuration-tests.php:236 views/configuration-tests.php:277
-msgid "Tests"
-msgstr "Tests"
 
 #: views/configurations-form.php:118
 msgid "Not available"
@@ -740,41 +756,25 @@ msgstr "iDEAL tests"
 msgid "We could not find any feed with the ID \"%s\"."
 msgstr "We konden geen feed vinden met de ID \"%s\"."
 
-#: views/configuration-tests.php:27
+#: views/configuration-tests.php:25
 msgid "Info"
 msgstr "Info"
 
-#: views/configuration-tests.php:54
+#: views/test-method-advanced.php:2
 msgid "Retrieve Issuers Lists"
 msgstr "Ophalen banken lijsten"
 
-#: views/configuration-tests.php:82 views/configuration-tests.php:127
-#: views/configuration-tests.php:218
-msgid "Mandatory Tests"
-msgstr "Verplichte tests"
-
-#: views/configuration-tests.php:93 views/configuration-tests.php:134
-#: classes/Pronamic/WordPress/IDeal/Admin.php:79
-#, php-format
-msgid "Test Case %s"
-msgstr "Test %s"
-
-#: views/configuration-tests.php:108
+#: views/test-method-advanced.php:57
 msgid "Message"
 msgstr "Bericht"
 
-#: views/configuration-tests.php:111
+#: views/test-method-advanced.php:60
 msgid "Detail"
 msgstr "Detail"
 
-#: views/configuration-tests.php:114
+#: views/test-method-advanced.php:63
 msgid "Consumer Message"
 msgstr "Consumenten bericht"
-
-#: views/configuration-tests.php:243 views/configuration-tests.php:284
-#, php-format
-msgid "Test &euro; %s"
-msgstr "Test &euro; %s"
 
 #: views/gravityforms/feeds.php:28
 msgid "iDEAL Feeds"
@@ -1136,7 +1136,7 @@ msgstr "AppThemes"
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:203
 #: classes/Pronamic/EShop/IDeal/AddOn.php:166
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:197
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:198
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:129
 #, php-format
 msgid "Order #%s"
@@ -1270,27 +1270,27 @@ msgstr "iDEAL bank"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:157
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:158
 msgid "Payment of the order has been cancelled."
 msgstr "Betaling van de bestelling is geannuleerd."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:160
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161
 msgid "An unexpected error occured during transaction."
 msgstr "Een overwachte fout vond plaats tijdens de transactie."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:163
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:164
 msgid "The maximum transaction time expired."
 msgstr "De maximale transactie tijd is verlopen."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:166
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:167
 msgid "The transaction failed for an unknown reason."
 msgstr "De transactie is mislukt om een onbekende reden."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:169
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:170
 msgid "Transaction was not finished and was left open."
 msgstr "Transactie is niet afgerond en is open gelaten."
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:178
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:179
 msgid "Errors"
 msgstr "Fouten"
 
@@ -1365,7 +1365,7 @@ msgstr "Instellingen bijwerken"
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:242
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:244
 #, php-format
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
