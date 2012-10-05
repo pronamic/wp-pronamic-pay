@@ -86,10 +86,10 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 				if ( $lists ) {
 					$output .= '<tr>';
 					$output .= '	<td>';
-					$output .= '		' . __( 'Choose your bank', 'pronamic_ideal' );
+					$output .= '		<label for="pronamic_ideal_issuer_id">' . __( 'Choose your bank', 'pronamic_ideal' ) . '</label>';
 					$output .= '	</td>';
 					$output .= '	<td>';
-					$output .= '		' . Pronamic_IDeal_HTML_Helper::issuersSelect('pronamic_ideal_issuer_id', $lists);
+					$output .= '		' . Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists, null, array(), 'pronamic_ideal_issuer_id' );
 					$output .= '	</td>';
 					$output .= '</tr>'; 
 				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
