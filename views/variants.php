@@ -13,7 +13,7 @@
 				<tr>
 					<th scope="col" class="manage-column"><?php _e( 'Provider', 'pronamic_ideal' ); ?></th>
 					<th scope="col" class="manage-column"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
-					<th scope="col" class="manage-column"><?php _e( 'Type', 'pronamic_ideal' );  ?></th>
+					<th scope="col" class="manage-column"><?php _e( 'Gateway', 'pronamic_ideal' );  ?></th>
 					<th scope="col" class="manage-column"><?php _e( 'Method', 'pronamic_ideal' );  ?></th>
 					<th scope="col" class="manage-column"><?php _e( 'Feedback Payment Status', 'pronamic_ideal' );  ?></th>
 					<th scope="col" class="manage-column"><?php _e( 'Dashboard', 'pronamic_ideal' ); ?></th>
