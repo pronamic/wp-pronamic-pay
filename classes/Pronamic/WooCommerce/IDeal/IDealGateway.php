@@ -36,9 +36,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->init_settings();
 		
 		// Define user set variables
-		$this->title           = $this->settings['title'];
-		$this->description     = $this->settings['description'];
-		$this->configurationId = $this->settings['configuration_id'];
+		$this->title            = $this->settings['title'];
+		$this->description      = $this->settings['description'];
+		$this->configuration_id = $this->settings['configuration_id'];
 		
 		// Actions
 		add_action( 'woocommerce_update_options_payment_gateways', array( $this, 'process_admin_options' ) );
@@ -47,13 +47,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     } 
 
 	/**
-     * Initialise Gateway Settings Form Fields
+     * Initialise form fields
      */
     function init_form_fields() {
     	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
     	$configuration_options = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
 
-    	foreach ($configurations as $configuration) {
+    	foreach ( $configurations as $configuration ) {
     		$configuration_options[$configuration->getId()] = $configuration->getName();
     	}
     
@@ -116,7 +116,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			echo wpautop( wptexturize( $this->description ) );
 		}
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
 
@@ -156,7 +156,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 * Receipt page
 	 */
 	function receipt_page( $order_id ) {
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 		
 		$order = new WC_Order( $order_id );
 		
@@ -179,6 +179,30 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		$order = new WC_Order( $order_id );
 
+		// Do specifiek iDEAL variant processing
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
+		if ( $configuration !== null ) {
+			$variant = $configuration->getVariant();
+	
+			if ( $variant !== null ) {
+				switch ( $variant->getMethod() ) {
+					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
+						$return = $this->process_ideal_advanced_payment( $order, $configuration, $variant );
+						
+						break;
+					case Pronamic_IDeal_IDeal::METHOD_EASY:
+					case Pronamic_IDeal_IDeal::METHOD_BASIC:
+						$return = $this->process_ideal_payment( $order, $configuration, $variant, true );
+						
+						break;
+					default: 
+						$return = $this->process_ideal_payment( $order, $configuration, $variant, false );
+
+						break;
+				}
+			}
+		}
+
 		// Mark as pending (we're awaiting the payment)
 		$order->update_status( 'pending', __( 'Awaiting iDEAL payment', 'pronamic_ideal' ) );
 
@@ -191,23 +215,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// Empty awaiting payment session
 		unset( $_SESSION['order_awaiting_payment'] );
 
-		// Do specifiek iDEAL variant processing
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-	
-			if ( $variant !== null ) {
-				switch ( $variant->getMethod() ) {
-					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-						return $this->process_ideal_advanced_payment( $order, $configuration, $variant );
-					case Pronamic_IDeal_IDeal::METHOD_EASY:
-					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return $this->process_ideal_payment( $order, $configuration, $variant, true );
-					default: 
-						return $this->process_ideal_payment( $order, $configuration, $variant, false );
-				}
-			}
-		}
+		// Return
+		return $return;
     }
 
     /**
