@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-05 10:55+0100\n"
-"PO-Revision-Date: 2012-10-05 10:55+0100\n"
+"POT-Creation-Date: 2012-10-05 11:09+0100\n"
+"PO-Revision-Date: 2012-10-05 11:09+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -477,7 +477,7 @@ msgid "Mode"
 msgstr "Modus"
 
 #: views/configurations-form.php:56 views/configurations-form.php:114
-#: views/configurations-form.php:115 views/variants.php:17
+#: views/configurations-form.php:115 views/variants.php:19
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -504,34 +504,64 @@ msgid "Provider"
 msgstr "Provider"
 
 #: views/variants.php:16
+msgid "Gateway"
+msgstr "Gateway"
+
+#: views/variants.php:17
 msgid "Method"
 msgstr "Methode"
 
-#: views/variants.php:43 views/gravityforms/feed-edit.php:341
+#: views/variants.php:18
+msgid "Feedback Payment Status"
+msgstr "Feedback betaling status"
+
+#: views/variants.php:45 views/gravityforms/feed-edit.php:341
 msgid "Easy"
 msgstr "Easy"
 
-#: views/variants.php:46
+#: views/variants.php:48
 msgid "Basic"
 msgstr "Basis"
 
-#: views/variants.php:49
+#: views/variants.php:51
 msgid "OmniKassa"
 msgstr "OmniKassa"
 
-#: views/variants.php:52 views/gravityforms/feed-edit.php:412
+#: views/variants.php:54 views/gravityforms/feed-edit.php:412
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/variants.php:55 classes/Pronamic/WordPress/IDeal/IDeal.php:246
+#: views/variants.php:57 classes/Pronamic/WordPress/IDeal/IDeal.php:246
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: views/variants.php:64 views/configuration-edit.php:230
+#: views/variants.php:68
+msgid "HTML Form"
+msgstr "HTML formulier"
+
+#: views/variants.php:72
+msgid "HTTP Redirect"
+msgstr "HTTP redirect"
+
+#: views/variants.php:76
+msgid "Unkown"
+msgstr "Onbekend"
+
+#: views/variants.php:83 classes/Pronamic/ClassiPress/IDeal/AddOn.php:74
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:93
+msgid "Yes"
+msgstr "Ja"
+
+#: views/variants.php:83 classes/Pronamic/ClassiPress/IDeal/AddOn.php:75
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:94
+msgid "No"
+msgstr "Nee"
+
+#: views/variants.php:88 views/configuration-edit.php:230
 msgid "Test"
 msgstr "Test"
 
-#: views/variants.php:70 views/configuration-edit.php:225
+#: views/variants.php:94 views/configuration-edit.php:225
 msgid "Live"
 msgstr "Live"
 
@@ -1240,16 +1270,6 @@ msgstr "Controleer iDEAL betaling voor bestelling #%s"
 msgid "iDEAL Options"
 msgstr "iDEAL opties"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:74
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:93
-msgid "Yes"
-msgstr "Ja"
-
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:75
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:94
-msgid "No"
-msgstr "Nee"
-
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:201
 msgid "ClassiPress"
 msgstr "ClassiPress"
@@ -1375,6 +1395,9 @@ msgstr "Deelnemer #%s"
 #, php-format
 msgid "Attendee %s"
 msgstr "Deelnemer %s"
+
+#~ msgid "Type"
+#~ msgstr "Type"
 
 #~ msgid "Kassa"
 #~ msgstr "Kassa"
