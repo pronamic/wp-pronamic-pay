@@ -182,9 +182,12 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// Mark as pending (we're awaiting the payment)
 		$order->update_status( 'pending', __( 'Awaiting iDEAL payment', 'pronamic_ideal' ) );
 
+		// Reduce stock levels
+		$order->reduce_order_stock();
+
 		// Empty cart
 		$woocommerce->cart->empty_cart();
-		
+
 		// Empty awaiting payment session
 		unset( $_SESSION['order_awaiting_payment'] );
 
