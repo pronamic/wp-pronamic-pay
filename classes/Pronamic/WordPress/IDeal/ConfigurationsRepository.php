@@ -33,7 +33,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 			self::$providers = array();
 			self::$variants = array();
 
-			$file = plugin_dir_path(Pronamic_WordPress_IDeal_Plugin::$file) . 'ideal.xml';
+			$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'data.xml';
 	
 			self::$providers = Pronamic_IDeal_IDeal::getProvidersFromXml($file);
 
