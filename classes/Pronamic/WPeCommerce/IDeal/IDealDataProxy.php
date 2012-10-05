@@ -24,7 +24,7 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * 
 	 * @param wpsc_merchant $merchant
 	 */
-	public function __construct($merchant) {
+	public function __construct( $merchant ) {
 		$this->merchant = $merchant;
 	}
 
@@ -50,7 +50,7 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 */
 	public function getDescription() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L41
-		return sprintf(__('Order %s', 'pronamic_ideal'), $this->merchant->purchase_id);
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->merchant->purchase_id );
 	}
 
 	/**
@@ -77,13 +77,13 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->merchant->purchase_id);
-		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->merchant->purchase_id));
+		$item->setNumber( $this->merchant->purchase_id );
+		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->merchant->purchase_id ) );
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L188
-		$item->setPrice($this->merchant->cart_data['total_price']);
-		$item->setQuantity(1);
+		$item->setPrice( $this->merchant->cart_data['total_price'] );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -141,21 +141,21 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	public function getNormalReturnUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'] ,  
-				'gateway' => 'wpsc_merchant_pronamic_ideal'
-			) , 
-			get_option('transact_url')
+				'sessionid' => $this->merchant->cart_data['session_id'],  
+				'gateway'   => 'wpsc_merchant_pronamic_ideal'
+			),
+			get_option( 'transact_url' )
 		);
 	}
 
 	public function getCancelUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'] ,  
-				'gateway' => 'wpsc_merchant_pronamic_ideal' , 
-				'return' => 'cancel'
-			) , 
-			get_option('transact_url')
+				'sessionid' => $this->merchant->cart_data['session_id'],
+				'gateway'   => 'wpsc_merchant_pronamic_ideal',
+				'return'    => 'cancel'
+			),
+			get_option( 'transact_url' )
 		);
 	}
 
@@ -163,20 +163,20 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		return add_query_arg(
 			array(
 				'sessionid' => $this->merchant->cart_data['session_id'], 
-				'gateway' => 'wpsc_merchant_pronamic_ideal'
-			) , 
-			get_option('transact_url')
+				'gateway'   => 'wpsc_merchant_pronamic_ideal'
+			),
+			get_option( 'transact_url' )
 		);
 	}
 
 	public function getErrorUrl() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'] , 
-				'gateway' => 'wpsc_merchant_pronamic_ideal' , 
-				'return' => 'error'
-			) , 
-			get_option('transact_url')
+				'sessionid' => $this->merchant->cart_data['session_id'],
+				'gateway'   => 'wpsc_merchant_pronamic_ideal',
+				'return'    => 'error'
+			),
+			get_option( 'transact_url' )
 		);
 	}
 }

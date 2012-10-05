@@ -80,7 +80,7 @@
 					?>
 				</td>
 				<td>
-					<?php $variant->feedback_payment_status ? _e( 'Yes', 'pronamic_ideal' ) : _e( 'No', 'pronamic_ideal ' ); ?>
+					<?php $variant->feedback_payment_status ? _e( 'Yes', 'pronamic_ideal' ) : _e( 'No', 'pronamic_ideal' ); ?>
 				</td>
 				<td>
 					<?php if ( $variant->testSettings->dashboardUrl ): ?>

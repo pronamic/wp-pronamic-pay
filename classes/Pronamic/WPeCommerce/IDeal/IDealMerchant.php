@@ -49,7 +49,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
 					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-						add_action( 'wpsc_bottom_of_shopping_cart', array( $this, 'shoppingCartBottom' ) );
+						add_action( 'wpsc_bottom_of_shopping_cart', array( $this, 'bottom_of_shopping_cart' ) );
 						
 						break;
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
@@ -66,7 +66,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
     	
-		if($payment == null) {
+		if ( $payment == null ) {
 			$transaction = new Pronamic_IDeal_Transaction();
 			$transaction->setAmount( $data_proxy->getAmount() ); 
 			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
@@ -96,7 +96,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	/**
 	 * Shopping cart bottom
 	 */
-	public function shoppingCartBottom() {
+	public function bottom_of_shopping_cart() {
 		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
@@ -125,17 +125,17 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 
 		$html .= '<tr>';
 		$html .= '	<td class="wpsc_CC_details">';
-		$html .= '		' . __( 'iDEAL Configuration', 'pronamic_ideal');
+		$html .= '		' . __( 'iDEAL Configuration', 'pronamic_ideal' );
 		$html .= '	</td>';
 		$html .= '	<td>';
 		$html .= '		<select name="pronamic_ideal_wpsc_configuration_id">';
-		$html .= '			<option>' . __('&mdash; Select configuration &mdash;', 'pronamic_ideal') . '</option>';
+		$html .= '			<option>' . __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) . '</option>';
 
-		foreach($configurations as $configuration) {
+		foreach ( $configurations as $configuration ) {
 			$html .= sprintf(
-				'<option value="%s" %s>%s</option>',  
-				esc_attr($configuration->getId()) , 
-				selected(get_option('pronamic_ideal_wpsc_configuration_id'), $configuration->getId(), false) ,
+				'<option value="%s" %s>%s</option>',
+				esc_attr( $configuration->getId() ),
+				selected( get_option( 'pronamic_ideal_wpsc_configuration_id' ), $configuration->getId(), false ),
 				$configuration->getName()
 			);
 	   	}
@@ -153,10 +153,10 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	public static function adminConfigurationSubmit() {
 		$name = 'pronamic_ideal_wpsc_configuration_id';
 
-		if(isset($_POST[$name])) {
-			$configurationId = filter_input(INPUT_POST, $name, FILTER_SANITIZE_STRING);
+		if ( isset( $_POST[$name] ) ) {
+			$configuration_id = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
 
-			update_option($name, $configurationId);
+			update_option( $name, $configuration_id );
 		}
 
 		return true;
