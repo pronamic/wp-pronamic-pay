@@ -179,6 +179,10 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		$order = new WC_Order( $order_id );
 
+		// Update status
+		$new_status_slug = Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PENDING;
+		$note = __( 'Awaiting iDEAL payment.', 'pronamic_ideal' );
+
 		// Do specifiek iDEAL variant processing
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 		if ( $configuration !== null ) {
@@ -192,11 +196,15 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 						break;
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						$return = $this->process_ideal_payment( $order, $configuration, $variant, true );
-						
-						break;
+						// E-mail
+						$mailer = $woocommerce->mailer();
+						$mailer->new_order( $order_id );
+
+						$note = self::get_check_payment_note( $order, $configuration );
+
+						self::mail_check_payment( $order, $note );
 					default: 
-						$return = $this->process_ideal_payment( $order, $configuration, $variant, false );
+						$return = $this->process_ideal_payment( $order, $configuration, $variant );
 
 						break;
 				}
@@ -204,7 +212,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		}
 
 		// Mark as pending (we're awaiting the payment)
-		$order->update_status( 'pending', __( 'Awaiting iDEAL payment', 'pronamic_ideal' ) );
+		$order->update_status( $new_status_slug, $note );
 
 		// Reduce stock levels
 		$order->reduce_order_stock();
@@ -220,23 +228,19 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     }
 
     /**
-     * Mail the new order e-mail recipient
+     * Get check payment note
      * 
      * @param WC_Order $order
      * @param Pronamic_WordPress_IDeal_Configuration $configuration
      */
-    private function mail_check_payment( $order, $configuration ) {
-		global $woocommerce;
-		
-		// Note
-
+    private static function get_check_payment_note( $order, $configuration ) {
 		// $editOrderLink = get_edit_post_link($order->id);
 		// get_edit_post_link() will not work, has permissions check for current user
 		$edit_order_link = add_query_arg( 
 			array(
 				'post'   => $order->id, 
 				'action' => 'edit' 
-			), 
+			),
 			admin_url('post.php')
 		);
 
@@ -246,8 +250,18 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			esc_attr( $configuration->getDashboardUrl() ) , 
 			esc_attr( $edit_order_link )
 		);
-    	
-		$order->add_order_note( $note, false );
+
+		return $note;
+    }
+
+    /**
+     * Mail the new order e-mail recipient
+     * 
+     * @param WC_Order $order
+     * @param Pronamic_WordPress_IDeal_Configuration $configuration
+     */
+    private function mail_check_payment( $order, $note ) {
+		global $woocommerce;
 		
 		// E-mail
 		$mailer = $woocommerce->mailer();
@@ -276,14 +290,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param WC_Order $order
      * @param Pronamic_WordPress_IDeal_Configuration $configuration
      * @param Pronamic_IDeal_Variant $variant
-     * @param boolean $mail_check_payment
      * @return array
      */
-    private function process_ideal_payment( $order, $configuration, $variant, $mail_check_payment = false ) {
-    	if( $mail_check_payment ) {
-    		$this->mail_check_payment( $order, $configuration );
-    	}
-
+    private function process_ideal_payment( $order, $configuration, $variant ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
