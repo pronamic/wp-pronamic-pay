@@ -109,7 +109,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	//////////////////////////////////////////////////
 
     /**
-	 * There are no payment fields for bacs, but we want to show the description if set.
+	 * Payment fields
 	 */
 	function payment_fields() {
 		if ( $this->description ) {
