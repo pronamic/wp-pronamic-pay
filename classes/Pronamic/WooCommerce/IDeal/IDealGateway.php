@@ -197,8 +197,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
 						// E-mail
-						$mailer = $woocommerce->mailer();
-						$mailer->new_order( $order_id );
+						// $mailer = $woocommerce->mailer();
+						// $mailer->new_order( $order_id );
 
 						$note = self::get_check_payment_note( $order, $configuration );
 
