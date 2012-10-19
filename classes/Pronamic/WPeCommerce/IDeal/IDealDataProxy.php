@@ -149,9 +149,15 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 
 	public function getCancelUrl() {
+		/*
+		 * If we don't add the 'sessionid' paramater to transaction URL visitors will 
+		 * see the message 'Sorry your transaction was not accepted.', see:
+		 * 
+		 * http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-theme/functions/wpsc-transaction_results_functions.php#L94
+		 */
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'],
+				// 'sessionid' => $this->merchant->cart_data['session_id'],
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 				'return'    => 'cancel'
 			),
@@ -170,9 +176,15 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 
 	public function getErrorUrl() {
+		/*
+		 * If we don't add the 'sessionid' paramater to transaction URL visitors will 
+		 * see the message 'Sorry your transaction was not accepted.', see:
+		 * 
+		 * http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-theme/functions/wpsc-transaction_results_functions.php#L94
+		 */
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'],
+				// 'sessionid' => $this->merchant->cart_data['session_id'],
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 				'return'    => 'error'
 			),
