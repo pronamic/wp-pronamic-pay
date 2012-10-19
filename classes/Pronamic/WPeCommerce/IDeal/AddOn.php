@@ -128,8 +128,8 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		if ( $payment->getSource() == self::SLUG ) {
 			$id = $payment->getSourceId();
 
-			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant($id);
-			$data_proxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy($merchant);
+			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $id );
+			$data_proxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
 
 			$url = $data_proxy->getNormalReturnUrl();
 
@@ -137,6 +137,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 			switch ( $status ) {
 				case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+					$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+					// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+
 	                $url = $data_proxy->getCancelUrl();
 
 					break;
