@@ -100,8 +100,10 @@ class Pronamic_GravityForms_IDeal_Fields {
 				$html .= sprintf("</div>");
 			}
 
-			return $html;
+			$field_content = $html;
 		}
+
+		return $field_content;
 	}
 
 	/**
