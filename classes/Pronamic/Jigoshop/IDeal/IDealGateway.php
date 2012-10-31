@@ -114,7 +114,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			<td class="forminp">
 				<select name="jigoshop_pronamic_ideal_configuration_id" id="jigoshop_pronamic_ideal_configuration_id" style="min-width:100px;">
 					<?php foreach ( $configuration_options as $id => $name ): ?>
-					<option value="<?php echo $id; ?>" <?php selected( $this->configurationId, $id ); ?>><?php echo $name; ?></option>
+						<option value="<?php echo $id; ?>" <?php selected( $this->configurationId, $id ); ?>><?php echo $name; ?></option>
 					<?php endforeach; ?>
 				</select>
 	        </td>

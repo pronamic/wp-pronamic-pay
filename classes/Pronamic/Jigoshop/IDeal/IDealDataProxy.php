@@ -24,7 +24,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	 * 
 	 * @param jigoshop_order $order
 	 */
-	public function __construct($order) {
+	public function __construct( $order ) {
 		$this->order = $order;
 	}
 
@@ -50,7 +50,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	 */
 	public function getDescription() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L50
-		return sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id);
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id );
 	}
 
 	/**
@@ -77,13 +77,13 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber($this->order->id);
-		$item->setDescription(sprintf(__('Order %s', 'pronamic_ideal'), $this->order->id));
+		$item->setNumber( $this->order->id );
+		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id ) );
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L98
-		$item->setPrice($this->order->order_total);
-		$item->setQuantity(1);
+		$item->setPrice( $this->order->order_total );
+		$item->setQuantity( 1 );
 
-		$items->addItem($item);
+		$items->addItem( $item );
 
 		return $items;
 	}
@@ -94,7 +94,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 
 	public function getCurrencyAlphabeticCode() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/admin/jigoshop-admin-settings-options.php#L421
-		return get_option('jigoshop_currency');
+		return get_option( 'jigoshop_currency' );
 	}
 
 	//////////////////////////////////////////////////
@@ -133,11 +133,11 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	public function getNormalReturnUrl() {
 		return add_query_arg(
 			array(
-				'key' => $this->order->order_key ,
+				'key'   => $this->order->order_key,
 				'order' => $this->order->id
 			) , 
 			// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/jigoshop.php#L442
-			get_permalink(jigoshop_get_page_id('view_order'))
+			get_permalink( jigoshop_get_page_id( 'view_order' ) )
 		);
 	}
 	
@@ -149,11 +149,11 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	public function getSuccessUrl() {
 		return add_query_arg(
 			array(
-				'key' => $this->order->order_key ,
+				'key'   => $this->order->order_key,
 				'order' => $this->order->id
 			) , 
 			// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/jigoshop.php#L442
-			get_permalink(jigoshop_get_page_id('thanks'))
+			get_permalink( jigoshop_get_page_id( 'thanks' ) )
 		);
 	}
 
