@@ -37,7 +37,7 @@ class Pronamic_IDeal_HTML_Helper {
 	 * @param string $emptyOption
 	 * @param array $groups
 	 */
-	public static function issuersSelect( $name, array $lists, $empty_option = null, array $groups = array(), $id ) {
+	public static function issuersSelect( $name, array $lists, $empty_option = null, array $groups = array(), $id = '' ) {
 		$attributes = array(
 			'id'   => $id,
 			'name' => $name, 
