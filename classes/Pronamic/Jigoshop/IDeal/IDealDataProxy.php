@@ -80,6 +80,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 		$item->setNumber( $this->order->id );
 		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id ) );
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L98
+		// @see https://github.com/jigoshop/jigoshop/blob/dev/classes/jigoshop_order.class.php#L124
 		$item->setPrice( $this->order->order_total );
 		$item->setQuantity( 1 );
 
