@@ -7,6 +7,7 @@
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
+ * @see http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-List-of-the-payment-statuses-and-error-codes.pdf
  */
 class Pronamic_Gateways_IDealInternetKassa_Statuses {
 	/**
@@ -127,7 +128,7 @@ class Pronamic_Gateways_IDealInternetKassa_Statuses {
 	 * Authorized and cancelled
 	 * @var int
 	 */
-	const AUTHORIZED_AND_CANCELLED = 64;
+	const AUTHORIZED_AND_CANCELLED_64 = 64;
 
 	//////////////////////////////////////////////////
 

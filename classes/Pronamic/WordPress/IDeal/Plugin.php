@@ -323,6 +323,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					break;
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::CANCELLED_BY_CLIENT:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED:
+				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED_64:
 					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
 					break;
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::ORDER_STORED:
