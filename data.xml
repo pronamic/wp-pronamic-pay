@@ -6,7 +6,7 @@
 		<name>ABN AMRO</name>
 		<url>http://abnamro.nl/</url>
 			
-		<variant method="easy">
+		<variant gateway="easy">
 			<id>abnamro-ideal-easy</id>
 			<name>ABN AMRO - iDEAL Easy</name>
 			<url>https://internetkassa.abnamro.nl/</url>
@@ -20,7 +20,7 @@
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>abnamro-ideal-hosted</id>
 			<name>ABN AMRO - iDEAL Hosted</name>
 
@@ -33,7 +33,7 @@
 				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>abnamro-ideal-only-kassa</id>
 			<name>ABN AMRO - iDEAL Only Kassa</name>
 			<url>https://internetkassa.abnamro.nl/</url>
@@ -47,7 +47,7 @@
 				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced" disabled="disabled">
+		<variant gateway="advanced" disabled="disabled">
 			<id>abnamro-ideal-zelfbouw</id>
 			<name>ABN AMRO - iDEAL Zelfbouw</name>
 			<url>https://abnamro.ideal-payment.de/</url>
@@ -81,7 +81,7 @@
 		<id>fortis-bank</id>
 		<name>Fortis Bank</name>
 			
-		<variant method="basic" disabled="disabled">
+		<variant gateway="basic" disabled="disabled">
 			<id>fortis-bank-ideal-hosted</id>
 			<name>Fortis Bank - iDEAL Hosted</name>
 
@@ -92,7 +92,7 @@
 				<paymentServerUrl></paymentServerUrl>
 			</live>
 		</variant>
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>fortis-bank-internetkassa</id>
 			<name>Fortis Bank - iDEAL Internet Kassa</name>
 
@@ -105,7 +105,7 @@
 				<dashboardUrl>https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>fortis-bank-ideal-integrated</id>
 			<name>Fortis Bank - iDEAL Integrated</name>
 
@@ -127,7 +127,7 @@
 		<name>Friesland Bank</name>
 		<url>http://frieslandbank.nl/</url>
 			
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>frieslandbank-ideal-zakelijk</id>
 			<name>Friesland Bank - iDEAL Zakelijk</name>
 
@@ -140,7 +140,7 @@
 				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>frieslandbank-ideal-zakelijk-plus</id>
 			<name>Friesland Bank - iDEAL Zakelijk Plus</name>
 
@@ -164,7 +164,7 @@
 		<name>iDEAL Simulator</name>
 		<url>http://ideal-simulator.nl/</url>
 			
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>ideal-simulator-ideal-basic</id>
 			<name>iDEAL Simulator - iDEAL Lite / Basic</name>
 
@@ -175,7 +175,7 @@
 				<paymentServerUrl>https://www.ideal-simulator.nl/lite/</paymentServerUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>ideal-simulator-ideal-advanced</id>
 			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</name>
 
@@ -198,7 +198,7 @@
 		<name>ING</name>
 		<url>http://ing.nl/</url>
 
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>ing-ideal-basic</id>
 			<name>ING - iDEAL Basic</name>
 
@@ -211,7 +211,7 @@
 				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>ing-ideal-internetkassa</id>
 			<name>ING - iDEAL Internet Kassa</name>
 			<url>https://twyp.secure-ing.com/</url>
@@ -225,7 +225,7 @@
 				<dashboardUrl>https://twyp.secure-ing.com/ncol/prod/admin_TWYP.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>ing-ideal-advanced</id>
 			<name>ING - iDEAL Advanced</name>
 
@@ -250,7 +250,7 @@
 		<name>Mollie</name>
 		<url>http://mollie/</url>
 
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>mollie-ideal-basic</id>
 			<name>Mollie - iDEAL Basic</name>
 
@@ -263,7 +263,7 @@
 				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>mollie-ideal-advanced</id>
 			<name>Mollie - iDEAL Advanced</name>
 
@@ -298,7 +298,7 @@
 		<name>NEOS</name>
 		<url>http://neossolution.com/</url>
 
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>neos-internetkassa</id>
 			<name>NEOS - Internet Kassa</name>
 
@@ -318,7 +318,7 @@
 		<name>Ogone</name>
 		<url>http://ogone.com/</url>
 
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>ogone-internetkassa</id>
 			<name>Ogone - Internet Kassa</name>
 			<url>https://secure.ogone.com/</url>
@@ -339,7 +339,7 @@
 		<name>Rabobank</name>
 		<url>http://rabobank.nl/</url>
 
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>rabobank-ideal-lite</id>
 			<name>Rabobank - iDEAL Lite</name>
 
@@ -352,7 +352,7 @@
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="internetkassa">
+		<variant gateway="internetkassa">
 			<id>rabobank-ideal-kassa</id>
 			<name>Rabobank - Rabo iDEAL Kassa</name>
 			<url>http://i-kassa.rabobank.nl/</url>
@@ -366,7 +366,7 @@
 				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="omnikassa">
+		<variant gateway="omnikassa">
 			<id>rabobank-omnikassa</id>
 			<name>Rabobank - OmniKassa</name>
 
@@ -379,7 +379,7 @@
 				<dashboardUrl>https://download.omnikassa.rabobank.nl/</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>rabobank-ideal-professional</id>
 			<name>Rabobank - iDEAL Professional</name>
 
@@ -404,7 +404,7 @@
 		<name>Sisow</name>
 		<url>http://sisow.nl/</url>
 
-		<variant method="sisow-ideal" disabled="disabled">
+		<variant gateway="sisow-ideal" disabled="disabled">
 			<id>sisow-ideal</id>
 			<name>Sisow - iDEAL</name>
 
@@ -425,7 +425,7 @@
 				
 			</certificates>
 		</variant>
-		<variant method="basic">
+		<variant gateway="basic">
 			<id>sisow-ideal-basic</id>
 			<name>Sisow - iDEAL Basic</name>
 
@@ -438,7 +438,7 @@
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</live>
 		</variant>
-		<variant method="advanced">
+		<variant gateway="advanced">
 			<id>sisow-ideal-advanced</id>
 			<name>Sisow - iDEAL Advanced</name>
 
@@ -462,9 +462,16 @@
 		<name>TargetPay</name>
 		<url>https://www.targetpay.com/</url>
 
-		<method gateway="targetpay">
+		<variant gateway="targetpay">
 			<id>targetpay-ideal</id>
 			<name>TargetPay - iDEAL</name>
-		</method>
+
+			<test>
+				<dashboardUrl>https://www.targetpay.com/login</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.targetpay.com/login</dashboardUrl>
+			</live>
+		</variant>
 	</provider>
 </ideal>

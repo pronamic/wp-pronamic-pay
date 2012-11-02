@@ -136,7 +136,9 @@ class Pronamic_IDeal_IDeal {
 						$enabled = (string) $variantXml['disabled'] != 'disabled';
 	
 						if($enabled) {
-							switch((string) $variantXml['method']) {
+							$gateway = (string) $variantXml['gateway'];
+
+							switch ( $gateway ) {
 								case self::METHOD_EASY:
 									$variant = new Pronamic_IDeal_VariantEasy();
 									break;
@@ -154,17 +156,18 @@ class Pronamic_IDeal_IDeal {
 									break;
 								default:
 									$variant = new Pronamic_IDeal_Variant();
+									$variant->setMethod( $gateway );
 									break;
 							}
-		
+
 							$variant->setProvider($provider);
 							$variant->setId((string) $variantXml->id);
 							$variant->setName((string) $variantXml->name);
-							
+
 							$variant->liveSettings = new stdClass();
 							$variant->liveSettings->dashboardUrl = (string) $variantXml->live->dashboardUrl;
 							$variant->liveSettings->paymentServerUrl = (string) $variantXml->live->paymentServerUrl;
-							
+
 							$variant->testSettings = new stdClass();
 							$variant->testSettings->dashboardUrl = (string) $variantXml->test->dashboardUrl;
 							$variant->testSettings->paymentServerUrl = (string) $variantXml->test->paymentServerUrl;

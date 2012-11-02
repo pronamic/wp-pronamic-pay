@@ -665,7 +665,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handleIDealAdvanced($confirmation, $form, $feed, $lead) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
+		$data_proxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
 
 		$variant = $configuration->getVariant();
 
@@ -673,26 +673,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$issuerDropDown = array_shift($issuerDropDowns);
 
 		if($issuerDropDown != null) {
-			$issuerId =  RGFormsModel::get_field_value($issuerDropDown);
-
-			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount($dataProxy->getAmount()); 
-			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-			$transaction->setExpirationPeriod('PT1H');
-			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setPurchaseId($dataProxy->getOrderId());
-			$transaction->setDescription($dataProxy->getDescription());
-
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
-
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+			$issuer_id =  RGFormsModel::get_field_value($issuerDropDown);
 			
-			// Handle transaction
-			$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
+			$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
 
 			if(empty($url)) {
 				$error = Pronamic_WordPress_IDeal_IDeal::getError();
@@ -706,7 +689,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			} else {
 				// Updating lead's payment_status to Processing
 		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $dataProxy->getAmount();
+		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $data_proxy->getAmount();
 		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
 		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
 		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();

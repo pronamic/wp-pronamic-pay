@@ -318,28 +318,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
     	$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
     	
-		if ( $payment == null ) {
-			$transaction = new Pronamic_IDeal_Transaction();
-			$transaction->setAmount( $data_proxy->getAmount() ); 
-			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
-			$transaction->setExpirationPeriod( 'PT1H' );
-			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
-			$transaction->setEntranceCode( uniqid() );
-			$transaction->setDescription( $data_proxy->getDescription() );
-			$transaction->setPurchaseId( $data_proxy->getOrderId() );
-	
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource( $data_proxy->getSource(), $data_proxy->getOrderId() );
-	
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
-    	}
-
-		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction( $issuer_id, $payment, $variant );
+    	$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
 
 		return array(
 			'result' 	=> 'success',

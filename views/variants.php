@@ -47,11 +47,17 @@
 						case Pronamic_IDeal_IDeal::METHOD_BASIC:
 							_e( 'Basic', 'pronamic_ideal' );
 							break;
+						case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
+							_e( 'Internetkassa', 'pronamic_ideal' );
+							break;
 						case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
 							_e( 'OmniKassa', 'pronamic_ideal' );
 							break;
 						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 							_e( 'Advanced', 'pronamic_ideal' );
+							break;
+						case 'targetpay':
+							echo 'TargetPay';
 							break;
 						default:
 							_e( 'Unknown', 'pronamic_ideal' );
