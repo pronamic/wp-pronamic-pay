@@ -296,6 +296,10 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Get the entrance code of this transaction
 	 * 
+	 * a code determined by the online shop with which the purchase can be 
+	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 * for details).
+	 * 
 	 * @return string
 	 */
 	public function getEntranceCode() {
@@ -305,6 +309,10 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Set the entrancode
 	 * ANS..max40 (ANS = Strictly alphanumerical (letters and numbers only))
+	 * 
+	 * a code determined by the online shop with which the purchase can be 
+	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 * for details).
 	 * 
 	 * @param string $entrance_code
 	 */
