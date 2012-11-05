@@ -103,8 +103,8 @@ class Pronamic_IDeal_IDeal {
 	public static function htmlHiddenFields($data) {
 		$html = '';
 
-		foreach($data as $name => $value) {
-			$html .= sprintf('<input type="hidden" name="%s" value="%s" />', esc_attr($name), esc_attr($value));
+		foreach ( $data as $name => $value ) {
+			$html .= sprintf( '<input type="hidden" name="%s" value="%s" />', esc_attr( $name ), esc_attr( $value ) );
 		}
 
 		return $html;
