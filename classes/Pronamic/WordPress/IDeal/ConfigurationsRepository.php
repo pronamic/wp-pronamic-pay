@@ -132,6 +132,13 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
       	
 		$meta = json_decode($result->meta);
 
+		// Mollie
+		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;
+		if(isset($meta->mollieProfileKey)) $configuration->mollieProfileKey = $meta->mollieProfileKey;
+
+		// TargetPay
+		if(isset($meta->targetPayLayoutCode)) $configuration->targetPayLayoutCode = $meta->targetPayLayoutCode;
+
 		// Kassa
 		if(isset($meta->pspId)) $configuration->pspId = $meta->pspId;
 		if(isset($meta->shaInPassPhrase)) $configuration->shaInPassPhrase = $meta->shaInPassPhrase;
