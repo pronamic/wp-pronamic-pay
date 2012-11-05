@@ -42,7 +42,7 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	public abstract function getCurrencyAlphabeticCode();
 
 	public function getCurrencyNumericCode() {
-		return Pronamic_WordPress_IDeal_Util::transformCurrencyCodeToNumber($this->getCurrencyAlphabeticCode());
+		return Pronamic_WordPress_IDeal_Util::transformCurrencyCodeToNumber( $this->getCurrencyAlphabeticCode() );
 	}
 
 	//////////////////////////////////////////////////
