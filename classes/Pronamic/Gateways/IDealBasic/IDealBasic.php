@@ -655,6 +655,6 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['urlSuccess']  =  $this->getSuccessUrl();
 		$fields['urlError']    = $this->getErrorUrl();
 
-		Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );
 	}
 }
