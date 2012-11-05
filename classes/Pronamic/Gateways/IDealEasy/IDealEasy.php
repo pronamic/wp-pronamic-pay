@@ -114,7 +114,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 * Constructs and initialize a iDEAL easy object
 	 */
 	public function __construct() {
-		$this->setPaymentType(self::PAYMENT_TYPE_IDEAL);
+		$this->setPaymentType( self::PAYMENT_TYPE_IDEAL );
 	}
 
 	//////////////////////////////////////////////////
@@ -133,7 +133,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl($url) {
+	public function setPaymentServerUrl( $url ) {
 		$this->paymentServerUrl = $url;
 	}
 
@@ -153,8 +153,8 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param string $pspId
 	 */
-	public function setPspId($pspId) {
-		$this->pspId = $pspId;
+	public function setPspId( $psp_id ) {
+		$this->pspId = $psp_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -174,8 +174,8 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param sub id
 	 */
-	public function setOrderId($orderId) {
-		$this->orderId = substr($orderId, 0, 16);
+	public function setOrderId( $order_id ) {
+		$this->orderId = substr( $order_id, 0, 16 );
 	}
 
 	//////////////////////////////////////////////////
@@ -194,7 +194,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param string $language
 	 */
-	public function setLanguage($language) {
+	public function setLanguage( $language ) {
 		$this->language = $language;
 	}
 
@@ -215,8 +215,8 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param string $description
 	 */
-	public function setDescription($description) {
-		$this->description = substr($description, 0, 32);
+	public function setDescription( $description ) {
+		$this->description = substr( $description, 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
@@ -235,7 +235,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @return string
 	 */
-	public function setCurrency($currency) {
+	public function setCurrency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -256,7 +256,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 *
 	 * @param string $paymentType an payment type
 	 */
-	public function setPaymentType($paymentType) {
+	public function setPaymentType( $paymentType ) {
 		$this->paymentType = $paymentType;
 	}
 
@@ -276,7 +276,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 * 
 	 * @param float $amount
 	 */
-	public function setAmount($amount) {
+	public function setAmount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -286,7 +286,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		return $this->customerName;
 	}
 
-	public function setCustomerName($customerName) {
+	public function setCustomerName( $customerName ) {
 		$this->customerName = $customerName;
 	}
 
@@ -296,7 +296,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		return $this->eMailAddress;
 	}
 
-	public function setEMailAddress($eMailAddress) {
+	public function setEMailAddress( $eMailAddress ) {
 		$this->eMailAddress = $eMailAddress;
 	}
 
@@ -306,7 +306,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		return $this->ownerAddress;
 	}
 
-	public function setOwnerAddress($ownerAddress) {
+	public function setOwnerAddress( $ownerAddress ) {
 		$this->ownerAddress = $ownerAddress;
 	}
 
@@ -316,7 +316,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		return $this->ownerCity;
 	}
 
-	public function setOwnerCity($ownerCity) {
+	public function setOwnerCity( $ownerCity ) {
 		$this->ownerCity = $ownerCity;
 	}
 
@@ -326,7 +326,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		return $this->ownerZip;
 	}
 
-	public function setOwnerZip($ownerZip) {
+	public function setOwnerZip( $ownerZip ) {
 		$this->ownerZip = $ownerZip;
 	}
 
