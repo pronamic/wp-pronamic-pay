@@ -47,7 +47,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			'rtlo'        => $rtlo,
 			'bank'        => $bank,
 			'description' => $description,
-			'amoun'       => $amount,
+			'amount'       => $amount,
 			'returnurl'   => $returnurl,
 			'reporturl'   => $reporturl
 		), self::URL_START_TRANSACTION );
