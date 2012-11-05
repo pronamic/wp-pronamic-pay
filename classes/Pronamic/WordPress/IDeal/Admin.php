@@ -13,13 +13,13 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_action( 'admin_menu', array( __CLASS__, 'admin_menu') );
+		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
 
-		add_action('load-ideal_page_pronamic_ideal_payments', array(__CLASS__, 'loadPaymentsPage'));
+		add_action( 'load-ideal_page_pronamic_ideal_payments', array( __CLASS__, 'loadPaymentsPage' ) );
 		
-		add_action('load-toplevel_page_pronamic_ideal', array(__CLASS__, 'maybeTestPayment'));
+		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybeTestPayment' ) );
 
-		add_action('admin_enqueue_scripts', array(__CLASS__, 'enqueueAdminScripts'));
+		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueueAdminScripts' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -27,22 +27,22 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Enqueue admin scripts
 	 */
-	public static function enqueueAdminScripts($hook) {
-		$isPronamicIDeal = strpos($hook, 'pronamic_ideal') !== false;
-		$editGravityForms = (strpos($hook, 'page_gf_new_form')) !== false || (strpos($hook, 'page_gf_edit_forms') !== false);
+	public static function enqueueAdminScripts( $hook ) {
+		$is_pronamic_ideal = strpos( $hook, 'pronamic_ideal' ) !== false;
+		$edit_gravity_forms = ( strpos( $hook, 'page_gf_new_form' ) ) !== false || ( strpos( $hook, 'page_gf_edit_forms' ) !== false );
 
-		if($isPronamicIDeal || $editGravityForms) {
+		if ( $is_pronamic_ideal || $edit_gravity_forms ) {
 			// Styles
 			wp_enqueue_style(
-				'proanmic_ideal_admin' , 
-				plugins_url('css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file)
+				'proanmic_ideal_admin',
+				plugins_url( 'css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file )
 			);
 	
 			// Scripts
 			wp_enqueue_script(
-				'proanmic_ideal_admin' , 
-				plugins_url('js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file) ,
-				array('jquery')
+				'proanmic_ideal_admin',
+				plugins_url( 'js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file ),
+				array( 'jquery' )
 			);
 		}
 	}
@@ -193,19 +193,19 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * @param string $id
 	 * @return string url
 	 */
-	public static function getLink($page = null, $view = null, $id = null) {
+	public static function getLink( $page = null, $view = null, $id = null ) {
 		$link = 'admin.php';
 
-		if($page != null) {
-			$link = add_query_arg('page', $page, $link);
+		if ( $page != null ) {
+			$link = add_query_arg( 'page', $page, $link );
 		}
 
-		if($page != null) {
-			$link = add_query_arg('view', $view, $link);
+		if ( $page != null ) {
+			$link = add_query_arg( 'view', $view, $link );
 		}
 
-		if($id != null) {
-			$link = add_query_arg('id', $id, $link);
+		if ( $id != null ) {
+			$link = add_query_arg( 'id', $id, $link );
 		}
 
 		return $link;
