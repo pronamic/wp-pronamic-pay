@@ -276,7 +276,7 @@ class Pronamic_Gateways_Mollie_Mollie
 			$body = curl_exec($ch);
 		}
 
-		var_dump(curl_error($ch));
+		//var_dump(curl_error($ch));
 
 		curl_close($ch);
 
