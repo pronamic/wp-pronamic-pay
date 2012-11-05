@@ -117,37 +117,24 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		}
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
+		
+		$fields = Pronamic_WordPress_IDeal_IDeal::get_fields( $configuration );
 
-			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
-				
-				if ( $lists ) {
-					?>
-					<p class="pronamic_ideal_issuer">
-						<label for="pronamic_ideal_issuer_id">
-							<?php _e( 'Choose your bank', 'pronamic_ideal' ); ?>
-						</label>
-						
-						<?php echo Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists ); ?>
-					</p>
-					<?php 
-				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-					?>
-					<div class="woocommerce_error">
-						<?php echo $error->getConsumerMessage(); ?>
-					</div>
-					<?php
-				} else {
-					?>
-					<div class="woocommerce_error">
-						<?php echo __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' ); ?>
-					</div>
-					<?php 
-				}
-			}
-		}
+		foreach ( $fields as $field ): ?>
+			<?php if( isset( $field['error'] ) ): ?>
+				<div class="woocommerce_error">
+					<?php echo $field['error']; ?>
+				</div>
+			<?php else: ?>
+				<p class="pronamic_ideal_issuer">
+					<label for="pronamic_ideal_issuer_id">
+						<?php echo $field['label']; ?>
+					</label>
+										
+					<?php echo $field['input']; ?>
+				</p>
+			<?php endif; ?>
+		<?php endforeach;
 	}
 
 	//////////////////////////////////////////////////

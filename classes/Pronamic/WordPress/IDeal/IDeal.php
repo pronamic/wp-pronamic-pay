@@ -508,4 +508,61 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 		return $url;
 	}
+
+	public static function get_targetpay_issuers() {
+		$targetpay = new Pronamic_Gateways_TargetPay_TargetPay();
+		
+		$issuers = $targetpay->get_issuers();
+		
+		$output = '<select name="pronamic_ideal_issuer_id" id="">';
+		foreach ( $issuers as $id => $name ) {
+			$output .= '<option value="' . $id . '">' . $name . '</option>';
+		}
+		$output .= '</select>';
+
+		return $output;
+	}
+	
+	public static function get_fields( $configuration ) {
+		$fields = array();
+
+		if ( $configuration !== null ) {
+			$variant = $configuration->getVariant();
+		
+			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
+				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
+		
+				if ( $lists ) {
+					$fields[] = array(
+						'label' => __( 'Choose your bank', 'pronamic_ideal' ),
+						'input' => Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists )
+					);
+				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
+					$fields[] = array(
+						'error' => $error->getConsumerMessage()
+					);
+				} else {
+					$fields[] = array(
+						'error' => __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' )
+					); 
+				}
+			}
+			
+			if ( $variant !== null && $variant->getMethod() == 'targetpay') {
+				$fields[] = array(
+					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
+					'input' => self::get_targetpay_issuers()
+				);
+			}
+			
+			if ( $variant !== null && $variant->getMethod() == 'mollie') {
+				$fields[] = array(
+					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
+					'input' => self::get_targetpay_issuers()
+				);
+			}
+		}
+		
+		return $fields;
+	}
 }
