@@ -336,23 +336,23 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	 * Get the iDEAL HTML
 	 */
 	public function getHtmlFields() {
-		return Pronamic_IDeal_IDeal::htmlHiddenFields(array(
-			'PSPID' => $this->getPspId() ,
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
+			'PSPID'        => $this->getPspId(),
 
-			'orderID' => $this->getOrderId() , 
-			'amount' => Pronamic_IDeal_IDeal::formatPrice($this->getAmount()) , 
-			'currency' => $this->getCurrency() , 
-			'language' => $this->getLanguage() , 
+			'orderID'      => $this->getOrderId(),
+			'amount'       => Pronamic_IDeal_IDeal::formatPrice( $this->getAmount() ), 
+			'currency'     => $this->getCurrency(),
+			'language'     => $this->getLanguage(),
 
-			'COM' => $this->getDescription() , 
-			'PM' => $this->getPaymentType() , 
+			'COM'          => $this->getDescription(),
+			'PM'           => $this->getPaymentType(),
 
-			'CN' => $this->getCustomerName() , 
-			'EMAIL' => $this->getEMailAddress() ,
+			'CN'           => $this->getCustomerName(),
+			'EMAIL'        => $this->getEMailAddress(),
 		
-			'owneraddress' => $this->getOwnerAddress() , 
-			'ownertown' => $this->getOwnerCity() ,
-			'ownerzip' => $this->getOwnerZip()
-		));
+			'owneraddress' => $this->getOwnerAddress(),
+			'ownertown'    => $this->getOwnerCity(),
+			'ownerzip'     => $this->getOwnerZip()
+		) );
 	}
 }
