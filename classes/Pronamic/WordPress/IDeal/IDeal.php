@@ -514,7 +514,21 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 		$issuers = $targetpay->get_issuers();
 		
-		$output = '<select name="pronamic_ideal_issuer_id" id="">';
+		$output = '<select name="pronamic_ideal_issuer_id" id="pronamic_ideal_issuer_id">';
+		foreach ( $issuers as $id => $name ) {
+			$output .= '<option value="' . $id . '">' . $name . '</option>';
+		}
+		$output .= '</select>';
+
+		return $output;
+	}
+
+	public static function get_mollie_issuers( $configuration ) {
+		$mollie = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
+		
+		$issuers = $mollie->getBanks();
+		
+		$output = '<select name="pronamic_ideal_issuer_id" id="pronamic_ideal_issuer_id">';
 		foreach ( $issuers as $id => $name ) {
 			$output .= '<option value="' . $id . '">' . $name . '</option>';
 		}
@@ -551,14 +565,14 @@ class Pronamic_WordPress_IDeal_IDeal {
 			if ( $variant !== null && $variant->getMethod() == 'targetpay') {
 				$fields[] = array(
 					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
-					'input' => self::get_targetpay_issuers()
+					'input' => self::get_targetpay_issuers( $configuration )
 				);
 			}
 			
 			if ( $variant !== null && $variant->getMethod() == 'mollie') {
 				$fields[] = array(
 					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
-					'input' => self::get_targetpay_issuers()
+					'input' => self::get_mollie_issuers( $configuration )
 				);
 			}
 		}
