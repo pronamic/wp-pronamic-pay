@@ -220,76 +220,76 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * @return string url
 	 */
 	public static function getConfigurationsLink() {
-		return add_query_arg(array(
+		return add_query_arg( array(
 			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG 
 		), 'admin.php');
 	}
 
 	public static function getConfigurationEditLink($id = null) {
-		return add_query_arg(array(
+		return add_query_arg( array(
 			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
 			'view' => 'edit' ,
-			'id' => $id   
+			'id'   => $id   
 		), 'admin.php');
 	}
 
 	public static function getConfigurationTestsLink($id = null) {
-		return add_query_arg(array(
-			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
-			'view' => 'tests' ,
-			'id' => $id   
+		return add_query_arg( array(
+			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG,
+			'view' => 'tests',
+			'id'   => $id
 		), 'admin.php');
 	}
 
 	public static function getConfigurationDeleteLink($id = null) {
-		return add_query_arg(array(
-			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
-			'action' => 'delete' ,
-			'id' => $id   
+		return add_query_arg( array(
+			'page'   => Pronamic_WordPress_IDeal_Plugin::SLUG,
+			'action' => 'delete',
+			'id'     => $id
 		), 'admin.php');
 	}
 
 	public static function getPaymentsLink($id = null) {
-		return self::getLink(Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments');
+		return self::getLink( Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' );
 	}
 
 	public static function getPaymentDetailsLink($id = null) {
-		return self::getLink(Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments', 'details', $id);
+		return self::getLink( Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments', 'details', $id );
 	}
 
 	//////////////////////////////////////////////////
 
 	public static function pageIndex() {
-		$view = filter_input(INPUT_GET, 'view', FILTER_SANITIZE_STRING);
+		$view = filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING );
 
 		switch($view) {
 			case 'edit':
-		return self::renderView('configuration-edit');
+				return self::renderView( 'configuration-edit' );
 			case 'tests':
-				return self::renderView('configuration-tests');
+				return self::renderView( 'configuration-tests' );
 			default:
 				return self::pageConfigurations();
 		}
 	}
 
 	public static function pageConfigurations() {
-		return self::renderView('configurations');
+		return self::renderView( 'configurations' );
 	}
 
 	public static function pageSettings() {
-		self::renderView('settings');
+		self::renderView( 'settings' );
 	}
 
 	public static function pagePagesGenerator() {
-		self::renderView('pages-generator');
+		self::renderView( 'pages-generator' );
 	}
 
 	public static function pageVariants() {
-		self::renderView('variants');
+		self::renderView( 'variants' );
 	}
 
 	public static function pageDocumentation() {
-		self::renderView('documentation');
+		self::renderView( 'documentation' );
 	}
 
 	public static function page_branding() {
@@ -297,15 +297,15 @@ class Pronamic_WordPress_IDeal_Admin {
 	}
 
 	public static function pagePayments() {
-		$view = filter_input(INPUT_GET, 'view', FILTER_SANITIZE_STRING);
+		$view = filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING );
 
 		switch($view) {
 			case 'details':
-				return self::renderView('payment');
+				return self::renderView( 'payment' );
 			case 'edit':
-				return self::renderView('payment-edit');
+				return self::renderView( 'payment-edit' );
 			default:
-				return self::renderView('payments');
+				return self::renderView( 'payments' );
 		}
 	}
 
@@ -317,9 +317,9 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function renderView($name) {
 		$result = false;
 
-		$file = plugin_dir_path(Pronamic_WordPress_IDeal_Plugin::$file) . 'views/' . $name . '.php';
+		$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'views/' . $name . '.php';
 
-		if(is_readable($file)) {
+		if ( is_readable( $file ) ) {
 			include $file;
 			
 			$result = true;
