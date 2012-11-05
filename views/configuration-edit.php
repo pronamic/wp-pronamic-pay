@@ -46,7 +46,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 	// Basic
 	$configuration->hashKey = filter_input(INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING);
-
+	
+	// Mollie
+	$configuration->molliePartnerId = filter_input(INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING);
+	$configuration->mollieProfileKey = filter_input(INPUT_POST, 'pronamic_ideal_mollie_profile_key', FILTER_SANITIZE_STRING);
+	
+	// TargetPay
+	$configuration->targetPayLayoutCode = filter_input(INPUT_POST, 'pronamic_ideal_targetpay_layoutcode', FILTER_SANITIZE_STRING);
+	
 	// Kassa
 	$configuration->pspId = filter_input(INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING);
 	$configuration->shaInPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING);
@@ -284,6 +291,57 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<span class="description">
 						<br />
 						<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Mollie */ ?>
+
+			<tr class="extra-settings method-mollie">
+				<th scope="row">
+					<label for="pronamic_ideal_mollie_partner_id">
+						<?php _e('Partner ID', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_mollie_partner_id" name="pronamic_ideal_mollie_partner_id" value="<?php echo $configuration->molliePartnerId; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+			<tr class="extra-settings method-mollie">
+				<th scope="row">
+					<label for="pronamic_ideal_mollie_profile_key">
+						<?php _e('Profile Key', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_mollie_profile_key" name="pronamic_ideal_mollie_profile_key" value="<?php echo $configuration->mollieProfileKey; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [ bekijk overzicht van uw profielen ].', 'pronamic_ideal'); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* TargetPay */ ?>
+
+			<tr class="extra-settings method-targetpay">
+				<th scope="row">
+					<label for="pronamic_ideal_targetpay_layoutcode">
+						<?php _e('Layout Code', 'pronamic_ideal'); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_targetpay_layoutcode" name="pronamic_ideal_targetpay_layoutcode" value="<?php echo $configuration->targetPayLayoutCode; ?>" type="text" class="regular-text" />
+
+					<span class="description">
+						<br />
+						<?php _e('De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal'); ?>
 					</span>
 				</td>
 			</tr>
