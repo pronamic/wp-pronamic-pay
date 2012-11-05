@@ -175,6 +175,8 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Get the purchase ID of this transaction
 	 * 
+	 * the purchase number according to the online shop’s system
+	 * 
 	 * @return string
 	 */
 	public function getPurchaseId() {
@@ -183,6 +185,8 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the purchase id of this transaction
+	 * 
+	 * the purchase number according to the online shop’s system
 	 * 
 	 * @param string $id
 	 */
