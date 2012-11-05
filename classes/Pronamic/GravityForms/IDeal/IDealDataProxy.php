@@ -94,88 +94,88 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		$number = 0;
 
 		// Products
-        $products = GFCommon::get_product_fields($this->form, $this->lead);
+        $products = GFCommon::get_product_fields( $this->form, $this->lead );
 
-        foreach($products['products'] as $product) {
+        foreach ( $products['products'] as $product ) {
         	$description = $product['name'];
-        	$price = GFCommon::to_number($product['price']);
+        	$price = GFCommon::to_number( $product['price'] );
         	$quantity = $product['quantity'];
 
         	$item = new Pronamic_IDeal_Item();
-        	$item->setNumber($number++);
-        	$item->setDescription($description);
-        	$item->setPrice($price);
-        	$item->setQuantity($quantity);
+        	$item->setNumber( $number++ );
+        	$item->setDescription( $description );
+        	$item->setPrice( $price );
+        	$item->setQuantity( $quantity );
 
-        	$items->addItem($item);
+        	$items->addItem( $item );
 
-			if(isset($product['options']) && is_array($product['options'])) {
-				foreach($product['options'] as $option) {
+			if ( isset( $product['options']) && is_array( $product['options'] ) ) {
+				foreach( $product['options'] as $option ) {
 					$description = $option['option_label'];
-					$price = GFCommon::to_number($option['price']);
+					$price = GFCommon::to_number( $option['price'] );
 
 		        	$item = new Pronamic_IDeal_Item();
-		        	$item->setNumber($number++);
-		        	$item->setDescription($description);
-		        	$item->setPrice($price);
-		        	$item->setQuantity($quantity); // Product quantity
+		        	$item->setNumber( $number++ );
+		        	$item->setDescription( $description );
+		        	$item->setPrice( $price );
+		        	$item->setQuantity( $quantity ); // Product quantity
 
-        			$items->addItem($item);
+        			$items->addItem( $item );
 				}
             }
         }
 
         // Shipping
-        if(isset($products['shipping'])) {
+        if ( isset( $products['shipping'] ) ) {
         	$shipping = $products['shipping'];
 
-        	if(isset($shipping['price']) && !empty($shipping['price'])) {
+        	if ( isset( $shipping['price'] ) && !empty( $shipping['price'] ) ) {
         		$description = $shipping['name'];
-				$price = GFCommon::to_number($shipping['price']);
+				$price = GFCommon::to_number( $shipping['price'] );
 				$quantity = 1;
 
 				$item = new Pronamic_IDeal_Item();
-		        $item->setNumber($number++);
-		        $item->setDescription($description);
-		        $item->setPrice($price);
-	        	$item->setQuantity($quantity);
+		        $item->setNumber( $number++ );
+		        $item->setDescription( $description );
+		        $item->setPrice( $price );
+	        	$item->setQuantity( $quantity );
 
-        		$items->addItem($item);
+        		$items->addItem( $item );
         	}
         }
         
         // Donations
-        $donationFields = GFCommon::get_fields_by_type($this->form, array('donation'));
+        $donationFields = GFCommon::get_fields_by_type( $this->form, array( 'donation' ) );
 
-		foreach($donationFields as $i => $field) {
-			$value = RGFormsModel::get_lead_field_value($this->lead, $field);
+		foreach ( $donationFields as $i => $field ) {
+			$value = RGFormsModel::get_lead_field_value( $this->lead, $field );
 
-			if(!empty($value)) {
+			if ( !empty( $value ) ) {
 				$description = '';
-				if(isset($field['adminLabel']) && !empty($field['adminLabel'])) {
+				if ( isset( $field['adminLabel'] ) && !empty( $field['adminLabel'] ) ) {
 					$description = $field['adminLabel'];
-				} elseif(isset($field['label'])) {
+				} elseif ( isset( $field['label'] ) ) {
 					$description = $field['label'];
 				}
 	
-				$separatorPosition = strpos($value, '|');
-				if($separatorPosition !== false) {
-					$label = substr($value, 0, $separatorPosition);
-					$value = substr($value, $separatorPosition + 1);
+				$separatorPosition = strpos( $value, '|' );
+				if ( $separatorPosition !== false ) {
+					$label = substr( $value, 0, $separatorPosition );
+					$value = substr( $value, $separatorPosition + 1 );
 					
 					$description .= ' - ' . $label;
 				}
 				
-				$price = GFCommon::to_number($value);
+				$price = GFCommon::to_number( $value );
 				$quantity = 1;
 	
 				$item = new Pronamic_IDeal_Item();
-				$item->setNumber($i);
-				$item->setDescription($description);
-				$item->setQuantity($quantity);
-				$item->setPrice($price);
+				$item->setNumber( $i );
+				$item->setDescription( $description );
+				$item->setQuantity( $quantity );
+				$item->setPrice( $price );
 	
-				$items->addItem($item);
+				$items->addItem( $item );
 			}
 		}
 		

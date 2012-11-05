@@ -717,30 +717,30 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	/**
 	 * Verify request
 	 */
-	public function verifyRequest($data) {
+	public function verifyRequest( $data ) {
 		$result = false;
 
-		$data = array_change_key_case($data, CASE_UPPER);
+		$data = array_change_key_case( $data, CASE_UPPER );
 
-		if(isset($data['SHASIGN'])) {
+		if ( isset( $data['SHASIGN'] ) ) {
 			$signature = $data['SHASIGN'];
 
-			$signatureOut = $this->getSignatureOut($data);
+			$signatureOut = $this->getSignatureOut( $data );
 
-			if(strcasecmp($signature, $signatureOut) === 0) {
-				$result = filter_var_array($data, array(
-					Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID => FILTER_SANITIZE_STRING ,
-					Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT => FILTER_VALIDATE_FLOAT , 
-					Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY => FILTER_SANITIZE_STRING ,
-					'PM' => FILTER_SANITIZE_STRING , 
-					'ACCEPTANCE' => FILTER_SANITIZE_STRING , 
-					'STATUS' => FILTER_VALIDATE_INT , 
-					'CARDNO' => FILTER_SANITIZE_STRING , 
-					'PAYID' => FILTER_VALIDATE_INT , 
-					'NCERROR' => FILTER_SANITIZE_STRING , 
-					'BRAND' => FILTER_SANITIZE_STRING , 
-					'SHASIGN' => FILTER_SANITIZE_STRING 
-				));
+			if ( strcasecmp( $signature, $signatureOut ) === 0 ) {
+				$result = filter_var_array( $data, array(
+					Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT, 
+					Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY => FILTER_SANITIZE_STRING,
+					'PM'         => FILTER_SANITIZE_STRING, 
+					'ACCEPTANCE' => FILTER_SANITIZE_STRING, 
+					'STATUS'     => FILTER_VALIDATE_INT,
+					'CARDNO'     => FILTER_SANITIZE_STRING, 
+					'PAYID'      => FILTER_VALIDATE_INT,
+					'NCERROR'    => FILTER_SANITIZE_STRING, 
+					'BRAND'      => FILTER_SANITIZE_STRING, 
+					'SHASIGN'    => FILTER_SANITIZE_STRING 
+				) );
 			} 
 		}
 		
