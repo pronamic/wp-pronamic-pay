@@ -81,7 +81,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function __construct() {
 		$this->fields = array();
 
-		$this->calculationsParametersIn = array();
+		$this->calculationsParametersIn  = array();
 		$this->calculationsParametersOut = array();
 
 		$this->hashAlgorithm = self::HASH_ALGORITHM_SHA_1;
