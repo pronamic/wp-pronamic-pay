@@ -242,9 +242,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     private function process_ideal_advanced_payment( $order, $configuration, $variant ) {
 		$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
-		$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-
-		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
+		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
 
 		return array(
 			'result' 	=> 'success',

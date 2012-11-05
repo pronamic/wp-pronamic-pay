@@ -41,7 +41,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	 * @param array $lead
 	 * @param Pronamic_GravityForms_IDeal_Feed $feed
 	 */
-	public function __construct($form, $lead, $feed) {
+	public function __construct( $form, $lead, $feed ) {
 		$this->form = $form;
 		$this->lead = $lead;
 		$this->feed = $feed;
@@ -266,5 +266,22 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         }
         
         return $url;
+	}
+
+	//////////////////////////////////////////////////
+	// Issuer
+	//////////////////////////////////////////////////
+
+	public function get_issuer_id() {
+		$issuer_id = null;
+
+		$issuer_fields = GFCommon::get_fields_by_type( $this->form, array( Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE ) );
+		$issuer_field = array_shift( $issuer_fields );
+
+		if ( $issuer_field != null ) {
+			$issuer_id =  RGFormsModel::get_field_value( $issuer_field );
+		}
+		
+		return $issuer_id;
 	}
 }

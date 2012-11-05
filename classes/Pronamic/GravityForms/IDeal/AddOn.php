@@ -662,43 +662,34 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealAdvanced($confirmation, $form, $feed, $lead) {
+	public static function handleIDealAdvanced( $confirmation, $form, $feed, $lead ) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$data_proxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);
-
-		$variant = $configuration->getVariant();
-
-		$issuerDropDowns = GFCommon::get_fields_by_type($form, array(Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE));
-		$issuerDropDown = array_shift($issuerDropDowns);
-
-		if($issuerDropDown != null) {
-			$issuer_id =  RGFormsModel::get_field_value($issuerDropDown);
-			
-			$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
-
-			if(empty($url)) {
-				$error = Pronamic_WordPress_IDeal_IDeal::getError();
-				if(!empty($error)) {
-					$confirmation = sprintf(
-						__('%s (error code: %s)', 'pronamic_ideal') , 
-						$error->getConsumerMessage() , 
-						$error->getCode()
-					);	
-				}
-			} else {
-				// Updating lead's payment_status to Processing
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $data_proxy->getAmount();
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-		        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();
-		
-		        RGFormsModel::update_lead($lead);
+		$data_proxy = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
 	
-				// Redirect user to the issuer
-				$confirmation = array('redirect' => $url);
+		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
+
+		if ( empty( $url ) ) {
+			$error = Pronamic_WordPress_IDeal_IDeal::getError();
+			if ( !empty( $error ) ) {
+				$confirmation = sprintf(
+					__('%s (error code: %s)', 'pronamic_ideal') , 
+					$error->getConsumerMessage() , 
+					$error->getCode()
+				);	
 			}
+		} else {
+			// Updating lead's payment_status to Processing
+			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
+			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT] = $data_proxy->getAmount();
+			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE] = $payment->getDate()->format('y-m-d H:i:s');
+			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
+			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID] = $transaction->getId();
+		
+			RGFormsModel::update_lead($lead);
+	
+			// Redirect user to the issuer
+			$confirmation = array( 'redirect' => $url );
 		}
 
 		return $confirmation;
@@ -709,7 +700,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
-	public static function handleIDealForm($confirmation, $form, $feed, $lead) {
+	public static function handleIDealForm( $confirmation, $form, $feed, $lead ) {
 		$configuration = $feed->getIDealConfiguration();
 
 		$dataProxy = new Pronamic_GravityForms_IDeal_IDealDataProxy($form, $lead, $feed);

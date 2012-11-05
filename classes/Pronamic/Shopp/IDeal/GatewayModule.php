@@ -266,13 +266,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 * Process order iDEAL advanced
 	 */
 	public function processIDealAdvanced( $configuration, $purchase ) {
-		global $Shopp;
-		
 		$data_proxy = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
-		
-		$issuer_id = $Shopp->Order->PronamicIDealIssuerId;
 
-		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
+		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
 
 		wp_redirect( $url, 303 );
 

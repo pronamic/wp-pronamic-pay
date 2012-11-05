@@ -191,7 +191,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			if ( $variant !== null ) {
 				switch ( $variant->getMethod() ) {
 					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-						$return = $this->process_ideal_advanced_payment( $order, $configuration, $variant );
+						$return = $this->process_ideal_advanced_payment( $order, $configuration );
 						
 						break;
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
@@ -204,7 +204,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 						self::mail_check_payment( $order, $note );
 					default: 
-						$return = $this->process_ideal_payment( $order, $configuration, $variant );
+						$return = $this->process_ideal_payment( $order );
 
 						break;
 				}
@@ -292,7 +292,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param Pronamic_IDeal_Variant $variant
      * @return array
      */
-    private function process_ideal_payment( $order, $configuration, $variant ) {
+    private function process_ideal_payment( $order ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
@@ -314,12 +314,10 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param Pronamic_IDeal_Variant $variant
      * @return array
      */
-    private function process_ideal_advanced_payment( $order, $configuration, $variant ) {
+    private function process_ideal_advanced_payment( $order, $configuration ) {
 		$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
-    	$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-    	
-    	$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
+    	$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
 
 		return array(
 			'result' 	=> 'success',

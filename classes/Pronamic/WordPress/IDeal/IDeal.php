@@ -481,7 +481,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $html;
 	}
 
-	public static function process_ideal_advanced( $configuration, $data_proxy, $issuer_id ) {
+	public static function process_ideal_advanced( $configuration, $data_proxy ) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
 		
 		if ( $payment == null ) {
@@ -502,6 +502,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 		}
 		
+		$issuer_id = $data_proxy->get_issuer_id();
+
 		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction( $issuer_id, $payment, $configuration->getVariant() );
 
 		return $url;

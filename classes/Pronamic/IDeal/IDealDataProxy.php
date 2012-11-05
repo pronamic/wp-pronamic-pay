@@ -64,4 +64,12 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	public abstract function getSuccessUrl();
 	
 	public abstract function getErrorUrl();
+
+	//////////////////////////////////////////////////
+	// Issuer
+	//////////////////////////////////////////////////
+
+	public function get_issuer_id() {
+		return filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
+	}
 }

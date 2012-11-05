@@ -163,4 +163,14 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'error' ), 'thanks' );
 	}
+
+	//////////////////////////////////////////////////
+	// Issuer
+	//////////////////////////////////////////////////
+
+	public function get_issuer_id() {
+		global $Shopp;
+
+		return $Shopp->Order->PronamicIDealIssuerId;
+	}
 }

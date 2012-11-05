@@ -62,9 +62,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	private function submit_advanced( $configuration, $variant ) {
 		$data_proxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $this );
 
-    	$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-
-    	$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy, $issuer_id );
+    	$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
 
 		wp_redirect( $url );
 		
