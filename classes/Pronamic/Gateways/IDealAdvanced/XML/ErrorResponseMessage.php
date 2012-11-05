@@ -31,7 +31,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 	 * Constructs and initialize an error response message
 	 */
 	public function __construct() {
-		parent::__construct(self::NAME);
+		parent::__construct( self::NAME );
 	}
 
 	//////////////////////////////////////////////////
@@ -41,10 +41,10 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(SimpleXMLElement $xml) {
-		$message = parent::parse($xml, new self());
-		$message->error = Pronamic_IDeal_XML_ErrorParser::parse($xml->Error);
-		
+	public static function parse( SimpleXMLElement $xml ) {
+		$message = parent::parse( $xml, new self() );
+		$message->error = Pronamic_IDeal_XML_ErrorParser::parse( $xml->Error );
+
 		return $message;
 	}
 }

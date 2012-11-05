@@ -22,7 +22,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage extends Pro
 	 * Constructs and initialize an directory response message
 	 */
 	public function __construct() {
-		parent::__construct(self::NAME);
+		parent::__construct( self::NAME );
 	}
 
 	//////////////////////////////////////////////////
@@ -32,10 +32,10 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage extends Pro
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(SimpleXMLElement $xml) {
-		$message = parent::parse($xml, new self());
-		$message->issuer = Pronamic_IDeal_XML_IssuerParser::parse($xml->Issuer);
-		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse($xml->Transaction);
+	public static function parse( SimpleXMLElement $xml ) {
+		$message = parent::parse( $xml, new self() );
+		$message->issuer = Pronamic_IDeal_XML_IssuerParser::parse( $xml->Issuer );
+		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse( $xml->Transaction );
 
 		return $message;
 	}

@@ -31,7 +31,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 	 * Constructs and initialize an directory response message
 	 */
 	public function __construct() {
-		parent::__construct(self::NAME);
+		parent::__construct( self::NAME );
 
 		$this->directory = array();
 	}
@@ -54,10 +54,10 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(SimpleXMLElement $xml) {
-		$message = parent::parse($xml, new self());
-		$message->directory = Pronamic_IDeal_XML_DirectoryParser::parse($xml->Directory);
-		
+	public static function parse( SimpleXMLElement $xml ) {
+		$message = parent::parse( $xml, new self() );
+		$message->directory = Pronamic_IDeal_XML_DirectoryParser::parse( $xml->Directory );
+
 		return $message;
 	}
 };

@@ -28,7 +28,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 	 * Constructs and initializes an transaction request message
 	 */
 	public function __construct() {
-		parent::__construct(self::NAME);
+		parent::__construct( self::NAME );
 	}
 
 	//////////////////////////////////////////////////
@@ -42,31 +42,31 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 		// Issuer
 		$issuer = $this->issuer;
 
-		$element = self::addElement($document, $document->documentElement, 'Issuer');
-		self::addElement($document, $element, 'issuerID', $issuer->getId());
+		$element = self::addElement( $document, $document->documentElement, 'Issuer' );
+		self::addElement( $document, $element, 'issuerID', $issuer->getId() );
 
 		// Merchant
 		$merchant = $this->getMerchant();
 
-		$element = self::addElement($document, $document->documentElement, 'Merchant');
-		self::addElement($document, $element, 'merchantID', $merchant->id);
-		self::addElement($document, $element, 'subID', $merchant->subId);
-		self::addElement($document, $element, 'authentication', $merchant->authentication);
-		self::addElement($document, $element, 'token', $merchant->token);
-		self::addElement($document, $element, 'tokenCode', $merchant->tokenCode);
-		self::addElement($document, $element, 'merchantReturnURL', $merchant->returnUrl);
+		$element = self::addElement( $document, $document->documentElement, 'Merchant' );
+		self::addElement( $document, $element, 'merchantID', $merchant->id );
+		self::addElement( $document, $element, 'subID', $merchant->subId );
+		self::addElement( $document, $element, 'authentication', $merchant->authentication );
+		self::addElement( $document, $element, 'token', $merchant->token );
+		self::addElement( $document, $element, 'tokenCode', $merchant->tokenCode );
+		self::addElement( $document, $element, 'merchantReturnURL', $merchant->returnUrl );
 
 		// Transaction
 		$transaction = $this->transaction;
 
-		$element = self::addElement($document, $document->documentElement, 'Transaction');
-		self::addElement($document, $element, 'purchaseID', $transaction->getPurchaseId());
-		self::addElement($document, $element, 'amount', Pronamic_IDeal_IDeal::formatPrice($transaction->getAmount()));
-		self::addElement($document, $element, 'currency', $transaction->getCurrency());
-		self::addElement($document, $element, 'expirationPeriod', $transaction->getExpirationPeriod());
-		self::addElement($document, $element, 'language', $transaction->getLanguage());
-		self::addElement($document, $element, 'description', $transaction->getDescription());
-		self::addElement($document, $element, 'entranceCode', $transaction->getEntranceCode());
+		$element = self::addElement( $document, $document->documentElement, 'Transaction' );
+		self::addElement( $document, $element, 'purchaseID', $transaction->getPurchaseId() );
+		self::addElement( $document, $element, 'amount', Pronamic_IDeal_IDeal::formatPrice( $transaction->getAmount() ) );
+		self::addElement( $document, $element, 'currency', $transaction->getCurrency() );
+		self::addElement( $document, $element, 'expirationPeriod', $transaction->getExpirationPeriod() );
+		self::addElement( $document, $element, 'language', $transaction->getLanguage() );
+		self::addElement( $document, $element, 'description', $transaction->getDescription() );
+		self::addElement( $document, $element, 'entranceCode', $transaction->getEntranceCode() );
 
 		// Return
 		return $document;
@@ -81,16 +81,16 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 	 */
 	public function getSignValues() {
 		return array(
-			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT) , 
-			$this->issuer->getId() , 
-			$this->getMerchant()->id , 
-			$this->getMerchant()->subId , 
-			$this->getMerchant()->returnUrl , 
-			$this->transaction->getPurchaseId() ,
-			Pronamic_IDeal_IDeal::formatPrice($this->transaction->getAmount()) ,  
-			$this->transaction->getCurrency() , 
-			$this->transaction->getLanguage() , 
-			$this->transaction->getDescription() , 
+			$this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT ), 
+			$this->issuer->getId(),
+			$this->getMerchant()->id, 
+			$this->getMerchant()->subId, 
+			$this->getMerchant()->returnUrl, 
+			$this->transaction->getPurchaseId(),
+			Pronamic_IDeal_IDeal::formatPrice( $this->transaction->getAmount() ),
+			$this->transaction->getCurrency(),
+			$this->transaction->getLanguage(),
+			$this->transaction->getDescription(),
 			$this->transaction->getEntranceCode()
 		);
 	}

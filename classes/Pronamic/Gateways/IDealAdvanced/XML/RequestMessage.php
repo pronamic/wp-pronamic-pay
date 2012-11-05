@@ -23,8 +23,8 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 	 * 
 	 * @param string $name
 	 */
-	public function __construct($name) {
-		parent::__construct($name);
+	public function __construct( $name ) {
+		parent::__construct( $name );
 
 		$this->merchant = new Pronamic_IDeal_Merchant();
 	}
@@ -48,21 +48,21 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 	 * @return DOMDocument
 	 */
 	protected function getDocument() {
-		$document = new DOMDocument(parent::XML_VERSION, parent::XML_ENCODING);
+		$document = new DOMDocument( parent::XML_VERSION, parent::XML_ENCODING );
 		$document->formatOutput = true;
 		
 		// Root
-		$root = $document->createElementNS(parent::XML_NAMESPACE, $this->getName());
-		$root->setAttribute('version', parent::VERSION);
+		$root = $document->createElementNS( parent::XML_NAMESPACE, $this->getName() );
+		$root->setAttribute( 'version', parent::VERSION );
 
-		$document->appendChild($root);
+		$document->appendChild( $root );
 		
 		// Create date timestamp
-		$timestamp = $this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT);
+		$timestamp = $this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT );
 
-		$element = $document->createElement('createDateTimeStamp', $timestamp);
+		$element = $document->createElement( 'createDateTimeStamp', $timestamp );
 
-		$root->appendChild($element);
+		$root->appendChild( $element );
 	
 		return $document;
 	}
@@ -84,14 +84,14 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 	 * @param string $privateKeyFile
 	 * @param string $privateKeyPassword
 	 */
-	public function sign($privateKeyFile, $privateKeyPassword) {
+	public function sign( $privateKeyFile, $privateKeyPassword ) {
 		$values = $this->getSignValues();
 
-		$message = implode('', $values);
+		$message = implode( '', $values );
 
-		$sign = Pronamic_IDeal_Security::signMessage($privateKeyFile, $privateKeyPassword, $message);
+		$sign = Pronamic_IDeal_Security::signMessage( $privateKeyFile, $privateKeyPassword, $message );
 
-		$this->merchant->tokenCode = base64_encode($sign);
+		$this->merchant->tokenCode = base64_encode( $sign );
 	}
 
 	//////////////////////////////////////////////////

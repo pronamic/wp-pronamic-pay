@@ -14,5 +14,5 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_Parser {
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public abstract static function parse(SimpleXMLElement $xml);
+	public abstract static function parse( SimpleXMLElement $xml );
 }

@@ -9,26 +9,32 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvanced_XML_IssuerParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
+	/**
+	 * Parse
+	 * 
+	 * @param SimpleXMLElement $xml
+	 * @param Pronamic_IDeal_Issuer $issuer
+	 */
 	public static function parse(SimpleXMLElement $xml, $issuer = null) {
-		if(!$issuer instanceof Pronamic_IDeal_Issuer) {
+		if ( !$issuer instanceof Pronamic_IDeal_Issuer ) {
 			$issuer = new Pronamic_IDeal_Issuer();
 		}
 
-		if($xml->issuerID) {
-			$issuer->setId((string) $xml->issuerID);
+		if ( $xml->issuerID ) {
+			$issuer->setId( (string) $xml->issuerID );
 		}
 
-		if($xml->issuerName) {
-			$issuer->setName((string) $xml->issuerName);
+		if ( $xml->issuerName ) {
+			$issuer->setName( (string) $xml->issuerName );
 		}
 		
-		if($xml->issuerList) {
-			$issuer->setList((string) $xml->issuerList);
+		if ( $xml->issuerList ) {
+			$issuer->setList( (string) $xml->issuerList );
 		}
 		
-		if($xml->issuerAuthenticationURL) {
+		if ( $xml->issuerAuthenticationURL ) {
 			$issuer->authenticationUrl = (string) $xml->issuerAuthenticationURL;
-		}	
+		}
 
 		return $issuer;
 	}

@@ -62,9 +62,9 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 	/**
 	 * Constructs and initialize an message
 	 */
-	public function __construct($name) {
+	public function __construct( $name ) {
 		$this->name = $name;
-		$this->createDate = new DateTime(null, new DateTimeZone(Pronamic_IDeal_IDeal::TIMEZONE));
+		$this->createDate = new DateTime( null, new DateTimeZone( Pronamic_IDeal_IDeal::TIMEZONE ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -99,14 +99,14 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 	 * @param string $name
 	 * @param string $value
 	 */
-	public static function addElement(DOMDocument $document, DOMNode $parent, $name, $value = null) {
-		$element = $document->createElement($name);
+	public static function addElement( DOMDocument $document, DOMNode $parent, $name, $value = null ) {
+		$element = $document->createElement( $name );
 		
-		if($value !== null) {
-			$element->appendChild(new DOMText($value));
+		if ( $value !== null ) {
+			$element->appendChild( new DOMText( $value ) );
 		}
 
-		$parent->appendChild($element);
+		$parent->appendChild( $element );
 
 		return $element;
 	}

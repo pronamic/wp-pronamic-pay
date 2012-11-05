@@ -12,8 +12,8 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage extends Prona
 	/**
 	 * Constructs and initialize an response message
 	 */
-	public function __construct($name) {
-		parent::__construct($name);
+	public function __construct( $name ) {
+		parent::__construct( $name );
 	}
 
 	//////////////////////////////////////////////////
@@ -23,7 +23,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage extends Prona
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse(SimpleXMLElement $xml, self $message) {
+	public static function parse( SimpleXMLElement $xml, self $message ) {
 		return $message;
 	}
 }
