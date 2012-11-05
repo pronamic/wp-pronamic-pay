@@ -380,14 +380,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$postSeal = filter_input(INPUT_POST, 'Seal', FILTER_SANITIZE_STRING);
 			
 			if(!empty($postData) && !empty($postSeal)) {
-				$data = Pronamic_IDeal_OmniKassa::parsePipedString($postData);
+				$data = Pronamic_Gateways_OmniKassa_OmniKassa::parsePipedString($postData);
 	
 				$transactionReference = $data['transactionReference'];
 
 				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
 
 				if($payment != null) {
-					$seal = Pronamic_IDeal_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
+					$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
 	
 					// Check if the posted seal is equal to our seal
 					if(strcasecmp($postSeal, $seal) === 0) {
@@ -415,10 +415,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$status = Pronamic_IDeal_Transaction::STATUS_OPEN;
 
 			switch($responseCode) {
-				case Pronamic_IDeal_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
+				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
 					$status = Pronamic_IDeal_Transaction::STATUS_SUCCESS;
 					break;
-				case Pronamic_IDeal_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
+				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
 					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
 					break;
 			}

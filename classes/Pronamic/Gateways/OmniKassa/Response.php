@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_OmniKassaResponse extends Pronamic_IDeal_IDeal {
+class Pronamic_Gateways_OmniKassa_Response {
 	/**
 	 * Amount
 	 * 

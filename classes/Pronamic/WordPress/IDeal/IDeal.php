@@ -431,7 +431,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 	
 	public static function getHtmlIDealOmniKassaForm($dataProxy, $configuration) {
-		$iDeal = new Pronamic_IDeal_OmniKassa();
+		$iDeal = new Pronamic_Gateways_OmniKassa_OmniKassa();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());

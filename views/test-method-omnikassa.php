@@ -8,7 +8,7 @@
 				
 	$name = sprintf( __( 'Test &euro; %s', 'pronamic_ideal' ), $test_case );
 	
-	$iDeal = new Pronamic_IDeal_OmniKassa();
+	$iDeal = new Pronamic_Gateways_OmniKassa_OmniKassa();
 	
 	$iDeal->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 	$iDeal->setMerchantId( $configuration->getMerchantId() );
