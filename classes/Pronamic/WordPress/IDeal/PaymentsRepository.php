@@ -38,7 +38,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			currency VARCHAR(8) NOT NULL , 
 			expiration_period VARCHAR(8) NOT NULL , 
 			language VARCHAR(8) NOT NULL ,
-			entrance_code VARCHAR(40) NOT NULL ,
+			entrance_code VARCHAR(40) NULL ,
 			description TEXT NOT NULL , 
 			consumer_name VARCHAR(35) NULL ,
 			consumer_account_number VARCHAR(10) NULL ,  
