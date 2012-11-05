@@ -194,7 +194,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function __construct() {
 		$this->paymentMeanBrandList = array();
 
-		$this->setInterfaceVersion(self::INTERFACE_VERSION_HP_1_0);
+		$this->setInterfaceVersion( self::INTERFACE_VERSION_HP_1_0 );
 	}
 
 	//////////////////////////////////////////////////
@@ -213,7 +213,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl($url) {
+	public function setPaymentServerUrl( $url ) {
 		$this->paymentServerUrl = $url;
 	}
 
@@ -233,7 +233,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $interfaceVersion
 	 */
-	public function setInterfaceVersion($interfaceVersion) {
+	public function setInterfaceVersion( $interfaceVersion ) {
 		$this->interfaceVersion = $interfaceVersion;
 	}
 
@@ -253,7 +253,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $currencyCode
 	 */
-	public function setCurrencyNumericCode($currencyNumericCode) {
+	public function setCurrencyNumericCode( $currencyNumericCode ) {
 		$this->currencyNumericCode = $currencyNumericCode;
 	}
 
@@ -273,7 +273,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $merchantdId
 	 */
-	public function setMerchantId($merchantId) {
+	public function setMerchantId( $merchantId ) {
 		$this->merchantId = $merchantId;
 	}
 
@@ -295,7 +295,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $normalReturnUrl
 	 */
-	public function setNormalReturnUrl($normalReturnUrl) {
+	public function setNormalReturnUrl( $normalReturnUrl ) {
 		$this->normalReturnUrl = $normalReturnUrl;
 	}
 
@@ -316,7 +316,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return int
 	 */
 	public function getFormattedAmount() {
-		return Pronamic_IDeal_IDeal::formatPrice($this->amount);
+		return Pronamic_IDeal_IDeal::formatPrice( $this->amount );
 	}
 
 	/**
@@ -324,7 +324,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param float $amount
 	 */
-	public function setAmount($amount) {
+	public function setAmount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -345,8 +345,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $transactionReference
 	 */
-	public function setTransactionReference($transactionReference) {
-		$this->transactionReference = substr($transactionReference, 0, 35);
+	public function setTransactionReference( $transactionReference ) {
+		$this->transactionReference = substr( $transactionReference, 0, 35 );
 	}
 
 	//////////////////////////////////////////////////
@@ -365,7 +365,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $keyVersion
 	 */
-	public function setKeyVersion($keyVersion) {
+	public function setKeyVersion( $keyVersion ) {
 		$this->keyVersion = $keyVersion;
 	}
 
@@ -387,7 +387,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $automaticResponseUrl
 	 */
-	public function setAutomaticResponseUrl($automaticResponseUrl) {
+	public function setAutomaticResponseUrl( $automaticResponseUrl ) {
 		$this->automaticResponseUrl = $automaticResponseUrl;
 	}
 
@@ -407,7 +407,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $customerLanguage
 	 */
-	public function setCustomerLanguage($customerLanguage) {
+	public function setCustomerLanguage( $customerLanguage ) {
 		$this->customerLanguage = $customerLanguage;
 	}
 
@@ -418,7 +418,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $paymentMeanBrand
 	 */
-	public function addPaymentMeanBrand($paymentMeanBrand) {
+	public function addPaymentMeanBrand( $paymentMeanBrand ) {
 		$this->paymentMeanBrandList[] = $paymentMeanBrand;
 	}
 
@@ -428,7 +428,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string ANS128 listString comma separated list
 	 */
 	public function getPaymentMeanBrandList() {
-		return implode(', ', $this->paymentMeanBrandList);
+		return implode( ', ', $this->paymentMeanBrandList );
 	}
 
 	//////////////////////////////////////////////////
@@ -447,7 +447,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $orderId
 	 */
-	public function setOrderId($orderId) {
+	public function setOrderId( $orderId ) {
 		$this->orderId = $orderId;
 	}
 
@@ -471,7 +471,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		$result = null;
 
 		if($this->expirationDate != null) {
-			$result = $this->expirationDate->format(DATE_ISO8601);
+			$result = $this->expirationDate->format( DATE_ISO8601 );
 		}
 
 		return $result;
@@ -482,7 +482,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param DateTime $expirationDate
 	 */
-	public function setExpirationDate(DateTime $expirationDate = null) {
+	public function setExpirationDate( DateTime $expirationDate = null ) {
 		$this->expirationDate = $expirationDate;
 	}
 
@@ -498,30 +498,30 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 		// Payment Request - required fields
 		$requiredFields = array( 
-			'currencyCode' => $this->getCurrencyNumericCode() ,
-			'merchantId' => $this->getMerchantId() ,  
-			'normalReturnUrl' => $this->getNormalReturnUrl() , 
-			'amount' => $this->getFormattedAmount() , 
-			'transactionReference' => $this->getTransactionReference() ,
-			'keyVersion' => $this->getkeyVersion()
+			'currencyCode'         => $this->getCurrencyNumericCode(),
+			'merchantId'           => $this->getMerchantId(),
+			'normalReturnUrl'      => $this->getNormalReturnUrl(),
+			'amount'               => $this->getFormattedAmount(),
+			'transactionReference' => $this->getTransactionReference(),
+			'keyVersion'           => $this->getkeyVersion()
 		);
 		
 		// Payment request - optional fields
 		$optionalFields = array(
-			'automaticResponseUrl' => $this->getAutomaticResponseUrl() , 
-			// 'customerLanguage' => $this->getCustomerLanguage() , 
-			'paymentMeanBrandList' => $this->getPaymentMeanBrandList() ,
-			'orderId' => $this->getOrderId() ,  
-			'expirationDate' => $this->getFormattedExpirationDate()
+			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
+			// 'customerLanguage'  => $this->getCustomerLanguage(),
+			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
+			'orderId'              => $this->getOrderId(),
+			'expirationDate'       => $this->getFormattedExpirationDate()
 		);
 
 		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
-		$optionalFields = array_filter($optionalFields);
+		$optionalFields = array_filter( $optionalFields );
 
 		// Data
 		$data = $requiredFields + $optionalFields;
 
-		return self::createPipedString($data);
+		return self::createPipedString( $data );
 	}
 
 	//////////////////////////////////////////////////
@@ -540,7 +540,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function setSecretKey($secretKey) {
+	public function setSecretKey( $secretKey ) {
 		$this->secretKey = $secretKey;
 	}
 
@@ -555,7 +555,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		$data = $this->getData();
 		$secretKey = $this->getSecretKey();
 
-		return self::computeSeal($data, $secretKey);
+		return self::computeSeal( $data, $secretKey );
 	}
 
 	/**
@@ -564,11 +564,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param string $data
 	 * @param string $secretKey
 	 */
-	public static function computeSeal($data, $secretKey) {
+	public static function computeSeal( $data, $secretKey ) {
 		$value = $data . $secretKey;
-		$value = utf8_encode($value);
+		$value = utf8_encode( $value );
 
-		return hash(self::HASH_ALGORITHM_SHA256, $value);
+		return hash( self::HASH_ALGORITHM_SHA256, $value );
 	}
 
 	//////////////////////////////////////////////////
@@ -579,11 +579,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string
 	 */
 	public function getHtmlFields() {
-		$html  = '';
-
-		$html .= sprintf('<input type="hidden" name="Data" value="%s" />', $this->getData());
-		$html .= sprintf('<input type="hidden" name="InterfaceVersion" value="%s" />', $this->getInterfaceVersion());
-		$html .= sprintf('<input type="hidden" name="Seal" value="%s" />', $this->getSeal());
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
+			'Data'             => $this->getData(),
+			'InterfaceVersion' => $this->getInterfaceVersion(),
+			'Seal'             => $this->getSeal()
+		) );
 		
 		return $html;
 	}

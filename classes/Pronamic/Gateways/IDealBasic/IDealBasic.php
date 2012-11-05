@@ -213,7 +213,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl($url) {
+	public function setPaymentServerUrl( $url ) {
 		$this->paymentServerUrl = $url;
 	}
 
@@ -233,7 +233,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param merchant id
 	 */
-	public function setMerchantId($merchantId) {
+	public function setMerchantId( $merchantId ) {
 		$this->merchantId = $merchantId;
 	}
 
@@ -253,7 +253,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param sub id
 	 */
-	public function setSubId($subId) {
+	public function setSubId( $subId ) {
 		$this->subId = $subId;
 	}
 
@@ -274,7 +274,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $hashKey
 	 */
-	public function setHashKey($hashKey) {
+	public function setHashKey( $hashKey ) {
 		$this->hashKey = $hashKey;
 	}
 
@@ -295,8 +295,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param sub id
 	 */
-	public function setPurchaseId($purchaseId) {
-		$this->purchaseId = substr($purchaseId, 0, 16);
+	public function setPurchaseId( $purchaseId ) {
+		$this->purchaseId = substr( $purchaseId, 0, 16 );
 	}
 
 	//////////////////////////////////////////////////
@@ -315,7 +315,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $language
 	 */
-	public function setLanguage($language) {
+	public function setLanguage( $language ) {
 		$this->language = $language;
 	}
 
@@ -336,8 +336,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $description
 	 */
-	public function setDescription($description) {
-		$this->description = substr($description, 0, 32);
+	public function setDescription( $description ) {
+		$this->description = substr( $description, 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
@@ -356,7 +356,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return string
 	 */
-	public function setCurrency($currency) {
+	public function setCurrency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -377,7 +377,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $paymentType an payment type
 	 */
-	public function setPaymentType($paymentType) {
+	public function setPaymentType( $paymentType ) {
 		$this->paymentType = $paymentType;
 	}
 
@@ -389,7 +389,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @param boolean $createNew indicator for creating a new expire date
 	 * @return 
 	 */
-	public function getExpireDate($createNew = false) {
+	public function getExpireDate( $createNew = false ) {
 		if ( $this->expireDate == null || $createNew ) {
 			$this->expireDate = new DateTime( null, new DateTimeZone( Pronamic_IDeal_IDeal::TIMEZONE ) );
 			$this->expireDate->modify( $this->expireDateModifier );
@@ -414,7 +414,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * 
 	 * @var string $expireDateFormat an expire date format
 	 */
-	public function setExpireDateFormat($expireDateFormat) {
+	public function setExpireDateFormat( $expireDateFormat ) {
 		$this->expireDateFormat = $expireDateFormat;
 	}
 
@@ -434,7 +434,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * 
 	 * @var string $expireDateModifier an expire date modifier
 	 */
-	public function setExpireDateModifier($expireDateModifier) {
+	public function setExpireDateModifier( $expireDateModifier ) {
 		$this->expireDateModifier = $expireDateModifier;
 	}
 
@@ -454,13 +454,13 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * 
 	 * @var mixed an array or string with forbidden characters
 	 */
-	public function setForbiddenCharachters($forbiddenCharacters) {
-		if(is_string($forbiddenCharacters)) {
-			$this->forbiddenCharacters = str_split($forbiddenCharacters);
-		} else if(is_array($forbiddenCharacters)) {
+	public function setForbiddenCharachters( $forbiddenCharacters ) {
+		if ( is_string( $forbiddenCharacters) ) {
+			$this->forbiddenCharacters = str_split( $forbiddenCharacters );
+		} else if ( is_array( $forbiddenCharacters ) ) {
 			$this->forbiddenCharacters = $forbiddenCharacters;
 		} else {
-			throw new Exception('Wrong arguments');
+			throw new Exception( 'Wrong arguments' );
 		}
 	}
 
@@ -480,7 +480,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $successUrl
 	 */
-	public function setSuccessUrl($successUrl) {
+	public function setSuccessUrl( $successUrl ) {
 		$this->successUrl = $successUrl;
 	}
 
@@ -500,7 +500,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $cancelUrl
 	 */
-	public function setCancelUrl($cancelUrl) {
+	public function setCancelUrl( $cancelUrl ) {
 		$this->cancelUrl = $cancelUrl;
 	}
 
@@ -520,7 +520,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @param string $errorUrl
 	 */
-	public function setErrorUrl($errorUrl) {
+	public function setErrorUrl ($errorUrl ) {
 		$this->errorUrl = $errorUrl;
 	}
 
@@ -540,7 +540,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * 
 	 * @param Pronamic_IDeal_Items $items
 	 */
-	public function setItems(Pronamic_IDeal_Items $items) {
+	public function setItems( Pronamic_IDeal_Items $items ) {
 		$this->items = $items;
 	}
 
@@ -571,7 +571,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = $this->getSubId();
 
 		// Total amount of transaction
-		$string[] = Pronamic_IDeal_IDeal::formatPrice($this->getAmount());
+		$string[] = Pronamic_IDeal_IDeal::formatPrice( $this->getAmount() );
 
 		// The online shop's unique order number, also known as purchase id
 		$string[] = $this->getPurchaseId(); 
@@ -581,10 +581,10 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 		// yyyy-MMddTHH:mm:ss.SSS Z Time at which the transaction expires (maximum of 1 hour later). 
 		// The consumer has time until then to pay with iDEAL.
-		$string[] = $this->getExpireDate()->format($this->getExpireDateFormat());
+		$string[] = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
 		// Iterate through the items and concat
-		foreach($this->getItems() as $item) {
+		foreach ( $this->getItems() as $item ) {
 			// Article number. <n> is 1 for the first product, 2 for the second, etc.
 			// N.B. Note that for every product type the parameters 
 			// itemNumber<n>, itemDescription<n>, itemQuantity<n> and itemPrice<n> are mandatory.
@@ -597,17 +597,17 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$string[] = $item->getQuantity();
 
 			// Price of article <n> in whole eurocents
-			$string[] = Pronamic_IDeal_IDeal::formatPrice($item->getPrice()); // Price of article in whole cents
+			$string[] = Pronamic_IDeal_IDeal::formatPrice( $item->getPrice() ); // Price of article in whole cents
 		}
 
 		$concatString = implode('', $string);
 
 		// The characters "\t", "\n", "\r", " " (spaces) may not exist in the string
 		$forbiddenCharacters = $this->getForbiddenCharacters();
-		$concatString = str_replace($forbiddenCharacters, '', $concatString);
+		$concatString = str_replace( $forbiddenCharacters, '', $concatString );
 
 		// Delete special HTML entities
-		$concatString = html_entity_decode($concatString, ENT_COMPAT, 'UTF-8');
+		$concatString = html_entity_decode( $concatString, ENT_COMPAT, 'UTF-8' );
 
 		return $concatString;
 	}
@@ -618,7 +618,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @param unknown_type $form
 	 */
 	public function createHash() {
-		return sha1($this->createHashString());
+		return sha1( $this->createHashString() );
 	}
 
 	//////////////////////////////////////////////////

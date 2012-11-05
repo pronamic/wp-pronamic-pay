@@ -22,8 +22,8 @@ class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 	//////////////////////////////////////////////////
 	
 	public function __construct() {
-		$this->setCurrency(self::CURRENCY_EURO);
-		$this->setAction(self::ACTION_PAY);
+		$this->setCurrency( self::CURRENCY_EURO );
+		$this->setAction( self::ACTION_PAY );
 	}
 
 	//////////////////////////////////////////////////

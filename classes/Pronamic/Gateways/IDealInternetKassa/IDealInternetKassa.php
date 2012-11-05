@@ -594,9 +594,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return array
 	 */
 	private function getSignatureFieldsIn($fields) {
-		$calculationsParameters = array_flip($this->calculationsParametersIn);
+		$calculationsParameters = array_flip( $this->calculationsParametersIn );
 
-		return array_intersect_key($fields, $calculationsParameters);
+		return array_intersect_key( $fields, $calculationsParameters );
 	}
 
 	/**
@@ -605,10 +605,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @param array $fields
 	 * @return array
 	 */
-	private function getSignatureFieldsOut($fields) {
-		$calculationsParameters = array_flip($this->calculationsParametersOut);
+	private function getSignatureFieldsOut( $fields ) {
+		$calculationsParameters = array_flip( $this->calculationsParametersOut );
 
-		return array_intersect_key($fields, $calculationsParameters);
+		return array_intersect_key( $fields, $calculationsParameters );
 	}
 
 	//////////////////////////////////////////////////
@@ -620,29 +620,28 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @param string $passprahse
 	 * @return string
 	 */
-	private function getSignature($fields, $passprahse) {
+	private function getSignature( $fields, $passprahse ) {
 		// This string is constructed by concatenating the values of the fields sent with the order (sorted
 		// alphabetically, in the format ‘parameter=value’), separated by a passphrase.		
 		$string = '';
 
-		// all parameters need to be put alphabetically
-		ksort($fields);
+		// All parameters need to be put alphabetically
+		ksort( $fields );
 
-		foreach($fields as $name => $value) {
-			// all parameters need to be put alphabetically
-			if(!empty($value)) {
-				// all parameters need to be put alphabetically
-				$name = strtoupper($name);
+		// Loop
+		foreach ( $fields as $name => $value ) {
+			if ( !empty( $value ) ) {
+				$name = strtoupper( $name );
 		
 				$string .= $name . '=' . $value . $passprahse;
 			}
 		}
 
 		// Hash
-		$result = hash($this->hashAlgorithm, $string);
+		$result = hash( $this->hashAlgorithm, $string );
 
 		// String to uppercase
-		$result = strtoupper($result);
+		$result = strtoupper( $result );
 
 		return $result;
 	}
@@ -655,9 +654,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getSignatureIn() {
-		$fields = $this->getSignatureFieldsIn($this->fields);
+		$fields = $this->getSignatureFieldsIn( $this->fields );
 
-		return $this->getSignature($fields, $this->getPassPhraseIn());
+		return $this->getSignature( $fields, $this->getPassPhraseIn() );
 	}
 
 	/**
@@ -665,10 +664,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param array $fields
 	 */
-	public function getSignatureOut($fields) {
-		$fields = $this->getSignatureFieldsOut($fields);
+	public function getSignatureOut( $fields ) {
+		$fields = $this->getSignatureFieldsOut( $fields );
 
-		return $this->getSignature($fields, $this->getPassPhraseOut());
+		return $this->getSignature( $fields, $this->getPassPhraseOut() );
 	}
 
 	//////////////////////////////////////////////////
