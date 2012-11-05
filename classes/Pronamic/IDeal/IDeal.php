@@ -138,27 +138,8 @@ class Pronamic_IDeal_IDeal {
 						if($enabled) {
 							$gateway = (string) $variantXml['gateway'];
 
-							switch ( $gateway ) {
-								case self::METHOD_EASY:
-									$variant = new Pronamic_IDeal_VariantEasy();
-									break;
-								case self::METHOD_BASIC:
-									$variant = new Pronamic_IDeal_VariantBasic();
-									break;
-								case self::METHOD_INTERNETKASSA:
-									$variant = new Pronamic_IDeal_VariantInternetKassa();
-									break;
-								case self::METHOD_OMNIKASSA:
-									$variant = new Pronamic_IDeal_VariantOmniKassa();
-									break;
-								case self::METHOD_ADVANCED:
-									$variant = new Pronamic_IDeal_VariantAdvanced();
-									break;
-								default:
-									$variant = new Pronamic_IDeal_Variant();
-									$variant->setMethod( $gateway );
-									break;
-							}
+							$variant = new Pronamic_IDeal_Variant();
+							$variant->setMethod( $gateway );
 
 							$variant->setProvider($provider);
 							$variant->setId((string) $variantXml->id);
