@@ -679,37 +679,37 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getHtmlFields() {
-		return Pronamic_IDeal_IDeal::htmlHiddenFields(array(
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			// general parameters
-			'PSPID' => $this->getPspId() ,
-			'orderID' => $this->getOrderId() , 
-			'amount' => Pronamic_IDeal_IDeal::formatPrice($this->getAmount()) , 
-			'currency' => $this->getCurrency() , 
-			'language' => $this->getLanguage() , 
+			'PSPID'        => $this->getPspId(),
+			'orderID'      => $this->getOrderId(), 
+			'amount'       => Pronamic_IDeal_IDeal::formatPrice( $this->getAmount() ), 
+			'currency'     => $this->getCurrency(),
+			'language'     => $this->getLanguage(),
 		
-			'CN' => $this->getCustomerName() , 
-			'EMAIL' => $this->getEMailAddress() ,
+			'CN'           => $this->getCustomerName(), 
+			'EMAIL'        => $this->getEMailAddress(),
 
-			'owneraddress' => $this->getOwnerAddress() , 
-			'ownerZIP' => $this->getOwnerZip() , 
-			'ownertown' => '' ,
-			'ownercty' => $this->getOwnerCountry() ,  
-			'ownertelno' => '' , 
+			'owneraddress' => $this->getOwnerAddress(),
+			'ownerZIP'     => $this->getOwnerZip(),
+			'ownertown'    => '',
+			'ownercty'     => $this->getOwnerCountry(),  
+			'ownertelno'   => '',
 
-			'COM' => $this->getOrderDescription() , 
+			'COM'          => $this->getOrderDescription(), 
 
 			// check before the payment: see Security: Check before the Payment
-			'SHASign' => $this->getSignatureIn() , 
+			'SHASign'      => $this->getSignatureIn(),
 
 			// layout information: see Look and Feel of the Payment Page
 			// ?
 
 			// post payment redirection: see Transaction Feedback to the Customer
-			'accepturl' => $this->getAcceptUrl() , 
-			'declineurl' => $this->getDeclineUrl() , 
-			'exceptionurl' => $this->getExceptionUrl() , 
-			'cancelurl' => $this->getCancelUrl()
-		));
+			'accepturl'    => $this->getAcceptUrl(),
+			'declineurl'   => $this->getDeclineUrl(),
+			'exceptionurl' => $this->getExceptionUrl(),
+			'cancelurl'    => $this->getCancelUrl()
+		) );
 	}
 
 	//////////////////////////////////////////////////
