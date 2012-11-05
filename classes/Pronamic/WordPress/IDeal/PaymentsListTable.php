@@ -22,7 +22,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 * Checks the current user's permissions
 	 */
 	function ajax_user_can() {
-		return current_user_can('manage_ideal_payments');
+		return current_user_can( 'manage_ideal_payments' );
 	}
 
 	/**
@@ -31,42 +31,42 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	function prepare_items() {
 		global $orderby, $order;
 
-		$per_page = $this->get_items_per_page('payments_per_page');
+		$per_page = $this->get_items_per_page( 'payments_per_page' );
 
 		$paged = $this->get_pagenum();
 
 		$total_items = Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments();
 
 		$this->set_pagination_args( array(
-			'total_items' =>  $total_items ,
-			'per_page' => $per_page
-		));
+			'total_items' =>  $total_items,
+			'per_page'    => $per_page
+		) );
 
 		$args = array(
-			'number' => $per_page , 
-			'offset' => ($paged - 1) * $per_page,
+			'number' => $per_page,
+			'offset' => ($paged - 1) * $per_page
 		);
 
-		if(isset($_REQUEST['orderby'])) {
+		if ( isset( $_REQUEST['orderby'] ) ) {
 			$args['orderby'] = $_REQUEST['orderby'];
 		}
 
-		if(isset($_REQUEST['order'])) {
+		if ( isset( $_REQUEST['order'] ) ) {
 			$args['order'] = $_REQUEST['order'];
 		}
 
-		if(isset($_REQUEST['s'])) {
+		if ( isset($_REQUEST['s'] ) ) {
 			$args['s'] = $_REQUEST['s'];
 		}
 
-		$this->items = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments($args);
+		$this->items = Pronamic_WordPress_IDeal_PaymentsRepository::getPayments( $args );
 	}
 
 	/**
 	 * Message to be displayed when there are no items
 	 */
 	function no_items() {
-		_e('No payments found.', 'pronamic_ideal');
+		_e( 'No payments found.', 'pronamic_ideal' );
 	}
 
 	/**
@@ -74,15 +74,15 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 */
 	function get_columns() {
 		return array(
-			'cb' => '<input type="checkbox" />' , 
-			'date' => __( 'Date', 'pronamic_ideal') , 
-			'transaction_id' => __( 'Transaction ID', 'pronamic_ideal') , 
-			'purchase_id' => __( 'Purchase ID', 'pronamic_ideal') ,
-			'description' => __( 'Description', 'pronamic_ideal') , 
-			'consumer' => __( 'Consumer', 'pronamic_ideal') , 
-			'amount' => __( 'Amount', 'pronamic_ideal') , 
-			'source' => __( 'Source', 'pronamic_ideal') , 
-			'status' => __( 'Status', 'pronamic_ideal')
+			'cb'             => '<input type="checkbox" />',
+			'date'           => __( 'Date', 'pronamic_ideal' ),
+			'transaction_id' => __( 'Transaction ID', 'pronamic_ideal' ),
+			'purchase_id'    => __( 'Purchase ID', 'pronamic_ideal' ),
+			'description'    => __( 'Description', 'pronamic_ideal' ),
+			'consumer'       => __( 'Consumer', 'pronamic_ideal' ),
+			'amount'         => __( 'Amount', 'pronamic_ideal' ),
+			'source'         => __( 'Source', 'pronamic_ideal' ),
+			'status'         => __( 'Status', 'pronamic_ideal' )
 		);
 	}
 
@@ -91,8 +91,8 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 	 */
 	function get_sortable_columns() {
 		return array(
-			'date' => 'date_gmt' , 
-			'amount' => 'amount' , 
+			'date'   => 'date_gmt',
+			'amount' => 'amount',
 			'status' => 'status'
 		);
 	}
@@ -105,46 +105,46 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 
 		$alt = 0;
 
-		foreach($this->items as $payment): ?>
+		foreach ( $this->items as $payment ): ?>
 
 		<tr id="payment-<?php echo $payment->getId(); ?>" valign="middle">
 			<?php
 
-			list($columns, $hidden) = $this->get_column_info();
+			list( $columns, $hidden ) = $this->get_column_info();
 			
 			// Link
-			$detailsLink = Pronamic_WordPress_IDeal_Admin::getPaymentDetailsLink($payment->getId());
+			$detailsLink = Pronamic_WordPress_IDeal_Admin::getPaymentDetailsLink( $payment->getId() );
 
 			// Date
 			$date = $payment->getDate();
 
-			$timezone = get_option('timezone_string');
+			$timezone = get_option( 'timezone_string' );
 			if($timezone) {
 				$date = clone $date;
-				$date->setTimezone(new DateTimeZone($timezone));
+				$date->setTimezone( new DateTimeZone( $timezone ) );
 			}
 
 			// Transaction
 			$transaction = $payment->transaction;
 
 			// Iterate through the columns
-			foreach($columns as $column_name => $column_display_name) {
+			foreach ( $columns as $column_name => $column_display_name ) {
 				$class = "class='column-$column_name'";
 
 				$style = '';
-				if(in_array($column_name, $hidden))
+				if ( in_array( $column_name, $hidden ) )
 					$style = ' style="display:none;"';
 
 				$attributes = $class . $style;
 
-				switch($column_name) {
+				switch ( $column_name ) {
 					case 'cb':
-						echo '<th scope="row" class="check-column"><input type="checkbox" name="linkcheck[]" value="'. esc_attr($payment->getId()) .'" /></th>';
+						echo '<th scope="row" class="check-column"><input type="checkbox" name="linkcheck[]" value="'. esc_attr( $payment->getId() ) .'" /></th>';
 						break;
 					case 'date':
 						?>
 						<td <?php echo $attributes ?>>
-							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', 'pronamic_ideal'); ?>">
+							<a href="<?php echo $detailsLink; ?>" title="<?php _e( 'Details', 'pronamic_ideal' ); ?>">
 								<?php echo $date->format('d-m-Y @ H:i'); ?> 
 							</a>
 						</td>
@@ -153,7 +153,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'transaction_id':
 						?>
 						<td <?php echo $attributes ?>>
-							<a href="<?php echo $detailsLink; ?>" title="<?php _e('Details', 'pronamic_ideal'); ?>">
+							<a href="<?php echo $detailsLink; ?>" title="<?php _e( 'Details', 'pronamic_ideal' ); ?>">
 								<?php echo $transaction->getId(); ?> 
 							</a>
 						</td>
@@ -196,8 +196,8 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 							<?php 
 							
 							$text = $payment->getSource() . '<br />' . $payment->getSourceId();
-							$text = apply_filters('pronamic_ideal_source_column_' . $payment->getSource(), $text, $payment);
-							$text = apply_filters('pronamic_ideal_source_column', $text, $payment);
+							$text = apply_filters( 'pronamic_ideal_source_column_' . $payment->getSource(), $text, $payment );
+							$text = apply_filters( 'pronamic_ideal_source_column', $text, $payment );
 							
 							echo $text;
 							
@@ -208,13 +208,13 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'status':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus($transaction->getStatus()); ?>
+							<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $transaction->getStatus() ); ?>
 						</td>
 						<?php
 						break;
 					default:
 						?>
-						<td <?php echo $attributes ?>><?php do_action('manage_payment_custom_column', $column_name, $payment->getId()); ?></td>
+						<td <?php echo $attributes ?>><?php do_action( 'manage_payment_custom_column', $column_name, $payment->getId() ); ?></td>
 						<?php
 						break;
 				}

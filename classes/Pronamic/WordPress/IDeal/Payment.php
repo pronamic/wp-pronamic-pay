@@ -59,7 +59,7 @@ class Pronamic_WordPress_IDeal_Payment {
 	 * Constructs and initialize an payment
 	 */
 	public function __construct() {
-		$this->date = new DateTime('now', new DateTimeZone('UTC'));
+		$this->date = new DateTime( 'now', new DateTimeZone( 'UTC' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -78,7 +78,7 @@ class Pronamic_WordPress_IDeal_Payment {
 	 * 
 	 * @param string $id
 	 */
-	public function setId($id) {
+	public function setId( $id ) {
 		$this->id = $id;
 	}
 
@@ -98,7 +98,7 @@ class Pronamic_WordPress_IDeal_Payment {
 	 * 
 	 * @param DateTime $date
 	 */
-	public function setDate(DateTime $date) {
+	public function setDate( DateTime $date ) {
 		$this->date = $date;
 	}
 
@@ -128,7 +128,7 @@ class Pronamic_WordPress_IDeal_Payment {
 	 * @param string $source
 	 * @param string $id
 	 */
-	public function setSource($source, $id) {
+	public function setSource( $source, $id ) {
 		$this->source = $source;
 		$this->sourceId = $id;
 	}

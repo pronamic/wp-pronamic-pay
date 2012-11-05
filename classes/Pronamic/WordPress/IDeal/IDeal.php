@@ -210,13 +210,13 @@ class Pronamic_WordPress_IDeal_IDeal {
 			// Examples of possible times when a status request can be executed:
 	
 			// 30 seconds after a transaction request is sent
-			wp_schedule_single_event($time +    30, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 30));
+			wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>   30 ) );
 			// Half-way through an expirationPeriod
-			wp_schedule_single_event($time +  1800, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 1800));
+			wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  1800 ) );
 			// Just after an expirationPeriod
-			wp_schedule_single_event($time +  3600, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 3600));
+			wp_schedule_single_event( $time +  3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  3600 ) );
 			// A certain period after the end of the expirationPeriod
-			wp_schedule_single_event($time + 86400, 'pronamic_ideal_check_transaction_status', array('payment_id' => $payment->getId(), 'seconds' => 86400));
+			wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' => 86400 ) );
 	
 			return $issuer->authenticationUrl;
 		}

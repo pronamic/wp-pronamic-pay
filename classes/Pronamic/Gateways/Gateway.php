@@ -4,7 +4,7 @@ abstract class Pronamic_Gateways_Gateway {
 	const METHOD_HTML_FORM = 1;
 
 	const METHOD_HTTP_REDIRECT = 2;
-	
+
 	/////////////////////////////////////////////////
 
 	private $method;
@@ -12,7 +12,7 @@ abstract class Pronamic_Gateways_Gateway {
 	private $require_issue_select;
 
 	private $amount_minimum;
-	
+
 	/////////////////////////////////////////////////
 
 	/**

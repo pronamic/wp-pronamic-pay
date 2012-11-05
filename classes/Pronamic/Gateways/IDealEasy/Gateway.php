@@ -45,4 +45,3 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 		return $this->client->getHtmlFields();
 	}
 }
-
