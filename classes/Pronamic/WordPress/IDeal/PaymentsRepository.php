@@ -90,18 +90,18 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	private function getTransactionFromResult($result) {
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 
-		$transaction->setId($result->transactionId);
-		$transaction->setPurchaseId($result->purchaseId);
-		$transaction->setDescription($result->description);
-		$transaction->setAmount($result->amount);
-		$transaction->setCurrency($result->currency);
-		$transaction->setLanguage($result->language);
-		$transaction->setEntranceCode($result->entranceCode);
-		$transaction->setExpirationPeriod($result->expirationPeriod);
-		$transaction->setStatus($result->status);
-		$transaction->setConsumerName($result->consumerName);
-		$transaction->setConsumerAccountNumber($result->consumerAccountNumber);
-		$transaction->setConsumerCity($result->consumerCity);
+		$transaction->setId ($result->transactionId );
+		$transaction->setPurchaseId( $result->purchaseId );
+		$transaction->setDescription( $result->description );
+		$transaction->setAmount( $result->amount );
+		$transaction->setCurrency( $result->currency );
+		$transaction->setLanguage( $result->language );
+		$transaction->setEntranceCode( $result->entranceCode );
+		$transaction->setExpirationPeriod( $result->expirationPeriod );
+		$transaction->setStatus( $result->status );
+		$transaction->setConsumerName( $result->consumerName );
+		$transaction->setConsumerAccountNumber( $result->consumerAccountNumber );
+		$transaction->setConsumerCity( $result->consumerCity );
 
 		return $transaction;
 	}
@@ -137,19 +137,19 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		$table = self::getPaymentsTableName();
 
-		$query = wp_parse_args($query, array(
-			'payment_id' => null , 
-			'purchase_id' => null , 
-			'transaction_id' => null , 
-			'entrance_code' => null , 
-			'source' => null , 
-			'source_id' => null , 
-			's' => null , 
-			'number' => null , 
-			'offset' => null ,
-			'orderby' => 'date_gmt' , 
-			'order' => null 
-		));
+		$query = wp_parse_args( $query, array(
+			'payment_id'     => null,
+			'purchase_id'    => null,
+			'transaction_id' => null,
+			'entrance_code'  => null,
+			'source'         => null,
+			'source_id'      => null,
+			's'              => null,
+			'number'         => null,
+			'offset'         => null,
+			'orderby'        => 'date_gmt', 
+			'order'          => null
+		) );
 
 		// Where
 		$where = ' WHERE 1 = 1';
@@ -256,14 +256,14 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return array
      */
-    public static function getPayments($query = array()) {
+    public static function getPayments( $query = array() ) {
         global $wpdb;
 
 		$payments = array();
-        $results = $wpdb->get_results(self::getPaymentQuery($query), OBJECT_K);
+        $results = $wpdb->get_results( self::getPaymentQuery( $query ), OBJECT_K );
 
-        foreach($results as $result) {
-        	$payments[] = self::getPaymentFromResult($result); 
+        foreach ( $results as $result ) {
+        	$payments[] = self::getPaymentFromResult( $result ); 
         }
 
         return $payments;
@@ -276,15 +276,15 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentByQuery($query) {
+    public static function getPaymentByQuery( $query ) {
 		global $wpdb;
 
         $payment = null;
 
-        $result = $wpdb->get_row($query, OBJECT);
+        $result = $wpdb->get_row( $query, OBJECT );
 
-        if($result) {
-        	$payment = self::getPaymentFromResult($result); 
+        if ( $result ) {
+        	$payment = self::getPaymentFromResult( $result ); 
         }
 
         return $payment;
@@ -295,11 +295,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentByIdAndEc($transactionId, $entranceCode = null) {
-        return self::getPaymentByQuery(self::getPaymentQuery(array(
-			'transaction_id' => $transactionId , 
-        	'entrance_code' => $entranceCode
-        )));
+    public static function getPaymentByIdAndEc( $transactionId, $entranceCode = null ) {
+        return self::getPaymentByQuery( self::getPaymentQuery( array(
+			'transaction_id' => $transactionId,
+        	'entrance_code'  => $entranceCode
+        ) ) );
     }
 
     /**
@@ -307,10 +307,10 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentById($id) {
-        return self::getPaymentByQuery(self::getPaymentQuery(array(
-        	'payment_id' => $id 
-        )));
+    public static function getPaymentById( $id ) {
+        return self::getPaymentByQuery( self::getPaymentQuery( array(
+        	'payment_id' => $id
+        ) ) );
     }
 
     /**
@@ -318,11 +318,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentBySource($source, $id = null) {
-        return self::getPaymentByQuery(self::getPaymentQuery(array(
-        	'source' => $source ,
+    public static function getPaymentBySource( $source, $id = null ) {
+        return self::getPaymentByQuery( self::getPaymentQuery( array(
+        	'source'    => $source,
         	'source_id' => $id
-        )));
+        ) ) );
     }
 
 	//////////////////////////////////////////////////
@@ -332,24 +332,24 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @param unknown_type $payment
      */
-    public static function updateStatus(Pronamic_WordPress_IDeal_Payment $payment) {
+    public static function updateStatus( Pronamic_WordPress_IDeal_Payment $payment ) {
 		global $wpdb;
 
 		$transaction = $payment->transaction;
 
 		$result = $wpdb->update(
-			self::getPaymentsTableName() , 
+			self::getPaymentsTableName(),
 			array( 
-				'status' => $transaction->getStatus() ,
-				'consumer_name' => $transaction->getConsumerName() , 
-				'consumer_account_number' => $transaction->getConsumerAccountNumber() , 
-				'consumer_city' => $transaction->getConsumerCity() 
-			) , 
+				'status'                  => $transaction->getStatus(),
+				'consumer_name'           => $transaction->getConsumerName(),
+				'consumer_account_number' => $transaction->getConsumerAccountNumber(),
+				'consumer_city'           => $transaction->getConsumerCity() 
+			),
 			array(
 				'id' => $payment->getId()
-			) , 
-			array('%s', '%s', '%s', '%s') , 
-			array('%d')
+			),
+			array( '%s', '%s', '%s', '%s' ),
+			array( '%d' )
 		);
 
         return $result;
@@ -362,7 +362,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @param Pronamic_WordPress_IDeal_Payment $payment
      */
-	public static function updatePayment(Pronamic_WordPress_IDeal_Payment $payment) {
+	public static function updatePayment( Pronamic_WordPress_IDeal_Payment $payment ) {
 		global $wpdb;
 
 		$table = self::getPaymentsTableName();
@@ -371,37 +371,37 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$transaction = $payment->transaction;
 
 		$data = array( 
-			'configuration_id' => $configuration->getId() ,
-			'purchase_id' => $transaction->getPurchaseId() , 
-			'transaction_id' => $transaction->getId() , 
-			'amount' => $transaction->getAmount() , 
-			'currency' => $transaction->getCurrency() ,
-			'expiration_period' => $transaction->getExpirationPeriod() ,
-			'language' => $transaction->getLanguage() ,
-			'entrance_code' => $transaction->getEntranceCode() ,
-			'description' => $transaction->getDescription() ,
-			'status' => $transaction->getStatus() ,
-			'consumer_name' => $transaction->getConsumerName() ,
-			'consumer_account_number' => $transaction->getConsumerAccountNumber() ,
-			'consumer_city' => $transaction->getConsumerCity() ,
-			'date_gmt' => $payment->getDate()->format('Y-m-d H:i:s') , 
-			'source' => $payment->getSource() , 
-			'source_id' => $payment->getSourceId() 
+			'configuration_id'        => $configuration->getId(),
+			'purchase_id'             => $transaction->getPurchaseId(),
+			'transaction_id'          => $transaction->getId(),
+			'amount'                  => $transaction->getAmount(),
+			'currency'                => $transaction->getCurrency(),
+			'expiration_period'       => $transaction->getExpirationPeriod(),
+			'language'                => $transaction->getLanguage(),
+			'entrance_code'           => $transaction->getEntranceCode(),
+			'description'             => $transaction->getDescription(),
+			'status'                  => $transaction->getStatus(),
+			'consumer_name'           => $transaction->getConsumerName(),
+			'consumer_account_number' => $transaction->getConsumerAccountNumber(),
+			'consumer_city'           => $transaction->getConsumerCity(),
+			'date_gmt'                => $payment->getDate()->format( 'Y-m-d H:i:s' ),
+			'source'                  => $payment->getSource(),
+			'source_id'               => $payment->getSourceId() 
 		);
 
-		$format = array('%d', '%s', '%s', '%F', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');
+		$format = array( '%d', '%s', '%s', '%F', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' );
 
 		// Insert
-        if(empty($payment->id)) {
+        if ( empty( $payment->id ) ) {
             // Insert
-            $result = $wpdb->insert($table, $data, $format);
+            $result = $wpdb->insert( $table, $data, $format );
 
             if($result !== false) {
             	$payment->setId($wpdb->insert_id);
             }
         } else {
             // Update
-			$result = $wpdb->update($table, $data, array('id' => $payment->getId()), $format, array('%d'));
+			$result = $wpdb->update( $table, $data, array( 'id' => $payment->getId() ), $format, array( '%d' ) );
         }
 
         return $result;
@@ -419,8 +419,8 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		$table = self::getPaymentsTableName();
 
-		$numberPayments = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $table;"));
+		$number_payments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $table;" ) );
 		
-		return $numberPayments;
+		return $number_payments;
 	}
 }
