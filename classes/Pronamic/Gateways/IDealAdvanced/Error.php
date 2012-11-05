@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Error {
+class Pronamic_Gateways_IDealAdvanced_Error {
 	/**
 	 * Code
 	 * 

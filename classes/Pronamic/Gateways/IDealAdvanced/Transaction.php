@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Transaction {
+class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Status indicator for success
 	 * 

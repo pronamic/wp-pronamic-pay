@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Issuer {
+class Pronamic_Gateways_IDealAdvanced_Issuer {
 	/**
 	 * Indicator for the short list
 	 * 

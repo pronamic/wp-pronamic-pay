@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_XML_StatusResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
+class Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 

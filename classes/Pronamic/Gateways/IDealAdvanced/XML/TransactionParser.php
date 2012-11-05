@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_XML_TransactionParser extends Pronamic_IDeal_XML_Parser {
+class Pronamic_Gateways_IDealAdvanced_XML_TransactionParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
 	 * 

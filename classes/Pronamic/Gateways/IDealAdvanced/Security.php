@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Security {
+class Pronamic_Gateways_IDealAdvanced_Security {
 	/**
 	 * Indicator for the begin of an certificate
 	 * 

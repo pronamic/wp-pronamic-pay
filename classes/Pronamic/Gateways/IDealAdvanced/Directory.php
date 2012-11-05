@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Directory {
+class Pronamic_Gateways_IDealAdvanced_Directory {
 	/**
 	 * The date the issuer list was modified
 	 * 

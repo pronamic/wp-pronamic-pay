@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_IDealClient {
+class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	/**
 	 * The acquirer URL
 	 * 

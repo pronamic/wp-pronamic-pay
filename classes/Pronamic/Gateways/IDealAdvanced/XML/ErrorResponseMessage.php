@@ -1,25 +1,34 @@
 <?php
 
 /**
- * Title: iDEAL transaction response XML message
+ * Title: iDEAL error response XML message
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_XML_TransactionResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
+class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 
 	 * @var string
 	 */
-	const NAME = 'AcquirerTrxRes';
+	const NAME = 'ErrorRes';
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initialize an directory response message
+	 * The error within this response message
+	 * 
+	 * @var Error
+	 */
+	public $error;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initialize an error response message
 	 */
 	public function __construct() {
 		parent::__construct(self::NAME);
@@ -34,9 +43,8 @@ class Pronamic_IDeal_XML_TransactionResponseMessage extends Pronamic_IDeal_XML_R
 	 */
 	public static function parse(SimpleXMLElement $xml) {
 		$message = parent::parse($xml, new self());
-		$message->issuer = Pronamic_IDeal_XML_IssuerParser::parse($xml->Issuer);
-		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse($xml->Transaction);
-
+		$message->error = Pronamic_IDeal_XML_ErrorParser::parse($xml->Error);
+		
 		return $message;
 	}
 }

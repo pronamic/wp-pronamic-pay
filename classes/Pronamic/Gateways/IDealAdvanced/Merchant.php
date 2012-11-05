@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Merchant {
+class Pronamic_Gateways_IDealAdvanced_Merchant {
 	/**
 	 * ID of the merchant
 	 * 

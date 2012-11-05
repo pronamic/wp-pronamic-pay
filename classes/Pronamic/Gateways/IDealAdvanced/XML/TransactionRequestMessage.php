@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_XML_TransactionRequestMessage extends Pronamic_IDeal_XML_RequestMessage {
+class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pronamic_Gateways_IDealAdvanced_XML_RequestMessage {
 	/**
 	 * The document element name
 	 * 

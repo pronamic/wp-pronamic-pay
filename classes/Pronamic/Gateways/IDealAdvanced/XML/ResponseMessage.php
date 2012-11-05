@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_IDeal_XML_ResponseMessage extends Pronamic_IDeal_XML_Message {
+abstract class Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_Message {
 	/**
 	 * Constructs and initialize an response message
 	 */

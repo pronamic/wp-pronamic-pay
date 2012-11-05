@@ -1,29 +1,20 @@
 <?php
 
 /**
- * Title: iDEAL directory response XML message
+ * Title: iDEAL transaction response XML message
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_XML_DirectoryResponseMessage extends Pronamic_IDeal_XML_ResponseMessage {
+class Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage {
 	/**
 	 * The document element name
 	 * 
 	 * @var string
 	 */
-	const NAME = 'DirectoryRes';
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * The directory
-	 * 
-	 * @var Directory
-	 */
-	public $directory;
+	const NAME = 'AcquirerTrxRes';
 
 	//////////////////////////////////////////////////
 
@@ -32,19 +23,6 @@ class Pronamic_IDeal_XML_DirectoryResponseMessage extends Pronamic_IDeal_XML_Res
 	 */
 	public function __construct() {
 		parent::__construct(self::NAME);
-
-		$this->directory = array();
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the directory
-	 * 
-	 * @return Directory
-	 */
-	public function getDirectory() {
-		return $this->directory;
 	}
 
 	//////////////////////////////////////////////////
@@ -56,8 +34,9 @@ class Pronamic_IDeal_XML_DirectoryResponseMessage extends Pronamic_IDeal_XML_Res
 	 */
 	public static function parse(SimpleXMLElement $xml) {
 		$message = parent::parse($xml, new self());
-		$message->directory = Pronamic_IDeal_XML_DirectoryParser::parse($xml->Directory);
-		
+		$message->issuer = Pronamic_IDeal_XML_IssuerParser::parse($xml->Issuer);
+		$message->transaction = Pronamic_IDeal_XML_TransactionParser::parse($xml->Transaction);
+
 		return $message;
 	}
-};
+}
