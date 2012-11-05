@@ -47,16 +47,27 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 	
 		<?php 
 		
-		if ( $configuration->getVariant() instanceof Pronamic_IDeal_VariantEasy ) {
-			include 'test-method-easy.php';
-		} elseif ( $configuration->getVariant() instanceof Pronamic_IDeal_VariantBasic ) {
-			include 'test-method-basic.php';
-		} elseif ( $configuration->getVariant() instanceof Pronamic_IDeal_VariantInternetKassa ) {
-			include 'test-method-internetkassa.php';
-		} elseif ( $configuration->getVariant() instanceof Pronamic_IDeal_VariantOmniKassa ) {
-			include 'test-method-omnikassa.php';
-		} elseif ( $configuration->getVariant() instanceof Pronamic_IDeal_VariantAdvanced ) {
-			include 'test-method-advanced.php';
+		$variant = $configuration->getVariant();
+		
+		if ( !empty( $variant ) ) {
+			switch ( $variant->getMethod() ) {
+				case 'easy':
+					include 'test-method-easy.php';
+					break;
+				case 'basic':
+					include 'test-method-basic.php';
+					break;
+				case 'internetkassa':
+					include 'test-method-internetkassa.php';
+					break;
+				case 'omnikassa':
+					include 'test-method-omnikassa.php';
+					break;
+				case 'advanced':
+					include 'test-method-advanced.php';
+					break;
+					
+			}
 		}
 	
 		?>
