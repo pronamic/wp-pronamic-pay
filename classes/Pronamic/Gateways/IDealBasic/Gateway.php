@@ -9,12 +9,14 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data_proxy ) {
+	public function __construct( $configuration, $data ) {
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_require_issue_select( false );
 		$this->set_amount_minimum( 0.01 );
+		
+		$this->data = $data;
 
 		$this->client = new Pronamic_Gateways_IDealBasic_IDealBasic();
 		
@@ -22,15 +24,22 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setMerchantId( $configuration->getMerchantId() );
 		$this->client->setSubId( $configuration->getSubId() );
 		$this->client->setHashKey( $configuration->hashKey );
+	}
+	
+	/////////////////////////////////////////////////
+
+	public function start() {
+		$this->transaction_id = md5( time() . $this->data_proxy->getOrderId() );
+		$this->action_url     = $this->client->getPaymentServerUrl();
 		
-		$this->client->setLanguage( $data_proxy->getLanguageIso639Code() );
-		$this->client->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
-		$this->client->setPurchaseId( $data_proxy->getOrderId() );
-		$this->client->setDescription( $data_proxy->getDescription() );
-		$this->client->setItems( $data_proxy->getItems() );
-		$this->client->setCancelUrl( $data_proxy->getCancelUrl() );
-		$this->client->setSuccessUrl( $data_proxy->getSuccessUrl() );
-		$this->client->setErrorUrl( $data_proxy->getErrorUrl() );
+		$this->client->setLanguage( $this->data->getLanguageIso639Code() );
+		$this->client->setCurrency( $this->data->getCurrencyAlphabeticCode() );
+		$this->client->setPurchaseId( $this->data->getOrderId() );
+		$this->client->setDescription( $this->data->getDescription() );
+		$this->client->setItems( $this->data->getItems() );
+		$this->client->setCancelUrl( $this->data->getCancelUrl() );
+		$this->client->setSuccessUrl( $this->data->getSuccessUrl() );
+		$this->client->setErrorUrl( $this->data->getErrorUrl() );
 	}
 	
 	/////////////////////////////////////////////////

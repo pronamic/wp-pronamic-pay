@@ -269,20 +269,24 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $html;
 	}
 	
-	public static function get_gateway( Pronamic_IDeal_IDealDataProxy $data_proxy, Pronamic_WordPress_IDeal_Configuration $configuration ) {		
+	public static function get_gateway( Pronamic_IDeal_IDealDataProxy $data, Pronamic_WordPress_IDeal_Configuration $configuration ) {		
 		if($configuration !== null) {
 			$variant = $configuration->getVariant();
 
 			if($variant !== null) {
 				switch($variant->getMethod()) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration, $data_proxy );
+						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration, $data );
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration, $data_proxy );
+						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration, $data );
 					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
-						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration, $data_proxy );
+						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration, $data );
 					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration, $data_proxy );
+						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration, $data );
+					case 'mollie':
+						return new Pronamic_Gateways_Mollie_Gateway( $configuration, $data );
+					case 'targetpay':
+						return new Pronamic_Gateways_TargetPay_Gateway( $configuration, $data );
 				}
 			}
 		}				
@@ -294,6 +298,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$gateway = self::get_gateway( $data_proxy, $configuration );
 		
 		if ( !empty( $gateway ) ) {
+			$gateway->start();
+
 			// Update payment
 			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setAmount( $data_proxy->getAmount() );
@@ -311,7 +317,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 			// HTML
 			$html  = '';
-			$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+			$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr( $gateway->get_action_url() ) );
 			$html .= 	$gateway->get_html_fields();
 			$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
 			$html .= '</form>';

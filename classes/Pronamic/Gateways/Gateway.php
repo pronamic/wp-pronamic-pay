@@ -47,20 +47,20 @@ abstract class Pronamic_Gateways_Gateway {
 	}
 	
 	/////////////////////////////////////////////////
+
+	public function start() {
+		
+	}
+	
+	/////////////////////////////////////////////////
 	
 	public function get_action_url() {
-		
+		return $this->action_url;
 	}
 	
 	/////////////////////////////////////////////////
 
 	public function get_html_fields() {
-		
-	}
-	
-	/////////////////////////////////////////////////
-
-	public function get_redirect_url() {
 		
 	}
 }

@@ -47,7 +47,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			'rtlo'        => $rtlo,
 			'bank'        => $bank,
 			'description' => $description,
-			'amount'       => $amount,
+			'amount'      => $amount,
 			'returnurl'   => $returnurl,
 			'reporturl'   => $reporturl
 		), self::URL_START_TRANSACTION );
@@ -57,12 +57,13 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 			$data = wp_remote_retrieve_body( $response );
 	
-			$status         = strtok( $data, self::TOKEN );
-			$transaction_id = strtok( self::TOKEN );
-			$url            = strtok( self::TOKEN );
+			$result = new stdClass();
+			$result->status         = strtok( $data, self::TOKEN );
+			$result->transaction_id = strtok( self::TOKEN );
+			$result->url            = strtok( self::TOKEN );
 	
-			if ( $status == self::STATUS_OK ) {
-				
+			if ( $result->status == self::STATUS_OK ) {
+				return $result;
 			}
 		}
 	}

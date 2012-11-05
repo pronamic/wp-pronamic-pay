@@ -9,13 +9,15 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data_proxy ) {
+	public function __construct( $configuration, $data ) {
 		parent::__construct(  );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_require_issue_select( false );
 		$this->set_amount_minimum( 0.01 );
 		
+		$this->data = $data;
+
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
 		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-in.txt';
@@ -28,18 +30,19 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->client->setPspId( $configuration->pspId );
 		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );
 		$this->client->setPassPhraseOut( $configuration->shaOutPassPhrase );
-		
-		$this->client->setLanguage( $data_proxy->getLanguageIso639AndCountryIso3166Code() );
-		$this->client->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
-		$this->client->setOrderId( $data_proxy->getOrderId() );
-		$this->client->setOrderDescription( $data_proxy->getDescription() );
-		$this->client->setAmount( $data_proxy->getAmount() );
 	}
 	
 	/////////////////////////////////////////////////
 
-	public function get_action_url() {
-		return $this->client->getPaymentServerUrl();
+	public function start() {
+		$this->transaction_id = md5( time() . $this->data->getOrderId() );
+		$this->action_url     = $this->client->getPaymentServerUrl();
+
+		$this->client->setLanguage( $this->data->getLanguageIso639AndCountryIso3166Code() );
+		$this->client->setCurrency( $this->data->getCurrencyAlphabeticCode() );
+		$this->client->setOrderId( $this->data->getOrderId() );
+		$this->client->setOrderDescription( $this->data->getDescription() );
+		$this->client->setAmount( $this->data->getAmount() );
 	}
 	
 	/////////////////////////////////////////////////
