@@ -76,7 +76,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $code
 	 */
-	public function setCode($code) {
+	public function setCode( $code ) {
 		$this->code = $code;
 	}
 
@@ -96,7 +96,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $code
 	 */
-	public function setMessage($message) {
+	public function setMessage( $message ) {
 		$this->message = $message;
 	}
 
@@ -116,7 +116,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $detail
 	 */
-	public function setDetail($detail) {
+	public function setDetail( $detail ) {
 		$this->detail = $detail;
 	}
 
@@ -136,7 +136,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $detail
 	 */
-	public function setConsumerMessage($consumerMessage) {
-		$this->consumerMessage = $consumerMessage;
+	public function setConsumerMessage( $consumer_message ) {
+		$this->consumerMessage = $consumer_message;
 	}
 }

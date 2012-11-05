@@ -74,10 +74,10 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 		$lists = array();
 
 		$issuers = $this->getIssuers();
-		foreach($issuers as $issuer) {
+		foreach ( $issuers as $issuer ) {
 			$name = $issuer->getList();
 
-			if(!isset($lists[$name])) {
+			if ( !isset( $lists[$name] ) ) {
 				$lists[$name] = array();
 			}
 			

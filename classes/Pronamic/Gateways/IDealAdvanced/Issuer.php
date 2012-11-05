@@ -78,7 +78,7 @@ class Pronamic_Gateways_IDealAdvanced_Issuer {
 	 * 
 	 * @param string $id
 	 */
-	public function setId($id){
+	public function setId( $id ) {
 		$this->id = $id;
 	}
 
@@ -98,7 +98,7 @@ class Pronamic_Gateways_IDealAdvanced_Issuer {
 	 * 
 	 * @param string $name
 	 */
-	public function setName($name) {
+	public function setName( $name ) {
 		$this->name = $name;
 	}
 
@@ -118,7 +118,7 @@ class Pronamic_Gateways_IDealAdvanced_Issuer {
 	 * 
 	 * @param string $list
 	 */
-	public function setList($list) {
+	public function setList( $list ) {
 		$this->list = $list;
 	}
 }

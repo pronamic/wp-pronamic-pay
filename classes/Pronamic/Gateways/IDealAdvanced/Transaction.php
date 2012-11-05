@@ -166,7 +166,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $id
 	 */
-	public function setId($id) {
+	public function setId( $id ) {
 		$this->id = $id;
 	}
 
@@ -186,7 +186,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $id
 	 */
-	public function setPurchaseId($id) {
+	public function setPurchaseId( $id ) {
 		$this->purchaseId = $id;
 	}
 
@@ -206,7 +206,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $amount
 	 */
-	public function setAmount($amount) {
+	public function setAmount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -226,7 +226,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $amount
 	 */
-	public function setCurrency($currency) {
+	public function setCurrency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -244,10 +244,10 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Set the expiration period of this transaction
 	 * 
-	 * @param string $expirationPeriod
+	 * @param string $expiration_period
 	 */
-	public function setExpirationPeriod($expirationPeriod) {
-		$this->expirationPeriod = $expirationPeriod;
+	public function setExpirationPeriod( $expiration_period ) {
+		$this->expirationPeriod = $expiration_period;
 	}
 
 	//////////////////////////////////////////////////
@@ -266,7 +266,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $language
 	 */
-	public function setLanguage($language) {
+	public function setLanguage( $language ) {
 		$this->language = $language;
 	}
 
@@ -306,10 +306,10 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * Set the entrancode
 	 * ANS..max40 (ANS = Strictly alphanumerical (letters and numbers only))
 	 * 
-	 * @param string $entranceCode
+	 * @param string $entrance_code
 	 */
-	public function setEntranceCode($entranceCode) {
-		$this->entranceCode = substr($entranceCode, 0, 40);
+	public function setEntranceCode( $entrance_code ) {
+		$this->entranceCode = substr( $entrance_code, 0, 40 );
 	}
 
 	//////////////////////////////////////////////////
@@ -328,7 +328,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $status
 	 */
-	public function setStatus($status) {
+	public function setStatus( $status ) {
 		$this->status = $status;
 	}
 
@@ -348,14 +348,14 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $status
 	 */
-	public function setConsumerName($name) {
+	public function setConsumerName( $name ) {
 		$this->consumerName = $name;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the consumer name
+	 * Get the consumer account number
 	 * 
 	 * @return string
 	 */
@@ -364,12 +364,12 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	}
 
 	/**
-	 * Set the consumer name
+	 * Set the consumer account number
 	 * 
-	 * @param string $status
+	 * @param string $account_number
 	 */
-	public function setConsumerAccountNumber($accountNumber) {
-		$this->consumerAccountNumber = $accountNumber;
+	public function setConsumerAccountNumber( $account_number ) {
+		$this->consumerAccountNumber = $account_number;
 	}
 
 	//////////////////////////////////////////////////
@@ -388,7 +388,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @param string $status
 	 */
-	public function setConsumerCity($city) {
+	public function setConsumerCity( $city ) {
 		$this->consumerCity = $city;
 	}
 }
