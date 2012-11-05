@@ -273,7 +273,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
 			foreach($configurations as $configuration) {
-				if($configuration->getVariant() instanceof Pronamic_IDeal_VariantInternetKassa) {
+				$variant = $configuration->getVariant();
+				
+				if ( $variant != null && $variant->getMethod() == 'internetkassa' ) {
 					$iDeal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
 					$iDeal->setPspId($configuration->pspId);
