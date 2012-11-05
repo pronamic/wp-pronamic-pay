@@ -88,7 +88,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * @return Transaction
      */
 	private function getTransactionFromResult($result) {
-		$transaction = new Pronamic_IDeal_Transaction();
+		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 
 		$transaction->setId($result->transactionId);
 		$transaction->setPurchaseId($result->purchaseId);

@@ -13,11 +13,11 @@ class Pronamic_Gateways_IDealAdvanced_XML_IssuerParser extends Pronamic_Gateways
 	 * Parse
 	 * 
 	 * @param SimpleXMLElement $xml
-	 * @param Pronamic_IDeal_Issuer $issuer
+	 * @param Pronamic_Gateways_IDealAdvanced_Issuer $issuer
 	 */
-	public static function parse(SimpleXMLElement $xml, $issuer = null) {
-		if ( !$issuer instanceof Pronamic_IDeal_Issuer ) {
-			$issuer = new Pronamic_IDeal_Issuer();
+	public static function parse( SimpleXMLElement $xml, $issuer = null ) {
+		if ( !$issuer instanceof Pronamic_Gateways_IDealAdvanced_Issuer ) {
+			$issuer = new Pronamic_Gateways_IDealAdvanced_Issuer();
 		}
 
 		if ( $xml->issuerID ) {

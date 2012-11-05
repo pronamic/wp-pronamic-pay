@@ -159,23 +159,23 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			$status = $transaction->getStatus();
 
 			switch($status) {
-				case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 						
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 					Pronamic_ClassiPress_ClassiPress::process_membership_order( $order );
 					Pronamic_ClassiPress_ClassiPress::process_ad_order( $order );
 		            	
 	            	$url = $data_proxy->getSuccessUrl();
 
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_OPEN:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 						
 					break;
 				default:

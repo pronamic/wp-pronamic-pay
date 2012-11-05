@@ -26,7 +26,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 	public function __construct( $name ) {
 		parent::__construct( $name );
 
-		$this->merchant = new Pronamic_IDeal_Merchant();
+		$this->merchant = new Pronamic_Gateways_IDealAdvanced_Merchant();
 	}
 
 	//////////////////////////////////////////////////
@@ -89,7 +89,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 		$message = implode( '', $values );
 
-		$sign = Pronamic_IDeal_Security::signMessage( $privateKeyFile, $privateKeyPassword, $message );
+		$sign = Pronamic_Gateways_IDealAdvanced_Security::signMessage( $privateKeyFile, $privateKeyPassword, $message );
 
 		$this->merchant->tokenCode = base64_encode( $sign );
 	}

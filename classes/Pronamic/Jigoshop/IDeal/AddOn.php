@@ -72,25 +72,25 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 				$status = $transaction->getStatus();
 
 				switch ( $status ) {
-					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
 						$url = $data_proxy->getCancelUrl();
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 						// Jigoshop PayPal gateway uses 'on-hold' order status for an 'expired' payment
 						// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L430
 						$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_ON_HOLD, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						// Jigoshop PayPal gateway uses 'on-hold' order status for an 'failure' in the payment
 						// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L431
 						$order->update_status( 'failed', __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 		            	// Payment completed
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
@@ -98,7 +98,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 		                $url = $data_proxy->getSuccessUrl();
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_OPEN:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 		                $order->add_order_note( __( 'iDEAL payment open.', 'pronamic_ideal' ) );
 
 						break;

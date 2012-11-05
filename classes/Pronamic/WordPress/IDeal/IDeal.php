@@ -30,11 +30,11 @@ class Pronamic_WordPress_IDeal_IDeal {
 	/**
 	 * Get the iDEAL client
 	 * 
-	 * @return Pronamic_IDeal_IDealClient
+	 * @return Pronamic_Gateways_IDealAdvanced_IDealClient
 	 */
 	public static function getClient() {
 		if(self::$client == null) {
-            self::$client = new Pronamic_IDeal_IDealClient();
+            self::$client = new Pronamic_Gateways_IDealAdvanced_IDealClient();
         }
 
         return self::$client;
@@ -73,12 +73,12 @@ class Pronamic_WordPress_IDeal_IDeal {
 				$iDealClient->addPublicCertificate($certificate);
 			}
 			
-			$message = new Pronamic_IDeal_XML_DirectoryRequestMessage();
+			$message = new Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage();
 			$merchant = $message->getMerchant();
 			$merchant->id = $configuration->getMerchantId();
 			$merchant->subId = $configuration->getSubId();
 			$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-			$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+			$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
 			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
 
 			$result = $iDealClient->getIssuerLists($message);
@@ -149,9 +149,9 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$configuration = $payment->configuration;
 
 		// Transaction request message
-		$message = new Pronamic_IDeal_XML_TransactionRequestMessage();
+		$message = new Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage();
 
-		$issuer = new Pronamic_IDeal_Issuer();
+		$issuer = new Pronamic_Gateways_IDealAdvanced_Issuer();
 		$issuer->setId($issuerId);
 
 		$merchant = $message->getMerchant();
@@ -159,7 +159,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = site_url('/');
-		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->issuer = $issuer;
 		$message->merchant = $merchant;
@@ -232,15 +232,15 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 */
 	public static function translateStatus($status) {
 		switch($status) {
-			case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 				return __('Cancelled', 'pronamic_ideal');
-			case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 				return __('Expired', 'pronamic_ideal');
-			case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 				return __('Failure', 'pronamic_ideal');
-			case Pronamic_IDeal_Transaction::STATUS_OPEN:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 				return __('Open', 'pronamic_ideal');
-			case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 				return __('Success', 'pronamic_ideal');
 			default:
 				return __('Unknown', 'pronamic_ideal');
@@ -304,7 +304,7 @@ class Pronamic_WordPress_IDeal_IDeal {
     	
 		if($payment == null) {
 			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
@@ -352,7 +352,7 @@ class Pronamic_WordPress_IDeal_IDeal {
     	
 		if($payment == null) {
 			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
@@ -402,7 +402,7 @@ class Pronamic_WordPress_IDeal_IDeal {
     	
 		if($payment == null) {
 			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
 			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
@@ -452,7 +452,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$id = md5(time() . $dataProxy->getOrderId());
 
 			// Update payment
-			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setId($id);
 			$transaction->setAmount($dataProxy->getAmount()); 
 			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
@@ -485,7 +485,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
 		
 		if ( $payment == null ) {
-			$transaction = new Pronamic_IDeal_Transaction();
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setAmount( $data_proxy->getAmount() );
 			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
 			$transaction->setExpirationPeriod( 'PT1H' );

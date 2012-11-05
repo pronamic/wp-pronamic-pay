@@ -81,7 +81,7 @@ class Pronamic_WordPress_IDeal_Admin {
 					$entranceCode = uniqid();
 					$purchaseId = $name;
 
-					$transaction = new Pronamic_IDeal_Transaction();
+					$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 					$transaction->setAmount($testCase); 
 					$transaction->setCurrency('EUR');
 					$transaction->setExpirationPeriod('PT1H');

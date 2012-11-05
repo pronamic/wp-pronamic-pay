@@ -39,7 +39,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 	 * 
 	 * @param DateTime $date
 	 */
-	public function setDate(DateTime $date) {
+	public function setDate( DateTime $date ) {
 		$this->date = $date;
 	}
 
@@ -50,7 +50,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 	 * 
 	 * @param Issuer $issuer
 	 */
-	public function addIssuer(Pronamic_IDeal_Issuer $issuer) {
+	public function addIssuer( Pronamic_Gateways_IDealAdvanced_Issuer $issuer ) {
 		$this->issuers[] = $issuer;
 	}
 

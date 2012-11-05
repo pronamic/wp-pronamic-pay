@@ -13,11 +13,11 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionParser extends Pronamic_Gat
 	 * Parse the specified XML element into an iDEAL transaction object
 	 * 
 	 * @param SimpleXMLElement $xml
-	 * @param Pronamic_IDeal_Transaction $transaction
+	 * @param Pronamic_Gateways_IDealAdvanced_Transaction $transaction
 	 */
 	public static function parse( SimpleXMLElement $xml, $transaction = null ) {
-		if ( !$transaction instanceof Pronamic_IDeal_Transaction ) {
-			$transaction = new Pronamic_IDeal_Transaction();
+		if ( !$transaction instanceof Pronamic_Gateways_IDealAdvanced_Transaction ) {
+			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 		}
 
 		if ( $xml->transactionID ) {

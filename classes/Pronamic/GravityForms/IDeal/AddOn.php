@@ -218,25 +218,25 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					$url = null;
 
 					switch($status) {
-						case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
 
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
 
 							break;
-						case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
 
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED);
 
 							break;
-						case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
 
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
 
 							break;
-						case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
 
 							self::fulfillOrder($lead);
@@ -244,7 +244,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
 
 							break;
-						case Pronamic_IDeal_Transaction::STATUS_OPEN:
+						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 						default:
 							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
 

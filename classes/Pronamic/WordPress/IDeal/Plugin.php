@@ -200,7 +200,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			// - No status request after a final status has been received for a transaction;
 			$status = $payment->transaction->getStatus();
 
-			if(empty($status) || $status === Pronamic_IDeal_Transaction::STATUS_OPEN) {
+			if(empty($status) || $status === Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN) {
 				self::checkPaymentStatus($payment);
 			}
 		} else {
@@ -217,20 +217,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$configuration = $payment->configuration;
 		$variant = $configuration->getVariant();
 
-		$iDealClient = new Pronamic_IDeal_IDealClient();
+		$iDealClient = new Pronamic_Gateways_IDealAdvanced_IDealClient();
 		$iDealClient->setAcquirerUrl($configuration->getPaymentServerUrl());
 		$iDealClient->setPrivateKey($configuration->privateKey);
 		$iDealClient->setPrivateKeyPassword($configuration->privateKeyPassword);
 		$iDealClient->setPrivateCertificate($configuration->privateCertificate);
 		
-		$message = new Pronamic_IDeal_XML_StatusRequestMessage();
+		$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
 
 		$merchant = $message->getMerchant();
 		$merchant->id = $configuration->getMerchantId();
 		$merchant->subId = $configuration->getSubId();
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl = site_url('/');
-		$merchant->token = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
 
 		$message->merchant = $merchant;
 		$message->transaction = $payment->transaction;
@@ -321,12 +321,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REFUSED:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER:
-					$status = Pronamic_IDeal_Transaction::STATUS_FAILURE;
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE;
 					break;
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::CANCELLED_BY_CLIENT:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED_64:
-					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
 					break;
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::ORDER_STORED:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::STORED_WAITING_EXTERNAL_RESULT:
@@ -357,7 +357,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_PROCESSED_BY_MERCHANT:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REQUESTED:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_PROCESSED_BY_MERCHANT:
-					$status = Pronamic_IDeal_Transaction::STATUS_SUCCESS;
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 					break;
 			}
 			
@@ -412,14 +412,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 		if($payment != null) {
 			$responseCode = $data['responseCode'];
 
-			$status = Pronamic_IDeal_Transaction::STATUS_OPEN;
+			$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
 
 			switch($responseCode) {
 				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
-					$status = Pronamic_IDeal_Transaction::STATUS_SUCCESS;
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 					break;
 				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
-					$status = Pronamic_IDeal_Transaction::STATUS_CANCELLED;
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
 					break;
 			}
 			

@@ -193,20 +193,20 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			$url = $dataProxy->getNormalReturnUrl();
 
 			switch($status) {
-				case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 					
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 					
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 					
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 	            	$data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
 
 					break;
-				case Pronamic_IDeal_Transaction::STATUS_OPEN:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 
 					break;
 				default:

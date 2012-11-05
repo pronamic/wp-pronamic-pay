@@ -72,23 +72,23 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				$status = $transaction->getStatus();
 
 				switch ( $status ) {
-					case Pronamic_IDeal_Transaction::STATUS_CANCELLED:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
 						$url = $data_proxy->getCancelUrl();
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_EXPIRED:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 						// WooCommerce PayPal gateway uses 'failed' order status for an 'expired' payment
 						// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/classes/gateways/class-wc-paypal.php#L557
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_FAILURE:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_SUCCESS:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 		            	// Payment completed
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
@@ -96,7 +96,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		                $url = $data_proxy->getSuccessUrl();
 
 						break;
-					case Pronamic_IDeal_Transaction::STATUS_OPEN:
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 						$order->add_order_note( __( 'iDEAL payment open.', 'pronamic_ideal' ) );
 
 						break;

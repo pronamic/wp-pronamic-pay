@@ -22,7 +22,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryParser extends Pronamic_Gatew
 		$directory->setDate( new DateTime( $timestamp ) );
 		
 		foreach ( $xml->Issuer as $element ) {
-			$issuer = Pronamic_IDeal_XML_IssuerParser::parse( $element );
+			$issuer = Pronamic_Gateways_IDealAdvanced_XML_IssuerParser::parse( $element );
 			$directory->addIssuer( $issuer );
 		}
 

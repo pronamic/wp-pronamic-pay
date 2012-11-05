@@ -10,7 +10,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 	$transaction = $payment->transaction;
 	$status = $transaction->getStatus();
 
-	if(!in_array($status, array(Pronamic_IDeal_Transaction::STATUS_OPEN, null), true)) {
+	if(!in_array($status, array(Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN, null), true)) {
 		$update = sprintf(__('The payment status is: %s', 'pronamic_ideal'), Pronamic_WordPress_IDeal_IDeal::translateStatus($status));
 	}
 }

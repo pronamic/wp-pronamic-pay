@@ -443,7 +443,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<?php 
 					
 					if(!empty($configuration->privateCertificate)) {
-						$fingerprint = Pronamic_IDeal_Security::getShaFingerprint($configuration->privateCertificate);
+						$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
 						$fingerprint = str_split($fingerprint, 2);
 						$fingerprint = implode(':', $fingerprint);
 					

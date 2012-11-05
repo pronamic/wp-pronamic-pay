@@ -111,7 +111,7 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	private function doHttpRequest($data, $timeout = 30) {
 		$result = null;
 
-		$contentType = 'Content-Type: text/html; charset=' . Pronamic_IDeal_XML_Message::XML_ENCODING;
+		$contentType = 'Content-Type: text/html; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING;
 
 		$url = new Pronamic_Net_URL($this->acquirerUrl);
 		
@@ -185,18 +185,18 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 		$this->error = null;
 
 		switch($document->getName()) {
-			case Pronamic_IDeal_XML_ErrorResponseMessage::NAME:
-				$message = Pronamic_IDeal_XML_ErrorResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::NAME:
+				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse($document);
 
 				$this->error = $message->error;
 
 				return $message;
-			case Pronamic_IDeal_XML_DirectoryResponseMessage::NAME:
-				return Pronamic_IDeal_XML_DirectoryResponseMessage::parse($document);
-			case Pronamic_IDeal_XML_TransactionResponseMessage::NAME:
-				return Pronamic_IDeal_XML_TransactionResponseMessage::parse($document);
-			case Pronamic_IDeal_XML_StatusResponseMessage::NAME:
-				return Pronamic_IDeal_XML_StatusResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::NAME:
+				return Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::NAME:
+				return Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::NAME:
+				return Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::parse($document);
 			default:
 				return null;
 		}
@@ -209,11 +209,11 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @return Directory
 	 */
-	public function getDirectory(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
+	public function getDirectory(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
 		$directory = null;
 
 		$response = $this->sendMessage($message);
-		if($response instanceof Pronamic_IDeal_XML_DirectoryResponseMessage) {
+		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage) {
 			$directory = $response->directory;
 		}
 
@@ -227,7 +227,7 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @return array
 	 */
-	public function getIssuers(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
+	public function getIssuers(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
 		$issuers = null;
 
 		$directory = $this->getDirectory($message);
@@ -243,7 +243,7 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @return array
 	 */
-	public function getIssuerLists(Pronamic_IDeal_XML_DirectoryRequestMessage $message) {
+	public function getIssuerLists(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
 		$lists = null;
 
 		$directory = $this->getDirectory($message);
@@ -261,10 +261,10 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @param TransactionRequestMessage $message
 	 */
-	public function createTransaction(Pronamic_IDeal_XML_TransactionRequestMessage $message) {
+	public function createTransaction(Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage $message) {
 		$response = $this->sendMessage($message);
 
-		if($response instanceof Pronamic_IDeal_XML_TransactionResponseMessage) {
+		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage) {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
 
 			$message->transaction->setId((string) $response->transaction->getId());
@@ -283,10 +283,10 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @param TransactionRequestMessage $message
 	 */
-	public function getStatus(Pronamic_IDeal_XML_StatusRequestMessage $message) {
+	public function getStatus(Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage $message) {
 		$response = $this->sendMessage($message);
 
-		if($response instanceof Pronamic_IDeal_XML_StatusResponseMessage) {
+		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage) {
 			$message->transaction->setStatus($response->transaction->getStatus());
 			$message->transaction->setConsumerName($response->transaction->getConsumerName());
 			$message->transaction->setConsumerAccountNumber($response->transaction->getConsumerAccountNumber());
