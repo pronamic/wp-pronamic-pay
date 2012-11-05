@@ -250,6 +250,17 @@
 		<name>Mollie</name>
 		<url>http://mollie/</url>
 
+		<variant gateway="mollie">
+			<id>mollie</id>
+			<name>Mollie</name>
+
+			<test>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+		</variant>
 		<variant gateway="basic">
 			<id>mollie-ideal-basic</id>
 			<name>Mollie - iDEAL Basic</name>
