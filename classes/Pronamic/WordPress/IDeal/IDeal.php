@@ -331,7 +331,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 	
 	public static function getHtmlIDealBasicForm(Pronamic_IDeal_IDealDataProxy $dataProxy, $configuration) {
-		$iDeal = new Pronamic_IDeal_Basic();
+		$iDeal = new Pronamic_Gateways_IDealBasic_IDealBasic();
 
 		$iDeal->setPaymentServerUrl($configuration->getPaymentServerUrl());
 		$iDeal->setMerchantId($configuration->getMerchantId());

@@ -8,7 +8,7 @@
 				
 	$name = sprintf( __( 'Test Case %s', 'pronamic_ideal' ), $test_case );
 			
-	$iDeal = new Pronamic_IDeal_Basic();
+	$iDeal = new Pronamic_Gateways_IDealBasic_IDealBasic();
 	$iDeal->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 	$iDeal->setMerchantId( $configuration->getMerchantId() );
 	$iDeal->setSubId( $configuration->getSubId() );

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
+class Pronamic_Gateways_IDealBasic_IDealBasic {
 	/**
 	 * An payment type indicator for iDEAL
 	 *
@@ -101,7 +101,7 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 *
 	 * @var int
 	 */
-	private $mode = self::MODE_TEST;
+	private $mode = Pronamic_IDeal_IDeal::MODE_TEST;
 
 	/**
 	 * The currency
@@ -191,10 +191,10 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 
 		$this->forbiddenCharacters = array();
 
-		$this->setPaymentType(self::PAYMENT_TYPE_IDEAL);
-		$this->setExpireDateFormat(self::DATE_EXPIRE_FORMAT);
-		$this->setExpireDateModifier(self::EXPIRE_DATE_MODIFIER);
-		$this->setForbiddenCharachters(self::FORBIDDEN_CHARACHTERS);
+		$this->setPaymentType( self::PAYMENT_TYPE_IDEAL );
+		$this->setExpireDateFormat( self::DATE_EXPIRE_FORMAT );
+		$this->setExpireDateModifier( self::EXPIRE_DATE_MODIFIER );
+		$this->setForbiddenCharachters( self::FORBIDDEN_CHARACHTERS );
 	}
 
 	//////////////////////////////////////////////////
@@ -390,9 +390,9 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 * @return 
 	 */
 	public function getExpireDate($createNew = false) {
-		if($this->expireDate == null || $createNew) {
-			$this->expireDate = new DateTime(null, new DateTimeZone(Pronamic_IDeal_IDeal::TIMEZONE));
-			$this->expireDate->modify($this->expireDateModifier);
+		if ( $this->expireDate == null || $createNew ) {
+			$this->expireDate = new DateTime( null, new DateTimeZone( Pronamic_IDeal_IDeal::TIMEZONE ) );
+			$this->expireDate->modify( $this->expireDateModifier );
 		}
 
 		return $this->expireDate;
@@ -627,33 +627,34 @@ class Pronamic_IDeal_Basic extends Pronamic_IDeal_IDeal {
 	 * Get the iDEAL HTML
 	 */
 	public function getHtmlFields() {
-		$html  = '';
-		$html .= sprintf('<input type="hidden" name="merchantID" value="%s" />', $this->getMerchantId());
-		$html .= sprintf('<input type="hidden" name="subID" value="%s" />', $this->getSubId());
+		$fields = array();
 
-		$html .= sprintf('<input type="hidden" name="amount" value="%d" />', Pronamic_IDeal_IDeal::formatPrice($this->getAmount()));
-		$html .= sprintf('<input type="hidden" name="purchaseID" value="%s" />', $this->getPurchaseId());
-		$html .= sprintf('<input type="hidden" name="language" value="%s" />', $this->getLanguage());
-		$html .= sprintf('<input type="hidden" name="currency" value="%s" />', $this->getCurrency());
-		$html .= sprintf('<input type="hidden" name="description" value="%s" />', $this->getDescription());
-		$html .= sprintf('<input type="hidden" name="hash" value="%s" />', $this->createHash());
-		$html .= sprintf('<input type="hidden" name="paymentType" value="%s" />', $this->getPaymentType());
-		$html .= sprintf('<input type="hidden" name="validUntil" value="%s" />', $this->getExpireDate()->format($this->getExpireDateFormat()));
+		$fields['merchantID']  = $this->getMerchantId();
+		$fields['subID']       = $this->getSubId();
 
-		$serialNumber = 1;
-		foreach($this->getItems() as $item) {
-			$html .= sprintf('<input type="hidden" name="itemNumber%d" value="%s" />', $serialNumber, $item->getNumber());
-			$html .= sprintf('<input type="hidden" name="itemDescription%d" value="%s" />', $serialNumber, $item->getDescription());
-			$html .= sprintf('<input type="hidden" name="itemQuantity%d" value="%s" />', $serialNumber, $item->getQuantity());
-			$html .= sprintf('<input type="hidden" name="itemPrice%d" value="%d" />', $serialNumber, Pronamic_IDeal_IDeal::formatPrice($item->getPrice()));
+		$fields['amount']      = Pronamic_IDeal_IDeal::formatPrice( $this->getAmount() );
+		$fields['purchaseID']  = $this->getPurchaseId();
+		$fields['language']    = $this->getLanguage();
+		$fields['currency']    = $this->getCurrency();
+		$fields['description'] = $this->getDescription();
+		$fields['hash']        = $this->createHash();
+		$fields['paymentType'] = $this->getPaymentType();
+		$fields['validUntil']  = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
-			$serialNumber++;
+		$serial_number = 1;
+		foreach ( $this->getItems() as $item) {
+			$fields['itemNumber' . $serial_number]      = $item->getNumber();
+			$fields['itemDescription' . $serial_number] = $item->getDescription();
+			$fields['itemQuantity' . $serial_number]    = $item->getQuantity();
+			$fields['itemPrice' . $serial_number]       = Pronamic_IDeal_IDeal::formatPrice( $item->getPrice() );
+
+			$serial_number++;
 		}
 
-		$html .= sprintf('<input type="hidden" name="urlCancel" value="%s" />', $this->getCancelUrl());
-		$html .= sprintf('<input type="hidden" name="urlSuccess" value="%s" />', $this->getSuccessUrl());
-		$html .= sprintf('<input type="hidden" name="urlError" value="%s" />', $this->getErrorUrl());
+		$fields['urlCancel']   =  $this->getCancelUrl();
+		$fields['urlSuccess']  =  $this->getSuccessUrl();
+		$fields['urlError']    = $this->getErrorUrl();
 
-		return $html;
+		Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );
 	}
 }
