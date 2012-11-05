@@ -256,20 +256,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$variant = $configuration->getVariant();
 	
 			if($variant !== null) {
-				switch($variant->getMethod()) {
-					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						$html = self::getHtmlIDealEasyForm($dataProxy, $configuration);
-						break;
-					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						$html = self::getHtmlIDealBasicForm($dataProxy, $configuration);
-						break;
-					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
-						$html = self::getHtmlIDealKassaForm($dataProxy, $configuration);
-						break;
-					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-						$html = self::getHtmlIDealOmniKassaForm($dataProxy, $configuration);
-						break;
-				}
+				$html = self::get_html_form( $dataProxy, $configuration );
 		
 				if($autoSubmit) {
 					$html .= '<script type="text/javascript">';
@@ -282,146 +269,54 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $html;
 	}
 	
-	public static function getHtmlIDealEasyForm(Pronamic_IDeal_IDealDataProxy $data_proxy, Pronamic_WordPress_IDeal_Configuration $configuration) {
-		$gateway = new Pronamic_Gateways_IDealEasy_Gateway( $configuration, $data_proxy );
+	public static function get_gateway( Pronamic_IDeal_IDealDataProxy $data_proxy, Pronamic_WordPress_IDeal_Configuration $configuration ) {		
+		if($configuration !== null) {
+			$variant = $configuration->getVariant();
 
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
-    	
-		if ( $payment == null ) {
+			if($variant !== null) {
+				switch($variant->getMethod()) {
+					case Pronamic_IDeal_IDeal::METHOD_EASY:
+						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration, $data_proxy );
+					case Pronamic_IDeal_IDeal::METHOD_BASIC:
+						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration, $data_proxy );
+					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
+						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration, $data_proxy );
+					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration, $data_proxy );
+				}
+			}
+		}				
+	}
+
+	public static function get_html_form( Pronamic_IDeal_IDealDataProxy $data_proxy, Pronamic_WordPress_IDeal_Configuration $configuration ) {
+		$html = '';
+
+		$gateway = self::get_gateway( $data_proxy, $configuration );
+		
+		if ( !empty( $gateway ) ) {
 			// Update payment
 			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setAmount( $data_proxy->getAmount() ); 
+			$transaction->setAmount( $data_proxy->getAmount() );
 			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
 			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
-			$transaction->setEntranceCode( uniqid() );
 			$transaction->setDescription( $data_proxy->getDescription() );
 			$transaction->setPurchaseId( $data_proxy->getOrderId() );
-			
+
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
 			$payment->transaction = $transaction;
 			$payment->setSource( $data_proxy->getSource(), $data_proxy->getOrderId() );
-			
+				
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
+
+			// HTML
+			$html  = '';
+			$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
+			$html .= 	$gateway->get_html_fields();
+			$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
+			$html .= '</form>';
 		}
-		
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
-		$html .= 	$gateway->get_html_fields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
-		$html .= '</form>';
-
-		return $html;
-	}
-	
-	public static function getHtmlIDealBasicForm(Pronamic_IDeal_IDealDataProxy $dataProxy, $configuration) {
-		$gateway = new Pronamic_Gateways_IDealBasic_Gateway( $configuration, $data_proxy );
-
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
-    	
-		if($payment == null) {
-			// Update payment
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setAmount($dataProxy->getAmount()); 
-			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($dataProxy->getDescription());
-			$transaction->setPurchaseId($dataProxy->getOrderId());
 			
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
-			
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-		}
-		
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
-		$html .= 	$gateway->get_html_fields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
-		$html .= '</form>';
-			        
-		return $html;
-	}
-	
-	public static function getHtmlIDealKassaForm(Pronamic_IDeal_IDealDataProxy $dataProxy, $configuration) {
-		$gateway = new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration, $data_proxy );
-
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
-    	
-		if($payment == null) {
-			// Update payment
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setAmount($dataProxy->getAmount()); 
-			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($dataProxy->getDescription());
-			$transaction->setPurchaseId($dataProxy->getOrderId());
-			
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
-			
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-		}
-
-		$iDeal->setOrderId($payment->getId());
-
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
-		$html .= 	$gateway->get_html_fields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
-		$html .= '</form>';
-			        
-		return $html;
-	}
-	
-	public static function getHtmlIDealOmniKassaForm($dataProxy, $configuration) {
-		$gateway = new Pronamic_Gateways_OmniKassa_Gateway( $dataProxy, $data_proxy );
-
-		// Payment
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource($dataProxy->getSource(), $dataProxy->getOrderId());
-    	
-		if($payment == null) {
-			$id = md5(time() . $dataProxy->getOrderId());
-
-			// Update payment
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setId($id);
-			$transaction->setAmount($dataProxy->getAmount()); 
-			$transaction->setCurrency($dataProxy->getCurrencyAlphabeticCode());
-			$transaction->setLanguage($dataProxy->getLanguageIso639Code());
-			$transaction->setEntranceCode(uniqid());
-			$transaction->setDescription($dataProxy->getDescription());
-			$transaction->setPurchaseId($dataProxy->getOrderId());
-
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource($dataProxy->getSource(), $dataProxy->getOrderId());
-
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-		}
-		
-		$iDeal->setTransactionReference($payment->transaction->getId());
-
-		// HTML
-		$html  = '';
-		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr($configuration->getPaymentServerUrl()));
-		$html .= 	$gateway->get_html_fields();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
-		$html .= '</form>';
-
 		return $html;
 	}
 

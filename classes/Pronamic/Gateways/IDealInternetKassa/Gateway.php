@@ -31,6 +31,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		
 		$this->client->setLanguage( $data_proxy->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
+		$this->client->setOrderId( $data_proxy->getOrderId() );
 		$this->client->setOrderDescription( $data_proxy->getDescription() );
 		$this->client->setAmount( $data_proxy->getAmount() );
 	}
