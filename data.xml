@@ -243,6 +243,24 @@
 				<file>certificates/ing-ideal-advanced/ingbank-0.cer</file>
 			</certificates>
 		</variant>
+		<variant gateway="advanced_v3">
+			<id>ing-ideal-advanced-v3</id>
+			<name>ING - iDEAL Advanced - v3</name>
+
+			<test>
+				<paymentServerUrl>ssl://idealtest.secure-ing.com:443/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>ssl://ideal.secure-ing.com:443/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ing-ideal-advanced/ingbank.cer</file>
+				<file>certificates/ing-ideal-advanced/ingbank-0.cer</file>
+			</certificates>
+		</variant>
 	</provider>
 
 	<provider>

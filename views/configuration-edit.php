@@ -114,7 +114,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		$configargs = array(
 			'private_key_bits' => 1024 , 
 			'private_key_type' => OPENSSL_KEYTYPE_RSA , 
-			'encrypt_key' => false
+			'encrypt_key' => false,
+			'encrypt_key_cipher' => OPENSSL_CIPHER_AES_128_CBC
 		);
 
 		$privateKeyResource = openssl_pkey_new($configargs);
@@ -243,7 +244,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Easy, Basic, OmniKassa, Advanced */ ?>
 
-			<tr class="extra-settings method-basic method-omnikassa method-advanced">
+			<tr class="extra-settings method-basic method-omnikassa method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_merchant_id">
 						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
@@ -261,7 +262,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Basic, OmniKassa, Advanced */ ?>
 
-			<tr class="extra-settings method-basic method-omnikassa method-advanced">
+			<tr class="extra-settings method-basic method-omnikassa method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_sub_id">
 						<?php _e('Sub ID', 'pronamic_ideal'); ?>
@@ -396,7 +397,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 			<?php /* Advanced */ ?>
 
-			<tr class="extra-settings method-advanced">
+			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_key_password">
 						<?php _e('Private Key Password', 'pronamic_ideal'); ?>
@@ -406,7 +407,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<input id="pronamic_ideal_private_key_password" name="pronamic_ideal_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" class="regular-text" />
 				</td>
 			</tr>
-			<tr class="extra-settings method-advanced">
+			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_key">
 						<?php _e('Private Key', 'pronamic_ideal'); ?>
@@ -428,7 +429,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					?>
 				</td>
 			</tr>
-			<tr class="extra-settings method-advanced">
+			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_certificate">
 						<?php _e('Private Certificate', 'pronamic_ideal'); ?>
@@ -470,7 +471,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	
 		?>
 
-		<div class="extra-settings method-advanced">
+		<div class="extra-settings method-advanced method-advanced_v3">
 			<h4>
 				<?php _e('Private Key and Certificate Generator', 'pronamic_ideal'); ?>
 			</h4>

@@ -66,6 +66,9 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'advanced':
 					include 'test-method-advanced.php';
 					break;
+				case 'advanced_v3':
+					include 'test-method-advanced-v3.php';
+					break;
 					
 			}
 		}
