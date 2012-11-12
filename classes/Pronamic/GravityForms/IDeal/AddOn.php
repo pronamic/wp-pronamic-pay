@@ -64,7 +64,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				
 				add_filter( 'gform_entry_info',         array( __CLASS__, 'entryInfo' ), 10, 3 );
 				
-				add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10, 3 );
+				add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10 );
 	
 				RGForms::add_settings_page(
 					__( 'iDEAL', 'pronamic_ideal' ), 
@@ -733,7 +733,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Custom merge tags
 	 */
-	public static function custom_merge_tags( $merge_tags, $form_id, $fields, $element_id ) {
+	public static function custom_merge_tags( $merge_tags ) {
 		$merge_tags[] = array(
 			'label' => __( 'Payment Status', 'pronamic_ideal' ), 
 			'tag'   => '{payment_status}'
