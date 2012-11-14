@@ -144,13 +144,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 */
 	function receipt_page( $order_id ) {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-		
+
 		$order = new WC_Order( $order_id );
-		
+
 		$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
 		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data_proxy, $configuration );
-		
+
 		echo $html;
 	}
 
