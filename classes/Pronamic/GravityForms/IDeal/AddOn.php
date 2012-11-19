@@ -771,20 +771,22 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
 		$search = array(
 			'{payment_status}' , 
-    		'{payment_date}' , 
-    		'{transaction_id}' , 
-    		'{payment_amount}'
-    	);
+			'{payment_date}' , 
+			'{transaction_id}' , 
+			'{payment_amount}'
+		);
     	
-    	$replace = array(
-    		rgar( $entry, 'payment_status' ) , 
-    		rgar( $entry, 'payment_date' ) , 
-    		rgar( $entry, 'transaction_id' ) ,
-    		GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
-    	);
+		$replace = array(
+			rgar( $entry, 'payment_status' ) , 
+			rgar( $entry, 'payment_date' ) , 
+			rgar( $entry, 'transaction_id' ) ,
+			GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
+		);
 
-    	if ( $url_encode ) {
-    		array_walk( $replace, 'urlencode' );
+		if ( $url_encode ) {
+			foreach ( $replace as &$value ) {
+    			$value = urlencode( $value );
+    		}
     	}
 
     	$text = str_replace( $search, $replace, $text);
