@@ -419,7 +419,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		$table = self::getPaymentsTableName();
 
-		$number_payments = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM $table;" ) );
+		$number_payments = $wpdb->get_var( "SELECT COUNT(*) FROM $table;" );
 		
 		return $number_payments;
 	}
