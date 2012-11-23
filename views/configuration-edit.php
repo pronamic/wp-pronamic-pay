@@ -242,7 +242,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</td>
 			</tr>
 
-			<?php /* Easy, Basic, OmniKassa, Advanced */ ?>
+			<?php /* Basic, OmniKassa, Advanced */ ?>
 
 			<tr class="extra-settings method-basic method-omnikassa method-advanced method-advanced_v3">
 				<th scope="row">
@@ -347,7 +347,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</td>
 			</tr>
 
-			<?php /* Kassa */ ?>
+			<?php /* Easy, Kassa */ ?>
 
 			<tr class="extra-settings method-easy method-internetkassa">
 				<th scope="row">
@@ -361,6 +361,17 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<span class="description">
 						<br />
 						<?php _e('You receive the PSPID from your iDEAL provider.', 'pronamic_ideal'); ?>
+					</span>
+					<span class="description extra-settings method-easy">
+						<br />
+						<?php 
+						
+						printf( 
+							__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
+							'TESTiDEALEASY'
+						); 
+
+						?>
 					</span>
 				</td>
 			</tr>
