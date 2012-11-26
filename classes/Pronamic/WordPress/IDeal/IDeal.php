@@ -301,10 +301,14 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$gateway->start();
 
 			// Update payment
+			$id = md5( time() . $data_proxy->getOrderId() );
+
 			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
+			$transaction->setId( $id );
 			$transaction->setAmount( $data_proxy->getAmount() );
 			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
 			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
+			$transaction->setEntranceCode( uniqid() );
 			$transaction->setDescription( $data_proxy->getDescription() );
 			$transaction->setPurchaseId( $data_proxy->getOrderId() );
 
