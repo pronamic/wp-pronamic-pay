@@ -327,6 +327,12 @@
 				array(
 					'url'     => 'http://www.rabobank.nl/omnikassa-actueel',
 					'name'    => 'Rabo OmniKassa Actueel'
+				), 
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
+					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
+					'version' => '3.1',
+					'date'    => new DateTime( '01-11-2012' )
 				)
 			)
 		),
