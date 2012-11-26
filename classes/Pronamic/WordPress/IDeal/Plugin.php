@@ -534,25 +534,25 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Maybe show an license message
 	 */
 	public static function maybeShowLicenseMessage() {
-		if(!self::canBeUsed()): ?>
+		if ( ! self::canBeUsed() ): ?>
 		
-		<div class="error">
-			<p>
-				<?php 
-				
-				printf(
-					__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', 'pronamic_ideal') , 
-					self::PAYMENTS_MAX_LICENSE_FREE , 
-					sprintf(
-						'<a href="%s">%s</a>' , 
-						add_query_arg('page', 'pronamic_ideal_settings', get_admin_url(null, 'admin.php')) , 
-						__('iDEAL settings page', 'pronamic_ideal')
-					) 
-				);
-				
-				?>
-			</p>
-		</div>
+			<div class="error">
+				<p>
+					<?php 
+					
+					printf(
+						__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', 'pronamic_ideal') , 
+						self::PAYMENTS_MAX_LICENSE_FREE , 
+						sprintf(
+							'<a href="%s">%s</a>' , 
+							add_query_arg('page', 'pronamic_ideal_settings', get_admin_url(null, 'admin.php')) , 
+							__('iDEAL settings page', 'pronamic_ideal')
+						) 
+					);
+					
+					?>
+				</p>
+			</div>
 		
 		<?php endif;
 	}
