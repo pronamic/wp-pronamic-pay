@@ -116,7 +116,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handleIDealAdvancedReturn' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'handleIDealInternetKassaReturn' ) );
-		add_action( 'template_redirect', array( __CLASS__, 'handleOmniKassaReturn' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handle_omnikassa_return' ) );
 		
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_return',               array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
@@ -374,24 +374,24 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Handle OmniKassa return
 	 */
-	public static function handleOmniKassaReturn() {
-		if(isset($_POST['Data'], $_POST['Seal'])) {
-			$postData = filter_input(INPUT_POST, 'Data', FILTER_SANITIZE_STRING);
-			$postSeal = filter_input(INPUT_POST, 'Seal', FILTER_SANITIZE_STRING);
+	public static function handle_omnikassa_return() {
+		if ( isset( $_POST['Data'], $_POST['Seal'] ) ) {
+			$post_data = filter_input( INPUT_POST, 'Data', FILTER_SANITIZE_STRING );
+			$post_seal = filter_input( INPUT_POST, 'Seal', FILTER_SANITIZE_STRING );
 			
-			if(!empty($postData) && !empty($postSeal)) {
-				$data = Pronamic_Gateways_OmniKassa_OmniKassa::parsePipedString($postData);
+			if ( ! empty( $post_data ) && ! empty( $post_seal ) ) {
+				$data = Pronamic_Gateways_OmniKassa_OmniKassa::parsePipedString( $post_data );
 	
-				$transactionReference = $data['transactionReference'];
+				$transaction_reference = $data['transactionReference'];
 
-				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
+				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_reference );
 
-				if($payment != null) {
-					$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal($postData, $payment->configuration->getHashKey());
+				if ( $payment != null ) {
+					$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal( $post_data, $payment->configuration->getHashKey() );
 	
 					// Check if the posted seal is equal to our seal
-					if(strcasecmp($postSeal, $seal) === 0) {
-						do_action('pronamic_ideal_omnikassa_return', $data, $canRedirect = true);
+					if ( strcasecmp( $post_seal, $seal ) === 0 ) {
+						do_action( 'pronamic_ideal_omnikassa_return', $data, $can_redirect = true );
 					}
 				}
 			}
