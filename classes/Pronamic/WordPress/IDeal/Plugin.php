@@ -593,22 +593,22 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
-		if(get_option(self::OPTION_VERSION) != self::VERSION) {
+		if ( get_option( self::OPTION_VERSION ) != self::VERSION ) {
 			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::updateTable();
 			Pronamic_WordPress_IDeal_PaymentsRepository::updateTable();
 
 			// Add some new capabilities
 			$capabilities = array(
-				'read' => true , 
-				'pronamic_ideal' => true ,
-				'pronamic_ideal_configurations' => true ,
-				'pronamic_ideal_payments' => true ,  
-				'pronamic_ideal_settings' => true ,
-				'pronamic_ideal_pages_generator' => true , 
-				'pronamic_ideal_variants' => true ,
-				'pronamic_ideal_documentation' => true , 
-				'pronamic_ideal_branding' => true
+				'read'                           => true, 
+				'pronamic_ideal'                 => true,
+				'pronamic_ideal_configurations'  => true,
+				'pronamic_ideal_payments'        => true,
+				'pronamic_ideal_settings'        => true,
+				'pronamic_ideal_pages_generator' => true,
+				'pronamic_ideal_variants'        => true,
+				'pronamic_ideal_documentation'   => true,
+				'pronamic_ideal_branding'        => true
 			);
 			
 			$roles = array(
@@ -622,10 +622,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 				)
 			);
 			
-			self::setRoles($roles);
+			self::setRoles( $roles );
 
 			// Update version
-			update_option(self::OPTION_VERSION, self::VERSION);
+			update_option( self::OPTION_VERSION, self::VERSION );
 		}
 	}
 
