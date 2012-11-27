@@ -39,8 +39,8 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryRequestMessage extends Pron
 		$merchant = $this->get_merchant();
 
 		$element = self::add_element( $document, $document->documentElement, 'Merchant' );
-		self::add_element( $document, $element, 'merchantID', $merchant->id );
-		self::add_element( $document, $element, 'subID', $merchant->sub_id );
+		self::add_element( $document, $element, 'merchantID', $merchant->get_id() );
+		self::add_element( $document, $element, 'subID', $merchant->get_sub_id() );
 
 		// Return
 		return $document;
