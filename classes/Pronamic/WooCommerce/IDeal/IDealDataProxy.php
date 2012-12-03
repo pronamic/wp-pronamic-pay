@@ -59,8 +59,8 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getOrderId() {
-		// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/classes/class-wc-order.php#L14
-		return $this->order->id;
+		// @see https://github.com/woothemes/woocommerce/blob/v1.6.5.2/classes/class-wc-order.php#L269
+		return $this->order->get_order_number();
 	}
 
 	/**
