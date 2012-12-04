@@ -19,7 +19,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		
 		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybeTestPayment' ) );
 
-		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueueAdminScripts' ) );
+		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -27,7 +27,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Enqueue admin scripts
 	 */
-	public static function enqueueAdminScripts( $hook ) {
+	public static function enqueue_scripts( $hook ) {
 		$is_pronamic_ideal = strpos( $hook, 'pronamic_ideal' ) !== false;
 		$edit_gravity_forms = ( strpos( $hook, 'page_gf_new_form' ) ) !== false || ( strpos( $hook, 'page_gf_edit_forms' ) !== false );
 
@@ -149,6 +149,15 @@ class Pronamic_WordPress_IDeal_Admin {
 			'pronamic_ideal_pages_generator', 
 			'pronamic_ideal_pages_generator', 
 			array( __CLASS__, 'pagePagesGenerator' )
+		);
+
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Status', 'pronamic_ideal' ), 
+			__( 'Status', 'pronamic_ideal' ), 
+			'pronamic_ideal_status', 
+			'pronamic_ideal_status', 
+			array( __CLASS__, 'page_status' )
 		);
 
 		add_submenu_page(
@@ -282,6 +291,10 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function pagePagesGenerator() {
 		self::renderView( 'pages-generator' );
+	}
+
+	public static function page_status() {
+		self::renderView( 'status' );
 	}
 
 	public static function pageVariants() {
