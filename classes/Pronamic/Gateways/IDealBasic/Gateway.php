@@ -29,7 +29,7 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	public function start() {
-		$this->transaction_id = md5( time() . $this->data_proxy->getOrderId() );
+		$this->transaction_id = md5( time() . $this->data->getOrderId() );
 		$this->action_url     = $this->client->getPaymentServerUrl();
 		
 		$this->client->setLanguage( $this->data->getLanguageIso639Code() );
