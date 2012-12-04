@@ -17,6 +17,14 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	private $acquirerUrl;
 	
 	//////////////////////////////////////////////////
+	
+	public $directory_request_url;
+
+	public $transaction_request_url;
+	
+	public $status_request_url;
+	
+	//////////////////////////////////////////////////
 
 	/**
 	 * The private key file
@@ -71,8 +79,12 @@ class Pronamic_Gateways_IDealAdvanced_IDealClient {
 	 * 
 	 * @param string $acquirerUrl
 	 */
-	public function setAcquirerUrl($acquirerUrl) {
-		$this->acquirerUrl = $acquirerUrl;
+	public function setAcquirerUrl($url) {
+		$this->acquirerUrl = $url;
+
+		$this->directory_request_url   = $url;
+		$this->transaction_request_url = $url;
+		$this->status_request_url      = $url;
 	}
 
 	//////////////////////////////////////////////////

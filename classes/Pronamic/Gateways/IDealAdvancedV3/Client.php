@@ -10,25 +10,51 @@
  */
 class Pronamic_Gateways_IDealAdvancedV3_Client {
 	public $acquirer_url;
+	
+	//////////////////////////////////////////////////
+	
+	public $directory_request_url;
+
+	public $transaction_request_url;
+	
+	public $status_request_url;
+	
+	//////////////////////////////////////////////////
 
 	public $merchant_id;
 	
 	public $sub_id;
+	
+	//////////////////////////////////////////////////
 	
 	public $private_key_password;
 	
 	public $private_key;
 	
 	public $private_certificate;
+	
+	//////////////////////////////////////////////////
 
 	public function __construct() {
 		
 	}
+	
+	//////////////////////////////////////////////////
+
+	public function set_acquirer_url( $url ) {
+		$this->acquirer_url            = $url;
+
+		$this->directory_request_url   = $url;
+		$this->transaction_request_url = $url;
+		$this->status_request_url      = $url;
+	}
+	
+	//////////////////////////////////////////////////
 
 	/**
 	 * Send an message
 	 */
-	private function send_message( Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message ) {
+	private function send_message( $url, Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message ) {
 		$result = null;
 
 		// Sign document
@@ -39,7 +65,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$data = $document->saveXML();
 
 		// Remote post
-		$response = wp_remote_post( $this->acquirer_url, array(
+		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
 			'headers' => array(
 				'Content-Type' => 'text/xml'
@@ -104,7 +130,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
 
-		return $this->send_message( $request_dir_message );
+		return $this->send_message( $this->acquirer_url, $request_dir_message );
 	}
 
 	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {
