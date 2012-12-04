@@ -78,4 +78,6 @@
 		</table>
 	
 	<?php endif; ?>
+
+	<?php include 'pronamic.php'; ?>
 </div>
