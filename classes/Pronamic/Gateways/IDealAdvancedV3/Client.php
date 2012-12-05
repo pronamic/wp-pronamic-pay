@@ -130,7 +130,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
 
-		return $this->send_message( $this->acquirer_url, $request_dir_message );
+		$response_dir_message = $this->send_message( $this->acquirer_url, $request_dir_message );
+
+		return $response_dir_message->get_directory();
 	}
 
 	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {

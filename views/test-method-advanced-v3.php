@@ -25,6 +25,10 @@ $client->private_certificate  = $configuration->privateCertificate;
 
 $directory = $client->get_directory();
 
+$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, null );
+
+echo $gateway->get_html_fields();
+
 ?>
 <pre><?php var_dump( $directory ); ?></pre>
 <?php 

@@ -35,6 +35,15 @@ class Pronamic_Gateways_IDealAdvancedV3_Country {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get the name
+	 * 
+	 * @return string
+	 */
+	public function get_name( ) {
+		return $this->name;
+	}
+
+	/**
 	 * Set the name
 	 * 
 	 * @param string $name
