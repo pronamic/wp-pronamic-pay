@@ -89,6 +89,15 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_Message {
 		return $this->create_date;
 	}
 
+	/**
+	 * Set the create date
+	 * 
+	 * @return DateTime
+	 */
+	public function set_create_date( DateTime $create_date ) {
+		$this->create_date = $create_date;
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

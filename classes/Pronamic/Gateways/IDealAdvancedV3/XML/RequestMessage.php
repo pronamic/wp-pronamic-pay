@@ -61,8 +61,8 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 		$document->appendChild( $root );
 		
 		// Create date timestamp
-		// $timestamp = $this->get_create_date()->format( DateTime::ISO8601 );
-		$timestamp = gmdate('Y-m-d\TH:i:s.000\Z');
+		// Using DateTime::ISO8601 won't work, this is giving an error
+		$timestamp = $this->get_create_date()->format( 'Y-m-d\TH:i:s.000\Z' );
 
 		$element = $document->createElement( 'createDateTimestamp', $timestamp );
 

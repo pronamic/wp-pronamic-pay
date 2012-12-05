@@ -27,6 +27,10 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_IssuerParser extends Pronamic_Gatewa
 		if ( $xml->issuerName ) {
 			$issuer->set_name( (string) $xml->issuerName );
 		}
+		
+		if ( $xml->issuerAuthenticationURL ) {
+			$issuer->set_authentication_url( (string) $xml->issuerAuthenticationURL );
+		}
 
 		return $issuer;
 	}

@@ -58,7 +58,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 
 		$element = self::add_element( $document, $document->documentElement, 'Transaction' );
 		self::add_element( $document, $element, 'purchaseID', $transaction->getPurchaseId() );
-		self::add_element( $document, $element, 'amount', Pronamic_IDeal_IDeal::formatPrice( $transaction->getAmount() ) );
+		self::add_element( $document, $element, 'amount', Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $transaction->getAmount() ) );
 		self::add_element( $document, $element, 'currency', $transaction->getCurrency() );
 		self::add_element( $document, $element, 'expirationPeriod', $transaction->getExpirationPeriod() );
 		self::add_element( $document, $element, 'language', $transaction->getLanguage() );

@@ -17,6 +17,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	private $id;
 
 	/**
+	 * Create date
+	 * 
+	 * @var unknown_type
+	 */
+	private $create_date;
+
+	/**
 	 * Purchase ID
 	 * 
 	 * @var string

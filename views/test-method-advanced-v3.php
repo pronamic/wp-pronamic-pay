@@ -16,7 +16,7 @@
 include dirname( __FILE__ ) . '/../includes/xmlseclibs/xmlseclibs.php';
 
 $client = new Pronamic_Gateways_IDealAdvancedV3_Client();
-$client->acquirer_url         = $configuration->getPaymentServerUrl();
+$client->set_acquirer_url( $configuration->getPaymentServerUrl() );
 $client->merchant_id          = $configuration->getMerchantId();
 $client->sub_id               = $configuration->getSubId();
 $client->private_key          = $configuration->privateKey;
@@ -36,8 +36,17 @@ $transaction->setCurrency( 'EUR' );
 $transaction->setExpirationPeriod( 'PT3M30S' );
 $transaction->setLanguage( 'nl' );
 $transaction->setDescription( 'description' );
-$transaction->setEntranceCode( 'entrance_code' );
+$transaction->setEntranceCode( 'bestelling' . time() );
 
 $result = $client->create_transaction( $transaction, 'NLINGB2U152' );
 
+$error = $client->get_error();
+
+if ( $error !== null ) {
+	$error = $client->get_error();
+
+	var_dump( $error );
+}
+
 ?>
+<pre><?php var_dump( $result ); ?></pre>

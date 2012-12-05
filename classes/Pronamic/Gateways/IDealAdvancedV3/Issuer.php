@@ -23,6 +23,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 	 */
 	private $name;
 
+	/**
+	 * Authentication URL
+	 * 
+	 * @var string
+	 */
+	private $authentication_url;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -70,5 +77,25 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 	 */
 	public function set_name( $name ) {
 		$this->name = $name;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the name of this issuer
+	 * 
+	 * @return string
+	 */
+	public function get_authentication_url() {
+		return $this->authentication_url;
+	}
+
+	/**
+	 * Set the name of this issuer
+	 * 
+	 * @param string $name
+	 */
+	public function set_authentication_url( $authentication_url ) {
+		$this->authentication_url = $authentication_url;
 	}
 }

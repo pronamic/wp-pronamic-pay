@@ -55,7 +55,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	 * Send an message
 	 */
 	private function send_message( $url, Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message ) {
-		$result = null;
+		$result = false;
 
 		// Sign document
 		$document = $message->get_document();
@@ -86,10 +86,10 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 					throw new Exception( 'Unknown response message' );
 				}
 			} else {
-				
+				var_dump( $response );
 			}
 		} else {
-			
+			var_dump( $response );
 		}
 		
 		return $result;
@@ -106,16 +106,16 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$this->error = null;
 
 		switch( $document->getName() ) {
-			case Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::NAME:
-				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::NAME:
+				$message = Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::parse( $document );
 
 				$this->error = $message->error;
 
 				return $message;
 			case Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage::NAME:
 				return Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage::parse( $document );
-			case Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::NAME:
-				return Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage::NAME:
+				return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage::parse( $document );
 			case Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::NAME:
 				return Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::parse($document);
 			default:
@@ -146,11 +146,11 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		
 		$message->transaction = $transaction;
 
-		echo '<pre>';
-		echo htmlspecialchars( (string) $message );
-		echo '</pre>';
-		
-		//return $this->send_message( $message );
+		return $this->send_message( $this->transaction_request_url, $message );
+	}
+	
+	public function get_error() {
+		return $this->error;
 	}
 	
 	private function sign_document( DOMDocument $document ) {
