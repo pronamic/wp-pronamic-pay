@@ -91,9 +91,14 @@
 					'version' => '2.2.3'
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids_v3.3.1_NL.pdf',
-					'name'    => 'iDEAL Merchant Integratie Gids',
-					'version' => '3.3.1'
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integration-Guide-Mobile-Addendum-EN.pdf' ,
+					'name'    => 'iDEAL Merchant Integration Guide - Mobile Addendum' ,  
+					'version' => '2.2.3' 
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf',
+					'name'    => 'iDEAL Merchant Integratie gids',
+					'version' => '2.2.3'
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids__Overzicht_van_Wijzigingen_v3.3.1_NL.pdf',
@@ -106,15 +111,17 @@
 					'version' => '3.3.1'
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integration-Guide-Mobile-Addendum-EN.pdf' ,
-					'name'    => 'iDEAL Merchant Integration Guide - Mobile Addendum' ,  
-					'version' => '2.2.3' 
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids_v3.3.1_NL.pdf',
+					'name'    => 'iDEAL Merchant Integratie Gids',
+					'version' => '3.3.1',
+					'date'    => new DateTime( '01-11-2012' )
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf',
-					'name'    => 'iDEAL Merchant Integratie gids',
-					'version' => '2.2.3'
-				) 
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf',
+					'name'    => 'iDEAL Merchant Integration Guide',
+					'version' => '3.3.1',
+					'date'    => new DateTime( '01-11-2012' )
+				)
 			)
 		),
 		'frieslandbank.nl' => array(
