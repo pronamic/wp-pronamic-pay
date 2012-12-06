@@ -15,9 +15,9 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function bootstrap() {
 		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
 
-		add_action( 'load-ideal_page_pronamic_ideal_payments', array( __CLASS__, 'loadPaymentsPage' ) );
+		add_action( 'load-ideal_page_pronamic_ideal_payments', array( __CLASS__, 'load_payments_page' ) );
 		
-		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybeTestPayment' ) );
+		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybe_test_payment' ) );
 
 		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueue_scripts' ) );
 	}
@@ -52,7 +52,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Load payments page
 	 */
-	public static function loadPaymentsPage() {
+	public static function load_payments_page() {
 		global $wp_list_table;
 		
 		$wp_list_table = new Pronamic_WordPress_IDeal_PaymentsListTable();
@@ -63,13 +63,13 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Maybe test payment
 	 */
-	public static function maybeTestPayment() {
-		if(isset($_POST['test']) && check_admin_referer('test', 'pronamic_ideal_nonce')) {
-			$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+	public static function maybe_test_payment() {
+		if ( isset( $_POST['test'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
+			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
 
-			if($configuration != null) {
+			if ( $configuration != null ) {
 				$variant = $configuration->getVariant();
 		
 				if($variant !== null) {
