@@ -15,28 +15,12 @@
 
 include dirname( __FILE__ ) . '/../includes/xmlseclibs/xmlseclibs.php';
 
-$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, null );
+$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), 10 );
+
+$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, $data );
 
 echo $gateway->get_html_fields();
 
-$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
-$transaction->setPurchaseId( 'test' );
-$transaction->setAmount( 99 );
-$transaction->setCurrency( 'EUR' );
-$transaction->setExpirationPeriod( 'PT3M30S' );
-$transaction->setLanguage( 'nl' );
-$transaction->setDescription( 'description' );
-$transaction->setEntranceCode( 'bestelling' . time() );
+$gateway->start();
 
-$result = $client->create_transaction( $transaction, 'NLINGB2U152' );
-
-$error = $client->get_error();
-
-if ( $error !== null ) {
-	$error = $client->get_error();
-
-	var_dump( $error );
-}
-
-?>
-<pre><?php var_dump( $result ); ?></pre>
+$gateway->redirect();
