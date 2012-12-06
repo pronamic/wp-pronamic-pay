@@ -53,6 +53,16 @@ abstract class Pronamic_Gateways_Gateway {
 	}
 	
 	/////////////////////////////////////////////////
+
+	public function redirect() {
+		// Redirect, See Other
+		// http://en.wikipedia.org/wiki/HTTP_303
+		wp_redirect( $this->get_action_url(), 303 );
+
+		exit;
+	}
+	
+	/////////////////////////////////////////////////
 	
 	public function get_action_url() {
 		return $this->action_url;
