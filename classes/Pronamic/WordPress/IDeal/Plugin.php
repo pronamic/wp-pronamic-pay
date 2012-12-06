@@ -10,15 +10,6 @@
  */
 class Pronamic_WordPress_IDeal_Plugin {
 	/**
-	 * The slug of this plugin
-	 * 
-	 * @var string
-	 */
-	const SLUG = 'pronamic_ideal';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * The license provider API URL
 	 * 
 	 * @var string
