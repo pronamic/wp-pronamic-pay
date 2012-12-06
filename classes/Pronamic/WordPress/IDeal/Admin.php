@@ -230,13 +230,13 @@ class Pronamic_WordPress_IDeal_Admin {
 	 */
 	public static function getConfigurationsLink() {
 		return add_query_arg( array(
-			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG 
+			'page' => 'pronamic_ideal' 
 		), 'admin.php');
 	}
 
 	public static function getConfigurationEditLink($id = null) {
 		return add_query_arg( array(
-			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG ,
+			'page' => 'pronamic_ideal',
 			'view' => 'edit' ,
 			'id'   => $id   
 		), 'admin.php');
@@ -244,7 +244,7 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function getConfigurationTestsLink($id = null) {
 		return add_query_arg( array(
-			'page' => Pronamic_WordPress_IDeal_Plugin::SLUG,
+			'page' => 'pronamic_ideal',
 			'view' => 'tests',
 			'id'   => $id
 		), 'admin.php');
@@ -252,18 +252,18 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function getConfigurationDeleteLink($id = null) {
 		return add_query_arg( array(
-			'page'   => Pronamic_WordPress_IDeal_Plugin::SLUG,
+			'page'   => 'pronamic_ideal',
 			'action' => 'delete',
 			'id'     => $id
 		), 'admin.php');
 	}
 
 	public static function getPaymentsLink($id = null) {
-		return self::getLink( Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments' );
+		return self::getLink( 'pronamic_ideal_payments' );
 	}
 
 	public static function getPaymentDetailsLink($id = null) {
-		return self::getLink( Pronamic_WordPress_IDeal_Plugin::SLUG . '_payments', 'details', $id );
+		return self::getLink( 'pronamic_ideal_payments', 'details', $id );
 	}
 
 	//////////////////////////////////////////////////
