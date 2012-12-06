@@ -25,6 +25,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$client->private_certificate  = $configuration->privateCertificate;
 		
 		$this->client = $client;
+		$this->data = $data;
 		
 	}
 	
@@ -65,5 +66,36 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$html .= '</select>';
 		
 		return $html;
+	}
+	
+	/////////////////////////////////////////////////
+
+	public function start() {
+		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
+		$transaction->setPurchaseId( $this->data->getOrderId() );
+		$transaction->setAmount( $this->data->getAmount() );
+		$transaction->setCurrency( $this->data->getCurrencyAlphabeticCode() );
+		$transaction->setExpirationPeriod( 'PT3M30S' );
+		$transaction->setLanguage( $this->data->getLanguageIso639Code() );
+		$transaction->setDescription( $this->data->getDescription() );
+		$transaction->setEntranceCode( 'bestelling' . time() );
+		
+		$result = $this->client->create_transaction( $transaction, 'NLINGB2U152' );
+
+		$error = $this->client->get_error();
+		
+		if ( $error !== null ) {
+			$error = $this->client->get_error();
+		
+			var_dump( $error );
+		} else {
+			$issuer = $result->issuer;
+
+			$this->action_url     = $result->issuer->get_authentication_url();
+			$this->transaction_id = $result->transaction->get_id();
+		}
+		?>
+		<pre><?php var_dump( $this ); ?></pre>
+		<?php
 	}
 }
