@@ -13,6 +13,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
+		add_action( 'admin_init',                              array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
 
 		add_action( 'load-ideal_page_pronamic_ideal_payments', array( __CLASS__, 'load_payments_page' ) );
@@ -22,6 +23,62 @@ class Pronamic_WordPress_IDeal_Admin {
 		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Admin initialize
+	 */
+	public static function admin_init() {
+		self::maybe_download_private_certificate();
+		self::maybe_download_private_key();
+	}
+
+	/**
+	 * Download private certificate
+	 */
+	public static function maybe_download_private_certificate() {
+		if ( isset( $_POST['download_private_certificate'] ) ) {
+			$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+
+			if ( ! empty( $configuration ) ) {
+				$filename = "ideal-private-certificate-" . $id . ".cer";
+
+				header( 'Content-Description: File Transfer' );
+				header( 'Content-Disposition: attachment; filename=' . $filename );
+				header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
+
+				echo $configuration->privateCertificate;
+
+				exit;
+			}
+		}
+	}
+
+	/**
+	 * Download private key
+	 */
+	public static function maybe_download_private_key() {
+		if ( isset( $_POST['download_private_key'] ) ) {
+			$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+
+			if ( ! empty( $configuration ) ) {
+				$filename = 'ideal-private-key-' . $id . '.key';
+
+				header( 'Content-Description: File Transfer' );
+				header( 'Content-Disposition: attachment; filename=' . $filename );
+				header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
+
+				echo $configuration->privateKey;
+
+				exit;
+			}
+		}
+	}
+	
 	//////////////////////////////////////////////////
 
 	/**
@@ -72,11 +129,11 @@ class Pronamic_WordPress_IDeal_Admin {
 			if ( $configuration != null ) {
 				$variant = $configuration->getVariant();
 		
-				if($variant !== null) {
-					$data = filter_input(INPUT_POST, 'test', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY);
-					$testCase = key($data);
+				if ( $variant !== null ) {
+					$data = filter_input( INPUT_POST, 'test', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+					$testCase = key( $data );
 					
-					$name = sprintf(__('Test Case %s', 'pronamic_ideal'), $testCase);
+					$name = sprintf( __( 'Test Case %s', 'pronamic_ideal' ), $testCase );
 
 					$entranceCode = uniqid();
 					$purchaseId = $name;

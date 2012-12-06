@@ -94,7 +94,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			// Pronamic_AppThemes_IDeal_AddOn::bootstrap();
 		}
 
-		// Hooks and filters
+		// Admin
 		if ( is_admin() ) {
 			Pronamic_WordPress_IDeal_Admin::bootstrap();
 		}
@@ -130,50 +130,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Initialize
 	 */
 	public static function init() {
-		self::maybeDownloadPrivateCertificate();
-		self::maybeDownloadPrivateKey();
-	}
-
-	/**
-	 * Download private certificate
-	 */
-	public static function maybeDownloadPrivateCertificate() {
-		if(isset($_POST['download_private_certificate'])) {
-			$id = filter_input(INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING);
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
-
-			if(!empty($configuration)) {
-				$filename = "ideal-private-certificate-" . $id . ".cer";
-
-				header('Content-Description: File Transfer');
-				header("Content-Disposition: attachment; filename=$filename");
-				header('Content-Type: application/x-x509-ca-cert; charset=' . get_option('blog_charset'), true);
-				echo $configuration->privateCertificate;
-				die();
-			}
-		}
-	}
-
-	/**
-	 * Download private key
-	 */
-	public static function maybeDownloadPrivateKey() {
-		if(isset($_POST['download_private_key'])) {
-			$id = filter_input(INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING);
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
-
-			if(!empty($configuration)) {
-				$filename = 'ideal-private-key-' . $id . '.key';
-
-				header('Content-Description: File Transfer');
-				header('Content-Disposition: attachment; filename=' . $filename);
-				header('Content-Type: application/pgp-keys; charset=' . get_option('blog_charset'), true);
-				echo $configuration->privateKey;
-				die();
-			}
-		}
+		
 	}
 
 	//////////////////////////////////////////////////
