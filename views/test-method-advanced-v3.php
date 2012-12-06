@@ -15,23 +15,9 @@
 
 include dirname( __FILE__ ) . '/../includes/xmlseclibs/xmlseclibs.php';
 
-$client = new Pronamic_Gateways_IDealAdvancedV3_Client();
-$client->set_acquirer_url( $configuration->getPaymentServerUrl() );
-$client->merchant_id          = $configuration->getMerchantId();
-$client->sub_id               = $configuration->getSubId();
-$client->private_key          = $configuration->privateKey;
-$client->private_key_password = $configuration->privateKeyPassword;
-$client->private_certificate  = $configuration->privateCertificate;
-
-$directory = $client->get_directory();
-
 $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, null );
 
 echo $gateway->get_html_fields();
-
-?>
-<pre><?php var_dump( $directory ); ?></pre>
-<?php 
 
 $transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 $transaction->setPurchaseId( 'test' );
