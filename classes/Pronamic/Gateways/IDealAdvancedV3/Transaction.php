@@ -127,7 +127,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getId() {
+	public function get_id() {
 		return $this->id;
 	}
 
