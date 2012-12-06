@@ -23,6 +23,36 @@ class Pronamic_WordPress_IDeal_Payment {
 	 */
 	public $configuration;
 
+	//////////////////////////////////////////////////
+
+	public $purchase_id;
+
+	public $transaction_id;
+
+	public $amount;
+
+	public $currency;
+
+	public $expiration_period;
+
+	public $language;
+
+	public $entrance_code;
+
+	public $description;
+
+	public $consumer_name;
+
+	public $consumer_account_number;
+
+	public $consumer_city;
+
+	public $status;
+
+	public $status_requests;
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * The transaction
 	 * 

@@ -9,6 +9,16 @@
  * @version 1.0
  */
 abstract class Pronamic_IDeal_IDealDataProxy {
+	private $entrance_code;
+
+	//////////////////////////////////////////////////
+
+	public function __construct() {
+		$this->entrance_code = uniqid();
+	}
+
+	//////////////////////////////////////////////////
+
 	public abstract function getSource();
 	
 	public abstract function getDescription();
@@ -65,6 +75,14 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	
 	public abstract function getErrorUrl();
 
+	//////////////////////////////////////////////////
+	// Entrance code
+	//////////////////////////////////////////////////
+
+	public function get_entrance_code() {
+		return $this->entrance_code;
+	}
+	
 	//////////////////////////////////////////////////
 	// Issuer
 	//////////////////////////////////////////////////

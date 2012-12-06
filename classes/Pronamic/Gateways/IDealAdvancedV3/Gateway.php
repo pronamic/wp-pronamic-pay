@@ -61,7 +61,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 		$value = '';
 
-		$html .= '<select>';
+		$html .= '<select id="pronamic_ideal_issuer_id" name="pronamic_ideal_issuer_id">';
 		$html .= Pronamic_IDeal_HTML_Helper::select_options_grouped( $groups, $value );
 		$html .= '</select>';
 		
@@ -78,9 +78,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$transaction->setExpirationPeriod( 'PT3M30S' );
 		$transaction->setLanguage( $this->data->getLanguageIso639Code() );
 		$transaction->setDescription( $this->data->getDescription() );
-		$transaction->setEntranceCode( 'bestelling' . time() );
+		$transaction->setEntranceCode( $this->data->get_entrance_code() );
 		
-		$result = $this->client->create_transaction( $transaction, 'NLINGB2U152' );
+		$result = $this->client->create_transaction( $transaction, $this->data->get_issuer_id() );
 
 		$error = $this->client->get_error();
 		

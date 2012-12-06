@@ -121,7 +121,40 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe test payment
 	 */
 	public static function maybe_test_payment() {
-		if ( isset( $_POST['test'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
+		if ( isset( $_POST['test_ideal_advanced_v3'] ) && check_admin_referer( 'test_ideal_advanced_v3', 'pronamic_ideal_nonce' ) ) {
+			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			
+			$test = filter_input( INPUT_POST, 'test_ideal_advanced_v3', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+			$test = key( $test );
+			
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			
+			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, $data );
+			
+			$gateway->start();
+			
+			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->transaction_id          = $gateway->transaction_id;
+			$payment->purchase_id             = $data->getOrderId();
+			$payment->description             = $data->getDescription();
+			$payment->amount                  = $data->getAmount();
+			$payment->currency                = $data->getCurrency();
+			$payment->language                = $data->getLanguageIso639Code();
+			$payment->entrance_code           = $data->get_entrance_code();
+			$payment->expiration_period       = null;
+			$payment->status                  = null;
+			$payment->consumer_name           = null;
+			$payment->consumer_account_number = null;
+			$payment->consumer_city           = null;
+
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+
+			$gateway->redirect();
+		}
+
+		if ( isset( $_POST['pronamic_ideal_nonce'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );

@@ -10,6 +10,15 @@
  */
 abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_IDealDataProxy {
 	/**
+	 * Constructs and intializes an WordPress iDEAL data proxy
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get the ISO 639 language code
 	 * 
 	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639Code()

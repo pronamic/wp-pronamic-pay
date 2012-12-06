@@ -122,6 +122,19 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$payment->setSource($result->source, $result->sourceId);
 		$payment->configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId);
 
+		$payment->transaction_id          = $result->transactionId;
+		$payment->purchase_id             = $result->purchaseId;
+		$payment->description             = $result->description;
+		$payment->amount                  = $result->amount;
+		$payment->currency                = $result->currency;
+		$payment->language                = $result->language;
+		$payment->entrance_code           = $result->entranceCode;
+		$payment->expiration_period       = $result->expirationPeriod;
+		$payment->status                  = $result->status;
+		$payment->consumer_name           = $result->consumerName;
+		$payment->consumer_account_number = $result->consumerAccountNumber;
+		$payment->consumer_city           = $result->consumerCity;
+		
 		return $payment;
 	}
 
@@ -147,7 +160,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			's'              => null,
 			'number'         => null,
 			'offset'         => null,
-			'orderby'        => 'date_gmt', 
+			'orderby'        => 'date_gmt',
 			'order'          => null
 		) );
 

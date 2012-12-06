@@ -65,6 +65,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @var string
 	 */
 	public static $file;
+	
+	/**
+	 * The plugin dirname
+	 *
+	 * @var string
+	 */
+	public static $dirname;
 
 	//////////////////////////////////////////////////
 
@@ -74,7 +81,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param string $file
 	 */
 	public static function bootstrap( $file ) {
-		self::$file = $file;
+		self::$file    = $file;
+		self::$dirname = dirname( $file );
 
 		// Load plugin text domain
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
@@ -105,8 +113,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'init', array( __CLASS__, 'init' ) );
 		
 		// On template redirect handle an possible return from iDEAL
-		add_action( 'template_redirect', array( __CLASS__, 'handleIDealAdvancedReturn' ) );
-		add_action( 'template_redirect', array( __CLASS__, 'handleIDealInternetKassaReturn' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handle_ideal_advanced_return' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handle_ideal_internetkassa_return' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'handle_omnikassa_return' ) );
 		
 		// Check the payment status on an iDEAL return
@@ -130,7 +138,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Initialize
 	 */
 	public static function init() {
-		
+		// Requirements
+		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
 	}
 
 	//////////////////////////////////////////////////
@@ -196,18 +205,18 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Handle iDEAL advanced return
 	 */
-	public static function handleIDealAdvancedReturn() {
-		if(isset($_GET['trxid'], $_GET['ec'])) {
-			$transactionId = filter_input(INPUT_GET, 'trxid', FILTER_SANITIZE_STRING);
-			$entranceCode = filter_input(INPUT_GET, 'ec', FILTER_SANITIZE_STRING);
+	public static function handle_ideal_advanced_return() {
+		if ( isset( $_GET['trxid'], $_GET['ec'] ) ) {
+			$transaction_id = filter_input( INPUT_GET, 'trxid', FILTER_SANITIZE_STRING );
+			$entrance_code = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
 	
-			if(!empty($transactionId) && !empty($entranceCode)) {
-				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionId, $entranceCode);
+			if ( ! empty( $transaction_id ) && ! empty( $entrance_code ) ) {
+				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id, $entrance_code );
 	
-				if($payment != null) {
-					$canRedirect = true;
-	
-					do_action('pronamic_ideal_return', $payment, $canRedirect);
+				if ( $payment != null ) {
+					$can_redirect = true;
+
+					do_action( 'pronamic_ideal_return', $payment, $can_redirect );
 				}
 			}
 		}
@@ -216,11 +225,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Handle iDEAL kassa return
 	 */
-	public static function handleIDealInternetKassaReturn() {
-		if(isset($_GET['SHASIGN'])) {
+	public static function handle_ideal_internetkassa_return() {
+		if ( isset( $_GET['SHASIGN'] ) ) {
 			$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
-			foreach($configurations as $configuration) {
+			foreach ( $configurations as $configuration ) {
 				$variant = $configuration->getVariant();
 				
 				if ( $variant != null && $variant->getMethod() == 'internetkassa' ) {
@@ -230,16 +239,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$iDeal->setPassPhraseIn($configuration->shaInPassPhrase);
 					$iDeal->setPassPhraseOut($configuration->shaOutPassPhrase);
 
-					$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-in.txt';
+					$file = self::$dirname . '/other/calculations-parameters-sha-in.txt';
 					$iDeal->setCalculationsParametersIn( file($file, FILE_IGNORE_NEW_LINES) );
 
-					$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/calculations-parameters-sha-out.txt';
+					$file = self::$dirname . '/other/calculations-parameters-sha-out.txt';
 					$iDeal->setCalculationsParametersOut( file($file, FILE_IGNORE_NEW_LINES) );
 
 					$result = $iDeal->verifyRequest($_GET);
 
-					if($result !== false) {
-						do_action('pronamic_ideal_internetkassa_return', $result, $canRedirect = true);
+					if ( $result !== false ) {
+						do_action( 'pronamic_ideal_internetkassa_return', $result, $can_redirect = true );
 						
 						break;
 					}
