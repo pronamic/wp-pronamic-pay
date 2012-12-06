@@ -17,7 +17,7 @@ if(isset($_POST['status-request']) && $payment != null) {
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
+	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2>
 		<?php _e('iDEAL Payment', 'pronamic_ideal'); ?>

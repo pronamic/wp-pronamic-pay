@@ -8,7 +8,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_settings', 'pronam
 
 ?>
 <div class="wrap">
-	<?php screen_icon(Pronamic_WordPress_IDeal_Plugin::SLUG); ?>
+	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2>
 		<?php _e('iDEAL Settings', 'pronamic_ideal'); ?>
