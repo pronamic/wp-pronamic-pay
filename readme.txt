@@ -132,7 +132,7 @@ Here is a list of known plugin conflicts:
 *	Added status page powered by http://www.ideal-status.nl/
 *	Abstracted the gateways classes
 *	WooCommerce - Added support for [Sequential Order Numbers Pro](http://wcdocs.woothemes.com/user-guide/extensions/functionality/sequential-order-numbers/#add-compatibility)
-
+*	OmniKassa - Added key version field in configuration editor
 
 = 1.0 =
 *	First official release, removed the 'beta' label.

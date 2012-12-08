@@ -260,9 +260,9 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</td>
 			</tr>
 
-			<?php /* Basic, OmniKassa, Advanced */ ?>
+			<?php /* Basic, Advanced */ ?>
 
-			<tr class="extra-settings method-basic method-omnikassa method-advanced method-advanced_v3">
+			<tr class="extra-settings method-basic method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_sub_id">
 						<?php _e('Sub ID', 'pronamic_ideal'); ?>
@@ -278,7 +278,25 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				</td>
 			</tr>
 
-			<?php /* Basic */ ?>
+			<?php /* OmniKassa */ ?>
+
+			<tr class="extra-settings method-omnikassa">
+				<th scope="row">
+					<label for="pronamic_ideal_key_version">
+						<?php _e( 'Key Version', 'pronamic_ideal' ); ?>
+					</label>
+				</th>
+				<td>
+	                <input id="pronamic_ideal_key_version" name="pronamic_ideal_key_version" value="<?php echo $configuration->key_version; ?>" type="text" />
+
+					<span class="description">
+						<br />
+						<?php printf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ); ?>
+					</span>
+				</td>
+			</tr>
+
+			<?php /* Basic, OmniKassa */ ?>
 
 			<tr class="extra-settings method-basic method-omnikassa">
 				<th scope="row">
@@ -482,7 +500,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	
 		?>
 
-		<div class="extra-settings method-advanced method-advanced_v3">
+		<div class="extra-settings method-advanced">
 			<h4>
 				<?php _e('Private Key and Certificate Generator', 'pronamic_ideal'); ?>
 			</h4>
