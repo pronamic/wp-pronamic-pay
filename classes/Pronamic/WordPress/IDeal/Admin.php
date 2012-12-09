@@ -136,11 +136,12 @@ class Pronamic_WordPress_IDeal_Admin {
 			$gateway->start();
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
+			$payment->configuration = $configuration;
 			$payment->transaction_id          = $gateway->transaction_id;
 			$payment->purchase_id             = $data->getOrderId();
 			$payment->description             = $data->getDescription();
 			$payment->amount                  = $data->getAmount();
-			$payment->currency                = $data->getCurrency();
+			$payment->currency                = $data->getCurrencyAlphabeticCode();
 			$payment->language                = $data->getLanguageIso639Code();
 			$payment->entrance_code           = $data->get_entrance_code();
 			$payment->expiration_period       = null;
@@ -149,7 +150,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$payment->consumer_account_number = null;
 			$payment->consumer_city           = null;
 
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 
 			$gateway->redirect();
 		}

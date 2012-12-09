@@ -14,33 +14,33 @@ class Pronamic_Gateways_IDealAdvancedV3_Status {
 	 * 
 	 * @var string
 	 */
-	const STATUS_SUCCESS = 'Success';
+	const SUCCESS = 'Success';
 
 	/**
 	 * Status indicator for cancelled
 	 * 
 	 * @var string
 	 */
-	const STATUS_CANCELLED = 'Cancelled';
+	const CANCELLED = 'Cancelled';
 	
 	/**
 	 * Status indicator for expired
 	 * 
 	 * @var string
 	 */
-	const STATUS_EXPIRED = 'Expired';
+	const EXPIRED = 'Expired';
 	
 	/**
 	 * Status indicator for failure
 	 * 
 	 * @var string
 	 */
-	const STATUS_FAILURE = 'Failure';
+	const FAILURE = 'Failure';
 	
 	/**
 	 * Status indicator for open
 	 * 
 	 * @var string
 	 */
-	const STATUS_OPEN = 'Open';
+	const  OPEN = 'Open';
 }

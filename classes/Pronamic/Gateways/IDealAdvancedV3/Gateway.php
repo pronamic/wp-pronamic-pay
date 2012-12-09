@@ -79,7 +79,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$transaction->setLanguage( $this->data->getLanguageIso639Code() );
 		$transaction->setDescription( $this->data->getDescription() );
 		$transaction->setEntranceCode( $this->data->get_entrance_code() );
-		
+
 		$result = $this->client->create_transaction( $transaction, $this->data->get_issuer_id() );
 
 		$error = $this->client->get_error();

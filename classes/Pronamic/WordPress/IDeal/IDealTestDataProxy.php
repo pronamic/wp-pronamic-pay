@@ -29,6 +29,8 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	 * Constructs and initializes an iDEAL test data proxy
 	 */
 	public function __construct( WP_User $user, $amount ) {
+		parent::__construct();
+
 		$this->user  = $user;
 		$this->amount = $amount;
 	}
