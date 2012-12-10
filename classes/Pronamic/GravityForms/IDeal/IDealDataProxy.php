@@ -42,6 +42,8 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	 * @param Pronamic_GravityForms_IDeal_Feed $feed
 	 */
 	public function __construct( $form, $lead, $feed ) {
+		parent::__construct();
+
 		$this->form = $form;
 		$this->lead = $lead;
 		$this->feed = $feed;

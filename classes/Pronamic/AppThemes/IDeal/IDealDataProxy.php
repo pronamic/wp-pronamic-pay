@@ -32,6 +32,8 @@ class Pronamic_AppThemes_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_I
 	 * @param array $options
 	 */
 	public function __construct( $order, $options ) {
+		parent::__construct();
+
 		$this->order = $order;
 		$this->options = $options;
 	}

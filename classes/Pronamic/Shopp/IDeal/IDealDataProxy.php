@@ -34,6 +34,8 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	 * @param GatewayFramework $gateway
 	 */
 	public function __construct( $purchase, $gateway ) {
+		parent::__construct();
+
 		$this->purchase = $purchase;
 		$this->gateway = $gateway;
 	}

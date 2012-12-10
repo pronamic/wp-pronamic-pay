@@ -24,6 +24,8 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @param array $order_values
 	 */
 	public function __construct( $order_values ) {
+		parent::__construct();
+
 		$this->order_values = $order_values;
 	}
 

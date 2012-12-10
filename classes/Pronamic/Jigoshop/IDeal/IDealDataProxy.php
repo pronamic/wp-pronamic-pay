@@ -25,6 +25,8 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	 * @param jigoshop_order $order
 	 */
 	public function __construct( $order ) {
+		parent::__construct();
+
 		$this->order = $order;
 	}
 
