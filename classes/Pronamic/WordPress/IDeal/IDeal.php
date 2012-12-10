@@ -292,30 +292,42 @@ class Pronamic_WordPress_IDeal_IDeal {
 		}				
 	}
 
-	public static function get_html_form( Pronamic_IDeal_IDealDataProxy $data_proxy, Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public static function get_html_form( Pronamic_IDeal_IDealDataProxy $data, Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		$html = '';
 
-		$gateway = self::get_gateway( $data_proxy, $configuration );
+		$gateway = self::get_gateway( $data, $configuration );
 		
 		if ( !empty( $gateway ) ) {
 			$gateway->start();
 
 			// Update payment
-			$id = md5( time() . $data_proxy->getOrderId() );
+			$id = md5( time() . $data->getOrderId() );
 
 			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 			$transaction->setId( $id );
-			$transaction->setAmount( $data_proxy->getAmount() );
-			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
-			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
+			$transaction->setAmount( $data->getAmount() );
+			$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
+			$transaction->setLanguage( $data->getLanguageIso639Code() );
 			$transaction->setEntranceCode( uniqid() );
-			$transaction->setDescription( $data_proxy->getDescription() );
-			$transaction->setPurchaseId( $data_proxy->getOrderId() );
+			$transaction->setDescription( $data->getDescription() );
+			$transaction->setPurchaseId( $data->getOrderId() );
 
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;
+			$payment->transaction_id          = $gateway->transaction_id;
+			$payment->purchase_id             = $data->getOrderId();
+			$payment->description             = $data->getDescription();
+			$payment->amount                  = $data->getAmount();
+			$payment->currency                = $data->getCurrencyAlphabeticCode();
+			$payment->language                = $data->getLanguageIso639Code();
+			$payment->entrance_code           = $data->get_entrance_code();
+			$payment->expiration_period       = null;
+			$payment->status                  = null;
+			$payment->consumer_name           = null;
+			$payment->consumer_account_number = null;
+			$payment->consumer_city           = null;
 			$payment->transaction = $transaction;
-			$payment->setSource( $data_proxy->getSource(), $data_proxy->getOrderId() );
+			$payment->setSource( $data->getSource(), $data->getOrderId() );
 				
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 
