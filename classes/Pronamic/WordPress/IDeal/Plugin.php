@@ -175,6 +175,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$variant = $configuration->getVariant();
 
 		if ( $variant->getMethod() == 'advanced_v3' ) {
+			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
+
+			$gateway->update_status( $payment );
+			
 			echo 'ok';
 
 			exit;

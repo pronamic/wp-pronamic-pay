@@ -27,7 +27,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	public function start( $data ) {
-		$this->transaction_id = md5( time() . $this->data->getOrderId() );
+		$this->transaction_id = md5( time() . $data->getOrderId() );
 		$this->action_url     = $this->client->getPaymentServerUrl();
 
 		$this->client->setCustomerLanguage( $data->getLanguageIso639Code() );

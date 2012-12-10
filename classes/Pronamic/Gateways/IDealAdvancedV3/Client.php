@@ -150,6 +150,22 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
+
+	public function get_status( $transaction_id ) {
+		$message = new Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusReqMessage();
+
+		$merchant = $message->get_merchant();
+		$merchant->set_id( $this->merchant_id );
+		$merchant->set_sub_id( $this->sub_id );
+
+		$message->transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
+		$message->transaction->setId( $transaction_id );
+echo '<pre>';
+echo htmlspecialchars( $message );
+echo '</pre>';
+
+		return $this->send_message( $this->status_request_url, $message );
+	}
 	
 	public function get_error() {
 		return $this->error;

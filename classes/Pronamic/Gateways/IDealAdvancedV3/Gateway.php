@@ -97,4 +97,28 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		<pre><?php var_dump( $this ); ?></pre>
 		<?php
 	}
+	
+	/////////////////////////////////////////////////
+
+	public function update_status( $payment ) {
+		$result = $this->client->get_status( $payment->transaction_id );
+
+			echo '<pre>';
+			var_dump( $result );
+			echo '</pre>';
+
+		$error = $this->client->get_error();
+		
+		if ( $error !== null ) {
+			$error = $this->client->get_error();
+		
+			var_dump( $error );
+		} else {
+			echo '<pre>';
+			var_dump( $result );
+			echo '</pre>';
+			
+			exit;
+		}
+	}
 }

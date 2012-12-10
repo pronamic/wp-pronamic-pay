@@ -98,6 +98,20 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	private $consumerName;
 
 	/**
+	 * Consumer IBAN
+	 * 
+	 * @var string
+	 */
+	private $consumer_iban;
+
+	/**
+	 * Consumer IBAN
+	 * 
+	 * @var string
+	 */
+	private $consumer_bic;
+
+	/**
 	 * The consumer account number
 	 * 
 	 * @var string
@@ -337,21 +351,41 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the consumer account number
+	 * Get the consumer IBAN number
 	 * 
 	 * @return string
 	 */
-	public function getConsumerAccountNumber() {
-		return $this->consumerAccountNumber;
+	public function get_consumer_iban() {
+		return $this->consumer_iban;
 	}
 
 	/**
-	 * Set the consumer account number
+	 * Set the consumer IBAN number
 	 * 
-	 * @param string $account_number
+	 * @param string $iban
 	 */
-	public function setConsumerAccountNumber( $account_number ) {
-		$this->consumerAccountNumber = $account_number;
+	public function set_consumer_iban( $iban ) {
+		$this->consumer_iban = $iban;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the consumer IBAN number
+	 * 
+	 * @return string
+	 */
+	public function get_consumer_bic() {
+		return $this->consumer_bic;
+	}
+
+	/**
+	 * Set the consumer BIC number
+	 * 
+	 * @param string $bic
+	 */
+	public function set_consumer_bic( $bic ) {
+		$this->consumer_bic = $bic;
 	}
 
 	//////////////////////////////////////////////////
