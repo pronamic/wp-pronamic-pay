@@ -25,6 +25,8 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @param WC_Order $order
 	 */
 	public function __construct( $order ) {
+		parent::__construct();
+
 		$this->order = $order;
 	}
 
