@@ -298,7 +298,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$gateway = self::get_gateway( $data, $configuration );
 		
 		if ( !empty( $gateway ) ) {
-			$gateway->start();
+			$gateway->start( $data );
 
 			// Update payment
 			$id = md5( time() . $data->getOrderId() );

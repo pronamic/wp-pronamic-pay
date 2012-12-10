@@ -131,9 +131,9 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
-			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, $data );
+			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 			
-			$gateway->start();
+			$gateway->start( $data );
 			
 			$payment = new Pronamic_WordPress_IDeal_Payment();
 			$payment->configuration = $configuration;

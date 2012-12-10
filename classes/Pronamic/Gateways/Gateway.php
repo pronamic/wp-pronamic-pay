@@ -48,7 +48,7 @@ abstract class Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start() {
+	public function start( $data ) {
 		
 	}
 	

@@ -9,14 +9,12 @@
  * @version 1.0
  */
 class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data ) {
+	public function __construct( $configuration ) {
 		parent::__construct(  );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 1.20 );
-
-		$this->data = $data;
 
 		$this->client = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
 	}
@@ -29,12 +27,12 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start() {
+	public function start( $data ) {
 		$this->client->createPayment(
-			$this->data->getIssuerId(),
-			$this->data->getAmount(),
-			$this->data->getDescription(),
-			$this->data->getReturnUrl(),
+			$data->getIssuerId(),
+			$data->getAmount(),
+			$data->getDescription(),
+			$data->getReturnUrl(),
 			site_url( '/' )
 		);
 		

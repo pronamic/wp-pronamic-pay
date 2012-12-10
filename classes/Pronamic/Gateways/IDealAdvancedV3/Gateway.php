@@ -9,7 +9,7 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data ) {
+	public function __construct( $configuration ) {
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
@@ -25,7 +25,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$client->private_certificate  = $configuration->privateCertificate;
 		
 		$this->client = $client;
-		$this->data = $data;
 		
 	}
 	
@@ -70,17 +69,17 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	
 	/////////////////////////////////////////////////
 
-	public function start() {
+	public function start( $data ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
-		$transaction->setPurchaseId( $this->data->getOrderId() );
-		$transaction->setAmount( $this->data->getAmount() );
-		$transaction->setCurrency( $this->data->getCurrencyAlphabeticCode() );
+		$transaction->setPurchaseId( $data->getOrderId() );
+		$transaction->setAmount( $data->getAmount() );
+		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$transaction->setExpirationPeriod( 'PT3M30S' );
-		$transaction->setLanguage( $this->data->getLanguageIso639Code() );
-		$transaction->setDescription( $this->data->getDescription() );
-		$transaction->setEntranceCode( $this->data->get_entrance_code() );
+		$transaction->setLanguage( $data->getLanguageIso639Code() );
+		$transaction->setDescription( $data->getDescription() );
+		$transaction->setEntranceCode( $data->get_entrance_code() );
 
-		$result = $this->client->create_transaction( $transaction, $this->data->get_issuer_id() );
+		$result = $this->client->create_transaction( $transaction, $data->get_issuer_id() );
 
 		$error = $this->client->get_error();
 		

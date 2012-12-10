@@ -9,14 +9,12 @@
  * @version 1.0
  */
 class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data ) {
+	public function __construct( $configuration ) {
 		parent::__construct(  );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_require_issue_select( false );
 		$this->set_amount_minimum( 0.01 );
-
-		$this->data = $data;
 
 		$this->client = new Pronamic_Gateways_OmniKassa_OmniKassa();
 		
@@ -28,16 +26,16 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start() {
+	public function start( $data ) {
 		$this->transaction_id = md5( time() . $this->data->getOrderId() );
 		$this->action_url     = $this->client->getPaymentServerUrl();
 
-		$this->client->setCustomerLanguage( $this->data->getLanguageIso639Code() );
-		$this->client->setCurrencyNumericCode( $this->data->getCurrencyNumericCode() );
-		$this->client->setOrderId( $this->data->getOrderId() );
+		$this->client->setCustomerLanguage( $data->getLanguageIso639Code() );
+		$this->client->setCurrencyNumericCode( $data->getCurrencyNumericCode() );
+		$this->client->setOrderId( $data->getOrderId() );
 		$this->client->setNormalReturnUrl( site_url( '/' ) );
 		$this->client->setAutomaticResponseUrl( site_url( '/' ) );
-		$this->client->setAmount( $this->data->getAmount() );
+		$this->client->setAmount( $data->getAmount() );
 		$this->client->setTransactionReference( $this->transaction_id );
 	}
 	
