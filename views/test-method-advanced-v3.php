@@ -22,12 +22,6 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, $data 
 		
 		submit_button( $name, 'secondary', 'test_ideal_advanced_v3[' . $test_case . ']', false );
 	}
-
-	if ( false ) {
-		$gateway->start();
-		
-		$gateway->redirect();
-	}
 	
 	?>
 </form>
