@@ -9,7 +9,7 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration, $data_proxy ) {
+	public function __construct( $configuration ) {
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );

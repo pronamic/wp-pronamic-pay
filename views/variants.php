@@ -5,7 +5,7 @@
 		<?php _e( 'iDEAL Variants', 'pronamic_ideal' ); ?>
 	</h2>
 
-	<table cellspacing="0" class="widefat fixed">
+	<table cellspacing="0" class="wp-list-table widefat">
 
 		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
 
@@ -55,6 +55,9 @@
 							break;
 						case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
 							_e( 'Advanced', 'pronamic_ideal' );
+							break;
+						case 'advanced_v3':
+							_e( 'Advanced v3', 'pronamic_ideal' );
 							break;
 						case 'targetpay':
 							echo 'TargetPay';

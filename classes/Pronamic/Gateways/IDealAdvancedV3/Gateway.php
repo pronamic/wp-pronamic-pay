@@ -9,13 +9,19 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration ) {
+	/**
+	 * Constructs and initializes an iDEAL Advanced v3 gateway
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 */
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 0.01 );
-		
+
+		// Client
 		$client = new Pronamic_Gateways_IDealAdvancedV3_Client();
 		$client->set_acquirer_url( $configuration->getPaymentServerUrl() );
 		$client->merchant_id          = $configuration->getMerchantId();
@@ -25,11 +31,16 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$client->private_certificate  = $configuration->privateCertificate;
 		
 		$this->client = $client;
-		
 	}
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get issuers
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @return array
+	 */
 	public function get_issuers() {
 		$directory = $this->client->get_directory();
 		
@@ -53,23 +64,33 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	
 	/////////////////////////////////////////////////
 
-	public function get_html_fields() {
-		$html  = '';
-		
-		$groups = $this->get_issuers();
-
-		$value = '';
-
-		$html .= '<select id="pronamic_ideal_issuer_id" name="pronamic_ideal_issuer_id">';
-		$html .= Pronamic_IDeal_HTML_Helper::select_options_grouped( $groups, $value );
-		$html .= '</select>';
-		
-		return $html;
+	public function get_issuer_field() {
+		return array(
+			'id'      => 'pronamic_ideal_issuer_id',
+			'name'    => 'pronamic_ideal_issuer_id',
+			'type'    => 'select',
+			'choices' => $this->get_issuers()
+		);
 	}
 	
 	/////////////////////////////////////////////////
 
-	public function start( $data ) {
+	public function get_fields() {
+		$fields = array();
+		
+		$fields[] = $this->get_issuer_field(); 
+
+		return $fields;
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Start
+	 * 
+	 * @see Pronamic_Gateways_Gateway::start()
+	 */
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 		$transaction->set_purchase_id( $data->getOrderId() );
 		$transaction->setAmount( $data->getAmount() );
@@ -95,7 +116,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	
 	/////////////////////////////////////////////////
 
-	public function update_status( $payment ) {
+	/**
+	 * Update status of the specified payment
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 */
+	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
 		$result = $this->client->get_status( $payment->transaction_id );
 
 		$error = $this->client->get_error();

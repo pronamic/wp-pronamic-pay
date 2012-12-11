@@ -1,6 +1,6 @@
 <?php 
 
-$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
+$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 
 ?>
 
@@ -9,7 +9,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 </h3>
 
 <form method="post" action="" target="_blank">
-	<?php wp_nonce_field( 'test_ideal_advanced', 'pronamic_ideal_nonce' ); ?>
+	<?php wp_nonce_field( 'test_ideal_targetpay', 'pronamic_ideal_nonce' ); ?>
 	
 	<div class="tablenav top">
 		<?php echo $gateway->get_html_fields(); ?>
@@ -32,8 +32,6 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 		
 		<?php 
 		
-		// @see page 22 - http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf
-
 		$test_cases = array(
 			1 => array(
 				'amount' => 1,
@@ -57,7 +55,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 			),
 			7 => array(
 				'amount' => 7,
-				'result' => '﻿SO1000 Failure in system'
+				'result' => 'SO1000 Failure in system'
 			),
 		);
 		
@@ -73,7 +71,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 						
 						printf( 
 							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ), 
-							Pronamic_Gateways_IDealAdvanced_IDeal::format_amount( $data['amount'] )
+							Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
 						);
 						
 						?>
@@ -86,7 +84,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 						
 						$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
 
-						submit_button( $name, 'secondary', 'test_ideal_advanced[' . $test_case . ']', false ); 
+						submit_button( $name, 'secondary', 'test_ideal_advanced_v3[' . $test_case . ']', false ); 
 
 						?>
 					</td>

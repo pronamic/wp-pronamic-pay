@@ -21,7 +21,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function __construct( ) {
 
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function set_method( $method ) {
@@ -39,7 +39,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function set_require_issue_select( $require ) {
 		$this->require_issue_select = $require;
 	}
-	
+
 	/////////////////////////////////////////////////
 	
 	public function get_issuers() {
@@ -69,8 +69,35 @@ abstract class Pronamic_Gateways_Gateway {
 	}
 	
 	/////////////////////////////////////////////////
+	
+	
+	public function get_fields() {
+		return array();
+	}
 
 	public function get_html_fields() {
+		$html = '';
+
+		$fields = $this->get_fields();
+
+		foreach( $fields as $field ) {
+			if ( isset( $field['type'] ) ) {
+				$type = $field['type'];
+
+				switch ( $type ) {
+					case 'select':
+						$html .= sprintf(
+							'<select id="%s" name="%s">%s</select>',
+							$field['id'],
+							$field['name'],
+							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
+						);
+						
+						break;
+				}
+			}
+		}
 		
+		return $html;
 	}
 }
