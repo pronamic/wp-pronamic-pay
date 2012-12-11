@@ -100,8 +100,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 		$error = $this->client->get_error();
 
-		if ( $error !== null ) {	
-			
+		if ( $error !== null ) {
+			var_dump( $error );
 		} else {
 			$transaction = $result->transaction;
 
