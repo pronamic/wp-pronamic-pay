@@ -58,25 +58,18 @@ class Pronamic_WordPress_IDeal_Payment {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The transaction
-	 * 
-	 * @var unknown_type
-	 */
-	public $transaction;
-
-	/**
 	 * The name of the source wich initiated this iDEAL payment
 	 * 
 	 * @var string
 	 */
-	private $source;
+	public $source;
 
 	/**
 	 * The unique ID of the external source
 	 * 
 	 * @var string
 	 */
-	private $sourceId;
+	public $source_id;
 
 	//////////////////////////////////////////////////
 
