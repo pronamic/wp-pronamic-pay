@@ -155,7 +155,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$gateway->redirect();
 		}
 
-		if ( isset( $_POST['pronamic_ideal_nonce'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
+		if ( isset( $_POST['test_ideal_advanced'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
