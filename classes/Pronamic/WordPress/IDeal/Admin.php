@@ -43,7 +43,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
 
 			if ( ! empty( $configuration ) ) {
-				$filename = "ideal-private-certificate-" . $id . ".cer";
+				$filename = 'ideal-private-certificate-' . $id . '.cer';
 
 				header( 'Content-Description: File Transfer' );
 				header( 'Content-Disposition: attachment; filename=' . $filename );
