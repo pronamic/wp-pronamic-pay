@@ -1,8 +1,6 @@
 <?php 
 
-$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), 10 );
-
-$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration, $data );
+$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 
 ?>
 
