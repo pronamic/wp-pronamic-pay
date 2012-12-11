@@ -127,9 +127,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Show license message if the license is not valid
 		add_action( 'admin_notices', array( __CLASS__, 'maybeShowLicenseMessage' ) );
-
-		// Uninstall
-		register_uninstall_hook( self::$file, array( __CLASS__, 'uninstall' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -180,9 +177,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			$gateway->update_status( $payment );
 			
-			echo 'ok';
-
-			exit;
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
+	
+			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 
 		if ( $variant->getMethod() == 'advanced' ) {
@@ -598,26 +595,5 @@ class Pronamic_WordPress_IDeal_Plugin {
 			// Update version
 			update_option( self::OPTION_VERSION, self::VERSION );
 		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Uninstall
-	 */
-	public static function uninstall() {
-		// Drop tables
-		Pronamic_WordPress_IDeal_ConfigurationsRepository::dropTables();
-		Pronamic_WordPress_IDeal_PaymentsRepository::dropTables();
-
-		// Delete options
-		delete_option( self::OPTION_VERSION );
-		delete_option( self::OPTION_KEY );
-		
-		// Delete transient
-		delete_transient( self::TRANSIENT_LICENSE_INFO );
-		
-		// Uninstall Add-Ons
-		Pronamic_GravityForms_IDeal_AddOn::uninstall();
 	}
 }
