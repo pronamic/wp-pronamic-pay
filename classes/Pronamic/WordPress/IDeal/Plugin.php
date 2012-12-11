@@ -562,8 +562,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function setup() {
 		if ( get_option( self::OPTION_VERSION ) != self::VERSION ) {
 			// Update tables
-			Pronamic_WordPress_IDeal_ConfigurationsRepository::updateTable();
-			Pronamic_WordPress_IDeal_PaymentsRepository::updateTable();
+			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();
+			Pronamic_WordPress_IDeal_PaymentsRepository::update_table();
 
 			// Add some new capabilities
 			$capabilities = array(
