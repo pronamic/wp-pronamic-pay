@@ -49,12 +49,6 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		add_action( 'jigoshop_update_options', array( &$this, 'update_options' ) );
 		
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );
-
-		// Add options
-		add_option( 'jigoshop_pronamic_ideal_enabled', 'yes' );
-		add_option( 'jigoshop_pronamic_ideal_title', __( 'iDEAL', 'pronamic_ideal' ) );
-		add_option( 'jigoshop_pronamic_ideal_description', __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' ) );
-		add_option( 'jigoshop_pronamic_ideal_configuration_id', '' );
     }
 
 	//////////////////////////////////////////////////
