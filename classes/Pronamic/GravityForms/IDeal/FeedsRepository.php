@@ -12,7 +12,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 	/**
 	 * Update table
 	 */
-	public static function updateTable() {
+	public static function update_table() {
         require_once ABSPATH . '/wp-admin/includes/upgrade.php';
 
 		global $wpdb;
