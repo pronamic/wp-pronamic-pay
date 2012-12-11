@@ -73,6 +73,53 @@
 				<file>certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer</file>
 			</certificates>
 		</variant>
+		<variant gateway="advanced_v3">
+			<id>abnamro-ideal-zelfbouw-v3</id>
+			<name>ABN AMRO - iDEAL Zelfbouw - v3</name>
+			<url>https://abnamro.ideal-payment.de/</url>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>deutschebank</id>
+		<name>Deutsche Bank</name>
+		<url>http://deutschebank.nl/</url>
+
+		<variant gateway="advanced_v3">
+			<id>deutschebank-ideal-expert-v3</id>
+			<name>Deutsche Bank - iDEAL Expert - v3</name>
+			<url>https://ideal.db.com/</url>
+
+			<test>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/deutschebank-ideal-expert-v3/?.cer</file>
+			</certificates>
+		</variant>
 	</provider>
 
 	<provider>
@@ -155,6 +202,25 @@
 				<file>certificates/frieslandbank-ideal-zakelijke-plus/cert.cer</file>
 			</certificates>
 		</variant>
+		<variant gateway="advanced_v3">
+			<id>frieslandbank-ideal-zakelijk-plus-v3</id>
+			<name>Friesland Bank - iDEAL Zakelijk Plus - v3</name>
+
+			<test>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/frieslandbank-ideal-zakelijk-plus-v3/?.cer</file>
+			</certificates>
+		</variant>
 	</provider>
 
 	<provider>
@@ -187,6 +253,21 @@
 			<certificates>
 				<file>certificates/ideal-simulator-ideal-advanced/simulator.cer</file>
 				<file>certificates/ideal-simulator-ideal-advanced/simulator0.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>ideal-simulator-ideal-advanced-v3</id>
+			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</name>
+
+			<test>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional-v3/</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional-v3/</paymentServerUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ideal-simulator-ideal-advanced-v3/simulator.cer</file>
 			</certificates>
 		</variant>
 	</provider>
@@ -255,8 +336,7 @@
 			</live>
 
 			<certificates>
-				<file>certificates/ing-ideal-advanced/ingbank.cer</file>
-				<file>certificates/ing-ideal-advanced/ingbank-0.cer</file>
+				<file>certificates/ing-ideal-advanced-v3/?.cer</file>
 			</certificates>
 		</variant>
 	</provider>
