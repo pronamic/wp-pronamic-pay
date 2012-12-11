@@ -84,17 +84,6 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
     }
 
 	//////////////////////////////////////////////////
-    
-    /**
-     * Drop the tables
-     */
-    public static function dropTables() {
-		global $wpdb;
-
-		$wpdb->query('DROP TABLE IF EXISTS ' . self::getConfigurationsTableName());
-    }
-
-	//////////////////////////////////////////////////
 
     /**
      * Get the iDEAL configurations table name
