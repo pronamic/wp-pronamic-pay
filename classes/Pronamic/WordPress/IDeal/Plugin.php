@@ -140,6 +140,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function init() {
 		// Requirements
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
+		require_once self::$dirname . '/includes/wp-e-commerce.php';
 	}
 
 	//////////////////////////////////////////////////
