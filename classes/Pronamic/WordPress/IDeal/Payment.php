@@ -45,6 +45,10 @@ class Pronamic_WordPress_IDeal_Payment {
 
 	public $consumer_account_number;
 
+	public $consumer_iban;
+
+	public $consumer_bic;
+
 	public $consumer_city;
 
 	public $status;

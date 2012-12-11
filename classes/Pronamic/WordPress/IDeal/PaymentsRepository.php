@@ -29,41 +29,32 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         $tableName = self::getPaymentsTableName();
 
         $sql = "CREATE TABLE $tableName (
-			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT , 
-			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,
-			purchase_id VARCHAR(16) NULL , 
-			transaction_id VARCHAR(32) NULL , 
-  			date_gmt DATETIME NOT NULL , 
-			amount DECIMAL(10, 2) NOT NULL , 
-			currency VARCHAR(8) NOT NULL , 
-			expiration_period VARCHAR(8) NOT NULL , 
-			language VARCHAR(8) NOT NULL ,
-			entrance_code VARCHAR(40) NULL ,
-			description TEXT NOT NULL , 
-			consumer_name VARCHAR(35) NULL ,
-			consumer_account_number VARCHAR(10) NULL ,  
-			consumer_city VARCHAR(24) NULL ,
-  			status VARCHAR(32) NULL DEFAULT NULL , 
-  			status_requests MEDIUMINT(8) DEFAULT 0 ,
-  			source VARCHAR(32) NULL DEFAULT NULL , 
-  			source_id VARCHAR(32) NULL DEFAULT NULL ,  
-			PRIMARY KEY  (id) , 
-			KEY configuration_id (configuration_id) , 
+			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT, 
+			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
+			purchase_id VARCHAR(16) NULL,
+			transaction_id VARCHAR(32) NULL, 
+  			date_gmt DATETIME NOT NULL,
+			amount DECIMAL(10, 2) NOT NULL,
+			currency VARCHAR(8) NOT NULL,
+			expiration_period VARCHAR(8) NOT NULL, 
+			language VARCHAR(8) NOT NULL,
+			entrance_code VARCHAR(40) NULL,
+			description TEXT NOT NULL,
+			consumer_name VARCHAR(35) NULL,
+			consumer_account_number VARCHAR(10) NULL,
+			consumer_iban VARCHAR(34) NULL,
+			consumer_bic VARCHAR(11) NULL,
+			consumer_city VARCHAR(24) NULL,
+  			status VARCHAR(32) NULL DEFAULT NULL,
+  			status_requests MEDIUMINT(8) DEFAULT 0,
+  			source VARCHAR(32) NULL DEFAULT NULL,
+  			source_id VARCHAR(32) NULL DEFAULT NULL,
+			PRIMARY KEY  (id),
+			KEY configuration_id (configuration_id), 
 			UNIQUE (entrance_code)
 			) $charsetCollate;";
 
         dbDelta($sql);
-    }
-
-	//////////////////////////////////////////////////
-    
-    /**
-     * Drop the tables
-     */
-    public static function dropTables() {
-		global $wpdb;
-
-		$wpdb->query("DROP TABLE IF EXISTS " . self::getPaymentsTableName());
     }
 
 	//////////////////////////////////////////////////
@@ -81,33 +72,6 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 	//////////////////////////////////////////////////
 
-    /**
-     * Get transaction from the specified result object
-     * 
-     * @param stdClass $result
-     * @return Transaction
-     */
-	private function getTransactionFromResult($result) {
-		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-
-		$transaction->setId ($result->transactionId );
-		$transaction->setPurchaseId( $result->purchaseId );
-		$transaction->setDescription( $result->description );
-		$transaction->setAmount( $result->amount );
-		$transaction->setCurrency( $result->currency );
-		$transaction->setLanguage( $result->language );
-		$transaction->setEntranceCode( $result->entranceCode );
-		$transaction->setExpirationPeriod( $result->expirationPeriod );
-		$transaction->setStatus( $result->status );
-		$transaction->setConsumerName( $result->consumerName );
-		$transaction->setConsumerAccountNumber( $result->consumerAccountNumber );
-		$transaction->setConsumerCity( $result->consumerCity );
-
-		return $transaction;
-	}
-
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get payment from result
 	 * 
@@ -116,24 +80,25 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	private function getPaymentFromResult($result) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
 
-		$payment->transaction = self::getTransactionFromResult($result);
-		$payment->setId($result->paymentId);
-		$payment->setDate(new DateTime($result->dateGmt, new DateTimeZone('UTC')));
-		$payment->setSource($result->source, $result->sourceId);
-		$payment->configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId);
+		$payment->setId( $result->id );
+		$payment->setDate( new DateTime( $result->date_gmt, new DateTimeZone( 'UTC' ) ) );
+		$payment->setSource( $result->source, $result->source_id );
+		$payment->configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $result->configuration_id );
 
-		$payment->transaction_id          = $result->transactionId;
-		$payment->purchase_id             = $result->purchaseId;
+		$payment->transaction_id          = $result->transaction_id;
+		$payment->purchase_id             = $result->purchase_id;
 		$payment->description             = $result->description;
 		$payment->amount                  = $result->amount;
 		$payment->currency                = $result->currency;
 		$payment->language                = $result->language;
-		$payment->entrance_code           = $result->entranceCode;
-		$payment->expiration_period       = $result->expirationPeriod;
+		$payment->entrance_code           = $result->entrance_code;
+		$payment->expiration_period       = $result->expiration_period;
 		$payment->status                  = $result->status;
-		$payment->consumer_name           = $result->consumerName;
-		$payment->consumer_account_number = $result->consumerAccountNumber;
-		$payment->consumer_city           = $result->consumerCity;
+		$payment->consumer_name           = $result->consumer_name;
+		$payment->consumer_account_number = $result->consumer_account_number;
+		$payment->consumer_iban           = $result->consumer_iban;
+		$payment->consumer_bic            = $result->consumer_bic;
+		$payment->consumer_city           = $result->consumer_city;
 		
 		return $payment;
 	}
@@ -201,12 +166,22 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 				$conditions = array();
 
-				$columns = array('purchase_id', 'transaction_id', 'amount', 'consumer_name', 'consumer_account_number', 'consumer_city');
+				$columns = array( 
+					'purchase_id',
+					'transaction_id',
+					'amount',
+					'consumer_name',
+					'consumer_account_number',
+					'consumer_iban',
+					'consumer_bic',
+					'consumer_city'
+				);
+
 				foreach($columns as $column) {
 					$conditions[] = "payment.{$column} LIKE '{$n}{$term}{$n}'";
 				}
 	
-				$search  = ' AND (' . implode(' OR ', $conditions) . ')';
+				$search  = ' AND (' . implode( ' OR ', $conditions ) . ')';
 	
 				$where .= $search;
 			}
@@ -236,24 +211,26 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		// Query
         $query = "
         	SELECT 
-        		payment.id AS paymentId ,
-        		payment.configuration_id AS configurationId ,
-        		payment.purchase_id AS purchaseId , 
-        		payment.transaction_id AS transactionId ,
-        		payment.date_gmt AS dateGmt ,
-        		payment.description AS description , 
-        		payment.amount AS amount , 
-        		payment.currency AS currency , 
-        		payment.language AS language , 
-        		payment.entrance_code AS entranceCode , 
-        		payment.expiration_period AS expirationPeriod , 
-        		payment.consumer_name AS consumerName ,
-        		payment.consumer_account_number AS consumerAccountNumber , 
-        		payment.consumer_city AS consumerCity ,  
-        		payment.status AS status , 
-        		payment.status_requests AS statusRequests ,  
-        		payment.source AS source , 
-        		payment.source_id AS sourceId  
+        		payment.id,
+        		payment.configuration_id,
+        		payment.purchase_id,
+        		payment.transaction_id,
+        		payment.date_gmt,
+        		payment.description,
+        		payment.amount,
+        		payment.currency,
+        		payment.language,
+        		payment.entrance_code,
+        		payment.expiration_period,
+        		payment.consumer_name,
+        		payment.consumer_account_number,
+        		payment.consumer_iban,
+        		payment.consumer_bic,
+        		payment.consumer_city  
+        		payment.status, 
+        		payment.status_requests,
+        		payment.source,
+        		payment.source_id  
 			FROM 
 	        	$table AS payment
 	        $where 
@@ -353,10 +330,12 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$result = $wpdb->update(
 			self::getPaymentsTableName(),
 			array( 
-				'status'                  => $transaction->getStatus(),
-				'consumer_name'           => $transaction->getConsumerName(),
-				'consumer_account_number' => $transaction->getConsumerAccountNumber(),
-				'consumer_city'           => $transaction->getConsumerCity() 
+				'status'                  => $payment->status,
+				'consumer_name'           => $payment->consumer_name,
+				'consumer_account_number' => $payment->consumer_account_number,
+				'consumer_iban'           => $payment->consumer_iban,
+				'consumer_bic'            => $payment->consumer_bic,
+				'consumer_city'           => $payment->consumer_city
 			),
 			array(
 				'id' => $payment->getId()
@@ -396,13 +375,34 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			'status'                  => $payment->status,
 			'consumer_name'           => $payment->consumer_name,
 			'consumer_account_number' => $payment->consumer_account_number,
+			'consumer_iban'           => $payment->consumer_iban,
+			'consumer_bic'            => $payment->consumer_bic,
 			'consumer_city'           => $payment->consumer_city,
 			'date_gmt'                => $payment->getDate()->format( 'Y-m-d H:i:s' ),
 			'source'                  => $payment->getSource(),
 			'source_id'               => $payment->getSourceId() 
 		);
 
-		$format = array( '%d', '%s', '%s', '%F', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s' );
+		$format = array( 
+			'configuration_id'        => '%d',
+			'purchase_id'             => '%s',
+			'transaction_id'          => '%s',
+			'amount'                  => '%F',
+			'currency'                => '%s',
+			'expiration_period'       => '%s',
+			'language'                => '%s',
+			'entrance_code'           => '%s',
+			'description'             => '%s',
+			'status'                  => '%s',
+			'consumer_name'           => '%s',
+			'consumer_account_number' => '%s',
+			'consumer_iban'           => '%s',
+			'consumer_bic'            => '%s',
+			'consumer_city'           => '%s',
+			'date_gmt'                => '%s',
+			'source'                  => '%s',
+			'source_id'               => '%s' 
+		);
 
 		// Insert
         if ( empty( $payment->id ) ) {
@@ -410,7 +410,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
             $result = $wpdb->insert( $table, $data, $format );
 
             if($result !== false) {
-            	$payment->setId($wpdb->insert_id);
+            	$payment->setId( $wpdb->insert_id );
             }
         } else {
             // Update
