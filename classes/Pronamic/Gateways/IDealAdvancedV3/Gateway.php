@@ -71,7 +71,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 	public function start( $data ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
-		$transaction->setPurchaseId( $data->getOrderId() );
+		$transaction->set_purchase_id( $data->getOrderId() );
 		$transaction->setAmount( $data->getAmount() );
 		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$transaction->setExpirationPeriod( 'PT3M30S' );
@@ -84,8 +84,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$error = $this->client->get_error();
 		
 		if ( $error !== null ) {
-			$error = $this->client->get_error();
-		
 			var_dump( $error );
 		} else {
 			$issuer = $result->issuer;
@@ -93,9 +91,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			$this->action_url     = $result->issuer->get_authentication_url();
 			$this->transaction_id = $result->transaction->get_id();
 		}
-		?>
-		<pre><?php var_dump( $this ); ?></pre>
-		<?php
 	}
 	
 	/////////////////////////////////////////////////
@@ -103,10 +98,10 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	public function update_status( $payment ) {
 		$result = $this->client->get_status( $payment->transaction_id );
 
-		if ( $error !== null ) {
-			$error = $this->client->get_error();
-		
-			var_dump( $error );
+		$error = $this->client->get_error();
+
+		if ( $error !== null ) {	
+			
 		} else {
 			$transaction = $result->transaction;
 
