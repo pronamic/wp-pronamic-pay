@@ -28,7 +28,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @var string
 	 */
-	private $purchaseId;
+	private $purchase_id;
 
 	/**
 	 * Amount
@@ -136,7 +136,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $id
 	 */
-	public function setId( $id ) {
+	public function set_id( $id ) {
 		$this->id = $id;
 	}
 
@@ -149,8 +149,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getPurchaseId() {
-		return $this->purchaseId;
+	public function get_purchase_id() {
+		return $this->purchase_id;
 	}
 
 	/**
@@ -160,8 +160,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $id
 	 */
-	public function setPurchaseId( $id ) {
-		$this->purchaseId = $id;
+	public function set_purchase_id( $id ) {
+		$this->purchase_id = $id;
 	}
 
 	//////////////////////////////////////////////////
