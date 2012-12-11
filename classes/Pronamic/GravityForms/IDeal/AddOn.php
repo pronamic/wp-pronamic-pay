@@ -123,7 +123,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function setup() {
 		if ( self::isGravityFormsSupported() && ( get_option( self::OPTION_VERSION ) != self::VERSION ) ) {
 			// Update tables
-			Pronamic_GravityForms_IDeal_FeedsRepository::updateTable();
+			Pronamic_GravityForms_IDeal_FeedsRepository::update_table();
 
 			// Add some new capabilities
 			$capabilities = array(
