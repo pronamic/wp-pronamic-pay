@@ -159,10 +159,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant->set_sub_id( $this->sub_id );
 
 		$message->transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
-		$message->transaction->setId( $transaction_id );
-echo '<pre>';
-echo htmlspecialchars( $message );
-echo '</pre>';
+		$message->transaction->set_id( $transaction_id );
 
 		return $this->send_message( $this->status_request_url, $message );
 	}
