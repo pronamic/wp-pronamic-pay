@@ -176,7 +176,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 
 			$gateway->update_status( $payment );
-			
+
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 	
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
