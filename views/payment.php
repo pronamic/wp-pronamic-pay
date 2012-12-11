@@ -7,8 +7,7 @@ $payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById( $id );
 $update = null;
 
 if ( isset( $_POST['status-request'] ) && $payment != null ) {
-	$transaction = $payment->transaction;
-	$status = $transaction->getStatus();
+	$status = $payment->status;
 
 	if ( ! in_array( $status, array( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN, null ), true ) ) {
 		$update = sprintf( __( 'The payment status is: %s', 'pronamic_ideal' ), Pronamic_WordPress_IDeal_IDeal::translateStatus( $status ) );
@@ -44,24 +43,15 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'ID', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $payment->getId(); ?>
+						<?php echo $payment->id; ?>
 					</td>
 				</tr>
-			</table>
-		
-			<?php if($transaction = $payment->transaction): ?>
-		
-			<h3>
-				<?php _e('Transaction', 'pronamic_ideal'); ?>
-			</h3>
-		
-			<table class="form-table">
 				<tr>
 					<th scope="row">
 						<?php _e( 'Purchase ID', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getPurchaseId(); ?>
+						<?php echo $payment->purchase_id; ?>
 					</td>
 				</tr>
 				<tr>
@@ -69,7 +59,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Transaction ID', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getId(); ?>
+						<?php echo $payment->transaction_id; ?>
 					</td>
 				</tr>
 				<tr>
@@ -77,7 +67,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Description', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getDescription(); ?>
+						<?php echo $payment->description; ?>
 					</td>
 				</tr>
 				<tr>
@@ -85,8 +75,8 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Amount', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getAmount(); ?>
-						<?php echo $transaction->getCurrency(); ?>
+						<?php echo $payment->amount; ?>
+						<?php echo $payment->currency; ?>
 					</td>
 				</tr>
 				<tr>
@@ -94,7 +84,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Expiration Period', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getExpirationPeriod(); ?>
+						<?php echo $payment->expiration_period; ?>
 					</td>
 				</tr>
 				<tr>
@@ -102,7 +92,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Status', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $transaction->getStatus() ); ?>
+						<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $payment->status ); ?>
 					</td>
 				</tr>
 			</table>
@@ -117,15 +107,31 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Name', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getConsumerName(); ?>
+						<?php echo $payment->consumer_name; ?>
 					</td>
-				</tr>		
+				</tr>
 				<tr>
 					<th scope="row">
 						<?php _e( 'Account Number', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getConsumerAccountNumber(); ?>
+						<?php echo $payment->consumer_account_number; ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<?php _e( 'IBAN', 'pronamic_ideal' ); ?>
+					</th>
+					<td>
+						<?php echo $payment->consumer_iban; ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<?php _e( 'BIC', 'pronamic_ideal' ); ?>
+					</th>
+					<td>
+						<?php echo $payment->consumer_bic; ?>
 					</td>
 				</tr>
 				<tr>
@@ -133,12 +139,10 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'City', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $transaction->getConsumerCity(); ?>
+						<?php echo $payment->consumer_city; ?>
 					</td>
 				</tr>
 			</table>
-		
-			<?php endif; ?>
 	
 			<?php if ( $configuration = $payment->configuration ) : ?>
 		
@@ -171,7 +175,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Name', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $payment->getSource(); ?>
+						<?php echo $payment->source; ?>
 					</td>
 				</tr>
 				<tr>
@@ -179,7 +183,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'ID', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo $payment->getSourceId(); ?>
+						<?php echo $payment->source_id; ?>
 					</td>
 				</tr>
 			</table>
