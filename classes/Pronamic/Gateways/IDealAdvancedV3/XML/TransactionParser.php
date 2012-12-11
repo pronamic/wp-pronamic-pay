@@ -21,11 +21,11 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionParser extends Pronamic_G
 		}
 
 		if ( $xml->transactionID ) {
-			$transaction->setId( (string) $xml->transactionID );
+			$transaction->set_id( (string) $xml->transactionID );
 		}
 
 		if ( $xml->purchaseID ) {
-			$transaction->setPurchaseId( (string) $xml->purchaseID );
+			$transaction->set_purchase_id( (string) $xml->purchaseID );
 		}
 
 		if ( $xml->status ) {
