@@ -22,6 +22,8 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Constructs and initialize an iDEAL gateway
 	 */
     public function __construct() { 
+		parent::__construct();
+
     	// Give this gateway an unique ID so Jigoshop can identiy this gateway
 		$this->id              = self::ID;
 
@@ -53,86 +55,75 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		add_option( 'jigoshop_pronamic_ideal_title', __( 'iDEAL', 'pronamic_ideal' ) );
 		add_option( 'jigoshop_pronamic_ideal_description', __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' ) );
 		add_option( 'jigoshop_pronamic_ideal_configuration_id', '' );
-    } 
+    }
 
 	//////////////////////////////////////////////////
-    
+
 	/**
-	 * Admin Panel Options 
-	 * - Options for bits like 'title' and availability on a country-by-country basis
-	 *
-	 * @since 1.0.0
-	 */
-	public function admin_options() {
-    	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configuration_options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
-    	foreach($configurations as $configuration) {
-    		$configuration_options[$configuration->getId()] = $configuration->getName();
+	 * Get default options
+	 * 
+	 * @return array
+	 */	
+	protected function get_default_options() {
+		$defaults = array();
+		
+		// Section
+		$defaults[] = array( 
+			'name' => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
+			'type' => 'title',
+			'desc' => __( 'Allow iDEAL payments.', 'pronamic_ideal' )
+		);
+
+		// Options
+		$defaults[] = array(
+			'name'		=> __( 'Enable iDEAL', 'pronamic_ideal' ),
+			'desc' 		=> '',
+			'tip' 		=> '',
+			'id' 		=> 'jigoshop_pronamic_ideal_enabled',
+			'std' 		=> 'yes',
+			'type' 		=> 'checkbox',
+			'choices'	=> array(
+				'no'			=> __( 'No', 'pronamic_ideal' ),
+				'yes'			=> __( 'Yes', 'pronamic_ideal' )
+			)
+		);
+
+		$defaults[] = array(
+			'name'		=> __( 'Title', 'pronamic_ideal' ),
+			'desc' 		=> '',
+			'tip' 		=> __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ),
+			'id' 		=> 'jigoshop_pronamic_ideal_title',
+			'std' 		=> __( 'iDEAL', 'pronamic_ideal' ),
+			'type' 		=> 'text'
+		);
+		
+		$defaults[] = array(
+			'name'		=> __( 'Description', 'pronamic_ideal' ),
+			'desc' 		=> '',
+			'tip' 		=> __( 'This controls the description which the user sees during checkout.', 'pronamic_ideal' ),
+			'id' 		=> 'jigoshop_pronamic_ideal_description',
+			'std' 		=> '',
+			'type' 		=> 'longtext'
+		);
+		
+		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
+    	$choices = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
+    	foreach ( $configurations as $configuration ) {
+    		$choices[$configuration->getId()] = $configuration->getName();
     	}
+		
+		$defaults[] = array(
+			'name'		=> __( 'Configuration', 'pronamic_ideal' ),
+			'desc' 		=> '',
+			'tip' 		=> '',
+			'id' 		=> 'jigoshop_pronamic_ideal_configuration_id',
+			'std' 		=> '',
+			'type' 		=> 'select',
+			'choices'	=> $choices
+		);
 
-    	?>
-    	<thead>
-    		<tr>
-    			<th scope="col" colspan="2">
-    				<h3 class="title">
-    					<?php _e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?>
-    				</h3>
-    				
-    				<p>
-    					<?php _e( 'Allow iDEAL payments.', 'pronamic_ideal' ); ?>
-    				</p>
-    			</th>
-    		</tr>
-    	</thead>
-		<tr>
-			<td class="titledesc">
-				<?php _e( 'Enable iDEAL', 'pronamic_ideal' ); ?>:
-			</td>
-			<td class="forminp">
-				<select name="jigoshop_pronamic_ideal_enabled" id="jigoshop_pronamic_ideal_enabled" style="min-width:100px;">
-					<option value="yes" <?php selected( $this->enabled, 'yes' ); ?>><?php _e( 'Yes', 'pronamic_ideal' ); ?></option>
-					<option value="no" <?php selected( $this->enabled, 'no' ); ?>><?php _e( 'No', 'pronamic_ideal' ); ?></option>
-				</select>
-	        </td>
-	    </tr>
-	    <tr>
-	        <td class="titledesc"><a href="#" tip="<?php _e( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ) ?>" class="tips" tabindex="99"></a><?php _e( 'Title', 'pronamic_ideal' ); ?>:</td>
-	        <td class="forminp">
-		        <input class="input-text" type="text" name="jigoshop_pronamic_ideal_title" id="jigoshop_pronamic_ideal_title" style="min-width:50px;" value="<?php if ( $value = get_option( 'jigoshop_pronamic_ideal_title' ) ) echo $value; else _e( 'iDEAL', 'pronamic_ideal' ); ?>" />
-	        </td>
-	    </tr>
-	    <tr>
-	        <td class="titledesc"><a href="#" tip="<?php _e( 'This controls the description which the user sees during checkout.', 'pronamic_ideal' ) ?>" class="tips" tabindex="99"></a><?php _e( 'Description', 'pronamic_ideal' ) ?>:</td>
-	        <td class="forminp">
-		        <input class="input-text wide-input" type="text" name="jigoshop_pronamic_ideal_description" id="jigoshop_pronamic_ideal_description" style="min-width:50px;" value="<?php if ( $value = get_option( 'jigoshop_pronamic_ideal_description' ) ) echo $value; ?>" />
-	        </td>
-	    </tr>
-		<tr>
-			<td class="titledesc">
-				<?php _e( 'Configuration', 'pronamic_ideal' ); ?>:
-			</td>
-			<td class="forminp">
-				<select name="jigoshop_pronamic_ideal_configuration_id" id="jigoshop_pronamic_ideal_configuration_id" style="min-width:100px;">
-					<?php foreach ( $configuration_options as $id => $name ): ?>
-						<option value="<?php echo $id; ?>" <?php selected( $this->configurationId, $id ); ?>><?php echo $name; ?></option>
-					<?php endforeach; ?>
-				</select>
-	        </td>
-	    </tr>
-    	<?php
-    }
-
-	//////////////////////////////////////////////////
-
-    /**
-     * Process admin options
-     */
-    public function update_options() {
-    	if ( isset( $_POST['jigoshop_pronamic_ideal_enabled'] ) )          update_option( 'jigoshop_pronamic_ideal_enabled', jigowatt_clean( $_POST['jigoshop_pronamic_ideal_enabled'] ) ); else @delete_option( 'jigoshop_pronamic_ideal_enabled' );
-   		if ( isset( $_POST['jigoshop_pronamic_ideal_title'] ) )            update_option( 'jigoshop_pronamic_ideal_title', jigowatt_clean( $_POST['jigoshop_pronamic_ideal_title'] ) ); else @delete_option( 'jigoshop_pronamic_ideal_title' );
-   		if ( isset( $_POST['jigoshop_pronamic_ideal_description'] ) )      update_option( 'jigoshop_pronamic_ideal_description', jigowatt_clean( $_POST['jigoshop_pronamic_ideal_description'] ) ); else @delete_option( 'jigoshop_pronamic_ideal_description' );
-    	if ( isset( $_POST['jigoshop_pronamic_ideal_configuration_id'] ) ) update_option( 'jigoshop_pronamic_ideal_configuration_id', jigowatt_clean( $_POST['jigoshop_pronamic_ideal_configuration_id'] ) ); else @delete_option( 'jigoshop_pronamic_ideal_configuration_id' );
-    }
+		return $defaults;
+	}
 
 	//////////////////////////////////////////////////
 
