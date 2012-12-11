@@ -95,7 +95,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @var string
 	 */
-	private $consumerName;
+	private $consumer_name;
 
 	/**
 	 * Consumer IBAN
@@ -110,20 +110,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * @var string
 	 */
 	private $consumer_bic;
-
-	/**
-	 * The consumer account number
-	 * 
-	 * @var string
-	 */
-	private $consumerAccountNumber;
-
-	/**
-	 * The consumer city
-	 * 
-	 * @var string
-	 */
-	private $consumerCity;
 
 	//////////////////////////////////////////////////
 
@@ -315,7 +301,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getStatus() {
+	public function get_status() {
 		return $this->status;
 	}
 
@@ -324,7 +310,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $status
 	 */
-	public function setStatus( $status ) {
+	public function set_status( $status ) {
 		$this->status = $status;
 	}
 
@@ -335,8 +321,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getConsumerName() {
-		return $this->consumerName;
+	public function get_consumer_name() {
+		return $this->consumer_name;
 	}
 
 	/**
@@ -344,8 +330,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $status
 	 */
-	public function setConsumerName( $name ) {
-		$this->consumerName = $name;
+	public function set_consumer_name( $name ) {
+		$this->consumer_name = $name;
 	}
 
 	//////////////////////////////////////////////////

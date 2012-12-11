@@ -116,8 +116,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 				return Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage::parse( $document );
 			case Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage::NAME:
 				return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage::parse( $document );
-			case Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::NAME:
-				return Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::parse($document);
+			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::NAME:
+				return Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::parse( $document );
 			default:
 				return null;
 		}

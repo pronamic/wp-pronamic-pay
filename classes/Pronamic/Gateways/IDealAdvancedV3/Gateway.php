@@ -103,22 +103,17 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	public function update_status( $payment ) {
 		$result = $this->client->get_status( $payment->transaction_id );
 
-			echo '<pre>';
-			var_dump( $result );
-			echo '</pre>';
-
-		$error = $this->client->get_error();
-		
 		if ( $error !== null ) {
 			$error = $this->client->get_error();
 		
 			var_dump( $error );
 		} else {
-			echo '<pre>';
-			var_dump( $result );
-			echo '</pre>';
-			
-			exit;
+			$transaction = $result->transaction;
+
+			$payment->status        = $transaction->get_status();
+			$payment->consumer_name = $transaction->get_consumer_name();
+			$payment->consumer_iban = $transaction->get_consumer_iban();
+			$payment->consumer_bic  = $transaction->get_consumer_bic();
 		}
 	}
 }

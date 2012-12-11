@@ -29,19 +29,19 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionParser extends Pronamic_G
 		}
 
 		if ( $xml->status ) {
-			$transaction->setStatus( (string) $xml->status );
+			$transaction->set_status( (string) $xml->status );
 		}
 
 		if ( $xml->consumerName ) {
-			$transaction->setConsumerName( (string) $xml->consumerName );
+			$transaction->set_consumer_name( (string) $xml->consumerName );
 		}
 
-		if ( $xml->consumerAccountNumber ) {
-			$transaction->setConsumerAccountNumber( (string) $xml->consumerAccountNumber );
+		if ( $xml->consumerIBAN ) {
+			$transaction->set_consumer_iban( (string) $xml->consumerIBAN );
 		}
 
-		if ( $xml->consumerCity ) {
-			$transaction->setConsumerCity( (string) $xml->consumerCity );
+		if ( $xml->consumerBIC ) {
+			$transaction->set_consumer_bic( (string) $xml->consumerBIC );
 		}
 
 		return $transaction;
