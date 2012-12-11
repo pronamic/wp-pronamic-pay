@@ -12,7 +12,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	/**
 	 * Update table
 	 */
-	public static function updateTable() {
+	public static function update_table() {
         require_once ABSPATH . '/wp-admin/includes/upgrade.php';
 
 		global $wpdb;
@@ -132,37 +132,37 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		// Where
 		$where = ' WHERE 1 = 1';
 
-		if(isset($query['payment_id'])) {
-			$where .= $wpdb->prepare(' AND payment.id = %s', $query['payment_id']);
+		if ( isset( $query['payment_id'] ) ) {
+			$where .= $wpdb->prepare( ' AND payment.id = %s', $query['payment_id'] );
 		}
 		
-		if(isset($query['purchase_id'])) {
-			$where .= $wpdb->prepare(' AND payment.purchase_id = %s', $query['purchase_id']);
+		if ( isset( $query['purchase_id'] ) ) {
+			$where .= $wpdb->prepare(' AND payment.purchase_id = %s', $query['purchase_id'] );
 		}
 		
-		if(isset($query['transaction_id'])) {
-			$where .= $wpdb->prepare(' AND payment.transaction_id = %s', $query['transaction_id']);
+		if ( isset( $query['transaction_id'] ) ) {
+			$where .= $wpdb->prepare(' AND payment.transaction_id = %s', $query['transaction_id'] );
 		}
 
-		if(isset($query['entrance_code'])) {
-			$where .= $wpdb->prepare(' AND payment.entrance_code = %s', $query['entrance_code']);
+		if ( isset( $query['entrance_code'] ) ) {
+			$where .= $wpdb->prepare( ' AND payment.entrance_code = %s', $query['entrance_code'] );
 		}
 
-		if(isset($query['source'])) {
-			$where .= $wpdb->prepare(' AND payment.source = %s', $query['source']);
+		if ( isset( $query['source'] ) ) {
+			$where .= $wpdb->prepare( ' AND payment.source = %s', $query['source'] );
 		}
 
-		if(isset($query['source_id'])) {
-			$where .= $wpdb->prepare(' AND payment.source_id = %s', $query['source_id']);
+		if ( isset( $query['source_id'] ) ) {
+			$where .= $wpdb->prepare( ' AND payment.source_id = %s', $query['source_id'] );
 		}
 
-		if(isset($query['s'])) {
+		if ( isset( $query['s'] ) ) {
 			$term = $query['s'];
 			
-			if(!empty($term)) {
+			if ( ! empty( $term ) ) {
 				$n = '%';
 					
-				$term = esc_sql(like_escape($term));
+				$term = esc_sql( like_escape( $term ) );
 
 				$conditions = array();
 
@@ -177,7 +177,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 					'consumer_city'
 				);
 
-				foreach($columns as $column) {
+				foreach ( $columns as $column ) {
 					$conditions[] = "payment.{$column} LIKE '{$n}{$term}{$n}'";
 				}
 	
@@ -189,17 +189,17 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		
 		// Limit
 		$limit = '';
-		if(isset($query['number'])) {
-			if(isset($query['offset'])) {
-				$limit = $wpdb->prepare("LIMIT %d, %d", $query['offset'], $query['number']);
+		if ( isset( $query['number'] ) ) {
+			if ( isset( $query['offset'] ) ) {
+				$limit = $wpdb->prepare( "LIMIT %d, %d", $query['offset'], $query['number'] );
 			} else {
-				$limit = $wpdb->prepare("LIMIT %d", $query['number']);
+				$limit = $wpdb->prepare( "LIMIT %d", $query['number'] );
 			}
 		}
 
 		// Order by
-		$query['order'] = strtoupper($query['order']);
-		if($query['order'] == 'ASC') {
+		$query['order'] = strtoupper( $query['order'] );
+		if ( $query['order'] == 'ASC' ) {
 			$order = 'ASC';
 		} else {
 			$order = 'DESC';
@@ -226,11 +226,11 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         		payment.consumer_account_number,
         		payment.consumer_iban,
         		payment.consumer_bic,
-        		payment.consumer_city  
-        		payment.status, 
+        		payment.consumer_city,
+        		payment.status,
         		payment.status_requests,
         		payment.source,
-        		payment.source_id  
+        		payment.source_id
 			FROM 
 	        	$table AS payment
 	        $where 
@@ -324,8 +324,6 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      */
     public static function updateStatus( Pronamic_WordPress_IDeal_Payment $payment ) {
 		global $wpdb;
-
-		$transaction = $payment->transaction;
 
 		$result = $wpdb->update(
 			self::getPaymentsTableName(),
