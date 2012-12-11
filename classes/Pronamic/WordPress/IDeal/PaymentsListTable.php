@@ -55,7 +55,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 			$args['order'] = $_REQUEST['order'];
 		}
 
-		if ( isset($_REQUEST['s'] ) ) {
+		if ( isset( $_REQUEST['s'] ) ) {
 			$args['s'] = $_REQUEST['s'];
 		}
 
@@ -124,9 +124,6 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 				$date->setTimezone( new DateTimeZone( $timezone ) );
 			}
 
-			// Transaction
-			$transaction = $payment->transaction;
-
 			// Iterate through the columns
 			foreach ( $columns as $column_name => $column_display_name ) {
 				$class = "class='column-$column_name'";
@@ -154,7 +151,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 						?>
 						<td <?php echo $attributes ?>>
 							<a href="<?php echo $detailsLink; ?>" title="<?php _e( 'Details', 'pronamic_ideal' ); ?>">
-								<?php echo $transaction->getId(); ?> 
+								<?php echo $payment->transaction_id; ?> 
 							</a>
 						</td>
 						<?php
@@ -162,31 +159,41 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'purchase_id':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo $transaction->getPurchaseId(); ?> 
+							<?php echo $payment->purchase_id; ?> 
 						</td>
 						<?php
 						break;
 					case 'description':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo $transaction->getDescription(); ?>
+							<?php echo $payment->description; ?>
 						</td>
 						<?php
 						break;
 					case 'consumer':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo $transaction->getConsumerName(); ?><br />
-							<?php echo $transaction->getConsumerAccountNumber(); ?><br />
-							<?php echo $transaction->getConsumerCity(); ?>
+							<?php 
+							
+							$data = array_filter( array( 
+								$payment->consumer_name,
+								$payment->consumer_account_number,
+								$payment->consumer_iban,
+								$payment->consumer_bic,
+								$payment->consumer_city
+							) );
+							
+							echo implode( '<br />', $data );
+							
+							?>
 						</td>
 						<?php
 						break;
 					case 'amount':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo $transaction->getAmount(); ?>
-							<?php echo $transaction->getCurrency(); ?>
+							<?php echo $payment->amount; ?>
+							<?php echo $payment->currency; ?>
 						</td>
 						<?php
 						break;
@@ -195,8 +202,8 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 						<td <?php echo $attributes ?>>
 							<?php 
 							
-							$text = $payment->getSource() . '<br />' . $payment->getSourceId();
-							$text = apply_filters( 'pronamic_ideal_source_column_' . $payment->getSource(), $text, $payment );
+							$text = $payment->source . '<br />' . $payment->source_id;
+							$text = apply_filters( 'pronamic_ideal_source_column_' . $payment->source, $text, $payment );
 							$text = apply_filters( 'pronamic_ideal_source_column', $text, $payment );
 							
 							echo $text;
@@ -208,7 +215,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'status':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $transaction->getStatus() ); ?>
+							<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $payment->status ); ?>
 						</td>
 						<?php
 						break;
