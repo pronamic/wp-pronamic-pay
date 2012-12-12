@@ -10,7 +10,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 	$status = $payment->status;
 
 	if ( ! in_array( $status, array( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN, null ), true ) ) {
-		$update = sprintf( __( 'The payment status is: %s', 'pronamic_ideal' ), Pronamic_WordPress_IDeal_IDeal::translateStatus( $status ) );
+		$update = sprintf( __( 'The payment status is: %s', 'pronamic_ideal' ), Pronamic_WordPress_IDeal_IDeal::translate_status( $status ) );
 	}
 }
 
@@ -92,7 +92,7 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 						<?php _e( 'Status', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $payment->status ); ?>
+						<?php echo Pronamic_WordPress_IDeal_IDeal::translate_status( $payment->status ); ?>
 					</td>
 				</tr>
 			</table>

@@ -215,7 +215,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 					case 'status':
 						?>
 						<td <?php echo $attributes ?>>
-							<?php echo Pronamic_WordPress_IDeal_IDeal::translateStatus( $payment->status ); ?>
+							<?php echo Pronamic_WordPress_IDeal_IDeal::translate_status( $payment->status ); ?>
 						</td>
 						<?php
 						break;

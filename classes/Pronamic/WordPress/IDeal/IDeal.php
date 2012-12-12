@@ -230,7 +230,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * @param string $status
 	 * @return string
 	 */
-	public static function translateStatus($status) {
+	public static function translate_status($status) {
 		switch ( $status ) {
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 				return __( 'Cancelled', 'pronamic_ideal' );
