@@ -127,9 +127,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			// Add some new capabilities
 			$capabilities = array(
-				'read'                         => true,
-				'gravityforms_ideal'           => true,
-				'gravityforms_ideal_uninstall' => true
+				'read'               => true,
+				'gravityforms_ideal' => true
 			);
 			
 			$roles = array(
@@ -148,19 +147,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			// Update version
 			update_option( self::OPTION_VERSION, self::VERSION );
 		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Uninstall
-	 */
-	public static function uninstall() {
-		// Drop tables
-		Pronamic_GravityForms_IDeal_FeedsRepository::dropTables();
-
-		// Delete options
-		delete_option( self::OPTION_VERSION );
 	}
 
 	//////////////////////////////////////////////////

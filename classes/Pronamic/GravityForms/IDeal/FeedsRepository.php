@@ -43,17 +43,6 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
     }
 
 	//////////////////////////////////////////////////
-    
-    /**
-     * Drop the tables
-     */
-    public static function dropTables() {
-		global $wpdb;
-
-		$wpdb->query('DROP TABLE IF EXISTS ' . self::getFeedsTableName());
-    }
-
-	//////////////////////////////////////////////////
 
     /**
      * Get the iDEAL feeds table name
