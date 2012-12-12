@@ -141,42 +141,4 @@ class Pronamic_Gateways_IDealAdvanced_Security {
 
         return $ok;
     }
-   
-    public static function test() {
-		// Input
-		$privateKeyPassword = 'Password';
-		
-		// DN
-		$dn = array(
-			'countryName' => 'NL' , 
-			'stateOrProvinceName' => 'Friesland' , 
-			'localityName' => 'Wijnjewoude' , 
-			'organizationName' => 'Pronamic' ,
-			'organizationalUnitName' => 'iDEAL team' , 
-			'commonName' => 'Pronamic' , 
-			'emailAddress' => 'info@pronamic.nl'
-		);
-		
-		// Generate a new private key
-		$privateKeyResource = openssl_pkey_new(array(
-			'private_key_bits' => 1024 , 
-			'private_key_type' => OPENSSL_KEYTYPE_RSA 
-		));
-		
-		// Generate a new CSR (Certificate Signing Request) based on the information provided 
-		// by dn, which represents the Distinguished Name to be used in the certificate.
-		$csr = openssl_csr_new($dn, $privateKeyResource); 
-		
-		// Sign a CSR with another certificate (or itself) and generate a certificate
-		$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, 365);
-		
-		// Export a certificate as a string
-		// stores x509 into a string named by output in a PEM encoded format. 
-		$certificateString = '';
-		$result = openssl_x509_export($certificateResource, $certificateString);
-		
-		// Gets an exportable representation of a key into a string
-		$privateKeyString = '';
-		$result = openssl_pkey_export($privateKeyResource, $privateKeyString, $privateKeyPassword); 
-    }
 }
