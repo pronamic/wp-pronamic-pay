@@ -64,6 +64,10 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/////////////////////////////////////////////////
 	
+	public function get_issuer_field() {
+		return null;
+	}
+
 	public function get_issuers() {
 		
 	}
