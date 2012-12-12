@@ -45,7 +45,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 	/**
 	 * Render entry info of the specified form and lead
 	 * 
-	 * @param string $formId
+	 * @param string $form_id
 	 * @param array $lead
 	 * @todo check third parameter
 	 */
