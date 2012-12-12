@@ -43,10 +43,10 @@ class Pronamic_IDeal_Item {
 	 * Constructs and initialize a iDEAL basic item
 	 */
 	public function __construct() {
-		$this->number = '';
+		$this->number      = '';
 		$this->description = '';
-		$this->quantity = 1;
-		$this->price = 0;
+		$this->quantity    = 1;
+		$this->price       = 0;
 	}
 
 	//////////////////////////////////////////////////

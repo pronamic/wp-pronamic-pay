@@ -24,6 +24,8 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	public function get_source_id() {
 		return $this->getOrderId();
 	}
+
+	//////////////////////////////////////////////////
 	
 	public abstract function getDescription();
 
