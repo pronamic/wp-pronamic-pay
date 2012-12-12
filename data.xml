@@ -90,7 +90,7 @@
 			</live>
 
 			<certificates>
-				<file>certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer</file>
+				<file>certificates/abnamro-ideal-zelfbouw-v3/abnamro.cer</file>
 			</certificates>
 		</variant>
 	</provider>
@@ -218,7 +218,7 @@
 			</live>
 
 			<certificates>
-				<file>certificates/frieslandbank-ideal-zakelijk-plus-v3/?.cer</file>
+				<file>certificates/frieslandbank-ideal-zakelijk-plus-v3/frieslandbank.cer</file>
 			</certificates>
 		</variant>
 	</provider>
@@ -336,7 +336,7 @@
 			</live>
 
 			<certificates>
-				<file>certificates/ing-ideal-advanced-v3/?.cer</file>
+				<file>certificates/ing-ideal-advanced-v3/ingbank.cer</file>
 			</certificates>
 		</variant>
 	</provider>
@@ -502,6 +502,23 @@
 			<certificates>
 				<file>certificates/rabobank-ideal-professional/ideal_v3.cer</file>
 				<file>certificates/rabobank-ideal-professional/ideal_v2.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced">
+			<id>rabobank-ideal-professional-v3</id>
+			<name>Rabobank - iDEAL Professional - v3</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.rabobank.nl/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/rabobank-ideal-professional-v3/rabobank.cer</file>
 			</certificates>
 		</variant>
 	</provider>
