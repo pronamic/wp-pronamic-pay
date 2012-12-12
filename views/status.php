@@ -10,7 +10,7 @@
 	</p>
 
 	<?php 
-	
+
 	$url = 'http://www.ideal-status.nl/static/issuers_current.json';
 
 	$response = wp_remote_get( $url );
@@ -20,7 +20,7 @@
 	if ( ! is_wp_error( $response ) ) {
 		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 			$body = wp_remote_retrieve_body( $response );
-			
+
 			$data = json_decode( $body );
 
 			if ( $data !== false ) {
@@ -31,7 +31,7 @@
 
 	if ( $status_data ): ?>
 	
-		<table>
+		<table class="wp-list-table widefat" style="width: auto;">
 			<thead>
 				<tr>
 					<th scope="col">
