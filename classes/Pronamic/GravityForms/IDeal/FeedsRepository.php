@@ -182,11 +182,11 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
         $activeClause = $active ? ' AND feed.is_active' : '';
 
-        $query = $wpdb->prepare(self::getFeedQuery("
+        $query = $wpdb->prepare( self::getFeedQuery("
         	WHERE 
         		feed.id = %d 
         		$activeClause
-        	") , $id
+        	"), $id
         );
 
         return self::getFeedByQuery($query);
@@ -206,11 +206,11 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
         $activeClause = $active ? ' AND feed.is_active' : '';
 
-        $query = $wpdb->prepare(self::getFeedQuery("
+        $query = $wpdb->prepare( self::getFeedQuery("
         	WHERE 
         		feed.form_id = %d 
         		$activeClause
-        	") , $id
+        	"), $id
         );
 
         return self::getFeedByQuery($query);
@@ -267,7 +267,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
     public static function updateFeed($feed) {
 		global $wpdb;
 
-		$feedTable = self::getFeedsTableName();
+		$feed_table = self::getFeedsTableName();
 
 		$configurationId = $feed->getIDealConfiguration() == null ? null : $feed->getIDealConfiguration()->getId();
 
@@ -282,14 +282,14 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
 		if(empty($feed->id)) {
 			// Insert
-			$result = $wpdb->insert($feedTable, $data, $format);
+			$result = $wpdb->insert( $feed_table, $data, $format);
 
 			if($result !== false) {
 				$feed->id = $wpdb->insert_id;
 			}
         } else {
             // Update
-			$result = $wpdb->update($feedTable, $data, array('id' => $feed->id), $format, array('%d'));
+			$result = $wpdb->update( $feed_table, $data, array('id' => $feed->id), $format, array('%d'));
         }
 
         return $feed->id;
@@ -305,17 +305,17 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 	public static function deleteFeeds(array $ids) {
 		global $wpdb;
 
-		$tableName = self::getFeedsTableName();
+		$feed_table = self::getFeedsTableName();
 		
-		$list = implode(',', array_map('absint', $ids));
+		$list = implode( ',', array_map( 'absint', $ids ) );
 
-		$query = $wpdb->prepare("
+		$query = "
 			DELETE 
 			FROM 
-				$tableName 
+				$feed_table 
 			WHERE 
 				id IN ($list)
-			");
+		";
 
         return $wpdb->query($query);
     }

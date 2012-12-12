@@ -293,13 +293,13 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		
 		$list = implode(',', array_map('absint', $ids));
 
-		$query = $wpdb->prepare("
+		$query = "
 			DELETE 
 			FROM 
 				$table 
 			WHERE 
 				id IN ($list)
-			");
+		";
 
         return $wpdb->query($query);
     }

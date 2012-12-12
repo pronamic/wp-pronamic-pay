@@ -17,12 +17,12 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		global $wpdb;
 
-		$charsetCollate = '';
-        if(!empty($wpdb->charset)) {
-            $charsetCollate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
+		$charset_collate = '';
+        if ( ! empty( $wpdb->charset ) ) {
+            $charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
         }
-        if(!empty($wpdb->collate)) {
-            $charsetCollate .= ' COLLATE ' . $wpdb->collate;
+        if ( ! empty( $wpdb->collate ) ) {
+            $charset_collate .= ' COLLATE ' . $wpdb->collate;
         }
 
         // iDEAL payments table
@@ -52,9 +52,9 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			PRIMARY KEY  (id),
 			KEY configuration_id (configuration_id),
 			UNIQUE (entrance_code)
-			) $charsetCollate;";
+			) $charset_collate;";
 
-        dbDelta($sql);
+        dbDelta( $sql );
     }
 
 	//////////////////////////////////////////////////
@@ -358,7 +358,6 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$table = self::getPaymentsTableName();
 
 		$configuration = $payment->configuration;
-		$transaction = $payment->transaction;
 
 		$data = array( 
 			'configuration_id'        => $configuration->getId(),
