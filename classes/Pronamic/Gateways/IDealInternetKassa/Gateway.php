@@ -46,7 +46,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	
 	/////////////////////////////////////////////////
 
-	public function get_html_fields() {
+	public function get_output_html() {
 		return $this->client->getHtmlFields();
 	}
 }
