@@ -74,8 +74,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybe_delay_post_creation' ), 10, 3 );
 			}
 
-			add_action( 'admin_init', array( __CLASS__, 'maybeRedirectToEntry' ) );
-
 			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'updateStatus' ), 10, 2 );
 
 			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
@@ -148,7 +146,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $lead
 	 * @param Feed $feed
 	 */
-	private static function maybeUpdateUserRole( $lead, $feed ) {
+	private static function maybe_update_user_role( $lead, $feed ) {
 		$user = false;
 
 		// Gravity Forms User Registration Add-On 
@@ -157,9 +155,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		} 
 		
 		if ( $user == false ) {
-			$createdBy = $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERY_CREATED_BY];
+			$created_by = $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERY_CREATED_BY];
 				
-			$user = new WP_User( $createdBy );
+			$user = new WP_User( $created_by );
 		}
 
 		if ( $user && !empty( $feed->userRoleFieldId ) && isset( $lead[$feed->userRoleFieldId] ) ) {
@@ -253,7 +251,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
         $feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
 
         if ( $feed !== null ) {
-        	self::maybeUpdateUserRole( $entry, $feed );
+        	self::maybe_update_user_role( $entry, $feed );
 
 			if ( $feed->delayAdminNotification ) {
 				GFCommon::send_admin_notification( $formMeta, $entry );
@@ -271,36 +269,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
         // The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
         do_action( 'gform_ideal_fulfillment', $entry, $feed );
     }
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Maybed redirect to Gravity Forms entry
-	 */
-	public static function maybeRedirectToEntry() {
-		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
-		if ( $page == 'gf_pronamic_ideal' ) {
-			$leadId = filter_input( INPUT_GET, 'lid', FILTER_SANITIZE_STRING );
-
-			if ( !empty( $leadId ) ) {
-				$lead = RGFormsModel::get_lead( $leadId );
-
-				if ( !empty($lead ) ) {
-					$url = add_query_arg( array(
-						'page' => 'gf_entries',
-						'view' => 'entry',
-						'id'   => $lead['form_id'],
-						'lid'  => $leadId,
-						),  admin_url('admin.php')
-					);
-
-					wp_redirect( $url, 303 );
-					
-					exit;
-				}
-			}
-		}
-	}
 
 	/**
 	 * Get the edit link for the specfied feed id

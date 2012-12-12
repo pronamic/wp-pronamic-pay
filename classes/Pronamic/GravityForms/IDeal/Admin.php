@@ -20,6 +20,9 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10 );
 
+		// Actions
+		add_action( 'admin_init',               array( __CLASS__, 'maybe_redirect_to_entry' ) );
+
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
 	}
@@ -122,6 +125,36 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 */
 	public static function page_feed_edit() {
 		return Pronamic_WordPress_IDeal_Admin::renderView( 'gravityforms/feed-edit' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybed redirect to Gravity Forms entry
+	 */
+	public static function maybe_redirect_to_entry() {
+		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
+
+		if ( $page == 'gf_pronamic_ideal' ) {
+			$lead_id = filter_input( INPUT_GET, 'lid', FILTER_SANITIZE_STRING );
+
+			if ( ! empty( $lead_id ) ) {
+				$lead = RGFormsModel::get_lead( $lead_id );
+
+				if ( ! empty($lead ) ) {
+					$url = add_query_arg( array(
+						'page' => 'gf_entries',
+						'view' => 'entry',
+						'id'   => $lead['form_id'],
+						'lid'  => $lead_id,
+					),  admin_url('admin.php') );
+
+					wp_redirect( $url, 303 );
+
+					exit;
+				}
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
