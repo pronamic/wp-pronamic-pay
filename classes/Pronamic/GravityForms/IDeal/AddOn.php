@@ -60,20 +60,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		if ( self::isGravityFormsSupported() ) {
 			// Admin
 			if ( is_admin() ) {
-				add_filter( 'gform_addon_navigation',   array( __CLASS__, 'createMenu' ) );
-				
-				add_filter( 'gform_entry_info',         array( __CLASS__, 'entryInfo' ), 10, 3 );
-				
-				add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10 );
-	
-				RGForms::add_settings_page(
-					__( 'iDEAL', 'pronamic_ideal' ), 
-					array( __CLASS__, 'pageSettings' ) , 
-					plugins_url( '/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file )
-				);
-	
-				// AJAX
-				add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajaxGetFormData' ) );
+				Pronamic_GravityForms_IDeal_Admin::bootstrap();
 			} else {
 				// @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 				add_filter( 'gform_confirmation',     array( __CLASS__, 'handleIDeal' ), 10, 4 );
@@ -288,24 +275,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Render entry info of the specified form and lead
-	 * 
-	 * @param string $formId
-	 * @param array $lead
-	 */
-	public static function entryInfo( $formId, $lead ) {
-		if ( false ):
-
-			_e( 'iDEAL', 'pronamic_ideal' ); ?>: 
-			<a href="#" target="_blank">transaction 1</a>
-			<br /><br /><?php
-		
-		endif;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Maybed redirect to Gravity Forms entry
 	 */
 	public static function maybeRedirectToEntry() {
@@ -331,85 +300,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				}
 			}
 		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Create the admin menu
-	 */
-	public static function createMenu( $menus ) {
-		$permission = 'gravityforms_ideal';
-
-		$menus[] = array(
-			'name'       => 'gf_pronamic_ideal',
-			'label'      => __( 'iDEAL', 'pronamic_ideal' ),
-			'callback'   =>  array( __CLASS__, 'page' ),
-			'permission' => $permission
-		);
-
-        return $menus;
-	}
-	
-	/**
-	 * Handle AJAX request get form data
-	 */
-	public static function ajaxGetFormData() {
-		$formId = filter_input( INPUT_GET, 'formId', FILTER_SANITIZE_STRING );
-		
-		$result = new stdClass();
-		$result->success = true;
-		$result->data    = RGFormsModel::get_form_meta( $formId );
-
-		// Output
-		header( 'Content-Type: application/json' );
-
-		echo json_encode( $result );
-
-		die();
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Page
-	 */
-	public static function page() {
-		$entryId = filter_input( INPUT_GET, 'lid', FILTER_SANITIZE_STRING );
-
-		if ( !empty( $entryId ) ) {
-			
-		}
-
-		$view = filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING );
-		
-		switch( $view ) {
-			case 'edit':
-				return self::pageFeedEdit();
-			default:
-				return self::pageFeeds();
-		}
-	}
-	
-	/**
-	 * Page list
-	 */
-	public static function pageFeeds() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 'gravityforms/feeds' );
-	}
-	
-	/**
-	 * Page edit
-	 */
-	public static function pageFeedEdit() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 'gravityforms/feed-edit' );
-	}
-	
-	/**
-	 * Page settings
-	 */
-	public static function pageSettings() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 'configurations-form' );
 	}
 
 	/**
@@ -716,35 +606,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
         // Return
         return $confirmation;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Custom merge tags
-	 */
-	public static function custom_merge_tags( $merge_tags ) {
-		$merge_tags[] = array(
-			'label' => __( 'Payment Status', 'pronamic_ideal' ), 
-			'tag'   => '{payment_status}'
-		);
-
-		$merge_tags[] = array(
-			'label' => __( 'Payment Date', 'pronamic_ideal' ),
-			'tag'   => '{payment_date}'
-		);
-
-		$merge_tags[] = array(
-			'label' => __( 'Transaction Id', 'pronamic_ideal' ),
-			'tag'   => '{transaction_id}'
-		);
-
-		$merge_tags[] = array(
-			'label' => __( 'Payment Amount', 'pronamic_ideal' ),
-			'tag'   => '{payment_amount}'
-		);
-
-		return $merge_tags;
 	}
 
 	/**
