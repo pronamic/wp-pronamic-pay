@@ -69,9 +69,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	            add_action( 'gform_after_submission', array( __CLASS__, 'setEntryMeta' ), 5, 2 );
 
 	            // Delay
-	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybeDelayAdminNotification' ), 10, 3 );
-	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybeDelayUserNotification' ), 10, 3 );
-				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybeDelayPostCreation' ), 10, 3 );
+	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
+	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybe_delay_user_notification' ), 10, 3 );
+				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybe_delay_post_creation' ), 10, 3 );
 			}
 
 			add_action( 'admin_init', array( __CLASS__, 'maybeRedirectToEntry' ) );
@@ -414,16 +414,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $lead
 	 * @return boolean true if admin notification is disabled / delayed, false otherwise
 	 */
-	public static function maybeDelayAdminNotification( $isDisabled, $form, $lead ) {
+	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::isConditionTrue( $form, $feed ) ) {
-				$isDisabled = $feed->delayAdminNotification;
+				$is_disabled = $feed->delayAdminNotification;
 			}
 		}
 		
-		return $isDisabled;
+		return $is_disabled;
 	}
 
 	/**
@@ -434,16 +434,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $lead
 	 * @return boolean true if user notification is disabled / delayed, false otherwise
 	 */
-	public static function maybeDelayUserNotification( $isDisabled, $form, $lead ) {
+	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::isConditionTrue( $form, $feed ) ) {
-				$isDisabled = $feed->delayUserNotification;
+				$is_disabled = $feed->delayUserNotification;
 			}
 		}
 		
-		return $isDisabled;
+		return $is_disabled;
 	}
 
 	/**
@@ -454,16 +454,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $lead
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
 	 */
-	public static function maybeDelayPostCreation( $isDisabled, $form, $lead ) {
+	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::isConditionTrue( $form, $feed ) ) {
-				$isDisabled = $feed->delayPostCreation;
+				$is_disabled = $feed->delayPostCreation;
 			}
 		}
 		
-		return $isDisabled;
+		return $is_disabled;
 	}
 	
 	//////////////////////////////////////////////////
