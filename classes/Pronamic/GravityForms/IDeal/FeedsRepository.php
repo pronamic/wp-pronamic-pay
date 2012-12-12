@@ -17,29 +17,29 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
 		global $wpdb;
 
-		$charsetCollate = '';
-        if(!empty($wpdb->charset)) {
-            $charsetCollate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
+		$charset_collate = '';
+        if ( ! empty( $wpdb->charset ) ) {
+            $charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
         }
-        if(!empty($wpdb->collate)) {
-            $charsetCollate .= ' COLLATE ' . $wpdb->collate;
+        if ( ! empty( $wpdb->collate ) ) {
+            $charset_collate .= ' COLLATE ' . $wpdb->collate;
         }
 
         // Feed table
-        $tableName = self::getFeedsTableName();
+        $feeds_table = self::getFeedsTableName();
 
-        $sql = "CREATE TABLE $tableName (
-			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT , 
-			form_id MEDIUMINT(8) UNSIGNED NOT NULL ,
-			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL ,   
-			is_active TINYINT(1) NOT NULL DEFAULT 1 ,  
-			meta LONGTEXT ,  
-			PRIMARY KEY  (id) , 
-			KEY form_id (form_id) , 
+        $sql = "CREATE TABLE $feeds_table (
+			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+			form_id MEDIUMINT(8) UNSIGNED NOT NULL,
+			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
+			is_active TINYINT(1) NOT NULL DEFAULT 1,
+			meta LONGTEXT,
+			PRIMARY KEY  (id),
+			KEY form_id (form_id),
 			KEY configuration_id (configuration_id)
-			) $charsetCollate;";
+			) $charset_collate;";
 
-        dbDelta($sql);
+        dbDelta( $sql );
     }
 
 	//////////////////////////////////////////////////

@@ -41,10 +41,13 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('AppThemes', 'pronamic_ideal') . '<br />';
-		$text .= sprintf('<a href="%s">', get_edit_post_link($payment->getSourceId()));
-		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
-		$text .= '</a>';
+
+		$text .= __( 'AppThemes', 'pronamic_ideal' ) . '<br />';
+
+		$text .= sprintf( '<a href="%s">%s</a>', 
+			get_edit_post_link( $payment->getSourceId() ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+		);
 
 		return $text;
 	}

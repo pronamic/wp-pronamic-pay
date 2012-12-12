@@ -51,7 +51,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			// Tab Start
 			array(
 				'type'    => 'tab' , 
-				'tabname' => __('iDEAL', 'pronamic_ideal' ) ,  
+				'tabname' => __( 'iDEAL', 'pronamic_ideal' ) ,  
 				'id'      => ''
 			) , 
 			// Title
@@ -198,10 +198,14 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
+
 		$text .= __( 'ClassiPress', 'pronamic_ideal' ) . '<br />';
-		$text .= sprintf( '<a href="%s">', get_edit_post_link( $payment->getSourceId() ) );
-		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() );
-		$text .= '</a>';
+
+		$text .= sprintf(
+			'<a href="%s">%s</a>',
+			get_edit_post_link( $payment->getSourceId() ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() ) 
+		);
 
 		return $text;
 	}

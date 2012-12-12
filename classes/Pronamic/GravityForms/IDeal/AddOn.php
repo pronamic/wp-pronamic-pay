@@ -91,7 +91,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'updateStatus' ), 10, 2 );
 
-			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'sourceColumn' ), 10, 2 );
+			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
 
 			add_filter( 'gform_replace_merge_tags', array( __CLASS__, 'replace_merge_tags' ), 10, 7 );
 
@@ -105,12 +105,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function sourceColumn( $text, $payment ) {
+	public static function source_column( $text, $payment ) {
 		$text  = '';
+
 		$text .= __( 'Gravity Forms', 'pronamic_ideal' ) . '<br />';
-		$text .= sprintf( '<a href="%s">', add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ) );
-		$text .= sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->getSourceId() );
-		$text .= '</a>';
+
+		$text .= sprintf(
+			'<a href="%s">%s</a>', 
+			add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+		);
 
 		return $text;
 	}

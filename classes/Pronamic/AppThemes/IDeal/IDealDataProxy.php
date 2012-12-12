@@ -34,7 +34,7 @@ class Pronamic_AppThemes_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_I
 	public function __construct( $order, $options ) {
 		parent::__construct();
 
-		$this->order = $order;
+		$this->order  = $order;
 		$this->options = $options;
 	}
 
@@ -59,7 +59,7 @@ class Pronamic_AppThemes_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_I
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf(__('Advertisement %s', 'pronamic_ideal'), $this->getOrderId());
+		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->getOrderId() );
 	}
 
 	/**

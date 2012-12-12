@@ -13,9 +13,9 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_filter( 'gform_add_field_buttons', array( __CLASS__, 'addFieldButtons' ) );
+		add_filter( 'gform_add_field_buttons', array( __CLASS__, 'add_field_buttons' ) );
 		add_filter( 'gform_field_input',       array( __CLASS__, 'acquirerFieldInput' ), 10, 5 );
-		add_filter( 'gform_field_type_title',  array( __CLASS__, 'fieldTypeTitle' ) );
+		add_filter( 'gform_field_type_title',  array( __CLASS__, 'field_type_title' ) );
 	}
 
 	/**
@@ -111,7 +111,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 * 
 	 * @param array $groups
 	 */
-	public static function addFieldButtons($groups) {
+	public static function add_field_buttons( $groups ) {
 		$fields = array(
 			array(
 				'class'   => 'button', 
@@ -136,7 +136,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 * 
 	 * @param string $type
 	 */
-	public static function fieldTypeTitle( $type ) {
+	public static function field_type_title( $type ) {
 		switch ( $type ) {
 			case Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE:
 				return __( 'Issuer Drop Down', 'pronamic_ideal' );
