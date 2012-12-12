@@ -51,20 +51,20 @@
 			<url>https://abnamro.ideal-payment.de/</url>
 
 			<test>
-				<paymentServerUrl>ssl://abnamro-test.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/iDeal</paymentServerUrl>
 
-				<directoryRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
-				<transactionRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
-				<statusRequestUrl>ssl://itt.idealdesk.com:443/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
+				<directoryRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
+				<transactionRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
+				<statusRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
 
 				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://abnamro.ideal-payment.de:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/iDeal</paymentServerUrl>
 
-				<directoryRequestUrl>ssl://idealm.abnamro.nl:443/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
-				<transactionRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
-				<statusRequestUrl>ssl://idealm.abnamro.nl:443/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
+				<directoryRequestUrl>https://idealm.abnamro.nl/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
+				<transactionRequestUrl>https://idealm.abnamro.nl/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
+				<statusRequestUrl>https://idealm.abnamro.nl/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
 
 				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
 			</live>
@@ -155,10 +155,10 @@
 			<name>Fortis Bank - iDEAL Integrated</name>
 
 			<test>
-				<paymentServerUrl>ssl://acquirer-ideal.test.nl.fortis.com:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://acquirer-ideal.test.nl.fortis.com/ideal/iDeal</paymentServerUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://acquirer-ideal.bank.nl.fortis.com:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://acquirer-ideal.bank.nl.fortis.com/ideal/iDeal</paymentServerUrl>
 			</live>
 
 			<certificates>
@@ -190,11 +190,11 @@
 			<name>Friesland Bank - iDEAL Zakelijk Plus</name>
 
 			<test>
-				<paymentServerUrl>ssl://testidealkassa.frieslandbank.nl:443/ideal/iDEAL</paymentServerUrl>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/iDEAL</paymentServerUrl>
 				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://idealkassa.frieslandbank.nl:443/ideal/iDEAL</paymentServerUrl>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/iDEAL</paymentServerUrl>
 				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
 			</live>
 
@@ -244,10 +244,10 @@
 			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</name>
 
 			<test>
-				<paymentServerUrl>ssl://www.ideal-simulator.nl:443/professional/</paymentServerUrl>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional/</paymentServerUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://www.ideal-simulator.nl:443/professional/</paymentServerUrl>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional/</paymentServerUrl>
 			</live>
 
 			<certificates>
@@ -309,11 +309,11 @@
 			<name>ING - iDEAL Advanced</name>
 
 			<test>
-				<paymentServerUrl>ssl://idealtest.secure-ing.com:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://ideal.secure-ing.com:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://ideal.secure-ing.com/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
 			</live>
 
@@ -375,11 +375,11 @@
 			<name>Mollie - iDEAL Advanced</name>
 
 			<test>
-				<paymentServerUrl>ssl://secure.mollie.nl:443/xml/idealAcquirer/testmode/</paymentServerUrl>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/testmode/</paymentServerUrl>
 				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://secure.mollie.nl:443/xml/idealAcquirer/</paymentServerUrl>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/</paymentServerUrl>
 				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
 			</live>
 
@@ -491,11 +491,11 @@
 			<name>Rabobank - iDEAL Professional</name>
 
 			<test>
-				<paymentServerUrl>ssl://idealtest.rabobank.nl:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://ideal.rabobank.nl:443/ideal/iDeal</paymentServerUrl>
+				<paymentServerUrl>https://ideal.rabobank.nl/ideal/iDeal</paymentServerUrl>
 				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
 			</live>
 
@@ -533,15 +533,15 @@
 			<name>Sisow - iDEAL</name>
 
 			<test>
-				<directoryRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
-				<transactionRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
-				<statusRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
+				<directoryRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
+				<transactionRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
+				<statusRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</test>
 			<live>
-				<directoryRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
-				<transactionRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
-				<statusRequestUrl>ssl://www.sisow.nl:443/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
+				<directoryRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
+				<transactionRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
+				<statusRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</live>
 
@@ -567,11 +567,11 @@
 			<name>Sisow - iDEAL Advanced</name>
 
 			<test>
-				<paymentServerUrl>ssl://www.sisow.nl:443/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>ssl://www.sisow.nl:443/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</live>
 
