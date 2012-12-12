@@ -128,6 +128,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	}
 
 	public function get_directory() {
+		$directory = null;
+
 		$request_dir_message = new Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryRequestMessage();
 
 		$merchant = $request_dir_message->get_merchant();
@@ -135,8 +137,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant->set_sub_id( $this->sub_id );
 
 		$response_dir_message = $this->send_message( $this->acquirer_url, $request_dir_message );
+		
+		if ( $response_dir_message ) {
+			$directory = $response_dir_message->get_directory();
+		}
 
-		return $response_dir_message->get_directory();
+		return $directory;
 	}
 
 	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {

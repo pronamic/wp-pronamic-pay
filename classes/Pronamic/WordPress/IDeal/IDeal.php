@@ -269,24 +269,28 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $html;
 	}
 	
-	public static function get_gateway( Pronamic_IDeal_IDealDataProxy $data, Pronamic_WordPress_IDeal_Configuration $configuration ) {		
+	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration ) {		
 		if($configuration !== null) {
 			$variant = $configuration->getVariant();
 
 			if($variant !== null) {
 				switch($variant->getMethod()) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration );
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration );
 					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
-						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration );
 					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration );
+					case 'advanced':
+						return new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
+					case 'advanced_v3':
+						return new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 					case 'mollie':
-						return new Pronamic_Gateways_Mollie_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_Mollie_Gateway( $configuration );
 					case 'targetpay':
-						return new Pronamic_Gateways_TargetPay_Gateway( $configuration, $data );
+						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 				}
 			}
 		}				
@@ -328,7 +332,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$payment->consumer_city           = null;
 			$payment->transaction = $transaction;
 			$payment->setSource( $data->getSource(), $data->getOrderId() );
-				
+
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 
 			// HTML
@@ -399,6 +403,13 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 	
 	public static function get_fields( $configuration ) {
+		$gateway = self::get_gateway( $configuration );
+
+		if ( $gateway != null ) {
+			
+		}
+
+		return $gateway->
 		$fields = array();
 
 		if ( $configuration !== null ) {
@@ -406,7 +417,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		
 			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
 				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
-		
+
 				if ( $lists ) {
 					$fields[] = array(
 						'label' => __( 'Choose your bank', 'pronamic_ideal' ),

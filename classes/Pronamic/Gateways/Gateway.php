@@ -30,6 +30,26 @@ abstract class Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
+	public function is_http_redirect() {
+		return $this->method == self::METHOD_HTTP_REDIRECT;
+	}
+
+	public function is_html_form() {
+		return $this->method == self::METHOD_HTML_FORM;
+	}
+
+	/////////////////////////////////////////////////
+
+	public function has_status_feedback() {
+		return $this->status_feedback;
+	}
+
+	public function set_status_feedback( $feedback ) {
+		$this->status_feedback = $feedback;
+	}
+	
+	/////////////////////////////////////////////////
+
 	public function set_amount_minimum( $amount ) {
 		$this->amount_minimum = $amount;
 	}
@@ -71,14 +91,14 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 	
 	
-	public function get_fields() {
+	public function get_input_fields() {
 		return array();
 	}
 
-	public function get_html_fields() {
+	public function get_input_html() {
 		$html = '';
 
-		$fields = $this->get_fields();
+		$fields = $this->get_input_fields();
 
 		foreach( $fields as $field ) {
 			if ( isset( $field['type'] ) ) {
@@ -98,6 +118,21 @@ abstract class Pronamic_Gateways_Gateway {
 			}
 		}
 		
+		return $html;
+	}
+	
+	public function get_output_html() {
+		
+	}
+
+	public function get_form_html() {
+		$html  = '';
+
+		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr( $this->get_action_url() ) );
+		$html .= 	$this->get_output_html();
+		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
+		$html .= '</form>';
+
 		return $html;
 	}
 }

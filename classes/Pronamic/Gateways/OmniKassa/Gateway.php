@@ -9,8 +9,10 @@
  * @version 1.0
  */
 class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
+	public $client;
+
 	public function __construct( $configuration ) {
-		parent::__construct(  );
+		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_require_issue_select( false );
@@ -41,7 +43,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function get_html_fields() {
+	public function get_output_html() {
 		return $this->client->getHtmlFields();
 	}
 }

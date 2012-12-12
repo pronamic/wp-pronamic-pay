@@ -41,22 +41,24 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 * @return array
 	 */
-	public function get_issuers() {
-		$directory = $this->client->get_directory();
-		
+	public function get_issuers() {	
 		$groups = array();
+		
+		$directory = $this->client->get_directory();
 
-		foreach ( $directory->get_countries() as $country ) {
-			$issuers = array();
-
-			foreach ( $country->get_issuers() as $issuer ) {
-				$issuers[$issuer->get_id()] = $issuer->get_name();
+		if ( $directory ) {
+			foreach ( $directory->get_countries() as $country ) {
+				$issuers = array();
+	
+				foreach ( $country->get_issuers() as $issuer ) {
+					$issuers[$issuer->get_id()] = $issuer->get_name();
+				}
+	
+				$groups[] = array(
+					'name'    => $country->get_name(),
+					'options' => $issuers
+				);
 			}
-
-			$groups[] = array(
-				'name'    => $country->get_name(),
-				'options' => $issuers
-			);
 		}
 		
 		return $groups;
@@ -75,7 +77,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	
 	/////////////////////////////////////////////////
 
-	public function get_fields() {
+	public function get_input_fields() {
 		$fields = array();
 		
 		$fields[] = $this->get_issuer_field(); 
