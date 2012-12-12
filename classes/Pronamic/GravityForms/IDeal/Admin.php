@@ -22,13 +22,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
-
-		// Code
-		RGForms::add_settings_page(
-			__( 'iDEAL', 'pronamic_ideal' ), 
-			array( __CLASS__, 'page_settings' ) , 
-			plugins_url( '/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file )
-		);
 	}
 
 	//////////////////////////////////////////////////
@@ -129,15 +122,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 */
 	public static function page_feed_edit() {
 		return Pronamic_WordPress_IDeal_Admin::renderView( 'gravityforms/feed-edit' );
-	}
-
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Page settings
-	 */
-	public static function page_settings() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 'configurations-form' );
 	}
 
 	//////////////////////////////////////////////////
