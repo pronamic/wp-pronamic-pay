@@ -135,22 +135,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$gateway->start( $data );
 			
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction_id          = $gateway->transaction_id;
-			$payment->purchase_id             = $data->getOrderId();
-			$payment->description             = $data->getDescription();
-			$payment->amount                  = $data->getAmount();
-			$payment->currency                = $data->getCurrencyAlphabeticCode();
-			$payment->language                = $data->getLanguageIso639Code();
-			$payment->entrance_code           = $data->get_entrance_code();
-			$payment->expiration_period       = null;
-			$payment->status                  = null;
-			$payment->consumer_name           = null;
-			$payment->consumer_account_number = null;
-			$payment->consumer_city           = null;
-
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
+			Pronamic_WordPress_IDeal_IDeal::create_payment( $confiugration, $gateway, $data );
 
 			$gateway->redirect();
 		}
@@ -159,44 +144,19 @@ class Pronamic_WordPress_IDeal_Admin {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			
+			$test = filter_input( INPUT_POST, 'test_ideal_advanced', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+			$test = key( $test );
+			
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			
+			$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
+			
+			$gateway->start( $data );
 
-			if ( $configuration != null ) {
-				$variant = $configuration->getVariant();
-		
-				if ( $variant !== null ) {
-					$data = filter_input( INPUT_POST, 'test', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
-					$testCase = key( $data );
-					
-					$name = sprintf( __( 'Test Case %s', 'pronamic_ideal' ), $testCase );
+			Pronamic_WordPress_IDeal_IDeal::create_payment( $confiugration, $gateway, $data );
 
-					$entranceCode = uniqid();
-					$purchaseId = $name;
-
-					$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-					$transaction->setAmount($testCase); 
-					$transaction->setCurrency('EUR');
-					$transaction->setExpirationPeriod('PT1H');
-					$transaction->setLanguage('nl');
-					$transaction->setEntranceCode($entranceCode);
-					$transaction->setDescription($name);
-					$transaction->setPurchaseId($purchaseId);
-		
-					$payment = new Pronamic_WordPress_IDeal_Payment();
-					$payment->configuration = $configuration;
-					$payment->transaction = $transaction;
-					// $payment->setSource('pronamic_ideal', uniqid());
-		
-					$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment($payment);
-					
-					$issuerId = filter_input(INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING);
-
-					$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction($issuerId, $payment, $variant);
-
-					wp_redirect($url, 303);
-
-					exit;
-				}
-			}
+			$gateway->redirect();
     	}
 	}
 

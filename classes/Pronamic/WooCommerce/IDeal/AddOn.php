@@ -61,21 +61,19 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::isWooCommerceSupported() ) {
 			$id = $payment->getSourceId();
-			$transaction = $payment->transaction;
 
 			$order = new WC_Order( (int) $id );
-			$data_proxy = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
-			if ( $order->status !== Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED ) {				
-				$url = $data_proxy->getNormalReturnUrl();
+			if ( $order->status !== Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED ) {	
+				$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
-				$status = $transaction->getStatus();
+				$url = $data->getNormalReturnUrl();
 
-				switch ( $status ) {
+				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
-						$url = $data_proxy->getCancelUrl();
+						$url = $data->getCancelUrl();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -93,7 +91,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
 		                
-		                $url = $data_proxy->getSuccessUrl();
+		                $url = $data->getSuccessUrl();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

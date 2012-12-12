@@ -8,6 +8,8 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	private $method;
+	
+	private $has_feedback;
 
 	private $require_issue_select;
 
@@ -40,12 +42,12 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/////////////////////////////////////////////////
 
-	public function has_status_feedback() {
-		return $this->status_feedback;
+	public function has_feedback() {
+		return $this->has_feedback;
 	}
 
-	public function set_status_feedback( $feedback ) {
-		$this->status_feedback = $feedback;
+	public function set_has_feedback( $has_feedback ) {
+		$this->has_feedback = $has_feedback;
 	}
 	
 	/////////////////////////////////////////////////
@@ -106,6 +108,12 @@ abstract class Pronamic_Gateways_Gateway {
 
 				switch ( $type ) {
 					case 'select':
+						$html .= sprintf(
+							'<label for="%s">%s</label> ',
+							$field['id'],
+							$field['label']
+						);
+
 						$html .= sprintf(
 							'<select id="%s" name="%s">%s</select>',
 							$field['id'],

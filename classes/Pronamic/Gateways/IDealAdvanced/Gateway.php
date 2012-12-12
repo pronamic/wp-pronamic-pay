@@ -13,6 +13,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_has_feedback( true );
 		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 0.01 );
 

@@ -18,6 +18,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		parent::__construct();
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_has_feedback( true );
 		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 0.01 );
 
@@ -68,10 +69,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 	public function get_issuer_field() {
 		return array(
-			'id'      => 'pronamic_ideal_issuer_id',
-			'name'    => 'pronamic_ideal_issuer_id',
-			'type'    => 'select',
-			'choices' => $this->get_issuers()
+			'id'       => 'pronamic_ideal_issuer_id',
+			'name'     => 'pronamic_ideal_issuer_id',
+			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
+			'required' => true,
+			'type'     => 'select',
+			'choices'  => $this->get_issuers()
 		);
 	}
 	

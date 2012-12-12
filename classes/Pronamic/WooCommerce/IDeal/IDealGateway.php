@@ -174,7 +174,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				$return = $this->process_gateway_html_form( $order );
 			}
 			
-			if ( ! $gateway->has_status_feedback() ) {
+			if ( ! $gateway->has_feedback() ) {
 				$note = self::get_check_payment_note( $order, $configuration );
 
 				self::mail_check_payment( $order, $note );
@@ -290,6 +290,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 		
 		$gateway->start( $data );
+		
+		Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
     	$url = $gateway->get_action_url();
 

@@ -129,18 +129,16 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			$id = $payment->getSourceId();
 
 			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $id );
-			$data_proxy = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
+			$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
 
 			$url = $data_proxy->getNormalReturnUrl();
 
-			$status = $payment->transaction->getStatus();
-
-			switch ( $status ) {
+			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 					$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 					// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 
-	                $url = $data_proxy->getCancelUrl();
+	                $url = $data->getCancelUrl();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -152,7 +150,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 	            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
-	                $url = $data_proxy->getSuccessUrl();
+	                $url = $data->getSuccessUrl();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

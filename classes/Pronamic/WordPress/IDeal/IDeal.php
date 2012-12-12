@@ -231,50 +231,30 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * @return string
 	 */
 	public static function translateStatus($status) {
-		switch($status) {
+		switch ( $status ) {
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-				return __('Cancelled', 'pronamic_ideal');
+				return __( 'Cancelled', 'pronamic_ideal' );
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-				return __('Expired', 'pronamic_ideal');
+				return __( 'Expired', 'pronamic_ideal' );
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-				return __('Failure', 'pronamic_ideal');
+				return __( 'Failure', 'pronamic_ideal' );
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-				return __('Open', 'pronamic_ideal');
+				return __( 'Open', 'pronamic_ideal' );
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-				return __('Success', 'pronamic_ideal');
+				return __( 'Success', 'pronamic_ideal' );
 			default:
-				return __('Unknown', 'pronamic_ideal');
+				return __( 'Unknown', 'pronamic_ideal' );
 		}
 	}
 
 	//////////////////////////////////////////////////
-
-	public static function getHtmlForm(Pronamic_IDeal_IDealDataProxy $dataProxy, Pronamic_WordPress_IDeal_Configuration $configuration = null, $autoSubmit = false) {
-		$html = '';
-
-		if($configuration !== null) {
-			$variant = $configuration->getVariant();
 	
-			if($variant !== null) {
-				$html = self::get_html_form( $dataProxy, $configuration );
-		
-				if($autoSubmit) {
-					$html .= '<script type="text/javascript">';
-					$html .= '	document.pronamic_ideal_form.submit();';
-					$html .= '</script>';
-				}
-			}
-		}
-		
-		return $html;
-	}
-	
-	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration ) {		
-		if($configuration !== null) {
+	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
 
-			if($variant !== null) {
-				switch($variant->getMethod()) {
+			if ( $variant !== null ) {
+				switch ( $variant->getMethod() ) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
 						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration );
 					case Pronamic_IDeal_IDeal::METHOD_BASIC:
@@ -295,160 +275,27 @@ class Pronamic_WordPress_IDeal_IDeal {
 			}
 		}				
 	}
-
-	public static function get_html_form( Pronamic_IDeal_IDealDataProxy $data, Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		$html = '';
-
-		$gateway = self::get_gateway( $data, $configuration );
-		
-		if ( !empty( $gateway ) ) {
-			$gateway->start( $data );
-
-			// Update payment
-			$id = md5( time() . $data->getOrderId() );
-
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setId( $id );
-			$transaction->setAmount( $data->getAmount() );
-			$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
-			$transaction->setLanguage( $data->getLanguageIso639Code() );
-			$transaction->setEntranceCode( uniqid() );
-			$transaction->setDescription( $data->getDescription() );
-			$transaction->setPurchaseId( $data->getOrderId() );
-
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction_id          = $gateway->transaction_id;
-			$payment->purchase_id             = $data->getOrderId();
-			$payment->description             = $data->getDescription();
-			$payment->amount                  = $data->getAmount();
-			$payment->currency                = $data->getCurrencyAlphabeticCode();
-			$payment->language                = $data->getLanguageIso639Code();
-			$payment->entrance_code           = $data->get_entrance_code();
-			$payment->expiration_period       = null;
-			$payment->status                  = null;
-			$payment->consumer_name           = null;
-			$payment->consumer_account_number = null;
-			$payment->consumer_city           = null;
-			$payment->transaction = $transaction;
-			$payment->setSource( $data->getSource(), $data->getOrderId() );
-
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
-
-			// HTML
-			$html  = '';
-			$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr( $gateway->get_action_url() ) );
-			$html .= 	$gateway->get_html_fields();
-			$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
-			$html .= '</form>';
-		}
-			
-		return $html;
-	}
-
-	public static function process_ideal_advanced( $configuration, $data_proxy ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentBySource( $data_proxy->getSource(), $data_proxy->getOrderId() );
-		
-		if ( $payment == null ) {
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-			$transaction->setAmount( $data_proxy->getAmount() );
-			$transaction->setCurrency( $data_proxy->getCurrencyAlphabeticCode() );
-			$transaction->setExpirationPeriod( 'PT1H' );
-			$transaction->setLanguage( $data_proxy->getLanguageIso639Code() );
-			$transaction->setEntranceCode( uniqid() );
-			$transaction->setDescription( $data_proxy->getDescription() );
-			$transaction->setPurchaseId( $data_proxy->getOrderId() );
-		
-			$payment = new Pronamic_WordPress_IDeal_Payment();
-			$payment->configuration = $configuration;
-			$payment->transaction = $transaction;
-			$payment->setSource( $data_proxy->getSource(), $data_proxy->getOrderId() );
-		
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
-		}
-		
-		$issuer_id = $data_proxy->get_issuer_id();
-
-		$url = Pronamic_WordPress_IDeal_IDeal::handleTransaction( $issuer_id, $payment, $configuration->getVariant() );
-
-		return $url;
-	}
-
-	public static function get_targetpay_issuers() {
-		$targetpay = new Pronamic_Gateways_TargetPay_TargetPay();
-		
-		$issuers = $targetpay->get_issuers();
-		
-		$output = '<select name="pronamic_ideal_issuer_id" id="pronamic_ideal_issuer_id">';
-		foreach ( $issuers as $id => $name ) {
-			$output .= '<option value="' . $id . '">' . $name . '</option>';
-		}
-		$output .= '</select>';
-
-		return $output;
-	}
-
-	public static function get_mollie_issuers( $configuration ) {
-		$mollie = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
-		
-		$issuers = $mollie->getBanks();
-		
-		$output = '<select name="pronamic_ideal_issuer_id" id="pronamic_ideal_issuer_id">';
-		foreach ( $issuers as $id => $name ) {
-			$output .= '<option value="' . $id . '">' . $name . '</option>';
-		}
-		$output .= '</select>';
-
-		return $output;
-	}
 	
-	public static function get_fields( $configuration ) {
-		$gateway = self::get_gateway( $configuration );
+	public static function create_payment( $configuration, $gateway, $data ) {
+		$payment = new Pronamic_WordPress_IDeal_Payment();
+		$payment->configuration           = $configuration;
+		$payment->transaction_id          = $gateway->transaction_id;
+		$payment->purchase_id             = $data->getOrderId();
+		$payment->description             = $data->getDescription();
+		$payment->amount                  = $data->getAmount();
+		$payment->currency                = $data->getCurrencyAlphabeticCode();
+		$payment->language                = $data->getLanguageIso639Code();
+		$payment->entrance_code           = $data->get_entrance_code();
+		$payment->source                  = $data->getSource();
+		$payment->source_id               = $data->get_source_id();
+		$payment->expiration_period       = null;
+		$payment->status                  = null;
+		$payment->consumer_name           = null;
+		$payment->consumer_account_number = null;
+		$payment->consumer_city           = null;
 
-		if ( $gateway != null ) {
-			
-		}
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 
-		return $gateway->
-		$fields = array();
-
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-		
-			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED) {
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
-
-				if ( $lists ) {
-					$fields[] = array(
-						'label' => __( 'Choose your bank', 'pronamic_ideal' ),
-						'input' => Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists )
-					);
-				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-					$fields[] = array(
-						'error' => $error->getConsumerMessage()
-					);
-				} else {
-					$fields[] = array(
-						'error' => __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' )
-					); 
-				}
-			}
-			
-			if ( $variant !== null && $variant->getMethod() == 'targetpay') {
-				$fields[] = array(
-					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
-					'input' => self::get_targetpay_issuers( $configuration )
-				);
-			}
-			
-			if ( $variant !== null && $variant->getMethod() == 'mollie') {
-				$fields[] = array(
-					'label' => __( 'Choose your bank', 'pronamic_ideal' ),
-					'input' => self::get_mollie_issuers( $configuration )
-				);
-			}
-		}
-		
-		return $fields;
+		return $updated;
 	}
 }

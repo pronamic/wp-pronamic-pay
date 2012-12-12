@@ -146,7 +146,7 @@ class Pronamic_WordPress_IDeal_Payment {
 	 * @return string
 	 */
 	public function getSourceId() {
-		return $this->sourceId;
+		return $this->source_id;
 	}
 	
 	/**
@@ -157,6 +157,6 @@ class Pronamic_WordPress_IDeal_Payment {
 	 */
 	public function setSource( $source, $id ) {
 		$this->source = $source;
-		$this->sourceId = $id;
+		$this->source_id = $id;
 	}
 }

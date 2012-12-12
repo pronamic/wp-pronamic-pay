@@ -42,6 +42,10 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		return 'woocommerce';
 	}
 
+	public function get_source_id() {
+		return $this->order->id;
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

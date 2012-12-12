@@ -21,6 +21,10 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 
 	public abstract function getSource();
 	
+	public function get_source_id() {
+		return $this->getOrderId();
+	}
+	
 	public abstract function getDescription();
 
 	public abstract function getOrderId();

@@ -131,23 +131,11 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
 		
-		$fields = Pronamic_WordPress_IDeal_IDeal::get_fields( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
-		foreach ( $fields as $field ): ?>
-			<?php if( isset( $field['error'] ) ): ?>
-				<div class="jigoshop_error">
-					<?php echo $field['error']; ?>
-				</div>
-			<?php else: ?>
-				<p class="pronamic_ideal_issuer">
-					<label for="pronamic_ideal_issuer_id">
-						<?php echo $field['label']; ?>
-					</label>
-										
-					<?php echo $field['input']; ?>
-				</p>
-			<?php endif; ?>
-		<?php endforeach;
+		if ( $gateway ) {
+			echo $gateway->get_input_html();
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -160,11 +148,15 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		
 		$order = &new jigoshop_order( $order_id );
 		
-		$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
-		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data_proxy, $configuration );
-		
-		echo $html;
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+		if ( $gateway ) {
+			$gateway->start( $data );
+
+			echo $gateway->get_form_html();
+		}
 	}
 
 	//////////////////////////////////////////////////
