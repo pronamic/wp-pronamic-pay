@@ -71,13 +71,17 @@ class Pronamic_GravityForms_IDeal_Fields {
 				$configuration = $iDealFeed->getIDealConfiguration();
 
 				if ( $configuration != null ) {
-					$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
-					
-					if ( $lists ) {
-						$options = Pronamic_IDeal_HTML_Helper::issuersSelectOptions( $lists, '', $value );
+					$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+					$issuer_field = $gateway->get_issuer_field();
+
+					if ( $issuer_field ) {
+						$choices = $issuer_field['choices'];
+
+						$options = Pronamic_IDeal_HTML_Helper::select_options_grouped( $choices, $value );
 						// Double quotes are not working, se we replace them with an single quote
 						$options = str_replace( '"', '\'', $options );
-	
+
 						$htmlInput  = '';
 						$htmlInput .= sprintf( "	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText );
 						$htmlInput .= sprintf( "		%s", $options );
