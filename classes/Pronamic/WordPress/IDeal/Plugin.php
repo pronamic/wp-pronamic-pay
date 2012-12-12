@@ -492,7 +492,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return boolean true if plugin can be used, false otherwise
 	 */
 	public static function canBeUsed() {
-		return self::isInstalled() && (self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments() <= self::PAYMENTS_MAX_LICENSE_FREE);
+		return self::isInstalled() && (self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE);
 	}
 
 	//////////////////////////////////////////////////

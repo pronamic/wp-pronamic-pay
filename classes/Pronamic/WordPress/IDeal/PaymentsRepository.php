@@ -29,14 +29,14 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         $tableName = self::getPaymentsTableName();
 
         $sql = "CREATE TABLE $tableName (
-			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT, 
+			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
 			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
 			purchase_id VARCHAR(16) NULL,
-			transaction_id VARCHAR(32) NULL, 
+			transaction_id VARCHAR(32) NULL,
   			date_gmt DATETIME NOT NULL,
 			amount DECIMAL(10, 2) NOT NULL,
 			currency VARCHAR(8) NOT NULL,
-			expiration_period VARCHAR(8) NOT NULL, 
+			expiration_period VARCHAR(8) NOT NULL,
 			language VARCHAR(8) NOT NULL,
 			entrance_code VARCHAR(40) NULL,
 			description TEXT NOT NULL,
@@ -50,7 +50,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
   			source VARCHAR(32) NULL DEFAULT NULL,
   			source_id VARCHAR(32) NULL DEFAULT NULL,
 			PRIMARY KEY  (id),
-			KEY configuration_id (configuration_id), 
+			KEY configuration_id (configuration_id),
 			UNIQUE (entrance_code)
 			) $charsetCollate;";
 
@@ -425,7 +425,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	 * 
 	 * @return int
 	 */
-	public static function getNumberPayments() {
+	public static function get_number_payments() {
 		global $wpdb;
 
 		$table = self::getPaymentsTableName();

@@ -35,7 +35,7 @@ class Pronamic_WordPress_IDeal_PaymentsListTable extends WP_List_Table {
 
 		$paged = $this->get_pagenum();
 
-		$total_items = Pronamic_WordPress_IDeal_PaymentsRepository::getNumberPayments();
+		$total_items = Pronamic_WordPress_IDeal_PaymentsRepository::get_number_payments();
 
 		$this->set_pagination_args( array(
 			'total_items' =>  $total_items,
