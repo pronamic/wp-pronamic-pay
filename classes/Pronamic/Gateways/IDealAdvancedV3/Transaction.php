@@ -373,24 +373,4 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	public function set_consumer_bic( $bic ) {
 		$this->consumer_bic = $bic;
 	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the consumer city
-	 * 
-	 * @return string
-	 */
-	public function getConsumerCity() {
-		return $this->consumerCity;
-	}
-
-	/**
-	 * Set the consumer city
-	 * 
-	 * @param string $status
-	 */
-	public function setConsumerCity( $city ) {
-		$this->consumerCity = $city;
-	}
 }
