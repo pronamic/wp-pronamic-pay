@@ -1,79 +1,142 @@
 <?php
 
+/**
+ * Title: Gateway
+ * Description: 
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Remco Tolsma
+ * @version 1.0
+ */
 abstract class Pronamic_Gateways_Gateway {
+	/**
+	 * Method indicator for an gateway wich works through an HTML form
+	 *
+	 * @var int
+	 */
 	const METHOD_HTML_FORM = 1;
 
+	/**
+	 * Method indicator for an gateway wich works through an HTTP redirect
+	 * 
+	 * @var int
+	 */
 	const METHOD_HTTP_REDIRECT = 2;
 
 	/////////////////////////////////////////////////
 
+	/**
+	 * Configuration
+	 * 
+	 * @var Pronamic_WordPress_IDeal_Configuration
+	 */
 	private $configuration;
 
 	/////////////////////////////////////////////////
 
+	/**
+	 * The method of this gateway
+	 * 
+	 * @var int
+	 */
 	private $method;
 	
+	/**
+	 * Indiactor if this gateway supports feedback 
+	 * 
+	 * @var boolean
+	 */
 	private $has_feedback;
 
-	private $require_issue_select;
-
+	/**
+	 * The mimimum amount this gateway can handle
+	 * 
+	 * @var float
+	 */
 	private $amount_minimum;
 
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an gateway
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( $configuration ) {
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		$this->configuration = $configuration;
 	}
 
 	/////////////////////////////////////////////////
 
+	/**
+	 * Set the method
+	 * 
+	 * @param int $method
+	 */
 	public function set_method( $method ) {
 		$this->method = $method;
 	}
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Check if this gateway works trhough an HTTP redirect
+	 * 
+	 * @return boolean true if an HTTP redirect is required, false otherwise
+	 */
 	public function is_http_redirect() {
 		return $this->method == self::METHOD_HTTP_REDIRECT;
 	}
 
+	/**
+	 * Check if this gateway works through an HTML form
+	 * 
+	 * @return boolean true if an HTML form is required, false otherwise
+	 */
 	public function is_html_form() {
 		return $this->method == self::METHOD_HTML_FORM;
 	}
 
 	/////////////////////////////////////////////////
 
+	/**
+	 * Check if this gateway supports feedback
+	 * 
+	 * @return boolean true if gateway supports feedback, false otherwise
+	 */
 	public function has_feedback() {
 		return $this->has_feedback;
 	}
 
+	/**
+	 * Set has feedback
+	 * 
+	 * @param boolean $has_feedback
+	 */
 	public function set_has_feedback( $has_feedback ) {
 		$this->has_feedback = $has_feedback;
 	}
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Set the minimum amount required
+	 * 
+	 * @param float $amount
+	 */
 	public function set_amount_minimum( $amount ) {
 		$this->amount_minimum = $amount;
 	}
-	
-	/////////////////////////////////////////////////
-
-	public function set_require_issue_select( $require ) {
-		$this->require_issue_select = $require;
-	}
 
 	/////////////////////////////////////////////////
-	
-	public function get_issuer_field() {
-		return null;
-	}
 
+	/**
+	 * Get issuers
+	 * 
+	 * @return mixed an array or null
+	 */
 	public function get_issuers() {
-		
+		return null;
 	}
 
 	/**
@@ -117,7 +180,6 @@ abstract class Pronamic_Gateways_Gateway {
 		
 	}
 	
-	
 	/////////////////////////////////////////////////
 
 	public function redirect() {
@@ -133,9 +195,21 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_action_url() {
 		return $this->action_url;
 	}
-	
+
+	/////////////////////////////////////////////////
+	// Input fields
 	/////////////////////////////////////////////////
 	
+	/**
+	 * Get an isser field
+	 * 
+	 * @return mixed an array or null
+	 */
+	public function get_issuer_field() {
+		return null;
+	}
+	
+	/////////////////////////////////////////////////
 	
 	public function get_input_fields() {
 		return array();
@@ -172,10 +246,6 @@ abstract class Pronamic_Gateways_Gateway {
 		
 		return $html;
 	}
-	
-	public function get_output_html() {
-		
-	}
 
 	public function get_form_html() {
 		$html  = '';
@@ -186,5 +256,13 @@ abstract class Pronamic_Gateways_Gateway {
 		$html .= '</form>';
 
 		return $html;
+	}
+
+	/////////////////////////////////////////////////
+	// Output fields
+	/////////////////////////////////////////////////
+
+	public function get_output_html() {
+		
 	}
 }
