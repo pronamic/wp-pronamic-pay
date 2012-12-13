@@ -7,6 +7,10 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/////////////////////////////////////////////////
 
+	private $configuration;
+
+	/////////////////////////////////////////////////
+
 	private $method;
 	
 	private $has_feedback;
@@ -20,8 +24,8 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an gateway
 	 */
-	public function __construct( ) {
-
+	public function __construct( $configuration ) {
+		$this->configuration = $configuration;
 	}
 
 	/////////////////////////////////////////////////
@@ -70,6 +74,35 @@ abstract class Pronamic_Gateways_Gateway {
 
 	public function get_issuers() {
 		
+	}
+
+	/**
+	 * Get the issuers transient
+	 */
+	public static function get_transient_issuers() {
+		$issuers = null;
+
+		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
+
+		$result = get_transient( $transient );
+
+		if ( is_wp_error( $result ) ) {
+			$this->error = $result;
+		} elseif ( $result === false ) {
+			$issuers = $this->get_issuers();
+		
+			if ( $issuers ) {
+				// 60 * 60 * 24 = 24 hours = 1 day
+				set_transient( $transient, $issuers, 60 * 60 * 24 );
+			} elseif ( $this->error ) {
+				// 60 * 30 = 30 minutes
+				set_transient( $transient, $error, 60 * 30 * 1 );
+			}
+		} elseif ( is_array( $result ) ) {
+			$issuers = $result;
+		}
+
+		return $issuers;
 	}
 	
 	/////////////////////////////////////////////////
