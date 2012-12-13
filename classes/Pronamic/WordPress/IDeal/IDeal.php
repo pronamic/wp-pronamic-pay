@@ -71,6 +71,14 @@ class Pronamic_WordPress_IDeal_IDeal {
 			}
 		}				
 	}
+
+	public static function start( $configuration, $gateway, $data ) {
+		$gateway->start( $data );
+
+		$payment = self::create_payment( $configuration, $gateway, $data );
+		
+		$gateway->payment( $payment );
+	}
 	
 	public static function create_payment( $configuration, $gateway, $data ) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
@@ -92,6 +100,6 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 
-		return $updated;
+		return $payment;
 	}
 }
