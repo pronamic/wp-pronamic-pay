@@ -49,7 +49,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 	 */
 	protected function getDocument() {
 		$document = new DOMDocument( parent::XML_VERSION, parent::XML_ENCODING );
-		$document->formatOutput = true;
+		// $document->formatOutput = true;
 		
 		// Root
 		$root = $document->createElementNS( parent::XML_NAMESPACE, $this->getName() );
