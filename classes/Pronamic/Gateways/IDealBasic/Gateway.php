@@ -27,18 +27,18 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start() {
-		$this->transaction_id = md5( time() . $this->data->getOrderId() );
+	public function start( $data ) {
+		$this->transaction_id = md5( time() . $data->getOrderId() );
 		$this->action_url     = $this->client->getPaymentServerUrl();
 		
-		$this->client->setLanguage( $this->data->getLanguageIso639Code() );
-		$this->client->setCurrency( $this->data->getCurrencyAlphabeticCode() );
-		$this->client->setPurchaseId( $this->data->getOrderId() );
-		$this->client->setDescription( $this->data->getDescription() );
-		$this->client->setItems( $this->data->getItems() );
-		$this->client->setCancelUrl( $this->data->getCancelUrl() );
-		$this->client->setSuccessUrl( $this->data->getSuccessUrl() );
-		$this->client->setErrorUrl( $this->data->getErrorUrl() );
+		$this->client->setLanguage( $data->getLanguageIso639Code() );
+		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
+		$this->client->setPurchaseId( $data->getOrderId() );
+		$this->client->setDescription( $data->getDescription() );
+		$this->client->setItems( $data->getItems() );
+		$this->client->setCancelUrl( $data->getCancelUrl() );
+		$this->client->setSuccessUrl( $data->getSuccessUrl() );
+		$this->client->setErrorUrl( $data->getErrorUrl() );
 	}
 	
 	/////////////////////////////////////////////////
