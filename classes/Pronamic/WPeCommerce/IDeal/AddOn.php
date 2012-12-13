@@ -78,40 +78,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
 
 		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-
-			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED ) {
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
-				
-				if ( $lists ) {
-					$output .= '<tr>';
-					$output .= '	<td>';
-					$output .= '		<label for="pronamic_ideal_issuer_id">' . __( 'Choose your bank', 'pronamic_ideal' ) . '</label>';
-					$output .= '	</td>';
-					$output .= '	<td>';
-					$output .= '		' . Pronamic_IDeal_HTML_Helper::issuersSelect( 'pronamic_ideal_issuer_id', $lists, null, array(), 'pronamic_ideal_issuer_id' );
-					$output .= '	</td>';
-					$output .= '</tr>'; 
-				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-					$output .= '<tr>';
-					$output .= '	<td>';
-					$output .= '		';
-					$output .= '	</td>';
-					$output .= '	<td>';
-					$output .= '		' . $error->getConsumerMessage();
-					$output .= '	</td>';
-					$output .= '</tr>'; 
-				} else {
-					$output .= '<tr>';
-					$output .= '	<td>';
-					$output .= '		';
-					$output .= '	</td>';
-					$output .= '	<td>';
-					$output .= '		' . __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
-					$output .= '	</td>';
-					$output .= '</tr>'; 
-				}
-			}
+			// create gateway and use gateway function
 		}
 	
 		return $output;
