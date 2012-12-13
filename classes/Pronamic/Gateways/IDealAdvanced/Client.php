@@ -62,7 +62,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @var string
 	 */
-	private $privateKeyFile;
+	private $privateKey;
 
 	/**
 	 * The private key password
@@ -123,7 +123,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	//////////////////////////////////////////////////
 
 	public function setPrivateKey($key) {
-		$this->privateKeyFile = $key;
+		$this->privateKey = $key;
 	}
 
 	public function setPrivateKeyPassword($password) {
@@ -147,7 +147,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @return string
 	 */
-	public function getError() {
+	public function get_error() {
 		return $this->error;
 	}
 	
@@ -308,7 +308,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage();
 
 		$issuer = new Pronamic_Gateways_IDealAdvanced_Issuer();
-		$issuer->setId( $data->get_issuer_id() );
+		$issuer->setId( $issuer_id );
 
 		$merchant = $message->getMerchant();
 		$merchant->id = $this->merchant_id;
@@ -343,5 +343,23 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		}
 
 		return $response;
+	}
+
+	public function get_status( $transaction_id ) {
+		$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
+	
+		$merchant = $message->getMerchant();
+		$merchant->id = $this->merchant_id;
+		$merchant->subId = $this->sub_id;
+		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
+		$merchant->returnUrl = site_url('/');
+		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
+
+		$message->transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
+		$message->transaction->setId( $transaction_id );
+
+		$message->sign( $this->privateKey, $this->privateKeyPassword );
+
+		return $this->getStatus( $message );
 	}
 }
