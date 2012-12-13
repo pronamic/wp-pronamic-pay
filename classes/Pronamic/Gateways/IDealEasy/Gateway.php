@@ -10,7 +10,7 @@
  */
 class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( $configuration ) {
-		parent::__construct(  );
+		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
