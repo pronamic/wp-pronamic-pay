@@ -120,7 +120,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'updateInternetKassaPaymentStatus' ), 10, 2 );
-		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'updateOmniKassaPaymentStatus' ),     10, 2 );
+		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -256,13 +256,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param array $data
 	 * @param boolean $canRedirect
 	 */
-	public static function updateInternetKassaPaymentStatus($data, $canRedirect = false) {
+	public static function updateInternetKassaPaymentStatus( $data, $can_redirect = false ) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($data['ORDERID']);
 
-		if($payment != null) {
+		if ( $payment != null ) {
 			$status = null;
 
-			switch($data['STATUS']) {
+			switch ( $data['STATUS'] ) {
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::INCOMPLETE_OR_INVALID:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_REFUSED:
 				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_REFUSED:
@@ -311,13 +311,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 					break;
 			}
 			
-			if($status != null) {
-				$payment->transaction->setStatus($status);
+			if ( $status != null ) {
+				$payment->status = $status;
 
-				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 			}
 
-			do_action('pronamic_ideal_status_update', $payment, $canRedirect);
+			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 	}
 
@@ -354,17 +354,17 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
-	public static function updateOmniKassaPaymentStatus($data, $canRedirect = false) {
-		$transactionReference = $data['transactionReference'];
+	public static function update_omnikassa_payment_status( $data, $can_redirect = false ) {
+		$transaction_reference = $data['transactionReference'];
 		
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc($transactionReference);
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_reference );
 		
-		if($payment != null) {
-			$responseCode = $data['responseCode'];
+		if ( $payment != null ) {
+			$response_code = $data['responseCode'];
 
 			$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
 
-			switch($responseCode) {
+			switch ( $response_code ) {
 				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 					break;
@@ -373,11 +373,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 					break;
 			}
 			
-			$payment->transaction->setStatus($status);
+			$payment->status = $status;
 
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-			do_action('pronamic_ideal_status_update', $payment, $canRedirect);
+			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 	}
 
@@ -491,15 +491,26 @@ class Pronamic_WordPress_IDeal_Plugin {
 					<?php 
 					
 					printf(
-						__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s.', 'pronamic_ideal') , 
+						__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal') , 
 						self::PAYMENTS_MAX_LICENSE_FREE , 
-						sprintf(
-							'<a href="%s">%s</a>' , 
-							add_query_arg('page', 'pronamic_ideal_settings', get_admin_url(null, 'admin.php')) , 
-							__('iDEAL settings page', 'pronamic_ideal')
-						) 
+						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
 					);
 					
+					?>
+				</p>
+			</div>
+
+		<?php elseif ( ! self::hasValidKey() ) : ?>
+		
+			<div class="updated">
+				<p>
+					<?php 
+
+					printf(
+						'You must <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions and support.',
+						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
+					);
+
 					?>
 				</p>
 			</div>
