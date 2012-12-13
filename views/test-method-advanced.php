@@ -12,7 +12,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 	<?php wp_nonce_field( 'test_ideal_advanced', 'pronamic_ideal_nonce' ); ?>
 	
 	<div class="tablenav top">
-		<?php echo $gateway->get_html_fields(); ?>
+		<?php echo $gateway->get_input_html(); ?>
 	</div>
 
 	<table class="wp-list-table widefat" style="width: auto;">
