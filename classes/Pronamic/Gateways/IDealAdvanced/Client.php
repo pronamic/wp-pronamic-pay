@@ -135,7 +135,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$response = wp_remote_post( $url, array(
 			'method'    => 'POST',
 			'headers'   => array(
-				'Content-Type' => 'text/html; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING
+				'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING
 			),
 			'sslverify' => false,
 			'body'      => $data
