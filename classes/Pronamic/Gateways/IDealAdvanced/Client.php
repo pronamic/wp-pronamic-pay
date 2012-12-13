@@ -14,15 +14,46 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @var string
 	 */
-	private $acquirerUrl;
+	private $acquirer_url;
 	
 	//////////////////////////////////////////////////
-	
+
+	/**
+	 * Directory request URL
+	 * 
+	 * @var string
+	 */
 	public $directory_request_url;
 
+	/**
+	 * Transaction request URL
+	 * 
+	 * @var string
+	 */
 	public $transaction_request_url;
 	
+	/**
+	 * Status request URL
+	 * 
+	 * @var string
+	 */
 	public $status_request_url;
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Merchant ID
+	 * 
+	 * @var string
+	 */
+	public $merchant_id;
+	
+	/**
+	 * Sub ID
+	 * 
+	 * @var string
+	 */
+	public $sub_id;
 	
 	//////////////////////////////////////////////////
 
@@ -45,7 +76,9 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @var string
 	 */
-	private $privateCertificateFile;
+	private $privateCertificate;
+	
+	//////////////////////////////////////////////////
 
 	/**
 	 * The public certificate file
@@ -80,7 +113,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param string $acquirerUrl
 	 */
 	public function setAcquirerUrl($url) {
-		$this->acquirerUrl = $url;
+		$this->acquirer_url = $url;
 
 		$this->directory_request_url   = $url;
 		$this->transaction_request_url = $url;
@@ -98,7 +131,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	}
 
 	public function setPrivateCertificate($certificate) {
-		$this->privateCertificateFile = $certificate;
+		$this->privateCertificate = $certificate;
 	}
 
 	//////////////////////////////////////////////////
@@ -123,10 +156,8 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	/**
 	 * Send an message
 	 */
-	private function sendMessage( $data ) {
+	private function sendMessage( $url, $data ) {
 		$result = false;
-
-		$url = $this->acquirerUrl;
 
 		// Stringify
 		$data = (string) $data;
@@ -198,10 +229,18 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @return Directory
 	 */
-	public function getDirectory(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
+	public function getDirectory() {
 		$directory = null;
 
-		$response = $this->sendMessage($message);
+		$message = new Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage();
+		$merchant = $message->getMerchant();
+		$merchant->id = $this->merchant_id;
+		$merchant->subId = $this->sub_id;
+		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
+		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate);
+		$message->sign( $this->privateKey, $this->privateKeyPassword);
+
+		$response = $this->sendMessage( $this->directory_request_url, $message);
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage) {
 			$directory = $response->directory;
 		}
@@ -216,10 +255,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @return array
 	 */
-	public function getIssuers(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
+	public function getIssuers() {
 		$issuers = null;
 
-		$directory = $this->getDirectory($message);
+		$directory = $this->getDirectory();
 		if($directory != null) {
 			$issuers = $directory->getIssuers();
 		}
@@ -232,10 +271,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @return array
 	 */
-	public function getIssuerLists(Pronamic_Gateways_IDealAdvanced_XML_DirectoryRequestMessage $message) {
+	public function getIssuerLists() {
 		$lists = null;
 
-		$directory = $this->getDirectory($message);
+		$directory = $this->getDirectory();
 		if($directory != null) {
 			$lists = $directory->getLists();
 		}
@@ -251,7 +290,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param TransactionRequestMessage $message
 	 */
 	public function createTransaction(Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage $message) {
-		$response = $this->sendMessage($message);
+		$response = $this->sendMessage( $this->transaction_request_url, $message);
 
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage) {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
@@ -265,6 +304,27 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		return $response;
 	}
 
+	public function create_transaction( Pronamic_Gateways_IDealAdvanced_Transaction $transaction, $issuer_id ) {
+		$message = new Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage();
+
+		$issuer = new Pronamic_Gateways_IDealAdvanced_Issuer();
+		$issuer->setId( $data->get_issuer_id() );
+
+		$merchant = $message->getMerchant();
+		$merchant->id = $this->merchant_id;
+		$merchant->subId = $this->sub_id;
+		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
+		$merchant->returnUrl = site_url('/');
+		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
+		
+		$message->issuer = $issuer;
+		$message->merchant = $merchant;
+		$message->transaction = $transaction;
+		$message->sign( $this->privateKey, $this->privateKeyPassword );
+
+		return $this->sendMessage( $this->transaction_request_url, $message );
+	}
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -273,7 +333,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param TransactionRequestMessage $message
 	 */
 	public function getStatus(Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage $message) {
-		$response = $this->sendMessage($message);
+		$response = $this->sendMessage( $this->status_request_url, $message);
 
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage) {
 			$message->transaction->setStatus($response->transaction->getStatus());
