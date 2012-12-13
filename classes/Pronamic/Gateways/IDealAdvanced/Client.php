@@ -117,72 +117,49 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	public function getError() {
 		return $this->error;
 	}
-
+	
 	//////////////////////////////////////////////////
-
-	private function doHttpRequest($data, $timeout = 30) {
-		$result = null;
-
-		$contentType = 'Content-Type: text/html; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING;
-
-		$url = new Pronamic_Net_URL($this->acquirerUrl);
-		
-		$hostname = $url->getScheme() . '://' . $url->getHost();
-
-		// Connect with acquirer, will throw an warning error if fails
-		$resource = @fsockopen($hostname, $url->getPort(true), $errorNumber, $errorString, $timeout);
-		if($resource !== false) {
-			$message = (string) $data;
-			$message = utf8_decode($message);
-
-			fputs($resource, 'POST ' . $url->getPath(true) . ' HTTP/1.0' . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, 'Accept: text/html' . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, 'Accept: charset=ISO-8859-1' . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, 'Content-Length: ' . strlen($data) . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, 'Content-Type: ' . $contentType . Pronamic_Net_HTTP::CRLF);
-			fputs($resource, Pronamic_Net_HTTP::CRLF);
-			fputs($resource, $message, strlen($message));
-
-			$result = '';
-			while(!feof($resource)) {
-				$result .= fgets($resource, 128);
-			}
-
-			fclose($resource);
-		
-			$position = strpos($result, Pronamic_Net_HTTP::CRLF . Pronamic_Net_HTTP::CRLF);
-
-			if($position !== false) {
-				$body = substr($result, $position + 4);
-				
-				$result = $body;
-			}
-		} else {
-			// throw new Exception('Could not connect with the acquirer');
-			// @todo what to do?
-			
-		}
-		
-		return $result;
-	}
 
 	/**
 	 * Send an message
 	 */
-	public function sendMessage($data, $timeout = 30) {
-		$result = null;
-		
-		$response = $this->doHttpRequest($data, $timeout);
-		if($response) {
-			$document = simplexml_load_string($response);
+	private function sendMessage( $data ) {
+		$result = false;
 
-			if($document !== false) {
-				$result = $this->parseDocument($document);
+		$url = $this->acquirerUrl;
+
+		// Stringify
+		$data = (string) $data;
+
+		// Remote post
+		$response = wp_remote_post( $url, array(
+			'method'    => 'POST',
+			'headers'   => array(
+				'Content-Type' => 'text/html; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING
+			),
+			'sslverify' => false,
+			'body'      => $data
+		) );
+
+		// Handle response
+		if ( ! is_wp_error( $response ) ) {
+			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+				$body = wp_remote_retrieve_body( $response );
+
+				$document = simplexml_load_string( $body );
+	
+				if ( $document !== false ) {
+					$result = $this->parseDocument( $document );
+				} else {
+					throw new Exception( 'Unknown response message' );
+				}
 			} else {
-				throw new Exception('Unknown response message');
+				var_dump( $response );
 			}
+		} else {
+			var_dump( $response );
 		}
-		
+
 		return $result;
 	}
 
