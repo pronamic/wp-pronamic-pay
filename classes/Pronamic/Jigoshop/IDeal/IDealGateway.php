@@ -175,21 +175,27 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		// Do specifiek iDEAL variant processing
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-	
-			if ( $variant !== null ) {
-				switch ( $variant->getMethod() ) {
-					case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-						return $this->process_ideal_advanced_payment( $order, $configuration, $variant );
-					default: 
-						return $this->process_ideal_payment( $order, $configuration, $variant );
-				}
+
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		
+		if ( $gateway ) {
+			if ( $gateway->is_http_redirect() ) {
+				$return = $this->process_gateway_http_redirect( $order, $configuration, $gateway );
+			}
+
+			if ( $gateway->is_html_form() ) {
+				$return = $this->process_gateway_html_form( $order );
+			}
+			
+			if ( ! $gateway->has_feedback() ) {
+				
 			}
 		}
+		
+		return $return;
     }
 
-	private function process_ideal_payment( $order, $configuration, $variant ) {
+	private function process_gateway_html_form( $order, $configuration, $variant ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
@@ -203,10 +209,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		);
 	}
 
-    private function process_ideal_advanced_payment( $order, $configuration, $variant ) {
-		$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+    private function process_gateway_http_redirect( $order, $configuration, $gateway ) {
+		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
-		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
+		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+
+    	$url = $gateway->get_action_url();
 
 		return array(
 			'result' 	=> 'success',
