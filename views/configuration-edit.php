@@ -46,6 +46,9 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 	// Basic
 	$configuration->hashKey = filter_input(INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING);
+
+	// OmniKassa
+	$configuration->keyVersion = filter_input( INPUT_POST, 'pronamic_ideal_key_version', FILTER_SANITIZE_STRING );
 	
 	// Mollie
 	$configuration->molliePartnerId = filter_input(INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING);
@@ -287,7 +290,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</label>
 				</th>
 				<td>
-	                <input id="pronamic_ideal_key_version" name="pronamic_ideal_key_version" value="<?php echo $configuration->key_version; ?>" type="text" />
+	                <input id="pronamic_ideal_key_version" name="pronamic_ideal_key_version" value="<?php echo $configuration->keyVersion; ?>" type="text" />
 
 					<span class="description">
 						<br />

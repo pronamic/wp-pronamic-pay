@@ -120,6 +120,12 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
       	
 		$meta = json_decode($result->meta);
 
+		// OmniKassa
+		if(isset($meta->keyVersion)) $configuration->keyVersion = $meta->keyVersion;
+		if ( $result->variantId == 'rabobank-omnikassa' && empty( $configuration->keyVersion ) ) {
+			$configuration->keyVersion = $result->subId;
+		}
+
 		// Mollie
 		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;
 		if(isset($meta->mollieProfileKey)) $configuration->mollieProfileKey = $meta->mollieProfileKey;
