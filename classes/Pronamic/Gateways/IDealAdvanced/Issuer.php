@@ -21,7 +21,7 @@ class Pronamic_Gateways_IDealAdvanced_Issuer {
 	 * 
 	 * @var string
 	 */
-	const LIST_LONG = 'LONG';
+	const LIST_LONG = 'Long';
 
 	//////////////////////////////////////////////////
 
