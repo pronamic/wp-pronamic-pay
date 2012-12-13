@@ -70,11 +70,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 
 		// Remote post
 		$response = wp_remote_post( $url, array(
-			'method' => 'POST',
-			'headers' => array(
+			'method'    => 'POST',
+			'headers'   => array(
 				'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvancedV3_XML_Message::XML_ENCODING
 			),
-			'body' => $data
+			'sslverify' => false,
+			'body'      => $data
 		) );
 
 		// Handle response
