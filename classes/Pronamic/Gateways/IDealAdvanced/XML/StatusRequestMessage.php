@@ -67,10 +67,12 @@ class Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage extends Pronamic_
 	 * @return array
 	 */
 	public function getSignValues() {
+		$merchant = $this->getMerchant();
+
 		return array(
 			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT),
-			$this->merchant->id,
-			$this->merchant->subId, 
+			$merchant->id,
+			$merchant->subId, 
 			$this->transaction->getId()
 		);
 	}
