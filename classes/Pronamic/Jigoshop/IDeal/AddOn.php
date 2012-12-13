@@ -61,7 +61,6 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	public static function updateStatus( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::isJigoshopSupported() ) {
 			$id = $payment->getSourceId();
-			$transaction = $payment->transaction;
 
 			$order = &new jigoshop_order( (int) $id );
 			$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
@@ -69,9 +68,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			if ( $order->status !== Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED ) {				
 				$url = $data_proxy->getNormalReturnUrl();
 
-				$status = $transaction->getStatus();
-
-				switch ( $status ) {
+				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
