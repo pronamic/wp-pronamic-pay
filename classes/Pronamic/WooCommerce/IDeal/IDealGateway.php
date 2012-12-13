@@ -167,7 +167,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		
 		if ( $gateway ) {
 			if ( $gateway->is_http_redirect() ) {
-				$return = $this->process_gateway_http_redirect( $order, $configuration );
+				$return = $this->process_gateway_http_redirect( $order, $configuration, $gateway );
 			}
 
 			if ( $gateway->is_html_form() ) {
@@ -284,10 +284,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param Pronamic_IDeal_Variant $variant
      * @return array
      */
-    private function process_gateway_http_redirect( $order, $configuration ) {
+    private function process_gateway_http_redirect( $order, $configuration, $gateway ) {
 		$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
