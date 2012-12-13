@@ -153,10 +153,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 		if ( $payment !== null ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 			// - No status request after a final status has been received for a transaction;
-			$status = $payment->transaction->getStatus();
+			$status = $payment->status;
 
-			if(empty($status) || $status === Pronamic_Gateways_IDealAdvancedV3_Status::OPEN) {
-				self::checkPaymentStatus($payment);
+			if ( empty( $status ) || $status === Pronamic_Gateways_IDealAdvancedV3_Status::OPEN ) {
+				self::checkPaymentStatus( $payment );
 			}
 		} else {
 			// Payment with the specified ID could not be found, can't check the status
