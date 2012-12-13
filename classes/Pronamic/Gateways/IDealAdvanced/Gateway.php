@@ -120,7 +120,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
-	public function start2() {
+	public function payment( $payment ) {
 
 
 		/*

@@ -113,6 +113,13 @@ abstract class Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
+	public function payment( $payment ) {
+		
+	}
+	
+	
+	/////////////////////////////////////////////////
+
 	public function redirect() {
 		// Redirect, See Other
 		// http://en.wikipedia.org/wiki/HTTP_303
