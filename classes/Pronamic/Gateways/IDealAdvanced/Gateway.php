@@ -10,7 +10,7 @@
  */
 class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( $configuration ) {
-		parent::__construct();
+		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
@@ -103,7 +103,18 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$transaction->setDescription( $data->getDescription() );
 		$transaction->setEntranceCode( $data->get_entrance_code() );
 
-		$this->client->create_transaction( $transaction, $data->get_issuer_id() );
+		$result = $this->client->create_transaction( $transaction, $data->get_issuer_id() );
+
+		$error = $this->client->get_error();
+		
+		if ( $error !== null ) {
+			var_dump( $error );
+		} else {
+			$issuer = $result->issuer;
+
+			$this->action_url     = $result->issuer->authenticationUrl;
+			$this->transaction_id = $result->transaction->getId();
+		}
 		
 	}
 	
@@ -145,5 +156,29 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		// A certain period after the end of the expirationPeriod
 		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' => 86400 ) );
 
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Update status of the specified payment
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 */
+	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+		$result = $this->client->get_status( $payment->transaction_id );
+
+		$error = $this->client->get_error();
+
+		if ( $error !== null ) {
+			var_dump( $error );
+		} else {
+			$transaction = $result->transaction;
+
+			$payment->status                  = $transaction->getStatus();
+			$payment->consumer_name           = $transaction->getConsumerName();
+			$payment->consumer_account_number = $transaction->getConsumerAccountNumber();
+			$payment->consumer_city           = $transaction->getConsumerCity();
+		}
 	}
 }
