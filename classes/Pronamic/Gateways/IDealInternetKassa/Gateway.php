@@ -14,7 +14,6 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
-		$this->set_require_issue_select( false );
 		$this->set_amount_minimum( 0.01 );
 
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();

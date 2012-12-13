@@ -14,7 +14,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
-		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 0.01 );
 
 		// Client
@@ -121,8 +120,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/////////////////////////////////////////////////
 
 	public function payment( $payment ) {
-
-
 		/*
 		 * Schedule status requests	
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
@@ -155,7 +152,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		wp_schedule_single_event( $time +  3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  3600 ) );
 		// A certain period after the end of the expirationPeriod
 		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' => 86400 ) );
-
 	}
 	
 	/////////////////////////////////////////////////

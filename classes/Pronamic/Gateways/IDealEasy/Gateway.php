@@ -14,11 +14,9 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
-		$this->set_require_issue_select( false );
 		$this->set_amount_minimum( 0.01 );
 
 		$this->client = new Pronamic_Gateways_IDealEasy_IDealEasy();
-
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 		$this->client->setPspId( $configuration->pspId );
 	}
@@ -40,7 +38,7 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setOwnerCity( $data->getOwnerCity() );
 		$this->client->setOwnerZip( $data->getOwnerZip() );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_output_html() {

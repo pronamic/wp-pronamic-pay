@@ -14,7 +14,6 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( false );
-		$this->set_require_issue_select( true );
 		$this->set_amount_minimum( 1.20 );
 
 		$this->client = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
