@@ -183,28 +183,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 		}
 
 		if ( $variant->getMethod() == 'advanced' ) {
-			$iDealClient = new Pronamic_Gateways_IDealAdvanced_IDealClient();
-			$iDealClient->setAcquirerUrl($configuration->getPaymentServerUrl());
-			$iDealClient->setPrivateKey($configuration->privateKey);
-			$iDealClient->setPrivateKeyPassword($configuration->privateKeyPassword);
-			$iDealClient->setPrivateCertificate($configuration->privateCertificate);
-			
-			$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
-	
-			$merchant = $message->getMerchant();
-			$merchant->id = $configuration->getMerchantId();
-			$merchant->subId = $configuration->getSubId();
-			$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-			$merchant->returnUrl = site_url('/');
-			$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
-	
-			$message->merchant = $merchant;
-			$message->transaction = $payment->transaction;
-			$message->sign($configuration->privateKey, $configuration->privateKeyPassword);
-	
-			$responseMessage = $iDealClient->getStatus($message);
-	
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus($payment);
+			$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
+
+			$gateway->update_status( $payment );
+
+			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 	
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
