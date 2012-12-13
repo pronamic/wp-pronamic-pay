@@ -135,12 +135,12 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$gateway->start( $data );
 			
-			Pronamic_WordPress_IDeal_IDeal::create_payment( $confiugration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
 			$gateway->redirect();
 		}
 
-		if ( isset( $_POST['test_ideal_advanced'] ) && check_admin_referer( 'test', 'pronamic_ideal_nonce' ) ) {
+		if ( isset( $_POST['test_ideal_advanced'] ) && check_admin_referer( 'test_ideal_advanced', 'pronamic_ideal_nonce' ) ) {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
@@ -154,7 +154,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$gateway->start( $data );
 
-			Pronamic_WordPress_IDeal_IDeal::create_payment( $confiugration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
 			$gateway->redirect();
     	}
