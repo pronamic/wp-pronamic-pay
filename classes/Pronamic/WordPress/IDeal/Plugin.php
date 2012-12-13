@@ -120,13 +120,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'updateInternetKassaPaymentStatus' ), 10, 2 );
-		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
+		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),  10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
 
 		// Show license message if the license is not valid
-		add_action( 'admin_notices', array( __CLASS__, 'maybeShowLicenseMessage' ) );
+		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -483,7 +483,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Maybe show an license message
 	 */
-	public static function maybeShowLicenseMessage() {
+	public static function admin_notices() {
 		if ( ! self::canBeUsed() ): ?>
 		
 			<div class="error">
@@ -491,8 +491,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 					<?php 
 					
 					printf(
-						__('<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal') , 
-						self::PAYMENTS_MAX_LICENSE_FREE , 
+						__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
+						self::PAYMENTS_MAX_LICENSE_FREE, 
 						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
 					);
 					
@@ -507,7 +507,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					<?php 
 
 					printf(
-						'You must <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions and support.',
+						'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions and get support.',
 						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
 					);
 
