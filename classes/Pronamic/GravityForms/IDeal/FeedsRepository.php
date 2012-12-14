@@ -294,14 +294,14 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 	public static function deleteFeeds(array $ids) {
 		global $wpdb;
 
-		$feed_table = self::getFeedsTableName();
+		$feeds_table = self::getFeedsTableName();
 		
 		$list = implode( ',', array_map( 'absint', $ids ) );
 
 		$query = "
 			DELETE 
 			FROM 
-				$feed_table 
+				$feeds_table 
 			WHERE 
 				id IN ($list)
 		";
