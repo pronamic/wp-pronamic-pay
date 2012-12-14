@@ -171,7 +171,7 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Get the issuers transient
 	 */
-	public static function get_transient_issuers() {
+	public function get_transient_issuers() {
 		$issuers = null;
 
 		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
@@ -182,7 +182,7 @@ abstract class Pronamic_Gateways_Gateway {
 			$this->error = $result;
 		} elseif ( $result === false ) {
 			$issuers = $this->get_issuers();
-		
+
 			if ( $issuers ) {
 				// 60 * 60 * 24 = 24 hours = 1 day
 				set_transient( $transient, $issuers, 60 * 60 * 24 );
@@ -196,10 +196,15 @@ abstract class Pronamic_Gateways_Gateway {
 
 		return $issuers;
 	}
-	
+
 	/////////////////////////////////////////////////
 
-	public function start( $data ) {
+	/**
+	 * Start transaction/payment
+	 * 
+	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 */
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		
 	}
 	

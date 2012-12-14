@@ -59,7 +59,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	public function get_issuer_field() {
 		$choices = array();
 		
-		$list = $this->get_issuers();
+		$list = $this->get_transient_issuers();
 		
 		foreach( $list as $name => $issuers ) {
 			$options = array();

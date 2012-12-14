@@ -21,13 +21,15 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	
 	const ISO_639_1_DUTCH = 'nl';
 
+	//////////////////////////////////////////////////
+
 	public static function getSupportedLanguageCodes() {
 		return array(
-			self::ISO_639_1_ENGLISH ,
-			self::ISO_639_1_FRENCH , 
-			self::ISO_639_1_GERMAN , 
-			self::ISO_639_1_ITALIAN , 
-			self::ISO_639_1_SPANISH , 
+			self::ISO_639_1_ENGLISH,
+			self::ISO_639_1_FRENCH,
+			self::ISO_639_1_GERMAN,
+			self::ISO_639_1_ITALIAN,
+			self::ISO_639_1_SPANISH,
 			self::ISO_639_1_DUTCH
 		);
 	}
@@ -37,6 +39,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 		return in_array($language, $languages);
 	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Interface version HP 1.0

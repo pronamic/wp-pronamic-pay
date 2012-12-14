@@ -436,8 +436,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 				if ( $gateway ) {
-					$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
-
 					if ( $gateway->is_http_redirect() ) {
 						$confirmation = self::handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway );
 					}
@@ -472,6 +470,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
 		$configuration = $feed->getIDealConfiguration();
+
+		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
@@ -537,6 +537,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
         // Return
         return $confirmation;
 	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Replace merge tags

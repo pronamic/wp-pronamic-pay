@@ -9,15 +9,28 @@
  * @version 1.0
  */
 class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
-	public $client;
+	/**
+	 * The OmniKassa client object
+	 * 
+	 * @var Pronamic_Gateways_OmniKassa_OmniKassa
+	 */
+	private $client;
+	
+	/////////////////////////////////////////////////
 
-	public function __construct( $configuration ) {
+	/**
+	 * Constructs and initializes an OmniKassa gateway
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 */
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
+		// Client
 		$this->client = new Pronamic_Gateways_OmniKassa_OmniKassa();
 		
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
@@ -28,7 +41,13 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start( $data ) {
+	/**
+	 * Start
+	 * 
+	 * @see Pronamic_Gateways_Gateway::start()
+	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 */
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$this->transaction_id = md5( time() . $data->getOrderId() );
 		$this->action_url     = $this->client->getPaymentServerUrl();
 
@@ -43,6 +62,11 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get the output HTML
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_output_html()
+	 */
 	public function get_output_html() {
 		return $this->client->getHtmlFields();
 	}
