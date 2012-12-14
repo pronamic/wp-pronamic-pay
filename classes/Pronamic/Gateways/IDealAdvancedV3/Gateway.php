@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: iDEAL Advanced v3+
+ * Title: iDEAL Advanced v3+ gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
