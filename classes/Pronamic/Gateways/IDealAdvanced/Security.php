@@ -90,7 +90,6 @@ class Pronamic_Gateways_IDealAdvanced_Security {
     * @param message to sign
     * @return signature
     */
-    
     public static function signMessage($privateKey, $privateKeyPassword, $data) {
         $signature = null;
 
@@ -118,7 +117,6 @@ class Pronamic_Gateways_IDealAdvanced_Security {
     * @param sent signature
     * @return signature
     */
-    
     function verifyMessage($certfile, $data, $signature) {
         // $data and $signature are assumed to contain the data and the     signature
         $ok=0;
