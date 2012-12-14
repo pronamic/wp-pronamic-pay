@@ -525,24 +525,24 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param array $roles
 	 */
-	public static function setRoles($roles) {
+	public static function set_roles( $roles ) {
 		global $wp_roles;
 
-		if(!isset($wp_roles)) {
+		if ( ! isset( $wp_roles ) ) {
 			$wp_roles = new WP_Roles();
 		}
 
-		foreach($roles as $role => $data) {
-			if(isset($data['display_name'], $data['capabilities'])) {
+		foreach ( $roles as $role => $data ) {
+			if ( isset( $data['display_name'], $data['capabilities'] ) ) {
 				$display_name = $data['display_name'];
 				$capabilities = $data['capabilities'];
 	
-				if($wp_roles->is_role($role)) {
-					foreach($capabilities as $cap => $grant) {
-						$wp_roles->add_cap($role, $cap, $grant);
+				if ( $wp_roles->is_role( $role ) ) {
+					foreach ( $capabilities as $cap => $grant ) {
+						$wp_roles->add_cap( $role, $cap, $grant );
 					}
 				} else {
-					$wp_roles->add_role($role, $display_name, $capabilities);
+					$wp_roles->add_role( $role, $display_name, $capabilities );
 				}
 			}
 		}
@@ -575,16 +575,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 			
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
-					'display_name' => __('iDEAL Administrator', 'pronamic_ideal') ,	
+					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
 				) , 
 				'administrator' => array(
-					'display_name' => __('Administrator', 'pronamic_ideal') ,	
+					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
 				)
 			);
 			
-			self::setRoles( $roles );
+			self::set_roles( $roles );
 
 			// Update version
 			update_option( self::OPTION_VERSION, self::VERSION );

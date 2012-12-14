@@ -122,16 +122,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
-					'display_name' => __('iDEAL Administrator', 'pronamic_ideal') ,	
+					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
 				) , 
 				'administrator' => array(
-					'display_name' => __('Administrator', 'pronamic_ideal') ,	
+					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
 				)
 			);
 			
-			Pronamic_WordPress_IDeal_Plugin::setRoles( $roles );
+			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
 				
 			// Update version
 			update_option( self::OPTION_VERSION, self::VERSION );
