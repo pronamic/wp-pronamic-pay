@@ -553,16 +553,16 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
 		$search = array(
-			'{payment_status}' ,
-			'{payment_date}' , 
-			'{transaction_id}' , 
+			'{payment_status}',
+			'{payment_date}',
+			'{transaction_id}',
 			'{payment_amount}'
 		);
     	
 		$replace = array(
-			rgar( $entry, 'payment_status' ) , 
-			rgar( $entry, 'payment_date' ) , 
-			rgar( $entry, 'transaction_id' ) ,
+			rgar( $entry, 'payment_status' ),
+			rgar( $entry, 'payment_date' ),
+			rgar( $entry, 'transaction_id' ),
 			GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
 		);
 
@@ -572,7 +572,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
     		}
     	}
 
-    	$text = str_replace( $search, $replace, $text);
+    	$text = str_replace( $search, $replace, $text );
     
 		return $text;
 	}
