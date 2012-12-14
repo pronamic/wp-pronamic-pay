@@ -40,7 +40,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	//////////////////////////////////////////////////
 
 	public function __construct() {
-		
+
 	}
 	
 	//////////////////////////////////////////////////
@@ -83,18 +83,30 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 				$body = wp_remote_retrieve_body( $response );
 
+				// Suppress all XML errors
+				$use_errors = libxml_use_internal_errors( true );
+
 				$document = simplexml_load_string( $body );
-	
+
 				if ( $document !== false ) {
 					$result = $this->parse_document( $document );
 				} else {
-					throw new Exception( 'Unknown response message' );
+					$this->error = new WP_Error( 'xml_load_error', __( 'Could not load the XML response meessage from the iDEAL provider.', 'pronamic_ideal' ) );
+
+					foreach ( libxml_get_errors() as $error ) {
+						$this->error->add( 'libxml_error', $error->message, $error );
+					}
+
+					libxml_clear_errors();
 				}
+				
+				// Set back to previous value 
+				libxml_use_internal_errors( $use_errors );
 			} else {
-				var_dump( $response );
+				$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
 			}
 		} else {
-			var_dump( $response );
+			$this->error = $response;
 		}
 		
 		return $result;

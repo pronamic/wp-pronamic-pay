@@ -156,7 +156,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	/**
 	 * Send an message
 	 */
-	private function sendMessage( $url, $data ) {
+	private function send_message( $url, $data ) {
 		$result = false;
 
 		// Stringify
@@ -177,18 +177,30 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 				$body = wp_remote_retrieve_body( $response );
 
+				// Suppress all XML errors
+				$use_errors = libxml_use_internal_errors( true );
+
 				$document = simplexml_load_string( $body );
 	
 				if ( $document !== false ) {
 					$result = $this->parseDocument( $document );
 				} else {
-					throw new Exception( 'Unknown response message' );
+					$this->error = new WP_Error( 'xml_load_error', __( 'Could not load the XML response meessage from the iDEAL provider.', 'pronamic_ideal' ) );
+
+					foreach ( libxml_get_errors() as $error ) {
+						$this->error->add( 'libxml_error', $error->message, $error );
+					}
+
+					libxml_clear_errors();
 				}
+				
+				// Set back to previous value 
+				libxml_use_internal_errors( $use_errors );
 			} else {
-				var_dump( $response );
+				$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
 			}
 		} else {
-			var_dump( $response );
+			$this->error = $response;
 		}
 
 		return $result;
@@ -240,7 +252,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate);
 		$message->sign( $this->privateKey, $this->privateKeyPassword);
 
-		$response = $this->sendMessage( $this->directory_request_url, $message);
+		$response = $this->send_message( $this->directory_request_url, $message);
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage) {
 			$directory = $response->directory;
 		}
@@ -290,7 +302,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param TransactionRequestMessage $message
 	 */
 	public function createTransaction(Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage $message) {
-		$response = $this->sendMessage( $this->transaction_request_url, $message);
+		$response = $this->send_message( $this->transaction_request_url, $message);
 
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage) {
 			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
@@ -322,7 +334,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message->transaction = $transaction;
 		$message->sign( $this->privateKey, $this->privateKeyPassword );
 
-		return $this->sendMessage( $this->transaction_request_url, $message );
+		return $this->send_message( $this->transaction_request_url, $message );
 	}
 
 	//////////////////////////////////////////////////
@@ -333,7 +345,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param TransactionRequestMessage $message
 	 */
 	public function getStatus(Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage $message) {
-		$response = $this->sendMessage( $this->status_request_url, $message);
+		$response = $this->send_message( $this->status_request_url, $message);
 
 		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage) {
 			$message->transaction->setStatus($response->transaction->getStatus());
