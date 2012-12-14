@@ -156,11 +156,14 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	/**
 	 * Send an message
 	 */
-	private function send_message( $url, $data ) {
+	private function send_message( $url, $message ) {
 		$result = false;
 
+		// Sign
+		$message->sign( $this->privateKey, $this->privateKeyPassword );
+
 		// Stringify
-		$data = (string) $data;
+		$data = (string) $message;
 
 		// Remote post
 		$response = wp_remote_post( $url, array(
@@ -250,10 +253,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->subId = $this->sub_id;
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
 		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate);
-		$message->sign( $this->privateKey, $this->privateKeyPassword);
 
-		$response = $this->send_message( $this->directory_request_url, $message);
-		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage) {
+		$response = $this->send_message( $this->directory_request_url, $message );
+
+		if ( $response instanceof Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage ) {
 			$directory = $response->directory;
 		}
 
@@ -312,7 +315,6 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message->issuer = $issuer;
 		$message->merchant = $merchant;
 		$message->transaction = $transaction;
-		$message->sign( $this->privateKey, $this->privateKeyPassword );
 
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
@@ -326,14 +328,12 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->id = $this->merchant_id;
 		$merchant->subId = $this->sub_id;
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = site_url('/');
+		$merchant->returnUrl = site_url( '/' );
 		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 
 		$message->transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 		$message->transaction->setId( $transaction_id );
 
-		$message->sign( $this->privateKey, $this->privateKeyPassword );
-
-		return $this->send_message( $this->status_request_url, $message);
+		return $this->send_message( $this->status_request_url, $message );
 	}
 }
