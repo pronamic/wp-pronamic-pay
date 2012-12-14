@@ -61,7 +61,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	private function send_message( $url, Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message ) {
 		$result = false;
 
-		// Sign document
+		// Sign
 		$document = $message->get_document();
 		$document = $this->sign_document( $document );
 		
