@@ -78,8 +78,13 @@ class Pronamic_GravityForms_IDeal_Fields {
 					$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 					$issuer_field = $gateway->get_issuer_field();
-
-					if ( $issuer_field ) {
+					
+					$error = $gateway->get_error();
+					
+					if( is_wp_error( $error ) ) {
+						$html_error .= __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
+						$html_error .= '<br /><em>' . $error->get_error_message() . '</em>';
+					} elseif ( $issuer_field ) {
 						$choices = $issuer_field['choices'];
 
 						$options = Pronamic_IDeal_HTML_Helper::select_options_grouped( $choices, $value );
@@ -90,10 +95,6 @@ class Pronamic_GravityForms_IDeal_Fields {
 						$html_input .= sprintf( "	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $field_id, $css_class, $tab_index, $disabled_text );
 						$html_input .= sprintf( "		%s", $options );
 						$html_input .= sprintf( "	</select>" );
-					} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-						$html_error = $error->getConsumerMessage();
-					} else {
-						$html_error = __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
 					}
 				}
 			}
