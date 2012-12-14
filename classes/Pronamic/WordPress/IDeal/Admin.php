@@ -92,13 +92,13 @@ class Pronamic_WordPress_IDeal_Admin {
 			// Styles
 			wp_enqueue_style(
 				'proanmic_ideal_admin',
-				plugins_url( 'css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file )
+				plugins_url( 'admin/css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file )
 			);
 	
 			// Scripts
 			wp_enqueue_script(
 				'proanmic_ideal_admin',
-				plugins_url( 'js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file ),
+				plugins_url( 'admin/js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file ),
 				array( 'jquery' )
 			);
 		}
