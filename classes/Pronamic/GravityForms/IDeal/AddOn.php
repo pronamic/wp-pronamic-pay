@@ -300,22 +300,22 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				// unknown field
 				$result = true;
 			} else {
-				$isHidden = RGFormsModel::is_field_hidden( $form, $field, array() );
+				$is_hidden = RGFormsModel::is_field_hidden( $form, $field, array() );
 
-				if ( $isHidden ) {
+				if ( $is_hidden ) {
 					// if conditional is enabled, but the field is hidden, ignore conditional
 					$result = false;
 				} else {
 					$value = RGFormsModel::get_field_value( $field, array() );
 
-					$isMatch = RGFormsModel::is_value_match( $value, $feed->conditionValue );
+					$is_match = RGFormsModel::is_value_match( $value, $feed->conditionValue );
 					
 					switch ( $feed->conditionOperator ) {
 						case Pronamic_GravityForms_GravityForms::OPERATOR_IS:
-							$result = $isMatch;
+							$result = $is_match;
 							break;
 						case Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT:
-							$result = !$isMatch;
+							$result = ! $is_match;
 							break;
 						default: // unknown operator
 							$result = true;
@@ -473,15 +473,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
 		$configuration = $feed->getIDealConfiguration();
 
-		
-
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
     	$url = $gateway->get_action_url();
 
 		if ( empty( $url ) ) {
 			$error = $gateway->get_error();
-			if ( !empty( $error ) ) {
+			if ( ! empty( $error ) ) {
 				$confirmation = sprintf(
 					__( '%s (error code: %s)', 'pronamic_ideal' ),
 					$error->getConsumerMessage(),
