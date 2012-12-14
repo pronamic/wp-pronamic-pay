@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Basic
+ * Title: iDEAL Advanced gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -9,7 +9,12 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration ) {
+	/**
+	 * Constructs and initializes an iDEAL Advanced gateway
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 */
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
