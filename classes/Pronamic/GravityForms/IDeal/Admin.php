@@ -16,7 +16,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 		// Filters
 		add_filter( 'gform_addon_navigation',   array( __CLASS__, 'addon_navigation' ) );
 
-		add_filter( 'gform_entry_info',         array( __CLASS__, 'entry_info' ), 10, 3 );
+		add_filter( 'gform_entry_info',         array( __CLASS__, 'entry_info' ), 10, 2 );
 
 		add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10 );
 
