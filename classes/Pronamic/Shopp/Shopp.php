@@ -76,28 +76,28 @@ class Pronamic_Shopp_Shopp {
 	 * 
 	 * @param Purchase $purchase
 	 */
-	public static function isPurchasePaid($purchase) {
-		$isPaid = false;
+	public static function isPurchasePaid( $purchase ) {
+		$is_paid = false;
 
-		if(version_compare(SHOPP_VERSION, '1.2', '<')) {
+		if ( version_compare( SHOPP_VERSION, '1.2', '<' ) ) {
 			// In Shopp < 1.2 an paid purchase has not the status 'PENDING'
-			$isPaid = !in_array(
-				$purchase->txnstatus , 
+			$is_paid = ! in_array(
+				$purchase->txnstatus,
 				array(
 					self::PAYMENT_STATUS_PENDING
 				)
 			);
 		} else {
 			// In Shopp >= 1.2 an paid purchase has the 'captured' status
-			$isPaid = in_array(
-				$purchase->txnstatus , 
+			$is_paid = in_array(
+				$purchase->txnstatus,
 				array(
 					self::PAYMENT_STATUS_CAPTURED
 				)
 			);
 		}
 		
-		return $isPaid;
+		return $is_paid;
 	}
 	
 	//////////////////////////////////////////////////
@@ -108,12 +108,12 @@ class Pronamic_Shopp_Shopp {
 	 * @param Purchase $purchase
 	 * @param string $status
 	 */
-	public static function updatePurchaseStatus($purchase, $status) {
+	public static function updatePurchaseStatus( $purchase, $status ) {
 		global $wpdb;
 
 		$wpdb->update(
-			$wpdb->prefix . SHOPP_DBPREFIX . 'purchase' , 
-			array( 'txnstatus' => $status ) , 
+			$wpdb->prefix . SHOPP_DBPREFIX . 'purchase',
+			array( 'txnstatus' => $status ),
 			array( 'id' => $purchase->id )
 		);
 	}

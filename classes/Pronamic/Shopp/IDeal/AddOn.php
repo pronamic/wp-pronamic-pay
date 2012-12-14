@@ -74,7 +74,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 		if ( isset( $Shopp->Settings ) ) {
 			$activeGateways = $Shopp->Settings->get( 'active_gateways' );
 
-			if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false) {
+			if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false ) {
 				$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 			}
 		}
@@ -92,22 +92,21 @@ class Pronamic_Shopp_IDeal_AddOn {
 			global $Shopp;
 
 			$id = $payment->getSourceId();
-			$transaction = $payment->transaction;
 			
 			$purchase = new Purchase( $id );
 			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
-			$data_proxy = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
+			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
 			
 			if ( ! Pronamic_Shopp_Shopp::isPurchasePaid( $purchase ) ) {
-				$url = $data_proxy->getNormalReturnUrl();
+				$url = $data->getNormalReturnUrl();
 
 				$status = $transaction->getStatus();
 
-				switch ( $status ) {
+				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						Pronamic_Shopp_Shopp::updatePurchaseStatus( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED );
 
-						$url = $data_proxy->getCancelUrl();
+						$url = $data->getCancelUrl();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -117,13 +116,13 @@ class Pronamic_Shopp_IDeal_AddOn {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						Pronamic_Shopp_Shopp::updatePurchaseStatus( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE );
 
-						$url = $data_proxy->getErrorUrl();
+						$url = $data->getErrorUrl();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 						Pronamic_Shopp_Shopp::updatePurchaseStatus( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CAPTURED );
 
-						$url = $data_proxy->getSuccessUrl();
+						$url = $data->getSuccessUrl();
 
 						$Shopp->resession();
 
@@ -193,10 +192,13 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function source_column( $text, $payment ) {
 		$text  = '';
+
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
-		$text .= sprintf( '<a href="%s">', add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->getSourceId() ), admin_url( 'admin.php' ) ) );
-		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() );
-		$text .= '</a>';
+		$text .= sprintf(
+			'<a href="%s">%s</a>', 
+			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+		);
 
 		return $text;
 	}
