@@ -81,16 +81,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
-	public function get_input_fields() {
-		$fields = array();
-		
-		$fields[] = $this->get_issuer_field(); 
-
-		return $fields;
-	}
-	
-	/////////////////////////////////////////////////
-
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		// Transaction request message
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
@@ -114,7 +104,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 			$this->action_url     = $result->issuer->authenticationUrl;
 			$this->transaction_id = $result->transaction->getId();
 		}
-		
 	}
 	
 	/////////////////////////////////////////////////

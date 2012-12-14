@@ -58,12 +58,41 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
+	 * Error
+	 * 
+	 * @var WP_Error
+	 */
+	public $error;
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * The transaction ID
+	 * 
+	 * @var string
+	 */
+	public $transaction_id;
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an gateway
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
 	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		$this->configuration = $configuration;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get the error
+	 * 
+	 * @return WP_Error or null
+	 */
+	public function get_error() {
+		return $this->error;
 	}
 
 	/////////////////////////////////////////////////
@@ -76,7 +105,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function set_method( $method ) {
 		$this->method = $method;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
@@ -211,10 +240,35 @@ abstract class Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 	
+	/**
+	 * Get the input fields for this gateway
+	 * 
+	 * This function will automatically add the issuer field to the 
+	 * input fields array of it's not empty
+	 * 
+	 * @return array
+	 */
 	public function get_input_fields() {
-		return array();
-	}
+		$fields = array();
+		
+		$issuer_field = $this->get_issuer_field();
 
+		if ( ! empty( $issuer_field ) ) {
+			$fields[] = $this->get_issuer_field();
+		}
+
+		return $fields;
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get the input HTML
+	 * 
+	 * This function will convert all input fields to an HTML notation
+	 * 
+	 * @return string
+	 */
 	public function get_input_html() {
 		$html = '';
 
@@ -228,14 +282,14 @@ abstract class Pronamic_Gateways_Gateway {
 					case 'select':
 						$html .= sprintf(
 							'<label for="%s">%s</label> ',
-							$field['id'],
+							esc_attr( $field['id'] ),
 							$field['label']
 						);
 
 						$html .= sprintf(
 							'<select id="%s" name="%s">%s</select>',
-							$field['id'],
-							$field['name'],
+							esc_attr( $field['id'] ),
+							esc_attr( $field['name'] ),
 							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
 						);
 						

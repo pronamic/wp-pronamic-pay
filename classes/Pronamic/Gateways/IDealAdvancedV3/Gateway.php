@@ -59,6 +59,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 					'options' => $issuers
 				);
 			}
+		} else {
+			$this->error = $this->client->get_error();
 		}
 		
 		return $groups;
@@ -75,16 +77,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			'type'     => 'select',
 			'choices'  => $this->get_issuers()
 		);
-	}
-	
-	/////////////////////////////////////////////////
-
-	public function get_input_fields() {
-		$fields = array();
-		
-		$fields[] = $this->get_issuer_field(); 
-
-		return $fields;
 	}
 	
 	/////////////////////////////////////////////////
