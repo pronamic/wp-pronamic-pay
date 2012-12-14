@@ -37,7 +37,7 @@ class Pronamic_EventEspresso_EventEspresso {
 	 * 
 	 * @param string $id
 	 */
-	public static function getPaymentDataByAttendeeId($id) {
+	public static function getPaymentDataByAttendeeId( $id ) {
 		event_espresso_require_gateway( 'process_payments.php' );
 
 		$data = array( 'attendee_id' => $id );
