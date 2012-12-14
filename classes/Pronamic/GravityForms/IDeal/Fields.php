@@ -14,7 +14,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 */
 	public static function bootstrap() {
 		add_filter( 'gform_add_field_buttons', array( __CLASS__, 'add_field_buttons' ) );
-		add_filter( 'gform_field_input',       array( __CLASS__, 'acquirerFieldInput' ), 10, 5 );
+		add_filter( 'gform_field_input',       array( __CLASS__, 'acquirer_field_input' ), 10, 5 );
 		add_filter( 'gform_field_type_title',  array( __CLASS__, 'field_type_title' ) );
 	}
 
@@ -27,29 +27,33 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 * @param string $lead_id
 	 * @param string $form_id
 	 */
-	public static function acquirerFieldInput( $field_content, $field, $value, $lead_id, $form_id ) {
+	public static function acquirer_field_input( $field_content, $field, $value, $lead_id, $form_id ) {
 		$type = RGFormsModel::get_input_type( $field );
 
 		if ( $type == Pronamic_GravityForms_IDeal_IssuerDropDown::TYPE ) {
-			$id = $field['id'];
-			$fieldId = IS_ADMIN || $form_id == 0 ? "input_$id" : "input_" . $form_id . "_$id";
-	        $class_suffix = RG_CURRENT_VIEW == "entry" ? "_admin" : "";
-	        $size = rgar($field, "size");
-	        $class = $size . $class_suffix;
-			$css_class = trim(esc_attr($class) . " gfield_ideal_acquirer_select");
-	        $tabIndex = GFCommon::get_tabindex();
-        	$disabledText = (IS_ADMIN && RG_CURRENT_VIEW != "entry") ? "disabled='disabled'" : "";
+			$id            = $field['id'];
+			$field_id      = IS_ADMIN || $form_id == 0 ? "input_$id" : 'input_' . $form_id . "_$id";
+
+	        $class_suffix  = RG_CURRENT_VIEW == 'entry' ? '_admin' : '';
+	        $size          = rgar( $field, 'size' );
+
+	        $class         = $size . $class_suffix;
+			$css_class     = trim( esc_attr( $class ) . ' gfield_ideal_acquirer_select' );
+
+	        $tab_index     = GFCommon::get_tabindex();
+
+        	$disabled_text = ( IS_ADMIN && RG_CURRENT_VIEW != 'entry' ) ? "disabled='disabled'" : '';
 		
         	$html = '';
 
-        	$iDealFeed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
+        	$ideal_feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
 
         	/**
         	 * Developing warning:
         	 * Don't use single quotes in the HTML you output, it is buggy in combination with SACK
         	 */
 			if ( IS_ADMIN ) {
-				if ( $iDealFeed === null ) {
+				if ( $ideal_feed === null ) {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
 						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink(), 
@@ -58,17 +62,17 @@ class Pronamic_GravityForms_IDeal_Fields {
 				} else {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
-						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink($iDealFeed->getId()), 
+						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink( $ideal_feed->getId() ), 
 						__( 'Edit iDEAL feed', 'pronamic_ideal' )
 					);
 				}
 			}
 
-			$htmlInput = '';
-			$htmlError = '';
+			$html_input = '';
+			$html_error = '';
 
-			if ( $iDealFeed != null ) {
-				$configuration = $iDealFeed->getIDealConfiguration();
+			if ( $ideal_feed != null ) {
+				$configuration = $ideal_feed->getIDealConfiguration();
 
 				if ( $configuration != null ) {
 					$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
@@ -82,25 +86,25 @@ class Pronamic_GravityForms_IDeal_Fields {
 						// Double quotes are not working, se we replace them with an single quote
 						$options = str_replace( '"', '\'', $options );
 
-						$htmlInput  = '';
-						$htmlInput .= sprintf( "	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $fieldId, $css_class, $tabIndex, $disabledText );
-						$htmlInput .= sprintf( "		%s", $options );
-						$htmlInput .= sprintf( "	</select>" );
+						$html_input  = '';
+						$html_input .= sprintf( "	<select name='input_%d' id='%s' class='%s' %s %s>", $id, $field_id, $css_class, $tab_index, $disabled_text );
+						$html_input .= sprintf( "		%s", $options );
+						$html_input .= sprintf( "	</select>" );
 					} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-						$htmlError = $error->getConsumerMessage();
+						$html_error = $error->getConsumerMessage();
 					} else {
-						$htmlError = __('Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal');
+						$html_error = __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
 					}
 				}
 			}
 			
-			if ( $htmlError ) {
+			if ( $html_error ) {
 				$html .= sprintf( "<div class='gfield_description validation_message'>" );
-				$html .= sprintf( "	%s", $htmlError );
+				$html .= sprintf( "	%s", $html_error );
 				$html .= sprintf( "</div>" );
 			} else {
 				$html .= sprintf( "<div class='ginput_container ginput_ideal'>" );			
-				$html .= sprintf( "	%s", $htmlInput );
+				$html .= sprintf( "	%s", $html_input );
 				$html .= sprintf( "</div>" );
 			}
 

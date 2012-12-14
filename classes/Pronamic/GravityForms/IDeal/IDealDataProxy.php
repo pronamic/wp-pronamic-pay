@@ -70,7 +70,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	 * @return string
 	 */
 	public function getDescription() {
-		return GFCommon::replace_variables($this->feed->transactionDescription, $this->form, $this->lead);
+		return GFCommon::replace_variables( $this->feed->transactionDescription, $this->form, $this->lead );
 	}
 
 	/**
@@ -131,7 +131,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         if ( isset( $products['shipping'] ) ) {
         	$shipping = $products['shipping'];
 
-        	if ( isset( $shipping['price'] ) && !empty( $shipping['price'] ) ) {
+        	if ( isset( $shipping['price'] ) && ! empty( $shipping['price'] ) ) {
         		$description = $shipping['name'];
 				$price = GFCommon::to_number( $shipping['price'] );
 				$quantity = 1;
@@ -147,23 +147,23 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         }
         
         // Donations
-        $donationFields = GFCommon::get_fields_by_type( $this->form, array( 'donation' ) );
+        $donation_fields = GFCommon::get_fields_by_type( $this->form, array( 'donation' ) );
 
-		foreach ( $donationFields as $i => $field ) {
+		foreach ( $donation_fields as $i => $field ) {
 			$value = RGFormsModel::get_lead_field_value( $this->lead, $field );
 
-			if ( !empty( $value ) ) {
+			if ( ! empty( $value ) ) {
 				$description = '';
-				if ( isset( $field['adminLabel'] ) && !empty( $field['adminLabel'] ) ) {
+				if ( isset( $field['adminLabel'] ) && ! empty( $field['adminLabel'] ) ) {
 					$description = $field['adminLabel'];
 				} elseif ( isset( $field['label'] ) ) {
 					$description = $field['label'];
 				}
 	
-				$separatorPosition = strpos( $value, '|' );
-				if ( $separatorPosition !== false ) {
-					$label = substr( $value, 0, $separatorPosition );
-					$value = substr( $value, $separatorPosition + 1 );
+				$separator_position = strpos( $value, '|' );
+				if ( $separator_position !== false ) {
+					$label = substr( $value, 0, $separator_position );
+					$value = substr( $value, $separator_position + 1 );
 					
 					$description .= ' - ' . $label;
 				}
@@ -227,44 +227,44 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
+		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
-        if($url != null) {
-        	$url = add_query_arg('transaction', $this->getOrderId(), $url);
-        	$url = add_query_arg('status', 'normal', $url);
+        if ( $url != null ) {
+        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'status', 'normal', $url );
         }
         
         return $url;
 	}
 	
 	public function getCancelUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
+		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
-        if($url != null) {
-        	$url = add_query_arg('transaction', $this->getOrderId(), $url);
-        	$url = add_query_arg('status', 'cancel', $url);
+        if ( $url != null ) {
+        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'status', 'cancel', $url );
         }
         
         return $url;
 	}
 	
 	public function getSuccessUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
+		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
-        if($url != null) {
-        	$url = add_query_arg('transaction', $this->getOrderId(), $url);
-        	$url = add_query_arg('status', 'success', $url);
+        if ( $url != null ) {
+        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'status', 'success', $url );
         }
         
         return $url;
 	}
 
 	public function getErrorUrl() {
-		$url = $this->feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
+		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
-        if($url != null) {
-        	$url = add_query_arg('transaction', $this->getOrderId(), $url);
-        	$url = add_query_arg('status', 'error', $url);
+        if ( $url != null ) {
+        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'status', 'error', $url );
         }
         
         return $url;
