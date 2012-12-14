@@ -183,7 +183,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 				$document = simplexml_load_string( $body );
 	
 				if ( $document !== false ) {
-					$result = $this->parseDocument( $document );
+					$result = $this->parse_document( $document );
 				} else {
 					$this->error = new WP_Error( 'xml_load_error', __( 'Could not load the XML response meessage from the iDEAL provider.', 'pronamic_ideal' ) );
 
@@ -213,22 +213,22 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * 
 	 * @param SimpleXMLElement $document
 	 */
-	private function parseDocument(SimpleXMLElement $document) {
+	private function parse_document( SimpleXMLElement $document ) {
 		$this->error = null;
 
-		switch($document->getName()) {
+		switch ( $document->getName() ) {
 			case Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::NAME:
-				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse($document);
+				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse( $document );
 
 				$this->error = $message->error;
 
 				return $message;
 			case Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::NAME:
-				return Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::parse($document);
+				return Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::parse( $document );
 			case Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::NAME:
-				return Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::parse($document);
+				return Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage::parse( $document );
 			case Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::NAME:
-				return Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::parse($document);
+				return Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage::parse( $document );
 			default:
 				return null;
 		}
@@ -296,26 +296,6 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Create an transaction by send an transaction request message
-	 * 
-	 * @param TransactionRequestMessage $message
-	 */
-	public function createTransaction(Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage $message) {
-		$response = $this->send_message( $this->transaction_request_url, $message);
-
-		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage) {
-			$message->issuer->authenticationUrl = $response->issuer->authenticationUrl;
-
-			$message->transaction->setId((string) $response->transaction->getId());
-		} else {
-			// @todo what if response is an error repsonse message, for example:
-			// Field generating error: language. Parameter '' has less than 2 characters
-		}
-
-		return $response;
-	}
-
 	public function create_transaction( Pronamic_Gateways_IDealAdvanced_Transaction $transaction, $issuer_id ) {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage();
 
@@ -339,24 +319,6 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Create an transaction by send an transaction request message
-	 * 
-	 * @param TransactionRequestMessage $message
-	 */
-	public function getStatus(Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage $message) {
-		$response = $this->send_message( $this->status_request_url, $message);
-
-		if($response instanceof Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage) {
-			$message->transaction->setStatus($response->transaction->getStatus());
-			$message->transaction->setConsumerName($response->transaction->getConsumerName());
-			$message->transaction->setConsumerAccountNumber($response->transaction->getConsumerAccountNumber());
-			$message->transaction->setConsumerCity($response->transaction->getConsumerCity());
-		}
-
-		return $response;
-	}
-
 	public function get_status( $transaction_id ) {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
 	
@@ -372,6 +334,6 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 		$message->sign( $this->privateKey, $this->privateKeyPassword );
 
-		return $this->getStatus( $message );
+		return $this->send_message( $this->status_request_url, $message);
 	}
 }
