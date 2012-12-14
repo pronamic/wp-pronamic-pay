@@ -56,13 +56,13 @@ class Pronamic_GravityForms_IDeal_Fields {
 				if ( $ideal_feed === null ) {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
-						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink(), 
+						Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link(), 
 						__( 'Create iDEAL feed', 'pronamic_ideal' )
 					);
 				} else {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
-						Pronamic_GravityForms_IDeal_AddOn::getEditFeedLink( $ideal_feed->getId() ), 
+						Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link( $ideal_feed->getId() ), 
 						__( 'Edit iDEAL feed', 'pronamic_ideal' )
 					);
 				}

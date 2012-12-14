@@ -66,7 +66,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter( 'gform_confirmation',     array( __CLASS__, 'handleIDeal' ), 10, 4 );
 
 	            // Set entry meta after submission
-	            add_action( 'gform_after_submission', array( __CLASS__, 'setEntryMeta' ), 5, 2 );
+	            add_action( 'gform_after_submission', array( __CLASS__, 'set_entry_meta' ), 5, 2 );
 
 	            // Delay
 	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
@@ -74,7 +74,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybe_delay_post_creation' ), 10, 3 );
 			}
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'updateStatus' ), 10, 2 );
+			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
 
 			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
 
@@ -160,7 +160,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$user = new WP_User( $created_by );
 		}
 
-		if ( $user && !empty( $feed->userRoleFieldId ) && isset( $lead[$feed->userRoleFieldId] ) ) {
+		if ( $user && ! empty( $feed->userRoleFieldId ) && isset( $lead[$feed->userRoleFieldId] ) ) {
 			$value = $lead[$feed->userRoleFieldId];
 			$value = GFCommon::get_selection_value( $value );
 
@@ -175,61 +175,58 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function updateStatus( Pronamic_WordPress_IDeal_Payment $payment, $canRedirect = false ) {
+	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG ) {
-			$leadId = $payment->getSourceId();
-			$transaction = $payment->transaction;
+			$lead_id = $payment->getSourceId();
 
-			$lead = RGFormsModel::get_lead($leadId);
+			$lead = RGFormsModel::get_lead( $lead_id );
 
-			if($lead) {
-				$status = $transaction->getStatus();
-
-				$formId = $lead['form_id'];
+			if ( $lead ) {
+				$form_id = $lead['form_id'];
 				
-				$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId($formId);
+				$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
 
-				if($feed) {
+				if ( $feed ) {
 					$url = null;
 
-					switch($status) {
+					switch ( $payment->status ) {
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
 
-							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL);
+							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
 							break;
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
 
-							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED);
+							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
 
 							break;
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
 
-							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_ERROR);
+							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
 							break;
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
 
-							self::fulfillOrder($lead);
+							self::fulfill_order( $lead );
 
-							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS);
+							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
 							break;
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 						default:
-							$url = $feed->getUrl(Pronamic_GravityForms_IDeal_Feed::LINK_OPEN);
+							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
 							break;
 					}
 
-					RGFormsModel::update_lead($lead);
+					RGFormsModel::update_lead( $lead );
 
-					if($url && $canRedirect) {
-						wp_redirect($url, 303);
+					if ( $url && $can_redirect ) {
+						wp_redirect( $url, 303 );
 
 						exit;
 					}
@@ -245,7 +242,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param string $transaction_id
 	 * @param string $amount
 	 */
-    public static function fulfillOrder( $entry ) {
+    public static function fulfill_order( $entry ) {
         $formMeta = RGFormsModel::get_form_meta( $entry['form_id'] );
 
         $feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
@@ -270,42 +267,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
         do_action( 'gform_ideal_fulfillment', $entry, $feed );
     }
 
-	/**
-	 * Get the edit link for the specfied feed id
-	 * 
-	 * @param string $id
-	 * @return string url
-	 */
-	public static function getEditFeedLink( $id = null ) {
-		$link = 'admin.php';
-		$link = add_query_arg( 'page', 'gf_pronamic_ideal', $link );
-		$link = add_query_arg( 'view', 'edit', $link );
-
-		if ( $id != null ) {
-			$link = add_query_arg( 'id', $id, $link );
-		}
-
-		return $link;
-	}
-
-	/**
-	 * Get the delete link for the specfied feed id
-	 * 
-	 * @param string $id
-	 * @return string url
-	 */
-	public static function getDeleteFeedLink( $id = null ) {
-		$link = 'admin.php';
-		$link = add_query_arg( 'page', 'gf_pronamic_ideal', $link );
-		$link = add_query_arg( 'action', 'delete', $link );
-
-		if ( $id != null ) {
-			$link = add_query_arg( 'id', $id, $link );
-		}
-
-		return $link;
-	}
-
 	//////////////////////////////////////////////////
 
 	/**
@@ -329,7 +290,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param mixed $form
 	 * @param mixed $feed
 	 */
-	public static function isConditionTrue( $form, $feed ) {
+	public static function is_condition_true( $form, $feed ) {
 		$result = true;
 
         if ( $feed->conditionEnabled ) {
@@ -386,7 +347,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
-			if ( self::isConditionTrue( $form, $feed ) ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delayAdminNotification;
 			}
 		}
@@ -406,7 +367,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
-			if ( self::isConditionTrue( $form, $feed ) ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delayUserNotification;
 			}
 		}
@@ -426,7 +387,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
-			if ( self::isConditionTrue( $form, $feed ) ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delayPostCreation;
 			}
 		}
@@ -442,7 +403,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 * @param array $form
 	 */
-    public static function setEntryMeta( $entry, $form ) {
+    public static function set_entry_meta( $entry, $form ) {
 		// ignore requests that are not the current form's submissions
 		if ( rgpost( 'gform_submit' ) != $form['id'] ) {
 			return;
@@ -469,7 +430,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
 
 		if ( $feed !== null ) {
-			if ( self::isConditionTrue( $form, $feed ) ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
 				$configuration = $feed->getIDealConfiguration();
 
 				if ( $configuration !== null ) {

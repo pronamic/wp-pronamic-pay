@@ -130,6 +130,44 @@ class Pronamic_GravityForms_IDeal_Admin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get the edit link for the specfied feed id
+	 * 
+	 * @param string $id
+	 * @return string url
+	 */
+	public static function get_edit_feed_link( $id = null ) {
+		$link = 'admin.php';
+		$link = add_query_arg( 'page', 'gf_pronamic_ideal', $link );
+		$link = add_query_arg( 'view', 'edit', $link );
+
+		if ( $id != null ) {
+			$link = add_query_arg( 'id', $id, $link );
+		}
+
+		return $link;
+	}
+
+	/**
+	 * Get the delete link for the specfied feed id
+	 * 
+	 * @param string $id
+	 * @return string url
+	 */
+	public static function get_delete_feed_link( $id = null ) {
+		$link = 'admin.php';
+		$link = add_query_arg( 'page', 'gf_pronamic_ideal', $link );
+		$link = add_query_arg( 'action', 'delete', $link );
+
+		if ( $id != null ) {
+			$link = add_query_arg( 'id', $id, $link );
+		}
+
+		return $link;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Maybed redirect to Gravity Forms entry
 	 */
 	public static function maybe_redirect_to_entry() {
