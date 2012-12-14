@@ -50,7 +50,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * 
 	 * @param string $form_id
 	 * @param array $lead
-	 * @todo check third parameter
 	 */
 	public static function entry_info( $form_id, $lead ) {
 		if ( false ):
@@ -201,11 +200,11 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * Handle AJAX request get form data
 	 */
 	public static function ajax_get_form_data() {
-		$formId = filter_input( INPUT_GET, 'formId', FILTER_SANITIZE_STRING );
+		$form_id = filter_input( INPUT_GET, 'formId', FILTER_SANITIZE_STRING );
 		
 		$result = new stdClass();
 		$result->success = true;
-		$result->data    = RGFormsModel::get_form_meta( $formId );
+		$result->data    = RGFormsModel::get_form_meta( $form_id );
 
 		// Output
 		header( 'Content-Type: application/json' );
