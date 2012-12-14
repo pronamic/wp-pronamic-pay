@@ -99,10 +99,25 @@ class Pronamic_GravityForms_IDeal_Feed {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Delay admin notification
+	 * 
+	 * @var boolean
+	 */
 	public $delayAdminNotification;
 
+	/**
+	 * Delay user notification
+	 * 
+	 * @var boolean
+	 */
 	public $delayUserNotification;
 
+	/**
+	 * Delay post creation
+	 * 
+	 * @var string
+	 */
 	public $delayPostCreation;
 
 	//////////////////////////////////////////////////
@@ -190,7 +205,7 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * 
 	 * @param Configuration $iDealConfiguration
 	 */
-	public function setIDealConfiguration(Pronamic_WordPress_IDeal_Configuration $iDealConfiguration = null) {
+	public function setIDealConfiguration( Pronamic_WordPress_IDeal_Configuration $iDealConfiguration = null ) {
 		$this->iDealConfiguration = $iDealConfiguration;
 	}
 
@@ -210,7 +225,7 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * 
 	 * @param array $links
 	 */
-	public function setLinks(array $links) {
+	public function setLinks( array $links ) {
 		$this->links = $links;
 	}
 	
@@ -219,17 +234,17 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * 
 	 * @param string $name
 	 */
-	public function getUrl($name) {
+	public function getUrl( $name ) {
 		$url = null;
 
-		$link = $this->getLink($name);
+		$link = $this->getLink( $name );
 
-		if($link != null) {
+		if ( $link != null ) {
 			// link is een standard class object, the type variable could not be defined
-			if(isset($link->type)) {
-				switch($link->type) {
+			if ( isset( $link->type ) ) {
+				switch ( $link->type ) {
 					case self::LINK_TYPE_PAGE:
-						$url = get_permalink($link->pageId);
+						$url = get_permalink( $link->pageId );
 						break;
 					case self::LINK_TYPE_URL:
 						$url = $link->url;
@@ -238,8 +253,8 @@ class Pronamic_GravityForms_IDeal_Feed {
 			}
 		}
 
-		if(empty($url)) {
-			$url = site_url('/');
+		if ( empty ( $url ) ) {
+			$url = site_url( '/' );
 		}
 		
 		return $url;
@@ -250,10 +265,10 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * 
 	 * @param string $name
 	 */
-	public function getLink($name) {
+	public function getLink( $name ) {
 		$link = null;
 
-		if(isset($this->links[$name])) {
+		if ( isset( $this->links[$name] ) ) {
 			$link = $this->links[$name];
 		}
 		
@@ -266,7 +281,7 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * @param string $name
 	 * @param stdClass $link
 	 */
-	public function setLink($name, $link) {
+	public function setLink( $name, $link ) {
 		$this->links[$name] = $link;
 	}
 }
