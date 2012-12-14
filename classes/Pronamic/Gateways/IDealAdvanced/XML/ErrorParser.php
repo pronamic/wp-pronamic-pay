@@ -9,6 +9,12 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvanced_XML_ErrorParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
+	/**
+	 * Parse iDEAL Advanced error from the specified XML element
+	 * 
+	 * @param SimpleXMLElement $xml
+	 * @return Pronamic_Gateways_IDealAdvanced_Error
+	 */
 	public static function parse( SimpleXMLElement $xml ) {
 		$error = new Pronamic_Gateways_IDealAdvanced_Error();
 
