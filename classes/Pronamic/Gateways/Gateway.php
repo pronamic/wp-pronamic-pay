@@ -304,9 +304,9 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_form_html() {
 		$html  = '';
 
-		$html .= sprintf('<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr( $this->get_action_url() ) );
+		$html .= sprintf( '<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">', esc_attr( $this->get_action_url() ) );
 		$html .= 	$this->get_output_html();
-		$html .= 	sprintf('<input class="ideal-button" type="submit" name="ideal" value="%s" />', __('Pay with iDEAL', 'pronamic_ideal'));
+		$html .= 	sprintf( '<input class="ideal-button" type="submit" name="ideal" value="%s" />', __( 'Pay with iDEAL', 'pronamic_ideal' ) );
 		$html .= '</form>';
 
 		return $html;

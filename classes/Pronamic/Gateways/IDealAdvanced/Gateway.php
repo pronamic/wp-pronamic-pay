@@ -21,9 +21,9 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$client->setAcquirerUrl( $configuration->getPaymentServerUrl() );
 		$client->merchant_id = $configuration->getMerchantId();
 		$client->sub_id = $configuration->getSubId();
-		$client->setPrivateKey($configuration->privateKey);
-		$client->setPrivateKeyPassword($configuration->privateKeyPassword);
-		$client->setPrivateCertificate($configuration->privateCertificate);
+		$client->setPrivateKey( $configuration->privateKey );
+		$client->setPrivateKeyPassword( $configuration->privateKeyPassword );
+		$client->setPrivateCertificate( $configuration->privateCertificate );
 
 		$variant = $configuration->getVariant();
 		foreach ( $variant->certificates as $certificate ) {
@@ -45,7 +45,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		} elseif($error = $this->client->getError()) {
 			$this->error = $error;
 		}
-		
+
 		return $lists;
 	}
 	
@@ -64,7 +64,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 			}
 	
 			$choices[] = array(
-				'name'    => ( $name == 'Long' ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
+				'name'    => ( $name == Pronamic_Gateways_IDealAdvanced_Issuer::LIST_LONG ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
 				'options' => $options
 			);
 		}
@@ -121,7 +121,6 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		 * - No status request after a final status has been received for a transaction;
 		 * - No status request for transactions older than 7 days.
 		 */
-		$args = array($payment->getId());
 	
 		/*
 		 * The function wp_schedule_single_event() uses the arguments array as an key for the event, 
@@ -134,7 +133,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>   30 ) );
+		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>    30 ) );
 		// Half-way through an expirationPeriod
 		wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  1800 ) );
 		// Just after an expirationPeriod

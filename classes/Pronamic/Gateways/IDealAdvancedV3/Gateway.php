@@ -149,7 +149,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		 * - No status request after a final status has been received for a transaction;
 		 * - No status request for transactions older than 7 days.
 		 */
-		$args = array($payment->getId());
 	
 		/*
 		 * The function wp_schedule_single_event() uses the arguments array as an key for the event, 
@@ -162,7 +161,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>   30 ) );
+		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>    30 ) );
 		// Half-way through an expirationPeriod
 		wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  1800 ) );
 		// Just after an expirationPeriod
