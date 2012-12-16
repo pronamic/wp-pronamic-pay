@@ -147,12 +147,18 @@ class Pronamic_IDeal_IDeal {
 							$variant->setName( (string) $variant_xml->name );
 
 							$variant->liveSettings = new stdClass();
-							$variant->liveSettings->dashboardUrl     = (string) $variant_xml->live->dashboardUrl;
-							$variant->liveSettings->paymentServerUrl = (string) $variant_xml->live->paymentServerUrl;
+							$variant->liveSettings->dashboardUrl          = (string) $variant_xml->live->dashboardUrl;
+							$variant->liveSettings->paymentServerUrl      = (string) $variant_xml->live->paymentServerUrl;
+							$variant->liveSettings->directoryRequestUrl   = (string) $variant_xml->live->directoryRequestUrl;
+							$variant->liveSettings->transactionRequestUrl = (string) $variant_xml->live->transactionRequestUrl;
+							$variant->liveSettings->statusRequestUrl      = (string) $variant_xml->live->statusRequestUrl;
 
 							$variant->testSettings = new stdClass();
-							$variant->testSettings->dashboardUrl     = (string) $variant_xml->test->dashboardUrl;
-							$variant->testSettings->paymentServerUrl = (string) $variant_xml->test->paymentServerUrl;
+							$variant->testSettings->dashboardUrl          = (string) $variant_xml->test->dashboardUrl;
+							$variant->testSettings->paymentServerUrl      = (string) $variant_xml->test->paymentServerUrl;
+							$variant->testSettings->directoryRequestUrl   = (string) $variant_xml->test->directoryRequestUrl;
+							$variant->testSettings->transactionRequestUrl = (string) $variant_xml->test->transactionRequestUrl;
+							$variant->testSettings->statusRequestUrl      = (string) $variant_xml->test->statusRequestUrl;
 
 							$element = $variant_xml->xpath( 'certificates/file' );
 
