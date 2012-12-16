@@ -210,24 +210,37 @@ abstract class Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function payment( $payment ) {
+	/**
+	 * Handle payment
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 */
+	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
 		
 	}
 	
 	/////////////////////////////////////////////////
+	
+	/**
+	 * Get the action URL
+	 * 
+	 * @return string
+	 */
+	public function get_action_url() {
+		return $this->action_url;
+	}
+	
+	/////////////////////////////////////////////////
 
+	/**
+	 * Redirect to the gateway action URL
+	 */
 	public function redirect() {
 		// Redirect, See Other
 		// http://en.wikipedia.org/wiki/HTTP_303
 		wp_redirect( $this->get_action_url(), 303 );
 
 		exit;
-	}
-	
-	/////////////////////////////////////////////////
-	
-	public function get_action_url() {
-		return $this->action_url;
 	}
 
 	/////////////////////////////////////////////////
@@ -306,6 +319,11 @@ abstract class Pronamic_Gateways_Gateway {
 		return $html;
 	}
 
+	/**
+	 * Get form HTML
+	 * 
+	 * @return string
+	 */
 	public function get_form_html() {
 		$html  = '';
 
@@ -321,7 +339,12 @@ abstract class Pronamic_Gateways_Gateway {
 	// Output fields
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get the output HTML
+	 * 
+	 * @return string
+	 */
 	public function get_output_html() {
-		
+		return '';
 	}
 }
