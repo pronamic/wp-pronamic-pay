@@ -56,7 +56,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 	
-	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
 		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
 
