@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-17 16:27+0100\n"
-"PO-Revision-Date: 2012-12-17 16:27+0100\n"
+"POT-Creation-Date: 2012-12-17 17:00+0100\n"
+"PO-Revision-Date: 2012-12-17 17:00+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1175,12 +1175,21 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:578
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:510
+#, php-format
+msgid ""
+"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
+"extensions, get support and more then %d payments."
+msgstr ""
+"Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
+"te maken van extra extensies, support en meer dan %d betalingen."
+
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:579
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:125
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:582
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:583
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:129
 msgid "Administrator"
 msgstr "Beheerder"
@@ -1259,7 +1268,7 @@ msgstr "Bestelling #%s"
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
 
-#: classes/Pronamic/Gateways/Gateway.php:335
+#: classes/Pronamic/Gateways/Gateway.php:337
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -1276,11 +1285,11 @@ msgid ""
 msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
 
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
-#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:80
+#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:99
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:72
+#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:90
 msgid "&mdash; Other banks &mdash;"
 msgstr "&mdash; Andere banken &mdash;"
 
