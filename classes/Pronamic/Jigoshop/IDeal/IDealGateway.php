@@ -219,7 +219,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		if ( is_wp_error( $error ) ) {
 			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
 
-			// @todo check https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
+			// see https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
 			return array(
 				'result' 	=> 'failed'
 			);
