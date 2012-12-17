@@ -90,7 +90,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		            	// Payment completed
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
-		                
+
 		                $url = $data->getSuccessUrl();
 
 						break;
