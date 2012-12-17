@@ -6,8 +6,8 @@ Requires at least: 3.0
 Tested up to: 3.4.1
 Stable tag: 1.1
 
-The Pronamic iDEAL plugin allows you to easily offer the iDEAL payment method within your 
-WordPress website.
+The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
+your WordPress website.
 
 == Description ==
 
