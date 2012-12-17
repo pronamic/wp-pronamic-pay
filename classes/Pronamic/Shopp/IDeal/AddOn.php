@@ -97,7 +97,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
 			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
 			
-			if ( ! Pronamic_Shopp_Shopp::isPurchasePaid( $purchase ) ) {
+			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) {
 				$url = $data->getNormalReturnUrl();
 
 				$status = $transaction->getStatus();
