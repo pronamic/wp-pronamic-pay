@@ -134,6 +134,7 @@ Here is a list of known plugin conflicts:
 *	WooCommerce - Added support for [Sequential Order Numbers Pro](http://wcdocs.woothemes.com/user-guide/extensions/functionality/sequential-order-numbers/#add-compatibility)
 *	OmniKassa - Added key version field in configuration editor
 *	Jigoshop - Updated the iDEAL gateway settings section
+*	ClassiPress - Added support for HTTP redirect gateways
 
 = 1.0 =
 *	First official release, removed the 'beta' label.
