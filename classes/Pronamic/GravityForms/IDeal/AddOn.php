@@ -475,17 +475,12 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
+		$error = $gateway->get_error();
+
     	$url = $gateway->get_action_url();
 
-		if ( empty( $url ) ) {
-			$error = $gateway->get_error();
-			if ( ! empty( $error ) ) {
-				$confirmation = sprintf(
-					__( '%s (error code: %s)', 'pronamic_ideal' ),
-					$error->getConsumerMessage(),
-					$error->getCode()
-				);
-			}
+		if ( is_wp_error( $error ) ) {
+			$confirmation = Pronamic_WordPress_IDeal_IDeal::get_default_error_message();
 		} else {
 			// Updating lead's payment_status to Processing
 			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
