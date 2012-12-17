@@ -188,7 +188,7 @@ abstract class Pronamic_Gateways_Gateway {
 				set_transient( $transient, $issuers, 60 * 60 * 24 );
 			} elseif ( $this->error ) {
 				// 60 * 30 = 30 minutes
-				set_transient( $transient, $error, 60 * 30 * 1 );
+				set_transient( $transient, $this->error, 60 * 30 * 1 );
 			}
 		} elseif ( is_array( $result ) ) {
 			$issuers = $result;
@@ -304,12 +304,14 @@ abstract class Pronamic_Gateways_Gateway {
 							$field['label']
 						);
 
-						$html .= sprintf(
-							'<select id="%s" name="%s">%s</select>',
-							esc_attr( $field['id'] ),
-							esc_attr( $field['name'] ),
-							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
-						);
+						if ( is_array( $field['choices'] ) ) {
+							$html .= sprintf(
+								'<select id="%s" name="%s">%s</select>',
+								esc_attr( $field['id'] ),
+								esc_attr( $field['name'] ),
+								Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
+							);
+						}
 						
 						break;
 				}

@@ -31,8 +31,25 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$client->setPrivateCertificate( $configuration->privateCertificate );
 
 		$variant = $configuration->getVariant();
-		foreach ( $variant->certificates as $certificate ) {
-			$client->addPublicCertificate( $certificate );
+		
+		if ( $variant ) {
+			$settings = ( $configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST ) ? $variant->testSettings : $variant->liveSettings;
+
+			if ( $settings ) {
+				if ( isset( $settings->directoryRequestUrl ) && ! empty( $settings->directoryRequestUrl ) ) {
+					$client->directory_request_url = $settings->directoryRequestUrl; 
+				}
+				if ( isset( $settings->transactionRequestUrl ) && ! empty( $settings->transactionRequestUrl ) ) {
+					$client->transaction_request_url = $settings->transactionRequestUrl; 
+				}
+				if ( isset( $settings->statusRequestUrl ) && ! empty( $settings->statusRequestUrl ) ) {
+					$client->status_request_url = $settings->statusRequestUrl; 
+				}
+				
+				foreach ( $variant->certificates as $certificate ) {
+					$client->addPublicCertificate( $certificate );
+				}
+			}
 		}
 		
 		$this->client = $client;
@@ -45,9 +62,9 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 
 		$lists = null;
 		
-		if($result !== null) {
+		if ( $result !== null ) {
 			$lists = $result;
-		} elseif($error = $this->client->getError()) {
+		} elseif ( $error = $this->client->get_error() ) {
 			$this->error = $error;
 		}
 
@@ -60,18 +77,20 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$choices = array();
 		
 		$list = $this->get_transient_issuers();
-		
-		foreach( $list as $name => $issuers ) {
-			$options = array();
 
-			foreach ( $issuers as $issuer ) {
-				$options[$issuer->getId()] = $issuer->getName(); 
-			}
+		if ( $list ) {
+			foreach( $list as $name => $issuers ) {
+				$options = array();
 	
-			$choices[] = array(
-				'name'    => ( $name == Pronamic_Gateways_IDealAdvanced_Issuer::LIST_LONG ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
-				'options' => $options
-			);
+				foreach ( $issuers as $issuer ) {
+					$options[$issuer->getId()] = $issuer->getName(); 
+				}
+		
+				$choices[] = array(
+					'name'    => ( $name == Pronamic_Gateways_IDealAdvanced_Issuer::LIST_LONG ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
+					'options' => $options
+				);
+			}
 		}
 		
 		return array(
@@ -102,7 +121,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$error = $this->client->get_error();
 		
 		if ( $error !== null ) {
-			var_dump( $error );
+			$this->error = $error;
 		} else {
 			$issuer = $result->issuer;
 

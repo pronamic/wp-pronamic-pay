@@ -145,7 +145,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	/**
 	 * Get the error
 	 * 
-	 * @return string
+	 * @return WP_Error
 	 */
 	public function get_error() {
 		return $this->error;

@@ -141,7 +141,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	}
 
 	public function get_directory() {
-		$directory = null;
+		$directory = false;
 
 		$request_dir_message = new Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryRequestMessage();
 
@@ -151,7 +151,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 
 		$response_dir_message = $this->send_message( $this->acquirer_url, $request_dir_message );
 		
-		if ( $response_dir_message ) {
+		if ( $response_dir_message instanceof Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage ) {
 			$directory = $response_dir_message->get_directory();
 		}
 
@@ -192,25 +192,30 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	}
 	
 	private function sign_document( DOMDocument $document ) {
-		$dsig = new XMLSecurityDSig();
-		$dsig->setCanonicalMethod( XMLSecurityDSig::EXC_C14N );
-		$dsig->addReference( 
-			$document,
-			XMLSecurityDSig::SHA256,
-			array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
-			array( 'force_uri' => true )
-		);
-		
-		$key = new XMLSecurityKey( XMLSecurityKey::RSA_SHA256, array( 'type' => 'private' ) );
-		$key->passphrase = $this->private_key_password;
-		$key->loadKey( $this->private_key );
-		
-		$dsig->sign( $key );
-		
-		$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
-		
-		$dsig->addKeyInfoAndName( $fingerprint );
-		$dsig->appendSignature( $document->documentElement );
+		if ( empty( $this->private_key ) || empty( $this->private_key_password ) || empty( $this->private_certificate ) ) {
+			// @todo what todo?
+			// can't sign document
+		} else {
+			$dsig = new XMLSecurityDSig();
+			$dsig->setCanonicalMethod( XMLSecurityDSig::EXC_C14N );
+			$dsig->addReference( 
+				$document,
+				XMLSecurityDSig::SHA256,
+				array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
+				array( 'force_uri' => true )
+			);
+			
+			$key = new XMLSecurityKey( XMLSecurityKey::RSA_SHA256, array( 'type' => 'private' ) );
+			$key->passphrase = $this->private_key_password;
+			$key->loadKey( $this->private_key );
+			
+			$dsig->sign( $key );
+			
+			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
+			
+			$dsig->addKeyInfoAndName( $fingerprint );
+			$dsig->appendSignature( $document->documentElement );
+		}
 
 		return $document;
 	}

@@ -507,8 +507,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 					<?php 
 
 					printf(
-						'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions and get support.',
-						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
+						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more then %d payments.', 'pronamic_ideal' ),
+						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) ),
+						self::PAYMENTS_MAX_LICENSE_FREE
 					);
 
 					?>

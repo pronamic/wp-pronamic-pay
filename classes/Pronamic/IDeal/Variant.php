@@ -133,6 +133,15 @@ class Pronamic_IDeal_Variant {
 	}
 
 	//////////////////////////////////////////////////
+	
+	private function get_settings( $mode = IDeal::MODE_LIVE ) {
+		switch($mode) {
+			case Pronamic_IDeal_IDeal::MODE_LIVE:
+				return $this->liveSettings;
+			case Pronamic_IDeal_IDeal::MODE_TEST:
+				return $this->testSettings;
+		}
+	}
 
 	public function getPaymentServerUrl($mode = IDeal::MODE_LIVE) {
 		switch($mode) {
