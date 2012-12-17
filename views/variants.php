@@ -5,7 +5,7 @@
 		<?php _e( 'iDEAL Variants', 'pronamic_ideal' ); ?>
 	</h2>
 
-	<table cellspacing="0" class="wp-list-table widefat">
+	<table class="wp-list-table widefat" cellspacing="0">
 
 		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
 

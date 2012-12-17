@@ -15,7 +15,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 		<?php echo $gateway->get_input_html(); ?>
 	</div>
 
-	<table class="wp-list-table widefat" style="width: auto;">
+	<table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
 		<thead>
 			<tr>
 				<th scope="col">
