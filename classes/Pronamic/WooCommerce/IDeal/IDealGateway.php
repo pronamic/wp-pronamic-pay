@@ -275,6 +275,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @return array
      */
     private function process_gateway_http_redirect( $order, $configuration, $gateway ) {
+    	global $woocommerce;
+
 		$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
@@ -282,7 +284,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			// @todo check https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
+			$woocommerce->add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+			
+			// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
 			return array(
 				'result' 	=> 'failed'
 			);
