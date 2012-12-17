@@ -194,9 +194,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	public function checkout_processed() {
 		global $Shopp;
 
-		$issuerId = filter_input( INPUT_POST, 'pronamic_ideal_issuer', FILTER_SANITIZE_STRING );
+		$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer', FILTER_SANITIZE_STRING );
 		if ( ! empty( $issuerId ) ) {
-			$Shopp->Order->PronamicIDealIssuerId = $issuerId;
+			$Shopp->Order->PronamicIDealIssuerId = $issuer_id;
 		}
 	}
 
@@ -239,23 +239,11 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		// Check iDEAL configuration
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-
-			switch ( $variant->getMethod() ) {
-				case Pronamic_IDeal_IDeal::METHOD_EASY:
-					// Nothing to do here
-					break;
-				case Pronamic_IDeal_IDeal::METHOD_BASIC:
-					// Nothing to do here
-					break;
-				case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-					// Nothing to do here
-					break;
-				case Pronamic_IDeal_IDeal::METHOD_ADVANCED:
-					$this->processIDealAdvanced( $configuration, $purchase );
-
-					break;
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		
+		if ( $gateway ) {
+			if ( $gateway->is_http_redirect() ) {
+				$this->process_gateway_http_redirect( $purchase, $configuration, $gateway );
 			}
 		}
 	}
@@ -265,14 +253,18 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	/**
 	 * Process order iDEAL advanced
 	 */
-	public function processIDealAdvanced( $configuration, $purchase ) {
-		$data_proxy = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
+	public function process_gateway_http_redirect( $purchase, $configuration, $gateway ) {
+		$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
 
-		$url = Pronamic_WordPress_IDeal_IDeal::process_ideal_advanced( $configuration, $data_proxy );
+		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
-		wp_redirect( $url, 303 );
+		$error = $gateway->get_error();
 
-		exit;
+		if ( is_wp_error( $error ) ) {
+			// @todo what todo?
+		} else {
+	    	$gateway->redirect();
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -308,11 +300,17 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) { 
 				$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 
-				$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
+				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
-				$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data, $configuration );
+				if ( $gateway ) {
+					$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
 
-				$content = $html . $content;
+					Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+
+					$html = $gateway->get_form_html();
+
+					$content = $html . $content;
+				}
 			}
 		}
 
@@ -329,49 +327,22 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
+		if ( $configuration ) {
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
-			if ( $variant !== null && $variant->getMethod() == Pronamic_IDeal_IDeal::METHOD_ADVANCED ) {
-				$lists = Pronamic_WordPress_IDeal_IDeal::getTransientIssuersLists( $configuration );
+			if ( $gateway ) {
+				$result .= '<div id="pronamic_ideal_inputs">';
+				$result .=     $gateway->get_input_html();
+				$result .= '</div>';
 
-				if ( $lists ) {
-					$result .= '<div id="pronamic_ideal_issuer">';
-					$result .= '	<div class="left">';
-
-					$result .= '		<select name="pronamic_ideal_issuer" id="order-data-pronamic-ideal-issuer"  title="" value="" class="required">';
-					
-					foreach ( $lists as $list ) {
-						foreach ( $list as $value ) {
-							$result .= '	<option value="' . $value->getId() . '">' . $value->getName() . '</option>';
-						}
-					}
-
-					$result .= '		</select>';
-
-					$result .= '		<label for="pronamic_ideal_issuer_id">';
-					$result .= '			' . __( 'iDEAL Issuer', 'pronamic_ideal' );
-					$result .= '		</label>';
-					$result .= '	</div>';
-					$result .= '</div>';
-				} elseif ( $error = Pronamic_WordPress_IDeal_IDeal::getError() ) {
-					$result .= '<div class="shopp_error">';
-					$result .= '	' . $error->getConsumerMessage();
-					$result .= '</div>';
-				} else {
-					$result .= '<div class="shopp_error">';
-					$result .= '	' . __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
-					$result .= '</div>';
-				}
-		
 				// Only show extra fields on this paymethod/gateway
 				$script = '
 					(function($) {
 						$(document).bind("shopp_paymethod", function(event, paymethod) {
 							if(paymethod) {
-								var fields = $("#pronamic_ideal_issuer");
+								var fields = $("#pronamic_ideal_inputs");
 		
-								if(paymethod.indexOf("' . sanitize_key( $this->settings['label'] ) . '") !== -1) {
+								if(paymethod.indexOf("' . sanitize_title_with_dashes( $this->settings['label'] ) . '") !== -1) {
 									fields.show();
 								} else {
 									fields.hide();

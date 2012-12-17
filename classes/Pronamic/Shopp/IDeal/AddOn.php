@@ -100,8 +100,6 @@ class Pronamic_Shopp_IDeal_AddOn {
 			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) {
 				$url = $data->getNormalReturnUrl();
 
-				$status = $transaction->getStatus();
-
 				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED );
