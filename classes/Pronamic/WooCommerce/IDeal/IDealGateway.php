@@ -195,7 +195,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param Pronamic_WordPress_IDeal_Configuration $configuration
      */
     private static function get_check_payment_note( $order, $configuration ) {
-		// $editOrderLink = get_edit_post_link($order->id);
 		// get_edit_post_link() will not work, has permissions check for current user
 		$edit_order_link = add_query_arg( 
 			array(
