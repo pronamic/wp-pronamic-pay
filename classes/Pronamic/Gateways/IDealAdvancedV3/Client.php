@@ -126,7 +126,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::NAME:
 				$message = Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::parse( $document );
 
-				$this->error = $message->error;
+				$this->error = new WP_Error( 'ideal_advanced_v3_error', $message->error, $message );
 
 				return $message;
 			case Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage::NAME:

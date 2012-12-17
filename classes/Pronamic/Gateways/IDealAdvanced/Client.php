@@ -217,13 +217,11 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 	 * @param SimpleXMLElement $document
 	 */
 	private function parse_document( SimpleXMLElement $document ) {
-		$this->error = null;
-
 		switch ( $document->getName() ) {
 			case Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::NAME:
 				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse( $document );
 
-				$this->error = $message->error;
+				$this->error = new WP_Error( 'ideal_advanced_error', $message->error, $message );
 
 				return $message;
 			case Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::NAME:
@@ -274,7 +272,8 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$issuers = null;
 
 		$directory = $this->getDirectory();
-		if($directory != null) {
+
+		if ( $directory != null ) {
 			$issuers = $directory->getIssuers();
 		}
 
@@ -290,7 +289,8 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$lists = null;
 
 		$directory = $this->getDirectory();
-		if($directory != null) {
+
+		if ( $directory != null ) {
 			$lists = $directory->getLists();
 		}
 
@@ -306,14 +306,14 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$issuer->setId( $issuer_id );
 
 		$merchant = $message->getMerchant();
-		$merchant->id = $this->merchant_id;
-		$merchant->subId = $this->sub_id;
+		$merchant->id             = $this->merchant_id;
+		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = site_url('/');
-		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
+		$merchant->returnUrl      = site_url( '/' );
+		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 		
-		$message->issuer = $issuer;
-		$message->merchant = $merchant;
+		$message->issuer      = $issuer;
+		$message->merchant    = $merchant;
 		$message->transaction = $transaction;
 
 		return $this->send_message( $this->transaction_request_url, $message );
@@ -325,11 +325,11 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
 	
 		$merchant = $message->getMerchant();
-		$merchant->id = $this->merchant_id;
-		$merchant->subId = $this->sub_id;
+		$merchant->id             = $this->merchant_id;
+		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = Pronamic_IDeal_IDeal::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl = site_url( '/' );
-		$merchant->token = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
+		$merchant->returnUrl      = site_url( '/' );
+		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 
 		$message->transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 		$message->transaction->setId( $transaction_id );

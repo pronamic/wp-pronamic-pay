@@ -233,11 +233,11 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		
 		// Send the mail
 		woocommerce_mail(
-			get_option( 'woocommerce_new_order_email_recipient' ), 
+			get_option( 'woocommerce_new_order_email_recipient' ),
 			sprintf(
-				__( 'Check iDEAL payment for order #%s', 'pronamic_ideal' ) , 
+				__( 'Check iDEAL payment for order #%s', 'pronamic_ideal' ),
 				$order->id
-			), 
+			),
 			$message
 		);
     }
@@ -279,11 +279,19 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
-    	$url = $gateway->get_action_url();
+		$error = $gateway->get_error();
 
-		return array(
-			'result' 	=> 'success',
-			'redirect'	=> $url
-		);
+		if ( is_wp_error( $error ) ) {
+			return array(
+				'result' 	=> 'failed'
+			);
+		} else {
+	    	$url = $gateway->get_action_url();
+	
+			return array(
+				'result' 	=> 'success',
+				'redirect'	=> $url
+			);
+		}
     }
 }
