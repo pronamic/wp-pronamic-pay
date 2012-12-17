@@ -108,7 +108,7 @@ class Pronamic_Shopp_Shopp {
 	 * @param Purchase $purchase
 	 * @param string $status
 	 */
-	public static function updatePurchaseStatus( $purchase, $status ) {
+	public static function update_purchase_status( $purchase, $status ) {
 		global $wpdb;
 
 		$wpdb->update(
