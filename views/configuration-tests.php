@@ -12,13 +12,13 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 		<?php _e( 'iDEAL Tests', 'pronamic_ideal' ); ?>
 	</h2>
 
-	<?php if($configuration == null): ?>
+	<?php if ( $configuration == null ) : ?>
 
 		<p>
-			<?php printf( __( 'We could not find any feed with the ID "%s".', 'pronamic_ideal' ), $id ); ?>
+			<?php printf( __( 'We could not find any configuration with the ID "%s".', 'pronamic_ideal' ), $id ); ?>
 		</p>
 
-	<?php else: ?>
+	<?php else : ?>
 
 		<div>
 			<h3>
@@ -72,7 +72,6 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'targetpay':
 					include 'test-method-targetpay.php';
 					break;
-					
 			}
 		}
 	
