@@ -195,16 +195,16 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		return $return;
     }
 
-	private function process_gateway_html_form( $order, $configuration, $variant ) {
+	private function process_gateway_html_form( $order ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg(
 				array(
-					'order' => $order->id, 
+					'order' => $order->id,
 					'key'   => $order->order_key
 				), 
-				get_permalink( jigoshop_get_page_id('pay') ) 
+				get_permalink( jigoshop_get_page_id( 'pay' ) ) 
 			)
 		);
 	}
