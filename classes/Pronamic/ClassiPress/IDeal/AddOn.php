@@ -27,6 +27,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		add_action( 'cp_action_gateway',            array( __CLASS__, 'gateway_process' ) );
 
 		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
+		
+		add_filter( 'pronamic_ideal_source_column_classipress', array( __CLASS__, 'source_column' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -39,9 +41,9 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 		// Configurations
     	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
-    	foreach($configurations as $configuration) {
-    		$configurationOptions[$configuration->getId()] = $configuration->getName();
+    	$configuration_options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
+    	foreach ( $configurations as $configuration ) {
+    		$configuration_options[$configuration->getId()] = $configuration->getName();
     	}
 
 		// Gateway values
@@ -50,41 +52,41 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		$action_gateway_values = array(
 			// Tab Start
 			array(
-				'type'    => 'tab' , 
-				'tabname' => __( 'iDEAL', 'pronamic_ideal' ) ,  
+				'type'    => 'tab',
+				'tabname' => __( 'iDEAL', 'pronamic_ideal' ),
 				'id'      => ''
-			) , 
+			),
 			// Title
 			array(
-				'type'    => 'title' , 
-				'name'    => __( 'iDEAL Options', 'pronamic_ideal' ) , 
+				'type'    => 'title',
+				'name'    => __( 'iDEAL Options', 'pronamic_ideal' ),
 				'id'      => ''
-			) , 
+			),
 			// Logo/Picture
 			array(
-				'type'    => 'logo' , 
-				'name'    => sprintf( '<img src="%s" alt="" />', plugins_url( 'images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ) ) ,  
+				'type'    => 'logo',
+				'name'    => sprintf( '<img src="%s" alt="" />', plugins_url( 'images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
 				'id'      => ''
-			) , 
+			),
             // Select Box
             array(
-            	'type'    => 'select' , 
+            	'type'    => 'select',
 				'name'    => __( 'Enable iDEAL', 'pronamic_ideal' ),
 				'options' => array(
-					'yes' => __( 'Yes', 'pronamic_ideal' ) , 
-					'no'  => __( 'No', 'pronamic_ideal')
+					'yes' => __( 'Yes', 'pronamic_ideal' ),
+					'no'  => __( 'No', 'pronamic_ideal' )
 				) , 
-				'id'      => $app_abbr . '_pronamic_ideal_enable' 
-			) ,
+				'id'      => $app_abbr . '_pronamic_ideal_enable'
+			),
 			// Select Box
 			array(
-				'type'    => 'select' , 
-				'name'    => __( 'iDEAL Configuration', 'pronamic_ideal') , 
-				'options' => $configurationOptions ,  
+				'type'    => 'select',
+				'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
+				'options' => $configuration_options,
 				'id'      => $app_abbr . '_pronamic_ideal_configuration_id'
-			) , 
+			),
             array(
-            	'type'    => 'tabend' , 
+            	'type'    => 'tabend',
 				'id'      => ''
 			)
         );
@@ -127,16 +129,19 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		}
 
 		// display iDEAL form
-		$data_proxy = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
+		$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
 
 		$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-		
-		$auto_submit = true;
 
-		$html = Pronamic_WordPress_IDeal_IDeal::getHtmlForm( $data_proxy, $configuration, $auto_submit );
-		
-		echo $html;
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+		if ( $gateway ) {
+			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+
+			echo $gateway->get_form_html( $auto_submit = true );
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -196,7 +201,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function sourceColumn($text, $payment) {
+	public static function source_column( $text, $payment ) {
 		$text  = '';
 
 		$text .= __( 'ClassiPress', 'pronamic_ideal' ) . '<br />';
