@@ -201,13 +201,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'post'   => $order->id, 
 				'action' => 'edit' 
 			),
-			admin_url('post.php')
+			admin_url( 'post.php' )
 		);
 
 		$note = sprintf(
-			__( 'Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal' ) , 
-			$order->id , 
-			esc_attr( $configuration->getDashboardUrl() ) , 
+			__( 'Check the payment of order #%s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal' ),
+			$order->id,
+			esc_attr( $configuration->getDashboardUrl() ),
 			esc_attr( $edit_order_link )
 		);
 
