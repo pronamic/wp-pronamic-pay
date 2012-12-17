@@ -214,11 +214,22 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
-    	$url = $gateway->get_action_url();
+		$error = $gateway->get_error();
 
-		return array(
-			'result' 	=> 'success',
-			'redirect'	=> $url
-		);
+		if ( is_wp_error( $error ) ) {
+			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+
+			// @todo check https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
+			return array(
+				'result' 	=> 'failed'
+			);
+		} else {
+	    	$url = $gateway->get_action_url();
+	
+			return array(
+				'result' 	=> 'success',
+				'redirect'	=> $url
+			);
+		}
     }
 }

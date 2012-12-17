@@ -282,6 +282,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
+			// @todo check https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
 			return array(
 				'result' 	=> 'failed'
 			);

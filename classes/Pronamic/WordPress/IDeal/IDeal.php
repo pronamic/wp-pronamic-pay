@@ -45,6 +45,17 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 	
+	/**
+	 * Get default error message
+	 * 
+	 * @return string
+	 */
+	public static function get_default_error_message() {
+		return __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
+	}
+
+	//////////////////////////////////////////////////
+	
 	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();

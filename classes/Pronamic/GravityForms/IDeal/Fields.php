@@ -82,7 +82,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 					$error = $gateway->get_error();
 					
 					if( is_wp_error( $error ) ) {
-						$html_error .= __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
+						$html_error .= Pronamic_WordPress_IDeal_IDeal::get_default_error_message();
 						$html_error .= '<br /><em>' . $error->get_error_message() . '</em>';
 					} elseif ( $issuer_field ) {
 						$choices = $issuer_field['choices'];
