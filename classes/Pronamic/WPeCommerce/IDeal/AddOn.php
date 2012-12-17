@@ -77,8 +77,10 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
 
-		if ( $configuration !== null ) {
-			// create gateway and use gateway function
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+		if ( $gateway ) {
+			$output = $gateway->get_input_html();
 		}
 	
 		return $output;
@@ -98,7 +100,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $id );
 			$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
 
-			$url = $data_proxy->getNormalReturnUrl();
+			$url = $data->getNormalReturnUrl();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
@@ -143,7 +145,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	public static function source_column( $text, $payment ) {
 		$text  = '';
+
 		$text .= __( 'WP e-Commerce', 'pronamic_ideal' ) . '<br />';
+
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
 			add_query_arg( array(
