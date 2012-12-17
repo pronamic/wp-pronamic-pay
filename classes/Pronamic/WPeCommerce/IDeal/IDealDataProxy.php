@@ -25,6 +25,8 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @param wpsc_merchant $merchant
 	 */
 	public function __construct( $merchant ) {
+		parent::__construct();
+
 		$this->merchant = $merchant;
 	}
 

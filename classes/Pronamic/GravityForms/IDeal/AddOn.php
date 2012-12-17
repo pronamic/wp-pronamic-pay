@@ -57,7 +57,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Initialize
 	 */
 	public static function initialize() {
-		if ( self::isGravityFormsSupported() ) {
+		if ( self::is_gravityforms_supported() ) {
 			// Admin
 			if ( is_admin() ) {
 				Pronamic_GravityForms_IDeal_Admin::bootstrap();
@@ -110,7 +110,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
-		if ( self::isGravityFormsSupported() && ( get_option( self::OPTION_VERSION ) != self::VERSION ) ) {
+		if ( self::is_gravityforms_supported() && ( get_option( self::OPTION_VERSION ) != self::VERSION ) ) {
 			// Update tables
 			Pronamic_GravityForms_IDeal_FeedsRepository::update_table();
 
@@ -270,18 +270,18 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Checks if Gravity Forms is supporter
+	 * Checks if Gravity Forms is supported
 	 * 
 	 * @return true if Gravity Forms is supported, false otherwise
 	 */
-	public static function isGravityFormsSupported() {
+	public static function is_gravityforms_supported() {
 		if ( class_exists( 'GFCommon' ) ) {
 			return version_compare( GFCommon::$version, self::GRAVITY_FORMS_MINIMUM_VERSION, '>=' );
         } else {
 			return false;
         }
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
