@@ -76,7 +76,7 @@ class Pronamic_Shopp_Shopp {
 	 * 
 	 * @param Purchase $purchase
 	 */
-	public static function isPurchasePaid( $purchase ) {
+	public static function is_purchase_paid( $purchase ) {
 		$is_paid = false;
 
 		if ( version_compare( SHOPP_VERSION, '1.2', '<' ) ) {

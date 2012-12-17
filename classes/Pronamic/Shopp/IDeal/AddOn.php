@@ -194,6 +194,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 		$text  = '';
 
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
+
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
 			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),

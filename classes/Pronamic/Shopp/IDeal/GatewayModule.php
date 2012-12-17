@@ -305,7 +305,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$purchase = $Shopp->Purchase;
 
 		if ( self::is_used( $purchase ) ) {
-			if ( ! Pronamic_Shopp_Shopp::isPurchasePaid( $purchase ) ) { 
+			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) { 
 				$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 
 				$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
