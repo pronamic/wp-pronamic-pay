@@ -315,7 +315,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message->issuer      = $issuer;
 		$message->merchant    = $merchant;
 		$message->transaction = $transaction;
-
+		
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
 
