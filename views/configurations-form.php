@@ -49,6 +49,7 @@ if($action == 'delete') {
 		<<?php echo $tag; ?>>
 			<tr>
 				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
+				<th scope="col" class="manage-column" style="width: 2em;"><?php _e('ID', 'pronamic_ideal') ?></th>
 				<th scope="col" class="manage-column"><?php _e('Name', 'pronamic_ideal') ?></th>
 				<th scope="col" class="manage-column"><?php _e('Merchant ID', 'pronamic_ideal') ?></th>
 				<th scope="col" class="manage-column"><?php _e('Sub ID', 'pronamic_ideal') ?></th>
@@ -68,6 +69,9 @@ if($action == 'delete') {
 				<th scope="row" class="check-column">
 					<input type="checkbox" name="configurations[]" value="<?php echo $configuration->getId(); ?>"/>
 				</th>
+				<td style="width: 2em;">
+					<?php echo $configuration->getId(); ?>
+				</td>
 				<td>
 					<?php 
 					
