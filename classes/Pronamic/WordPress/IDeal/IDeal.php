@@ -55,6 +55,39 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Get configurations select options
+	 * 
+	 * @return array
+	 */
+	public static function get_configurations_select_options() {
+		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
+
+		$options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
+		
+		foreach ( $configurations as $configuration ) {
+			$options[$configuration->getId()] = self::get_configuration_option_name( $configuration );
+		}
+		
+		return $options;
+	}
+
+	/**
+	 * Get the configuration option name
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 */
+	public static function get_configuration_option_name( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+		return sprintf(
+			'%s. %s (%s)',
+			$configuration->getId(),
+			$configuration->getName(),
+			$configuration->mode
+		);
+	}
+
+	//////////////////////////////////////////////////
 	
 	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
 		if ( $configuration !== null ) {

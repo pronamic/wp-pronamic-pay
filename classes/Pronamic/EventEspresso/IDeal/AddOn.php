@@ -102,12 +102,9 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		}
 
 		// Configurations
-    	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configuration_options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
-    	foreach ( $configurations as $configuration ) {
-    		$configuration_options[$configuration->getId()] = $configuration->getName();
-    	}
+    	$configuration_options = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
 
+    	// URL
 		$url = add_query_arg( 'page', 'payment_gateways', admin_url( 'admin.php' ) );
 
 		?>

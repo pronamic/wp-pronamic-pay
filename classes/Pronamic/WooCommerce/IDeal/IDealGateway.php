@@ -49,14 +49,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	/**
      * Initialise form fields
      */
-    function init_form_fields() {
-    	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configuration_options = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
-
-    	foreach ( $configurations as $configuration ) {
-    		$configuration_options[$configuration->getId()] = $configuration->getName();
-    	}
-    
+    function init_form_fields() {    
     	$this->form_fields = array(
     		'enabled'          => array(
 				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ) , 
@@ -81,7 +74,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'type'        => 'select' , 
 				'description' => '<br />' . __( 'Select an iDEAL configuration.', 'pronamic_ideal' ) , 
 				'default'     => '' , 
-				'options'     => $configuration_options 
+				'options'     => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options() 
 			)
 		);
     }

@@ -39,13 +39,6 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	public static function gateway_values() {
 		global $app_abbr;
 
-		// Configurations
-    	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configuration_options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
-    	foreach ( $configurations as $configuration ) {
-    		$configuration_options[$configuration->getId()] = $configuration->getName();
-    	}
-
 		// Gateway values
 		global $action_gateway_values;
 
@@ -82,7 +75,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			array(
 				'type'    => 'select',
 				'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
-				'options' => $configuration_options,
+				'options' => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options(),
 				'id'      => $app_abbr . '_pronamic_ideal_configuration_id'
 			),
             array(

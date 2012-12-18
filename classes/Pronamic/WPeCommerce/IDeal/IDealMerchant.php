@@ -123,7 +123,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 				'<option value="%s" %s>%s</option>',
 				esc_attr( $configuration->getId() ),
 				selected( get_option( 'pronamic_ideal_wpsc_configuration_id' ), $configuration->getId(), false ),
-				$configuration->getName()
+				Pronamic_WordPress_IDeal_IDeal::get_configuration_option_name( $configuration )
 			);
 	   	}
 

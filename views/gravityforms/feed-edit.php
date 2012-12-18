@@ -143,7 +143,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 	                    ?>
 						<option <?php if($variant != null): ?>data-ideal-method="<?php echo $variant->getMethod(); ?>"<?php endif; ?> value="<?php echo $configuration->getId(); ?>" <?php selected($iDealConfigurationId, $configuration->getId()); ?>>
-							<?php echo esc_html($configuration->getName()); ?>
+							<?php echo esc_html( Pronamic_WordPress_IDeal_IDeal::get_configuration_option_name( $configuration ) ); ?>
 						</option>
 						<?php endforeach; ?>
 	                </select>

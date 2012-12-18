@@ -367,10 +367,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	function settings() {
 		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
-		$options = array( __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
-		foreach ( $configurations as $configuration ) {
-    		$options[$configuration->getId()] = $configuration->getName();
-    	}
+		$options = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
 
 		$this->ui->menu( 0, array(
 			'name'     => 'pronamic_shopp_ideal_configuration', 
