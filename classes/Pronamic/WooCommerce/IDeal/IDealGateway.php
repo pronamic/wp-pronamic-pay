@@ -285,7 +285,11 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		if ( is_wp_error( $error ) ) {
 			$woocommerce->add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
-			
+
+			foreach ( $error->get_error_messages() As $message ) {
+				$woocommerce->add_error( $message );
+			}
+
 			// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
 			return array(
 				'result' 	=> 'failed'
