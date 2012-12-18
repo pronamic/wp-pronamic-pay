@@ -18,10 +18,29 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorParser extends Pronamic_Gateways_
 	public static function parse( SimpleXMLElement $xml ) {
 		$error = new Pronamic_Gateways_IDealAdvanced_Error();
 
-		$error->setCode( (string) $xml->errorCode );
-		$error->setMessage( (string) $xml->errorMessage );
-		$error->setDetail( (string) $xml->errorDetail );
-		$error->setConsumerMessage( (string) $xml->consumerMessage );
+		if ( $xml->errorCode ) {
+			$error->set_code( (string) $xml->errorCode );
+		}
+		
+		if ( $xml->errorMessage ) {
+			$error->set_message( (string) $xml->errorMessage );
+		}
+		
+		if ( $xml->errorDetail ) {
+			$error->set_detail( (string) $xml->errorDetail );
+		}
+		
+		if ( $xml->suggestedAction ) {
+			$error->set_suggested_action( (string) $xml->suggestedAction );
+		}
+		
+		if ( $xml->suggestedExpirationPeriod ) {
+			$error->set_suggested_expiration_period( (string) $xml->suggestedExpirationPeriod );
+		}
+		
+		if ( $xml->consumerMessage ) {
+			$error->set_consumer_message( (string) $xml->consumerMessage );
+		}
 		
 		return $error;
 	}

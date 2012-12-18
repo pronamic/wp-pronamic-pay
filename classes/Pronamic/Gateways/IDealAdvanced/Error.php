@@ -35,21 +35,21 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @var string
 	 */
-	private $suggestedAction;
+	private $suggested_action;
 
 	/**
 	 * Suggested expiration period
 	 * 
 	 * @var string
 	 */
-	private $suggestedExpirationPeriod;
+	private $suggested_expiration_period;
 
 	/**
 	 * Consumer message
 	 * 
 	 * @var string
 	 */
-	private $consumerMessage;
+	private $consumer_message;
 
 	//////////////////////////////////////////////////
 
@@ -67,7 +67,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @return string
 	 */
-	public function getCode() {
+	public function get_code() {
 		return $this->code;
 	}
 
@@ -76,7 +76,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $code
 	 */
-	public function setCode( $code ) {
+	public function set_code( $code ) {
 		$this->code = $code;
 	}
 
@@ -87,7 +87,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @return string
 	 */
-	public function getMessage() {
+	public function get_message() {
 		return $this->message;
 	}
 
@@ -96,7 +96,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $code
 	 */
-	public function setMessage( $message ) {
+	public function set_message( $message ) {
 		$this->message = $message;
 	}
 
@@ -107,7 +107,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @return string
 	 */
-	public function getDetail() {
+	public function get_detail() {
 		return $this->detail;
 	}
 
@@ -116,8 +116,48 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $detail
 	 */
-	public function setDetail( $detail ) {
+	public function set_detail( $detail ) {
 		$this->detail = $detail;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the suggested action of this error
+	 * 
+	 * @return string
+	 */
+	public function get_suggested_action() {
+		return $this->suggested_action;
+	}
+
+	/**
+	 * Set the suggested action of this error
+	 * 
+	 * @param string $suggested_action
+	 */
+	public function set_suggested_action( $suggested_action ) {
+		$this->suggested_action = $suggested_action;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the suggested action of this error
+	 * 
+	 * @return string
+	 */
+	public function get_suggested_expiration_period() {
+		return $this->suggested_expiration_period;
+	}
+
+	/**
+	 * Set the suggested action of this error
+	 * 
+	 * @param string $suggested_action
+	 */
+	public function set_suggested_expiration_period( $suggested_expiration_period ) {
+		$this->suggested_expiration_period = $suggested_expiration_period;
 	}
 
 	//////////////////////////////////////////////////
@@ -127,8 +167,8 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @return string
 	 */
-	public function getConsumerMessage() {
-		return $this->consumerMessage;
+	public function get_consumer_message() {
+		return $this->consumer_message;
 	}
 
 	/**
@@ -136,7 +176,7 @@ class Pronamic_Gateways_IDealAdvanced_Error {
 	 * 
 	 * @param string $detail
 	 */
-	public function setConsumerMessage( $consumer_message ) {
-		$this->consumerMessage = $consumer_message;
+	public function set_consumer_message( $consumer_message ) {
+		$this->consumer_message = $consumer_message;
 	}
 }
