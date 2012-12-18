@@ -66,7 +66,26 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 */
 	public function getOrderId() {
 		// @see https://github.com/woothemes/woocommerce/blob/v1.6.5.2/classes/class-wc-order.php#L269
-		return $this->order->get_order_number();
+		$order_id = $this->order->get_order_number();
+
+		/*
+		 * An '#' charachter can result in the following iDEAL error:
+		 * code             = SO1000
+		 * message          = Failure in system
+		 * detail           = System generating error: issuer
+		 * consumer_message = Paying with iDEAL is not possible. Please try again later or pay another way.
+		 * 
+		 * @see http://wcdocs.woothemes.com/user-guide/extensions/functionality/sequential-order-numbers/#add-compatibility
+		 * 
+		 * @see page 30 http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf
+		 * 
+		 * Gebruik van een hierboven niet genoemd teken leidt niet tot weigering van batch of post, maar het
+		 * teken wordt door Equens (voorheen Interpay) naar spatie, vraagteken of asterisk vertaald. Dit geldt dus
+		 * ook voor diakritische tekens (à, ç, ô, ü, ý enzovoorts).
+		 */
+		$order_id = str_replace( '#', '', $order_id );
+
+		return $order_id;
 	}
 
 	/**
