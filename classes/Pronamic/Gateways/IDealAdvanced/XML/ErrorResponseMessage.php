@@ -37,13 +37,33 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get the error object
+	 * 
+	 * @return Pronamic_Gateways_IDealAdvanced_Error
+	 */
+	public function get_error() {
+		return $this->error;
+	}
+
+	/**
+	 * Set the error object
+	 * 
+	 * @param Pronamic_Gateways_IDealAdvanced_Error $error
+	 */
+	public function set_error( Pronamic_Gateways_IDealAdvanced_Error $error ) {
+		$this->error = $error;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Parse the specified XML into an directory response message object
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
 		$message = parent::parse( $xml, new self() );
-		$message->error = Pronamic_Gateways_IDealAdvanced_XML_ErrorParser::parse( $xml->Error );
+		$message->set_error( Pronamic_Gateways_IDealAdvanced_XML_ErrorParser::parse( $xml->Error ) );
 
 		return $message;
 	}

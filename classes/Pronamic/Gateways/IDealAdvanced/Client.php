@@ -220,8 +220,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		switch ( $document->getName() ) {
 			case Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::NAME:
 				$message = Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse( $document );
+				
+				$ideal_error = $message->get_error();
 
-				$this->error = new WP_Error( 'ideal_advanced_error', $message->error, $message );
+				$this->error = new WP_Error( 'ideal_advanced_error', $ideal_error->get_message(), $ideal_error );
 
 				return $message;
 			case Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage::NAME:
@@ -315,7 +317,9 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message->issuer      = $issuer;
 		$message->merchant    = $merchant;
 		$message->transaction = $transaction;
-		
+
+		echo '<pre>', htmlspecialchars( $message ), '</pre>';
+
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
 
