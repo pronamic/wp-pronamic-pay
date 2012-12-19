@@ -241,23 +241,23 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 */
     public static function fulfill_order( $entry ) {
-        $formMeta = RGFormsModel::get_form_meta( $entry['form_id'] );
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
 
-        $feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
+		if ( $feed !== null ) {
+			self::maybe_update_user_role( $entry, $feed );
 
-        if ( $feed !== null ) {
-        	self::maybe_update_user_role( $entry, $feed );
+			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
 
 			if ( $feed->delayAdminNotification ) {
-				GFCommon::send_admin_notification( $formMeta, $entry );
+				GFCommon::send_admin_notification( $form_meta, $entry );
 			}
 
 			if ( $feed->delayUserNotification ) {
-				GFCommon::send_user_notification( $formMeta, $entry );
+				GFCommon::send_user_notification( $form_meta, $entry );
 			}
 
 			if ( $feed->delayPostCreation ) {
-				RGFormsModel::create_post( $formMeta, $entry );
+				RGFormsModel::create_post( $form_meta, $entry );
 			}
         }
 
