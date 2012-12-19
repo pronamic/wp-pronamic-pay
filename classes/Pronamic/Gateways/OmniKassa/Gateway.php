@@ -35,7 +35,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 		$this->client->setMerchantId( $configuration->getMerchantId() );
-		$this->client->setKeyVersion( $configuration->getSubId() );
+		$this->client->setKeyVersion( $configuration->keyVersion );
 		$this->client->setSecretKey( $configuration->getHashKey() );
 	}
 	
