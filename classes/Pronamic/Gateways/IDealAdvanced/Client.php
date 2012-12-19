@@ -318,8 +318,6 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$message->merchant    = $merchant;
 		$message->transaction = $transaction;
 
-		echo '<pre>', htmlspecialchars( $message ), '</pre>';
-
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
 
