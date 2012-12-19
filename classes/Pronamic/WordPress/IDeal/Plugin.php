@@ -201,7 +201,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function handle_ideal_advanced_return() {
 		if ( isset( $_GET['trxid'], $_GET['ec'] ) ) {
 			$transaction_id = filter_input( INPUT_GET, 'trxid', FILTER_SANITIZE_STRING );
-			$entrance_code = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
+			$entrance_code  = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
 	
 			if ( ! empty( $transaction_id ) && ! empty( $entrance_code ) ) {
 				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id, $entrance_code );
