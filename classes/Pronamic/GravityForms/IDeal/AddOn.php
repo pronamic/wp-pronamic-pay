@@ -478,7 +478,18 @@ class Pronamic_GravityForms_IDeal_AddOn {
     	$url = $gateway->get_action_url();
 
 		if ( is_wp_error( $error ) ) {
-			$confirmation = Pronamic_WordPress_IDeal_IDeal::get_default_error_message();
+			$html = '';
+
+			$html .= '<ul>';
+			$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
+
+			foreach ( $error->get_error_messages() As $message ) {
+				$html .= '<li>' . $message . '</li>';
+			}
+
+			$html .= '</ul>';
+
+			$confirmation = $html;
 		} else {
 			// Updating lead's payment_status to Processing
 			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
