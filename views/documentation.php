@@ -91,14 +91,14 @@
 					'version' => '2.2.3'
 				),
 				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/20100519_iDEAL_Merchant_Integration_Guide_v2.2.3.pdf',
+					'name'    => 'iDEAL Merchant Integration Guide',
+					'version' => '2.2.3'
+				),
+				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integration-Guide-Mobile-Addendum-EN.pdf' ,
 					'name'    => 'iDEAL Merchant Integration Guide - Mobile Addendum' ,  
 					'version' => '2.2.3' 
-				),
-				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf',
-					'name'    => 'iDEAL Merchant Integratie gids',
-					'version' => '2.2.3'
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/iDEAL_Merchant_Integratie_Gids__Overzicht_van_Wijzigingen_v3.3.1_NL.pdf',
@@ -171,16 +171,6 @@
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Wijzigen_van_een_acquiring_certificaat_in_iDEAL_Advanced_internet_tcm7-82882.pdf',
 					'name'    => 'Wijzigen van een acquiring certificaat in iDEAL Advanced'
-				),
-				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/20100519_iDEAL_Merchant_Integratie_Gids_v2.2.3.pdf',
-					'name'    => 'iDEAL Merchant Integratie gids',
-					'version' => '2.2.3'
-				),
-				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/20100519_iDEAL_Merchant_Integration_Guide_v2.2.3.pdf',
-					'name'    => 'iDEAL Merchant Integration Guide',
-					'version' => '2.2.3'
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.3.pdf',
