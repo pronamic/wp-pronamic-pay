@@ -104,6 +104,15 @@ abstract class Pronamic_Gateways_Gateway {
 		return $this->error;
 	}
 
+	/**
+	 * Set error
+	 * 
+	 * @param WP_Error $error
+	 */
+	public function set_error( WP_Error $error = null ) {
+		$this->error = $error;
+	}
+
 	/////////////////////////////////////////////////
 
 	/**

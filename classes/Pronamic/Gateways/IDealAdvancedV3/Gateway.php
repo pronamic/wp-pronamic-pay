@@ -100,8 +100,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 		$error = $this->client->get_error();
 		
-		if ( $error !== null ) {
-			var_dump( $error );
+		if ( is_wp_error( $error ) ) {
+			$this->set_error( $error );
 		} else {
 			$issuer = $result->issuer;
 
@@ -123,7 +123,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$error = $this->client->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			$this->error = $error;
+			$this->set_error( $error );
 		} else {
 			$transaction = $result->transaction;
 

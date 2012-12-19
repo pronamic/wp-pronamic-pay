@@ -179,7 +179,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$error = $this->client->get_error();
 
 		if ( $error !== null ) {
-			var_dump( $error );
+			$this->set_error( $error );
 		} else {
 			$transaction = $result->transaction;
 
