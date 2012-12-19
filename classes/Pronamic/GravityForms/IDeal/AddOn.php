@@ -239,8 +239,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Fulfill order
 	 * 
 	 * @param array $entry
-	 * @param string $transaction_id
-	 * @param string $amount
 	 */
     public static function fulfill_order( $entry ) {
         $formMeta = RGFormsModel::get_form_meta( $entry['form_id'] );
