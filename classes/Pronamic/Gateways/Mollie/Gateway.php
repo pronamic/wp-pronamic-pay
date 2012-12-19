@@ -36,7 +36,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 			site_url( '/' )
 		);
 		
-		$this->transaction_id = $this->client->getTransactionId();
-		$this->action_url     = $this->client->getBankURL();
+		$this->set_transaction_id( $this->client->getTransactionId() );
+		$this->set_action_url( $this->client->getBankURL() );
 	}
 }

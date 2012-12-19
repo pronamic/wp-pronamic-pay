@@ -27,8 +27,8 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	public function start( $data ) {
-		$this->transaction_id = md5( time() . $data->getOrderId() );
-		$this->action_url     = $this->client->getPaymentServerUrl();
+		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_action_url( $this->client->getPaymentServerUrl() );
 		
 		$this->client->setLanguage( $data->getLanguageIso639Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
@@ -38,12 +38,6 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setCancelUrl( $data->getCancelUrl() );
 		$this->client->setSuccessUrl( $data->getSuccessUrl() );
 		$this->client->setErrorUrl( $data->getErrorUrl() );
-	}
-	
-	/////////////////////////////////////////////////
-
-	public function get_action_url() {
-		return $this->client->getPaymentServerUrl();
 	}
 	
 	/////////////////////////////////////////////////

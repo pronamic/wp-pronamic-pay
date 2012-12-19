@@ -24,8 +24,8 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	public function start( $data ) {
-		$this->transaction_id = md5( time() . $data->getOrderId() );
-		$this->action_url     = $this->client->getPaymentServerUrl();
+		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_action_url( $this->client->getPaymentServerUrl() );
 
 		$this->client->setLanguage( $data->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
