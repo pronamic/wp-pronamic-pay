@@ -27,15 +27,6 @@ class Pronamic_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for SHA1 RSA authentication
-	 * 
-	 * @var string
-	 */
-	const AUTHENTICATION_SHA1_RSA = 'SHA1_RSA';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Indicator for test mode
 	 * 
 	 * @var int
