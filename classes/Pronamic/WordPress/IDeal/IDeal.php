@@ -127,7 +127,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	public static function create_payment( $configuration, $gateway, $data ) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
 		$payment->configuration           = $configuration;
-		$payment->transaction_id          = $gateway->transaction_id;
+		$payment->transaction_id          = $gateway->get_transaction_id();
 		$payment->purchase_id             = $data->getOrderId();
 		$payment->description             = $data->getDescription();
 		$payment->amount                  = $data->getAmount();

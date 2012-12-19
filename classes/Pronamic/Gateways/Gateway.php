@@ -62,7 +62,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @var string
 	 */
-	public $transaction_id;
+	private $transaction_id;
 
 	/////////////////////////////////////////////////
 
