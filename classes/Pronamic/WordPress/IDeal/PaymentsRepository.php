@@ -285,10 +285,10 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
      * 
      * @return Pronamic_WordPress_IDeal_Payment 
      */
-    public static function getPaymentByIdAndEc( $transactionId, $entranceCode = null ) {
+    public static function getPaymentByIdAndEc( $transaction_id, $entrance_code = null ) {
         return self::getPaymentByQuery( self::getPaymentQuery( array(
-			'transaction_id' => $transactionId,
-        	'entrance_code'  => $entranceCode
+			'transaction_id' => $transaction_id,
+        	'entrance_code'  => $entrance_code
         ) ) );
     }
 
