@@ -22,9 +22,14 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Constructs and initialize an iDEAL gateway
 	 */
     public function __construct() { 
-		parent::__construct();
+    	// Parent constructor only exists in Jigoshop 1.3+
+    	// @see https://github.com/jigoshop/jigoshop/blob/1.2/gateways/gateway.class.php
+    	// @see https://github.com/jigoshop/jigoshop/blob/1.3/gateways/gateway.class.php
+    	if ( version_compare( jigoshop::jigoshop_version(), '1.3', '>=' ) ) {
+			parent::__construct();
+    	}
 
-    	// Give this gateway an unique ID so Jigoshop can identiy this gateway
+		// Give this gateway an unique ID so Jigoshop can identiy this gateway
 		$this->id              = self::ID;
 
 		// The method title that Jigoshop will display in the admin
