@@ -9,33 +9,82 @@
  * @version 1.0
  */
 class Pronamic_Gateways_TargetPay_TargetPay {
+	/**
+	 * URL for issuers in Dutch language
+	 * 
+	 * @var string
+	 */
 	const URL_ISSUERS_NL = 'https://www.targetpay.com/ideal/issuers-nl.js';
 
+	/**
+	 * URL for issuers in English language
+	 * 
+	 * @var string
+	 */
 	const URL_ISSUERS_EN = 'https://www.targetpay.com/ideal/issuers-en.js';
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * URL for retrieving issuers in HTL format
+	 * 
+	 * @var string
+	 */
 	const URL_ISSUERS_HTML = 'https://www.targetpay.com/ideal/getissuers.php?format=html';
-
+	
+	/**
+	 * URL for retrieving issuers in XML format
+	 *
+	 * @var string
+	 */
 	const URL_ISSUERS_XML = 'https://www.targetpay.com/ideal/getissuers.php?format=xml';
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * URL to start an transaction
+	 * 
+	 * @var string
+	 */
 	const URL_START_TRANSACTION = 'https://www.targetpay.com/ideal/start';
 
+	/**
+	 * URL to check an transaction
+	 * 
+	 * @var string
+	 */
 	const URL_CHECK_TRANSACTION = 'https://www.targetpay.com/ideal/check';
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Token used by TargetPay to separate some values
+	 * 
+	 * @var string
+	 */
 	const TOKEN = ' |';
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Status indicator for 'Ok'
+	 * 
+	 * @var string
+	 */
 	const STATUS_OK = '000000';
+
+	/**
+	 * Status indicator for 'No layout code'
+	 * 
+	 * @var string
+	 */
 	const STATUS_NO_LAYOUT_CODE = 'TP0001';
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Constructs and initializes an TargetPay client object
+	 */
 	public function __construct() {
 		
 	}
