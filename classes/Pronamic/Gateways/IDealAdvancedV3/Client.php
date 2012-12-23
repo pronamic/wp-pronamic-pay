@@ -9,42 +9,111 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealAdvancedV3_Client {
+	/**
+	 * Acquirer URL
+	 * 
+	 * @var string
+	 */
 	public $acquirer_url;
-	
+
 	//////////////////////////////////////////////////
-	
+
+	/**
+	 * Directory request URL
+	 * 
+	 * @var string
+	 */
 	public $directory_request_url;
 
+	/**
+	 * Transaction request URL
+	 *
+	 * @var string
+	 */
 	public $transaction_request_url;
-	
+
+	/**
+	 * Status request URL
+	 *
+	 * @var string
+	 */
 	public $status_request_url;
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Merchant ID
+	 * 
+	 * @var string
+	 */
 	public $merchant_id;
 	
+	/**
+	 * Sub ID
+	 * 
+	 * @var string
+	 */
 	public $sub_id;
 	
 	//////////////////////////////////////////////////
-	
-	public $private_key_password;
-	
-	public $private_key;
-	
+
+	/**
+	 * Private certificate
+	 * 
+	 * @var string
+	 */
 	public $private_certificate;
+
+	/**
+	 * Private key
+	 * 
+	 * @var string
+	 */
+	public $private_key;
+
+	/**
+	 * Private key password
+	 * 
+	 * @var unknown_type
+	 */
+	public $private_key_password;
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Error
+	 * 
+	 * @var WP_Error
+	 */
 	private $error;
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Constructs and initialzies an iDEAL Advanced v3 client object
+	 */
 	public function __construct() {
 
 	}
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get the latest error
+	 * 
+	 * @return WP_Error or null
+	 */
+	public function get_error() {
+		return $this->error;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Set the acquirer URL
+	 * 
+	 * @param string $url
+	 */
 	public function set_acquirer_url( $url ) {
 		$this->acquirer_url            = $url;
 
@@ -56,7 +125,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Send an message
+	 * Send an specific request message to an specific URL
+	 * 
+	 * @param string $url
+	 * @param Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message
+	 * 
+	 * @return Pronamic_Gateways_IDealAdvancedV3_XML_ResponseMessage
 	 */
 	private function send_message( $url, Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage $message ) {
 		$result = false;
@@ -140,6 +214,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		}
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get directory of issuers
+	 * 
+	 * @return Pronamic_Gateways_IDealAdvancedV3_Directory
+	 */
 	public function get_directory() {
 		$directory = false;
 
@@ -149,7 +230,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
 
-		$response_dir_message = $this->send_message( $this->acquirer_url, $request_dir_message );
+		$response_dir_message = $this->send_message( $this->directory_request_url, $request_dir_message );
 		
 		if ( $response_dir_message instanceof Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage ) {
 			$directory = $response_dir_message->get_directory();
@@ -158,6 +239,15 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		return $directory;
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Create transaction
+	 * 
+	 * @param Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction
+	 * @param string $issuer_id
+	 * @return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage
+	 */
 	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {
 		$message = new Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage();
 
@@ -174,6 +264,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		return $this->send_message( $this->transaction_request_url, $message );
 	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get the status of the specified transaction ID
+	 * 
+	 * @param string $transaction_id
+	 * @return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage
+	 */
 	public function get_status( $transaction_id ) {
 		$message = new Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusReqMessage();
 
@@ -186,11 +284,15 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 
 		return $this->send_message( $this->status_request_url, $message );
 	}
-	
-	public function get_error() {
-		return $this->error;
-	}
-	
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Sign the specified DOMDocument
+	 * 
+	 * @param DOMDocument $document
+	 * @return DOMDocument
+	 */
 	private function sign_document( DOMDocument $document ) {
 		if ( empty( $this->private_key ) || empty( $this->private_key_password ) || empty( $this->private_certificate ) ) {
 			// @todo what todo?

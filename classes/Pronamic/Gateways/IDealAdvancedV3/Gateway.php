@@ -89,12 +89,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 		$transaction->set_purchase_id( $data->getOrderId() );
-		$transaction->setAmount( $data->getAmount() );
-		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
-		$transaction->setExpirationPeriod( 'PT3M30S' );
-		$transaction->setLanguage( $data->getLanguageIso639Code() );
-		$transaction->setDescription( $data->getDescription() );
-		$transaction->setEntranceCode( $data->get_entrance_code() );
+		$transaction->set_amount( $data->getAmount() );
+		$transaction->set_currency( $data->getCurrencyAlphabeticCode() );
+		$transaction->set_expiration_period( 'PT3M30S' );
+		$transaction->set_language( $data->getLanguageIso639Code() );
+		$transaction->set_description( $data->getDescription() );
+		$transaction->set_entrance_code( $data->get_entrance_code() );
 
 		$result = $this->client->create_transaction( $transaction, $data->get_issuer_id() );
 

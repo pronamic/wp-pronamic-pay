@@ -83,6 +83,15 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Error
+	 * 
+	 * @var WP_Error
+	 */
+	private $error;
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an TargetPay client object
 	 */
 	public function __construct() {
@@ -91,6 +100,36 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	
 	//////////////////////////////////////////////////
 
+	private function remote_get( $url ) {
+		$result = false;
+
+		$response = wp_remote_get( $url );
+
+		if ( ! is_wp_error( $response ) ) {
+			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+				$result = wp_remote_retrieve_body( $response );
+			} else {
+				
+			}
+		} else {
+			
+		}
+
+		return $result;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Start transaction
+	 * 
+	 * @param string $rtlo
+	 * @param string $bank
+	 * @param string $description
+	 * @param float $amount
+	 * @param string $returnurl
+	 * @param string $reporturl
+	 */
 	public function start_transaction( $rtlo, $bank, $description, $amount, $returnurl, $reporturl ) {
 		$url = add_query_arg( array(
 			'rtlo'        => $rtlo,
@@ -101,24 +140,34 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			'reporturl'   => $reporturl
 		), self::URL_START_TRANSACTION );
 
-		$response = wp_remote_get( $url );
-
-		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-			$data = wp_remote_retrieve_body( $response );
-	
+		$ata = self::remote_get( $url );
+		
+		if ( $ata !== false ) {
 			$result = new stdClass();
 			$result->status         = strtok( $data, self::TOKEN );
 			$result->transaction_id = strtok( self::TOKEN );
 			$result->url            = strtok( self::TOKEN );
-	
+		
 			if ( $result->status == self::STATUS_OK ) {
 				return $result;
+			} else {
+				
 			}
+		} else {
+			
 		}
 	}
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Check status
+	 * 
+	 * @param string $rtlo
+	 * @param string $transaction_id
+	 * @param string $once
+	 * @param string $test
+	 */
 	public function check_status( $rtlo, $transaction_id, $once, $test ) {
 		$url = add_query_arg( array(
 			'rtlo'  => $rtlo,
@@ -127,13 +176,11 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			'test'  => $test ? '1' : '0'
 		), self::URL_CHECK_TRANSACTION );
 
-		$response = wp_remote_get( $url );
+		$ata = self::remote_get( $url );
 
-		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-			$data = wp_remote_retrieve_body( $response );
-
+		if ( $data !== false ) {
 			$postion_space = strpos( $data, ' ' );
-
+	
 			if ( $position_space !== false ) {
 				$status      = substr( $data, 0, $postion_space );
 				$description = substr( $data, $postion_space + 1 );
@@ -142,26 +189,29 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	}
 	
 	//////////////////////////////////////////////////
-	
+
+	/**
+	 * Get issuers
+	 * 
+	 * @return array
+	 */
 	public function get_issuers() {
 		$issuers = false;
 
 		$url = self::URL_ISSUERS_XML;
 
-		$response = wp_remote_get( $url );
-
-		if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-			$data = wp_remote_retrieve_body( $response );
-
+		$ata = self::remote_get( $url );
+		
+		if ( $data !== false ) {	
 			$xml = simplexml_load_string( $data );
-			
+				
 			if ( $xml !== false ) {
 				$issuers = array();
-
+	
 				foreach ( $xml->issuer as $xml_issuer ) {
 					$id   = (string) $xml_issuer['id'];
 					$name = (string) $xml_issuer;
-
+	
 					$issuers[$id] = $name;
 				}
 			}

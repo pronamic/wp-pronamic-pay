@@ -18,8 +18,18 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Issuer
+	 * 
+	 * @var Pronamic_Gateways_IDealAdvancedV3_Issuer
+	 */
 	public $issuer;
 
+	/**
+	 * Transaction
+	 * 
+	 * @var Pronamic_Gateways_IDealAdvancedV3_Transaction
+	 */
 	public $transaction;
 
 	//////////////////////////////////////////////////
@@ -33,6 +43,11 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get document
+	 * 
+	 * @see Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage::get_document()
+	 */
 	public function get_document() {
 		$document = parent::get_document();
 		
@@ -49,21 +64,25 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 		$merchant = $this->get_merchant();
 
 		$element = self::add_element( $document, $document->documentElement, 'Merchant' );
-		self::add_element( $document, $element, 'merchantID', $merchant->get_id() );
-		self::add_element( $document, $element, 'subID', $merchant->get_sub_id() );
-		self::add_element( $document, $element, 'merchantReturnURL', $merchant->get_return_url() );
+		self::add_elements( $document, $element, array(
+			'merchantID'        => $merchant->get_id(),
+			'subID'             => $merchant->get_sub_id(),
+			'merchantReturnURL' => $merchant->get_return_url()
+		) );
 
 		// Transaction
 		$transaction = $this->transaction;
 
 		$element = self::add_element( $document, $document->documentElement, 'Transaction' );
-		self::add_element( $document, $element, 'purchaseID', $transaction->get_purchase_id() );
-		self::add_element( $document, $element, 'amount', Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $transaction->getAmount() ) );
-		self::add_element( $document, $element, 'currency', $transaction->getCurrency() );
-		self::add_element( $document, $element, 'expirationPeriod', $transaction->getExpirationPeriod() );
-		self::add_element( $document, $element, 'language', $transaction->getLanguage() );
-		self::add_element( $document, $element, 'description', $transaction->getDescription() );
-		self::add_element( $document, $element, 'entranceCode', $transaction->getEntranceCode() );
+		self::add_elements( $document, $element, array(
+			'purchaseID'       => $transaction->get_purchase_id(),
+			'amount'           => Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $transaction->get_amount() ),
+			'currency'         => $transaction->get_currency(),
+			'expirationPeriod' => $transaction->get_expiration_period(),
+			'language'         => $transaction->get_language(),
+			'description'      => $transaction->get_description(),
+			'entranceCode'     => $transaction->get_entrance_code() 
+		) );
 
 		// Return
 		return $document;

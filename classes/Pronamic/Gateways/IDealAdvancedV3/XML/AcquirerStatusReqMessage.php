@@ -42,8 +42,10 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusReqMessage extends Pro
 		$merchant = $this->get_merchant();
 
 		$element = self::add_element( $document, $document->documentElement, 'Merchant' );
-		self::add_element( $document, $element, 'merchantID', $merchant->get_id() );
-		self::add_element( $document, $element, 'subID', $merchant->get_sub_id() );
+		self::add_elements( $document, $element, array(
+			'merchantID' => $merchant->get_id(),
+			'subID'      => $merchant->get_sub_id()
+		) );
 
 		// Transaction
 		$transaction = $this->transaction;

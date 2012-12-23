@@ -39,7 +39,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryResponseMessage extends Pro
 	/**
 	 * Get the directory
 	 * 
-	 * @return Directory
+	 * @return Pronamic_Gateways_IDealAdvancedV3_Directory
 	 */
 	public function get_directory() {
 		return $this->directory;

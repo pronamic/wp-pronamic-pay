@@ -119,4 +119,23 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_Message {
 
 		return $element;
 	}
+
+	/**
+	 * Add the specified elements to the parent node
+	 * 
+	 * @param DOMDocument $document
+	 * @param DOMNode $parent
+	 * @param array $elements
+	 */
+	public static function add_elements( DOMDocument $document, DOMNode $parent, array $elements = array() ) {
+		foreach ( $elements as $name => $value ) {
+			$element = $document->createElement( $name );
+
+			if ( $value !== null ) {
+				$element->appendChild( new DOMText( $value ) );
+			}
+			
+			$parent->appendChild( $element );
+		}
+	}
 }

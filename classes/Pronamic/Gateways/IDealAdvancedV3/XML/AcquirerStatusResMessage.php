@@ -18,6 +18,11 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage extends Pro
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Transaction
+	 * 
+	 * @var Pronamic_Gateways_IDealAdvancedV3_Transaction
+	 */
 	public $transaction;
 
 	//////////////////////////////////////////////////

@@ -150,6 +150,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 	 * @param string $detail
 	 */
 	public function set_consumer_message( $consumer_message ) {
-		$this->consumerMessage = $consumer_message;
+		$this->consumer_message = $consumer_message;
 	}
 }

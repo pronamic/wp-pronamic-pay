@@ -171,7 +171,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 
@@ -180,7 +180,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $amount
 	 */
-	public function setAmount( $amount ) {
+	public function set_amount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -191,7 +191,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getCurrency() {
+	public function get_currency() {
 		return $this->currency;
 	}
 
@@ -200,7 +200,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $amount
 	 */
-	public function setCurrency( $currency ) {
+	public function set_currency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -211,8 +211,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getExpirationPeriod() {
-		return $this->expirationPeriod;
+	public function get_expiration_period() {
+		return $this->expiration_period;
 	}
 
 	/**
@@ -220,8 +220,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $expiration_period
 	 */
-	public function setExpirationPeriod( $expiration_period ) {
-		$this->expirationPeriod = $expiration_period;
+	public function set_expiration_period( $expiration_period ) {
+		$this->expiration_period = $expiration_period;
 	}
 
 	//////////////////////////////////////////////////
@@ -231,7 +231,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getLanguage() {
+	public function get_language() {
 		return $this->language;
 	}
 
@@ -240,7 +240,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $language
 	 */
-	public function setLanguage( $language ) {
+	public function set_language( $language ) {
 		$this->language = $language;
 	}
 
@@ -251,7 +251,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->description;
 	}
 
@@ -261,8 +261,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $description
 	 */
-	public function setDescription($description) {
-		$this->description = substr($description, 0, 32);
+	public function set_description( $description ) {
+		$this->description = substr( $description, 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
@@ -276,8 +276,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getEntranceCode() {
-		return $this->entranceCode;
+	public function get_entrance_code() {
+		return $this->entrance_code;
 	}
 
 	/**
@@ -290,8 +290,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * 
 	 * @param string $entrance_code
 	 */
-	public function setEntranceCode( $entrance_code ) {
-		$this->entranceCode = substr( $entrance_code, 0, 40 );
+	public function set_entrance_code( $entrance_code ) {
+		$this->entrance_code = substr( $entrance_code, 0, 40 );
 	}
 
 	//////////////////////////////////////////////////

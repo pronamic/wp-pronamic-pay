@@ -21,7 +21,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage extends Pron
 	/**
 	 * The error within this response message
 	 * 
-	 * @var Error
+	 * @var Pronamic_Gateways_IDealAdvancedV3_Error
 	 */
 	public $error;
 

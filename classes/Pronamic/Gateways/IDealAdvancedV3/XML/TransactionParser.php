@@ -16,7 +16,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionParser extends Pronamic_G
 	 * @param Pronamic_Gateways_IDealAdvanced_Transaction $transaction
 	 */
 	public static function parse( SimpleXMLElement $xml, $transaction = null ) {
-		if ( !$transaction instanceof Pronamic_Gateways_IDealAdvancedV3_Transaction ) {
+		if ( ! $transaction instanceof Pronamic_Gateways_IDealAdvancedV3_Transaction ) {
 			$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 		}
 
