@@ -30,7 +30,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @var Pronamic_WordPress_IDeal_Configuration
 	 */
-	private $configuration;
+	protected $configuration;
 
 	/////////////////////////////////////////////////
 
@@ -195,6 +195,7 @@ abstract class Pronamic_Gateways_Gateway {
 		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
 
 		$result = get_transient( $transient );
+		// $result = false;
 
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;

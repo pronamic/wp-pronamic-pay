@@ -28,15 +28,15 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 */
 	public static function translate_status($status) {
 		switch ( $status ) {
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED :
 				return __( 'Cancelled', 'pronamic_ideal' );
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED :
 				return __( 'Expired', 'pronamic_ideal' );
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE :
 				return __( 'Failure', 'pronamic_ideal' );
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN :
 				return __( 'Open', 'pronamic_ideal' );
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS :
 				return __( 'Success', 'pronamic_ideal' );
 			default:
 				return __( 'Unknown', 'pronamic_ideal' );

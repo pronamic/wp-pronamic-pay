@@ -32,7 +32,30 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
-		return $this->client->get_issuers();
+		$groups = array();
+
+		$result = $this->client->get_issuers();
+		
+		if ( $result ) {
+			$groups[] = array(
+				'options' => $result
+			);
+		}
+
+		return $groups;
+	}
+	
+	/////////////////////////////////////////////////
+
+	public function get_issuer_field() {
+		return array(
+			'id'       => 'pronamic_ideal_issuer_id',
+			'name'     => 'pronamic_ideal_issuer_id',
+			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
+			'required' => true,
+			'type'     => 'select',
+			'choices'  => $this->get_transient_issuers()
+		);
 	}
 	
 	/////////////////////////////////////////////////
@@ -48,11 +71,15 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_issuer_id(),
 			$data->getDescription(),
 			$data->getAmount(),
-			$data->getReturnUrl(),
+			site_url( '/' ),
 			site_url( '/' )
 		);
 		
-		$this->set_action_url( $result->url );
-		$this->set_transaction_id( $result->transaction_id );
+		if ( $result ) {
+			$this->set_action_url( $result->url );
+			$this->set_transaction_id( $result->transaction_id );
+		} else {
+			$this->set_error( $this->client->get_error() );
+		}
 	}
 }

@@ -100,6 +100,12 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	
 	//////////////////////////////////////////////////
 
+	public function get_error() {
+		return $this->error;
+	}
+	
+	//////////////////////////////////////////////////
+
 	private function remote_get( $url ) {
 		$result = false;
 
@@ -140,21 +146,27 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			'reporturl'   => $reporturl
 		), self::URL_START_TRANSACTION );
 
-		$ata = self::remote_get( $url );
+		$data = self::remote_get( $url );
 		
-		if ( $ata !== false ) {
-			$result = new stdClass();
-			$result->status         = strtok( $data, self::TOKEN );
-			$result->transaction_id = strtok( self::TOKEN );
-			$result->url            = strtok( self::TOKEN );
-		
-			if ( $result->status == self::STATUS_OK ) {
+		if ( $data !== false ) {
+			$status = strtok( $data, self::TOKEN );
+
+			if ( $status == self::STATUS_OK ) {
+				$result = new stdClass();
+
+				$result->status         = $status;
+				$result->transaction_id = strtok( self::TOKEN );
+				$result->url            = strtok( self::TOKEN );
+
 				return $result;
 			} else {
-				
+				$code        = $status;
+				$description = substr( $data, 7 );
+
+				$error = new Pronamic_Gateways_TargetPay_Error( $code, $description );
+
+				$this->error = new WP_Error( 'targetpay_error', (string) $error, $error );
 			}
-		} else {
-			
 		}
 	}
 	
@@ -200,7 +212,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		$url = self::URL_ISSUERS_XML;
 
-		$ata = self::remote_get( $url );
+		$data = self::remote_get( $url );
 		
 		if ( $data !== false ) {	
 			$xml = simplexml_load_string( $data );
