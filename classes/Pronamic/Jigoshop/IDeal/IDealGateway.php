@@ -21,11 +21,22 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	/**
 	 * Constructs and initialize an iDEAL gateway
 	 */
-    public function __construct() { 
-    	// Parent constructor only exists in Jigoshop 1.3+
-    	// @see https://github.com/jigoshop/jigoshop/blob/1.2/gateways/gateway.class.php
-    	// @see https://github.com/jigoshop/jigoshop/blob/1.3/gateways/gateway.class.php
-    	if ( version_compare( jigoshop::jigoshop_version(), '1.3', '>=' ) ) {
+    public function __construct() {
+    	/*
+    	 * Parent constructor only exists in Jigoshop 1.3+:
+    	 * @see https://github.com/jigoshop/jigoshop/blob/1.2/gateways/gateway.class.php
+    	 * @see https://github.com/jigoshop/jigoshop/blob/1.3/gateways/gateway.class.php
+    	 * 
+    	 * The 'jigoshop::jigoshop_version()' function doesn't exists in version < 1.3.
+    	 * @see https://github.com/jigoshop/jigoshop/blob/dev/classes/jigoshop.class.php#L54
+    	 * 
+    	 * Use of Jigoshop version constant:
+    	 * 1.0 = 1202010 - @see https://github.com/jigoshop/jigoshop/blob/1.0/jigoshop.php#L28
+    	 * 1.1 = 1202130 - @see https://github.com/jigoshop/jigoshop/blob/1.1/jigoshop.php#L28
+    	 * 1.2 = 1203310 - @see https://github.com/jigoshop/jigoshop/blob/1.2/jigoshop.php#L45
+    	 * 1.3 = 1207160 - @see https://github.com/jigoshop/jigoshop/blob/1.3/jigoshop.php#L45
+    	 */
+    	if ( version_compare( JIGOSHOP_VERSION, 1207160, '>=' ) ) {
 			parent::__construct();
     	}
 
