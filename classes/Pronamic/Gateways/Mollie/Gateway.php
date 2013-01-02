@@ -27,12 +27,12 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	
 	/////////////////////////////////////////////////
 
-	public function start( $data ) {
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$this->client->createPayment(
-			$data->getIssuerId(),
+			$data->get_issuer_id(),
 			$data->getAmount(),
 			$data->getDescription(),
-			$data->getReturnUrl(),
+			$data->getNormalReturnUrl(),
 			site_url( '/' )
 		);
 		
