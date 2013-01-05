@@ -330,7 +330,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal'); ?>
+						<?php _e( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
@@ -345,7 +345,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [ bekijk overzicht van uw profielen ].', 'pronamic_ideal'); ?>
+						<?php 
+						
+						printf(
+							__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
+							'https://www.mollie.nl/beheer/account/profielen/'
+						); 
+						
+						?>
 					</span>
 				</td>
 			</tr>
@@ -399,7 +406,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_sha_in_pass_phrase">
-						<?php _e('SHA-IN Pass phrase', 'pronamic_ideal'); ?>
+						<?php _e( 'SHA-IN Pass phrase', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -407,14 +414,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal'); ?>
+						<?php _e( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
 			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_sha_out_pass_phrase">
-						<?php _e('SHA-OUT Pass phrase', 'pronamic_ideal'); ?>
+						<?php _e( 'SHA-OUT Pass phrase', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -422,7 +429,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal'); ?>
+						<?php _e( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
@@ -432,7 +439,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_key_password">
-						<?php _e('Private Key Password', 'pronamic_ideal'); ?>
+						<?php _e( 'Private Key Password', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td> 
@@ -442,7 +449,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_key">
-						<?php _e('Private Key', 'pronamic_ideal'); ?>
+						<?php _e( 'Private Key', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -454,7 +461,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<?php 
 
 					submit_button(
-						__('Download Private Key', 'pronamic_ideal') , 
+						__( 'Download Private Key', 'pronamic_ideal' ),
 						'secondary' , 'download_private_key' 
 					);
 
@@ -464,7 +471,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_private_certificate">
-						<?php _e('Private Certificate', 'pronamic_ideal'); ?>
+						<?php _e( 'Private Certificate', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -475,12 +482,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					</p>
 					<?php 
 					
-					if(!empty($configuration->privateCertificate)) {
-						$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint($configuration->privateCertificate);
-						$fingerprint = str_split($fingerprint, 2);
-						$fingerprint = implode(':', $fingerprint);
+					if ( ! empty( $configuration->privateCertificate ) ) {
+						$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $configuration->privateCertificate );
+						$fingerprint = str_split( $fingerprint, 2 );
+						$fingerprint = implode( ':', $fingerprint );
 					
-						echo sprintf(__('SHA Fingerprint: %s', 'pronamic_ideal'), $fingerprint), '<br />';
+						echo sprintf( __( 'SHA Fingerprint: %s', 'pronamic_ideal' ), $fingerprint ), '<br />';
 					}
 
 					submit_button(
