@@ -362,7 +362,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-targetpay">
 				<th scope="row">
 					<label for="pronamic_ideal_targetpay_layoutcode">
-						<?php _e('Layout Code', 'pronamic_ideal'); ?>
+						<?php _e( 'Layout Code', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -370,7 +370,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal'); ?>
+						<?php _e( 'De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
@@ -380,7 +380,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-easy method-internetkassa">
 				<th scope="row">
 					<label for="pronamic_ideal_pspid">
-						<?php _e('PSPID', 'pronamic_ideal'); ?>
+						<?php _e( 'PSPID', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -388,7 +388,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You receive the PSPID from your iDEAL provider.', 'pronamic_ideal'); ?>
+						<?php _e( 'You receive the PSPID from your iDEAL provider.', 'pronamic_ideal' ); ?>
 					</span>
 					<span class="description extra-settings method-easy">
 						<br />
@@ -491,7 +491,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					}
 
 					submit_button(
-						__('Download Private Certificate', 'pronamic_ideal') , 
+						__( 'Download Private Certificate', 'pronamic_ideal' ),
 						'secondary' , 'download_private_certificate'
 					);
 
@@ -503,8 +503,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 		<?php 
 		
 		submit_button(
-			empty($configuration->id) ? __('Save', 'pronamic_ideal') : __('Update', 'pronamic_ideal') , 
-			'primary' , 
+			empty( $configuration->id ) ? __( 'Save', 'pronamic_ideal' ) : __( 'Update', 'pronamic_ideal' ),
+			'primary',
 			'submit'
 		);
 	
@@ -512,14 +512,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 		<div class="extra-settings method-advanced">
 			<h4>
-				<?php _e('Private Key and Certificate Generator', 'pronamic_ideal'); ?>
+				<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
 			</h4>
 
 			<table class="form-table">
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_generate_private_key_password">
-							<?php _e('Private Key Password', 'pronamic_ideal'); ?>
+							<?php _e( 'Private Key Password', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -529,7 +529,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_days">
-							<?php _e('Number Days Valid', 'pronamic_ideal'); ?>
+							<?php _e( 'Number Days Valid', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -537,14 +537,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('specify the length of time for which the generated certificate will be valid, in days. ', 'pronamic_ideal'); ?>
+							<?php _e( 'specify the length of time for which the generated certificate will be valid, in days. ', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_country_name">
-							<?php _e('Country', 'pronamic_ideal'); ?>
+							<?php _e( 'Country', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -552,14 +552,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('2 letter code [NL]', 'pronamic_ideal'); ?>
+							<?php _e( '2 letter code [NL]', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_state_or_province">
-							<?php _e('State or Province', 'pronamic_ideal'); ?>
+							<?php _e( 'State or Province', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -567,14 +567,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('full name [Friesland]', 'pronamic_ideal'); ?>
+							<?php _e( 'full name [Friesland]', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_locality">
-							<?php _e('Locality', 'pronamic_ideal'); ?>
+							<?php _e( 'Locality', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -582,14 +582,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, city', 'pronamic_ideal'); ?>
+							<?php _e( 'eg, city', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_organization">
-							<?php _e('Organization', 'pronamic_ideal'); ?>
+							<?php _e( 'Organization', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -597,14 +597,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, company [Pronamic]', 'pronamic_ideal'); ?>
+							<?php _e( 'eg, company [Pronamic]', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_organization_unit">
-							<?php _e('Organization Unit', 'pronamic_ideal'); ?>
+							<?php _e( 'Organization Unit', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -612,14 +612,14 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, section', 'pronamic_ideal'); ?>
+							<?php _e( 'eg, section', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_common_name">
-							<?php _e('Common Name', 'pronamic_ideal'); ?>
+							<?php _e( 'Common Name', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -627,16 +627,16 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 						<span class="description">
 							<br />
-							<?php _e('eg, YOUR name', 'pronamic_ideal'); ?>
-							<?php _e('Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal'); ?>
-							<?php _e('Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal'); ?>
+							<?php _e( 'eg, YOUR name', 'pronamic_ideal' ); ?>
+							<?php _e( 'Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal' ); ?>
+							<?php _e( 'Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal' ); ?>
 						</span>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_ideal_email_address">
-							<?php _e('Email Address', 'pronamic_ideal'); ?>
+							<?php _e( 'Email Address', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
 					<td> 
@@ -648,8 +648,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<?php 
 
 			submit_button(
-				__('Generate', 'pronamic_ideal') ,  
-				'secundary' , 
+				__( 'Generate', 'pronamic_ideal' ),
+				'secundary', 
 				'generate'
 			);
 
