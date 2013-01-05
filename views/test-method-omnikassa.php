@@ -1,3 +1,8 @@
+<?php 
+
+$gateway = new Pronamic_Gateways_OmniKassa_Gateway( $configuration );
+
+?>
 <h3>
 	<?php _e( 'Tests', 'pronamic_ideal' ); ?>
 </h3>
@@ -7,26 +12,17 @@
 	<?php 
 				
 	$name = sprintf( __( 'Test &euro; %s', 'pronamic_ideal' ), $test_case );
-	
-	$iDeal = new Pronamic_Gateways_OmniKassa_OmniKassa();
-	
-	$iDeal->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-	$iDeal->setMerchantId( $configuration->getMerchantId() );
-	$iDeal->setKeyVersion( $configuration->getSubId() );
-	$iDeal->setSecretKey( $configuration->hashKey );
-	$iDeal->setCurrencyNumericCode( 978 );
-	$iDeal->setNormalReturnUrl( site_url( '/' ) );
-	$iDeal->setAmount( $test_case );
-	$iDeal->setTransactionReference( uniqid( 'test' ) );
-	// $iDeal->setOrderId(1);
-	$iDeal->setCustomerLanguage( Pronamic_WordPress_IDeal_Util::getLanguageIso639Code() );
-	
+
+	$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
+
+	$gateway->start( $data );
+
 	?>
 	
-	<form method="post" action="<?php echo esc_attr( $iDeal->getPaymentServerUrl() ); ?>" target="_blank" style="display: inline">
+	<form method="post" action="<?php echo esc_attr( $gateway->get_action_url() ); ?>" target="_blank" style="display: inline">
 		<?php 
 	
-		echo $iDeal->getHtmlFields();
+		echo $gateway->get_output_html();
 	
 		submit_button( $name, 'secondary', 'submit', false ); 
 	
