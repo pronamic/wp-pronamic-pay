@@ -4,164 +4,167 @@ $update = null;
 $error = null;
 
 // Configuration
-if(empty($_POST)) {
-	$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_STRING);
+if ( empty( $_POST ) ) {
+	$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 } else {
-	$id = filter_input(INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING);
+	$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
 }
 
-$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($id);
-if($configuration == null) {
+$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+if ( $configuration == null ) {
 	$configuration = new Pronamic_WordPress_IDeal_Configuration();
 }
 
 // Generator
-if(empty($configuration->numberDaysValid)) {
+if ( empty( $configuration->numberDaysValid ) ) {
 	$configuration->numberDaysValid = 365;
 }
 
-if(empty($configuration->country)) {
-	$language = get_option('WPLANG', WPLANG);
+if ( empty( $configuration->country ) ) {
+	$language = get_option( 'WPLANG', WPLANG );
 
-	$configuration->countryName = substr($language, 3);
+	$configuration->countryName = substr( $language, 3 );
 }
 
-if(empty($configuration->organization)) {
-	$configuration->organization = get_bloginfo('name');
+if ( empty( $configuration->organization ) ) {
+	$configuration->organization = get_bloginfo( 'name' );
 }
 
-if(empty($configuration->eMailAddress)) {
-	$configuration->eMailAddress = get_bloginfo('admin_email');
+if ( empty( $configuration->eMailAddress ) ) {
+	$configuration->eMailAddress = get_bloginfo( 'admin_email' );
 }
 
 // Request
-if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce')) {
-	$variantId = filter_input(INPUT_POST, 'pronamic_ideal_variant_id', FILTER_SANITIZE_STRING);
-	$variant = Pronamic_WordPress_IDeal_ConfigurationsRepository::getVariantById($variantId);
+if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuration', 'pronamic_ideal_nonce' ) ) {
+	$variantId = filter_input( INPUT_POST, 'pronamic_ideal_variant_id', FILTER_SANITIZE_STRING );
+	$variant = Pronamic_WordPress_IDeal_ConfigurationsRepository::getVariantById( $variantId );
 	
-	$configuration->setVariant($variant);
-	$configuration->setMerchantId(filter_input(INPUT_POST, 'pronamic_ideal_merchant_id', FILTER_SANITIZE_STRING));
-	$configuration->setSubId(filter_input(INPUT_POST, 'pronamic_ideal_sub_id', FILTER_SANITIZE_STRING));
-	$configuration->mode = filter_input(INPUT_POST, 'pronamic_ideal_mode', FILTER_SANITIZE_STRING);
+	$configuration->setVariant( $variant );
+	$configuration->setMerchantId( filter_input( INPUT_POST, 'pronamic_ideal_merchant_id', FILTER_SANITIZE_STRING ) );
+	$configuration->setSubId( filter_input( INPUT_POST, 'pronamic_ideal_sub_id', FILTER_SANITIZE_STRING ) );
+	$configuration->mode = filter_input( INPUT_POST, 'pronamic_ideal_mode', FILTER_SANITIZE_STRING );
 
 	// Basic
-	$configuration->hashKey = filter_input(INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING);
+	$configuration->hashKey = filter_input( INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING );
 
 	// OmniKassa
 	$configuration->keyVersion = filter_input( INPUT_POST, 'pronamic_ideal_key_version', FILTER_SANITIZE_STRING );
 	
 	// Mollie
-	$configuration->molliePartnerId = filter_input(INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING);
-	$configuration->mollieProfileKey = filter_input(INPUT_POST, 'pronamic_ideal_mollie_profile_key', FILTER_SANITIZE_STRING);
+	$configuration->molliePartnerId = filter_input( INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING );
+	$configuration->mollieProfileKey = filter_input( INPUT_POST, 'pronamic_ideal_mollie_profile_key', FILTER_SANITIZE_STRING );
 	
 	// TargetPay
-	$configuration->targetPayLayoutCode = filter_input(INPUT_POST, 'pronamic_ideal_targetpay_layoutcode', FILTER_SANITIZE_STRING);
+	$configuration->targetPayLayoutCode = filter_input( INPUT_POST, 'pronamic_ideal_targetpay_layoutcode', FILTER_SANITIZE_STRING );
 	
 	// Kassa
-	$configuration->pspId = filter_input(INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING);
-	$configuration->shaInPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING);
-	$configuration->shaOutPassPhrase = filter_input(INPUT_POST, 'pronamic_ideal_sha_out_pass_phrase', FILTER_SANITIZE_STRING);
+	$configuration->pspId = filter_input( INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING );
+	$configuration->shaInPassPhrase = filter_input( INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING );
+	$configuration->shaOutPassPhrase = filter_input( INPUT_POST, 'pronamic_ideal_sha_out_pass_phrase', FILTER_SANITIZE_STRING );
 	
 	// Advanced
-	if($_FILES['pronamic_ideal_private_key']['error'] == UPLOAD_ERR_OK) {
-		$configuration->privateKey = file_get_contents($_FILES['pronamic_ideal_private_key']['tmp_name']);
+	if ( $_FILES['pronamic_ideal_private_key']['error'] == UPLOAD_ERR_OK ) {
+		$configuration->privateKey = file_get_contents( $_FILES['pronamic_ideal_private_key']['tmp_name'] );
 	}
 
-	$configuration->privateKeyPassword = filter_input(INPUT_POST, 'pronamic_ideal_private_key_password', FILTER_SANITIZE_STRING);
+	$configuration->privateKeyPassword = filter_input( INPUT_POST, 'pronamic_ideal_private_key_password', FILTER_SANITIZE_STRING );
 
-	if($_FILES['pronamic_ideal_private_certificate']['error'] == UPLOAD_ERR_OK) {
-		$configuration->privateCertificate = file_get_contents($_FILES['pronamic_ideal_private_certificate']['tmp_name']);
+	if ( $_FILES['pronamic_ideal_private_certificate']['error'] == UPLOAD_ERR_OK ) {
+		$configuration->privateCertificate = file_get_contents( $_FILES['pronamic_ideal_private_certificate']['tmp_name'] );
 	}
 	
 	// Generator
-	$configuration->numberDaysValid = filter_input(INPUT_POST, 'pronamic_ideal_number_days_valid', FILTER_SANITIZE_STRING);
-	$configuration->country = filter_input(INPUT_POST, 'pronamic_ideal_country', FILTER_SANITIZE_STRING);
-	$configuration->stateOrProvince = filter_input(INPUT_POST, 'pronamic_ideal_state_or_province', FILTER_SANITIZE_STRING);
-	$configuration->locality = filter_input(INPUT_POST, 'pronamic_ideal_locality', FILTER_SANITIZE_STRING);
-	$configuration->organization = filter_input(INPUT_POST, 'pronamic_ideal_organization', FILTER_SANITIZE_STRING);
-	$configuration->organizationUnit = filter_input(INPUT_POST, 'pronamic_ideal_organization_unit', FILTER_SANITIZE_STRING);
-	$configuration->commonName = filter_input(INPUT_POST, 'pronamic_ideal_common_name', FILTER_SANITIZE_STRING);
-	$configuration->eMailAddress = filter_input(INPUT_POST, 'pronamic_ideal_email_address', FILTER_SANITIZE_STRING);
+	$configuration->numberDaysValid  = filter_input( INPUT_POST, 'pronamic_ideal_number_days_valid', FILTER_SANITIZE_STRING );
+	$configuration->country          = filter_input( INPUT_POST, 'pronamic_ideal_country', FILTER_SANITIZE_STRING );
+	$configuration->stateOrProvince  = filter_input( INPUT_POST, 'pronamic_ideal_state_or_province', FILTER_SANITIZE_STRING );
+	$configuration->locality         = filter_input( INPUT_POST, 'pronamic_ideal_locality', FILTER_SANITIZE_STRING );
+	$configuration->organization     = filter_input( INPUT_POST, 'pronamic_ideal_organization', FILTER_SANITIZE_STRING );
+	$configuration->organizationUnit = filter_input( INPUT_POST, 'pronamic_ideal_organization_unit', FILTER_SANITIZE_STRING );
+	$configuration->commonName       = filter_input( INPUT_POST, 'pronamic_ideal_common_name', FILTER_SANITIZE_STRING );
+	$configuration->eMailAddress     = filter_input( INPUT_POST, 'pronamic_ideal_email_address', FILTER_SANITIZE_STRING );
 
-	if(isset($_POST['generate'])) {
+	if ( isset( $_POST['generate'] ) ) {
 		$dn = array();
 		
-		if(!empty($configuration->country)) {
+		if ( ! empty( $configuration->country ) ) {
 			$dn['countryName'] = $configuration->country;
 		}
 		
-		if(!empty($configuration->stateOrProvince)) {
+		if ( ! empty( $configuration->stateOrProvince ) ) {
 			$dn['stateOrProvinceName'] = $configuration->stateOrProvince;
 		}
 		
-		if(!empty($configuration->locality)) {
+		if ( ! empty( $configuration->locality ) ) {
 			$dn['localityName'] = $configuration->locality;
 		}
 		
-		if(!empty($configuration->organization)) {
+		if ( ! empty( $configuration->organization ) ) {
 			$dn['organizationName'] = $configuration->organization;
 		}
 		
-		if(!empty($configuration->organizationUnit)) {
+		if ( ! empty( $configuration->organizationUnit ) ) {
 			$dn['organizationalUnitName'] = $configuration->organizationUnit;
 		}
 		
-		if(!empty($configuration->commonName)) {
+		if ( ! empty( $configuration->commonName ) ) {
 			$dn['commonName'] = $configuration->commonName;
 		}
 		
-		if(!empty($configuration->eMailAddress)) {
+		if ( ! empty( $configuration->eMailAddress ) ) {
 			$dn['emailAddress'] = $configuration->eMailAddress;
 		}
 
 		$configargs = array(
-			'private_key_bits' => 1024 , 
-			'private_key_type' => OPENSSL_KEYTYPE_RSA , 
-			'encrypt_key' => false,
+			'private_key_bits'   => 1024,
+			'private_key_type'   => OPENSSL_KEYTYPE_RSA,
+			'encrypt_key'        => false,
 			'encrypt_key_cipher' => OPENSSL_CIPHER_AES_128_CBC
 		);
 
-		$privateKeyResource = openssl_pkey_new($configargs);
-		if($privateKeyResource !== false) {
+		$privateKeyResource = openssl_pkey_new( $configargs );
+		if ( $privateKeyResource !== false ) {
 
-			$csr = openssl_csr_new($dn, $privateKeyResource, $configargs);
+			$csr = openssl_csr_new( $dn, $privateKeyResource, $configargs );
+
+			$certificateResource = openssl_csr_sign( $csr, null, $privateKeyResource, $configuration->numberDaysValid, $configargs );
 			
-			$certificateResource = openssl_csr_sign($csr, null, $privateKeyResource, $configuration->numberDaysValid, $configargs);
-			
-			if($certificateResource !== false) {
-				$privateKeyPassword = filter_input(INPUT_POST, 'pronamic_ideal_generate_private_key_password', FILTER_SANITIZE_STRING);
+			if ( $certificateResource !== false ) {
+				$privateKeyPassword = filter_input( INPUT_POST, 'pronamic_ideal_generate_private_key_password', FILTER_SANITIZE_STRING );
 
 				$privateCertificate = null;
-				$exportedCertificate = openssl_x509_export($certificateResource, $privateCertificate);
+				$exportedCertificate = openssl_x509_export( $certificateResource, $privateCertificate );
 								
 				$privateKey = null;
-				$exportedKey = openssl_pkey_export($privateKeyResource, $privateKey, $privateKeyPassword, $configargs);
+				$exportedKey = openssl_pkey_export( $privateKeyResource, $privateKey, $privateKeyPassword, $configargs );
 
-				if($exportedCertificate && $exportedKey) {
-					$configuration->privateKey = $privateKey;
+				if ( $exportedCertificate && $exportedKey ) {
+					$configuration->privateKey         = $privateKey;
 					$configuration->privateKeyPassword = $privateKeyPassword;
 					$configuration->privateCertificate = $privateCertificate;
 				}
 			} else {
-				$error = __('Unfortunately we could not generate a certificate resource from the given CSR (Certificate Signing Request).', 'pronamic_ideal');
+				$error = __( 'Unfortunately we could not generate a certificate resource from the given CSR (Certificate Signing Request).', 'pronamic_ideal' );
 			}
 		} else {
-			$error = __('Unfortunately we could not generate a private key.', 'pronamic_ideal');
+			$error = __( 'Unfortunately we could not generate a private key.', 'pronamic_ideal' );
 		}
 	}
 
 	// Update
-	$updated = Pronamic_WordPress_IDeal_ConfigurationsRepository::updateConfiguration($configuration);
+	$updated = Pronamic_WordPress_IDeal_ConfigurationsRepository::updateConfiguration( $configuration );
 
-	if($updated) {
+	if ( $updated ) {
 		// Transient
-		Pronamic_WordPress_IDeal_IDeal::deleteConfigurationTransient($configuration);
+		Pronamic_WordPress_IDeal_IDeal::deleteConfigurationTransient( $configuration );
 
 		$update = sprintf(
-			__('Configuration updated, %s.', 'pronamic_ideal') , 
-			sprintf('<a href="%s">', Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()) . __('back to overview', 'pronamic_ideal') . '</a>'
+			__( 'Configuration updated, %s.', 'pronamic_ideal' ),
+			sprintf( 
+				__( '<a href="%s">back to overview</a>', 'pronamic_ideal' ),
+				Pronamic_WordPress_IDeal_Admin::getConfigurationsLink() 
+			)
 		);
-	} elseif($updated === false) {
+	} elseif ( $updated === false ) {
 		global $wpdb;
 
 		$wpdb->print_error();
@@ -173,28 +176,28 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2>
-		<?php _e('iDEAL Configuration', 'pronamic_ideal'); ?>
+		<?php _e( 'iDEAL Configuration', 'pronamic_ideal' ); ?>
 	</h2>
 
-	<?php if($update): ?>
+	<?php if ( $update ) : ?>
 	
-	<div class="updated inline below-h2">
-		<p><?php echo $update; ?></p>
-	</div>
+		<div class="updated inline below-h2">
+			<p><?php echo $update; ?></p>
+		</div>
 
 	<?php endif; ?>
 
-	<?php if($error): ?>
+	<?php if ( $error ) : ?>
 	
-	<div class="error inline below-h2">
-		<p><?php echo $error; ?></p>
-	</div>
+		<div class="error inline below-h2">
+			<p><?php echo $error; ?></p>
+		</div>
 
 	<?php endif; ?>
 
 	<form id="pronamic-ideal-configration-editor" enctype="multipart/form-data" action="" method="post">
 		<?php wp_nonce_field('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce'); ?>
-		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr($configuration->getId()); ?>" type="hidden" />
+		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr( $configuration->getId() ); ?>" type="hidden" />
 
 		<table class="form-table">
 			<tr>
@@ -207,12 +210,12 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 					<?php $variantId = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId(); ?>
 	                <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
 	                	<option value=""></option>
-	                	<?php foreach(Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider): ?>
-						<optgroup label="<?php echo $provider->getName(); ?>">
-							<?php foreach($provider->getVariants() as $variant): ?>
-							<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected($variantId, $variant->getId()); ?>><?php echo $variant->getName(); ?></option>
-							<?php endforeach; ?>
-						</optgroup>
+	                	<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
+							<optgroup label="<?php echo $provider->getName(); ?>">
+								<?php foreach ( $provider->getVariants() as $variant ) : ?>
+									<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected( $variantId, $variant->getId() ); ?>><?php echo $variant->getName(); ?></option>
+								<?php endforeach; ?>
+							</optgroup>
 						<?php endforeach; ?>
 	                </select>
 				</td>
@@ -221,24 +224,24 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr>
 				<th scope="row">
 					<label for="pronamic_ideal_mode">
-						<?php _e('Mode', 'pronamic_ideal'); ?>
+						<?php _e( 'Mode', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
 					<fieldset>
 						<legend class="screen-reader-text">
-							<?php _e('Mode', 'pronamic_ideal'); ?>
+							<?php _e( 'Mode', 'pronamic_ideal' ); ?>
 						</legend>
 					
 						<p>		
 							<label>
-								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_LIVE; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_LIVE); ?> />
-								<?php _e('Live', 'pronamic_ideal'); ?>
+								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_LIVE; ?>" name="pronamic_ideal_mode" <?php checked( $configuration->mode, Pronamic_IDeal_IDeal::MODE_LIVE ); ?> />
+								<?php _e( 'Live', 'pronamic_ideal' ); ?>
 							</label><br />
 			
 							<label>
-								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_TEST; ?>" name="pronamic_ideal_mode" <?php checked($configuration->mode, Pronamic_IDeal_IDeal::MODE_TEST); ?> />
-								<?php _e('Test', 'pronamic_ideal'); ?>
+								<input type="radio" value="<?php echo Pronamic_IDeal_IDeal::MODE_TEST; ?>" name="pronamic_ideal_mode" <?php checked( $configuration->mode, Pronamic_IDeal_IDeal::MODE_TEST ); ?> />
+								<?php _e( 'Test', 'pronamic_ideal' ); ?>
 							</label>
 						</p>
 					</fieldset>
@@ -250,7 +253,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-basic method-omnikassa method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_merchant_id">
-						<?php _e('Merchant ID', 'pronamic_ideal'); ?>
+						<?php _e( 'Merchant ID', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -258,7 +261,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal'); ?>
+						<?php _e( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
@@ -268,7 +271,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-basic method-advanced method-advanced_v3">
 				<th scope="row">
 					<label for="pronamic_ideal_sub_id">
-						<?php _e('Sub ID', 'pronamic_ideal'); ?>
+						<?php _e( 'Sub ID', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -276,7 +279,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php printf(__('You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal'), 0); ?>
+						<?php printf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ); ?>
 					</span>
 				</td>
 			</tr>
@@ -304,7 +307,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-basic method-omnikassa">
 				<th scope="row">
 					<label for="pronamic_ideal_hash_key">
-						<?php _e('Hash Key', 'pronamic_ideal'); ?>
+						<?php _e( 'Hash Key', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -312,7 +315,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 
 					<span class="description">
 						<br />
-						<?php _e('You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal'); ?>
+						<?php _e( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ); ?>
 					</span>
 				</td>
 			</tr>
@@ -322,7 +325,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-mollie">
 				<th scope="row">
 					<label for="pronamic_ideal_mollie_partner_id">
-						<?php _e('Partner ID', 'pronamic_ideal'); ?>
+						<?php _e( 'Partner ID', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -337,7 +340,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_configuration', 'p
 			<tr class="extra-settings method-mollie">
 				<th scope="row">
 					<label for="pronamic_ideal_mollie_profile_key">
-						<?php _e('Profile Key', 'pronamic_ideal'); ?>
+						<?php _e( 'Profile Key', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
