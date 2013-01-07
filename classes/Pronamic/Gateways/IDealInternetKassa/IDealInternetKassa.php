@@ -84,7 +84,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		$this->calculationsParametersIn  = array();
 		$this->calculationsParametersOut = array();
 
-		$this->hashAlgorithm = self::HASH_ALGORITHM_SHA_1;
+		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
 	}
 
 	//////////////////////////////////////////////////
@@ -114,8 +114,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @return string
 	 */
-	public function getHashAlgorithm() {
-		return $this->hashAlgorithm;
+	public function get_hash_algorithm() {
+		return $this->hash_algorithm;
 	}
 
 	/**
@@ -123,8 +123,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $hashAlgorithm
 	 */
-	public function setHashAlgorithm($hashAlgorithm) {
-		$this->hashAlgorithm = $hashAlgorithm;
+	public function set_hash_algorithm( $hash_algorithm ) {
+		$this->hash_algorithm = $hash_algorithm;
 	}
 
 	//////////////////////////////////////////////////
@@ -643,7 +643,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		}
 
 		// Hash
-		$result = hash( $this->hashAlgorithm, $string );
+		$result = hash( $this->hash_algorithm, $string );
 
 		// String to uppercase
 		$result = strtoupper( $result );
