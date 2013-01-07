@@ -378,7 +378,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				</td>
 			</tr>
 
-			<?php /* Easy, Kassa */ ?>
+			<?php /* Easy, InternetKassa */ ?>
 
 			<tr class="extra-settings method-easy method-internetkassa">
 				<th scope="row">
@@ -404,6 +404,19 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 						?>
 					</span>
+				</td>
+			</tr>
+
+			<?php /* InternetKassa */ ?>
+
+			<tr class="extra-settings method-internetkassa">
+				<th scope="row">
+					<label for="pronamic_ideal_character_encoding">
+						<?php _e( 'Character encoding', 'pronamic_ideal' ); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_character_encoding " name="pronamic_ideal_character_encoding" value="<?php bloginfo( 'charset' ); ?>" type="text" class="regular-text readonly" readonly="readonly" />
 				</td>
 			</tr>
 			<tr class="extra-settings method-internetkassa">
