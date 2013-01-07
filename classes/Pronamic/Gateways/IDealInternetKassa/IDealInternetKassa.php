@@ -484,6 +484,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	}
 
 	//////////////////////////////////////////////////
+	// URL's
+	//////////////////////////////////////////////////
 
 	/**
 	 * Get accept URL
@@ -630,7 +632,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 
 		// Loop
 		foreach ( $fields as $name => $value ) {
-			if ( !empty( $value ) ) {
+			$value = (string) $value;
+
+			// Use of empty will fail, value can be string '0'
+			if ( strlen( $value ) > 0 ) {
 				$name = strtoupper( $name );
 		
 				$string .= $name . '=' . $value . $passprahse;
