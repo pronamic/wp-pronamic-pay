@@ -1,42 +1,32 @@
 <?php 
 
-$user = wp_get_current_user();
-
-$iDeal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
-
-$iDeal->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-
-$iDeal->setPspId( $configuration->pspId );
-$iDeal->setPassPhraseIn( $configuration->shaInPassPhrase );
-$iDeal->setPassPhraseOut( $configuration->shaOutPassPhrase );
-
-$iDeal->setOrderId( time() );
-$iDeal->setAmount( 1 );
-$iDeal->setCurrency( 'EUR' );
-$iDeal->setLanguage( 'nl_NL' );
-$iDeal->setCustomerName( $user->user_firstname . ' ' . $user->user_lastname );
-$iDeal->setEMailAddress( $user->user_email );
-
-$iDeal->setField( 'PARAMPLUS', 'pid=1234567890' );
-
-$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-in.txt';
-$iDeal->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
-
-$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-out.txt';
-$iDeal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
+$gateway = new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration );
 
 ?>
-
 <h3>
-	<?php _e( 'Mandatory Tests', 'pronamic_ideal' ); ?>
+	<?php _e( 'Tests', 'pronamic_ideal' ); ?>
 </h3>
 
-<form method="post" action="<?php echo esc_attr( $iDeal->getPaymentServerUrl() ); ?>" target="_blank" style="display: inline">
-	<?php 
+<?php foreach ( array( 2, 3, 4, 5, 1 ) as $test_case ): ?>
 	
-	echo $iDeal->getHtmlFields(); 
+	<?php 
+				
+	$name = sprintf( __( 'Test &euro; %s', 'pronamic_ideal' ), $test_case );
 
-	submit_button( 'Test', 'secondary', 'submit', false ); 
-					
+	$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
+
+	$gateway->start( $data );
+
 	?>
-</form>
+	
+	<form method="post" action="<?php echo esc_attr( $gateway->get_action_url() ); ?>" target="_blank" style="display: inline">
+		<?php 
+	
+		echo $gateway->get_output_html();
+	
+		submit_button( $name, 'secondary', 'submit', false ); 
+	
+		?>
+	</form>
+
+<?php endforeach; ?>
