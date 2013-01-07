@@ -238,7 +238,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$file = self::$dirname . '/other/calculations-parameters-sha-out.txt';
 					$iDeal->setCalculationsParametersOut( file($file, FILE_IGNORE_NEW_LINES) );
 
-					$result = $iDeal->verifyRequest($_GET);
+					$result = $iDeal->verifyRequest( $_GET );
 
 					if ( $result !== false ) {
 						do_action( 'pronamic_ideal_internetkassa_return', $result, $can_redirect = true );

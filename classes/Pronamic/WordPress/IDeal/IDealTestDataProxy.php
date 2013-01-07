@@ -31,7 +31,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	public function __construct( WP_User $user, $amount ) {
 		parent::__construct();
 
-		$this->user  = $user;
+		$this->user   = $user;
 		$this->amount = $amount;
 	}
 

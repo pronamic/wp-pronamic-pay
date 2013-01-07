@@ -91,7 +91,7 @@ class Pronamic_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	public static function htmlHiddenFields($data) {
+	public static function htmlHiddenFields( $data ) {
 		$html = '';
 
 		foreach ( $data as $name => $value ) {
