@@ -9,7 +9,12 @@
  * @version 1.0
  */
 class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration ) {
+	/**
+	 * Constructs and initializes an InternetKassa gateway
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 */
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
@@ -29,10 +34,16 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );
 		$this->client->setPassPhraseOut( $configuration->shaOutPassPhrase );
 	}
-	
+
 	/////////////////////////////////////////////////
 
-	public function start( $data ) {
+	/**
+	 * Start
+	 * 
+	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 * @see Pronamic_Gateways_Gateway::start()
+	 */
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
 		$this->set_action_url( $this->client->getPaymentServerUrl() );
 
@@ -41,6 +52,14 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->client->setOrderId( $data->getOrderId() );
 		$this->client->setOrderDescription( $data->getDescription() );
 		$this->client->setAmount( $data->getAmount() );
+		
+		$this->client->setCustomerName( $data->getCustomerName() );
+		$this->client->setEMailAddress( $data->getEMailAddress() );
+		
+		$this->client->setAcceptUrl( $data->getNormalReturnUrl() );
+		$this->client->setCancelUrl( $data->getCancelUrl() );
+		$this->client->setDeclineUrl( $data->getNormalReturnUrl() );
+		$this->client->setExceptionUrl( $data->getNormalReturnUrl() );
 	}
 	
 	/////////////////////////////////////////////////
