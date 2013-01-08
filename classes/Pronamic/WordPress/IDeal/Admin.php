@@ -158,6 +158,24 @@ class Pronamic_WordPress_IDeal_Admin {
 
 			$gateway->redirect();
     	}
+
+		if ( isset( $_POST['test_ideal_mollie'] ) && check_admin_referer( 'test_ideal_mollie', 'pronamic_ideal_nonce' ) ) {
+			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			
+			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
+
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			
+			$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
+			
+			$gateway->start( $data );
+
+			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+
+			$gateway->redirect();
+    	}
 	}
 
 	//////////////////////////////////////////////////

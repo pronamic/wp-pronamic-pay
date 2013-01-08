@@ -421,6 +421,16 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			</tr>
 			<tr class="extra-settings method-internetkassa">
 				<th scope="row">
+					<label for="pronamic_ideal_hash_algorithm">
+						<?php _e( 'Hash algorithm', 'pronamic_ideal' ); ?>
+					</label>
+				</th>
+				<td>
+					<input id="pronamic_ideal_hash_algorithm" name="pronamic_ideal_hash_algorithm" value="SHA-1" type="text" class="regular-text readonly" readonly="readonly" />
+				</td>
+			</tr>
+			<tr class="extra-settings method-internetkassa">
+				<th scope="row">
 					<label for="pronamic_ideal_sha_in_pass_phrase">
 						<?php _e( 'SHA-IN Pass phrase', 'pronamic_ideal' ); ?>
 					</label>
@@ -661,7 +671,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				</tr>
 			</table>
 
-			<?php 
+			<?php
 
 			submit_button(
 				__( 'Generate', 'pronamic_ideal' ),

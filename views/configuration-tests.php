@@ -69,6 +69,9 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'advanced_v3':
 					include 'test-method-advanced-v3.php';
 					break;
+				case 'mollie':
+					include 'test-method-mollie.php';
+					break;
 				case 'targetpay':
 					include 'test-method-targetpay.php';
 					break;

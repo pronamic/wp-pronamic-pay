@@ -116,11 +116,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'template_redirect', array( __CLASS__, 'handle_ideal_advanced_return' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'handle_ideal_internetkassa_return' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'handle_omnikassa_return' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'handle_mollie_return' ) );
 		
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'updateInternetKassaPaymentStatus' ), 10, 2 );
 		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),  10, 2 );
+		add_action( 'pronamic_ideal_mollie_return',        array( __CLASS__, 'update_mollie_payment_status' ),     10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -210,6 +212,22 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$can_redirect = true;
 
 					do_action( 'pronamic_ideal_advanced_return', $payment, $can_redirect );
+				}
+			}
+		}
+	}
+
+	public static function handle_mollie_return() {
+		if ( isset( $_GET['transaction_id'] ) ) {
+			$transaction_id = filter_input( INPUT_GET, 'transaction_id', FILTER_SANITIZE_STRING );
+
+			if ( ! empty( $transaction_id ) ) {
+				$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id );
+
+				if ( $payment != null ) {
+					$can_redirect = true;
+
+					do_action( 'pronamic_ideal_mollie_return', $payment, $can_redirect );
 				}
 			}
 		}
@@ -379,6 +397,26 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
+	}
+
+	/**
+	 * Update Mollie payment status
+	 * 
+	 * @param array $result
+	 * @param boolean $canRedirect
+	 */
+	public static function update_mollie_payment_status( $payment, $can_redirect = false ) {
+		$transaction_id = $payment->transaction_id;
+
+		$configuration = $payment->configuration;
+
+		$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
+
+		$gateway->update_status( $payment );
+		
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
+		
+		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
 	//////////////////////////////////////////////////
