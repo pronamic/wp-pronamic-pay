@@ -22,7 +22,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_amount_minimum( 1.20 );
 
 		$this->client = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
-		$this->client->setTestmode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
+		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
 	
 	/////////////////////////////////////////////////
@@ -35,7 +35,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	public function get_issuers() {
 		$groups = array();
 
-		$result = $this->client->getBanks();
+		$result = $this->client->get_banks();
 		
 		if ( $result ) {
 			$groups[] = array(
@@ -68,21 +68,19 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
-		$result = $this->client->createPayment(
+		$result = $this->client->create_payment(
 			$data->get_issuer_id(),
 			Pronamic_WordPress_IDeal_Util::amount_to_cents( $data->getAmount() ),
 			$data->getDescription(),
 			$data->getNormalReturnUrl(),
-			site_url( '/' )
+			$data->getNormalReturnUrl()
 		);
 		
-		if ( $result === true ) {
-			$this->set_transaction_id( $this->client->getTransactionId() );
-			$this->set_action_url( $this->client->getBankURL() );
+		if ( $result !== false ) {
+			$this->set_transaction_id( $result->transaction_id );
+			$this->set_action_url( $result->url );
 		} else {
-			$error = $this->client->getErrorMessage();
-			
-			var_dump( $error );
+			$this->error = $this->client->get_error();
 		}
 	}
 	
@@ -94,22 +92,29 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-		$result = $this->client->checkPayment( $payment->transaction_id );
+		$result = $this->client->check_payment( $payment->transaction_id );
 
-		if ( $result === true ) {
-			$paid_status = $this->client->getPaidStatus();
-			$bank_status = $this->client->getBankStatus();
-			$consumer_info = $this->client->getConsumerInfo();
-			
-			var_dump( $paid_status );
-			var_dump( $bank_status );
-			var_dump( $consumer_info );
-			
-			exit;
+		if ( $result !== false ) {
+			$consumer = $result->consumer;
+
+			switch ( $result->status ) {
+				case Pronamic_Gateways_Mollie_Statuses::SUCCESS:
+					$payment->consumer_name           = $consumer->name;
+					$payment->consumer_account_number = $consumer->account_number;
+					$payment->consumer_city           = $consumer->city;
+				case Pronamic_Gateways_Mollie_Statuses::CANCELLED:
+				case Pronamic_Gateways_Mollie_Statuses::EXPIRED:
+				case Pronamic_Gateways_Mollie_Statuses::FAILURE:
+					$payment->status = $result->status;
+					
+					break;
+				case Pronamic_Gateways_Mollie_Statuses::CHECKED_BEFORE:
+					// Nothing to do here
+
+					break;
+			}
 		} else {
-			$error = $this->client->getErrorMessage();
-			
-			var_dump( $error );
+			$this->error = $this->client->get_error();
 		}
 	}
 }

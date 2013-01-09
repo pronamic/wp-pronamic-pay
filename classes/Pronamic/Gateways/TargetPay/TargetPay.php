@@ -219,7 +219,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 				
 			if ( $xml !== false ) {
 				$issuers = array();
-	
+
 				foreach ( $xml->issuer as $xml_issuer ) {
 					$id   = (string) $xml_issuer['id'];
 					$name = (string) $xml_issuer;
