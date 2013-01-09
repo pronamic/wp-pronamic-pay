@@ -1,60 +1,100 @@
+<?php 
+
+$gateway = new Pronamic_Gateways_IDealBasic_Gateway( $configuration );
+
+?>
+
 <h3>
 	<?php _e( 'Mandatory Tests', 'pronamic_ideal' ); ?>
 </h3>
 
-<?php foreach ( array( 1, 2, 3, 4, 5, 6, 7 ) as $test_case ): ?>
+<table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
+	<thead>
+		<tr>
+			<th scope="col">
+				<?php _e( 'Order', 'pronamic_ideal' ); ?>
+			</th>
+			<th scope="col">
+				<?php _e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
+			</th>
+			<th scope="col">
+				<?php _e( 'Actions', 'pronamic_ideal' ); ?>
+			</th>
+		</tr>
+	</thead>
 	
 	<?php 
-				
-	$name = sprintf( __( 'Test Case %s', 'pronamic_ideal' ), $test_case );
-			
-	$iDeal = new Pronamic_Gateways_IDealBasic_IDealBasic();
-	$iDeal->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-	$iDeal->setMerchantId( $configuration->getMerchantId() );
-	$iDeal->setSubId( $configuration->getSubId() );
-	$iDeal->setLanguage( Pronamic_WordPress_IDeal_Util::getLanguageIso639Code() );
-	$iDeal->setHashKey( $configuration->hashKey );
-	$iDeal->setCurrency( 'EUR' );
-	$iDeal->setPurchaseId( uniqid( 'test-' . $test_case ) );
-	$iDeal->setDescription( 'Test ' . $test_case );
 	
-	// URL's
-	$tests_link = admin_url( Pronamic_WordPress_IDeal_Admin::getConfigurationTestsLink( $configuration->getId() ) );
-	
-	// Success URL
-	$url = add_query_arg( 'status', 'success', $tests_link );
-	$iDeal->setSuccessUrl( $url );
-	
-	// Cancel URL
-	$url = add_query_arg( 'status', 'cancel', $tests_link );
-	$iDeal->setCancelUrl( $url );
-	
-	// Error URL
-	$url = add_query_arg( 'status', 'error', $tests_link );
-	$iDeal->setErrorUrl( $url );
-	
-	// Test item
-	$items = new Pronamic_IDeal_Items();
-	
-	$item = new Pronamic_IDeal_Item();
-	$item->setNumber( $test_case );
-	$item->setDescription( $name );
-	$item->setPrice( $test_case );
-	$item->setQuantity( 1 );
-	
-	$items->addItem( $item );
-	
-	$iDeal->setItems( $items );
+	$test_cases = array(
+		1 => array(
+			'amount' => 1,
+			'result' => 'Success'
+		),
+		2 => array(
+			'amount' => 2,
+			'result' => 'Cancelled'
+		),
+		3 => array(
+			'amount' => 3,
+			'result' => 'Expired'
+		),
+		4 => array(
+			'amount' => 4,
+			'result' => 'Open'
+		),
+		5 => array(
+			'amount' => 5,
+			'result' => 'Failure'
+		),
+		7 => array(
+			'amount' => 7,
+			'result' => 'SO1000 Failure in system'
+		),
+	);
 	
 	?>
-	<form method="post" action="<?php echo esc_attr( $iDeal->getPaymentServerUrl() ); ?>" target="_blank" style="display: inline">
-		<?php 
-		
-		echo $iDeal->getHtmlFields(); 
-	
-		submit_button( $name, 'secondary', 'submit', false ); 
-						
-		?>
-	</form>
 
-<?php endforeach; ?>
+	<tbody>
+
+		<?php foreach ( $test_cases as $test_case => $data ): ?>
+
+			<tr>
+				<td>
+					<?php 
+					
+					printf( 
+						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ), 
+						Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
+					);
+					
+					?>
+				</td>
+				<td>
+					<?php echo $data['result']; ?>
+				</td>
+				<td>
+					<?php
+
+					$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
+					
+					$gateway->start( $data );
+
+					$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
+
+					?>
+					<form method="post" action="<?php echo esc_attr( $gateway->get_action_url() ); ?>" target="_blank" style="display: inline">
+						<?php 
+					
+						echo $gateway->get_output_html();
+					
+						submit_button( $name, 'secondary', 'submit', false ); 
+					
+						?>
+					</form>
+				</td>
+			</tr>
+
+		<?php endforeach; ?>
+
+	</tbody>
+</table>
