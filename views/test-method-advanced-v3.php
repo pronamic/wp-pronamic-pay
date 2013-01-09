@@ -121,7 +121,7 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 					</td>
 					<td>
 						<?php
-						
+
 						$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
 
 						submit_button( $name, 'secondary', 'test_ideal_advanced_v3[' . $test_case . ']', false ); 
