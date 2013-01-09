@@ -105,6 +105,15 @@ abstract class Pronamic_Gateways_Gateway {
 	}
 
 	/**
+	 * Has error
+	 * 
+	 * @return boolean
+	 */
+	public function has_error() {
+		return $this->error != null;
+	}
+
+	/**
 	 * Set error
 	 * 
 	 * @param WP_Error $error
@@ -352,14 +361,12 @@ abstract class Pronamic_Gateways_Gateway {
 							$field['label']
 						);
 
-						if ( is_array( $field['choices'] ) ) {
-							$html .= sprintf(
-								'<select id="%s" name="%s">%s</select>',
-								esc_attr( $field['id'] ),
-								esc_attr( $field['name'] ),
-								Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
-							);
-						}
+						$html .= sprintf(
+							'<select id="%s" name="%s">%s</select>',
+							esc_attr( $field['id'] ),
+							esc_attr( $field['name'] ),
+							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
+						);
 						
 						break;
 				}
