@@ -28,11 +28,11 @@ class Pronamic_Gateways_IDealBasic_XML_NotifcationParser {
 		if ( $xml->transactionID ) {
 			$notification->set_transaction_id( (string) $xml->transactionID );
 		}
-		
+
 		if ( $xml->purchaseID ) {
-			$issuer->set_purchase_id( (string) $xml->purchaseID );
+			$notification->set_purchase_id( (string) $xml->purchaseID );
 		}
-		
+
 		if ( $xml->status ) {
 			$notification->set_status( (string) $xml->status );
 		}
