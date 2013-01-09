@@ -13,7 +13,8 @@ class Pronamic_Gateways_IDealBasic_XML_NotifcationParser {
 	 * Parse
 	 * 
 	 * @param SimpleXMLElement $xml
-	 * @param Pronamic_Gateways_IDealAdvanced_Issuer $issuer
+	 * @param Pronamic_Gateways_IDealBasic_Notification $notification
+	 * @return Pronamic_Gateways_IDealBasic_Notification
 	 */
 	public static function parse( SimpleXMLElement $xml, $notification = null ) {
 		if ( $notification == null ) {
@@ -21,17 +22,21 @@ class Pronamic_Gateways_IDealBasic_XML_NotifcationParser {
 		}
 
 		if ( $xml->createDateTimeStamp ) {
-			$notification->date = new DateTime( '@' . $xml->createDateTimeStamp );
+			$notification->set_date( new DateTime( '@' . $xml->createDateTimeStamp ) );
 		}
 
+		if ( $xml->transactionID ) {
+			$notification->set_transaction_id( (string) $xml->transactionID );
+		}
+		
 		if ( $xml->purchaseID ) {
-			$issuer->set_name( (string) $xml->issuerName );
+			$issuer->set_purchase_id( (string) $xml->purchaseID );
 		}
 		
 		if ( $xml->status ) {
-			$issuer->set_authentication_url( (string) $xml->issuerAuthenticationURL );
+			$notification->set_status( (string) $xml->status );
 		}
 
-		return $issuer;
+		return $notification;
 	}
 }
