@@ -28,21 +28,29 @@ class Pronamic_IDeal_HTML_Helper {
 
 		return $html;
 	}
-	
+
+	/**
+	 * Select options grouped
+	 * 
+	 * @param array $groups
+	 * @param string $selected_value
+	 */
 	public static function select_options_grouped( $groups, $selected_value = null ) {
 		$html = '';
 
-		foreach( $groups as $group ) {
-			if ( isset( $group['name'] ) ) {
-				$html .= '<optgroup label="' . $group['name'] . '">';
-			}
-
-			foreach( $group['options'] as $value => $label ) {
-				$html .= '<option value="' . $value . '" ' . selected( $selected_value, $value, false ) . '>' . $label . '</option>';
-			}
-
-			if ( isset( $group['name'] ) ) {
-				$html .= '</optgroup>';
+		if ( is_array( $groups ) ) {
+			foreach( $groups as $group ) {
+				if ( isset( $group['name'] ) ) {
+					$html .= '<optgroup label="' . $group['name'] . '">';
+				}
+	
+				foreach( $group['options'] as $value => $label ) {
+					$html .= '<option value="' . $value . '" ' . selected( $selected_value, $value, false ) . '>' . $label . '</option>';
+				}
+	
+				if ( isset( $group['name'] ) ) {
+					$html .= '</optgroup>';
+				}
 			}
 		}
 		
