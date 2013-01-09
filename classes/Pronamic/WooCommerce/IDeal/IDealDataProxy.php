@@ -55,7 +55,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order->id );
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->getOrderId() );
 	}
 
 	/**
