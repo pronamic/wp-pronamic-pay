@@ -18,8 +18,18 @@ class Pronamic_Gateways_Mollie_Mollie {
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Mollie partner ID
+	 * 
+	 * @var string
+	 */
 	private $partner_id;
 
+	/**
+	 * Mollie profile key
+	 * 
+	 * @var string
+	 */
 	private $profile_key;
 
 	/////////////////////////////////////////////////
