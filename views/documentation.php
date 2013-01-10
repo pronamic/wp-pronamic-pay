@@ -124,6 +124,17 @@
 				)
 			)
 		),
+		'dutchpaymentgroup.com' => array(
+			'name'      => 'Dutch Payment Group',
+			'url'       => 'http://www.dutchpaymentgroup.com/',
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/DPG-Merchant-Integration-Manual-V201.pdf',
+					'name'    => 'Dutch Payment Group payment platform: Merchant Integration Manual',
+					'version' => '020'
+				)
+			)
+		),
 		'frieslandbank.nl' => array(
 			'name'      => 'Friesland Bank',
 			'url'       => 'http://frieslandbank.nl/',
