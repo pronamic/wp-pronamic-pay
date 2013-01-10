@@ -116,6 +116,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
 		
 		add_action( 'pronamic_ideal_mollie_return_raw', array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
+		add_action( 'pronamic_ideal_advanced_return_raw', array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_advanced_v3_return_raw', array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
 		
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
@@ -200,6 +202,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Handle returns
 	 */
 	public static function handle_returns() {
+		Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
 		Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
 		Pronamic_Gateways_Mollie_ReturnHandler::listen();
