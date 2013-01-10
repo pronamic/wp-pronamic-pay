@@ -23,6 +23,8 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 			$error = $gateway->get_error(); 
 
 			foreach ( $error->get_error_codes() as $code ) {
+				echo $code, '<br />';
+
 				if ( $code == 'ideal_advanced_v3_error' ) {
 					$ideal_error = $error->get_error_data( $code );
 					
