@@ -10,12 +10,16 @@
  */
 abstract class Pronamic_Gateways_IDealAdvancedV3_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
-		if ( isset( $_GET['trxid'], $_GET['ec'] ) ) {
-			$transaction_id = filter_input( INPUT_GET, 'trxid', FILTER_SANITIZE_STRING );
-			$entrance_code  = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
+		if ( isset( $_GET['gateway'], $_GET['trxid'], $_GET['ec'] ) ) {
+			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
+
+			if ( $gateway == 'ideal_advanced_v3' ) {
+				$transaction_id = filter_input( INPUT_GET, 'trxid', FILTER_SANITIZE_STRING );
+				$entrance_code  = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
 		
-			if ( ! empty( $transaction_id ) && ! empty( $entrance_code ) ) {
-				do_action( 'pronamic_ideal_advanced_return_raw', $transaction_id, $entrance_code );
+				if ( ! empty( $transaction_id ) && ! empty( $entrance_code ) ) {
+					do_action( 'pronamic_ideal_advanced_v3_return_raw', $transaction_id, $entrance_code );
+				}
 			}
 		}
 	}
