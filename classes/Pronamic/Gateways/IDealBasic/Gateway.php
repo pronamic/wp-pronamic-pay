@@ -35,9 +35,9 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setPurchaseId( $data->getOrderId() );
 		$this->client->setDescription( $data->getDescription() );
 		$this->client->setItems( $data->getItems() );
-		$this->client->setCancelUrl( $data->getCancelUrl() );
-		$this->client->setSuccessUrl( $data->getSuccessUrl() );
-		$this->client->setErrorUrl( $data->getErrorUrl() );
+		$this->client->setCancelUrl( add_query_arg( 'gateway', 'ideal_basic', $data->getCancelUrl() ) );
+		$this->client->setSuccessUrl( add_query_arg( 'gateway', 'ideal_basic', $data->getSuccessUrl() ) );
+		$this->client->setErrorUrl( add_query_arg( 'gateway', 'ideal_basic', $data->getErrorUrl() ) );
 	}
 	
 	/////////////////////////////////////////////////
