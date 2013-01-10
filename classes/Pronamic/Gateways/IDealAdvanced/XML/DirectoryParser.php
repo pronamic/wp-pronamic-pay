@@ -23,6 +23,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryParser extends Pronamic_Gatew
 		
 		foreach ( $xml->Issuer as $element ) {
 			$issuer = Pronamic_Gateways_IDealAdvanced_XML_IssuerParser::parse( $element );
+
 			$directory->addIssuer( $issuer );
 		}
 
