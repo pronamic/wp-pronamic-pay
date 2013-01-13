@@ -76,22 +76,23 @@ class Pronamic_WordPress_IDeal_Util {
 	 * @param string $code
 	 * @return string
 	 */
-	public static function transformCurrencyCodeToNumber($code) {
+	public static function transform_currency_code_to_number( $code ) {
 		$currencies = array();
 
-		$file = dirname(Pronamic_WordPress_IDeal_Plugin::$file) . '/other/dl_iso_table_a1.xml';
-		$xmlFile = simplexml_load_file($file);
+		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/dl_iso_table_a1.xml';
+
+		$xml = simplexml_load_file( $file );
 	
-		foreach($xmlFile->ISO_CURRENCY as $currency) {
-			$alphabeticCode = (string) $currency->ALPHABETIC_CODE;
-			$numericCode = (string) $currency->NUMERIC_CODE;
+		foreach ( $xml->ISO_CURRENCY as $currency ) {
+			$alphabetic_code = (string) $currency->ALPHABETIC_CODE;
+			$numeric_code    = (string) $currency->NUMERIC_CODE;
 		
-			$currencies[$alphabeticCode] = $numericCode;
+			$currencies[$alphabetic_code] = $numeric_code;
 		}
 
 		$number = null;
 
-		if(isset($currencies[$code])) {
+		if ( isset( $currencies[$code] ) ) {
 			$number = $currencies[$code];
 		}
 
