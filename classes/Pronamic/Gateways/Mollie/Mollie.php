@@ -102,37 +102,11 @@ class Pronamic_Gateways_Mollie_Mollie {
 
 		return $result;
 	}
-
-	private function parse_xml( $xml ) {
-		$result = false;
-
-		// Suppress all XML errors
-		$use_errors = libxml_use_internal_errors( true );
-		
-		$document = simplexml_load_string( $xml );
-		
-		if ( $document !== false ) {
-			$result = $document;
-		} else {
-			$this->error = new WP_Error( 'xml_load_error', __( 'Could not load the XML response meessage from the iDEAL provider.', 'pronamic_ideal' ) );
-		
-			foreach ( libxml_get_errors() as $error ) {
-				$this->error->add( 'libxml_error', $error->message, $error );
-			}
-		
-			libxml_clear_errors();
-		}
-		
-		// Set back to previous value
-		libxml_use_internal_errors( $use_errors );
-
-		return $result;
-	}
 	
 	//////////////////////////////////////////////////
 
 	private function get_parameters( $action, array $parameters = array() ) {
-		$parameters['a']          = $action;
+		$parameters['a']         = $action;
 		$parameters['partnerid'] = $this->partner_id;
 
 		if ( $this->test_mode ) {
@@ -168,9 +142,11 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::BANK_LIST );
 
 		if ( $result !== false ) {
-			$xml = $this->parse_xml( $result );
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 
-			if ( $xml !== false ) {
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
 				$banks = array();
 
 				foreach ( $xml->bank as $bank ) {
@@ -205,9 +181,11 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::FETCH, $parameters );
 
 		if ( $result !== false ) {
-			$xml = $this->parse_xml( $result );
-			
-			if ( $xml !== false ) {
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
 				$order = new stdClass();
 				
 				$order->transaction_id = (string) $xml->order->transaction_id;
@@ -235,9 +213,11 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::CHECK, $parameters );
 
 		if ( $result !== false ) {
-			$xml = $this->parse_xml( $result );
-			
-			if ( $xml !== false ) {
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
 				$order = new stdClass();
 				
 				$order->transaction_id = (string) $xml->order->transaction_id;

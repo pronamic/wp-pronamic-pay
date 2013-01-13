@@ -215,9 +215,11 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		$data = self::remote_get( $url );
 		
 		if ( $data !== false ) {	
-			$xml = simplexml_load_string( $data );
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $data );
 				
-			if ( $xml !== false ) {
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
 				$issuers = array();
 
 				foreach ( $xml->issuer as $xml_issuer ) {
