@@ -59,18 +59,6 @@ class Pronamic_WordPress_IDeal_Util {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Amount to cents
-	 * 
-	 * @param float $price
-	 * @return number
-	 */
-	public static function amount_to_cents( $price ) {
-		return round( $price * 100 );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Transform currency code to number
 	 * 
 	 * @param string $code

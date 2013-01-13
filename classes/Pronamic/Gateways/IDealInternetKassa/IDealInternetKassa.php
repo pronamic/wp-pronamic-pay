@@ -349,7 +349,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function setAmount($amount) {
 		$this->amount = $amount;
 
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT, Pronamic_WordPress_IDeal_Util::amount_to_cents($amount));
+		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT, Pronamic_WordPress_Util::amount_to_cents($amount));
 	}
 
 	//////////////////////////////////////////////////
@@ -687,7 +687,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			// general parameters
 			'PSPID'        => $this->getPspId(),
 			'orderID'      => $this->getOrderId(), 
-			'amount'       => Pronamic_WordPress_IDeal_Util::amount_to_cents( $this->getAmount() ), 
+			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() ), 
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 		

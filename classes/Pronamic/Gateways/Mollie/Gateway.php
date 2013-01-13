@@ -80,7 +80,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		$result = $this->client->create_payment(
 			$data->get_issuer_id(),
-			Pronamic_WordPress_IDeal_Util::amount_to_cents( $data->getAmount() ),
+			Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ),
 			$data->getDescription(),
 			$data->getNormalReturnUrl(),
 			$data->getNormalReturnUrl()
