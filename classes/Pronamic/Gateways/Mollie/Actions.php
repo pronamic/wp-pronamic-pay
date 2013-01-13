@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: iDEAL Mollie statuses constants
+ * Title: iDEAL Mollie actions constants
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
