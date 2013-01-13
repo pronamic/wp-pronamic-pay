@@ -114,7 +114,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 		$data[] = $this->getInvoice();
 
-		$data[] = Pronamic_IDeal_IDeal::formatPrice($this->getAmount());
+		$data[] = Pronamic_WordPress_IDeal_Util::amount_to_cents( $this->getAmount() );
 
 		$data[] = $this->getCurrency();
 

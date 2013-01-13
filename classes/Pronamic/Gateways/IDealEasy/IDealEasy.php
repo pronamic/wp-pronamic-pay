@@ -340,7 +340,7 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 			'PSPID'        => $this->getPspId(),
 
 			'orderID'      => $this->getOrderId(),
-			'amount'       => Pronamic_IDeal_IDeal::formatPrice( $this->getAmount() ), 
+			'amount'       => Pronamic_WordPress_IDeal_Util::amount_to_cents( $this->getAmount() ), 
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 

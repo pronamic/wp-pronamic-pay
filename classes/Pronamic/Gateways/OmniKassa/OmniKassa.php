@@ -320,7 +320,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return int
 	 */
 	public function getFormattedAmount() {
-		return Pronamic_IDeal_IDeal::formatPrice( $this->amount );
+		return Pronamic_WordPress_IDeal_Util::amount_to_cents( $this->amount );
 	}
 
 	/**
