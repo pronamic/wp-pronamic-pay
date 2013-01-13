@@ -12,30 +12,35 @@
 class Pronamic_Gateways_Mollie_Statuses {
 	/**
 	 * Success
+	 * 
 	 * @var string
 	 */
 	const SUCCESS = 'Success';
 
 	/**
 	 * Cancelled
+	 * 
 	 * @var string
 	 */
 	const CANCELLED = 'Cancelled';
 
 	/**
 	 * Expired
+	 * 
 	 * @var string
 	 */
 	const EXPIRED = 'Expired';
 
 	/**
 	 * Failure
+	 * 
 	 * @var string
 	 */
 	const FAILURE = 'Failure';
 
 	/**
 	 * Checked before
+	 * 
 	 * @var string
 	 */
 	const CHECKED_BEFORE = 'CheckedBefore';
