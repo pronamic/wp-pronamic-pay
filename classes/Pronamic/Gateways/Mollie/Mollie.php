@@ -85,26 +85,12 @@ class Pronamic_Gateways_Mollie_Mollie {
 	
 	//////////////////////////////////////////////////
 
-	private function remote_get( $url ) {
-		$result = false;
-
-		$response = wp_remote_get( $url );
-
-		if ( ! is_wp_error( $response ) ) {
-			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-				$result = wp_remote_retrieve_body( $response );
-			} else {
-				$this->error = new WP_Error( 'test' );
-			}
-		} else {
-			$this->error = $response;
-		}
-
-		return $result;
-	}
-	
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get the default parameters wich are required in every Mollie request
+	 * 
+	 * @param string $action
+	 * @param array $parameters
+	 */
 	private function get_parameters( $action, array $parameters = array() ) {
 		$parameters['a']         = $action;
 		$parameters['partnerid'] = $this->partner_id;
@@ -118,6 +104,12 @@ class Pronamic_Gateways_Mollie_Mollie {
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Send request with the specified action and parameters
+	 * 
+	 * @param string $action
+	 * @param array $parameters
+	 */
 	private function send_request( $action, array $parameters = array() ) {
 		$parameters = $this->get_parameters( $action, $parameters );
 		
@@ -126,7 +118,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
 		$url = self::API_URL . '?' . _http_build_query( $parameters, null, '&' );
 
-		return $this->remote_get( $url );
+		return Pronamic_WordPress_Util::remote_get_body( $url );
 	}
 	
 	//////////////////////////////////////////////////
@@ -163,6 +155,16 @@ class Pronamic_Gateways_Mollie_Mollie {
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Create payment with the specified details
+	 * 
+	 * @param string $bank_id
+	 * @param float $amount
+	 * @param string $description
+	 * @param string $return_url
+	 * @param string $report_url
+	 * @return stdClass
+	 */
 	public function create_payment( $bank_id, $amount, $description, $return_url, $report_url ) {
 		$result = false;
 
@@ -203,6 +205,12 @@ class Pronamic_Gateways_Mollie_Mollie {
 	
 	//////////////////////////////////////////////////
 
+	/**
+	 * Check payment with the specified transaction ID
+	 * 
+	 * @param string $transaction_id
+	 * @return stdClass
+	 */
 	public function check_payment( $transaction_id ) {
 		$result = false;
 

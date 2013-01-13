@@ -10,6 +10,39 @@
  */
 class Pronamic_WordPress_Util {
 	/**
+	 * Remote get body
+	 * 
+	 * @param string $url
+	 * @param int $required_response_code
+	 */
+	public static function remote_get_body( $url, $required_response_code = 200 ) {
+		$return = false;
+
+		$result = wp_remote_get( $url );
+	
+		if ( is_wp_error( $result ) ) {
+			$return = $result;
+		} else {
+			if ( wp_remote_retrieve_response_code( $result ) == $required_response_code ) {
+				$return = wp_remote_retrieve_body( $result );
+			} else {
+				$return = new WP_Error(
+					'wrong_response_code', 
+					sprintf(
+						__( 'The response code (<code>%s<code>) was incorrect, required response code <code>%s</code>.', 'pronamic_ideal' ),
+						wp_remote_retrieve_response_code( $result ),
+						$required_response_code
+					)
+				);
+			}
+		}
+	
+		return $return;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * SimpleXML load string
 	 * 
 	 * @param string $string
