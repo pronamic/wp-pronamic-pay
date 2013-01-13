@@ -35,6 +35,15 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
+	 * The slug of this gateway
+	 * 
+	 * @var string
+	 */
+	private $slug;
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * The method of this gateway
 	 * 
 	 * @var int
@@ -91,6 +100,26 @@ abstract class Pronamic_Gateways_Gateway {
 	 */
 	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		$this->configuration = $configuration;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get the slug of this gateway
+	 * 
+	 * @return string
+	 */
+	public function get_slug() {
+		return $this->slug;
+	}
+
+	/**
+	 * Set the slug of this gateway
+	 * 
+	 * @param unknown_type $slug
+	 */
+	public function set_slug( $slug ) {
+		$this->slug = $slug;
 	}
 
 	/////////////////////////////////////////////////
