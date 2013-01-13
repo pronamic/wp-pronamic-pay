@@ -10,6 +10,15 @@
  */
 class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
+	 * Slug of this gateway
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'targetpay';	
+	
+	/////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an TargetPay gateway
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
@@ -20,6 +29,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
+		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_TargetPay_TargetPay();
 	}

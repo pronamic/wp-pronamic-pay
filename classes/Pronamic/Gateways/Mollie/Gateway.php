@@ -10,6 +10,15 @@
  */
 class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	/**
+	 * Slug of this gateway
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'mollie';	
+	
+	/////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an Mollie gateway
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
@@ -20,6 +29,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 1.20 );
+		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
 		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
@@ -83,7 +93,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 			$this->error = $this->client->get_error();
 		}
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**

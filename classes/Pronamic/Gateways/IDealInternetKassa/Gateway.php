@@ -10,6 +10,15 @@
  */
 class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gateway {
 	/**
+	 * Slug of this gateway
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'internetkassa';
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
@@ -20,6 +29,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
+		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
