@@ -102,7 +102,7 @@ class Pronamic_Gateways_IDealBasic_Notification {
 	 * 
 	 * @param string $purchase_id
 	 */
-	public function set_transaction_id( $purchase_id ) {
+	public function set_purchase_id( $purchase_id ) {
 		$this->purchase_id = $purchase_id;
 	}
 	
