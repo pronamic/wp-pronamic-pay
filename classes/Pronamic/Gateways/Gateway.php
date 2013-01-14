@@ -235,17 +235,12 @@ abstract class Pronamic_Gateways_Gateway {
 		$result = get_transient( $transient );
 		// $result = false;
 
-		if ( is_wp_error( $result ) ) {
-			$this->error = $result;
-		} elseif ( $result === false ) {
+		if ( is_wp_error( $result ) || $result === false ) {
 			$issuers = $this->get_issuers();
 
 			if ( $issuers ) {
 				// 60 * 60 * 24 = 24 hours = 1 day
 				set_transient( $transient, $issuers, 60 * 60 * 24 );
-			} elseif ( $this->error ) {
-				// 60 * 30 = 30 minutes
-				set_transient( $transient, $this->error, 60 * 30 * 1 );
 			}
 		} elseif ( is_array( $result ) ) {
 			$issuers = $result;
