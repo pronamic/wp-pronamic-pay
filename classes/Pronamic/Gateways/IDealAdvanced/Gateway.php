@@ -57,6 +57,11 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get issuers
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 */
 	public function get_issuers() {
 		$result = $this->client->getIssuerLists();
 
@@ -73,6 +78,11 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Get issuer field
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_issuer_field()
+	 */
 	public function get_issuer_field() {
 		$choices = array();
 		
@@ -105,6 +115,11 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
+	/**
+	 * Start transaction with the specified date
+	 * 
+	 * @see Pronamic_Gateways_Gateway::start()
+	 */
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
 		// Transaction request message
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
@@ -132,7 +147,13 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	
 	/////////////////////////////////////////////////
 
-	public function payment( $payment ) {
+	/**
+	 * Payment
+	 * 
+	 * @see Pronamic_Gateways_Gateway::payment()
+	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 */
+	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
 		/*
 		 * Schedule status requests	
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
