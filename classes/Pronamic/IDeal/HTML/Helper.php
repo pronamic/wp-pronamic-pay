@@ -40,7 +40,9 @@ class Pronamic_IDeal_HTML_Helper {
 
 		if ( is_array( $groups ) ) {
 			foreach( $groups as $group ) {
-				if ( isset( $group['name'] ) ) {
+				$optgroup = isset( $group['name'] ) && ! empty( $group['name'] );
+
+				if ( $optgroup ) {
 					$html .= '<optgroup label="' . $group['name'] . '">';
 				}
 	
@@ -48,7 +50,7 @@ class Pronamic_IDeal_HTML_Helper {
 					$html .= '<option value="' . $value . '" ' . selected( $selected_value, $value, false ) . '>' . $label . '</option>';
 				}
 	
-				if ( isset( $group['name'] ) ) {
+				if ( $optgroup ) {
 					$html .= '</optgroup>';
 				}
 			}
