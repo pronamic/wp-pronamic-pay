@@ -85,7 +85,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 				foreach ( $issuers as $issuer ) {
 					$options[$issuer->getId()] = $issuer->getName(); 
 				}
-		
+
 				$choices[] = array(
 					'name'    => ( $name == Pronamic_Gateways_IDealAdvanced_Issuer::LIST_LONG ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
 					'options' => $options
