@@ -304,6 +304,17 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
     }
 
     /**
+     * Get payment by id
+     * 
+     * @return Pronamic_WordPress_IDeal_Payment 
+     */
+    public static function get_payment_by_purchase_id( $id ) {
+        return self::getPaymentByQuery( self::getPaymentQuery( array(
+        	'purchase_id' => $id
+        ) ) );
+    }
+
+    /**
      * Get payment by source
      * 
      * @return Pronamic_WordPress_IDeal_Payment 

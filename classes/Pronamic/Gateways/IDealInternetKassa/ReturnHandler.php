@@ -26,19 +26,19 @@ abstract class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronam
 			$variant = $configuration->getVariant();
 				
 			if ( $variant != null && $variant->getMethod() == 'internetkassa' ) {
-				$iDeal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+				$ideal = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
-				$iDeal->setPspId($configuration->pspId);
-				$iDeal->setPassPhraseIn($configuration->shaInPassPhrase);
-				$iDeal->setPassPhraseOut($configuration->shaOutPassPhrase);
+				$ideal->setPspId( $configuration->pspId );
+				$ideal->setPassPhraseIn( $configuration->shaInPassPhrase );
+				$ideal->setPassPhraseOut( $configuration->shaOutPassPhrase );
 
-				$file = self::$dirname . '/other/calculations-parameters-sha-in.txt';
-				$iDeal->setCalculationsParametersIn( file($file, FILE_IGNORE_NEW_LINES) );
+				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
+				$ideal->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
 
-				$file = self::$dirname . '/other/calculations-parameters-sha-out.txt';
-				$iDeal->setCalculationsParametersOut( file($file, FILE_IGNORE_NEW_LINES) );
+				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
+				$ideal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
 
-				$result = $iDeal->verifyRequest( $data );
+				$result = $ideal->verifyRequest( $data );
 
 				if ( $result !== false ) {
 					do_action( 'pronamic_ideal_internetkassa_return', $result, $can_redirect = true );

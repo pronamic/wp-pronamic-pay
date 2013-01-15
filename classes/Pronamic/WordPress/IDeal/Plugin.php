@@ -115,15 +115,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
 		
-		add_action( 'pronamic_ideal_mollie_return_raw', array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
-		add_action( 'pronamic_ideal_advanced_return_raw', array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_advanced_v3_return_raw', array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
-		
+		add_action( 'pronamic_ideal_mollie_return_raw',        array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
+		add_action( 'pronamic_ideal_advanced_return_raw',      array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_advanced_v3_return_raw',   array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_internetkassa_return_raw', array( 'Pronamic_Gateways_IDealInternetKassa_ReturnHandler', 'returns' ), 10, 2 );
+
 		// Check the payment status on an iDEAL return
-		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),               10, 2 );
-		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'updateInternetKassaPaymentStatus' ), 10, 2 );
-		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),  10, 2 );
-		add_action( 'pronamic_ideal_mollie_return_payment',        array( __CLASS__, 'update_mollie_payment_status' ),     10, 2 );
+		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
+		add_action( 'pronamic_ideal_internetkassa_return',  array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
+		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
+		add_action( 'pronamic_ideal_mollie_return_payment', array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -215,9 +216,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param array $data
 	 * @param boolean $canRedirect
 	 */
-	public static function updateInternetKassaPaymentStatus( $data, $can_redirect = false ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById($data['ORDERID']);
-
+	public static function update_internetkassa_payment_status( $data, $can_redirect = false ) {
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( array( 'purchase_id' => $data['ORDERID'] ) );
+		var_dump( $payment );exit;
 		if ( $payment != null ) {
 			$status = null;
 
