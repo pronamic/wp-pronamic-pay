@@ -218,7 +218,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 */
 	public static function update_internetkassa_payment_status( $data, $can_redirect = false ) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( array( 'purchase_id' => $data['ORDERID'] ) );
-		var_dump( $payment );exit;
+
 		if ( $payment != null ) {
 			$status = null;
 
