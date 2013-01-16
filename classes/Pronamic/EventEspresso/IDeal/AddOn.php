@@ -132,7 +132,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 												<ul>
 													<li>
 														<label for="pronamic_ideal_configuration_field">
-															<?php _e('Configuration', 'pronamic_ideal'); ?>
+															<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 														</label>
 														
 														<br />
@@ -189,7 +189,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			$id = $payment->getSourceId();
 			$status = $payment->status;
 
-			$payment_data = Pronamic_EventEspresso_EventEspresso::getPaymentDataByAttendeeId($id);
+			$payment_data = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
 			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
 
 			$url = $data->getNormalReturnUrl();
