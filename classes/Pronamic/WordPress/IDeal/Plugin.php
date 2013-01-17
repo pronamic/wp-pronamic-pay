@@ -10,13 +10,6 @@
  */
 class Pronamic_WordPress_IDeal_Plugin {
 	/**
-	 * The license provider API URL
-	 * 
-	 * @var string
-	 */
-	const LICENSE_PROVIDER_API_URL = 'http://in.pronamic.nl/api/';
-
-	/**
 	 * The maximum number of payments that can be done without an license
 	 * 
 	 * @var int
@@ -30,23 +23,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.2';
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Option version
-	 * 
-	 * @var string
-	 */
-	const OPTION_VERSION = 'pronamic_ideal_version';
-	
-	/**
-	 * Option product / license key
-	 * 
-	 * @var string
-	 */
-	const OPTION_KEY = 'pronamic_ideal_key';
+	const VERSION = '1.2.1';
 
 	//////////////////////////////////////////////////
 
@@ -333,8 +310,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @return string
 	 */
-	public static function getKey() {
-		return get_option(self::OPTION_KEY);
+	public static function get_key() {
+		return get_option( 'pronamic_ideal_key' );
 	}
 
 	/**
@@ -342,15 +319,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @param string $key
 	 */
-	public static function setKey($key) {
-		$currentKey = get_option(self::OPTION_KEY);
+	public static function set_key( $key ) {
+		$current_key = get_option( 'pronamic_ideal_key' );
 
-		if(empty($key)) {
-			delete_option(self::OPTION_KEY);
-			delete_transient( 'pronamic_ideal_license_info' );
+		if ( empty( $key ) ) {
+			delete_option( 'pronamic_ideal_key' );
 		} elseif($key != $currentKey) {
-			update_option(self::OPTION_KEY, md5(trim($key)));
-			delete_transient( 'pronamic_ideal_license_info' );
+			update_option( 'pronamic_ideal_key', md5( trim( $key ) ) );
 		}
 	}
 	
@@ -360,35 +335,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return stdClass an onbject with license information or null
 	 */
 	public static function get_license_info() {
-		$licenseInfo = null;
-
-		$transient = get_transient( 'pronamic_ideal_license_info' );
-
-		if ( $transient === false ) {
-			$url = self::LICENSE_PROVIDER_API_URL . 'licenses/show';
-
-			$response = wp_remote_post( $url, array(
-				'body' => array(
-					'key' => self::getKey() , 
-					'url' => site_url() 
-				)
-			));
-
-			if(is_wp_error($response)) {
-				$licenseInfo = new stdClass();
-				// Benefit of the doubt
-				$licenseInfo->isValid = true;
-			} else {
-				$licenseInfo = json_decode($response['body']);
-			}
-
-			// Check every day for new license information, an license kan expire every day (60 * 60 * 24)
-			set_transient( 'pronamic_ideal_license_info', $licenseInfo, 86400);
-		} else {
-			$licenseInfo = $transient;
-		}
-		
-		return $licenseInfo;
+		return null;
 	}
 
 	/**
@@ -397,12 +344,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return boolean
 	 */
 	public static function has_valid_key() {
-		$result = false;
+		$result = true;
 
-		$licenseInfo = self::get_license_info();
+		$license_info = self::get_license_info();
 		
-		if($licenseInfo != null && isset($licenseInfo->isValid)) {
-			$result = $licenseInfo->isValid;
+		if ( $license_info != null && isset( $license_info->isValid ) ) {
+			$result = $license_info->isValid;
 		}
 
 		return $result;
@@ -412,7 +359,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Checks if the plugin is installed
 	 */
 	public static function is_installed() {
-		return get_option(self::OPTION_VERSION, false) !== false;
+		return get_option( 'pronamic_ideal_version', false ) !== false;
 	}
 
 	/**
@@ -501,7 +448,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
-		if ( get_option( self::OPTION_VERSION ) != self::VERSION ) {
+		if ( get_option( 'pronamic_ideal_version' ) != self::VERSION ) {
 			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();
 			Pronamic_WordPress_IDeal_PaymentsRepository::update_table();
@@ -534,7 +481,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			self::set_roles( $roles );
 
 			// Update version
-			update_option( self::OPTION_VERSION, self::VERSION );
+			update_option( 'pronamic_ideal_version', self::VERSION );
 		}
 	}
 }

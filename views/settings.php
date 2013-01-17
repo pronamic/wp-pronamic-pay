@@ -31,7 +31,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 					</label>
 				</th>
 				<td>
-	                <input id="pronamic_ideal_key" name="pronamic_ideal_key" value="<?php echo Pronamic_WordPress_IDeal_Plugin::getKey(); ?>" class="regular-text" type="password" />
+	                <input id="pronamic_ideal_key" name="pronamic_ideal_key" value="<?php echo Pronamic_WordPress_IDeal_Plugin::get_key(); ?>" class="regular-text" type="password" />
 
 					<?php if ( Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) : ?>
 						&#10003;
