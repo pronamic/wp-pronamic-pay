@@ -344,7 +344,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return boolean
 	 */
 	public static function has_valid_key() {
-		$result = true;
+		$result = strlen( self::get_key() ) == 32;
 
 		$license_info = self::get_license_info();
 		
