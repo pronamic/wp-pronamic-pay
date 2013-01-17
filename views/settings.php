@@ -33,7 +33,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 				<td>
 	                <input id="pronamic_ideal_key" name="pronamic_ideal_key" value="<?php echo Pronamic_WordPress_IDeal_Plugin::getKey(); ?>" class="regular-text" type="password" />
 
-					<?php if ( Pronamic_WordPress_IDeal_Plugin::hasValidKey() ) : ?>
+					<?php if ( Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) : ?>
 						&#10003;
 					<?php endif; ?>
 
@@ -60,7 +60,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 		<?php _e( 'License Information', 'pronamic_ideal' ); ?>
 	</h3>
 
-	<?php $license_info = Pronamic_WordPress_IDeal_Plugin::getLicenseInfo(); ?>
+	<?php $license_info = Pronamic_WordPress_IDeal_Plugin::get_license_info(); ?>
 
 	<?php if ( empty( $license_info ) ) : ?>
 

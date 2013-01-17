@@ -49,15 +49,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	const OPTION_KEY = 'pronamic_ideal_key';
 
 	//////////////////////////////////////////////////
-	
-	/**
-	 * Transient key for license information
-	 * 
-	 * @var string
-	 */
-	const TRANSIENT_LICENSE_INFO = 'pronamic_ideal_license_info';
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * The root file of this WordPress plugin
@@ -90,7 +81,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		// Bootstrap the add-ons
-		if ( self::canBeUsed() ) {
+		if ( self::can_be_used() ) {
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
@@ -356,10 +347,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		if(empty($key)) {
 			delete_option(self::OPTION_KEY);
-			delete_transient(self::TRANSIENT_LICENSE_INFO);
+			delete_transient( 'pronamic_ideal_license_info' );
 		} elseif($key != $currentKey) {
 			update_option(self::OPTION_KEY, md5(trim($key)));
-			delete_transient(self::TRANSIENT_LICENSE_INFO);
+			delete_transient( 'pronamic_ideal_license_info' );
 		}
 	}
 	
@@ -368,14 +359,15 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @return stdClass an onbject with license information or null
 	 */
-	public static function getLicenseInfo() {
+	public static function get_license_info() {
 		$licenseInfo = null;
 
-		$transient = get_transient(self::TRANSIENT_LICENSE_INFO);
-		if($transient === false) {
+		$transient = get_transient( 'pronamic_ideal_license_info' );
+
+		if ( $transient === false ) {
 			$url = self::LICENSE_PROVIDER_API_URL . 'licenses/show';
 
-			$response = wp_remote_post($url, array(
+			$response = wp_remote_post( $url, array(
 				'body' => array(
 					'key' => self::getKey() , 
 					'url' => site_url() 
@@ -391,7 +383,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			}
 
 			// Check every day for new license information, an license kan expire every day (60 * 60 * 24)
-			set_transient(self::TRANSIENT_LICENSE_INFO, $licenseInfo, 86400);
+			set_transient( 'pronamic_ideal_license_info', $licenseInfo, 86400);
 		} else {
 			$licenseInfo = $transient;
 		}
@@ -404,10 +396,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @return boolean
 	 */
-	public static function hasValidKey() {
+	public static function has_valid_key() {
 		$result = false;
 
-		$licenseInfo = self::getLicenseInfo();
+		$licenseInfo = self::get_license_info();
 		
 		if($licenseInfo != null && isset($licenseInfo->isValid)) {
 			$result = $licenseInfo->isValid;
@@ -419,7 +411,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * Checks if the plugin is installed
 	 */
-	public static function isInstalled() {
+	public static function is_installed() {
 		return get_option(self::OPTION_VERSION, false) !== false;
 	}
 
@@ -428,8 +420,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @return boolean true if plugin can be used, false otherwise
 	 */
-	public static function canBeUsed() {
-		return self::isInstalled() && (self::hasValidKey() || Pronamic_WordPress_IDeal_PaymentsRepository::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE);
+	public static function can_be_used() {
+		return self::is_installed() && (self::has_valid_key() || Pronamic_WordPress_IDeal_PaymentsRepository::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE);
 	}
 
 	//////////////////////////////////////////////////
@@ -438,7 +430,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Maybe show an license message
 	 */
 	public static function admin_notices() {
-		if ( ! self::canBeUsed() ): ?>
+		if ( ! self::can_be_used() ): ?>
 		
 			<div class="error">
 				<p>
@@ -454,7 +446,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				</p>
 			</div>
 
-		<?php elseif ( ! self::hasValidKey() ) : ?>
+		<?php elseif ( ! self::has_valid_key() ) : ?>
 		
 			<div class="updated">
 				<p>
