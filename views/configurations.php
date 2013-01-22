@@ -6,7 +6,7 @@
 
 		if ( true ) : ?>
 	
-			<a class="button add-new-h2" href="<?php echo Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink(); ?>">
+			<a class="add-new-h2" href="<?php echo Pronamic_WordPress_IDeal_Admin::getConfigurationEditLink(); ?>">
 				<?php _e( 'Add New', 'pronamic_ideal' ); ?>
 			</a>
 
