@@ -118,7 +118,9 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
 		$url = self::API_URL . '?' . _http_build_query( $parameters, null, '&' );
 
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, false );
+		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+			'sslverify' => false
+		) );
 	}
 	
 	//////////////////////////////////////////////////
