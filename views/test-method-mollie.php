@@ -12,6 +12,16 @@ $gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
 	
 	<?php echo $gateway->get_input_html(); ?>
 
+	<?php 
+	
+	if ( $gateway->has_error() ) {
+		$error = $gateway->get_error();
+
+		include 'error.php';
+	}
+	
+	?>
+
 	<p>
 		<label for="test_amount">&euro;</label>
 		<input name="test_amount" id="test_amount" value="" class="small-text" type="text" />

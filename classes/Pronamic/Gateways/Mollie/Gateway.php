@@ -46,11 +46,13 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		$groups = array();
 
 		$result = $this->client->get_banks();
-		
+
 		if ( $result ) {
 			$groups[] = array(
 				'options' => $result
 			);
+		} else {
+			$this->error = $this->client->get_error();
 		}
 
 		return $groups;
