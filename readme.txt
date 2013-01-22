@@ -129,6 +129,7 @@ Here is a list of known plugin conflicts:
 = 1.2.1 =
 *	WordPress Coding Standards optimizations
 *	Performance optimizations
+*	Mollie no longer verify SSL, didn't work on all servers
 
 = 1.2 =
 *	Added support for TargetPay iDEAL API
