@@ -62,7 +62,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		} else {
 			$this->error = $this->client->get_error();
 		}
-		
+
 		return $groups;
 	}
 	
