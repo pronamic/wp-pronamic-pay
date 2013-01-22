@@ -118,7 +118,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
 		$url = self::API_URL . '?' . _http_build_query( $parameters, null, '&' );
 
-		return Pronamic_WordPress_Util::remote_get_body( $url );
+		return Pronamic_WordPress_Util::remote_get_body( $url, 200, false );
 	}
 	
 	//////////////////////////////////////////////////
@@ -133,7 +133,9 @@ class Pronamic_Gateways_Mollie_Mollie {
 
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::BANK_LIST );
 
-		if ( $result !== false ) {
+		if ( is_wp_error( $result ) ) {
+			$this->error = $result;
+		} else {
 			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
