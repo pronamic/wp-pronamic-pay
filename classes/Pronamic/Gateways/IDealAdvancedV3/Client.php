@@ -162,7 +162,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 				if ( is_wp_error( $xml ) ) {
 					$this->error = $xml;
 				} else {
-					$result = $xml;
+					$result = self::parse_document( $xml );
 				}
 			} else {
 				$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
