@@ -15,10 +15,12 @@ class Pronamic_WordPress_Util {
 	 * @param string $url
 	 * @param int $required_response_code
 	 */
-	public static function remote_get_body( $url, $required_response_code = 200 ) {
+	public static function remote_get_body( $url, $required_response_code = 200, $sslverify = true ) {
 		$return = false;
 
-		$result = wp_remote_get( $url );
+		$result = wp_remote_get( $url, array(
+			'sslverify' => $sslverify
+		) );
 	
 		if ( is_wp_error( $result ) ) {
 			$return = $result;
