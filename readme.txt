@@ -126,6 +126,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 1.2.2 =
+*	Fix - Fatal error on saving settings
+
 = 1.2.1 =
 *	WordPress Coding Standards optimizations
 *	Performance optimizations
