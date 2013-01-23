@@ -5,7 +5,7 @@ global $wpdb;
 if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', 'pronamic_ideal_nonce' ) ) {
 	$key = filter_input( INPUT_POST, 'pronamic_ideal_key', FILTER_SANITIZE_STRING );
 
-	Pronamic_WordPress_IDeal_Plugin::setKey( $key );
+	Pronamic_WordPress_IDeal_Plugin::set_key( $key );
 }
 
 ?>
