@@ -335,13 +335,31 @@
 				array(
 					'url'     => 'http://www.rabobank.nl/omnikassa-actueel',
 					'name'    => 'Rabo OmniKassa Actueel'
-				), 
+				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
 					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
 					'version' => '3.1',
 					'date'    => new DateTime( '01-11-2012' )
-				)
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_integratiehandleiding_versie_4_1_december_2012_29420242.pdf',
+					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 4.1, december 2012',
+					'version' => '4.1',
+					'date'    => new DateTime( '01-12-2012' )
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
+					'name'    => 'Rabo OmniKassa - Gebruikshandleiding Downloadsite - Versie 2.1, december 2012',
+					'version' => '2.1',
+					'date'    => new DateTime( '01-12-2012' )
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
+					'name'    => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - ROK 2.3 07-11-2012',
+					'version' => '2.3',
+					'date'    => new DateTime( '07-11-2012' )
+				)					
 			)
 		),
 		'sisow.nl' => array(
