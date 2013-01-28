@@ -271,6 +271,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		'methods'     => array( 'basic', 'omnikassa' )
 	);
 
+	// Mollie
 	$fields[] = array(
 		'id'          => 'pronamic_ideal_mollie_partner_id',
 		'title'       => __( 'Partner ID', 'pronamic_ideal' ),
@@ -292,6 +293,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		'methods'     => array( 'mollie' )
 	);
 
+	// TargetPay
 	$fields[] = array(
 		'id'          => 'pronamic_ideal_targetpay_layoutcode',
 		'title'       => __( 'Layout Code', 'pronamic_ideal' ),
@@ -301,6 +303,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		'methods'     => array( 'targetpay' )
 	);
 
+	// Internetkassa
 	$fields[] = array(
 		'id'          => 'pronamic_ideal_pspid',
 		'title'       => __( 'PSPID', 'pronamic_ideal' ),
@@ -312,7 +315,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		),
 		'methods'     => array( 'easy', 'internetkassa' )
 	);
-
+	
+	// Internetkassa
 	$fields[] = array(
 		'id'          => 'pronamic_ideal_character_encoding',
 		'title'       => __( 'Character encoding', 'pronamic_ideal' ),
@@ -349,6 +353,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		'methods'     => array( 'internetkassa' )
 	);
 
+	// Advanced
 	$fields[] = array(
 		'id'          => 'pronamic_ideal_private_key_password',
 		'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
