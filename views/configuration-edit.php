@@ -429,30 +429,40 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					<td>
 						<?php 
 						
+						$attributes = array();
+						$attributes['id']   = $field['id'];
+						$attributes['name'] = $field['id'];
+
 						$classes = array();
-						
+
 						if ( isset( $field['readonly'] ) && $field['readonly'] ) {
+							$attributes['readonly'] = 'readonly';
+
 							$classes[] = 'regular-text';
 							$classes[] = 'readonly';
 						}
 						
+						if ( ! empty( $classes ) ) {
+							$attributes['class'] = implode( ' ', $classes );
+						}						
+						
 						switch ( $field['type'] ) {
 							case 'text' :
+								$attributes['type']  = 'text';
+								$attributes['value'] = $field['value'];
+
 								printf(
-									'<input id="%s" name="%s" value="%s" type="text" class="%s" />',
-									$field['id'],
-									$field['id'],
-									$field['value'],
-									implode( ' ', $classes )
+									'<input %s />',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
 								);
 							
 								break;
 							case 'file' :
+								$attributes['type']  = 'file';
+
 								printf(
-									'<input id="%s" name="%s" type="file" class="%s" />',
-									$field['id'],
-									$field['id'],
-									implode( ' ', $classes )
+									'<input %s />',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
 								);
 								
 								printf(
@@ -463,9 +473,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								break;
 							case 'select' :
 								printf(
-									'<select id="%s" name="%s">%s</select>',
-									$field['id'],
-									$field['id'],
+									'<select %s>%s</select>',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
 									Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $field['value'] )
 								);
 
