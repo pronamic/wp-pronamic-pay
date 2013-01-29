@@ -19,11 +19,9 @@ class Pronamic_IDeal_HTML_Helper {
 		$space = '';
 
 		foreach ( $attributes as $key => $value ) {
-			if ( !empty( $value ) ) {
-				$html .= $space . $key . '=' . '"' . esc_attr( $value ) . '"';
+			$html .= $space . $key . '=' . '"' . esc_attr( $value ) . '"';
 
-				$space = ' ';
-			} 
+			$space = ' '; 
 		}
 
 		return $html;
