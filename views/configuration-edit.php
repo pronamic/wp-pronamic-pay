@@ -581,7 +581,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								
 								if ( isset( $field['description'] ) ) {
 									printf(
-										'<span class="description"><br />%s</span',
+										'<span class="description"><br />%s</span>',
 										$field['description']
 									);
 								}
