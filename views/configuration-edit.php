@@ -430,8 +430,27 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $configuration->privateCertificate );
 			$fingerprint = str_split( $fingerprint, 2 );
 			$fingerprint = implode( ':', $fingerprint );
-		
-			echo sprintf( __( 'SHA Fingerprint: %s', 'pronamic_ideal' ), $fingerprint ), '<br />';
+
+			echo '<dl>';
+
+			echo '<dt>', __( 'SHA Fingerprint', 'pronamic_ideal' ), '</dt>';
+			echo '<dd>', $fingerprint, '</dd>';
+
+			$info = openssl_x509_parse( $field['value'] );
+			
+			if ( $info ) {
+				if ( isset( $info['validFrom_time_t'] ) ) {
+					echo '<dt>', __( 'Valid From', 'pronamic_ideal' ), '</dt>';
+					echo '<dd>', date_i18n( 'M j, Y @ G:i', $info['validFrom_time_t'] ), '</dd>';
+				}
+
+				if ( isset( $info['validTo_time_t'] ) ) {
+					echo '<dt>', __( 'Valid To', 'pronamic_ideal' ), '</dt>';
+					echo '<dd>', date_i18n( 'M j, Y @ G:i', $info['validTo_time_t'] ), '</dd>';
+				}
+			}
+
+			echo '</dl>';
 		}
 		
 		submit_button(
