@@ -394,18 +394,51 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'id'          => 'pronamic_ideal_private_key',
 					'title'       => __( 'Private Key', 'pronamic_ideal' ),
 					'type'        => 'file',
-					'value'       => $configuration->privateKey
+					'value'       => $configuration->privateKey,
+					'callback'    => 'pronamic_ideal_private_key_field'
 				),
 				array(
 					'id'          => 'pronamic_ideal_private_certificate',
 					'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
 					'type'        => 'file',
-					'value'       => $configuration->privateCertificate
+					'value'       => $configuration->privateCertificate,
+					'callback'    => 'pronamic_ideal_private_certificate_field'
 				)
 			)
 		)
 	);
 
+	function pronamic_ideal_private_key_field( $field, $configuration ) {
+		printf(
+			'<p><pre class="security-data">%s</pre></p>',
+			$field['value']
+		);
+
+		submit_button(
+			__( 'Download Private Key', 'pronamic_ideal' ),
+			'secondary' , 'download_private_key'
+		);
+	}
+
+	function pronamic_ideal_private_certificate_field( $field, $configuration ) {
+		printf(
+			'<p><pre class="security-data">%s</pre></p>',
+			$field['value']
+		);
+
+		if ( ! empty( $configuration->privateCertificate ) ) {
+			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $configuration->privateCertificate );
+			$fingerprint = str_split( $fingerprint, 2 );
+			$fingerprint = implode( ':', $fingerprint );
+		
+			echo sprintf( __( 'SHA Fingerprint: %s', 'pronamic_ideal' ), $fingerprint ), '<br />';
+		}
+		
+		submit_button(
+			__( 'Download Private Certificate', 'pronamic_ideal' ),
+			'secondary' , 'download_private_certificate'
+		);
+	}
 
 	?>
 	
@@ -514,11 +547,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 											'<input %s />',
 											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
 										);
-										
-										printf(
-											'<p><pre class="security-data">%s</pre></p>',
-											$field['value']
-										);
 									
 										break;
 									case 'select' :
@@ -557,8 +585,12 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 										$field['description']
 									);
 								}
-		
-								do_action( $field['id'] . '_field', $field );
+								
+								if ( isset( $field['callback'] ) ) {
+									$callback = $field['callback'];
+									
+									$callback( $field, $configuration );
+								}
 		
 								?>
 							
