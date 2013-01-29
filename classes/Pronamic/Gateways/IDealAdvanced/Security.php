@@ -109,34 +109,4 @@ class Pronamic_Gateways_IDealAdvanced_Security {
 
         return $signature;
     }
-    
-    /**
-    * function to verify a message
-    * @param filename of the public key to decrypt the signature
-    * @param message to verify
-    * @param sent signature
-    * @return signature
-    */
-    function verifyMessage($certfile, $data, $signature) {
-        // $data and $signature are assumed to contain the data and the     signature
-        $ok=0;
-        // fetch public key from certificate and ready it
-        $fp = fopen( dirname(__FILE__) . "/security/" . $certfile, "r");
-        
-        if(!$fp) {
-          return false;
-        }
-        
-        $cert = fread($fp, 8192);
-        fclose($fp);
-        $pubkeyid = openssl_get_publickey($cert);
-
-        // state whether signature is okay or not
-        $ok = openssl_verify($data, $signature, $pubkeyid);
-        
-        // free the key from memory
-        openssl_free_key($pubkeyid);
-
-        return $ok;
-    }
 }
