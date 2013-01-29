@@ -36,7 +36,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				</tr>
 				<tr>
 					<th scope="row">
-						<?php _e( 'Mode', 'pronamic_ideal' ); ?>
+						<?php _e( 'Name', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
 						<?php echo $configuration->getName(); ?>
