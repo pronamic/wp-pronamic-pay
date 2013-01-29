@@ -222,7 +222,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		
 		$options[] = $group;
 	}
-	
+
 	$sections = array(
 		array(
 			'title'  => __( 'General', 'pronamic_ideal' ),
