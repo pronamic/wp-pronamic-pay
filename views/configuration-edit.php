@@ -197,6 +197,13 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 	<?php 
 	
+	$sections = array();
+
+	// Global secetion
+	$sections['general'] = array(
+		'title'  => __( 'General', 'pronamic_ideal' )
+	);
+
 	$fields = array();
 
 	$variant_id = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId();
@@ -215,168 +222,190 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		
 		$options[] = $group;
 	}
-/*
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_variant_id',
-		'title'       => __( 'Variant', 'pronamic_ideal' ),
-		'type'        => 'select',
-		'value'       => $variant_id,
-		'options'     => $options
-	);
-*/
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_mode',
-		'title'       => __( 'Mode', 'pronamic_ideal' ),
-		'type'        => 'optgroup',
-		'value'       => $configuration->mode,
-		'options'     => array(
-			Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
-			Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
+	
+	$sections = array(
+		array(
+			'title'  => __( 'General', 'pronamic_ideal' ),
+			'fields' => array(
+				/*array(
+					'id'          => 'pronamic_ideal_variant_id',
+					'title'       => __( 'Variant', 'pronamic_ideal' ),
+					'type'        => 'select',
+					'value'       => $variant_id,
+					'options'     => $options
+				),*/
+				array(
+					'id'          => 'pronamic_ideal_mode',
+					'title'       => __( 'Mode', 'pronamic_ideal' ),
+					'type'        => 'optgroup',
+					'value'       => $configuration->mode,
+					'options'     => array(
+						Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
+						Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
+					)
+				),
+				array(
+					'id'          => 'pronamic_ideal_merchant_id',
+					'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->getMerchantId(),
+					'description' => __( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ),
+					'methods'     => array( 'basic', 'omnikassa', 'advanced', 'advanced_v3' )
+				),
+				array(
+					'id'          => 'pronamic_ideal_sub_id',
+					'title'       => __( 'Sub ID', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->getSubId(),
+					'description' => sprintf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ),
+					'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
+				),
+				array(
+					'id'          => 'pronamic_ideal_key_version',
+					'title'       => __( 'Key Version', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->keyVersion,
+					'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
+					'methods'     => array( 'omnikassa' )
+				),
+				array(
+					'id'          => 'pronamic_ideal_hash_key',
+					'title'       => __( 'Hash Key', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->hashKey,
+					'description' => __( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ),
+					'methods'     => array( 'basic', 'omnikassa' )
+				)
+			)
+		),
+		array(
+			'title'   => __( 'Basic', 'pronamic_ideal' ),
+			'methods' => array( 'basic' ),
+			'fields'  => array(
+				array(
+						'id'          => 'pronamic_ideal_basic_xml_notification_url',
+						'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
+						'type'        => 'text',
+						'value'       => add_query_arg( array(
+							'gateway'         => 'ideal_basic',
+							'xml_notifaction' => 'true'
+						), site_url( '/' ) ),
+						'methods'     => array( 'basic' ),
+						'readonly'    => true
+				),
+			)
+		),
+		array(
+			'title'   => __( 'Mollie', 'pronamic_ideal' ),
+			'methods' => array( 'mollie' ),
+			'fields'  => array(
+				array(
+					'id'          => 'pronamic_ideal_mollie_partner_id',
+					'title'       => __( 'Partner ID', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->molliePartnerId,
+					'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
+				),
+				 array(
+					'id'          => 'pronamic_ideal_mollie_profile_key',
+					'title'       => __( 'Profile Key', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->mollieProfileKey,
+					'description' => sprintf(
+						__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
+						'https://www.mollie.nl/beheer/account/profielen/'
+					)
+				)
+			)
+		),
+		array(
+			'title'   => __( 'TargetPay', 'pronamic_ideal' ),
+			'methods' => array( 'targetpay' ),
+			'fields'  => array(
+				array(
+					'id'          => 'pronamic_ideal_targetpay_layoutcode',
+					'title'       => __( 'Layout Code', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->targetPayLayoutCode,
+					'description' => __( 'De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal' ),
+				)
+			)
+		),
+		array(
+			'title'   => __( 'Internetkassa', 'pronamic_ideal' ),
+			'methods' => array( 'easy', 'internetkassa' ),
+			'fields'  => array(
+				array(
+					'id'          => 'pronamic_ideal_pspid',
+					'title'       => __( 'PSPID', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->pspId,
+					'description' => sprintf(
+							__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
+							'TESTiDEALEASY'
+					),
+					'methods'     => array( 'easy', 'internetkassa' )
+				),
+				array(
+					'id'          => 'pronamic_ideal_character_encoding',
+					'title'       => __( 'Character encoding', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => get_bloginfo( 'charset' ),
+					'methods'     => array( 'internetkassa' ),
+					'readonly'    => true
+				),
+				 array(
+					'id'          => 'pronamic_ideal_hash_algorithm',
+					'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => 'SHA-1',
+					'methods'     => array( 'internetkassa' ),
+					'readonly'    => true
+				),
+				array(
+					'id'          => 'pronamic_ideal_sha_in_pass_phrase',
+					'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->shaInPassPhrase,
+					'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
+					'methods'     => array( 'internetkassa' )
+				),
+				array(
+					'id'          => 'pronamic_ideal_sha_out_pass_phrase',
+					'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->shaOutPassPhrase,
+					'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
+					'methods'     => array( 'internetkassa' )
+				)
+			)
+		),
+		array(
+			'title'   => __( 'Advanced', 'pronamic_ideal' ),
+			'methods' => array( 'advanced', 'advanced_v3' ),
+			'fields'  => array(
+				array(
+					'id'          => 'pronamic_ideal_private_key_password',
+					'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->privateKeyPassword
+				),
+				array(
+					'id'          => 'pronamic_ideal_private_key',
+					'title'       => __( 'Private Key', 'pronamic_ideal' ),
+					'type'        => 'file',
+					'value'       => $configuration->privateKey
+				),
+				array(
+					'id'          => 'pronamic_ideal_private_certificate',
+					'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
+					'type'        => 'file',
+					'value'       => $configuration->privateCertificate
+				)
+			)
 		)
 	);
-	
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_merchant_id',
-		'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->getMerchantId(),
-		'description' => __( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ),
-		'methods'     => array( 'basic', 'omnikassa', 'advanced', 'advanced_v3' )
-	);
 
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_sub_id',
-		'title'       => __( 'Sub ID', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->getSubId(),
-		'description' => sprintf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ),
-		'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_key_version',
-		'title'       => __( 'Key Version', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->keyVersion,
-		'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
-		'methods'     => array( 'omnikassa' )
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_hash_key',
-		'title'       => __( 'Hash Key', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->hashKey,
-		'description' => __( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ),
-		'methods'     => array( 'basic', 'omnikassa' )
-	);
-
-	// Mollie
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_mollie_partner_id',
-		'title'       => __( 'Partner ID', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->molliePartnerId,
-		'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
-		'methods'     => array( 'mollie' )
-	);
-	
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_mollie_profile_key',
-		'title'       => __( 'Profile Key', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->mollieProfileKey,
-		'description' => sprintf(
-			__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
-			'https://www.mollie.nl/beheer/account/profielen/'
-		),
-		'methods'     => array( 'mollie' )
-	);
-
-	// TargetPay
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_targetpay_layoutcode',
-		'title'       => __( 'Layout Code', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->targetPayLayoutCode,
-		'description' => __( 'De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal' ),
-		'methods'     => array( 'targetpay' )
-	);
-
-	// Internetkassa
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_pspid',
-		'title'       => __( 'PSPID', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->pspId,
-		'description' => sprintf(
-			__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
-			'TESTiDEALEASY'
-		),
-		'methods'     => array( 'easy', 'internetkassa' )
-	);
-	
-	// Internetkassa
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_character_encoding',
-		'title'       => __( 'Character encoding', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => get_bloginfo( 'charset' ),
-		'methods'     => array( 'internetkassa' ),
-		'readonly'    => true
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_hash_algorithm',
-		'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => 'SHA-1',
-		'methods'     => array( 'internetkassa' ),
-		'readonly'    => true
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_sha_in_pass_phrase',
-		'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->shaInPassPhrase,
-		'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
-		'methods'     => array( 'internetkassa' )
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_sha_out_pass_phrase',
-		'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->shaOutPassPhrase,
-		'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
-		'methods'     => array( 'internetkassa' )
-	);
-
-	// Advanced
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_private_key_password',
-		'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
-		'type'        => 'text',
-		'value'       => $configuration->privateKeyPassword,
-		'methods'     => array( 'advanced', 'advanced_v3' )
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_private_key',
-		'title'       => __( 'Private Key', 'pronamic_ideal' ),
-		'type'        => 'file',
-		'value'       => $configuration->privateKey,
-		'methods'     => array( 'advanced', 'advanced_v3' )
-	);
-
-	$fields[] = array(
-		'id'          => 'pronamic_ideal_private_certificate',
-		'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
-		'type'        => 'file',
-		'value'       => $configuration->privateCertificate,
-		'methods'     => array( 'advanced', 'advanced_v3' )
-	);
 
 	?>
 	
@@ -392,132 +421,156 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					</label>
 				</th>
 				<td>
-					<?php $variantId = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId(); ?>
+					<?php $variant_id = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId(); ?>
 	                <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
 	                	<option value=""></option>
 	                	<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
 							<optgroup label="<?php echo $provider->getName(); ?>">
 								<?php foreach ( $provider->getVariants() as $variant ) : ?>
-									<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected( $variantId, $variant->getId() ); ?>><?php echo $variant->getName(); ?></option>
+									<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected( $variant_id, $variant->getId() ); ?>><?php echo $variant->getName(); ?></option>
 								<?php endforeach; ?>
 							</optgroup>
 						<?php endforeach; ?>
 	                </select>
 				</td>
 			</tr>
+		</table>
 
-			<?php foreach ( $fields as $field ) : ?>
+		<?php foreach ( $sections as $section ) : ?>
 
-				<?php 
-				
-				$classes = array();
-				if ( isset( $field['methods'] ) ) {
-					$classes[] = 'extra-settings';
+			<?php 
+			
+			$classes = array();
+			if ( isset( $section['methods'] ) ) {
+				$classes[] = 'extra-settings';
 					
-					foreach ( $field['methods'] as $method ) {
-						$classes[] = 'method-' . $method;
-					}
+				foreach ( $section['methods'] as $method ) {
+					$classes[] = 'method-' . $method;
 				}
-				
-				?>
-				<tr class="<?php echo implode( ' ', $classes ); ?>">
-					<th scope="col">
-						<label for="<?php echo $field['id']; ?>">
-							<?php echo $field['title']; ?>
-						</label>
-					</th>
-					<td>
+			}
+
+			?>
+
+			<div class="<?php echo implode( ' ', $classes ); ?>">
+				<h3><?php echo $section['title']; ?></h3>
+	
+				<table class="form-table">
+		
+					<?php foreach ( $section['fields'] as $field ) : ?>
+		
 						<?php 
 						
-						$attributes = array();
-						$attributes['id']   = $field['id'];
-						$attributes['name'] = $field['id'];
-
 						$classes = array();
-
-						if ( isset( $field['readonly'] ) && $field['readonly'] ) {
-							$attributes['readonly'] = 'readonly';
-
-							$classes[] = 'regular-text';
-							$classes[] = 'readonly';
+						if ( isset( $field['methods'] ) ) {
+							$classes[] = 'extra-settings';
+							
+							foreach ( $field['methods'] as $method ) {
+								$classes[] = 'method-' . $method;
+							}
 						}
-						
-						if ( ! empty( $classes ) ) {
-							$attributes['class'] = implode( ' ', $classes );
-						}						
-						
-						switch ( $field['type'] ) {
-							case 'text' :
-								$attributes['type']  = 'text';
-								$attributes['value'] = $field['value'];
-
-								printf(
-									'<input %s />',
-									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
-								);
-							
-								break;
-							case 'file' :
-								$attributes['type']  = 'file';
-
-								printf(
-									'<input %s />',
-									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
-								);
+		
+						?>
+						<tr class="<?php echo implode( ' ', $classes ); ?>">
+							<th scope="col">
+								<label for="<?php echo $field['id']; ?>">
+									<?php echo $field['title']; ?>
+								</label>
+							</th>
+							<td>
+								<?php 
 								
-								printf(
-									'<p><pre class="security-data">%s</pre></p>',
-									$field['value']
-								);
-							
-								break;
-							case 'select' :
-								printf(
-									'<select %s>%s</select>',
-									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
-									Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $field['value'] )
-								);
-
-								break;
-							case 'optgroup' :
-								printf( '<fieldset>' );
-								printf( '<legend class="screen-reader-text">%s</legend>', __( 'Mode', 'pronamic_ideal' ) );
-
-								printf( '<p>' );
-								
-								foreach ( $field['options'] as $value => $label ) {
-									printf( 
-										'<label>%s %s</label><br />',
-										sprintf( 
-											'<input type="radio" value="%s" name="%s" %s />',
-											$value,
-											$field['id'],
-											checked( $field['value'], $value, false )
-										),
-										$label
-									);
+								$attributes = array();
+								$attributes['id']   = $field['id'];
+								$attributes['name'] = $field['id'];
+		
+								$classes = array();
+		
+								if ( isset( $field['readonly'] ) && $field['readonly'] ) {
+									$attributes['readonly'] = 'readonly';
+		
+									$classes[] = 'regular-text';
+									$classes[] = 'readonly';
 								}
 								
-								break;
-						}
-						
-						if ( isset( $field['description'] ) ) {
-							printf(
-								'<span class="description"><br />%s</span',
-								$field['description']
-							);
-						}
-
-						do_action( $field['id'] . '_field', $field );
-
-						?>
+								if ( ! empty( $classes ) ) {
+									$attributes['class'] = implode( ' ', $classes );
+								}						
+								
+								switch ( $field['type'] ) {
+									case 'text' :
+										$attributes['type']  = 'text';
+										$attributes['value'] = $field['value'];
+		
+										printf(
+											'<input %s />',
+											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+										);
+									
+										break;
+									case 'file' :
+										$attributes['type']  = 'file';
+		
+										printf(
+											'<input %s />',
+											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+										);
+										
+										printf(
+											'<p><pre class="security-data">%s</pre></p>',
+											$field['value']
+										);
+									
+										break;
+									case 'select' :
+										printf(
+											'<select %s>%s</select>',
+											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
+											Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $field['value'] )
+										);
+		
+										break;
+									case 'optgroup' :
+										printf( '<fieldset>' );
+										printf( '<legend class="screen-reader-text">%s</legend>', __( 'Mode', 'pronamic_ideal' ) );
+		
+										printf( '<p>' );
+										
+										foreach ( $field['options'] as $value => $label ) {
+											printf( 
+												'<label>%s %s</label><br />',
+												sprintf( 
+													'<input type="radio" value="%s" name="%s" %s />',
+													$value,
+													$field['id'],
+													checked( $field['value'], $value, false )
+												),
+												$label
+											);
+										}
+										
+										break;
+								}
+								
+								if ( isset( $field['description'] ) ) {
+									printf(
+										'<span class="description"><br />%s</span',
+										$field['description']
+									);
+								}
+		
+								do_action( $field['id'] . '_field', $field );
+		
+								?>
+							
+							</td>
+						</tr>
 					
-					</td>
-				</tr>
-			
-			<?php endforeach; ?>
-
-		</table>
+					<?php endforeach; ?>
+		
+				</table>
+			</div>
+				
+		<?php endforeach; ?>
 
 		<?php 
 		
