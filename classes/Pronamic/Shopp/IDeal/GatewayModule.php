@@ -194,8 +194,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	public function checkout_processed() {
 		global $Shopp;
 
-		$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer', FILTER_SANITIZE_STRING );
-		if ( ! empty( $issuerId ) ) {
+		$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
+		if ( ! empty( $issuer_id ) ) {
 			$Shopp->Order->PronamicIDealIssuerId = $issuer_id;
 		}
 	}
@@ -262,6 +262,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 		if ( is_wp_error( $error ) ) {
 			// @todo what todo?
+			var_dump( $error );
+
+			exit;
 		} else {
 	    	$gateway->redirect();
 		}
