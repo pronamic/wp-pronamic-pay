@@ -439,14 +439,16 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			$info = openssl_x509_parse( $field['value'] );
 			
 			if ( $info ) {
+				$date_format = __( 'M j, Y @ G:i', 'pronamic_ideal' );
+
 				if ( isset( $info['validFrom_time_t'] ) ) {
 					echo '<dt>', __( 'Valid From', 'pronamic_ideal' ), '</dt>';
-					echo '<dd>', date_i18n( 'M j, Y @ G:i', $info['validFrom_time_t'] ), '</dd>';
+					echo '<dd>', date_i18n( $date_format, $info['validFrom_time_t'] ), '</dd>';
 				}
 
 				if ( isset( $info['validTo_time_t'] ) ) {
 					echo '<dt>', __( 'Valid To', 'pronamic_ideal' ), '</dt>';
-					echo '<dd>', date_i18n( 'M j, Y @ G:i', $info['validTo_time_t'] ), '</dd>';
+					echo '<dd>', date_i18n( $date_format, $info['validTo_time_t'] ), '</dd>';
 				}
 			}
 

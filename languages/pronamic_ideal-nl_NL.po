@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-29 15:26+0100\n"
-"PO-Revision-Date: 2013-01-29 15:26+0100\n"
+"POT-Creation-Date: 2013-01-29 15:29+0100\n"
+"PO-Revision-Date: 2013-01-29 15:29+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -55,7 +55,7 @@ msgstr "Support licentiecode"
 msgid "The license key is used for access to automatic upgrades and support."
 msgstr "De licentiecode wordt gebruikt voor automatische upgrades en support."
 
-#: views/settings.php:51 views/configuration-edit.php:629
+#: views/settings.php:51 views/configuration-edit.php:631
 #: views/gravityforms/feed-edit.php:431
 msgid "Save"
 msgstr "Opslaan"
@@ -554,7 +554,7 @@ msgid "Sub ID"
 msgstr "Sub ID"
 
 #: views/configurations-form.php:56 views/configuration-edit.php:239
-#: views/configuration-edit.php:581 views/configuration-tests.php:47
+#: views/configuration-edit.php:583 views/configuration-tests.php:47
 msgid "Mode"
 msgstr "Modus"
 
@@ -815,7 +815,7 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/configuration-edit.php:389 views/configuration-edit.php:645
+#: views/configuration-edit.php:389 views/configuration-edit.php:647
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
@@ -835,90 +835,94 @@ msgstr "Download privé sleutel"
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/configuration-edit.php:443
+#: views/configuration-edit.php:442
+msgid "M j, Y @ G:i"
+msgstr "j M Y @ G:i"
+
+#: views/configuration-edit.php:445
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/configuration-edit.php:448
+#: views/configuration-edit.php:450
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/configuration-edit.php:457
+#: views/configuration-edit.php:459
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/configuration-edit.php:472
+#: views/configuration-edit.php:474
 msgid "Variant"
 msgstr "Variant"
 
-#: views/configuration-edit.php:629 views/gravityforms/feed-edit.php:431
+#: views/configuration-edit.php:631 views/gravityforms/feed-edit.php:431
 msgid "Update"
 msgstr "Update"
 
-#: views/configuration-edit.php:638
+#: views/configuration-edit.php:640
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/configuration-edit.php:655
+#: views/configuration-edit.php:657
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/configuration-edit.php:663
+#: views/configuration-edit.php:665
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days. "
 msgstr ""
 "specificieer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/configuration-edit.php:670
+#: views/configuration-edit.php:672
 msgid "Country"
 msgstr "Land"
 
-#: views/configuration-edit.php:678
+#: views/configuration-edit.php:680
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/configuration-edit.php:685
+#: views/configuration-edit.php:687
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/configuration-edit.php:693
+#: views/configuration-edit.php:695
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/configuration-edit.php:700
+#: views/configuration-edit.php:702
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/configuration-edit.php:708
+#: views/configuration-edit.php:710
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/configuration-edit.php:715
+#: views/configuration-edit.php:717
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/configuration-edit.php:723
+#: views/configuration-edit.php:725
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/configuration-edit.php:730
+#: views/configuration-edit.php:732
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/configuration-edit.php:738
+#: views/configuration-edit.php:740
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/configuration-edit.php:745
+#: views/configuration-edit.php:747
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/configuration-edit.php:753
+#: views/configuration-edit.php:755
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/configuration-edit.php:754
+#: views/configuration-edit.php:756
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -926,7 +930,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/configuration-edit.php:755
+#: views/configuration-edit.php:757
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -937,11 +941,11 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/configuration-edit.php:762
+#: views/configuration-edit.php:764
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/configuration-edit.php:774
+#: views/configuration-edit.php:776
 msgid "Generate"
 msgstr "Genereer"
 
