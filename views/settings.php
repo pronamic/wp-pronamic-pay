@@ -185,6 +185,19 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 				&#10003;
 			</td>
 		</tr>
+		<tr>
+			<th scope="row">
+				<a href="http://wordpress.org/extend/plugins/event-espresso-free/" target="_blank">
+					<?php _e( 'Event Espresso Lite', 'pronamic_ideal' ); ?>
+				</a>
+			</th>
+			<td class="column-version">
+                3.1.29 &gt;
+			</td>
+			<td>
+				&#10003;
+			</td>
+		</tr>
 	</table>
 
 	<h3>
