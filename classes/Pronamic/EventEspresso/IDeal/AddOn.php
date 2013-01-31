@@ -22,15 +22,77 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
+		if ( defined( 'EVENT_ESPRESSO_VERSION' ) ) {
+			add_action( 'init', array( __CLASS__, 'init' ) );
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Initiliaze
+	 */
+	public static function init() {
 		add_filter( 'action_hook_espresso_display_gateway_settings',       array( __CLASS__, 'display_gateway_settings' ) );
 
 		add_action( 'action_hook_espresso_display_onsite_payment_header',  'espresso_display_onsite_payment_header' );
 		add_action( 'action_hook_espresso_display_onsite_payment_footer',  'espresso_display_onsite_payment_footer' );
 		add_action( 'action_hook_espresso_display_onsite_payment_gateway', array( __CLASS__, 'display_gateway' ) );
 
+		add_filter( 'filter_hook_espresso_transactions_get_attendee_id',   array( __CLASS__, 'transactions_get_attendee_id' ) );
+
+		add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
+		
 		add_action( 'pronamic_ideal_status_update',                array( __CLASS__, 'update_status' ), 10, 2 );
 		
 		add_filter( 'pronamic_ideal_source_column_event-espresso', array( __CLASS__, 'source_column' ), 10, 2 );
+
+		// Fix fatal error since Event Espresso 3.1.29.1.P
+		if ( defined( 'EVENT_ESPRESSO_GATEWAY_DIR' ) ) {
+			$gateway_dir  = EVENT_ESPRESSO_GATEWAY_DIR . 'pronamic_ideal';
+			$gateway_init = $gateway_dir . '/init.php';
+
+			if ( ! is_readable( $gateway_init ) ) {
+				$created = wp_mkdir_p( $gateway_dir );
+				
+				if ( $created ) {
+					touch( $gateway_init );
+				}
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Process gateway
+	 */
+	public static function process_gateway() {
+		if ( isset( $_POST['pronamic_ideal'] ) ) {
+			$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
+			
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			
+			if ( $gateway ) {
+				$payment_data = array(
+					'attendee_id' => apply_filters( 'filter_hook_espresso_transactions_get_attendee_id', '' )
+				);
+
+				$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
+			
+				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+					
+				if ( $gateway->is_http_redirect() ) {
+					$gateway->redirect();
+				}
+				
+				if ( $gateway->is_html_form() ) {
+					echo $gateway->get_form_html( );
+				}
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -48,18 +110,46 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		if ( $gateway ) {
 			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
 
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
 			?>
+
 			<div class="event-display-boxes">
 				<h3 class="payment_header">
 					<?php _e( 'iDEAL', 'pronamic_ideal' ); ?>
 				</h3>
-	
-				<?php echo $gateway->get_form_html( ); ?>
+
+				<form method="post" action="<?php echo esc_attr( $data->get_notify_url() ); ?>">
+					<?php 
+
+					echo $gateway->get_input_html();
+					
+					?>
+
+					<p>
+						<?php
+
+						printf(
+							'<input class="ideal-button" type="submit" name="pronamic_ideal" value="%s" />',
+							__( 'Pay with iDEAL', 'pronamic_ideal' )
+						);
+					
+						?>
+					</p>
+				</form>
 			</div>
+
 			<?php
 		}
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Transaction get attendee ID
+	 * 
+	 * @return string
+	 */
+	public static function transactions_get_attendee_id() {
+		return filter_input( INPUT_GET, 'attendee_id', FILTER_SANITIZE_STRING );	
 	}
 
 	//////////////////////////////////////////////////

@@ -131,12 +131,12 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	// URL's
 	//////////////////////////////////////////////////
 
-	private function get_notify_url() {
+	public function get_notify_url() {
 		global $org_options;
 
 		return add_query_arg(
 			array(
-				'id'              => $this->data['attendee_id'],
+				'attendee_id'     => $this->data['attendee_id'],
 				'registration_id' => $this->data['registration_id'], 
 				'event_id'        => $this->data['event_id']
 			),
@@ -149,7 +149,7 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 
 		return add_query_arg(
 			array(
-				'id'              => $this->data['attendee_id'],
+				'attendee_id'     => $this->data['attendee_id'],
 				'registration_id' => $this->data['registration_id'], 
 				'event_id'        => $this->data['event_id']
 			),
