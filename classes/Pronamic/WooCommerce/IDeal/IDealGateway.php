@@ -27,7 +27,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->icon         = plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file );
 
 		// The iDEAL payment gateway has an issuer select field in case of the iDEAL advanced variant
-		$this->has_fields = false;
+		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/classes/gateways/class-wc-payment-gateway.php#L24
+		$this->has_fields = true;
 		
 		// Load the form fields
 		$this->init_form_fields();
@@ -103,8 +104,11 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
     /**
 	 * Payment fields
+	 * 
+	 * @see https://github.com/woothemes/woocommerce/blob/v1.6.6/templates/checkout/form-pay.php#L66
 	 */
 	function payment_fields() {
+		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/classes/gateways/class-wc-payment-gateway.php#L181
 		parent::payment_fields();
 
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
