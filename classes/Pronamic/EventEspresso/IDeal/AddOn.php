@@ -68,7 +68,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Process gateway
 	 */
 	public static function process_gateway() {
-		if ( isset( $_POST['pronamic_ideal'] ) ) {
+		if ( isset( $_POST['event_espresso_pronamic_ideal'] ) ) {
 			$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
 			
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
@@ -128,7 +128,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 						<?php
 
 						printf(
-							'<input class="ideal-button" type="submit" name="pronamic_ideal" value="%s" />',
+							'<input class="ideal-button" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
 							__( 'Pay with iDEAL', 'pronamic_ideal' )
 						);
 					
