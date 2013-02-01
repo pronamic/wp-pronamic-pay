@@ -167,6 +167,9 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			}
 			
 			if ( $gateway->is_http_redirect() ) {
+				// Hide the checkout page container HTML element
+				echo '<style type="text/css">.thankyou center { display: none; }</style>';
+
 				?>
 				<form method="post" action="">
 					<?php 
