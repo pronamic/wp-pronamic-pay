@@ -27,7 +27,7 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * 
 	 * @param string $id
 	 */
-	public static function get_order_by_id( $order_id ) {
+	public static function get_order_by_id_backup( $order_id ) {
 		$order = null;
 
 		$orders = get_user_orders( '', $order_id );
@@ -46,19 +46,50 @@ class Pronamic_ClassiPress_ClassiPress {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get order by id
+	 * 
+	 * @param string $id
+	 */
+	public static function get_order_by_id( $order_id ) {
+		global $wpdb;
+
+		$sql = $wpdb->prepare( "
+			SELECT 
+				*
+			FROM 
+				$wpdb->cp_order_info
+			WHERE 
+				item_number = %s
+			", $order_id 
+		);
+
+		return $wpdb->get_row( $sql, ARRAY_A );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Process membership order
 	 * 
 	 * @param array
 	 */
 	public static function process_membership_order( $order ) {
+		$file = get_template_directory() . '/includes/forms/step-functions.php';
+		
+		if ( is_readable( $file ) ) {
+			include_once $file;
+		}
+
 		$user_id = $order['user_id'];
 
-		$userdata = get_userdata( $user_id );
+		if ( $user_id ) {
+			$userdata = get_userdata( $user_id );
 
-		$order_processed = appthemes_process_membership_order( $userdata, $order );
+			$order_processed = appthemes_process_membership_order( $userdata, $order );
 
-		if ( $order_processed ) {
-			cp_owner_activated_membership_email( $userdata, $order_processed );
+			if ( $order_processed ) {
+				cp_owner_activated_membership_email( $userdata, $order_processed );
+			}
 		}
 	}
 
@@ -67,9 +98,7 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * 
 	 * @param array
 	 */
-	public static function process_ad_order( $order ) {
-		$order_id = $order['order_id'];
-
+	public static function process_ad_order( $order_id ) {
 		$post = self::get_post_ad_by_id( $order_id );
 
 		if ( ! empty( $post ) ) {
@@ -89,7 +118,8 @@ class Pronamic_ClassiPress_ClassiPress {
 
 		$sql = $wpdb->prepare( "
 			SELECT 
-				p.ID, p.post_status
+				post.ID,
+				post.post_status
 			FROM 
 				$wpdb->posts AS post,
 				$wpdb->postmeta AS meta
