@@ -49,17 +49,22 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * Get order by id
 	 * 
 	 * @param string $id
+	 * @return mixed order array or null
 	 */
 	public static function get_order_by_id( $order_id ) {
 		global $wpdb;
 
+		/*
+		 * The table structure of the 'cp_order_info' table can be found here:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/admin/install-script.php?at=3.2.1#cl-166
+		 */
 		$sql = $wpdb->prepare( "
 			SELECT 
 				*
 			FROM 
 				$wpdb->cp_order_info
 			WHERE 
-				item_number = %s
+				txn_id = %s
 			", $order_id 
 		);
 

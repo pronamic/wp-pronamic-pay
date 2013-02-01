@@ -208,9 +208,9 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			$id = $payment->getSourceId();
 
 			$order = Pronamic_ClassiPress_ClassiPress::get_order_by_id( $id );
-			$data_proxy = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
+			$data  = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 
-			$url = $data_proxy->getNormalReturnUrl();
+			$url = $data->getNormalReturnUrl();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
@@ -223,10 +223,10 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 						
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-					// Pronamic_ClassiPress_ClassiPress::process_membership_order( $order );
+					Pronamic_ClassiPress_ClassiPress::process_membership_order( $order );
 					Pronamic_ClassiPress_ClassiPress::process_ad_order( $id );
 		            	
-	            	$url = $data_proxy->getSuccessUrl();
+	            	$url = $data->getSuccessUrl();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
@@ -236,7 +236,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 						
 					break;
 			}
-				
+
 			if ( $can_redirect ) {
 				wp_redirect( $url, 303 );
 
