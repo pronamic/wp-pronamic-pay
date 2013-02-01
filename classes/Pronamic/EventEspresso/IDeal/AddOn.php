@@ -234,7 +234,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 																printf(
 																	'<option value="%s" %s>%s</option>',
 																	esc_attr( $value ),
-																	selected( $configuration_id, $value, false),
+																	selected( $configuration_id, $value, false ),
 																	$label
 																);
 															}
