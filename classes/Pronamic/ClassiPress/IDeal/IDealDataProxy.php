@@ -140,7 +140,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 			 * We query the order info sometimes directly from the database,
 			 * if we do this the 'notify_url' isn't directly available
 			 */
-			if ( isset( $order['ad_id'] ) && ! empty( $order['ad_id'] ) ) {
+			if ( isset( $this->order_values['ad_id'] ) && ! empty( $this->order_values['ad_id'] ) ) {
 				// Advertisement
 				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2380
 				$url = add_query_arg(
@@ -152,7 +152,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 				);
 			} else {
 				// Advertisement package
-				// https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2408
+				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2408
 				$url = add_query_arg(
 					array(
 						'invoice' => $order_vals['txn_id'],
@@ -189,17 +189,19 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 			 * ClassiPress is doing in similar check in the following file:
 			 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/gateway.php?at=3.2.1#cl-31
 			 */
-			if ( isset( $order['ad_id'] ) && ! empty( $order['ad_id'] ) ) {
+			if ( isset( $this->order_values['ad_id'] ) && ! empty( $this->order_values['ad_id'] ) ) {
 				// Advertisement
+				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2381
 				$url = add_query_arg(
 					array(
-						'oid' => $this->order_values['txn_id'],
-						'uid' => $this->order_values['user_id']
+						'pid' => $this->order_values['txn_id'],
+						'aid' => $this->order_values['ad_id']
 					),
-					CP_MEMBERSHIP_PURCHASE_CONFIRM_URL
+					CP_ADD_NEW_CONFIRM_URL
 				);
 			} else {
 				// Advertisement package
+				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2409
 				$url = add_query_arg(
 					array(
 						'oid' => $this->order_values['txn_id'],
