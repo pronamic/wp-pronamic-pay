@@ -26,6 +26,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		add_action( 'cp_action_payment_method',     array( __CLASS__, 'payment_method' ) );
 		add_action( 'cp_action_gateway',            array( __CLASS__, 'gateway_process' ) );
 
+		add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
+
 		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
 		
 		add_filter( 'pronamic_ideal_source_column_classipress', array( __CLASS__, 'source_column' ), 10, 2 );
@@ -103,6 +105,33 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Process gateway
 	 */
+	public static function process_gateway() {
+		global $gateway_name, $app_abbr, $post_url;
+
+		if ( isset( $_POST['classipress_pronamic_ideal'] ) ) {
+			$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+	
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+				
+			if ( $gateway ) {
+				$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $_POST );
+					
+				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+					
+				if ( $gateway->is_http_redirect() ) {
+					$gateway->redirect();
+				}
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Process gateway
+	 */
 	public static function gateway_process( $order_values ) {
 		global $gateway_name, $app_abbr, $post_url;
 
@@ -131,9 +160,36 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+			if ( $gateway->is_html_form() ) {
+				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
-			echo $gateway->get_form_html( $auto_submit = true );
+				echo $gateway->get_form_html( $auto_submit = true );
+			}
+			
+			if ( $gateway->is_http_redirect() ) {
+				?>
+				<form method="post" action="">
+					<?php 
+
+					echo Pronamic_IDeal_IDeal::htmlHiddenFields( $order_values );
+
+					echo $gateway->get_input_html();
+					
+					?>
+
+					<p>
+						<?php
+
+						printf(
+							'<input class="ideal-button" type="submit" name="classipress_pronamic_ideal" value="%s" />',
+							__( 'Pay with iDEAL', 'pronamic_ideal' )
+						);
+					
+						?>
+					</p>
+				</form>
+				<?php
+			}
 		}
 	}
 
