@@ -30,4 +30,16 @@ class Pronamic_ClassiPress_Order {
 	public static function is_package( array $order ) {
 		return ! self::is_advertisement( $order );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if the order is completed
+	 * 
+	 * @param array $order
+	 * @return boolean
+	 */
+	public static function is_completed( array $order ) {
+		return isset( $order['payment_status'] ) && $order['payment_status'] == Pronamic_ClassiPress_PaymentStatuses::COMPLETED;
+	}
 }
