@@ -24,6 +24,39 @@ class Pronamic_ClassiPress_ClassiPress {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Add an transaction entry for the specified order
+	 * 
+	 * @param array $order
+	 * @return transaction ID
+	 */
+	public static function add_transaction_entry( array $order ) {
+		/*
+		 * We have copied this from the "Bank transfer" gateway:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/banktransfer/banktransfer.php?at=3.2.1#cl-39
+		 */
+		$transaction_id = false;
+
+		// Require ClassiPress gateway process file
+		$file = get_template_directory() . '/includes/gateways/process.php';
+		
+		if ( is_readable( $file ) ) {
+			require_once $file;
+
+			// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/process.php?at=3.2.1#cl-106
+			$transaction_entry = cp_prepare_transaction_entry( $order );
+
+			if ( $transaction_entry ) {
+				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/process.php?at=3.2.1#cl-152
+				$transaction_id = cp_add_transaction_entry( $transaction_entry );
+			}
+		}
+		
+		return $transaction_id;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get order by id
 	 * 
 	 * @param string $id
@@ -99,6 +132,13 @@ class Pronamic_ClassiPress_ClassiPress {
 	public static function get_post_ad_by_id( $order_id ) {
 		global $wpdb;
 
+		/*
+		 * The post order ID is stored in the 'cp' meta key:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/forms/step-functions.php?at=3.2.1#cl-822
+		 * 
+		 * We have copied this from the PayPal gateway:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/paypal/ipn.php?at=3.2.1#cl-178
+		 */
 		$sql = $wpdb->prepare( "
 			SELECT 
 				post.ID,
@@ -135,12 +175,17 @@ class Pronamic_ClassiPress_ClassiPress {
 
 		$result = wp_update_post( $data );
 
-		// now we need to update the ad expiration date so they get the full length of time
-		// sometimes they didn't pay for the ad right away or they are renewing
-
-		// first get the ad duration and first see if ad packs are being used
-		// if so, get the length of time in days otherwise use the default
-		// prune period defined on the CP settings page
+		/*
+		 * We have copied this from the PayPal gateway:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/gateways/paypal/ipn.php?at=3.2.1#cl-190
+		 * 
+		 * now we need to update the ad expiration date so they get the full length of time
+		 * sometimes they didn't pay for the ad right away or they are renewing
+		 * 
+		 * first get the ad duration and first see if ad packs are being used
+		 * if so, get the length of time in days otherwise use the default
+		 * prune period defined on the CP settings page
+		 */ 
 		$duration = get_post_meta( $id, 'cp_sys_ad_duration', true );
 		if ( ! isset( $duration ) ) {
 			$duration = get_option( 'cp_prun_period' );
