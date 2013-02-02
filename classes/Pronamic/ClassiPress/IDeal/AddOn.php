@@ -22,6 +22,15 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
+		add_action( 'appthemes_init', array( __CLASS__, 'appthemes_init' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * AppThems initialize
+	 */
+	public static function appthemes_init() {
 		add_action( 'cp_action_gateway_values',     array( __CLASS__, 'gateway_values' ) );
 		add_action( 'cp_action_payment_method',     array( __CLASS__, 'payment_method' ) );
 		add_action( 'cp_action_gateway',            array( __CLASS__, 'gateway_process' ) );
@@ -88,12 +97,31 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Get the gateay
+	 * 
+	 * @return 
+	 */
+	private function get_gateway() {
+		global $app_abbr;
+		
+		$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
+		
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+		
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		
+		return $gateway;
+	}
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Add the option to the payment drop-down list on checkout
 	 */
 	public static function payment_method() {
-	    global $app_abbr, $gateway_name;
+	    global $app_abbr;
 
 	    if ( get_option( $app_abbr . '_pronamic_ideal_enable' ) == 'yes' ) {
 	        echo '<option value="pronamic_ideal">' . __( 'iDEAL', 'pronamic_ideal' ) . '</option>';
@@ -106,14 +134,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * Process gateway
 	 */
 	public static function process_gateway() {
-		global $gateway_name, $app_abbr, $post_url;
-
 		if ( isset( $_POST['classipress_pronamic_ideal'] ) ) {
-			$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-	
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			$gateway = self::get_gateway();
 				
 			if ( $gateway ) {
 				$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $_POST );
@@ -133,33 +155,20 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * Process gateway
 	 */
 	public static function gateway_process( $order_values ) {
-		global $gateway_name, $app_abbr, $post_url;
-
-		// if gateway wasn't selected then exit
+		// If gateway wasn't selected then immediately return
 		if ( $order_values['cp_payment_method'] != 'pronamic_ideal' ) { 
 			return;
 		}
 
-		// prepare and add transaction entry
-		if ( file_exists( TEMPLATEPATH . '/includes/gateways/process.php' ) ) {
-			require_once TEMPLATEPATH . '/includes/gateways/process.php';
+		// Add transaction entry
+		$transaction_id = Pronamic_ClassiPress_ClassiPress::add_transaction_entry( $order_values );
 
-			$transaction_entry = cp_prepare_transaction_entry( $order_values );
-			if ( $transaction_entry ) {
-        		$transaction_id = cp_add_transaction_entry( $transaction_entry );
-			}
-		}
-
-		// display iDEAL form
-		$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
-
-		$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
-
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		// Handle gateway
+		$gateway = self::get_gateway();
 
 		if ( $gateway ) {
+			$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
+
 			if ( $gateway->is_html_form() ) {
 				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
