@@ -205,7 +205,8 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 				$url = add_query_arg(
 					array(
 						'oid' => $this->order_values['txn_id'],
-						'uid' => $this->order_values['user_id']
+						// In some ClassiPress installation the 'wp_cp_order_info' table doesn't have an 'user_id' column
+						'uid' => isset( $this->order_values['user_id'] ) ? $this->order_values['user_id'] : false
 					),
 					CP_MEMBERSHIP_PURCHASE_CONFIRM_URL
 				);
