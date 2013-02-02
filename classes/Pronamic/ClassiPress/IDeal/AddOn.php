@@ -193,7 +193,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 				echo '<style type="text/css">.thankyou center { display: none; }</style>';
 
 				?>
-				<form method="post" action="">
+				<form class="form_step" method="post" action="">
 					<?php 
 
 					echo Pronamic_IDeal_IDeal::htmlHiddenFields( $order_values );
@@ -202,7 +202,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 					
 					?>
 
-					<p>
+					<p class="btn1">
 						<?php
 
 						printf(
@@ -230,40 +230,45 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			$id = $payment->getSourceId();
 
 			$order = Pronamic_ClassiPress_ClassiPress::get_order_by_id( $id );
-			$data  = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 
-			$url = $data->getNormalReturnUrl();
+			if ( ! Pronamic_ClassiPress_Order::is_completed( $order ) ) {
+				$data  = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
+	
+				$url = $data->getNormalReturnUrl();
+	
+				switch ( $payment->status ) {
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+							
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+							
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+							
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+						Pronamic_ClassiPress_ClassiPress::process_ad_order( $id );
 
-			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-						
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-						
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-						
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-					Pronamic_ClassiPress_ClassiPress::update_payment_status_by_txn_id( $id, Pronamic_ClassiPress_PaymentStatuses::COMPLETED );
-					Pronamic_ClassiPress_ClassiPress::process_ad_order( $id );
-					Pronamic_ClassiPress_ClassiPress::process_membership_order( $order );
-		            	
-	            	$url = $data->getSuccessUrl();
+						Pronamic_ClassiPress_ClassiPress::process_membership_order( $order );
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-						
-					break;
-				default:
-						
-					break;
-			}
-
-			if ( $can_redirect ) {
-				wp_redirect( $url, 303 );
-
-				exit;
+						Pronamic_ClassiPress_ClassiPress::update_payment_status_by_txn_id( $id, Pronamic_ClassiPress_PaymentStatuses::COMPLETED );
+			            	
+		            	$url = $data->getSuccessUrl();
+	
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+							
+						break;
+					default:
+							
+						break;
+				}
+	
+				if ( $can_redirect ) {
+					wp_redirect( $url, 303 );
+	
+					exit;
+				}
 			}
 		}
 	}
