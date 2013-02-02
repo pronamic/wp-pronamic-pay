@@ -15,6 +15,7 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * @return string
 	 */	
 	public static function get_version() {
+		// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6eace2a6801625a9d38c5490f4540a/functions.php?at=3.2.1#cl-15
 		global $app_version;
 
 		return $app_version;
