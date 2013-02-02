@@ -89,21 +89,41 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * 
 	 * @param array
 	 */
-	public static function process_membership_order( $order ) {
+	public static function process_membership_order( $order_info ) {
 		$file = get_template_directory() . '/includes/forms/step-functions.php';
 		
 		if ( is_readable( $file ) ) {
 			include_once $file;
-		}
 
-		$user_id = $order['user_id'];
+			/*
+			 * Abracadabra 
+			 */
+			$txn_id = $order_info['txn_id'];
 
-		if ( $user_id ) {
+			/*
+			 * First we retrieve user orders by the transaction id
+			 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2488
+			 */
+			$orders = get_user_orders( '', $txn_id );
+			$order  = get_option( $orders );
+
+			/*
+			 * Get the user ID from the orders
+			 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2476
+			 */
+			$user_id = get_order_userid( $orders );
+
+			/*
+			 * Get user data
+			 * @see http://codex.wordpress.org/Function_Reference/get_userdata
+			 */
 			$userdata = get_userdata( $user_id );
-
+	
+			// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/forms/step-functions.php?at=3.2.1#cl-895
 			$order_processed = appthemes_process_membership_order( $userdata, $order );
-
+	
 			if ( $order_processed ) {
+				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-emails.php?at=3.2.1#cl-563
 				cp_owner_activated_membership_email( $userdata, $order_processed );
 			}
 		}
