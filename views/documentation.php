@@ -81,6 +81,18 @@
 				)
 			)
 		),
+		'cardgate.com' => array(
+			'name'      => 'Card Gate Plus',
+			'url'       => 'http://cardgate.com/', 
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Merchant_Integratie_Gids_2.3_NL.pdf',
+					'name'    => 'Technische aansluit documentatie',
+					'version' => '2.23',
+					'date'    => new DateTime( '19-08-2011' )
+				)
+			)
+		),
 		'currence.nl' => array(
 			'name'      => 'Currence',
 			'url'       => 'http://currence.nl/', 
@@ -148,6 +160,10 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/FRIESLAND_BANK_iDEAL_Manual_dotnet.pdf',
 					'name'    => 'iDEAL Shop Integration Guide – ASP .Net (C#) Merchant Plug-in',
 					'version' => '1.0'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/friesland-bank-ideal-dashboard-08-10.pdf',
+					'name'    => 'iDEAL Dashboard'
 				)
 			)
 		),
@@ -259,6 +275,18 @@
 				)
 			)
 		),
+		'paygate.co.za' => array(
+			'name' => 'PayGate' ,
+			'url' => 'http://paygate.co.za/' ,
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/PayGate-PayWebv2-v1.15.pdf',
+					'name'    => 'PayGate - PayWeb',
+					'date'    => new DateTime( '01-02-2012' ),
+					'version' => '1.0'
+				)
+			)
+		),
 		'rabobank.nl' => array(
 			'name'      => 'Rabobank',
 			'url'       => 'http://rabobank.nl/', 
@@ -367,8 +395,18 @@
 			'url'       => 'http://sisow.nl/', 
 			'resources' => array(
 				array(
-					'url'  => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf',
-					'name' => 'Sisow - Pronamic iDEAL'
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf',
+					'name'    => 'Sisow - Pronamic iDEAL'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-rest-api-v3.2.1.pdf',
+					'name'    => 'Sisow - REST API',
+					'version' => '3.2.1',
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-webservice-api-v2.0.pdf',
+					'name'    => 'Sisow - WebService API',
+					'version' => '2.0',
 				)
 			)
 		)
