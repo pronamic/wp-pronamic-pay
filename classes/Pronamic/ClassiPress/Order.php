@@ -12,11 +12,11 @@ class Pronamic_ClassiPress_Order {
 	/**
 	 * Check if the order info is about an advertisement
 	 * 
-	 * @param array $order_info
+	 * @param array $order
 	 * @return boolean
 	 */	
-	public static function is_advertisement( array $order_info ) {
-		return isset( $order_info['ad_id'] ) && ! empty( $order_info['ad_id'] );
+	public static function is_advertisement( array $order ) {
+		return isset( $order['ad_id'] ) && ! empty( $order['ad_id'] );
 	}
 
 	//////////////////////////////////////////////////
@@ -24,10 +24,10 @@ class Pronamic_ClassiPress_Order {
 	/**
 	 * Check if the order info is about an package
 	 *
-	 * @param array $order_info
+	 * @param array $order
 	 * @return boolean
 	 */
-	public static function is_package( array $order_info ) {
-		return ! self::is_advertisement( $order_info );
+	public static function is_package( array $order ) {
+		return ! self::is_advertisement( $order );
 	}
 }
