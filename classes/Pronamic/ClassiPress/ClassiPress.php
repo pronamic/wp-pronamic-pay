@@ -26,29 +26,6 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * Get order by id
 	 * 
 	 * @param string $id
-	 */
-	public static function get_order_by_id_backup( $order_id ) {
-		$order = null;
-
-		$orders = get_user_orders( '', $order_id );
-
-		if ( ! empty( $orders ) ) {
-			$order = get_option( $orders );
-			
-			if ( ! empty( $order ) ) {
-				$order = cp_get_order_vals( $order );
-			}
-		}
-
-		return $order;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get order by id
-	 * 
-	 * @param string $id
 	 * @return mixed order array or null
 	 */
 	public static function get_order_by_id( $order_id ) {
