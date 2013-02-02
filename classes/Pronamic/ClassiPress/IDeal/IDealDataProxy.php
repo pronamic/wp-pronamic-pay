@@ -178,7 +178,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		} else {
 			/*
 			 * We query the order info sometimes directly from the database,
-			 * if we do this the 'notify_url' isn't directly available
+			 * if we do this the 'return_url' isn't directly available
 			 * 
 			 * ClassiPress has order information about adding an advertisement,
 			 * but also has order information about advertisement packages.
