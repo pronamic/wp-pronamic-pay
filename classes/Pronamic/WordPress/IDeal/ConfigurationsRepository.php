@@ -102,7 +102,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
      * Get configuration from the specified result object
      * 
      * @param stdClass $result
-     * @return Configuration
+     * @return Pronamic_WordPress_IDeal_Configuration
      */
 	private function getConfigurationFromResult($result) {
 		$configuration = new Pronamic_WordPress_IDeal_Configuration();
@@ -206,6 +206,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
      * Get the iDEAL configurations by the specified query
      * 
      * @param string $query
+     * @return Pronamic_WordPress_IDeal_Configuration
      */
     private static function getConfigurationByQuery($query) {
 		global $wpdb;
@@ -226,6 +227,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
      * Get iDEAL configuration by the specified ID
      * 
      * @param string $id
+     * @return Pronamic_WordPress_IDeal_Configuration
      */
     public static function getConfigurationById($id) {
 		global $wpdb;
