@@ -197,4 +197,29 @@ class Pronamic_ClassiPress_ClassiPress {
 		// now update the expiration date on the ad
 		update_post_meta( $id, 'cp_sys_expire_date', $expire_date );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Update payment status
+	 * 
+	 * @param string $id
+	 * @param string $status
+	 * @return int
+	 */
+	public static function update_payment_status_by_txn_id( $txn_id, $status ) {
+		global $wpdb;
+
+		/*
+		 * The table structure of the 'cp_order_info' table can be found here:
+		 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/admin/install-script.php?at=3.2.1#cl-166
+		 */
+		$result = $wpdb->update(
+			$wpdb->cp_order_info,
+			array( 'payment_status' => $status ),
+			array( 'txn_id'         => $txn_id )
+		);
+		
+		return $result;
+	}
 }
