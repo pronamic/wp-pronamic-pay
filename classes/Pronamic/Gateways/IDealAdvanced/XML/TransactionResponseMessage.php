@@ -34,7 +34,8 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionResponseMessage extends Pro
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
 		$message = parent::parse( $xml, new self() );
-		$message->issuer = Pronamic_Gateways_IDealAdvanced_XML_IssuerParser::parse( $xml->Issuer );
+
+		$message->issuer      = Pronamic_Gateways_IDealAdvanced_XML_IssuerParser::parse( $xml->Issuer );
 		$message->transaction = Pronamic_Gateways_IDealAdvanced_XML_TransactionParser::parse( $xml->Transaction );
 
 		return $message;
