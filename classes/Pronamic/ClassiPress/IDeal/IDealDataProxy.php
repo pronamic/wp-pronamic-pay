@@ -60,7 +60,15 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function getOrderId() {
-		return $this->order_values['oid'];
+		$order_id = null;
+		
+		if ( isset( $this->order_values['oid'] ) ) {
+			$order_id = $this->order_values['oid'];
+		} elseif ( isset( $this->order_values['txn_id'] ) ) {
+			$order_id = $this->order_values['txn_id'];
+		}
+
+		return $order_id;
 	}
 
 	/**
@@ -75,10 +83,17 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
+		$amount = 0;
+		if ( isset( $this->order_values['mc_gross'] ) ) {
+			$amount = $this->order_values['mc_gross'];
+		} elseif ( isset( $this->order_values['item_amount'] ) ) {
+			$amount = $this->order_values['item_amount'];
+		}
+		
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( $this->order_values['item_number'] );
 		$item->setDescription( $this->order_values['item_name'] );
-		$item->setPrice( $this->order_values['item_amount'] );
+		$item->setPrice( $amount );
 		$item->setQuantity( 1 );
 
 		$items->addItem( $item );
@@ -145,8 +160,8 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2380
 				$url = add_query_arg(
 					array(
-						'invoice' => $order_vals['txn_id'],
-						'aid'     => $order_vals['ad_id']
+						'invoice' => $this->order_values['txn_id'],
+						'aid'     => $this->order_values['ad_id']
 					),
 					site_url( '/' )
 				);
@@ -155,8 +170,8 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 				// @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6e/includes/theme-functions.php?at=3.2.1#cl-2408
 				$url = add_query_arg(
 					array(
-						'invoice' => $order_vals['txn_id'],
-						'uid'     => $order_vals['user_id']
+						'invoice' => $this->order_values['txn_id'],
+						'uid'     => $this->order_values['user_id']
 					),
 					site_url( '/' )
 				);
@@ -219,11 +234,11 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		return $this->get_return_url();
+		return $this->get_notify_url();
 	}
 	
 	public function getCancelUrl() {
-		return $this->get_return_url();
+		return $this->get_notify_url();
 	}
 	
 	public function getSuccessUrl() {
@@ -231,6 +246,6 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 
 	public function getErrorUrl() {
-		return $this->get_return_url();
+		return $this->get_notify_url();
 	}
 }

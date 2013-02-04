@@ -126,6 +126,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 1.2.4 =
+*	ClassiPress - Improved URL redirect if payment status was not successful
+
 = 1.2.3 =
 *	Event Espresso - Improved support for gateways wich have input fields
 *	ClassiPress - Improved support for gateways wich have input fields
