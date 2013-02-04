@@ -107,21 +107,9 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	//////////////////////////////////////////////////
 
 	private function remote_get( $url ) {
-		$result = false;
-
-		$response = wp_remote_get( $url );
-
-		if ( ! is_wp_error( $response ) ) {
-			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-				$result = wp_remote_retrieve_body( $response );
-			} else {
-				
-			}
-		} else {
-			
-		}
-
-		return $result;
+		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+			'sslverify' => false
+		) );
 	}
 	
 	//////////////////////////////////////////////////
