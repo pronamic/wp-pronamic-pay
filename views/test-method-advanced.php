@@ -1,5 +1,7 @@
 <?php 
 
+global $pronamic_ideal_errors;
+
 $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 
 ?>
@@ -16,13 +18,13 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 	</div>
 
 	<?php 
-	
-	if ( $gateway->has_error() ) {
-		$error = $gateway->get_error();
 
-		include 'error.php';
+	if ( $gateway->has_error() ) {
+		$pronamic_ideal_errors[] = $gateway->get_error();
 	}
-	
+
+	include 'errors.php';
+
 	?>
 
 	<table class="wp-list-table widefat" style="width: auto;" cellspacing="0">

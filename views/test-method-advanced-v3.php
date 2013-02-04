@@ -1,5 +1,7 @@
 <?php 
 
+global $pronamic_ideal_errors;
+
 $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 
 ?>
@@ -10,18 +12,18 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 
 <form method="post" action="" target="_blank">
 	<?php wp_nonce_field( 'test_ideal_advanced_v3', 'pronamic_ideal_nonce' ); ?>
-	
+
 	<div class="tablenav top">
 		<?php echo $gateway->get_input_html(); ?>
 	</div>
 
 	<?php 
-	
-	if ( $gateway->has_error() ) {
-		$error = $gateway->get_error();
 
-		include 'error.php';
+	if ( $gateway->has_error() ) {
+		$pronamic_ideal_errors[] = $gateway->get_error();
 	}
+
+	include 'errors.php';
 	
 	?>
 
@@ -39,9 +41,9 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 				</th>
 			</tr>
 		</thead>
-		
+
 		<?php 
-		
+
 		$test_cases = array(
 			1 => array(
 				'amount' => 1,
@@ -78,12 +80,12 @@ $gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 				<tr>
 					<td>
 						<?php 
-						
+
 						printf( 
 							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ), 
 							Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
 						);
-						
+
 						?>
 					</td>
 					<td>

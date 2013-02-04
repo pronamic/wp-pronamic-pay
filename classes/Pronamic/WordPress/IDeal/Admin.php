@@ -29,6 +29,10 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Admin initialize
 	 */
 	public static function admin_init() {
+		global $pronamic_ideal_errors;
+
+		$pronamic_ideal_errors = array();
+		
 		self::maybe_download_private_certificate();
 		self::maybe_download_private_key();
 	}
@@ -121,6 +125,8 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe test payment
 	 */
 	public static function maybe_test_payment() {
+		global $pronamic_ideal_errors;
+
 		if ( isset( $_POST['test_ideal_advanced_v3'] ) && check_admin_referer( 'test_ideal_advanced_v3', 'pronamic_ideal_nonce' ) ) {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
@@ -134,10 +140,16 @@ class Pronamic_WordPress_IDeal_Admin {
 			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 			
 			$gateway->start( $data );
-			
-			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
-			$gateway->redirect();
+			$error = $gateway->get_error();
+			
+			if ( is_wp_error( $error ) ) {
+				 $pronamic_ideal_errors[] = $error;
+			} else {
+				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+
+				$gateway->redirect();
+			}
 		}
 
 		if ( isset( $_POST['test_ideal_advanced'] ) && check_admin_referer( 'test_ideal_advanced', 'pronamic_ideal_nonce' ) ) {
@@ -151,12 +163,18 @@ class Pronamic_WordPress_IDeal_Admin {
 			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
-			
+
 			$gateway->start( $data );
 
-			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+			$error = $gateway->get_error();
+			
+			if ( is_wp_error( $error ) ) {
+				 $pronamic_ideal_errors[] = $error;
+			} else {
+				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
-			$gateway->redirect();
+				$gateway->redirect();
+			}
     	}
 
 		if ( isset( $_POST['test_ideal_mollie'] ) && check_admin_referer( 'test_ideal_mollie', 'pronamic_ideal_nonce' ) ) {
@@ -172,9 +190,15 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$gateway->start( $data );
 
-			Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+			$error = $gateway->get_error();
+			
+			if ( is_wp_error( $error ) ) {
+				$pronamic_ideal_errors[] = $error;
+			} else {
+				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
 
-			$gateway->redirect();
+				$gateway->redirect();
+			}
     	}
 	}
 

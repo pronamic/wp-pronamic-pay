@@ -117,8 +117,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 		$configargs = array(
 			'private_key_bits'   => 1024,
 			'private_key_type'   => OPENSSL_KEYTYPE_RSA,
-			'encrypt_key'        => false,
-			'encrypt_key_cipher' => OPENSSL_CIPHER_AES_128_CBC
+			'encrypt_key'        => false
+			// 'encrypt_key_cipher' => OPENSSL_CIPHER_AES_128_CBC
 		);
 
 		$privateKeyResource = openssl_pkey_new( $configargs );
