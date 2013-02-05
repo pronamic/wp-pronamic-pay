@@ -125,14 +125,17 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	 * @param string $reporturl
 	 */
 	public function start_transaction( $rtlo, $bank, $description, $amount, $returnurl, $reporturl ) {
-		$url = add_query_arg( array(
-			'rtlo'        => $rtlo,
-			'bank'        => $bank,
-			'description' => $description,
-			'amount'      => $amount,
-			'returnurl'   => $returnurl,
-			'reporturl'   => $reporturl
-		), self::URL_START_TRANSACTION );
+		$url = Pronamic_WordPress_Util::build_url(
+			self::URL_START_TRANSACTION,
+			array(
+				'rtlo'        => $rtlo,
+				'bank'        => $bank,
+				'description' => $description,
+				'amount'      => Pronamic_WordPress_Util::amount_to_cents( $amount ),
+				'returnurl'   => $returnurl,
+				'reporturl'   => $reporturl
+			)
+		);
 
 		$data = self::remote_get( $url );
 		

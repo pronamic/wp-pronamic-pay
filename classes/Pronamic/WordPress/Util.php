@@ -88,4 +88,17 @@ class Pronamic_WordPress_Util {
 	public static function amount_to_cents( $price ) {
 		return round( $price * 100 );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Build URL with the specified parameters
+	 * 
+	 * @param string $url
+	 * @param array $parameters
+	 * @return string
+	 */
+	public static function build_url( $url, array $parameters ) {
+		return $url . '?' . _http_build_query( $parameters, null, '&' );
+	}
 }

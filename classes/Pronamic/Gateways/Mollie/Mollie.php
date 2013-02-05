@@ -116,7 +116,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// WordPress functions uses URL encoding
 		// @see http://codex.wordpress.org/Function_Reference/build_query
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
-		$url = self::API_URL . '?' . _http_build_query( $parameters, null, '&' );
+		$url = Pronamic_WordPress_Util::build_url( self::API_URL, $parameters );
 
 		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
 			'sslverify' => false
