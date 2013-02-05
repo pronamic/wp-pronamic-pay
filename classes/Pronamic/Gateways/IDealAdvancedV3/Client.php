@@ -162,7 +162,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 				if ( is_wp_error( $xml ) ) {
 					$this->error = $xml;
 				} else {
-					$result = self::parse_document( $xml );
+					$document = self::parse_document( $xml );
+					
+					if ( is_wp_error( $document ) ) {
+						$this->error = $document;
+					} else {
+						$result = $document;
+					}
 				}
 			} else {
 				$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
@@ -200,7 +206,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::NAME:
 				return Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::parse( $document );
 			default:
-				return null;
+				return new WP_Error( 'ideal_advanced_v3_error', __( 'Unknwon iDEAL message', 'pronamic_ideal' ) );
 		}
 	}
 
