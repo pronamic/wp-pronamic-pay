@@ -12,8 +12,8 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 
 <form method="post" action="" target="_blank">
 	<?php wp_nonce_field( 'test_ideal_advanced', 'pronamic_ideal_nonce' ); ?>
-	
-	<div class="tablenav top">
+
+	<div style="margin: 6px 0 4px;">
 		<?php echo $gateway->get_input_html(); ?>
 	</div>
 

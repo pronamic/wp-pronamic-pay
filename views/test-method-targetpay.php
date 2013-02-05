@@ -10,8 +10,20 @@ $gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 
 <form method="post" action="" target="_blank">
 	<?php wp_nonce_field( 'test_ideal_targetpay', 'pronamic_ideal_nonce' ); ?>
-	
-	<?php echo $gateway->get_input_html(); ?>
+
+	<div style="margin: 6px 0 4px;">
+		<?php echo $gateway->get_input_html(); ?>
+	</div>
+
+	<?php 
+
+	if ( $gateway->has_error() ) {
+		$pronamic_ideal_errors[] = $gateway->get_error();
+	}
+
+	include 'errors.php';
+
+	?>
 
 	<p>
 		<label for="test_amount">&euro;</label>
