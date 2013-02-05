@@ -28,7 +28,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
-		$this->set_amount_minimum( 0.01 );
+		$this->set_amount_minimum( 0.84 );
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_TargetPay_TargetPay();
