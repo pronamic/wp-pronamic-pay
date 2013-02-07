@@ -116,33 +116,33 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
 					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::OPEN;
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
 					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED;
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
 					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED;
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
-					
+
 					break;
 			}
 		}
