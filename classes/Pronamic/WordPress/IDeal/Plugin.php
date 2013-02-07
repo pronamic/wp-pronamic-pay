@@ -94,7 +94,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return',  array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
 		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
-		add_action( 'pronamic_ideal_mollie_return_payment', array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
+		add_action( 'pronamic_ideal_mollie_return',         array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
 		add_action( 'pronamic_ideal_targetpay_return',      array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
