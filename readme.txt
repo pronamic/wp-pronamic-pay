@@ -126,6 +126,11 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= trunk =
+*	iDEAL Advanced - Improved handling of parsing response messages
+*	TargetPay - Improved handling of payment status return information
+*	TargetPay - No longer verify SSL
+
 = 1.2.4 =
 *	ClassiPress - Improved URL redirect if payment status was not successful
 
