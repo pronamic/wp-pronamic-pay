@@ -81,8 +81,8 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_issuer_id(),
 			$data->getDescription(),
 			$data->getAmount(),
-			site_url( '/' ),
-			site_url( '/' )
+			add_query_arg( 'gateway', 'targetpay', site_url( '/' ) ),
+			add_query_arg( 'gateway', 'targetpay', site_url( '/' ) )
 		);
 		
 		if ( $result ) {
@@ -90,6 +90,61 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_transaction_id( $result->transaction_id );
 		} else {
 			$this->set_error( $this->client->get_error() );
+		}
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Update status of the specified payment
+	 * 
+	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 */
+	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+		$result = $this->client->check_status(
+			$this->configuration->targetPayLayoutCode,
+			$payment->transaction_id,
+			false,
+			$this->configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST
+		);
+
+		if ( $result ) {
+			switch ( $result->status ) {
+				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
+					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
+
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
+					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::OPEN;
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
+					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED;
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
+					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED;
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
+					
+					break;
+				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
+					
+					break;
+			}
 		}
 	}
 }

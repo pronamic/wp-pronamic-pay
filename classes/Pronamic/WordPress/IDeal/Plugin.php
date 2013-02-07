@@ -88,12 +88,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_internetkassa_return_raw', array( 'Pronamic_Gateways_IDealInternetKassa_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_mollie_return_raw',        array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
 		add_action( 'pronamic_ideal_omnikassa_return_raw',     array( 'Pronamic_Gateways_OmniKassa_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_targetpay_return_raw',     array( 'Pronamic_Gateways_TargetPay_ReturnHandler', 'returns' ), 10, 2 );
 
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return',  array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
 		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
 		add_action( 'pronamic_ideal_mollie_return_payment', array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
+		add_action( 'pronamic_ideal_targetpay_return',      array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -177,6 +179,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
 		Pronamic_Gateways_Mollie_ReturnHandler::listen();
 		Pronamic_Gateways_OmniKassa_ReturnHandler::listen();
+		Pronamic_Gateways_TargetPay_ReturnHandler::listen();
 	}
 
 	/**
@@ -295,6 +298,26 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$configuration = $payment->configuration;
 
 		$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
+
+		$gateway->update_status( $payment );
+		
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
+		
+		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+	}
+
+	/**
+	 * Update TargetPay payment status
+	 * 
+	 * @param array $result
+	 * @param boolean $canRedirect
+	 */
+	public static function update_targetpay_payment_status( $payment, $can_redirect = false ) {
+		$transaction_id = $payment->transaction_id;
+
+		$configuration = $payment->configuration;
+
+		$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 
 		$gateway->update_status( $payment );
 		

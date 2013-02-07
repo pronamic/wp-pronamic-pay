@@ -19,7 +19,7 @@ class Pronamic_WordPress_Util {
 		$return = false;
 
 		$result = wp_remote_get( $url, $args );
-	
+
 		if ( is_wp_error( $result ) ) {
 			$return = $result;
 		} else {

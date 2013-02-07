@@ -172,23 +172,32 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	 * @param string $test
 	 */
 	public function check_status( $rtlo, $transaction_id, $once, $test ) {
-		$url = add_query_arg( array(
-			'rtlo'  => $rtlo,
-			'trxid' => $rtlo,
-			'once'  => $once ? '1' : '0',
-			'test'  => $test ? '1' : '0'
-		), self::URL_CHECK_TRANSACTION );
+		$result = null;
 
-		$ata = self::remote_get( $url );
+		$url = Pronamic_WordPress_Util::build_url(
+			self::URL_CHECK_TRANSACTION,
+			array(
+				'rtlo'  => $rtlo,
+				'trxid' => $transaction_id,
+				'once'  => $once ? '1' : '0',
+				'test'  => $test ? '1' : '0'
+			)
+		);
+
+		$data = self::remote_get( $url );
 
 		if ( $data !== false ) {
 			$postion_space = strpos( $data, ' ' );
-	
+
 			if ( $position_space !== false ) {
-				$status      = substr( $data, 0, $postion_space );
-				$description = substr( $data, $postion_space + 1 );
+				$result = new stdClass();
+
+				$result->status      = substr( $data, 0, $postion_space );
+				$result->description = substr( $data, $postion_space + 1 );
 			}
 		}
+		
+		return $result;
 	}
 	
 	//////////////////////////////////////////////////
