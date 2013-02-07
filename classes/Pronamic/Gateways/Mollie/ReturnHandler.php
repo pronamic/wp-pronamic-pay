@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_Mollie_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_Mollie_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
 		if ( isset( $_GET['transaction_id'] ) ) {
 			$transaction_id = filter_input( INPUT_GET, 'transaction_id', FILTER_SANITIZE_STRING );

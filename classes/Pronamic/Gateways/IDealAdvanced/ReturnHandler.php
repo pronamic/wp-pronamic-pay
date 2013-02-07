@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_IDealAdvanced_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_IDealAdvanced_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
 		if ( isset( $_GET['gateway'], $_GET['trxid'], $_GET['ec'] ) ) {
 			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
