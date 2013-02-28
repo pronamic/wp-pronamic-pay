@@ -42,9 +42,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->configuration_id = $this->settings['configuration_id'];
 		
 		// Actions
-		add_action( 'woocommerce_update_options_payment_gateways', array( $this, 'process_admin_options' ) );
+		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
-		add_action( 'woocommerce_receipt_' . self::ID, array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
     } 
 
 	/**
