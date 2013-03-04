@@ -64,7 +64,15 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 			$order = new WC_Order( (int) $id );
 
-			if ( $order->status !== Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED ) {	
+			$should_update = ! in_array(
+				$order->status,
+				array(
+					Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PENDING,
+					Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED
+				)
+			);
+
+			if ( $should_update ) {	
 				$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
 
 				$url = $data->getNormalReturnUrl();
