@@ -498,10 +498,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string
 	 */
 	public function getData() {
-		$expirationDate = $this->getExpirationDate();
+		$expiration_date = $this->getExpirationDate();
 
 		// Payment Request - required fields
-		$requiredFields = array( 
+		$required_fields = array( 
 			'currencyCode'         => $this->getCurrencyNumericCode(),
 			'merchantId'           => $this->getMerchantId(),
 			'normalReturnUrl'      => $this->getNormalReturnUrl(),
@@ -511,7 +511,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		);
 		
 		// Payment request - optional fields
-		$optionalFields = array(
+		$optional_fields = array(
 			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
 			// 'customerLanguage'  => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
@@ -520,10 +520,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		);
 
 		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
-		$optionalFields = array_filter( $optionalFields );
+		$optional_fields = array_filter( $optional_fields );
 
 		// Data
-		$data = $requiredFields + $optionalFields;
+		$data = $required_fields + $optional_fields;
 
 		return self::createPipedString( $data );
 	}
