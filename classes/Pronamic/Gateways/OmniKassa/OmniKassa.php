@@ -600,9 +600,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param array $data
 	 * @return string
 	 */
-	public static function createPipedString(array $data) {
+	public static function createPipedString( array $data ) {
 		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
-		return _http_build_query($data, null, '|', '', false);
+		return _http_build_query( $data, null, '|', '', false );
 	}
 
 	/**
