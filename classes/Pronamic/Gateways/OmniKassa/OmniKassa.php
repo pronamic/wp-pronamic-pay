@@ -601,20 +601,6 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string
 	 */
 	public static function createPipedString(array $data) {
-		/*
-		$pairs = array();
-
-		foreach($data as $key => $value) {
-			if(!empty($value)) {
-				$pairs[] = $key . '=' . $value;
-			}
-		}
-
-		$pipedString = implode('|', $pairs);
-
-		return $pipedString;
-		*/
-
 		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
 		return _http_build_query($data, null, '|', '', false);
 	}
