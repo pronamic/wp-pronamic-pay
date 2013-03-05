@@ -3,14 +3,18 @@
 class Pronamic_S2Member_IDeal_AddOn {
 
 
-    public function bootstrap() {
-        // Bridge Classes
+    public static function bootstrap() {
+        add_action( 'ws_plugin__s2member_loaded', array( __CLASS__, 'load' ) );
+    }
+
+	public static function load() {
+		// Bridge Classes
 		new Pronamic_S2Member_Bridge_Order();
         new Pronamic_S2Member_Bridge_Settings();
 		new Pronamic_S2Member_Bridge_Shortcodes();
 
 		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'status_update' ) );
-    }
+	}
 
 	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == 's2member' ) {
