@@ -94,7 +94,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string
 	 */
-	private $interfaceVersion;
+	private $interface_version;
 
 	//////////////////////////////////////////////////
 
@@ -198,7 +198,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function __construct() {
 		$this->paymentMeanBrandList = array();
 
-		$this->setInterfaceVersion( self::INTERFACE_VERSION_HP_1_0 );
+		$this->set_interface_version( self::INTERFACE_VERSION_HP_1_0 );
 	}
 
 	//////////////////////////////////////////////////
@@ -228,17 +228,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getInterfaceVersion() {
-		return $this->interfaceVersion;
+	public function get_interface_version() {
+		return $this->interface_version;
 	}
 
 	/**
 	 * Set interface version
 	 * 
-	 * @param string $interfaceVersion
+	 * @param string $interface_version
 	 */
-	public function setInterfaceVersion( $interfaceVersion ) {
-		$this->interfaceVersion = $interfaceVersion;
+	public function set_interface_version( $interface_version ) {
+		$this->interface_version = $interface_version;
 	}
 
 	//////////////////////////////////////////////////
@@ -585,7 +585,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			'Data'             => $this->getData(),
-			'InterfaceVersion' => $this->getInterfaceVersion(),
+			'InterfaceVersion' => $this->get_interface_version(),
 			'Seal'             => $this->getSeal()
 		) );
 		
