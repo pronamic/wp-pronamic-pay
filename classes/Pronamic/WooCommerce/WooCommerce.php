@@ -64,4 +64,23 @@ class Pronamic_WooCommerce_WooCommerce {
 	 * @var string
 	 */
 	const ORDER_STATUS_CANCELLED = 'cancelled';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Version compare
+	 * 
+	 * @param string $version
+	 * @param string $operator
+	 */
+	public static function version_compare( $version, $operator ) {
+		$result = true;
+
+		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce.php#L140
+		if ( defined( 'WOOCOMMERCE_VERSION' ) ) {
+			$result = version_compare( WOOCOMMERCE_VERSION, $version, $operator );
+		}
+
+		return $result;
+	}
 }
