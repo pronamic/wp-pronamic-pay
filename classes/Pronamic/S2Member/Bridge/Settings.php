@@ -32,8 +32,8 @@ class Pronamic_S2Member_Bridge_Settings {
 
 		add_submenu_page(
             $parent_slug,
-            __( 'Pronamic iDEAL Button Generator', 'pronamic_ideal' ),
-            __( 'iDEAL Button Generator', 'pronamic_ideal' ),
+            __( 'Pronamic iDEAL Buttons Generator', 'pronamic_ideal' ),
+            __( 'iDEAL Buttons', 'pronamic_ideal' ),
             "create_users",
             'pronamic-ideal-s2member-buttongen',
             array( $this, 'view_buttongen_page' )
