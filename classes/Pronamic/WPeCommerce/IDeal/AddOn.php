@@ -25,7 +25,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		// Add gateway to gateways
 		add_filter( 'wpsc_merchants_modules',                     array( __CLASS__, 'merchants_modules' ) );
 		
-		// Update payment status when returned from iDeal
+		// Update payment status when returned from iDEAL
 		add_action( 'pronamic_ideal_status_update',               array( __CLASS__, 'status_update' ), 10, 2 );
 		
 		// Source Column

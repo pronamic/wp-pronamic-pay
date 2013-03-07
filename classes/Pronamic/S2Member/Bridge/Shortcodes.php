@@ -42,7 +42,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			'period' => null,
 			'cost' => null,
 			'level' => null,
-			'description' => __( 'iDeal S2 Member Payment', 'pronamic_ideal' )
+			'description' => __( 'iDEAL s2Member Payment', 'pronamic_ideal' )
 		);
 
 		// Combine the passed options
@@ -68,7 +68,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				<input type="hidden" name="options[period]" value="<?php echo $options['period']; ?>" />
 				<input type="hidden" name="options[cost]" value="<?php echo $options['cost']; ?>"/>
 				<input type="hidden" name="options[level]" value="<?php echo $options['level']; ?>"/>
-				<input type="submit" value="<?php _e( 'Pay with iDeal', 'pronamic_ideal'); ?>" />
+				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal'); ?>" />
 			</form>
 			<?php
 

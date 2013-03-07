@@ -17,8 +17,8 @@ class Pronamic_S2Member_Bridge_Settings {
 
         add_submenu_page(
             $parent_slug,
-            __( 'Pronamic iDeal Options', 'pronamic_ideal' ),
-            __( 'iDeal Options', 'pronamic_ideal' ),
+            __( 'Pronamic iDEAL Options', 'pronamic_ideal' ),
+            __( 'iDEAL Options', 'pronamic_ideal' ),
             "create_users",
             'pronamic-ideal-s2member-options',
             array( $this, 'view_options_page' )
@@ -26,8 +26,8 @@ class Pronamic_S2Member_Bridge_Settings {
 
 		add_submenu_page(
             $parent_slug,
-            __( 'Pronamic iDeal Button Generator', 'pronamic_ideal' ),
-            __( 'iDeal Button Generator', 'pronamic_ideal' ),
+            __( 'Pronamic iDEAL Button Generator', 'pronamic_ideal' ),
+            __( 'iDEAL Button Generator', 'pronamic_ideal' ),
             "create_users",
             'pronamic-ideal-s2member-buttongen',
             array( $this, 'view_buttongen_page' )
@@ -146,7 +146,7 @@ class Pronamic_S2Member_Bridge_Settings {
 				<table class="form-table">
 					<tbody>
 						<tr>
-							<th>iDeal Button Code Generator</th>
+							<th>iDEAL Button Code Generator</th>
 							<td>
 								<p>
 									I want to charge:
