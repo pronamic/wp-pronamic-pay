@@ -58,7 +58,8 @@ class Pronamic_S2Member_IDeal_AddOn {
 						if ( empty( $registration_times ) ) $registration_times = array();
 						$registration_times['level' . $ordered_level] = time();
 
-						update_user_option( $user_id, "capabilities", array( "s2member_level{$ordered_level}" => 1 ) );
+						$user = new WP_User( $user_id );
+						$user->add_cap( "s2member_level{$ordered_level}" );
 
 						update_user_option( $user_id, 's2member_paid_registration_times', $registration_times );
 
