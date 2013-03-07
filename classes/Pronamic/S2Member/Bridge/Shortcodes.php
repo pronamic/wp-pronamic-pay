@@ -10,7 +10,6 @@
  * @version 1.0
  */
 class Pronamic_S2Member_Bridge_Shortcodes {
-
 	public static $html;
 
 	public function __construct() {
@@ -153,6 +152,4 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	public function clear_page( $the_content ) {
 		return self::$html;
 	}
-
-
 }

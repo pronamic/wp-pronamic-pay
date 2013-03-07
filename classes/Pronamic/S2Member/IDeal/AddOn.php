@@ -78,9 +78,6 @@ class Pronamic_S2Member_IDeal_AddOn {
 
 				}
 			}
-
-
-
 		}
 	}
 }

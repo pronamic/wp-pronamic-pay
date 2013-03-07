@@ -1,12 +1,18 @@
 <?php
 
+/**
+ * Title: s2Member bridge settings
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Leon Rowland
+ * @since 1.2.6
+ */
 class Pronamic_S2Member_Bridge_Settings {
-
     public function __construct() {
+    	add_action( 'init',       array( $this, 'save_options_page' ) );
 
         add_action( 'admin_menu', array( $this, 'menu' ) );
-        add_action( 'init', array( $this, 'save_options_page' ) );
-
     }
 
     public function menu() {
@@ -35,7 +41,6 @@ class Pronamic_S2Member_Bridge_Settings {
     }
 
     public function view_options_page() {
-
         // Generate nonce field
         $nonce = wp_nonce_field( 'pronamic-ideal-s2member-options', 'pronamic-ideal-s2member-options-nonce', true, false );
 
@@ -188,7 +193,6 @@ class Pronamic_S2Member_Bridge_Settings {
 
             </div>
         </div>
-
 
 		<?php
 	}

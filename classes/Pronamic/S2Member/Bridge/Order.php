@@ -1,12 +1,18 @@
 <?php
 
+/**
+ * Title: s2Member bridge order
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Leon Rowland
+ * @since 1.2.6
+ */
 class Pronamic_S2Member_Bridge_Order {
-
 	public static $periods = array();
 
 	public function __construct() {
 		$label = __( 'One Time ( for %s access, non-recurring )', 'pronamic_ideal' );
-		$labeL_day = 
 
 		// Periods
 		$periods = array(
@@ -29,7 +35,6 @@ class Pronamic_S2Member_Bridge_Order {
 		);
 
 		self::$periods = apply_filters( 'pronamic_ideal_s2member_default_periods', $periods );
-
 	}
 
 	public function update_order( $order_data, $user_id ) {
@@ -49,7 +54,6 @@ class Pronamic_S2Member_Bridge_Order {
 
 		// Find the user option meta id and use that as an order id.  return it!
 		return $this->find_user_option_uid( $user_id, 'pronamic_ideal_s2member_order' );
-
 	}
 
 	public function remove_order( $user_id ) {
@@ -80,7 +84,5 @@ class Pronamic_S2Member_Bridge_Order {
 			return false;
 
 		return $meta->user_id;
-
 	}
-
 }
