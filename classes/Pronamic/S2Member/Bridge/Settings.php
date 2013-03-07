@@ -83,9 +83,6 @@ class Pronamic_S2Member_Bridge_Settings {
             </form>
 
 		</div>
-
-
-
         <?php
 
     }

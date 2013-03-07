@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 16:09+0100\n"
-"PO-Revision-Date: 2013-03-07 16:11+0100\n"
+"POT-Creation-Date: 2013-03-07 17:02+0100\n"
+"PO-Revision-Date: 2013-03-07 17:02+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1634,8 +1634,31 @@ msgstr "Uitgeschakeld"
 msgid "Search Lead"
 msgstr "Zoek inzending"
 
-#~ msgid "iDEAL Button Generator"
-#~ msgstr "iDEAL-button generator"
+#: views/s2member/buttons-generator.php:44
+msgid "iDEAL Buttons Code Generator"
+msgstr "iDEAL-buttons code generator"
+
+#: views/s2member/buttons-generator.php:58
+#, php-format
+msgid "I want to charge: %s / %s"
+msgstr "Ik wil %s in rekening brengen voor %s"
+
+#: views/s2member/buttons-generator.php:72
+#, php-format
+msgid "for access to level %s content"
+msgstr "voor toegang tot %s niveau content"
+
+#: views/s2member/buttons-generator.php:77
+msgid "Description:"
+msgstr "Beschrijving:"
+
+#: views/s2member/buttons-generator.php:81
+msgid "Generate Shortcode"
+msgstr "Genereer shortcode"
+
+#: views/s2member/buttons-generator.php:86
+msgid "Button Shortcode"
+msgstr "Button shortcode"
 
 #~ msgid "One Time ( for 2 day access, non-recurring )"
 #~ msgstr "Eenmalig ( voor 2 dagen toegang, niet terugkerende )"

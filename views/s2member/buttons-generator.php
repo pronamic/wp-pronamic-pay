@@ -34,7 +34,6 @@
 
 					output.val(shortcode);
 				});
-
 			});
 		</script>
 
@@ -44,23 +43,34 @@
 					<th><?php _e( 'iDEAL Buttons Code Generator', 'pronamic_ideal' ); ?></th>
 					<td>
 						<p>
-							I want to charge:
-							<input type='text' autocomplete='off' size='6' class='jPronamicIdealCost'/>
-							/
-							<select class='jPronamicIdealPeriodShortcode'>
-								<?php foreach ( Pronamic_S2Member_Bridge_Order::$periods as $key => $period ) : ?>
-								<option value="<?php echo $key; ?>"><?php echo $period; ?></option>
-								<?php endforeach; ?>
-							</select>
+							<?php 
+							
+							$input = '<input type="text" autocomplete="off" size="6" class="jPronamicIdealCost" />';
+
+							$select  = '';
+							$select .= '<select class="jPronamicIdealPeriodShortcode">';
+							foreach ( Pronamic_S2Member_Bridge_Order::$periods as $key => $period ) {
+								$select .= sprintf( '<option value="%s">%s</option>', $key, $period );
+							}
+							$select .= '</select>';
+
+							printf( __( 'I want to charge: %s / %s', 'pronamic_ideal' ), $input, $select );
+							
+							?>
 						</p>
 						<p>
-							for access to level
-							<select class='jPronamicIdealLevelShortcode'>
-								<?php for( $level = 1; $level <= 4; $level++ ) : ?>
-								<option value='<?php echo $level; ?>'><?php echo $level; ?></option>
-								<?php endfor; ?>
-							</select>
-							content
+							<?php 
+							
+							$select  = '';
+							$select .= '<select class="jPronamicIdealLevelShortcode">';
+							for ( $level = 1; $level <= 4; $level++ ) {
+								$select .= sprintf( '<option value="%s">%s</option>', $level, $level );
+							}
+							$select .= '</select>';
+							
+							printf( __( 'for access to level %s content', 'pronamic_ideal' ), $select );
+							
+							?>
 						</p>
 						<p>
 							<?php _e( 'Description:', 'pronamic_ideal' ); ?>
