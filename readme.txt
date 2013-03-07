@@ -126,6 +126,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 1.2.6 =
+*	s2Member - Added support for the s2Member plugin
+
 = 1.2.5 =
 *	iDEAL Advanced - Improved handling of parsing response messages
 *	TargetPay - Improved handling of payment status return information
