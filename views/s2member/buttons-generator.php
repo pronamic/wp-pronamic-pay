@@ -41,7 +41,7 @@
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th>iDEAL Button Code Generator</th>
+					<th><?php _e( 'iDEAL Buttons Code Generator', 'pronamic_ideal' ); ?></th>
 					<td>
 						<p>
 							I want to charge:
@@ -63,16 +63,16 @@
 							content
 						</p>
 						<p>
-							Description:
+							<?php _e( 'Description:', 'pronamic_ideal' ); ?>
 							<input type='text' size='70' class='jPronamicIdealDescriptionShortcode'/>
 						</p>
 						<p>
-							<a class="button-primary jPronamicIdealGenerateShortcode">Generate shortcode</a>
+							<a class="button-primary jPronamicIdealGenerateShortcode"><?php _e( 'Generate Shortcode', 'pronamic_ideal' ); ?></a>
 						</p>
 					</td>
 				</tr>
 				<tr>
-					<th>Button Shortcode</th>
+					<th><?php _e( 'Button Shortcode', 'pronamic_ideal' ); ?></th>
 					<td>
 						<textarea class='jPronamicIdealButtonShortcodeOutput' style='width:100%;min-height:30px;'></textarea>
 					</td>
