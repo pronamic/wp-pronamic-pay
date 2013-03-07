@@ -1,7 +1,14 @@
 <?php
 
+/**
+ * Title: s2Member iDEAL data proxy
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Leon Rowland
+ * @since 1.2.6
+ */
 class Pronamic_S2Member_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
-
 	public $user;
 
 	public $data = array();
