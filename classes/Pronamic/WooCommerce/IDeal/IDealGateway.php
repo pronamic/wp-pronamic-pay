@@ -42,15 +42,25 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->configuration_id = $this->settings['configuration_id'];
 		
 		// Actions
-		add_action( 'woocommerce_update_options_payment_gateways', array( $this, 'process_admin_options' ) );
+		$update_action = 'woocommerce_update_options_payment_gateways_' . $this->id;
+		if ( Pronamic_WooCommerce_WooCommerce::version_compare( '2.0.0', '<' ) ) {
+			$update_action = 'woocommerce_update_options_payment_gateways';
+		}
 
-		add_action( 'woocommerce_receipt_' . self::ID, array( $this, 'receipt_page' ) );
+		add_action( $update_action, array( $this, 'process_admin_options' ) );
+
+		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
     } 
 
 	/**
      * Initialise form fields
      */
     function init_form_fields() {    
+		$description_prefix = '';
+		if ( Pronamic_WooCommerce_WooCommerce::version_compare( '2.0.0', '<' ) ) {
+			$description_prefix = '<br />';
+		}
+
     	$this->form_fields = array(
     		'enabled'          => array(
 				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ) , 
@@ -61,19 +71,19 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			'title'            => array(
 				'title'       => __( 'Title', 'pronamic_ideal' ) , 
 				'type'        => 'text' , 
-				'description' => '<br />' . __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ) , 
+				'description' => $description_prefix . __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ) , 
 				'default'     => __( 'iDEAL', 'pronamic_ideal' ) 
 			) , 
 			'description'      => array(
 				'title'       => __( 'Description', 'pronamic_ideal' ) , 
 				'type'        => 'textarea' , 
-				'description' => '' . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ) , 
+				'description' => $description_prefix . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ) , 
 				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' )
 			) , 
 			'configuration_id' => array(
 				'title'       => __( 'Configuration', 'pronamic_ideal' ) , 
 				'type'        => 'select' , 
-				'description' => '<br />' . __( 'Select an iDEAL configuration.', 'pronamic_ideal' ) , 
+				'description' => $description_prefix . __( 'Select an iDEAL configuration.', 'pronamic_ideal' ) , 
 				'default'     => '' , 
 				'options'     => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options() 
 			)

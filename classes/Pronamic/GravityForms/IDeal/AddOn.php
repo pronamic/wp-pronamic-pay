@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.2.4';
+	const VERSION = '1.2.6';
 
 	//////////////////////////////////////////////////
 
@@ -209,9 +209,12 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 							break;
 						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
+							if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
+								// Only fullfill order if the payment isn't approved aloready
+								$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
 
-							self::fulfill_order( $lead );
+								self::fulfill_order( $lead );
+							}
 
 							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 

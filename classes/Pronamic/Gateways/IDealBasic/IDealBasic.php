@@ -651,8 +651,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$serial_number++;
 		}
 
-		$fields['urlCancel']   =  $this->getCancelUrl();
-		$fields['urlSuccess']  =  $this->getSuccessUrl();
+		$fields['urlCancel']   = $this->getCancelUrl();
+		$fields['urlSuccess']  = $this->getSuccessUrl();
 		$fields['urlError']    = $this->getErrorUrl();
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );

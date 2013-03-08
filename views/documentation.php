@@ -81,6 +81,13 @@
 				)
 			)
 		),
+		'adyen.com' => array(
+			'name'      => 'Adyen',
+			'url'       => 'http://adyen.com/', 
+			'resources' => array(
+						
+			)
+		),
 		'cardgate.com' => array(
 			'name'      => 'Card Gate Plus',
 			'url'       => 'http://cardgate.com/', 

@@ -94,7 +94,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string
 	 */
-	private $interfaceVersion;
+	private $interface_version;
 
 	//////////////////////////////////////////////////
 
@@ -198,7 +198,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function __construct() {
 		$this->paymentMeanBrandList = array();
 
-		$this->setInterfaceVersion( self::INTERFACE_VERSION_HP_1_0 );
+		$this->set_interface_version( self::INTERFACE_VERSION_HP_1_0 );
 	}
 
 	//////////////////////////////////////////////////
@@ -228,17 +228,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getInterfaceVersion() {
-		return $this->interfaceVersion;
+	public function get_interface_version() {
+		return $this->interface_version;
 	}
 
 	/**
 	 * Set interface version
 	 * 
-	 * @param string $interfaceVersion
+	 * @param string $interface_version
 	 */
-	public function setInterfaceVersion( $interfaceVersion ) {
-		$this->interfaceVersion = $interfaceVersion;
+	public function set_interface_version( $interface_version ) {
+		$this->interface_version = $interface_version;
 	}
 
 	//////////////////////////////////////////////////
@@ -498,10 +498,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string
 	 */
 	public function getData() {
-		$expirationDate = $this->getExpirationDate();
+		$expiration_date = $this->getExpirationDate();
 
 		// Payment Request - required fields
-		$requiredFields = array( 
+		$required_fields = array( 
 			'currencyCode'         => $this->getCurrencyNumericCode(),
 			'merchantId'           => $this->getMerchantId(),
 			'normalReturnUrl'      => $this->getNormalReturnUrl(),
@@ -511,7 +511,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		);
 		
 		// Payment request - optional fields
-		$optionalFields = array(
+		$optional_fields = array(
 			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
 			// 'customerLanguage'  => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
@@ -520,10 +520,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		);
 
 		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
-		$optionalFields = array_filter( $optionalFields );
+		$optional_fields = array_filter( $optional_fields );
 
 		// Data
-		$data = $requiredFields + $optionalFields;
+		$data = $required_fields + $optional_fields;
 
 		return self::createPipedString( $data );
 	}
@@ -585,7 +585,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			'Data'             => $this->getData(),
-			'InterfaceVersion' => $this->getInterfaceVersion(),
+			'InterfaceVersion' => $this->get_interface_version(),
 			'Seal'             => $this->getSeal()
 		) );
 		
@@ -600,23 +600,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param array $data
 	 * @return string
 	 */
-	public static function createPipedString(array $data) {
-		/*
-		$pairs = array();
-
-		foreach($data as $key => $value) {
-			if(!empty($value)) {
-				$pairs[] = $key . '=' . $value;
-			}
-		}
-
-		$pipedString = implode('|', $pairs);
-
-		return $pipedString;
-		*/
-
+	public static function createPipedString( array $data ) {
 		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
-		return _http_build_query($data, null, '|', '', false);
+		return _http_build_query( $data, null, '|', '', false );
 	}
 
 	/**

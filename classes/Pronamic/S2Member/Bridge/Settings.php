@@ -1,41 +1,46 @@
 <?php
 
+/**
+ * Title: s2Member bridge settings
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Leon Rowland
+ * @since 1.2.6
+ */
 class Pronamic_S2Member_Bridge_Settings {
-
     public function __construct() {
+    	add_action( 'init',       array( $this, 'save_options_page' ) );
 
         add_action( 'admin_menu', array( $this, 'menu' ) );
-        add_action( 'init', array( $this, 'save_options_page' ) );
-
     }
 
     public function menu() {
-        $parent_slug = apply_filters("ws_plugin__s2member_during_add_admin_options_menu_slug", "ws-plugin--s2member-start" );
+        $parent_slug = apply_filters( 'ws_plugin__s2member_during_add_admin_options_menu_slug', 'ws-plugin--s2member-start' );
 
-        if(apply_filters("ws_plugin__s2member_during_add_admin_options_add_divider_6", true, get_defined_vars())) /* Divider. */
-            add_submenu_page($parent_slug, "", '<span style="display:block; margin:1px 0 1px -5px; padding:0; height:1px; line-height:1px; background:#CCCCCC;"></span>', "create_users", "#");
-
-        add_submenu_page(
-            $parent_slug,
-            __( 'Pronamic iDeal Options', 'pronamic_ideal' ),
-            __( 'iDeal Options', 'pronamic_ideal' ),
-            "create_users",
-            'pronamic-ideal-s2member-options',
-            array( $this, 'view_options_page' )
-        );
+        if ( apply_filters( 'ws_plugin__s2member_during_add_admin_options_add_divider_6', true, get_defined_vars() ) ) /* Divider. */
+			add_submenu_page( $parent_slug, '', '<span style="display:block; margin:1px 0 1px -5px; padding:0; height:1px; line-height:1px; background:#CCCCCC;"></span>', 'create_users', '#' );
 
 		add_submenu_page(
-            $parent_slug,
-            __( 'Pronamic iDeal Button Generator', 'pronamic_ideal' ),
-            __( 'iDeal Button Generator', 'pronamic_ideal' ),
-            "create_users",
-            'pronamic-ideal-s2member-buttongen',
-            array( $this, 'view_buttongen_page' )
-        );
-    }
+			$parent_slug,
+			__( 'Pronamic iDEAL Options', 'pronamic_ideal' ),
+			__( 'iDEAL Options', 'pronamic_ideal' ),
+			'create_users',
+            'pronamic-ideal-s2member-options',
+            array( $this, 'view_options_page' )
+		);
+
+		add_submenu_page(
+			$parent_slug,
+			__( 'Pronamic iDEAL Buttons Generator', 'pronamic_ideal' ),
+			__( 'iDEAL Buttons', 'pronamic_ideal' ),
+			'create_users',
+			'pronamic-ideal-s2member-buttongen',
+			array( $this, 'view_buttongen_page' )
+		);
+	}
 
     public function view_options_page() {
-
         // Generate nonce field
         $nonce = wp_nonce_field( 'pronamic-ideal-s2member-options', 'pronamic-ideal-s2member-options-nonce', true, false );
 
@@ -76,17 +81,11 @@ class Pronamic_S2Member_Bridge_Settings {
                 </table>
                 <?php submit_button(); ?>
             </form>
-
 		</div>
-
-
-
         <?php
-
     }
 
     public function save_options_page() {
-
         if ( ! isset( $_POST['pronamic-ideal-s2member-options-nonce'] ) )
             return;
 
@@ -105,91 +104,6 @@ class Pronamic_S2Member_Bridge_Settings {
     }
 
 	public function view_buttongen_page() {
-		?>
-<div class="wrap">
-	<?php screen_icon(); ?>
-	<h2><?php echo get_admin_page_title(); ?></h2>
-	<div class="pronamic_ideal_shortcode_generator">
-				<script type='text/javascript'>
-					jQuery(function() {
-						var cost = jQuery('.jPronamicIdealCost'),
-							period = jQuery('.jPronamicIdealPeriodShortcode'),
-							level = jQuery('.jPronamicIdealLevelShortcode'),
-							description = jQuery('.jPronamicIdealDescriptionShortcode'),
-							generate_button = jQuery('.jPronamicIdealGenerateShortcode'),
-							output = jQuery('.jPronamicIdealButtonShortcodeOutput');
-
-						generate_button.click( function() {
-							var shortcode = '';
-
-							shortcode += '[pronamic_ideal_s2member ';
-
-							if (cost.val().length > 0)
-								shortcode += 'cost="' + cost.val() + '" ';
-
-							if (period.val().length > 0)
-								shortcode += 'period="' + period.val() + '" ';
-
-							if (level.val().length > 0)
-								shortcode += 'level="' + level.val() + '" ';
-
-							if (description.val().length > 0)
-								shortcode += 'description="' + description.val() + '" ';
-
-							shortcode += ']';
-
-							output.val(shortcode);
-						});
-
-					});
-				</script>
-				<table class="form-table">
-					<tbody>
-						<tr>
-							<th>iDeal Button Code Generator</th>
-							<td>
-								<p>
-									I want to charge:
-									<input type='text' autocomplete='off' size='6' class='jPronamicIdealCost'/>
-									/
-									<select class='jPronamicIdealPeriodShortcode'>
-										<?php foreach ( Pronamic_S2Member_Bridge_Order::$periods as $key => $period ) : ?>
-										<option value="<?php echo $key; ?>"><?php echo $period; ?></option>
-										<?php endforeach; ?>
-									</select>
-								</p>
-								<p>
-									for access to level
-									<select class='jPronamicIdealLevelShortcode'>
-										<?php for( $level = 1; $level <= 4; $level++ ) : ?>
-										<option value='<?php echo $level; ?>'><?php echo $level; ?></option>
-										<?php endfor; ?>
-									</select>
-									content
-								</p>
-								<p>
-									Description:
-									<input type='text' size='70' class='jPronamicIdealDescriptionShortcode'/>
-								</p>
-								<p>
-									<a class="button-primary jPronamicIdealGenerateShortcode">Generate shortcode</a>
-								</p>
-							</td>
-						</tr>
-						<tr>
-							<th>Button Shortcode</th>
-							<td>
-								<textarea class='jPronamicIdealButtonShortcodeOutput' style='width:100%;min-height:30px;'></textarea>
-							</td>
-						</tr>
-
-					</tbody>
-				</table>
-
-            </div>
-        </div>
-
-
-		<?php
+		return Pronamic_WordPress_IDeal_Admin::renderView( 's2member/buttons-generator' );
 	}
 }

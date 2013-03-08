@@ -7,10 +7,9 @@
  * shortcodes for use in S2 Member
  *
  * @author Leon Rowland <leon@rowland.nl>
- * @version 1.0
+ * @since 1.2.6
  */
 class Pronamic_S2Member_Bridge_Shortcodes {
-
 	public static $html;
 
 	public function __construct() {
@@ -39,10 +38,10 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	 */
 	public function ideal( $attributes ) {
 		$defaults = array(
-			'period' => null,
-			'cost' => null,
-			'level' => null,
-			'description' => __( 'iDeal S2 Member Payment', 'pronamic_ideal' )
+			'period'      => null,
+			'cost'        => null,
+			'level'       => null,
+			'description' => __( 'iDEAL s2Member Payment', 'pronamic_ideal' )
 		);
 
 		// Combine the passed options
@@ -52,7 +51,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		if ( ! $options['period'] || ! $options['cost'] || ! $options['level'] ) return;
 
 		// Gets settings to determine if ideal for s2 members is enabled, and all page settings from s2 member
-		$ideal_active = get_option( 'pronamic_ideal_s2member_enabled' );
+		$ideal_active       = get_option( 'pronamic_ideal_s2member_enabled' );
 		$s2members_settings = get_option( 'ws_plugin__s2member_cache' );
 
 		// No configuration set for the membership options page, stop shortcode
@@ -63,12 +62,12 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			ob_start();
 
 			?>
-			<form method="post" action="<?php echo add_query_arg(array( 'pronamic_ideal_s2member_checkout' => 'true'), get_permalink( $s2members_settings['membership_options_page']['page'] ) ) ?>">
+			<form method="post" action="<?php echo add_query_arg( array( 'pronamic_ideal_s2member_checkout' => 'true' ), get_permalink( $s2members_settings['membership_options_page']['page'] ) ); ?>">
 				<input type="hidden" name="pronamic_ideal_s2member_checkout" value="<?php echo $this->encrypt_data( $options ); ?>"/>
 				<input type="hidden" name="options[period]" value="<?php echo $options['period']; ?>" />
 				<input type="hidden" name="options[cost]" value="<?php echo $options['cost']; ?>"/>
 				<input type="hidden" name="options[level]" value="<?php echo $options['level']; ?>"/>
-				<input type="submit" value="<?php _e( 'Pay with iDeal', 'pronamic_ideal'); ?>" />
+				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal'); ?>" />
 			</form>
 			<?php
 
@@ -78,9 +77,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	}
 
 	public function encrypt_data( $data ) {
-
 		return sha1( $data['period'] . $data['cost'] . $data['level'] . AUTH_SALT );
-
 	}
 
 	public function ideal_page() {
@@ -106,7 +103,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// As for the ID of this 'order', it will be the umeta_id (pk of the user meta table )
 		// which will be returned with the below method
 		$order = new Pronamic_S2Member_Bridge_Order();
-		$options['status'] = 'Open';
+		$options['status']  = 'Open';
 		$options['orderID'] = $order_id = $order->add_order( $options, get_current_user_id() );
 
 		// Get the configuration id
@@ -142,17 +139,15 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			</form>
 
 			<?php
+
 			self::$html = ob_get_clean();
 
 		}
 
 		add_filter( 'the_content', array( $this, 'clear_page' ) );
-
 	}
 
 	public function clear_page( $the_content ) {
 		return self::$html;
 	}
-
-
 }

@@ -8,11 +8,11 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_IDealBasic_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_IDealBasic_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
 		if ( isset( $_GET['gateway'] ) ) {
 			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
-			
+
 			if ( $gateway == 'ideal_basic' ) {
 				if ( isset( $_GET['transaction_id'] ) && isset( $_GET['status'] ) ) {
 					$transaction_id = filter_input( INPUT_GET, 'transaction_id', FILTER_SANITIZE_STRING );
@@ -34,7 +34,13 @@ abstract class Pronamic_Gateways_IDealBasic_ReturnHandler extends Pronamic_Gatew
 		}
 	}
 
-	public function returns( $data ) {
-		
+	public function returns( $transaction_id, $status ) {
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id );
+
+		if ( $payment != null ) {
+			$can_redirect = true;
+
+			do_action( 'pronamic_ideal_basic_return', $payment, $status, $can_redirect );
+		}
 	}
 }

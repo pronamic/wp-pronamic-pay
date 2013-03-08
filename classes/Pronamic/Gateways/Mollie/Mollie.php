@@ -160,6 +160,42 @@ class Pronamic_Gateways_Mollie_Mollie {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Parse document
+	 * 
+	 * @param SimpleXMLElement $element
+	 */
+	private function parse_document( SimpleXMLElement $xml ) {
+		$result = false;
+		
+		if ( isset( $xml->item ) ) {
+			if ( $xml->item['type'] == 'error' ) {
+				$error = new Pronamic_Gateways_Mollie_Error(
+					(string) $xml->item->errorcode, 
+					(string) $xml->item->message
+				);
+	
+				$this->error = new WP_Error( 'mollie_error', (string) $error, $error );
+			}
+		}
+
+		if ( isset( $xml->order ) ) {
+			$order = new stdClass();
+			
+			$order->transaction_id = (string) $xml->order->transaction_id;
+			$order->amount         = (string) $xml->order->amount;
+			$order->currency       = (string) $xml->order->currency;
+			$order->url            = (string) $xml->order->URL;
+			$order->message        = (string) $xml->order->message;
+			
+			$result = $order;
+		}
+		
+		return $result;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Create payment with the specified details
 	 * 
 	 * @param string $bank_id
@@ -192,15 +228,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				$order = new stdClass();
-				
-				$order->transaction_id = (string) $xml->order->transaction_id;
-				$order->amount         = (string) $xml->order->amount;
-				$order->currency       = (string) $xml->order->currency;
-				$order->url            = (string) $xml->order->URL;
-				$order->message        = (string) $xml->order->message;
-				
-				$result = $order;
+				$result = self::parse_document( $xml );
 			}
 		}
 

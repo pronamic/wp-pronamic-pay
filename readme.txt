@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 1.2.4
+Tested up to: 3.5.1
+Stable tag: 1.2.6
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -52,6 +52,11 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 
 The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
 [Event Espresso plugin](http://eventespresso.com/).
+
+= s2Member® =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[s2Member® plugin](http://www.s2member.com/).
 
 = Banks and variants =
 
@@ -125,6 +130,20 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 1.2.6 =
+*	s2Member - Added support for the s2Member plugin
+
+= 1.2.5 =
+*	iDEAL Advanced - Improved handling of parsing response messages
+*	TargetPay - Improved handling of payment status return information
+*	TargetPay - No longer verify SSL
+* 	WooCommerce - Improved support for WooCommerce 2.0
+*	WordPress - Tested up to version 3.5.1
+*	Event Espresso - Improved the handling of sending e-mails
+*	Gravity Forms - Fullfill order callback is no called only once
+*	Mollie - Improved error handling
+*	Pages generator pages now have by default no index (WordPress SEO by Yoast)
 
 = 1.2.4 =
 *	ClassiPress - Improved URL redirect if payment status was not successful

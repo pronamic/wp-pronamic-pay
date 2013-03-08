@@ -1,32 +1,40 @@
 <?php
 
+/**
+ * Title: s2Member bridge order
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Leon Rowland
+ * @since 1.2.6
+ */
 class Pronamic_S2Member_Bridge_Order {
-
 	public static $periods = array();
 
 	public function __construct() {
+		$label = __( 'One Time ( for %s access, non-recurring )', 'pronamic_ideal' );
+
 		// Periods
 		$periods = array(
-			'1 D' => __( 'One Time ( for 1 day access, non-recurring )', 'pronamic_ideal' ),
-			'2 D' => __( 'One Time ( for 2 day access, non-recurring )', 'pronamic_ideal' ),
-			'3 D' => __( 'One Time ( for 3 day access, non-recurring )', 'pronamic_ideal' ),
-			'4 D' => __( 'One Time ( for 4 day access, non-recurring )', 'pronamic_ideal' ),
-			'5 D' => __( 'One Time ( for 5 day access, non-recurring )', 'pronamic_ideal' ),
-			'6 D' => __( 'One Time ( for 6 day access, non-recurring )', 'pronamic_ideal' ),
-			'1 W' => __( 'One Time ( for 1 week access, non-recurring )', 'pronamic_ideal' ),
-			'2 W' => __( 'One Time ( for 2 week access, non-recurring )', 'pronamic_ideal' ),
-			'3 W' => __( 'One Time ( for 3 week access, non-recurring )', 'pronamic_ideal' ),
-			'1 M' => __( 'One Time ( for 1 month access, non-recurring )', 'pronamic_ideal' ),
-			'2 M' => __( 'One Time ( for 2 month access, non-recurring )', 'pronamic_ideal' ),
-			'3 M' => __( 'One Time ( for 3 month access, non-recurring )', 'pronamic_ideal' ),
-			'4 M' => __( 'One Time ( for 4 month access, non-recurring )', 'pronamic_ideal' ),
-			'5 M' => __( 'One Time ( for 5 month access, non-recurring )', 'pronamic_ideal' ),
-			'6 M' => __( 'One Time ( for 6 month access, non-recurring )', 'pronamic_ideal' ),
-			'1 Y' => __( 'One Time ( for 1 year access, non-recurring )', 'pronamic_ideal' ),
+			'1 D' => sprintf( $label, __( '1 day', 'pronamic_ideal' ) ),
+			'2 D' => sprintf( $label, __( '2 day', 'pronamic_ideal' ) ),
+			'3 D' => sprintf( $label, __( '3 day', 'pronamic_ideal' ) ),
+			'4 D' => sprintf( $label, __( '4 day', 'pronamic_ideal' ) ),
+			'5 D' => sprintf( $label, __( '5 day', 'pronamic_ideal' ) ),
+			'6 D' => sprintf( $label, __( '6 day', 'pronamic_ideal' ) ),
+			'1 W' => sprintf( $label, __( '1 week', 'pronamic_ideal' ) ),
+			'2 W' => sprintf( $label, __( '2 week', 'pronamic_ideal' ) ),
+			'3 W' => sprintf( $label, __( '3 week', 'pronamic_ideal' ) ),
+			'1 M' => sprintf( $label, __( '1 month', 'pronamic_ideal' ) ),
+			'2 M' => sprintf( $label, __( '2 month', 'pronamic_ideal' ) ),
+			'3 M' => sprintf( $label, __( '3 month', 'pronamic_ideal' ) ),
+			'4 M' => sprintf( $label, __( '4 month', 'pronamic_ideal' ) ),
+			'5 M' => sprintf( $label, __( '5 month', 'pronamic_ideal' ) ),
+			'6 M' => sprintf( $label, __( '6 month', 'pronamic_ideal' ) ),
+			'1 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
 		);
 
 		self::$periods = apply_filters( 'pronamic_ideal_s2member_default_periods', $periods );
-
 	}
 
 	public function update_order( $order_data, $user_id ) {
@@ -46,7 +54,6 @@ class Pronamic_S2Member_Bridge_Order {
 
 		// Find the user option meta id and use that as an order id.  return it!
 		return $this->find_user_option_uid( $user_id, 'pronamic_ideal_s2member_order' );
-
 	}
 
 	public function remove_order( $user_id ) {
@@ -77,7 +84,5 @@ class Pronamic_S2Member_Bridge_Order {
 			return false;
 
 		return $meta->user_id;
-
 	}
-
 }

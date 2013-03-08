@@ -90,6 +90,8 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 				
 				if ( $gateway->is_html_form() ) {
 					echo $gateway->get_form_html( );
+					
+					exit;
 				}
 			}
 		}
@@ -306,8 +308,8 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					break;
 			}
 			
-			$payment_data = apply_filters( 'filter_hook_espresso_update_attendee_payment_data_in_db', $payment_data );
-				
+			Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
+
 			if ( $can_redirect ) {
 				wp_redirect( $url, 303 );
 

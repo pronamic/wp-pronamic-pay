@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
 		if ( isset( $_GET['SHASIGN'] ) ) {
 			$sha_signature = filter_input( INPUT_GET, 'SHASIGN', FILTER_SANITIZE_STRING );
