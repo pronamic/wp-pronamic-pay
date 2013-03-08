@@ -42,12 +42,15 @@ class Pronamic_S2Member_IDeal_AddOn {
 						$order_data['status'] = 'Cancelled';
 
 						$url = $data->getCancelUrl();
+
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 						$order_data['status'] = 'Expired';
+
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						$order_data['status'] = 'Failure';
+
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 						// Add a registration time for their level
@@ -66,12 +69,15 @@ class Pronamic_S2Member_IDeal_AddOn {
 						$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time($user_id, $order_data['period'], false, false, $registration_times['level' . $ordered_level ] );
 
 						update_user_option( $user_id, 's2member_auto_eot_time', $auto_time );
+
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 						$order_data['status'] = 'Open';
+
 						break;
 					default:
 						$order_data['status'] = 'Unknown';
+
 						break;
 
 					$order = new Pronamic_S2Member_Bridge_Order();
