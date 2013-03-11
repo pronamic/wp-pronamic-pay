@@ -190,7 +190,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	private function parse_document( SimpleXMLElement $document ) {
 		$this->error = null;
 
-		switch( $document->getName() ) {
+		$name = $document->getName();
+
+		switch( $name ) {
 			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::NAME:
 				$message = Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage::parse( $document );
 				
@@ -206,7 +208,10 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			case Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::NAME:
 				return Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage::parse( $document );
 			default:
-				return new WP_Error( 'ideal_advanced_v3_error', __( 'Unknwon iDEAL message', 'pronamic_ideal' ) );
+				return new WP_Error(
+					'ideal_advanced_v3_error',
+					sprintf( __( 'Unknwon iDEAL message (%s)', 'pronamic_ideal' ), $name ) 
+				);
 		}
 	}
 
