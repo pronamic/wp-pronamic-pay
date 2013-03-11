@@ -88,6 +88,23 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Render errors
+	 * 
+	 * @param array $errors
+	 */
+	public static function render_errors( $errors = array() ) {
+		if ( ! is_array( $errors ) ) {
+			$errors = array( $errors );
+		}
+
+		foreach ( $errors as $error ) {
+			include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/error.php';
+		}
+	}
+
+	//////////////////////////////////////////////////
 	
 	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
 		if ( $configuration !== null ) {

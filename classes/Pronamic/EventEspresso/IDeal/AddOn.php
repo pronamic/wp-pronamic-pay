@@ -83,7 +83,13 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 				$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
 			
 				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-					
+
+				$error = $gateway->get_error();
+
+				if ( is_wp_error( $error ) ) {
+					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
+				}
+
 				if ( $gateway->is_http_redirect() ) {
 					$gateway->redirect();
 				}
