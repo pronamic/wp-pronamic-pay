@@ -366,7 +366,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		if ( empty( $key ) ) {
 			delete_option( 'pronamic_ideal_key' );
-		} elseif($key != $currentKey) {
+		} elseif ( $key != $current_key ) {
 			update_option( 'pronamic_ideal_key', md5( trim( $key ) ) );
 		}
 	}
