@@ -134,7 +134,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$result = $this->client->create_transaction( $transaction, $data->get_issuer_id() );
 
 		$error = $this->client->get_error();
-		
+
 		if ( $error !== null ) {
 			$this->error = $error;
 		} else {
