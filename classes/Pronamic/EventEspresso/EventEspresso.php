@@ -40,7 +40,12 @@ class Pronamic_EventEspresso_EventEspresso {
 	public static function get_payment_data_by_attendee_id( $id ) {
 		event_espresso_require_gateway( 'process_payments.php' );
 
-		$data = array( 'attendee_id' => $id );
+		$data = array(
+			'attendee_id' => $id,
+			// The 'txn_details' key is not (always) filled in by the filters 
+			// below, to prevent unknown key notices we add it here
+			'txn_details' => ''
+		);
 
 		$data = apply_filters( 'filter_hook_espresso_prepare_payment_data_for_gateways', $data );
 		$data = apply_filters( 'filter_hook_espresso_get_total_cost', $data );
