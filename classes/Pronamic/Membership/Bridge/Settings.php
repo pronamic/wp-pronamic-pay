@@ -22,9 +22,6 @@ class Pronamic_Membership_Bridge_Settings {
 	public function view_options_page() {
 		$nonce = wp_nonce_field( 'pronamic-ideal-membership-options', 'pronamic-ideal-membership-options-nonce', true, false );
 
-		$g = get_option( 'membership_activated_gateways' );
-		var_dump($g);
-
 		$configurations = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
 
 		$pronamic_ideal_membership_enabled = get_option( 'pronamic_ideal_membership_enabled' );
