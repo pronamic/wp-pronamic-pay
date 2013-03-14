@@ -10,7 +10,7 @@
 
 class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
-	public $gateway = 'ideal';
+	public $gateway = 'pronamic_ideal';
 	public $title = 'iDEAL';
 
 	public static $html;
@@ -143,6 +143,14 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	public function clear_page( $the_content ) {
 		return self::$html;
+	}
+	
+	function single_free_button($pricing, $subscription, $user_id, $sublevel = 0) {
+		return '';
+	}
+
+	function build_custom($user_id, $sub_id, $amount) {
+		return '';
 	}
 }
 

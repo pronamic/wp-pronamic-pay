@@ -26,7 +26,7 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 	}
 
 	public function getDescription() {
-		return $this->subscription->sub_description() . ' | ' . $this->getOrderId();
+		return $this->getOrderId();
 	}
 
 	public function getItems() {
@@ -54,6 +54,8 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 
 		if ( empty( $M_options['paymentcurrency'] ) )
 			$M_options['paymentcurrency'] = 'EUR';
+
+		return $M_options['paymentcurrency'];
 	}
 
 	//////////////////

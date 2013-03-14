@@ -20,10 +20,11 @@ class Pronamic_Membership_IDeal_Addon {
 		new Pronamic_Membership_Bridge_Settings();
 
 		// Register the Gateway Class
-		new Pronamic_Membership_IDeal_IDealGateway();
-		M_register_gateway( 'ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
+		M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
 
 		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'status_update' ) );
+		
+		add_filter( 'pronamic_ideal_source_column_membership', array( __CLASS__, 'source_column' ), 10, 2 );
 	}
 
 	public static function record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
@@ -41,7 +42,7 @@ class Pronamic_Membership_IDeal_Addon {
 		$data[ 'transaction_status' ] = $status;
 		$data[ 'transaction_total_amount' ] = (int) round( $amount * 100 );
 		$data[ 'transaction_note' ] = $note;
-		$data[ 'transaction_gateway' ] = 'ideal';
+		$data[ 'transaction_gateway' ] = 'pronamic_ideal';
 
 		$existing_id = $wpdb->get_var( $wpdb->prepare( "SELECT transaction_ID FROM {$subscription_transaction_table} WHERE transaction_paypal_ID = %s LIMIT 1", $paypal_ID ) );
 
@@ -73,7 +74,7 @@ class Pronamic_Membership_IDeal_Addon {
 
 					$member = new M_Membership( $user_id );
 					if ( $member ) {
-						$member->create_subscription( $sub_id, 'ideal' );
+						$member->create_subscription( $sub_id, 'pronamic_ideal' );
 					}
 
 					do_action( 'membership_payment_processed', $user_id, $sub_id, $payment->amount, 'EUR', $data_id );
@@ -83,7 +84,30 @@ class Pronamic_Membership_IDeal_Addon {
 	}
 
 	public function encrypt_data( $subscription_id, $pricing, $user_id ) {
-		return sha1( $subscription_id . $pricing . $user_id . AUTH_SALT );
+		return sha1( $subscription_id . serialize( $pricing ) . $user_id . AUTH_SALT );
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Source column
+	 */
+	public static function source_column( $text, $payment ) {
+		$text  = '';
+
+		$text .= __( 'Membership', 'pronamic_ideal' ) . '<br />';
+
+		$text .= sprintf(
+			'<a href="%s">%s</a>', 
+			add_query_arg( array(
+				'page'    => 'membershipgateways',
+				'action'  => 'transactions',
+				'gateway' => 'pronamic_ideal'
+			), admin_url( 'admin.php') ),
+			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+		);
+
+		return $text;
 	}
 
 }
