@@ -58,6 +58,11 @@ The Pronamic iDEAL plugin contains the iDEAL payment gateway for the
 The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
 [s2Member® plugin](http://www.s2member.com/).
 
+= Membership from WPMUDEV.org =
+
+The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
+[Membership plugin](http://premium.wpmudev.org/project/membership/).
+
 = Banks and variants =
 
 *	ABN AMRO
@@ -133,6 +138,7 @@ Here is a list of known plugin conflicts:
 
 = 1.2.6 =
 *	s2Member - Added support for the s2Member plugin
+*	Membership from WPMUDEV.org - Added support for the Membership from WPMUDEV.org plugin
 
 = 1.2.5 =
 *	iDEAL Advanced - Improved handling of parsing response messages

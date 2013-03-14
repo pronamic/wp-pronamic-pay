@@ -69,6 +69,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_EventEspresso_IDeal_AddOn::bootstrap();
 			// Pronamic_AppThemes_IDeal_AddOn::bootstrap();
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
+			Pronamic_Membership_IDeal_Addon::bootstrap();
 		}
 
 		// Admin
