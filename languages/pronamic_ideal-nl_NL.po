@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 17:02+0100\n"
-"PO-Revision-Date: 2013-03-07 17:02+0100\n"
+"POT-Creation-Date: 2013-03-18 12:54+0100\n"
+"PO-Revision-Date: 2013-03-18 12:54+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -40,7 +40,7 @@ msgstr "Advertentie %s"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:16
 #: classes/Pronamic/EShop/IDeal/AddOn.php:71
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:208
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:214
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:47
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
@@ -52,7 +52,7 @@ msgstr "Pronamic iDEAL"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:71
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:136
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:119
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:125
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:38
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:57
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
@@ -65,6 +65,7 @@ msgid "iDEAL"
 msgstr "iDEAL"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:77
+#: classes/Pronamic/Membership/Bridge/Settings.php:15
 #: classes/Pronamic/S2Member/Bridge/Settings.php:27
 msgid "iDEAL Options"
 msgstr "iDEAL-instellingen"
@@ -93,8 +94,9 @@ msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:217
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:134
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:140
 #: classes/Pronamic/Gateways/Gateway.php:416
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:79
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:70
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
@@ -114,8 +116,9 @@ msgid "Accept payment by iDEAL"
 msgstr "Accepteeer betaling via iDEAL"
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:145
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:227
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:233
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:120
+#: classes/Pronamic/Membership/Bridge/Settings.php:44
 #: classes/Pronamic/S2Member/Bridge/Settings.php:68
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
 #: views/payment.php:150 views/payment.php:156
@@ -126,27 +129,27 @@ msgstr "Configuratie"
 msgid "eShop"
 msgstr "eShop"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:205
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:211
 msgid "Click to toggle"
 msgstr "Klik om te wisselen"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:217
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:223
 msgid "Deactivate Pronamic iDEAL?"
 msgstr "Deactiveer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:254
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:260
 msgid "Update Settings"
 msgstr "Instellingen bijwerken"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:260
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:266
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:335 views/settings.php:178
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:341 views/settings.php:178
 msgid "Event Espresso"
 msgstr "Event Espresso"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:340
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:346
 #, php-format
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
@@ -169,10 +172,11 @@ msgid ""
 "The response code (<code>%s<code>) from the iDEAL provider was incorrect."
 msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
 
-#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:239
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:209
-msgid "Unknwon iDEAL message"
-msgstr "Onbekend iDEAL-bericht"
+#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:243
+#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:213
+#, php-format
+msgid "Unknwon iDEAL message (%s)"
+msgstr "Onbekend iDEAL-bericht (%s)"
 
 #: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:100
 msgid "&mdash; Other banks &mdash;"
@@ -195,12 +199,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:125
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:514
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:515
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:129
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:518
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:519
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -312,10 +316,32 @@ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
+#: classes/Pronamic/Membership/Bridge/Settings.php:14
+#: classes/Pronamic/S2Member/Bridge/Settings.php:26
+msgid "Pronamic iDEAL Options"
+msgstr "Pronamic iDEAL-instellingen"
+
+#: classes/Pronamic/Membership/Bridge/Settings.php:38
+msgid "Enabled/Disable"
+msgstr "Ingeschaked/uitgeschakeld"
+
+#: classes/Pronamic/Membership/IDeal/AddOn.php:98
+msgid "Membership"
+msgstr "Membership"
+
+#: classes/Pronamic/Membership/IDeal/AddOn.php:107
+#, php-format
+msgid "Transaction #%s"
+msgstr "Transactie #%s"
+
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:134
+msgid "Continue"
+msgstr "Ga verder"
+
 #: classes/Pronamic/S2Member/Bridge/Order.php:15
 #, php-format
 msgid "One Time ( for %s access, non-recurring )"
-msgstr "Eenmalig ( voor %s toegang, niet terugkerende )"
+msgstr "Eenmalig ( voor %s toegang, niet terugkerend )"
 
 #: classes/Pronamic/S2Member/Bridge/Order.php:19
 msgid "1 day"
@@ -380,10 +406,6 @@ msgstr "6 maand"
 #: classes/Pronamic/S2Member/Bridge/Order.php:34
 msgid "1 year"
 msgstr "1 jaar"
-
-#: classes/Pronamic/S2Member/Bridge/Settings.php:26
-msgid "Pronamic iDEAL Options"
-msgstr "Pronamic iDEAL-instellingen"
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:35
 msgid "Pronamic iDEAL Buttons Generator"
@@ -585,7 +607,7 @@ msgstr "Bron"
 msgid "Details"
 msgstr "Details"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:429
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:430
 #, php-format
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
@@ -596,7 +618,7 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:445
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:446
 #, php-format
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
@@ -1634,29 +1656,29 @@ msgstr "Uitgeschakeld"
 msgid "Search Lead"
 msgstr "Zoek inzending"
 
-#: views/s2member/buttons-generator.php:44
+#: views/s2member/buttons-generator.php:43
 msgid "iDEAL Buttons Code Generator"
 msgstr "iDEAL-buttons code generator"
 
-#: views/s2member/buttons-generator.php:58
+#: views/s2member/buttons-generator.php:57
 #, php-format
 msgid "I want to charge: %s / %s"
 msgstr "Ik wil %s in rekening brengen voor %s"
 
-#: views/s2member/buttons-generator.php:72
+#: views/s2member/buttons-generator.php:71
 #, php-format
 msgid "for access to level %s content"
 msgstr "voor toegang tot %s niveau content"
 
-#: views/s2member/buttons-generator.php:77
+#: views/s2member/buttons-generator.php:76
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: views/s2member/buttons-generator.php:81
+#: views/s2member/buttons-generator.php:80
 msgid "Generate Shortcode"
 msgstr "Genereer shortcode"
 
-#: views/s2member/buttons-generator.php:86
+#: views/s2member/buttons-generator.php:85
 msgid "Button Shortcode"
 msgstr "Button shortcode"
 
@@ -1701,9 +1723,6 @@ msgstr "Button shortcode"
 
 #~ msgid "Retrieve Issuers Lists"
 #~ msgstr "Ophalen banken lijsten"
-
-#~ msgid "Transaction"
-#~ msgstr "Transactie"
 
 #~ msgid "Type"
 #~ msgstr "Type"
