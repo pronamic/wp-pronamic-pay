@@ -7,7 +7,7 @@
  * @author Leon Rowland <leon@rowland.nl>
  * @since 1.2.6
  */
-class Pronamic_Membership_IDeal_Addon {
+class Pronamic_Membership_IDeal_AddOn {
 
 	public static function bootstrap() {
 		if ( function_exists( 'M_get_membership_active' ) && 'no' != M_get_membership_active() ) {
