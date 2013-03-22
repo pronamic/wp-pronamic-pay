@@ -65,7 +65,15 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			$order = &new jigoshop_order( (int) $id );
 			$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
-			if ( $order->status !== Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED ) {				
+			$should_update = ! in_array(
+				$order->status,
+				array(
+					Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED,
+					Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_PROCESSING
+				)
+			);
+
+			if ( $should_update ) {			
 				$url = $data_proxy->getNormalReturnUrl();
 
 				switch ( $payment->status ) {
