@@ -255,7 +255,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$merchant = $message->get_merchant();
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
-		$merchant->set_return_url( add_query_arg( 'gateway', 'ideal_advanced_v3', site_url( '/' ) ) );
+		$merchant->set_return_url( add_query_arg( 'gateway', 'ideal_advanced_v3', home_url( '/' ) ) );
 
 		$message->issuer = new Pronamic_Gateways_IDealAdvancedV3_Issuer();
 		$message->issuer->set_id( $issuer_id );

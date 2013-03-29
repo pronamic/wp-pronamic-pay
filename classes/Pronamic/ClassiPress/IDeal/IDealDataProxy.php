@@ -163,7 +163,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 						'invoice' => $this->order_values['txn_id'],
 						'aid'     => $this->order_values['ad_id']
 					),
-					site_url( '/' )
+					home_url( '/' )
 				);
 			} else {
 				// Advertisement package
@@ -173,7 +173,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 						'invoice' => $this->order_values['txn_id'],
 						'uid'     => $this->order_values['user_id']
 					),
-					site_url( '/' )
+					home_url( '/' )
 				);
 			}
 		}

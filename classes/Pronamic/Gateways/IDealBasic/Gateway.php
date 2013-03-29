@@ -51,7 +51,7 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 				'gateway'        => 'ideal_basic',
 				'transaction_id' => $this->get_transaction_id()
 			),
-			site_url( '/' )
+			home_url( '/' )
 		); 
 		
 		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );

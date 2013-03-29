@@ -320,7 +320,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->id             = $this->merchant_id;
 		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = self::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl      = add_query_arg( 'gateway', 'ideal_advanced', site_url( '/' ) );
+		$merchant->returnUrl      = add_query_arg( 'gateway', 'ideal_advanced', home_url( '/' ) );
 		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 		
 		$message->issuer      = $issuer;
@@ -339,7 +339,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->id             = $this->merchant_id;
 		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = self::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl      = site_url( '/' );
+		$merchant->returnUrl      = home_url( '/' );
 		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 
 		$message->transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();

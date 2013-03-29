@@ -289,7 +289,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 						'value'       => add_query_arg( array(
 							'gateway'         => 'ideal_basic',
 							'xml_notifaction' => 'true'
-						), site_url( '/' ) ),
+						), home_url( '/' ) ),
 						'methods'     => array( 'basic' ),
 						'readonly'    => true
 				),

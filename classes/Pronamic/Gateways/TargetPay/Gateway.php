@@ -81,8 +81,8 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_issuer_id(),
 			$data->getDescription(),
 			$data->getAmount(),
-			add_query_arg( 'gateway', 'targetpay', site_url( '/' ) ),
-			add_query_arg( 'gateway', 'targetpay', site_url( '/' ) )
+			add_query_arg( 'gateway', 'targetpay', home_url( '/' ) ),
+			add_query_arg( 'gateway', 'targetpay', home_url( '/' ) )
 		);
 		
 		if ( $result ) {

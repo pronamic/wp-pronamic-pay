@@ -136,18 +136,18 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	//////////////////////////////////////////////////
 
 	public function getNormalReturnUrl() {
-		return site_url( '/' );
+		return home_url( '/' );
 	}
 
 	public function getCancelUrl() {
-		return site_url( '/' );
+		return home_url( '/' );
 	}
 
 	public function getSuccessUrl() {
-		return site_url( '/' );
+		return home_url( '/' );
 	}
 
 	public function getErrorUrl() {
-		return site_url( '/' );
+		return home_url( '/' );
 	}
 }
