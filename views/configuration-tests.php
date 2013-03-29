@@ -90,6 +90,9 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 					break;
 				case 'mollie':
 					include 'test-method-mollie.php';
+					break;  
+				case 'buckaroo':
+					include 'test-method-buckaroo.php';
 					break;
 				case 'targetpay':
 					include 'test-method-targetpay.php';

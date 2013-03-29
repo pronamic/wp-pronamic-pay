@@ -126,6 +126,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 					case 'mollie':
 						return new Pronamic_Gateways_Mollie_Gateway( $configuration );
+					case 'buckaroo':
+						return new Pronamic_Gateways_Buckaroo_Gateway( $configuration );  
 					case 'targetpay':
 						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 				}

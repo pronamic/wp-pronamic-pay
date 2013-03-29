@@ -272,6 +272,16 @@
 				)
 			)
 		),
+	  'buckaroo.nl' => array(
+			'name'      => 'Buckaroo',
+			'url'       => 'http://buckaroo.nl/',
+			'resources' => array(
+				array(
+					'url'  => 'http://payment.buckaroo.nl/',
+					'name' => 'iDEAL Payment Gateway and Support'
+				) 
+			)
+		),
 		'ogone.nl' => array(
 			'name' => 'Ogone' ,
 			'url' => 'http://www.ogone.nl/' ,
