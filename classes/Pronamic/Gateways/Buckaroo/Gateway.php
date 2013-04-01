@@ -14,8 +14,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @var string
 	 */
-		
-  const SLUG = 'buckaroo';
+	const SLUG = 'buckaroo';
 
 	/////////////////////////////////////////////////
 
@@ -27,10 +26,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct( $configuration );
 
-		// Debugging Buckaroo
-//  	echo "<strong> Start function Construct => </strong></br>";
-    
-    $this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
+		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 		$this->set_slug( self::SLUG );
@@ -44,15 +40,8 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
 
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-//		$this->client->setPspId( $configuration->pspId );
 		$this->client->setMerchantId( $configuration->getMerchantId() );
 		$this->client->setHashKey( $configuration->gethashKey() );
-//		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );
-//		$this->client->setPassPhraseOut( $configuration->shaOutPassPhrase );
-		
-	  // Debugging Buckaroo
-  //	print_r ($configuration);
-//    echo "<strong> <= End function Construct </strong></br>";
 	}
 
 	/////////////////////////////////////////////////
@@ -64,10 +53,6 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
-	
-	 //Debugging Buckaroo
-//   echo " </br><strong>Start Function to create payment => </strong></br>";
-	
 		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
 		$this->set_action_url( $this->client->getPaymentServerUrl() );
 		$this->client->setMerchantId( $this->client->getMerchantId());
@@ -83,19 +68,6 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setCancelUrl( $data->getCancelUrl() );
 		$this->client->setDeclineUrl( $data->getNormalReturnUrl() );
 		$this->client->setExceptionUrl( $data->getNormalReturnUrl() );
-		
-		//Debugging Buckaroo
-	//	echo " --- Get MerchantID --- " ;
-//		echo   ($this->client->getMerchantId());
-//		echo " </br> --- Get HashKey --- " ;
-//		echo   ($this->client->gethashKey());
-    
-    //echo " </br> <strong> Print data => </strong></br>";
-    
-		//print_r ($this);
-		//echo " </br>  <strong> <= END Print data => </strong></br>";
-//		echo " </br><strong> <= END Start Function to create payment </strong></br>";
-		
 	}
 	
 	/////////////////////////////////////////////////
