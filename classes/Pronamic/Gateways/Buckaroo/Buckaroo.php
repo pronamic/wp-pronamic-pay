@@ -14,7 +14,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * 
 	 * @var string
 	 */
-	private $paymentServerUrl;
+	private $payment_server_url;
 
 	//////////////////////////////////////////////////
 
@@ -24,15 +24,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * @var int
 	 */
 	private $amount;
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Fields
-	 * 
-	 * @var array
-	 */
-	private $fields;
 
 	//////////////////////////////////////////////////
 
@@ -50,8 +41,8 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 *
 	 * @return the payment server URL
 	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
+	public function get_payment_server_url() {
+		return $this->payment_server_url;
 	}
 	
 	/**
@@ -59,8 +50,8 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl($url) {
-		$this->paymentServerUrl = $url;
+	public function set_payment_server_url( $url ) {
+		$this->payment_server_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -85,142 +76,44 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 	//////////////////////////////////////////////////
 
-	public function getMerchantId() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::MERCHANTID);
+	public function get_culture() {
+		return $this->culture;
 	}
 
-	public function setMerchantId($merchantId) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::MERCHANTID, $merchantId);
-	}
-
-
-
-	public function gethashKey() {
-	 // Buckaroo Debugging 
-//	  echo " </br> <strong>Dit is het BuckaroohashKey function getHashKey  </strong> $hashKey </br>";
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::HASHKEY);
-	}
-
-	public function sethashKey($hashKey) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::HASHKEY, $hashKey);
-	}
-  	
-	// End Added for Buckaroo
-	//////////////////////////
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get the order id
-	 *
-	 * @return an order id
-	 */
-	public function getOrderId() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::ORDERID);
-	}
-
-	/**
-	 * Set the order id
-	 *
-	 * @param string $orderId
-	 */
-	public function setOrderId($orderId) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::ORDERID, $orderId);
+	public function set_culture( $culture ) {
+		$this->culture = $culture;
 	}
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get the language
-	 *
-	 * @return an language
-	 */
-	public function getLanguage() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::LANGUAGE);
+	public function get_currency() {
+		return $this->currency;
 	}
 
-	/**
-	 * Set the language
-	 * 
-	 * The format is "language_Country".
-	 * The language value is based on ISO 639-1.
-	 * The country value is based on ISO 3166-1.
-	 *
-	 * @param string $language
-	 */
-	public function setLanguage($language) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::LANGUAGE, $language);
-	}
-
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Get the currency
-	 *
-	 * @return string
-	 */
-	public function getCurrency() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::CURRENCY);
+	public function set_currency( $currency ) {
+		$this->currency = $currency;
 	}
 	
-	/**
-	 * Set the currency
-	 * 
-	 * Currency of the amount in alphabetic ISO code as can be found on 
-	 * http://www.currency-iso.org/iso_index/iso_tables/iso_tables_a1.htm
-	 *
-	 * @return string $currency
-	 */
-	public function setCurrency($currency) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::CURRENCY, $currency);
+	//////////////////////////////////////////////////
+	// Payment
+	//////////////////////////////////////////////////
+
+	public function get_invoice_number() {
+		return $this->invoice_number;
+	}
+
+	public function set_invoice_number( $invoice_number ) {
+		$this->invoice_number = $invoice_number;
 	}
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get the amount
-	 * 
-	 * @return float
-	 */
-	public function getAmount() {
-		return $this->amount;
+	public function get_description() {
+		return $this->description;
 	}
 
-	/**
-	 * Set the amount
-	 * 
-	 * @param float $amount
-	 */
-	public function setAmount($amount) {
-		$this->amount = $amount;
-
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::AMOUNT, $amount);
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get order description
-	 * 
-	 * The com field is sometimes transmitted to the acquirer (depending on the acquirer), 
-	 * in order to be shown on the account statements of the merchant or the customer. 
-	 * 
-	 * @return string
-	 */
-	public function getOrderDescription() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::COM);
-	}
-
-	/**
-	 * Set order description
-	 * 
-	 * The com field is sometimes transmitted to the acquirer (depending on the acquirer), 
-	 * in order to be shown on the account statements of the merchant or the customer. 
-	 * 
-	 * @param string $description
-	 */
-	public function setOrderDescription($description) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::COM, $description);
+	public function set_description( $description ) {
+		$this->description = $description;
 	}
 
 	//////////////////////////////////////////////////
