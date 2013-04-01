@@ -92,6 +92,19 @@ class Pronamic_WordPress_Util {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Convert boolean to an numceric boolean
+	 * 
+	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
+	 * @param boolean $boolean
+	 * @return int
+	 */
+	public static function to_numeric_boolean( $boolean ) {
+		return $boolean ? 1 : 0;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Build URL with the specified parameters
 	 * 
 	 * @param string $url
