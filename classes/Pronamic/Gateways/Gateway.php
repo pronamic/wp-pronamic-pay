@@ -7,6 +7,7 @@
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
+ * @todo https://github.com/expressodev/ci-merchant/blob/master/libraries/merchant.php#L325
  */
 abstract class Pronamic_Gateways_Gateway {
 	/**
