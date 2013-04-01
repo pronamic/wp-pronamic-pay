@@ -59,13 +59,11 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	 */
 	const LANGUAGE = 'Brq_culture';
 
-  /**
+	/**
 	 * Indicator for the LANGUAGE parameter
 	 * @var string
 	 */
 	const COM = 'Brq_description';
-
-
 	
 	//////////////////////////////////////////////////
 
