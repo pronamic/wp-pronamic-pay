@@ -18,7 +18,7 @@ class Pronamic_WordPress_Util {
 	public static function remote_get_body( $url, $required_response_code = 200, array $args = array() ) {
 		$return = false;
 
-		$result = wp_remote_get( $url, $args );
+		$result = wp_remote_request( $url, $args );
 
 		if ( is_wp_error( $result ) ) {
 			$return = $result;
