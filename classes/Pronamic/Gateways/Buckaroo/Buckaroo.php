@@ -562,6 +562,24 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 	//////////////////////////////////////////////////
 
+	
+	
+	public function getSignature( $data, $secreteKey ) {
+		$string = '';
+
+		$data = array_change_key_case( $data, CASE_LOWER );
+		
+		ksort( $data );
+		
+		foreach ( $data as $key => $value ) {
+			$string .= $key . '=' . $value;
+		}
+		
+		$string .= $secretKey;
+		
+		return hash( 'sha1', $string );
+	}
+	
 	/**
 	 * Get HTML fields
 	 * 
@@ -726,6 +744,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 		return $result;
 	}
 	 */
+	
 	//////////////////////////////////////////////////
 
 	/**
