@@ -6,34 +6,29 @@ $gateway = new Pronamic_Gateways_Buckaroo_Gateway( $configuration );
 
 ?>
 <h3>
-	<?php _e( 'Test', 'pronamic_ideal' ); ?>
+	<?php _e( 'Tests', 'pronamic_ideal' ); ?>
 </h3>
 
-<form method="post" action="" target="_blank">
-	<?php wp_nonce_field( 'test_ideal_buckaroo', 'pronamic_ideal_nonce' ); ?>
+<?php foreach ( array( 2, 3, 4, 5, 1 ) as $test_case ): ?>
+	
+	<?php 
+				
+	$name = sprintf( __( 'Test &euro; %s', 'pronamic_ideal' ), $test_case );
 
-	<?php echo $gateway->get_input_html(); ?>
+	$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
 
-	<?php
-
-	if ( $gateway->has_error() ) {
-		$pronamic_ideal_errors[] = $gateway->get_error();
-	}
-
-	include 'errors.php';
+	$gateway->start( $data );
 
 	?>
-
-	<p>
-		<label for="test_amount">&euro;</label>
-		<input name="test_amount" id="test_amount" value="" class="small-text" type="text" />
-
-		<?php
-
-		$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
-
-		submit_button( $name, 'secondary', 'test_ideal_buckaroo', false ); 
-
+	
+	<form method="post" action="<?php echo esc_attr( $gateway->get_action_url() ); ?>" target="_blank" style="display: inline">
+		<?php 
+	
+		echo $gateway->get_output_html();
+	
+		submit_button( $name, 'secondary', 'submit', false ); 
+	
 		?>
-	</p>
-</form>
+	</form>
+
+<?php endforeach; ?>
