@@ -586,62 +586,26 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * @return string
 	 */
 	public function getHtmlFields() {
-
-    $postArray = array();
-  	$arrayToSort = array();
-  	$tmpKeyArray = array();
-  	
-  	$postArray ['Brq_websitekey'] = $this->gethashKey();
-  	$postArray ['Brq_invoicenumber']  = $this->getOrderId(); 
-		$postArray ['Brq_amount']  =  $this->getAmount(); 
-		$postArray ['Brq_currency']  =  $this->getCurrency();
-		$postArray ['Brq_culture']  =  $this->getLanguage();
-		$postArray ['Brq_description']  =  $this->getOrderDescription(); 
+		$data = array(
+			'brq_websitekey'           => $this->gethashKey(),
+			'brq_invoicenumber'        => $this->getOrderId(),
+			'brq_amount'               => $this->getAmount(),
+			'brq_currency'             => $this->getCurrency(),
+			'brq_culture'              => $this->getLanguage(),
+			'brq_description'          => $this->getOrderDescription(),
+			'brq_payment_method'       => 'ideal',
+			'brq_service_ideal_action' => 'Pay',
+			'brq_return'               => $this->getAcceptUrl(),
+			'brq_returnreject'         => $this->getDeclineUrl(),
+			'brq_returnerror'          => $this->getExceptionUrl(),
+			'brq_returncancel'         => $this->getCancelUrl()
+		);
 		
-		$postArray['Brq_payment_method'] = "ideal";
-    $postArray['Brq_service_ideal_action'] = "Pay";
-
-
-		$postArray ['Brq_return']  = $this->getAcceptUrl();
-		$postArray ['Brq_returnreject']  = $this->getDeclineUrl();
-		$postArray ['Brq_returnerror']  = $this->getExceptionUrl();
-		$postArray ['Brq_returncancel']  = $this->getCancelUrl();
+		$signature = $this->getSignature( $data, $this->getMerchantId() );
 		
-      
-  	foreach($postArray as $key => $value){
-            $arrayToSort[strtolower($key)] = $value;
-            //store the original value in an array
-            $tmpKeyArray[strtolower($key)] = $key;
-            }
-  	
-  	ksort($arrayToSort);
-  	$postArray = array();
-  	
-  	foreach($arrayToSort as $key =>$value){
-    // switch the lowercase keys back to originals
-    $key = $tmpKeyArray[$key];
-    $postArray[$key] = $value;
-    }
-    
- 
-  	
-  	//turn into string and add the secret key to the end
-    $signatureString = '';
-    foreach($postArray as $key => $value) {        
-        $signatureString .= $key . '=' . $value;
-       }
-    
-    $signatureString .= $this->getMerchantId();
-//    echo "</br> complete signature String : $signatureString  </br>";
-    
-    $signature = SHA1($signatureString);
+		$data['brq_signature'] = $signature;
 
-// add signature to array
-
-    $postArray['brq_signature'] = $signature; 
-    
-    
-		 return Pronamic_IDeal_IDeal::htmlHiddenFields( $postArray );
+		return Pronamic_IDeal_IDeal::htmlHiddenFields( $data );
 	}
 
 	//////////////////////////////////////////////////
