@@ -28,22 +28,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Signature parameters IN
-	 * 
-	 * @var array
-	 */
-	private $calculationsParametersIn;
-
-	/**
-	 * Signature parameters OUT
-	 * 
-	 * @var array
-	 */
-	private $calculationsParametersOut;
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Fields
 	 * 
 	 * @var array
@@ -57,11 +41,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 */
 	public function __construct() {
 		$this->fields = array();
-
-		$this->calculationsParametersIn  = array();
-		$this->calculationsParametersOut = array();
-
-		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
 	}
 
 	//////////////////////////////////////////////////
@@ -86,29 +65,28 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get hash algorithm
-	 * 
-	 * @return string
-	 */
-	public function get_hash_algorithm() {
-		return $this->hash_algorithm;
+	public function get_website_key() {
+		return $this->website_key;
 	}
 
-	/**
-	 * Set hash algorithm
-	 * 
-	 * @param string $hashAlgorithm
-	 */
-	public function set_hash_algorithm( $hash_algorithm ) {
-		$this->hash_algorithm = $hash_algorithm;
+	public function set_website_key( $website_key ) {
+		$this->website_key = $website_key;
 	}
 
-
- 
-	
-	
 	//////////////////////////////////////////////////
+
+	public function get_secret_key() {
+		return $this->secret_key;
+	}
+
+	public function set_secret_key( $secret_key ) {
+		$this->secret_key = $secret_key;
+	}
+
+	//////////////////////////////////////////////////
+
+
+	
 	// Calculation parameters
 	//////////////////////////////////////////////////
 
