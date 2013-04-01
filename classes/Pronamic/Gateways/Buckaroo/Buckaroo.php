@@ -150,101 +150,81 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get accept URL
-	 * 
-	 * URL of the web page to show the customer when the payment is authorized. 
+	 * Get return URL 
 	 * 
 	 * @reutnr string
 	 */
-	public function getAcceptUrl() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::ACCEPT_URL);
+	public function get_return_url() {
+		return $this->return_url;
 	}
 
 	/**
-	 * Set accept URL
-	 * 
-	 * URL of the web page to show the customer when the payment is authorized. 
+	 * Set return URL
 	 * 
 	 * @param string $url
 	 */
-	public function setAcceptUrl($url) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::ACCEPT_URL, $url);
+	public function set_return_url( $url ) {
+		$this->return_url = $url;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get cancel URL
-	 * 
-	 * URL of the web page to show the customer when he cancels the payment. 
+	 * Get return reject URL 
 	 * 
 	 * @return string
 	 */
-	public function getCancelUrl() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::CANCEL_URL);
+	public function get_return_reject_url() {
+		return $this->return_reject_url;
 	}
 
 	/**
-	 * Set cancel URL
-	 * 
-	 * URL of the web page to show the customer when he cancels the payment. 
+	 * Set return reject URL
 	 * 
 	 * @param string $url
 	 */
-	public function setCancelUrl($url) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::CANCEL_URL, $url);
+	public function set_return_reject_url( $url ) {
+		$this->set_return_reject_url = $url;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get exception URL
-	 * 
-	 * URL of the web page to show the customer when the payment result is uncertain.
+	 * Get return error URL
 	 * 
 	 * @return string
 	 */
-	public function getExceptionUrl() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::EXCEPTION_URL);
+	public function get_return_error_url() {
+		return $this->return_error_url;
 	}
 
 	/**
-	 * Set exception URL
-	 * 
-	 * URL of the web page to show the customer when the payment result is uncertain.
+	 * Set return error URL
 	 * 
 	 * @param string $url
 	 */
-	public function setExceptionUrl($url) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::EXCEPTION_URL, $url);
+	public function set_return_error_url( $url ) {
+		$this->return_error_url = $url;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get decline URL
-	 * 
-	 * URL of the web page to show the customer when the acquirer rejects the authorisation more 
-	 * than the maximum of authorised tries (10 by default, but can be changed in the technical 
-	 * information page). 
+	 * Get return cancel URL
 	 * 
 	 * @return string
 	 */
-	public function getDeclineUrl() {
-		return $this->getField(Pronamic_Gateways_Buckaroo_Parameters::DECLINE_URL);
+	public function get_return_cancel_url() {
+		return $this->return_cancel_url;
 	}
 
 	/**
-	 * Set decline URL
-	 * 
-	 * URL of the web page to show the customer when the acquirer rejects the authorisation more 
-	 * than the maximum of authorised tries (10 by default, but can be changed in the technical 
-	 * information page). 
+	 * Set return cancel URL
 	 * 
 	 * @param string $url
 	 */
-	public function setDeclineUrl($url) {
-		$this->setField(Pronamic_Gateways_Buckaroo_Parameters::DECLINE_URL, $url);
+	public function set_return_cancel_url($url) {
+		$this->return_cancel_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -282,10 +262,10 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 			Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
 			Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD    => $this->get_payment_method(),
 			'brq_service_ideal_action' => 'Pay',
-			Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->getAcceptUrl(),
-			Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->getDeclineUrl(),
-			Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->getExceptionUrl(),
-			Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->getCancelUrl()
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->get_return_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->get_return_reject_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->get_return_error_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->get_return_cancel_url()
 		);
 		
 		$signature = $this->getSignature( $data, $this->getMerchantId() );
