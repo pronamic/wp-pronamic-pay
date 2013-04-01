@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Easy
+ * Title: Buckaroo gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
