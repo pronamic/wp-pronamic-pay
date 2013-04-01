@@ -104,6 +104,18 @@ class Pronamic_WordPress_Util {
 
 	//////////////////////////////////////////////////
 
+	public static function format_date( $format, DateTime $date = null ) {
+		$result = null;
+		
+		if ( $date !== null ) {
+			$result = $date->format( $format );
+		}
+		
+		return $result;
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Build URL with the specified parameters
 	 * 
