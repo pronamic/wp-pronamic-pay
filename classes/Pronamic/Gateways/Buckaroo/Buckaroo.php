@@ -615,66 +615,29 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 */
 	public function verifyRequest( $data ) {
 		$result = false;
-		
-		$signatureOut = ($data['brq_signature']);
-     
+
 		if ( isset( $data['brq_signature'] ) ) {
-		
-        unset($data['brq_signature']);
-      
-		    $sortableArray = $this->buckarooSort($data);
-		    
-		      //turn into string and add the secret key to the end
-         $signatureString = '';
-           foreach($sortableArray as $key => $value) {
-                   $value = urldecode($value);
-                   $signatureString .= $key . '=' . $value;
-           }
-        // Buckaroo Added Merchant ID to string to calculate signature
-        $signatureString .= $this->getMerchantId();
-            
-    //return the SHA1 encoded string for comparison
-       $signature = SHA1($signatureString);
-      if ( strcasecmp( $signature, $signatureOut ) === 0 ) {
+			$signature = $data['brq_signature'];
+     
+			unset( $data['brq_signature'] );
+
+			$signatureCheck = $this->getSignature( $data, $this->getMerchantId() );
+
+			if ( strcasecmp( $signature, $signatureCheck ) === 0 ) {
 				$result = filter_var_array( $data, array(
 					Pronamic_Gateways_Buckaroo_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
 					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT, 
 					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY => FILTER_SANITIZE_STRING,
-					'brq_payment'         => FILTER_SANITIZE_STRING, 
-					'brq_statusmessage' => FILTER_SANITIZE_STRING, 
-					'brq_statuscode'     => FILTER_VALIDATE_INT,
-					'brq_SERVICE_ideal_consumerIBAN'     => FILTER_SANITIZE_STRING, 
-					'brq_SERVICE_ideal_consumerIssuer'      => FILTER_SANITIZE_STRING, 
-					'brq_signature'    => FILTER_SANITIZE_STRING 
+					'brq_payment'                                   => FILTER_SANITIZE_STRING, 
+					'brq_statusmessage'                             => FILTER_SANITIZE_STRING, 
+					'brq_statuscode'                                => FILTER_VALIDATE_INT,
+					'brq_SERVICE_ideal_consumerIBAN'                => FILTER_SANITIZE_STRING, 
+					'brq_SERVICE_ideal_consumerIssuer'              => FILTER_SANITIZE_STRING, 
+					'brq_signature'                                 => FILTER_SANITIZE_STRING 
 				) );
 			} 
 		}
-		
-//		 echo "</br> <strong> Start verifyRequest Result information </strong> </br>";
-//		 print_r ($result);
-//		 echo "</br> <strong> END verifyRequest Result information </strong> </br>";
+
 		return $result;
 	}
-	
-public function buckarooSort($array)
-{
-    $arrayToSort = array();
-    $origArray = array();
-    foreach ($array as $key => $value) {
-        $arrayToSort[strtolower($key)] = $value;
-    	//stores the original value in an array
-        $origArray[strtolower($key)] = $key;
-    }
-
-    ksort($arrayToSort);
-
-    $sortedArray = array();
-    foreach($arrayToSort as $key => $value) {
-    	//switch the lowercase keys back to their originals
-        $key = $origArray[$key];
-        $sortedArray[$key] = $value;
-    }
-
-    return $sortedArray;
-}
 }
