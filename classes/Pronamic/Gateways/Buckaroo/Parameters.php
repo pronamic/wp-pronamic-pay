@@ -8,38 +8,26 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Buckaroo_Parameters {
-	//////////////////////////////////////////////////
-	// IN
-	//////////////////////////////////////////////////
-
+class Pronamic_Gateways_Buckaroo_Parameters {	
 	/**
-	 * Indicator for the MERCHANT_ID parameter
+	 * Indicator for the Websiteket parameter
+	 * Insite Pronamic called HASHKEY	 
 	 * @var string
 	 */
-	// const PSPID = 'PSPID';
-	
-	const MERCHANTID = 'MERCHANTID';
+	const WEBSITE_KEY = 'brq_websitekey';
 	
 	/**
 	 * Indicator for the Websiteket parameter
 	 * Insite Pronamic called HASHKEY	 
 	 * @var string
 	 */
-	const HASHKEY = 'Brq_websitekey';
-	
-	/**
-	 * Indicator for the Websiteket parameter
-	 * Insite Pronamic called HASHKEY	 
-	 * @var string
-	 */
-	const SIGNATURE = 'Brq_signature';
+	const SIGNATURE = 'brq_signature';
 
 	/**
 	 * Indicator for the ORDERID parameter
 	 * @var string
 	 */
-	const ORDERID = 'brq_invoicenumber';
+	const INVOICE_NUMBER = 'brq_invoicenumber';
 
 	/**
 	 * Indicator for the AMOUNT parameter
@@ -57,13 +45,13 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	 * Indicator for the LANGUAGE parameter
 	 * @var string
 	 */
-	const LANGUAGE = 'Brq_culture';
+	const CULTURE = 'brq_culture';
 
 	/**
 	 * Indicator for the LANGUAGE parameter
 	 * @var string
 	 */
-	const COM = 'Brq_description';
+	const DESCRIPTION = 'brq_description';
 	
 	//////////////////////////////////////////////////
 
@@ -71,33 +59,23 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	 * Indicator for the ACCEPTURL parameter
 	 * @var string
 	 */
-	const ACCEPT_URL = 'Brq_return';
+	const RETURN_URL = 'brq_return';
 
 	/**
 	 * Indicator for the DECLINEURL parameter
 	 * @var string
 	 */
-	const DECLINE_URL = 'Brq_returnreject';
+	const RETURN_REJECT_URL = 'brq_returnreject';
 
 	/**
 	 * Indicator for the EXCEPTIONURL parameter
 	 * @var string
 	 */
-	const EXCEPTION_URL = 'Brq_returnerror';
+	const RETURN_ERROR_URL = 'brq_returnerror';
 
 	/**
 	 * Indicator for the CANCELURL parameter
 	 * @var string
 	 */
-	const CANCEL_URL = 'Brq_returncancel';
-
-	//////////////////////////////////////////////////
-	// OUT
-	//////////////////////////////////////////////////
-
-	/**
-	 * Indicator for the STATUS parameter
-	 * @var string
-	 */
-	const STATUS = 'STATUS';
+	const RETURN_CANCEL_URL = 'brq_returncancel';
 }
