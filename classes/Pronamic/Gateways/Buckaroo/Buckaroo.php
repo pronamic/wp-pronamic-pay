@@ -10,29 +10,6 @@
  */
 class Pronamic_Gateways_Buckaroo_Buckaroo {
 	/**
-	 * Indicator for hash algorithm SHA-1
-	 * 
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_1 = 'sha1';
-
-	/**
-	 * Indicator for hash algorithm SHA-256
-	 * 
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_256 = 'sha256';
-
-	/**
-	 * Indicator for hash algorithm SHA-512
-	 * 
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_512 = 'sha512';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * The payment server URL 
 	 * 
 	 * @var string
