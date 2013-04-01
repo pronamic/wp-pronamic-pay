@@ -607,46 +607,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $data );
 	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Verify request
-	 */
-/*	public function verifyRequest( $data ) {
-		$result = false;
-		
-		 echo "</br> <strong> Start verifyRequest data information </strong> </br>";
-		 print_r ($data);
-		 echo "</br> <strong> END verifyRequest data information </strong> </br>";
-		$data = array_change_key_case( $data, CASE_UPPER );
-
-		if ( isset( $data['brq_signature'] ) ) {
-			$signature = $data['brq_signature'];
-
-			$signatureOut = $this->getSignatureOut( $data );
-
-			if ( strcasecmp( $signature, $signatureOut ) === 0 ) {
-				$result = filter_var_array( $data, array(
-					Pronamic_Gateways_Buckaroo_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
-					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT, 
-					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY => FILTER_SANITIZE_STRING,
-					'brq_payment'         => FILTER_SANITIZE_STRING, 
-					'brq_statusmessage' => FILTER_SANITIZE_STRING, 
-					'brq_statuscode'     => FILTER_VALIDATE_INT,
-					'brq_SERVICE_ideal_consumerIBAN'     => FILTER_SANITIZE_STRING, 
-					'brq_SERVICE_ideal_consumerIssuer'      => FILTER_SANITIZE_STRING, 
-					'brq_signature'    => FILTER_SANITIZE_STRING 
-				) );
-			} 
-		}
-		
-		 echo "</br> <strong> Start verifyRequest Result information </strong> </br>";
-		 print_r ($result);
-		 echo "</br> <strong> END verifyRequest Result information </strong> </br>";
-		return $result;
-	}
-	 */
 	
 	//////////////////////////////////////////////////
 
