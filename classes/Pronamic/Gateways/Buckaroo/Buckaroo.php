@@ -10,6 +10,15 @@
  */
 class Pronamic_Gateways_Buckaroo_Buckaroo {
 	/**
+	 * Indicator for the iDEAL payment method
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_METHOD_IDEAL = 'ideal';
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * The payment server URL 
 	 * 
 	 * @var string
@@ -31,7 +40,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct() {
-		$this->fields = array();
+		$this->set_payment_method( self::PAYMENT_METHOD_IDEAL );
 	}
 
 	//////////////////////////////////////////////////
@@ -76,6 +85,16 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 	//////////////////////////////////////////////////
 
+	public function get_payment_method() {
+		return $this->payment_method;
+	}
+
+	public function set_payment_method( $payment_method ) {
+		$this->payment_method = $payment_method;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function get_culture() {
 		return $this->culture;
 	}
@@ -114,6 +133,16 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 	public function set_description( $description ) {
 		$this->description = $description;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_amount() {
+		return $this->amount;
+	}
+
+	public function set_amount( $amount ) {
+		$this->amount = $amount;
 	}
 
 	//////////////////////////////////////////////////
@@ -245,23 +274,23 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 */
 	public function getHtmlFields() {
 		$data = array(
-			'brq_websitekey'           => $this->gethashKey(),
-			'brq_invoicenumber'        => $this->getOrderId(),
-			'brq_amount'               => $this->getAmount(),
-			'brq_currency'             => $this->getCurrency(),
-			'brq_culture'              => $this->getLanguage(),
-			'brq_description'          => $this->getOrderDescription(),
-			'brq_payment_method'       => 'ideal',
+			Pronamic_Gateways_Buckaroo_Parameters::WEBSITE_KEY       => $this->get_website_key(),
+			Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER    => $this->get_invoice_number(),
+			Pronamic_Gateways_Buckaroo_Parameters::AMOUNT            => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ),
+			Pronamic_Gateways_Buckaroo_Parameters::CURRENCY          => $this->get_currency(),
+			Pronamic_Gateways_Buckaroo_Parameters::CULTURE           => $this->get_culture(),
+			Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
+			Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD    => $this->get_payment_method(),
 			'brq_service_ideal_action' => 'Pay',
-			'brq_return'               => $this->getAcceptUrl(),
-			'brq_returnreject'         => $this->getDeclineUrl(),
-			'brq_returnerror'          => $this->getExceptionUrl(),
-			'brq_returncancel'         => $this->getCancelUrl()
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->getAcceptUrl(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->getDeclineUrl(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->getExceptionUrl(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->getCancelUrl()
 		);
 		
 		$signature = $this->getSignature( $data, $this->getMerchantId() );
 		
-		$data['brq_signature'] = $signature;
+		$data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] = $signature;
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $data );
 	}

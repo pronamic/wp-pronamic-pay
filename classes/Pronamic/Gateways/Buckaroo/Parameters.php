@@ -56,6 +56,14 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Indicator for the 'brq_payment_method' parameter
+	 * @var string
+	 */
+	const PAYMENT_METHOD = 'brq_payment_method';
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Indicator for the ACCEPTURL parameter
 	 * @var string
 	 */
@@ -78,4 +86,12 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	 * @var string
 	 */
 	const RETURN_CANCEL_URL = 'brq_returncancel';
+	
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Indicator for the 'brq_signature' parameter
+	 * @var string
+	 */
+	const SIGNATURE = 'brq_signature';
 }
