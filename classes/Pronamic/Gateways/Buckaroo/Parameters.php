@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: iDEAL Internet Kassa parameters constants
+ * Title: Buckaroo parameters constants
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
