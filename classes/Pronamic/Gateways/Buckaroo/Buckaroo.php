@@ -184,7 +184,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * @param string $url
 	 */
 	public function set_return_reject_url( $url ) {
-		$this->set_return_reject_url = $url;
+		$this->return_reject_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -231,7 +231,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	// Signature functions
 	//////////////////////////////////////////////////
 
-	public function getSignature( $data, $secreteKey ) {
+	public static function get_signature( $data, $secret_key ) {
 		$string = '';
 
 		$data = array_change_key_case( $data, CASE_LOWER );
@@ -242,17 +242,19 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 			$string .= $key . '=' . $value;
 		}
 		
-		$string .= $secretKey;
+		$string .= $secret_key;
 		
 		return hash( 'sha1', $string );
 	}
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Get HTML fields
 	 * 
 	 * @return string
 	 */
-	public function getHtmlFields() {
+	public function get_html_fields() {
 		$data = array(
 			Pronamic_Gateways_Buckaroo_Parameters::WEBSITE_KEY       => $this->get_website_key(),
 			Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER    => $this->get_invoice_number(),
@@ -267,7 +269,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 			Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->get_return_cancel_url()
 		);
 		
-		$signature = $this->getSignature( $data, $this->getMerchantId() );
+		$signature = self::get_signature( $data, $this->get_secret_key() );
 		
 		$data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] = $signature;
 
@@ -279,29 +281,28 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	/**
 	 * Verify request  Buckaroo
 	 */
-	public function verifyRequest( $data ) {
+	public function verify_request( $data ) {
 		$result = false;
 
-		if ( isset( $data['brq_signature'] ) ) {
-			$signature = $data['brq_signature'];
+		if ( isset( $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] ) ) {
+			$signature = $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE];
      
-			unset( $data['brq_signature'] );
+			unset( $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] );
 
-			$signatureCheck = $this->getSignature( $data, $this->getMerchantId() );
+			$signature_check = self::get_signature( $data, $this->get_secret_key() );
 
 			if ( strcasecmp( $signature, $signatureCheck ) === 0 ) {
 				$result = filter_var_array( $data, array(
-					Pronamic_Gateways_Buckaroo_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
-					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT, 
-					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY => FILTER_SANITIZE_STRING,
-					'brq_payment'                                   => FILTER_SANITIZE_STRING, 
-					'brq_statusmessage'                             => FILTER_SANITIZE_STRING, 
-					'brq_statuscode'                                => FILTER_VALIDATE_INT,
-					'brq_SERVICE_ideal_consumerIBAN'                => FILTER_SANITIZE_STRING, 
-					'brq_SERVICE_ideal_consumerIssuer'              => FILTER_SANITIZE_STRING, 
-					'brq_signature'                                 => FILTER_SANITIZE_STRING 
+					Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER  => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT          => FILTER_VALIDATE_FLOAT, 
+					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY        => FILTER_SANITIZE_STRING,
+					'brq_payment'                                          => FILTER_SANITIZE_STRING, 
+					'brq_statusmessage'                                    => FILTER_SANITIZE_STRING, 
+					'brq_statuscode'                                       => FILTER_VALIDATE_INT,
+					'brq_SERVICE_ideal_consumerIBAN'                       => FILTER_SANITIZE_STRING, 
+					'brq_SERVICE_ideal_consumerIssuer'                     => FILTER_SANITIZE_STRING
 				) );
-			} 
+			}
 		}
 
 		return $result;
