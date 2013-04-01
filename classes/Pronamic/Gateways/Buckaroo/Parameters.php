@@ -10,88 +10,78 @@
  */
 class Pronamic_Gateways_Buckaroo_Parameters {	
 	/**
-	 * Indicator for the Websiteket parameter
-	 * Insite Pronamic called HASHKEY	 
+	 * Indicator for the 'Brq_websitekey' parameter
 	 * @var string
 	 */
-	const WEBSITE_KEY = 'brq_websitekey';
+	const WEBSITE_KEY = 'Brq_websitekey';
 	
 	/**
-	 * Indicator for the Websiteket parameter
-	 * Insite Pronamic called HASHKEY	 
+	 * Indicator for the 'Brq_signature' parameter
 	 * @var string
 	 */
-	const SIGNATURE = 'brq_signature';
+	const SIGNATURE = 'Brq_signature';
 
 	/**
-	 * Indicator for the ORDERID parameter
+	 * Indicator for the 'Brq_invoicenumber' parameter
 	 * @var string
 	 */
-	const INVOICE_NUMBER = 'brq_invoicenumber';
+	const INVOICE_NUMBER = 'Brq_invoicenumber';
 
 	/**
-	 * Indicator for the AMOUNT parameter
+	 * Indicator for the 'Brq_amount' parameter
 	 * @var string
 	 */
-	const AMOUNT = 'brq_amount';
+	const AMOUNT = 'Brq_amount';
 
 	/**
-	 * Indicator for the CURRENCY parameter
+	 * Indicator for the 'Brq_currency' parameter
 	 * @var string
 	 */
-	const CURRENCY = 'brq_currency';
+	const CURRENCY = 'Brq_currency';
 
 	/**
-	 * Indicator for the LANGUAGE parameter
+	 * Indicator for the 'Brq_culture' parameter
 	 * @var string
 	 */
-	const CULTURE = 'brq_culture';
+	const CULTURE = 'Brq_culture';
 
 	/**
-	 * Indicator for the LANGUAGE parameter
+	 * Indicator for the 'Brq_description' parameter
 	 * @var string
 	 */
-	const DESCRIPTION = 'brq_description';
+	const DESCRIPTION = 'Brq_description';
 	
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the 'brq_payment_method' parameter
+	 * Indicator for the 'Brq_payment_method' parameter
 	 * @var string
 	 */
-	const PAYMENT_METHOD = 'brq_payment_method';
+	const PAYMENT_METHOD = 'Brq_payment_method';
 	
 	//////////////////////////////////////////////////
 
 	/**
-	 * Indicator for the ACCEPTURL parameter
+	 * Indicator for the 'Brq_return' parameter
 	 * @var string
 	 */
-	const RETURN_URL = 'brq_return';
+	const RETURN_URL = 'Brq_return';
 
 	/**
-	 * Indicator for the DECLINEURL parameter
+	 * Indicator for the 'Brq_returnreject' parameter
 	 * @var string
 	 */
-	const RETURN_REJECT_URL = 'brq_returnreject';
+	const RETURN_REJECT_URL = 'Brq_returnreject';
 
 	/**
-	 * Indicator for the EXCEPTIONURL parameter
+	 * Indicator for the 'Brq_returnerror' parameter
 	 * @var string
 	 */
-	const RETURN_ERROR_URL = 'brq_returnerror';
+	const RETURN_ERROR_URL = 'Brq_returnerror';
 
 	/**
-	 * Indicator for the CANCELURL parameter
+	 * Indicator for the 'Brq_returncancel' parameter
 	 * @var string
 	 */
-	const RETURN_CANCEL_URL = 'brq_returncancel';
-	
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Indicator for the 'brq_signature' parameter
-	 * @var string
-	 */
-	const SIGNATURE = 'brq_signature';
+	const RETURN_CANCEL_URL = 'Brq_returncancel';
 }
