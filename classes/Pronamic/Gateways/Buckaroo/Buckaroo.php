@@ -586,40 +586,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * @return string
 	 */
 	public function getHtmlFields() {
-	
-	   //Buckaroo Debugging
-//     echo " </br> <strong> Start Call of Function getHtmlFields => </strong> </br>";
-    
-    /* To see result of return value Echo return value but also
-     * you have to modify IDeal.php in the pronamic/class/ideal
-     */
-     
-     /*          
-         echo " Print Return Value => </br>";
-     print_r (Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			// general parameters
-			'Brq_websitekey'     => $this->getHashKey(),
-			'Brq_invoicenumber'  => $this->getOrderId(), 
-			'Brq_amount'         => $this->getAmount() , 
-			'Brq_currency'       => $this->getCurrency(),
-			'Brq_culture'        => $this->getLanguage(),
-			'COM'                => $this->getOrderDescription(), 
 
-			// check before the payment: see Security: Check before the Payment
-			'SHASign'            => $this->getSignatureIn(),
-
-			// layout information: see Look and Feel of the Payment Page
-			// ?
-
-			// post payment redirection: see Transaction Feedback to the Customer
-			'accepturl'    => $this->getAcceptUrl(),
-			'declineurl'   => $this->getDeclineUrl(),
-			'exceptionurl' => $this->getExceptionUrl(),
-			'cancelurl'    => $this->getCancelUrl()
-		) ));
-		
-		echo " </br> <= Print Return Value  </br>";
-		*/
     $postArray = array();
   	$arrayToSort = array();
   	$tmpKeyArray = array();
@@ -634,10 +601,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 		$postArray['Brq_payment_method'] = "ideal";
     $postArray['Brq_service_ideal_action'] = "Pay";
 
-		// check before the payment: see Security: Check before the Payment
-		// $postArray ['Brq_signature']  = $this->getSignatureIn();
 
-		// post payment redirection: see Transaction Feedback to the Customer
 		$postArray ['Brq_return']  = $this->getAcceptUrl();
 		$postArray ['Brq_returnreject']  = $this->getDeclineUrl();
 		$postArray ['Brq_returnerror']  = $this->getExceptionUrl();
@@ -677,32 +641,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
     $postArray['brq_signature'] = $signature; 
     
     
-  	
-	/*	return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			// general parameters
-			'Brq_websitekey'     => $this->gethashKey(),
-			'Brq_invoicenumber'  => $this->getOrderId(), 
-			'Brq_amount'         => $this->getAmount() , 
-			'Brq_currency'       => $this->getCurrency(),
-			'Brq_culture'        => $this->getLanguage(),
-			'Brq_description'    => $this->getOrderDescription(), 
-
-			// check before the payment: see Security: Check before the Payment
-			'Brq_signature'      => $this->getSignatureIn(),
-
-			// layout information: see Look and Feel of the Payment Page
-			// ?
-
-			// post payment redirection: see Transaction Feedback to the Customer
-			'Brq_return'         => $this->getAcceptUrl(),
-			'Brq_returnreject'   => $this->getDeclineUrl(),
-			'Brq_returnerror'    => $this->getExceptionUrl(),
-			'Brq_returncancel'   => $this->getCancelUrl()
-		) );
-		*/
 		 return Pronamic_IDeal_IDeal::htmlHiddenFields( $postArray );
-		//Buckaroo Debugging
-//     echo " </br> <strong> <= END Call of Function getHtmlFields </strong> </br>";
 	}
 
 	//////////////////////////////////////////////////
