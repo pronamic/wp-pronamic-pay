@@ -96,6 +96,27 @@
 	</provider>
 	
 	<provider>
+		<id>adyen</id>
+		<name>Adyen</name>
+		<url>http://www.adyen.com/</url>
+
+		<variant gateway="adyen">
+			<id>adyen</id>
+			<name>Adyen</name>
+			<url>http://www.adyen.com/</url>
+
+			<test>
+				<paymentServerUrl>https://test.adyen.com/hpp/pay.shtml</paymentServerUrl>
+				<dashboardUrl>https://ca-test.adyen.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://live.adyen.com/hpp/pay.shtml</paymentServerUrl>
+				<dashboardUrl>https://ca-live.adyen.com/</dashboardUrl>
+			</live>
+		</variant>
+	</provider> 
+	
+	<provider>
 		<id>buckaroo</id>
 		<name>Buckaroo</name>
 		<url>http://www.buckaroo.nl/</url>
