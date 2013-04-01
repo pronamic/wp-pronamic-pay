@@ -322,7 +322,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				)
 			)
 		),
-		    array(
+		array(
 			'title'   => __( 'Buckaroo', 'pronamic_ideal' ),
 			'methods' => array( 'buckaroo' ),
 			'fields'  => array(
@@ -333,7 +333,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'value'       => $configuration->getMerchantId(),
 					'description' => __( 'Buckaroo.nl Merchant id Nummer. Deze heeft u per mail ontvangen van Buckaroo', 'pronamic_ideal' ),
 				),
-				 array(
+				array(
 					'id'          => 'pronamic_ideal_hash_key',
 					'title'       => __( 'Website Key', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -341,10 +341,10 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'description' => sprintf(
 						__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 						'https://payment.buckaroo.nl/'
-		                              )
-				      )
-			                   )
-		         ),
+					)
+				)
+			)
+		),
 		array(
 			'title'   => __( 'TargetPay', 'pronamic_ideal' ),
 			'methods' => array( 'targetpay' ),
