@@ -261,7 +261,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 			Pronamic_Gateways_Buckaroo_Parameters::CULTURE           => $this->get_culture(),
 			Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
 			Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD    => $this->get_payment_method(),
-			'brq_service_ideal_action' => 'Pay',
 			Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->get_return_url(),
 			Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->get_return_reject_url(),
 			Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->get_return_error_url(),
