@@ -94,6 +94,27 @@
 			</certificates>
 		</variant>
 	</provider>
+	
+	<provider>
+		<id>buckaroo</id>
+		<name>Buckaroo</name>
+		<url>http://www.buckaroo.nl/</url>
+
+		<variant gateway="buckaroo">
+			<id>buckaroo</id>
+			<name>Buckaroo - Ideal</name>
+			<url>https://payment.buckaroo.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://testcheckout.buckaroo.nl/html/</paymentServerUrl>
+				<dashboardUrl>https://payment.buckaroo.nl</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://checkout.buckaroo.nl/html/</paymentServerUrl>
+				<dashboardUrl>https://payment.buckaroo.nl</dashboardUrl>
+			</live>
+		</variant>
+	</provider> 
 
 	<provider>
 		<id>deutschebank</id>
