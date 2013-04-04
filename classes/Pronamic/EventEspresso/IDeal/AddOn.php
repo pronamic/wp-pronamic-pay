@@ -304,6 +304,8 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 	            	$payment_data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
+	            	$payment_data['txn_type']       = __( 'iDEAL', 'pronamic_ideal' );
+	            	$payment_data['txn_id']         = $payment->transaction_id;
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
