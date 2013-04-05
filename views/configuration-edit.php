@@ -58,10 +58,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	$configuration->molliePartnerId = filter_input( INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING );
 	$configuration->mollieProfileKey = filter_input( INPUT_POST, 'pronamic_ideal_mollie_profile_key', FILTER_SANITIZE_STRING );
 	
-  // Buckaroo
-	$configuration->setMerchantId = filter_input( INPUT_POST, 'pronamic_ideal_merchant_id', FILTER_SANITIZE_STRING );
-	$configuration->hashKey = filter_input( INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING );
-	
 	// TargetPay
 	$configuration->targetPayLayoutCode = filter_input( INPUT_POST, 'pronamic_ideal_targetpay_layoutcode', FILTER_SANITIZE_STRING );
 	
