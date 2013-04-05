@@ -23,12 +23,14 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 */
 	private $variant;
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * The merchant ID
 	 * 
 	 * @var string
 	 */
-	private $merchantId;
+	public $merchantId;
 
 	//////////////////////////////////////////////////
 
