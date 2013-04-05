@@ -48,8 +48,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	$configuration->hashKey = filter_input( INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING );
 
 	// Buckaroo
-	$configuration->buckarooMerchantId = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_merchant_id', FILTER_SANITIZE_STRING );
-	$configuration->buckarooHashKey = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_hash_key', FILTER_SANITIZE_STRING );
+	$configuration->buckarooWebsiteKey = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_website_key', FILTER_SANITIZE_STRING );
+	$configuration->buckarooSecretKey = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_secret_key', FILTER_SANITIZE_STRING );
 	
 	// OmniKassa
 	$configuration->keyVersion = filter_input( INPUT_POST, 'pronamic_ideal_key_version', FILTER_SANITIZE_STRING );
@@ -318,21 +318,16 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'buckaroo' ),
 			'fields'  => array(
 				array(
-					'id'          => 'pronamic_ideal_buckaroo_merchant_id',
-					'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
-					'type'        => 'text',
-					'value'       => $configuration->buckarooMerchantId,
-					'description' => __( 'Buckaroo.nl Merchant id Nummer. Deze heeft u per mail ontvangen van Buckaroo', 'pronamic_ideal' ),
-				),
-				array(
-					'id'          => 'pronamic_ideal_buckaroo_hash_key',
+					'id'          => 'pronamic_ideal_buckaroo_website_key',
 					'title'       => __( 'Website Key', 'pronamic_ideal' ),
 					'type'        => 'text',
-					'value'       => $configuration->buckarooHashKey,
-					'description' => sprintf(
-						__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
-						'https://payment.buckaroo.nl/'
-					)
+					'value'       => $configuration->buckarooWebsiteKey
+				),
+				array(
+					'id'          => 'pronamic_ideal_buckaroo_secret_key',
+					'title'       => __( 'Secret Key', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->buckarooSecretKey
 				)
 			)
 		),

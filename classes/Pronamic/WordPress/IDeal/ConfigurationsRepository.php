@@ -127,8 +127,8 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		}
 		
 		// Buckaroo
-		if(isset($meta->buckarooMerchantId)) $configuration->buckarooMerchantId = $meta->buckarooMerchantId;
-		if(isset($meta->buckarooHashKey)) $configuration->buckarooHashKey = $meta->buckarooHashKey;
+		if(isset($meta->buckarooWebsiteKey)) $configuration->buckarooWebsiteKey = $meta->buckarooWebsiteKey;
+		if(isset($meta->buckarooSecretKey)) $configuration->buckarooSecretKey = $meta->buckarooSecretKey;
 
 		// Mollie
 		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;
