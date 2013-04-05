@@ -26,7 +26,7 @@ class Pronamic_S2Member_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	}
 
 	public function getDescription() {
-		return '';
+		return str_replace( '{{order_id}}', $this->getOrderId(), $this->data['description'] );
 	}
 
 	public function getItems() {

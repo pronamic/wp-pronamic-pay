@@ -41,7 +41,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			'period'      => null,
 			'cost'        => null,
 			'level'       => null,
-			'description' => __( 'iDEAL s2Member Payment', 'pronamic_ideal' )
+			'description' => __( 'iDEAL s2Member Payment || {{order_id}}', 'pronamic_ideal' )
 		);
 
 		// Combine the passed options
@@ -67,6 +67,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				<input type="hidden" name="options[period]" value="<?php echo $options['period']; ?>" />
 				<input type="hidden" name="options[cost]" value="<?php echo $options['cost']; ?>"/>
 				<input type="hidden" name="options[level]" value="<?php echo $options['level']; ?>"/>
+				<input type="hidden" name="options[description]" value="<?php echo $options['description']; ?>"/>
 				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal'); ?>" />
 			</form>
 			<?php
@@ -77,7 +78,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	}
 
 	public function encrypt_data( $data ) {
-		return sha1( $data['period'] . $data['cost'] . $data['level'] . AUTH_SALT );
+		return sha1( $data['period'] . $data['cost'] . $data['level'] . $data['description'] . AUTH_SALT );
 	}
 
 	public function ideal_page() {
