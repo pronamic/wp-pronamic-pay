@@ -79,8 +79,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
 		
-		// Initialize
-		add_action( 'init', array( __CLASS__, 'init' ) );
+		// Initialize requirements
+		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
+		require_once self::$dirname . '/includes/wp-e-commerce.php';
 		
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
@@ -110,17 +111,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Show license message if the license is not valid
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Initialize
-	 */
-	public static function init() {
-		// Requirements
-		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
-		require_once self::$dirname . '/includes/wp-e-commerce.php';
 	}
 
 	//////////////////////////////////////////////////
