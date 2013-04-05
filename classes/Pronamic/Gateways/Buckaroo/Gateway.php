@@ -33,8 +33,8 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_Buckaroo_Buckaroo();
 		$this->client->set_payment_server_url( $configuration->getPaymentServerUrl() );
-		$this->client->set_website_key( $configuration->getMerchantId() );
-		$this->client->set_secret_key( $configuration->gethashKey() );
+		$this->client->set_website_key( $configuration->buckaroWebsiteKey );
+		$this->client->set_secret_key( $configuration->buckarooSecretKey );
 	}
 
 	/////////////////////////////////////////////////
