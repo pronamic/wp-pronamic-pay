@@ -28,7 +28,7 @@
 						shortcode += 'level="' + level.val() + '" ';
 
 					if (description.val().length > 0)
-						shortcode += 'description="' + description.val() + '" ';
+						shortcode += 'description="' + description.val() + ' || {{order_id}}" ';
 
 					shortcode += ']';
 
@@ -43,8 +43,8 @@
 					<th><?php _e( 'iDEAL Buttons Code Generator', 'pronamic_ideal' ); ?></th>
 					<td>
 						<p>
-							<?php 
-							
+							<?php
+
 							$input = '<input type="text" autocomplete="off" size="6" class="jPronamicIdealCost" />';
 
 							$select  = '';
@@ -55,21 +55,21 @@
 							$select .= '</select>';
 
 							printf( __( 'I want to charge: %s / %s', 'pronamic_ideal' ), $input, $select );
-							
+
 							?>
 						</p>
 						<p>
-							<?php 
-							
+							<?php
+
 							$select  = '';
 							$select .= '<select class="jPronamicIdealLevelShortcode">';
 							for ( $level = 1; $level <= 4; $level++ ) {
 								$select .= sprintf( '<option value="%s">%s</option>', $level, $level );
 							}
 							$select .= '</select>';
-							
+
 							printf( __( 'for access to level %s content', 'pronamic_ideal' ), $select );
-							
+
 							?>
 						</p>
 						<p>
