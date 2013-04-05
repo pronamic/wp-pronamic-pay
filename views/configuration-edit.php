@@ -68,7 +68,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mode',
 				'title'       => __( 'Mode', 'pronamic_ideal' ),
 				'type'        => 'optgroup',
-				'value'       => $configuration->mode,
 				'options'     => array(
 					Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
 					Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
@@ -79,7 +78,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->getMerchantId(),
 				'description' => __( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'basic', 'omnikassa', 'advanced', 'advanced_v3' )
 			),
@@ -88,7 +86,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sub_id',
 				'title'       => __( 'Sub ID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->getSubId(),
 				'description' => sprintf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ),
 				'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
 			),
@@ -97,7 +94,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_hash_key',
 				'title'       => __( 'Hash Key', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->hashKey,
 				'description' => __( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'basic', 'omnikassa' )
 			)
@@ -129,7 +125,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mollie_partner_id',
 				'title'       => __( 'Partner ID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->molliePartnerId,
 				'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
 			),
 			 array(
@@ -137,7 +132,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mollie_profile_key',
 				'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->mollieProfileKey,
 				'description' => sprintf(
 					__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 					'https://www.mollie.nl/beheer/account/profielen/'
@@ -154,7 +148,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_key_version',
 				'title'       => __( 'Key Version', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->keyVersion,
 				'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
 			)
 		)
@@ -167,15 +160,13 @@ $sections = array(
 				'name'        => 'buckarooWebsiteKey',
 				'id'          => 'pronamic_ideal_buckaroo_website_key',
 				'title'       => __( 'Website Key', 'pronamic_ideal' ),
-				'type'        => 'text',
-				'value'       => $configuration->buckarooWebsiteKey
+				'type'        => 'text'
 			),
 			array(
 				'name'        => 'buckarooSecretKey',
 				'id'          => 'pronamic_ideal_buckaroo_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
-				'type'        => 'text',
-				'value'       => $configuration->buckarooSecretKey
+				'type'        => 'text'
 			)
 		)
 	),
@@ -188,7 +179,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_targetpay_layoutcode',
 				'title'       => __( 'Layout Code', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->targetPayLayoutCode,
 				'description' => __( 'De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal' ),
 			)
 		)
@@ -202,7 +192,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_pspid',
 				'title'       => __( 'PSPID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->pspId,
 				'description' => sprintf(
 						__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
 						'TESTiDEALEASY'
@@ -230,7 +219,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->shaInPassPhrase,
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'internetkassa' )
 			),
@@ -239,7 +227,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 				'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'value'       => $configuration->shaOutPassPhrase,
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'internetkassa' )
 			)
@@ -253,15 +240,13 @@ $sections = array(
 				'name'        => 'privateKeyPassword',
 				'id'          => 'pronamic_ideal_private_key_password',
 				'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
-				'type'        => 'text',
-				'value'       => $configuration->privateKeyPassword
+				'type'        => 'text'
 			),
 			array(
 				'name'        => 'privateKey',
 				'id'          => 'pronamic_ideal_private_key',
 				'title'       => __( 'Private Key', 'pronamic_ideal' ),
 				'type'        => 'file',
-				'value'       => $configuration->privateKey,
 				'callback'    => 'pronamic_ideal_private_key_field'
 			),
 			array(
@@ -269,7 +254,6 @@ $sections = array(
 				'id'          => 'pronamic_ideal_private_certificate',
 				'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
 				'type'        => 'file',
-				'value'       => $configuration->privateCertificate,
 				'callback'    => 'pronamic_ideal_private_certificate_field'
 			)
 		)
@@ -302,41 +286,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			}
 		}
 	}
-
-	/*
-	// Basic
-	$configuration->hashKey = filter_input( INPUT_POST, 'pronamic_ideal_hash_key', FILTER_SANITIZE_STRING );
-
-	// Buckaroo
-	$configuration->buckarooWebsiteKey = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_website_key', FILTER_SANITIZE_STRING );
-	$configuration->buckarooSecretKey = filter_input( INPUT_POST, 'pronamic_ideal_buckaroo_secret_key', FILTER_SANITIZE_STRING );
-	
-	// OmniKassa
-	$configuration->keyVersion = filter_input( INPUT_POST, 'pronamic_ideal_key_version', FILTER_SANITIZE_STRING );
-	
-	// Mollie
-	$configuration->molliePartnerId = filter_input( INPUT_POST, 'pronamic_ideal_mollie_partner_id', FILTER_SANITIZE_STRING );
-	$configuration->mollieProfileKey = filter_input( INPUT_POST, 'pronamic_ideal_mollie_profile_key', FILTER_SANITIZE_STRING );
-	
-	// TargetPay
-	$configuration->targetPayLayoutCode = filter_input( INPUT_POST, 'pronamic_ideal_targetpay_layoutcode', FILTER_SANITIZE_STRING );
-	
-	// Kassa
-	$configuration->pspId = filter_input( INPUT_POST, 'pronamic_ideal_pspid', FILTER_SANITIZE_STRING );
-	$configuration->shaInPassPhrase = filter_input( INPUT_POST, 'pronamic_ideal_sha_in_pass_phrase', FILTER_SANITIZE_STRING );
-	$configuration->shaOutPassPhrase = filter_input( INPUT_POST, 'pronamic_ideal_sha_out_pass_phrase', FILTER_SANITIZE_STRING );
-	
-	// Advanced
-	if ( $_FILES['pronamic_ideal_private_key']['error'] == UPLOAD_ERR_OK ) {
-		$configuration->privateKey = file_get_contents( $_FILES['pronamic_ideal_private_key']['tmp_name'] );
-	}
-
-	$configuration->privateKeyPassword = filter_input( INPUT_POST, 'pronamic_ideal_private_key_password', FILTER_SANITIZE_STRING );
-
-	if ( $_FILES['pronamic_ideal_private_certificate']['error'] == UPLOAD_ERR_OK ) {
-		$configuration->privateCertificate = file_get_contents( $_FILES['pronamic_ideal_private_certificate']['tmp_name'] );
-	}
-	*/
 	
 	// Generator
 	$configuration->numberDaysValid  = filter_input( INPUT_POST, 'pronamic_ideal_number_days_valid', FILTER_SANITIZE_STRING );
@@ -607,6 +556,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								$value = '';
 								if ( isset( $field['name'] ) ) {
 									$value = $configuration->{$field['name']};
+								} elseif( isset( $field['value'] ) ) {
+									$value = $field['value'];
 								}
 								
 								switch ( $field['type'] ) {
