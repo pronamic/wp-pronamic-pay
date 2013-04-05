@@ -125,6 +125,10 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		if ( $result->variantId == 'rabobank-omnikassa' && empty( $configuration->keyVersion ) ) {
 			$configuration->keyVersion = $result->subId;
 		}
+		
+		// Buckaroo
+		if(isset($meta->buckarooMerchantId)) $configuration->buckarooMerchantId = $meta->buckarooMerchantId;
+		if(isset($meta->buckarooHashKey)) $configuration->buckarooHashKey = $meta->buckarooHashKey;
 
 		// Mollie
 		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;

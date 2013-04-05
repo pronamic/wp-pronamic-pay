@@ -28,8 +28,8 @@ class Pronamic_Gateways_Buckaroo_ReturnHandler extends Pronamic_Gateways_ReturnH
 			if ( $variant != null && $variant->getMethod() == 'buckaroo' ) {
 				$buckaroo = new Pronamic_Gateways_Buckaroo_Buckaroo();
 
-				$buckaroo->set_website_key( $configuration->getMerchantId() );
-				$buckaroo->set_secret_key( $configuration->gethashKey() );
+				$buckaroo->set_website_key( $configuration->buckarooMerchantId );
+				$buckaroo->set_secret_key( $configuration->buckarooHashKey );
 
 				$result = $buckaroo->verify_request( $data );
 
