@@ -103,8 +103,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
 		add_action( 'pronamic_ideal_mollie_return',         array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
 		add_action( 'pronamic_ideal_targetpay_return',      array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
-    add_action( 'pronamic_ideal_buckaroo_return',       array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
-
+		add_action( 'pronamic_ideal_buckaroo_return',       array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
