@@ -230,6 +230,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'options'     => $options
 				),*/
 				array(
+					'name'        => 'mode',
 					'id'          => 'pronamic_ideal_mode',
 					'title'       => __( 'Mode', 'pronamic_ideal' ),
 					'type'        => 'optgroup',
@@ -237,9 +238,10 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'options'     => array(
 						Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
 						Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
-					)
+					),
 				),
 				array(
+					'name'        => 'merchantId',
 					'id'          => 'pronamic_ideal_merchant_id',
 					'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -248,6 +250,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'methods'     => array( 'basic', 'omnikassa', 'advanced', 'advanced_v3' )
 				),
 				array(
+					'name'        => 'subId',
 					'id'          => 'pronamic_ideal_sub_id',
 					'title'       => __( 'Sub ID', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -256,14 +259,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
 				),
 				array(
-					'id'          => 'pronamic_ideal_key_version',
-					'title'       => __( 'Key Version', 'pronamic_ideal' ),
-					'type'        => 'text',
-					'value'       => $configuration->keyVersion,
-					'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
-					'methods'     => array( 'omnikassa' )
-				),
-				array(
+					'name'        => 'hashKey',
 					'id'          => 'pronamic_ideal_hash_key',
 					'title'       => __( 'Hash Key', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -278,15 +274,15 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'basic' ),
 			'fields'  => array(
 				array(
-						'id'          => 'pronamic_ideal_basic_xml_notification_url',
-						'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
-						'type'        => 'text',
-						'value'       => add_query_arg( array(
-							'gateway'         => 'ideal_basic',
-							'xml_notifaction' => 'true'
-						), site_url( '/' ) ),
-						'methods'     => array( 'basic' ),
-						'readonly'    => true
+					'id'          => 'pronamic_ideal_basic_xml_notification_url',
+					'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => add_query_arg( array(
+						'gateway'         => 'ideal_basic',
+						'xml_notifaction' => 'true'
+					), site_url( '/' ) ),
+					'methods'     => array( 'basic' ),
+					'readonly'    => true
 				),
 			)
 		),
@@ -295,6 +291,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'mollie' ),
 			'fields'  => array(
 				array(
+					'name'        => 'molliePartnerId',
 					'id'          => 'pronamic_ideal_mollie_partner_id',
 					'title'       => __( 'Partner ID', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -302,6 +299,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
 				),
 				 array(
+					'name'        => 'mollieProfileKey',
 					'id'          => 'pronamic_ideal_mollie_profile_key',
 					'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -314,16 +312,32 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			)
 		),
 		array(
+			'title'   => __( 'OmniKassa', 'pronamic_ideal' ),
+			'methods' => array( 'omnikassa' ),
+			'fields'  => array(
+				array(
+					'name'        => 'keyVersion',
+					'id'          => 'pronamic_ideal_key_version',
+					'title'       => __( 'Key Version', 'pronamic_ideal' ),
+					'type'        => 'text',
+					'value'       => $configuration->keyVersion,
+					'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
+				)
+			)
+		),
+		array(
 			'title'   => __( 'Buckaroo', 'pronamic_ideal' ),
 			'methods' => array( 'buckaroo' ),
 			'fields'  => array(
 				array(
+					'name'        => 'buckarooWebsiteKey',
 					'id'          => 'pronamic_ideal_buckaroo_website_key',
 					'title'       => __( 'Website Key', 'pronamic_ideal' ),
 					'type'        => 'text',
 					'value'       => $configuration->buckarooWebsiteKey
 				),
 				array(
+					'name'        => 'buckarooSecretKey',
 					'id'          => 'pronamic_ideal_buckaroo_secret_key',
 					'title'       => __( 'Secret Key', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -336,6 +350,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'targetpay' ),
 			'fields'  => array(
 				array(
+					'name'        => 'targetPayLayoutCode',
 					'id'          => 'pronamic_ideal_targetpay_layoutcode',
 					'title'       => __( 'Layout Code', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -349,6 +364,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'easy', 'internetkassa' ),
 			'fields'  => array(
 				array(
+					'name'        => 'pspId',
 					'id'          => 'pronamic_ideal_pspid',
 					'title'       => __( 'PSPID', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -376,6 +392,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'readonly'    => true
 				),
 				array(
+					'name'        => 'shaInPassPhrase',
 					'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 					'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -384,6 +401,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'methods'     => array( 'internetkassa' )
 				),
 				array(
+					'name'        => 'shaOutPassPhrase',
 					'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 					'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
 					'type'        => 'text',
@@ -398,12 +416,14 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			'methods' => array( 'advanced', 'advanced_v3' ),
 			'fields'  => array(
 				array(
+					'name'        => 'privateKeyPassword',
 					'id'          => 'pronamic_ideal_private_key_password',
 					'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
 					'type'        => 'text',
 					'value'       => $configuration->privateKeyPassword
 				),
 				array(
+					'name'        => 'privateKey',
 					'id'          => 'pronamic_ideal_private_key',
 					'title'       => __( 'Private Key', 'pronamic_ideal' ),
 					'type'        => 'file',
@@ -411,6 +431,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					'callback'    => 'pronamic_ideal_private_key_field'
 				),
 				array(
+					'name'        => 'privateCertificate',
 					'id'          => 'pronamic_ideal_private_certificate',
 					'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
 					'type'        => 'file',
