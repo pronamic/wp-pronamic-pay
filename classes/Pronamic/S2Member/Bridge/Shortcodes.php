@@ -61,13 +61,24 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		if ( $ideal_active ) {
 			ob_start();
 
+			// Get the configuration id
+			$configuration_id = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+			
+			// Get the gateway from the configuration
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			
 			?>
-			<form method="post" action="<?php echo add_query_arg( array( 'pronamic_ideal_s2member_checkout' => 'true' ), get_permalink( $s2members_settings['membership_options_page']['page'] ) ); ?>">
+			<form method="post" action="">
 				<input type="hidden" name="pronamic_ideal_s2member_checkout" value="<?php echo $this->encrypt_data( $options ); ?>"/>
+
 				<input type="hidden" name="options[period]" value="<?php echo $options['period']; ?>" />
 				<input type="hidden" name="options[cost]" value="<?php echo $options['cost']; ?>"/>
 				<input type="hidden" name="options[level]" value="<?php echo $options['level']; ?>"/>
 				<input type="hidden" name="options[description]" value="<?php echo $options['description']; ?>"/>
+
+				<?php echo $gateway->get_input_html(); ?>
+				
 				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal'); ?>" />
 			</form>
 			<?php
@@ -82,9 +93,6 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	}
 
 	public function ideal_page() {
-		if ( ! isset( $_GET['pronamic_ideal_s2member_checkout'] ) )
-			return;
-
 		// Form submission, lets check the data!
 		if ( ! isset( $_POST['pronamic_ideal_s2member_checkout'] ) || ! isset( $_POST['options'] ) )
 			return;
@@ -110,7 +118,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Get the configuration id
 		$configuration_id = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
 		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-
+			
 		// Get the gateway from the configuration
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
@@ -127,28 +135,14 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Determine if a normal html form ( and not a redirect for ideal advanced )
 		if ( $gateway->is_html_form() ) {
 
-			self::$html = $gateway->get_form_html( true );
+			echo $gateway->get_form_html( true );
 
 		} else if ( $gateway->is_http_redirect() ) {
 
-			ob_start();
-
-			?>
-			<form method="post" action="<?php echo $gateway->get_action_url(); ?>">
-					<?php echo $gateway->get_input_html(); ?>
-				<input type="submit" value="Lets go!!"/>
-			</form>
-
-			<?php
-
-			self::$html = ob_get_clean();
+			$gateway->redirect();
 
 		}
 
-		add_filter( 'the_content', array( $this, 'clear_page' ) );
-	}
-
-	public function clear_page( $the_content ) {
-		return self::$html;
+		exit;
 	}
 }
