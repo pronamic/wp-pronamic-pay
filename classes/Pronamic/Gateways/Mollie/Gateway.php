@@ -27,7 +27,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
-		$this->set_has_feedback( false );
+		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
 
