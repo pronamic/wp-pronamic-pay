@@ -12,10 +12,10 @@ class Pronamic_Gateways_Mollie_ReturnHandler extends Pronamic_Gateways_ReturnHan
 	public function listen() {
 		if ( isset( $_GET['gateway'], $_GET['transaction_id'] ) ) {
 			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
-		
+
 			if ( $gateway == 'mollie' ) {
 				$transaction_id = filter_input( INPUT_GET, 'transaction_id', FILTER_SANITIZE_STRING );
-	
+
 				if ( ! empty( $transaction_id ) ) {
 					do_action( 'pronamic_ideal_mollie_return_raw', $transaction_id );
 				}

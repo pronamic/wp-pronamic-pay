@@ -64,6 +64,8 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 			$order = new WC_Order( (int) $id );
 
+			$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+
 			// Only update if order is not 'processing' or 'completed'
 			// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/classes/class-wc-order.php#L1279
 			$should_update = ! in_array(
@@ -74,51 +76,66 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				)
 			);
 
-			if ( $should_update ) {	
-				$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+			// Defaults
+			$status = null;
+			$note   = null;
+			$url    = $data->getNormalReturnUrl();
 
-				$url = $data->getNormalReturnUrl();
-
-				switch ( $payment->status ) {
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+			switch ( $payment->status ) {
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+					if ( $should_update ) {
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
+					}
 
-						$url = $data->getCancelUrl();
+					$url = $data->getCancelUrl();
 
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+					if ( $should_update ) {
 						// WooCommerce PayPal gateway uses 'failed' order status for an 'expired' payment
 						// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/classes/gateways/class-wc-paypal.php#L557
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
+					}
+					
+					$url = $data->getErrorUrl();
 
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+					if ( $should_update ) {
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
+					}
+					
+					$url = $data->getErrorUrl();
 
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+					if ( $should_update ) {
 		            	// Payment completed
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
-		                $order->payment_complete();
+	    	            $order->payment_complete();
+					}
 
-		                $url = $data->getSuccessUrl();
+	                $url = $data->getSuccessUrl();
 
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					if ( $should_update ) {
 						$order->add_order_note( __( 'iDEAL payment open.', 'pronamic_ideal' ) );
+					}
 
-						break;
-					default:
+					break;
+				default:
+					if ( $should_update ) {
 						$order->add_order_note( __( 'iDEAL payment unknown.', 'pronamic_ideal' ) );
+					}
 
-						break;
-				}
-				
-				if ( $can_redirect ) {
-					wp_redirect( $url, 303 );
+					break;
+			}
+			
+			if ( $can_redirect ) {
+				wp_redirect( $url, 303 );
 
-					exit;
-				}
+				exit;
 			}
 		}
 	}
