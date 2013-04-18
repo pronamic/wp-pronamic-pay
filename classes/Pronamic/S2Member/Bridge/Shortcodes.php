@@ -132,17 +132,6 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Lets set it up, and get it started!
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
 
-		// Determine if a normal html form ( and not a redirect for ideal advanced )
-		if ( $gateway->is_html_form() ) {
-
-			echo $gateway->get_form_html( true );
-
-		} else if ( $gateway->is_http_redirect() ) {
-
-			$gateway->redirect();
-
-		}
-
-		exit;
+		$gateway->redirect();
 	}
 }

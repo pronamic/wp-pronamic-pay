@@ -88,16 +88,8 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 				if ( is_wp_error( $error ) ) {
 					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
-				}
-
-				if ( $gateway->is_http_redirect() ) {
+				} else {
 					$gateway->redirect();
-				}
-				
-				if ( $gateway->is_html_form() ) {
-					echo $gateway->get_form_html( );
-					
-					exit;
 				}
 			}
 		}

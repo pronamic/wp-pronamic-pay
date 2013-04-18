@@ -7,7 +7,6 @@
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
- * @todo https://github.com/expressodev/ci-merchant/blob/master/libraries/merchant.php#L325
  */
 abstract class Pronamic_Gateways_Gateway {
 	/**
@@ -318,9 +317,26 @@ abstract class Pronamic_Gateways_Gateway {
 	 * Redirect to the gateway action URL
 	 */
 	public function redirect() {
+		switch ( $this->method ) {
+			case self::METHOD_HTTP_REDIRECT:
+				return $this->redirect_via_http();
+			case self::METHOD_HTML_FORM:
+				return $this->redirect_via_html();
+			default:
+				// No idea how to redirect to the gateway
+		}
+	}
+
+	public function redirect_via_http() {
 		// Redirect, See Other
 		// http://en.wikipedia.org/wiki/HTTP_303
 		wp_redirect( $this->get_action_url(), 303 );
+		
+		exit;
+	}
+
+	public function redirect_via_html() {
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
 
 		exit;
 	}
@@ -413,8 +429,8 @@ abstract class Pronamic_Gateways_Gateway {
 		$form_inner  = '';
 		$form_inner .= $this->get_output_html();
 		$form_inner .= 	sprintf(
-			'<input class="ideal-button" type="submit" name="ideal" value="%s" />',
-			__( 'Pay with iDEAL', 'pronamic_ideal' )
+			'<input class="btn btn-primary" type="submit" name="pay" value="%s" />',
+			__( 'Pay', 'pronamic_ideal' )
 		);
 		
 		$form = sprintf(

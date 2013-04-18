@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-18 11:52+0100\n"
-"PO-Revision-Date: 2013-04-18 11:52+0100\n"
+"POT-Creation-Date: 2013-04-18 13:34+0100\n"
+"PO-Revision-Date: 2013-04-18 13:34+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -96,7 +96,6 @@ msgstr "iDEAL-configuratie"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:217
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:140
-#: classes/Pronamic/Gateways/Gateway.php:417
 #: classes/Pronamic/Membership/IDeal/IDealGateway.php:79
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:82
 msgid "Pay with iDEAL"
@@ -165,6 +164,10 @@ msgstr "Deelnemer %s"
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:151 views/settings.php:152
 msgid "WooCommerce"
 msgstr "WooCommerce"
+
+#: classes/Pronamic/Gateways/Gateway.php:434
+msgid "Pay"
+msgstr "Betalen"
 
 #: classes/Pronamic/Gateways/IDealAdvanced/Client.php:208
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:174
@@ -1291,6 +1294,18 @@ msgstr "iDEAL-betalingen"
 msgid "Search Payments"
 msgstr "Betalingen zoeken"
 
+#: views/redirect-via-html.php:7 views/redirect-via-html.php:113
+msgid "Redirecting&hellip;"
+msgstr "Doorverwijzen&hellip;"
+
+#: views/redirect-via-html.php:116
+msgid "You will be automatically redirected to the online payment environment."
+msgstr "U wordt automatisch doorgestuurd naar de online betaalomgeving."
+
+#: views/redirect-via-html.php:120
+msgid "Please click the button below if you are not automatically redirected."
+msgstr "Klik op onderstaande knop als u niet automatisch wordt doorgestuurd."
+
 #: views/settings.php:16 views/gravityforms/feeds.php:90
 msgid "iDEAL Settings"
 msgstr "iDEAL-instellingen"
@@ -1810,9 +1825,6 @@ msgstr "Button shortcode"
 
 #~ msgid "Links"
 #~ msgstr "Koppelingen"
-
-#~ msgid "Pay"
-#~ msgstr "Betalen"
 
 #, fuzzy
 #~ msgid "iDEAL Purchase"
