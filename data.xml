@@ -114,8 +114,8 @@
 				<dashboardUrl>https://ca-live.adyen.com/</dashboardUrl>
 			</live>
 		</variant>
-	</provider> 
-	
+	</provider>
+
 	<provider>
 		<id>buckaroo</id>
 		<name>Buckaroo</name>
@@ -135,7 +135,7 @@
 				<dashboardUrl>https://payment.buckaroo.nl/</dashboardUrl>
 			</live>
 		</variant>
-	</provider> 
+	</provider>
 
 	<provider>
 		<id>deutschebank</id>
@@ -660,6 +660,25 @@
 			</test>
 			<live>
 				<dashboardUrl>https://www.targetpay.com/login</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>qantani</id>
+		<name>Qantani</name>
+		<url>https://www.qantani.com/</url>
+
+		<variant gateway="qantani">
+			<id>qantani</id>
+			<name>Qantani - iDEAL</name>
+			<url>https://www.qantani.com/</url>
+
+			<test>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
 			</live>
 		</variant>
 	</provider>
