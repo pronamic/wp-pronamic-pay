@@ -17,8 +17,10 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	public function __construct() {
 		parent::M_Gateway();
-
-		if ( $this->is_active() ) {
+		
+		$active_ideal = get_option( 'pronamic_ideal_membership_enabled' );
+		
+		if ( 1 == $active_ideal) {
 			add_action( 'init', array( $this, 'handle_real_form' ) );
 
 			add_action( 'membership_purchase_button', array( $this, 'display_subscribe_button' ), 1, 3 );
@@ -26,6 +28,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 	}
 
 	public function build_subscribe_button( $subscription, $pricing, $user_id ) {
+		
 		if ( ! empty( $pricing ) ) {
 			$free = true;
 			foreach ( $pricing as $key => $price ) {
@@ -67,7 +70,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			$M_options['paymentcurrency'] = 'EUR';
 
 		$registration_page_id = $M_options['registration_page'];
-
+		
 		ob_start();
 
 		?>
