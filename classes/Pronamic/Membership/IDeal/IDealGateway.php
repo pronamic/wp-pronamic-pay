@@ -22,6 +22,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 		
 		if ( 1 == $active_ideal) {
 			add_action( 'init', array( $this, 'handle_real_form' ) );
+			add_action( 'init', array( $this, 'redirect_http' ) );
 
 			add_action( 'membership_purchase_button', array( $this, 'display_subscribe_button' ), 1, 3 );
 		}
@@ -89,6 +90,9 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 	public function handle_real_form() {
 		if ( ! isset( $_GET['pronamic_ideal_membership_checkout' ] ) || ! isset( $_POST['pronamic_ideal_membership_checkout' ] ) )
 			return;
+		
+		if ( isset( $_POST['pronamic_ideal_issuer_id'] ) )
+			return;
 
 		// Posted hash
 		$hash = $_POST['pronamic_ideal_membership_checkout'];
@@ -123,17 +127,21 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 		// Prepare the form data
 		$ideal_data = new Pronamic_Membership_IDeal_IDealDataProxy( $subscription, $membership );
 
-		// Lets set it up, and get it started!
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
-
 		if ( $gateway->is_html_form() ) {
-			self::$html = $gateway->get_form_html( true );
+			// Lets set it up, and get it started!
+			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
+			
+			$gateway->redirect();
 		} else if( $gateway->is_http_redirect() ) {
 			ob_start();
 
 			?>
-			<form method="post" action="<?php echo $gateway->get_action_url(); ?>">
+			<form method="post">
 				<?php echo $gateway->get_input_html(); ?>
+				<input type="hidden" name="pronamic_ideal_membership_checkout" value="<?php echo Pronamic_Membership_IDeal_Addon::encrypt_data( $subscription->sub_id(), $pricing, $user_id ); ?>" />
+				<input type="hidden" name="subscription_id" value="<?php echo $subscription->sub_id(); ?>" />
+				<input type="hidden" name="pricing" value='<?php echo serialize( $pricing ); ?>' />
+				<input type="hidden" name="user_id" value="<?php echo $user_id; ?>"/>
 				<input type="submit" value="<?php _e( 'Continue', 'pronamic_ideal' ); ?>" />
 			</form>
 			<?php
@@ -142,6 +150,47 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 		}
 
 		add_filter( 'the_content', array( $this, 'clear_page' ) );
+	}
+	
+	public function redirect_http() {
+		if ( ! isset( $_POST['pronamic_ideal_issuer_id'] ) )
+			return;
+		
+		// Posted variables
+		$subscription_id = filter_input( INPUT_POST, 'subscription_id', FILTER_VALIDATE_INT );
+		$pricing = unserialize( stripslashes( $_POST['pricing'] ) );
+		$user_id = filter_input( INPUT_POST, 'user_id', FILTER_VALIDATE_INT );
+
+		// Posted hash
+		$hash = $_POST['pronamic_ideal_membership_checkout'];
+		
+		// Check the hash is the same.  Ensures no tampering of the form data
+		if ( $hash != Pronamic_Membership_IDeal_Addon::encrypt_data( $subscription_id, $pricing, $user_id ) )
+			return;
+		
+		// Subscription Class, and load it
+		$subscription = new M_Subscription( $subscription_id );
+		$subscription->get();
+
+		// Membership Class
+		$membership = new M_Membership( $user_id );
+
+		// Configuration Class
+		$configuration_id = get_option( 'pronamic_ideal_membership_chosen_configuration' );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
+		// Get gateway from configuration
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+		// @todo add notifier class here
+		if ( ! $gateway )
+			return;
+
+		// Prepare the form data
+		$ideal_data = new Pronamic_Membership_IDeal_IDealDataProxy( $subscription, $membership );
+
+		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
+		$gateway->redirect_via_http();
 	}
 
 	public function clear_page( $the_content ) {
