@@ -146,6 +146,15 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 1.2.7 =
+*	Membership - Improved the check for an active iDEAl gateway
+*	Mollie - Enabled feedback support for the Mollie gateway
+*	Cleaned up the configuration editor and add support for certificate info with iDEAL v3
+*	s2Member - Improved support for providers wich support an description (Sisow)
+*	WooCommerce - Improved the check payment e-mail note by using get_order_number()
+*	Return URL's - Improved use of site_url() and home_url() functions
+*	Buckaroo - Added support for the Buckaroo payment provider
+
 = 1.2.6 =
 *	s2Member - Added support for the s2Member plugin
 *	Membership from WPMUDEV.org - Added support for the Membership from WPMUDEV.org plugin
