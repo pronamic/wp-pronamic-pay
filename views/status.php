@@ -6,7 +6,14 @@
 	</h2>
 
 	<p>
-		<?php _e( 'The iDEAL-status.nl webservice monitors the following status of the various iDEAL banks:', 'pronamic_ideal' ); ?>
+		<?php 
+		
+		printf( 
+			__( 'The <a href="%s" target="_blank">iDEAL-status.nl</a> webservice monitors the following status of the various iDEAL banks:', 'pronamic_ideal' ),
+			'http://www.ideal-status.nl/'
+		);
+
+		?>
 	</p>
 
 	<?php 
