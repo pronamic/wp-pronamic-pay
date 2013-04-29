@@ -10,10 +10,10 @@
  */
 class Pronamic_Gateways_Buckaroo_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
-	  if ( isset( $_POST['brq_signature'] ) ) {
-			$signature = filter_input( INPUT_POST, 'brq_signature', FILTER_SANITIZE_STRING );
-
-			if ( ! empty( $signature ) ) {
+		if ( isset( $_GET['gateway'] ) ) {
+			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
+		
+			if ( $gateway == 'buckaroo' ) {
 				do_action( 'pronamic_ideal_buckaroo_return_raw', $_POST );
 			}
 		}
@@ -28,8 +28,8 @@ class Pronamic_Gateways_Buckaroo_ReturnHandler extends Pronamic_Gateways_ReturnH
 			if ( $variant != null && $variant->getMethod() == 'buckaroo' ) {
 				$buckaroo = new Pronamic_Gateways_Buckaroo_Buckaroo();
 
-				$buckaroo->set_website_key( $configuration->buckarooMerchantId );
-				$buckaroo->set_secret_key( $configuration->buckarooHashKey );
+				$buckaroo->set_website_key( $configuration->buckarooWebsiteKey );
+				$buckaroo->set_secret_key( $configuration->buckarooSecretKey );
 
 				$result = $buckaroo->verify_request( $data );
 

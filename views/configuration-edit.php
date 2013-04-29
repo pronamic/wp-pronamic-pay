@@ -160,13 +160,15 @@ $sections = array(
 				'name'        => 'buckarooWebsiteKey',
 				'id'          => 'pronamic_ideal_buckaroo_website_key',
 				'title'       => __( 'Website Key', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your Buckaroo website keys in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Profile" » "Website".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			),
 			array(
 				'name'        => 'buckarooSecretKey',
 				'id'          => 'pronamic_ideal_buckaroo_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your Buckaroo secret key in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Configuration" » "Secret Key for Digital Signature".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			)
 		)
 	),
