@@ -201,11 +201,62 @@ class Pronamic_Gateways_Buckaroo_Parameters {
 	// iDEAL
 	//////////////////////////////////////////////////
 
+	/**
+	 * The name of the issuer (bank) of the consumer
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
 	const SERVICE_IDEAL_CONSUMER_ISSUER = 'brq_service_ideal_consumerissuer';
 
+	/**
+	 * The beneficiary of the bank account from which the payment was made
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
 	const SERVICE_IDEAL_CONSUMER_NAME = 'brq_service_ideal_consumername';
 
+	/**
+	 * The international bank account number (iban code) of the bank of the consumer.
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
 	const SERVICE_IDEAL_CONSUMER_IBAN = 'brq_service_ideal_consumeriban';
 
+	/**
+	 * The bank identifier (bic code) of the bank of the consumer. 
+	 * 
+	 * Please note: This field is optional. In some countries, banks are not 
+	 * allowed to provide this information to third parties.
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
 	const SERVICE_IDEAL_CONSUMER_BIC = 'brq_service_ideal_consumerbic';
+
+	/**
+	 * The account from which the payment was made 
+	 * 
+	 * Please note: this field is returned in version 1 only
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
+	const SERVICE_IDEAL_CONSUMER_ACCOUNT_NUMBER = 'brq_service_ideal_consumeraccountnumber';
+
+	/**
+	 * The place of residence of the account holder
+	 * 
+	 * When: On success
+	 * 
+	 * @var string
+	 */
+	const SERVICE_IDEAL_CONSUMER_CITY = 'brq_service_ideal_consumercity';
 }
