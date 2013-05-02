@@ -112,6 +112,14 @@ if ( isset( $_POST['status-request'] ) && $payment != null ) {
 				</tr>
 				<tr>
 					<th scope="row">
+						<?php _e( 'Email', 'pronamic_ideal' ); ?>
+					</th>
+					<td>
+						<?php echo $payment->email; ?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
 						<?php _e( 'Account Number', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
