@@ -513,7 +513,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		// Payment request - optional fields
 		$optional_fields = array(
 			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
-			// 'customerLanguage'  => $this->getCustomerLanguage(),
+			'customerLanguage'     => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
 			'orderId'              => $this->getOrderId(),
 			'expirationDate'       => $this->getFormattedExpirationDate()
