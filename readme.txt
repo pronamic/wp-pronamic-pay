@@ -154,6 +154,7 @@ Here is a list of known plugin conflicts:
 *	WooCommerce - Improved the check payment e-mail note by using get_order_number()
 *	Return URL's - Improved use of site_url() and home_url() functions
 *	Buckaroo - Added support for the Buckaroo payment provider (thanks to Marcel Snoeck)
+*	iDEAL Easy - Improved return handling
 
 = 1.2.6 =
 *	s2Member - Added support for the s2Member plugin
