@@ -49,7 +49,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
   			status_requests MEDIUMINT(8) DEFAULT 0,
   			source VARCHAR(32) NULL DEFAULT NULL,
   			source_id VARCHAR(32) NULL DEFAULT NULL,
-			email VARCHAR(128) NULL DEFAULT NULL
+			email VARCHAR(128) NULL DEFAULT NULL,
 			PRIMARY KEY  (id),
 			KEY configuration_id (configuration_id),
 			UNIQUE (entrance_code)
