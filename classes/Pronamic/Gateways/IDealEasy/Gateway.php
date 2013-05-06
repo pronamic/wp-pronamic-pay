@@ -47,6 +47,21 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setOwnerAddress( $data->getOwnerAddress() );
 		$this->client->setOwnerCity( $data->getOwnerCity() );
 		$this->client->setOwnerZip( $data->getOwnerZip() );
+
+		$url = add_query_arg(
+			array(
+				'gateway'        => 'ideal_basic',
+				'transaction_id' => $this->get_transaction_id()
+			),
+			home_url( '/' )
+		);
+		
+		$this->client->set_accept_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
+		$this->client->set_decline_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
+		$this->client->set_exception_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
+		$this->client->set_cancel_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );
+		$this->client->set_back_url( home_url( '/' ) );
+		$this->client->set_home_url( home_url( '/' ) );
 	}
 
 	/////////////////////////////////////////////////
