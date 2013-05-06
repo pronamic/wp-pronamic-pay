@@ -50,7 +50,7 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 
 		$url = add_query_arg(
 			array(
-				'gateway'        => 'ideal_basic',
+				'gateway'        => 'ideal_easy',
 				'transaction_id' => $this->get_transaction_id()
 			),
 			home_url( '/' )
