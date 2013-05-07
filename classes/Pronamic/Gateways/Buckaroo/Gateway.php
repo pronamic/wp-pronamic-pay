@@ -33,7 +33,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_Buckaroo_Buckaroo();
 		$this->client->set_payment_server_url( $configuration->getPaymentServerUrl() );
-		$this->client->set_website_key( $configuration->buckaroWebsiteKey );
+		$this->client->set_website_key( $configuration->buckarooWebsiteKey );
 		$this->client->set_secret_key( $configuration->buckarooSecretKey );
 	}
 
@@ -49,16 +49,21 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
 		$this->set_action_url( $this->client->get_payment_server_url() );
 
-		$this->client->set_culture( $data->getLanguageIso639AndCountryIso3166Code() );
+		// Buckaroo uses 'nl-NL' instead of 'nl_NL'
+		$culture = str_replace( '_', '-', $data->getLanguageIso639AndCountryIso3166Code() );
+
+		$this->client->set_culture( $culture );
 		$this->client->set_currency( $data->getCurrencyAlphabeticCode() );
 		$this->client->set_invoice_number( $data->getOrderId() );
 		$this->client->set_description( $data->getDescription() );
 		$this->client->set_amount( $data->getAmount() );
 		
-		$this->client->set_return_url( $data->getNormalReturnUrl() );
-		$this->client->set_return_cancel_url( $data->getCancelUrl() );
-		$this->client->set_return_error_url( $data->getErrorUrl() );
-		$this->client->set_return_reject_url( $data->getNormalReturnUrl() );
+		$return_url = add_query_arg( 'gateway', 'buckaroo', home_url( '/' ) );
+
+		$this->client->set_return_url( $return_url );
+		$this->client->set_return_cancel_url( $return_url );
+		$this->client->set_return_error_url( $return_url );
+		$this->client->set_return_reject_url( $return_url );
 	}
 	
 	/////////////////////////////////////////////////

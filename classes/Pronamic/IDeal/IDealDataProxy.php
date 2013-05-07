@@ -96,4 +96,15 @@ abstract class Pronamic_IDeal_IDealDataProxy {
 	public function get_issuer_id() {
 		return filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
 	}
+	
+	public function get_email() {
+		if ( is_user_logged_in() ) {
+			$user = get_currentuserinfo();
+			$email = $user->user_email;
+		} else {
+			$email = filter_input( INPUT_POST, 'pronamic_ideal_email', FILTER_VALIDATE_EMAIL );
+		}
+		
+		return $email;
+	}
 }

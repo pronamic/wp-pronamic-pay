@@ -160,6 +160,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$payment->consumer_name           = null;
 		$payment->consumer_account_number = null;
 		$payment->consumer_city           = null;
+		$payment->email					  = $data->get_email();
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
 

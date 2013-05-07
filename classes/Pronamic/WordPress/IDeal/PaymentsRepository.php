@@ -49,6 +49,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
   			status_requests MEDIUMINT(8) DEFAULT 0,
   			source VARCHAR(32) NULL DEFAULT NULL,
   			source_id VARCHAR(32) NULL DEFAULT NULL,
+			email VARCHAR(128) NULL DEFAULT NULL,
 			PRIMARY KEY  (id),
 			KEY configuration_id (configuration_id),
 			UNIQUE (entrance_code)
@@ -79,7 +80,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 	 */
 	private function getPaymentFromResult($result) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
-
+		
 		$payment->setId( $result->id );
 		$payment->setDate( new DateTime( $result->date_gmt, new DateTimeZone( 'UTC' ) ) );
 		$payment->setSource( $result->source, $result->source_id );
@@ -99,6 +100,7 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 		$payment->consumer_iban           = $result->consumer_iban;
 		$payment->consumer_bic            = $result->consumer_bic;
 		$payment->consumer_city           = $result->consumer_city;
+		$payment->email					  = $result->email;
 		
 		return $payment;
 	}
@@ -154,6 +156,10 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
 		if ( isset( $query['source_id'] ) ) {
 			$where .= $wpdb->prepare( ' AND payment.source_id = %s', $query['source_id'] );
+		}
+		
+		if ( isset( $query['email'] ) ) {
+			$where .= $wpdb->prepare( ' AND payment.email = %s', $query['email'] );
 		}
 
 		if ( isset( $query['s'] ) ) {
@@ -230,7 +236,8 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         		payment.status,
         		payment.status_requests,
         		payment.source,
-        		payment.source_id
+        		payment.source_id,
+				payment.email
 			FROM 
 	        	$table AS payment
 	        $where 
@@ -325,6 +332,15 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
         	'source_id' => $id
         ) ) );
     }
+	
+	public static function getPaymentsByEmail( $email ) {
+		if ( ! is_email( $email ) )
+			return false;
+		
+		return self::getPaymentByQuery(self::getPaymentQuery( array(
+			'email' => $email
+		) ) );
+	}
 
 	//////////////////////////////////////////////////
 
@@ -388,7 +404,8 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			'consumer_city'           => $payment->consumer_city,
 			'date_gmt'                => $payment->getDate()->format( 'Y-m-d H:i:s' ),
 			'source'                  => $payment->getSource(),
-			'source_id'               => $payment->getSourceId() 
+			'source_id'               => $payment->getSourceId(),
+			'email'					  => $payment->getEmail()
 		);
 
 		$format = array( 
@@ -409,7 +426,8 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 			'consumer_city'           => '%s',
 			'date_gmt'                => '%s',
 			'source'                  => '%s',
-			'source_id'               => '%s' 
+			'source_id'               => '%s',
+			'email'					  => '%s'
 		);
 
 		// Insert

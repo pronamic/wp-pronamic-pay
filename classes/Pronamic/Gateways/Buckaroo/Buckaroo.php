@@ -234,8 +234,6 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	public static function get_signature( $data, $secret_key ) {
 		$string = '';
 
-		$data = array_change_key_case( $data, CASE_LOWER );
-		
 		ksort( $data );
 		
 		foreach ( $data as $key => $value ) {
@@ -258,7 +256,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 		$data = array(
 			Pronamic_Gateways_Buckaroo_Parameters::WEBSITE_KEY       => $this->get_website_key(),
 			Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER    => $this->get_invoice_number(),
-			Pronamic_Gateways_Buckaroo_Parameters::AMOUNT            => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ),
+			Pronamic_Gateways_Buckaroo_Parameters::AMOUNT            => number_format( $this->get_amount(), 2, '.', '' ),
 			Pronamic_Gateways_Buckaroo_Parameters::CURRENCY          => $this->get_currency(),
 			Pronamic_Gateways_Buckaroo_Parameters::CULTURE           => $this->get_culture(),
 			Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
@@ -284,23 +282,47 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	public function verify_request( $data ) {
 		$result = false;
 
-		if ( isset( $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] ) ) {
-			$signature = $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE];
+		/* 
+		 * Please note: When verifying a received signature, first url-decode 
+		 * all the field values. A signature is always calculated over the 
+		 * non-encoded values (i.e The value “J.+de+Tester” should be decoded 
+		 * to “J. de Tester”).
+		 */
+		$signature_key = null;
+
+		foreach ( $data as $key => &$value ) {
+			$value = urldecode( $value );
+
+			if ( strcasecmp( $key, Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE ) == 0 ) {
+				$signature_key = $key;
+			}
+		}
+
+		if ( isset( $data[$signature_key] ) ) {
+			$signature = $data[$signature_key];
      
-			unset( $data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] );
+			unset( $data[$signature_key] );
 
 			$signature_check = self::get_signature( $data, $this->get_secret_key() );
 
-			if ( strcasecmp( $signature, $signatureCheck ) === 0 ) {
+			if ( strcasecmp( $signature, $signature_check ) === 0 ) {
+				$data = array_change_key_case( $data, CASE_LOWER );
+
 				$result = filter_var_array( $data, array(
-					Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER  => FILTER_SANITIZE_STRING,
-					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT          => FILTER_VALIDATE_FLOAT, 
-					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY        => FILTER_SANITIZE_STRING,
-					'brq_payment'                                          => FILTER_SANITIZE_STRING, 
-					'brq_statusmessage'                                    => FILTER_SANITIZE_STRING, 
-					'brq_statuscode'                                       => FILTER_VALIDATE_INT,
-					'brq_SERVICE_ideal_consumerIBAN'                       => FILTER_SANITIZE_STRING, 
-					'brq_SERVICE_ideal_consumerIssuer'                     => FILTER_SANITIZE_STRING
+					Pronamic_Gateways_Buckaroo_Parameters::PAYMENT                       => FILTER_SANITIZE_STRING, 
+					Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD                => FILTER_SANITIZE_STRING, 
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE                   => FILTER_VALIDATE_INT,
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE_DETAIL            => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_MESSAGE                => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER                => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT                        => FILTER_VALIDATE_FLOAT, 
+					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY                      => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::TIMESTAMP                     => FILTER_SANITIZE_STRING, 
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_ISSUER => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME   => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN   => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC    => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => FILTER_SANITIZE_STRING 
 				) );
 			}
 		}

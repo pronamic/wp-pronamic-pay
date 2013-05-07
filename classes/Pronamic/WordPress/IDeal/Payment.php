@@ -54,6 +54,8 @@ class Pronamic_WordPress_IDeal_Payment {
 	public $status;
 
 	public $status_requests;
+	
+	public $email;
 
 	//////////////////////////////////////////////////
 
@@ -158,5 +160,27 @@ class Pronamic_WordPress_IDeal_Payment {
 	public function setSource( $source, $id ) {
 		$this->source = $source;
 		$this->source_id = $id;
+	}
+	
+	/**
+	 * Returns this payments set email
+	 * 
+	 * @access public
+	 * @return string
+	 */
+	public function getEmail() {
+		return $this->email;
+	}
+	
+	/**
+	 * Sets this payments associated email
+	 * 
+	 * @access public
+	 * @param string $email
+	 * @return \Pronamic_WordPress_IDeal_Payment
+	 */
+	public function setEmail( $email ) {
+		$this->email = $email;
+		return $this;
 	}
 }

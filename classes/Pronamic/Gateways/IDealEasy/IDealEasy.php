@@ -111,6 +111,50 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Accept URL
+	 * 
+	 * @var string
+	 */
+	private $accept_url;
+	
+	/**
+	 * Decline URL
+	 * 
+	 * @var string
+	 */
+	private $decline_url;
+	
+	/**
+	 * Exception URL
+	 * 
+	 * @var string
+	 */
+	private $exception_url;
+	
+	/**
+	 * Cancel URL
+	 * 
+	 * @var string
+	 */
+	private $cancel_url;
+	
+	/**
+	 * Back URL
+	 * 
+	 * @var string
+	 */
+	private $back_url;
+	
+	/**
+	 * Home URL
+	 * 
+	 * @var string
+	 */
+	private $home_url;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initialize a iDEAL easy object
 	 */
 	public function __construct() {
@@ -331,6 +375,68 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 	}
 
 	//////////////////////////////////////////////////
+	// URL's
+	//////////////////////////////////////////////////
+
+	public function get_accept_url() {
+		return $this->accept_url;
+	}
+
+	public function set_accept_url( $url ) {
+		$this->accept_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
+
+	public function get_decline_url() {
+		return $this->decline_url;
+	}
+
+	public function set_decline_url( $url ) {
+		$this->decline_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
+
+	public function get_exception_url() {
+		return $this->exception_url;
+	}
+
+	public function set_exception_url( $url ) {
+		$this->exception_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
+
+	public function get_cancel_url() {
+		return $this->cancel_url;
+	}
+
+	public function set_cancel_url( $url ) {
+		$this->cancel_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
+
+	public function get_back_url() {
+		return $this->back_url;
+	}
+
+	public function set_back_url( $url ) {
+		$this->back_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
+
+	public function get_home_url() {
+		return $this->home_url;
+	}
+
+	public function set_home_url( $url ) {
+		$this->home_url = $url;
+	}
+	
+	//////////////////////////////////////////////////
 
 	/**
 	 * Get the iDEAL HTML
@@ -352,7 +458,14 @@ class Pronamic_Gateways_IDealEasy_IDealEasy {
 		
 			'owneraddress' => $this->getOwnerAddress(),
 			'ownertown'    => $this->getOwnerCity(),
-			'ownerzip'     => $this->getOwnerZip()
+			'ownerzip'     => $this->getOwnerZip(),
+		
+			'accepturl'    => $this->get_accept_url(),
+			'declineurl'   => $this->get_decline_url(),
+			'exceptionurl' => $this->get_exception_url(),
+			'cancelurl'    => $this->get_cancel_url(),
+			'backurl'      => $this->get_back_url(),
+			'home'         => $this->get_home_url()
 		) );
 	}
 }

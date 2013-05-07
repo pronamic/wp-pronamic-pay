@@ -160,13 +160,15 @@ $sections = array(
 				'name'        => 'buckarooWebsiteKey',
 				'id'          => 'pronamic_ideal_buckaroo_website_key',
 				'title'       => __( 'Website Key', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your Buckaroo website keys in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Profile" » "Website".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			),
 			array(
 				'name'        => 'buckarooSecretKey',
 				'id'          => 'pronamic_ideal_buckaroo_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your Buckaroo secret key in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Configuration" » "Secret Key for Digital Signature".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			)
 		)
 	),
@@ -256,6 +258,76 @@ $sections = array(
 				'type'        => 'file',
 				'callback'    => 'pronamic_ideal_private_certificate_field'
 			)
+		)
+	),
+	array(
+		'title'   => __( 'Private Key and Certificate', 'pronamic_ideal' ),
+		'methods' => array( 'advanced', 'advanced_v3' ),
+		'fields'  => array(
+			array(
+				'name'        => 'privateKeyPassword',
+				'id'          => 'pronamic_ideal_generate_private_key_password',
+				'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
+				'type'        => 'text'
+			),
+			array(
+				'name'        => 'numberDaysValid',
+				'id'          => 'pronamic_ideal_number_days_valid',
+				'title'       => __( 'Number Days Valid', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( 'specify the length of time for which the generated certificate will be valid, in days.', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'country',
+				'id'          => 'pronamic_ideal_country',
+				'title'       => __( 'Country', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( '2 letter code [NL]', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'stateOrProvince',
+				'id'          => 'pronamic_ideal_state_or_province',
+				'title'       => __( 'State or Province', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( 'full name [Friesland]', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'locality',
+				'id'          => 'pronamic_ideal_locality',
+				'title'       => __( 'Locality', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( 'eg, city', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'organization',
+				'id'          => 'pronamic_ideal_organization',
+				'title'       => __( 'Organization', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( 'eg, company [Pronamic]', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'organizationUnit',
+				'id'          => 'pronamic_ideal_organization_unit',
+				'title'       => __( 'Organization Unit', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => __( 'eg, section', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'commonName',
+				'id'          => 'pronamic_ideal_common_name',
+				'title'       => __( 'Common Name', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => 
+					__( 'eg, YOUR name', 'pronamic_ideal' ) . '<br />' .
+					__( 'Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal' ) . '<br />' .
+					__( 'Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal' )
+			),
+			array(
+				'name'        => 'eMailAddress',
+				'id'          => 'pronamic_ideal_email_address',
+				'title'       => __( 'Email Address', 'pronamic_ideal' ),
+				'type'        => 'text'
+			),
 		)
 	)
 );
@@ -649,136 +721,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			<h4>
 				<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
 			</h4>
-
-			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_generate_private_key_password">
-							<?php _e( 'Private Key Password', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_generate_private_key_password" name="pronamic_ideal_generate_private_key_password" value="<?php echo $configuration->privateKeyPassword; ?>" type="text" />
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_days">
-							<?php _e( 'Number Days Valid', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_number_days_valid" name="pronamic_ideal_number_days_valid" value="<?php echo $configuration->numberDaysValid; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'specify the length of time for which the generated certificate will be valid, in days. ', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_country_name">
-							<?php _e( 'Country', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_country" name="pronamic_ideal_country" value="<?php echo $configuration->country; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( '2 letter code [NL]', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_state_or_province">
-							<?php _e( 'State or Province', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_state_or_province" name="pronamic_ideal_state_or_province" value="<?php echo $configuration->stateOrProvince; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'full name [Friesland]', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_locality">
-							<?php _e( 'Locality', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_locality" name="pronamic_ideal_locality" value="<?php echo $configuration->locality; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'eg, city', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_organization">
-							<?php _e( 'Organization', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_organization" name="pronamic_ideal_organization" value="<?php echo $configuration->organization; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'eg, company [Pronamic]', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_organization_unit">
-							<?php _e( 'Organization Unit', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_organization_unit" name="pronamic_ideal_organization_unit" value="<?php echo $configuration->organizationUnit; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'eg, section', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_common_name">
-							<?php _e( 'Common Name', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_common_name" name="pronamic_ideal_common_name" value="<?php echo $configuration->commonName; ?>" type="text" />
-
-						<span class="description">
-							<br />
-							<?php _e( 'eg, YOUR name', 'pronamic_ideal' ); ?>
-							<?php _e( 'Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal' ); ?>
-							<?php _e( 'Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal' ); ?>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_ideal_email_address">
-							<?php _e( 'Email Address', 'pronamic_ideal' ); ?>
-						</label>
-					</th>
-					<td> 
-						<input id="pronamic_ideal_email_address" name="pronamic_ideal_email_address" value="<?php echo $configuration->eMailAddress; ?>" type="text" />
-					</td>
-				</tr>
-			</table>
 
 			<?php
 

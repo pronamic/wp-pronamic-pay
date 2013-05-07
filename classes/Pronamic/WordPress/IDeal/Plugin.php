@@ -23,7 +23,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.2.6';
+	const VERSION = '1.2.7';
 
 	//////////////////////////////////////////////////
 
@@ -88,6 +88,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		
 		add_action( 'pronamic_ideal_advanced_return_raw',      array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_advanced_v3_return_raw',   array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_easy_return_raw',          array( 'Pronamic_Gateways_IDealEasy_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_basic_return_raw',         array( 'Pronamic_Gateways_IDealBasic_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return_raw', array( 'Pronamic_Gateways_IDealInternetKassa_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_mollie_return_raw',        array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
@@ -99,6 +100,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
 		add_action( 'pronamic_ideal_advanced_v3_return',    array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
 		add_action( 'pronamic_ideal_basic_return',          array( __CLASS__, 'update_ideal_basic_payment_status' ),   10, 3 );
+		add_action( 'pronamic_ideal_easy_return',           array( __CLASS__, 'update_ideal_easy_payment_status' ),   10, 3 );
 		add_action( 'pronamic_ideal_internetkassa_return',  array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
 		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
 		add_action( 'pronamic_ideal_mollie_return',         array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
@@ -311,68 +313,43 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param boolean $canRedirect
 	 */
 	public static function update_buckaroo_payment_status( $data, $can_redirect = false ) {
-    
-    $payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( array( 'purchase_id' => $data['brq_invoicenumber']));
+		$invoice_number = $data[Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER];
+		$status_code    = $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE];
+
+		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( $invoice_number );
 
 		if ( $payment != null ) {
 			$status = null;
-			switch ( $data['brq_statuscode'] ) {
-				case Pronamic_Gateways_Buckaroo_Statuses::INCOMPLETE_OR_INVALID:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZATION_REFUSED:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHOR_DELETION_REFUSED:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DELETION_REFUSED:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND_REFUSED:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_REFUSED:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER:
+
+			switch ( $status_code ) {
+				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_SUCCESS:
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+					break;
+				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_FAILURE:
+				case Pronamic_Gateways_Buckaroo_Statuses::VALIDATION_FAILURE:
+				case Pronamic_Gateways_Buckaroo_Statuses::TECHNICAL_ERROR:
+				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_REJECTED:
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE;
 					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_CLIENT:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZED_AND_CANCELLED:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZED_AND_CANCELLED_64:
+				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_USER_INPUT:
+				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_PROCESSOR:
+				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_ON_CONSUMER_ACTION:
+				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_ON_HOLD:
+					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
+					break;
+				case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_CONSUMER:
+				case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_MERCHANT:
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::ORDER_STORED:
-				case Pronamic_Gateways_Buckaroo_Statuses::STORED_WAITING_EXTERNAL_RESULT:
-				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_CLIENT_PAYMENT:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUHTORIZED_WAITING_EXTERNAL_RESULT:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZATION_WAITING:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZATION_NOT_KNOWN:
-				case Pronamic_Gateways_Buckaroo_Statuses::STAND_BY:
-				case Pronamic_Gateways_Buckaroo_Statuses::OK_WITH_SCHEDULED_PAYMENTS:
-				case Pronamic_Gateways_Buckaroo_Statuses::ERROR_IN_SCHEDULED_PAYMENTS:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUHORIZ_TO_GET_MANUALLY:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHOR_DELETION_WAITING:
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHOR_DELETION_UNCERTAIN:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DELETION_PENDING:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DELETION_UNCERTAIN:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DELETED_74:
-				case Pronamic_Gateways_Buckaroo_Statuses::DELETION_PROCESSED_BY_MERCHANT:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND_PENDING:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND_UNCERTAIN:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_UNCERTAIN:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_PROCESSING:
-				case Pronamic_Gateways_Buckaroo_Statuses::BEING_PROCESSED:
-					// pending
-					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::AUTHORIZED:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_DELETED:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND:
-				case Pronamic_Gateways_Buckaroo_Statuses::REFUND_PROCESSED_BY_MERCHANT:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_REQUESTED:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_PROCESSED_BY_MERCHANT:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 					break;
 			}
 			
 			if ( $status != null ) {
-				$payment->status = $status;
-				$payment->consumer_iban = ($data['brq_SERVICE_ideal_consumerIBAN']);
-        $payment->consumer_bic = ($data['brq_SERVICE_ideal_consumerBIC']);
-        $payment->consumer_name = ($data['brq_SERVICE_ideal_consumerName']);
-                                                                                         
+				$payment->status        = $status;
+				$payment->consumer_iban = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN];
+				$payment->consumer_bic  = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC];
+				$payment->consumer_name = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME];
+
 				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-				
 			}
 
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
@@ -400,7 +377,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	/**
-	 * Update TargetPay payment status
+	 * Update iDEAL Basic payment status
 	 * 
 	 * @param array $result
 	 * @param boolean $canRedirect
@@ -410,6 +387,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 		
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 		
+		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+	}
+
+	/**
+	 * Update iDEAL Easy payment status
+	 * 
+	 * @param array $result
+	 * @param boolean $canRedirect
+	 */
+	public static function update_ideal_easy_payment_status( $payment, $status, $can_redirect = false ) {
+		$payment->status = $status;
+		
+		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
@@ -510,7 +501,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					<?php 
 
 					printf(
-						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more then %d payments.', 'pronamic_ideal' ),
+						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
 						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) ),
 						self::PAYMENTS_MAX_LICENSE_FREE
 					);

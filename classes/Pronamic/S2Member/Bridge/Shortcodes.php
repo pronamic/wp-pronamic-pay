@@ -10,10 +10,12 @@
  * @since 1.2.6
  */
 class Pronamic_S2Member_Bridge_Shortcodes {
+
 	public static $html;
 
 	public function __construct() {
-		add_action( 'init', array( $this, 'ideal_page' ) );
+		add_action( 'init', array( $this, 'ideal_page_step_one' ) );
+		add_action( 'init', array( $this, 'ideal_page_step_two' ) );
 
 		add_shortcode( 'pronamic_ideal_s2member', array( $this, 'ideal' ) );
 	}
@@ -38,87 +40,132 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	 */
 	public function ideal( $attributes ) {
 		$defaults = array(
-			'period'      => null,
-			'cost'        => null,
-			'level'       => null,
-			'description' => __( 'iDEAL s2Member Payment || {{order_id}}', 'pronamic_ideal' )
+			'period'		 => null,
+			'cost'			 => null,
+			'level'			 => null,
+			'description'	 => __( 'iDEAL s2Member Payment || {{order_id}}', 'pronamic_ideal' )
 		);
 
 		// Combine the passed options
 		$options = shortcode_atts( $defaults, $attributes );
 
 		// No duration ID or amount set, prevent shortcode generation
-		if ( ! $options['period'] || ! $options['cost'] || ! $options['level'] ) return;
+		if ( ! $options[ 'period' ] || ! $options[ 'cost' ] || ! $options[ 'level' ] )
+			return;
 
 		// Gets settings to determine if ideal for s2 members is enabled, and all page settings from s2 member
-		$ideal_active       = get_option( 'pronamic_ideal_s2member_enabled' );
-		$s2members_settings = get_option( 'ws_plugin__s2member_cache' );
+		$ideal_active		 = get_option( 'pronamic_ideal_s2member_enabled' );
+		$s2members_settings	 = get_option( 'ws_plugin__s2member_cache' );
 
 		// No configuration set for the membership options page, stop shortcode
-		if ( empty( $s2members_settings['membership_options_page'] ) )
+		if ( empty( $s2members_settings[ 'membership_options_page' ] ) )
 			return;
 
 		if ( $ideal_active ) {
 			ob_start();
 
 			// Get the configuration id
-			$configuration_id = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-			
+			$configuration_id	 = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
+			$configuration		 = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
 			// Get the gateway from the configuration
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
-			
 			?>
 			<form method="post" action="">
-				<input type="hidden" name="pronamic_ideal_s2member_checkout" value="<?php echo $this->encrypt_data( $options ); ?>"/>
-
-				<input type="hidden" name="options[period]" value="<?php echo $options['period']; ?>" />
-				<input type="hidden" name="options[cost]" value="<?php echo $options['cost']; ?>"/>
-				<input type="hidden" name="options[level]" value="<?php echo $options['level']; ?>"/>
-				<input type="hidden" name="options[description]" value="<?php echo $options['description']; ?>"/>
-
-				<?php echo $gateway->get_input_html(); ?>
-				
-				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal'); ?>" />
+				<input type="hidden" name="pronamic_ideal_s2member_checkout_1" value="<?php echo $this->encrypt_data( $options ); ?>"/>
+				<input type="hidden" name="options[period]" value="<?php echo $options[ 'period' ]; ?>" />
+				<input type="hidden" name="options[cost]" value="<?php echo $options[ 'cost' ]; ?>"/>
+				<input type="hidden" name="options[level]" value="<?php echo $options[ 'level' ]; ?>"/>
+				<input type="hidden" name="options[description]" value="<?php echo $options[ 'description' ]; ?>"/>
+				<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal' ); ?>" />
 			</form>
 			<?php
-
 			return ob_get_clean();
 		}
-
 	}
 
 	public function encrypt_data( $data ) {
-		return sha1( $data['period'] . $data['cost'] . $data['level'] . $data['description'] . AUTH_SALT );
+		return sha1( $data[ 'period' ] . $data[ 'cost' ] . $data[ 'level' ] . $data[ 'description' ] . AUTH_SALT );
 	}
 
-	public function ideal_page() {
+	public function ideal_page_step_one() {
+
 		// Form submission, lets check the data!
-		if ( ! isset( $_POST['pronamic_ideal_s2member_checkout'] ) || ! isset( $_POST['options'] ) )
+		if ( ! isset( $_POST[ 'pronamic_ideal_s2member_checkout_1' ] ) || ! isset( $_POST[ 'options' ] ) )
 			return;
 
 		// Gets the security string
-		$security_string = $_POST['pronamic_ideal_s2member_checkout'];
+		$security_string = $_POST[ 'pronamic_ideal_s2member_checkout_1' ];
 
 		// Checks no inputs have been tampered
-		if ( $security_string != $this->encrypt_data( $_POST['options'] ) )
+		if ( $security_string != $this->encrypt_data( $_POST[ 'options' ] ) )
 			return;
 
 		// Store those options
-		$options = $_POST['options'];
+		$options = $_POST[ 'options' ];
 
-		// Make an OrderID This will be the unique ID for this order. Since S2Member doesn't
-		// store any information about orders we will use the meta information for a user.
-		// As for the ID of this 'order', it will be the umeta_id (pk of the user meta table )
-		// which will be returned with the below method
-		$order = new Pronamic_S2Member_Bridge_Order();
-		$options['status']  = 'Open';
-		$options['orderID'] = $order_id = $order->add_order( $options, get_current_user_id() );
+		// No more reference to the Bridge_Order. Instead the order id is just a uniqueid.
+		$options[ 'status' ]	 = 'Open';
+		$options[ 'orderID' ]	 = $order_id			 = uniqid();
 
 		// Get the configuration id
-		$configuration_id = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-			
+		$configuration_id	 = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
+		$configuration		 = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
+		// Get the gateway from the configuration
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+
+		// Check a gateway is valid, or just continue with the normal process @todo error reporting in the future
+		if ( ! $gateway )
+			return;
+
+		ob_start();
+		?>
+		<form method="post" action="">
+			<?php if ( ! is_user_logged_in() ) : ?>
+				<label><?php _e( 'Email' ); ?></label><input type="text" name="pronamic_ideal_email" value=""/> 
+			<?php endif; ?>
+			<input type="hidden" name="pronamic_ideal_s2member_checkout_2" value="<?php echo $this->encrypt_data( $options ); ?>"/>
+
+			<input type="hidden" name="options[period]" value="<?php echo $options[ 'period' ]; ?>" />
+			<input type="hidden" name="options[cost]" value="<?php echo $options[ 'cost' ]; ?>"/>
+			<input type="hidden" name="options[level]" value="<?php echo $options[ 'level' ]; ?>"/>
+			<input type="hidden" name="options[description]" value="<?php echo $options[ 'description' ]; ?>"/>
+
+			<?php echo $gateway->get_input_html(); ?>
+
+			<input type="submit" value="<?php _e( 'Pay with iDEAL', 'pronamic_ideal' ); ?>" />
+		</form>
+		<?php
+		self::$html = ob_get_clean();
+
+		add_filter( 'the_content', array( $this, 'ideal_content_overide' ) );
+	}
+
+	public function ideal_page_step_two() {
+
+		// Form submission, lets check the data!
+		if ( ! isset( $_POST[ 'pronamic_ideal_s2member_checkout_2' ] ) || ! isset( $_POST[ 'options' ] ) )
+			return;
+
+		// Gets the security string
+		$security_string = $_POST[ 'pronamic_ideal_s2member_checkout_2' ];
+
+		// Checks no inputs have been tampered
+		if ( $security_string != $this->encrypt_data( $_POST[ 'options' ] ) )
+			return;
+
+		// Store those options
+		$options = $_POST[ 'options' ];
+
+		// No more reference to the Bridge_Order. Instead the order id is just a uniqueid.
+		$options[ 'status' ]	 = 'Open';
+		$options[ 'orderID' ]	 = $order_id			 = uniqid();
+
+		// Get the configuration id
+		$configuration_id	 = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
+		$configuration		 = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+
 		// Get the gateway from the configuration
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
@@ -132,17 +179,11 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Lets set it up, and get it started!
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
 
-		// Determine if a normal html form ( and not a redirect for ideal advanced )
-		if ( $gateway->is_html_form() ) {
-
-			echo $gateway->get_form_html( true );
-
-		} else if ( $gateway->is_http_redirect() ) {
-
-			$gateway->redirect();
-
-		}
-
-		exit;
+		$gateway->redirect();
 	}
+
+	public function ideal_content_overide() {
+		return self::$html;
+	}
+
 }
