@@ -176,6 +176,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
 		Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
 		Pronamic_Gateways_IDealBasic_ReturnHandler::listen();
+		Pronamic_Gateways_IDealEasy_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
 		Pronamic_Gateways_Mollie_ReturnHandler::listen();
 		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();
