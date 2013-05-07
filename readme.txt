@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -155,6 +155,7 @@ Here is a list of known plugin conflicts:
 *	Return URL's - Improved use of site_url() and home_url() functions
 *	Buckaroo - Added support for the Buckaroo payment provider (thanks to Marcel Snoeck)
 *	iDEAL Easy - Improved return handling
+*	s2Member - Login is no longer required to pay with iDEAL
 
 = 1.2.6 =
 *	s2Member - Added support for the s2Member plugin
