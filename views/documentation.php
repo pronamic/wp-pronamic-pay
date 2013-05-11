@@ -436,12 +436,28 @@
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-rest-api-v3.2.1.pdf',
 					'name'    => 'Sisow - REST API',
-					'version' => '3.2.1',
+					'version' => '3.2.1'
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-webservice-api-v2.0.pdf',
 					'name'    => 'Sisow - WebService API',
-					'version' => '2.0',
+					'version' => '2.0'
+				)
+			)
+		),
+		'qantani.com' => array(
+			'name'      => 'Qantani',
+			'url'       => 'http://qantani.com/', 
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-frontend-v1.pdf',
+					'name'    => 'Qantani - Connecting to the Frontend',
+					'version' => '1.0'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-xml-v1.pdf',
+					'name'    => 'Qantani - Connecting to the API',
+					'version' => '1.0'
 				)
 			)
 		)
