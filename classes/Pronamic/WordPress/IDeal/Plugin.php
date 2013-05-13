@@ -176,6 +176,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
 		Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
 		Pronamic_Gateways_IDealBasic_ReturnHandler::listen();
+		Pronamic_Gateways_IDealEasy_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
 		Pronamic_Gateways_Mollie_ReturnHandler::listen();
 		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();
@@ -563,6 +564,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				'pronamic_ideal_settings'        => true,
 				'pronamic_ideal_pages_generator' => true,
 				'pronamic_ideal_status'          => true,
+				'pronamic_ideal_providers'       => true,
 				'pronamic_ideal_variants'        => true,
 				'pronamic_ideal_documentation'   => true,
 				'pronamic_ideal_branding'        => true

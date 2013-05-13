@@ -130,8 +130,14 @@ class Pronamic_IDeal_IDeal {
 					$provider = new Pronamic_IDeal_Provider();
 					$provider->setId( (string) $provider_xml->id );
 					$provider->setName( (string) $provider_xml->name );
-					$provider->setUrl( (string) $provider_xml->url );
 					
+					$url = $provider_xml->url;
+					if ( isset( $provider_xml->affiliateUrl ) ) {
+						$url = $provider_xml->affiliateUrl;
+					}
+
+					$provider->setUrl( (string) $url );
+
 					foreach ( $provider_xml->variant as $variant_xml ) {
 						$enabled = (string) $variant_xml['disabled'] != 'disabled';
 	
