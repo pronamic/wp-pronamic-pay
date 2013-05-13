@@ -123,17 +123,19 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	 * @param float $amount
 	 * @param string $returnurl
 	 * @param string $reporturl
+	 * @param string $cinfo_in_callback https://www.targetpay.com/info/directdebit-docu
 	 */
-	public function start_transaction( $rtlo, $bank, $description, $amount, $returnurl, $reporturl ) {
+	public function start_transaction( $rtlo, $bank, $description, $amount, $returnurl, $reporturl, $cinfo_in_callback = 1 ) {
 		$url = Pronamic_WordPress_Util::build_url(
 			self::URL_START_TRANSACTION,
 			array(
-				'rtlo'        => $rtlo,
-				'bank'        => $bank,
-				'description' => $description,
-				'amount'      => Pronamic_WordPress_Util::amount_to_cents( $amount ),
-				'returnurl'   => $returnurl,
-				'reporturl'   => $reporturl
+				'rtlo'              => $rtlo,
+				'bank'              => $bank,
+				'description'       => $description,
+				'amount'            => Pronamic_WordPress_Util::amount_to_cents( $amount ),
+				'returnurl'         => $returnurl,
+				'reporturl'         => $reporturl,
+				'cinfo_in_callback' => Pronamic_WordPress_Util::to_numeric_boolean( $cinfo_in_callback )
 			)
 		);
 
@@ -164,6 +166,66 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Parse an TargetPay status string to an object
+	 * 
+	 * @param string $string an TargetPay status string
+	 * @return stdClass
+	 */
+	public static function parse_status_string( $string ) {
+		$status = new Pronamic_Gateways_TargetPay_Status();
+
+		$position_space = strpos( $string, ' ' );
+		$position_tab   = strpos( $string, '|' );
+		
+		if ( $position_space !== false ) {
+			/*
+			 * @see https://www.targetpay.com/info/ideal-docu
+			 *
+			 * If the payment is valid the following response will be returned:
+			 * 000000 OK
+			 *
+			 * If the payment is not valid (yet) the following response will be returned:
+			 * TP0010 Transaction has not been completed, try again later
+			 * TP0011 Transaction has been cancelled
+			 * TP0012 Transaction has expired (max. 10 minutes)
+			 * TP0013 The transaction could not be processed
+			 * TP0014 Already used
+			 *
+			 * TP0020 Layoutcode not entered
+			 * TP0021 Tansaction ID not entered
+			 * TP0022 No transaction found with this ID
+			 * TP0023 Layoutcode does not match this transaction
+			 */
+			$status->code = substr( $string, 0, $position_space );
+
+			if ( $position_tab !== false ) {
+				$status->description = substr( $string, $position_space + 1, $position_tab );
+			} else {
+				$status->description = substr( $string, $position_space + 1 );
+			}
+
+			if ( $position_tab !== false ) {
+				$extra = substr( $string, $position_tab + 1 );
+
+				/*
+				 * @see https://www.targetpay.com/info/directdebit-docu
+				 *
+				 * The response of the ideal/check call will be:
+				 * 00000 OK|accountnumber|accountname|accountcity
+				 * You may use accountnumber and accountname as input for the cbank and cname parameters
+				 */
+				$status->account_number = strtok( $extra, self::TOKEN );
+				$status->account_name   = strtok( self::TOKEN );
+				$status->account_city   = strtok( self::TOKEN );
+			}
+		}
+
+		return $status;
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Check status
 	 * 
 	 * @param string $rtlo
@@ -179,24 +241,17 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			array(
 				'rtlo'  => $rtlo,
 				'trxid' => $transaction_id,
-				'once'  => $once ? '1' : '0',
-				'test'  => $test ? '1' : '0'
+				'once'  => Pronamic_WordPress_Util::to_numeric_boolean( $once ),
+				'test'  => Pronamic_WordPress_Util::to_numeric_boolean( $test )
 			)
 		);
 
 		$data = self::remote_get( $url );
 
 		if ( $data !== false ) {
-			$postion_space = strpos( $data, ' ' );
-
-			if ( $position_space !== false ) {
-				$result = new stdClass();
-
-				$result->status      = substr( $data, 0, $postion_space );
-				$result->description = substr( $data, $postion_space + 1 );
-			}
+			$result = self::parse_status_string( $data );
 		}
-		
+
 		return $result;
 	}
 	
