@@ -101,17 +101,20 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-		$result = $this->client->check_status(
+		$status = $this->client->check_status(
 			$this->configuration->targetPayLayoutCode,
 			$payment->transaction_id,
 			false,
 			$this->configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST
 		);
 
-		if ( $result ) {
-			switch ( $result->status ) {
+		if ( $status ) {
+			switch ( $status->code ) {
 				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
-					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
+					$payment->status                  = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
+					$payment->consumer_name           = $status->account_name;
+					$payment->consumer_account_number = $status->account_number;
+					$payment->consumer_city           = $status->account_city;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:

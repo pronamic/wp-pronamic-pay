@@ -1,39 +1,58 @@
 <?php
 
 /**
- * Title: TargetPay error
+ * Title: TargetPay status
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_TargetPay_Error {
+class Pronamic_Gateways_TargetPay_Status {
 	/**
 	 * Code
 	 * 
 	 * @var string
 	 */
-	private $code;
+	public $code;
 
 	/**
 	 * Description
 	 * 
 	 * @var string
 	 */
-	private $description;
+	public $description;
 	
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an TargetPay client object
+	 * Account number
 	 * 
-	 * @param string $code
-	 * @param string $description
+	 * @var string
 	 */
-	public function __construct( $code, $description ) {
-		$this->code        = $code;
-		$this->description = $description;
+	public $account_number;
+
+	/**
+	 * Account name
+	 * 
+	 * @var string
+	 */
+	public $account_name;
+
+	/**
+	 * Account city
+	 * 
+	 * @var string
+	 */
+	public $account_city;
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an TargetPay status object
+	 */
+	public function __construct() {
+		
 	}
 	
 	//////////////////////////////////////////////////
