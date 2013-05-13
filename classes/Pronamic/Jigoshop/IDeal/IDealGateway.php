@@ -61,9 +61,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		// Set own variables, load them form the WordPress options
 		$this->configuration_id = get_option( 'jigoshop_pronamic_ideal_configuration_id' );
 
-		// Actions
-		add_action( 'jigoshop_update_options', array( &$this, 'update_options' ) );
-		
+		// Actions	
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );
     }
 
