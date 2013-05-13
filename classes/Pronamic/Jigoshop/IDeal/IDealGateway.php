@@ -41,25 +41,25 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     	}
 
 		// Give this gateway an unique ID so Jigoshop can identiy this gateway
-		$this->id              = self::ID;
+		$this->id               = self::ID;
 
 		// The method title that Jigoshop will display in the admin
-		$this->method_title    = __( 'Pronamic iDEAL', 'pronamic_ideal' );
+		$this->method_title     = __( 'Pronamic iDEAL', 'pronamic_ideal' );
 		
 		// The icon that Jigoshop will display on the payment methods radio list
-		$this->icon            = plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file );
+		$this->icon             = plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file );
 
 		// Let Jigoshop know that this gateway has field
 		// Technically only iDEAL advanced variants has fields
-		$this->has_fields      = true;
+		$this->has_fields       = true;
 
 		// Set default Jigoshop variables, load them form the WordPress options
-		$this->enabled         = get_option( 'jigoshop_pronamic_ideal_enabled' );
-		$this->title           = get_option( 'jigoshop_pronamic_ideal_title' );
-		$this->description     = get_option( 'jigoshop_pronamic_ideal_description' );
+		$this->enabled          = get_option( 'jigoshop_pronamic_ideal_enabled' );
+		$this->title            = get_option( 'jigoshop_pronamic_ideal_title' );
+		$this->description      = get_option( 'jigoshop_pronamic_ideal_description' );
 		
 		// Set own variables, load them form the WordPress options
-		$this->configurationId = get_option( 'jigoshop_pronamic_ideal_configuration_id' );
+		$this->configuration_id = get_option( 'jigoshop_pronamic_ideal_configuration_id' );
 
 		// Actions
 		add_action( 'jigoshop_update_options', array( &$this, 'update_options' ) );
@@ -139,7 +139,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			echo wpautop( wptexturize( $this->description ) );
 		}
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 		
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
@@ -154,7 +154,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Receipt page
 	 */
 	function receipt_page( $order_id ) {
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 		
 		$order = &new jigoshop_order( $order_id );
 		
@@ -184,7 +184,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		jigoshop_cart::empty_cart();
 
 		// Do specifiek iDEAL variant processing
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configurationId );
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
 
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 		
