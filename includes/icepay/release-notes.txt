@@ -1,0 +1,90 @@
+[RELEASES]
+
+::  Version 2.2.0: Extended Checkout
+        Release date: 8 jan 2013
+        Updated by: Wouter van Tilburg
+
+        Changes
+            - Added extended Checkout
+			- Fixed dynamic url bug
+        Altered Files:
+            - icepay_api_webservice.php
+			- icepay_api_base.php
+			- icepay_api_basic.php
+		Added Files:
+			- icepay_api_order.php
+        ~
+
+::  Version 2.1.3: 
+	Release date: 29 okt 2012
+	Updated by: Wouter van Tilburg
+	
+	Changes
+		- Changed allowed order update list (Error > OK) for pay per mail.
+	Altered Files:
+		- api/icepay_api_base.php
+	
+:: 	Version 2.1.2: Bugfixes
+	Release date: 4 okt 2012
+	Updated by: Wouter van Tilburg
+	
+	Changes
+		- Added addToWhitelist function
+		- Fixed checksum error for searchPayments
+		- Fixed format for pincode
+		- Fixed allowed countries for direct e-banking
+	Altered Files:
+		- api/icepay_api_base.php
+		- api/icepay_api_webservice.php
+		- api/paymentmethods/directebank.php
+		
+::	Version 2.1.1: Small PHP Strict error fix: "Creating default object from empty value"
+	Release date: 13 aug 2012
+	Updated by: Wouter van Tilburg
+
+	Changes
+		- Postback Class modified
+	Altered Files:
+		- api/icepay_api_base.php
+	~
+
+:: 	Version 2.1.0: Webservices addition
+	Changes:
+		- Logger class modified!!
+                - Helper added: IP check
+                - Helper added: Parameter validation
+		- Webservices classes added
+		- Refactored classes for optimal loading
+                - Changed version numbering to start from 2+
+	Release date: 8 aug 2012
+	Updated by: Olaf Abbenhuis & Wouter van Tilburg
+	Altered files:
+		- api/icepay_api_basic.php
+		- samples/sample_basicmode.php
+		- samples/sample_filter.php
+		- samples/sample_ideal.php
+		- samples/sample_postback.php
+		- samples/sample_result.php
+        Added files:
+		- api/icepay_api_base.php
+		- api/icepay_api_webservice.php
+		- logs/
+		- samples/sample_webservice_filteringpaymentmethods.php
+		- samples/sample_webservice_getpaymentmethods.php
+		- samples/sample_webservice_gettransactiondata.php
+		- samples/sample_webservice_refund.php
+		- samples/sample_webservice_reporting.php
+		- samples/sample_webservice_start_payment.php
+		- samples/sample_webservice_start_sms.php
+		- wsdata/
+	~
+
+:: 	Version 1.0.1: Added Paysafecard payment method
+	Release date: 
+	Updated by: Olaf Abbenhuis
+	~
+
+::	Version 1.0.0: Initial release
+	Developed by: Olaf Abbenhuis
+	No information
+	~
