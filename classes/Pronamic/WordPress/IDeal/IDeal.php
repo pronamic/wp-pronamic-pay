@@ -109,7 +109,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
 		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
-
+			
 			if ( $variant !== null ) {
 				switch ( $variant->getMethod() ) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
@@ -130,6 +130,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_Buckaroo_Gateway( $configuration );  
 					case 'targetpay':
 						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
+					case 'icepay':
+						return new Pronamic_Gateways_Icepay_Gateway( $configuration );
 				}
 			}
 		}				
