@@ -14,7 +14,7 @@ class Pronamic_Gateways_Icepay_ReturnHandler extends Pronamic_Gateways_ReturnHan
 	
 	public function returns( $order_id ) {
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( $order_id );
-		var_dump($payment);
+		
 		if ( null != $payment ) 
 			do_action( 'pronamic_ideal_icepay_return', $payment, $can_redirect = true );
 	}
