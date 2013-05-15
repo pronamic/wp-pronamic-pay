@@ -173,6 +173,26 @@ $sections = array(
 		)
 	),
 	array(
+		'title' => __( 'Icepay', 'pronamic_ideal' ),
+		'methods' => array( 'icepay' ),
+		'fields' => array(
+			array(
+				'name' => 'icepayMerchantId',
+				'id'	=> 'pronamic_ideal_icepay_merchant_id',
+				'title' => __( 'Merchant ID', 'pronamic_ideal' ),
+				'type' => 'text',
+				'description' => sprintf( __( 'You can find your Icepay Merchant ID on <a href="%s" target="_blank">My websites</a>', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' ),
+			),
+			array(
+				'name' => 'icepaySecretCode',
+				'id'	=> 'pronamic_ideal_icepay_secret_code',
+				'title' => __( 'Secret Code', 'pronamic_ideal' ),
+				'type' => 'text',
+				'description' => sprintf( __( 'You can find your Icepay Secret Code on <a href="%s" target="_blank">My websites</a>', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' ),
+			)
+		)
+	),
+	array(
 		'title'   => __( 'TargetPay', 'pronamic_ideal' ),
 		'methods' => array( 'targetpay' ),
 		'fields'  => array(

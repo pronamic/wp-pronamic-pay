@@ -130,6 +130,10 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		if(isset($meta->buckarooWebsiteKey)) $configuration->buckarooWebsiteKey = $meta->buckarooWebsiteKey;
 		if(isset($meta->buckarooSecretKey)) $configuration->buckarooSecretKey = $meta->buckarooSecretKey;
 
+		// Icepay
+		if(isset($meta->icepayMerchantId)) $configuration->icepayMerchantId = $meta->icepayMerchantId;
+		if(isset($meta->icepaySecretCode)) $configuration->icepaySecretCode = $meta->icepaySecretCode;
+		
 		// Mollie
 		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;
 		if(isset($meta->mollieProfileKey)) $configuration->mollieProfileKey = $meta->mollieProfileKey;
