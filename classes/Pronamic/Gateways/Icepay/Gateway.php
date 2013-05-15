@@ -95,7 +95,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_action_url( $basicmode->getURL() );
 			
 		} catch ( Exception $e ) {
-			$this->error = $e->getMessage();
+			$this->error = new WP_Error( $e->getMessage() );
 		}
 		
 	}
@@ -133,7 +133,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			}
 
 		} catch ( Exception $exc ) {
-			$this->error = $exc->getMessage();
+			$this->error = new WP_Error( $exc->getMessage() );
 		}
 				
 	}
