@@ -184,6 +184,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();
 		Pronamic_Gateways_OmniKassa_ReturnHandler::listen();
 		Pronamic_Gateways_TargetPay_ReturnHandler::listen();
+		Pronamic_Gateways_Icepay_ReturnHandler::listen();
 	}
 
 	/**

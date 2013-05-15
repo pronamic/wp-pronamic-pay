@@ -117,6 +117,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				switch ( $result->getStatus() ) {
 					
 					case Icepay_StatusCode::SUCCESS:
+						$payment->status = 'Success';
 						break;
 					
 					case Icepay_StatusCode::OPEN:
