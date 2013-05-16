@@ -72,6 +72,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
 	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybe_delay_user_notification' ), 10, 3 );
 				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybe_delay_post_creation' ), 10, 3 );
+				add_filter( 'gform_disable_notification',		array( __CLASS__, 'maybe_delay_notification' ), 10, 4 );
 			}
 
 			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
@@ -336,6 +337,18 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	// Maybe delay functions
 	//////////////////////////////////////////////////
 
+	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		
+		if ( null !== $feed ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
+				$is_disabled = $feed->delayUserNotification;
+			}
+		}
+		
+		return $is_disabled;
+	}
+	
 	/**
 	 * Maybe delay admin notification
 	 * 
