@@ -20,11 +20,25 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 
 	$feed->transactionDescription = filter_input(INPUT_POST, 'gf_ideal_transaction_description', FILTER_SANITIZE_STRING);
 	
-	// Loop through the delayed notifications
-	if ( ! empty( $_POST['gf_ideal_selected_notifications'] ) ) {
-		foreach ( $_POST['gf_ideal_selected_notifications'] as $chosen_notification ) {
-			$feed->addDelayNotification( $chosen_notification );
+	$selected_notifications_parent = filter_input( INPUT_POST, 'gf_ideal_selected_notifications_parent', FILTER_VALIDATE_BOOLEAN );
+	
+	var_dump($selected_notifications_parent);
+	
+	if ( true === $selected_notifications_parent ) {
+		$selected_notifications = ( isset( $_POST['gf_ideal_selected_notifications'] ) ? $_POST['gf_ideal_selected_notifications'] : array() );
+		
+		if ( ! empty( $selected_notifications ) ) {
+			$feed->removeDelayNotifications();
+			
+			foreach ( $selected_notifications as $selected_notification ) {
+				$feed->addDelayNotification( $selected_notification );
+			}
+		} else {
+			$feed->removeDelayNotifications();
 		}
+		
+	} else {
+		$feed->removeDelayNotifications();
 	}
 		
 	
@@ -193,7 +207,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 							var form_id = <?php echo $feed->formId; ?>;
 						</script>
 						
-						<input type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php if ( $feed->hasNotificationIds() ) : ?> checked="checked" <?php endif; ?>/>
+						<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php if ( $feed->hasNotificationIds() ) : ?> checked="checked" <?php endif; ?>/>
 						<label for="gf_ideal_delay_notifications"><?php _e( 'Send notification only when payment is received', 'pronamic_ideal' ); ?></label>
 						<ul class="gf_ideal_delay_notification_holder" style="margin-left:28px;<?php if ( ! $feed->hasNotificationIds() ) : ?> display:none; <?php endif; ?>">
 							
