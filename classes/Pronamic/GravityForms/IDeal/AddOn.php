@@ -81,8 +81,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			add_filter( 'gform_replace_merge_tags', array( __CLASS__, 'replace_merge_tags' ), 10, 7 );
 			
-			add_filter( 'wp_ajax_gf_ideal_load_notifications', array( __CLASS__, 'ajax_load_notifications' ) );
-
 			// iDEAL fields
 			Pronamic_GravityForms_IDeal_Fields::bootstrap();
 		}
@@ -239,22 +237,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				}
 			}
 		}
-	}
-
-	public static function ajax_load_notifications() {
-		
-		$form_id = $_POST["form_id"];
-        
-		$form = RGFormsModel::get_form_meta( $form_id );
-        
-		$notifications = array();
-		
-        if( is_array( $form['notifications'] ) ){
-            foreach( $form["notifications"] as $notification ){
-                $notifications[] = array( "name" => $notification["name"], "id" => $notification["id"] );
-            }
-        }
-        die( json_encode( $notifications ) );
 	}
 	
 	/**
