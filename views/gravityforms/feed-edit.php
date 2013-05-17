@@ -223,6 +223,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 									<?php endforeach; ?>
 							
 								<?php endif; ?>
+							<?php else: ?>
+										<img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>"/>
 							<?php endif; ?>
 							
 						</ul>
