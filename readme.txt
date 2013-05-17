@@ -146,6 +146,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 1.2.8 =
+*	ICEPAY - Added support for the ICEPAY payment provider
+
 = 1.2.7 =
 *	Membership - Improved the check for an active iDEAl gateway
 *	Mollie - Enabled feedback support for the Mollie gateway
