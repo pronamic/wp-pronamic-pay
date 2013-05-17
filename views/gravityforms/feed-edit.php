@@ -208,7 +208,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 							<?php $notification_ids = $feed->getNotificationIds(); ?>
 							<?php if ( ! empty( $notification_ids ) ) : ?>
 							
-							<?php $form = RGFormsModel::get_form_meta( $feed->formId ); ?>
+								<?php $form = RGFormsModel::get_form_meta( $feed->formId ); ?>
 								<?php if ( is_array( $form['notifications'] ) && ! empty( $form['notifications'] ) ) : ?>
 							
 									<?php foreach ( $form['notifications'] as $notification ) : ?>
@@ -219,10 +219,10 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 									<?php endforeach; ?>
 							
 								<?php endif; ?>
-							<?php else: ?>
-										<img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>"/>
 							<?php endif; ?>
-							
+							<?php if ( ! $feed->hasNotificationIds() ) : ?>
+								<li><img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>"/></li>
+							<?php endif;?>
 						</ul>
 						
 					<?php else: ?>
