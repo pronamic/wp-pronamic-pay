@@ -316,11 +316,25 @@ class Pronamic_GravityForms_IDeal_Feed {
 		return $this;
 	}
 	
+	/**
+	 * Returns a boolean if this feed has some chosen
+	 * delayed notifications
+	 * 
+	 * @access public
+	 * @return boolean
+	 */
 	public function hasNotificationIds() {
 		return ( ! empty( $this->delayNotificationIds ) );
 	}
 	
+	/**
+	 * Removes all saved notification Ids.
+	 * 
+	 * @access public
+	 * @return \Pronamic_GravityForms_IDeal_Feed
+	 */
 	public function removeDelayNotifications() {
 		$this->delayNotificationIds = array();
+		return $this;
 	}
 }
