@@ -269,6 +269,24 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			self::maybe_update_user_role( $entry, $feed );
 
 			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
+			
+			// Determine if the feed has Gravity Form 1.7 Feed IDs
+			if ( $feed->hasNotificationIds() ) {
+				
+				// Get those ID's
+				$notification_ids = $feed->getNotificationIds();
+				
+				// Go through all form notifications
+				foreach ( $form_meta['notifications'] as $notification ) {
+					
+					// If this specific form id is a chosen delay
+					if ( in_array( $notification['id'], $notification_ids ) ) {
+						
+						// Send the notification now.
+						GFCommon::send_notification( $notification, $form_meta, $lead );
+					}
+				}
+			}
 
 			if ( $feed->delayAdminNotification ) {
 				GFCommon::send_admin_notification( $form_meta, $entry );
