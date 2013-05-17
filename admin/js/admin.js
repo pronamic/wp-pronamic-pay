@@ -244,7 +244,13 @@
 		this.updateNotificationSelector = function() {
 			if(elements.delayNotifications.length > 0) {
 				elements.delayNotifications.prop('checked', false);
-				elements.delayNotificationsHolder.empty();
+				
+				elements.delayNotificationsHolder.css({display:'none'});
+				
+				var img = new Image();
+				img.src = GravityForms_IDeal_Feed_Config.loader_img;
+				
+				elements.delayNotificationsHolder.html(img);
 			}
 		};
 		
