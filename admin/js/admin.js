@@ -155,7 +155,7 @@
 						type:'POST',
 						data:{
 							action:'gf_ideal_load_notifications',
-							form_id:form_id
+							form_id:elements.formId.val()
 						},
 						dataType:'json',
 						success: function(response) {
@@ -347,7 +347,7 @@
 		var FE = $('#gf-ideal-feed-editor').data('gf-ideal-feed-editor');
 		
 		$('#gf_ideal_delay_notifications').click(function(){
-			FE.getNotifications(form_id);
+			FE.getNotifications();
 		});
 	});
 })(jQuery);
