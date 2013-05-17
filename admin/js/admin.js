@@ -19,6 +19,8 @@
 		elements.conditionOperator = element.find("#gf_ideal_condition_operator");
 		elements.conditionValue = element.find("#gf_ideal_condition_value");
 		elements.userRoleFieldId = element.find("#gf_ideal_user_role_field_id");
+		elements.delayNotifications = element.find('#gf_ideal_delay_notifications');
+		elements.delayNotificationsHolder = element.find('.gf_ideal_delay_notification_holder');
 		elements.fieldSelectFields = element.find("select.field-select");
 
 		// Data
@@ -239,6 +241,13 @@
 			element.find(".method-" + method).show();
 		};
 		
+		this.updateNotificationSelector = function() {
+			if(elements.delayNotifications.length > 0) {
+				elements.delayNotifications.prop('checked', false);
+				elements.delayNotificationsHolder.empty();
+			}
+		};
+		
 		/**
 		 * Update fields
 		 */
@@ -249,6 +258,7 @@
 			obj.updateConditionFields();
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
+			obj.updateNotificationSelector();
 		};
 
 		// Function calls
