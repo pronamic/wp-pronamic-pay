@@ -111,7 +111,7 @@ if ( $action == 'delete' ) {
 								<?php 
 								
 								$editLink = Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link($feed->id); 
-								$deleteLink = Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link($feed->id);
+								$deleteLink = Pronamic_GravityForms_IDeal_Admin::get_delete_feed_link($feed->id);
 		
 								?>
 		
