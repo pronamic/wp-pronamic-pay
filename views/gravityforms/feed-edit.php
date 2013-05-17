@@ -22,8 +22,6 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 	
 	$selected_notifications_parent = filter_input( INPUT_POST, 'gf_ideal_selected_notifications_parent', FILTER_VALIDATE_BOOLEAN );
 	
-	var_dump($selected_notifications_parent);
-	
 	if ( true === $selected_notifications_parent ) {
 		$selected_notifications = ( isset( $_POST['gf_ideal_selected_notifications'] ) ? $_POST['gf_ideal_selected_notifications'] : array() );
 		
@@ -219,7 +217,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 							
 									<?php foreach ( $form['notifications'] as $notification ) : ?>
 										<li>
-											<input type="checkbox" value="<?php echo $notification['id']; ?>" name="gf_ideal_selected_notifications" <?php if ( in_array( $notification['id'], $notification_ids ) ) : ?> checked="checked" <?php endif; ?> />
+											<input type="checkbox" value="<?php echo $notification['id']; ?>" name="gf_ideal_selected_notifications[]" <?php if ( in_array( $notification['id'], $notification_ids ) ) : ?> checked="checked" <?php endif; ?> />
 											<label class="inline"><?php echo $notification['name']; ?></label>
 										</li>
 									<?php endforeach; ?>
