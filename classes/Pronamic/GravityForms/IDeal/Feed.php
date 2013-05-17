@@ -100,6 +100,14 @@ class Pronamic_GravityForms_IDeal_Feed {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Holds an array of all the delayed 
+	 * notification IDs
+	 * 
+	 * @var array
+	 */
+	public $delayNotificationIds = array();
+	
+	/**
 	 * Delay admin notification
 	 * 
 	 * @var boolean
@@ -283,5 +291,36 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 */
 	public function setLink( $name, $link ) {
 		$this->links[$name] = $link;
+	}
+	
+	/**
+	 * Returns an array of all chosen delayed
+	 * notification ID's from this feed.
+	 * 
+	 * @access public
+	 * @return array
+	 */
+	public function getNotificationIds() {
+		return $this->delayNotificationIds;
+	}
+	
+	/**
+	 * Add a notification ID to the list of delayed notifications
+	 * 
+	 * @access public
+	 * @param int $notificationId
+	 * @return \Pronamic_GravityForms_IDeal_Feed
+	 */
+	public function addDelayNotification( $notificationId ) {
+		$this->delayNotificationIds[] = $notificationId;
+		return $this;
+	}
+	
+	public function hasNotificationIds() {
+		return ( ! empty( $this->delayNotificationIds ) );
+	}
+	
+	public function removeDelayNotifications() {
+		$this->delayNotificationIds = array();
 	}
 }
