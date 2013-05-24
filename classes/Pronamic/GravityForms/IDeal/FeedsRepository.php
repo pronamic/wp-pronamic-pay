@@ -74,7 +74,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 
        	$feed->transactionDescription = $meta->transactionDescription;
 		$feed->links                  = (array) $meta->links;
-		$feed->delayNotificationIds   = $meta->delayNotificationIds;
+		$feed->delayNotificationIds   = isset( $meta->delayNotificationIds ) ? $meta->delayNotificationIds : array();
 		$feed->delayAdminNotification = $meta->delayAdminNotification;
 		$feed->delayUserNotification  = $meta->delayUserNotification;
 		$feed->delayPostCreation      = $meta->delayPostCreation;
