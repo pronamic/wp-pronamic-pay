@@ -173,22 +173,22 @@ $sections = array(
 		)
 	),
 	array(
-		'title' => __( 'ICEPAY', 'pronamic_ideal' ),
+		'title'   => __( 'ICEPAY', 'pronamic_ideal' ),
 		'methods' => array( 'icepay' ),
-		'fields' => array(
+		'fields'  => array(
 			array(
-				'name' => 'icepayMerchantId',
-				'id'	=> 'pronamic_ideal_icepay_merchant_id',
-				'title' => __( 'Merchant ID', 'pronamic_ideal' ),
-				'type' => 'text',
-				'description' => sprintf( __( 'You can find your ICEPAY Merchant ID on <a href="%s" target="_blank">My websites</a>', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' ),
+				'name'        => 'icepayMerchantId',
+				'id'	      => 'pronamic_ideal_icepay_merchant_id',
+				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your ICEPAY Merchant ID on <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' )
 			),
 			array(
-				'name' => 'icepaySecretCode',
-				'id'	=> 'pronamic_ideal_icepay_secret_code',
-				'title' => __( 'Secret Code', 'pronamic_ideal' ),
-				'type' => 'text',
-				'description' => sprintf( __( 'You can find your ICEPAY Secret Code on <a href="%s" target="_blank">My websites</a>', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' ),
+				'name'        => 'icepaySecretCode',
+				'id'          => 'pronamic_ideal_icepay_secret_code',
+				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => sprintf( __( 'You can find your ICEPAY Secret Code on <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' )
 			)
 		)
 	),
