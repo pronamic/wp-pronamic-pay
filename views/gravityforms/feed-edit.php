@@ -196,13 +196,13 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e('Options', 'pronamic_ideal'); ?>
+					<?php _e( 'Options', 'pronamic_ideal' ); ?>
 				</th>
 				<td>
 					<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
 					
 						<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php if ( $feed->hasNotificationIds() ) : ?> checked="checked" <?php endif; ?>/>
-						<label for="gf_ideal_delay_notifications"><?php _e( 'Send notification only when payment is received', 'pronamic_ideal' ); ?></label>
+						<label for="gf_ideal_delay_notifications"><?php _e( 'Send notification only when payment is received.', 'pronamic_ideal' ); ?></label>
 						<ul class="gf_ideal_delay_notification_holder" style="margin-left:28px;<?php if ( ! $feed->hasNotificationIds() ) : ?> display:none; <?php endif; ?>">
 							
 							<?php $notification_ids = $feed->getNotificationIds(); ?>
@@ -219,40 +219,42 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 									<?php endforeach; ?>
 							
 								<?php endif; ?>
+
 							<?php endif; ?>
+
 							<?php if ( ! $feed->hasNotificationIds() ) : ?>
-								<li><img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>"/></li>
+								<li><img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>" /></li>
 							<?php endif;?>
 						</ul>
-						
-					<?php else: ?>
+
+					<?php else : ?>
+
 						<ul>
 							<li id="gf_ideal_delay_admin_notification_item">
-								<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked($feed->delayAdminNotification); ?> />
+								<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $feed->delayAdminNotification ); ?> />
 
 								<label for="gf_ideal_delay_admin_notification">
-									<?php _e('Send admin notification only when payment is received.', 'pronamic_ideal'); ?>
+									<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
 								</label>
 							</li>
 							<li id="gf_ideal_delay_user_notification_item">
-								<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked($feed->delayUserNotification); ?> />
+								<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $feed->delayUserNotification ); ?> />
 
 								<label for="gf_ideal_delay_user_notification">
-									<?php _e('Send user notification only when payment is received.', 'pronamic_ideal'); ?>
+									<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
 								</label>
 							</li>
 							<li id="gf_ideal_delay_post_creation_item">
-								<input type="checkbox" name="gf_ideal_delay_post_creation" id="gf_ideal_delay_post_creation" value="true" <?php checked($feed->delayPostCreation); ?> />
+								<input type="checkbox" name="gf_ideal_delay_post_creation" id="gf_ideal_delay_post_creation" value="true" <?php checked( $feed->delayPostCreation ); ?> />
 
 								<label for="gf_ideal_delay_post_creation">
-									<?php _e('Create post only when payment is received.', 'pronamic_ideal'); ?>
+									<?php _e( 'Create post only when payment is received.', 'pronamic_ideal' ); ?>
 								</label>
 							</li>
 						</ul>
 						
 					<?php endif; ?>
-					
-					
+
 				</td>
 			</tr>
 			<tr>
