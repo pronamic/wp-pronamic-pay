@@ -202,7 +202,7 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 					<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
 					
 						<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php if ( $feed->hasNotificationIds() ) : ?> checked="checked" <?php endif; ?>/>
-						<label for="gf_ideal_delay_notifications"><?php _e( 'Send notification only when payment is received.', 'pronamic_ideal' ); ?></label>
+						<label for="gf_ideal_delay_notifications"><?php _e( 'Send notifications only when payment is received.', 'pronamic_ideal' ); ?></label>
 						<ul class="gf_ideal_delay_notification_holder" style="margin-left:28px;<?php if ( ! $feed->hasNotificationIds() ) : ?> display:none; <?php endif; ?>">
 							
 							<?php $notification_ids = $feed->getNotificationIds(); ?>
