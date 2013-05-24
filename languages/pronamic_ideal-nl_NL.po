@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-24 16:06+0100\n"
-"PO-Revision-Date: 2013-05-24 16:08+0100\n"
+"POT-Creation-Date: 2013-05-24 16:37+0100\n"
+"PO-Revision-Date: 2013-05-24 16:38+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -90,7 +90,7 @@ msgstr "Nee"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:99
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:115
-#: views/configuration-edit.php:493 views/gravityforms/feed-edit.php:135
+#: views/configuration-edit.php:494 views/gravityforms/feed-edit.php:135
 #: views/gravityforms/feeds.php:70
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
@@ -570,7 +570,7 @@ msgid "Cancelled"
 msgstr "Geannuleerd"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:34
-#: views/gravityforms/feed-edit.php:323
+#: views/gravityforms/feed-edit.php:325
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -579,12 +579,12 @@ msgid "Failure"
 msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:38
-#: views/gravityforms/feed-edit.php:319
+#: views/gravityforms/feed-edit.php:321
 msgid "Open"
 msgstr "Open"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:40 views/status.php:54
-#: views/gravityforms/feed-edit.php:320
+#: views/gravityforms/feed-edit.php:322
 msgid "Success"
 msgstr "Succes"
 
@@ -893,7 +893,7 @@ msgstr ""
 msgid "Secret Code"
 msgstr "Geheime code"
 
-#: views/configuration-edit.php:196
+#: views/configuration-edit.php:197
 #, php-format
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
@@ -903,27 +903,27 @@ msgstr ""
 "Je kunt je geheime code vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
 "account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
-#: views/configuration-edit.php:204
+#: views/configuration-edit.php:205
 msgid "TargetPay"
 msgstr "TargetPay"
 
-#: views/configuration-edit.php:210
+#: views/configuration-edit.php:211
 msgid "Layout Code"
 msgstr "Layout code"
 
-#: views/configuration-edit.php:212
+#: views/configuration-edit.php:213
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 
-#: views/configuration-edit.php:217 views/variants.php:51
+#: views/configuration-edit.php:218 views/variants.php:51
 msgid "Internetkassa"
 msgstr "Internetkassa"
 
-#: views/configuration-edit.php:223
+#: views/configuration-edit.php:224
 msgid "PSPID"
 msgstr "PSPID"
 
-#: views/configuration-edit.php:226
+#: views/configuration-edit.php:227
 #, php-format
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
@@ -931,19 +931,19 @@ msgstr ""
 "Als u gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
-#: views/configuration-edit.php:233
+#: views/configuration-edit.php:234
 msgid "Character encoding"
 msgstr "Tekencodering"
 
-#: views/configuration-edit.php:241
+#: views/configuration-edit.php:242
 msgid "Hash algorithm"
 msgstr "Hash-algoritme"
 
-#: views/configuration-edit.php:250
+#: views/configuration-edit.php:251
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-1-IN versleuteling"
 
-#: views/configuration-edit.php:252
+#: views/configuration-edit.php:253
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -953,11 +953,11 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Verificatie data en herkomst) van je "
 "iDEAL provider."
 
-#: views/configuration-edit.php:258
+#: views/configuration-edit.php:259
 msgid "SHA-OUT Pass phrase"
 msgstr "SHA-1-OUT versleuteling"
 
-#: views/configuration-edit.php:260
+#: views/configuration-edit.php:261
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
@@ -967,87 +967,87 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/configuration-edit.php:266 views/variants.php:57
-#: views/gravityforms/feed-edit.php:463
+#: views/configuration-edit.php:267 views/variants.php:57
+#: views/gravityforms/feed-edit.php:465
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/configuration-edit.php:272 views/configuration-edit.php:298
+#: views/configuration-edit.php:273 views/configuration-edit.php:299
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/configuration-edit.php:278
+#: views/configuration-edit.php:279
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/configuration-edit.php:285
+#: views/configuration-edit.php:286
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: views/configuration-edit.php:292
+#: views/configuration-edit.php:293
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: views/configuration-edit.php:304
+#: views/configuration-edit.php:305
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/configuration-edit.php:306
+#: views/configuration-edit.php:307
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/configuration-edit.php:311
+#: views/configuration-edit.php:312
 msgid "Country"
 msgstr "Land"
 
-#: views/configuration-edit.php:313
+#: views/configuration-edit.php:314
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/configuration-edit.php:318
+#: views/configuration-edit.php:319
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/configuration-edit.php:320
+#: views/configuration-edit.php:321
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/configuration-edit.php:325
+#: views/configuration-edit.php:326
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/configuration-edit.php:327
+#: views/configuration-edit.php:328
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/configuration-edit.php:332
+#: views/configuration-edit.php:333
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/configuration-edit.php:334
+#: views/configuration-edit.php:335
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/configuration-edit.php:339
+#: views/configuration-edit.php:340
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/configuration-edit.php:341
+#: views/configuration-edit.php:342
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/configuration-edit.php:346
+#: views/configuration-edit.php:347
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/configuration-edit.php:349
+#: views/configuration-edit.php:350
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/configuration-edit.php:350
+#: views/configuration-edit.php:351
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -1055,7 +1055,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/configuration-edit.php:351
+#: views/configuration-edit.php:352
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1066,11 +1066,11 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/configuration-edit.php:356
+#: views/configuration-edit.php:357
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/configuration-edit.php:460
+#: views/configuration-edit.php:461
 msgid ""
 "Unfortunately we could not generate a certificate resource from the given "
 "CSR (Certificate Signing Request)."
@@ -1078,62 +1078,62 @@ msgstr ""
 "Helaas konden we geen certificaat resource generen vanuit de opgeven CSR "
 "(Certificate Signing Request)."
 
-#: views/configuration-edit.php:463
+#: views/configuration-edit.php:464
 msgid "Unfortunately we could not generate a private key."
 msgstr "We konden helaas niet een privé sleutel genereren."
 
-#: views/configuration-edit.php:475
+#: views/configuration-edit.php:476
 #, php-format
 msgid "Configuration updated, %s."
 msgstr "Configuratie bijgewerkt, %s."
 
-#: views/configuration-edit.php:477
+#: views/configuration-edit.php:478
 #, php-format
 msgid "<a href=\"%s\">back to overview</a>"
 msgstr "<a href=\"%s\">terug naar overzicht</a>"
 
-#: views/configuration-edit.php:521
+#: views/configuration-edit.php:522
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: views/configuration-edit.php:539
+#: views/configuration-edit.php:540
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/configuration-edit.php:545
+#: views/configuration-edit.php:546
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: views/configuration-edit.php:548
+#: views/configuration-edit.php:549
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/configuration-edit.php:553
+#: views/configuration-edit.php:554
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/configuration-edit.php:562
+#: views/configuration-edit.php:563
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/configuration-edit.php:577
+#: views/configuration-edit.php:578
 msgid "Variant"
 msgstr "Variant"
 
-#: views/configuration-edit.php:741 views/settings.php:51
-#: views/gravityforms/feed-edit.php:482
+#: views/configuration-edit.php:745 views/settings.php:51
+#: views/gravityforms/feed-edit.php:484
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/configuration-edit.php:741 views/gravityforms/feed-edit.php:482
+#: views/configuration-edit.php:745 views/gravityforms/feed-edit.php:484
 msgid "Update"
 msgstr "Update"
 
-#: views/configuration-edit.php:750
+#: views/configuration-edit.php:754
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/configuration-edit.php:756
+#: views/configuration-edit.php:760
 msgid "Generate"
 msgstr "Genereer"
 
@@ -1556,7 +1556,7 @@ msgstr "Methode"
 msgid "Feedback Payment Status"
 msgstr "Feedback betaling status"
 
-#: views/variants.php:45 views/gravityforms/feed-edit.php:392
+#: views/variants.php:45 views/gravityforms/feed-edit.php:394
 msgid "Easy"
 msgstr "Easy"
 
@@ -1638,46 +1638,44 @@ msgid "Options"
 msgstr "Opties"
 
 #: views/gravityforms/feed-edit.php:205
-#, fuzzy
-msgid "Send notification only when payment is received"
-msgstr ""
-"Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
+msgid "Send notifications only when payment is received."
+msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
 
-#: views/gravityforms/feed-edit.php:234
+#: views/gravityforms/feed-edit.php:237
 msgid "Send admin notification only when payment is received."
 msgstr ""
 "Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
 
-#: views/gravityforms/feed-edit.php:241
+#: views/gravityforms/feed-edit.php:244
 msgid "Send user notification only when payment is received."
 msgstr ""
 "Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
 
-#: views/gravityforms/feed-edit.php:248
+#: views/gravityforms/feed-edit.php:251
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: views/gravityforms/feed-edit.php:261
+#: views/gravityforms/feed-edit.php:263
 msgid "iDEAL Condition"
 msgstr "iDEAL-conditie"
 
-#: views/gravityforms/feed-edit.php:269
+#: views/gravityforms/feed-edit.php:271
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: views/gravityforms/feed-edit.php:274
+#: views/gravityforms/feed-edit.php:276
 msgid "Send to iDEAL if "
 msgstr "Verstuur naar iDEAL als"
 
-#: views/gravityforms/feed-edit.php:284
+#: views/gravityforms/feed-edit.php:286
 msgid "is"
 msgstr "is"
 
-#: views/gravityforms/feed-edit.php:285
+#: views/gravityforms/feed-edit.php:287
 msgid "is not"
 msgstr "is niet"
 
-#: views/gravityforms/feed-edit.php:305
+#: views/gravityforms/feed-edit.php:307
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
@@ -1685,51 +1683,51 @@ msgstr ""
 "Om een conditie in te stellen moet je formulier een selectieveld, "
 "selectievakje of meerkeuzeveld bevatten."
 
-#: views/gravityforms/feed-edit.php:312
+#: views/gravityforms/feed-edit.php:314
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: views/gravityforms/feed-edit.php:321
+#: views/gravityforms/feed-edit.php:323
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: views/gravityforms/feed-edit.php:322
+#: views/gravityforms/feed-edit.php:324
 msgid "Error"
 msgstr "Fout"
 
-#: views/gravityforms/feed-edit.php:362
+#: views/gravityforms/feed-edit.php:364
 msgid "Page:"
 msgstr "Pagina:"
 
-#: views/gravityforms/feed-edit.php:370
+#: views/gravityforms/feed-edit.php:372
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Selecteren &mdash;"
 
-#: views/gravityforms/feed-edit.php:379
+#: views/gravityforms/feed-edit.php:381
 msgid "URL:"
 msgstr "URL:"
 
-#: views/gravityforms/feed-edit.php:399
+#: views/gravityforms/feed-edit.php:401
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: views/gravityforms/feed-edit.php:411
+#: views/gravityforms/feed-edit.php:413
 msgid "E-Mail Address"
 msgstr "E-mailadres"
 
-#: views/gravityforms/feed-edit.php:423
+#: views/gravityforms/feed-edit.php:425
 msgid "Owner Address"
 msgstr "Eigenaar adres"
 
-#: views/gravityforms/feed-edit.php:435
+#: views/gravityforms/feed-edit.php:437
 msgid "Owner City"
 msgstr "Eigenaar woonplaats"
 
-#: views/gravityforms/feed-edit.php:447
+#: views/gravityforms/feed-edit.php:449
 msgid "Owner ZIP"
 msgstr "Eigenaar postcode"
 
-#: views/gravityforms/feed-edit.php:470
+#: views/gravityforms/feed-edit.php:472
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
