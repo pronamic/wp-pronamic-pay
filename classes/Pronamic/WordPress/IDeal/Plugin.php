@@ -52,11 +52,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 		self::$file    = $file;
 		self::$dirname = dirname( $file );
 
-		// Load plugin text domain
-		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
-
-		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
-
 		// Bootstrap the add-ons
 		if ( self::can_be_used() ) {
 			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
@@ -564,6 +559,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
+		// Load plugin text domain
+		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
+		
+		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
+
 		if ( get_option( 'pronamic_ideal_version' ) != self::VERSION ) {
 			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();
