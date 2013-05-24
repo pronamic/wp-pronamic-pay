@@ -181,14 +181,23 @@ $sections = array(
 				'id'	      => 'pronamic_ideal_icepay_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'You can find your ICEPAY Merchant ID on <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' )
+				'description' => sprintf( 
+					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 
+					'https://www.icepay.com/NL/Login',
+					'https://www.icepay.com/Merchant/NL/Websites'
+				)
 			),
 			array(
 				'name'        => 'icepaySecretCode',
 				'id'          => 'pronamic_ideal_icepay_secret_code',
 				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' => sprintf( __( 'You can find your ICEPAY Secret Code on <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 'https://www.icepay.com/Merchant/NL/Websites' )
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf( 
+					__( 'You can find your Secret Code on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
+					'https://www.icepay.com/NL/Login',
+					'https://www.icepay.com/Merchant/NL/Websites'
+				)
 			)
 		)
 	),
@@ -631,8 +640,11 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								$attributes = array();
 								$attributes['id']   = $field['id'];
 								$attributes['name'] = $field['id'];
-		
+
 								$classes = array();
+								if ( isset( $field['classes'] ) ) {
+									$classes = $field['classes'];
+								}
 		
 								if ( isset( $field['readonly'] ) && $field['readonly'] ) {
 									$attributes['readonly'] = 'readonly';
