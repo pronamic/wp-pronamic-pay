@@ -37,7 +37,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.2.7';
+	const VERSION = '1.2.8';
 
 	//////////////////////////////////////////////////
 
@@ -72,6 +72,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
 	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybe_delay_user_notification' ), 10, 3 );
 				add_filter( 'gform_disable_post_creation',      array( __CLASS__, 'maybe_delay_post_creation' ), 10, 3 );
+				add_filter( 'gform_disable_notification',		array( __CLASS__, 'maybe_delay_notification' ), 10, 4 );
 			}
 
 			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
@@ -79,7 +80,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
 
 			add_filter( 'gform_replace_merge_tags', array( __CLASS__, 'replace_merge_tags' ), 10, 7 );
-
+			
 			// iDEAL fields
 			Pronamic_GravityForms_IDeal_Fields::bootstrap();
 		}
@@ -237,7 +238,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			}
 		}
 	}
-
+	
 	/**
 	 * Fulfill order
 	 * 
@@ -250,6 +251,24 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			self::maybe_update_user_role( $entry, $feed );
 
 			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
+			
+			// Determine if the feed has Gravity Form 1.7 Feed IDs
+			if ( $feed->hasNotificationIds() ) {
+				
+				// Get those ID's
+				$notification_ids = $feed->getNotificationIds();
+				
+				// Go through all form notifications
+				foreach ( $form_meta['notifications'] as $notification ) {
+					
+					// If this specific form id is a chosen delay
+					if ( in_array( $notification['id'], $notification_ids ) ) {
+						
+						// Send the notification now.
+						GFCommon::send_notification( $notification, $form_meta, $lead );
+					}
+				}
+			}
 
 			if ( $feed->delayAdminNotification ) {
 				GFCommon::send_admin_notification( $form_meta, $entry );
@@ -336,6 +355,21 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	// Maybe delay functions
 	//////////////////////////////////////////////////
 
+	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
+		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		
+		if ( null !== $feed ) {
+			if ( self::is_condition_true( $form, $feed ) ) {
+				$notification_ids = $feed->getNotificationIds();
+				
+				if ( in_array( $notification['id'], $notification_ids ) )
+					$is_disabled = true;
+			}
+		}
+		
+		return $is_disabled;
+	}
+	
 	/**
 	 * Maybe delay admin notification
 	 * 

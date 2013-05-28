@@ -23,7 +23,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * 
 	 * @var string
 	 */
-	const VERSION = '1.2.7';
+	const VERSION = '1.2.8';
 
 	//////////////////////////////////////////////////
 
@@ -51,11 +51,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function bootstrap( $file ) {
 		self::$file    = $file;
 		self::$dirname = dirname( $file );
-
-		// Load plugin text domain
-		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
-
-		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		// Bootstrap the add-ons
 		if ( self::can_be_used() ) {
@@ -95,7 +90,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_buckaroo_return_raw',      array( 'Pronamic_Gateways_Buckaroo_ReturnHandler', 'returns' ), 10, 2);
 		add_action( 'pronamic_ideal_omnikassa_return_raw',     array( 'Pronamic_Gateways_OmniKassa_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_targetpay_return_raw',     array( 'Pronamic_Gateways_TargetPay_ReturnHandler', 'returns' ), 10, 2 );
-
+		add_action( 'pronamic_ideal_icepay_return_raw',		   array( 'Pronamic_Gateways_Icepay_ReturnHandler', 'returns' ), 10, 2 );
+		
 		// Check the payment status on an iDEAL return
 		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
 		add_action( 'pronamic_ideal_advanced_v3_return',    array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
@@ -106,7 +102,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_mollie_return',         array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
 		add_action( 'pronamic_ideal_targetpay_return',      array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
 		add_action( 'pronamic_ideal_buckaroo_return',       array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
-
+		add_action( 'pronamic_ideal_icepay_return',			array( __CLASS__, 'update_icepay_payment_status' ),		   10, 2 );
+		
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
 
@@ -182,6 +179,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();
 		Pronamic_Gateways_OmniKassa_ReturnHandler::listen();
 		Pronamic_Gateways_TargetPay_ReturnHandler::listen();
+		Pronamic_Gateways_Icepay_ReturnHandler::listen();
 	}
 
 	/**
@@ -355,6 +353,17 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
+	}
+	
+	public static function update_icepay_payment_status( $payment, $can_redirect = false ) {
+		$configuration = $payment->configuration;
+		
+		$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
+		$gateway->update_status( $payment );
+		
+		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
+		
+		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
 	/**
@@ -550,6 +559,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
+		// Load plugin text domain
+		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
+		
+		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
+
 		if ( get_option( 'pronamic_ideal_version' ) != self::VERSION ) {
 			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();

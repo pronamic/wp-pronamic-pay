@@ -106,6 +106,7 @@ if ( $action == 'delete' ) {
 					<td>
 						<?php echo $configuration->getMerchantId(); ?>
 						<?php echo $configuration->pspId; ?>
+						<?php echo $configuration->icepayMerchantId; ?>
 					</td>
 					<td>
 						<?php echo $configuration->getSubId(); ?>

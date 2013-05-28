@@ -289,6 +289,19 @@
 	</provider>
 
 	<provider>
+		<id>icepay</id>
+		<name>ICEPAY</name>
+		<url>http://www.icepay.nl/</url>
+		<variant gateway="icepay">
+			<id>icepay-ideal</id>
+			<name>ICEPAY - iDEAL</name>
+			<live>
+				<dashboardUrl>https://www.icepay.com/Merchant/NL/Reports/Transactions</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+	
+	<provider>
 		<id>ideal-simulator</id>
 		<name>iDEAL Simulator</name>
 		<url>http://ideal-simulator.nl/</url>

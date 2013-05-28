@@ -62,27 +62,28 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
      * 
      * @param stdClass $result
      */
-    private function getFeedByResult($result) {
+    private function getFeedByResult( $result ) {
 		$feed = new Pronamic_GravityForms_IDeal_Feed();
        	
-       	$feed->id = $result->id;
+       	$feed->id     = $result->id;
        	$feed->formId = $result->formId;
-       	$feed->title = $result->title;
-       	$feed->setIDealConfiguration(Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById($result->configurationId));
+       	$feed->title  = $result->title;
+       	$feed->setIDealConfiguration( Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $result->configurationId ) );
 
-		$meta = json_decode($result->meta);
+		$meta = json_decode( $result->meta );
 
        	$feed->transactionDescription = $meta->transactionDescription;
-		$feed->links = (array) $meta->links;
+		$feed->links                  = (array) $meta->links;
+		$feed->delayNotificationIds   = isset( $meta->delayNotificationIds ) ? $meta->delayNotificationIds : array();
 		$feed->delayAdminNotification = $meta->delayAdminNotification;
-		$feed->delayUserNotification = $meta->delayUserNotification;
-		$feed->delayPostCreation = $meta->delayPostCreation;
-		$feed->conditionEnabled = $meta->conditionEnabled;
-		$feed->conditionFieldId = $meta->conditionFieldId;
-		$feed->conditionOperator = $meta->conditionOperator;
-		$feed->conditionValue = $meta->conditionValue;
-		$feed->userRoleFieldId = $meta->userRoleFieldId;
-		
+		$feed->delayUserNotification  = $meta->delayUserNotification;
+		$feed->delayPostCreation      = $meta->delayPostCreation;
+		$feed->conditionEnabled       = $meta->conditionEnabled;
+		$feed->conditionFieldId       = $meta->conditionFieldId;
+		$feed->conditionOperator      = $meta->conditionOperator;
+		$feed->conditionValue         = $meta->conditionValue;
+		$feed->userRoleFieldId        = $meta->userRoleFieldId;
+
 		return $feed;
     }
 	

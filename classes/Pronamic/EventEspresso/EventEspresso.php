@@ -66,17 +66,5 @@ class Pronamic_EventEspresso_EventEspresso {
 		// Apply filter to save payment data in database
 		// @see https://github.com/eventespresso/event-espresso-core/blob/event-espresso.3.1.24.1.P/gateways/process_payments.php#L75
 		$payment_data = apply_filters( 'filter_hook_espresso_update_attendee_payment_data_in_db', $payment_data );
-
-		// Try to load the required files for sending an email after payment
-		if ( defined( 'EVENT_ESPRESSO_PLUGINFULLPATH' ) ) {
-			$file_email = EVENT_ESPRESSO_PLUGINFULLPATH . '/includes/functions/email.php';
-				
-			if ( is_readable( $file_email ) ) {
-				require_once $file_email;
-		
-				// @see https://github.com/eventespresso/event-espresso-core/blob/event-espresso.3.1.24.1.P/gateways/process_payments.php#L178
-				espresso_email_after_payment( $payment_data );
-			}
-		}
 	}
 }

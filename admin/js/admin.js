@@ -19,6 +19,8 @@
 		elements.conditionOperator = element.find("#gf_ideal_condition_operator");
 		elements.conditionValue = element.find("#gf_ideal_condition_value");
 		elements.userRoleFieldId = element.find("#gf_ideal_user_role_field_id");
+		elements.delayNotifications = element.find('#gf_ideal_delay_notifications');
+		elements.delayNotificationsHolder = element.find('.gf_ideal_delay_notification_holder');
 		elements.fieldSelectFields = element.find("select.field-select");
 
 		// Data
@@ -140,6 +142,56 @@
             return fields;
 		};
 		
+		this.getNotifications = function(form_id) {
+			var holder = $('.gf_ideal_delay_notification_holder');
+			var isChecked = $('.gf_ideal_delay_notifications').is(':checked');
+			
+			// Determine if the checkbox for conditionals have been checked
+			if(isChecked) {
+				
+				// Run the ajax request on callback completion
+				holder.slideDown(500, function() {
+										
+					$.ajax({
+						url:ajaxurl,
+						type:'POST',
+						data:{
+							action:'gf_ideal_load_notifications',
+							form_id:elements.formId.val()
+						},
+						dataType:'json',
+						success: function(response) {
+							if(!response) {
+								holder.html(GravityForms_IDeal_Feed_Config.not_loaded);
+							} else if(response.length === 0) {
+								holder.html(GravityForms_IDeal_Feed_Config.no_notifications);
+							} else {
+								var str = "";
+								$.each(response, function(index, value){
+									str +=	"<li class='gf_ideal_notification'>"
+										+		"<input type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
+										+		" <label class='inline'>" + value['name'] + "</label>"
+										+	"</li>";
+								});
+								
+								holder.html(str);
+							}
+							
+						},
+						error:function(i,ii,iii) {
+							console.log(i);
+							console.log(ii);
+							console.log(iii);
+						}
+						
+					});
+				});
+			} else {
+				holder.slideUp();
+			}
+			
+		}
+		
 		/**
 		 * Change form
 		 */
@@ -189,6 +241,19 @@
 			element.find(".method-" + method).show();
 		};
 		
+		this.updateNotificationSelector = function() {
+			if(elements.delayNotifications.length > 0) {
+				elements.delayNotifications.prop('checked', false);
+				
+				elements.delayNotificationsHolder.css({display:'none'});
+				
+				var img = new Image();
+				img.src = GravityForms_IDeal_Feed_Config.loader_img;
+				
+				elements.delayNotificationsHolder.html(img);
+			}
+		};
+		
 		/**
 		 * Update fields
 		 */
@@ -199,6 +264,7 @@
 			obj.updateConditionFields();
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
+			obj.updateNotificationSelector();
 		};
 
 		// Function calls
@@ -292,5 +358,12 @@
 		
 		$("#gf-ideal-feed-editor").gravityFormsIdealFeedEditor();
 		$("#pronamic-ideal-configration-editor").pronamicIdealConfigurationEditor();
+		
+		
+		var FE = $('#gf-ideal-feed-editor').data('gf-ideal-feed-editor');
+		
+		$('#gf_ideal_delay_notifications').click(function(){
+			FE.getNotifications();
+		});
 	});
 })(jQuery);

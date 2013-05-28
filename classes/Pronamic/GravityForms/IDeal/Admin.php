@@ -25,6 +25,9 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
+		add_filter( 'wp_ajax_gf_ideal_load_notifications', array( __CLASS__, 'ajax_load_notifications' ) );
+		
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'gravity_forms_admin_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -41,6 +44,22 @@ class Pronamic_GravityForms_IDeal_Admin {
 		);
 
         return $menus;
+	}
+	
+	/**
+	 * Localizes the pronamic ideal admin script with some variables
+	 * required for Gravity Forms Edit page.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public static function gravity_forms_admin_scripts() {
+		
+		wp_localize_script( 'proanmic_ideal_admin', 'GravityForms_IDeal_Feed_Config', array(
+			'loader_img' => plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ),
+			'not_loaded' => __( 'Notifications could not be loaded, please try again', 'pronamic_ideal' ),
+			'no_notifications' => __( 'No notifications exist for this form', 'pronamic_ideal' )
+		) );
 	}
 
 	//////////////////////////////////////////////////
@@ -212,5 +231,21 @@ class Pronamic_GravityForms_IDeal_Admin {
 		echo json_encode( $result );
 
 		die();
+	}
+	
+	public static function ajax_load_notifications() {
+		
+		$form_id = $_POST["form_id"];
+        
+		$form = RGFormsModel::get_form_meta( $form_id );
+        
+		$notifications = array();
+		
+        if( is_array( $form['notifications'] ) ){
+            foreach( $form["notifications"] as $notification ){
+                $notifications[] = array( "name" => $notification["name"], "id" => $notification["id"] );
+            }
+        }
+        die( json_encode( $notifications ) );
 	}
 }
