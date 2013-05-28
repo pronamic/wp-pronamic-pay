@@ -89,50 +89,61 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 			$id = $payment->getSourceId();
 			
-			$purchase = new Purchase( $id );
-			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
-			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
+			$order = $Shopp->Order;
+
+			$url = shoppurl(array('rmtpay'=>'process'),'confirm');
+
+			if ( $url && $can_redirect ) {
+				wp_redirect( $url, 303 );
 			
-			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) {
-				$url = $data->getNormalReturnUrl();
-
-				switch ( $payment->status ) {
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED );
-
-						$url = $data->getCancelUrl();
-
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED );
-
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE );
-
-						$url = $data->getErrorUrl();
-
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CAPTURED );
-
-						$url = $data->getSuccessUrl();
-
-						$Shopp->resession();
-
-						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN );
-
-						break;
-				}
-
-				if ( $url && $can_redirect ) {
-					wp_redirect( $url, 303 );
-
-					exit;
-				}
+				exit;
 			}
+
+			/*
+var_dump($payment);
+exit;
+			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
+			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $order, $gateway );
+			
+			$url = $data->getNormalReturnUrl();
+
+			switch ( $payment->status ) {
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+					$order->transaction( $payment->transaction_id, Pronamic_Shopp_Shopp::PAYMENT_STATUS_VOID );
+
+					$url = $data->getCancelUrl();
+
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+					$order->transaction( $payment->transaction_id, Pronamic_Shopp_Shopp::PAYMENT_STATUS_VOID );
+
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+					$order->transaction( $payment->transaction_id, Pronamic_Shopp_Shopp::PAYMENT_STATUS_VOID );
+
+					$url = $data->getErrorUrl();
+
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+					$order->transaction( $payment->transaction_id, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CHARGED );
+
+					$url = $data->getSuccessUrl();
+
+					$Shopp->resession();
+
+					break;
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					$order->transaction( $payment->transaction_id, Pronamic_Shopp_Shopp::PAYMENT_STATUS_PE );
+
+					break;
+			}
+
+			if ( $url && $can_redirect ) {
+				wp_redirect( $url, 303 );
+
+				exit;
+			}
+			*/
 		}
 	}
 	

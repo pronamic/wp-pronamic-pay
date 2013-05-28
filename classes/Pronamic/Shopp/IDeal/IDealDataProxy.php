@@ -12,10 +12,10 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	/**
 	 * Purchase
 	 * 
-	 * @see /shopp/core/model/Purchase.php
-	 * @var Purchase
+	 * @see /shopp/core/flow/Order.php
+	 * @var Order
 	 */
-	private $purchase;
+	private $order;
 
 	/**
 	 * Gateway
@@ -28,16 +28,28 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	//////////////////////////////////////////////////
 
 	/**
+	 * Order ID
+	 * 
+	 * @var int
+	 */
+	private $order_id;
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initialize an Shopp iDEAL data proxy
 	 * 
-	 * @param Purchase $purchase
+	 * @param Order $order
 	 * @param GatewayFramework $gateway
 	 */
-	public function __construct( $purchase, $gateway ) {
+	public function __construct( $order, $gateway ) {
 		parent::__construct();
 
-		$this->purchase = $purchase;
+		$this->order    = $order;
 		$this->gateway  = $gateway;
+
+		// Shopp wants you to pay first, therefor we use the time as order ID
+		$this->order_id = time();
 	}
 
 	//////////////////////////////////////////////////
@@ -61,7 +73,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	 * @return string
 	 */
 	public function getDescription() {
-		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->purchase->id );
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order_id );
 	}
 
 	/**
@@ -71,7 +83,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	 * @return string
 	 */
 	public function getOrderId() {
-		return $this->purchase->id;
+		return $this->order_id;
 	}
 
 	/**
@@ -86,9 +98,9 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->purchase->id );
-		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->purchase->id ) );
-		$item->setPrice( $this->purchase->total );
+		$item->setNumber( $this->order_id );
+		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->order_id ) );
+		$item->setPrice( $this->order->Cart->Totals->total );
 		$item->setQuantity( 1 );
 
 		$items->addItem( $item );
@@ -112,27 +124,27 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 
 	public function getEMailAddress() {
 		// @see /shopp/core/model/Purchase.php
-		return $this->purchase->email;
+		return $this->order->Customer->email;
 	}
 
 	public function getCustomerName() {
 		// @see /shopp/core/model/Purchase.php
-		return $this->purchase->firstname . ' ' . $purchase->lastname;
+		return $this->order->Billing->name;
 	}
 
 	public function getOwnerAddress() {
 		// @see /shopp/core/model/Purchase.php
-		return $this->purchase->address;
+		return $this->order->Billing->address;
 	}
 
 	public function getOwnerCity() {
 		// @see /shopp/core/model/Purchase.php
-		return $this->purchase->city;
+		return $this->order->Billing->city;
 	}
 
 	public function getOwnerZip() {
 		// @see /shopp/core/model/Purchase.php
-		return $this->purchase->postcode;
+		return $this->order->Billing->postcode;
 	}
 
 	//////////////////////////////////////////////////
@@ -164,15 +176,5 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'error' ), 'thanks' );
-	}
-
-	//////////////////////////////////////////////////
-	// Issuer
-	//////////////////////////////////////////////////
-
-	public function get_issuer_id() {
-		global $Shopp;
-
-		return $Shopp->Order->PronamicIDealIssuerId;
 	}
 }

@@ -78,13 +78,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		// Checkout gateway inputs
 		add_filter( 'shopp_checkout_gateway_inputs', array( $this, 'inputs' ), 50 );
 
-		// Order receipt
-		add_filter( 'shopp_order_receipt',           array( $this, 'html_form' ) );
-		add_filter( 'shopp_order_lookup',            array( $this, 'html_form' ) );
-
 		// Actions
 		// @see /shopp/core/model/Gateway.php#L122
-		$name = sanitize_key(__CLASS__);
+		$name = sanitize_key( __CLASS__ );
 
 		add_action( 'shopp_' . $name . '_sale',    array( $this, 'sale' ) );
 		add_action( 'shopp_' . $name . '_auth',    array( $this, 'auth' ) );
@@ -192,11 +188,17 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 * Checkout processed
 	 */
 	public function checkout_processed() {
-		global $Shopp;
+		// Check iDEAL configuration
+		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
+		
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		
+		if ( $gateway ) {
+			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $this->Order, $this );
 
-		$issuer_id = filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-		if ( ! empty( $issuer_id ) ) {
-			$Shopp->Order->PronamicIDealIssuerId = $issuer_id;
+			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+
+			$gateway->redirect();
 		}
 	}
 
@@ -215,7 +217,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		if ( version_compare( SHOPP_VERSION, '1.2', '<' ) ) {
 			$this->Order->transaction( $this->txnid(), Pronamic_Shopp_Shopp::PAYMENT_STATUS_PENDING );
 		}
-
+var_dump($this);
+exit;
 		return true;
 	}
 
@@ -287,37 +290,6 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		}
 
 		return $is_used;
-	}
-	
-	//////////////////////////////////////////////////
-	
-	/**
-	 * HTML Form
-	 */
-	public function html_form( $content = '' ) {
-		global $Shopp;
-		
-		$purchase = $Shopp->Purchase;
-
-		if ( self::is_used( $purchase ) ) {
-			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) { 
-				$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-
-				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
-
-				if ( $gateway ) {
-					$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
-
-					Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
-					$html = $gateway->get_form_html();
-
-					$content = $html . $content;
-				}
-			}
-		}
-
-		return $content;
 	}
 
 	//////////////////////////////////////////////////

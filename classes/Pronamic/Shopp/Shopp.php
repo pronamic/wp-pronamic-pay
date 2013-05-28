@@ -50,6 +50,13 @@ class Pronamic_Shopp_Shopp {
 	 * @var string
 	 */
 	const PAYMENT_STATUS_OPEN = 'OPEN';
+
+	/**
+	 * Payment status void
+	 * 
+	 * @var string
+	 */
+	const PAYMENT_STATUS_VOID = 'VOID';
 	
 	//////////////////////////////////////////////////
 
