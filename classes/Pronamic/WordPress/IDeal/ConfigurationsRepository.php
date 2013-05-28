@@ -137,6 +137,10 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		// Mollie
 		if(isset($meta->molliePartnerId)) $configuration->molliePartnerId = $meta->molliePartnerId;
 		if(isset($meta->mollieProfileKey)) $configuration->mollieProfileKey = $meta->mollieProfileKey;
+		
+		// Sisow
+		if ( isset( $meta->sisowMerchantId ) ) $configuration->sisowMerchantId = $meta->sisowMerchantId;
+		if ( isset( $meta->sisowMerchantKey ) ) $configuration->sisowMerchantKey = $meta->sisowMerchantKey;
 
 		// TargetPay
 		if(isset($meta->targetPayLayoutCode)) $configuration->targetPayLayoutCode = $meta->targetPayLayoutCode;

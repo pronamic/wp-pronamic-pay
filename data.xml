@@ -607,26 +607,16 @@
 		<url>http://sisow.nl/</url>
 		<affiliateUrl>https://www.sisow.nl/Sisow/iDeal/Aanmelden.aspx?r=120872</affiliateUrl>
 
-		<variant gateway="sisow-ideal" disabled="disabled">
+		<variant gateway="sisow">
 			<id>sisow-ideal</id>
 			<name>Sisow - iDEAL</name>
 
 			<test>
-				<directoryRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
-				<transactionRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
-				<statusRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</test>
 			<live>
-				<directoryRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/DirectoryRequest</directoryRequestUrl>
-				<transactionRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/TransactionRequest</transactionRequestUrl>
-				<statusRequestUrl>https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx/StatusRequest</statusRequestUrl>
 				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
 			</live>
-
-			<certificates>
-				
-			</certificates>
 		</variant>
 		<variant gateway="basic">
 			<id>sisow-ideal-basic</id>
