@@ -169,8 +169,8 @@
 								var str = "";
 								$.each(response, function(index, value){
 									str +=	"<li class='gf_ideal_notification'>"
-										+		"<input type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
-										+		" <label class='inline'>" + value['name'] + "</label>"
+										+		"<input id='gf_ideal_selected_notifications_" + value['id'] + "' type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
+										+		" <label for='gf_ideal_selected_notifications_"+ value['id'] + "' class='inline'>" + value['name'] + "</label>"
 										+	"</li>";
 								});
 								
