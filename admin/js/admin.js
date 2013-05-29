@@ -203,6 +203,7 @@
 						gravityForm = response.data;
 
 						obj.updateFields();
+						obj.updateNotificationSelector();
 					}
 				}
 			);
@@ -239,7 +240,7 @@
 		};
 		
 		this.updateNotificationSelector = function() {
-			if(elements.delayNotificationsHolder.length <= 0) {
+			if(elements.delayNotificationsHolder.length > 0) {
 				elements.delayNotifications.prop('checked', false);
 				
 				elements.delayNotificationsHolder.css({display:'none'});
@@ -261,7 +262,6 @@
 			obj.updateConditionFields();
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
-			obj.updateNotificationSelector();
 		};
 
 		// Function calls
