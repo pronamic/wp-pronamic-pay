@@ -179,9 +179,6 @@
 							
 						},
 						error:function(i,ii,iii) {
-							console.log(i);
-							console.log(ii);
-							console.log(iii);
 						}
 						
 					});
@@ -242,7 +239,7 @@
 		};
 		
 		this.updateNotificationSelector = function() {
-			if(elements.delayNotifications.length > 0) {
+			if(elements.delayNotificationsHolder.length <= 0) {
 				elements.delayNotifications.prop('checked', false);
 				
 				elements.delayNotificationsHolder.css({display:'none'});
