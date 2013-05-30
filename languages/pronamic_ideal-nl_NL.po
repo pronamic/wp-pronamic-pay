@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-28 15:00+0100\n"
-"PO-Revision-Date: 2013-05-28 15:00+0100\n"
+"POT-Creation-Date: 2013-05-30 09:27+0100\n"
+"PO-Revision-Date: 2013-05-30 09:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -217,12 +217,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:126
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:589
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:603
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:130
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:593
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:607
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -654,7 +654,7 @@ msgstr "Bron"
 msgid "Details"
 msgstr "Details"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:498
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:512
 #, php-format
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
@@ -665,7 +665,7 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:514
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:528
 #, php-format
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
@@ -1020,11 +1020,11 @@ msgstr "Geavanceerd"
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/configuration-edit.php:308
+#: views/configuration-edit.php:308 views/configuration-edit.php:810
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/configuration-edit.php:315
+#: views/configuration-edit.php:315 views/configuration-edit.php:831
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
@@ -1173,13 +1173,25 @@ msgstr "Opslaan"
 msgid "Update"
 msgstr "Update"
 
-#: views/configuration-edit.php:783
+#: views/configuration-edit.php:783 views/configuration-edit.php:799
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
 #: views/configuration-edit.php:789
 msgid "Generate"
 msgstr "Genereer"
+
+#: views/configuration-edit.php:803
+msgid ""
+"You have to use the following commands to generate an private key and "
+"certificate for iDEAL v3:"
+msgstr ""
+"Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
+"voor iDEAL v3 te genereren:"
+
+#: views/configuration-edit.php:816
+msgid "filename"
+msgstr "bestandsnaam"
 
 #: views/configuration-tests.php:12
 msgid "iDEAL Tests"

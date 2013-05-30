@@ -17,7 +17,7 @@ if ( $configuration == null ) {
 
 // Generator
 if ( empty( $configuration->numberDaysValid ) ) {
-	$configuration->numberDaysValid = 365;
+	$configuration->numberDaysValid = 365 * 5;
 }
 
 if ( empty( $configuration->country ) ) {
@@ -792,6 +792,61 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			);
 
 			?>
+		</div>
+
+		<div class="extra-settings method-advanced_v3">
+			<h4>
+				<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
+			</h4>
+
+			<p>
+				<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>			
+			</p>
+
+			<table class="form-table">
+				<tr>
+					<th scope="col">
+						<label for="testabcd>">
+							<?php _e( 'Private Key', 'pronamic_ideal' ); ?>
+						</label>
+					</th>
+					<td>
+						<?php 
+
+						$filename = __( 'filename', 'pronamic_ideal' );
+
+						$command = sprintf(
+							'openssl genrsa -aes128 -out %s.key -passout pass:%s 2048',
+							$filename,
+							$configuration->privateKeyPassword
+						);
+
+						?>
+						<input id="testabcd" name="testabcd" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="col">
+						<label for="testabcd>">
+							<?php _e( 'Private Certificate', 'pronamic_ideal' ); ?>
+						</label>
+					</th>
+					<td>
+						<?php 
+
+						$command = sprintf(
+							'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer',
+							$filename,
+							$configuration->privateKeyPassword,
+							$configuration->numberDaysValid,
+							$filename
+						);
+
+						?>
+						<input id="testabcd" name="testabcd" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					</td>
+				</tr>
+			</table>
 		</div>
 	</form>
 </div>
