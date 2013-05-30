@@ -806,7 +806,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			<table class="form-table">
 				<tr>
 					<th scope="col">
-						<label for="testabcd>">
+						<label for="pronamic_ideal_openssl_command_key">
 							<?php _e( 'Private Key', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
@@ -822,12 +822,12 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 						);
 
 						?>
-						<input id="testabcd" name="testabcd" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+						<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
 					</td>
 				</tr>
 				<tr>
 					<th scope="col">
-						<label for="testabcd>">
+						<label for="pronamic_ideal_openssl_command_certificate">
 							<?php _e( 'Private Certificate', 'pronamic_ideal' ); ?>
 						</label>
 					</th>
@@ -843,7 +843,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 						);
 
 						?>
-						<input id="testabcd" name="testabcd" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+						<input id="pronamic_ideal_openssl_command_certificate" name="pronamic_ideal_openssl_command_certificate" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
 					</td>
 				</tr>
 			</table>
