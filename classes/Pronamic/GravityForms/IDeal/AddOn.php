@@ -265,7 +265,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					if ( in_array( $notification['id'], $notification_ids ) ) {
 						
 						// Send the notification now.
-						GFCommon::send_notification( $notification, $form_meta, $lead );
+						GFCommon::send_notification( $notification, $form_meta, $entry );
 					}
 				}
 			}
