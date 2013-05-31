@@ -140,7 +140,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		if ( $this->test_mode ) {
 			$directory = array( '99' => __( 'Sisow Bank (test)', 'pronamic_ideal' ) );
 		} else {
-			$result = $this->send_request( 'DirectoryRequest' );
+			$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::DIRECTORY_REQUEST );
 	
 			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 	
@@ -201,7 +201,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$parameters['notifyurl']    = $return_url;
 		$parameters['sha1']         = $this->create_transaction_sha1( $purchase_id, $entrance_code, $amount, '', $this->merchant_id, $this->merchant_key );
 
-		$result = $this->send_request( 'TransactionRequest', $parameters );
+		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::TRANSACTION_REQUEST, $parameters );
 
 		$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 		
@@ -242,7 +242,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$parameters['trxid']        = $transaction_id;
 		$parameters['sha1']         = $this->create_status_sha1( $transaction_id, '', $this->merchant_id, $this->merchant_key );
 
-		$result = $this->send_request( 'StatusRequest', $parameters );
+		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::STATUS_REQUEST, $parameters );
 
 		$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 		
