@@ -17,7 +17,7 @@ if ( $configuration == null ) {
 
 // Generator
 if ( empty( $configuration->numberDaysValid ) ) {
-	$configuration->numberDaysValid = 365;
+	$configuration->numberDaysValid = 365 * 5;
 }
 
 if ( empty( $configuration->country ) ) {
@@ -202,6 +202,35 @@ $sections = array(
 		)
 	),
 	array(
+		'title'   => __( 'Sisow', 'pronamic_ideal' ),
+		'methods' => array( 'sisow' ),
+		'fields'  => array(
+			array(
+				'name'        => 'sisowMerchantId',
+				'id'          => 'pronamic_ideal_sisow_merchant_id',
+				'title'       => _x( 'Merchant ID', 'sisow', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => sprintf( 
+					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ), 
+					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
+				)
+			),
+			 array(
+				'name'        => 'sisowMerchantKey',
+				'id'          => 'pronamic_ideal_sisow_merchant_key',
+				'title'       => _x( 'Merchant Key', 'sisow', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf( 
+					__( 'You can find your Merchant Key on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ), 
+					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
+				)
+			)
+		)
+	),
+	array(
 		'title'   => __( 'TargetPay', 'pronamic_ideal' ),
 		'methods' => array( 'targetpay' ),
 		'fields'  => array(
@@ -358,7 +387,7 @@ $sections = array(
 				'type'        => 'text'
 			),
 		)
-	)
+	),
 );
 
 // Request
@@ -763,6 +792,61 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			);
 
 			?>
+		</div>
+
+		<div class="extra-settings method-advanced_v3">
+			<h4>
+				<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
+			</h4>
+
+			<p>
+				<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>			
+			</p>
+
+			<table class="form-table">
+				<tr>
+					<th scope="col">
+						<label for="pronamic_ideal_openssl_command_key">
+							<?php _e( 'Private Key', 'pronamic_ideal' ); ?>
+						</label>
+					</th>
+					<td>
+						<?php 
+
+						$filename = __( 'filename', 'pronamic_ideal' );
+
+						$command = sprintf(
+							'openssl genrsa -aes128 -out %s.key -passout pass:%s 2048',
+							$filename,
+							$configuration->privateKeyPassword
+						);
+
+						?>
+						<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="col">
+						<label for="pronamic_ideal_openssl_command_certificate">
+							<?php _e( 'Private Certificate', 'pronamic_ideal' ); ?>
+						</label>
+					</th>
+					<td>
+						<?php 
+
+						$command = sprintf(
+							'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer',
+							$filename,
+							$configuration->privateKeyPassword,
+							$configuration->numberDaysValid,
+							$filename
+						);
+
+						?>
+						<input id="pronamic_ideal_openssl_command_certificate" name="pronamic_ideal_openssl_command_certificate" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					</td>
+				</tr>
+			</table>
 		</div>
 	</form>
 </div>

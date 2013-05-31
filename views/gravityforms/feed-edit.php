@@ -213,8 +213,8 @@ if(!empty($_POST) && check_admin_referer('pronamic_ideal_save_gf_feed', 'pronami
 							
 									<?php foreach ( $form['notifications'] as $notification ) : ?>
 										<li>
-											<input type="checkbox" value="<?php echo $notification['id']; ?>" name="gf_ideal_selected_notifications[]" <?php if ( in_array( $notification['id'], $notification_ids ) ) : ?> checked="checked" <?php endif; ?> />
-											<label class="inline"><?php echo $notification['name']; ?></label>
+											<input id="gf_ideal_selected_notification_<?php echo $notification['id']; ?>" type="checkbox" value="<?php echo $notification['id']; ?>" name="gf_ideal_selected_notifications[]" <?php if ( in_array( $notification['id'], $notification_ids ) ) : ?> checked="checked" <?php endif; ?> />
+											<label class="inline" for="gf_ideal_selected_notification_<?php echo $notification['id']; ?>"><?php echo $notification['name']; ?></label>
 										</li>
 									<?php endforeach; ?>
 							

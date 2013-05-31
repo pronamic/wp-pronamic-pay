@@ -83,10 +83,20 @@ class Pronamic_WordPress_Util {
 	 * Amount to cents
 	 * 
 	 * @param float $price
-	 * @return number
+	 * @return int
 	 */
 	public static function amount_to_cents( $price ) {
 		return round( $price * 100 );
+	}
+
+	/**
+	 * Cents to amount
+	 * 
+	 * @param int $cents
+	 * @return float
+	 */
+	public static function cents_to_amount( $cents ) {
+		return $cents / 100;
 	}
 
 	//////////////////////////////////////////////////

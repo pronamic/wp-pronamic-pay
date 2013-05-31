@@ -169,8 +169,8 @@
 								var str = "";
 								$.each(response, function(index, value){
 									str +=	"<li class='gf_ideal_notification'>"
-										+		"<input type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
-										+		" <label class='inline'>" + value['name'] + "</label>"
+										+		"<input id='gf_ideal_selected_notifications_" + value['id'] + "' type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
+										+		" <label for='gf_ideal_selected_notifications_"+ value['id'] + "' class='inline'>" + value['name'] + "</label>"
 										+	"</li>";
 								});
 								
@@ -179,9 +179,6 @@
 							
 						},
 						error:function(i,ii,iii) {
-							console.log(i);
-							console.log(ii);
-							console.log(iii);
 						}
 						
 					});
@@ -206,6 +203,7 @@
 						gravityForm = response.data;
 
 						obj.updateFields();
+						obj.updateNotificationSelector();
 					}
 				}
 			);
@@ -242,7 +240,7 @@
 		};
 		
 		this.updateNotificationSelector = function() {
-			if(elements.delayNotifications.length > 0) {
+			if(elements.delayNotificationsHolder.length > 0) {
 				elements.delayNotifications.prop('checked', false);
 				
 				elements.delayNotificationsHolder.css({display:'none'});
@@ -264,7 +262,6 @@
 			obj.updateConditionFields();
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
-			obj.updateNotificationSelector();
 		};
 
 		// Function calls

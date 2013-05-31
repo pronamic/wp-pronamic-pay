@@ -13,9 +13,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * Delete the transient for the specified configuration
 	 * 
 	 * @param Configuration $configuration
+	 * @return boolean true if successful, false otherwise. 
 	 */
 	public static function deleteConfigurationTransient(Pronamic_WordPress_IDeal_Configuration $configuration) {
-		delete_transient('pronamic_ideal_issuers_' . $configuration->getId());
+		return delete_transient('pronamic_ideal_issuers_' . $configuration->getId());
 	}
 
 	//////////////////////////////////////////////////
@@ -132,6 +133,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 					case 'icepay':
 						return new Pronamic_Gateways_Icepay_Gateway( $configuration );
+					case 'sisow':
+						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
 				}
 			}
 		}				

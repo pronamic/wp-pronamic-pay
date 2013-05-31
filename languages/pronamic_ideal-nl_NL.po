@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-24 16:38+0100\n"
-"PO-Revision-Date: 2013-05-24 16:43+0100\n"
+"POT-Creation-Date: 2013-05-30 09:27+0100\n"
+"PO-Revision-Date: 2013-05-30 09:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -59,8 +59,8 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:76
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
-#: classes/Pronamic/WordPress/IDeal/Admin.php:259
-#: classes/Pronamic/WordPress/IDeal/Admin.php:260
+#: classes/Pronamic/WordPress/IDeal/Admin.php:284
+#: classes/Pronamic/WordPress/IDeal/Admin.php:285
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
@@ -90,7 +90,7 @@ msgstr "Nee"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:99
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:115
-#: views/configuration-edit.php:494 views/gravityforms/feed-edit.php:135
+#: views/configuration-edit.php:523 views/gravityforms/feed-edit.php:135
 #: views/gravityforms/feeds.php:70
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
@@ -108,7 +108,7 @@ msgid "ClassiPress"
 msgstr "ClassiPress"
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:121
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:67
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:68
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:119
 msgid "&mdash; Select configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
@@ -176,6 +176,7 @@ msgstr "Betalen"
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
 #: classes/Pronamic/Gateways/Mollie/Gateway.php:67
 #: classes/Pronamic/Gateways/Qantani/Gateway.php:69
+#: classes/Pronamic/Gateways/Sisow/Gateway.php:52
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
 msgid "Choose your bank"
 msgstr "Kies uw bank"
@@ -197,6 +198,15 @@ msgstr "Onbekend iDEAL-bericht (%s)"
 msgid "&mdash; Other banks &mdash;"
 msgstr "&mdash; Andere banken &mdash;"
 
+#: classes/Pronamic/Gateways/Sisow/Sisow.php:125
+#, php-format
+msgid "Unknwon Sisow message (%s)"
+msgstr "Onbekend Sisow-bericht (%s)"
+
+#: classes/Pronamic/Gateways/Sisow/Sisow.php:141
+msgid "Sisow Bank (test)"
+msgstr "Sisow bank (test)"
+
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:97 views/settings.php:113
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
@@ -207,12 +217,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:126
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:589
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:603
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:130
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:593
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:607
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -516,83 +526,83 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:269
-#: classes/Pronamic/WordPress/IDeal/Admin.php:270
+#: classes/Pronamic/WordPress/IDeal/Admin.php:294
+#: classes/Pronamic/WordPress/IDeal/Admin.php:295
 msgid "Payments"
 msgstr "Betalingen"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:278
-#: classes/Pronamic/WordPress/IDeal/Admin.php:279
+#: classes/Pronamic/WordPress/IDeal/Admin.php:303
+#: classes/Pronamic/WordPress/IDeal/Admin.php:304
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:287
-#: classes/Pronamic/WordPress/IDeal/Admin.php:288
+#: classes/Pronamic/WordPress/IDeal/Admin.php:312
+#: classes/Pronamic/WordPress/IDeal/Admin.php:313
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:296
-#: classes/Pronamic/WordPress/IDeal/Admin.php:297
+#: classes/Pronamic/WordPress/IDeal/Admin.php:321
+#: classes/Pronamic/WordPress/IDeal/Admin.php:322
 #: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:85
 #: views/payment.php:92
 msgid "Status"
 msgstr "Status"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:305
+#: classes/Pronamic/WordPress/IDeal/Admin.php:330
 msgid "Gateway Providers"
 msgstr "Gateway providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:306
+#: classes/Pronamic/WordPress/IDeal/Admin.php:331
 msgid "Providers"
 msgstr "Providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:314
-#: classes/Pronamic/WordPress/IDeal/Admin.php:315
+#: classes/Pronamic/WordPress/IDeal/Admin.php:339
+#: classes/Pronamic/WordPress/IDeal/Admin.php:340
 msgid "Variants"
 msgstr "Varianten"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:323
-#: classes/Pronamic/WordPress/IDeal/Admin.php:324
+#: classes/Pronamic/WordPress/IDeal/Admin.php:348
+#: classes/Pronamic/WordPress/IDeal/Admin.php:349
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:332
-#: classes/Pronamic/WordPress/IDeal/Admin.php:333
+#: classes/Pronamic/WordPress/IDeal/Admin.php:357
+#: classes/Pronamic/WordPress/IDeal/Admin.php:358
 msgid "Branding"
 msgstr "Huisstijl"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:342
+#: classes/Pronamic/WordPress/IDeal/Admin.php:367
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:32
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:33
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:34
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:35
 #: views/gravityforms/feed-edit.php:325
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:36 views/status.php:57
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:37 views/status.php:57
 msgid "Failure"
 msgstr "Storing"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:38
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:39
 #: views/gravityforms/feed-edit.php:321
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:40 views/status.php:54
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:41 views/status.php:54
 #: views/gravityforms/feed-edit.php:322
 msgid "Success"
 msgstr "Succes"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:42 views/variants.php:66
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:43 views/variants.php:66
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:54
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:55
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
@@ -644,7 +654,7 @@ msgstr "Bron"
 msgid "Details"
 msgstr "Details"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:498
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:512
 #, php-format
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
@@ -655,7 +665,7 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:514
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:528
 #, php-format
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
@@ -748,7 +758,8 @@ msgstr "Live"
 #: views/configuration-edit.php:73 views/configuration-tests.php:57
 #: views/test-method-advanced-v3.php:97 views/test-method-advanced.php:99
 #: views/test-method-basic.php:82 views/test-method-mollie.php:9
-#: views/test-method-mollie.php:33 views/test-method-targetpay.php:8
+#: views/test-method-mollie.php:33 views/test-method-sisow.php:9
+#: views/test-method-sisow.php:33 views/test-method-targetpay.php:8
 #: views/test-method-targetpay.php:34 views/variants.php:97
 msgid "Test"
 msgstr "Test"
@@ -904,26 +915,59 @@ msgstr ""
 "account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
 #: views/configuration-edit.php:205
+msgid "Sisow"
+msgstr "Sisow"
+
+#: views/configuration-edit.php:211
+msgctxt "sisow"
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#: views/configuration-edit.php:214
+#, php-format
+msgid ""
+"You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
+"account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
+msgstr ""
+"Je kunt je Merchant ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
+"account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
+
+#: views/configuration-edit.php:222
+msgctxt "sisow"
+msgid "Merchant Key"
+msgstr "Merchant Key"
+
+#: views/configuration-edit.php:226
+#, php-format
+msgid ""
+"You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
+"\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
+"a>."
+msgstr ""
+"Je kunt je Merchant Key vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
+"account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
+
+#: views/configuration-edit.php:234
 msgid "TargetPay"
 msgstr "TargetPay"
 
-#: views/configuration-edit.php:211
+#: views/configuration-edit.php:240
 msgid "Layout Code"
 msgstr "Layout code"
 
-#: views/configuration-edit.php:213
+#: views/configuration-edit.php:242
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 
-#: views/configuration-edit.php:218 views/variants.php:51
+#: views/configuration-edit.php:247 views/variants.php:51
 msgid "Internetkassa"
 msgstr "Internetkassa"
 
-#: views/configuration-edit.php:224
+#: views/configuration-edit.php:253
 msgid "PSPID"
 msgstr "PSPID"
 
-#: views/configuration-edit.php:227
+#: views/configuration-edit.php:256
 #, php-format
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
@@ -931,19 +975,19 @@ msgstr ""
 "Als u gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
-#: views/configuration-edit.php:234
+#: views/configuration-edit.php:263
 msgid "Character encoding"
 msgstr "Tekencodering"
 
-#: views/configuration-edit.php:242
+#: views/configuration-edit.php:271
 msgid "Hash algorithm"
 msgstr "Hash-algoritme"
 
-#: views/configuration-edit.php:251
+#: views/configuration-edit.php:280
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-1-IN versleuteling"
 
-#: views/configuration-edit.php:253
+#: views/configuration-edit.php:282
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -953,11 +997,11 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Verificatie data en herkomst) van je "
 "iDEAL provider."
 
-#: views/configuration-edit.php:259
+#: views/configuration-edit.php:288
 msgid "SHA-OUT Pass phrase"
 msgstr "SHA-1-OUT versleuteling"
 
-#: views/configuration-edit.php:261
+#: views/configuration-edit.php:290
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
@@ -967,87 +1011,87 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/configuration-edit.php:267 views/variants.php:57
+#: views/configuration-edit.php:296 views/variants.php:57
 #: views/gravityforms/feed-edit.php:465
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/configuration-edit.php:273 views/configuration-edit.php:299
+#: views/configuration-edit.php:302 views/configuration-edit.php:328
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/configuration-edit.php:279
+#: views/configuration-edit.php:308 views/configuration-edit.php:810
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/configuration-edit.php:286
+#: views/configuration-edit.php:315 views/configuration-edit.php:831
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: views/configuration-edit.php:293
+#: views/configuration-edit.php:322
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: views/configuration-edit.php:305
+#: views/configuration-edit.php:334
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/configuration-edit.php:307
+#: views/configuration-edit.php:336
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/configuration-edit.php:312
+#: views/configuration-edit.php:341
 msgid "Country"
 msgstr "Land"
 
-#: views/configuration-edit.php:314
+#: views/configuration-edit.php:343
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/configuration-edit.php:319
+#: views/configuration-edit.php:348
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/configuration-edit.php:321
+#: views/configuration-edit.php:350
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/configuration-edit.php:326
+#: views/configuration-edit.php:355
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/configuration-edit.php:328
+#: views/configuration-edit.php:357
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/configuration-edit.php:333
+#: views/configuration-edit.php:362
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/configuration-edit.php:335
+#: views/configuration-edit.php:364
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/configuration-edit.php:340
+#: views/configuration-edit.php:369
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/configuration-edit.php:342
+#: views/configuration-edit.php:371
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/configuration-edit.php:347
+#: views/configuration-edit.php:376
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/configuration-edit.php:350
+#: views/configuration-edit.php:379
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/configuration-edit.php:351
+#: views/configuration-edit.php:380
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -1055,7 +1099,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/configuration-edit.php:352
+#: views/configuration-edit.php:381
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1066,11 +1110,11 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/configuration-edit.php:357
+#: views/configuration-edit.php:386
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/configuration-edit.php:461
+#: views/configuration-edit.php:490
 msgid ""
 "Unfortunately we could not generate a certificate resource from the given "
 "CSR (Certificate Signing Request)."
@@ -1078,64 +1122,76 @@ msgstr ""
 "Helaas konden we geen certificaat resource generen vanuit de opgeven CSR "
 "(Certificate Signing Request)."
 
-#: views/configuration-edit.php:464
+#: views/configuration-edit.php:493
 msgid "Unfortunately we could not generate a private key."
 msgstr "We konden helaas niet een privé sleutel genereren."
 
-#: views/configuration-edit.php:476
+#: views/configuration-edit.php:505
 #, php-format
 msgid "Configuration updated, %s."
 msgstr "Configuratie bijgewerkt, %s."
 
-#: views/configuration-edit.php:478
+#: views/configuration-edit.php:507
 #, php-format
 msgid "<a href=\"%s\">back to overview</a>"
 msgstr "<a href=\"%s\">terug naar overzicht</a>"
 
-#: views/configuration-edit.php:522
+#: views/configuration-edit.php:551
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: views/configuration-edit.php:540
+#: views/configuration-edit.php:569
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/configuration-edit.php:546
+#: views/configuration-edit.php:575
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: views/configuration-edit.php:549
+#: views/configuration-edit.php:578
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/configuration-edit.php:554
+#: views/configuration-edit.php:583
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/configuration-edit.php:563
+#: views/configuration-edit.php:592
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/configuration-edit.php:578
+#: views/configuration-edit.php:607
 msgid "Variant"
 msgstr "Variant"
 
-#: views/configuration-edit.php:745 views/settings.php:51
+#: views/configuration-edit.php:774 views/settings.php:51
 #: views/gravityforms/feed-edit.php:484
 msgid "Save"
 msgstr "Opslaan"
 
-#: views/configuration-edit.php:745 views/gravityforms/feed-edit.php:484
+#: views/configuration-edit.php:774 views/gravityforms/feed-edit.php:484
 msgid "Update"
 msgstr "Update"
 
-#: views/configuration-edit.php:754
+#: views/configuration-edit.php:783 views/configuration-edit.php:799
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/configuration-edit.php:760
+#: views/configuration-edit.php:789
 msgid "Generate"
 msgstr "Genereer"
+
+#: views/configuration-edit.php:803
+msgid ""
+"You have to use the following commands to generate an private key and "
+"certificate for iDEAL v3:"
+msgstr ""
+"Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
+"voor iDEAL v3 te genereren:"
+
+#: views/configuration-edit.php:816
+msgid "filename"
+msgstr "bestandsnaam"
 
 #: views/configuration-tests.php:12
 msgid "iDEAL Tests"
