@@ -323,12 +323,6 @@ $sections = array(
 		'methods' => array( 'advanced', 'advanced_v3' ),
 		'fields'  => array(
 			array(
-				'name'        => 'privateKeyPassword',
-				'id'          => 'pronamic_ideal_generate_private_key_password',
-				'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
-				'type'        => 'text'
-			),
-			array(
 				'name'        => 'numberDaysValid',
 				'id'          => 'pronamic_ideal_number_days_valid',
 				'title'       => __( 'Number Days Valid', 'pronamic_ideal' ),
