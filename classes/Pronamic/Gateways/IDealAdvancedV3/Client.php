@@ -139,42 +139,44 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$document = $message->get_document();
 		$document = $this->sign_document( $document );
 		
-		// Stringify
-		$data = $document->saveXML();
-
-		// Remote post
-		$response = wp_remote_post( $url, array(
-			'method'    => 'POST',
-			'headers'   => array(
-				'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvancedV3_XML_Message::XML_ENCODING
-			),
-			'sslverify' => false,
-			'body'      => $data
-		) );
-
-		// Handle response
-		if ( ! is_wp_error( $response ) ) {
-			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
-				$body = wp_remote_retrieve_body( $response );
-
-				$xml = Pronamic_WordPress_Util::simplexml_load_string( $body );
-				
-				if ( is_wp_error( $xml ) ) {
-					$this->error = $xml;
-				} else {
-					$document = self::parse_document( $xml );
+		if ( $document !== false ) {
+			// Stringify
+			$data = $document->saveXML();
+	
+			// Remote post
+			$response = wp_remote_post( $url, array(
+				'method'    => 'POST',
+				'headers'   => array(
+					'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvancedV3_XML_Message::XML_ENCODING
+				),
+				'sslverify' => false,
+				'body'      => $data
+			) );
+	
+			// Handle response
+			if ( ! is_wp_error( $response ) ) {
+				if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+					$body = wp_remote_retrieve_body( $response );
+	
+					$xml = Pronamic_WordPress_Util::simplexml_load_string( $body );
 					
-					if ( is_wp_error( $document ) ) {
-						$this->error = $document;
+					if ( is_wp_error( $xml ) ) {
+						$this->error = $xml;
 					} else {
-						$result = $document;
+						$document = self::parse_document( $xml );
+						
+						if ( is_wp_error( $document ) ) {
+							$this->error = $document;
+						} else {
+							$result = $document;
+						}
 					}
+				} else {
+					$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
 				}
 			} else {
-				$this->error = new WP_Error( 'wrong_response_code', __( 'The response code (<code>%s<code>) from the iDEAL provider was incorrect.', 'pronamic_ideal' ) );
+				$this->error = $response;
 			}
-		} else {
-			$this->error = $response;
 		}
 		
 		return $result;
@@ -295,31 +297,34 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	 * @return DOMDocument
 	 */
 	private function sign_document( DOMDocument $document ) {
-		if ( empty( $this->private_key ) || empty( $this->private_key_password ) || empty( $this->private_certificate ) ) {
-			// @todo what todo?
-			// can't sign document
-		} else {
+		$result = false;
+
+		try {
 			$dsig = new XMLSecurityDSig();
 			$dsig->setCanonicalMethod( XMLSecurityDSig::EXC_C14N );
-			$dsig->addReference( 
-				$document,
-				XMLSecurityDSig::SHA256,
-				array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
-				array( 'force_uri' => true )
+			$dsig->addReference(
+					$document,
+					XMLSecurityDSig::SHA256,
+					array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
+					array( 'force_uri' => true )
 			);
-			
+				
 			$key = new XMLSecurityKey( XMLSecurityKey::RSA_SHA256, array( 'type' => 'private' ) );
 			$key->passphrase = $this->private_key_password;
 			$key->loadKey( $this->private_key );
-			
+				
 			$dsig->sign( $key );
-			
+				
 			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
-			
+				
 			$dsig->addKeyInfoAndName( $fingerprint );
 			$dsig->appendSignature( $document->documentElement );
+			
+			$result = $document;
+		} catch ( Exception $e ) {
+			$this->error = new WP_Error( 'xml_security', $e->getMessage(), $e );
 		}
-
-		return $document;
+		
+		return $result;
 	}
 }
