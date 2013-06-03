@@ -46,7 +46,7 @@ foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $
 	);
 
 	foreach ( $provider->getVariants() as $variant ) {
-		$group['options'][$variant->getId()] = $variant->getName();
+		$group['options'][ $variant->getId() ] = $variant->getName();
 	}
 	
 	$options[] = $group;
@@ -399,8 +399,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				$value    = null;
 
 				if ( $field['type'] == 'file' ) {
-					if ( $_FILES[$name]['error'] == UPLOAD_ERR_OK ) {
-						$value = file_get_contents( $_FILES[$name]['tmp_name'] );
+					if ( $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
+						$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
 					}
 				} else {
 					$value = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
