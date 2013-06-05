@@ -175,7 +175,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		$status = new Pronamic_Gateways_TargetPay_Status();
 
 		$position_space = strpos( $string, ' ' );
-		$position_tab   = strpos( $string, '|' );
+		$position_pipe  = strpos( $string, '|' );
 		
 		if ( $position_space !== false ) {
 			/*
@@ -198,14 +198,17 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			 */
 			$status->code = substr( $string, 0, $position_space );
 
-			if ( $position_tab !== false ) {
-				$status->description = substr( $string, $position_space + 1, $position_tab );
+			$position_description = $position_space + 1;
+			if ( $position_pipe !== false ) {
+				$length = $position_pipe - $position_description;
+
+				$status->description = substr( $string, $position_description, $length );
 			} else {
-				$status->description = substr( $string, $position_space + 1 );
+				$status->description = substr( $string, $position_description );
 			}
 
-			if ( $position_tab !== false ) {
-				$extra = substr( $string, $position_tab + 1 );
+			if ( $position_pipe !== false ) {
+				$extra = substr( $string, $position_pipe + 1 );
 
 				/*
 				 * @see https://www.targetpay.com/info/directdebit-docu
