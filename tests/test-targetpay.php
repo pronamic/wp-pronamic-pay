@@ -1,6 +1,6 @@
 <?php
 
-class TargetPayTest extends WP_UnitTestCase {
+class Pronamic_Gateways_TargetPay_Test extends WP_UnitTestCase {
 	function test_parse_status_ok() {
 		$status_string = '000000 OK';
 
