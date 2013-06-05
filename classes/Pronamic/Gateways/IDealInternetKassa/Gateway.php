@@ -65,11 +65,19 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		
 		$this->client->setCustomerName( $data->getCustomerName() );
 		$this->client->setEMailAddress( $data->getEMailAddress() );
-		
-		$this->client->setAcceptUrl( $data->getNormalReturnUrl() );
-		$this->client->setCancelUrl( $data->getCancelUrl() );
-		$this->client->setDeclineUrl( $data->getNormalReturnUrl() );
-		$this->client->setExceptionUrl( $data->getNormalReturnUrl() );
+
+		$url = add_query_arg(
+			array(
+				'gateway'        => 'internetkassa',
+				'transaction_id' => $this->get_transaction_id()
+			),
+			home_url( '/' )
+		);
+
+		$this->client->setAcceptUrl( add_query_arg( 'status', 'accept', $url ) );
+		$this->client->setCancelUrl( add_query_arg( 'status', 'cancel', $url ) );
+		$this->client->setDeclineUrl( add_query_arg( 'status', 'decline', $url ) );
+		$this->client->setExceptionUrl( add_query_arg( 'status', 'exception', $url ) );
 	}
 	
 	/////////////////////////////////////////////////
