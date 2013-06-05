@@ -168,13 +168,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 	
 	public function getNormalReturnUrl() {
-		return add_query_arg(
-			array(
-				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			),
-			get_permalink( woocommerce_get_page_id( 'view_order' ) )
-		);
+		return $this->order->get_checkout_order_received_url();
 	}
 	
 	public function getCancelUrl() {
@@ -182,13 +176,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 	
 	public function getSuccessUrl() {
-		return add_query_arg(
-			array(
-				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			),
-			get_permalink( woocommerce_get_page_id( 'thanks' ) )
-		);
+		return $this->order->get_checkout_order_received_url();
 	}
 	
 	public function getErrorUrl() {
