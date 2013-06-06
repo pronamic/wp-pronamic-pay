@@ -91,7 +91,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 
 		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
 		if ( is_readable( $file ) ) {
-			$ideal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
+			$this->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
 		}
 
 		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
