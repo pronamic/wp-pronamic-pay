@@ -33,12 +33,6 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
-		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-in.txt';
-		$this->client->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
-	
-		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-out.txt';
-		$this->client->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
-
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 		$this->client->setPspId( $configuration->pspId );
 		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );

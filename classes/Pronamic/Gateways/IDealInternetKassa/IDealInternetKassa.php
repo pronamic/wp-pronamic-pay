@@ -84,6 +84,16 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		$this->calculationsParametersIn  = array();
 		$this->calculationsParametersOut = array();
 
+		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
+		if ( is_readable( $file ) ) {
+			$this->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
+		}
+
+		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
+		if ( is_readable( $file ) ) {
+			$ideal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
+		}
+
 		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
 	}
 

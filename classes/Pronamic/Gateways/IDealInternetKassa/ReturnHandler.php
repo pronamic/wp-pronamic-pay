@@ -32,12 +32,6 @@ class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronamic_Gatewa
 				$ideal->setPassPhraseIn( $configuration->shaInPassPhrase );
 				$ideal->setPassPhraseOut( $configuration->shaOutPassPhrase );
 
-				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
-				$ideal->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
-
-				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
-				$ideal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
-
 				$result = $ideal->verifyRequest( $data );
 
 				if ( $result !== false ) {
