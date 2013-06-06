@@ -55,14 +55,14 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @var array
 	 */
-	private $calculationsParametersIn;
+	private $calculations_parameters_in;
 
 	/**
 	 * Signature parameters OUT
 	 * 
 	 * @var array
 	 */
-	private $calculationsParametersOut;
+	private $calculations_parameters_out;
 
 	//////////////////////////////////////////////////
 
@@ -81,17 +81,17 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function __construct() {
 		$this->fields = array();
 
-		$this->calculationsParametersIn  = array();
-		$this->calculationsParametersOut = array();
+		$this->calculations_parameters_in  = array();
+		$this->calculations_parameters_out = array();
 
 		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
 		if ( is_readable( $file ) ) {
-			$this->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
+			$this->set_calculations_parameters_in( file( $file, FILE_IGNORE_NEW_LINES ) );
 		}
 
 		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
 		if ( is_readable( $file ) ) {
-			$this->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
+			$this->set_calculations_parameters_out( file( $file, FILE_IGNORE_NEW_LINES ) );
 		}
 
 		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
@@ -186,8 +186,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @return array
 	 */
-	public function getCalculationsParametersIn() {
-		return $this->calculationsParametersIn;
+	public function get_calculations_parameters_in() {
+		return $this->calculations_parameters_in;
 	}
 
 	/**
@@ -195,8 +195,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param array $parameters
 	 */
-	public function setCalculationsParametersIn(array $parameters) {
-		$this->calculationsParametersIn = $parameters;
+	public function set_calculations_parameters_in( array $parameters ) {
+		$this->calculations_parameters_in = $parameters;
 	}
 
 	//////////////////////////////////////////////////
@@ -206,8 +206,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @return array
 	 */
-	public function getCalculationsParametersOut() {
-		return $this->calculationsParametersOut;
+	public function get_calculations_parameters_out() {
+		return $this->calculations_parameters_out;
 	}
 
 	/**
@@ -215,8 +215,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param array $parameters
 	 */
-	public function setCalculationsParametersOut(array $parameters) {
-		$this->calculationsParametersOut = $parameters;
+	public function set_calculations_parameters_out( array $parameters ) {
+		$this->calculations_parameters_out = $parameters;
 	}
 
 	//////////////////////////////////////////////////
@@ -606,9 +606,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return array
 	 */
 	private function getSignatureFieldsIn($fields) {
-		$calculationsParameters = array_flip( $this->calculationsParametersIn );
+		$calculations_parameters = array_flip( $this->calculations_parameters_in );
 
-		return array_intersect_key( $fields, $calculationsParameters );
+		return array_intersect_key( $fields, $calculations_parameters );
 	}
 
 	/**
@@ -618,9 +618,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return array
 	 */
 	private function getSignatureFieldsOut( $fields ) {
-		$calculationsParameters = array_flip( $this->calculationsParametersOut );
+		$calculations_parameters = array_flip( $this->calculations_parameters_out );
 
-		return array_intersect_key( $fields, $calculationsParameters );
+		return array_intersect_key( $fields, $calculations_parameters );
 	}
 
 	//////////////////////////////////////////////////
