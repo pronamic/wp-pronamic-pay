@@ -173,7 +173,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 	 * @param string $merchant_id
 	 * @param string $merchant_key
 	 */
-	private function create_transaction_sha1( $purchase_id, $entrance_code, $amount, $shop_id, $merchant_id, $merchant_key ) {
+	public static function create_transaction_sha1( $purchase_id, $entrance_code, $amount, $shop_id, $merchant_id, $merchant_key ) {
 		return sha1(
 			$purchase_id . 
 			$entrance_code .
@@ -199,7 +199,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$parameters['cancelurl']    = $return_url;
 		$parameters['callbackurl']  = $return_url;
 		$parameters['notifyurl']    = $return_url;
-		$parameters['sha1']         = $this->create_transaction_sha1( $purchase_id, $entrance_code, $amount, '', $this->merchant_id, $this->merchant_key );
+		$parameters['sha1']         = self::create_transaction_sha1( $purchase_id, $entrance_code, $amount, '', $this->merchant_id, $this->merchant_key );
 
 		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::TRANSACTION_REQUEST, $parameters );
 
@@ -224,7 +224,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 	 * @param string $merchant_id
 	 * @param string $merchant_key
 	 */
-	private function create_status_sha1( $transaction_id, $shop_id, $merchant_id, $merchant_key ) {
+	public static function create_status_sha1( $transaction_id, $shop_id, $merchant_id, $merchant_key ) {
 		return sha1(
 			$transaction_id . 
 			$shop_id . 
@@ -240,7 +240,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		
 		$parameters['merchantid']   = $this->merchant_id;
 		$parameters['trxid']        = $transaction_id;
-		$parameters['sha1']         = $this->create_status_sha1( $transaction_id, '', $this->merchant_id, $this->merchant_key );
+		$parameters['sha1']         = self::create_status_sha1( $transaction_id, '', $this->merchant_id, $this->merchant_key );
 
 		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::STATUS_REQUEST, $parameters );
 
