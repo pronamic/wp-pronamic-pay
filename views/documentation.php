@@ -341,14 +341,16 @@
 					'name'    => 'Kennismaking Rabobank iDEAL Dashboard' 
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf',
-					'name'    => 'Gebruikshandleiding Rabo OmniKassa Dashboard',
-					'version' => '2.0' 
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf',
+					'name'       => 'Gebruikshandleiding Rabo OmniKassa Dashboard',
+					'version'    => '2.0',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf',
-					'name'    => 'Gebruikshandleiding Rabo OmniKassa Downloadsite',
-					'version' => '2.0'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf',
+					'name'       => 'Gebruikshandleiding Rabo OmniKassa Downloadsite',
+					'version'    => '2.0',
+					'deprecated' => true
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf',
@@ -400,10 +402,11 @@
 					'name'    => 'Rabo OmniKassa Actueel'
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
-					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
-					'version' => '3.1',
-					'date'    => new DateTime( '01-11-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
+					'version'    => '3.1',
+					'date'       => new DateTime( '01-11-2012' ),
+					'deprecated' => true
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_integratiehandleiding_versie_4_1_december_2012_29420242.pdf',
@@ -418,11 +421,18 @@
 					'date'    => new DateTime( '01-12-2012' )
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
-					'name'    => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - ROK 2.3 07-11-2012',
-					'version' => '2.3',
-					'date'    => new DateTime( '07-11-2012' )
-				)					
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
+					'name'       => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - ROK 2.3 07-11-2012',
+					'version'    => '2.3',
+					'date'       => new DateTime( '07-11-2012' ),
+					'deprecated' => true
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/06/rabo_omnikassa_gebruikshandleiding_dashboard_new_29550801.pdf',
+					'name'    => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - versie 2.4, 5 juni 2013',
+					'version' => '2.4',
+					'date'    => new DateTime( '05-06-2013' )
+				)				
 			)
 		),
 		'sisow.nl' => array(
@@ -463,47 +473,79 @@
 		)
 	);
 	
-	foreach ( $providers as $provider ): ?>
+	?>
 	
-		<h3>
-			<?php echo $provider['name']; ?>
-			<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>
-		</h3>
-	
-		<ul>
-			<?php foreach ( $provider['resources'] as $file ): ?>
-	
-				<li>
+	<table class="wp-list-table widefat" cellspacing="0">
+
+		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
+
+			<<?php echo $tag; ?>>
+				<tr>
+					<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ); ?></th>
+					<th scope="col" class="manage-column"><?php _e( 'Date', 'pronamic_ideal' );  ?></th>
+					<th scope="col" class="manage-column"><?php _e( 'Version', 'pronamic_ideal' );  ?></th>
+				</tr>
+			</<?php echo $tag; ?>>
+
+		<?php endforeach; ?>
+
+		<tobdy>
+			
+			<?php foreach ( $providers as $provider ): ?>
+
+				<tr>
+					<td colspan="4">
+						<strong><?php echo $provider['name']; ?></strong>
+						<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>					
+					</td>
+				</tr>
+
+				<?php foreach ( $provider['resources'] as $resource ): ?>
+		
 					<?php 
 					
 					$href = null;
 		
-					if ( isset( $file['path'] ) ) {
-						$href = plugins_url( $file['path'], Pronamic_WordPress_IDeal_Plugin::$file );
+					if ( isset( $resource['path'] ) ) {
+						$href = plugins_url( $resource['path'], Pronamic_WordPress_IDeal_Plugin::$file );
 					}
 		
-					if ( isset( $file['url'] ) ) {
-						$href = $file['url'];
+					if ( isset( $resource['url'] ) ) {
+						$href = $resource['url'];
+					}
+					
+					$classes = array();
+					
+					if ( isset( $resource['deprecated'] ) ) {
+						$classes[] = 'deprecated';
 					}
 					
 					?>
-					<a href="<?php echo $href; ?>">
-						<?php echo $file['name']; ?>
+					<tr class="<?php echo implode( ' ', $classes ); ?>">
+						<td>
+							<a href="<?php echo $href; ?>">
+								<?php echo $resource['name']; ?>
+							</a>
+						</td>
+						<td>
+							<?php if ( isset( $resource['date'] ) ): ?>
+								<?php echo $resource['date']->format( 'd-m-Y' ); ?>
+							<?php endif; ?>
+						</td>
+						<td>
+							<?php if ( isset( $resource['version'] ) ): ?>
+								<?php echo $resource['version']; ?>
+							<?php endif; ?>
+						</td>
+					</tr>
 		
-						<?php if ( isset( $file['version'] ) ): ?>
-							<small><?php printf( __( 'version %s', 'pronamic_ideal' ), $file['version'] ); ?> </small>
-						<?php endif; ?>
-		
-						<?php if ( isset( $file['date'] ) ): ?>
-							<small><?php printf( __( '%s', 'pronamic_ideal' ), $file['date']->format( 'd-m-Y' ) ); ?> </small>
-						<?php endif; ?>
-					</a>
-				</li>
-
+				<?php endforeach; ?>
+				
 			<?php endforeach; ?>
-		</ul>
-		
-	<?php endforeach; ?>
+	
+		</tobdy>
+	</table>
+	
 
 	<?php include 'pronamic.php'; ?>
 </div>
