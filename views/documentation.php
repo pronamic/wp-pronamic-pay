@@ -461,7 +461,7 @@
 					'name'       => 'Integratiehandleiding Rabobank OmniKassa - Versie 4.2, 5 juni 2013',
 					'version'    => '4.2',
 					'date'       => new DateTime( '05-06-2013' )
-				),
+				)
 			)
 		),
 		'sisow.nl' => array(
