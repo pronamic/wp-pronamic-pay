@@ -422,7 +422,8 @@
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_integratiehandleiding_versie_4_1_december_2012_29420242.pdf',
 					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 4.1, december 2012',
 					'version'    => '4.1',
-					'date'       => new DateTime( '01-12-2012' )
+					'date'       => new DateTime( '01-12-2012' ),
+					'deprecated' => true
 				),
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
@@ -454,7 +455,13 @@
 					'name'       => 'Handleiding iDEAL Professional',
 					'version'    => '1.2',
 					'date'       => new DateTime( '01-11-2012' )
-				)
+				),
+				array(
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabobank_omnikassa_integratiehandleiding_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabobank OmniKassa - Versie 4.2, 5 juni 2013',
+					'version'    => '4.2',
+					'date'       => new DateTime( '05-06-2013' )
+				),
 			)
 		),
 		'sisow.nl' => array(
