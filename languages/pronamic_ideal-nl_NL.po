@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 12:16+0100\n"
-"PO-Revision-Date: 2013-06-21 12:16+0100\n"
+"POT-Creation-Date: 2013-06-21 13:07+0100\n"
+"PO-Revision-Date: 2013-06-21 13:07+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -217,12 +217,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:126
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:612
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:613
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:130
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:616
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:617
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -528,51 +528,60 @@ msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:318
-#: classes/Pronamic/WordPress/IDeal/Admin.php:319
+#: classes/Pronamic/WordPress/IDeal/Admin.php:319 includes/post.php:5
+#: includes/post.php:7 includes/post.php:18
+msgid "Gateways"
+msgstr "Gateways"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:326
+#: classes/Pronamic/WordPress/IDeal/Admin.php:327
+#: classes/Pronamic/WordPress/IDeal/Admin.php:335
+#: classes/Pronamic/WordPress/IDeal/Admin.php:336 includes/post.php:34
+#: includes/post.php:36 includes/post.php:47
 msgid "Payments"
 msgstr "Betalingen"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:327
-#: classes/Pronamic/WordPress/IDeal/Admin.php:328
+#: classes/Pronamic/WordPress/IDeal/Admin.php:343
+#: classes/Pronamic/WordPress/IDeal/Admin.php:344
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:336
-#: classes/Pronamic/WordPress/IDeal/Admin.php:337
+#: classes/Pronamic/WordPress/IDeal/Admin.php:352
+#: classes/Pronamic/WordPress/IDeal/Admin.php:353
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:345
-#: classes/Pronamic/WordPress/IDeal/Admin.php:346
+#: classes/Pronamic/WordPress/IDeal/Admin.php:361
+#: classes/Pronamic/WordPress/IDeal/Admin.php:362
 #: classes/Pronamic/WordPress/IDeal/PaymentsListTable.php:85
 #: views/payment.php:92
 msgid "Status"
 msgstr "Status"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:354
+#: classes/Pronamic/WordPress/IDeal/Admin.php:370
 msgid "Gateway Providers"
 msgstr "Gateway providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:355
+#: classes/Pronamic/WordPress/IDeal/Admin.php:371
 msgid "Providers"
 msgstr "Providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:363
-#: classes/Pronamic/WordPress/IDeal/Admin.php:364
+#: classes/Pronamic/WordPress/IDeal/Admin.php:379
+#: classes/Pronamic/WordPress/IDeal/Admin.php:380
 msgid "Variants"
 msgstr "Varianten"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:372
-#: classes/Pronamic/WordPress/IDeal/Admin.php:373
+#: classes/Pronamic/WordPress/IDeal/Admin.php:388
+#: classes/Pronamic/WordPress/IDeal/Admin.php:389
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:381
-#: classes/Pronamic/WordPress/IDeal/Admin.php:382
+#: classes/Pronamic/WordPress/IDeal/Admin.php:397
+#: classes/Pronamic/WordPress/IDeal/Admin.php:398
 msgid "Branding"
 msgstr "Huisstijl"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:391
+#: classes/Pronamic/WordPress/IDeal/Admin.php:407
 msgid "Configurations"
 msgstr "Configuraties"
 
@@ -655,7 +664,7 @@ msgstr "Bron"
 msgid "Details"
 msgstr "Details"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:521
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:522
 #, php-format
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
@@ -666,7 +675,7 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:537
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:538
 #, php-format
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
@@ -683,6 +692,83 @@ msgstr "WP e-Commerce"
 #, php-format
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
+
+#: includes/post.php:8 views/variants.php:16
+msgid "Gateway"
+msgstr "Gateway"
+
+#: includes/post.php:9 includes/post.php:38 views/configurations.php:10
+#: views/gravityforms/feeds.php:33
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: includes/post.php:10
+msgid "Add New Gateway"
+msgstr "Nieuwe gateway toevoegen"
+
+#: includes/post.php:11
+msgid "Edit Gateway"
+msgstr "Gateway bewerken"
+
+#: includes/post.php:12
+msgid "New Gateway"
+msgstr "Nieuwe gateway"
+
+#: includes/post.php:13
+msgid "All Gateways"
+msgstr "Alle gateways"
+
+#: includes/post.php:14
+msgid "View Gateway"
+msgstr "Bekijk gateway"
+
+#: includes/post.php:15
+msgid "Search Gateways"
+msgstr "Zoek gateways"
+
+#: includes/post.php:16
+msgid "No gateways found"
+msgstr "Geen gateways gevonden."
+
+#: includes/post.php:17
+msgid "No gateways found in Trash"
+msgstr "Geen gateways gevonden in prullenbak."
+
+#: includes/post.php:37
+msgid "Payment"
+msgstr "Betaling"
+
+#: includes/post.php:39
+msgid "Add New Payment"
+msgstr "Nieuwe betaling toevoegen"
+
+#: includes/post.php:40
+msgid "Edit Payment"
+msgstr "Betaling bewerken"
+
+#: includes/post.php:41
+msgid "New Payment"
+msgstr "Nieuwe betaling"
+
+#: includes/post.php:42
+msgid "All Payments"
+msgstr "Alle betalingen"
+
+#: includes/post.php:43
+msgid "View Payment"
+msgstr "Bekijk betaling"
+
+#: includes/post.php:44 views/payments.php:18
+msgid "Search Payments"
+msgstr "Betalingen zoeken"
+
+#: includes/post.php:45
+msgid "No payments found"
+msgstr "Geen betalingen gevonden."
+
+#: includes/post.php:46
+msgid "No payments found in Trash"
+msgstr "Geen betalingen gevonden in prullenbak."
 
 #: views/branding.php:5
 msgid "iDEAL Branding"
@@ -1286,10 +1372,6 @@ msgstr "Niet beschikbaar"
 msgid "iDEAL Configurations"
 msgstr "iDEAL-configuraties"
 
-#: views/configurations.php:10 views/gravityforms/feeds.php:33
-msgid "Add New"
-msgstr "Nieuwe toevoegen"
-
 #: views/documentation.php:5
 msgid "iDEAL Documentation"
 msgstr "iDEAL-documentatie"
@@ -1441,10 +1523,6 @@ msgstr "Status verzoek"
 #: views/payments.php:12
 msgid "iDEAL Payments"
 msgstr "iDEAL-betalingen"
-
-#: views/payments.php:18
-msgid "Search Payments"
-msgstr "Betalingen zoeken"
 
 #: views/providers.php:12 views/variants.php:14
 msgid "Provider"
@@ -1614,10 +1692,6 @@ msgstr "Test &euro; %s"
 #: views/variants.php:5
 msgid "iDEAL Variants"
 msgstr "iDEAL-varianten"
-
-#: views/variants.php:16
-msgid "Gateway"
-msgstr "Gateway"
 
 #: views/variants.php:17
 msgid "Method"
@@ -1976,9 +2050,6 @@ msgstr "Button shortcode"
 
 #~ msgid "Execute"
 #~ msgstr "Uitvoeren"
-
-#~ msgid "iDeal Payment"
-#~ msgstr "iDEAL betaling"
 
 #~ msgid "password"
 #~ msgstr "wachtwoord"
