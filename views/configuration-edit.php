@@ -299,19 +299,19 @@ $sections = array(
 			array(
 				'name'        => 'qantani_merchant_id',
 				'id'          => 'pronamic_ideal_qantani_merchant_id',
-				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+				'title'       => _x( 'Merchant ID', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text'
 			),
 			array(
 				'name'        => 'qantani_merchant_key',
 				'id'          => 'pronamic_ideal_qantani_merchant_key',
-				'title'       => __( 'Merchant Key', 'pronamic_ideal' ),
+				'title'       => _x( 'Key', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text'
 			),
 			array(
 				'name'        => 'qantani_merchant_secret',
 				'id'          => 'pronamic_ideal_qantani_merchant_secret',
-				'title'       => __( 'Merchant Secret', 'pronamic_ideal' ),
+				'title'       => _x( 'Secret', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' )
 			)
