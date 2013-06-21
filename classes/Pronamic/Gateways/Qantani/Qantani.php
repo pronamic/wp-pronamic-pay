@@ -25,6 +25,16 @@ class Pronamic_Gateways_Qantani_Qantani {
 
 	//////////////////////////////////////////////////
 
+	const RESPONSE_STATUS_OK = 'OK';
+
+	//////////////////////////////////////////////////
+
+	const PAYMENT_STATUS_CANCELLED = '0';
+	
+	const PAYMENT_STATUS_PAID = '1';
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * The payment server URL 
 	 * 
@@ -34,6 +44,11 @@ class Pronamic_Gateways_Qantani_Qantani {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Error
+	 * 
+	 * @var WP_Error
+	 */
 	private $error;
 
 	//////////////////////////////////////////////////
@@ -47,6 +62,11 @@ class Pronamic_Gateways_Qantani_Qantani {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get error
+	 * 
+	 * @return WP_Error
+	 */
 	public function get_error() {
 		return $this->error;
 	}
@@ -122,6 +142,58 @@ class Pronamic_Gateways_Qantani_Qantani {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Create checksum for the specified parameters
+	 * @see http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-xml-v1.pdf
+	 * 
+	 * @param array $parameters
+	 * @param string $secret
+	 * @return string
+	 */
+	public static function create_checksum( array $parameters, $secret ) {
+		// We sort this list alphabetically
+		ksort( $parameters );
+		
+		// We join them into one big string
+		$string = implode( $parameters );
+		
+		// We then add the Secret for this user
+		$string .= $secret;
+		
+		// And we turn it into an SHA1-string
+		$checksum = sha1( $string );
+		
+		return $checksum;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Create response checksum for the specified parameters
+	 * @see http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-xml-v1.pdf
+	 * 
+	 * A Checksum, which is a SHA1 representation of: id + secret + status + rand, the secret is
+	 * the transaction code that can be found in the response from step 2.
+
+	 * @param string $transaction_id
+	 * @param string $secret
+	 * @param string $status
+	 * @param string $rand
+	 * @return string
+	 */
+	public static function create_response_checksum( $transaction_id, $secret, $status, $rand ) {
+		// A Checksum, which is a SHA1 representation of: id + secret + status + rand, the secret is
+		// the transaction code that can be found in the response from step 2.
+		$string = '' . $transaction_id . $secret . $status . $rand;
+		
+		// And we turn it into an SHA1-string
+		$checksum = sha1( $string );
+		
+		return $checksum;
+	}
+
+	//////////////////////////////////////////////////
 	
 	/**
 	 * Get banks
@@ -134,7 +206,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_GET_BANKS );
 
 		$result = $this->send_request( $document->saveXML() );
-	var_dump($result);
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
@@ -143,7 +215,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				if ( $xml->Status == 'OK' ) {
+				if ( $xml->Status == self::STATUS_OK ) {
 					foreach ( $xml->Banks->Bank as $bank ) {
 						$id   = (string) $bank->Id;
 						$name = (string) $bank->Name;
@@ -159,16 +231,45 @@ class Pronamic_Gateways_Qantani_Qantani {
 
 	//////////////////////////////////////////////////
 
-	public static function create_checksum( array $parameters, $secret ) {
-		ksort( $parameters );
+	/**
+	 * Create transaction
+	 */
+	public function create_transaction( $amount, $currency, $bank_id, $description, $return_url ) {
+		$result = false;
+
+		$parameters = array(
+			'Amount'      => number_format( $amount, 2, '.', '' ),
+			'Currency'    => $currency,
+			'Bank'        => $bank_id,
+			'Description' => $description,
+			'Return'      => $return_url
+		);
+
+		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_EXECUTE, $parameters );
+
+		$result = $this->send_request( $document->saveXML() );
+
+		if ( is_wp_error( $result ) ) {
+			$this->error = $result;
+		} else {
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
 		
-		$string = implode( $parameters );
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
+				if ( $xml->Status == self::STATUS_OK ) {
+					$response = $xml->Response;
+					
+					$result = new stdClass();
+					$result->transaction_id = (string) $response->TransactionID;
+					$result->code           = (string) $response->Code;
+					$result->bank_url       = (string) $response->BankURL;
+					$result->acquirer       = (string) $response->Acquirer;
+				}
+			}
+		}
 		
-		$string .= $secret;
-		
-		$checksum = sha1( $string );
-		
-		return $checksum;
+		return $result;
 	}
 
 	//////////////////////////////////////////////////

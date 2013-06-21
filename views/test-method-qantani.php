@@ -32,7 +32,7 @@ $gateway = new Pronamic_Gateways_Qantani_Gateway( $configuration );
 
 		$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
 
-		submit_button( $name, 'secondary', 'test_ideal_mollie', false ); 
+		submit_button( $name, 'secondary', 'test_ideal_qantani', false ); 
 
 		?>
 	</p>
