@@ -293,6 +293,31 @@ $sections = array(
 		)
 	),
 	array(
+		'title'   => __( 'Qantani', 'pronamic_ideal' ),
+		'methods' => array( 'qantani' ),
+		'fields'  => array(
+			array(
+				'name'        => 'qantani_merchant_id',
+				'id'          => 'pronamic_ideal_qantani_merchant_id',
+				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+				'type'        => 'text'
+			),
+			array(
+				'name'        => 'qantani_merchant_key',
+				'id'          => 'pronamic_ideal_qantani_merchant_key',
+				'title'       => __( 'Merchant Key', 'pronamic_ideal' ),
+				'type'        => 'text'
+			),
+			array(
+				'name'        => 'qantani_merchant_secret',
+				'id'          => 'pronamic_ideal_qantani_merchant_secret',
+				'title'       => __( 'Merchant Secret', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' )
+			)
+		)
+	),
+	array(
 		'title'   => __( 'Advanced', 'pronamic_ideal' ),
 		'methods' => array( 'advanced', 'advanced_v3' ),
 		'fields'  => array(

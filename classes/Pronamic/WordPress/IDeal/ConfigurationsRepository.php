@@ -145,6 +145,11 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		// TargetPay
 		if(isset($meta->targetPayLayoutCode)) $configuration->targetPayLayoutCode = $meta->targetPayLayoutCode;
 
+		// Qantani
+		if(isset($meta->qantani_merchant_id)) $configuration->qantani_merchant_id = $meta->qantani_merchant_id;
+		if(isset($meta->qantani_merchant_key)) $configuration->qantani_merchant_key = $meta->qantani_merchant_key;
+		if(isset($meta->qantani_merchant_secret)) $configuration->qantani_merchant_secret = $meta->qantani_merchant_secret;
+
 		// Kassa
 		if(isset($meta->pspId)) $configuration->pspId = $meta->pspId;
 		if(isset($meta->shaInPassPhrase)) $configuration->shaInPassPhrase = $meta->shaInPassPhrase;

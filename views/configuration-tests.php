@@ -100,6 +100,9 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'targetpay':
 					include 'test-method-targetpay.php';
 					break;
+				case 'qantani':
+					include 'test-method-qantani.php';
+					break;
 			}
 		}
 	
