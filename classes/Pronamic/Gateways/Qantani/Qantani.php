@@ -215,7 +215,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				if ( $xml->Status == self::STATUS_OK ) {
+				if ( $xml->Status == self::RESPONSE_STATUS_OK ) {
 					foreach ( $xml->Banks->Bank as $bank ) {
 						$id   = (string) $bank->Id;
 						$name = (string) $bank->Name;
@@ -257,7 +257,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				if ( $xml->Status == self::STATUS_OK ) {
+				if ( $xml->Status == self::RESPONSE_STATUS_OK ) {
 					$response = $xml->Response;
 					
 					$result = new stdClass();
