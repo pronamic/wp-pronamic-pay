@@ -148,12 +148,12 @@
 			<url>https://ideal.db.com/</url>
 
 			<test>
-				<paymentServerUrl>https://myideal.db.com/ideal/iDEALv3</paymentServerUrl>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDealv3</paymentServerUrl>
 
 				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
 			</test>
 			<live>
-				<paymentServerUrl>https://myideal.db.com/ideal/iDEALv3</paymentServerUrl>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDealv3</paymentServerUrl>
 
 				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
 			</live>
@@ -183,6 +183,26 @@
 				<paymentServerUrl>https://www.paydutch.nl/api/processreq.aspx</paymentServerUrl>
 
 				<dashboardUrl>https://www.paydutch.nl/paydutchmanager</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+	
+	<provider>
+		<id>easy-ideal</id>
+		<name>Easy iDeal</name>
+		<url>http://www.easy-ideal.com/</url>
+		<affiliateUrl>https://www.qantanipayments.com/backoffice/signup/easyideal/step1/pronamic/</affiliateUrl>
+
+		<variant gateway="qantani">
+			<id>easy-ideal</id>
+			<name>Easy iDeal - iDEAL</name>
+			<url>http://www.easy-ideal.com/</url>
+
+			<test>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
 			</live>
 		</variant>
 	</provider>

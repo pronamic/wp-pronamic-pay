@@ -62,8 +62,8 @@ class Pronamic_WordPress_Util {
 		} else {
 			$error = new WP_Error( 'simplexml_load_error', __( 'Could not load the XML string.', 'pronamic_ideal' ) );
 
-			foreach ( libxml_get_errors() as $error ) {
-				$error->add( 'libxml_error', $error->message, $error );
+			foreach ( libxml_get_errors() as $e ) {
+				$error->add( 'libxml_error', $e->message, $e );
 			}
 
 			libxml_clear_errors();

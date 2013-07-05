@@ -272,6 +272,30 @@ class Pronamic_WordPress_IDeal_Admin {
 				$gateway->redirect();
 			}
     	}
+
+		if ( isset( $_POST['test_ideal_qantani'] ) && check_admin_referer( 'test_ideal_qantani', 'pronamic_ideal_nonce' ) ) {
+			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+
+			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			
+			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
+
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			
+			$gateway = new Pronamic_Gateways_Qantani_Gateway( $configuration );
+			
+			$gateway->start( $data );
+
+			$error = $gateway->get_error();
+			
+			if ( is_wp_error( $error ) ) {
+				$pronamic_ideal_errors[] = $error;
+			} else {
+				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+
+				$gateway->redirect();
+			}
+    	}
 	}
 
 	//////////////////////////////////////////////////
@@ -289,6 +313,16 @@ class Pronamic_WordPress_IDeal_Admin {
 			plugins_url( 'images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file )
 		);
 
+		if ( false ) {
+			add_submenu_page(
+				'pronamic_ideal', 
+				__( 'Gateways', 'pronamic_ideal' ), 
+				__( 'Gateways', 'pronamic_ideal' ), 
+				'pronamic_ideal',
+				'edit.php?post_type=pronamic_gateway'
+			);
+		}
+
 		add_submenu_page(
 			'pronamic_ideal', 
 			__( 'Payments', 'pronamic_ideal' ), 
@@ -297,6 +331,16 @@ class Pronamic_WordPress_IDeal_Admin {
 			'pronamic_ideal_payments', 
 			array( __CLASS__, 'pagePayments' )
 		);
+
+		if ( false ) {
+			add_submenu_page(
+				'pronamic_ideal', 
+				__( 'Payments', 'pronamic_ideal' ), 
+				__( 'Payments', 'pronamic_ideal' ), 
+				'pronamic_ideal_payments',
+				'edit.php?post_type=pronamic_payment'
+			);
+		}
 
 		add_submenu_page(
 			'pronamic_ideal', 
