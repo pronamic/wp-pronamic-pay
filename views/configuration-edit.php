@@ -430,8 +430,13 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				} else {
 					$value = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
 				}
-
-				$configuration->$property = $value;
+				
+				if ( 'privateCertificate' === $property || 'privateKey' == $property ) {
+					if ( ! empty( $value ) )
+						$configuration->$property = $value;
+				} else {
+					$configuration->$property = $value;
+				}
 			}
 		}
 	}
