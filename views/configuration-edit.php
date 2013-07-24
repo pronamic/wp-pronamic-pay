@@ -421,7 +421,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			if ( isset( $field['name'], $field['id'] ) ) {
 				$property = $field['name'];
 				$name     = $field['id'];
-				$value    = null;
+				$value    = $configuration->$property;
 
 				if ( $field['type'] == 'file' ) {
 					if ( $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
@@ -431,12 +431,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 					$value = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
 				}
 
-				if ( 'privateCertificate' === $property || 'privateKey' == $property ) {
-					if ( ! empty( $value ) )
-						$configuration->$property = $value;
-				} else {
-					$configuration->$property = $value;
-				}
+				$configuration->$property = $value;
 			}
 		}
 	}
@@ -578,9 +573,11 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	}
 
 	function pronamic_ideal_private_certificate_field( $field, $configuration ) {
+		$value = $configuration->{$field['name']};
+
 		printf(
 			'<p><pre class="security-data">%s</pre></p>',
-			$configuration->{$field['name']}
+			$value
 		);
 
 		if ( ! empty( $configuration->privateCertificate ) ) {
@@ -593,7 +590,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			echo '<dt>', __( 'SHA Fingerprint', 'pronamic_ideal' ), '</dt>';
 			echo '<dd>', $fingerprint, '</dd>';
 
-			$info = openssl_x509_parse( $field['value'] );
+			$info = openssl_x509_parse( $value );
 
 			if ( $info ) {
 				$date_format = __( 'M j, Y @ G:i', 'pronamic_ideal' );
