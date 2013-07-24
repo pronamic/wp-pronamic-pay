@@ -211,9 +211,10 @@
 			'url'       => 'http://ing.nl/', 
 			'resources' => array(
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Basic_NL.pdf',
-					'name'    => 'iDEAL Basic – Integratie handleiding',
-					'version' => '1.3'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Basic_NL.pdf',
+					'name'       => 'iDEAL Basic – Integratie handleiding',
+					'version'    => '1.3',
+					'deprecated' => true
 				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf',
@@ -327,102 +328,140 @@
 			'url'       => 'http://rabobank.nl/', 
 			'resources' => array(
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_lite_2966321.pdf',
-					'name'    => 'Rabo iDEAL Lite - Winkel Integratie Handleiding',
-					'version' => '2.3'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_lite_2966321.pdf',
+					'name'       => 'Rabo iDEAL Lite - Winkel Integratie Handleiding',
+					'version'    => '2.3',
+					'date'       => new DateTime( '01-12-2009' ),
+					'deprecated' => true
 				), 
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_professional_2966322.pdf',
-					'name'    => 'Handleiding iDEAL Professional',
-					'version' => '2.1'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_professional_2966322.pdf',
+					'name'       => 'Handleiding iDEAL Professional',
+					'version'    => '2.1',
+					'date'       => new DateTime( '01-03-2007' ),
+					'deprecated' => true
 				), 
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf',
-					'name'    => 'Kennismaking Rabobank iDEAL Dashboard' 
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf',
+					'name'       => 'Kennismaking Rabobank iDEAL Dashboard' 
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf',
-					'name'    => 'Gebruikshandleiding Rabo OmniKassa Dashboard',
-					'version' => '2.0' 
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf',
+					'name'       => 'Gebruikshandleiding Rabo OmniKassa Dashboard',
+					'version'    => '2.0',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf',
-					'name'    => 'Gebruikshandleiding Rabo OmniKassa Downloadsite',
-					'version' => '2.0'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikshandleiding_downloadsite_29420244.pdf',
+					'name'       => 'Gebruikshandleiding Rabo OmniKassa Downloadsite',
+					'version'    => '2.0',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf',
-					'name'    => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012',
-					'version' => '1.0.10'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_redirect_connector_user_guide_v1_0_10_dutch_final_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabo OmniKassa Versie 1.0.10 – januari 2012',
+					'version'    => '1.0.10',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
-					'name'    => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
-					'date'    => new DateTime( '17-04-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
+					'name'       => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
+					'date'       => new DateTime( '17-04-2012' )
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/07/integration_guide_rabo_omnikassa_v2_0_1_final_29451215.pdf',
-					'name'    => 'Integration guide Rabo OmniKassa',
-					'date'    => new DateTime( '01-04-2012' ),
-					'version' => '2.0.1'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/07/integration_guide_rabo_omnikassa_v2_0_1_final_29451215.pdf',
+					'name'       => 'Integration guide Rabo OmniKassa',
+					'date'       => new DateTime( '01-04-2012' ),
+					'version'    => '2.0.1',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Professional.pdf',
-					'name'    => 'Handleiding iDEAL Professional',
-					'date'    => new DateTime( '01-05-2012' ),
-					'version' => '1.1'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Professional.pdf',
+					'name'       => 'Handleiding iDEAL Professional',
+					'date'       => new DateTime( '01-05-2012' ),
+					'version'    => '1.1',
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Lite.pdf',
-					'name'    => 'Handleiding iDEAL Lite',
-					'date'    => new DateTime( '01-01-2012' ), 
-					'version' => '2.6'
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Lite.pdf',
+					'name'       => 'Handleiding iDEAL Lite',
+					'date'       => new DateTime( '01-01-2012' ), 
+					'version'    => '2.6',
+					'deprecated' => true
 				), 
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/Integratiehandleiding_Rabo_Omnikassa_v300_nl.pdf',
-					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 3.0 September 2012',
-					'version' => '3.0',
-					'date'    => new DateTime( '01-09-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Integratiehandleiding_Rabo_Omnikassa_v300_nl.pdf',
+					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 3.0 September 2012',
+					'version'    => '3.0',
+					'date'       => new DateTime( '01-09-2012' ),
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/Integration_Guide_Rabo_Omnikassa_v300_en.pdf',
-					'name'    => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',
-					'version' => '3.0',
-					'date'    => new DateTime( '01-09-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Integration_Guide_Rabo_Omnikassa_v300_en.pdf',
+					'name'       => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',
+					'version'   => '3.0',
+					'date'       => new DateTime( '01-09-2012' )
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
-					'name'    => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
-					'date'    => new DateTime( '03-09-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
+					'name'       => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
+					'date'       => new DateTime( '03-09-2012' )
 				),
 				array(
-					'url'     => 'http://www.rabobank.nl/omnikassa-actueel',
-					'name'    => 'Rabo OmniKassa Actueel'
+					'url'       => 'http://www.rabobank.nl/omnikassa-actueel',
+					'name'       => 'Rabo OmniKassa Actueel'
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
-					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
-					'version' => '3.1',
-					'date'    => new DateTime( '01-11-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 3.1, november 2012',
+					'version'    => '3.1',
+					'date'       => new DateTime( '01-11-2012' ),
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_integratiehandleiding_versie_4_1_december_2012_29420242.pdf',
-					'name'    => 'Integratiehandleiding Rabo OmniKassa - Versie 4.1, december 2012',
-					'version' => '4.1',
-					'date'    => new DateTime( '01-12-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_integratiehandleiding_versie_4_1_december_2012_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 4.1, december 2012',
+					'version'    => '4.1',
+					'date'       => new DateTime( '01-12-2012' ),
+					'deprecated' => true
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
-					'name'    => 'Rabo OmniKassa - Gebruikshandleiding Downloadsite - Versie 2.1, december 2012',
-					'version' => '2.1',
-					'date'    => new DateTime( '01-12-2012' )
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
+					'name'       => 'Rabo OmniKassa - Gebruikshandleiding Downloadsite - Versie 2.1, december 2012',
+					'version'    => '2.1',
+					'date'       => new DateTime( '01-12-2012' )
 				),
 				array(
-					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
-					'name'    => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - ROK 2.3 07-11-2012',
-					'version' => '2.3',
-					'date'    => new DateTime( '07-11-2012' )
-				)					
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
+					'name'       => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - ROK 2.3 07-11-2012',
+					'version'    => '2.3',
+					'date'       => new DateTime( '07-11-2012' ),
+					'deprecated' => true
+				),
+				array(
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabo_omnikassa_gebruikshandleiding_dashboard_new_29550801.pdf',
+					'name'       => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - versie 2.4, 5 juni 2013',
+					'version'    => '2.4',
+					'date'       => new DateTime( '05-06-2013' )
+				),
+				array(
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Lite.pdf',
+					'name'       => 'Rabo iDEAL Lite - Integratie Handleiding',
+					'version'    => '2.6',
+					'date'       => new DateTime( '01-01-2012' )
+				),
+				array(
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Professional.pdf',
+					'name'       => 'Handleiding iDEAL Professional',
+					'version'    => '1.2',
+					'date'       => new DateTime( '01-11-2012' )
+				),
+				array(
+					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabobank_omnikassa_integratiehandleiding_29420242.pdf',
+					'name'       => 'Integratiehandleiding Rabobank OmniKassa - Versie 4.2, 5 juni 2013',
+					'version'    => '4.2',
+					'date'       => new DateTime( '05-06-2013' )
+				)
 			)
 		),
 		'sisow.nl' => array(
@@ -463,47 +502,79 @@
 		)
 	);
 	
-	foreach ( $providers as $provider ): ?>
+	?>
 	
-		<h3>
-			<?php echo $provider['name']; ?>
-			<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>
-		</h3>
-	
-		<ul>
-			<?php foreach ( $provider['resources'] as $file ): ?>
-	
-				<li>
+	<table class="wp-list-table widefat" cellspacing="0">
+
+		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
+
+			<<?php echo $tag; ?>>
+				<tr>
+					<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ); ?></th>
+					<th scope="col" class="manage-column"><?php _e( 'Date', 'pronamic_ideal' );  ?></th>
+					<th scope="col" class="manage-column"><?php _e( 'Version', 'pronamic_ideal' );  ?></th>
+				</tr>
+			</<?php echo $tag; ?>>
+
+		<?php endforeach; ?>
+
+		<tobdy>
+			
+			<?php foreach ( $providers as $provider ): ?>
+
+				<tr>
+					<td colspan="4">
+						<strong><?php echo $provider['name']; ?></strong>
+						<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>					
+					</td>
+				</tr>
+
+				<?php foreach ( $provider['resources'] as $resource ): ?>
+		
 					<?php 
 					
 					$href = null;
 		
-					if ( isset( $file['path'] ) ) {
-						$href = plugins_url( $file['path'], Pronamic_WordPress_IDeal_Plugin::$file );
+					if ( isset( $resource['path'] ) ) {
+						$href = plugins_url( $resource['path'], Pronamic_WordPress_IDeal_Plugin::$file );
 					}
 		
-					if ( isset( $file['url'] ) ) {
-						$href = $file['url'];
+					if ( isset( $resource['url'] ) ) {
+						$href = $resource['url'];
+					}
+					
+					$classes = array();
+					
+					if ( isset( $resource['deprecated'] ) ) {
+						$classes[] = 'deprecated';
 					}
 					
 					?>
-					<a href="<?php echo $href; ?>">
-						<?php echo $file['name']; ?>
+					<tr class="<?php echo implode( ' ', $classes ); ?>">
+						<td>
+							<a href="<?php echo $href; ?>">
+								<?php echo $resource['name']; ?>
+							</a>
+						</td>
+						<td>
+							<?php if ( isset( $resource['date'] ) ): ?>
+								<?php echo $resource['date']->format( 'd-m-Y' ); ?>
+							<?php endif; ?>
+						</td>
+						<td>
+							<?php if ( isset( $resource['version'] ) ): ?>
+								<?php echo $resource['version']; ?>
+							<?php endif; ?>
+						</td>
+					</tr>
 		
-						<?php if ( isset( $file['version'] ) ): ?>
-							<small><?php printf( __( 'version %s', 'pronamic_ideal' ), $file['version'] ); ?> </small>
-						<?php endif; ?>
-		
-						<?php if ( isset( $file['date'] ) ): ?>
-							<small><?php printf( __( '%s', 'pronamic_ideal' ), $file['date']->format( 'd-m-Y' ) ); ?> </small>
-						<?php endif; ?>
-					</a>
-				</li>
-
+				<?php endforeach; ?>
+				
 			<?php endforeach; ?>
-		</ul>
-		
-	<?php endforeach; ?>
+	
+		</tobdy>
+	</table>
+	
 
 	<?php include 'pronamic.php'; ?>
 </div>

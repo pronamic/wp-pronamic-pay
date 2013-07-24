@@ -441,6 +441,17 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Set the expire date
+	 * 
+	 * @param DateTime $date
+	 */
+	public function set_expire_date( DateTime $date ) {
+		$this->expireDate = $date;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get the forbidden characters
 	 * 
 	 * @return array

@@ -10,11 +10,18 @@
  */
 class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
-		if ( isset( $_GET['SHASIGN'] ) ) {
-			$sha_signature = filter_input( INPUT_GET, 'SHASIGN', FILTER_SANITIZE_STRING );
-
-			if ( ! empty( $sha_signature ) ) {
-				do_action( 'pronamic_ideal_internetkassa_return_raw', $_GET );
+		if ( isset( $_REQUEST['SHASIGN'] ) ) {
+			$inputs = array(
+				INPUT_GET  => $_GET,
+				INPUT_POST => $_POST
+			);
+			
+			foreach ( $inputs as $input => $data ) {
+				$sha_signature = filter_input( $input, 'SHASIGN', FILTER_SANITIZE_STRING );
+	
+				if ( ! empty( $sha_signature ) ) {
+					do_action( 'pronamic_ideal_internetkassa_return_raw', $data );
+				}
 			}
 		}
 	}
@@ -31,12 +38,6 @@ class Pronamic_Gateways_IDealInternetKassa_ReturnHandler extends Pronamic_Gatewa
 				$ideal->setPspId( $configuration->pspId );
 				$ideal->setPassPhraseIn( $configuration->shaInPassPhrase );
 				$ideal->setPassPhraseOut( $configuration->shaOutPassPhrase );
-
-				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
-				$ideal->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
-
-				$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
-				$ideal->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
 
 				$result = $ideal->verifyRequest( $data );
 

@@ -33,12 +33,6 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
-		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-in.txt';
-		$this->client->setCalculationsParametersIn( file( $file, FILE_IGNORE_NEW_LINES ) );
-	
-		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/calculations-parameters-sha-out.txt';
-		$this->client->setCalculationsParametersOut( file( $file, FILE_IGNORE_NEW_LINES ) );
-
 		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
 		$this->client->setPspId( $configuration->pspId );
 		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );
@@ -65,11 +59,19 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		
 		$this->client->setCustomerName( $data->getCustomerName() );
 		$this->client->setEMailAddress( $data->getEMailAddress() );
-		
-		$this->client->setAcceptUrl( $data->getNormalReturnUrl() );
-		$this->client->setCancelUrl( $data->getCancelUrl() );
-		$this->client->setDeclineUrl( $data->getNormalReturnUrl() );
-		$this->client->setExceptionUrl( $data->getNormalReturnUrl() );
+
+		$url = add_query_arg(
+			array(
+				'gateway'        => 'internetkassa',
+				'transaction_id' => $this->get_transaction_id()
+			),
+			home_url( '/' )
+		);
+
+		$this->client->setAcceptUrl( add_query_arg( 'status', 'accept', $url ) );
+		$this->client->setCancelUrl( add_query_arg( 'status', 'cancel', $url ) );
+		$this->client->setDeclineUrl( add_query_arg( 'status', 'decline', $url ) );
+		$this->client->setExceptionUrl( add_query_arg( 'status', 'exception', $url ) );
 	}
 	
 	/////////////////////////////////////////////////

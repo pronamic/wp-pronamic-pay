@@ -55,14 +55,14 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @var array
 	 */
-	private $calculationsParametersIn;
+	private $calculations_parameters_in;
 
 	/**
 	 * Signature parameters OUT
 	 * 
 	 * @var array
 	 */
-	private $calculationsParametersOut;
+	private $calculations_parameters_out;
 
 	//////////////////////////////////////////////////
 
@@ -81,8 +81,18 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function __construct() {
 		$this->fields = array();
 
-		$this->calculationsParametersIn  = array();
-		$this->calculationsParametersOut = array();
+		$this->calculations_parameters_in  = array();
+		$this->calculations_parameters_out = array();
+
+		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
+		if ( is_readable( $file ) ) {
+			$this->set_calculations_parameters_in( file( $file, FILE_IGNORE_NEW_LINES ) );
+		}
+
+		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
+		if ( is_readable( $file ) ) {
+			$this->set_calculations_parameters_out( file( $file, FILE_IGNORE_NEW_LINES ) );
+		}
 
 		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
 	}
@@ -176,8 +186,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @return array
 	 */
-	public function getCalculationsParametersIn() {
-		return $this->calculationsParametersIn;
+	public function get_calculations_parameters_in() {
+		return $this->calculations_parameters_in;
 	}
 
 	/**
@@ -185,8 +195,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param array $parameters
 	 */
-	public function setCalculationsParametersIn(array $parameters) {
-		$this->calculationsParametersIn = $parameters;
+	public function set_calculations_parameters_in( array $parameters ) {
+		$this->calculations_parameters_in = $parameters;
 	}
 
 	//////////////////////////////////////////////////
@@ -196,8 +206,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @return array
 	 */
-	public function getCalculationsParametersOut() {
-		return $this->calculationsParametersOut;
+	public function get_calculations_parameters_out() {
+		return $this->calculations_parameters_out;
 	}
 
 	/**
@@ -205,8 +215,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param array $parameters
 	 */
-	public function setCalculationsParametersOut(array $parameters) {
-		$this->calculationsParametersOut = $parameters;
+	public function set_calculations_parameters_out( array $parameters ) {
+		$this->calculations_parameters_out = $parameters;
 	}
 
 	//////////////////////////////////////////////////
@@ -218,11 +228,11 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $name
 	 */
-	public function getField($name) {
+	public function get_field( $name ) {
 		$value = null;
 
-		if(isset($this->fields[$name])) {
-			$value = $this->fields[$name];
+		if ( isset( $this->fields[ $name ] ) ) {
+			$value = $this->fields [$name ];
 		}
 
 		return $value;
@@ -234,8 +244,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @param string $name
 	 * @param string $value
 	 */
-	public function setField($name, $value) {
-		$this->fields[$name] = $value;
+	public function set_field( $name, $value ) {
+		$this->fields[ $name ] = $value;
 	}
 
 	//////////////////////////////////////////////////
@@ -248,7 +258,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an PSP id
 	 */
 	public function getPspId() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID );
 	}
 
 	/**
@@ -259,8 +269,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @param string PSP id
 	 */
-	public function setPspId($pspId) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID, $pspId);
+	public function setPspId( $psp_id ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::PSPID, $psp_id );
 	}
 
 	//////////////////////////////////////////////////
@@ -271,7 +281,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an order id
 	 */
 	public function getOrderId() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID );
 	}
 
 	/**
@@ -279,8 +289,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @param string $orderId
 	 */
-	public function setOrderId($orderId) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID, $orderId);
+	public function setOrderId( $order_id ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID, $order_id );
 	}
 
 	//////////////////////////////////////////////////
@@ -291,7 +301,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return an language
 	 */
 	public function getLanguage() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE );
 	}
 
 	/**
@@ -303,8 +313,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @param string $language
 	 */
-	public function setLanguage($language) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE, $language);
+	public function setLanguage( $language ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::LANGUAGE, $language );
 	}
 
 	//////////////////////////////////////////////////
@@ -315,7 +325,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getCurrency() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY );
 	}
 	
 	/**
@@ -326,8 +336,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @return string $currency
 	 */
-	public function setCurrency($currency) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY, $currency);
+	public function setCurrency( $currency ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CURRENCY, $currency );
 	}
 
 	//////////////////////////////////////////////////
@@ -346,10 +356,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param float $amount
 	 */
-	public function setAmount($amount) {
+	public function setAmount( $amount ) {
 		$this->amount = $amount;
 
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT, Pronamic_WordPress_Util::amount_to_cents($amount));
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT, Pronamic_WordPress_Util::amount_to_cents( $amount ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -360,7 +370,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getCustomerName() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME );
 	}
 
 	/**
@@ -371,8 +381,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $customerName
 	 */
-	public function setCustomerName($customerName) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME, $customerName);
+	public function setCustomerName( $customer_name ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CUSTOMER_NAME, $customer_name );
 	}
 
 	//////////////////////////////////////////////////
@@ -383,7 +393,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getEMailAddress() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL );
 	}
 
 	/**
@@ -391,8 +401,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $eMailAddress
 	 */
-	public function setEMailAddress($eMailAddress) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL, $eMailAddress);
+	public function setEMailAddress( $email ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::EMAIL, $email );
 	}
 
 	//////////////////////////////////////////////////
@@ -403,7 +413,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getOwnerAddress() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS );
 	}
 
 	/**
@@ -411,8 +421,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $ownerAddress
 	 */
-	public function setOwnerAddress($ownerAddress) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS, $ownerAddress);
+	public function setOwnerAddress( $address ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ADDRESS, $address );
 	}
 
 	//////////////////////////////////////////////////
@@ -423,7 +433,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getOwnerCountry() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY );
 	}
 
 	/**
@@ -433,8 +443,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $ownerCountry
 	 */
-	public function setOwnerCountry($ownerCountry) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY, $ownerCountry);
+	public function setOwnerCountry( $country ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_COUNTRY, $country );
 	}
 
 	//////////////////////////////////////////////////
@@ -445,7 +455,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getOwnerZip() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP );
 	}
 
 	/**
@@ -453,8 +463,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $ownerZip
 	 */
-	public function setOwnerZip($ownerZip) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP, $ownerZip);
+	public function setOwnerZip( $zip ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::OWNER_ZIP, $zip );
 	}
 
 	//////////////////////////////////////////////////
@@ -468,7 +478,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getOrderDescription() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::COM);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::COM );
 	}
 
 	/**
@@ -479,8 +489,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $description
 	 */
-	public function setOrderDescription($description) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::COM, $description);
+	public function setOrderDescription( $description ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::COM, $description );
 	}
 
 	//////////////////////////////////////////////////
@@ -495,7 +505,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @reutnr string
 	 */
 	public function getAcceptUrl() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL );
 	}
 
 	/**
@@ -505,8 +515,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $url
 	 */
-	public function setAcceptUrl($url) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL, $url);
+	public function setAcceptUrl( $url ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::ACCEPT_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -519,7 +529,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getCancelUrl() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL );
 	}
 
 	/**
@@ -529,8 +539,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $url
 	 */
-	public function setCancelUrl($url) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL, $url);
+	public function setCancelUrl( $url ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::CANCEL_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -543,7 +553,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getExceptionUrl() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL );
 	}
 
 	/**
@@ -553,8 +563,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $url
 	 */
-	public function setExceptionUrl($url) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL, $url);
+	public function setExceptionUrl( $url ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::EXCEPTION_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -569,7 +579,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return string
 	 */
 	public function getDeclineUrl() {
-		return $this->getField(Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL);
+		return $this->get_field( Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL );
 	}
 
 	/**
@@ -581,8 +591,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * 
 	 * @param string $url
 	 */
-	public function setDeclineUrl($url) {
-		$this->setField(Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL, $url);
+	public function setDeclineUrl( $url ) {
+		$this->set_field( Pronamic_Gateways_IDealInternetKassa_Parameters::DECLINE_URL, $url );
 	}
 
 	//////////////////////////////////////////////////
@@ -595,10 +605,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @param array $fields
 	 * @return array
 	 */
-	private function getSignatureFieldsIn($fields) {
-		$calculationsParameters = array_flip( $this->calculationsParametersIn );
+	private function getSignatureFieldsIn( $fields ) {
+		$calculations_parameters = array_flip( $this->calculations_parameters_in );
 
-		return array_intersect_key( $fields, $calculationsParameters );
+		return array_intersect_key( $fields, $calculations_parameters );
 	}
 
 	/**
@@ -608,9 +618,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 * @return array
 	 */
 	private function getSignatureFieldsOut( $fields ) {
-		$calculationsParameters = array_flip( $this->calculationsParametersOut );
+		$calculations_parameters = array_flip( $this->calculations_parameters_out );
 
-		return array_intersect_key( $fields, $calculationsParameters );
+		return array_intersect_key( $fields, $calculations_parameters );
 	}
 
 	//////////////////////////////////////////////////
@@ -729,9 +739,9 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		if ( isset( $data['SHASIGN'] ) ) {
 			$signature = $data['SHASIGN'];
 
-			$signatureOut = $this->getSignatureOut( $data );
+			$signature_out = $this->getSignatureOut( $data );
 
-			if ( strcasecmp( $signature, $signatureOut ) === 0 ) {
+			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
 				$result = filter_var_array( $data, array(
 					Pronamic_Gateways_IDealInternetKassa_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
 					Pronamic_Gateways_IDealInternetKassa_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT, 

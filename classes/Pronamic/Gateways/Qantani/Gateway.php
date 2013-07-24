@@ -69,7 +69,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
 			'required' => true,
 			'type'     => 'select',
-			'choices'  => $this->get_transient_issuers()
+			'choices'  => $this->get_issuers()
 		);
 	}
 	
@@ -82,7 +82,20 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+		$result = $this->client->create_transaction(
+			$data->getAmount(),
+			$data->getCurrencyAlphabeticCode(),
+			$data->get_issuer_id(),
+			$data->getDescription(),
+			add_query_arg( 'gateway', 'qantani', home_url( '/' ) )
+		);
 		
+		if ( $result !== false ) {
+			$this->set_transaction_id( $result->transaction_id );
+			$this->set_action_url( $result->bank_url );
+		} else {
+			$this->error = $this->client->get_error();
+		}
 	}
 
 	/////////////////////////////////////////////////

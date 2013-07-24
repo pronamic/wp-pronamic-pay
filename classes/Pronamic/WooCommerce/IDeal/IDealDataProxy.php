@@ -166,15 +166,36 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	//////////////////////////////////////////////////
 	// URL's
 	//////////////////////////////////////////////////
-	
-	public function getNormalReturnUrl() {
-		return add_query_arg(
-			array(
-				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			),
-			get_permalink( woocommerce_get_page_id( 'view_order' ) )
-		);
+
+	/**
+	 * Get normal return URL
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.0.10/classes/abstracts/abstract-wc-payment-gateway.php#L49
+	 * 
+	 * @see Pronamic_IDeal_IDealDataProxy::getNormalReturnUrl()
+	 * @return string
+	 */
+	public function getNormalReturnUrl() { 
+		$thanks_page_id = woocommerce_get_page_id( 'thanks' );
+
+		// Base URL
+		if ( $thanks_page_id ) {
+			$return_url = get_permalink( $thanks_page_id );
+		} else {
+			$return_url = home_url();
+		}
+
+		// Add query arguments to URL
+		$return_url = add_query_arg( array(
+			'key'   => $this->order->order_key,
+			'order' => $this->order->id
+		), $return_url );
+
+		// SSL check
+		if ( is_ssl() || get_option( 'woocommerce_force_ssl_checkout' ) == 'yes' ) {
+			$return_url = str_replace( 'http:', 'https:', $return_url );
+		}
+
+		return apply_filters( 'woocommerce_get_return_url', $return_url );
 	}
 	
 	public function getCancelUrl() {
@@ -182,13 +203,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 	
 	public function getSuccessUrl() {
-		return add_query_arg(
-			array(
-				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			),
-			get_permalink( woocommerce_get_page_id( 'thanks' ) )
-		);
+		return $this->getNormalReturnUrl();
 	}
 	
 	public function getErrorUrl() {
