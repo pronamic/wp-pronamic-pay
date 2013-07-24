@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $update = null;
 $error = null;
@@ -48,7 +48,7 @@ foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $
 	foreach ( $provider->getVariants() as $variant ) {
 		$group['options'][ $variant->getId() ] = $variant->getName();
 	}
-	
+
 	$options[] = $group;
 }
 
@@ -181,8 +181,8 @@ $sections = array(
 				'id'	      => 'pronamic_ideal_icepay_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' => sprintf( 
-					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ), 
+				'description' => sprintf(
+					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
 					'https://www.icepay.com/NL/Login',
 					'https://www.icepay.com/Merchant/NL/Websites'
 				)
@@ -193,7 +193,7 @@ $sections = array(
 				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
-				'description' => sprintf( 
+				'description' => sprintf(
 					__( 'You can find your Secret Code on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
 					'https://www.icepay.com/NL/Login',
 					'https://www.icepay.com/Merchant/NL/Websites'
@@ -210,8 +210,8 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sisow_merchant_id',
 				'title'       => _x( 'Merchant ID', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' => sprintf( 
-					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ), 
+				'description' => sprintf(
+					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ),
 					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
 					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
 				)
@@ -222,8 +222,8 @@ $sections = array(
 				'title'       => _x( 'Merchant Key', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
-				'description' => sprintf( 
-					__( 'You can find your Merchant Key on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ), 
+				'description' => sprintf(
+					__( 'You can find your Merchant Key on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ),
 					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
 					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
 				)
@@ -394,7 +394,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_common_name',
 				'title'       => __( 'Common Name', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' => 
+				'description' =>
 					__( 'eg, YOUR name', 'pronamic_ideal' ) . '<br />' .
 					__( 'Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website.', 'pronamic_ideal' ) . '<br />' .
 					__( 'Do you have an iDEAL subscription with ABN AMRO, please fill in "ideal_<strong>company</strong>", where "company" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters.', 'pronamic_ideal' )
@@ -413,7 +413,7 @@ $sections = array(
 if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuration', 'pronamic_ideal_nonce' ) ) {
 	$variantId = filter_input( INPUT_POST, 'pronamic_ideal_variant_id', FILTER_SANITIZE_STRING );
 	$variant = Pronamic_WordPress_IDeal_ConfigurationsRepository::getVariantById( $variantId );
-	
+
 	$configuration->setVariant( $variant );
 
 	foreach ( $sections as $section ) {
@@ -430,7 +430,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 				} else {
 					$value = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
 				}
-				
+
 				if ( 'privateCertificate' === $property || 'privateKey' == $property ) {
 					if ( ! empty( $value ) )
 						$configuration->$property = $value;
@@ -440,7 +440,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			}
 		}
 	}
-	
+
 	// Generator
 	$configuration->numberDaysValid  = filter_input( INPUT_POST, 'pronamic_ideal_number_days_valid', FILTER_SANITIZE_STRING );
 	$configuration->country          = filter_input( INPUT_POST, 'pronamic_ideal_country', FILTER_SANITIZE_STRING );
@@ -453,31 +453,31 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 	if ( isset( $_POST['generate'] ) ) {
 		$dn = array();
-		
+
 		if ( ! empty( $configuration->country ) ) {
 			$dn['countryName'] = $configuration->country;
 		}
-		
+
 		if ( ! empty( $configuration->stateOrProvince ) ) {
 			$dn['stateOrProvinceName'] = $configuration->stateOrProvince;
 		}
-		
+
 		if ( ! empty( $configuration->locality ) ) {
 			$dn['localityName'] = $configuration->locality;
 		}
-		
+
 		if ( ! empty( $configuration->organization ) ) {
 			$dn['organizationName'] = $configuration->organization;
 		}
-		
+
 		if ( ! empty( $configuration->organizationUnit ) ) {
 			$dn['organizationalUnitName'] = $configuration->organizationUnit;
 		}
-		
+
 		if ( ! empty( $configuration->commonName ) ) {
 			$dn['commonName'] = $configuration->commonName;
 		}
-		
+
 		if ( ! empty( $configuration->eMailAddress ) ) {
 			$dn['emailAddress'] = $configuration->eMailAddress;
 		}
@@ -495,13 +495,13 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			$csr = openssl_csr_new( $dn, $privateKeyResource, $configargs );
 
 			$certificateResource = openssl_csr_sign( $csr, null, $privateKeyResource, $configuration->numberDaysValid, $configargs );
-			
+
 			if ( $certificateResource !== false ) {
 				$privateKeyPassword = filter_input( INPUT_POST, 'pronamic_ideal_generate_private_key_password', FILTER_SANITIZE_STRING );
 
 				$privateCertificate = null;
 				$exportedCertificate = openssl_x509_export( $certificateResource, $privateCertificate );
-								
+
 				$privateKey = null;
 				$exportedKey = openssl_pkey_export( $privateKeyResource, $privateKey, $privateKeyPassword, $configargs );
 
@@ -527,9 +527,9 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 		$update = sprintf(
 			__( 'Configuration updated, %s.', 'pronamic_ideal' ),
-			sprintf( 
+			sprintf(
 				__( '<a href="%s">back to overview</a>', 'pronamic_ideal' ),
-				Pronamic_WordPress_IDeal_Admin::getConfigurationsLink() 
+				Pronamic_WordPress_IDeal_Admin::getConfigurationsLink()
 			)
 		);
 	} elseif ( $updated === false ) {
@@ -548,7 +548,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	</h2>
 
 	<?php if ( $update ) : ?>
-	
+
 		<div class="updated inline below-h2">
 			<p><?php echo $update; ?></p>
 		</div>
@@ -556,7 +556,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	<?php endif; ?>
 
 	<?php if ( $error ) : ?>
-	
+
 		<div class="error inline below-h2">
 			<p><?php echo $error; ?></p>
 		</div>
@@ -594,7 +594,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			echo '<dd>', $fingerprint, '</dd>';
 
 			$info = openssl_x509_parse( $field['value'] );
-			
+
 			if ( $info ) {
 				$date_format = __( 'M j, Y @ G:i', 'pronamic_ideal' );
 
@@ -611,7 +611,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 			echo '</dl>';
 		}
-		
+
 		submit_button(
 			__( 'Download Private Certificate', 'pronamic_ideal' ),
 			'secondary' , 'download_private_certificate'
@@ -619,7 +619,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 	}
 
 	?>
-	
+
 	<form id="pronamic-ideal-configration-editor" enctype="multipart/form-data" action="" method="post">
 		<?php wp_nonce_field('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce'); ?>
 		<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr( $configuration->getId() ); ?>" type="hidden" />
@@ -649,12 +649,12 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 		<?php foreach ( $sections as $section ) : ?>
 
-			<?php 
-			
+			<?php
+
 			$classes = array();
 			if ( isset( $section['methods'] ) ) {
 				$classes[] = 'extra-settings';
-					
+
 				foreach ( $section['methods'] as $method ) {
 					$classes[] = 'method-' . $method;
 				}
@@ -664,22 +664,22 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 			<div class="<?php echo implode( ' ', $classes ); ?>">
 				<h3><?php echo $section['title']; ?></h3>
-	
+
 				<table class="form-table">
-		
+
 					<?php foreach ( $section['fields'] as $field ) : ?>
-		
-						<?php 
-						
+
+						<?php
+
 						$classes = array();
 						if ( isset( $field['methods'] ) ) {
 							$classes[] = 'extra-settings';
-							
+
 							foreach ( $field['methods'] as $method ) {
 								$classes[] = 'method-' . $method;
 							}
 						}
-		
+
 						?>
 						<tr class="<?php echo implode( ' ', $classes ); ?>">
 							<th scope="col">
@@ -688,8 +688,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								</label>
 							</th>
 							<td>
-								<?php 
-								
+								<?php
+
 								$attributes = array();
 								$attributes['id']   = $field['id'];
 								$attributes['name'] = $field['id'];
@@ -698,14 +698,14 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								if ( isset( $field['classes'] ) ) {
 									$classes = $field['classes'];
 								}
-		
+
 								if ( isset( $field['readonly'] ) && $field['readonly'] ) {
 									$attributes['readonly'] = 'readonly';
-		
+
 									$classes[] = 'regular-text';
 									$classes[] = 'readonly';
 								}
-								
+
 								if ( ! empty( $classes ) ) {
 									$attributes['class'] = implode( ' ', $classes );
 								}
@@ -716,26 +716,26 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								} elseif( isset( $field['value'] ) ) {
 									$value = $field['value'];
 								}
-								
+
 								switch ( $field['type'] ) {
 									case 'text' :
 										$attributes['type']  = 'text';
 										$attributes['value'] = $value;
-		
+
 										printf(
 											'<input %s />',
 											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
 										);
-									
+
 										break;
 									case 'file' :
 										$attributes['type']  = 'file';
-		
+
 										printf(
 											'<input %s />',
 											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
 										);
-									
+
 										break;
 									case 'select' :
 										printf(
@@ -743,18 +743,18 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 											Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
 											Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $value )
 										);
-		
+
 										break;
 									case 'optgroup' :
 										printf( '<fieldset>' );
 										printf( '<legend class="screen-reader-text">%s</legend>', $field['title'] );
-		
+
 										printf( '<p>' );
-										
+
 										foreach ( $field['options'] as $key => $label ) {
-											printf( 
+											printf(
 												'<label>%s %s</label><br />',
-												sprintf( 
+												sprintf(
 													'<input type="radio" value="%s" name="%s" %s />',
 													$key,
 													$field['id'],
@@ -763,43 +763,43 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 												$label
 											);
 										}
-										
+
 										break;
 								}
-								
+
 								if ( isset( $field['description'] ) ) {
 									printf(
 										'<span class="description"><br />%s</span>',
 										$field['description']
 									);
 								}
-								
+
 								if ( isset( $field['callback'] ) ) {
 									$callback = $field['callback'];
-									
+
 									$callback( $field, $configuration );
 								}
-		
+
 								?>
-							
+
 							</td>
 						</tr>
-					
+
 					<?php endforeach; ?>
-		
+
 				</table>
 			</div>
-				
+
 		<?php endforeach; ?>
 
-		<?php 
-		
+		<?php
+
 		submit_button(
 			empty( $configuration->id ) ? __( 'Save', 'pronamic_ideal' ) : __( 'Update', 'pronamic_ideal' ),
 			'primary',
 			'submit'
 		);
-	
+
 		?>
 
 		<div class="extra-settings method-advanced">
@@ -811,7 +811,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 			submit_button(
 				__( 'Generate', 'pronamic_ideal' ),
-				'secundary', 
+				'secundary',
 				'generate'
 			);
 
@@ -824,7 +824,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 			</h4>
 
 			<p>
-				<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>			
+				<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>
 			</p>
 
 			<table class="form-table">
@@ -835,7 +835,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 						</label>
 					</th>
 					<td>
-						<?php 
+						<?php
 
 						$filename = __( 'filename', 'pronamic_ideal' );
 
@@ -856,7 +856,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 						</label>
 					</th>
 					<td>
-						<?php 
+						<?php
 
 						$command = sprintf(
 							'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer',
