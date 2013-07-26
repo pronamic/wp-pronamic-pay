@@ -2,7 +2,7 @@
 
 /**
  * Title: Sisow
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,23 +11,23 @@
 class Pronamic_Gateways_Sisow_Sisow {
 	/**
 	 * Sisow REST API endpoint URL
-	 * 
+	 *
 	 * @var string
 	 */
 	const API_URL = 'https://www.sisow.nl/Sisow/iDeal/RestHandler.ashx';
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Sisow merchant ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $merchant_id;
 
 	/**
 	 * Sisow merchant key
-	 * 
+	 *
 	 * @var string
 	 */
 	private $merchant_key;
@@ -36,7 +36,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 	/**
 	 * Indicator to use test mode or not
-	 * 
+	 *
 	 * @var boolean
 	 */
 	private $test_mode;
@@ -45,7 +45,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
@@ -54,7 +54,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 	/**
 	 * Constructs and initializes an Sisow client object
-	 * 
+	 *
 	 * @param string $merchant_id
 	 * @param string $merchant_key
 	 */
@@ -66,8 +66,19 @@ class Pronamic_Gateways_Sisow_Sisow {
 	/////////////////////////////////////////////////
 
 	/**
+	 * Error
+	 *
+	 * @return WP_Error
+	 */
+	public function get_error() {
+		return $this->error;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Set test mode
-	 * 
+	 *
 	 * @param boolean $test_mode
 	 */
 	public function set_test_mode( $test_mode ) {
@@ -75,7 +86,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Send request with the specified action and parameters
 	 *
@@ -84,7 +95,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 	 */
 	private function send_request( $method, array $parameters = array() ) {
 		$url = self::API_URL . '/' . $method;
-	
+
 		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
@@ -96,7 +107,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 	/**
 	 * Parse the specified document and return parsed result
-	 * 
+	 *
 	 * @param SimpleXMLElement $document
 	 */
 	private function parse_document( SimpleXMLElement $document ) {
@@ -113,7 +124,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 				return $sisow_error;
 			case 'transactionrequest':
 				$transaction = Pronamic_Gateways_Sisow_XML_TransactionParser::parse( $document->transaction );
-				
+
 				return $transaction;
 			case 'statusresponse':
 				$transaction = Pronamic_Gateways_Sisow_XML_TransactionParser::parse( $document->transaction );
@@ -122,7 +133,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 			default:
 				return new WP_Error(
 					'ideal_sisow_error',
-					sprintf( __( 'Unknwon Sisow message (%s)', 'pronamic_ideal' ), $name ) 
+					sprintf( __( 'Unknwon Sisow message (%s)', 'pronamic_ideal' ), $name )
 				);
 		}
 	}
@@ -131,7 +142,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 	/**
 	 * Get directory
-	 * 
+	 *
 	 * @return array an array with issuers
 	 */
 	public function get_directory() {
@@ -141,18 +152,18 @@ class Pronamic_Gateways_Sisow_Sisow {
 			$directory = array( '99' => __( 'Sisow Bank (test)', 'pronamic_ideal' ) );
 		} else {
 			$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::DIRECTORY_REQUEST );
-	
+
 			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
-	
+
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
 				$directory = array();
-	
+
 				foreach ( $xml->directory->issuer as $issuer ) {
 					$id   = (string) $issuer->issuerid;
 					$name = (string) $issuer->issuername;
-				
+
 					$directory[$id] = $name;
 				}
 			}
@@ -160,12 +171,12 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 		return $directory;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create an SHA1 for an transaction request
-	 * 
+	 *
 	 * @param string $purchase_id
 	 * @param string $entrance_code
 	 * @param float $amount
@@ -175,20 +186,34 @@ class Pronamic_Gateways_Sisow_Sisow {
 	 */
 	public static function create_transaction_sha1( $purchase_id, $entrance_code, $amount, $shop_id, $merchant_id, $merchant_key ) {
 		return sha1(
-			$purchase_id . 
+			$purchase_id .
 			$entrance_code .
-			Pronamic_WordPress_Util::amount_to_cents( $amount ) . 
-			$shop_id . 
-			$merchant_id . 
+			Pronamic_WordPress_Util::amount_to_cents( $amount ) .
+			$shop_id .
+			$merchant_id .
 			$merchant_key
 		);
 	}
-	
+
 	//////////////////////////////////////////////////
 
+	/**
+	 * Create an transaction with the specified parameters
+	 *
+	 * @param string $issuer_id
+	 * @param string $purchase_id
+	 * @param float $amount
+	 * @param string $description
+	 * @param string $entrance_code
+	 * @param string $return_url
+	 *
+	 * @return Pronamic_Gateways_Sisow_Transaction
+	 */
 	public function create_transaction( $issuer_id, $purchase_id, $amount, $description, $entrance_code, $return_url ) {
+		$result = false;
+
 		$parameters = array();
-		
+
 		$parameters['merchantid']   = $this->merchant_id;
 		$parameters['issuerid']     = $issuer_id;
 		$parameters['purchaseid']   = $purchase_id;
@@ -201,24 +226,28 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$parameters['notifyurl']    = $return_url;
 		$parameters['sha1']         = self::create_transaction_sha1( $purchase_id, $entrance_code, $amount, '', $this->merchant_id, $this->merchant_key );
 
-		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::TRANSACTION_REQUEST, $parameters );
+		$response = $this->send_request( Pronamic_Gateways_Sisow_Methods::TRANSACTION_REQUEST, $parameters );
 
-		$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
-		
+		$xml = Pronamic_WordPress_Util::simplexml_load_string( $response );
+
 		if ( is_wp_error( $xml ) ) {
 			$this->error = $xml;
 		} else {
-			$result = $this->parse_document( $xml );
+			$message = $this->parse_document( $xml );
+
+			if ( $message instanceof Pronamic_Gateways_Sisow_Transaction ) {
+				$result = $message;
+			}
 		}
 
 		return $result;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create an SHA1 for an status request
-	 * 
+	 *
 	 * @param string $transaction_id
 	 * @param string $shop_id
 	 * @param string $merchant_id
@@ -226,18 +255,18 @@ class Pronamic_Gateways_Sisow_Sisow {
 	 */
 	public static function create_status_sha1( $transaction_id, $shop_id, $merchant_id, $merchant_key ) {
 		return sha1(
-			$transaction_id . 
-			$shop_id . 
-			$merchant_id . 
+			$transaction_id .
+			$shop_id .
+			$merchant_id .
 			$merchant_key
 		);
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_status( $transaction_id ) {
 		$parameters = array();
-		
+
 		$parameters['merchantid']   = $this->merchant_id;
 		$parameters['trxid']        = $transaction_id;
 		$parameters['sha1']         = self::create_status_sha1( $transaction_id, '', $this->merchant_id, $this->merchant_key );
@@ -245,7 +274,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::STATUS_REQUEST, $parameters );
 
 		$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
-		
+
 		if ( is_wp_error( $xml ) ) {
 			$this->error = $xml;
 		} else {
