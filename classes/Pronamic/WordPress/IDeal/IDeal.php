@@ -135,6 +135,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_Icepay_Gateway( $configuration );
 					case 'sisow':
 						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
+					case 'qantani':
+						return new Pronamic_Gateways_Qantani_Gateway( $configuration );
 				}
 			}
 		}
