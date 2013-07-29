@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress iDEAL plugin
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WordPress_IDeal_Plugin {
 	/**
 	 * The maximum number of payments that can be done without an license
-	 * 
+	 *
 	 * @var int
 	 */
 	const PAYMENTS_MAX_LICENSE_FREE = 20;
@@ -20,20 +20,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * The current version of this plugin
-	 * 
+	 *
 	 * @var string
 	 */
-	const VERSION = '1.2.10';
+	const VERSION = '1.3.0';
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * The root file of this WordPress plugin
-	 * 
+	 *
 	 * @var string
 	 */
 	public static $file;
-	
+
 	/**
 	 * The plugin dirname
 	 *
@@ -45,7 +45,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Bootstrap
-	 * 
+	 *
 	 * @param string $file
 	 */
 	public static function bootstrap( $file ) {
@@ -73,15 +73,15 @@ class Pronamic_WordPress_IDeal_Plugin {
 		}
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
-		
+
 		// Initialize requirements
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';
-		
+
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
-		
+
 		add_action( 'pronamic_ideal_advanced_return_raw',      array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_advanced_v3_return_raw',   array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_easy_return_raw',          array( 'Pronamic_Gateways_IDealEasy_ReturnHandler', 'returns' ), 10, 2 );
@@ -108,7 +108,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_icepay_return',         array( __CLASS__, 'update_icepay_payment_status' ),        10, 2 );
 		add_action( 'pronamic_ideal_sisow_return',          array( __CLASS__, 'update_sisow_payment_status' ),         10, 2 );
 		add_action( 'pronamic_ideal_qantani_return',        array( __CLASS__, 'update_qantani_payment_status' ),         10, 2 );
-		
+
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
 
@@ -117,10 +117,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Check status of the specified payment
-	 * 
+	 *
 	 * @param string $paymentId
 	 */
 	public static function checkStatus( $payment_id = null ) {
@@ -141,7 +141,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Check the status of the specified payment
-	 * 
+	 *
 	 * @param unknown_type $payment
 	 */
 	public static function checkPaymentStatus( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
@@ -154,7 +154,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway->update_status( $payment );
 
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-	
+
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 
@@ -164,7 +164,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway->update_status( $payment );
 
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-	
+
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 	}
@@ -191,7 +191,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Update kassa payment status
-	 * 
+	 *
 	 * @param array $data
 	 * @param boolean $canRedirect
 	 */
@@ -249,7 +249,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 					break;
 			}
-			
+
 			if ( $status != null ) {
 				$payment->status = $status;
 
@@ -262,15 +262,15 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Update OmniKassa payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
 	public static function update_omnikassa_payment_status( $data, $can_redirect = false ) {
 		$transaction_reference = $data['transactionReference'];
-		
+
 		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_reference );
-		
+
 		if ( $payment != null ) {
 			$response_code = $data['responseCode'];
 
@@ -284,7 +284,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
 					break;
 			}
-			
+
 			$payment->status = $status;
 
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
@@ -295,7 +295,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Update Mollie payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
@@ -307,14 +307,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
 
 		$gateway->update_status( $payment );
-		
+
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-		
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
   	/**
 	 * Update Buckaroo payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
@@ -348,7 +348,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
 					break;
 			}
-			
+
 			if ( $status != null ) {
 				$payment->status        = $status;
 				$payment->consumer_iban = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN];
@@ -361,30 +361,30 @@ class Pronamic_WordPress_IDeal_Plugin {
 			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 		}
 	}
-	
+
 	public static function update_icepay_payment_status( $payment, $can_redirect = false ) {
 		$configuration = $payment->configuration;
-		
+
 		$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
 		$gateway->update_status( $payment );
-		
+
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-		
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
-	
+
 	public static function update_sisow_payment_status( $payment, $can_redirect = false ) {
 		$configuration = $payment->configuration;
-		
+
 		$gateway = new Pronamic_Gateways_Sisow_Gateway( $configuration );
 		$gateway->update_status( $payment );
-		
+
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-		
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
-	
-	public static function update_qantani_payment_status( $payment, $can_redirect = false ) {		
+
+	public static function update_qantani_payment_status( $payment, $can_redirect = false ) {
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
@@ -392,7 +392,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Update TargetPay payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
@@ -404,45 +404,45 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 
 		$gateway->update_status( $payment );
-		
+
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-		
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
 	/**
 	 * Update iDEAL Basic payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
 	public static function update_ideal_basic_payment_status( $payment, $status, $can_redirect = false ) {
 		$payment->status = $status;
-		
+
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-		
+
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
 	/**
 	 * Update iDEAL Easy payment status
-	 * 
+	 *
 	 * @param array $result
 	 * @param boolean $canRedirect
 	 */
 	public static function update_ideal_easy_payment_status( $payment, $status, $can_redirect = false ) {
 		$payment->status = $status;
-		
+
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
 		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the key
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function get_key() {
@@ -451,7 +451,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Set the key
-	 * 
+	 *
 	 * @param string $key
 	 */
 	public static function set_key( $key ) {
@@ -463,10 +463,10 @@ class Pronamic_WordPress_IDeal_Plugin {
 			update_option( 'pronamic_ideal_key', md5( trim( $key ) ) );
 		}
 	}
-	
+
 	/**
 	 * Get the license info for the current installation on the blogin
-	 * 
+	 *
 	 * @return stdClass an onbject with license information or null
 	 */
 	public static function get_license_info() {
@@ -475,14 +475,14 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Check if there is an valid license key
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public static function has_valid_key() {
 		$result = strlen( self::get_key() ) == 32;
 
 		$license_info = self::get_license_info();
-		
+
 		if ( $license_info != null && isset( $license_info->isValid ) ) {
 			$result = $license_info->isValid;
 		}
@@ -499,7 +499,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Check if the plugin can be used
-	 * 
+	 *
 	 * @return boolean true if plugin can be used, false otherwise
 	 */
 	public static function can_be_used() {
@@ -507,32 +507,32 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Maybe show an license message
 	 */
 	public static function admin_notices() {
 		if ( ! self::can_be_used() ): ?>
-		
+
 			<div class="error">
 				<p>
-					<?php 
-					
+					<?php
+
 					printf(
 						__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
-						self::PAYMENTS_MAX_LICENSE_FREE, 
+						self::PAYMENTS_MAX_LICENSE_FREE,
 						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
 					);
-					
+
 					?>
 				</p>
 			</div>
 
 		<?php elseif ( ! self::has_valid_key() ) : ?>
-		
+
 			<div class="updated">
 				<p>
-					<?php 
+					<?php
 
 					printf(
 						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
@@ -543,7 +543,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					?>
 				</p>
 			</div>
-		
+
 		<?php endif;
 	}
 
@@ -551,7 +551,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 	/**
 	 * Configure the specified roles
-	 * 
+	 *
 	 * @param array $roles
 	 */
 	public static function set_roles( $roles ) {
@@ -565,7 +565,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			if ( isset( $data['display_name'], $data['capabilities'] ) ) {
 				$display_name = $data['display_name'];
 				$capabilities = $data['capabilities'];
-	
+
 				if ( $wp_roles->is_role( $role ) ) {
 					foreach ( $capabilities as $cap => $grant ) {
 						$wp_roles->add_cap( $role, $cap, $grant );
@@ -585,7 +585,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function setup() {
 		// Load plugin text domain
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
-		
+
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		if ( get_option( 'pronamic_ideal_version' ) != self::VERSION ) {
@@ -595,7 +595,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			// Add some new capabilities
 			$capabilities = array(
-				'read'                           => true, 
+				'read'                           => true,
 				'pronamic_ideal'                 => true,
 				'pronamic_ideal_configurations'  => true,
 				'pronamic_ideal_payments'        => true,
@@ -607,18 +607,18 @@ class Pronamic_WordPress_IDeal_Plugin {
 				'pronamic_ideal_documentation'   => true,
 				'pronamic_ideal_branding'        => true
 			);
-			
+
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
 					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
-				) , 
+				) ,
 				'administrator' => array(
 					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
 					'capabilities' => $capabilities
 				)
 			);
-			
+
 			self::set_roles( $roles );
 
 			// Update version
