@@ -2,7 +2,7 @@
 
 /**
  * Title: Sisow
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -19,12 +19,12 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client = new Pronamic_Gateways_Sisow_Sisow( $configuration->sisowMerchantId, $configuration->sisowMerchantKey );
 		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
@@ -42,7 +42,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 
 		return $groups;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_issuer_field() {
@@ -55,12 +55,12 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 			'choices'  => $this->get_transient_issuers()
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start 
-	 * 
+	 * Start
+	 *
 	 * @param Pronamic_IDeal_IDealDataProxy $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -73,7 +73,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_entrance_code(),
 			add_query_arg( 'gateway', 'sisow', home_url( '/' ) )
 		);
-		
+
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->issuer_url );
@@ -86,7 +86,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
