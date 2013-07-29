@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,9 +11,9 @@
 class Pronamic_WordPress_IDeal_IDeal {
 	/**
 	 * Delete the transient for the specified configuration
-	 * 
+	 *
 	 * @param Configuration $configuration
-	 * @return boolean true if successful, false otherwise. 
+	 * @return boolean true if successful, false otherwise.
 	 */
 	public static function deleteConfigurationTransient(Pronamic_WordPress_IDeal_Configuration $configuration) {
 		return delete_transient('pronamic_ideal_issuers_' . $configuration->getId());
@@ -23,7 +23,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	/**
 	 * Get the translaction of the specified status notifier
-	 * 
+	 *
 	 * @param string $status
 	 * @return string
 	 */
@@ -45,10 +45,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get default error message
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function get_default_error_message() {
@@ -59,24 +59,24 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	/**
 	 * Get configurations select options
-	 * 
+	 *
 	 * @return array
 	 */
 	public static function get_configurations_select_options() {
 		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
 		$options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
-		
+
 		foreach ( $configurations as $configuration ) {
 			$options[$configuration->getId()] = self::get_configuration_option_name( $configuration );
 		}
-		
+
 		return $options;
 	}
 
 	/**
 	 * Get the configuration option name
-	 * 
+	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
 	public static function get_configuration_option_name( Pronamic_WordPress_IDeal_Configuration $configuration ) {
@@ -92,7 +92,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	/**
 	 * Render errors
-	 * 
+	 *
 	 * @param array $errors
 	 */
 	public static function render_errors( $errors = array() ) {
@@ -106,11 +106,11 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
 		if ( $configuration !== null ) {
 			$variant = $configuration->getVariant();
-			
+
 			if ( $variant !== null ) {
 				switch ( $variant->getMethod() ) {
 					case Pronamic_IDeal_IDeal::METHOD_EASY:
@@ -128,7 +128,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 					case 'mollie':
 						return new Pronamic_Gateways_Mollie_Gateway( $configuration );
 					case 'buckaroo':
-						return new Pronamic_Gateways_Buckaroo_Gateway( $configuration );  
+						return new Pronamic_Gateways_Buckaroo_Gateway( $configuration );
 					case 'targetpay':
 						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 					case 'icepay':
@@ -137,17 +137,17 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
 				}
 			}
-		}				
+		}
 	}
 
 	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_IDeal_IDealDataProxy $data ) {
 		$gateway->start( $data );
 
 		$payment = self::create_payment( $configuration, $gateway, $data );
-		
+
 		$gateway->payment( $payment );
 	}
-	
+
 	public static function create_payment( $configuration, $gateway, $data ) {
 		$payment = new Pronamic_WordPress_IDeal_Payment();
 		$payment->configuration           = $configuration;
