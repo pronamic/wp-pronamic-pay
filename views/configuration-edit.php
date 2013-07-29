@@ -303,17 +303,17 @@ $sections = array(
 				'type'        => 'text'
 			),
 			array(
-				'name'        => 'qantani_merchant_key',
-				'id'          => 'pronamic_ideal_qantani_merchant_key',
-				'title'       => _x( 'Key', 'qantani', 'pronamic_ideal' ),
-				'type'        => 'text'
-			),
-			array(
 				'name'        => 'qantani_merchant_secret',
 				'id'          => 'pronamic_ideal_qantani_merchant_secret',
 				'title'       => _x( 'Secret', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' )
+			),
+			array(
+				'name'        => 'qantani_merchant_key',
+				'id'          => 'pronamic_ideal_qantani_merchant_key',
+				'title'       => _x( 'Key', 'qantani', 'pronamic_ideal' ),
+				'type'        => 'text'
 			)
 		)
 	),
