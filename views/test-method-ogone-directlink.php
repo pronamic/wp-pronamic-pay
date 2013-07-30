@@ -11,6 +11,7 @@ $kassa->set_field( 'PSWD', '' );
 $kassa->setAmount( 50 );
 $kassa->setCurrency( 'EUR' );
 $kassa->set_field( 'CARDNO', '5555555555554444' );
+$kassa->set_field( 'CARDNO', '4111111111111111' );
 $kassa->set_field( 'ED', '01/15' );
 //$kassa->setOrderDescription( 'Description' );
 //$kassa->setCustomerName( 'Pronamic Test' );
