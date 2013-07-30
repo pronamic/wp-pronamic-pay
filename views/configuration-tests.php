@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
@@ -24,7 +24,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 			<h3>
 				<?php _e( 'Info', 'pronamic_ideal' ); ?>
 			</h3>
-	
+
 			<table class="form-table">
 				<tr>
 					<th scope="row">
@@ -47,8 +47,8 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 						<?php _e( 'Mode', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-						<?php 
-						
+						<?php
+
 						switch ( $configuration->mode ) {
 							case Pronamic_IDeal_IDeal::MODE_LIVE:
 								_e( 'Live', 'pronamic_ideal' );
@@ -57,17 +57,17 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 								_e( 'Test', 'pronamic_ideal' );
 								break;
 						}
-						
+
 						?>
 					</td>
 				</tr>
 			</table>
 		</div>
-	
-		<?php 
-		
+
+		<?php
+
 		$variant = $configuration->getVariant();
-		
+
 		if ( !empty( $variant ) ) {
 			switch ( $variant->getMethod() ) {
 				case 'easy':
@@ -90,7 +90,7 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 					break;
 				case 'mollie':
 					include 'test-method-mollie.php';
-					break;  
+					break;
 				case 'buckaroo':
 					include 'test-method-buckaroo.php';
 					break;
@@ -103,10 +103,13 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'qantani':
 					include 'test-method-qantani.php';
 					break;
+				case 'ogone_directlink':
+					include 'test-method-ogone-directlink.php';
+					break;
 			}
 		}
-	
+
 		?>
-	
+
 	<?php endif; ?>
 </div>
