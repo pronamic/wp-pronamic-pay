@@ -62,7 +62,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 		if ( $payment->getSource() == self::SLUG && self::isJigoshopSupported() ) {
 			$id = $payment->getSourceId();
 
-			$order = &new jigoshop_order( (int) $id );
+			$order = new jigoshop_order( (int) $id );
 			$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
 			$should_update = ! in_array(
