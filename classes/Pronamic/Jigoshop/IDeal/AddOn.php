@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: Jigoshop iDEAL Add-On
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Jigoshop_IDeal_AddOn {
 	/**
 	 * Slug
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'jigoshop';
@@ -33,7 +33,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 
 	/**
 	 * Checks if Shopp is supported
-	 * 
+	 *
 	 * @return true if Shopp is supported, false otherwise
 	 */
 	public static function isJigoshopSupported() {
@@ -52,17 +52,17 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Update lead status of the specified payment
-	 * 
+	 *
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::isJigoshopSupported() ) {
 			$id = $payment->getSourceId();
 
-			$order = &new jigoshop_order( (int) $id );
+			$order = new jigoshop_order( (int) $id );
 			$data_proxy = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
 
 			$should_update = ! in_array(
@@ -73,7 +73,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 				)
 			);
 
-			if ( $should_update ) {			
+			if ( $should_update ) {
 				$url = $data_proxy->getNormalReturnUrl();
 
 				switch ( $payment->status ) {
@@ -99,7 +99,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 		            	// Payment completed
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
-		                
+
 		                $url = $data_proxy->getSuccessUrl();
 
 						break;
@@ -123,7 +123,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Source column
 	 */
@@ -132,8 +132,8 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 
 		$text .= __( 'Jigoshop', 'pronamic_ideal' ) . '<br />';
 
-		$text .= sprintf( 
-			'<a href="%s">%s</a>', 
+		$text .= sprintf(
+			'<a href="%s">%s</a>',
 			get_edit_post_link( $payment->getSourceId() ),
 			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
 		);
