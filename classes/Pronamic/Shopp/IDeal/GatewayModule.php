@@ -238,32 +238,22 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 		if ( $gateway ) {
-			$this->process_gateway_http_redirect( $purchase, $configuration, $gateway );
+			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
+
+			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+
+			$error = $gateway->get_error();
+
+			if ( is_wp_error( $error ) ) {
+				// @todo what todo?
+				var_dump( $error );
+
+				exit;
+			} else {
+		    	$gateway->redirect();
+			}
 		}
 	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Process order iDEAL advanced
-	 */
-	public function process_gateway_http_redirect( $purchase, $configuration, $gateway ) {
-		$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
-
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
-		$error = $gateway->get_error();
-
-		if ( is_wp_error( $error ) ) {
-			// @todo what todo?
-			var_dump( $error );
-
-			exit;
-		} else {
-	    	$gateway->redirect();
-		}
-	}
-
 	//////////////////////////////////////////////////
 
 	/**
