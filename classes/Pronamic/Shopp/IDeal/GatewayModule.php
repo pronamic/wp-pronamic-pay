@@ -79,8 +79,8 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		add_filter( 'shopp_checkout_gateway_inputs', array( $this, 'inputs' ), 50 );
 
 		// Order receipt
-		add_filter( 'shopp_order_receipt',           array( $this, 'html_form' ) );
-		add_filter( 'shopp_order_lookup',            array( $this, 'html_form' ) );
+		add_filter( 'shopp_order_receipt', array( $this, 'html_form' ) );
+		add_filter( 'shopp_order_lookup',  array( $this, 'html_form' ) );
 
 		// Actions
 		// @see /shopp/core/model/Gateway.php#L122
