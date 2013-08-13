@@ -78,6 +78,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => __( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'basic', 'omnikassa', 'advanced', 'advanced_v3' )
 			),
@@ -86,6 +87,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sub_id',
 				'title'       => __( 'Sub ID', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'small-text', 'code' ),
 				'description' => sprintf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ),
 				'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
 			),
@@ -94,6 +96,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_hash_key',
 				'title'       => __( 'Hash Key', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'basic', 'omnikassa' )
 			)
@@ -107,6 +110,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_basic_xml_notification_url',
 				'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
 				'value'       => add_query_arg( array(
 					'gateway'         => 'ideal_basic',
 					'xml_notifaction' => 'true'
@@ -125,6 +129,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mollie_partner_id',
 				'title'       => __( 'Partner ID', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
 			),
 			 array(
@@ -132,6 +137,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mollie_profile_key',
 				'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => sprintf(
 					__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 					'https://www.mollie.nl/beheer/account/profielen/'
@@ -148,6 +154,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_key_version',
 				'title'       => __( 'Key Version', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'small-text', 'code' ),
 				'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
 			)
 		)
@@ -161,6 +168,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_buckaroo_website_key',
 				'title'       => __( 'Website Key', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => sprintf( __( 'You can find your Buckaroo website keys in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Profile" » "Website".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			),
 			array(
@@ -168,6 +176,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_buckaroo_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf( __( 'You can find your Buckaroo secret key in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Configuration" » "Secret Key for Digital Signature".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' )
 			)
 		)
@@ -210,6 +219,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sisow_merchant_id',
 				'title'       => _x( 'Merchant ID', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => sprintf(
 					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>.', 'pronamic_ideal' ),
 					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
@@ -252,6 +262,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_pspid',
 				'title'       => __( 'PSPID', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'code' ),
 				'description' => sprintf(
 						__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
 						'TESTiDEALEASY'
@@ -279,6 +290,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'internetkassa' )
 			),
@@ -287,6 +299,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 				'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'internetkassa' )
 			)
@@ -300,7 +313,8 @@ $sections = array(
 				'name'        => 'qantani_merchant_id',
 				'id'          => 'pronamic_ideal_qantani_merchant_id',
 				'title'       => _x( 'Merchant ID', 'qantani', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'classes'     => array( 'code' )
 			),
 			array(
 				'name'        => 'qantani_merchant_secret',
@@ -313,7 +327,8 @@ $sections = array(
 				'name'        => 'qantani_merchant_key',
 				'id'          => 'pronamic_ideal_qantani_merchant_key',
 				'title'       => _x( 'Key', 'qantani', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'classes'     => array( 'code' )
 			)
 		)
 	),
@@ -325,7 +340,8 @@ $sections = array(
 				'name'        => 'privateKeyPassword',
 				'id'          => 'pronamic_ideal_private_key_password',
 				'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
-				'type'        => 'text'
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' )
 			),
 			array(
 				'name'        => 'privateKey',
@@ -699,7 +715,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 								if ( isset( $field['readonly'] ) && $field['readonly'] ) {
 									$attributes['readonly'] = 'readonly';
 
-									$classes[] = 'regular-text';
 									$classes[] = 'readonly';
 								}
 
