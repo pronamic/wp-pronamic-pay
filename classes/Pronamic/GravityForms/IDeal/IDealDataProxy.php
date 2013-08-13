@@ -305,4 +305,15 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		
 		return $issuer_id;
 	}
+
+	//////////////////////////////////////////////////
+	// Creditcard
+	//////////////////////////////////////////////////
+
+	public function get_creditcard() {
+		$creditcard_fields = GFCommon::get_fields_by_type( $this->form, array( 'creditcard' ) );
+		$creditcard_fields = array_shift( $creditcard_fields );
+		
+		
+	}
 }

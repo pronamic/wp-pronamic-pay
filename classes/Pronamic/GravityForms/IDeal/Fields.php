@@ -13,6 +13,8 @@ class Pronamic_GravityForms_IDeal_Fields {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
+		add_filter( 'gform_enable_credit_card_field', '__return_true' );
+
 		add_filter( 'gform_add_field_buttons', array( __CLASS__, 'add_field_buttons' ) );
 		add_filter( 'gform_field_input',       array( __CLASS__, 'acquirer_field_input' ), 10, 5 );
 		add_filter( 'gform_field_type_title',  array( __CLASS__, 'field_type_title' ) );
