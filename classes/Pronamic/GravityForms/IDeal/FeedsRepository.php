@@ -83,7 +83,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 		$feed->conditionOperator      = $meta->conditionOperator;
 		$feed->conditionValue         = $meta->conditionValue;
 		$feed->userRoleFieldId        = $meta->userRoleFieldId;
-		$feed->fields                 = isset( $meta->fields ) ? $meta->fields : array();
+		$feed->fields                 = isset( $meta->fields ) ? (array) $meta->fields : array();
 
 		return $feed;
     }

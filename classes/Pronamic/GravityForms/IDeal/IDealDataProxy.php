@@ -51,6 +51,22 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 
 	//////////////////////////////////////////////////
 
+	private function get_field_value( $field_name ) {
+		$value = null;
+
+		if ( isset( $this->feed->fields[$field_name] ) ) {
+			$field_id = $this->feed->fields[$field_name];
+			
+			if ( isset( $this->lead[$field_id] ) ) {
+				$value = $this->lead[$field_id];
+			}
+		}
+		
+		return $value;
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Get source indicator
 	 * 
@@ -205,23 +221,24 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	//////////////////////////////////////////////////
 
 	public function getEMailAddress() {
-		
+		return $this->get_field_value( 'email' );
+		exit;
 	}
 
 	public function getCustomerName() {
-		
+		return $this->get_field_value( 'first_name' ) . ' ' . $this->get_field_value( 'last_name' );
 	}
 
 	public function getOwnerAddress() {
-		
+		return $this->get_field_value( 'address1' ) . ' ' . $this->get_field_value( 'address2' );
 	}
 
 	public function getOwnerCity() {
-		
+		return $this->get_field_value( 'city' );
 	}
 
 	public function getOwnerZip() {
-		
+		return $this->get_field_value( 'zip' );
 	}
 
 	//////////////////////////////////////////////////
