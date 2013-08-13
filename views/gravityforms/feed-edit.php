@@ -306,6 +306,45 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 				</td>
 			</tr>                                   
 		</table>
+		
+		<h3>
+			<?php _e( 'Fields', 'pronamic_ideal' ); ?>
+		</h3>
+
+		<?php 
+		
+		$fields = array(
+			'first_name' => __( 'First Name', 'pronamic_ideal' ),
+			'last_name'  => __( 'Last Name', 'pronamic_ideal' ),
+			'email'      => __( 'Email', 'pronamic_ideal' ),
+			'address1'   => __( 'Address', 'pronamic_ideal' ),
+			'address2'   => __( 'Address 2', 'pronamic_ideal' ),
+			'city'       => __( 'City', 'pronamic_ideal' ),
+			'state'      => __( 'State', 'pronamic_ideal' ),
+			'zip'        => __( 'Zip', 'pronamic_ideal' ),
+			'country'    => __( 'Country', 'pronamic_ideal' ),
+		);
+		
+		?>
+		
+		<table class="form-table">
+			
+			<?php foreach ( $fields as $name => $label ) : ?>
+			
+				<tr>
+					<th scope="row">
+						<?php echo $label; ?>
+					</th>
+					<td>
+						<select id="" name="">
+							
+						</select>
+					</td>
+				</tr>
+			
+			<?php endforeach; ?>
+
+		</table>
 
 		<h3>
 			<?php _e( 'Status Links', 'pronamic_ideal' ); ?>
