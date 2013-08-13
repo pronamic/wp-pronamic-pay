@@ -81,18 +81,8 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	public function __construct() {
 		$this->fields = array();
 
-		$this->calculations_parameters_in  = array();
-		$this->calculations_parameters_out = array();
-
-		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
-		if ( is_readable( $file ) ) {
-			$this->set_calculations_parameters_in( file( $file, FILE_IGNORE_NEW_LINES ) );
-		}
-
-		$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
-		if ( is_readable( $file ) ) {
-			$this->set_calculations_parameters_out( file( $file, FILE_IGNORE_NEW_LINES ) );
-		}
+		$this->calculations_parameters_in  = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
+		$this->calculations_parameters_out = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
 
 		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
 	}
