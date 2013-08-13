@@ -142,6 +142,25 @@
             return fields;
 		};
 		
+		this.get_inputs = function() {
+			var inputs = new Array();
+			
+			if ( gravityForm ) {
+				$.each( gravityForm.fields, function( key, field ) {
+					console.log(field);
+					if ( field.inputs ) {
+						$.each( field.inputs, function( key, input ) {
+							inputs.push( input );
+						} );
+					} else if ( ! field.displayOnly ) {
+						inputs.push ( field );
+					}
+				} );
+			}
+			
+			return inputs;
+		}
+		
 		this.getNotifications = function(form_id) {
 			var holder    = $( '.gf_ideal_delay_notification_holder' );
 			var isChecked = $( '.gf_ideal_delay_notifications' ).is( ':checked' );
@@ -251,6 +270,33 @@
 		};
 		
 		/**
+		 * Update select fields
+		 */
+		this.updateSelectFields = function() {
+			if ( gravityForm ) {
+				elements.fieldSelectFields.empty();
+
+				elements.fieldSelectFields.each( function( i, element ) {
+					$element = $( element );
+					
+					var name = $element.data( 'gateway-field-name' );
+
+					$( '<option>' ).appendTo( $element );
+
+					$.each( obj.get_inputs(), function( key, input ) {
+		                var label = input.adminLabel ? input.adminLabel : input.label;
+
+						$( '<option>' )
+							.attr( 'value', input.id )
+							.text( label )
+							.prop( 'selected', feed.fields[name] == input.id )
+							.appendTo( $element );
+					} );
+				} );
+			}
+		};
+		
+		/**
 		 * Update fields
 		 */
 		this.updateFields = function() {
@@ -260,6 +306,7 @@
 			obj.updateConditionFields();
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
+			obj.updateSelectFields();
 		};
 
 		// Function calls
