@@ -37,7 +37,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 	} else {
 		$feed->removeDelayNotifications();
 	}
-		
 	
 	$feed->delayAdminNotification = filter_input( INPUT_POST, 'gf_ideal_delay_admin_notification', FILTER_VALIDATE_BOOLEAN );
 	$feed->delayUserNotification  = filter_input( INPUT_POST, 'gf_ideal_delay_user_notification', FILTER_VALIDATE_BOOLEAN );
@@ -50,6 +49,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 
 	$feed->userRoleFieldId = filter_input( INPUT_POST, 'gf_ideal_user_role_field_id', FILTER_SANITIZE_STRING );
 
+	// Links
 	$links = filter_input( INPUT_POST, 'gf_ideal_links', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 
 	foreach ( $links as $name => $data ) {
@@ -65,6 +65,10 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 		$feed->setLink( $name, $link );
 	}
 
+	// Fields
+	$feed->fields = filter_input( INPUT_POST, 'gf_ideal_fields', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+
+	// Update
 	$updated = Pronamic_GravityForms_IDeal_FeedsRepository::updateFeed( $feed );
 }
 
@@ -336,7 +340,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 						<?php echo $label; ?>
 					</th>
 					<td>
-						<select id="" name="">
+						<select id="gf_ideal_fields_<?php echo $name; ?>" name="gf_ideal_fields[<?php echo $name; ?>]" data-gateway-field-name="<?php echo $name; ?>" class="field-select">
 							
 						</select>
 					</td>
