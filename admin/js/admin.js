@@ -71,7 +71,7 @@
 					if ( index >= 0 ) {
 						var label = field.adminLabel ? field.adminLabel : field.label;
 
-						$('<option>')
+						$( '<option>' )
 							.attr( 'value', field.id )
 							.text (label )
 							.prop( 'selected', feed.conditionFieldId == field.id )
@@ -91,7 +91,7 @@
 			var field = obj.getFieldById( id );
 			
 			elements.conditionValue.empty();
-			$( '<option>').appendTo( elements.conditionValue );
+			$( '<option>' ).appendTo( elements.conditionValue );
 
 			if ( field && field.choices ) {
 				$.each( field.choices, function( key, choice ) {
