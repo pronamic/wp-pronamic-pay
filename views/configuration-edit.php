@@ -254,8 +254,8 @@ $sections = array(
 		)
 	),
 	array(
-		'title'   => __( 'Internetkassa', 'pronamic_ideal' ),
-		'methods' => array( 'easy', 'internetkassa' ),
+		'title'   => __( 'Ogone', 'pronamic_ideal' ),
+		'methods' => array( 'easy', 'internetkassa', 'ogone_directlink' ),
 		'fields'  => array(
 			array(
 				'name'        => 'pspId',
@@ -267,7 +267,7 @@ $sections = array(
 						__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
 						'TESTiDEALEASY'
 				),
-				'methods'     => array( 'easy', 'internetkassa' )
+				'methods'     => array( 'easy', 'internetkassa', 'ogone_directlink' )
 			),
 			array(
 				'id'          => 'pronamic_ideal_character_encoding',
@@ -292,7 +292,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'internetkassa' )
+				'methods'     => array( 'internetkassa', 'ogone_directlink' )
 			),
 			array(
 				'name'        => 'shaOutPassPhrase',
@@ -302,6 +302,22 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'internetkassa' )
+			),
+			array(
+				'name'        => 'ogone_user_id',
+				'id'          => 'pronamic_ideal_ogone_user_id',
+				'title'       => __( 'User ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'methods'     => array( 'ogone_directlink' )
+			),
+			array(
+				'name'        => 'ogone_password',
+				'id'          => 'pronamic_ideal_ogone_password',
+				'title'       => __( 'Password', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'methods'     => array( 'ogone_directlink' )
 			)
 		)
 	),
