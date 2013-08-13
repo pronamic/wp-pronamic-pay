@@ -31,6 +31,14 @@ class Pronamic_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_Gatew
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
 
-		
+		$this->client = new Pronamic_Gateways_Ogone_DirectLink_Client();
+		$this->client->psp_id   = $configuration->pspId;
+		$this->client->sha_in   = $configuration->shaInPassPhrase;
+		$this->client->user_id  = $configuration->ogone_user_id;
+		$this->client->password = $configuration->ogone_password;
 	}
+	
+	/////////////////////////////////////////////////
+
+	
 }
