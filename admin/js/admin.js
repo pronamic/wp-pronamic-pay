@@ -159,7 +159,7 @@
 			}
 			
 			return inputs;
-		}
+		};
 		
 		this.getNotifications = function(form_id) {
 			var holder    = $( '.gf_ideal_delay_notification_holder' );
