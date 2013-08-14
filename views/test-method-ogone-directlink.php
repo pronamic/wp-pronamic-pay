@@ -24,18 +24,6 @@ $data['SHASIGN'] = $kassa->getSignatureIn();
 
 //var_dump($data);
 
-$response = wp_remote_post( $url, array(
-	'method'  => 'POST',
-	'timeout' => 25,
-	'body'    => $data
-) );
+$client = new Pronamic_Gateways_Ogone_DirectLink_Client();
 
-echo '<pre>';
-var_dump( $data );
-echo '</pre>';
-
-$body = wp_remote_retrieve_body( $response );
-
-echo '<pre>';
-echo htmlspecialchars( $body );
-echo '</pre>';
+$response = $client->order_direct( $data );

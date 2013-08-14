@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Ogone DirectLink
+ * Title: Ogone security class
 * Description:
 * Copyright: Copyright (c) 2005 - 2011
 * Company: Pronamic
