@@ -40,5 +40,33 @@ class Pronamic_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_Gatew
 	
 	/////////////////////////////////////////////////
 
-	
+	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+		$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$kassa->setPspId( $this->client->psp_id );
+		$kassa->setPassPhraseIn( $this->client->sha_in );
+		$kassa->setOrderId( $data->getOrderId() );
+		$kassa->set_field( 'USERID', $this->client->user_id );
+		$kassa->set_field( 'PSWD', $this->client->password );
+		$kassa->setAmount( $data->getAmount() );
+		$kassa->setCurrency( 'EUR' );
+		$kassa->set_field( 'CARDNO', '5555555555554444' );
+		// $kassa->set_field( 'CARDNO', '4111111111111111' );
+		$kassa->set_field( 'ED', '01/15' );
+		$kassa->setOrderDescription( $data->getDescription() );
+		$kassa->setCustomerName( $data->getCustomerName() );
+		$kassa->setEMailAddress( $data->getEMailAddress() );
+		$kassa->set_field( 'CVC', '000' );
+		$kassa->set_field( 'OPERATION', 'SAL' );
+		
+		$data = $kassa->get_fields();
+		$data['SHASIGN'] = $kassa->getSignatureIn();
+		
+		$result = $this->client->order_direct( $data );
+		
+		if ( is_wp_error( $result ) ) {
+			$this->error = $result;
+		} else {
+			$this->set_action_url( add_query_arg( 'status', $result->status ) );
+		}
+	}
 }

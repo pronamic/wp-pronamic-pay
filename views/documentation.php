@@ -313,6 +313,18 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone_DirectLink_EN.pdf',
 					'name'    => 'Ogone - DirectLink - Integration Guide for the Server-to-Server Solution',
 					'version' => '4.3.3'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Parameter-Cookbook.pdf',
+					'name'    => 'Ogone - Parameter Cookbook'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-List-of-the-payment-statuses-and-error-codes.pdf',
+					'name'    => 'Ogone - List of the payment statuses and error codes'
+				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Lijst-van-de-betaalstatussen-en-foutcodes.pdf',
+					'name'    => 'Ogone - Lijst van de betaalstatussen en foutcodes'
 				)
 			)
 		),

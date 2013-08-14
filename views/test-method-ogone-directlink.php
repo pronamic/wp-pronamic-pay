@@ -1,29 +1,39 @@
-<?php
+<?php 
 
-$url = 'https://secure.ogone.com/ncol/test/orderdirect.asp';
+global $pronamic_ideal_errors;
 
-$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
-$kassa->setPspId( 'pronamic2' );
-$kassa->setPassPhraseIn( '' );
-$kassa->setOrderId( time() );
-$kassa->set_field( 'USERID', 'pronamic_api' );
-$kassa->set_field( 'PSWD', '' );
-$kassa->setAmount( 50 );
-$kassa->setCurrency( 'EUR' );
-$kassa->set_field( 'CARDNO', '5555555555554444' );
-$kassa->set_field( 'CARDNO', '4111111111111111' );
-$kassa->set_field( 'ED', '01/15' );
-//$kassa->setOrderDescription( 'Description' );
-//$kassa->setCustomerName( 'Pronamic Test' );
-//$kassa->setEMailAddress( 'test@pronamic.nl' );
-$kassa->set_field( 'CVC', '000' );
-$kassa->set_field( 'OPERATION', 'SAL' );
+$gateway = new Pronamic_Gateways_Ogone_DirectLink_Gateway( $configuration );
 
-$data = $kassa->get_fields();
-$data['SHASIGN'] = $kassa->getSignatureIn();
+?>
+<h3>
+	<?php _e( 'Test', 'pronamic_ideal' ); ?>
+</h3>
 
-//var_dump($data);
+<form method="post" action="" target="_blank">
+	<?php wp_nonce_field( 'test_ogone_directlink', 'pronamic_ideal_nonce' ); ?>
 
-$client = new Pronamic_Gateways_Ogone_DirectLink_Client();
+	<?php echo $gateway->get_input_html(); ?>
 
-$response = $client->order_direct( $data );
+	<?php
+
+	if ( $gateway->has_error() ) {
+		$pronamic_ideal_errors[] = $gateway->get_error();
+	}
+
+	include 'errors.php';
+
+	?>
+
+	<p>
+		<label for="test_amount">&euro;</label>
+		<input name="test_amount" id="test_amount" value="" class="small-text" type="text" />
+
+		<?php
+
+		$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
+
+		submit_button( $name, 'secondary', 'test_ogone_directlink', false ); 
+
+		?>
+	</p>
+</form>

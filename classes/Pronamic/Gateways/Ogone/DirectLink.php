@@ -10,11 +10,13 @@
  */
 class Pronamic_Gateways_Ogone_DirectLink {
 	/**
-	 * Ogone DirectLink API endpoint URL
+	 * Ogone DirectLink test API endpoint URL
 	 * 
 	 * @var string
 	 */
-	const API_URL = 'https://secure.ogone.com/ncol/test/orderdirect.asp';
+	const API_TEST_URL = 'https://secure.ogone.com/ncol/test/orderdirect.asp';
+
+	const API_PRODUCTION_URL = 'https://secure.ogone.com/ncol/prod/orderdirect.asp';
 
 	/////////////////////////////////////////////////
 

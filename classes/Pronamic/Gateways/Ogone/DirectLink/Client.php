@@ -10,11 +10,11 @@
  */
 class Pronamic_Gateways_Ogone_DirectLink_Client {
 	/**
-	 * Ogone DirectLink API endpoint URL
+	 * Error
 	 * 
-	 * @var string
+	 * @var WP_Error
 	 */
-	const API_URL = 'https://secure.ogone.com/ncol/test/orderdirect.asp';
+	private $error;
 
 	/////////////////////////////////////////////////
 
@@ -35,12 +35,10 @@ class Pronamic_Gateways_Ogone_DirectLink_Client {
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WordPress_Util::remote_get_body( Pronamic_Gateways_Ogone_DirectLink::API_URL, 200, array(
+		$result = Pronamic_WordPress_Util::remote_get_body( Pronamic_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
-			'body'      => array(
-					'data' => $data
-			)
+			'body'      => $data
 		) );
 		
 		if ( is_wp_error( $result ) ) {
@@ -62,17 +60,8 @@ class Pronamic_Gateways_Ogone_DirectLink_Client {
 				}
 			}
 		}
-
-		echo '<pre>';
-		var_dump( $order_response );
-		echo '</pre>';
 		
-		echo '<pre>';
-		echo htmlspecialchars( $result );
-		echo '</pre>';
-		
-		echo '<pre>';
-		echo $this->error->get_error_message();
-		echo '</pre>';
+		return $order_response;
 	}
 }
+
