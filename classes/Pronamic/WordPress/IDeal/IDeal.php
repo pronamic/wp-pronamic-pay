@@ -142,7 +142,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		}
 	}
 
-	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_IDeal_IDealDataProxy $data ) {
+	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
 		$gateway->start( $data );
 
 		$payment = self::create_payment( $configuration, $gateway, $data );

@@ -75,7 +75,7 @@ $gateway = new Pronamic_Gateways_IDealBasic_Gateway( $configuration );
 				<td>
 					<?php
 
-					$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
+					$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test_case );
 					
 					$gateway->start( $data );
 

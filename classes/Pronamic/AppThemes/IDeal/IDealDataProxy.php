@@ -43,7 +43,7 @@ class Pronamic_AppThemes_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_I
 	/**
 	 * Get source indicatir
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
 	public function getSource() {
@@ -55,7 +55,7 @@ class Pronamic_AppThemes_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_I
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
 	 * @return string
 	 */
 	public function getDescription() {

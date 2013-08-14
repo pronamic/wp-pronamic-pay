@@ -67,7 +67,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		);
 	}
 	
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		
 		
 		try {

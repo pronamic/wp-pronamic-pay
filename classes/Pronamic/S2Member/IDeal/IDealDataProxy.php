@@ -58,7 +58,7 @@ class Pronamic_S2Member_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get currency
 	 *
-	 * @see Pronamic_IDeal_IDealDataProxy::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
 	 * @return string
 	 */
 	public function getCurrencyAlphabeticCode() {

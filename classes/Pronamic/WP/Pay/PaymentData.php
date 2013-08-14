@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: WordPress iDEAL data proxy
+ * Title: WordPress payment data
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_Pay_AbstractPaymentData {
+abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentData {
 	/**
 	 * Constructs and intializes an WordPress iDEAL data proxy
 	 */

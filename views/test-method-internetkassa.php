@@ -13,7 +13,7 @@ $gateway = new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration );
 				
 	$name = sprintf( __( 'Test &euro; %s', 'pronamic_ideal' ), $test_case );
 
-	$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test_case );
+	$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test_case );
 
 	$gateway->start( $data );
 

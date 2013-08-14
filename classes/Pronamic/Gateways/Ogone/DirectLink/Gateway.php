@@ -40,7 +40,7 @@ class Pronamic_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_Gatew
 	
 	/////////////////////////////////////////////////
 
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 		$kassa->setPspId( $this->client->psp_id );
 		$kassa->setPassPhraseIn( $this->client->sha_in );
