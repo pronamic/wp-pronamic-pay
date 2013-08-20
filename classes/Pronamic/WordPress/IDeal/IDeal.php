@@ -137,6 +137,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
 					case 'qantani':
 						return new Pronamic_Gateways_Qantani_Gateway( $configuration );
+					case 'ogone_directlink':
+						return new Pronamic_Gateways_Ogone_DirectLink_Gateway( $configuration );
 				}
 			}
 		}

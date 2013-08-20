@@ -9,5 +9,10 @@
  * @version 1.0
  */
 interface Pronamic_Pay_PaymentDataInterface {
-	
+	/**
+	 * Get credit card object
+	 * 
+	 * @return Pronamic_Pay_CreditCard
+	 */
+	public function get_credit_card();
 }

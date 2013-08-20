@@ -41,28 +41,53 @@ class Pronamic_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_Gatew
 	/////////////////////////////////////////////////
 
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
-		$kassa->setPspId( $this->client->psp_id );
-		$kassa->setPassPhraseIn( $this->client->sha_in );
-		$kassa->setOrderId( $data->getOrderId() );
-		$kassa->set_field( 'USERID', $this->client->user_id );
-		$kassa->set_field( 'PSWD', $this->client->password );
-		$kassa->setAmount( $data->getAmount() );
-		$kassa->setCurrency( 'EUR' );
-		$kassa->set_field( 'CARDNO', '5555555555554444' );
-		// $kassa->set_field( 'CARDNO', '4111111111111111' );
-		$kassa->set_field( 'ED', '01/15' );
-		$kassa->setOrderDescription( $data->getDescription() );
-		$kassa->setCustomerName( $data->getCustomerName() );
-		$kassa->setEMailAddress( $data->getEMailAddress() );
-		$kassa->set_field( 'CVC', '000' );
-		$kassa->set_field( 'OPERATION', 'SAL' );
+		$ogone_data = new Pronamic_Pay_Gateways_Ogone_Data();
 		
+		// Default
+		$ogone_data_general = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+		
+		$ogone_data_general
+			->set_psp_id( $this->client->psp_id )
+			->set_order_id( $data->getOrderId() )
+			->set_order_description( $data->getDescription() )
+			->set_currency( $data->getCurrencyAlphabeticCode() )
+			->set_amount( $data->getAmount() )
+			->set_customer_name( $data->getCustomerName() )
+			->set_email_address( $data->getEMailAddress() )
+		;
+
+		// DirectLink
+		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+
+		$ogone_data->set_field( 'USERID', $this->client->user_id );
+		$ogone_data->set_field( 'PSWD', $this->client->password );
+
+		// Credit card
+		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
+		
+		$credit_card = $data->get_credit_card();
+
+		$ogone_data_credit_card
+			->set_number( $credit_card->get_number() )
+			->set_expiration_date( $credit_card->get_expiration_date() )
+			->set_security_code( $credit_card->get_security_code() )
+		;
+		
+		$ogone_data->set_field( 'OPERATION', 'SAL' );
+		
+		// Kassa
+		$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$kassa->setPassPhraseIn( $this->client->sha_in );
+		$kassa->set_fields( $ogone_data->get_fields() );
+
 		$data = $kassa->get_fields();
 		$data['SHASIGN'] = $kassa->getSignatureIn();
 		
 		$result = $this->client->order_direct( $data );
 		
+		var_dump( $result );
+		exit;
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {

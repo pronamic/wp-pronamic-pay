@@ -247,6 +247,10 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		$this->fields[ $name ] = $value;
 	}
 
+	public function set_fields( array $fields ) {
+		$this->fields = $fields;
+	}
+
 	//////////////////////////////////////////////////
 	// Fields helper functinos
 	//////////////////////////////////////////////////
