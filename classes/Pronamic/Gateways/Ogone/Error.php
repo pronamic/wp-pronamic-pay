@@ -9,10 +9,25 @@
 * @version 1.0
 */
 class Pronamic_Gateways_Ogone_Error {
+	/**
+	 * Error code
+	 * 
+	 * @var string
+	 */
 	public $code;
 
+	/**
+	 * Error explanation
+	 * 
+	 * @var string
+	 */
 	public $explanation;
+	
+	//////////////////////////////////////////////////
 
+	/**
+	 * Constructs and intializes an Ogone error
+	 */
 	public function __construct() {
 		
 	}
