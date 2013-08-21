@@ -103,6 +103,9 @@ $configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigura
 				case 'qantani':
 					include 'test-method-qantani.php';
 					break;
+				case 'icepay':
+					include 'test-method-icepay.php';
+					break;
 			}
 		}
 	
