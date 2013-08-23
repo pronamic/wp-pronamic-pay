@@ -64,4 +64,3 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 		return $order_response;
 	}
 }
-

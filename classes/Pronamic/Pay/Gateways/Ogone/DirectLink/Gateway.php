@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Ogone
+ * Title: Ogone DirectLink gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
