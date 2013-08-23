@@ -135,7 +135,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$test = filter_input( INPUT_POST, 'test_ideal_advanced_v3', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 			$test = key( $test );
 			
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 			
@@ -160,7 +160,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			$test = filter_input( INPUT_POST, 'test_ideal_advanced', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 			$test = key( $test );
 			
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 
@@ -184,7 +184,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
 			
@@ -208,7 +208,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
 			
@@ -232,7 +232,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Buckaroo_Gateway( $configuration );
 			
@@ -256,7 +256,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Sisow_Gateway( $configuration );
 			
@@ -280,7 +280,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Qantani_Gateway( $configuration );
 			
@@ -297,16 +297,16 @@ class Pronamic_WordPress_IDeal_Admin {
 			}
     	}
 
-		if ( isset( $_POST['test_ogone_directlink'] ) && check_admin_referer( 'test_ogone_directlink', 'pronamic_ideal_nonce' ) ) {
+		if ( isset( $_POST['test_ideal_icepay'] ) && check_admin_referer( 'test_ideal_icepay', 'pronamic_ideal_nonce' ) ) {
 			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
 
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
+			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
 			
-			$gateway = new Pronamic_Gateways_Ogone_DirectLink_Gateway( $configuration );
+			$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
 			
 			$gateway->start( $data );
 
