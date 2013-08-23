@@ -3,12 +3,12 @@
 /**
  * Title: Ogone error
 * Description:
-* Copyright: Copyright (c) 2005 - 2011
+* Copyright: Copyright (c) 2005 - 2013
 * Company: Pronamic
 * @author Remco Tolsma
-* @version 1.0
+ * @since 1.4.0
 */
-class Pronamic_Gateways_Ogone_Error {
+class Pronamic_Pay_Gateways_Ogone_Error {
 	/**
 	 * Error code
 	 * 

@@ -3,12 +3,12 @@
 /**
  * Title: Ogone DirectLink
  * Description: 
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @since 1.4.0
  */
-class Pronamic_Gateways_Ogone_DirectLink_Client {
+class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 	/**
 	 * Error
 	 * 
@@ -35,7 +35,7 @@ class Pronamic_Gateways_Ogone_DirectLink_Client {
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WordPress_Util::remote_get_body( Pronamic_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
+		$result = Pronamic_WordPress_Util::remote_get_body( Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $data
@@ -52,7 +52,7 @@ class Pronamic_Gateways_Ogone_DirectLink_Client {
 				$order_response = Pronamic_Gateways_Ogone_XML_OrderResponseParser::parse( $xml );
 				
 				if ( ! empty( $order_response->nc_error ) ) {
-					$ogone_error = new Pronamic_Gateways_Ogone_Error();
+					$ogone_error = new Pronamic_Pay_Gateways_Ogone_Error();
 					$ogone_error->code        = $order_response->nc_error;
 					$ogone_error->explanation = $order_response->nc_error_plus;
 					

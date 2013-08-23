@@ -3,10 +3,10 @@
 /**
  * Title: Abstract payment data class
  * Description: 
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @since 1.4.0
  */
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
 	private $entrance_code;
@@ -107,5 +107,14 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 		}
 		
 		return $email;
+	}
+
+	/**
+	 * Get credit card object
+	 *
+	 * @return Pronamic_Pay_CreditCard
+	 */
+	public function get_credit_card() {
+		return null;
 	}
 }
