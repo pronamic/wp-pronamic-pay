@@ -35,7 +35,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get source indicatir
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
 	public function getSource() {
@@ -47,7 +47,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
 	 * @return string
 	 */
 	public function getDescription() {
@@ -58,7 +58,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
 	 * @return string
 	 */
 	public function getOrderId() {
@@ -69,7 +69,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get items
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getItems()
+	 * @see Pronamic_Pay_PaymentDataInterface::getItems()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function getItems() {

@@ -154,6 +154,8 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 		if(isset($meta->pspId)) $configuration->pspId = $meta->pspId;
 		if(isset($meta->shaInPassPhrase)) $configuration->shaInPassPhrase = $meta->shaInPassPhrase;
 		if(isset($meta->shaOutPassPhrase)) $configuration->shaOutPassPhrase = $meta->shaOutPassPhrase;
+		if(isset($meta->ogone_user_id)) $configuration->ogone_user_id = $meta->ogone_user_id;
+		if(isset($meta->ogone_password)) $configuration->ogone_password = $meta->ogone_password;
 		
 		// Private key and certificates generator
 		if(isset($meta->country)) $configuration->country = $meta->country; 

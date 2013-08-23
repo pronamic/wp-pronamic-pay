@@ -51,10 +51,26 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 
 	//////////////////////////////////////////////////
 
+	private function get_field_value( $field_name ) {
+		$value = null;
+
+		if ( isset( $this->feed->fields[$field_name] ) ) {
+			$field_id = $this->feed->fields[$field_name];
+			
+			if ( isset( $this->lead[$field_id] ) ) {
+				$value = $this->lead[$field_id];
+			}
+		}
+		
+		return $value;
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Get source indicator
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
 	public function getSource() {
@@ -66,7 +82,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
 	 * @return string
 	 */
 	public function getDescription() {
@@ -78,7 +94,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
 	 * @return string
 	 */
 	public function getOrderId() {
@@ -89,7 +105,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	/**
 	 * Get items
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getItems()
+	 * @see Pronamic_Pay_PaymentDataInterface::getItems()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function getItems() {
@@ -193,7 +209,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	/**
 	 * Get currency alphabetic code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
 	 * @return string
 	 */
 	public function getCurrencyAlphabeticCode() {
@@ -205,23 +221,24 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	//////////////////////////////////////////////////
 
 	public function getEMailAddress() {
-		
+		return $this->get_field_value( 'email' );
+		exit;
 	}
 
 	public function getCustomerName() {
-		
+		return $this->get_field_value( 'first_name' ) . ' ' . $this->get_field_value( 'last_name' );
 	}
 
 	public function getOwnerAddress() {
-		
+		return $this->get_field_value( 'address1' ) . ' ' . $this->get_field_value( 'address2' );
 	}
 
 	public function getOwnerCity() {
-		
+		return $this->get_field_value( 'city' );
 	}
 
 	public function getOwnerZip() {
-		
+		return $this->get_field_value( 'zip' );
 	}
 
 	//////////////////////////////////////////////////
@@ -287,5 +304,51 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		}
 		
 		return $issuer_id;
+	}
+
+	//////////////////////////////////////////////////
+	// Creditcard
+	//////////////////////////////////////////////////
+
+	public function get_credit_card() {
+		$credit_card = null;
+
+		$credit_card_fields = GFCommon::get_fields_by_type( $this->form, array( 'creditcard' ) );
+		
+		$credit_card_field = array_shift( $credit_card_fields );
+		
+		if ( $credit_card_field ) {
+			$credit_card = new Pronamic_Pay_CreditCard();
+
+			// Number
+			$variable_name = sprintf( 'input_%s_1', $credit_card_field['id'] );
+			$number = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
+			
+			$credit_card->set_number( $number );
+
+			// Expiration date
+			$variable_name = sprintf( 'input_%s_2', $credit_card_field['id'] );
+			$expiration_date = filter_input( INPUT_POST, $variable_name, FILTER_VALIDATE_INT, FILTER_FORCE_ARRAY );
+
+			$month = array_shift( $expiration_date );
+			$year  = array_shift( $expiration_date );
+			
+			$credit_card->set_expiration_month( $month );
+			$credit_card->set_expiration_year( $year );
+			
+			// Security code
+			$variable_name = sprintf( 'input_%s_3', $credit_card_field['id'] );
+			$security_code = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
+			
+			$credit_card->set_security_code( $security_code );
+			
+			// Name
+			$variable_name = sprintf( 'input_%s_5', $credit_card_field['id'] );
+			$name = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
+			
+			$credit_card->set_name( $name );
+		}
+		
+		return $credit_card;
 	}
 }

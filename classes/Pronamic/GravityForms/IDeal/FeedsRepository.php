@@ -83,6 +83,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 		$feed->conditionOperator      = $meta->conditionOperator;
 		$feed->conditionValue         = $meta->conditionValue;
 		$feed->userRoleFieldId        = $meta->userRoleFieldId;
+		$feed->fields                 = isset( $meta->fields ) ? (array) $meta->fields : array();
 
 		return $feed;
     }
@@ -254,7 +255,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
      * 
      * @param string $id
      */
-    public static function updateFeed($feed) {
+    public static function updateFeed( $feed ) {
 		global $wpdb;
 
 		$feed_table = self::getFeedsTableName();
@@ -262,24 +263,24 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 		$configurationId = $feed->getIDealConfiguration() == null ? null : $feed->getIDealConfiguration()->getId();
 
 		$data = array(
-			'form_id' => $feed->formId , 
-			'configuration_id' => $configurationId , 
-			'is_active' => $feed->isActive , 
-			'meta' => json_encode($feed)
+			'form_id'          => $feed->formId, 
+			'configuration_id' => $configurationId, 
+			'is_active'        => $feed->isActive, 
+			'meta'             => json_encode( $feed )
 		);
 
-		$format = array('%d', '%d', '%d', '%s', '%s');
+		$format = array( '%d', '%d', '%d', '%s', '%s' );
 
-		if(empty($feed->id)) {
+		if ( empty( $feed->id ) ) {
 			// Insert
-			$result = $wpdb->insert( $feed_table, $data, $format);
+			$result = $wpdb->insert( $feed_table, $data, $format );
 
-			if($result !== false) {
+			if ( $result !== false ) {
 				$feed->id = $wpdb->insert_id;
 			}
         } else {
             // Update
-			$result = $wpdb->update( $feed_table, $data, array('id' => $feed->id), $format, array('%d'));
+			$result = $wpdb->update( $feed_table, $data, array( 'id' => $feed->id ), $format, array( '%d' ) );
         }
 
         return $feed->id;
@@ -292,7 +293,7 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
      * 
      * @param array $ids
      */
-	public static function deleteFeeds(array $ids) {
+	public static function deleteFeeds( array $ids ) {
 		global $wpdb;
 
 		$feeds_table = self::getFeedsTableName();
@@ -307,6 +308,6 @@ class Pronamic_GravityForms_IDeal_FeedsRepository {
 				id IN ($list)
 		";
 
-        return $wpdb->query($query);
+        return $wpdb->query( $query );
     }
 }

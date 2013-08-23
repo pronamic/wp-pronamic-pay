@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: WP e-Commerce iDEAL data proxy
+ * Title: WordPress payment test data
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * WordPress uer
 	 * 
@@ -40,7 +40,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get source indicator
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
 	public function getSource() {
@@ -52,7 +52,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
 	 * @return string
 	 */
 	public function getDescription() {
@@ -62,7 +62,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
 	 * @return string
 	 */
 	public function getOrderId() {
@@ -72,7 +72,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get items
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getItems()
+	 * @see Pronamic_Pay_PaymentDataInterface::getItems()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function getItems() {
@@ -98,7 +98,7 @@ class Pronamic_WordPress_IDeal_IDealTestDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get currency alphabetic code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
 	 * @return string
 	 */
 	public function getCurrencyAlphabeticCode() {

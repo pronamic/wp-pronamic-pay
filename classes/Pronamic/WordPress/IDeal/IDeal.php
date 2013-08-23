@@ -137,12 +137,14 @@ class Pronamic_WordPress_IDeal_IDeal {
 						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
 					case 'qantani':
 						return new Pronamic_Gateways_Qantani_Gateway( $configuration );
+					case 'ogone_directlink':
+						return new Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway( $configuration );
 				}
 			}
 		}
 	}
 
-	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_IDeal_IDealDataProxy $data ) {
+	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
 		$gateway->start( $data );
 
 		$payment = self::create_payment( $configuration, $gateway, $data );

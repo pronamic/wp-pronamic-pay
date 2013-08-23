@@ -254,9 +254,9 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Start transaction/payment
 	 * 
-	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 */
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		
 	}
 	
