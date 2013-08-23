@@ -111,30 +111,49 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
 
 			?>
-
-			<div class="event-display-boxes">
-				<h3 class="payment_header">
-					<?php _e( 'iDEAL', 'pronamic_ideal' ); ?>
-				</h3>
-
-				<form method="post" action="<?php echo esc_attr( $data->get_notify_url() ); ?>">
+			<div id="pronamic-payment-option-dv" class="payment-option-dv">
+				<a id="pronamic-payment-option-lnk" class="pronamic-option-lnk display-the-hidden" rel="pronamic-payment-option-form" style="cursor:pointer;">
 					<?php 
-
-					echo $gateway->get_input_html();
+					
+					printf(
+						'<img alt="%s" src="%s" />',
+						esc_attr__( 'Pay with iDEAL', 'pronamic_ideal' ),
+						esc_attr( plugins_url( 'images/ideal.nl/iDEAL-Payoff-2-klein.gif', Pronamic_WordPress_IDeal_Plugin::$file ) )
+					);
 					
 					?>
+				</a>
 
-					<p>
-						<?php
+				<div id="pronamic-payment-option-form-dv" class="hide-if-js">
+					<h3 class="payment_header">
+						<?php _e( 'iDEAL', 'pronamic_ideal' ); ?>
+					</h3>
+	
+					<div class="event_espresso_form_wrapper">
+						<form method="post" action="<?php echo esc_attr( $data->get_notify_url() ); ?>">
+							<?php 
+		
+							echo $gateway->get_input_html();
+							
+							?>
+		
+							<p>
+								<?php
+		
+								printf(
+									'<input class="ideal-button" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
+									__( 'Pay with iDEAL', 'pronamic_ideal' )
+								);
+							
+								?>
+							</p>
+						</form>
+					</div>
 
-						printf(
-							'<input class="ideal-button" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
-							__( 'Pay with iDEAL', 'pronamic_ideal' )
-						);
-					
-						?>
+					<p class="choose-diff-pay-option-pg">
+						<a class="hide-the-displayed" rel="pronamic-payment-option-form" style="cursor:pointer;"><?php _e( 'Choose a different payment option', 'pronamic_ideal' ); ?></a>
 					</p>
-				</form>
+				</div>
 			</div>
 
 			<?php
