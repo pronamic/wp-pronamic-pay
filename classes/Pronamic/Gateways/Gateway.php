@@ -328,15 +328,23 @@ abstract class Pronamic_Gateways_Gateway {
 	}
 
 	public function redirect_via_http() {
-		// Redirect, See Other
-		// http://en.wikipedia.org/wiki/HTTP_303
-		wp_redirect( $this->get_action_url(), 303 );
-		
+		if ( headers_sent() ) {
+			$this->redirect_via_html();
+		} else {
+			// Redirect, See Other
+			// http://en.wikipedia.org/wiki/HTTP_303
+			wp_redirect( $this->get_action_url(), 303 );
+		}
+
 		exit;
 	}
 
 	public function redirect_via_html() {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
+		if ( headers_sent() ) {
+			echo $this->get_form_html( true );
+		} else {
+			include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
+		}
 
 		exit;
 	}

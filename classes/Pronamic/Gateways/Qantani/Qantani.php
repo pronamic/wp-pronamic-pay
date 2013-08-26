@@ -254,24 +254,31 @@ class Pronamic_Gateways_Qantani_Qantani {
 
 		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_EXECUTE, $parameters );
 
-		$result = $this->send_request( $document->saveXML() );
+		$response = $this->send_request( $document->saveXML() );
 
-		if ( is_wp_error( $result ) ) {
-			$this->error = $result;
+		if ( is_wp_error( $response ) ) {
+			$this->error = $response;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $response );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
 				if ( $xml->Status == self::RESPONSE_STATUS_OK ) {
-					$response = $xml->Response;
+					$xml_response = $xml->Response;
 
 					$result = new stdClass();
-					$result->transaction_id = (string) $response->TransactionID;
-					$result->code           = (string) $response->Code;
-					$result->bank_url       = (string) $response->BankURL;
-					$result->acquirer       = (string) $response->Acquirer;
+					$result->transaction_id = (string) $xml_response->TransactionID;
+					$result->code           = (string) $xml_response->Code;
+					$result->bank_url       = (string) $xml_response->BankURL;
+					$result->acquirer       = (string) $xml_response->Acquirer;
+				} else {
+					$error_id          = (string) $xml->Error->ID;
+					$error_description = (string) $xml->Error->Description;
+
+					$error = new Pronamic_Gateways_Qantani_Error( $error_id, $error_description );
+					
+					$this->error = new WP_Error( 'qantani_error', (string) $error, $error );
 				}
 			}
 		}
