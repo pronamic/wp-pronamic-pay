@@ -68,6 +68,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 
 		$sql = "CREATE TABLE $configurations_table (
 			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+			post_id BIGINT(20) UNSIGNED NULL,
 			variant_id VARCHAR(64) NULL,
 			merchant_id VARCHAR(64) NULL,
 			sub_id VARCHAR(64) NULL,

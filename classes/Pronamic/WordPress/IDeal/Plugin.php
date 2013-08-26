@@ -23,7 +23,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.3.1';
+	const VERSION = '1.4.0';
 
 	//////////////////////////////////////////////////
 
@@ -75,6 +75,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
 
 		// Initialize requirements
+		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';

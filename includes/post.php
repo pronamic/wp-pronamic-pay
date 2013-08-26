@@ -60,4 +60,58 @@ function pronamic_payment_gateways_create_initial_post_types() {
 	) );
 }
 
-// add_action( 'init', 'pronamic_payment_gateways_create_initial_post_types', 20 ); // highest priority
+add_action( 'init', 'pronamic_payment_gateways_create_initial_post_types', 20 ); // highest priority
+
+
+
+function my_edit_movie_columns( $columns ) {
+
+	$columns = array(
+		'cb'                           => '<input type="checkbox" />',
+		'title'                        => __( 'Title', 'pronamic_ideal' ),
+		'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
+		'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
+		'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
+		'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
+		'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
+		'date'                         => __( 'Date', 'pronamic_ideal' )
+	);
+
+	return $columns;
+}
+
+add_filter( 'manage_edit-pronamic_payment_columns', 'my_edit_movie_columns' ) ;
+
+function my_manage_movie_columns( $column, $post_id ) {
+	global $post;
+
+	switch( $column ) {
+		case 'pronamic_payment_description':
+			echo get_post_meta( $post_id, '_pronamic_payment_description', true );
+			break;
+		case 'pronamic_payment_amount':
+			echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
+			echo ' ';
+			echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
+			break;
+		case 'pronamic_payment_consumer':
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
+			echo '<br />';
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+			echo '<br />';
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+			break;
+		case 'pronamic_payment_source':
+			echo get_post_meta( $post_id, '_pronamic_payment_source', true );
+			echo '<br />';
+			echo get_post_meta( $post_id, '_pronamic_payment_source_id', true );
+			break;
+		case 'pronamic_payment_status':
+			echo get_post_meta( $post_id, '_pronamic_payment_status', true );
+			break;
+	}
+}
+
+add_action( 'manage_pronamic_payment_posts_custom_column', 'my_manage_movie_columns', 10, 2 );

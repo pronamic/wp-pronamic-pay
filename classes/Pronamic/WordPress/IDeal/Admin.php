@@ -35,6 +35,30 @@ class Pronamic_WordPress_IDeal_Admin {
 		
 		self::maybe_download_private_certificate();
 		self::maybe_download_private_key();
+
+		// Maybe update
+		global $pronamic_ideal_db_version;
+
+		if ( get_option( 'pronamic_ideal_db_version' ) != $pronamic_ideal_db_version ) {
+			self::upgrade();
+
+			update_option( 'pronamic_ideal_db_version', $pronamic_ideal_db_version );
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Upgrade
+	 */
+	public static function upgrade() {
+		require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/admin/includes/upgrade.php';
+
+		$db_version = get_option( 'pronamic_ideal_db_version' );
+
+		if ( $db_version < 140 ) {
+			orbis_ideal_upgrade_140();
+		}
 	}
 
 	/**
@@ -337,7 +361,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			plugins_url( 'images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file )
 		);
 
-		if ( false ) {
+		if ( true ) {
 			add_submenu_page(
 				'pronamic_ideal', 
 				__( 'Gateways', 'pronamic_ideal' ), 
@@ -356,7 +380,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			array( __CLASS__, 'pagePayments' )
 		);
 
-		if ( false ) {
+		if ( true ) {
 			add_submenu_page(
 				'pronamic_ideal', 
 				__( 'Payments', 'pronamic_ideal' ), 
