@@ -24,7 +24,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
 		'supports'           => array(
-			'title', 'comments'
+			'title', 'revisions'
 		),
 		'rewrite'            => false,
 		'query_var'          => false
@@ -53,7 +53,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
 		'supports'           => array(
-			'comments'
+			
 		),
 		'rewrite'            => false,
 		'query_var'          => false
@@ -64,8 +64,72 @@ add_action( 'init', 'pronamic_payment_gateways_create_initial_post_types', 20 );
 
 
 
-function my_edit_movie_columns( $columns ) {
+function pronamic_gateway_columns( $columns ) {
+	$columns = array(
+		'cb'                           => '<input type="checkbox" />',
+		'title'                        => __( 'Title', 'pronamic_ideal' ),
+		'pronamic_gateway_variant'     => __( 'Variant', 'pronamic_ideal' ),
+		'pronamic_gateway_id'          => __( 'ID', 'pronamic_ideal' ),
+		'pronamic_gateway_secret'      => __( 'Secret', 'pronamic_ideal' ),
+		'pronamic_gateway_dashboard'   => __( 'Dashboard', 'pronamic_ideal' ),
+		'date'                         => __( 'Date', 'pronamic_ideal' )
+	);
 
+	return $columns;
+}
+
+add_filter( 'manage_edit-pronamic_gateway_columns', 'pronamic_gateway_columns' ) ;
+
+
+function pronamic_gateway_custom_column( $column, $post_id ) {
+	global $post;
+
+	switch( $column ) {
+		case 'pronamic_gateway_variant':
+			echo get_post_meta( $post_id, '_pronamic_gateway_variant_id', true );
+
+			break;
+		case 'pronamic_gateway_id':
+			$data = array_filter( array(
+				get_post_meta( $post_id, '_pronamic_gateway_ideal_merchant_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_omnikassa_merchant_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_buckaroo_website_key', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_icepay_merchant_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_mollie_partner_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_targetpay_layout_code', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true ),
+			) );
+				
+			echo implode( ' ', $data );
+
+			break;
+		case 'pronamic_gateway_secret':
+			$data = array_filter( array(
+				get_post_meta( $post_id, '_pronamic_gateway_ideal_basic_hash_key', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_omnikassa_secret_key', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_buckaroo_secret_key', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_icepay_secret_code', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_qantani_merchant_secret', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true ),
+			) );
+				
+			echo implode( ' ', $data );
+
+			break;
+		case 'pronamic_gateway_dashboard':
+			echo '?';
+			
+			break;
+	}
+}
+
+add_action( 'manage_pronamic_gateway_posts_custom_column', 'pronamic_gateway_custom_column', 10, 2 );
+
+
+function pronamic_payment_columns( $columns ) {
 	$columns = array(
 		'cb'                           => '<input type="checkbox" />',
 		'title'                        => __( 'Title', 'pronamic_ideal' ),
@@ -80,19 +144,22 @@ function my_edit_movie_columns( $columns ) {
 	return $columns;
 }
 
-add_filter( 'manage_edit-pronamic_payment_columns', 'my_edit_movie_columns' ) ;
+add_filter( 'manage_edit-pronamic_payment_columns', 'pronamic_payment_columns' ) ;
 
-function my_manage_movie_columns( $column, $post_id ) {
+
+function pronamic_payment_custom_column( $column, $post_id ) {
 	global $post;
 
 	switch( $column ) {
 		case 'pronamic_payment_description':
 			echo get_post_meta( $post_id, '_pronamic_payment_description', true );
+
 			break;
 		case 'pronamic_payment_amount':
 			echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
 			echo ' ';
 			echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
 			break;
 		case 'pronamic_payment_consumer':
 			echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
@@ -102,16 +169,54 @@ function my_manage_movie_columns( $column, $post_id ) {
 			echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
 			echo '<br />';
 			echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+
 			break;
 		case 'pronamic_payment_source':
-			echo get_post_meta( $post_id, '_pronamic_payment_source', true );
-			echo '<br />';
-			echo get_post_meta( $post_id, '_pronamic_payment_source_id', true );
+			$source    = get_post_meta( $post_id, '_pronamic_payment_source', true );
+			$source_id = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
+
+			$text = $source . '<br />' . $source_id;
+
+			// $text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $post );
+			// $text = apply_filters( 'pronamic_ideal_source_column', $text, $post );
+				
+			echo $text;
+
 			break;
 		case 'pronamic_payment_status':
-			echo get_post_meta( $post_id, '_pronamic_payment_status', true );
+			$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+
+			echo Pronamic_WordPress_IDeal_IDeal::translate_status( $status );
+
 			break;
 	}
 }
 
-add_action( 'manage_pronamic_payment_posts_custom_column', 'my_manage_movie_columns', 10, 2 );
+add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_payment_custom_column', 10, 2 );
+
+
+/**
+ * Adds a box to the main column on the Post and Page edit screens.
+ */
+function myplugin_add_custom_box() {
+	add_meta_box(
+		'pronamic_gateway_config',
+		__( 'Configuration', 'pronamic_ideal' ),
+		'myplugin_inner_custom_box',
+		'pronamic_gateway',
+		'normal',
+		'high'
+	);
+}
+
+add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+
+/**
+ * Prints the box content.
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function myplugin_inner_custom_box( $post ) {
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-edit.php';
+}
+
