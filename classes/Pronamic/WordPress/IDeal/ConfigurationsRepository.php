@@ -29,20 +29,7 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 	 * Load the providers and variants from an XML file
 	 */
 	public static function load() {
-		if ( self::$providers == null ) {
-			self::$providers = array();
-			self::$variants  = array();
 
-			$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'data.xml';
-	
-			self::$providers = Pronamic_IDeal_IDeal::get_providers_from_xml( $file );
-
-			foreach ( self::$providers as $provider ) {
-				foreach ( $provider->getVariants() as $variant ) {
-					self::$variants[$variant->getId()] = $variant;
-				}
-			}
-		}
 	}
 
 	//////////////////////////////////////////////////

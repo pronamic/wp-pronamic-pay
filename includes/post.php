@@ -198,26 +198,44 @@ add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_payment_cus
 /**
  * Adds a box to the main column on the Post and Page edit screens.
  */
-function myplugin_add_custom_box() {
+function pronamic_pay_meta_boxes() {
 	add_meta_box(
 		'pronamic_gateway_config',
 		__( 'Configuration', 'pronamic_ideal' ),
-		'myplugin_inner_custom_box',
+		'pronamic_pay_gateway_config_meta_box',
+		'pronamic_gateway',
+		'normal',
+		'high'
+	);
+
+	add_meta_box(
+		'pronamic_gateway_test',
+		__( 'Test', 'pronamic_ideal' ),
+		'pronamic_pay_gateway_test_meta_box',
 		'pronamic_gateway',
 		'normal',
 		'high'
 	);
 }
 
-add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
+add_action( 'add_meta_boxes', 'pronamic_pay_meta_boxes' );
 
 /**
- * Prints the box content.
+ * Pronamic Pay gateway config meta box
  *
  * @param WP_Post $post The object for the current post/page.
  */
-function myplugin_inner_custom_box( $post ) {
+function pronamic_pay_gateway_config_meta_box( $post ) {
 	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-edit.php';
+}
+
+/**
+ * Pronamic Pay gateway test meta box
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function pronamic_pay_gateway_test_meta_box( $post ) {
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-tests.php';
 }
 
 /**

@@ -98,7 +98,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public function __construct( $configuration ) {
 		$this->configuration = $configuration;
 	}
 

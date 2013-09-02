@@ -76,6 +76,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
+		require_once self::$dirname . '/includes/providers.php';
+		require_once self::$dirname . '/includes/gateways.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';

@@ -1,3 +1,8 @@
+<?php 
+
+global $pronamic_pay_providers;
+
+?>
 <div class="wrap">
 	<?php screen_icon( 'pronamic_ideal' ); ?>
 
@@ -17,12 +22,12 @@
 
 		<tbody>
 
-			<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
+			<?php foreach ( $pronamic_pay_providers as $provider ) : ?>
 
 				<tr>
 					<td>
-						<a href="<?php echo $provider->getUrl(); ?>">
-							<?php echo $provider->getName(); ?>
+						<a href="<?php echo $provider['url']; ?>">
+							<?php echo $provider['name']; ?>
 						</a>
 					</td>
 				</tr>
