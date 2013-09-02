@@ -855,22 +855,6 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 	</div>
 
 	<?php endforeach; ?>
-
-	<div class="extra-settings method-advanced">
-		<h4>
-			<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
-		</h4>
-	
-		<?php
-	
-		submit_button(
-			__( 'Generate', 'pronamic_ideal' ),
-			'secundary',
-			'generate'
-		);
-	
-		?>
-	</div>
 	
 	<div class="extra-settings method-advanced_v3">
 		<h4>
