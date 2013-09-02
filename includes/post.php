@@ -86,7 +86,15 @@ function pronamic_gateway_custom_column( $column, $post_id ) {
 
 	switch( $column ) {
 		case 'pronamic_gateway_variant':
-			echo get_post_meta( $post_id, '_pronamic_gateway_variant_id', true );
+			$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_variant_id', true );
+			
+			global $pronamic_pay_gateways;
+			
+			if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
+				echo $pronamic_pay_gateways[$gateway_id]['name'];
+			} else {
+				echo $gateway_id;
+			}
 
 			break;
 		case 'pronamic_gateway_id':
