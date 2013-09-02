@@ -39,14 +39,31 @@ $variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_variant_id', true 
 
 $options = array();
 
-foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) {
+global $pronamic_pay_providers;
+global $pronamic_pay_gateways;
+
+foreach ( $pronamic_pay_gateways as $id => $gateway ) {
+	if ( isset( $pronamic_pay_providers[$gateway['provider']] ) ) {
+		$provider =& $pronamic_pay_providers[$gateway['provider']];
+
+		if ( ! isset( $provider['gateways'] ) ) {
+			$provider['gateways'] = array();
+		}
+
+		$provider['gateways'][$id] = $gateway;
+	}
+}
+
+foreach ( $pronamic_pay_providers as $provider ) {
 	$group = array(
-		'name'    => $provider->getName(),
+		'name'    => $provider['name'],
 		'options' => array()
 	);
 
-	foreach ( $provider->getVariants() as $variant ) {
-		$group['options'][ $variant->getId() ] = $variant->getName();
+	if ( isset( $provider['gateways'] ) ) {
+		foreach ( $provider['gateways'] as $id => $gateway ) {
+			$group['options'][$id] = $gateway['name'];
+		}
 	}
 
 	$options[] = $group;
@@ -697,10 +714,10 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
                 <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
                 	<option value=""></option>
 
-                	<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
-						<optgroup label="<?php echo $provider->getName(); ?>">
-							<?php foreach ( $provider->getVariants() as $variant ) : ?>
-								<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected( $variant_id, $variant->getId() ); ?>><?php echo $variant->getName(); ?></option>
+                	<?php foreach ( $pronamic_pay_providers as $provider ) : ?>
+						<optgroup label="<?php echo $provider['name']; ?>">
+							<?php foreach ( $provider['gateways']  as $id => $gateway ) : ?>
+								<option data-ideal-method="<?php echo $gateway['gateway']; ?>" value="<?php echo $id; ?>" <?php selected( $variant_id, $id ); ?>><?php echo $gateway['name']; ?></option>
 							<?php endforeach; ?>
 						</optgroup>
 					<?php endforeach; ?>
