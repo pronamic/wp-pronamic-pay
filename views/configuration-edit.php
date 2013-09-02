@@ -1,38 +1,6 @@
 <?php
 
-$update = null;
-$error = null;
-
-// Configuration
-if ( empty( $_POST ) ) {
-	$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-} else {
-	$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
-}
-
-$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-if ( $configuration == null ) {
-	$configuration = new Pronamic_WordPress_IDeal_Configuration();
-}
-
-// Generator
-if ( empty( $configuration->numberDaysValid ) ) {
-	$configuration->numberDaysValid = 365 * 5;
-}
-
-if ( empty( $configuration->country ) ) {
-	$language = get_option( 'WPLANG', WPLANG );
-
-	$configuration->countryName = substr( $language, 3 );
-}
-
-if ( empty( $configuration->organization ) ) {
-	$configuration->organization = get_bloginfo( 'name' );
-}
-
-if ( empty( $configuration->eMailAddress ) ) {
-	$configuration->eMailAddress = get_bloginfo( 'admin_email' );
-}
+$configuration = new Pronamic_WordPress_IDeal_Configuration();
 
 // Sections
 $variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_variant_id', true );
