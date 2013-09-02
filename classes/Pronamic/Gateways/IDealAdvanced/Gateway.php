@@ -36,9 +36,9 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$client->setAcquirerUrl( $url );
 		$client->merchant_id = get_post_meta( $configuration->ID, '_pronamic_gateway_ideal_merchant_id', true );
 		$client->sub_id = get_post_meta( $configuration->ID, '_pronamic_gateway_ideal_sub_id', true );
-		$client->setPrivateKey( $configuration->privateKey );
-		$client->setPrivateKeyPassword( $configuration->privateKeyPassword );
-		$client->setPrivateCertificate( $configuration->privateCertificate );
+		$client->setPrivateKey( get_post_meta( $configuration->ID, '_pronamic_gateway_ideal_private_key', true ) );
+		$client->setPrivateKeyPassword( get_post_meta( $configuration->ID, '_pronamic_gateway_ideal_private_key_password', true ) );
+		$client->setPrivateCertificate( get_post_meta( $configuration->ID, '_pronamic_gateway_ideal_private_certificate', true ) );
 
 		if ( isset( $settings['directory_request_url'] ) ) {
 			$client->directory_request_url = $settings['directory_request_url']; 
