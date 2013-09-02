@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
+		$transient = 'pronamic_ideal_issuers_' . $this->configuration->ID;
 
 		$result = get_transient( $transient );
 		// $result = false;

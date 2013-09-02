@@ -3,7 +3,7 @@
 $configuration = new Pronamic_WordPress_IDeal_Configuration();
 
 // Sections
-$variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_variant_id', true );
+$variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_id', true );
 
 $options = array();
 
@@ -394,16 +394,18 @@ $sections = array(
 				'name'        => 'privateKey',
 				'id'          => 'pronamic_ideal_private_key',
 				'title'       => __( 'Private Key', 'pronamic_ideal' ),
-				'type'        => 'file',
-				'callback'    => 'pronamic_ideal_private_key_field'
+				'type'        => 'textarea',
+				'callback'    => 'pronamic_ideal_private_key_field',
+				'classes'     => array( 'code' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_private_certificate',
 				'name'        => 'privateCertificate',
 				'id'          => 'pronamic_ideal_private_certificate',
 				'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
-				'type'        => 'file',
-				'callback'    => 'pronamic_ideal_private_certificate_field'
+				'type'        => 'textarea',
+				'callback'    => 'pronamic_ideal_private_certificate_field',
+				'classes'     => array( 'code' )
 			)
 		)
 	),
@@ -611,6 +613,8 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 <?php
 
 function pronamic_ideal_private_key_field( $field, $configuration ) {
+	echo '<div><input type="file" name="_pronamic_gateway_ideal_private_key_file" /></div>';
+
 	printf(
 		'<p><pre class="security-data">%s</pre></p>',
 		$configuration->{$field['name']}
@@ -624,6 +628,8 @@ function pronamic_ideal_private_key_field( $field, $configuration ) {
 
 function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 	$value = $configuration->{$field['name']};
+
+	echo '<div><input type="file" name="_pronamic_gateway_ideal_private_certificate_file" /></div>';
 
 	printf(
 		'<p><pre class="security-data">%s</pre></p>',
@@ -776,6 +782,17 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 									printf(
 										'<input %s />',
 										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+									);
+	
+									break;
+								case 'textarea' :
+									$attributes['rows'] = 4;
+									$attributes['cols'] = 65;
+	
+									printf(
+										'<textarea %s />%s</textarea>',
+										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
+										esc_textarea( $value )
 									);
 	
 									break;

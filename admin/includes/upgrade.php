@@ -86,8 +86,8 @@ function orbis_ideal_upgrade_140() {
 			// We ignore (@) all notice of not existing properties
 			$meta = array();
 
-			$meta['id']                   = $configuration->id;
-			$meta['variant_id']           = $configuration->variant_id;
+			$meta['legacy_id']            = $configuration->id;
+			$meta['id']                   = $configuration->variant_id;
 			$meta['mode']                 = $configuration->mode;
 
 			// iDEAL

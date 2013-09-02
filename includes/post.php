@@ -86,14 +86,14 @@ function pronamic_gateway_custom_column( $column, $post_id ) {
 
 	switch( $column ) {
 		case 'pronamic_gateway_variant':
-			$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_variant_id', true );
-			
+			$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
+
 			global $pronamic_pay_gateways;
 			
-			if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
-				echo $pronamic_pay_gateways[$gateway_id]['name'];
+			if ( isset( $pronamic_pay_gateways[$id] ) ) {
+				echo $pronamic_pay_gateways[$id]['name'];
 			} else {
-				echo $gateway_id;
+				echo $id;
 			}
 
 			break;
@@ -329,12 +329,27 @@ function pronamic_pay_save_gateway( $post_id ) {
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );
+	
+	// Files
+	$files = array(
+		'_pronamic_gateway_ideal_private_key_file'         => '_pronamic_gateway_ideal_private_key',
+		'_pronamic_gateway_ideal_private_certificate_file' => '_pronamic_gateway_ideal_private_certificate'
+	);
 
+	foreach ( $files as $name => $meta_key ) {
+		if ( $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
+			$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
+			
+			$data[$meta_key] = $value;
+		}
+	}
+
+	// Meta
 	foreach ( $data as $key => $value ) {
-		if ( empty( $value ) ) {
-			delete_post_meta( $post_id, $key );
-		} else {
+		if ( isset( $value ) ) {
 			update_post_meta( $post_id, $key, $value );
+		} else {
+			delete_post_meta( $post_id, $key );
 		}
 	}
 	
@@ -343,3 +358,11 @@ function pronamic_pay_save_gateway( $post_id ) {
 }
 
 add_action( 'save_post', 'pronamic_pay_save_gateway' );
+
+function pronamic_pay_gateway_post_edit_form_tag( $post ) {
+	if ( $post->post_type == 'pronamic_gateway' ) {
+		echo ' enctype="multipart/form-data"';
+	}
+}
+
+add_action( 'post_edit_form_tag', 'pronamic_pay_gateway_post_edit_form_tag' );
