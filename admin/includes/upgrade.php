@@ -35,7 +35,8 @@ function orbis_ideal_upgrade_140() {
 	";
 	
 	$configurations = $wpdb->get_results( $query );
-	
+	$ids_map        = array();
+
 	foreach ( $configurations as $configuration ) {
 		// Post
 		$post = array(
@@ -47,6 +48,8 @@ function orbis_ideal_upgrade_140() {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
+			$ids_map[$configuration->id] = $post_id;
+
 			$configuration_meta = json_decode( $configuration->meta );
 
 			// Meta
@@ -128,6 +131,40 @@ function orbis_ideal_upgrade_140() {
 		}
 	}
 	
+	// Gateway ID options
+	$options = array(
+		'woocommerce_pronamic_ideal_settings' => array(
+			'type' => 'object',
+			'var'  => 'configuration_id'
+		),
+		'pronamic_ideal_event_espresso_configuration_id' => array(
+			'type' => 'var'
+		),
+		'pronamic_ideal_wpsc_configuration_id' => array(
+			'type' => 'var'
+		),
+		'jigoshop_pronamic_ideal_configuration_id' => array(
+			'type' => 'var'
+		)
+	);
+	
+	foreach ( $options as $option => $data ) {
+		$value = get_option( $option );
+		
+		if ( ! empty ( $value ) ) {
+			if ( isset( $data['type'] ) ) {
+				switch( $data['type'] ) {
+					case 'var':
+						if ( isset( $ids_map[$value] ) ) {
+							update_option( $option, $ids_map[$value] );
+						}
+						
+						break;
+				}
+			}
+		}
+	}
+
 	// Payments
 	$payments_table = $wpdb->prefix . 'pronamic_ideal_payments';
 

@@ -220,3 +220,100 @@ function myplugin_inner_custom_box( $post ) {
 	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-edit.php';
 }
 
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function pronamic_pay_save_gateway( $post_id ) {
+	// Check if our nonce is set.
+	if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) )
+		return $post_id;
+
+	$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_gateway' ) )
+		return $post_id;
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		return $post_id;
+
+	// Check the user's permissions.
+	if ( 'page' == $_POST['post_type'] ) {
+
+		if ( ! current_user_can( 'edit_page', $post_id ) )
+			return $post_id;
+
+	} else {
+
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return $post_id;
+	}
+
+	/* OK, its safe for us to save the data now. */
+	$definition = array(
+		// General
+		'_pronamic_gateway_mode'              => FILTER_SANITIZE_STRING,
+		// Basic
+		'_pronamic_gateway_ideal_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_sub_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_hash_key' => FILTER_SANITIZE_STRING,
+		// Mollie
+		'_pronamic_gateway_mollie_partner_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_mollie_profile_key' => FILTER_SANITIZE_STRING,
+		// OmniKassa
+		'_pronamic_gateway_omnikassa_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_omnikassa_secret_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_omnikassa_key_version' => FILTER_SANITIZE_STRING,
+		// Buckaroo
+		'_pronamic_gateway_buckaroo_website_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_buckaroo_secret_key' => FILTER_SANITIZE_STRING,
+		// ICEPAY
+		'_pronamic_gateway_icepay_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_icepay_secret_code' => FILTER_SANITIZE_STRING,
+		// Sisow
+		'_pronamic_gateway_sisow_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_sisow_merchant_key' => FILTER_SANITIZE_STRING,
+		// TargetPay
+		'_pronamic_gateway_targetpay_layoutcode' => FILTER_SANITIZE_STRING,
+		// Ogone
+		'_pronamic_gateway_ogone_pspid' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_sha_in' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_sha_out' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_user_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_password' => FILTER_SANITIZE_STRING,
+		// Qantani
+		'_pronamic_gateway_qantani_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_secret' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_key' => FILTER_SANITIZE_STRING,
+		// Advanced
+		'_pronamic_gateway_ideal_private_key_password' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_private_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_private_certificate' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_number_days_valid' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_country' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_state_or_province' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_locality' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_organization' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_organization_unit' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_common_name' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_email' => FILTER_SANITIZE_STRING
+	);
+	
+	$data = filter_input_array( INPUT_POST, $definition );
+
+	foreach ( $data as $key => $value ) {
+		if ( empty( $value ) ) {
+			delete_post_meta( $post_id, $key );
+		} else {
+			update_post_meta( $post_id, $key, $value );
+		}
+	}
+	
+	// Transient
+	delete_transient( 'pronamic_ideal_issuers_' . $post_id );
+}
+
+add_action( 'save_post', 'pronamic_pay_save_gateway' );

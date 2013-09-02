@@ -35,7 +35,7 @@ if ( empty( $configuration->eMailAddress ) ) {
 }
 
 // Sections
-$variant_id = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId();
+$variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_variant_id', true );
 
 $options = array();
 
@@ -467,7 +467,7 @@ $sections = array(
 				'description' => __( 'eg, company [Pronamic]', 'pronamic_ideal' )
 			),
 			array(
-				'meta_key'    => '_pronamic_gateway_',
+				'meta_key'    => '_pronamic_gateway_organization_unit',
 				'name'        => 'organizationUnit',
 				'id'          => 'pronamic_ideal_organization_unit',
 				'title'       => __( 'Organization Unit', 'pronamic_ideal' ),
@@ -623,23 +623,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_configuratio
 
 ?>
 
-
-<?php if ( $update ) : ?>
-
-	<div class="updated inline below-h2">
-		<p><?php echo $update; ?></p>
-	</div>
-
-<?php endif; ?>
-
-<?php if ( $error ) : ?>
-
-	<div class="error inline below-h2">
-		<p><?php echo $error; ?></p>
-	</div>
-
-<?php endif; ?>
-
 <?php
 
 function pronamic_ideal_private_key_field( $field, $configuration ) {
@@ -699,8 +682,8 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 
 ?>
 <div id="pronamic-ideal-configration-editor">
-	
-	<?php wp_nonce_field('pronamic_ideal_save_configuration', 'pronamic_ideal_nonce'); ?>
+	<?php wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' ); ?>
+
 	<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr( $configuration->getId() ); ?>" type="hidden" />
 	
 	<table class="form-table">
@@ -711,177 +694,168 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 				</label>
 			</th>
 			<td>
-				<?php $variant_id = $configuration->getVariant() == null ? '' : $configuration->getVariant()->getId(); ?>
-	                <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
-	                	<option value=""></option>
-	                	<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
+                <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
+                	<option value=""></option>
+
+                	<?php foreach ( Pronamic_WordPress_IDeal_ConfigurationsRepository::getProviders() as $provider ) : ?>
 						<optgroup label="<?php echo $provider->getName(); ?>">
 							<?php foreach ( $provider->getVariants() as $variant ) : ?>
 								<option data-ideal-method="<?php echo $variant->getMethod(); ?>" value="<?php echo $variant->getId(); ?>" <?php selected( $variant_id, $variant->getId() ); ?>><?php echo $variant->getName(); ?></option>
 							<?php endforeach; ?>
 						</optgroup>
 					<?php endforeach; ?>
-	                </select>
-				</td>
-			</tr>
-		</table>
-	
-		<?php foreach ( $sections as $section ) : ?>
-	
-		<?php
-	
-		$classes = array();
-		if ( isset( $section['methods'] ) ) {
-			$classes[] = 'extra-settings';
-	
-			foreach ( $section['methods'] as $method ) {
-				$classes[] = 'method-' . $method;
-			}
-		}
-	
-		?>
-	
-		<div class="<?php echo implode( ' ', $classes ); ?>">
-			<h4><?php echo $section['title']; ?></h4>
-	
-			<table class="form-table">
-	
-				<?php foreach ( $section['fields'] as $field ) : ?>
-	
-					<?php
-	
-					$classes = array();
-					if ( isset( $field['methods'] ) ) {
-						$classes[] = 'extra-settings';
-	
-						foreach ( $field['methods'] as $method ) {
-							$classes[] = 'method-' . $method;
-						}
-					}
-	
-					?>
-					<tr class="<?php echo implode( ' ', $classes ); ?>">
-						<th scope="col">
-							<label for="<?php echo $field['id']; ?>">
-								<?php echo $field['title']; ?>
-							</label>
-						</th>
-						<td>
-							<?php
-	
-							$attributes = array();
-							$attributes['id']   = $field['id'];
-							$attributes['name'] = $field['id'];
-	
-							$classes = array();
-							if ( isset( $field['classes'] ) ) {
-								$classes = $field['classes'];
-							}
-	
-							if ( isset( $field['readonly'] ) && $field['readonly'] ) {
-								$attributes['readonly'] = 'readonly';
-	
-								$classes[] = 'readonly';
-							}
-	
-							if ( ! empty( $classes ) ) {
-								$attributes['class'] = implode( ' ', $classes );
-							}
-	
-							$value = '';
-							if ( isset( $field['meta_key'] ) ) {
-								$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
-							} elseif ( isset( $field['name'] ) ) {
-								$value = $configuration->{$field['name']};
-							} elseif( isset( $field['value'] ) ) {
-								$value = $field['value'];
-							}
-	
-							switch ( $field['type'] ) {
-								case 'text' :
-									$attributes['type']  = 'text';
-									$attributes['value'] = $value;
-	
-									printf(
-										'<input %s />',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
-									);
-	
-									break;
-								case 'file' :
-									$attributes['type']  = 'file';
-	
-									printf(
-										'<input %s />',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
-									);
-	
-									break;
-								case 'select' :
-									printf(
-										'<select %s>%s</select>',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
-										Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $value )
-									);
-	
-									break;
-								case 'optgroup' :
-									printf( '<fieldset>' );
-									printf( '<legend class="screen-reader-text">%s</legend>', $field['title'] );
-	
-									printf( '<p>' );
-	
-									foreach ( $field['options'] as $key => $label ) {
-										printf(
-											'<label>%s %s</label><br />',
-											sprintf(
-												'<input type="radio" value="%s" name="%s" %s />',
-												$key,
-												$field['id'],
-												checked( $value, $key, false )
-											),
-											$label
-										);
-									}
-	
-									break;
-							}
-	
-							if ( isset( $field['description'] ) ) {
-								printf(
-									'<span class="description"><br />%s</span>',
-									$field['description']
-								);
-							}
-	
-							if ( isset( $field['callback'] ) ) {
-								$callback = $field['callback'];
-	
-								$callback( $field, $configuration );
-							}
-	
-							?>
-	
-						</td>
-					</tr>
-	
-				<?php endforeach; ?>
-	
-			</table>
-		</div>
-	
-	<?php endforeach; ?>
-	
+
+               	</select>
+			</td>
+		</tr>
+	</table>
+
+	<?php foreach ( $sections as $section ) : ?>
+
 	<?php
-	
-	submit_button(
-		empty( $configuration->id ) ? __( 'Save', 'pronamic_ideal' ) : __( 'Update', 'pronamic_ideal' ),
-		'primary',
-		'submit'
-	);
-	
+
+	$classes = array();
+	if ( isset( $section['methods'] ) ) {
+		$classes[] = 'extra-settings';
+
+		foreach ( $section['methods'] as $method ) {
+			$classes[] = 'method-' . $method;
+		}
+	}
+
 	?>
-	
+
+	<div class="<?php echo implode( ' ', $classes ); ?>">
+		<h4><?php echo $section['title']; ?></h4>
+
+		<table class="form-table">
+
+			<?php foreach ( $section['fields'] as $field ) : ?>
+
+				<?php
+
+				$classes = array();
+				if ( isset( $field['methods'] ) ) {
+					$classes[] = 'extra-settings';
+
+					foreach ( $field['methods'] as $method ) {
+						$classes[] = 'method-' . $method;
+					}
+				}
+
+				?>
+				<tr class="<?php echo implode( ' ', $classes ); ?>">
+					<th scope="col">
+						<label for="<?php echo $field['id']; ?>">
+							<?php echo $field['title']; ?>
+						</label>
+					</th>
+					<td>
+						<?php
+
+						$attributes = array();
+						$attributes['id']   = $field['id'];
+						$attributes['name'] = $field['id'];
+
+						$classes = array();
+						if ( isset( $field['classes'] ) ) {
+							$classes = $field['classes'];
+						}
+
+						if ( isset( $field['readonly'] ) && $field['readonly'] ) {
+							$attributes['readonly'] = 'readonly';
+
+							$classes[] = 'readonly';
+						}
+
+						if ( ! empty( $classes ) ) {
+							$attributes['class'] = implode( ' ', $classes );
+						}
+
+						$value = '';
+						if ( isset( $field['meta_key'] ) ) {
+							$attributes['name'] = $field['meta_key'];
+
+							$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
+						} elseif ( isset( $field['name'] ) ) {
+							$value = $configuration->{$field['name']};
+						} elseif( isset( $field['value'] ) ) {
+							$value = $field['value'];
+						}
+
+						switch ( $field['type'] ) {
+							case 'text' :
+								$attributes['type']  = 'text';
+								$attributes['value'] = $value;
+
+								printf(
+									'<input %s />',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+								);
+
+								break;
+							case 'file' :
+								$attributes['type']  = 'file';
+
+								printf(
+									'<input %s />',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+								);
+
+								break;
+							case 'select' :
+								printf(
+									'<select %s>%s</select>',
+									Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
+									Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $value )
+								);
+
+								break;
+							case 'optgroup' :
+								printf( '<fieldset>' );
+								printf( '<legend class="screen-reader-text">%s</legend>', $field['title'] );
+
+								foreach ( $field['options'] as $key => $label ) {
+									printf(
+										'<label>%s %s</label><br />',
+										sprintf(
+											'<input type="radio" value="%s" name="%s" %s />',
+											$key,
+											$attributes['name'],
+											checked( $value, $key, false )
+										),
+										$label
+									);
+								}
+
+								break;
+						}
+
+						if ( isset( $field['description'] ) ) {
+							printf(
+								'<span class="description"><br />%s</span>',
+								$field['description']
+							);
+						}
+
+						if ( isset( $field['callback'] ) ) {
+							$callback = $field['callback'];
+
+							$callback( $field, $configuration );
+						}
+
+						?>
+
+					</td>
+				</tr>
+
+			<?php endforeach; ?>
+
+		</table>
+	</div>
+
+	<?php endforeach; ?>
+
 	<div class="extra-settings method-advanced">
 		<h4>
 			<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
