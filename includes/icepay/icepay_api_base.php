@@ -3,7 +3,7 @@
 /**
  *  ICEPAY API
  *
- *  @version 2.2.0
+ *  @version 2.3.0
  *  @author Olaf Abbenhuis
  *  @author Wouter van Tilburg
  *  @copyright Copyright (c) 2012, ICEPAY
@@ -489,7 +489,7 @@ class Icepay_StatusCode {
 class Icepay_Project_Helper {
 
     private static $instance;
-    private $_release = "2.2.0";
+    private $_release = "2.3.0";
     private $_basic;
     private $_result;
     private $_postback;
@@ -768,6 +768,9 @@ class Icepay_Api_Base {
      * @param string $url
      */
     public function setSuccessURL($url = "") {
+        if (!isset($this->data))
+            $this->data = new stdClass();
+        
         $this->data->ic_urlcompleted = $url;
 
         return $this;
@@ -780,6 +783,9 @@ class Icepay_Api_Base {
      * @param string $url
      */
     public function setErrorURL($url = "") {
+        if (!isset($this->data))
+            $this->data = new stdClass();
+        
         $this->data->ic_urlerror = $url;
         return $this;
     }
@@ -1191,7 +1197,6 @@ class Icepay_Api_Logger {
         if ($this->_logToFile) {
             $file = $this->_loggingDirectory . DS . $this->_loggingFile;
 
-            echo $file;
             try {
                 $fp = fopen($file, "a");
                 fwrite($fp, $line);
@@ -1360,7 +1365,7 @@ class Icepay_Postback extends Icepay_Api_Base {
      * @access public
      * @return boolean
      */
-    public function isVersionCheck() {
+    public function isVersionCheck() {       
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $this->_logger->log('Invalid request method', Icepay_Api_Logger::ERROR);
             return false;
