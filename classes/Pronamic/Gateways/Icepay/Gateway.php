@@ -38,8 +38,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			// Get the IDeal Payment Method Class
 			require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/includes/icepay/paymentmethods/ideal.php';
 		}
-		
-		
+
 		$this->client = new Icepay_Paymentmethod_Ideal();
 	}
 
@@ -114,7 +113,6 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setSecretCode( $this->configuration->icepaySecretCode )
 				->setProtocol( 'http' )
 				->validatePayment( $payment );
-			
 			
 			$this->set_action_url( $basicmode->getURL() );
 		} catch ( Exception $e ) {
