@@ -148,7 +148,6 @@ Here is a list of known plugin conflicts:
 
 = develop =
 *	Improved support for Event Espresso 3.1, added iDEAL logo
-*	Improved support for ClassiPress 3.3.1
 
 = 1.3.1 =
 *	Fixed deprecated notice in Jigoshop Add-On (Assigning the return value of new by reference)

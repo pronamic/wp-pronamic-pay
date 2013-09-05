@@ -63,15 +63,12 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * @return array
 	 */
 	public static function get_configurations_select_options() {
-		$gateways = get_posts( array(
-			'post_type' => 'pronamic_gateway',
-			'nopaging'  => true
-		) );
+		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
 
 		$options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
 
-		foreach ( $gateways as $gateway ) {
-			$options[$gateway->ID] = get_the_title( $gateway->ID );
+		foreach ( $configurations as $configuration ) {
+			$options[$configuration->getId()] = self::get_configuration_option_name( $configuration );
 		}
 
 		return $options;

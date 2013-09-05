@@ -477,20 +477,7 @@
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabobank_omnikassa_integratiehandleiding_29420242.pdf',
 					'name'       => 'Integratiehandleiding Rabobank OmniKassa - Versie 4.2, 5 juni 2013',
 					'version'    => '4.2',
-					'date'       => new DateTime( '05-06-2013' ),
-					'deprecated' => true
-				),
-				array(
-					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/08/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf',
-					'name'       => 'Integration Guide Rabo OmniKassa - Versie 5.0, 28 June 2013',
-					'version'    => '5.0',
-					'date'       => new DateTime( '28-06-2013' )
-				),
-				array(
-					'url'        => 'http://pronamic.nl/wp-content/uploads/2013/08/integratiehandleiding_rabobank_omnikassa_nl_versie_5_0_juni_2013_10_29420242.pdf',
-					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 5.0, 28 juni 2013',
-					'version'    => '5.0',
-					'date'       => new DateTime( '28-06-2013' )
+					'date'       => new DateTime( '05-06-2013' )
 				)
 			)
 		),

@@ -98,7 +98,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( $configuration ) {
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		$this->configuration = $configuration;
 	}
 
@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration->ID;
+		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
 
 		$result = get_transient( $transient );
 		// $result = false;

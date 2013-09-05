@@ -1,15 +1,14 @@
 <?php 
 
-global $post;
 global $pronamic_ideal_errors;
 
-$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $post );
+$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 
 ?>
 
-<h4>
+<h3>
 	<?php _e( 'Mandatory Tests', 'pronamic_ideal' ); ?>
-</h4>
+</h3>
 
 <form method="post" action="" target="_blank">
 	<?php wp_nonce_field( 'test_ideal_advanced', 'pronamic_ideal_nonce' ); ?>
@@ -28,7 +27,7 @@ $gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $post );
 
 	?>
 
-	<table>
+	<table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
 		<thead>
 			<tr>
 				<th scope="col">

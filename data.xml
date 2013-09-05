@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ideal>
+	<provider>
+		<id>abnamro</id>
+		<name>ABN AMRO</name>
+		<url>http://abnamro.nl/</url>
+			
+		<variant gateway="easy">
+			<id>abnamro-ideal-easy</id>
+			<name>ABN AMRO - iDEAL Easy</name>
+			<url>https://internetkassa.abnamro.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
+			</live>
+		</variant>
+		<variant gateway="basic">
+			<id>abnamro-ideal-hosted</id>
+			<name>ABN AMRO - iDEAL Hosted</name>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do</paymentServerUrl>
+				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="internetkassa">
+			<id>abnamro-ideal-only-kassa</id>
+			<name>ABN AMRO - iDEAL Only Kassa</name>
+			<url>https://internetkassa.abnamro.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>abnamro-ideal-zelfbouw</id>
+			<name>ABN AMRO - iDEAL Zelfbouw</name>
+			<url>https://abnamro.ideal-payment.de/</url>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/iDeal</paymentServerUrl>
+
+				<directoryRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Directory.aspx</directoryRequestUrl>
+				<transactionRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Transaction.aspx</transactionRequestUrl>
+				<statusRequestUrl>https://itt.idealdesk.com/ITTEmulatorAcquirer/Status.aspx</statusRequestUrl>
+
+				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/iDeal</paymentServerUrl>
+
+				<directoryRequestUrl>https://idealm.abnamro.nl/nl/issuerInformation/getIssuerInformation.xml</directoryRequestUrl>
+				<transactionRequestUrl>https://idealm.abnamro.nl/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml</transactionRequestUrl>
+				<statusRequestUrl>https://idealm.abnamro.nl/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml</statusRequestUrl>
+
+				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>abnamro-ideal-zelfbouw-v3</id>
+			<name>ABN AMRO - iDEAL Zelfbouw - v3</name>
+			<url>https://abnamro.ideal-payment.de/</url>
+
+			<test>
+				<paymentServerUrl>https://abnamro-test.ideal-payment.de/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://abnamro-test.ideal-payment.de/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://abnamro.ideal-payment.de/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://abnamro.ideal-payment.de/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/abnamro-ideal-zelfbouw-v3/abnamro.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+	
+	<provider>
+		<id>adyen</id>
+		<name>Adyen</name>
+		<url>http://www.adyen.com/</url>
+
+		<variant gateway="adyen">
+			<id>adyen</id>
+			<name>Adyen</name>
+			<url>http://www.adyen.com/</url>
+
+			<test>
+				<paymentServerUrl>https://test.adyen.com/hpp/pay.shtml</paymentServerUrl>
+				<dashboardUrl>https://ca-test.adyen.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://live.adyen.com/hpp/pay.shtml</paymentServerUrl>
+				<dashboardUrl>https://ca-live.adyen.com/</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>buckaroo</id>
+		<name>Buckaroo</name>
+		<url>http://www.buckaroo.nl/</url>
+
+		<variant gateway="buckaroo">
+			<id>buckaroo</id>
+			<name>Buckaroo - iDEAL</name>
+			<url>https://payment.buckaroo.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://testcheckout.buckaroo.nl/html/</paymentServerUrl>
+				<dashboardUrl>https://payment.buckaroo.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://checkout.buckaroo.nl/html/</paymentServerUrl>
+				<dashboardUrl>https://payment.buckaroo.nl/</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>deutschebank</id>
+		<name>Deutsche Bank</name>
+		<url>http://deutschebank.nl/</url>
+
+		<variant gateway="advanced_v3">
+			<id>deutschebank-ideal-expert-v3</id>
+			<name>Deutsche Bank - iDEAL Expert - v3</name>
+			<url>https://ideal.db.com/</url>
+
+			<test>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDealv3</paymentServerUrl>
+
+				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://myideal.db.com/ideal/iDealv3</paymentServerUrl>
+
+				<dashboardUrl>https://myidealtest.db.com/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/deutschebank-ideal-expert-v3/?.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>dutchpaymentgroup</id>
+		<name>Dutch Payment Group</name>
+		<url>http://www.dutchpaymentgroup.com/</url>
+
+		<variant gateway="dutchpaymentgroup" disabled="disabled">
+			<id>dutchpaymentgroup</id>
+			<name>Dutch Payment Group</name>
+			<url>http://www.dutchpaymentgroup.com/</url>
+
+			<test>
+				<paymentServerUrl>https://www.paydutch.nl/api/processreq.aspx</paymentServerUrl>
+
+				<dashboardUrl>https://www.paydutch.nl/paydutchmanager</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.paydutch.nl/api/processreq.aspx</paymentServerUrl>
+
+				<dashboardUrl>https://www.paydutch.nl/paydutchmanager</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+	
+	<provider>
+		<id>easy-ideal</id>
+		<name>Easy iDeal</name>
+		<url>http://www.easy-ideal.com/</url>
+		<affiliateUrl>https://www.qantanipayments.com/backoffice/signup/easyideal/step1/pronamic/</affiliateUrl>
+
+		<variant gateway="qantani">
+			<id>easy-ideal</id>
+			<name>Easy iDeal - iDEAL</name>
+			<url>http://www.easy-ideal.com/</url>
+
+			<test>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>fortis-bank</id>
+		<name>Fortis Bank</name>
+			
+		<variant gateway="basic" disabled="disabled">
+			<id>fortis-bank-ideal-hosted</id>
+			<name>Fortis Bank - iDEAL Hosted</name>
+
+			<test>
+				<paymentServerUrl></paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl></paymentServerUrl>
+			</live>
+		</variant>
+		<variant gateway="internetkassa">
+			<id>fortis-bank-internetkassa</id>
+			<name>Fortis Bank - iDEAL Internet Kassa</name>
+
+			<test>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/test/admin_NEOS.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>fortis-bank-ideal-integrated</id>
+			<name>Fortis Bank - iDEAL Integrated</name>
+
+			<test>
+				<paymentServerUrl>https://acquirer-ideal.test.nl.fortis.com/ideal/iDeal</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://acquirer-ideal.bank.nl.fortis.com/ideal/iDeal</paymentServerUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/fortis-bank-ideal-integrated/fortisbank-0.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>frieslandbank</id>
+		<name>Friesland Bank</name>
+		<url>http://frieslandbank.nl/</url>
+			
+		<variant gateway="basic">
+			<id>frieslandbank-ideal-zakelijk</id>
+			<name>Friesland Bank - iDEAL Zakelijk</name>
+
+			<test>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/mpiPayInitFriesland.do</paymentServerUrl>
+				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/mpiPayInitFriesland.do</paymentServerUrl>
+				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>frieslandbank-ideal-zakelijk-plus</id>
+			<name>Friesland Bank - iDEAL Zakelijk Plus</name>
+
+			<test>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/iDEAL</paymentServerUrl>
+				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/iDEAL</paymentServerUrl>
+				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/frieslandbank-ideal-zakelijke-plus/cert.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>frieslandbank-ideal-zakelijk-plus-v3</id>
+			<name>Friesland Bank - iDEAL Zakelijk Plus - v3</name>
+
+			<test>
+				<paymentServerUrl>https://testidealkassa.frieslandbank.nl/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://testidealkassa.frieslandbank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://idealkassa.frieslandbank.nl/ideal/iDEALv3</paymentServerUrl>
+
+				<dashboardUrl>https://idealkassa.frieslandbank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/frieslandbank-ideal-zakelijk-plus-v3/frieslandbank.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>icepay</id>
+		<name>ICEPAY</name>
+		<url>http://www.icepay.nl/</url>
+
+		<variant gateway="icepay">
+			<id>icepay-ideal</id>
+			<name>ICEPAY - iDEAL</name>
+
+			<test>
+				<dashboardUrl>https://www.icepay.com/Merchant/NL/Reports/Transactions</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.icepay.com/Merchant/NL/Reports/Transactions</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+	
+	<provider>
+		<id>ideal-simulator</id>
+		<name>iDEAL Simulator</name>
+		<url>http://ideal-simulator.nl/</url>
+			
+		<variant gateway="basic">
+			<id>ideal-simulator-ideal-basic</id>
+			<name>iDEAL Simulator - iDEAL Lite / Basic</name>
+
+			<test>
+				<paymentServerUrl>https://www.ideal-simulator.nl/lite/</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.ideal-simulator.nl/lite/</paymentServerUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>ideal-simulator-ideal-advanced</id>
+			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</name>
+
+			<test>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional/</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional/</paymentServerUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ideal-simulator-ideal-advanced/simulator.cer</file>
+				<file>certificates/ideal-simulator-ideal-advanced/simulator0.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>ideal-simulator-ideal-advanced-v3</id>
+			<name>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</name>
+
+			<test>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional-v3/</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.ideal-simulator.nl/professional-v3/</paymentServerUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ideal-simulator-ideal-advanced-v3/simulator.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>ing</id>
+		<name>ING</name>
+		<url>http://ing.nl/</url>
+
+		<variant gateway="basic">
+			<id>ing-ideal-basic</id>
+			<name>ING - iDEAL Basic</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do</paymentServerUrl>
+				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.secure-ing.com/ideal/mpiPayInitIng.do</paymentServerUrl>
+				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="internetkassa">
+			<id>ing-ideal-internetkassa</id>
+			<name>ING - iDEAL Internet Kassa</name>
+			<url>https://twyp.secure-ing.com/</url>
+
+			<test>
+				<paymentServerUrl>https://twyp.secure-ing.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://twyp.secure-ing.com/ncol/test/admin_TWYP.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://twyp.secure-ing.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://twyp.secure-ing.com/ncol/prod/admin_TWYP.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>ing-ideal-advanced</id>
+			<name>ING - iDEAL Advanced</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.secure-ing.com/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ing-ideal-advanced/ingbank.cer</file>
+				<file>certificates/ing-ideal-advanced/ingbank-0.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>ing-ideal-advanced-v3</id>
+			<name>ING - iDEAL Advanced - v3</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.secure-ing.com/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://idealtest.secure-ing.com/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.secure-ing.com/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://ideal.secure-ing.com/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/ing-ideal-advanced-v3/ingbank.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>mollie</id>
+		<name>Mollie</name>
+		<url>http://mollie/</url>
+
+		<variant gateway="mollie">
+			<id>mollie-ideal</id>
+			<name>Mollie - iDEAL</name>
+
+			<test>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="basic">
+			<id>mollie-ideal-basic</id>
+			<name>Mollie - iDEAL Basic</name>
+
+			<test>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/lite/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>mollie-ideal-advanced</id>
+			<name>Mollie - iDEAL Advanced</name>
+
+			<test>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/testmode/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.mollie.nl/xml/idealAcquirer/</paymentServerUrl>
+				<dashboardUrl>http://www.mollie.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/mollie-ideal-advanced/mollie.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider disabled="disabled">
+		<id>multisafepay</id>
+		<name>MultiSafepay</name>
+		<url>http://www.multisafepay.com/</url>
+
+		<method gateway="multisafepay">
+			<id>multisafepay</id>
+			<name>MultiSafepay</name>
+		</method>
+	</provider>
+
+	<provider>
+		<id>neos</id>
+		<name>NEOS</name>
+		<url>http://neossolution.com/</url>
+
+		<variant gateway="internetkassa">
+			<id>neos-internetkassa</id>
+			<name>NEOS - Internet Kassa</name>
+
+			<test>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/test/admin_NEOS.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>ogone</id>
+		<name>Ogone</name>
+		<url>http://ogone.com/</url>
+
+		<variant gateway="internetkassa">
+			<id>ogone-internetkassa</id>
+			<name>Ogone - Internet Kassa</name>
+			<url>https://secure.ogone.com/</url>
+
+			<test>
+				<paymentServerUrl>https://secure.ogone.com/ncol/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/test/admin_ogone.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/prod/admin_ogone.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="ogone_directlink">
+			<id>ogone-directlink</id>
+			<name>Ogone - DirectLink</name>
+			<url>https://secure.ogone.com/</url>
+
+			<test>
+				<paymentServerUrl>https://secure.ogone.com/ncol/test/orderdirect.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/test/admin_ogone.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderdirect.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/prod/admin_ogone.asp</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>rabobank</id>
+		<name>Rabobank</name>
+		<url>http://rabobank.nl/</url>
+
+		<variant gateway="basic">
+			<id>rabobank-ideal-lite</id>
+			<name>Rabobank - iDEAL Lite</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/mpiPayInitRabo.do</paymentServerUrl>
+				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do</paymentServerUrl>
+				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="internetkassa">
+			<id>rabobank-ideal-kassa</id>
+			<name>Rabobank - Rabo iDEAL Kassa</name>
+			<url>http://i-kassa.rabobank.nl/</url>
+
+			<test>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/test/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/test/admin_RIK.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://i-kassa.rabobank.nl/rik/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="omnikassa">
+			<id>rabobank-omnikassa</id>
+			<name>Rabobank - OmniKassa</name>
+
+			<test>
+				<paymentServerUrl>https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet</paymentServerUrl>
+				<dashboardUrl>https://download.omnikassa.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://payment-webinit.omnikassa.rabobank.nl/paymentServlet</paymentServerUrl>
+				<dashboardUrl>https://download.omnikassa.rabobank.nl/</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>rabobank-ideal-professional</id>
+			<name>Rabobank - iDEAL Professional</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.rabobank.nl/ideal/iDeal</paymentServerUrl>
+				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/rabobank-ideal-professional/ideal_v3.cer</file>
+				<file>certificates/rabobank-ideal-professional/ideal_v2.cer</file>
+			</certificates>
+		</variant>
+		<variant gateway="advanced_v3">
+			<id>rabobank-ideal-professional-v3</id>
+			<name>Rabobank - iDEAL Professional - v3</name>
+
+			<test>
+				<paymentServerUrl>https://idealtest.rabobank.nl/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://idealtest.rabobank.nl/</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://ideal.rabobank.nl/ideal/iDEALv3</paymentServerUrl>
+				<dashboardUrl>https://ideal.rabobank.nl/</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/rabobank-ideal-professional-v3/rabobank.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>sisow</id>
+		<name>Sisow</name>
+		<url>http://sisow.nl/</url>
+		<affiliateUrl>https://www.sisow.nl/Sisow/iDeal/Aanmelden.aspx?r=120872</affiliateUrl>
+
+		<variant gateway="sisow">
+			<id>sisow-ideal</id>
+			<name>Sisow - iDEAL</name>
+
+			<test>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="basic">
+			<id>sisow-ideal-basic</id>
+			<name>Sisow - iDEAL Basic</name>
+
+			<test>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="advanced">
+			<id>sisow-ideal-advanced</id>
+			<name>Sisow - iDEAL Advanced</name>
+
+			<test>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx</paymentServerUrl>
+				<dashboardUrl>https://www.sisow.nl/Sisow/iDeal/Login.aspx</dashboardUrl>
+			</live>
+
+			<certificates>
+				<file>certificates/sisow-ideal-advanced/sisowideal.cer</file>
+			</certificates>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>targetpay</id>
+		<name>TargetPay</name>
+		<url>https://www.targetpay.com/</url>
+		<affiliateUrl>https://www.targetpay.com/quickreg/85315</affiliateUrl>
+
+		<variant gateway="targetpay">
+			<id>targetpay-ideal</id>
+			<name>TargetPay - iDEAL</name>
+
+			<test>
+				<dashboardUrl>https://www.targetpay.com/login</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.targetpay.com/login</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+
+	<provider>
+		<id>qantani</id>
+		<name>Qantani</name>
+		<url>https://www.qantani.com/</url>
+		<affiliateUrl>https://www.qantani.com/?referrer=pronamic</affiliateUrl>
+
+		<variant gateway="qantani">
+			<id>qantani</id>
+			<name>Qantani - iDEAL</name>
+			<url>https://www.qantani.com/</url>
+
+			<test>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</test>
+			<live>
+				<dashboardUrl>https://www.qantanipayments.com/backoffice/login/</dashboardUrl>
+			</live>
+		</variant>
+	</provider>
+</ideal>

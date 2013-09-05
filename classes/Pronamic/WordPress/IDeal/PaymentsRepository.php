@@ -30,7 +30,6 @@ class Pronamic_WordPress_IDeal_PaymentsRepository {
 
         $sql = "CREATE TABLE $tableName (
 			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-			post_id BIGINT(20) UNSIGNED NULL,
 			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
 			purchase_id VARCHAR(16) NULL,
 			transaction_id VARCHAR(32) NULL,

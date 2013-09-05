@@ -14,18 +14,16 @@ class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
 	 *  
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( $configuration ) {
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 0.01 );
 
-		global $pronamic_pay_gateways;
-
 		$this->client = new Pronamic_Gateways_IDealEasy_IDealEasy();
-		$this->client->setPaymentServerUrl( $pronamic_pay_gateways['abnamro-ideal-easy']['live']['payment_server_url'] );
-		$this->client->setPspId( get_post_meta( $configuration->ID, '_pronamic_gateway_ogone_psp_id', true ) );
+		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
+		$this->client->setPspId( $configuration->pspId );
 	}
 	
 	/////////////////////////////////////////////////
