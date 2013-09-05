@@ -100,9 +100,9 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			$payment
 				->setPaymentMethod( $this->client->getCode() )
 				->setAmount( Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ) )
-				->setCountry( "NL" )
-				->setLanguage( "NL" )
-				->setReference( site_url( "/" ) )
+				->setCountry( 'NL' )
+				->setLanguage( 'NL' )
+				->setReference( site_url( '/' ) )
 				->setDescription( $data->getDescription() )
 				->setCurrency( $data->getCurrencyAlphabeticCode() )
 				->setIssuer( $data->get_issuer_id() )
