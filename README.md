@@ -4,7 +4,7 @@
 **Donate link:** http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt  
 **Requires at least:** 3.0  
 **Tested up to:** 3.5.2  
-**Stable tag:** 1.3.1  
+**Stable tag:** 1.3.2
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
