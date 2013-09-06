@@ -35,7 +35,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get source indicator
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
 	public function getSource() {
@@ -51,7 +51,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
 	 * @return string
 	 */
 	public function getDescription() {
@@ -61,7 +61,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
 	 * @return string
 	 */
 	public function getOrderId() {
@@ -99,7 +99,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get items
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getItems()
+	 * @see Pronamic_Pay_PaymentDataInterface::getItems()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function getItems() {
@@ -127,7 +127,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get currency
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
 	 * @return string
 	 */
 	public function getCurrencyAlphabeticCode() {
@@ -171,7 +171,7 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * Get normal return URL
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.0.10/classes/abstracts/abstract-wc-payment-gateway.php#L49
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getNormalReturnUrl()
+	 * @see Pronamic_Pay_PaymentDataInterface::getNormalReturnUrl()
 	 * @return string
 	 */
 	public function getNormalReturnUrl() { 

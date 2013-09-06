@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_IDealDataProxy {
+abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_Pay_AbstractPaymentData {
 	/**
 	 * Constructs and intializes an WordPress iDEAL data proxy
 	 */
@@ -21,7 +21,7 @@ abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_ID
 	/**
 	 * Get the ISO 639 language code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639Code()
 	 * @return string
 	 */
 	public function getLanguageIso639Code() {
@@ -31,7 +31,7 @@ abstract class Pronamic_WordPress_IDeal_IDealDataProxy extends Pronamic_IDeal_ID
 	/**
 	 * Get the language ISO 639 and ISO 3166 country code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639AndCountryIso3166Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639AndCountryIso3166Code()
 	 * @return string
 	 */
 	public function getLanguageIso639AndCountryIso3166Code() {

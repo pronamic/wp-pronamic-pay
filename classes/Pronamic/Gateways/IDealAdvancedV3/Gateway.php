@@ -86,7 +86,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 		$transaction->set_purchase_id( $data->getOrderId() );
 		$transaction->set_amount( $data->getAmount() );

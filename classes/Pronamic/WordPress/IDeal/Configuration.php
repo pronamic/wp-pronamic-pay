@@ -110,7 +110,7 @@ class Pronamic_WordPress_IDeal_Configuration {
 	public $qantani_merchant_secret;
 
 	//////////////////////////////////////////////////
-	// Kassa
+	// Ogone
 	//////////////////////////////////////////////////
 
 	/**
@@ -133,6 +133,10 @@ class Pronamic_WordPress_IDeal_Configuration {
 	 * @var string
 	 */
 	public $shaOutPassPhrase;
+
+	public $ogone_user_id;
+
+	public $ogone_password;
 	
 	//////////////////////////////////////////////////
 	// Private key and certificates

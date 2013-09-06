@@ -1,29 +1,17 @@
 [RELEASES]
 
-::  Version 2.2.0: Extended Checkout
-        Release date: 8 jan 2013
+::      Version 2.3.0: Recurring Payments
+        Release date: 6 aug 2013
         Updated by: Wouter van Tilburg
 
         Changes
-            - Added extended Checkout
-			- Fixed dynamic url bug
+            - Added vaultCheckout method for recurring payments
+            - Added autoCheckout method for recurring payments
+            - Added KNAB as iDeal issuer
         Altered Files:
-            - icepay_api_webservice.php
-			- icepay_api_base.php
-			- icepay_api_basic.php
-		Added Files:
-			- icepay_api_order.php
-        ~
+            - api/icepay_api_webservice.php
+            - api/paymentsmethods/ideal.php
 
-::  Version 2.1.3: 
-	Release date: 29 okt 2012
-	Updated by: Wouter van Tilburg
-	
-	Changes
-		- Changed allowed order update list (Error > OK) for pay per mail.
-	Altered Files:
-		- api/icepay_api_base.php
-	
 :: 	Version 2.1.2: Bugfixes
 	Release date: 4 okt 2012
 	Updated by: Wouter van Tilburg
@@ -34,7 +22,7 @@
 		- Fixed format for pincode
 		- Fixed allowed countries for direct e-banking
 	Altered Files:
-		- api/icepay_api_base.php
+		- api/icepay_api_base.pjp
 		- api/icepay_api_webservice.php
 		- api/paymentmethods/directebank.php
 		

@@ -312,9 +312,14 @@
 		<id>icepay</id>
 		<name>ICEPAY</name>
 		<url>http://www.icepay.nl/</url>
+
 		<variant gateway="icepay">
 			<id>icepay-ideal</id>
 			<name>ICEPAY - iDEAL</name>
+
+			<test>
+				<dashboardUrl>https://www.icepay.com/Merchant/NL/Reports/Transactions</dashboardUrl>
+			</test>
 			<live>
 				<dashboardUrl>https://www.icepay.com/Merchant/NL/Reports/Transactions</dashboardUrl>
 			</live>
@@ -534,6 +539,20 @@
 			</test>
 			<live>
 				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/prod/admin_ogone.asp</dashboardUrl>
+			</live>
+		</variant>
+		<variant gateway="ogone_directlink">
+			<id>ogone-directlink</id>
+			<name>Ogone - DirectLink</name>
+			<url>https://secure.ogone.com/</url>
+
+			<test>
+				<paymentServerUrl>https://secure.ogone.com/ncol/test/orderdirect.asp</paymentServerUrl>
+				<dashboardUrl>https://secure.ogone.com/ncol/test/admin_ogone.asp</dashboardUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderdirect.asp</paymentServerUrl>
 				<dashboardUrl>https://secure.ogone.com/ncol/prod/admin_ogone.asp</dashboardUrl>
 			</live>
 		</variant>

@@ -170,6 +170,15 @@ class Pronamic_GravityForms_IDeal_Feed {
 	//////////////////////////////////////////////////
 
 	/**
+	 * The fields
+	 * 
+	 * @var array
+	 */
+	public $fields;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * The links
 	 * 
 	 * @var array
@@ -182,7 +191,9 @@ class Pronamic_GravityForms_IDeal_Feed {
 	 * Constructs and initialize an GravityForms iDEAL feed
 	 */
 	public function __construct() {
-		$this->links = array();
+		$this->fields = array();
+		$this->links  = array();
+
 		$this->isActive = true;
 	}
 

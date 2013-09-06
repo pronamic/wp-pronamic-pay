@@ -17,7 +17,7 @@ class Icepay_Paymentmethod_Paypal extends Icepay_Paymentmethod {
     public      $_issuer        = array('DEFAULT');
     public      $_country       = array('00');
     public      $_language      = array('00');
-    public      $_currency      = array('EUR', 'USD', 'GBP', 'AUD', 'JPY');
+    public      $_currency      = array('EUR', 'USD', 'GBP');
     public      $_amount        = array(
                                     'minimum'   => 30,
                                     'maximum'   => 1000000

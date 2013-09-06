@@ -42,10 +42,10 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Start
 	 * 
-	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
 		$this->set_action_url( $this->client->get_payment_server_url() );
 

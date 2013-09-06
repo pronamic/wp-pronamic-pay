@@ -37,7 +37,7 @@ class Pronamic_WordPress_IDeal_Util {
 	/**
 	 * Get the ISO 639 language code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639Code()
 	 * @return string
 	 */
 	public static function getLanguageIso639Code() {
@@ -49,7 +49,7 @@ class Pronamic_WordPress_IDeal_Util {
 	/**
 	 * Get the language ISO 639 and ISO 3166 country code
 	 * 
-	 * @see Pronamic_IDeal_IDealDataProxy::getLanguageIso639AndCountryIso3166Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639AndCountryIso3166Code()
 	 * @return string
 	 */
 	public static function getLanguageIso639AndCountryIso3166Code() {

@@ -3,7 +3,7 @@
 /**
  *  ICEPAY API
  *
- *  @version 2.2.0
+ *  @version 2.3.0
  *  @author Olaf Abbenhuis
  *  @author Wouter van Tilburg
  *  @copyright Copyright (c) 2012, ICEPAY
@@ -525,8 +525,6 @@ class Icepay_Basicmode extends Icepay_Api_Base {
      * @return string
      */
     protected function prepareParameters() {
-        var_dump($this->data);
-
         return http_build_query($this->data, '', '&');
     }
 

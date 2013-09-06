@@ -14,7 +14,7 @@ class Icepay_Paymentmethod_Ideal extends Icepay_Paymentmethod {
     public      $_version       = "1.0.1";
     public      $_method        = "IDEAL";
     public      $_readable_name = "iDEAL";
-    public      $_issuer        = array('ABNAMRO', 'ASNBANK', 'FRIESLAND', 'ING', 'RABOBANK', 'SNSBANK', 'SNSREGIOBANK', 'TRIODOSBANK', 'VANLANSCHOT');
+    public      $_issuer        = array('ABNAMRO', 'ASNBANK', 'FRIESLAND', 'ING', 'RABOBANK', 'SNSBANK', 'SNSREGIOBANK', 'TRIODOSBANK', 'KNAB', 'VANLANSCHOT', 'KNAB');
     public      $_country       = array('NL');
     public      $_language      = array('NL');
     public      $_currency      = array('EUR');

@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: iDEAL Internet Kassa parameters constants
+ * Title: Ogone parameters constants
  * Description: 
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @since 1.4.0
  */
-class Pronamic_Gateways_IDealInternetKassa_Parameters {
+class Pronamic_Pay_Gateways_Ogone_Parameters {
 	//////////////////////////////////////////////////
 	// IN
 	//////////////////////////////////////////////////
@@ -146,4 +146,37 @@ class Pronamic_Gateways_IDealInternetKassa_Parameters {
 	 * @var string
 	 */
 	const STATUS = 'STATUS';
+
+	//////////////////////////////////////////////////
+	// Network computer (nc) parameters
+	//////////////////////////////////////////////////
+
+	/**
+	 * Indicator for the NCSTATUS parameter
+	 * 
+	 * Error status. In general this is the first digit of the NCERROR. 
+	 * 
+	 * @var string
+	 */
+	const NC_STATUS = 'NCSTATUS';
+
+	/**
+	 * Indicator for the NCERROR parameter
+	 * 
+	 * Error code. 
+	 * The value of this parameter is 0 or empty if not applicable. 
+	 * 
+	 * @var string
+	 */
+	const NC_ERROR = 'NCERROR';
+
+	/**
+	 * Indicator for the NCERRORPLUS parameter
+	 * 
+	 * Error description of the NCERROR code.
+	 * The value of this parameter is 0 or empty if not applicable. 
+
+	 * @var string
+	 */
+	const NC_ERROR_PLUS = 'NCERRORPLUS';
 }

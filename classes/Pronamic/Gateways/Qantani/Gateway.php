@@ -2,7 +2,7 @@
 
 /**
  * Title: Qantani
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'qantani';	
-	
+	const SLUG = 'qantani';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Mollie gateway
-	 * 
+	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
 	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
@@ -36,12 +36,12 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_merchant_key( $configuration->qantani_merchant_key );
 		$this->client->set_merchant_secret( $configuration->qantani_merchant_secret );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
@@ -59,7 +59,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 
 		return $groups;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_issuer_field() {
@@ -72,16 +72,16 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			'choices'  => $this->get_issuers()
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start 
-	 * 
-	 * @param Pronamic_IDeal_IDealDataProxy $data
+	 * Start
+	 *
+	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_IDeal_IDealDataProxy $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$result = $this->client->create_transaction(
 			$data->getAmount(),
 			$data->getCurrencyAlphabeticCode(),
@@ -89,7 +89,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			$data->getDescription(),
 			add_query_arg( 'gateway', 'qantani', home_url( '/' ) )
 		);
-		
+
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->bank_url );
@@ -102,10 +102,10 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
 	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-		
+
 	}
 }
