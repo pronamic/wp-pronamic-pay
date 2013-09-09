@@ -429,80 +429,7 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 			<?php endforeach; ?>
 		</table>
 
-		<?php if(false): ?>
-
-		<div class="extra-settings method-easy">
-			<h3>
-				<?php _e('Easy', 'pronamic_ideal'); ?>
-			</h3>
-	
-			<table class="form-table">
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_customer_name_field_id">
-							<?php _e('Customer Name', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<select id="gf_ideal_customer_name_field_id" name="gf_ideal_customer_name_field_id">
-							
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_e_mail_address_field_id">
-							<?php _e('E-Mail Address', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<select id="gf_ideal_e_mail_address_field_id" name="gf_ideal_e_mail_address_field_id">
-							
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_owner_address_field_id">
-							<?php _e('Owner Address', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<select id="gf_ideal_owner_address_field_id" name="gf_ideal_owner_address_field_id">
-							
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_owner_city_field_id">
-							<?php _e('Owner City', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<select id="gf_ideal_owner_city_field_id" name="gf_ideal_owner_city_field_id">
-							
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="gf_ideal_owner_zip_field_id">
-							<?php _e('Owner ZIP', 'pronamic_ideal'); ?>
-						</label>
-					</th>
-					<td>
-						<select id="gf_ideal_owner_zip_field_id" name="gf_ideal_owner_zip_field_id">
-							
-						</select>
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<?php endif; ?>
-
-		<div class="extra-settings method-advanced">
+		<div>
 			<h3>
 				<?php _e('Advanced', 'pronamic_ideal'); ?>
 			</h3>
@@ -523,6 +450,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 			</table>
 		</div>
 
-		<?php submit_button(empty($feed->id) ? __('Save', 'pronamic_ideal') : __('Update', 'pronamic_ideal')); ?>
+		<?php submit_button( __('Save', 'pronamic_ideal') ); ?>
 	</form>
 </div>
