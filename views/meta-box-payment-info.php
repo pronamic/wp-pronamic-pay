@@ -36,6 +36,32 @@ $post_id = get_the_ID();
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php _e( 'Transaction ID', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Authentication URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+			
+			$url = get_post_meta( $post_id, '_pronamic_payment_authentication_url', true );
+
+			printf(
+				'<a href="%s" target="_blank">%s</a>',
+				$url,
+				$url
+			);
+			
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php _e( 'Consumer', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
@@ -64,8 +90,8 @@ $post_id = get_the_ID();
 			
 			$text = $source . '<br />' . $source_id;
 			
-			// $text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $post );
-			// $text = apply_filters( 'pronamic_ideal_source_column', $text, $post );
+			$text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $source_id );
+			$text = apply_filters( 'pronamic_ideal_source_column', $text, $source_id );
 			
 			echo $text;
 
