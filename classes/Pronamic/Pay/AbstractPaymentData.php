@@ -27,6 +27,10 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	//////////////////////////////////////////////////
 	
+	public function get_title() {
+		return $this->getDescription();
+	}
+	
 	public abstract function getDescription();
 
 	public abstract function getOrderId();

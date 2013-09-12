@@ -3,7 +3,7 @@
 global $post;
 global $pronamic_ideal_errors;
 
-$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $post );
+$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( get_the_ID() );
 
 ?>
 

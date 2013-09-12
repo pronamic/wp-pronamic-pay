@@ -10,6 +10,13 @@
  */
 interface Pronamic_Pay_PaymentDataInterface {
 	/**
+	 * Get the title of the payment
+	 * 
+	 * @return string
+	 */
+	public function get_title();
+
+	/**
 	 * Get credit card object
 	 * 
 	 * @return Pronamic_Pay_CreditCard

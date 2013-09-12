@@ -52,9 +52,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 		'show_in_nav_menus'  => false,
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
-		'supports'           => array(
-			
-		),
+		'supports'           => false,
 		'rewrite'            => false,
 		'query_var'          => false
 	) );
@@ -224,6 +222,15 @@ function pronamic_pay_meta_boxes() {
 		'normal',
 		'high'
 	);
+
+	add_meta_box(
+		'pronamic_payment',
+		__( 'Payment', 'pronamic_ideal' ),
+		'pronamic_pay_payment_meta_box',
+		'pronamic_payment',
+		'normal',
+		'high'
+	);
 }
 
 add_action( 'add_meta_boxes', 'pronamic_pay_meta_boxes' );
@@ -244,6 +251,15 @@ function pronamic_pay_gateway_config_meta_box( $post ) {
  */
 function pronamic_pay_gateway_test_meta_box( $post ) {
 	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-tests.php';
+}
+
+/**
+ * Pronamic Pay gateway config meta box
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function pronamic_pay_payment_meta_box( $post ) {
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-info.php';
 }
 
 /**

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order
 	 * 
@@ -47,6 +47,10 @@ class Pronamic_WooCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	}
 
 	//////////////////////////////////////////////////
+
+	public function get_title() {
+		return sprintf( __( 'WooCommerce order %s', 'pronamic_ideal' ), $this->getOrderId() );
+	}
 
 	/**
 	 * Get description

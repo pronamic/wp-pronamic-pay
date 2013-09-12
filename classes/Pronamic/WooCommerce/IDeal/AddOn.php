@@ -58,13 +58,15 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG && self::isWooCommerceSupported() ) {
-			$id = $payment->getSourceId();
+	public static function status_update( $payment_id, $can_redirect = false ) {
+		$source = get_post_meta( $payment_id, '_pronamic_payment_source', true );
 
-			$order = new WC_Order( (int) $id );
+		if ( $source == self::SLUG && self::isWooCommerceSupported() ) {
+			$source_id = get_post_meta( $payment_id, '_pronamic_payment_source_id', true );
 
-			$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+			$order = new WC_Order( (int) $source_id );
+
+			$data = new Pronamic_WooCommerce_PaymentData( $order );
 
 			// Only update if order is not 'processing' or 'completed'
 			// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/classes/class-wc-order.php#L1279
@@ -80,8 +82,10 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 			$status = null;
 			$note   = null;
 			$url    = $data->getNormalReturnUrl();
+			
+			$status = get_post_meta( $payment_id, '_pronamic_payment_status', true );
 
-			switch ( $payment->status ) {
+			switch ( $status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 					if ( $should_update ) {
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );

@@ -110,72 +110,102 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	public static function get_gateway( Pronamic_WordPress_IDeal_Configuration $configuration = null ) {
-		if ( $configuration !== null ) {
-			$variant = $configuration->getVariant();
-
-			if ( $variant !== null ) {
-				switch ( $variant->getMethod() ) {
-					case Pronamic_IDeal_IDeal::METHOD_EASY:
-						return new Pronamic_Gateways_IDealEasy_Gateway( $configuration );
-					case Pronamic_IDeal_IDeal::METHOD_BASIC:
-						return new Pronamic_Gateways_IDealBasic_Gateway( $configuration );
-					case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
-						return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration );
-					case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-						return new Pronamic_Gateways_OmniKassa_Gateway( $configuration );
-					case 'advanced':
-						return new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
-					case 'advanced_v3':
-						return new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
-					case 'mollie':
-						return new Pronamic_Gateways_Mollie_Gateway( $configuration );
-					case 'buckaroo':
-						return new Pronamic_Gateways_Buckaroo_Gateway( $configuration );
-					case 'targetpay':
-						return new Pronamic_Gateways_TargetPay_Gateway( $configuration );
-					case 'icepay':
-						return new Pronamic_Gateways_Icepay_Gateway( $configuration );
-					case 'sisow':
-						return new Pronamic_Gateways_Sisow_Gateway( $configuration );
-					case 'qantani':
-						return new Pronamic_Gateways_Qantani_Gateway( $configuration );
-					case 'ogone_directlink':
-						return new Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway( $configuration );
-				}
+	public static function get_gateway( $configuration_id ) {
+		$id = get_post_meta( $configuration_id, '_pronamic_gateway_id', true );
+		
+		global $pronamic_pay_gateways;
+		
+		if ( isset( $pronamic_pay_gateways[$id] ) ) {
+			$gateway      = $pronamic_pay_gateways[$id];
+			$gateway_slug = $gateway['gateway'];
+			
+			switch ( $gateway_slug ) {
+				case Pronamic_IDeal_IDeal::METHOD_EASY:
+					return new Pronamic_Gateways_IDealEasy_Gateway( $configuration_id );
+				case Pronamic_IDeal_IDeal::METHOD_BASIC:
+					return new Pronamic_Gateways_IDealBasic_Gateway( $configuration_id );
+				case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
+					return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration_id );
+				case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
+					return new Pronamic_Gateways_OmniKassa_Gateway( $configuration_id );
+				case 'advanced':
+					return new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration_id );
+				case 'advanced_v3':
+					return new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration_id );
+				case 'mollie':
+					return new Pronamic_Gateways_Mollie_Gateway( $configuration_id );
+				case 'buckaroo':
+					return new Pronamic_Gateways_Buckaroo_Gateway( $configuration_id );
+				case 'targetpay':
+					return new Pronamic_Gateways_TargetPay_Gateway( $configuration_id );
+				case 'icepay':
+					return new Pronamic_Gateways_Icepay_Gateway( $configuration_id );
+				case 'sisow':
+					return new Pronamic_Gateways_Sisow_Gateway( $configuration_id );
+				case 'qantani':
+					return new Pronamic_Gateways_Qantani_Gateway( $configuration_id );
+				case 'ogone_directlink':
+					return new Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway( $configuration_id );
 			}
 		}
 	}
 
-	public static function start( Pronamic_WordPress_IDeal_Configuration $configuration, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
-		$gateway->start( $data );
+	public static function start( $configuration_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+		$result = self::create_payment( $configuration_id, $gateway, $data );
 
-		$payment = self::create_payment( $configuration, $gateway, $data );
+		if ( is_wp_error( $result ) ) {
+			
+		} else {
+			$payment_id = $result;
 
-		$gateway->payment( $payment );
+			$gateway->start( $data, $payment_id );
+			$gateway->payment( $payment_id );
+		}
 	}
 
-	public static function create_payment( $configuration, $gateway, $data ) {
-		$payment = new Pronamic_WordPress_IDeal_Payment();
-		$payment->configuration           = $configuration;
-		$payment->transaction_id          = $gateway->get_transaction_id();
-		$payment->purchase_id             = $data->getOrderId();
-		$payment->description             = $data->getDescription();
-		$payment->amount                  = $data->getAmount();
-		$payment->currency                = $data->getCurrencyAlphabeticCode();
-		$payment->language                = $data->getLanguageIso639Code();
-		$payment->entrance_code           = $data->get_entrance_code();
-		$payment->source                  = $data->getSource();
-		$payment->source_id               = $data->get_source_id();
-		$payment->expiration_period       = null;
-		$payment->status                  = null;
-		$payment->consumer_name           = null;
-		$payment->consumer_account_number = null;
-		$payment->consumer_city           = null;
-		$payment->email					  = $data->get_email();
+	public static function create_payment( $configuration_id, $gateway, $data ) {
+		$result = wp_insert_post( array(
+			'post_type'   => 'pronamic_payment',
+			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
+			'post_status' => 'publish'
+		), true );
 
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updatePayment( $payment );
+		if ( is_wp_error( $result ) ) {
+			// @todo what todo?
+		} else {
+			$post_id = $result;
 
-		return $payment;
+			// Meta 
+			$prefix = '_pronamic_payment_';
+
+			$meta = array(
+				$prefix . 'configuration_id'        => $configuration_id,
+				$prefix . 'transaction_id'          => $gateway->get_transaction_id(),
+				$prefix . 'purchase_id'             => $data->getOrderId(),
+				$prefix . 'currency'                => $data->getCurrencyAlphabeticCode(),
+				$prefix . 'amount'                  => $data->getAmount(),
+				$prefix . 'expiration_period'       => null,
+				$prefix . 'language'                => $data->getLanguageIso639Code(),
+				$prefix . 'entrance_code'           => $data->get_entrance_code(),
+				$prefix . 'description'             => $data->getDescription(),
+				$prefix . 'consumer_name'           => null,
+				$prefix . 'consumer_account_number' => null,
+				$prefix . 'consumer_iban'           => null,
+				$prefix . 'consumer_bic'            => null,
+				$prefix . 'consumer_city'           => null,
+				$prefix . 'status'                  => null,
+				$prefix . 'source'                  => $data->getSource(),
+				$prefix . 'source_id'               => $data->get_source_id(),
+				$prefix . 'email'                   => $data->get_email()
+			);
+
+			foreach ( $meta as $key => $value ) {
+				if ( ! empty( $value ) ) {
+					update_post_meta( $post_id, $key, $value );
+				}
+			}
+		}
+
+		return $result;
 	}
 }
