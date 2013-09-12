@@ -15,8 +15,6 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function bootstrap() {
 		add_action( 'admin_init',                              array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
-
-		add_action( 'load-ideal_page_pronamic_ideal_payments', array( __CLASS__, 'load_payments_page' ) );
 		
 		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybe_test_payment' ) );
 
@@ -133,17 +131,6 @@ class Pronamic_WordPress_IDeal_Admin {
 				array( 'jquery' )
 			);
 		}
-	}
-
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Load payments page
-	 */
-	public static function load_payments_page() {
-		global $wp_list_table;
-		
-		$wp_list_table = new Pronamic_WordPress_IDeal_PaymentsListTable();
 	}
 
 	//////////////////////////////////////////////////
@@ -360,38 +347,25 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'iDEAL', 'pronamic_ideal' ),
 			'pronamic_ideal', 
 			'pronamic_ideal', 
-			array( __CLASS__, 'pageIndex' ), 
+			array( __CLASS__, 'page_dashboard' ), 
 			plugins_url( 'images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file )
 		);
 
-		if ( true ) {
-			add_submenu_page(
-				'pronamic_ideal', 
-				__( 'Gateways', 'pronamic_ideal' ), 
-				__( 'Gateways', 'pronamic_ideal' ), 
-				'pronamic_ideal',
-				'edit.php?post_type=pronamic_gateway'
-			);
-		}
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Configurations', 'pronamic_ideal' ), 
+			__( 'Configurations', 'pronamic_ideal' ), 
+			'pronamic_ideal',
+			'edit.php?post_type=pronamic_gateway'
+		);
 
 		add_submenu_page(
 			'pronamic_ideal', 
 			__( 'Payments', 'pronamic_ideal' ), 
 			__( 'Payments', 'pronamic_ideal' ), 
-			'pronamic_ideal_payments', 
-			'pronamic_ideal_payments', 
-			array( __CLASS__, 'pagePayments' )
+			'pronamic_ideal_payments',
+			'edit.php?post_type=pronamic_payment'
 		);
-
-		if ( true ) {
-			add_submenu_page(
-				'pronamic_ideal', 
-				__( 'Payments', 'pronamic_ideal' ), 
-				__( 'Payments', 'pronamic_ideal' ), 
-				'pronamic_ideal_payments',
-				'edit.php?post_type=pronamic_payment'
-			);
-		}
 
 		add_submenu_page(
 			'pronamic_ideal', 
@@ -459,7 +433,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		global $submenu;
 
 		if ( isset( $submenu['pronamic_ideal'] ) ) {
-			$submenu['pronamic_ideal'][0][0] = __( 'Configurations', 'pronamic_ideal' );
+			$submenu['pronamic_ideal'][0][0] = __( 'Dashboard', 'pronamic_ideal' );
 		}
 	}
 
@@ -537,21 +511,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function pageIndex() {
-		$view = filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING );
-
-		switch($view) {
-			case 'edit':
-				return self::renderView( 'configuration-edit' );
-			case 'tests':
-				return self::renderView( 'configuration-tests' );
-			default:
-				return self::pageConfigurations();
-		}
-	}
-
-	public static function pageConfigurations() {
-		return self::renderView( 'configurations' );
+	public static function page_dashboard() {
+		return self::renderView( 'dashboard' );
 	}
 
 	public static function pageSettings() {
@@ -580,19 +541,6 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function page_branding() {
 		self::renderView( 'branding' );
-	}
-
-	public static function pagePayments() {
-		$view = filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING );
-
-		switch($view) {
-			case 'details':
-				return self::renderView( 'payment' );
-			case 'edit':
-				return self::renderView( 'payment-edit' );
-			default:
-				return self::renderView( 'payments' );
-		}
 	}
 
 	//////////////////////////////////////////////////
