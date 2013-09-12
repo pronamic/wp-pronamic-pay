@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: WooCommerce iDEAL data proxy
+ * Title: WooCommerce payment data
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic

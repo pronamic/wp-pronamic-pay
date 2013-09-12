@@ -98,9 +98,9 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update status of the specified payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$status = $this->client->check_status(
 			$this->configuration->targetPayLayoutCode,
 			$payment->transaction_id,

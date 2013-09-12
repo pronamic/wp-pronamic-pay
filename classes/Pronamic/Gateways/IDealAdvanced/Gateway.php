@@ -158,7 +158,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * Payment
 	 * 
 	 * @see Pronamic_Gateways_Gateway::payment()
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function payment( Pronamic_Pay_Payment $payment ) {
 		/*

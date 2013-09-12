@@ -58,7 +58,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	 *
 	 * @param string $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::isJigoshopSupported() ) {
 			$id = $payment->getSourceId();
 

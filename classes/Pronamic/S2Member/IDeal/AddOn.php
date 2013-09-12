@@ -25,7 +25,7 @@ class Pronamic_S2Member_IDeal_AddOn {
 		}
 	}
 
-	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == 's2member' && 'Success' === $payment->status ) {
 
 			$order_data[ 'orderID' ] = $payment->getSourceId();

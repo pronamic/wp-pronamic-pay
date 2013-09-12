@@ -25,7 +25,7 @@ class Pronamic_Gateways_OmniKassa_ReturnHandler extends Pronamic_Gateways_Return
 		
 		$transaction_reference = $data['transactionReference'];
 		
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_reference );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
 		
 		if ( $payment != null ) {
 			$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal( $input_data, $payment->configuration->getHashKey() );

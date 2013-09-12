@@ -293,7 +293,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG ) {
 			$id = $payment->getSourceId();
 			$status = $payment->status;

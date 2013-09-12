@@ -125,10 +125,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update the status of the specified payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 * @throws Exception
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function update_status( Pronamic_Pay_Payment $payment ) {
 		// Get the Icepay Result and set the required fields
 		$result = new Icepay_Result();
 		$result

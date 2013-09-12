@@ -25,7 +25,7 @@ class Pronamic_Gateways_IDealAdvancedV3_ReturnHandler extends Pronamic_Gateways_
 	}
 
 	public function returns( $transaction_id, $entrance_code ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id, $entrance_code );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code );
 		
 		if ( $payment != null ) {
 			$can_redirect = true;

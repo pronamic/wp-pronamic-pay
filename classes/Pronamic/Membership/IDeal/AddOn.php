@@ -55,7 +55,7 @@ class Pronamic_Membership_IDeal_AddOn {
 		}
 	}
 
-	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( 'membership' == $payment->getSource() ) {
 			// Get the raw source id
 			$data_id = $payment->getSourceId();

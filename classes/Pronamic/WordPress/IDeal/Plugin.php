@@ -118,7 +118,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param string $paymentId
 	 */
 	public static function checkStatus( $payment_id = null ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentById( $payment_id );
+		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
 
 		if ( $payment !== null ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
@@ -196,7 +196,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param boolean $canRedirect
 	 */
 	public static function update_internetkassa_payment_status( $data, $can_redirect = false ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( array( 'purchase_id' => $data['ORDERID'] ) );
+		$payment = get_pronamic_payment_by_purchase_id( $data['ORDERID'] );
 
 		if ( $payment != null ) {
 			$status = null;
@@ -269,7 +269,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function update_omnikassa_payment_status( $data, $can_redirect = false ) {
 		$transaction_reference = $data['transactionReference'];
 
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_reference );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
 
 		if ( $payment != null ) {
 			$response_code = $data['responseCode'];
@@ -322,7 +322,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		$invoice_number = $data[Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER];
 		$status_code    = $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE];
 
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::get_payment_by_purchase_id( $invoice_number );
+		$payment = get_pronamic_payment_by_purchase_id( $invoice_number );
 
 		if ( $payment != null ) {
 			$status = null;

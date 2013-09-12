@@ -81,9 +81,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Update lead status of the specified advanced payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::is_shopp_supported() ) {
 			global $Shopp;
 

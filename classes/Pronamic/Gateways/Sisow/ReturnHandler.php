@@ -27,7 +27,7 @@ class Pronamic_Gateways_Sisow_ReturnHandler extends Pronamic_Gateways_ReturnHand
 	}
 
 	public function returns( $status, $transaction_id, $entrance_code, $sha1 ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_id );
 
 		if ( $payment != null ) {
 			$can_redirect = true;

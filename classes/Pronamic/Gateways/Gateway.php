@@ -265,9 +265,9 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Handle payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function payment( Pronamic_Pay_Payment $payment ) {
 		
 	}
 	
