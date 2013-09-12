@@ -21,7 +21,9 @@ class Pronamic_S2Member_IDeal_AddOn {
 			new Pronamic_S2Member_Bridge_Settings();
 			new Pronamic_S2Member_Bridge_Shortcodes();
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'status_update' ) );
+			$slug = 's2member';
+	
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
 		}
 	}
 

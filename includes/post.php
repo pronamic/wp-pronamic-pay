@@ -178,15 +178,9 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 
 			break;
 		case 'pronamic_payment_source':
-			$source    = get_post_meta( $post_id, '_pronamic_payment_source', true );
-			$source_id = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
+			$payment = get_pronamic_payment( $post_id );
 
-			$text = $source . '<br />' . $source_id;
-
-			$text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $source_id );
-			$text = apply_filters( 'pronamic_ideal_source_column', $text, $source_id );
-				
-			echo $text;
+			echo $payment->get_source_text();
 
 			break;
 		case 'pronamic_payment_status':

@@ -1,5 +1,11 @@
 <?php
 
+function get_pronamic_payment( $post_id ) {
+	$payment = new Pronamic_WP_Pay_Payment( $post_id );
+
+	return $payment;
+}
+
 function get_pronamic_payment_by_purchase_id( $purchase_id ) {
 	global $wpdb;
 	

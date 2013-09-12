@@ -30,7 +30,7 @@ class Pronamic_EShop_IDeal_AddOn {
 		/**
 		 * Pronamic iDEAL filters
 		 */
-		add_filter('pronamic_ideal_source_column_eshop', array(__CLASS__, 'sourceColumn'), 10, 2);
+		add_filter('pronamic_payment_source_text_eshop', array(__CLASS__, 'sourceColumn'), 10, 2);
 		
 		/**
 		 * eShop actions

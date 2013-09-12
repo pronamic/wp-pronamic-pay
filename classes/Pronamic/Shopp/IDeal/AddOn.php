@@ -31,11 +31,10 @@ class Pronamic_Shopp_IDeal_AddOn {
 	public static function intialize() {
 		self::add_gateway();
 
-		// Actions
-		add_action( 'pronamic_ideal_status_update',       array( __CLASS__, 'update_status' ), 10, 2 );
-		
-		// Filters
-		add_filter( 'pronamic_ideal_source_column_shopp', array( __CLASS__, 'source_column' ), 10, 2 );
+		$slug = self::SLUG;
+
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -141,15 +140,15 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
-			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->source_id ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;

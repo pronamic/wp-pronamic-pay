@@ -47,9 +47,10 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 			add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
-		
-			add_filter( 'pronamic_ideal_source_column_classipress', array( __CLASS__, 'source_column' ), 10, 2 );
+			$slug = self::SLUG;
+
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
 	}
 
@@ -285,7 +286,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'ClassiPress', 'pronamic_ideal' ) . '<br />';
@@ -294,7 +295,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			// get_edit_post_link( $payment->getSourceId() ),
 			add_query_arg( 'page', 'transactions', admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() ) 
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id ) 
 		);
 
 		return $text;

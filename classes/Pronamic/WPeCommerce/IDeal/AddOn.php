@@ -25,11 +25,13 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		// Add gateway to gateways
 		add_filter( 'wpsc_merchants_modules',                     array( __CLASS__, 'merchants_modules' ) );
 		
+		$slug = self::SLUG;
+
 		// Update payment status when returned from iDEAL
-		add_action( 'pronamic_ideal_status_update',               array( __CLASS__, 'status_update' ), 10, 2 );
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
 		
 		// Source Column
-		add_filter( 'pronamic_ideal_source_column_wp-e-commerce', array( __CLASS__, 'source_column' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -143,7 +145,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'WP e-Commerce', 'pronamic_ideal' ) . '<br />';
@@ -152,9 +154,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			add_query_arg( array(
 				'page'           => 'wpsc-sales-logs', 
-				'purchaselog_id' => $payment->getSourceId()
+				'purchaselog_id' => $payment->source_id
 			), admin_url( 'index.php' ) ),
-			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;

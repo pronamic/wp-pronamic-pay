@@ -22,9 +22,10 @@ class Pronamic_Membership_IDeal_AddOn {
 		// Register the Gateway Class
 		M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
 
-		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'status_update' ) );
-		
-		add_filter( 'pronamic_ideal_source_column_membership', array( __CLASS__, 'source_column' ), 10, 2 );
+		$slug = 'membership';
+
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	public static function record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
@@ -92,7 +93,7 @@ class Pronamic_Membership_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Membership', 'pronamic_ideal' ) . '<br />';
@@ -104,7 +105,7 @@ class Pronamic_Membership_IDeal_AddOn {
 				'action'  => 'transactions',
 				'gateway' => 'pronamic_ideal'
 			), admin_url( 'admin.php') ),
-			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;

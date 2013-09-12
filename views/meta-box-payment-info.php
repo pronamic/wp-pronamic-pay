@@ -2,6 +2,8 @@
 
 $post_id = get_the_ID();
 
+$payment = get_pronamic_payment( $post_id );
+
 ?>
 <table class="form-table">
 	<tr>
@@ -83,19 +85,7 @@ $post_id = get_the_ID();
 			<?php _e( 'Source', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php
-
-			$source    = get_post_meta( $post_id, '_pronamic_payment_source', true );
-			$source_id = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
-			
-			$text = $source . '<br />' . $source_id;
-			
-			$text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $source_id );
-			$text = apply_filters( 'pronamic_ideal_source_column', $text, $source_id );
-			
-			echo $text;
-
-			?>
+			<?php echo $payment->get_source_text(); ?>
 		</td>
 	</tr>
 </table>

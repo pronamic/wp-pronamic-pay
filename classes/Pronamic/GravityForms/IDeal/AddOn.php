@@ -68,9 +68,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter( 'gform_disable_notification',		array( __CLASS__, 'maybe_delay_notification' ), 10, 4 );
 			}
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
+			$slug = self::SLUG;
 
-			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 
 			add_filter( 'gform_replace_merge_tags', array( __CLASS__, 'replace_merge_tags' ), 10, 7 );
 
@@ -84,15 +85,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Gravity Forms', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->source_id ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;

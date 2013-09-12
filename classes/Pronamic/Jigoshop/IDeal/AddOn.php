@@ -24,9 +24,10 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	public static function bootstrap() {
 		add_filter( 'jigoshop_payment_gateways',             array( __CLASS__, 'payment_gateways' ) );
 
-		add_action( 'pronamic_ideal_status_update',          array( __CLASS__, 'update_status' ), 10, 2 );
+		$slug = self::SLUG;
 
-		add_filter( 'pronamic_ideal_source_column_jigoshop', array( __CLASS__, 'source_column' ), 10, 2 );
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -127,15 +128,15 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Jigoshop', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			get_edit_post_link( $payment->getSourceId() ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			get_edit_post_link( $payment->source_id ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;

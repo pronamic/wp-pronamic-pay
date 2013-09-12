@@ -67,6 +67,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
+		require_once self::$dirname . '/includes/functions.php';
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/gateways.php';
 		require_once self::$dirname . '/includes/post.php';
@@ -154,7 +155,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 					$gateway->update_status( $payment );
 
-					do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+					do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 					
 					break;
 				case 'advanced':
@@ -162,7 +163,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 					$gateway->update_status( $payment );
 
-					do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+					do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 					
 					break;
 			}
@@ -256,7 +257,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 			}
 
-			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
 
@@ -289,7 +290,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
 
@@ -310,7 +311,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
   	/**
 	 * Update Buckaroo payment status
@@ -358,7 +359,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 			}
 
-			do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
 
@@ -370,7 +371,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	public static function update_sisow_payment_status( $payment, $can_redirect = false ) {
@@ -381,13 +382,13 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	public static function update_qantani_payment_status( $payment, $can_redirect = false ) {
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	/**
@@ -407,7 +408,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	/**
@@ -421,7 +422,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	/**
@@ -435,7 +436,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
 
-		do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
+		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	//////////////////////////////////////////////////

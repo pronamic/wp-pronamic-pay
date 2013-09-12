@@ -43,9 +43,10 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 		add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
 		
-		add_action( 'pronamic_ideal_status_update',                array( __CLASS__, 'update_status' ), 10, 2 );
-		
-		add_filter( 'pronamic_ideal_source_column_event-espresso', array( __CLASS__, 'source_column' ), 10, 2 );
+		$slug = self::SLUG;
+
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 
 		// Fix fatal error since Event Espresso 3.1.29.1.P
 		if ( defined( 'EVENT_ESPRESSO_GATEWAY_DIR' ) ) {
@@ -342,7 +343,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$url = add_query_arg( array(
 			'page'                => 'events' ,
 			'event_admin_reports' => 'event_list_attendees' , 
@@ -356,7 +357,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		$text .= sprintf( 
 			'<a href="%s">%s</a>', 
 			esc_attr( $url ),
-			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;
