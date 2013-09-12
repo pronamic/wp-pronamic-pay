@@ -183,8 +183,8 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 
 			$text = $source . '<br />' . $source_id;
 
-			// $text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $post );
-			// $text = apply_filters( 'pronamic_ideal_source_column', $text, $post );
+			$text = apply_filters( 'pronamic_ideal_source_column_' . $source, $text, $source_id );
+			$text = apply_filters( 'pronamic_ideal_source_column', $text, $source_id );
 				
 			echo $text;
 
