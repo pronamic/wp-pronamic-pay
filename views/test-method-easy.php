@@ -1,13 +1,10 @@
 <?php 
 
-$gateway = new Pronamic_Gateways_IDealEasy_Gateway( $configuration );
+global $post;
 
-?>
-<h3>
-	<?php _e( 'Tests', 'pronamic_ideal' ); ?>
-</h3>
+$gateway = new Pronamic_Gateways_IDealEasy_Gateway( $post );
 
-<?php foreach ( array( 2, 3, 4, 5, 1 ) as $test_case ): ?>
+foreach ( array( 2, 3, 4, 5, 1 ) as $test_case ): ?>
 	
 	<?php 
 
