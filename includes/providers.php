@@ -3,19 +3,19 @@
 global $pronamic_pay_providers;
 
 $pronamic_pay_providers = array(
-	'abnamro'      => array(
+	'abnamro'           => array(
 		'name' => 'ABN AMRO',
 		'url'  => 'http://abnamro.nl/'
 	),
-	'adyen'        => array(
+	'adyen'             => array(
 		'name' => 'Adyen',
 		'url'  => 'http://www.adyen.com/'
 	),
-	'buckaroo'     => array(
+	'buckaroo'          => array(
 		'name' => 'Buckaroo',
 		'url'  => 'http://www.buckaroo.nl/'
 	),
-	'deutschebank' => array(
+	'deutschebank'      => array(
 		'name' => 'Deutsche Bank',
 		'url'  => 'http://deutschebank.nl/'
 	),
