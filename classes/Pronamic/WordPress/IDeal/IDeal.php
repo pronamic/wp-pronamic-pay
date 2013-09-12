@@ -151,19 +151,18 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	public static function start( $configuration_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
-		$result = self::create_payment( $configuration_id, $gateway, $data );
+		$payment = self::create_payment( $configuration_id, $gateway, $data );
 
-		if ( is_wp_error( $result ) ) {
-			
-		} else {
-			$payment_id = $result;
+		if ( $payment ) {
+			$gateway->start( $data, $payment );
 
-			$gateway->start( $data, $payment_id );
-			$gateway->payment( $payment_id );
+			$gateway->payment( $payment );
 		}
 	}
 
 	public static function create_payment( $configuration_id, $gateway, $data ) {
+		$payment = null;
+
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
 			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
@@ -204,8 +203,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 					update_post_meta( $post_id, $key, $value );
 				}
 			}
+			
+			$payment = new Pronamic_WP_Pay_Payment( $post_id );
 		}
 
-		return $result;
+		return $payment;
 	}
 }

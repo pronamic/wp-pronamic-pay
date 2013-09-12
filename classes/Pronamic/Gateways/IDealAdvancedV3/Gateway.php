@@ -117,7 +117,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Payment $payment
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->get_status( $payment->transaction_id );
 
 		$error = $this->client->get_error();
@@ -136,7 +136,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	
 	/////////////////////////////////////////////////
 
-	public function payment( $payment ) {
+	public function payment( Pronamic_Pay_Payment $payment ) {
 		/*
 		 * Schedule status requests	
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)

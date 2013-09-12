@@ -138,8 +138,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 *
 	 * @param unknown_type $payment
 	 */
-	public static function checkPaymentStatus( $payment_id, $can_redirect = false ) {
-		$configuration_id = get_post_meta( $payment_id, '_pronamic_payment_configuration_id', true );
+	public static function checkPaymentStatus( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$configuration_id = get_post_meta( $payment->id, '_pronamic_payment_configuration_id', true );
 		$gateway_id       = get_post_meta( $configuration_id, '_pronamic_gateway_id', true );
 
 		global $pronamic_pay_gateways;
@@ -152,17 +152,17 @@ class Pronamic_WordPress_IDeal_Plugin {
 				case 'advanced_v3':
 					$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration_id );
 
-					$gateway->update_status( $payment_id );
+					$gateway->update_status( $payment );
 
-					do_action( 'pronamic_ideal_status_update', $payment_id, $can_redirect );
+					do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 					
 					break;
 				case 'advanced':
 					$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration_id );
 
-					$gateway->update_status( $payment_id );
+					$gateway->update_status( $payment );
 
-					do_action( 'pronamic_ideal_status_update', $payment_id, $can_redirect );
+					do_action( 'pronamic_ideal_status_update', $payment, $can_redirect );
 					
 					break;
 			}

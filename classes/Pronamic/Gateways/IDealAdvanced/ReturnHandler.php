@@ -20,14 +20,16 @@ class Pronamic_Gateways_IDealAdvanced_ReturnHandler extends Pronamic_Gateways_Re
 			$entrance_code  = filter_input( INPUT_GET, 'ec', FILTER_SANITIZE_STRING );
 		
 			if ( ! empty( $transaction_id ) && ! empty( $entrance_code ) ) {
-				do_action( 'pronamic_ideal_advanced_return_raw', $payment_id, $transaction_id, $entrance_code );
+				$payment = new Pronamic_WP_Pay_Payment( $payment_id );
+
+				do_action( 'pronamic_ideal_advanced_return_raw', $payment, $transaction_id, $entrance_code );
 			}
 		}
 	}
 
-	public function returns( $payment_id, $transaction_id, $entrance_code ) {
+	public function returns( $payment, $transaction_id, $entrance_code ) {
 		$can_redirect = true;
 		
-		do_action( 'pronamic_ideal_advanced_return', $payment_id, $can_redirect );
+		do_action( 'pronamic_ideal_advanced_return', $payment, $can_redirect );
 	}
 }

@@ -56,13 +56,13 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	/**
 	 * Update lead status of the specified payment
 	 * 
-	 * @param string $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function status_update( $payment_id, $can_redirect = false ) {
-		$source = get_post_meta( $payment_id, '_pronamic_payment_source', true );
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$source = get_post_meta( $payment->id, '_pronamic_payment_source', true );
 
 		if ( $source == self::SLUG && self::isWooCommerceSupported() ) {
-			$source_id = get_post_meta( $payment_id, '_pronamic_payment_source_id', true );
+			$source_id = get_post_meta( $payment->id, '_pronamic_payment_source_id', true );
 
 			$order = new WC_Order( (int) $source_id );
 
@@ -83,7 +83,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 			$note   = null;
 			$url    = $data->getNormalReturnUrl();
 			
-			$status = get_post_meta( $payment_id, '_pronamic_payment_status', true );
+			$status = get_post_meta( $payment->id, '_pronamic_payment_status', true );
 
 			switch ( $status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
