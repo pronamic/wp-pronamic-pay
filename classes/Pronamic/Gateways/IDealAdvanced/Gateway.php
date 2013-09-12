@@ -14,8 +14,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( $configuration_id ) {
-		parent::__construct( $configuration_id );
+	public function __construct( Pronamic_Pay_Configuration $configuration ) {
+		parent::__construct( $configuration );
+		
+		$configuration_id = $configuration->id;
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );

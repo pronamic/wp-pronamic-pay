@@ -30,7 +30,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @var int
 	 */
-	protected $configuration_id;
+	protected $configuration;
 
 	/////////////////////////////////////////////////
 
@@ -98,8 +98,8 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( $configuration_id ) {
-		$this->configuration_id = $configuration_id;
+	public function __construct( Pronamic_Pay_Configuration $configuration ) {
+		$this->configuration = $configuration;
 	}
 
 	/////////////////////////////////////////////////
@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration_id;
+		$transient = 'pronamic_ideal_issuers_' . $this->configuration->id;
 
 		$result = get_transient( $transient );
 		// $result = false;

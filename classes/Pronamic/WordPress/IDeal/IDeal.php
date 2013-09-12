@@ -111,42 +111,31 @@ class Pronamic_WordPress_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	public static function get_gateway( $configuration_id ) {
-		$id = get_post_meta( $configuration_id, '_pronamic_gateway_id', true );
-		
+		$configuration = get_pronamic_gateway_configuration( $configuration_id );
+
+		$gateway_id = $configuration->gateway_id;
+
+		Pronamic_Pay_GatewayFactory::register( 'easy',             'Pronamic_Gateways_IDealEasy_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'basic',            'Pronamic_Gateways_IDealBasic_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'internetkassa',    'Pronamic_Gateways_IDealInternetKassa_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'omnikassa',        'Pronamic_Gateways_OmniKassa_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'advanced',         'Pronamic_Gateways_IDealAdvanced_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'advanced_v3',      'Pronamic_Gateways_IDealAdvancedV3_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'mollie',           'Pronamic_Gateways_Mollie_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'buckaroo',         'Pronamic_Gateways_Buckaroo_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'targetpay',        'Pronamic_Gateways_TargetPay_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'icepay',           'Pronamic_Gateways_Icepay_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'sisow',            'Pronamic_Gateways_Sisow_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'qantani',          'Pronamic_Gateways_Qantani_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'ogone_directlink', 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway' );
+
 		global $pronamic_pay_gateways;
 		
-		if ( isset( $pronamic_pay_gateways[$id] ) ) {
-			$gateway      = $pronamic_pay_gateways[$id];
+		if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
+			$gateway      = $pronamic_pay_gateways[$gateway_id];
 			$gateway_slug = $gateway['gateway'];
 			
-			switch ( $gateway_slug ) {
-				case Pronamic_IDeal_IDeal::METHOD_EASY:
-					return new Pronamic_Gateways_IDealEasy_Gateway( $configuration_id );
-				case Pronamic_IDeal_IDeal::METHOD_BASIC:
-					return new Pronamic_Gateways_IDealBasic_Gateway( $configuration_id );
-				case Pronamic_IDeal_IDeal::METHOD_INTERNETKASSA:
-					return new Pronamic_Gateways_IDealInternetKassa_Gateway( $configuration_id );
-				case Pronamic_IDeal_IDeal::METHOD_OMNIKASSA:
-					return new Pronamic_Gateways_OmniKassa_Gateway( $configuration_id );
-				case 'advanced':
-					return new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration_id );
-				case 'advanced_v3':
-					return new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration_id );
-				case 'mollie':
-					return new Pronamic_Gateways_Mollie_Gateway( $configuration_id );
-				case 'buckaroo':
-					return new Pronamic_Gateways_Buckaroo_Gateway( $configuration_id );
-				case 'targetpay':
-					return new Pronamic_Gateways_TargetPay_Gateway( $configuration_id );
-				case 'icepay':
-					return new Pronamic_Gateways_Icepay_Gateway( $configuration_id );
-				case 'sisow':
-					return new Pronamic_Gateways_Sisow_Gateway( $configuration_id );
-				case 'qantani':
-					return new Pronamic_Gateways_Qantani_Gateway( $configuration_id );
-				case 'ogone_directlink':
-					return new Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway( $configuration_id );
-			}
+			return Pronamic_Pay_GatewayFactory::create( $gateway_slug, $configuration );
 		}
 	}
 

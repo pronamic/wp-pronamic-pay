@@ -148,10 +148,12 @@ class Pronamic_WordPress_IDeal_Plugin {
 		if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
 			$gateway      = $pronamic_pay_gateways[$gateway_id];
 			$gateway_slug = $gateway['gateway'];
+			
+			$configuration = get_pronamic_gateway_configuration( $configuration_id );
 
 			switch ( $gateway_slug ) {
 				case 'advanced_v3':
-					$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration_id );
+					$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
 
 					$gateway->update_status( $payment );
 
@@ -159,7 +161,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					
 					break;
 				case 'advanced':
-					$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration_id );
+					$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
 
 					$gateway->update_status( $payment );
 

@@ -13,6 +13,8 @@ class Pronamic_WP_Pay_Configuration extends Pronamic_Pay_Configuration {
 	 */
 	public $post;
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Construct and initialize payment object
 	 * 
@@ -21,5 +23,8 @@ class Pronamic_WP_Pay_Configuration extends Pronamic_Pay_Configuration {
 	public function __construct( $post_id ) {
 		$this->id   = $post_id;
 		$this->post = get_post( $post_id );
+		
+		// Load
+		$this->gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 	}
 }
