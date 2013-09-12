@@ -585,10 +585,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 		global $pronamic_ideal_version;
 
 		if ( get_option( 'pronamic_ideal_version' ) != $pronamic_ideal_version ) {
-			// Update tables
-			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();
-			Pronamic_WordPress_IDeal_PaymentsRepository::update_table();
-
 			// Add some new capabilities
 			$capabilities = array(
 				'read'                           => true,
