@@ -105,14 +105,14 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_column( $text, $source_id ) {
 		$text  = '';
 
 		$text .= __( 'AppThemes', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf( '<a href="%s">%s</a>', 
-			get_edit_post_link( $payment->getSourceId() ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			get_edit_post_link( $source_id ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $source_id )
 		);
 
 		return $text;
