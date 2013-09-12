@@ -32,13 +32,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 */
 	const OPTION_VERSION = 'gf_ideal_version';
 
-	/**
-	 * The current version of this plugin
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.3.2';
-
 	//////////////////////////////////////////////////
 
 	/**
@@ -111,7 +104,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
-		if ( self::is_gravityforms_supported() && ( get_option( self::OPTION_VERSION ) != self::VERSION ) ) {
+		global $pronamic_ideal_version;
+
+		if ( self::is_gravityforms_supported() && ( get_option( self::OPTION_VERSION ) != $pronamic_ideal_version ) ) {
 			// Update tables
 			Pronamic_GravityForms_IDeal_FeedsRepository::update_table();
 
@@ -135,7 +130,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
 
 			// Update version
-			update_option( self::OPTION_VERSION, self::VERSION );
+			update_option( self::OPTION_VERSION, $pronamic_ideal_version );
 		}
 	}
 

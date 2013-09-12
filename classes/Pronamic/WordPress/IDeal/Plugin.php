@@ -19,15 +19,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The current version of this plugin
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.4.0';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * The root file of this WordPress plugin
 	 *
 	 * @var string
@@ -591,7 +582,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
-		if ( get_option( 'pronamic_ideal_version' ) != self::VERSION ) {
+		global $pronamic_ideal_version;
+
+		if ( get_option( 'pronamic_ideal_version' ) != $pronamic_ideal_version ) {
 			// Update tables
 			Pronamic_WordPress_IDeal_ConfigurationsRepository::update_table();
 			Pronamic_WordPress_IDeal_PaymentsRepository::update_table();
@@ -625,7 +618,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			self::set_roles( $roles );
 
 			// Update version
-			update_option( 'pronamic_ideal_version', self::VERSION );
+			update_option( 'pronamic_ideal_version', $pronamic_ideal_version );
 		}
 	}
 }
