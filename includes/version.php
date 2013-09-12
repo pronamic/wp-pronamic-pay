@@ -6,7 +6,7 @@
  */
 global $pronamic_ideal_version;
 
-$pronamic_ideal_version = '1.3.1';
+$pronamic_ideal_version = '1.4.0';
 
 /**
  * Holds the Pronamic iDEAL DB revision, increments when changes are made to the Pronamic iDEAL DB schema.
@@ -15,4 +15,4 @@ $pronamic_ideal_version = '1.3.1';
  */
 global $pronamic_ideal_db_version;
 
-$pronamic_ideal_db_version = 131;
+$pronamic_ideal_db_version = 140;
