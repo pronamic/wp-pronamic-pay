@@ -34,45 +34,6 @@ class Pronamic_WordPress_IDeal_ConfigurationsRepository {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Update table
-	 */
-	public static function update_table() {
-		require_once ABSPATH . '/wp-admin/includes/upgrade.php';
-
-		global $wpdb;
-
-		$charset_collate = '';
-		if ( ! empty( $wpdb->charset ) ) {
-			$charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
-		}
-		if ( ! empty( $wpdb->collate ) ) {
-			$charset_collate .= ' COLLATE ' . $wpdb->collate;
-		}
-
-        // iDEAL configurations table
-		$configurations_table = self::getConfigurationsTableName();
-
-		$sql = "CREATE TABLE $configurations_table (
-			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-			post_id BIGINT(20) UNSIGNED NULL,
-			variant_id VARCHAR(64) NULL,
-			merchant_id VARCHAR(64) NULL,
-			sub_id VARCHAR(64) NULL,
-			mode VARCHAR(64) NULL,
-			hash_key VARCHAR(64) NULL,
-			private_key TEXT NULL,
-			private_key_password VARCHAR(64) NULL,
-			private_certificate TEXT NULL,
-			meta LONGTEXT,
-			PRIMARY KEY  (id)
-		) $charset_collate;";
-
-		dbDelta( $sql );
-    }
-
-	//////////////////////////////////////////////////
-
     /**
      * Get the iDEAL configurations table name
      * 

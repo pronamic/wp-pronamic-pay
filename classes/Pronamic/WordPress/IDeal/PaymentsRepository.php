@@ -9,58 +9,6 @@
  * @version 1.0
  */
 class Pronamic_WordPress_IDeal_PaymentsRepository {
-	/**
-	 * Update table
-	 */
-	public static function update_table() {
-        require_once ABSPATH . '/wp-admin/includes/upgrade.php';
-
-		global $wpdb;
-
-		$charset_collate = '';
-        if ( ! empty( $wpdb->charset ) ) {
-            $charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
-        }
-        if ( ! empty( $wpdb->collate ) ) {
-            $charset_collate .= ' COLLATE ' . $wpdb->collate;
-        }
-
-        // iDEAL payments table
-        $tableName = self::getPaymentsTableName();
-
-        $sql = "CREATE TABLE $tableName (
-			id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-			post_id BIGINT(20) UNSIGNED NULL,
-			configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
-			purchase_id VARCHAR(16) NULL,
-			transaction_id VARCHAR(32) NULL,
-  			date_gmt DATETIME NOT NULL,
-			amount DECIMAL(10, 2) NOT NULL,
-			currency VARCHAR(8) NOT NULL,
-			expiration_period VARCHAR(8) NOT NULL,
-			language VARCHAR(8) NOT NULL,
-			entrance_code VARCHAR(40) NULL,
-			description TEXT NOT NULL,
-			consumer_name VARCHAR(35) NULL,
-			consumer_account_number VARCHAR(10) NULL,
-			consumer_iban VARCHAR(34) NULL,
-			consumer_bic VARCHAR(11) NULL,
-			consumer_city VARCHAR(24) NULL,
-  			status VARCHAR(32) NULL DEFAULT NULL,
-  			status_requests MEDIUMINT(8) DEFAULT 0,
-  			source VARCHAR(32) NULL DEFAULT NULL,
-  			source_id VARCHAR(32) NULL DEFAULT NULL,
-			email VARCHAR(128) NULL DEFAULT NULL,
-			PRIMARY KEY  (id),
-			KEY configuration_id (configuration_id),
-			UNIQUE (entrance_code)
-			) $charset_collate;";
-
-        dbDelta( $sql );
-    }
-
-	//////////////////////////////////////////////////
-
     /**
      * Get the iDEAL payments table name
      * 
