@@ -28,6 +28,9 @@ function orbis_ideal_upgrade_140() {
 	UPDATE wp_pronamic_ideal_payments SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_payment';
 
+	UPDATE wp_pronamic_ideal_payments SET post_id = null;
+	DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';
+
 	UPDATE wp_options SET option_value = 0 WHERE option_name = 'pronamic_ideal_db_version';
 
 	DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
@@ -192,6 +195,80 @@ function orbis_ideal_upgrade_140() {
 						break;
 				}
 			}
+		}
+	}
+	
+	// Gravity Forms feeds
+	$feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
+	
+	$sql = "CREATE TABLE $feeds_table (
+		id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+		post_id BIGINT(20) UNSIGNED NULL,
+		form_id MEDIUMINT(8) UNSIGNED NOT NULL,
+		configuration_id MEDIUMINT(8) UNSIGNED NOT NULL,
+		is_active TINYINT(1) NOT NULL DEFAULT 1,
+		meta LONGTEXT,
+		PRIMARY KEY  (id),
+		KEY form_id (form_id),
+		KEY configuration_id (configuration_id)
+	) $charset_collate;";
+	
+	dbDelta( $sql );
+
+	// Query
+	$query = "
+		SELECT
+			*
+		FROM
+			$feeds_table
+		WHERE
+			post_id IS NULL
+		;
+	";
+	
+	$feeds = $wpdb->get_results( $query );
+	
+	foreach ( $feeds as $feed ) {
+		// Post
+		$post = array(
+			'post_title'    => sprintf( __( 'Feed %d', 'pronamic_ideal' ), $feed->id ),
+			'post_type'     => 'pronamic_pay_gf',
+			'post_status'   => 'publish'
+		);
+		
+		$post_id = wp_insert_post( $post );
+		
+		if ( $post_id ) {
+			// Meta
+			// We ignore (@) all notice of not existing properties
+			$meta = array();
+
+			$feed_meta = json_decode( $feed->meta );
+			
+			$meta['form_id']                  = $feed->form_id;
+			$meta['configuration_id']         = $ids_map[$feed->configuration_id];
+			$meta['is_active']                = $feed->is_active;
+			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;
+			$meta['delay_admin_motification'] = @$feed_meta->delayAdminNotification;
+			$meta['delay_users_motification'] = @$feed_meta->delayUserNotification;
+			$meta['delay_post_creation']      = @$feed_meta->delayUserNotification;
+			$meta['condition_enabled']        = @$feed_meta->conditionEnabled;
+			$meta['condition_field_id']       = @$feed_meta->conditionFieldId;
+			$meta['condition_operator']       = @$feed_meta->conditionOperator;
+			$meta['condition_value']          = @$feed_meta->conditionValue;
+			$meta['user_role_field_id']       = @$feed_meta->userRoleFieldId;
+			$meta['fields']                   = @$feed_meta->fields;
+			$meta['links']                    = @$feed_meta->links;
+			
+			foreach ( $meta as $key => $value ) {
+				if ( ! empty( $value ) ) {
+					$meta_key = '_pronamic_pay_gf_' . $key;
+
+					update_post_meta( $post_id, $meta_key, $value );
+				}
+			}
+		
+			$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
 		}
 	}
 

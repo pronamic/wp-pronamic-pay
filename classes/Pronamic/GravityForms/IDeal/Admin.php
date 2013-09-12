@@ -37,9 +37,9 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 */
 	public static function addon_navigation( $menus ) {
 		$menus[] = array(
-			'name'       => 'gf_pronamic_ideal',
+			'name'       => 'edit.php?post_type=pronamic_pay_gf',
 			'label'      => __( 'iDEAL', 'pronamic_ideal' ),
-			'callback'   =>  array( __CLASS__, 'page' ),
+			'callback'   => null,
 			'permission' => 'gravityforms_ideal'
 		);
 

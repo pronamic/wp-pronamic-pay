@@ -56,6 +56,33 @@ function pronamic_payment_gateways_create_initial_post_types() {
 		'rewrite'            => false,
 		'query_var'          => false
 	) );
+
+	register_post_type( 'pronamic_pay_gf', array(
+		'label'              => __( 'Feeds', 'pronamic_ideal' ),
+		'labels'             => array(
+			'name'               => __( 'Payment Forms', 'pronamic_ideal' ),
+			'singular_name'      => __( 'Payment Form', 'pronamic_ideal' ),
+			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
+			'add_new_item'       => __( 'Add New Payment Form', 'pronamic_ideal' ),
+			'edit_item'          => __( 'Edit Payment Form', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Payment Forms', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Payment Forms', 'pronamic_ideal' ),
+			'view_item'          => __( 'View Payment Form', 'pronamic_ideal' ),
+			'search_items'       => __( 'Search Payment Forms', 'pronamic_ideal' ),
+			'not_found'          => __( 'No payment forms found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No payment forms found in Trash', 'pronamic_ideal' ),
+			'menu_name'          => __( 'Payment Forms', 'pronamic_ideal' )
+		),
+		'public'             => false,
+		'publicly_queryable' => false,
+		'show_ui'            => true,
+		'show_in_nav_menus'  => false,
+		'show_in_menu'       => false,
+		'show_in_admin_bar'  => false,
+		'supports'           => false,
+		'rewrite'            => false,
+		'query_var'          => false
+	) );
 }
 
 add_action( 'init', 'pronamic_payment_gateways_create_initial_post_types', 20 ); // highest priority
@@ -194,6 +221,33 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 
 add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_payment_custom_column', 10, 2 );
 
+
+function pronamic_pay_gf_columns( $columns ) {
+	$columns = array(
+		'cb'                   => '<input type="checkbox" />',
+		'title'                => __( 'Title', 'pronamic_ideal' ),
+		'pronamic_pay_gf_form' => __( 'Form', 'pronamic_ideal' ),
+		'date'                 => __( 'Date', 'pronamic_ideal' )
+	);
+
+	return $columns;
+}
+
+add_filter( 'manage_edit-pronamic_pay_gf_columns', 'pronamic_pay_gf_columns' ) ;
+
+
+function pronamic_pay_gf_custom_column( $column, $post_id ) {
+	global $post;
+
+	switch( $column ) {
+		case 'pronamic_pay_gf_form':
+			echo get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+
+			break;
+	}
+}
+
+add_action( 'manage_pronamic_pay_gf_posts_custom_column', 'pronamic_pay_gf_custom_column', 10, 2 );
 
 /**
  * Adds a box to the main column on the Post and Page edit screens.
