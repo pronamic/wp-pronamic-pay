@@ -2,20 +2,20 @@
 
 function pronamic_payment_gateways_create_initial_post_types() {
 	register_post_type( 'pronamic_gateway', array(
-		'label'              => __( 'Gateways', 'pronamic_ideal' ),
+		'label'              => __( 'Configurations', 'pronamic_ideal' ),
 		'labels'             => array(
-			'name'               => __( 'Gateways', 'pronamic_ideal' ),
-			'singular_name'      => __( 'Gateway', 'pronamic_ideal' ),
+			'name'               => __( 'Configurations', 'pronamic_ideal' ),
+			'singular_name'      => __( 'Configuration', 'pronamic_ideal' ),
 			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-			'add_new_item'       => __( 'Add New Gateway', 'pronamic_ideal' ),
-			'edit_item'          => __( 'Edit Gateway', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Gateway', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Gateways', 'pronamic_ideal' ),
-			'view_item'          => __( 'View Gateway', 'pronamic_ideal' ),
-			'search_items'       => __( 'Search Gateways', 'pronamic_ideal' ),
-			'not_found'          => __( 'No gateways found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No gateways found in Trash', 'pronamic_ideal' ),
-			'menu_name'          => __( 'Gateways', 'pronamic_ideal' )
+			'add_new_item'       => __( 'Add New Configuration', 'pronamic_ideal' ),
+			'edit_item'          => __( 'Edit Configuration', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Configuration', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Configurationss', 'pronamic_ideal' ),
+			'view_item'          => __( 'View Configuration', 'pronamic_ideal' ),
+			'search_items'       => __( 'Search Configurations', 'pronamic_ideal' ),
+			'not_found'          => __( 'No configurations found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No configurations found in Trash', 'pronamic_ideal' ),
+			'menu_name'          => __( 'Configurations', 'pronamic_ideal' )
 		),
 		'public'             => false,
 		'publicly_queryable' => false,
