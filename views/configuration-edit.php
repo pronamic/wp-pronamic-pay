@@ -1,7 +1,5 @@
 <?php
 
-$configuration = new Pronamic_WordPress_IDeal_Configuration();
-
 // Sections
 $variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_id', true );
 
@@ -547,8 +545,6 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 <div id="pronamic-ideal-configration-editor">
 	<?php wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' ); ?>
 
-	<input name="pronamic_ideal_configuration_id" value="<?php echo esc_attr( $configuration->getId() ); ?>" type="hidden" />
-	
 	<table class="form-table">
 		<tr>
 			<th scope="row">
