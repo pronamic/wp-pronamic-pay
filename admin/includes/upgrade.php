@@ -28,7 +28,7 @@ function orbis_ideal_upgrade_140() {
 	UPDATE wp_pronamic_ideal_payments SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_payment';
 
-	UPDATE wp_pronamic_ideal_payments SET post_id = null;
+	UPDATE wp_rg_ideal_feeds SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';
 
 	UPDATE wp_options SET option_value = 0 WHERE option_name = 'pronamic_ideal_db_version';
@@ -197,7 +197,7 @@ function orbis_ideal_upgrade_140() {
 			}
 		}
 	}
-	
+
 	// Gravity Forms feeds
 	$feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
 	
@@ -246,8 +246,9 @@ function orbis_ideal_upgrade_140() {
 			$feed_meta = json_decode( $feed->meta );
 			
 			$meta['form_id']                  = $feed->form_id;
-			$meta['configuration_id']         = $ids_map[$feed->configuration_id];
+			$meta['configuration_id']         = @$ids_map[$feed->configuration_id];
 			$meta['is_active']                = $feed->is_active;
+			$meta['transaction_description']  = @$feed_meta->transactionDescription;
 			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;
 			$meta['delay_admin_motification'] = @$feed_meta->delayAdminNotification;
 			$meta['delay_users_motification'] = @$feed_meta->delayUserNotification;
@@ -258,7 +259,7 @@ function orbis_ideal_upgrade_140() {
 			$meta['condition_value']          = @$feed_meta->conditionValue;
 			$meta['user_role_field_id']       = @$feed_meta->userRoleFieldId;
 			$meta['fields']                   = @$feed_meta->fields;
-			$meta['links']                    = @$feed_meta->links;
+			$meta['links']                    = (array) @$feed_meta->links;
 			
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {

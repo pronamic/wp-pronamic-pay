@@ -224,10 +224,12 @@ add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_payment_cus
 
 function pronamic_pay_gf_columns( $columns ) {
 	$columns = array(
-		'cb'                   => '<input type="checkbox" />',
-		'title'                => __( 'Title', 'pronamic_ideal' ),
-		'pronamic_pay_gf_form' => __( 'Form', 'pronamic_ideal' ),
-		'date'                 => __( 'Date', 'pronamic_ideal' )
+		'cb'                                      => '<input type="checkbox" />',
+		'title'                                   => __( 'Title', 'pronamic_ideal' ),
+		'pronamic_pay_gf_form'                    => __( 'Form', 'pronamic_ideal' ),
+		'pronamic_pay_gf_configuration'           => __( 'Configuration', 'pronamic_ideal' ),
+		'pronamic_pay_gf_transaction_description' => __( 'Transaction Description', 'pronamic_ideal' ),
+		'date'                                    => __( 'Date', 'pronamic_ideal' )
 	);
 
 	return $columns;
@@ -242,6 +244,16 @@ function pronamic_pay_gf_custom_column( $column, $post_id ) {
 	switch( $column ) {
 		case 'pronamic_pay_gf_form':
 			echo get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+
+			break;
+		case 'pronamic_pay_gf_configuration':
+			$configuration_id = get_post_meta( $post_id, '_pronamic_pay_gf_configuration_id', true );
+			
+			echo get_the_title( $configuration_id );
+
+			break;
+		case 'pronamic_pay_gf_transaction_description':
+			echo get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 
 			break;
 	}
@@ -279,6 +291,15 @@ function pronamic_pay_meta_boxes() {
 		'normal',
 		'high'
 	);
+
+	add_meta_box(
+		'pronamic_pay_gf',
+		__( 'Configuration', 'pronamic_ideal' ),
+		'pronamic_pay_gf_meta_box',
+		'pronamic_pay_gf',
+		'normal',
+		'high'
+	);
 }
 
 add_action( 'add_meta_boxes', 'pronamic_pay_meta_boxes' );
@@ -308,6 +329,15 @@ function pronamic_pay_gateway_test_meta_box( $post ) {
  */
 function pronamic_pay_payment_meta_box( $post ) {
 	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-info.php';
+}
+
+/**
+ * Pronamic Pay gateway config meta box
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function pronamic_pay_gf_meta_box( $post ) {
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/gravityforms/feed-edit.php';
 }
 
 /**
