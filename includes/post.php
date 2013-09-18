@@ -65,7 +65,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
 			'add_new_item'       => __( 'Add New Payment Form', 'pronamic_ideal' ),
 			'edit_item'          => __( 'Edit Payment Form', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Payment Forms', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Payment Form', 'pronamic_ideal' ),
 			'all_items'          => __( 'All Payment Forms', 'pronamic_ideal' ),
 			'view_item'          => __( 'View Payment Form', 'pronamic_ideal' ),
 			'search_items'       => __( 'Search Payment Forms', 'pronamic_ideal' ),
