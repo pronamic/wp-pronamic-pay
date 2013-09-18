@@ -482,32 +482,27 @@ $sections = array(
 );
 
 
-function pronamic_ideal_private_key_field( $field, $configuration ) {
-	echo '<div><input type="file" name="_pronamic_gateway_ideal_private_key_file" /></div>';
-
-	printf(
-		'<p><pre class="security-data">%s</pre></p>',
-		$configuration->{$field['name']}
-	);
+function pronamic_ideal_private_key_field( $field ) {
+	echo '<div>';
 
 	submit_button(
 		__( 'Download Private Key', 'pronamic_ideal' ),
-		'secondary' , 'download_private_key'
+		'secondary' , 'download_private_key',
+		false
 	);
+	
+	echo ' ';
+
+	echo '<input type="file" name="_pronamic_gateway_ideal_private_key_file" />';
+
+	echo '</div>';
 }
 
-function pronamic_ideal_private_certificate_field( $field, $configuration ) {
-	$value = $configuration->{$field['name']};
+function pronamic_ideal_private_certificate_field( $field ) {
+	$certificate = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_certificate', true );
 
-	echo '<div><input type="file" name="_pronamic_gateway_ideal_private_certificate_file" /></div>';
-
-	printf(
-		'<p><pre class="security-data">%s</pre></p>',
-		$value
-	);
-
-	if ( ! empty( $configuration->privateCertificate ) ) {
-		$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $configuration->privateCertificate );
+	if ( ! empty( $certificate ) ) {
+		$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $certificate );
 		$fingerprint = str_split( $fingerprint, 2 );
 		$fingerprint = implode( ':', $fingerprint );
 
@@ -516,7 +511,7 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 		echo '<dt>', __( 'SHA Fingerprint', 'pronamic_ideal' ), '</dt>';
 		echo '<dd>', $fingerprint, '</dd>';
 
-		$info = openssl_x509_parse( $value );
+		$info = openssl_x509_parse( $certificate );
 
 		if ( $info ) {
 			$date_format = __( 'M j, Y @ G:i', 'pronamic_ideal' );
@@ -535,10 +530,19 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 		echo '</dl>';
 	}
 
+	echo '<div>';
+	
 	submit_button(
-		__( 'Download Private Certificate', 'pronamic_ideal' ),
-		'secondary' , 'download_private_certificate'
+	__( 'Download Private Certificate', 'pronamic_ideal' ),
+	'secondary' , 'download_private_certificate',
+	false
 	);
+	
+	echo ' ';
+	
+	echo '<input type="file" name="_pronamic_gateway_ideal_private_certificate_file" />';
+	
+	echo '</div>';
 }
 
 ?>
@@ -711,7 +715,7 @@ function pronamic_ideal_private_certificate_field( $field, $configuration ) {
 							if ( isset( $field['callback'] ) ) {
 								$callback = $field['callback'];
 	
-								$callback( $field, $configuration );
+								$callback( $field );
 							}
 	
 							?>
