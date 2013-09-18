@@ -78,14 +78,6 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 
 $post_id = get_the_ID();
 
-$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
-
-$configuration_id = get_post_meta( $post_id, '_pronamic_pay_gf_configuration_id', true );
-
-$transaction_description = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
-
-$forms = RGFormsModel::get_forms();
-
 ?>
 
 <table class="form-table">
@@ -96,7 +88,13 @@ $forms = RGFormsModel::get_forms();
 			</label>
 		</th>
 		<td>
-			<?php $data = RGFormsModel::get_form_meta( $post_id ); ?>
+			<?php 
+
+			$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+			$forms = RGFormsModel::get_forms();
+			$data = RGFormsModel::get_form_meta( $post_id );
+
+			?>
 
 			<input id="gf_ideal_gravity_form" name="gf_ideal_gravity_form" value="<?php echo esc_attr( json_encode( $data ) ); ?>" type="hidden" />
 			<input id="gf_ideal_feed" name="gf_ideal_feed" value="<?php echo esc_attr( json_encode( $feed ) ); ?>" type="hidden" />
@@ -121,6 +119,11 @@ $forms = RGFormsModel::get_forms();
 			</label>
 		</th>
 		<td>
+			<?php 
+			
+			$configuration_id = get_post_meta( $post_id, '_pronamic_pay_gf_configuration_id', true );
+			
+			?>
 			<select id="gf_ideal_configuration_id" name="gf_ideal_configuration_id">
 				<option value=""><?php _e( '&mdash; Select configuration &mdash; ', 'pronamic_ideal' ); ?></option>
 
@@ -149,6 +152,11 @@ $forms = RGFormsModel::get_forms();
 			</label>
 		</th>
 		<td>
+			<?php 
+
+			$transaction_description = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
+
+			?>
 			<?php if ( false ) : ?>
 				<div>
 					<?php GFCommon::insert_variables( array(), 'gf_ideal_transaction_description', true, '', ' ' ); ?>

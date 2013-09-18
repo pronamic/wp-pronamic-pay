@@ -748,13 +748,16 @@ function pronamic_ideal_private_certificate_field( $field ) {
 				</th>
 				<td>
 					<?php
-	
+					
+					$private_key_password = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_key_password', true );
+					$number_days_valid    = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_number_days_valid', true );
+
 					$filename = __( 'filename', 'pronamic_ideal' );
 	
 					$command = sprintf(
 						'openssl genrsa -aes128 -out %s.key -passout pass:%s 2048',
 						$filename,
-						$configuration->privateKeyPassword
+						$private_key_password
 					);
 	
 					?>
@@ -773,8 +776,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					$command = sprintf(
 						'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer',
 						$filename,
-						$configuration->privateKeyPassword,
-						$configuration->numberDaysValid,
+						$private_key_password,
+						$number_days_valid,
 						$filename
 					);
 	
