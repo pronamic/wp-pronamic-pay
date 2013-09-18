@@ -10,7 +10,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 			'add_new_item'       => __( 'Add New Configuration', 'pronamic_ideal' ),
 			'edit_item'          => __( 'Edit Configuration', 'pronamic_ideal' ),
 			'new_item'           => __( 'New Configuration', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Configurationss', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Configurations', 'pronamic_ideal' ),
 			'view_item'          => __( 'View Configuration', 'pronamic_ideal' ),
 			'search_items'       => __( 'Search Configurations', 'pronamic_ideal' ),
 			'not_found'          => __( 'No configurations found', 'pronamic_ideal' ),
