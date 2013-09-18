@@ -332,30 +332,30 @@ function orbis_ideal_upgrade_140() {
 
 		if ( $post_id ) {
 			// Meta 
-			$prefix = '_pronamic_payment_';
-
 			$meta = array(
-				$prefix . 'purchase_id'             => $payment->purchase_id,
-				$prefix . 'currency'                => $payment->currency,
-				$prefix . 'amount'                  => $payment->amount,
-				$prefix . 'expiration_period'       => $payment->expiration_period,
-				$prefix . 'language'                => $payment->language,
-				$prefix . 'entrance_code'           => $payment->entrance_code,
-				$prefix . 'description'             => $payment->description,
-				$prefix . 'consumer_name'           => $payment->consumer_name,
-				$prefix . 'consumer_account_number' => $payment->consumer_account_number,
-				$prefix . 'consumer_iban'           => $payment->consumer_iban,
-				$prefix . 'consumer_bic'            => $payment->consumer_bic,
-				$prefix . 'consumer_city'           => $payment->consumer_city,
-				$prefix . 'status'                  => $payment->status,
-				$prefix . 'source'                  => $payment->source,
-				$prefix . 'source_id'               => $payment->source_id,
-				$prefix . 'email'                   => $payment->email,
+				'purchase_id'             => $payment->purchase_id,
+				'currency'                => $payment->currency,
+				'amount'                  => $payment->amount,
+				'expiration_period'       => $payment->expiration_period,
+				'language'                => $payment->language,
+				'entrance_code'           => $payment->entrance_code,
+				'description'             => $payment->description,
+				'consumer_name'           => $payment->consumer_name,
+				'consumer_account_number' => $payment->consumer_account_number,
+				'consumer_iban'           => $payment->consumer_iban,
+				'consumer_bic'            => $payment->consumer_bic,
+				'consumer_city'           => $payment->consumer_city,
+				'status'                  => $payment->status,
+				'source'                  => $payment->source,
+				'source_id'               => $payment->source_id,
+				'email'                   => $payment->email,
 			);
 			
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {
-					update_post_meta( $post_id, $key, $value );
+					$meta_key = '_pronamic_payment_' . $key;
+
+					update_post_meta( $post_id, $meta_key, $value );
 				}
 			}
 		
