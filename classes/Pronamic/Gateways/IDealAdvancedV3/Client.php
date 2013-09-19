@@ -315,11 +315,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 				
 			$dsig->sign( $key );
 				
-			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
+			//$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
 				
-			$dsig->addKeyInfoAndName( $fingerprint );
+			$dsig->add509Cert( $this->private_certificate );
 			$dsig->appendSignature( $document->documentElement );
+
+			echo htmlspecialchars( $document->saveXML() );
 			
+			exit;
 			$result = $document;
 		} catch ( Exception $e ) {
 			$this->error = new WP_Error( 'xml_security', $e->getMessage(), $e );

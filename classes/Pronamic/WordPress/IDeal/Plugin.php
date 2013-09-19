@@ -76,8 +76,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/post.php';
-		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';
+
+		// xmlseclibs is a library written in PHP for working with XML Encryption and Signatures. 
+		// @see https://code.google.com/p/xmlseclibs/
+		require_once self::$dirname . '/includes/xmlseclibs/1.3.1/xmlseclibs.php';
 
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
