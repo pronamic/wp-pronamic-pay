@@ -120,6 +120,18 @@ $pronamic_pay_gateways = array(
 		)
 	),
 	// Deutsche Bank - iDEAL Expert - v3
+	'deutschebank-ideal-via-ogone' => array(
+		'provider' => 'deutschebank',
+		'gateway'  => 'easy',
+		'name'     => 'Deutsche Bank - iDEAL via Ogone',
+		'url'      => 'https://ideal.db.com/',
+		'test'     => array(
+			'payment_server_url' => 'https://myideal.db.com/ideal/iDealv3'
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://myideal.db.com/ideal/iDealv3'
+		)
+	),
 	'deutschebank-ideal-expert-v3' => array(
 		'provider' => 'deutschebank',
 		'gateway'  => 'advanced_v3',
@@ -424,6 +436,18 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// Ogone
+	'ogone-easy' => array(
+		'provider' => 'ogone',
+		'gateway'  => 'easy',
+		'name'     => 'Ogone - Easy',
+		'url'      => 'https://secure.ogone.com/',
+		'test'     => array(
+			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp'
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp'
+		),
+	),
 	'ogone-internetkassa' => array(
 		'provider' => 'ogone',
 		'gateway'  => 'internetkassa',
