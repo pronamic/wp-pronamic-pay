@@ -13,7 +13,7 @@ class Pronamic_Gateways_OmniKassa_ReturnHandler extends Pronamic_Gateways_Return
 		if ( isset( $_POST['Data'], $_POST['Seal'] ) ) {
 			$data = filter_input( INPUT_POST, 'Data', FILTER_SANITIZE_STRING );
 			$seal = filter_input( INPUT_POST, 'Seal', FILTER_SANITIZE_STRING );
-				
+
 			if ( ! empty( $data ) && ! empty( $seal ) ) {
 				do_action( 'pronamic_ideal_omnikassa_return_raw', $data, $seal );
 			}
