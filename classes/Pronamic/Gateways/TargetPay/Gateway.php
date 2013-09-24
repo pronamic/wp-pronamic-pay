@@ -23,8 +23,8 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_TargetPay_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
@@ -77,7 +77,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function start( $data ) {
 		$result = $this->client->start_transaction(
-			$this->configuration->targetPayLayoutCode,
+			$this->config->layoutcode,
 			$data->get_issuer_id(),
 			$data->getDescription(),
 			$data->getAmount(),
@@ -102,7 +102,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$status = $this->client->check_status(
-			$this->configuration->targetPayLayoutCode,
+			$this->config->layoutcode,
 			$payment->transaction_id,
 			false,
 			$this->configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST

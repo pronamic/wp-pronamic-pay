@@ -74,7 +74,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 	 * @param Pronamic_Gateways_PayDutch_XML_RequestMessage $message
 	 */
 	private function request( Pronamic_Gateways_PayDutch_XML_RequestMessage $message ) {
-		Pronamic_WordPress_Util::remote_get_body( self::API_URL, 200, array(
+		return Pronamic_WordPress_Util::remote_get_body( self::API_URL, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'headers'   => array( 'Content-Type' => 'text/xml' ),

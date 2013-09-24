@@ -14,45 +14,27 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
-		
-		$configuration_id = $configuration->id;
+	public function __construct( Pronamic_Gateways_IDealAdvanced_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
 		// Client
-		global $pronamic_pay_gateways;
-		
-		$gateway_id = get_post_meta( $configuration_id, '_pronamic_gateway_id', true );
-		$mode       = get_post_meta( $configuration_id, '_pronamic_gateway_mode', true );
-
-		$gateway  = $pronamic_pay_gateways[$gateway_id];
-		$settings = $gateway[$mode];
-		
-		$url = $settings['payment_server_url'];
-
 		$client = new Pronamic_Gateways_IDealAdvanced_Client();
-		$client->setAcquirerUrl( $url );
-		$client->merchant_id = get_post_meta( $configuration_id, '_pronamic_gateway_ideal_merchant_id', true );
-		$client->sub_id = get_post_meta( $configuration_id, '_pronamic_gateway_ideal_sub_id', true );
-		$client->setPrivateKey( get_post_meta( $configuration_id, '_pronamic_gateway_ideal_private_key', true ) );
-		$client->setPrivateKeyPassword( get_post_meta( $configuration_id, '_pronamic_gateway_ideal_private_key_password', true ) );
-		$client->setPrivateCertificate( get_post_meta( $configuration_id, '_pronamic_gateway_ideal_private_certificate', true ) );
+		$client->setAcquirerUrl( $config->directory_request_url );
+		$client->merchant_id = $config->merchant_id;
+		$client->sub_id = $config->sub_id;
+		$client->setPrivateKey( $config->private_key );
+		$client->setPrivateKeyPassword( $config->private_key_password );
+		$client->setPrivateCertificate( $config->private_certificate );
 
-		if ( isset( $settings['directory_request_url'] ) ) {
-			$client->directory_request_url = $settings['directory_request_url']; 
-		}
-		if ( isset( $settings['transaction_request_url'] ) ) {
-			$client->transaction_request_url = $settings['transaction_request_url']; 
-		}
-		if ( isset( $settings['status_request_url'] ) ) {
-			$client->status_request_url = $settings['status_request_url']; 
-		}
+		$client->directory_request_url   = $config->directory_request_url; 
+		$client->transaction_request_url = $config->transaction_request_url; 
+		$client->status_request_url      = $config->status_request_url; 
 		
-		foreach ( $gateway['certificates'] as $certificate ) {
+		foreach ( $config->certificates as $certificate ) {
 			$client->addPublicCertificate( $certificate );
 		}
 

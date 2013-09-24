@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: Easy
+ * Title: Ogone OrderStandard easy client
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealEasy_IDealEasy {
+class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	/**
 	 * An payment type indicator for iDEAL
 	 *

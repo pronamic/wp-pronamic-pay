@@ -98,8 +98,8 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		$this->configuration = $configuration;
+	public function __construct( Pronamic_Pay_Config $config ) {
+		$this->config = $config;
 	}
 
 	/////////////////////////////////////////////////
@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration->id;
+		$transient = 'pronamic_ideal_issuers_' . spl_object_hash( $this->config );
 
 		$result = get_transient( $transient );
 		// $result = false;

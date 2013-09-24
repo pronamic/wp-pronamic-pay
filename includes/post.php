@@ -427,7 +427,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );
-	
+
 	// Files
 	$files = array(
 		'_pronamic_gateway_ideal_private_key_file'         => '_pronamic_gateway_ideal_private_key',

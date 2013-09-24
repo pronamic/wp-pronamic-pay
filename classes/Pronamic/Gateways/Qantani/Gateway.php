@@ -23,8 +23,8 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Qantani_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( false );
@@ -32,9 +32,9 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_Qantani_Qantani();
-		$this->client->set_merchant_id( $configuration->qantani_merchant_id );
-		$this->client->set_merchant_key( $configuration->qantani_merchant_key );
-		$this->client->set_merchant_secret( $configuration->qantani_merchant_secret );
+		$this->client->set_merchant_id( $config->merchant_id );
+		$this->client->set_merchant_key( $config->merchant_key );
+		$this->client->set_merchant_secret( $config->merchant_secret );
 	}
 
 	/////////////////////////////////////////////////

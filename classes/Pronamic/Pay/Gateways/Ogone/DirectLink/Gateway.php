@@ -21,9 +21,9 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public function __construct( Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
@@ -32,12 +32,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Pay_Gateways_Ogone_DirectLink_Client();
-		$this->client->psp_id   = $configuration->pspId;
-		$this->client->sha_in   = $configuration->shaInPassPhrase;
-		$this->client->user_id  = $configuration->ogone_user_id;
-		$this->client->password = $configuration->ogone_password;
+		$this->client->psp_id   = $config->psp_id;
+		$this->client->sha_in   = $config->sha_in_pass_phrase;
+		$this->client->user_id  = $config->user_id;
+		$this->client->password = $config->password;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {

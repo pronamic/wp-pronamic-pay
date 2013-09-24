@@ -9,15 +9,15 @@
  * @version 1.0
  */
 class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration ) {
+	public function __construct( Pronamic_Gateways_Sisow_Config $config ) {
 		parent::__construct( $configuration );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
-		$this->client = new Pronamic_Gateways_Sisow_Sisow( $configuration->sisowMerchantId, $configuration->sisowMerchantKey );
-		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
+		$this->client = new Pronamic_Gateways_Sisow_Sisow( $config->merchant_id, $config->merchant_key );
+		$this->client->set_test_mode( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
 
 	/////////////////////////////////////////////////

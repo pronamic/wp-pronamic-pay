@@ -7,7 +7,7 @@ function get_pronamic_payment( $post_id ) {
 }
 
 function get_pronamic_gateway_configuration( $post_id ) {
-	$configuration = new Pronamic_WP_Pay_Configuration( $post_id );
+	$configuration = new Pronamic_WP_Pay_Config( $post_id );
 
 	return $configuration;
 }
@@ -53,7 +53,7 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
 				AND
 			meta_value = %s
 		;
-	", $purchase_id );
+	", $transaction_id );
 
 	$post_id = $wpdb->get_var( $db_query );
 

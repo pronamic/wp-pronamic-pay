@@ -3,18 +3,20 @@
 class Pronamic_Pay_GatewayFactory {
 	private static $gateways = array();
 
-	public static function register( $name, $class_name ) {
-		self::$gateways[$name] = $class_name;
+	public static function register( $config_class, $gateway_class ) {
+		self::$gateways[$config_class] = $gateway_class;
 	}
 
-	public static function create( $name, Pronamic_Pay_Configuration $configuration ) {
+	public static function create( Pronamic_Pay_Config $config ) {
 		$gateway = null;
 
-		if ( isset( self::$gateways[$name] ) ) {
-			$class_name = self::$gateways[$name];
+		$config_class = get_class( $config );
+
+		if ( isset( self::$gateways[$config_class] ) ) {
+			$gateway_class = self::$gateways[$config_class];
 			
-			if ( class_exists( $class_name ) ) {
-				$gateway = new $class_name( $configuration );
+			if ( class_exists( $gateway_class ) ) {
+				$gateway = new $gateway_class( $config );
 			}
 		}
 		

@@ -21,10 +21,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and intializes an Icepay gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Icepay_Config $config
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Icepay_Config $config ) {
+		parent::__construct( $config );
 		
 		// Default properties for this gateway
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
@@ -109,8 +109,8 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode
-				->setMerchantID( $this->configuration->icepayMerchantId )
-				->setSecretCode( $this->configuration->icepaySecretCode )
+				->setMerchantID( $this->config->merchant_id )
+				->setSecretCode( $this->config->secret_code )
 				->setProtocol( 'http' )
 				->validatePayment( $payment );
 			
@@ -132,8 +132,8 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		// Get the Icepay Result and set the required fields
 		$result = new Icepay_Result();
 		$result
-			->setMerchantID( $this->configuration->icepayMerchantId )
-			->setSecretCode( $this->configuration->icepaySecretCode );
+			->setMerchantID( $this->config->merchant_id )
+			->setSecretCode( $this->config->secret_code );
 		
 		try {
 			// Determine if the result can be validated

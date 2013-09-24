@@ -31,6 +31,12 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function get_transaction_id() {
+		return get_post_meta( $this->id, '_pronamic_payment_transaction_id', true );
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Source text
 	 * 

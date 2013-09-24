@@ -61,7 +61,7 @@ $sections = array(
 	),
 	array(
 		'title'   => __( 'iDEAL', 'pronamic_ideal' ),
-		'methods' => array( 'basic', 'advanced', 'advanced_v3' ),
+		'methods' => array( 'ideal_basic', 'ideal_advanced', 'ideal_advanced_v3' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_merchant_id',
@@ -71,7 +71,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 				'description' => __( 'You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
+				'methods'     => array( 'ideal_basic', 'ideal_advanced', 'ideal_advanced_v3' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_sub_id',
@@ -81,13 +81,13 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'small-text', 'code' ),
 				'description' => sprintf( __( 'You receive the sub ID from your iDEAL provider, the default is: %s.', 'pronamic_ideal' ), 0 ),
-				'methods'     => array( 'basic', 'advanced', 'advanced_v3' )
+				'methods'     => array( 'ideal_basic', 'ideal_advanced', 'ideal_advanced_v3' )
 			)
 		)
 	),
 	array(
-		'title'   => __( 'Basic', 'pronamic_ideal' ),
-		'methods' => array( 'basic' ),
+		'title'   => __( 'ideal_basic', 'pronamic_ideal' ),
+		'methods' => array( 'ideal_basic' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_hash_key',
@@ -97,7 +97,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'basic' )
+				'methods'     => array( 'ideal_basic' )
 			),
 			array(
 				'id'          => 'pronamic_ideal_basic_xml_notification_url',
@@ -108,7 +108,7 @@ $sections = array(
 					'gateway'         => 'ideal_basic',
 					'xml_notifaction' => 'true'
 				), site_url( '/' ) ),
-				'methods'     => array( 'basic' ),
+				'methods'     => array( 'ideal_basic' ),
 				'readonly'    => true
 			)
 		)
@@ -294,7 +294,7 @@ $sections = array(
 	),
 	array(
 		'title'   => __( 'Ogone', 'pronamic_ideal' ),
-		'methods' => array( 'easy', 'internetkassa', 'ogone_directlink' ),
+		'methods' => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_pspid',
@@ -304,17 +304,17 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 				'description' => sprintf(
-						__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
-						'TESTiDEALEASY'
+					__( 'If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>.', 'pronamic_ideal' ),
+					'TESTiDEALEASY'
 				),
-				'methods'     => array( 'easy', 'internetkassa', 'ogone_directlink' )
+				'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' )
 			),
 			array(
 				'id'          => 'pronamic_ideal_character_encoding',
 				'title'       => __( 'Character encoding', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'value'       => get_bloginfo( 'charset' ),
-				'methods'     => array( 'internetkassa' ),
+				'methods'     => array( 'ogone_orderstandard' ),
 				'readonly'    => true
 			),
 			 array(
@@ -322,7 +322,7 @@ $sections = array(
 				'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'value'       => 'SHA-1',
-				'methods'     => array( 'internetkassa' ),
+				'methods'     => array( 'ogone_orderstandard' ),
 				'readonly'    => true
 			),
 			array(
@@ -333,7 +333,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'internetkassa', 'ogone_directlink' )
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_sha_out',
@@ -343,7 +343,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'internetkassa' )
+				'methods'     => array( 'ogone_orderstandard' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_user_id',
@@ -396,8 +396,8 @@ $sections = array(
 		)
 	),
 	array(
-		'title'   => __( 'Advanced', 'pronamic_ideal' ),
-		'methods' => array( 'advanced', 'advanced_v3' ),
+		'title'   => __( 'iDEAL Advanced', 'pronamic_ideal' ),
+		'methods' => array( 'ideal_advanced', 'ideal_advanced_v3' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_private_key_password',
@@ -429,7 +429,7 @@ $sections = array(
 	),
 	array(
 		'title'   => __( 'Private Key and Certificate', 'pronamic_ideal' ),
-		'methods' => array( 'advanced', 'advanced_v3' ),
+		'methods' => array( 'ideal_advanced', 'ideal_advanced_v3' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_number_days_valid',
@@ -708,7 +708,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 								case 'optgroup' :
 									printf( '<fieldset>' );
 									printf( '<legend class="screen-reader-text">%s</legend>', $field['title'] );
-	
+
 									foreach ( $field['options'] as $key => $label ) {
 										printf(
 											'<label>%s %s</label><br />',
@@ -750,7 +750,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 	<?php endforeach; ?>
 	
-	<div class="extra-settings method-advanced_v3">
+	<div class="extra-settings method-ideal_advanced_v3">
 		<h4>
 			<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
 		</h4>
@@ -781,7 +781,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					);
 	
 					?>
-					<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="large-text code" readonly="readonly" />
 				</td>
 			</tr>
 			<tr>
@@ -811,17 +811,17 @@ function pronamic_ideal_private_certificate_field( $field ) {
 						$subj .= '/' . $type . '=' . escapeshellarg( $value );
 					}
 
-					$command = sprintf(
-						'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer -subj %s',
+					$command = trim( sprintf(
+						'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer %s',
 						$filename,
 						$private_key_password,
 						$number_days_valid,
 						$filename,
-						$subj
-					);
+						empty( $subj ) ? '' : '-subj ' . $subj
+					) );
 
 					?>
-					<input id="pronamic_ideal_openssl_command_certificate" name="pronamic_ideal_openssl_command_certificate" value="<?php echo esc_attr( $command ); ?>" type="text" class="regular-text code" readonly="readonly" />
+					<input id="pronamic_ideal_openssl_command_certificate" name="pronamic_ideal_openssl_command_certificate" value="<?php echo esc_attr( $command ); ?>" type="text" class="large-text code" readonly="readonly" />
 				</td>
 			</tr>
 		</table>

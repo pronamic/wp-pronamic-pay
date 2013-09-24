@@ -14,8 +14,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_IDealAdvancedV3_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
@@ -23,12 +23,12 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 
 		// Client
 		$client = new Pronamic_Gateways_IDealAdvancedV3_Client();
-		$client->set_acquirer_url( $configuration->getPaymentServerUrl() );
-		$client->merchant_id          = $configuration->getMerchantId();
-		$client->sub_id               = $configuration->getSubId();
-		$client->private_key          = $configuration->privateKey;
-		$client->private_key_password = $configuration->privateKeyPassword;
-		$client->private_certificate  = $configuration->privateCertificate;
+		$client->set_acquirer_url( $config->url );
+		$client->merchant_id          = $config->merchant_id;
+		$client->sub_id               = $config->sub_id;
+		$client->private_key          = $config->private_key;
+		$client->private_key_password = $config->private_key_password;
+		$client->private_certificate  = $config->private_certificate;
 		
 		$this->client = $client;
 	}
@@ -118,7 +118,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$result = $this->client->get_status( $payment->transaction_id );
+		$result = $this->client->get_status( $payment->get_transaction_id() );
 
 		$error = $this->client->get_error();
 
@@ -149,7 +149,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		 * - No status request after a final status has been received for a transaction;
 		 * - No status request for transactions older than 7 days.
 		 */
-	
+
 		/*
 		 * The function wp_schedule_single_event() uses the arguments array as an key for the event, 
 		 * that's why we also add the time to this array, besides that it's also much clearer on 

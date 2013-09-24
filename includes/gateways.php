@@ -6,7 +6,7 @@ $pronamic_pay_gateways = array(
 	// ABN AMRO
 	'abnamro-ideal-easy' => array(
 		'provider' => 'abnamro',
-		'gateway'  => 'easy',
+		'gateway'  => 'ogone_orderstandard_easy',
 		'name'     => 'ABN AMRO - iDEAL Easy',
 		'url'      => 'https://internetkassa.abnamro.nl/',
 		'test'     => array(
@@ -18,7 +18,7 @@ $pronamic_pay_gateways = array(
 	),
 	'abnamro-ideal-hosted' => array(
 		'provider' => 'abnamro',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'ABN AMRO - iDEAL Hosted',
 		'test'     => array(
 			'payment_server_url' => 'https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do',
@@ -31,7 +31,7 @@ $pronamic_pay_gateways = array(
 	),
 	'abnamro-ideal-only-kassa' => array(
 		'provider' => 'abnamro',
-		'gateway'  => 'internetkassa',
+		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'ABN AMRO - iDEAL Only Kassa',
 		'url'      => 'https://internetkassa.abnamro.nl/',
 		'test'     => array(
@@ -45,7 +45,7 @@ $pronamic_pay_gateways = array(
 	),
 	'abnamro-ideal-zelfbouw' => array(
 		'provider' => 'abnamro',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'ABN AMRO - iDEAL Zelfbouw',
 		'url'      => 'https://abnamro.ideal-payment.de/',
 		'test'     => array(
@@ -68,7 +68,7 @@ $pronamic_pay_gateways = array(
 	),
 	'abnamro-ideal-zelfbouw-v3' => array(
 		'provider' => 'abnamro',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'ABN AMRO - iDEAL Zelfbouw - v3',
 		'url'      => 'https://abnamro.ideal-payment.de/',
 		'test'     => array(
@@ -122,7 +122,7 @@ $pronamic_pay_gateways = array(
 	// Deutsche Bank - iDEAL Expert - v3
 	'deutschebank-ideal-via-ogone' => array(
 		'provider' => 'deutschebank',
-		'gateway'  => 'easy',
+		'gateway'  => 'ogone_orderstandard_easy',
 		'name'     => 'Deutsche Bank - iDEAL via Ogone',
 		'url'      => 'https://ideal.db.com/',
 		'test'     => array(
@@ -134,7 +134,7 @@ $pronamic_pay_gateways = array(
 	),
 	'deutschebank-ideal-expert-v3' => array(
 		'provider' => 'deutschebank',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'Deutsche Bank - iDEAL Expert - v3',
 		'url'      => 'https://ideal.db.com/',
 		'test'     => array(
@@ -181,12 +181,12 @@ $pronamic_pay_gateways = array(
 	'fortis-bank-ideal-hosted' => array(
 		'disabled' => true,
 		'provider' => 'fortis-bank',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'Fortis Bank - iDEAL Hosted'
 	),
 	'fortis-bank-internetkassa' => array(
 		'provider' => 'fortis-bank',
-		'gateway'  => 'internetkassa',
+		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'Fortis Bank - iDEAL Internet Kassa',
 		'test'     => array(
 			'payment_server_url' => 'https://www.secure.neos-solution.com/ncol/test/orderstandard.asp',
@@ -199,7 +199,7 @@ $pronamic_pay_gateways = array(
 	),
 	'fortis-bank-ideal-integrated' => array(
 		'provider' => 'fortis-bank',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'Fortis Bank - iDEAL Integrated',
 		'test'     => array(
 			'payment_server_url' => 'https://acquirer-ideal.test.nl.fortis.com/ideal/iDeal'
@@ -214,7 +214,7 @@ $pronamic_pay_gateways = array(
 	// Friesland Bank
 	'frieslandbank-ideal-zakelijk' => array(
 		'provider' => 'frieslandbank',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'Friesland Bank - iDEAL Zakelijk',
 		'test'     => array(
 			'payment_server_url' => 'https://testidealkassa.frieslandbank.nl/ideal/mpiPayInitFriesland.do',
@@ -227,7 +227,7 @@ $pronamic_pay_gateways = array(
 	),
 	'frieslandbank-ideal-zakelijk-plus' => array(
 		'provider' => 'frieslandbank',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'Friesland Bank - iDEAL Zakelijk Plus',
 		'test'     => array(
 			'payment_server_url' => 'https://testidealkassa.frieslandbank.nl/ideal/iDEAL',
@@ -243,7 +243,7 @@ $pronamic_pay_gateways = array(
 	),
 	'frieslandbank-ideal-zakelijk-plus-v3' => array(
 		'provider' => 'frieslandbank',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'Friesland Bank - iDEAL Zakelijk Plus - v3',
 		'test'     => array(
 			'payment_server_url' => 'https://testidealkassa.frieslandbank.nl/ideal/iDEALv3',
@@ -272,7 +272,7 @@ $pronamic_pay_gateways = array(
 	// iDEAL Simulator
 	'ideal-simulator-ideal-basic' => array(
 		'provider' => 'ideal-simulator',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'iDEAL Simulator - iDEAL Lite / Basic',
 		'test'     => array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/lite/'
@@ -283,7 +283,7 @@ $pronamic_pay_gateways = array(
 	),
 	'ideal-simulator-ideal-advanced' => array(
 		'provider' => 'ideal-simulator',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw',
 		'test'     => array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/professional/'
@@ -298,7 +298,7 @@ $pronamic_pay_gateways = array(
 	),
 	'ideal-simulator-ideal-advanced-v3' => array(
 		'provider' => 'ideal-simulator',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3',
 		'test'     => array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/'
@@ -313,7 +313,7 @@ $pronamic_pay_gateways = array(
 	// ING
 	'ing-ideal-basic' => array(
 		'provider' => 'ing',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'ING - iDEAL Basic',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do',
@@ -326,7 +326,7 @@ $pronamic_pay_gateways = array(
 	),
 	'ing-ideal-internetkassa' => array(
 		'provider' => 'ing',
-		'gateway'  => 'internetkassa',
+		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'ING - iDEAL Internet Kassa',
 		'test'     => array(
 			'payment_server_url' => 'https://twyp.secure-ing.com/ncol/test/orderstandard.asp',
@@ -339,7 +339,7 @@ $pronamic_pay_gateways = array(
 	),
 	'ing-ideal-advanced' => array(
 		'provider' => 'ing',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'ING - iDEAL Advanced',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.secure-ing.com/ideal/iDeal',
@@ -356,7 +356,7 @@ $pronamic_pay_gateways = array(
 	),
 	'ing-ideal-advanced-v3' => array(
 		'provider' => 'ing',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'ING - iDEAL Advanced - v3',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.secure-ing.com/ideal/iDEALv3',
@@ -384,7 +384,7 @@ $pronamic_pay_gateways = array(
 	),
 	'mollie-ideal-basic' => array(
 		'provider' => 'mollie',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'Mollie - iDEAL Basic',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
@@ -397,7 +397,7 @@ $pronamic_pay_gateways = array(
 	),
 	'mollie-ideal-advanced' => array(
 		'provider' => 'mollie',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'Mollie - iDEAL Advanced',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/',
@@ -422,7 +422,7 @@ $pronamic_pay_gateways = array(
 	// NEOS
 	'neos-internetkassa' => array(
 		'provider' => 'neos',
-		'gateway'  => 'internetkassa',
+		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'NEOS - Internet Kassa',
 		'url'      => 'http://www.multisafepay.com/',
 		'test'     => array(
@@ -437,7 +437,7 @@ $pronamic_pay_gateways = array(
 	// Ogone
 	'ogone-easy' => array(
 		'provider' => 'ogone',
-		'gateway'  => 'easy',
+		'gateway'  => 'ogone_orderstandard_easy',
 		'name'     => 'Ogone - Easy',
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
@@ -447,10 +447,10 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp'
 		),
 	),
-	'ogone-internetkassa' => array(
+	'ogone-orderstandard' => array(
 		'provider' => 'ogone',
-		'gateway'  => 'internetkassa',
-		'name'     => 'Ogone - Internet Kassa',
+		'gateway'  => 'ogone_orderstandard',
+		'name'     => 'Ogone - OrderStandard',
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp',
@@ -478,7 +478,7 @@ $pronamic_pay_gateways = array(
 	// Rabobank
 	'rabobank-ideal-lite' => array(
 		'provider' => 'rabobank',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'Rabobank - iDEAL Lite',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.rabobank.nl/ideal/mpiPayInitRabo.do',
@@ -491,7 +491,7 @@ $pronamic_pay_gateways = array(
 	),
 	'rabobank-ideal-kassa' => array(
 		'provider' => 'rabobank',
-		'gateway'  => 'internetkassa',
+		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'Rabobank - Rabo iDEAL Kassa',
 		'url'      => 'http://i-kassa.rabobank.nl/',
 		'test'     => array(
@@ -520,7 +520,7 @@ $pronamic_pay_gateways = array(
 	),
 	'rabobank-ideal-professional' => array(
 		'provider' => 'rabobank',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'Rabobank - iDEAL Professional',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.rabobank.nl/ideal/iDeal',
@@ -537,7 +537,7 @@ $pronamic_pay_gateways = array(
 	),
 	'rabobank-ideal-professional-v3' => array(
 		'provider' => 'rabobank',
-		'gateway'  => 'advanced_v3',
+		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'Rabobank - iDEAL Professional - v3',
 		'test'     => array(
 			'payment_server_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
@@ -565,7 +565,7 @@ $pronamic_pay_gateways = array(
 	),
 	'sisow-ideal-basic' => array(
 		'provider' => 'sisow',
-		'gateway'  => 'basic',
+		'gateway'  => 'ideal_basic',
 		'name'     => 'Sisow - iDEAL Basic',
 		'test'     => array(
 			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
@@ -578,7 +578,7 @@ $pronamic_pay_gateways = array(
 	),
 	'sisow-ideal-advanced' => array(
 		'provider' => 'sisow',
-		'gateway'  => 'advanced',
+		'gateway'  => 'ideal_advanced',
 		'name'     => 'Sisow - iDEAL Advanced',
 		'test'     => array(
 			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',

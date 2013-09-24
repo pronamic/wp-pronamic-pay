@@ -23,18 +23,15 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_PayDutch_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
 
-		$username = get_post_meta( $configuration->id, '_pronamic_gateway_paydutch_username', true );
-		$password = get_post_meta( $configuration->id, '_pronamic_gateway_paydutch_password', true );
-
-		$this->client = new Pronamic_Gateways_PayDutch_PayDutch( $username, $password );
+		$this->client = new Pronamic_Gateways_PayDutch_PayDutch( $config->username, $config->password );
 	}
 	
 	/////////////////////////////////////////////////

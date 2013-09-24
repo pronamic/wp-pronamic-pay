@@ -23,8 +23,8 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Buckaroo_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
@@ -32,9 +32,8 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_Buckaroo_Buckaroo();
-		$this->client->set_payment_server_url( $configuration->getPaymentServerUrl() );
-		$this->client->set_website_key( $configuration->buckarooWebsiteKey );
-		$this->client->set_secret_key( $configuration->buckarooSecretKey );
+		$this->client->set_website_key( $config->website_key );
+		$this->client->set_secret_key( $config->secret_key );
 	}
 
 	/////////////////////////////////////////////////

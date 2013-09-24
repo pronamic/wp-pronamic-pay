@@ -23,16 +23,16 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Mollie_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
 
-		$this->client = new Pronamic_Gateways_Mollie_Mollie( $configuration->molliePartnerId );
-		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
+		$this->client = new Pronamic_Gateways_Mollie_Mollie( $config->partner_id );
+		$this->client->set_test_mode( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
 	
 	/////////////////////////////////////////////////

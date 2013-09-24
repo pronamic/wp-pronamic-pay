@@ -1,6 +1,6 @@
 <?php
 
-class Pronamic_WP_Pay_Configuration extends Pronamic_Pay_Configuration {
+class Pronamic_WP_Pay_Config {
 	/**
 	 * The payment (post) ID.
 	 * 

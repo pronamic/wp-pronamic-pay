@@ -8,24 +8,22 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealEasy_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Construct and intialize an iDEAL Easy gateway
 	 *  
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config
 	 */
-	public function __construct( $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 0.01 );
 
-		global $pronamic_pay_gateways;
-
-		$this->client = new Pronamic_Gateways_IDealEasy_IDealEasy();
-		$this->client->setPaymentServerUrl( $pronamic_pay_gateways['abnamro-ideal-easy']['live']['payment_server_url'] );
-		$this->client->setPspId( get_post_meta( $configuration->ID, '_pronamic_gateway_ogone_psp_id', true ) );
+		$this->client = new Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client();
+		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->setPspId( $config->psp_id );
 	}
 	
 	/////////////////////////////////////////////////

@@ -12,10 +12,10 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Construct and intialize an gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_IDealBasic_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_IDealBasic_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
@@ -23,10 +23,10 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_IDealBasic_IDealBasic();
 		
-		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-		$this->client->setMerchantId( $configuration->getMerchantId() );
-		$this->client->setSubId( $configuration->getSubId() );
-		$this->client->setHashKey( $configuration->hashKey );
+		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->setMerchantId( $config->merchant_id );
+		$this->client->setSubId( $config->sub_id );
+		$this->client->setHashKey( $config->hash_key );
 	}
 	
 	/////////////////////////////////////////////////
