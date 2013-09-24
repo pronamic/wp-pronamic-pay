@@ -23,7 +23,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public function __construct( Pronamic_Pay_Configuration $configuration ) {
 		parent::__construct( $configuration );
 		
 		// Default properties for this gateway

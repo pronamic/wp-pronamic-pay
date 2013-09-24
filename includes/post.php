@@ -319,7 +319,7 @@ function pronamic_pay_gateway_config_meta_box( $post ) {
  * @param WP_Post $post The object for the current post/page.
  */
 function pronamic_pay_gateway_test_meta_box( $post ) {
-	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-tests.php';
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-test.php';
 }
 
 /**
@@ -375,11 +375,15 @@ function pronamic_pay_save_gateway( $post_id ) {
 	/* OK, its safe for us to save the data now. */
 	$definition = array(
 		// General
-		'_pronamic_gateway_mode'              => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_mode' => FILTER_SANITIZE_STRING,
 		// Basic
 		'_pronamic_gateway_ideal_merchant_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ideal_sub_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ideal_hash_key' => FILTER_SANITIZE_STRING,
+		// PayDutch
+		'_pronamic_gateway_paydutch_username' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_paydutch_password' => FILTER_SANITIZE_STRING,
 		// Mollie
 		'_pronamic_gateway_mollie_partner_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_mollie_profile_key' => FILTER_SANITIZE_STRING,
@@ -454,8 +458,10 @@ function pronamic_pay_save_gateway( $post_id ) {
 add_action( 'save_post', 'pronamic_pay_save_gateway' );
 
 function pronamic_pay_gateway_post_edit_form_tag( $post ) {
-	if ( $post->post_type == 'pronamic_gateway' ) {
-		echo ' enctype="multipart/form-data"';
+	if ( $post ) {
+		if ( $post->post_type == 'pronamic_gateway' ) {
+			echo ' enctype="multipart/form-data"';
+		}
 	}
 }
 

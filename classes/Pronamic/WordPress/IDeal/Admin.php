@@ -16,7 +16,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		add_action( 'admin_init',                              array( __CLASS__, 'admin_init' ) );
 		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
 		
-		add_action( 'load-toplevel_page_pronamic_ideal',       array( __CLASS__, 'maybe_test_payment' ) );
+		add_action( 'load-post.php',       array( __CLASS__, 'maybe_test_payment' ) );
 
 		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueue_scripts' ) );
 	}
@@ -141,199 +141,31 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function maybe_test_payment() {
 		global $pronamic_ideal_errors;
 
-		if ( isset( $_POST['test_ideal_advanced_v3'] ) && check_admin_referer( 'test_ideal_advanced_v3', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_nonce' ) ) {
+			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_ideal_advanced_v3', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
-			$test = key( $test );
-			
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
-			
-			$gateway->start( $data );
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $id );
 
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				 $pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
+			if ( $gateway ) {
+				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-				$gateway->redirect();
+				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
+	
+				$gateway->start( $data );
+	
+				$error = $gateway->get_error();
+				
+				if ( is_wp_error( $error ) ) {
+					 $pronamic_ideal_errors[] = $error;
+				} else {
+					Pronamic_WordPress_IDeal_IDeal::create_payment( $id, $gateway, $data );
+	
+					$gateway->redirect();
+				}
+
+				exit;
 			}
 		}
-
-		if ( isset( $_POST['test_ideal_advanced'] ) && check_admin_referer( 'test_ideal_advanced', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_ideal_advanced', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
-			$test = key( $test );
-			
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_IDealAdvanced_Gateway( $configuration );
-
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				 $pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-		if ( isset( $_POST['test_ideal_mollie'] ) && check_admin_referer( 'test_ideal_mollie', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-		if ( isset( $_POST['test_ideal_targetpay'] ) && check_admin_referer( 'test_ideal_targetpay', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-    	if ( isset( $_POST['test_ideal_buckaroo'] ) && check_admin_referer( 'test_ideal_buckaroo', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_Buckaroo_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-		if ( isset( $_POST['test_ideal_sisow'] ) && check_admin_referer( 'test_ideal_sisow', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_Sisow_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-		if ( isset( $_POST['test_ideal_qantani'] ) && check_admin_referer( 'test_ideal_qantani', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_Qantani_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
-
-		if ( isset( $_POST['test_ideal_icepay'] ) && check_admin_referer( 'test_ideal_icepay', 'pronamic_ideal_nonce' ) ) {
-			$id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
-			
-			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
-
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
-			
-			$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
-			
-			$gateway->start( $data );
-
-			$error = $gateway->get_error();
-			
-			if ( is_wp_error( $error ) ) {
-				$pronamic_ideal_errors[] = $error;
-			} else {
-				Pronamic_WordPress_IDeal_IDeal::create_payment( $configuration, $gateway, $data );
-
-				$gateway->redirect();
-			}
-    	}
 	}
 
 	//////////////////////////////////////////////////

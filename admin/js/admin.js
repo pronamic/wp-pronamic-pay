@@ -346,7 +346,7 @@
 
 		// Elements
 		var elements = {};
-		elements.variantId = element.find( '#pronamic_ideal_variant_id' );
+		elements.variantId = element.find( '#pronamic_gateway_id' );
 
 		/**
 		 * Update configuration

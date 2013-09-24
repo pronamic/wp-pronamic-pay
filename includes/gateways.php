@@ -150,12 +150,11 @@ $pronamic_pay_gateways = array(
 		)
 	),
 	// Dutch Payment Group
-	'dutchpaymentgroup' => array(
+	'paydutch' => array(
 		'provider' => 'dutchpaymentgroup',
-		'gateway'  => 'dutchpaymentgroup',
-		'disabled' => true,
-		'name'     => 'Dutch Payment Group',
-		'url'      => 'http://www.dutchpaymentgroup.com/',
+		'gateway'  => 'paydutch',
+		'name'     => 'PayDutch',
+		'url'      => 'http://www.paydutch.nl/',
 		'test'     => array(
 			'payment_server_url' => 'https://www.paydutch.nl/api/processreq.aspx',
 			'dashboard_url'      => 'https://www.paydutch.nl/paydutchmanager/'

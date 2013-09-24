@@ -114,6 +114,26 @@ $sections = array(
 		)
 	),
 	array(
+		'title'   => __( 'PayDutch', 'pronamic_ideal' ),
+		'methods' => array( 'paydutch' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_paydutch_username',
+				'id'          => 'pronamic_gateway_paydutch_username',
+				'title'       => __( 'Username', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'code' )
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_paydutch_password',
+				'id'          => 'pronamic_gateway_paydutch_password',
+				'title'       => __( 'Password', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'code' )
+			)
+		)
+	),
+	array(
 		'title'   => __( 'Mollie', 'pronamic_ideal' ),
 		'methods' => array( 'mollie' ),
 		'fields'  => array(
@@ -552,12 +572,12 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	<table class="form-table">
 		<tr>
 			<th scope="row">
-				<label for="pronamic_ideal_variant_id">
+				<label for="pronamic_gateway_id">
 					<?php _e('Variant', 'pronamic_ideal'); ?>
 				</label>
 			</th>
 			<td>
-                <select id="pronamic_ideal_variant_id" name="pronamic_ideal_variant_id">
+                <select id="pronamic_gateway_id" name="_pronamic_gateway_id">
                 	<option value=""></option>
 
                 	<?php foreach ( $pronamic_pay_providers as $provider ) : ?>

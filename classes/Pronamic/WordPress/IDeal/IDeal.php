@@ -128,6 +128,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		Pronamic_Pay_GatewayFactory::register( 'sisow',            'Pronamic_Gateways_Sisow_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'qantani',          'Pronamic_Gateways_Qantani_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'ogone_directlink', 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'paydutch',         'Pronamic_Gateways_PayDutch_Gateway' );
 
 		global $pronamic_pay_gateways;
 		
