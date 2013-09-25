@@ -79,7 +79,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		add_action( 'pronamic_ideal_advanced_return_raw',      array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 3 );
 		add_action( 'pronamic_ideal_advanced_v3_return_raw',   array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_easy_return_raw',          array( 'Pronamic_Gateways_IDealEasy_ReturnHandler', 'returns' ), 10, 2 );
+		add_action( 'pronamic_ideal_easy_return_raw',          array( 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_basic_return_raw',         array( 'Pronamic_Gateways_IDealBasic_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_internetkassa_return_raw', array( 'Pronamic_Gateways_IDealInternetKassa_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_mollie_return_raw',        array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
@@ -160,7 +160,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
 		Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
 		Pronamic_Gateways_IDealBasic_ReturnHandler::listen();
-		Pronamic_Gateways_IDealEasy_ReturnHandler::listen();
+		Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
 		Pronamic_Gateways_Mollie_ReturnHandler::listen();
 		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();

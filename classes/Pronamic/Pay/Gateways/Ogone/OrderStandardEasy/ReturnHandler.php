@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealEasy_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler extends Pronamic_Gateways_ReturnHandler {
 	public function listen() {
 		if ( isset( $_GET['gateway'] ) ) {
 			$gateway = filter_input( INPUT_GET, 'gateway', FILTER_SANITIZE_STRING );
