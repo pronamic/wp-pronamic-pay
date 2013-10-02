@@ -13,12 +13,12 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		add_action( 'admin_init',                              array( __CLASS__, 'admin_init' ) );
-		add_action( 'admin_menu',                              array( __CLASS__, 'admin_menu' ) );
+		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
 		
-		add_action( 'load-post.php',       array( __CLASS__, 'maybe_test_payment' ) );
+		add_action( 'load-post.php', array( __CLASS__, 'maybe_test_payment' ) );
 
-		add_action( 'admin_enqueue_scripts',                   array( __CLASS__, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
