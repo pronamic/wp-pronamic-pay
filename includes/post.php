@@ -457,6 +457,62 @@ function pronamic_pay_save_gateway( $post_id ) {
 
 add_action( 'save_post', 'pronamic_pay_save_gateway' );
 
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function pronamic_pay_save_pay_gf( $post_id ) {
+	// Check if our nonce is set.
+	if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) )
+		return $post_id;
+
+	$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
+
+	// Verify that the nonce is valid.
+	if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_pay_gf' ) )
+		return $post_id;
+
+	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		return $post_id;
+
+	// Check the user's permissions.
+	if ( 'page' == $_POST['post_type'] ) {
+
+		if ( ! current_user_can( 'edit_page', $post_id ) )
+			return $post_id;
+
+	} else {
+
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return $post_id;
+	}
+
+	/* OK, its safe for us to save the data now. */
+	$definition = array(
+		'_pronamic_pay_gf_form_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_configuration_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_transaction_description' => FILTER_SANITIZE_STRING
+	);
+	
+	$data = filter_input_array( INPUT_POST, $definition );
+
+	// Meta
+	foreach ( $data as $key => $value ) {
+		if ( isset( $value ) ) {
+			update_post_meta( $post_id, $key, $value );
+		} else {
+			delete_post_meta( $post_id, $key );
+		}
+	}
+	
+	// Transient
+	delete_transient( 'pronamic_ideal_issuers_' . $post_id );
+}
+
+add_action( 'save_post', 'pronamic_pay_save_pay_gf' );
+
 function pronamic_pay_gateway_post_edit_form_tag( $post ) {
 	if ( $post ) {
 		if ( $post->post_type == 'pronamic_gateway' ) {

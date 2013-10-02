@@ -113,11 +113,12 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function enqueue_scripts( $hook ) {
 		$screen = get_current_screen();
 
-		$is_pronamic_gateway = $screen->id == 'pronamic_gateway';
-		$is_pronamic_ideal = strpos( $hook, 'pronamic_ideal' ) !== false;
-		$edit_gravity_forms = ( strpos( $hook, 'page_gf_new_form' ) ) !== false || ( strpos( $hook, 'page_gf_edit_forms' ) !== false );
+		$enqueue  = false;
+		$enqueue |= $screen->id == 'pronamic_gateway';
+		$enqueue |= $screen->id == 'pronamic_pay_gf';
+		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
-		if ( $is_pronamic_gateway || $is_pronamic_ideal || $edit_gravity_forms ) {
+		if ( $enqueue ) {
 			// Styles
 			wp_enqueue_style(
 				'proanmic_ideal_admin',

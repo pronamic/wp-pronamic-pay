@@ -147,7 +147,6 @@
 			
 			if ( gravityForm ) {
 				$.each( gravityForm.fields, function( key, field ) {
-					console.log(field);
 					if ( field.inputs ) {
 						$.each( field.inputs, function( key, input ) {
 							inputs.push( input );
