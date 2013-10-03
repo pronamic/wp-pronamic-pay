@@ -86,7 +86,7 @@ $sections = array(
 		)
 	),
 	array(
-		'title'   => __( 'ideal_basic', 'pronamic_ideal' ),
+		'title'   => __( 'Basic', 'pronamic_ideal' ),
 		'methods' => array( 'ideal_basic' ),
 		'fields'  => array(
 			array(

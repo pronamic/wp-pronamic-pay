@@ -252,7 +252,7 @@ function orbis_ideal_upgrade_140() {
 			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;
 			$meta['delay_admin_motification'] = @$feed_meta->delayAdminNotification;
 			$meta['delay_users_motification'] = @$feed_meta->delayUserNotification;
-			$meta['delay_post_creation']      = @$feed_meta->delayUserNotification;
+			$meta['delay_post_creation']      = @$feed_meta->delayPostCreation;
 			$meta['condition_enabled']        = @$feed_meta->conditionEnabled;
 			$meta['condition_field_id']       = @$feed_meta->conditionFieldId;
 			$meta['condition_operator']       = @$feed_meta->conditionOperator;

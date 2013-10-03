@@ -78,14 +78,22 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_gf_feed', 'p
 
 $post_id = get_the_ID();
 
+$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+
+$form_meta = RGFormsModel::get_form_meta( $form_id );
+
 $feed = new stdClass();
 $feed->transactionDescription = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 $feed->fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
+$feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 
 ?>
 
 <div id="gf-ideal-feed-editor">
 	<?php wp_nonce_field( 'pronamic_pay_save_pay_gf', 'pronamic_pay_nonce' ); ?>
+	
+	<input id="gf_ideal_gravity_form" name="gf_ideal_gravity_form" value="<?php echo esc_attr( json_encode( $form_meta ) ); ?>" type="hidden" />
+	<input id="gf_ideal_feed" name="gf_ideal_feed" value="<?php echo esc_attr( json_encode( $feed ) ); ?>" type="hidden" />
 
 	<table class="form-table">
 		<tr>
@@ -95,21 +103,10 @@ $feed->fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 				</label>
 			</th>
 			<td>
-				<?php 
-	
-				$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
-				$forms = RGFormsModel::get_forms();
-				$data = RGFormsModel::get_form_meta( $form_id );
-
-				?>
-	
-				<input id="gf_ideal_gravity_form" name="gf_ideal_gravity_form" value="<?php echo esc_attr( json_encode( $data ) ); ?>" type="hidden" />
-				<input id="gf_ideal_feed" name="gf_ideal_feed" value="<?php echo esc_attr( json_encode( $feed ) ); ?>" type="hidden" />
-					
 				<select id="_pronamic_pay_gf_form_id" name="_pronamic_pay_gf_form_id">
 					<option value=""><?php _e( '&mdash; Select a form &mdash;', 'pronamic_ideal' ); ?></option>
 	
-					<?php foreach ( $forms as $form ) : ?>
+					<?php foreach ( RGFormsModel::get_forms() as $form ) : ?>
 	
 						<option value="<?php echo $form->id; ?>" <?php selected( $form_id, $form->id ); ?>>
 							<?php echo esc_html( $form->title ); ?>
@@ -182,82 +179,6 @@ $feed->fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 		</tr>
 		<tr>
 			<th scope="row">
-				<?php _e( 'Options', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<?php 
-	
-				$delay_notification_ids   = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
-				$delay_admin_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_motification', true );
-				$delay_users_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_users_motification', true );
-				$delay_post_creation      = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
-	
-				?>
-	
-				<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
-				
-					<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php checked( ! empty( $delay_notification_ids ) ); ?>/>
-	
-					<label for="gf_ideal_delay_notifications">
-						<?php _e( 'Send notifications only when payment is received.', 'pronamic_ideal' ); ?>
-					</label>
-	
-					<ul class="gf_ideal_delay_notification_holder" style="margin-left:28px;<?php if ( empty( $delay_notification_ids ) ) : ?> display:none; <?php endif; ?>">
-						
-						<?php if ( ! empty( $delay_notification_ids ) ) : ?>
-						
-							<?php $form = RGFormsModel::get_form_meta( $feed->form_id ); ?>
-	
-							<?php if ( is_array( $form['notifications'] ) && ! empty( $form['notifications'] ) ) : ?>
-						
-								<?php foreach ( $form['notifications'] as $notification ) : ?>
-									<li>
-										<input id="gf_ideal_selected_notification_<?php echo $notification['id']; ?>" type="checkbox" value="<?php echo $notification['id']; ?>" name="gf_ideal_selected_notifications[]" <?php checked ( in_array( $notification['id'], $delay_notification_ids ) ); ?> />
-										<label class="inline" for="gf_ideal_selected_notification_<?php echo $notification['id']; ?>"><?php echo $notification['name']; ?></label>
-									</li>
-								<?php endforeach; ?>
-						
-							<?php endif; ?>
-	
-						<?php endif; ?>
-	
-						<?php if ( empty( $delay_notification_ids ) ) : ?>
-							<li><img src="<?php echo plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ); ?>" /></li>
-						<?php endif;?>
-					</ul>
-	
-				<?php else : ?>
-	
-					<ul>
-						<li id="gf_ideal_delay_admin_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_motification ); ?> />
-	
-							<label for="gf_ideal_delay_admin_notification">
-								<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
-							</label>
-						</li>
-						<li id="gf_ideal_delay_user_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_users_motification ); ?> />
-	
-							<label for="gf_ideal_delay_user_notification">
-								<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
-							</label>
-						</li>
-						<li id="gf_ideal_delay_post_creation_item">
-							<input type="checkbox" name="gf_ideal_delay_post_creation" id="gf_ideal_delay_post_creation" value="true" <?php checked( $delay_post_creation ); ?> />
-	
-							<label for="gf_ideal_delay_post_creation">
-								<?php _e( 'Create post only when payment is received.', 'pronamic_ideal' ); ?>
-							</label>
-						</li>
-					</ul>
-					
-				<?php endif; ?>
-	
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
 				<label for="gf_ideal_condition_enabled">
 					<?php _e( 'Condition', 'pronamic_ideal' ); ?>
 				</label>
@@ -314,7 +235,121 @@ $feed->fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 					<span class="description"><?php _e( 'To create a condition, your form must have a drop down, checkbox or multiple choice field.', 'pronamic_ideal' ); ?></span>
 				</div>
 			</td>
-		</tr>  
+		</tr>
+	</table>
+	
+	<h4><?php _e( 'Delay', 'pronamic_ideal' ); ?></h4>
+	
+	<table class="form-table">
+		<tr>
+			<th scope="row">
+				<?php _e( 'Send Notifications Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php 
+	
+				$delay_notification_ids   = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
+				if ( ! is_array( $delay_notification_ids ) ) {
+					$delay_notification_ids = array();
+				}
+
+				$delay_admin_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_motification', true );
+				$delay_users_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_users_motification', true );
+	
+				?>
+	
+				<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
+				
+					<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php checked( ! empty( $delay_notification_ids ) ); ?>/>
+	
+					<label for="gf_ideal_delay_notifications">
+						<?php _e( 'Send notifications only when payment is received.', 'pronamic_ideal' ); ?>
+					</label>
+
+					<div class="pronamic-pay-gf-notifications">
+
+						<?php 
+						
+						$notifications = array();
+						if ( isset( $form_meta['notifications'] ) && is_array( $form_meta['notifications'] ) ) {
+							$notifications = $form_meta['notifications'];
+						}
+
+						if ( ! empty( $notifications ) ) {
+							printf( '<ul>' ); 
+							
+							foreach ( $notifications as $notification ) {
+								$id = $notification['id'];
+
+								printf( '<li>' );
+
+								printf(
+									 '<input id="%s" type="checkbox" value="%s" name="_pronamic_pay_gf_delay_notification_ids[]" %s />',
+									esc_attr( 'pronamic-pay-gf-notification-' . $id ),
+									esc_attr( $id ),
+									checked( in_array( $id, $delay_notification_ids ), true, false )
+								);
+								
+								printf( ' ' );
+
+								printf(
+									'<label class="inline" for="%s">%s</label>',
+									esc_attr( 'pronamic-pay-gf-notification-' . $id ),
+									$notification['name']
+								);
+
+								printf( '</li>' );
+							}
+							
+							printf( '</ul>' );
+						}
+						
+						?>
+					</div>
+	
+				<?php else : ?>
+	
+					<ul>
+						<li id="gf_ideal_delay_admin_notification_item">
+							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_motification ); ?> />
+	
+							<label for="gf_ideal_delay_admin_notification">
+								<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
+							</label>
+						</li>
+						<li id="gf_ideal_delay_user_notification_item">
+							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_users_motification ); ?> />
+	
+							<label for="gf_ideal_delay_user_notification">
+								<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
+							</label>
+						</li>
+						<li id="gf_ideal_delay_post_creation_item">
+
+						</li>
+					</ul>
+					
+				<?php endif; ?>
+	
+			</td>
+		</tr>
+		<tr>
+			<?php 
+
+			$delay_post_creation = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
+			
+			?>
+			<th scope="row">
+				<?php _e( 'Create Post Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" name="_pronamic_pay_gf_delay_post_creation" id="_pronamic_pay_gf_delay_post_creation" value="true" <?php checked( $delay_post_creation ); ?> />
+	
+				<label for="_pronamic_pay_gf_delay_post_creation">
+					<?php _e( 'Create post only when payment is received.', 'pronamic_ideal' ); ?>
+				</label>
+			</td>
+		</tr>
 	</table>
 	
 	<h4>

@@ -10,7 +10,7 @@
 		var elements = {};
 		elements.feed = element.find( '#gf_ideal_feed' );
 		elements.gravityForm = element.find( '#gf_ideal_gravity_form' );
-		elements.formId = element.find( '#gf_ideal_form_id' );
+		elements.formId = element.find( '#_pronamic_pay_gf_form_id' );
 		elements.configurationId = element.find( '#gf_ideal_configuration_id' );
 		elements.delayPostCreationItem = element.find( '#gf_ideal_delay_post_creation_item' );
 		elements.conditionEnabled = element.find( '#gf_ideal_condition_enabled' );
@@ -20,7 +20,7 @@
 		elements.conditionValue = element.find( '#gf_ideal_condition_value' );
 		elements.userRoleFieldId = element.find( '#gf_ideal_user_role_field_id' );
 		elements.delayNotifications = element.find( '#gf_ideal_delay_notifications' );
-		elements.delayNotificationsHolder = element.find( '.gf_ideal_delay_notification_holder' );
+		elements.delayNotificationsHolder = element.find( '.pronamic-pay-gf-notifications' );
 		elements.fieldSelectFields = element.find( 'select.field-select' );
 
 		// Data
@@ -142,7 +142,7 @@
             return fields;
 		};
 		
-		this.get_inputs = function() {
+		this.getInputs = function() {
 			var inputs = new Array();
 			
 			if ( gravityForm ) {
@@ -160,51 +160,6 @@
 			return inputs;
 		};
 		
-		this.getNotifications = function(form_id) {
-			var holder    = $( '.gf_ideal_delay_notification_holder' );
-			var isChecked = $( '.gf_ideal_delay_notifications' ).is( ':checked' );
-			
-			// Determine if the checkbox for conditionals have been checked
-			if ( isChecked ) {
-				
-				// Run the ajax request on callback completion
-				holder.slideDown( 500, function() {
-
-					$.ajax( {
-						url: ajaxurl,
-						type: 'POST',
-						data: {
-							action: 'gf_ideal_load_notifications',
-							form_id: elements.formId.val()
-						},
-						dataType: 'json',
-						success: function( response ) {
-							if ( ! response ) {
-								holder.html( GravityForms_IDeal_Feed_Config.not_loaded );
-							} else if ( response.length === 0 ) {
-								holder.html( GravityForms_IDeal_Feed_Config.no_notifications );
-							} else {
-								var str = '';
-								$.each( response, function( index, value ) {
-									str +=	"<li class='gf_ideal_notification'>"
-										+		"<input id='gf_ideal_selected_notifications_" + value['id'] + "' type='checkbox' value='" + value["id"] + "' name='gf_ideal_selected_notifications[]' checked='checked' />"
-										+		" <label for='gf_ideal_selected_notifications_"+ value['id'] + "' class='inline'>" + value['name'] + "</label>"
-										+	"</li>";
-								} );
-								
-								holder.html( str );
-							}
-						},
-						error: function( i,ii,iii ) {
-							
-						}
-					} );
-				} );
-			} else {
-				holder.slideUp();
-			}
-		};
-		
 		/**
 		 * Change form
 		 */
@@ -219,7 +174,6 @@
 						gravityForm = response.data;
 
 						obj.updateFields();
-						obj.updateNotificationSelector();
 					}
 				}
 			);
@@ -255,16 +209,30 @@
 			element.find( '.method-' + method ).show();
 		};
 		
-		this.updateNotificationSelector = function() {
-			if ( elements.delayNotificationsHolder.length > 0 ) {
-				elements.delayNotifications.prop( 'checked', false );
-				
-				elements.delayNotificationsHolder.css( { display: 'none' } );
-				
-				var img = new Image();
-				img.src = GravityForms_IDeal_Feed_Config.loader_img;
-				
-				elements.delayNotificationsHolder.html( img );
+		this.updateNotifications = function() {			
+			elements.delayNotificationsHolder.empty();
+
+			if ( gravityForm ) {
+				var list = $( '<ul>' ).appendTo( elements.delayNotificationsHolder );
+
+				$.each( gravityForm.notifications, function( key, notification ) {
+					var item = $( '<li>' ).appendTo( list );
+					
+					var fieldId = 'pronamic-pay-gf-notification-' + notification.id;
+
+					$( '<input type="checkbox" name="_pronamic_pay_gf_delay_notification_ids[]">' )
+						.attr( 'id', fieldId )
+						.val( notification.id )
+						.prop( 'checked', $.inArray( notification.id, feed.delayNotificationIds ) >= 0 )
+						.appendTo( item );
+					
+					item.append( ' ' );
+					
+					$( '<label>' )
+						.attr( 'for', fieldId )
+						.text( notification.name )
+						.appendTo( item );
+				} );
 			}
 		};
 		
@@ -282,7 +250,7 @@
 
 					$( '<option>' ).appendTo( $element );
 
-					$.each( obj.get_inputs(), function( key, input ) {
+					$.each( obj.getInputs(), function( key, input ) {
 		                var label = input.adminLabel ? input.adminLabel : input.label;
 
 						$( '<option>' )
@@ -306,6 +274,7 @@
 			obj.updateConditionValues();
 			obj.updateUserRoleFields();
 			obj.updateSelectFields();
+			obj.updateNotifications();
 		};
 
 		// Function calls
@@ -399,11 +368,5 @@
 		
 		$( '#gf-ideal-feed-editor' ).gravityFormsIdealFeedEditor();
 		$( '#pronamic-ideal-configration-editor' ).pronamicIdealConfigurationEditor();
-
-		var FE = $( '#gf-ideal-feed-editor' ).data( 'gf-ideal-feed-editor' );
-		
-		$( '#gf_ideal_delay_notifications' ).click( function() {
-			FE.getNotifications();
-		} );
 	} );
 } )( jQuery );
