@@ -280,7 +280,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Qantani_Gateway( $configuration );
 			
@@ -304,7 +304,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			
 			$test = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
-			$data = new Pronamic_WordPress_IDeal_IDealTestDataProxy( wp_get_current_user(), $test );
+			$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test );
 			
 			$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
 			
