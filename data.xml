@@ -162,6 +162,19 @@
 				<file>certificates/deutschebank-ideal-expert-v3/?.cer</file>
 			</certificates>
 		</variant>
+
+		<variant gateway="easy">
+			<id>deutschebank-ideal-via-ogone</id>
+			<name>Deutsche Bank - iDEAL via Ogone</name>
+			<url>https://ideal.db.com/</url>
+
+			<test>
+				<paymentServerUrl>https://secure.ogone.com/ncol/test/orderstandard.asp</paymentServerUrl>
+			</test>
+			<live>
+				<paymentServerUrl>https://secure.ogone.com/ncol/prod/orderstandard.asp</paymentServerUrl>
+			</live>
+		</variant>
 	</provider>
 
 	<provider>
