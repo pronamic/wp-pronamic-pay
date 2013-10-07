@@ -146,13 +146,11 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
-= develop =
-*	Improved support for Event Espresso 3.1, added iDEAL logo
-
 = 1.3.3 =
 *	Fixed bug Fatal error: Class 'Pronamic_WordPress_IDeal_IDealTestDataProxy' not found 
 *	Added support for the 'Deutsche Bank - iDEAL via Ogone' variant
 *	Added check on required OpenSSL version 0.9.8 with SHA256 support
+*	Improved support for Event Espresso 3.1, added iDEAL logo
 
 = 1.3.2 =
 *	Updated to Icepay API library v2.3.0
