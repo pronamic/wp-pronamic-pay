@@ -48,14 +48,14 @@ class Pronamic_GravityForms_IDeal_Fields {
 		
         	$html = '';
 
-        	$ideal_feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
+        	$pay_gf = get_pronamic_pay_gf_by_form_id( $form_id );
 
         	/**
         	 * Developing warning:
         	 * Don't use single quotes in the HTML you output, it is buggy in combination with SACK
         	 */
 			if ( IS_ADMIN ) {
-				if ( $ideal_feed === null ) {
+				if ( $pay_gf === null ) {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
 						Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link(), 
@@ -73,12 +73,12 @@ class Pronamic_GravityForms_IDeal_Fields {
 			$html_input = '';
 			$html_error = '';
 
-			if ( $ideal_feed != null ) {
-				$configuration = $ideal_feed->getIDealConfiguration();
+			if ( $pay_gf != null ) {
+				$configuration_id = get_post_meta( $pay_gf->ID, '_pronamic_pay_gf_configuration_id', true );
 
-				if ( $configuration != null ) {
-					$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration_id );
 
+				if ( $gateway ) {
 					$issuer_field = $gateway->get_issuer_field();
 					
 					$error = $gateway->get_error();
