@@ -83,10 +83,6 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					if ( $should_update ) {
-						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
-					}
-
 					$url = $data->getCancelUrl();
 
 					break;
