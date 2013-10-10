@@ -306,11 +306,22 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 				if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
 					echo OPENSSL_VERSION_TEXT;
 				}
+				
+				// @see https://www.openssl.org/docs/crypto/OPENSSL_VERSION_NUMBER.html
+				$version_required = 0x000908000;
 
 				?>
 			</td>
 			<td>
-				&#10003;
+				<?php 
+
+				if ( version_compare( OPENSSL_VERSION_NUMBER, 0x000908000, '>' ) ) {
+					echo '&#10003;';
+				} else {
+					_e( 'Pronamic iDEAL requires OpenSSL 0.9.8 or above.', 'pronamic_ideal' );
+				}
+				
+				?>
 			</td>
 		</tr>
 		<tr>

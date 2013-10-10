@@ -293,6 +293,8 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	/**
 	 * Sign the specified DOMDocument
 	 * 
+	 * @see https://github.com/Maks3w/xmlseclibs/blob/v1.3.0/tests/xml-sign.phpt
+	 * 
 	 * @param DOMDocument $document
 	 * @return DOMDocument
 	 */
@@ -301,25 +303,40 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 
 		try {
 			$dsig = new XMLSecurityDSig();
+			
+			// For canonicalization purposes the exclusive (9) algorithm must be used.
+			// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 30 
 			$dsig->setCanonicalMethod( XMLSecurityDSig::EXC_C14N );
+
+			// For hashing purposes the SHA-256 (11) algorithm must be used.
+			// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 30
 			$dsig->addReference(
-					$document,
-					XMLSecurityDSig::SHA256,
-					array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
-					array( 'force_uri' => true )
+				$document,
+				XMLSecurityDSig::SHA256,
+				array( 'http://www.w3.org/2000/09/xmldsig#enveloped-signature' ),
+				array( 'force_uri' => true )
 			);
-				
+
+			// For signature purposes the RSAWithSHA 256 (12) algorithm must be used.
+			// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 31
 			$key = new XMLSecurityKey( XMLSecurityKey::RSA_SHA256, array( 'type' => 'private' ) );
 			$key->passphrase = $this->private_key_password;
 			$key->loadKey( $this->private_key );
-				
-			$dsig->sign( $key );
-				
-			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
-				
-			$dsig->addKeyInfoAndName( $fingerprint );
-			$dsig->appendSignature( $document->documentElement );
 			
+			// Sign
+			$dsig->sign( $key );
+			
+			// The public key must be referenced using a fingerprint of an X.509 
+			// certificate. The fingerprint must be calculated according
+			// to the following formula HEX(SHA-1(DER certificate)) (13)
+			// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 31
+			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
+
+			$dsig->addKeyInfoAndName( $fingerprint );
+
+			// Add the signature
+			$dsig->appendSignature( $document->documentElement );
+
 			$result = $document;
 		} catch ( Exception $e ) {
 			$this->error = new WP_Error( 'xml_security', $e->getMessage(), $e );
