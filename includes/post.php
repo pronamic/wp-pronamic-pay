@@ -2,19 +2,19 @@
 
 function pronamic_payment_gateways_create_initial_post_types() {
 	register_post_type( 'pronamic_gateway', array(
-		'label'              => __( 'Configs', 'pronamic_ideal' ),
+		'label'              => __( 'Gateway Configs', 'pronamic_ideal' ),
 		'labels'             => array(
-			'name'               => __( 'Configs', 'pronamic_ideal' ),
-			'singular_name'      => __( 'Config', 'pronamic_ideal' ),
+			'name'               => __( 'Gateway Configs', 'pronamic_ideal' ),
+			'singular_name'      => __( 'Gateway Config', 'pronamic_ideal' ),
 			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-			'add_new_item'       => __( 'Add New Config', 'pronamic_ideal' ),
-			'edit_item'          => __( 'Edit Config', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Config', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Configs', 'pronamic_ideal' ),
-			'view_item'          => __( 'View Config', 'pronamic_ideal' ),
-			'search_items'       => __( 'Search Configs', 'pronamic_ideal' ),
-			'not_found'          => __( 'No configs found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No configs found in Trash', 'pronamic_ideal' ),
+			'add_new_item'       => __( 'Add New Gateway Config', 'pronamic_ideal' ),
+			'edit_item'          => __( 'Edit Gateway Config', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Gateway Config', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Gateway Configs', 'pronamic_ideal' ),
+			'view_item'          => __( 'View Gateway Config', 'pronamic_ideal' ),
+			'search_items'       => __( 'Search Gateway Configs', 'pronamic_ideal' ),
+			'not_found'          => __( 'No gateway configs found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No gateway configs found in Trash', 'pronamic_ideal' ),
 			'menu_name'          => __( 'Configs', 'pronamic_ideal' )
 		),
 		'public'             => false,
@@ -243,13 +243,23 @@ function pronamic_pay_gf_custom_column( $column, $post_id ) {
 
 	switch( $column ) {
 		case 'pronamic_pay_gf_form':
-			echo get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+			$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
+			
+			if ( ! empty( $form_id ) ) {
+				echo get_pronamic_pay_gf_form_title( $form_id );
+			} else {
+				echo '—';
+			}
 
 			break;
 		case 'pronamic_pay_gf_config':
 			$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
-			
-			echo get_the_title( $config_id );
+
+			if ( ! empty( $config_id ) ) {
+				echo get_the_title( $config_id );
+			} else {
+				echo '—';
+			}
 
 			break;
 		case 'pronamic_pay_gf_transaction_description':

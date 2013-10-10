@@ -86,7 +86,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	 * @return string
 	 */
 	public function getDescription() {
-		$description = GFCommon::replace_variables( $this->feed->transactionDescription, $this->form, $this->lead );
+		$description = GFCommon::replace_variables( $this->feed->transaction_description, $this->form, $this->lead );
 
 		return $description;
 	}

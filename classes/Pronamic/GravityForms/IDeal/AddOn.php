@@ -292,8 +292,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function is_condition_true( $form, $feed ) {
 		$result = true;
 
-        if ( $feed->conditionEnabled ) {
-			$field = RGFormsModel::get_field( $form, $feed->conditionFieldId );
+        if ( $feed->condition_enabled ) {
+			$field = RGFormsModel::get_field( $form, $feed->condition_field_id );
 
 			if ( empty( $field ) ) {
 				// unknown field
@@ -307,9 +307,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				} else {
 					$value = RGFormsModel::get_field_value( $field, array() );
 
-					$is_match = RGFormsModel::is_value_match( $value, $feed->conditionValue );
+					$is_match = RGFormsModel::is_value_match( $value, $feed->condition_value );
 
-					switch ( $feed->conditionOperator ) {
+					switch ( $feed->condition_operator ) {
 						case Pronamic_GravityForms_GravityForms::OPERATOR_IS:
 							$result = $is_match;
 							break;
@@ -335,11 +335,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$notification_ids = $feed->getNotificationIds();
+				$notification_ids = $feed->delay_notification_ids;
 
 				if ( in_array( $notification['id'], $notification_ids ) )
 					$is_disabled = true;
@@ -358,9 +358,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if admin notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( $pay_form !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delayAdminNotification;
 			}
@@ -378,7 +378,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if user notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
@@ -398,7 +398,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
@@ -423,7 +423,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			return;
 		}
 
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 		if ( $feed !== null ) {
 			// Update form meta with current feed id
 			gform_update_meta( $entry['id'], 'ideal_feed_id', $feed->id );
@@ -441,13 +441,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
 	public static function handle_ideal( $confirmation, $form, $lead, $ajax ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$configuration = $feed->getIDealConfiguration();
-
-				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
 
 				if ( $gateway ) {
 					if ( $gateway->is_http_redirect() ) {
@@ -461,7 +459,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			}
 		}
 
-		if ( (headers_sent() || $ajax ) && is_array( $confirmation ) && isset( $confirmation['redirect'] ) ) {
+		if ( ( headers_sent() || $ajax ) && is_array( $confirmation ) && isset( $confirmation['redirect'] ) ) {
 			$url = $confirmation['redirect'];
 
 			// Using esc_js() and esc_url() on the URL is causing problems, the & in the URL is modified to &amp; or &#038;
@@ -483,11 +481,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
 	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
-		$configuration = $feed->getIDealConfiguration();
-
 		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+		Pronamic_WordPress_IDeal_IDeal::start( $feed->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 

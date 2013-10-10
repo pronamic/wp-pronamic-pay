@@ -343,6 +343,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		<?php 
 		
 		$links = get_post_meta( $post_id, '_pronamic_pay_gf_links', true );
+		$links = is_array( $links ) ? $links : array();
 
 		$fields = array(
 			Pronamic_GravityForms_IDeal_Feed::LINK_OPEN    => __( 'Open', 'pronamic_ideal' ),

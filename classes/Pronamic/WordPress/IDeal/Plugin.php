@@ -357,9 +357,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	public static function update_sisow_payment_status( $payment, $can_redirect = false ) {
-		$configuration = $payment->configuration;
+		$config = $payment->config;
 
-		$gateway = new Pronamic_Gateways_Sisow_Gateway( $configuration );
+		$gateway = new Pronamic_Gateways_Sisow_Gateway( $config );
 		$gateway->update_status( $payment );
 
 		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
