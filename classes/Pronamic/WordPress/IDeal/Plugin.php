@@ -92,18 +92,18 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_qantani_return_raw',       array( 'Pronamic_Gateways_Qantani_ReturnHandler', 'returns' ), 10, 4 );
 
 		// Check the payment status on an iDEAL return
-		add_action( 'pronamic_ideal_advanced_return',       array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
-		add_action( 'pronamic_ideal_advanced_v3_return',    array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
-		add_action( 'pronamic_ideal_basic_return',          array( __CLASS__, 'update_ideal_basic_payment_status' ),   10, 3 );
-		add_action( 'pronamic_ideal_easy_return',           array( __CLASS__, 'update_ideal_easy_payment_status' ),   10, 3 );
-		add_action( 'pronamic_ideal_internetkassa_return',  array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
-		add_action( 'pronamic_ideal_omnikassa_return',      array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
-		add_action( 'pronamic_ideal_mollie_return',         array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
-		add_action( 'pronamic_ideal_targetpay_return',      array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
-		add_action( 'pronamic_ideal_buckaroo_return',       array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
-		add_action( 'pronamic_ideal_icepay_return',         array( __CLASS__, 'update_icepay_payment_status' ),        10, 2 );
-		add_action( 'pronamic_ideal_sisow_return',          array( __CLASS__, 'update_sisow_payment_status' ),         10, 2 );
-		add_action( 'pronamic_ideal_qantani_return',        array( __CLASS__, 'update_qantani_payment_status' ),         10, 2 );
+		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
+		add_action( 'pronamic_ideal_advanced_v3_return',   array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
+		add_action( 'pronamic_ideal_basic_return',         array( __CLASS__, 'update_ideal_basic_payment_status' ),   10, 3 );
+		add_action( 'pronamic_ideal_easy_return',          array( __CLASS__, 'update_ideal_easy_payment_status' ),    10, 3 );
+		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
+		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
+		add_action( 'pronamic_ideal_mollie_return',        array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
+		add_action( 'pronamic_ideal_targetpay_return',     array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
+		add_action( 'pronamic_ideal_buckaroo_return',      array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
+		add_action( 'pronamic_ideal_icepay_return',        array( __CLASS__, 'update_icepay_payment_status' ),        10, 2 );
+		add_action( 'pronamic_ideal_sisow_return',         array( __CLASS__, 'update_sisow_payment_status' ),         10, 2 );
+		add_action( 'pronamic_ideal_qantani_return',       array( __CLASS__, 'update_qantani_payment_status' ),       10, 2 );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
