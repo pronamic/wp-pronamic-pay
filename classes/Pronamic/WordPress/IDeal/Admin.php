@@ -19,6 +19,8 @@ class Pronamic_WordPress_IDeal_Admin {
 		add_action( 'load-post.php', array( __CLASS__, 'maybe_test_payment' ) );
 
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+		
+		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -38,7 +40,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		global $pronamic_ideal_db_version;
 
 		if ( get_option( 'pronamic_ideal_db_version' ) != $pronamic_ideal_db_version ) {
-			self::upgrade();
+			do_action( 'pronamic_pay_upgrade', $pronamic_ideal_db_version );
 
 			update_option( 'pronamic_ideal_db_version', $pronamic_ideal_db_version );
 		}

@@ -26,22 +26,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Option version
-	 *
-	 * @var string
-	 */
-	const OPTION_VERSION = 'gf_ideal_version';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
 		// Initialize hook, Gravity Forms uses the default priority (10)
-		add_action( 'init',           array( __CLASS__, 'initialize' ), 20 );
-
-		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
+		add_action( 'init', array( __CLASS__, 'init' ), 20 );
+		
+		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -49,7 +40,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Initialize
 	 */
-	public static function initialize() {
+	public static function init() {
 		if ( self::is_gravityforms_supported() ) {
 			// Admin
 			if ( is_admin() ) {
@@ -102,15 +93,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Setup, creates or updates database tables. Will only run when version changes
+	 * Upgrade
 	 */
-	public static function setup() {
-		global $pronamic_ideal_version;
-
-		if ( self::is_gravityforms_supported() && ( get_option( self::OPTION_VERSION ) != $pronamic_ideal_version ) ) {
-			// Update tables
-			Pronamic_GravityForms_IDeal_FeedsRepository::update_table();
-
+	public static function upgrade() {
+		if ( self::is_gravityforms_supported() ) {
 			// Add some new capabilities
 			$capabilities = array(
 				'read'               => true,
@@ -129,9 +115,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			);
 
 			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
-
-			// Update version
-			update_option( self::OPTION_VERSION, $pronamic_ideal_version );
 		}
 	}
 
