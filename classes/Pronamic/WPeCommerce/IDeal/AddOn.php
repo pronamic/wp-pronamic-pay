@@ -75,11 +75,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	private function advanced_inputs() {
 		$output = '';
 
-		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
+		$config_id = get_option( 'pronamic_ideal_wpsc_config_id' );
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$output = $gateway->get_input_html();

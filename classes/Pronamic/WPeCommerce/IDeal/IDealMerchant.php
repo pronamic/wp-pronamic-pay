@@ -32,20 +32,18 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	 * Submit to gateway
 	 */
 	public function submit() {
-		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
-
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+		$config_id = get_option( 'pronamic_ideal_wpsc_config_id' );
 
 		// Set process to 'order_received' (2)
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L301
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 		$this->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ORDER_RECEIVED );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 		
 		if ( $gateway ) {
 			if ( $gateway->is_http_redirect() ) {
-				return $this->process_gateway_http_redirect( $configuration, $gateway );
+				return $this->process_gateway_http_redirect( $config_id, $gateway );
 			}
 
 			if ( $gateway->is_html_form() ) {
@@ -57,13 +55,13 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	/**
 	 * Process gateway HTTP redirect
 	 * 
-	 * @param unknown_type $configuration
+	 * @param unknown_type $config_id
 	 * @param unknown_type $gateway
 	 */
-	private function process_gateway_http_redirect( $configuration, $gateway ) {
+	private function process_gateway_http_redirect( $config_id, $gateway ) {
 		$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $this );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+		Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
@@ -80,16 +78,14 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	 * Shopping cart bottom
 	 */
 	public function bottom_of_shopping_cart() {
-		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
-
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+		$config_id = get_option( 'pronamic_ideal_wpsc_config_id' );
 
 		$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $this );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 	
 			// Hide the checkout page container HTML element
 			echo '<style type="text/css">#checkout_page_container { display: none; }</style>';
@@ -104,7 +100,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	/**
 	 * Admin configuration form
 	 */
-	public static function admin_configuration_form() {
+	public static function admin_config_form() {
 		$html = '';
 		
 		// Select configuration
@@ -135,10 +131,10 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	}
 
 	/**
-	 * Admin configuration submit
+	 * Admin config submit
 	 */
-	public static function admin_configuration_submit() {
-		$name = 'pronamic_ideal_wpsc_configuration_id';
+	public static function admin_config_submit() {
+		$name = 'pronamic_ideal_wpsc_config_id';
 
 		if ( isset( $_POST[$name] ) ) {
 			$configuration_id = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );

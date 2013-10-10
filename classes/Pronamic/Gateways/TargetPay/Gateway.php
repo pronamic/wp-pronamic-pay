@@ -105,7 +105,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$this->config->layoutcode,
 			$payment->transaction_id,
 			false,
-			$this->configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST
+			$this->config->mode == Pronamic_IDeal_IDeal::MODE_TEST
 		);
 
 		if ( $status ) {

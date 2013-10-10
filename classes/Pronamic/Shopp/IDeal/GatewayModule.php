@@ -52,11 +52,11 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	//////////////////////////////////////////////////
 
 	/**
-	 * The unique iDEAL configuration ID
+	 * The unique pay gateay config ID
 	 *
 	 * @var string
 	 */
-	private $configuration_id;
+	private $config_id;
 
 	//////////////////////////////////////////////////
 
@@ -67,10 +67,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		parent::__construct();
 
 		// Setup
-		$this->setup( 'pronamic_shopp_ideal_configuration' );
+		$this->setup( 'pronamic_pay_shopp_config_id' );
 
-		// Configuration ID
-		$this->configuration_id = $this->settings['pronamic_shopp_ideal_configuration'];
+		// Config ID
+		$this->config_id = $this->settings['pronamic_pay_shopp_config_id'];
 
 		// Order processing
 		//add_filter('shopp_purchase_order_processing', array($this, 'orderProcessing'), 20, 2);
@@ -232,15 +232,13 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			$purchase = $Shopp->Purchase;
 		}
 
-		// Check iDEAL configuration
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		// Check gateway
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
 
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 			$error = $gateway->get_error();
 
@@ -281,10 +279,10 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	public function inputs( $inputs ) {
 		$result = '';
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
+		$config = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->config_id );
 
-		if ( $configuration ) {
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		if ( $config ) {
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config );
 
 			if ( $gateway ) {
 				$result .= '<div id="pronamic_ideal_inputs">';
@@ -321,15 +319,13 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 * Settings
 	 */
 	function settings() {
-		$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-
-		$options = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
+		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 
 		$this->ui->menu( 0, array(
-			'name'     => 'pronamic_shopp_ideal_configuration',
+			'name'     => 'pronamic_pay_shopp_config_id',
 			'keyed'    => true,
-			'label'    => __( 'Select configuration', 'pronamic_ideal' ),
-			'selected' => $this->settings['pronamic_shopp_ideal_configuration']
+			'label'    => __( 'Select config', 'pronamic_ideal' ),
+			'selected' => $this->settings['pronamic_pay_shopp_config_id']
 		), $options );
 	}
 }

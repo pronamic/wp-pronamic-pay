@@ -166,18 +166,31 @@ function orbis_ideal_upgrade_140() {
 	
 	// Gateway ID options
 	$options = array(
+		// EventEspresso
+		'pronamic_ideal_event_espresso_configuration_id' => array(
+			'type' => 'var',
+			'name' => 'pronamic_pay_event_espreso_config_id'
+		),
+		// Jigoshop
+		'jigoshop_pronamic_ideal_configuration_id' => array(
+			'type' => 'var',
+			'name' => 'pronamic_pay_jigoshop_config_id'
+		),
+		// Shopp
+		'pronamic_shopp_ideal_configuration' => array(
+			'type' => 'var',
+			'name' => 'pronamic_pay_shopp_config_id'
+		),
+		// WooCommerce
 		'woocommerce_pronamic_ideal_settings' => array(
 			'type' => 'object',
-			'var'  => 'configuration_id'
+			'var'  => 'configuration_id',
+			'name' => 'config_id'
 		),
-		'pronamic_ideal_event_espresso_configuration_id' => array(
-			'type' => 'var'
-		),
+		// WP e-Commerce
 		'pronamic_ideal_wpsc_configuration_id' => array(
-			'type' => 'var'
-		),
-		'jigoshop_pronamic_ideal_configuration_id' => array(
-			'type' => 'var'
+			'type' => 'var',
+			'name' => 'pronamic_pay_wpsc_config_id'
 		)
 	);
 	
