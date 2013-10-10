@@ -53,7 +53,7 @@ class Pronamic_S2Member_Bridge_Settings {
         ?>
 
         <div class="wrap">
-            <?php screen_icon(); ?>
+            <?php screen_icon( 'pronamic_ideal' ); ?>
             <h2><?php echo get_admin_page_title(); ?></h2>
             <form action="" method="POST">
                 <?php echo $nonce; ?>
