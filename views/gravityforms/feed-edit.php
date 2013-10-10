@@ -87,8 +87,9 @@ $feed->transactionDescription = get_post_meta( $post_id, '_pronamic_pay_gf_trans
 $feed->conditionFieldId       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 $feed->conditionOperator      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
 $feed->conditionValue         = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
-$feed->fields                 = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
+$feed->fields                 = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
+$feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_role_field_id', true );
 
 ?>
 
@@ -418,7 +419,7 @@ $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay
 		<?php 
 		
 		$links = get_post_meta( $post_id, '_pronamic_pay_gf_links', true );
-	
+
 		$fields = array(
 			Pronamic_GravityForms_IDeal_Feed::LINK_OPEN    => __( 'Open', 'pronamic_ideal' ),
 			Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS => __( 'Success', 'pronamic_ideal' ),
@@ -431,26 +432,11 @@ $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay
 	
 			<tr>
 				<?php 
-	
-				$link    = $links[$name];
-				$type    = null;
-				$page_id = null;
-				$url     = null;
-				
-				if ( $link != null ) {
-					if ( isset( $link->type ) ) {
-						$type = $link->type;
-					}
-	
-					if ( isset( $link->pageId ) ) {
-						$page_id = $link->pageId;
-					}
-	
-					if ( isset( $link->url ) ) {
-						$url = $link->url;
-					}
-				}
-				
+
+				$type    = @$links[$name]['type'];
+				$page_id = @$links[$name]['page_id'];
+				$url     = @$links[$name]['url'];
+
 				?>
 				<th scope="row">
 					<label for="gf_ideal_link_<?php echo $name; ?>_page">
@@ -464,15 +450,15 @@ $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay
 						</legend>
 	
 						<label>
-							<input type="radio" name="gf_ideal_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_page" value="page" <?php checked( $type, 'page' ); ?> />
+							<input type="radio" name="_pronamic_pay_gf_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_page" value="page" <?php checked( $type, 'page' ); ?> />
 							<?php _e( 'Page:', 'pronamic_ideal' ); ?>
 						</label> 
 						
 						<?php 
-	
+
 						wp_dropdown_pages( array(
 							'selected'         => $page_id, 
-							'name'             => 'gf_ideal_links[' . $name . '][page_id]' , 
+							'name'             => '_pronamic_pay_gf_links[' . $name . '][page_id]' , 
 							'show_option_none' => __( '&mdash; Select &mdash;', 'pronamic_ideal' )
 						) );
 						
@@ -481,9 +467,9 @@ $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay
 						<br />
 	
 						<label>
-							<input type="radio" name="gf_ideal_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_url" value="url" <?php checked( $type, 'url' ); ?> />
+							<input type="radio" name="_pronamic_pay_gf_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_url" value="url" <?php checked( $type, 'url' ); ?> />
 							<?php _e( 'URL:', 'pronamic_ideal' ); ?>
-						</label> <input type="text" name="gf_ideal_links[<?php echo $name; ?>][url]" value="<?php echo esc_attr( $url ); ?>" class="regular-text" /> 
+						</label> <input type="text" name="_pronamic_pay_gf_links[<?php echo $name; ?>][url]" value="<?php echo esc_attr( $url ); ?>" class="regular-text" /> 
 					</fieldset>
 				<td>
 			</tr>
@@ -503,7 +489,7 @@ $feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay
 				</label>
 			</th>
 			<td>
-				<select id="gf_ideal_user_role_field_id" name="gf_ideal_user_role_field_id">
+				<select id="gf_ideal_user_role_field_id" name="_pronamic_pay_gf_user_role_field_id">
 					
 				</select>
 			</td>

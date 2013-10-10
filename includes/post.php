@@ -506,7 +506,12 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 		'_pronamic_pay_gf_fields' => array(
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
-		)
+		),
+		'_pronamic_pay_gf_links' => array(
+			'filter'    => FILTER_SANITIZE_STRING,
+			'flags'     => FILTER_REQUIRE_ARRAY
+		),
+		'_pronamic_pay_gf_user_role_field_id' => FILTER_SANITIZE_STRING
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );
