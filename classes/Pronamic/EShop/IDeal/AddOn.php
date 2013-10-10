@@ -129,12 +129,12 @@ class Pronamic_EShop_IDeal_AddOn {
 				<input id="eshop_method_pronamic_ideal" name="eshop_method[]" type="checkbox" value="pronamic_ideal" <?php checked(in_array('pronamic_ideal', (array) $eshopoptions['method'])); ?> />
 
 				<label for="eshop_method_pronamic_ideal" class="eshopmethod">
-					<?php _e('Accept payment by iDEAL', 'pronamic_ideal'); ?>
+					<?php _e( 'Accept payment by iDEAL', 'pronamic_ideal' ); ?>
 				</label>
 			</p>
 
 			<label for="eshop_pronamic_ideal_config_id">
-				<?php _e('Config', 'pronamic_ideal') ?>:
+				<?php _e( 'Config', 'pronamic_ideal' ) ?>:
 			</label>
 
 			<select name="eshop_pronamic_ideal_config_id" id="eshop_pronamic_ideal_config_id">
@@ -162,9 +162,9 @@ class Pronamic_EShop_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('eShop', 'pronamic_ideal') . '<br />';
-		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId()), admin_url('admin.php')));
-		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
+		$text .= __( 'eShop', 'pronamic_ideal' ) . '<br />';
+		$text .= sprintf('<a href="%s">', add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ) );
+		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() );
 		$text .= '</a>';
 
 		return $text;
