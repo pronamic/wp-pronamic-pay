@@ -10,7 +10,7 @@
  */
 class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_Gateways_Sisow_Config $config ) {
-		parent::__construct( $configuration );
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
