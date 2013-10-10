@@ -258,7 +258,7 @@ function orbis_ideal_upgrade_140() {
 			$meta['condition_operator']       = @$feed_meta->conditionOperator;
 			$meta['condition_value']          = @$feed_meta->conditionValue;
 			$meta['user_role_field_id']       = @$feed_meta->userRoleFieldId;
-			$meta['fields']                   = @$feed_meta->fields;
+			$meta['fields']                   = (array) @$feed_meta->fields;
 			$meta['links']                    = (array) @$feed_meta->links;
 			
 			foreach ( $meta as $key => $value ) {
