@@ -6,10 +6,10 @@ function get_pronamic_payment( $post_id ) {
 	return $payment;
 }
 
-function get_pronamic_gateway_configuration( $post_id ) {
-	$configuration = new Pronamic_WP_Pay_Config( $post_id );
+function get_pronamic_pay_gateway_config( $post_id ) {
+	$config = new Pronamic_WP_Pay_Config( $post_id );
 
-	return $configuration;
+	return $config;
 }
 
 function get_pronamic_payment_by_purchase_id( $purchase_id ) {

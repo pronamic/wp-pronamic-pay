@@ -11,7 +11,7 @@
 		elements.feed = element.find( '#gf_ideal_feed' );
 		elements.gravityForm = element.find( '#gf_ideal_gravity_form' );
 		elements.formId = element.find( '#_pronamic_pay_gf_form_id' );
-		elements.configurationId = element.find( '#gf_ideal_configuration_id' );
+		elements.configId = element.find( '#gf_ideal_config_id' );
 		elements.delayPostCreationItem = element.find( '#gf_ideal_delay_post_creation_item' );
 		elements.conditionEnabled = element.find( '#gf_ideal_condition_enabled' );
 		elements.conditionConfig = element.find( '#gf_ideal_condition_config' );
@@ -200,10 +200,10 @@
 		};
 		
 		/**
-		 * Update configuration
+		 * Update config
 		 */
-		this.updateConfigurationFields = function() {
-			var method = elements.configurationId.find( 'option:selected' ).attr( 'data-ideal-method' );
+		this.updateConfigFields = function() {
+			var method = elements.configId.find( 'option:selected' ).attr( 'data-ideal-method' );
 
 			element.find( '.extra-settings' ).hide();
 			element.find( '.method-' + method ).show();
@@ -267,7 +267,7 @@
 		 * Update fields
 		 */
 		this.updateFields = function() {
-			obj.updateConfigurationFields();
+			obj.updateConfigFields();
 			obj.updateDelayPostCreationItem();
 			obj.toggleConditionConfig();
 			obj.updateConditionFields();
@@ -281,7 +281,7 @@
 		obj.updateFields();
 
 		elements.formId.change( obj.changeForm );
-		elements.configurationId.change( obj.updateConfigurationFields );
+		elements.configId.change( obj.updateConfigFields );
 		elements.conditionEnabled.change( obj.toggleConditionConfig );
 		elements.conditionFieldId.change( obj.updateConditionValues );
 	};
@@ -306,9 +306,9 @@
 	//////////////////////////////////////////////////
 
 	/**
-	 * Pronamic iDEAL configuration prototype
+	 * Pronamic iDEAL config prototype
 	 */
-	var PronamicIDealConfigurationEditor = function( element, options ) {
+	var PronamicPayGatewayConfigEditor = function( element, options ) {
 		var obj     = this;
 		var element = $( element );
 
@@ -317,9 +317,9 @@
 		elements.variantId = element.find( '#pronamic_gateway_id' );
 
 		/**
-		 * Update configuration
+		 * Update config
 		 */
-		this.updateConfigurationFields = function() {
+		this.updateConfigFields = function() {
 			var method = elements.variantId.find( 'option:selected' ).attr( 'data-ideal-method' );
 
 			element.find( '.extra-settings' ).hide();
@@ -330,7 +330,7 @@
 		 * Update fields
 		 */
 		this.updateFields = function() {
-			obj.updateConfigurationFields();
+			obj.updateConfigFields();
 		};
 
 		// Function calls
@@ -340,17 +340,17 @@
 	};
 
 	/**
-	 * jQuery plugin - Pronamic iDEAL configuration editor
+	 * jQuery plugin - Pronamic iDEAL config editor
 	 */
-	$.fn.pronamicIdealConfigurationEditor = function( options ) {
+	$.fn.pronamicPayGatewayConfigEditor = function( options ) {
 		return this.each( function() {
 			var element = $( this );
 
-			if ( element.data( 'pronamic-ideal-configuration-editor' ) ) return;
+			if ( element.data( 'pronamic-pay-gateway-config-editor' ) ) return;
 
-			var editor = new PronamicIDealConfigurationEditor( this, options );
+			var editor = new PronamicPayGatewayConfigEditor( this, options );
 
-			element.data( 'pronamic-ideal-configuration-editor', editor );
+			element.data( 'pronamic-pay-gateway-config-editor', editor );
 		});
 	};
 
@@ -367,6 +367,6 @@
 		} ); 
 		
 		$( '#gf-ideal-feed-editor' ).gravityFormsIdealFeedEditor();
-		$( '#pronamic-ideal-configration-editor' ).pronamicIdealConfigurationEditor();
+		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
 	} );
 } )( jQuery );

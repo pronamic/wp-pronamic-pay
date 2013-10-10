@@ -46,30 +46,30 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		</tr>
 		<tr>
 			<th scope="row">
-				<label for="_pronamic_pay_gf_configuration_id">
-					<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
+				<label for="_pronamic_pay_gf_config_id">
+					<?php _e( 'Config', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
 				<?php 
 				
-				$configuration_id = get_post_meta( $post_id, '_pronamic_pay_gf_configuration_id', true );
+				$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 				
 				?>
-				<select id="_pronamic_pay_gf_configuration_id" name="_pronamic_pay_gf_configuration_id">
-					<option value=""><?php _e( '&mdash; Select configuration &mdash; ', 'pronamic_ideal' ); ?></option>
+				<select id="_pronamic_pay_gf_config_id" name="_pronamic_pay_gf_config_id">
+					<option value=""><?php _e( '&mdash; Select config &mdash; ', 'pronamic_ideal' ); ?></option>
 	
 					<?php
 	
-					$configurations = get_posts( array(
+					$configs = get_posts( array(
 						'post_type' => 'pronamic_gateway',
 						'nopaging'  => true
 					) );
 	
-					foreach ( $configurations as $configuration ) : ?>
+					foreach ( $configs as $config ) : ?>
 	
-						<option value="<?php echo $configuration->ID; ?>" <?php selected( $configuration_id, $configuration->ID ); ?>>
-							<?php echo get_the_title( $configuration->ID ); ?>
+						<option value="<?php echo $config->ID; ?>" <?php selected( $config_id, $config->ID ); ?>>
+							<?php echo get_the_title( $config->ID ); ?>
 						</option>
 	
 					<?php endforeach; ?>

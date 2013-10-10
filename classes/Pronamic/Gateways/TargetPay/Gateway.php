@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: TargetPay
+ * Title: TargetPay gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -21,7 +21,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an TargetPay gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_TargetPay_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_TargetPay_Config $config ) {
 		parent::__construct( $config );

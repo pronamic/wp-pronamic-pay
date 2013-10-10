@@ -1,6 +1,6 @@
 <?php 
 
-$gateway = new Pronamic_Gateways_IDealBasic_Gateway( $configuration );
+$gateway = new Pronamic_Gateways_IDealBasic_Gateway( $config );
 
 ?>
 

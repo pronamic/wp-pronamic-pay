@@ -21,10 +21,10 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Config $config
 	 */
-	public function __construct( Pronamic_Pay_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Pay_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
@@ -32,10 +32,10 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_Adyen_Adyen();
-		$this->client->set_payment_server_url( $configuration->getPaymentServerUrl() );
-		$this->client->set_skin_code( $configuration->get_buckaroo_skin_code() );
-		$this->client->set_merchant_account( $configuration->get_buckaroo_merchant_account() );
-		$this->client->set_shared_secret( $configuration->get_buckaroo_shared_secret() );
+		$this->client->set_payment_server_url( $config->getPaymentServerUrl() );
+		$this->client->set_skin_code( $config->get_buckaroo_skin_code() );
+		$this->client->set_merchant_account( $config->get_buckaroo_merchant_account() );
+		$this->client->set_shared_secret( $config->get_buckaroo_shared_secret() );
 	}
 
 	/////////////////////////////////////////////////

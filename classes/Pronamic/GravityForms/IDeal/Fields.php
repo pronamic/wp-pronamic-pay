@@ -74,9 +74,9 @@ class Pronamic_GravityForms_IDeal_Fields {
 			$html_error = '';
 
 			if ( $pay_gf != null ) {
-				$configuration_id = get_post_meta( $pay_gf->ID, '_pronamic_pay_gf_configuration_id', true );
+				$config_id = get_post_meta( $pay_gf->ID, '_pronamic_pay_gf_config_id', true );
 
-				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration_id );
+				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 				if ( $gateway ) {
 					$issuer_field = $gateway->get_issuer_field();

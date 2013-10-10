@@ -12,7 +12,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	/**
 	 * Constructs and initializes an iDEAL Advanced v3 gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_IDealAdvancedV3_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_IDealAdvancedV3_Config $config ) {
 		parent::__construct( $config );

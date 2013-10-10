@@ -19,9 +19,9 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an Mollie gateway
+	 * Constructs and initializes an PayDutch gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_PayDutch_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_PayDutch_Config $config ) {
 		parent::__construct( $config );

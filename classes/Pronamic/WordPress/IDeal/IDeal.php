@@ -58,17 +58,17 @@ class Pronamic_WordPress_IDeal_IDeal {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get configurations select options
+	 * Get config select options
 	 *
 	 * @return array
 	 */
-	public static function get_configurations_select_options() {
+	public static function get_config_select_options() {
 		$gateways = get_posts( array(
 			'post_type' => 'pronamic_gateway',
 			'nopaging'  => true
 		) );
 
-		$options = array( '' => __( '&mdash; Select configuration &mdash;', 'pronamic_ideal' ) );
+		$options = array( '' => __( '&mdash; Select config &mdash;', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
 			$options[$gateway->ID] = get_the_title( $gateway->ID );
@@ -78,16 +78,16 @@ class Pronamic_WordPress_IDeal_IDeal {
 	}
 
 	/**
-	 * Get the configuration option name
+	 * Get the config option name
 	 *
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_WordPress_IDeal_Configuration $config
 	 */
-	public static function get_configuration_option_name( Pronamic_WordPress_IDeal_Configuration $configuration ) {
+	public static function get_configuration_option_name( Pronamic_WordPress_IDeal_Configuration $config ) {
 		return sprintf(
 			'%s. %s (%s)',
-			$configuration->getId(),
-			$configuration->getName(),
-			$configuration->mode
+			$config->getId(),
+			$config->getName(),
+			$config->mode
 		);
 	}
 
@@ -110,10 +110,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	public static function get_gateway( $configuration_id ) {
-		$configuration = get_pronamic_gateway_configuration( $configuration_id );
+	public static function get_gateway( $config_id ) {
+		$config = get_pronamic_pay_gateway_config( $config_id );
 
-		$gateway_id = $configuration->gateway_id;
+		$gateway_id = $config->gateway_id;
 		
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'buckaroo', 'Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'icepay', 'Pronamic_WP_Pay_Gateways_Icepay_ConfigFactory' );
@@ -151,7 +151,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$gateway      = $pronamic_pay_gateways[$gateway_id];
 			$gateway_slug = $gateway['gateway'];
 
-			$config = Pronamic_WP_Pay_Gateways_ConfigProvider::get_config( $gateway_slug, $configuration_id );
+			$config = Pronamic_WP_Pay_Gateways_ConfigProvider::get_config( $gateway_slug, $config_id );
 
 			$gateway = Pronamic_Pay_GatewayFactory::create( $config );
 

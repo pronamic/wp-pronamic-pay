@@ -21,7 +21,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an Mollie gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Mollie_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Mollie_Config $config ) {
 		parent::__construct( $config );

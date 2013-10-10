@@ -1,11 +1,11 @@
 <?php 
 
-// Get all configurations
-$configurations = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
+// Get all configs
+$configs = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 
 // Get existing options
-$pronamic_ideal_s2member_enabled                = get_option( 'pronamic_ideal_s2member_enabled' );
-$pronamic_ideal_s2member_chosen_configuration   = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
+$enabled   = get_option( 'pronamic_ideal_s2member_enabled' );
+$config_id = get_option( 'pronamic_ideal_s2member_config_id' );
 
 ?>
 <div class="wrap">
@@ -22,7 +22,7 @@ $pronamic_ideal_s2member_chosen_configuration   = get_option( 'pronamic_ideal_s2
 					<?php _e( 'Enable/Disable', 'pronamic_ideal' ); ?>
 				</th>
 				<td>
-					<input type="checkbox" name="pronamic_ideal_s2member_enabled" value="1" <?php checked( $pronamic_ideal_s2member_enabled ); ?> />
+					<input type="checkbox" name="pronamic_ideal_s2member_enabled" value="true" <?php checked( $enabled ); ?> />
 				</td>
 			</tr>
 			<tr>
@@ -30,14 +30,14 @@ $pronamic_ideal_s2member_chosen_configuration   = get_option( 'pronamic_ideal_s2
 					<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 				</th>
 				<td>
-					<select name="pronamic_ideal_s2member_chosen_configuration">
+					<select name="pronamic_ideal_s2member_config_id">
 						<?php 
 						
-						foreach ( $configurations as $value => $name ) {
+						foreach ( $configs as $value => $name ) {
 							printf(
 								'<option value="%s" %s>%s</option>',
 								esc_attr( $value ),
-								selected( $value, $pronamic_ideal_s2member_chosen_configuration, false ),
+								selected( $value, $config_id, false ),
 								esc_html( $name )
 							);
 						}

@@ -566,7 +566,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 }
 
 ?>
-<div id="pronamic-ideal-configration-editor">
+<div id="pronamic-pay-gateway-config-editor">
 	<?php wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' ); ?>
 
 	<table class="form-table">
@@ -660,8 +660,6 @@ function pronamic_ideal_private_certificate_field( $field ) {
 								$attributes['name'] = $field['meta_key'];
 	
 								$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
-							} elseif ( isset( $field['name'] ) ) {
-								$value = $configuration->{$field['name']};
 							} elseif( isset( $field['value'] ) ) {
 								$value = $field['value'];
 							}

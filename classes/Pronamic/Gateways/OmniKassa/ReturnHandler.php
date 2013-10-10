@@ -28,8 +28,8 @@ class Pronamic_Gateways_OmniKassa_ReturnHandler extends Pronamic_Gateways_Return
 		$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
 		
 		if ( $payment != null ) {
-			$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal( $input_data, $payment->configuration->getHashKey() );
-		
+			$seal = Pronamic_Gateways_OmniKassa_OmniKassa::computeSeal( $input_data, $payment->config->getHashKey() );
+
 			// Check if the posted seal is equal to our seal
 			if ( strcasecmp( $input_seal, $seal ) === 0 ) {
 				do_action( 'pronamic_ideal_omnikassa_return', $data, $can_redirect = true );

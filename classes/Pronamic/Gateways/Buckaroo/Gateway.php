@@ -19,9 +19,9 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an InternetKassa gateway
+	 * Constructs and initializes an Buckaroo gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Buckaroo_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Buckaroo_Config $config ) {
 		parent::__construct( $config );

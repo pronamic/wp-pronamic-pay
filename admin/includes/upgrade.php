@@ -37,9 +37,9 @@ function orbis_ideal_upgrade_140() {
 	*/
 
 	// Configurations
-	$configurations_table = $wpdb->prefix . 'pronamic_ideal_configurations';
+	$config_table = $wpdb->prefix . 'pronamic_ideal_configurations';
 
-	$sql = "CREATE TABLE $configurations_table (
+	$sql = "CREATE TABLE $config_table (
 		id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
 		post_id BIGINT(20) UNSIGNED NULL,
 		variant_id VARCHAR(64) NULL,
@@ -61,19 +61,19 @@ function orbis_ideal_upgrade_140() {
 		SELECT
 			*
 		FROM
-			$configurations_table
+			$config_table
 		WHERE
 			post_id IS NULL
 		;
 	";
 	
-	$configurations = $wpdb->get_results( $query );
+	$configs = $wpdb->get_results( $query );
 	$ids_map        = array();
 
-	foreach ( $configurations as $configuration ) {
+	foreach ( $configs as $config ) {
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $configuration->id ),
+			'post_title'    => sprintf( __( 'Config %d', 'pronamic_ideal' ), $config->id ),
 			'post_type'     => 'pronamic_gateway',
 			'post_status'   => 'publish'
 		);
@@ -81,76 +81,76 @@ function orbis_ideal_upgrade_140() {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$ids_map[$configuration->id] = $post_id;
+			$ids_map[$config->id] = $post_id;
 
-			$configuration_meta = json_decode( $configuration->meta );
+			$config_meta = json_decode( $config->meta );
 
 			// Meta
 			// We ignore (@) all notice of not existing properties
 			$meta = array();
 
-			$meta['legacy_id']            = $configuration->id;
-			$meta['id']                   = $configuration->variant_id;
-			$meta['mode']                 = $configuration->mode;
+			$meta['legacy_id']            = $config->id;
+			$meta['id']                   = $config->variant_id;
+			$meta['mode']                 = $config->mode;
 
 			// iDEAL
-			$meta['ideal_merchant_id']    = $configuration->merchant_id;
-			$meta['ideal_sub_id']         = $configuration->sub_id;
+			$meta['ideal_merchant_id']    = $config->merchant_id;
+			$meta['ideal_sub_id']         = $config->sub_id;
 					
 			// iDEAL Basic
-			$meta['ideal_hash_key'] = $configuration->hash_key;
+			$meta['ideal_hash_key'] = $config->hash_key;
 					
 			// iDEAL Advanced
-			$meta['ideal_private_key']          = $configuration->private_key;
-			$meta['ideal_private_key_password'] = $configuration->private_key_password;
-			$meta['ideal_private_certificate']  = $configuration->private_certificate;
-					
+			$meta['ideal_private_key']          = $config->private_key;
+			$meta['ideal_private_key_password'] = $config->private_key_password;
+			$meta['ideal_private_certificate']  = $config->private_certificate;
+
 			// OmniKassa
-			if ( $configuration->variant_id == 'rabobank-omnikassa' ) {
-				$meta['omnikassa_merchant_id'] = @$configuration_meta->merchant_id;
-				$meta['omnikassa_secret_key']  = @$configuration_meta->hash_key;
-				$meta['omnikassa_key_version'] = @$configuration_meta->keyVersion;
+			if ( $config->variant_id == 'rabobank-omnikassa' ) {
+				$meta['omnikassa_merchant_id'] = @$config_meta->merchant_id;
+				$meta['omnikassa_secret_key']  = @$config_meta->hash_key;
+				$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
 			}
 				
 			// Buckaroo
-			$meta['buckaroo_website_key']    = @$configuration_meta->buckarooWebsiteKey;
-			$meta['buckaroo_secret_key']     = @$configuration_meta->buckarooSecretKey;
+			$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
+			$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
 			
 			// Icepay
-			$meta['icepay_merchant_id']      = @$configuration_meta->icepayMerchantId;
-			$meta['icepay_secret_code']      = @$configuration_meta->icepaySecretCode;
+			$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
+			$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
 			
 			// Mollie
-			$meta['mollie_partner_id']       = @$configuration_meta->molliePartnerId;
-			$meta['mollie_profile_key']      = @$configuration_meta->mollieProfileKey;
+			$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
+			$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
 			
 			// Sisow
-			$meta['sisow_merchant_id']       = @$configuration_meta->sisowMerchantId;
-			$meta['sisow_merchant_key']      = @$configuration_meta->sisowMerchantKey;
+			$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
+			$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
 			
 			// TargetPay
-			$meta['targetpay_layout_code']   = @$configuration_meta->targetPayLayoutCode;
+			$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
 			
 			// Qantani
-			$meta['qantani_merchant_id']     = @$configuration_meta->qantani_merchant_id;
-			$meta['qantani_merchant_key']    = @$configuration_meta->qantani_merchant_key;
-			$meta['qantani_merchant_secret'] = @$configuration_meta->qantani_merchant_secret;
+			$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
+			$meta['qantani_merchant_key']    = @$config_meta->qantani_merchant_key;
+			$meta['qantani_merchant_secret'] = @$config_meta->qantani_merchant_secret;
 
 			// Ogone
-			$meta['ogone_psp_id']            = @$configuration_meta->pspId;
-			$meta['ogone_sha_in']            = @$configuration_meta->shaInPassPhrase;
-			$meta['ogone_sha_out']           = @$configuration_meta->shaOutPassPhrase;
-			$meta['ogone_user_id']           = @$configuration_meta->ogone_user_id;
-			$meta['ogone_password']          = @$configuration_meta->ogone_password;
+			$meta['ogone_psp_id']            = @$config_meta->pspId;
+			$meta['ogone_sha_in']            = @$config_meta->shaInPassPhrase;
+			$meta['ogone_sha_out']           = @$config_meta->shaOutPassPhrase;
+			$meta['ogone_user_id']           = @$config_meta->ogone_user_id;
+			$meta['ogone_password']          = @$config_meta->ogone_password;
 
 			// Other
-			$meta['country']                 = @$configuration_meta->country;
-			$meta['state_or_province']       = @$configuration_meta->stateOrProvince;
-			$meta['locality']                = @$configuration_meta->locality;
-			$meta['organization']            = @$configuration_meta->organization;
-			$meta['organization_unit']       = @$configuration_meta->organizationUnit;
-			$meta['common_name']             = @$configuration_meta->commonName;
-			$meta['email']                   = @$configuration_meta->eMailAddress;
+			$meta['country']                 = @$config_meta->country;
+			$meta['state_or_province']       = @$config_meta->stateOrProvince;
+			$meta['locality']                = @$config_meta->locality;
+			$meta['organization']            = @$config_meta->organization;
+			$meta['organization_unit']       = @$config_meta->organizationUnit;
+			$meta['common_name']             = @$config_meta->commonName;
+			$meta['email']                   = @$config_meta->eMailAddress;
 			
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {
@@ -160,7 +160,7 @@ function orbis_ideal_upgrade_140() {
 				}
 			}
 		
-			$wpdb->update( $configurations_table, array( 'post_id' => $post_id ), array( 'id' => $configuration->id ), '%d', '%d' );
+			$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
 		}
 	}
 	
@@ -246,7 +246,7 @@ function orbis_ideal_upgrade_140() {
 			$feed_meta = json_decode( $feed->meta );
 			
 			$meta['form_id']                  = $feed->form_id;
-			$meta['configuration_id']         = @$ids_map[$feed->configuration_id];
+			$meta['config_id']                = @$ids_map[$feed->configuration_id];
 			$meta['is_active']                = $feed->is_active;
 			$meta['transaction_description']  = @$feed_meta->transactionDescription;
 			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;

@@ -26,11 +26,11 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Configuration ID
+	 * Pronamic_Pay_Config
 	 * 
 	 * @var int
 	 */
-	protected $configuration;
+	protected $config;
 
 	/////////////////////////////////////////////////
 
@@ -96,7 +96,7 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Config $config
 	 */
 	public function __construct( Pronamic_Pay_Config $config ) {
 		$this->config = $config;

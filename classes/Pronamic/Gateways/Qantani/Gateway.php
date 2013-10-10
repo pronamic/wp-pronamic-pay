@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Qantani
+ * Title: Qantani gateway
  * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -19,9 +19,9 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an Mollie gateway
+	 * Constructs and initializes an Qantani gateway
 	 *
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Qantani_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Qantani_Config $config ) {
 		parent::__construct( $config );

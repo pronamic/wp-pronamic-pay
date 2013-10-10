@@ -2,20 +2,20 @@
 
 function pronamic_payment_gateways_create_initial_post_types() {
 	register_post_type( 'pronamic_gateway', array(
-		'label'              => __( 'Configurations', 'pronamic_ideal' ),
+		'label'              => __( 'Configs', 'pronamic_ideal' ),
 		'labels'             => array(
-			'name'               => __( 'Configurations', 'pronamic_ideal' ),
-			'singular_name'      => __( 'Configuration', 'pronamic_ideal' ),
+			'name'               => __( 'Configs', 'pronamic_ideal' ),
+			'singular_name'      => __( 'Config', 'pronamic_ideal' ),
 			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-			'add_new_item'       => __( 'Add New Configuration', 'pronamic_ideal' ),
-			'edit_item'          => __( 'Edit Configuration', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Configuration', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Configurations', 'pronamic_ideal' ),
-			'view_item'          => __( 'View Configuration', 'pronamic_ideal' ),
-			'search_items'       => __( 'Search Configurations', 'pronamic_ideal' ),
-			'not_found'          => __( 'No configurations found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No configurations found in Trash', 'pronamic_ideal' ),
-			'menu_name'          => __( 'Configurations', 'pronamic_ideal' )
+			'add_new_item'       => __( 'Add New Config', 'pronamic_ideal' ),
+			'edit_item'          => __( 'Edit Config', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Config', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Configs', 'pronamic_ideal' ),
+			'view_item'          => __( 'View Config', 'pronamic_ideal' ),
+			'search_items'       => __( 'Search Configs', 'pronamic_ideal' ),
+			'not_found'          => __( 'No configs found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No configs found in Trash', 'pronamic_ideal' ),
+			'menu_name'          => __( 'Configs', 'pronamic_ideal' )
 		),
 		'public'             => false,
 		'publicly_queryable' => false,
@@ -227,7 +227,7 @@ function pronamic_pay_gf_columns( $columns ) {
 		'cb'                                      => '<input type="checkbox" />',
 		'title'                                   => __( 'Title', 'pronamic_ideal' ),
 		'pronamic_pay_gf_form'                    => __( 'Form', 'pronamic_ideal' ),
-		'pronamic_pay_gf_configuration'           => __( 'Configuration', 'pronamic_ideal' ),
+		'pronamic_pay_gf_config'                  => __( 'Config', 'pronamic_ideal' ),
 		'pronamic_pay_gf_transaction_description' => __( 'Transaction Description', 'pronamic_ideal' ),
 		'date'                                    => __( 'Date', 'pronamic_ideal' )
 	);
@@ -246,10 +246,10 @@ function pronamic_pay_gf_custom_column( $column, $post_id ) {
 			echo get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
 
 			break;
-		case 'pronamic_pay_gf_configuration':
-			$configuration_id = get_post_meta( $post_id, '_pronamic_pay_gf_configuration_id', true );
+		case 'pronamic_pay_gf_config':
+			$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 			
-			echo get_the_title( $configuration_id );
+			echo get_the_title( $config_id );
 
 			break;
 		case 'pronamic_pay_gf_transaction_description':
@@ -310,7 +310,7 @@ add_action( 'add_meta_boxes', 'pronamic_pay_meta_boxes' );
  * @param WP_Post $post The object for the current post/page.
  */
 function pronamic_pay_gateway_config_meta_box( $post ) {
-	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-edit.php';
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/config-edit.php';
 }
 
 /**
@@ -319,7 +319,7 @@ function pronamic_pay_gateway_config_meta_box( $post ) {
  * @param WP_Post $post The object for the current post/page.
  */
 function pronamic_pay_gateway_test_meta_box( $post ) {
-	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/configuration-test.php';
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/config-test.php';
 }
 
 /**
@@ -492,7 +492,7 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 	/* OK, its safe for us to save the data now. */
 	$definition = array(
 		'_pronamic_pay_gf_form_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_configuration_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_config_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_transaction_description' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_condition_enabled' => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_condition_field_id' => FILTER_SANITIZE_STRING,
