@@ -11,7 +11,7 @@
 class Pronamic_S2Member_IDeal_AddOn {
 
 	public static function bootstrap() {
-		add_action( 'plugins_loaded', array( __CLASS__, 'load' ) );
+		add_action( 'plugins_loaded', array( __CLASS__, 'load' ), 100 );
 	}
 
 	public static function load() {
