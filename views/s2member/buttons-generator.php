@@ -1,5 +1,5 @@
 <div class="wrap">
-	<?php screen_icon(); ?>
+	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
@@ -40,7 +40,7 @@
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th><?php _e( 'iDEAL Buttons Code Generator', 'pronamic_ideal' ); ?></th>
+					<th><?php _e( 'Generator', 'pronamic_ideal' ); ?></th>
 					<td>
 						<p>
 							<?php
@@ -82,9 +82,9 @@
 					</td>
 				</tr>
 				<tr>
-					<th><?php _e( 'Button Shortcode', 'pronamic_ideal' ); ?></th>
+					<th><?php _e( 'Shortcode', 'pronamic_ideal' ); ?></th>
 					<td>
-						<textarea class='jPronamicIdealButtonShortcodeOutput' style='width:100%;min-height:30px;'></textarea>
+						<textarea class="jPronamicIdealButtonShortcodeOutput" style="width: 100%; min-height: 30px;"></textarea>
 					</td>
 				</tr>
 			</tbody>
