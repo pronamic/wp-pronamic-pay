@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-10 09:09:58+00:00\n"
-"PO-Revision-Date: 2013-10-10 11:12+0100\n"
+"POT-Creation-Date: 2013-10-10 09:34:41+00:00\n"
+"PO-Revision-Date: 2013-10-10 11:34+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -69,9 +69,8 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:244
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
 #: classes/Pronamic/Membership/Bridge/Settings.php:44
-#: classes/Pronamic/S2Member/Bridge/Settings.php:68
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
-#: views/payment.php:158 views/payment.php:164
+#: views/payment.php:158 views/payment.php:164 views/s2member/settings.php:30
 msgid "Configuration"
 msgstr "Configuratie"
 
@@ -435,16 +434,11 @@ msgstr "1 jaar"
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:35
 msgid "Pronamic iDEAL Buttons Generator"
-msgstr "Pronamic iDEAL-buttons generator"
+msgstr "Pronamic iDEAL buttons generator"
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:36
 msgid "iDEAL Buttons"
 msgstr "iDEAL-buttons"
-
-#: classes/Pronamic/S2Member/Bridge/Settings.php:62
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:66
-msgid "Enable/Disable"
-msgstr "Inschakelen/uitschakelen"
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:46
 msgid "iDEAL s2Member Payment || {{order_id}}"
@@ -483,6 +477,11 @@ msgstr "WP e-Commerce"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:157
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:66
+#: views/s2member/settings.php:22
+msgid "Enable/Disable"
+msgstr "Inschakelen/uitschakelen"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:80
 msgid ""
@@ -1737,8 +1736,8 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op onderstaande knop als u niet automatisch wordt doorgestuurd."
 
 #: views/s2member/buttons-generator.php:43
-msgid "iDEAL Buttons Code Generator"
-msgstr "iDEAL-buttons code generator"
+msgid "Generator"
+msgstr "Generator"
 
 #: views/s2member/buttons-generator.php:57
 msgid "I want to charge: %s / %s"
@@ -1757,8 +1756,8 @@ msgid "Generate Shortcode"
 msgstr "Genereer shortcode"
 
 #: views/s2member/buttons-generator.php:85
-msgid "Button Shortcode"
-msgstr "Button shortcode"
+msgid "Shortcode"
+msgstr "Shortcode"
 
 #: views/settings.php:23
 msgid "General Settings"
@@ -1961,6 +1960,9 @@ msgstr "Pronamic"
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
+
+#~ msgid "iDEAL Buttons Code Generator"
+#~ msgstr "iDEAL-buttons code generator"
 
 #~ msgid "Customer Name"
 #~ msgstr "Klant  naam"
