@@ -494,12 +494,19 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 		'_pronamic_pay_gf_form_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_configuration_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_transaction_description' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_enabled' => FILTER_VALIDATE_BOOLEAN,
+		'_pronamic_pay_gf_condition_field_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_operator' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_value' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_delay_notification_ids' => array(
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
 		),
 		'_pronamic_pay_gf_delay_post_creation' => FILTER_VALIDATE_BOOLEAN,
-		
+		'_pronamic_pay_gf_fields' => array(
+			'filter'    => FILTER_SANITIZE_STRING,
+			'flags'     => FILTER_REQUIRE_ARRAY
+		)
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );

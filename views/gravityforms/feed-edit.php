@@ -84,8 +84,11 @@ $form_meta = RGFormsModel::get_form_meta( $form_id );
 
 $feed = new stdClass();
 $feed->transactionDescription = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
-$feed->fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
-$feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
+$feed->conditionFieldId       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
+$feed->conditionOperator      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
+$feed->conditionValue         = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
+$feed->fields                 = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
+$feed->delayNotificationIds   = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 
 ?>
 
@@ -184,8 +187,8 @@ $feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_n
 				</label>
 			</th>
 			<td>
-				<?php 
-	
+				<?php
+
 				$condition_enabled  = get_post_meta( $post_id, '_pronamic_pay_gf_condition_enabled', true );
 				$condition_field_id = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 				$condition_operator = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
@@ -193,7 +196,7 @@ $feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_n
 	
 				?>
 				<div>
-					<input id="gf_ideal_condition_enabled" name="gf_ideal_condition_enabled" value="true" type="checkbox" <?php checked( $condition_enabled ); ?> />
+					<input id="gf_ideal_condition_enabled" name="_pronamic_pay_gf_condition_enabled" value="true" type="checkbox" <?php checked( $condition_enabled ); ?> />
 	
 					<label for="gf_ideal_condition_enabled">
 						<?php _e( 'Enable', 'pronamic_ideal' ); ?>
@@ -201,34 +204,43 @@ $feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_n
 				</div>
 	
 				<div id="gf_ideal_condition_config">
-					<?php _e( 'Send to gateway if ', 'pronamic_ideal' ); ?>
-	
-					<select id="gf_ideal_condition_field_id" name="gf_ideal_condition_field_id">
-	
-					</select>
-	
 					<?php 
 					
+					// Select field
+					$select_field = '<select id="gf_ideal_condition_field_id" name="_pronamic_pay_gf_condition_field_id"></select>';
+						
+					// Select operator
+					$select_operator = '<select id="gf_ideal_condition_operator" name="_pronamic_pay_gf_condition_operator">';
+						
 					$operators = array(
-						'' => '',
-						Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
-						Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' ) 
+							'' => '',
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
+							Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' )
+					);
+
+					foreach ( $operators as $value => $label ) {
+						$select_operator .= sprintf(
+							'<option value="%s" %s>%s</option>',
+							esc_attr( $value ),
+							selected( $condition_operator, $value, false ),
+							esc_html( $label )
+						);
+					}
+					
+					$select_operator .= '</select>';
+
+					// Select value
+					$select_value = '<select id="gf_ideal_condition_value" name="_pronamic_pay_gf_condition_value"></select>';
+					
+					// Print
+					printf(
+						__( 'Send to gateway if %s %s %s', 'pronamic_ideal' ),
+						$select_field,
+						$select_operator,
+						$select_value
 					);
 					
 					?>
-					<select id="gf_ideal_condition_operator" name="gf_ideal_condition_operator">
-						<?php foreach ( $operators as $value => $label ) : ?>
-	
-							<option value="<?php echo $value; ?>" <?php selected( $condition_operator, $value ); ?>>
-								<?php echo $label; ?>
-							</option>
-						
-						<?php endforeach; ?>
-					</select>
-	
-					<select id="gf_ideal_condition_value" name="gf_ideal_condition_value">
-						
-					</select>
 				</div>
 	
 				<div id="gf_ideal_condition_message">
@@ -381,9 +393,16 @@ $feed->delayNotificationIds = get_post_meta( $post_id, '_pronamic_pay_gf_delay_n
 					<?php echo $label; ?>
 				</th>
 				<td>
-					<select id="gf_ideal_fields_<?php echo $name; ?>" name="gf_ideal_fields[<?php echo $name; ?>]" data-gateway-field-name="<?php echo $name; ?>" class="field-select">
-						
-					</select>
+					<?php 
+					
+					printf(
+						'<select id="%s" name="%s" data-gateway-field-name="%s" class="field-select"><select>',
+						esc_attr( 'gf_ideal_fields_' . $name ),
+						esc_attr( '_pronamic_pay_gf_fields[' . $name . ']' ),
+						esc_attr( $name )
+					);
+					
+					?>
 				</td>
 			</tr>
 		
