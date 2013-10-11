@@ -110,6 +110,9 @@ function orbis_ideal_upgrade_140() {
 				$meta['omnikassa_merchant_id'] = $config->merchant_id;
 				$meta['omnikassa_secret_key']  = $config->hash_key;
 				$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
+				
+				unset( $meta['ideal_merchant_id'] );
+				unset( $meta['ideal_hash_key'] );
 			}
 				
 			// Buckaroo
