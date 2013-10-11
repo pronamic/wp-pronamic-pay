@@ -89,13 +89,13 @@ function orbis_ideal_upgrade_140() {
 			// We ignore (@) all notice of not existing properties
 			$meta = array();
 
-			$meta['legacy_id']            = $config->id;
-			$meta['id']                   = $config->variant_id;
-			$meta['mode']                 = $config->mode;
+			$meta['legacy_id'] = $config->id;
+			$meta['id']        = $config->variant_id;
+			$meta['mode']      = $config->mode;
 
 			// iDEAL
-			$meta['ideal_merchant_id']    = $config->merchant_id;
-			$meta['ideal_sub_id']         = $config->sub_id;
+			$meta['ideal_merchant_id'] = $config->merchant_id;
+			$meta['ideal_sub_id']      = $config->sub_id;
 					
 			// iDEAL Basic
 			$meta['ideal_hash_key'] = $config->hash_key;
