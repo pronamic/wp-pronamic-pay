@@ -107,8 +107,8 @@ function orbis_ideal_upgrade_140() {
 
 			// OmniKassa
 			if ( $config->variant_id == 'rabobank-omnikassa' ) {
-				$meta['omnikassa_merchant_id'] = @$config_meta->merchant_id;
-				$meta['omnikassa_secret_key']  = @$config_meta->hash_key;
+				$meta['omnikassa_merchant_id'] = $config->merchant_id;
+				$meta['omnikassa_secret_key']  = $config->hash_key;
 				$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
 			}
 				
