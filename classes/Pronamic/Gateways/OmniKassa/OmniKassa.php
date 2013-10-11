@@ -140,7 +140,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string ANS512 url
 	 */
-	private $normalReturnUrl;
+	private $normal_return_url;
 
 	/**
 	 * Amount
@@ -170,7 +170,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string ANS512 url
 	 */
-	private $automaticResponseUrl;
+	private $automatic_response_url;
 
 	/**
 	 * Customer language in ISO 639‐1 Alpha2
@@ -308,8 +308,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getNormalReturnUrl() {
-		return $this->normalReturnUrl;
+	public function get_normal_return_url() {
+		return $this->normal_return_url;
 	}
 
 	/**
@@ -317,10 +317,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * LET OP! De URL mag geen parameters bevatten.
 	 * 
-	 * @param string $normalReturnUrl
+	 * @param string $normal_return_url
 	 */
-	public function setNormalReturnUrl( $normalReturnUrl ) {
-		$this->normalReturnUrl = $normalReturnUrl;
+	public function set_normal_return_url( $normal_return_url ) {
+		$this->normal_return_url = $normal_return_url;
 	}
 
 	//////////////////////////////////////////////////
@@ -400,8 +400,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getAutomaticResponseUrl() {
-		return $this->automaticResponseUrl;
+	public function get_automatic_response_url() {
+		return $this->automatic_response_url;
 	}
 
 	/**
@@ -409,10 +409,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * LET OP! De URL mag geen parameters bevatten.
 	 * 
-	 * @param string $automaticResponseUrl
+	 * @param string $automatic_response_url
 	 */
-	public function setAutomaticResponseUrl( $automaticResponseUrl ) {
-		$this->automaticResponseUrl = $automaticResponseUrl;
+	public function set_automatic_response_url( $automatic_response_url ) {
+		$this->automatic_response_url = $automatic_response_url;
 	}
 
 	//////////////////////////////////////////////////
@@ -524,7 +524,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		$required_fields = array( 
 			'currencyCode'         => $this->getCurrencyNumericCode(),
 			'merchantId'           => $this->get_merchant_id(),
-			'normalReturnUrl'      => $this->getNormalReturnUrl(),
+			'normalReturnUrl'      => $this->get_normal_return_url(),
 			'amount'               => $this->getFormattedAmount(),
 			'transactionReference' => $this->getTransactionReference(),
 			'keyVersion'           => $this->get_key_version()
@@ -532,7 +532,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		
 		// Payment request - optional fields
 		$optional_fields = array(
-			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
+			'automaticResponseUrl' => $this->get_automatic_response_url(), 
 			'customerLanguage'     => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
 			'orderId'              => $this->getOrderId(),
