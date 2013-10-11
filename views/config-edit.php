@@ -178,7 +178,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_omnikassa_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'classes'     => array( 'code' )
+				'classes'     => array( 'large-text', 'code' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_omnikassa_key_version',
