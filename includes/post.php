@@ -456,7 +456,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 	);
 
 	foreach ( $files as $name => $meta_key ) {
-		if ( $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
+		if ( isset( $_FILES[ $name ] ) && $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
 			$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
 			
 			$data[$meta_key] = $value;
