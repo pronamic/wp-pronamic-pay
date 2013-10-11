@@ -517,7 +517,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getData() {
+	public function get_data() {
 		$expiration_date = $this->getExpirationDate();
 
 		// Payment Request - required fields
@@ -575,11 +575,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getSeal() {
-		$data       = $this->getData();
+	public function get_seal() {
+		$data       = $this->get_data();
 		$secret_key = $this->get_secret_key();
 
-		return self::computeSeal( $data, $secret_key );
+		return self::compute_seal( $data, $secret_key );
 	}
 
 	/**
@@ -588,8 +588,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param string $data
 	 * @param string $secretKey
 	 */
-	public static function computeSeal( $data, $secretKey ) {
-		$value = $data . $secretKey;
+	public static function compute_seal( $data, $secret_key ) {
+		$value = $data . $secret_key;
 		$value = utf8_encode( $value );
 
 		return hash( self::HASH_ALGORITHM_SHA256, $value );
@@ -604,9 +604,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 */
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			'Data'             => $this->getData(),
+			'Data'             => $this->get_data(),
 			'InterfaceVersion' => $this->get_interface_version(),
-			'Seal'             => $this->getSeal()
+			'Seal'             => $this->get_seal()
 		) );
 		
 		return $html;
