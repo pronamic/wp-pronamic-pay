@@ -33,10 +33,15 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		// Client
 		$this->client = new Pronamic_Gateways_OmniKassa_OmniKassa();
 		
-		$this->client->setPaymentServerUrl( $config->getPaymentServerUrl() );
-		$this->client->setMerchantId( $config->merchant_id );
-		$this->client->setKeyVersion( $config->key_version );
-		$this->client->setSecretKey( $config->secret_key );
+		$action_url = Pronamic_Gateways_OmniKassa_OmniKassa::ACTION_URL_PRUDCTION;
+		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
+			$action_url = Pronamic_Gateways_OmniKassa_OmniKassa::ACTION_URL_TEST;
+		}
+
+		$this->client->set_action_url( $action_url );
+		$this->client->set_merchant_id( $config->merchant_id );
+		$this->client->set_key_version( $config->key_version );
+		$this->client->set_secret_key( $config->secret_key );
 	}
 	
 	/////////////////////////////////////////////////
@@ -49,7 +54,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
-		$this->set_action_url( $this->client->getPaymentServerUrl() );
+		$this->set_action_url( $this->client->get_action_url() );
 
 		$this->client->setCustomerLanguage( $data->getLanguageIso639Code() );
 		$this->client->setCurrencyNumericCode( $data->getCurrencyNumericCode() );

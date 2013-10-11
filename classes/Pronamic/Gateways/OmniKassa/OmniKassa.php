@@ -9,6 +9,26 @@
  * @version 1.0
  */
 class Pronamic_Gateways_OmniKassa_OmniKassa {
+	/**
+	 * Action URL to start a payment request in the test environment, 
+	 * the POST data is sent to.
+	 * 
+	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf 
+	 * @var string
+	 */	
+	const ACTION_URL_TEST = 'https://payment‐webinit.simu.omnikassa.rabobank.nl/paymentServlet';
+
+	/**
+	 * Action URL For a payment request in the production environment, 
+	 * the POST data is sent to
+	 * 
+	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf
+	 * @var string
+	 */
+	const ACTION_URL_PRUDCTION = 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet';
+
+	//////////////////////////////////////////////////
+
 	const ISO_639_1_ENGLISH = 'en';
 
 	const ISO_639_1_FRENCH = 'fr';
@@ -81,11 +101,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The payment server URL
+	 * The action URL
 	 * 
 	 * @var string
 	 */
-	private $paymentServerUrl;
+	private $action_url;
 
 	//////////////////////////////////////////////////
 
@@ -113,7 +133,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string N15
 	 */
-	private $merchantId;
+	private $merchant_id;
 
 	/**
 	 * Normal return URL
@@ -141,7 +161,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string N10
 	 */
-	private $keyVersion;
+	private $key_version;
 
 	//////////////////////////////////////////////////
 
@@ -188,7 +208,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string
 	 */
-	private $secretKey;
+	private $secret_key;
 
 	//////////////////////////////////////////////////
 
@@ -204,21 +224,21 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	//////////////////////////////////////////////////
 	
 	/**
-	 * Get the payment server URL
+	 * Get the action URL
 	 *
-	 * @return the payment server URL
+	 * @return the action URL
 	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
+	public function get_action_url() {
+		return $this->action_url;
 	}
 	
 	/**
-	 * Set the payment server URL
+	 * Set the action URL
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl( $url ) {
-		$this->paymentServerUrl = $url;
+	public function set_action_url( $url ) {
+		$this->action_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -268,17 +288,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getMerchantId() {
-		return $this->merchantId;
+	public function get_merchant_id() {
+		return $this->merchant_id;
 	}
 
 	/**
 	 * Set the merchant ID
 	 * 
-	 * @param string $merchantdId
+	 * @param string $merchant_id
 	 */
-	public function setMerchantId( $merchantId ) {
-		$this->merchantId = $merchantId;
+	public function set_merchant_id( $merchant_id ) {
+		$this->merchant_id = $merchant_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -360,17 +380,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getKeyVersion() {
-		return $this->keyVersion;
+	public function get_key_version() {
+		return $this->key_version;
 	}
 
 	/**
 	 * Set key version
 	 * 
-	 * @param string $keyVersion
+	 * @param string $key_version
 	 */
-	public function setKeyVersion( $keyVersion ) {
-		$this->keyVersion = $keyVersion;
+	public function set_key_version( $key_version ) {
+		$this->key_version = $key_version;
 	}
 
 	//////////////////////////////////////////////////
@@ -503,11 +523,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		// Payment Request - required fields
 		$required_fields = array( 
 			'currencyCode'         => $this->getCurrencyNumericCode(),
-			'merchantId'           => $this->getMerchantId(),
+			'merchantId'           => $this->get_merchant_id(),
 			'normalReturnUrl'      => $this->getNormalReturnUrl(),
 			'amount'               => $this->getFormattedAmount(),
 			'transactionReference' => $this->getTransactionReference(),
-			'keyVersion'           => $this->getkeyVersion()
+			'keyVersion'           => $this->get_key_version()
 		);
 		
 		// Payment request - optional fields
@@ -535,8 +555,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getSecretKey() {
-		return $this->secretKey;
+	public function get_secret_key() {
+		return $this->secret_key;
 	}
 
 	/**
@@ -544,8 +564,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function setSecretKey( $secretKey ) {
-		$this->secretKey = $secretKey;
+	public function set_secret_key( $secret_key ) {
+		$this->secret_key = $secret_key;
 	}
 
 	//////////////////////////////////////////////////
@@ -556,10 +576,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return string
 	 */
 	public function getSeal() {
-		$data = $this->getData();
-		$secretKey = $this->getSecretKey();
+		$data       = $this->getData();
+		$secret_key = $this->get_secret_key();
 
-		return self::computeSeal( $data, $secretKey );
+		return self::computeSeal( $data, $secret_key );
 	}
 
 	/**
