@@ -166,6 +166,7 @@ function pronamic_payment_columns( $columns ) {
 	$columns = array(
 		'cb'                           => '<input type="checkbox" />',
 		'title'                        => __( 'Title', 'pronamic_ideal' ),
+		'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 		'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 		'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
 		'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
@@ -184,6 +185,16 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 	global $post;
 
 	switch( $column ) {
+		case 'pronamic_payment_gateway':
+			$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
+			
+			if ( ! empty( $config_id ) ) {
+				echo get_the_title( $config_id );
+			} else {
+				echo '—';
+			}
+
+			break;
 		case 'pronamic_payment_description':
 			echo get_post_meta( $post_id, '_pronamic_payment_description', true );
 

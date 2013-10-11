@@ -68,7 +68,7 @@ function orbis_ideal_upgrade_140() {
 	";
 	
 	$configs = $wpdb->get_results( $query );
-	$ids_map        = array();
+	$config_ids_map = array();
 
 	foreach ( $configs as $config ) {
 		// Post
@@ -81,7 +81,7 @@ function orbis_ideal_upgrade_140() {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$ids_map[$config->id] = $post_id;
+			$config_ids_map[$config->id] = $post_id;
 
 			$config_meta = json_decode( $config->meta );
 
@@ -201,8 +201,8 @@ function orbis_ideal_upgrade_140() {
 			if ( isset( $data['type'] ) ) {
 				switch( $data['type'] ) {
 					case 'var':
-						if ( isset( $ids_map[$value] ) ) {
-							update_option( $option, $ids_map[$value] );
+						if ( isset( $config_ids_map[$value] ) ) {
+							update_option( $option, $config_ids_map[$value] );
 						}
 						
 						break;
@@ -259,7 +259,7 @@ function orbis_ideal_upgrade_140() {
 			$feed_meta = json_decode( $feed->meta );
 			
 			$meta['form_id']                  = $feed->form_id;
-			$meta['config_id']                = @$ids_map[$feed->configuration_id];
+			$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
 			$meta['is_active']                = $feed->is_active;
 			$meta['transaction_description']  = @$feed_meta->transactionDescription;
 			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;
@@ -346,6 +346,7 @@ function orbis_ideal_upgrade_140() {
 		if ( $post_id ) {
 			// Meta 
 			$meta = array(
+				'config_id'               => @$config_ids_map[$payment->configuration_id],
 				'purchase_id'             => $payment->purchase_id,
 				'currency'                => $payment->currency,
 				'amount'                  => $payment->amount,
