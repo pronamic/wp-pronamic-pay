@@ -259,23 +259,23 @@ function orbis_ideal_upgrade_140() {
 			// We ignore (@) all notice of not existing properties
 			$meta = array();
 
-			$feed_meta = json_decode( $feed->meta );
+			$feed_meta = json_decode( $feed->meta, true );
 			
 			$meta['form_id']                  = $feed->form_id;
 			$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
 			$meta['is_active']                = $feed->is_active;
-			$meta['transaction_description']  = @$feed_meta->transactionDescription;
-			$meta['delay_notification_ids']   = @$feed_meta->delayNotificationIds;
-			$meta['delay_admin_motification'] = @$feed_meta->delayAdminNotification;
-			$meta['delay_users_motification'] = @$feed_meta->delayUserNotification;
-			$meta['delay_post_creation']      = @$feed_meta->delayPostCreation;
-			$meta['condition_enabled']        = @$feed_meta->conditionEnabled;
-			$meta['condition_field_id']       = @$feed_meta->conditionFieldId;
-			$meta['condition_operator']       = @$feed_meta->conditionOperator;
-			$meta['condition_value']          = @$feed_meta->conditionValue;
-			$meta['user_role_field_id']       = @$feed_meta->userRoleFieldId;
-			$meta['fields']                   = (array) @$feed_meta->fields;
-			$meta['links']                    = (array) @$feed_meta->links;
+			$meta['transaction_description']  = @$feed_meta['transactionDescription'];
+			$meta['delay_notification_ids']   = @$feed_meta['delayNotificationIds'];
+			$meta['delay_admin_motification'] = @$feed_meta['delayAdminNotification'];
+			$meta['delay_users_motification'] = @$feed_meta['delayUserNotification'];
+			$meta['delay_post_creation']      = @$feed_meta['delayPostCreation'];
+			$meta['condition_enabled']        = @$feed_meta['conditionEnabled'];
+			$meta['condition_field_id']       = @$feed_meta['conditionFieldId'];
+			$meta['condition_operator']       = @$feed_meta['conditionOperator'];
+			$meta['condition_value']          = @$feed_meta['conditionValue'];
+			$meta['user_role_field_id']       = @$feed_meta['userRoleFieldId'];
+			$meta['fields']                   = @$feed_meta['fields'];
+			$meta['links']                    = @$feed_meta['links'];
 			
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {

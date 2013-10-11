@@ -15,6 +15,12 @@ class Pronamic_GravityForms_PayFeed {
 
 	//////////////////////////////////////////////////
 
+	public $condition_enabled;
+
+	
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Construct and initialize payment object
 	 * 
@@ -29,12 +35,15 @@ class Pronamic_GravityForms_PayFeed {
 
 		$this->transaction_description = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 
+		$this->condition_enabled       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_enabled', true );
 		$this->condition_field_id      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 		$this->condition_operator      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
 		$this->condition_value         = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
 		
 		$ids = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 		$this->delay_notification_ids  = is_array( $ids ) ? $ids : array();
+
+		$this->delay_post_creation     = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
 
 		$fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 		$this->fields                  = is_array( $fields ) ? $fields : array();

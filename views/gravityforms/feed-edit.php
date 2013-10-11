@@ -356,7 +356,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		foreach ( $fields as $name => $label ) : ?>
 	
 			<tr>
-				<?php 
+				<?php
 
 				$type    = @$links[$name]['type'];
 				$page_id = @$links[$name]['page_id'];

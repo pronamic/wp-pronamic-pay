@@ -297,7 +297,7 @@ $sections = array(
 		'methods' => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 		'fields'  => array(
 			array(
-				'meta_key'    => '_pronamic_gateway_ogone_pspid',
+				'meta_key'    => '_pronamic_gateway_ogone_psp_id',
 				'name'        => 'pspId',
 				'id'          => 'pronamic_ideal_pspid',
 				'title'       => __( 'PSPID', 'pronamic_ideal' ),
@@ -333,7 +333,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' )
+				'methods'     => array( 'ogone_orderstandard' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_sha_out',
@@ -363,6 +363,21 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'ogone_directlink' )
 			)
+		)
+	),
+	array(
+		'title'   => __( 'Ogone DirectLink', 'pronamic_ideal' ),
+		'methods' => array( 'ogone_directlink' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
+				'id'          => 'pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
+				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
+				'methods'     => array( 'ogone_directlink' )
+			),
 		)
 	),
 	array(

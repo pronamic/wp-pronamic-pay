@@ -187,7 +187,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-				$prefix . 'configuration_id'        => $configuration_id,
+				$prefix . 'config_id'               => $configuration_id,
 				$prefix . 'transaction_id'          => $gateway->get_transaction_id(),
 				$prefix . 'purchase_id'             => $data->getOrderId(),
 				$prefix . 'currency'                => $data->getCurrencyAlphabeticCode(),

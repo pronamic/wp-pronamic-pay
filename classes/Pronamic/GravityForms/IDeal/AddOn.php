@@ -392,7 +392,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Maybe delay post creation
 	 *
-	 * @param boolean $isDisabled
+	 * @param boolean $is_disabled
 	 * @param array $form
 	 * @param array $lead
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
@@ -402,7 +402,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayPostCreation;
+				$is_disabled = $feed->delay_post_creation;
 			}
 		}
 
