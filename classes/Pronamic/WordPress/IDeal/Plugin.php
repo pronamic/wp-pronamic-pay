@@ -128,30 +128,23 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$status = $payment->status;
 
 			if ( empty( $status ) || $status === Pronamic_Gateways_IDealAdvancedV3_Status::OPEN ) {
-				self::checkPaymentStatus( $payment );
+				self::update_payment( $payment );
 			}
 		} else {
 			// Payment with the specified ID could not be found, can't check the status
 		}
 	}
 
-	/**
-	 * Check the status of the specified payment
-	 *
-	 * @param unknown_type $payment
-	 */
-	public static function checkPaymentStatus( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		$config_id = get_post_meta( $payment->id, '_pronamic_payment_configuration_id', true );
+	public static function update_payment( $payment, $can_redirect = true ) {
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
 		
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-
 		if ( $gateway ) {
 			$gateway->update_status( $payment );
-
+			
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
-
+	
 	//////////////////////////////////////////////////
 
 	/**
@@ -163,11 +156,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			
 			$payment = get_pronamic_payment( $payment_id );
 			
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
-
-			if ( $gateway ) {
-				$gateway->update_status( $payment );
-			}
+			self::update_payment( $payment );
 		}
 
 		// Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
