@@ -313,6 +313,20 @@ function pronamic_pay_meta_boxes() {
 		'high'
 	);
 
+	/*
+	add_meta_box(
+		'pronamic_payment_log',
+		__( 'Log', 'pronamic_ideal' ),
+		'pronamic_pay_payment_log_meta_box',
+		'pronamic_payment',
+		'normal',
+		'high'
+	);
+	*/
+
+	// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
+	remove_meta_box( 'submitdiv', 'pronamic_payment', 'side' );
+
 	add_meta_box(
 		'pronamic_pay_gf',
 		__( 'Configuration', 'pronamic_ideal' ),
@@ -351,6 +365,16 @@ function pronamic_pay_gateway_test_meta_box( $post ) {
 function pronamic_pay_payment_meta_box( $post ) {
 	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-info.php';
 }
+
+/**
+ * Pronamic Pay gateway config meta box
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function pronamic_pay_payment_log_meta_box( $post ) {
+	include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-log.php';
+}
+
 
 /**
  * Pronamic Pay gateway config meta box

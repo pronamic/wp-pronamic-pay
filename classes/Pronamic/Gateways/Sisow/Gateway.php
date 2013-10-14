@@ -64,19 +64,22 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
 			$data->getOrderId(),
 			$data->getAmount(),
 			$data->getDescription(),
 			$data->get_entrance_code(),
-			add_query_arg( 'gateway', 'sisow', home_url( '/' ) )
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->issuer_url );
+			
+			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->issuer_url );
+			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->id );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -90,15 +93,15 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$result = $this->client->get_status( $payment->transaction_id );
+		$result = $this->client->get_status( $payment->get_transaction_id() );
 
 		if ( $result !== false ) {
 			$transaction = $result;
 
-			$payment->status                  = $transaction->status;
-			$payment->consumer_name           = $transaction->consumer_name;
-			$payment->consumer_account_number = $transaction->consumer_account;
-			$payment->consumer_city           = $transaction->consumer_city;
+			update_post_meta( $payment->id, '_pronamic_payment_status', $transaction->status );
+			update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $transaction->consumer_name );
+			update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $transaction->consumer_account );
+			update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $transaction->consumer_city );
 		} else {
 			$this->error = $this->client->get_error();
 		}

@@ -88,7 +88,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		add_action( 'pronamic_ideal_omnikassa_return_raw',     array( 'Pronamic_Gateways_OmniKassa_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_targetpay_return_raw',     array( 'Pronamic_Gateways_TargetPay_ReturnHandler', 'returns' ), 10, 2 );
 		add_action( 'pronamic_ideal_icepay_return_raw',        array( 'Pronamic_Gateways_Icepay_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_sisow_return_raw',         array( 'Pronamic_Gateways_Sisow_ReturnHandler', 'returns' ), 10, 4 );
+		add_action( 'pronamic_ideal_sisow_return_raw',         array( 'Pronamic_Gateways_Sisow_ReturnHandler', 'returns' ), 10, 5 );
 		add_action( 'pronamic_ideal_qantani_return_raw',       array( 'Pronamic_Gateways_Qantani_ReturnHandler', 'returns' ), 10, 4 );
 
 		// Check the payment status on an iDEAL return
@@ -158,8 +158,20 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Handle returns
 	 */
 	public static function handle_returns() {
-		Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
-		Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
+		if ( filter_has_var( INPUT_GET, 'payment' ) ) {
+			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
+			
+			$payment = get_pronamic_payment( $payment_id );
+			
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
+
+			if ( $gateway ) {
+				$gateway->update_status( $payment );
+			}
+		}
+
+		// Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
+		// Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
 		Pronamic_Gateways_IDealBasic_ReturnHandler::listen();
 		Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
@@ -168,7 +180,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_OmniKassa_ReturnHandler::listen();
 		Pronamic_Gateways_TargetPay_ReturnHandler::listen();
 		Pronamic_Gateways_Icepay_ReturnHandler::listen();
-		Pronamic_Gateways_Sisow_ReturnHandler::listen();
+		// Pronamic_Gateways_Sisow_ReturnHandler::listen();
 		Pronamic_Gateways_Qantani_ReturnHandler::listen();
 	}
 

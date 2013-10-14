@@ -251,13 +251,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	 * @param string $issuer_id
 	 * @return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage
 	 */
-	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {
+	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $return_url, $issuer_id ) {
 		$message = new Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage();
 
 		$merchant = $message->get_merchant();
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
-		$merchant->set_return_url( add_query_arg( 'gateway', 'ideal_advanced_v3', home_url( '/' ) ) );
+		$merchant->set_return_url( $return_url );
 
 		$message->issuer = new Pronamic_Gateways_IDealAdvancedV3_Issuer();
 		$message->issuer->set_id( $issuer_id );

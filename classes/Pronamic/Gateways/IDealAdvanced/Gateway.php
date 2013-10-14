@@ -186,9 +186,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$transaction_id = get_post_meta( $payment->id, '_pronamic_payment_transaction_id', true );
-
-		$result = $this->client->get_status( $transaction_id );
+		$result = $this->client->get_status( $payment->get_transaction_id() );
 
 		$error = $this->client->get_error();
 

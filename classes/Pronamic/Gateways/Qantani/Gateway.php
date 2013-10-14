@@ -81,13 +81,13 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->getAmount(),
 			$data->getCurrencyAlphabeticCode(),
 			$data->get_issuer_id(),
 			$data->getDescription(),
-			add_query_arg( 'gateway', 'qantani', home_url( '/' ) )
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {

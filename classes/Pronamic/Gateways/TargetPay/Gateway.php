@@ -75,19 +75,22 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->start_transaction(
 			$this->config->layoutcode,
 			$data->get_issuer_id(),
 			$data->getDescription(),
 			$data->getAmount(),
-			add_query_arg( 'gateway', 'targetpay', home_url( '/' ) ),
-			add_query_arg( 'gateway', 'targetpay', home_url( '/' ) )
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
-		
+
 		if ( $result ) {
 			$this->set_action_url( $result->url );
 			$this->set_transaction_id( $result->transaction_id );
+			
+			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->url );
+			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
 		} else {
 			$this->set_error( $this->client->get_error() );
 		}
@@ -103,7 +106,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$status = $this->client->check_status(
 			$this->config->layoutcode,
-			$payment->transaction_id,
+			$payment->get_transaction_id(),
 			false,
 			$this->config->mode == Pronamic_IDeal_IDeal::MODE_TEST
 		);
@@ -111,22 +114,22 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		if ( $status ) {
 			switch ( $status->code ) {
 				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
-					$payment->status                  = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
-					$payment->consumer_name           = $status->account_name;
-					$payment->consumer_account_number = $status->account_number;
-					$payment->consumer_city           = $status->account_city;
+					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS );
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $status->account_name );
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $status->account_number );
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $status->account_city );
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::OPEN;
+					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::OPEN );
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED;
+					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED );
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					$payment->status = Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED;
+					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED );
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:

@@ -25,6 +25,10 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->post = get_post( $post_id );
 		
 		// Load
+		$this->config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
+		
+		$this->transaction_id = get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
+
 		$this->source    = get_post_meta( $post_id, '_pronamic_payment_source', true );
 		$this->source_id = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
 	}

@@ -154,15 +154,13 @@ class Pronamic_WordPress_IDeal_Admin {
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 	
-				$gateway->start( $data );
+				Pronamic_WordPress_IDeal_IDeal::start( $id, $gateway, $data);
 	
 				$error = $gateway->get_error();
 				
 				if ( is_wp_error( $error ) ) {
 					 $pronamic_ideal_errors[] = $error;
 				} else {
-					Pronamic_WordPress_IDeal_IDeal::create_payment( $id, $gateway, $data );
-	
 					$gateway->redirect();
 				}
 
