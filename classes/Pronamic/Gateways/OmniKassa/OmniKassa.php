@@ -192,7 +192,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string AN32
 	 */
-	private $orderId;
+	private $order_id;
 
 	/**
 	 * Expiration date
@@ -330,7 +330,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return float
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 
@@ -339,7 +339,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return int
 	 */
-	public function getFormattedAmount() {
+	public function get_formatted_amount() {
 		return Pronamic_WordPress_Util::amount_to_cents( $this->amount );
 	}
 
@@ -348,7 +348,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param float $amount
 	 */
-	public function setAmount( $amount ) {
+	public function set_amount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -359,8 +359,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getTransactionReference() {
-		return $this->transactionReference;
+	public function get_transaction_reference() {
+		return $this->transaction_reference;
 	}
 
 	/**
@@ -369,8 +369,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $transactionReference
 	 */
-	public function setTransactionReference( $transactionReference ) {
-		$this->transactionReference = substr( $transactionReference, 0, 35 );
+	public function set_transaction_reference( $transaction_reference ) {
+		$this->transaction_reference = substr( $transaction_reference, 0, 35 );
 	}
 
 	//////////////////////////////////////////////////
@@ -462,8 +462,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getOrderId() {
-		return $this->orderId;
+	public function get_order_id() {
+		return $this->order_id;
 	}
 
 	/**
@@ -471,8 +471,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $orderId
 	 */
-	public function setOrderId( $orderId ) {
-		$this->orderId = $orderId;
+	public function set_order_id( $order_id ) {
+		$this->order_id = $order_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -525,8 +525,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			'currencyCode'         => $this->getCurrencyNumericCode(),
 			'merchantId'           => $this->get_merchant_id(),
 			'normalReturnUrl'      => $this->get_normal_return_url(),
-			'amount'               => $this->getFormattedAmount(),
-			'transactionReference' => $this->getTransactionReference(),
+			'amount'               => $this->get_formatted_amount(),
+			'transactionReference' => $this->get_transaction_reference(),
 			'keyVersion'           => $this->get_key_version()
 		);
 		
@@ -535,7 +535,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			'automaticResponseUrl' => $this->get_automatic_response_url(), 
 			'customerLanguage'     => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
-			'orderId'              => $this->getOrderId(),
+			'orderId'              => $this->get_order_id(),
 			'expirationDate'       => $this->getFormattedExpirationDate()
 		);
 
