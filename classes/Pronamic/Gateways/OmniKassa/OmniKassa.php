@@ -545,7 +545,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		// Data
 		$data = $required_fields + $optional_fields;
 
-		return self::createPipedString( $data );
+		return self::create_piped_string( $data );
 	}
 
 	//////////////////////////////////////////////////
@@ -620,7 +620,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param array $data
 	 * @return string
 	 */
-	public static function createPipedString( array $data ) {
+	public static function create_piped_string( array $data ) {
 		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
 		return _http_build_query( $data, null, '|', '', false );
 	}
@@ -631,7 +631,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param string $string
 	 * @return array
 	 */
-	public static function parsePipedString($string) {
+	public static function parse_piped_string($string) {
 		$data = array();
 
 		$pairs = explode('|', $string);
