@@ -41,6 +41,26 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function add_note( $note ) {
+		$commentdata = array(
+			'comment_post_ID'      => $this->id,
+			'comment_author'       => 'admin',
+			'comment_author_email' => 'admin@admin.com',
+			'comment_author_url'   => 'http://',
+			'comment_content'      => $note,
+			'comment_type'         => 'payment_note',
+			'comment_parent'       => 0,
+			'user_id'              => 0,
+			'comment_approved'     => 1
+		);
+
+		$comment_id = wp_insert_comment( $commentdata );
+		
+		return $comment_id;
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Source text
 	 * 

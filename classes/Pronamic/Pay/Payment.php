@@ -50,4 +50,8 @@ class Pronamic_Pay_Payment {
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
+	
+	public function add_note( $note ) {
+		
+	}
 }
