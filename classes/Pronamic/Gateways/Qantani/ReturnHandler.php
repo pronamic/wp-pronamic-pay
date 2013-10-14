@@ -27,19 +27,6 @@ class Pronamic_Gateways_Qantani_ReturnHandler extends Pronamic_Gateways_ReturnHa
 	public function returns( $transaction_id, $status, $salt, $checksum ) {
 		$payment = get_pronamic_payment_by_transaction_id( $transaction_id );
 
-		if ( $payment != null ) {
-			$can_redirect = true;
-			
-			switch ( $status ) {
-				case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
-					$payment->status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-					break;
-				case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
-					$payment->status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-			}
-
-			do_action( 'pronamic_ideal_qantani_return', $payment, $can_redirect );
-		}
+		Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
 	}
 }
