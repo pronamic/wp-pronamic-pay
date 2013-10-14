@@ -313,7 +313,6 @@ function pronamic_pay_meta_boxes() {
 		'high'
 	);
 
-	/*
 	add_meta_box(
 		'pronamic_payment_log',
 		__( 'Log', 'pronamic_ideal' ),
@@ -322,7 +321,6 @@ function pronamic_pay_meta_boxes() {
 		'normal',
 		'high'
 	);
-	*/
 
 	// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
 	remove_meta_box( 'submitdiv', 'pronamic_payment', 'side' );
