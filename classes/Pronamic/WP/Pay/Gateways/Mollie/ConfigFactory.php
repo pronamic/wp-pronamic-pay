@@ -6,7 +6,9 @@ class Pronamic_WP_Pay_Gateways_Mollie_ConfigFactory {
 
 		$config->partner_id  = get_post_meta( $post_id, '_pronamic_gateway_mollie_partner_id', true );
 		$config->profile_key = get_post_meta( $post_id, '_pronamic_gateway_mollie_profile_key', true );
-		
+
+		$config->mode        = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
 		return $config;
 	}
 }
