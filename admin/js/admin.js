@@ -336,7 +336,7 @@
 		// Function calls
 		obj.updateFields();
 
-		elements.variantId.change( obj.updateConfigurationFields );
+		elements.variantId.change( obj.updateConfigFields );
 	};
 
 	/**
