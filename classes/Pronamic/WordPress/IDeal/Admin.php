@@ -143,8 +143,6 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe test payment
 	 */
 	public static function maybe_test_payment() {
-		global $pronamic_ideal_errors;
-
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
 			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
@@ -160,7 +158,7 @@ class Pronamic_WordPress_IDeal_Admin {
 				$error = $gateway->get_error();
 				
 				if ( is_wp_error( $error ) ) {
-					 $pronamic_ideal_errors[] = $error;
+					 Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
 				} else {
 					$gateway->redirect();
 				}
