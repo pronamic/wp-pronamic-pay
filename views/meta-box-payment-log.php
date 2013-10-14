@@ -7,9 +7,7 @@ $comments = get_comments( array(
 
 if ( empty( $comments ) ) : ?>
 
-	<p>
-		<?php _e( 'No notes found.', 'pronamic_ideal' ); ?>
-	</p>
+	
 
 <?php else : ?>
 
