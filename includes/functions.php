@@ -63,3 +63,20 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
 
 	return $payment;
 }
+
+function bind_providers_and_gateways() {
+	global $pronamic_pay_providers;
+	global $pronamic_pay_gateways;
+	
+	foreach ( $pronamic_pay_gateways as $id => $gateway ) {
+		if ( isset( $pronamic_pay_providers[$gateway['provider']] ) ) {
+			$provider =& $pronamic_pay_providers[$gateway['provider']];
+	
+			if ( ! isset( $provider['gateways'] ) ) {
+				$provider['gateways'] = array();
+			}
+	
+			$provider['gateways'][$id] = $gateway;
+		}
+	}
+}
