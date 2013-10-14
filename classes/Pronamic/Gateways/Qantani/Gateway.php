@@ -96,6 +96,8 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			
 			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->bank_url );
 			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
+
+			update_post_meta( $payment->id, '_pronamic_payment_qantani_code', $result->code );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -109,6 +111,24 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-
+		$transaction_id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+		$status         = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
+		$salt           = filter_input( INPUT_GET, 'salt', FILTER_SANITIZE_STRING );
+		$checksum       = filter_input( INPUT_GET, 'checksum', FILTER_SANITIZE_STRING );
+		
+		switch ( $status ) {
+			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
+				$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+				
+				update_post_meta( $payment->id, '_pronamic_payment_status', $status );
+				
+				break;
+			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_CANCELLED:
+				$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
+				
+				update_post_meta( $payment->id, '_pronamic_payment_status', $status );
+				
+				break;
+		}
 	}
 }
