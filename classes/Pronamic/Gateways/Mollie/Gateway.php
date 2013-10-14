@@ -79,18 +79,21 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_payment(
 			$data->get_issuer_id(),
 			Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ),
 			$data->getDescription(),
-			add_query_arg( 'gateway', 'mollie', home_url( '/' ) ),
-			add_query_arg( 'gateway', 'mollie', home_url( '/' ) )
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
 		
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->url );
+			
+			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->url );
+			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -104,21 +107,21 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$result = $this->client->check_payment( $payment->transaction_id );
+		$result = $this->client->check_payment( $payment->get_transaction_id() );
 
 		if ( $result !== false ) {
 			$consumer = $result->consumer;
 
 			switch ( $result->status ) {
 				case Pronamic_Gateways_Mollie_Statuses::SUCCESS:
-					$payment->consumer_name           = $consumer->name;
-					$payment->consumer_account_number = $consumer->account;
-					$payment->consumer_city           = $consumer->city;
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $consumer->name );
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $consumer->account );
+					update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $consumer->city );
 				case Pronamic_Gateways_Mollie_Statuses::CANCELLED:
 				case Pronamic_Gateways_Mollie_Statuses::EXPIRED:
 				case Pronamic_Gateways_Mollie_Statuses::FAILURE:
-					$payment->status = $result->status;
-					
+					update_post_meta( $payment->id, '_pronamic_payment_status', $result->status );
+
 					break;
 				case Pronamic_Gateways_Mollie_Statuses::CHECKED_BEFORE:
 					// Nothing to do here

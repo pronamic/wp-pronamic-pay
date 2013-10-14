@@ -93,6 +93,9 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->bank_url );
+			
+			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->bank_url );
+			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
 		} else {
 			$this->error = $this->client->get_error();
 		}
