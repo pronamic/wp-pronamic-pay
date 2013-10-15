@@ -36,6 +36,8 @@ class Pronamic_WordPress_IDeal_Admin {
 		self::maybe_download_private_certificate();
 		self::maybe_download_private_key();
 
+		self::settings_init();
+
 		// Maybe update
 		global $pronamic_ideal_db_version;
 
@@ -44,6 +46,112 @@ class Pronamic_WordPress_IDeal_Admin {
 
 			update_option( 'pronamic_ideal_db_version', $pronamic_ideal_db_version );
 		}
+	}
+
+	//////////////////////////////////////////////////
+
+	public static function pre_update_option_license_key( $newvalue, $oldvalue ) {
+		if ( $newvalue != $oldvalue ) {
+			$newvalue = md5( trim( $newvalue ) );
+		}
+
+		return $newvalue;
+	}
+
+	public static function settings_init() {
+		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ) );
+		
+		// Settings - General
+		add_settings_section(
+			'pronamic_pay_general', // id
+			__( 'General', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'settings_section' ), // callback
+			'pronamic_pay' // page
+		);
+		
+		add_settings_field(
+			'pronamic_pay_license_key', // id
+			__( 'Support License Key', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_general', // section
+			array( 'type' => 'password', 'label_for' => 'pronamic_pay_license_key' ) // args
+		);
+		
+		register_setting( 'pronamic_pay', 'pronamic_pay_license_key' );
+
+		// Settings - Pages
+		add_settings_section(
+			'pronamic_pay_pages', // id
+			__( 'Pages', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'settings_section' ), // callback
+			'pronamic_pay' // page
+		);
+		
+		$pages = array(
+			'error' => __( 'Error Page', 'pronamic_ideal' ),
+			'cancel' => __( 'Cancel Page', 'pronamic_ideal' ),
+			'unknown' => __( 'Unknown Page', 'pronamic_ideal' ),
+			'expired' => __( 'Expired Page', 'pronamic_ideal' ),
+			'completed' => __( 'Completed Page', 'pronamic_ideal' )
+		);
+		
+		foreach ( $pages as $key => $label ) {
+			$id = sprintf( 'pronamic_pay_%s_page_id', $key );
+
+			add_settings_field(
+				$id, // id
+				$label, // title
+				array( __CLASS__, 'input_page' ), // callback
+				'pronamic_pay', // page
+				'pronamic_pay_pages', // section
+				array( 'label_for' => $id ) // args
+			);
+			
+			register_setting( 'pronamic_pay', $id );
+		}
+
+
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Settings section
+	 */
+	public static function settings_section() {
+
+	}
+
+	/**
+	 * Input text
+	 *
+	 * @param array $args
+	 */
+	public static function input_element( $args ) {
+		printf(
+			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />',
+			esc_attr( $args['label_for'] ),
+			esc_attr( $args['label_for'] ),
+			esc_attr( $args['type'] ),
+			esc_attr( get_option( $args['label_for'] ) ),
+			'regular-text code'
+		);
+	}
+
+	/**
+	 * Input page
+	 *
+	 * @param array $args
+	 */
+	public static function input_page( $args ) {
+		$name = $args['label_for'];
+
+		wp_dropdown_pages( array(
+			'name' => $name,
+			'selected' => get_option( $name, '' ),
+			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_companies' )
+		) );
 	}
 
 	//////////////////////////////////////////////////

@@ -436,21 +436,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	/**
-	 * Set the key
-	 *
-	 * @param string $key
-	 */
-	public static function set_key( $key ) {
-		$current_key = get_option( 'pronamic_ideal_key' );
-
-		if ( empty( $key ) ) {
-			delete_option( 'pronamic_ideal_key' );
-		} elseif ( $key != $current_key ) {
-			update_option( 'pronamic_ideal_key', md5( trim( $key ) ) );
-		}
-	}
-
-	/**
 	 * Get the license info for the current installation on the blogin
 	 *
 	 * @return stdClass an onbject with license information or null

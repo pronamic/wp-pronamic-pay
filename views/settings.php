@@ -2,12 +2,6 @@
 
 global $wpdb;
 
-if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', 'pronamic_ideal_nonce' ) ) {
-	$key = filter_input( INPUT_POST, 'pronamic_ideal_key', FILTER_SANITIZE_STRING );
-
-	Pronamic_WordPress_IDeal_Plugin::set_key( $key );
-}
-
 ?>
 <div class="wrap">
 	<?php screen_icon( 'pronamic_ideal' ); ?>
@@ -16,44 +10,12 @@ if ( ! empty( $_POST ) && check_admin_referer( 'pronamic_ideal_save_settings', '
 		<?php _e( 'iDEAL Settings', 'pronamic_ideal' ); ?>
 	</h2>
 
-	<form action="" method="post">
-		<?php wp_nonce_field( 'pronamic_ideal_save_settings', 'pronamic_ideal_nonce' ); ?>
+	<form action="options.php" method="post">
+		<?php settings_fields( 'pronamic_pay' ); ?>
 
-		<h3>
-			<?php _e( 'General Settings', 'pronamic_ideal' ); ?>
-		</h3>
+		<?php do_settings_sections( 'pronamic_pay' ); ?>
 
-		<table class="form-table">
-			<tr>
-				<th scope="row">
-					<label for="pronamic_ideal_key">
-						<?php _e( 'Support License Key', 'pronamic_ideal' ); ?>
-					</label>
-				</th>
-				<td>
-	                <input id="pronamic_ideal_key" name="pronamic_ideal_key" value="<?php echo Pronamic_WordPress_IDeal_Plugin::get_key(); ?>" class="regular-text" type="password" />
-
-					<?php if ( Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) : ?>
-						&#10003;
-					<?php endif; ?>
-
-					<span class="description">
-						<br />
-						<?php _e( 'The license key is used for access to automatic upgrades and support.', 'pronamic_ideal' ); ?>
-					</span>
-				</td>
-			</tr>
-		</table>
-
-		<?php 
-		
-		submit_button(
-			__('Save', 'pronamic_ideal'),
-			'primary',
-			'save_settings'
-		);
-
-		?>
+		<?php submit_button(); ?>
 	</form>
 
 	<h3>
