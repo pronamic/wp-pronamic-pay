@@ -83,19 +83,19 @@ class Pronamic_WordPress_IDeal_Admin {
 		// Settings - Pages
 		add_settings_section(
 			'pronamic_pay_pages', // id
-			__( 'Pages', 'pronamic_ideal' ), // title
+			__( 'Payment Status Pages', 'pronamic_ideal' ), // title
 			array( __CLASS__, 'settings_section' ), // callback
 			'pronamic_pay' // page
 		);
 		
 		$pages = array(
-			'error' => __( 'Error Page', 'pronamic_ideal' ),
-			'cancel' => __( 'Cancel Page', 'pronamic_ideal' ),
-			'unknown' => __( 'Unknown Page', 'pronamic_ideal' ),
-			'expired' => __( 'Expired Page', 'pronamic_ideal' ),
-			'completed' => __( 'Completed Page', 'pronamic_ideal' )
+			'error'     => __( 'Error', 'pronamic_ideal' ),
+			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
+			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
+			'expired'   => __( 'Expired', 'pronamic_ideal' ),
+			'completed' => __( 'Completed', 'pronamic_ideal' )
 		);
-		
+
 		foreach ( $pages as $key => $label ) {
 			$id = sprintf( 'pronamic_pay_%s_page_id', $key );
 
@@ -107,11 +107,9 @@ class Pronamic_WordPress_IDeal_Admin {
 				'pronamic_pay_pages', // section
 				array( 'label_for' => $id ) // args
 			);
-			
+
 			register_setting( 'pronamic_pay', $id );
 		}
-
-
 	}
 
 	//////////////////////////////////////////////////
