@@ -179,6 +179,11 @@ function orbis_ideal_upgrade_140() {
 			'type' => 'var',
 			'name' => 'pronamic_pay_jigoshop_config_id'
 		),
+		// s2Member
+		'pronamic_ideal_s2member_config_id' => array(
+			'type' => 'var',
+			'name' => 'pronamic_pay_s2member_config_id'
+		),
 		// Shopp
 		'pronamic_shopp_ideal_configuration' => array(
 			'type' => 'var',
@@ -212,6 +217,22 @@ function orbis_ideal_upgrade_140() {
 				}
 			}
 		}
+	}
+	
+	// Other options
+	$options = array(
+		// s2Member
+		'pronamic_ideal_s2member_enabled' => 'pronamic_pay_s2member_enabled'
+	);
+	
+	foreach ( $options as $key_old => $key_new ) {
+		$value = get_option( $key_old );
+		
+		if ( ! empty( $value ) ) {
+			update_option( $key_new, $value );
+		}
+		
+		delete_option( $key_old );
 	}
 
 	// Gravity Forms feeds
