@@ -82,13 +82,13 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 			// Defaults
 			$status = null;
 			$note   = null;
-			$url    = $data->getNormalReturnUrl();
+			$url    = $data->get_normal_return_url();
 			
 			$status = get_post_meta( $payment->id, '_pronamic_payment_status', true );
 
 			switch ( $status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					$url = $data->getCancelUrl();
+					$url = $data->get_cancel_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -98,7 +98,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
 					}
 					
-					$url = $data->getErrorUrl();
+					$url = $data->get_error_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
@@ -106,7 +106,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 						$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
 					}
 					
-					$url = $data->getErrorUrl();
+					$url = $data->get_error_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
@@ -116,7 +116,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	    	            $order->payment_complete();
 					}
 
-	                $url = $data->getSuccessUrl();
+	                $url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

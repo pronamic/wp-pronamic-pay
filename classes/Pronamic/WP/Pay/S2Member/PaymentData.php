@@ -97,29 +97,4 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	public function getOwnerZip() {
 		return '';
 	}
-
-
-	//////////////////////////////////////////////////
-
-	public function getNormalReturnUrl() {
-		return '';
-	}
-
-	public function getCancelUrl() {
-		return '';
-	}
-
-	public function getSuccessUrl() {
-		return add_query_arg(
-			array(
-				'key' => $this->get_entrance_code(),
-				'order' => $this->getOrderId()
-			),
-			home_url()
-		);
-	}
-
-	public function getErrorUrl() {
-		return '';
-	}
 }

@@ -56,31 +56,31 @@ class Pronamic_AppThemes_IDeal_AddOn {
 
 			$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
 
-			$url = $data->getNormalReturnUrl();
+			$url = $data->get_normal_return_url();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 					$order->failed();
 
-					$url = $data->getCancelUrl();
+					$url = $data->get_cancel_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 					$order->failed();
 					
-					$url = $data->getErrorUrl();
+					$url = $data->get_error_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 					$order->failed();
 					
-					$url = $data->getErrorUrl();
+					$url = $data->get_error_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 					$order->complete();
 
-	                $url = $data->getSuccessUrl();
+	                $url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

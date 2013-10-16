@@ -37,4 +37,24 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	public function getLanguageIso639AndCountryIso3166Code() {
 		return Pronamic_WordPress_IDeal_Util::getLanguageIso639AndCountryIso3166Code();
 	}
+
+	//////////////////////////////////////////////////
+	// URL's
+	//////////////////////////////////////////////////
+	
+	public function get_normal_return_url() {
+		return get_permalink( pronamic_pay_get_page_id( 'unknown' ) );
+	}
+	
+	public function get_cancel_url() {
+		return get_permalink( pronamic_pay_get_page_id( 'cancel' ) );
+	}
+	
+	public function get_success_url() {
+		return get_permalink( pronamic_pay_get_page_id( 'success' ) );
+	}
+	
+	public function get_error_url() {
+		return get_permalink( pronamic_pay_get_page_id( 'error' ) );
+	}
 }

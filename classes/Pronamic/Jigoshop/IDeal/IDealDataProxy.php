@@ -133,7 +133,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	// URL's
 	//////////////////////////////////////////////////
 	
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return add_query_arg(
 			array(
 				'key'   => $this->order->order_key,
@@ -144,12 +144,12 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 		);
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L320
 		return $this->order->get_cancel_order_url();
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return add_query_arg(
 			array(
 				'key'   => $this->order->order_key,
@@ -160,7 +160,7 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 		);
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L309
 		return $this->order->get_checkout_payment_url();
 	}

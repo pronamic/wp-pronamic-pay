@@ -482,7 +482,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->successUrl;
 	}
 
@@ -502,7 +502,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->cancelUrl;
 	}
 	
@@ -522,7 +522,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->errorUrl;
 	}
 	
@@ -662,9 +662,9 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$serial_number++;
 		}
 
-		$fields['urlCancel']   = $this->getCancelUrl();
-		$fields['urlSuccess']  = $this->getSuccessUrl();
-		$fields['urlError']    = $this->getErrorUrl();
+		$fields['urlCancel']   = $this->get_cancel_url();
+		$fields['urlSuccess']  = $this->get_success_url();
+		$fields['urlError']    = $this->get_error_url();
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );
 	}

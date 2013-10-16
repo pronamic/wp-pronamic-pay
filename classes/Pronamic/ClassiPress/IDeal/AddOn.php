@@ -245,7 +245,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 			$data  = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 
-			$url = $data->getNormalReturnUrl();
+			$url = $data->get_normal_return_url();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
@@ -266,7 +266,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 						Pronamic_ClassiPress_ClassiPress::update_payment_status_by_txn_id( $id, Pronamic_ClassiPress_PaymentStatuses::COMPLETED );
 					}
 
-	            	$url = $data->getSuccessUrl();
+	            	$url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

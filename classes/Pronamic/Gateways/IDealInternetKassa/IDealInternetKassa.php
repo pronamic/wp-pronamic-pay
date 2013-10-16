@@ -531,7 +531,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @return string
 	 */
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->get_field( Pronamic_Pay_Gateways_Ogone_Parameters::CANCEL_URL );
 	}
 
@@ -725,7 +725,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			'accepturl'    => $this->getAcceptUrl(),
 			'declineurl'   => $this->getDeclineUrl(),
 			'exceptionurl' => $this->getExceptionUrl(),
-			'cancelurl'    => $this->getCancelUrl()
+			'cancelurl'    => $this->get_cancel_url()
 		) );
 	}
 

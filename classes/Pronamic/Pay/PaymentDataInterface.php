@@ -22,4 +22,16 @@ interface Pronamic_Pay_PaymentDataInterface {
 	 * @return Pronamic_Pay_CreditCard
 	 */
 	public function get_credit_card();
+
+	//////////////////////////////////////////////////
+	// URL's
+	//////////////////////////////////////////////////
+	
+	public function get_normal_return_url();
+	
+	public function get_cancel_url();
+	
+	public function get_success_url();
+	
+	public function get_error_url();
 }

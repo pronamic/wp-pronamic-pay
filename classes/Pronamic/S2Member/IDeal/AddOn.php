@@ -33,13 +33,13 @@ class Pronamic_S2Member_IDeal_AddOn {
 			$order_data[ 'orderID' ] = $payment->getSourceId();
 			$data					 = new Pronamic_WP_Pay_S2Member_PaymentData( $order_data );
 
-			$url = $data->getNormalReturnUrl();
+			$url = $data->get_normal_return_url();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 					$order_data[ 'status' ] = 'Cancelled';
 
-					$url = $data->getCancelUrl();
+					$url = $data->get_cancel_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:

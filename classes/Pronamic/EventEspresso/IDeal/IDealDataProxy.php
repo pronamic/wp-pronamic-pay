@@ -165,19 +165,19 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 
 	//////////////////////////////////////////////////
 
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return $this->get_return_url();
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->get_cancel_return();
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->get_return_url();
 	}
 	
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->get_return_url();
 	}
 }

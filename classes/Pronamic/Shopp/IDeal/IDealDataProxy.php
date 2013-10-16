@@ -142,25 +142,25 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	// catalog, account, cart, checkout, confirm, thanks
 	//////////////////////////////////////////////////
 	
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'open' ), 'thanks' );
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'cancelled' ), 'thanks' );
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( false, 'thanks' );
 	}
 	
-	public function getErrorUrl() {
+	public function get_error_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'error' ), 'thanks' );

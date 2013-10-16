@@ -302,7 +302,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			$payment_data = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
 			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
 
-			$url = $data->getNormalReturnUrl();
+			$url = $data->get_normal_return_url();
 
 			switch($status) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:

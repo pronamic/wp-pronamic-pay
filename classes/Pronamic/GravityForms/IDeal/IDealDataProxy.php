@@ -245,7 +245,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	// URL's
 	//////////////////////////////////////////////////
 	
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
         if ( $url != null ) {
@@ -256,7 +256,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         return $url;
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
         if ( $url != null ) {
@@ -267,7 +267,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         return $url;
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
         if ( $url != null ) {
@@ -278,7 +278,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
         return $url;
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
         if ( $url != null ) {

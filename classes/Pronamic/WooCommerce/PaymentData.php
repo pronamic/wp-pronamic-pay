@@ -175,10 +175,10 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * Get normal return URL
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.0.10/classes/abstracts/abstract-wc-payment-gateway.php#L49
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getNormalReturnUrl()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_normal_return_url()
 	 * @return string
 	 */
-	public function getNormalReturnUrl() { 
+	public function get_normal_return_url() { 
 		$thanks_page_id = woocommerce_get_page_id( 'thanks' );
 
 		// Base URL
@@ -202,15 +202,15 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		return apply_filters( 'woocommerce_get_return_url', $return_url );
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->order->get_cancel_order_url();
 	}
 	
-	public function getSuccessUrl() {
-		return $this->getNormalReturnUrl();
+	public function get_success_url() {
+		return $this->get_normal_return_url();
 	}
 	
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->order->get_checkout_payment_url();
 	}
 }

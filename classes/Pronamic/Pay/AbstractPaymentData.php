@@ -74,18 +74,6 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	public abstract function getLanguageIso639AndCountryIso3166Code();
 
 	//////////////////////////////////////////////////
-	// URL's
-	//////////////////////////////////////////////////
-	
-	public abstract function getNormalReturnUrl();
-	
-	public abstract function getCancelUrl();
-	
-	public abstract function getSuccessUrl();
-	
-	public abstract function getErrorUrl();
-
-	//////////////////////////////////////////////////
 	// Entrance code
 	//////////////////////////////////////////////////
 

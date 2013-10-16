@@ -131,19 +131,19 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-includes/merchant.class.php#L184
 	//////////////////////////////////////////////////
 
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return $this->order->get_return_url();
 	}
 
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->order->get_cancel_url();
 	}
 
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->order->get_return_url();
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->order->get_return_url();
 	}
 }

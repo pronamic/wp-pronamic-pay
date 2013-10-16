@@ -75,13 +75,13 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			);
 
 			if ( $should_update ) {
-				$url = $data_proxy->getNormalReturnUrl();
+				$url = $data_proxy->get_normal_return_url();
 
 				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
-						$url = $data_proxy->getCancelUrl();
+						$url = $data_proxy->get_cancel_url();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -101,7 +101,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 		                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 		                $order->payment_complete();
 
-		                $url = $data_proxy->getSuccessUrl();
+		                $url = $data_proxy->get_success_url();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
