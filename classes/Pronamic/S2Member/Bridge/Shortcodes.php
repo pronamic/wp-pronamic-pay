@@ -54,9 +54,9 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			return;
 
 		// Gets settings to determine if ideal for s2 members is enabled, and all page settings from s2 member
-		$ideal_active		 = get_option( 'pronamic_pay_s2member_enabled' );
+		$is_enabled = get_option( 'pronamic_pay_s2member_enabled' );
 
-		if ( $ideal_active ) {
+		if ( $is_enabled ) {
 			ob_start();
 
 			// Get the configuration id
