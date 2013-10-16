@@ -60,11 +60,11 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			ob_start();
 
 			// Get the configuration id
-			$configuration_id	 = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
-			$configuration		 = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+			$config_id = get_option( 'pronamic_pay_s2member_config_id' );
 
 			// Get the gateway from the configuration
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+
 			?>
 			<form method="post" action="">
 				<input type="hidden" name="pronamic_ideal_s2member_checkout_1" value="<?php echo $this->encrypt_data( $options ); ?>"/>
