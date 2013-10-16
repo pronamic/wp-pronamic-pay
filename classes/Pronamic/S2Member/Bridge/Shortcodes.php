@@ -55,11 +55,6 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 		// Gets settings to determine if ideal for s2 members is enabled, and all page settings from s2 member
 		$ideal_active		 = get_option( 'pronamic_pay_s2member_enabled' );
-		$s2members_settings	 = get_option( 'ws_plugin__s2member_cache' );
-
-		// No configuration set for the membership options page, stop shortcode
-		if ( empty( $s2members_settings[ 'membership_options_page' ] ) )
-			return;
 
 		if ( $ideal_active ) {
 			ob_start();
