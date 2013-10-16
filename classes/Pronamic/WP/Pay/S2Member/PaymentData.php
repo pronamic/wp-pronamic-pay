@@ -8,11 +8,18 @@
  * @author Leon Rowland
  * @since 1.2.6
  */
-class Pronamic_S2Member_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	public $user;
 
-	public $data = array();
+	public $data;
+	
+	//////////////////////////////////////////////////
 
+	/**
+	 * Constructs and intialize an s2Member payment data object
+	 * 
+	 * @param array $data
+	 */
 	public function __construct( $data ) {
 		parent::__construct();
 
@@ -20,6 +27,8 @@ class Pronamic_S2Member_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 
 		$this->user = Pronamic_S2Member_Bridge_Order::getUserFromUID( $this->data['orderID'] );
 	}
+	
+	//////////////////////////////////////////////////
 
 	public function getOrderId() {
 		return $this->data['orderID'];

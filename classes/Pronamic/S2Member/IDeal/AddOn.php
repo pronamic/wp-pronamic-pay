@@ -31,7 +31,7 @@ class Pronamic_S2Member_IDeal_AddOn {
 		if ( $payment->getSource() == 's2member' && 'Success' === $payment->status ) {
 
 			$order_data[ 'orderID' ] = $payment->getSourceId();
-			$data					 = new Pronamic_S2Member_IDeal_IDealDataProxy( $order_data );
+			$data					 = new Pronamic_WP_Pay_S2Member_PaymentData( $order_data );
 
 			$url = $data->getNormalReturnUrl();
 

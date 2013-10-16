@@ -174,7 +174,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			return;
 
 		// Prepare the form data
-		$ideal_data = new Pronamic_S2Member_IDeal_IDealDataProxy( $options );
+		$ideal_data = new Pronamic_WP_Pay_S2Member_PaymentData( $options );
 
 		// Lets set it up, and get it started!
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
