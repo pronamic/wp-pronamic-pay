@@ -68,7 +68,6 @@ function orbis_ideal_upgrade_140() {
 	";
 	
 	$configs = $wpdb->get_results( $query );
-	$config_ids_map = array();
 
 	foreach ( $configs as $config ) {
 		// Post
@@ -81,8 +80,6 @@ function orbis_ideal_upgrade_140() {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$config_ids_map[$config->id] = $post_id;
-
 			$config_meta = json_decode( $config->meta );
 
 			// Meta
@@ -165,6 +162,24 @@ function orbis_ideal_upgrade_140() {
 		
 			$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
 		}
+	}
+	
+	// Config IDs map
+	$query = "
+		SELECT
+			id,
+			post_id
+		FROM
+			$config_table
+		;
+	";
+
+	$config_ids_map = array();
+
+	$config_ids = $wpdb->get_results( $query );
+	
+	foreach ( $config_ids as $config_id ) {
+		$config_ids_map[$config_id->id] = $config_id->post_id;
 	}
 	
 	// Gateway ID options
