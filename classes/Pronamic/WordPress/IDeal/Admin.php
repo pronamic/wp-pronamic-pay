@@ -120,6 +120,82 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function settings_section() {
 
 	}
+	
+	public static function input_checkbox( $args ) {
+		$defaults = array (
+			'label_for' => '',
+			'type'      => 'text',
+			'label'     => ''
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		$id    = $args['label_for'];
+		$value = get_option( $id );
+
+		$legend = sprintf(
+			'<legend class="screen-reader-text"><span>%s</span></legend>',
+			esc_html( $args['label'] )
+		);
+		
+		$input = sprintf(
+			'<input name="%s" id="%s" type="%s" value="%s" %s />',
+			esc_attr( $id ),
+			esc_attr( $id ),
+			esc_attr( 'checkbox' ),
+			esc_attr( '1' ),
+			checked( $value, true, false )
+		);
+
+		$label = sprintf(
+			'<label for="%s">%s %s</label>',
+			esc_attr( $id ),
+			$input, 
+			esc_html( $args['label'] )
+		);
+
+		printf(
+			'<fieldset>%s %s</fieldset>',
+			$legend,
+			$label
+		);
+	}
+	
+	public static function sanitize_boolean( $value ) {
+		return filter_var( $value, FILTER_VALIDATE_BOOLEAN );
+	}
+
+	public static function dropdown_configs( $args ) {
+		$defaults = array (
+			'label_for' => '',
+			'type'      => 'text',
+			'label'     => ''
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		$id    = $args['label_for'];
+		$value = get_option( $id );
+
+		printf(
+			'<select id="%s" name="%s">',
+			esc_attr( $id ),
+			esc_attr( $id )
+		);
+
+		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
+		
+		foreach ( $options as $v => $name ) {
+			printf(
+				'<option value="%s" %s>%s</option>',
+				esc_attr( $v ),
+				selected( $v, $value, false ),
+				esc_html( $name )
+			);
+		}
+
+		printf( '</select>' );
+	}
 
 	/**
 	 * Input text
@@ -127,13 +203,19 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * @param array $args
 	 */
 	public static function input_element( $args ) {
+		$defaults = array (
+			'type' => 'text'
+		);
+		
+		$args = wp_parse_args( $args, $defaults );
+
 		printf(
 			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />',
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			'regular-text code'
+			'regular-text'
 		);
 	}
 
