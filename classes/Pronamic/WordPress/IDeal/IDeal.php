@@ -167,6 +167,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 			$gateway->payment( $payment );
 		}
+		
+		return $payment;
 	}
 
 	public static function create_payment( $configuration_id, $gateway, $data ) {
