@@ -1,6 +1,29 @@
 <?php
 
 /**
+ * Execute changes made in Pronamic iDEAL 1.5.0
+ *
+ * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
+ * @since 1.4.0
+ */
+function orbis_ideal_upgrade_150() {
+	global $wpdb;
+
+	//////////////////////////////////////////////////
+	// Tables delete
+	//////////////////////////////////////////////////
+
+	
+
+	//////////////////////////////////////////////////
+	// Options delete
+	//////////////////////////////////////////////////
+
+	// s2Member
+	delete_option( 'pronamic_ideal_s2member_enabled' );
+}
+
+/**
  * Execute changes made in Pronamic iDEAL 1.4.0
  *
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
@@ -10,8 +33,6 @@ function orbis_ideal_upgrade_140() {
 	global $wpdb;
 
 	require_once ABSPATH . '/wp-admin/includes/upgrade.php';
-	
-	global $wpdb;
 	
 	$charset_collate = '';
 	if ( ! empty( $wpdb->charset ) ) {
@@ -35,8 +56,13 @@ function orbis_ideal_upgrade_140() {
 
 	DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 	*/
+	
+	//////////////////////////////////////////////////
+	// Configs
+	//////////////////////////////////////////////////
 
-	// Configurations
+	global $pronamic_pay_gateways;
+
 	$config_table = $wpdb->prefix . 'pronamic_ideal_configurations';
 
 	$sql = "CREATE TABLE $config_table (
@@ -70,9 +96,15 @@ function orbis_ideal_upgrade_140() {
 	$configs = $wpdb->get_results( $query );
 
 	foreach ( $configs as $config ) {
+		$title = sprintf( __( 'Config %d', 'pronamic_ideal' ), $config->id );
+
+		if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
+			$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
+		}
+
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Config %d', 'pronamic_ideal' ), $config->id ),
+			'post_title'    => $title,
 			'post_type'     => 'pronamic_gateway',
 			'post_status'   => 'publish'
 		);
@@ -163,8 +195,11 @@ function orbis_ideal_upgrade_140() {
 			$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
 		}
 	}
-	
+
+	//////////////////////////////////////////////////
 	// Config IDs map
+	//////////////////////////////////////////////////
+
 	$query = "
 		SELECT
 			id,
@@ -182,75 +217,10 @@ function orbis_ideal_upgrade_140() {
 		$config_ids_map[$config_id->id] = $config_id->post_id;
 	}
 	
-	// Gateway ID options
-	$options = array(
-		// EventEspresso
-		'pronamic_ideal_event_espresso_configuration_id' => array(
-			'type' => 'var',
-			'name' => 'pronamic_pay_event_espreso_config_id'
-		),
-		// Jigoshop
-		'jigoshop_pronamic_ideal_configuration_id' => array(
-			'type' => 'var',
-			'name' => 'pronamic_pay_jigoshop_config_id'
-		),
-		// s2Member
-		'pronamic_ideal_s2member_config_id' => array(
-			'type' => 'var',
-			'name' => 'pronamic_pay_s2member_config_id'
-		),
-		// Shopp
-		'pronamic_shopp_ideal_configuration' => array(
-			'type' => 'var',
-			'name' => 'pronamic_pay_shopp_config_id'
-		),
-		// WooCommerce
-		'woocommerce_pronamic_ideal_settings' => array(
-			'type' => 'object',
-			'var'  => 'configuration_id',
-			'name' => 'config_id'
-		),
-		// WP e-Commerce
-		'pronamic_ideal_wpsc_configuration_id' => array(
-			'type' => 'var',
-			'name' => 'pronamic_pay_wpsc_config_id'
-		)
-	);
-	
-	foreach ( $options as $option => $data ) {
-		$value = get_option( $option );
-		
-		if ( ! empty ( $value ) ) {
-			if ( isset( $data['type'] ) ) {
-				switch( $data['type'] ) {
-					case 'var':
-						if ( isset( $config_ids_map[$value] ) ) {
-							update_option( $option, $config_ids_map[$value] );
-						}
-						
-						break;
-				}
-			}
-		}
-	}
-	
-	// Other options
-	$options = array(
-		// s2Member
-		'pronamic_ideal_s2member_enabled' => 'pronamic_pay_s2member_enabled'
-	);
-	
-	foreach ( $options as $key_old => $key_new ) {
-		$value = get_option( $key_old );
-		
-		if ( ! empty( $value ) ) {
-			update_option( $key_new, $value );
-		}
-		
-		delete_option( $key_old );
-	}
+	//////////////////////////////////////////////////
+	// Gravity Forms payment feeds
+	//////////////////////////////////////////////////
 
-	// Gravity Forms feeds
 	$feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
 	
 	$sql = "CREATE TABLE $feeds_table (
@@ -324,8 +294,11 @@ function orbis_ideal_upgrade_140() {
 			$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
 		}
 	}
-
+	
+	//////////////////////////////////////////////////
 	// Payments
+	//////////////////////////////////////////////////
+
 	$payments_table = $wpdb->prefix . 'pronamic_ideal_payments';
 
 	$sql = "CREATE TABLE $payments_table (
@@ -359,6 +332,9 @@ function orbis_ideal_upgrade_140() {
 	dbDelta( $sql );
 
 	// Query
+
+	// We convert the payments in groups of 100 so not everything will load
+	// in memory at once
 	$query = "
 		SELECT
 			*
@@ -366,53 +342,119 @@ function orbis_ideal_upgrade_140() {
 			$payments_table
 		WHERE
 			post_id IS NULL
+		LIMIT
+			0, 100
 		;
 	";
+	
+	$have_payments = true;
 
-	$payments = $wpdb->get_results( $query );
+	while ( $have_payments ) {
+		$payments = $wpdb->get_results( $query );
 
-	foreach ( $payments as $payment ) {
-		// Post
-		$post = array(
-			'post_title'    => sprintf( __( 'Payment %d', 'pronamic_ideal' ), $payment->id ),
-			'post_date_gmt' => $payment->date_gmt,
-			'post_type'     => 'pronamic_payment',
-			'post_status'   => 'publish'
-		);
-		
-		$post_id = wp_insert_post( $post );
-
-		if ( $post_id ) {
-			// Meta 
-			$meta = array(
-				'config_id'               => @$config_ids_map[$payment->configuration_id],
-				'purchase_id'             => $payment->purchase_id,
-				'currency'                => $payment->currency,
-				'amount'                  => $payment->amount,
-				'expiration_period'       => $payment->expiration_period,
-				'language'                => $payment->language,
-				'entrance_code'           => $payment->entrance_code,
-				'description'             => $payment->description,
-				'consumer_name'           => $payment->consumer_name,
-				'consumer_account_number' => $payment->consumer_account_number,
-				'consumer_iban'           => $payment->consumer_iban,
-				'consumer_bic'            => $payment->consumer_bic,
-				'consumer_city'           => $payment->consumer_city,
-				'status'                  => $payment->status,
-				'source'                  => $payment->source,
-				'source_id'               => $payment->source_id,
-				'email'                   => $payment->email,
+		$have_payments = ! empty( $payments );
+	
+		foreach ( $payments as $payment ) {
+			// Post
+			$post = array(
+				'post_title'    => sprintf( __( 'Payment %d', 'pronamic_ideal' ), $payment->id ),
+				'post_date_gmt' => $payment->date_gmt,
+				'post_type'     => 'pronamic_payment',
+				'post_status'   => 'publish'
 			);
-			
-			foreach ( $meta as $key => $value ) {
-				if ( ! empty( $value ) ) {
-					$meta_key = '_pronamic_payment_' . $key;
 
-					update_post_meta( $post_id, $meta_key, $value );
+			$post_id = wp_insert_post( $post );
+	
+			if ( $post_id ) {
+				// Meta 
+				$meta = array(
+					'config_id'               => @$config_ids_map[$payment->configuration_id],
+					'purchase_id'             => $payment->purchase_id,
+					'currency'                => $payment->currency,
+					'amount'                  => $payment->amount,
+					'expiration_period'       => $payment->expiration_period,
+					'language'                => $payment->language,
+					'entrance_code'           => $payment->entrance_code,
+					'description'             => $payment->description,
+					'consumer_name'           => $payment->consumer_name,
+					'consumer_account_number' => $payment->consumer_account_number,
+					'consumer_iban'           => $payment->consumer_iban,
+					'consumer_bic'            => $payment->consumer_bic,
+					'consumer_city'           => $payment->consumer_city,
+					'status'                  => $payment->status,
+					'source'                  => $payment->source,
+					'source_id'               => $payment->source_id,
+					'email'                   => $payment->email,
+				);
+				
+				foreach ( $meta as $key => $value ) {
+					if ( ! empty( $value ) ) {
+						$meta_key = '_pronamic_payment_' . $key;
+	
+						update_post_meta( $post_id, $meta_key, $value );
+					}
 				}
+			
+				$wpdb->update( $payments_table, array( 'post_id' => $post_id ), array( 'id' => $payment->id ), '%d', '%d' );
 			}
+		}
+	}
+	
+	//////////////////////////////////////////////////
+	// Options config IDs
+	//////////////////////////////////////////////////
+
+	$options = array(
+		// EventEspresso
+		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_event_espreso_config_id',
+		// Jigoshop
+		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_pay_jigoshop_config_id',
+		// s2Member
+		'pronamic_ideal_s2member_config_id'              => 'pronamic_pay_s2member_config_id',
+		// Shopp
+		'pronamic_shopp_ideal_configuration'             => 'pronamic_pay_shopp_config_id',
+		// WooCommerce
+		'woocommerce_pronamic_ideal_settings'            => array(
+			'type' => 'object',
+			'var'  => 'configuration_id',
+			'name' => 'config_id'
+		),
+		// WP e-Commerce
+		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_wpsc_config_id'
+	);
+	
+	foreach ( $options as $key_old => $key_new ) {
+		$value = get_option( $option_old );
+	
+		if ( ! empty ( $value ) ) {
+			// Simple option
+			if ( is_string( $key_new ) ) {
+				$value_new = @$config_ids_map[$value];
+
+				update_option( $key_new, $value_new );
+			}
+			
+			// Complex option
+			if ( is_array( $key_new ) ) {
+				
+			}
+		}
+	}
+
+	//////////////////////////////////////////////////
+	// Options rename
+	//////////////////////////////////////////////////
+
+	// Other options
+	$options = array(
 		
-			$wpdb->update( $payments_table, array( 'post_id' => $post_id ), array( 'id' => $payment->id ), '%d', '%d' );
+	);
+	
+	foreach ( $options as $key_old => $key_new ) {
+		$value = get_option( $key_old );
+	
+		if ( ! empty( $value ) ) {
+			update_option( $key_new, $value );
 		}
 	}
 }
