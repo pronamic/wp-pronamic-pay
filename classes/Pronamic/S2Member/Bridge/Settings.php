@@ -29,7 +29,10 @@ class Pronamic_S2Member_Bridge_Settings {
     		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
     		'pronamic_pay_s2member', // page
     		'pronamic_pay_s2member_general', // section
-    		array( 'label_for' => 'pronamic_pay_s2member_config_id' ) // args
+    		array( // args 
+    			'name'      => 'pronamic_pay_s2member_config_id',
+    			'label_for' => 'pronamic_pay_s2member_config_id'
+    		)
     	);
 
     	register_setting( 'pronamic_pay_s2member', 'pronamic_pay_s2member_config_id' );
