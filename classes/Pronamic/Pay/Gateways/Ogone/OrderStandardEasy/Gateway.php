@@ -42,7 +42,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->setOrderId( $data->getOrderId() );
 		$this->client->setDescription( $data->getDescription() );
 		$this->client->setAmount( $data->getAmount() );
-		$this->client->setEMailAddress( $data->getEMailAddress() );
+		$this->client->setEMailAddress( $data->get_email() );
 		$this->client->setCustomerName( $data->getCustomerName() );
 		$this->client->setOwnerAddress( $data->getOwnerAddress() );
 		$this->client->setOwnerCity( $data->getOwnerCity() );

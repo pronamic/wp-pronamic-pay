@@ -395,7 +395,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @return string
 	 */
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->get_field( Pronamic_Pay_Gateways_Ogone_Parameters::EMAIL );
 	}
 
@@ -705,7 +705,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			'language'     => $this->getLanguage(),
 
 			'CN'           => $this->getCustomerName(),
-			'EMAIL'        => $this->getEMailAddress(),
+			'EMAIL'        => $this->get_email(),
 
 			'owneraddress' => $this->getOwnerAddress(),
 			'ownerZIP'     => $this->getOwnerZip(),

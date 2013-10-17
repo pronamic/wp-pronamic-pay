@@ -107,7 +107,7 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->data['attendee_email'];
 	}
 

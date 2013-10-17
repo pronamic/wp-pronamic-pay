@@ -53,8 +53,8 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
-		$email = parent::getEMailAddress();
+	public function get_email() {
+		$email = null;
 
 		if ( is_user_logged_in() ) {
 			$email = $this->user->user_email;
@@ -64,7 +64,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	}
 
 	public function getCustomerName() {
-		$name = parent::getCustomerName();
+		$name = null;
 
 		if ( is_user_logged_in() ) {
 			$name = $this->user->user_firstname . ' ' . $this->user->user_lastname;

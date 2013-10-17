@@ -101,7 +101,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		$author_id = $this->order->get_author();
 		
 		return get_the_author_meta( 'user_email', $author_id );

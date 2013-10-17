@@ -113,7 +113,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		$user_id = $this->order_values['user_id'];
 		
 		return get_the_author_meta( 'user_email', $user_id );

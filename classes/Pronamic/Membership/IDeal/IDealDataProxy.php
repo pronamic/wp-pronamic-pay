@@ -62,7 +62,7 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 	// CUSTOMER
 	//////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->membership->user_email;
 	}
 

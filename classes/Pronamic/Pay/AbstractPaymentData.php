@@ -45,7 +45,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	// Customer
 	//////////////////////////////////////////////////
 
-	public abstract function getEMailAddress();
+	public abstract function get_email();
 	
 	public abstract function getCustomerName();
 
@@ -87,18 +87,6 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	public function get_issuer_id() {
 		return filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
-	}
-	
-	public function get_email() {
-		if ( is_user_logged_in() ) {
-			$user  = wp_get_current_user();
-
-			$email = $user->user_email;
-		} else {
-			$email = filter_input( INPUT_POST, 'pronamic_ideal_email', FILTER_VALIDATE_EMAIL );
-		}
-		
-		return $email;
 	}
 
 	/**

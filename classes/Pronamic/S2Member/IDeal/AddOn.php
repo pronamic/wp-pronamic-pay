@@ -24,6 +24,7 @@ class Pronamic_S2Member_IDeal_AddOn {
 			$slug = 's2member';
 	
 			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
 	}
 
@@ -106,5 +107,17 @@ class Pronamic_S2Member_IDeal_AddOn {
 			}
 		}
 	}
+	
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Source column
+	 */
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+		$text  = '';
 
+		$text .= __( 's2Member', 'pronamic_ideal' );
+
+		return $text;
+	}
 }

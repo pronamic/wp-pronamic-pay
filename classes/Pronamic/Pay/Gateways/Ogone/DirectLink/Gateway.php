@@ -53,7 +53,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_currency( $data->getCurrencyAlphabeticCode() )
 			->set_amount( $data->getAmount() )
 			->set_customer_name( $data->getCustomerName() )
-			->set_email_address( $data->getEMailAddress() )
+			->set_email_address( $data->get_email() )
 		;
 
 		// DirectLink

@@ -23,7 +23,19 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 		$this->data = $data;
 	}
-	
+
+	//////////////////////////////////////////////////
+	// s2Member specific data
+	//////////////////////////////////////////////////
+
+	public function get_period() {
+		return $this->data['period'];
+	}
+
+	public function get_level() {
+		return $this->data['level'];
+	}
+
 	//////////////////////////////////////////////////
 
 	public function getOrderId() {
@@ -74,11 +86,11 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
-		$email = parent::getEMailAddress();
+	public function get_email() {
+		$email = parent::get_email();
 
-		if ( isset( $this->data['email'] ) ) {
-			$email = $this->data['email'];
+		if ( filter_has_var( INPUT_POST, 'pronamic_pay_s2member_email' ) ) {
+			$email = filter_input( INPUT_POST, 'pronamic_pay_s2member_email', FILTER_VALIDATE_EMAIL );
 		}
 
 		return $email;

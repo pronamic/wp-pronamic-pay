@@ -58,7 +58,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->client->setAmount( $data->getAmount() );
 		
 		$this->client->setCustomerName( $data->getCustomerName() );
-		$this->client->setEMailAddress( $data->getEMailAddress() );
+		$this->client->setEMailAddress( $data->get_email() );
 
 		$url = add_query_arg(
 			array(

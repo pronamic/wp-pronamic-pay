@@ -109,7 +109,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->user->user_email;
 	}
 

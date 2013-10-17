@@ -110,7 +110,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		// @see /shopp/core/model/Purchase.php
 		return $this->purchase->email;
 	}

@@ -336,7 +336,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->eMailAddress;
 	}
 
@@ -454,7 +454,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'PM'           => $this->getPaymentType(),
 
 			'CN'           => $this->getCustomerName(),
-			'EMAIL'        => $this->getEMailAddress(),
+			'EMAIL'        => $this->get_email(),
 		
 			'owneraddress' => $this->getOwnerAddress(),
 			'ownertown'    => $this->getOwnerCity(),

@@ -220,9 +220,8 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->get_field_value( 'email' );
-		exit;
 	}
 
 	public function getCustomerName() {
