@@ -24,19 +24,6 @@ class Pronamic_S2Member_Bridge_Settings {
     	);
 
     	add_settings_field(
-    		'pronamic_pay_s2member_enabled', // id
-    		__( 'Enabled', 'pronamic_ideal' ), // title
-    		array(  'Pronamic_WordPress_IDeal_Admin', 'input_checkbox' ), // callback
-    		'pronamic_pay_s2member', // page
-    		'pronamic_pay_s2member_general', // section
-    		array( // args
-    			'label'     => __( 'Enable the Pronamic Pay gateway for the s2Member plugin', 'pronamic_ideal' ),
-    			'type'      => 'checkbox',
-    			'label_for' => 'pronamic_pay_s2member_enabled'
-    		)
-    	);
-
-    	add_settings_field(
     		'pronamic_pay_s2member_config_id', // id
     		__( 'Config', 'pronamic_ideal' ), // title
     		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
@@ -45,7 +32,6 @@ class Pronamic_S2Member_Bridge_Settings {
     		array( 'label_for' => 'pronamic_pay_s2member_config_id' ) // args
     	);
 
-    	register_setting( 'pronamic_pay_s2member', 'pronamic_pay_s2member_enabled', array( 'Pronamic_WordPress_IDeal_Admin', 'sanitize_boolean' ) );
     	register_setting( 'pronamic_pay_s2member', 'pronamic_pay_s2member_config_id' );
     }
 
