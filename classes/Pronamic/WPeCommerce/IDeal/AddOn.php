@@ -23,13 +23,13 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	public static function bootstrap(){
 		// Add gateway to gateways
-		add_filter( 'wpsc_merchants_modules',                     array( __CLASS__, 'merchants_modules' ) );
-		
+		add_filter( 'wpsc_merchants_modules',               array( __CLASS__, 'merchants_modules' ) );
+
 		$slug = self::SLUG;
 
 		// Update payment status when returned from iDEAL
 		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-		
+
 		// Source Column
 		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
@@ -91,50 +91,46 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	/**
 	 * Update lead status of the specified payment
 	 * 
-	 * @param string $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function status_update( $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$id = $payment->getSourceId();
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $payment->source_id );
+		$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
 
-			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $id );
-			$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
+		$url = $data->get_normal_return_url();
 
-			$url = $data->get_normal_return_url();
+		switch ( $payment->status ) {
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+				// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 
-			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
-					// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+                $url = $data->get_cancel_url();
 
-	                $url = $data->get_cancel_url();
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-	            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
+                $url = $data->get_success_url();
 
-	                $url = $data->get_success_url();
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+				break;
+			default:
 
-					break;
-				default:
+				break;
+		}
+		
+		if ( $can_redirect ) {
+			wp_redirect( $url, 303 );
 
-					break;
-			}
-			
-			if ( $can_redirect ) {
-				wp_redirect( $url, 303 );
-
-				exit;
-			}
+			exit;
 		}
 	}
 
