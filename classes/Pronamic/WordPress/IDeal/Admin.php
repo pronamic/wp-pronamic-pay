@@ -167,26 +167,32 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function dropdown_configs( $args ) {
 		$defaults = array (
-			'label_for' => '',
-			'type'      => 'text',
-			'label'     => ''
+			'name'  => 'pronamic_pay_config_id',
+			'type'  => 'text',
+			'label' => '',
+			'echo'  => true
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$id    = $args['label_for'];
+		// Output
+		$output = '';
+
+		// Dropdown
+		$id    = $args['name'];
+		$name  = $args['name'];
 		$value = get_option( $id );
 
-		printf(
+		$output .= sprintf(
 			'<select id="%s" name="%s">',
 			esc_attr( $id ),
-			esc_attr( $id )
+			esc_attr( $name )
 		);
 
 		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 		
 		foreach ( $options as $v => $name ) {
-			printf(
+			$output .= sprintf(
 				'<option value="%s" %s>%s</option>',
 				esc_attr( $v ),
 				selected( $v, $value, false ),
@@ -194,7 +200,14 @@ class Pronamic_WordPress_IDeal_Admin {
 			);
 		}
 
-		printf( '</select>' );
+		$output .= sprintf( '</select>' );
+		
+		// Return or echo
+		if ( $args['echo'] ) {
+			echo $output;
+		} else {
+			return $output;
+		}
 	}
 
 	/**
