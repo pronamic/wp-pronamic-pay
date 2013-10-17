@@ -118,13 +118,13 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		
 		switch ( $status ) {
 			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
-				$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+				$payment->status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
 				
 				update_post_meta( $payment->id, '_pronamic_payment_status', $status );
 				
 				break;
 			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_CANCELLED:
-				$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
+				$payment->status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
 				
 				update_post_meta( $payment->id, '_pronamic_payment_status', $status );
 				
