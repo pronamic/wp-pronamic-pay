@@ -114,7 +114,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$config = get_pronamic_pay_gateway_config( $config_id );
 
 		$gateway_id = $config->gateway_id;
-		
+
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'buckaroo', 'Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'icepay', 'Pronamic_WP_Pay_Gateways_Icepay_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_advanced', 'Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory' );

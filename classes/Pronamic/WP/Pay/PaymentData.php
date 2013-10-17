@@ -86,7 +86,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	}
 	
 	public function get_success_url() {
-		return get_permalink( pronamic_pay_get_page_id( 'success' ) );
+		return get_permalink( pronamic_pay_get_page_id( 'completed' ) );
 	}
 	
 	public function get_error_url() {

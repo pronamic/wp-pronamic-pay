@@ -10,6 +10,6 @@
  */
 function pronamic_pay_get_page_id( $page ) {
 	$option = sprintf( 'pronamic_pay_%s_page_id', $page );
-	
+
 	return get_option( $option, false );
 }

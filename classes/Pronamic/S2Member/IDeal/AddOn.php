@@ -28,83 +28,83 @@ class Pronamic_S2Member_IDeal_AddOn {
 		}
 	}
 
-	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == 's2member' && 'Success' === $payment->status ) {
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {		
+		$data = new Pronamic_WP_Pay_S2Member_PaymentData( array(
+			'level'  => get_post_meta( $payment->id, '_pronamic_payment_s2member_period', true ),
+			'period' => get_post_meta( $payment->id, '_pronamic_payment_s2member_level', true )
+		) );
 
-			$order_data[ 'orderID' ] = $payment->getSourceId();
-			$data					 = new Pronamic_WP_Pay_S2Member_PaymentData( $order_data );
+		$url = $data->get_normal_return_url();
 
-			$url = $data->get_normal_return_url();
+		switch ( $payment->status ) {
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+				$url = $data->get_cancel_url();
 
-			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					$order_data[ 'status' ] = 'Cancelled';
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+				$url = $data->get_error_url();
 
-					$url = $data->get_cancel_url();
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+				$url = $data->get_error_url();
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-					$order_data[ 'status' ] = 'Expired';
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+				$url = $data->get_success_url();
+				$email = $data->get_email();
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-					$order_data[ 'status' ] = 'Failure';
+				// get account from email
+				$user = get_user_by( 'email', $email );
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-					// get account from email
-					$user = get_user_by( 'email', $payment->getEmail() );
+				// No valid user?
+				if ( ! $user ) {
+					// Make a random string for password
+					$random_string = wp_generate_password( 10 );
 
-					// No valid user?
-					if ( ! $user ) {
-						// Make a random string for password
-						$random_string = wp_generate_password( 10 );
-
-						// Make a user with the username as the email
-						$user_id = wp_create_user( $payment->getEmail(), $random_string, $payment->getEmail() );
-												
-						$subject = __( 'Account Confirmation', 'pronamic-ideal' ) . ' | ' . get_bloginfo( 'name' );
-						$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic-ideal' ), $random_string );
-						wp_mail( $payment->getEmail(), $subject, $message );
-						
-					} else {
-						$user_id = $user->ID;
-					}
-
-					// Add a registration time for their level
-					$registration_times = get_user_option( 's2member_paid_registration_times', $user_id );
-
-					$ordered_level = $order_data[ 'level' ];
-
-					if ( empty( $registration_times ) )
-						$registration_times = array( );
+					// Make a user with the username as the email
+					$user_id = wp_create_user( $email, $random_string, $email );
+											
+					$subject = __( 'Account Confirmation', 'pronamic-ideal' ) . ' | ' . get_bloginfo( 'name' );
+					$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic-ideal' ), $random_string );
+					wp_mail( $email, $subject, $message );
 					
-					$registration_times[ 'level' . $ordered_level ]	 = time();
+				} else {
+					$user_id = $user->ID;
+				}
 
-					$user = new WP_User( $user_id );
-					// $user->add_cap( "s2member_level{$ordered_level}" );
-					$user->add_cap( "access_s2member_level{$ordered_level}" );
-					// $user->set_role( "s2member_level{$ordered_level}" );
+				// Add a registration time for their level
+				$registration_times = get_user_option( 's2member_paid_registration_times', $user_id );
 
-					update_user_option( $user_id, 's2member_paid_registration_times', $registration_times );
+				$level  = $data->get_level();
+				$period = $data->get_period();
 
-					$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time( $user_id, $order_data[ 'period' ], false, false, $registration_times[ 'level' . $ordered_level ] );
+				if ( empty( $registration_times ) )
+					$registration_times = array( );
+				
+				$registration_times[ 'level' . $level ]	 = time();
 
-					update_user_option( $user_id, 's2member_auto_eot_time', $auto_time );
+				$user = new WP_User( $user_id );
+				// $user->add_cap( "s2member_level{$ordered_level}" );
+				$user->add_cap( "access_s2member_level{$level}" );
+				// $user->set_role( "s2member_level{$ordered_level}" );
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-					$order_data[ 'status' ] = 'Open';
+				update_user_option( $user_id, 's2member_paid_registration_times', $registration_times );
 
-					break;
-				default:
-					$order_data[ 'status' ] = 'Unknown';
+				$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time( $user_id, $period, false, false, $registration_times[ 'level' . $level ] );
 
-					break;
+				update_user_option( $user_id, 's2member_auto_eot_time', $auto_time );
 
-					$order = new Pronamic_S2Member_Bridge_Order();
-					$order->update_order( $order_data, $user_id );
-			}
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+				$url = $data->get_normal_return_url();
+
+				break;
+		}
+
+		if ( $url && $can_redirect ) {
+			wp_redirect( $url, 303 );
+
+			exit;
 		}
 	}
 	

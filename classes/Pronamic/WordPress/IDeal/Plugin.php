@@ -139,10 +139,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( $payment ) {
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
-			
+
 			if ( $gateway ) {
 				$gateway->update_status( $payment );
-				
+
+				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 			}
 		}
@@ -158,7 +159,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
 			
 			$payment = get_pronamic_payment( $payment_id );
-			
+
 			self::update_payment( $payment );
 		}
 
