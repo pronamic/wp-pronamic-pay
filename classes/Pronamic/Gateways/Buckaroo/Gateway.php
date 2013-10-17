@@ -54,7 +54,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_culture( $culture );
 		$this->client->set_currency( $data->getCurrencyAlphabeticCode() );
 		$this->client->set_invoice_number( $data->getOrderId() );
-		$this->client->set_description( $data->getDescription() );
+		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->getAmount() );
 		
 		$return_url = add_query_arg( 'gateway', 'buckaroo', home_url( '/' ) );

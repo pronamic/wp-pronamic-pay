@@ -43,7 +43,7 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setLanguage( $data->getLanguageIso639Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$this->client->setPurchaseId( $data->getOrderId() );
-		$this->client->setDescription( $data->getDescription() );
+		$this->client->setDescription( $data->get_description() );
 		$this->client->setItems( $data->getItems() );
 		
 		$url = add_query_arg(

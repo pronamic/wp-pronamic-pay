@@ -57,10 +57,10 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->purchase->id );
 	}
 

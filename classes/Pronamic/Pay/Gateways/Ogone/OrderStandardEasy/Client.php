@@ -249,7 +249,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return an description
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->description;
 	}
 
@@ -450,7 +450,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 
-			'COM'          => $this->getDescription(),
+			'COM'          => $this->get_description(),
 			'PM'           => $this->getPaymentType(),
 
 			'CN'           => $this->getCustomerName(),

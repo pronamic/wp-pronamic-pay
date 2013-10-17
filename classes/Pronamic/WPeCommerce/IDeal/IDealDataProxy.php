@@ -47,10 +47,10 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L41
 		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->merchant->purchase_id );
 	}

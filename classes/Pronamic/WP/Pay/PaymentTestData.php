@@ -52,10 +52,10 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->getOrderId() );
 	}
 
@@ -109,14 +109,6 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function get_email() {
-		return $this->user->user_email;
-	}
-
-	public function getCustomerName() {
-		return $this->user->display_name;
-	}
-
 	public function getOwnerAddress() {
 		return '';
 	}
@@ -127,27 +119,5 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	public function getOwnerZip() {
 		return '';
-	}
-
-	//////////////////////////////////////////////////
-	// URL's
-	// @todo we could also use $this->merchant->cart_data['transaction_results_url']
-	// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-includes/merchant.class.php#L184
-	//////////////////////////////////////////////////
-
-	public function get_normal_return_url() {
-		return home_url( '/' );
-	}
-
-	public function get_cancel_url() {
-		return home_url( '/' );
-	}
-
-	public function get_success_url() {
-		return home_url( '/' );
-	}
-
-	public function get_error_url() {
-		return home_url( '/' );
 	}
 }

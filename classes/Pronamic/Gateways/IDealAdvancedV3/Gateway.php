@@ -93,7 +93,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$transaction->set_currency( $data->getCurrencyAlphabeticCode() );
 		$transaction->set_expiration_period( 'PT3M30S' );
 		$transaction->set_language( $data->getLanguageIso639Code() );
-		$transaction->set_description( $data->getDescription() );
+		$transaction->set_description( $data->get_description() );
 		$transaction->set_entrance_code( $data->get_entrance_code() );
 
 		$return_url = add_query_arg( 'payment', $payment->id, home_url( '/' ) );

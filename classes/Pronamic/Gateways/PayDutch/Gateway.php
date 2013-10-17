@@ -81,7 +81,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
 		$transaction_request = $this->client->get_transaction_request();
 		$transaction_request->reference = $data->getOrderId();
-		$transaction_request->description = $data->getDescription();
+		$transaction_request->description = $data->get_description();
 		$transaction_request->amount = $data->getAmount();
 		$transaction_request->methodcode = Pronamic_Gateways_PayDutch_Methods::WEDEAL;
 		$transaction_request->issuer_id = $data->get_issuer_id();

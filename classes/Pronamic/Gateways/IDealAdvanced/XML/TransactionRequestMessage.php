@@ -65,7 +65,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 		self::addElement( $document, $element, 'currency', $transaction->getCurrency() );
 		self::addElement( $document, $element, 'expirationPeriod', $transaction->getExpirationPeriod() );
 		self::addElement( $document, $element, 'language', $transaction->getLanguage() );
-		self::addElement( $document, $element, 'description', $transaction->getDescription() );
+		self::addElement( $document, $element, 'description', $transaction->get_description() );
 		self::addElement( $document, $element, 'entranceCode', $transaction->getEntranceCode() );
 
 		// Return
@@ -90,7 +90,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 			Pronamic_WordPress_Util::amount_to_cents( $this->transaction->getAmount() ),
 			$this->transaction->getCurrency(),
 			$this->transaction->getLanguage(),
-			$this->transaction->getDescription(),
+			$this->transaction->get_description(),
 			$this->transaction->getEntranceCode()
 		);
 	}

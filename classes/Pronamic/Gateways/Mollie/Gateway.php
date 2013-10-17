@@ -83,7 +83,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		$result = $this->client->create_payment(
 			$data->get_issuer_id(),
 			Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ),
-			$data->getDescription(),
+			$data->get_description(),
 			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
 			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);

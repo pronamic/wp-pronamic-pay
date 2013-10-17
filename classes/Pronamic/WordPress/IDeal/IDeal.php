@@ -197,7 +197,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 				$prefix . 'expiration_period'       => null,
 				$prefix . 'language'                => $data->getLanguageIso639Code(),
 				$prefix . 'entrance_code'           => $data->get_entrance_code(),
-				$prefix . 'description'             => $data->getDescription(),
+				$prefix . 'description'             => $data->get_description(),
 				$prefix . 'consumer_name'           => null,
 				$prefix . 'consumer_account_number' => null,
 				$prefix . 'consumer_iban'           => null,

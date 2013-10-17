@@ -76,7 +76,7 @@ class Pronamic_IDeal_Item {
 	 * 
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->description;
 	}
 

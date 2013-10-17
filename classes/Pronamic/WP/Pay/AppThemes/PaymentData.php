@@ -44,10 +44,10 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->order->get_description();
 	}
 
@@ -74,7 +74,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 		// Item
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( $this->getOrderId() );
-		$item->setDescription( $this->getDescription() );
+		$item->setDescription( $this->get_description() );
 		$item->setPrice( $this->order->get_total() );
 		$item->setQuantity( 1 );
 

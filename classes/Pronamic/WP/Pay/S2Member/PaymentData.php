@@ -42,7 +42,7 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		return $this->data['orderID'];
 	}
 
-	public function getDescription() {
+	public function get_description() {
 		return str_replace( '{{order_id}}', $this->getOrderId(), $this->data['description'] );
 	}
 
@@ -51,7 +51,7 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( $this->getOrderId() );
-		$item->setDescription( $this->getDescription() );
+		$item->setDescription( $this->get_description() );
 		$item->setPrice( $this->data['cost'] );
 		$item->setQuantity( 1 );
 

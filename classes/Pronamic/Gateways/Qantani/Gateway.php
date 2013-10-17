@@ -86,7 +86,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			$data->getAmount(),
 			$data->getCurrencyAlphabeticCode(),
 			$data->get_issuer_id(),
-			$data->getDescription(),
+			$data->get_description(),
 			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
 

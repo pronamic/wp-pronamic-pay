@@ -79,7 +79,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		$result = $this->client->start_transaction(
 			$this->config->layoutcode,
 			$data->get_issuer_id(),
-			$data->getDescription(),
+			$data->get_description(),
 			$data->getAmount(),
 			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
 			add_query_arg( 'payment', $payment->id, home_url( '/' ) )

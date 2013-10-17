@@ -40,7 +40,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->setLanguage( $data->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$this->client->setOrderId( $data->getOrderId() );
-		$this->client->setDescription( $data->getDescription() );
+		$this->client->setDescription( $data->get_description() );
 		$this->client->setAmount( $data->getAmount() );
 		$this->client->setEMailAddress( $data->get_email() );
 		$this->client->setCustomerName( $data->getCustomerName() );
