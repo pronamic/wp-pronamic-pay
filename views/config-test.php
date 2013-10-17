@@ -1,5 +1,7 @@
 <?php
 
+global $pronamic_ideal_errors;
+
 $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( get_the_ID() );
 
 if ( $gateway ) {
