@@ -9,8 +9,6 @@
  * @since 1.2.6
  */
 class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
-	public $user;
-
 	public $data;
 	
 	//////////////////////////////////////////////////
@@ -24,8 +22,6 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		parent::__construct();
 
 		$this->data = $data;
-
-		$this->user = Pronamic_S2Member_Bridge_Order::getUserFromUID( $this->data['orderID'] );
 	}
 	
 	//////////////////////////////////////////////////
@@ -79,11 +75,17 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 
 	public function getEMailAddress() {
-		return $this->user->user_email;
+		$email = parent::getEMailAddress();
+
+		if ( isset( $this->data['email'] ) ) {
+			$email = $this->data['email'];
+		}
+
+		return $email;
 	}
 
 	public function getCustomerName() {
-		return $this->user->first_name . ' ' . $this->user->last_name;
+		return parent::getCustomerName();
 	}
 
 	public function getOwnerAddress() {
