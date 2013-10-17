@@ -64,6 +64,18 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php _e( 'Email', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo get_post_meta( $post_id, '_pronamic_payment_email', true );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php _e( 'Consumer', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
