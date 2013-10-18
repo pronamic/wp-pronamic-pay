@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-18 11:05:22+00:00\n"
-"PO-Revision-Date: 2013-10-18 13:06+0100\n"
+"POT-Creation-Date: 2013-10-18 12:35:02+00:00\n"
+"PO-Revision-Date: 2013-10-18 14:35+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -18,12 +18,12 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/includes/upgrade.php:99
-msgid "Config %d"
+msgid "Configuration %d"
 msgstr "Configuratie %d"
 
 #: admin/includes/upgrade.php:256
-msgid "Feed %d"
-msgstr "Feed %d"
+msgid "Payment Form %d"
+msgstr "Betalingsformulier %d"
 
 #: admin/includes/upgrade.php:360
 msgid "Payment %d"
@@ -73,10 +73,15 @@ msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
+#: classes/Pronamic/EShop/IDeal/AddOn.php:137
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
-#: classes/Pronamic/Membership/Bridge/Settings.php:44 includes/post.php:327
-#: includes/post.php:375
+#: classes/Pronamic/Membership/Bridge/Settings.php:44
+#: classes/Pronamic/S2Member/Bridge/Settings.php:28
+#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
+#: includes/post.php:278 includes/post.php:328 includes/post.php:376
+#: views/gravityforms/feed-edit.php:50
 msgid "Configuration"
 msgstr "Configuratie"
 
@@ -130,14 +135,6 @@ msgstr "Advertentie %s"
 #: classes/Pronamic/EShop/IDeal/AddOn.php:132
 msgid "Accept payment by iDEAL"
 msgstr "Accepteeer betaling via iDEAL"
-
-#: classes/Pronamic/EShop/IDeal/AddOn.php:137
-#: classes/Pronamic/S2Member/Bridge/Settings.php:28
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
-#: includes/post.php:277 views/gravityforms/feed-edit.php:50
-msgid "Config"
-msgstr "Configuratie"
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:165
 msgid "eShop"
@@ -212,7 +209,7 @@ msgstr "&mdash; Andere banken &mdash;"
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:120 includes/post.php:207
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:120 includes/post.php:208
 #: views/meta-box-payment-info.php:27
 msgid "Amount"
 msgstr "Bedrag"
@@ -344,31 +341,31 @@ msgstr "Banken uitschuifkeuzelijst"
 msgid "iDEAL Fields"
 msgstr "iDEAL-velden"
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:82
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:83
 msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:90
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:91
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:98
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:96
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:97
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:106
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:101
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:115
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:108
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:124
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:112
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:130
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
@@ -377,23 +374,13 @@ msgstr "iDEAL-betaling onbekend."
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealDataProxy.php:55
-#: classes/Pronamic/Jigoshop/IDeal/IDealDataProxy.php:83
-#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:64
-#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:90
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
-#: classes/Pronamic/WooCommerce/PaymentData.php:62
-msgid "Order %s"
-msgstr "Bestelling %s"
-
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:72 includes/post.php:97
-#: includes/post.php:204 includes/post.php:275 views/branding.php:109
+#: includes/post.php:205 includes/post.php:276 views/branding.php:109
 #: views/documentation.php:557 views/pages-generator.php:123
 msgid "Title"
 msgstr "Titel"
@@ -405,7 +392,7 @@ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78
-#: includes/post.php:206 views/meta-box-payment-info.php:19
+#: includes/post.php:207 views/meta-box-payment-info.php:19
 msgid "Description"
 msgstr "Beschrijving"
 
@@ -557,6 +544,16 @@ msgstr "Shopp"
 msgid "Select config"
 msgstr "Selecteer configuratie"
 
+#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:64
+#: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:90
+#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:55
+#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
+#: classes/Pronamic/WooCommerce/PaymentData.php:62
+msgid "Order %s"
+msgstr "Bestelling %s"
+
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:59
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:85
 msgid "Test %s"
@@ -652,15 +649,15 @@ msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:392
-#: classes/Pronamic/WordPress/IDeal/Admin.php:393
-msgid "Configurations"
-msgstr "Configuraties"
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:400
-#: classes/Pronamic/WordPress/IDeal/Admin.php:401 includes/post.php:34
+#: classes/Pronamic/WordPress/IDeal/Admin.php:393 includes/post.php:34
 #: includes/post.php:36 includes/post.php:47
 msgid "Payments"
 msgstr "Betalingen"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:400
+#: classes/Pronamic/WordPress/IDeal/Admin.php:401 includes/post.php:18
+msgid "Configurations"
+msgstr "Configuraties"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:408
 #: classes/Pronamic/WordPress/IDeal/Admin.php:409
@@ -706,7 +703,7 @@ msgid "Pages Generator"
 msgstr "Pagina's generator"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:481 includes/post.php:101
-#: includes/post.php:165 views/variants.php:23
+#: includes/post.php:166 views/variants.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -736,7 +733,7 @@ msgstr ""
 "op een andere manier."
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:71
-msgid "&mdash; Select config &mdash;"
+msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:179
@@ -774,64 +771,50 @@ msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
 #: includes/post.php:5 includes/post.php:7
-#, fuzzy
-msgid "Gateway Configs"
-msgstr "Gateways"
+msgid "Payment Gateway Configurations"
+msgstr "Betalingsgateway configuraties"
 
 #: includes/post.php:8
-#, fuzzy
-msgid "Gateway Config"
-msgstr "Gateway"
+msgid "Payment Gateway Configuration"
+msgstr "Betalingsgateway configuratie"
 
 #: includes/post.php:9 includes/post.php:38 includes/post.php:65
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
 
 #: includes/post.php:10
-#, fuzzy
-msgid "Add New Gateway Config"
-msgstr "Nieuwe gateway toevoegen"
+msgid "Add New Payment Gateway Configuration"
+msgstr "Nieuwe betalingsgateway configuratie toevoegen"
 
 #: includes/post.php:11
-#, fuzzy
-msgid "Edit Gateway Config"
-msgstr "Gateway bewerken"
+msgid "Edit Payment Gateway Configuration"
+msgstr "Betalingsgateway configuratie bewerken"
 
 #: includes/post.php:12
-#, fuzzy
-msgid "New Gateway Config"
-msgstr "Nieuwe gateway"
+msgid "New Payment Gateway Configuration"
+msgstr "Nieuwe betalingsgateway configuratie"
 
 #: includes/post.php:13
-#, fuzzy
-msgid "All Gateway Configs"
-msgstr "Alle gateways"
+msgid "All Payment Gateway Configurations"
+msgstr "Alle betalingsgateway configuraties"
 
 #: includes/post.php:14
-#, fuzzy
-msgid "View Gateway Config"
-msgstr "Bekijk gateway"
+msgid "View Payment Gateway Configuration"
+msgstr "Bekijk betalingsgateway configuratie"
 
 #: includes/post.php:15
-#, fuzzy
-msgid "Search Gateway Configs"
-msgstr "Zoek gateways"
+msgid "Search Payment Gateway Configurations"
+msgstr "Zoek betalingsgateway configuraties"
 
 #: includes/post.php:16
-#, fuzzy
-msgid "No gateway configs found"
-msgstr "Geen gateways gevonden."
+msgid "No payment gateaway configurations found"
+msgstr "Geen betalingsgateway configuraties gevonden"
 
 #: includes/post.php:17
-#, fuzzy
-msgid "No gateway configs found in Trash"
-msgstr "Geen gateways gevonden in prullenbak."
+msgid "No payment gateaway configurations found in Trash"
+msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
 
-#: includes/post.php:18
-msgid "Configs"
-msgstr "Configuraties"
-
-#: includes/post.php:37 includes/post.php:345
+#: includes/post.php:37 includes/post.php:346
 msgid "Payment"
 msgstr "Betaling"
 
@@ -920,47 +903,47 @@ msgstr "ID"
 msgid "Secret"
 msgstr "Secret"
 
-#: includes/post.php:102 includes/post.php:211 includes/post.php:279
+#: includes/post.php:102 includes/post.php:212 includes/post.php:280
 #: views/documentation.php:558 views/status-ideal.php:49
 msgid "Date"
 msgstr "Datum"
 
-#: includes/post.php:171 includes/post.php:336 views/config-edit.php:46
+#: includes/post.php:172 includes/post.php:337 views/config-edit.php:46
 #: views/config-test.php:26 views/test-method-advanced-v3.php:97
 #: views/test-method-advanced.php:100 views/test-method-basic.php:82
 msgid "Test"
 msgstr "Test"
 
-#: includes/post.php:177
+#: includes/post.php:178
 msgid "Production"
 msgstr "Productie"
 
-#: includes/post.php:205 views/variants.php:22
+#: includes/post.php:206 views/variants.php:22
 msgid "Gateway"
 msgstr "Gateway"
 
-#: includes/post.php:208 views/meta-box-payment-info.php:79
+#: includes/post.php:209 views/meta-box-payment-info.php:79
 msgid "Consumer"
 msgstr "Consument"
 
-#: includes/post.php:209 includes/post.php:354
+#: includes/post.php:210 includes/post.php:355
 #: views/meta-box-payment-source.php:11
 msgid "Source"
 msgstr "Bron"
 
-#: includes/post.php:210 views/dashboard.php:11
+#: includes/post.php:211 views/dashboard.php:11
 msgid "Status"
 msgstr "Status"
 
-#: includes/post.php:276
+#: includes/post.php:277
 msgid "Form"
 msgstr "Formulier"
 
-#: includes/post.php:278 views/gravityforms/feed-edit.php:69
+#: includes/post.php:279 views/gravityforms/feed-edit.php:69
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
-#: includes/post.php:363
+#: includes/post.php:364
 msgid "Log"
 msgstr ""
 
@@ -1946,6 +1929,29 @@ msgstr ""
 msgid "Pronamic"
 msgstr "Pronamic"
 
+#~ msgid "&mdash; Select config &mdash;"
+#~ msgstr "&mdash; Selecteer configuratie &mdash;"
+
+#~ msgid "Config %d"
+#~ msgstr "Configuratie %d"
+
+#~ msgid "Feed %d"
+#~ msgstr "Feed %d"
+
+#~ msgid "Config"
+#~ msgstr "Configuratie"
+
+#, fuzzy
+#~ msgid "Gateway Configs"
+#~ msgstr "Gateways"
+
+#, fuzzy
+#~ msgid "Gateway Config"
+#~ msgstr "Gateway"
+
+#~ msgid "Configs"
+#~ msgstr "Configuraties"
+
 #~ msgid "Select an config."
 #~ msgstr "Selecteer een configuratie."
 
@@ -1961,9 +1967,6 @@ msgstr "Pronamic"
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://www.pronamic.nl/"
 
-#~ msgid "&mdash; Select configuration &mdash;"
-#~ msgstr "&mdash; Selecteer configuratie &mdash;"
-
 #~ msgid "iDEAL Settings"
 #~ msgstr "iDEAL-instellingen"
 
@@ -1973,10 +1976,6 @@ msgstr "Pronamic"
 
 #, fuzzy
 #~ msgid "Edit Configuration"
-#~ msgstr "Configuratie"
-
-#, fuzzy
-#~ msgid "New Configuration"
 #~ msgstr "Configuratie"
 
 #, fuzzy

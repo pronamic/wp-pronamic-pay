@@ -96,7 +96,7 @@ function orbis_ideal_upgrade_140() {
 	$configs = $wpdb->get_results( $query );
 
 	foreach ( $configs as $config ) {
-		$title = sprintf( __( 'Config %d', 'pronamic_ideal' ), $config->id );
+		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
 		if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
 			$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
@@ -253,7 +253,7 @@ function orbis_ideal_upgrade_140() {
 	foreach ( $feeds as $feed ) {
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Feed %d', 'pronamic_ideal' ), $feed->id ),
+			'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
 			'post_type'     => 'pronamic_pay_gf',
 			'post_status'   => 'publish'
 		);

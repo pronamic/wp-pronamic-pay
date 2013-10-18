@@ -25,7 +25,7 @@ class Pronamic_S2Member_Bridge_Settings {
 
     	add_settings_field(
     		'pronamic_pay_s2member_config_id', // id
-    		__( 'Config', 'pronamic_ideal' ), // title
+    		__( 'Configuration', 'pronamic_ideal' ), // title
     		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
     		'pronamic_pay_s2member', // page
     		'pronamic_pay_s2member_general', // section

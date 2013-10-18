@@ -47,7 +47,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		<tr>
 			<th scope="row">
 				<label for="_pronamic_pay_gf_config_id">
-					<?php _e( 'Config', 'pronamic_ideal' ); ?>
+					<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>

@@ -134,7 +134,7 @@ class Pronamic_EShop_IDeal_AddOn {
 			</p>
 
 			<label for="eshop_pronamic_ideal_config_id">
-				<?php _e( 'Config', 'pronamic_ideal' ) ?>:
+				<?php _e( 'Configuration', 'pronamic_ideal' ) ?>:
 			</label>
 
 			<select name="eshop_pronamic_ideal_config_id" id="eshop_pronamic_ideal_config_id">

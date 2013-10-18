@@ -81,7 +81,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' )
 			) , 
 			'config_id'   => array(
-				'title'       => __( 'Config', 'pronamic_ideal' ) , 
+				'title'       => __( 'Configuration', 'pronamic_ideal' ) , 
 				'type'        => 'select' , 
 				'default'     => '' , 
 				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 

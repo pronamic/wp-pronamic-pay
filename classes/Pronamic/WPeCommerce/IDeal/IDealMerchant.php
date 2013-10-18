@@ -69,7 +69,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 
 		$html .= '<tr>';
 		$html .= '	<td class="wpsc_CC_details">';
-		$html .= '		' . __( 'Config', 'pronamic_ideal' );
+		$html .= '		' . __( 'Configuration', 'pronamic_ideal' );
 		$html .= '	</td>';
 		$html .= '	<td>';
 		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array( 
