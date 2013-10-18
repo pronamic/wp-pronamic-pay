@@ -58,7 +58,7 @@ function pronamic_pay_create_initial_post_types() {
 	) );
 
 	register_post_type( 'pronamic_pay_gf', array(
-		'label'              => __( 'Feeds', 'pronamic_ideal' ),
+		'label'              => __( 'Payment Forms', 'pronamic_ideal' ),
 		'labels'             => array(
 			'name'               => __( 'Payment Forms', 'pronamic_ideal' ),
 			'singular_name'      => __( 'Payment Form', 'pronamic_ideal' ),
