@@ -56,4 +56,18 @@ class Pronamic_Jigoshop_Jigoshop {
 	 * @var string
 	 */
 	const ORDER_STATUS_CANCELLED = 'cancelled';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if Jigoshop is active (Automattic/developer style)
+	 * 
+	 * @see https://github.com/jigoshop/jigoshop/blob/1.8/jigoshop.php#L45
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 * 
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'JIGOSHOP_VERSION' );
+	}
 }

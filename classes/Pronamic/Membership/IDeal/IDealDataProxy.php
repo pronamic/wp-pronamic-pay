@@ -21,12 +21,12 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 		return $this->membership->id . '$' . $this->subscription->sub_id() . '$' . time();
 	}
 
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->membership->id . '$' . $this->subscription->sub_id() . '$' . time();
 	}
 
-	public function getDescription() {
-		return $this->getOrderId();
+	public function get_description() {
+		return $this->get_order_id();
 	}
 
 	public function getItems() {
@@ -35,8 +35,8 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 		$items = new Pronamic_IDeal_Items();
 
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
-		$item->setDescription( $this->getDescription() );
+		$item->setNumber( $this->get_order_id() );
+		$item->setDescription( $this->get_description() );
 		$item->setPrice( number_format( $pricing_array[0]['amount'], 2 ) );
 		$item->setQuantity( 1 );
 
@@ -62,7 +62,7 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 	// CUSTOMER
 	//////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->membership->user_email;
 	}
 
@@ -84,19 +84,19 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 
 	//////////////////
 
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 
 	}
 
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 
 	}
 
-	public function getSuccessUrl() {
+	public function get_success_url() {
 
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 
 	}
 }

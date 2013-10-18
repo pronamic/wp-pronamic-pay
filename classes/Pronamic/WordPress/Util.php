@@ -114,6 +114,19 @@ class Pronamic_WordPress_Util {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Convert boolean to an string boolean
+	 * 
+	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
+	 * @param boolean $boolean
+	 * @return int
+	 */
+	public static function to_string_boolean( $boolean ) {
+		return $boolean ? 'true' : 'false';
+	}
+
+	//////////////////////////////////////////////////
+
 	public static function format_date( $format, DateTime $date = null ) {
 		$result = null;
 		

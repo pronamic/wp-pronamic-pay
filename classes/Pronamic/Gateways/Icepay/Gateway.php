@@ -21,10 +21,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and intializes an Icepay gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Icepay_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Icepay_Config $config ) {
+		parent::__construct( $config );
 		
 		// Default properties for this gateway
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
@@ -102,15 +102,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )
 				->setReference( site_url( '/' ) )
-				->setDescription( $data->getDescription() )
+				->setDescription( $data->get_description() )
 				->setCurrency( $data->getCurrencyAlphabeticCode() )
 				->setIssuer( $data->get_issuer_id() )
-				->setOrderID( $data->getOrderId() );
+				->setOrderID( $data->get_order_id() );
 		
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode
-				->setMerchantID( $this->configuration->icepayMerchantId )
-				->setSecretCode( $this->configuration->icepaySecretCode )
+				->setMerchantID( $this->config->merchant_id )
+				->setSecretCode( $this->config->secret_code )
 				->setProtocol( 'http' )
 				->validatePayment( $payment );
 			
@@ -125,15 +125,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update the status of the specified payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 * @throws Exception
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function update_status( Pronamic_Pay_Payment $payment ) {
 		// Get the Icepay Result and set the required fields
 		$result = new Icepay_Result();
 		$result
-			->setMerchantID( $this->configuration->icepayMerchantId )
-			->setSecretCode( $this->configuration->icepaySecretCode );
+			->setMerchantID( $this->config->merchant_id )
+			->setSecretCode( $this->config->secret_code );
 		
 		try {
 			// Determine if the result can be validated

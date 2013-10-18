@@ -24,7 +24,7 @@ class Pronamic_Gateways_Mollie_ReturnHandler extends Pronamic_Gateways_ReturnHan
 	}
 
 	public function returns( $transaction_id ) {
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_id );
 
 		if ( $payment != null ) {
 			$can_redirect = true;

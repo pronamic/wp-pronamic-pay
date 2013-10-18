@@ -37,9 +37,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->init_settings();
 		
 		// Define user set variables
-		$this->title            = $this->settings['title'];
-		$this->description      = $this->settings['description'];
-		$this->configuration_id = $this->settings['configuration_id'];
+		$this->title       = $this->settings['title'];
+		$this->description = $this->settings['description'];
+		$this->config_id   = $this->settings['config_id'];
 		
 		// Actions
 		$update_action = 'woocommerce_update_options_payment_gateways_' . $this->id;
@@ -62,30 +62,29 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		}
 
     	$this->form_fields = array(
-    		'enabled'          => array(
+    		'enabled'     => array(
 				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ) , 
 				'type'    => 'checkbox' , 
 				'label'   => __( 'Enable iDEAL', 'pronamic_ideal' ) , 
 				'default' => 'yes' 
 			) ,  
-			'title'            => array(
+			'title'       => array(
 				'title'       => __( 'Title', 'pronamic_ideal' ) , 
 				'type'        => 'text' , 
 				'description' => $description_prefix . __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ) , 
 				'default'     => __( 'iDEAL', 'pronamic_ideal' ) 
 			) , 
-			'description'      => array(
+			'description' => array(
 				'title'       => __( 'Description', 'pronamic_ideal' ) , 
 				'type'        => 'textarea' , 
 				'description' => $description_prefix . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ) , 
 				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' )
 			) , 
-			'configuration_id' => array(
+			'config_id'   => array(
 				'title'       => __( 'Configuration', 'pronamic_ideal' ) , 
 				'type'        => 'select' , 
-				'description' => $description_prefix . __( 'Select an iDEAL configuration.', 'pronamic_ideal' ) , 
 				'default'     => '' , 
-				'options'     => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options() 
+				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
 			)
 		);
     }
@@ -121,9 +120,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/classes/gateways/class-wc-payment-gateway.php#L181
 		parent::payment_fields();
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-		
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			echo $gateway->get_input_html();
@@ -136,16 +133,14 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 * Receipt page
 	 */
 	function receipt_page( $order_id ) {
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-
 		$order = new WC_Order( $order_id );
 
-		$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_WooCommerce_PaymentData( $order );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 			echo $gateway->get_form_html();
 		}
@@ -168,13 +163,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$note = __( 'Awaiting iDEAL payment.', 'pronamic_ideal' );
 
 		// Do specifiek iDEAL variant processing
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 		
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
-		
+		$return = false;
+
 		if ( $gateway ) {
 			if ( $gateway->is_http_redirect() ) {
-				$return = $this->process_gateway_http_redirect( $order, $configuration, $gateway );
+				$return = $this->process_gateway_http_redirect( $order, $gateway );
 			}
 
 			if ( $gateway->is_html_form() ) {
@@ -182,7 +177,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			}
 			
 			if ( ! $gateway->has_feedback() ) {
-				$note = self::get_check_payment_note( $order, $configuration );
+				$note = self::get_check_payment_note( $order );
 
 				self::mail_check_payment( $order, $note );
 			}
@@ -199,9 +194,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * Get check payment note
      * 
      * @param WC_Order $order
-     * @param Pronamic_WordPress_IDeal_Configuration $configuration
      */
-    private static function get_check_payment_note( $order, $configuration ) {
+    private static function get_check_payment_note( $order ) {
 		// get_edit_post_link() will not work, has permissions check for current user
 		$edit_order_link = add_query_arg( 
 			array(
@@ -211,10 +205,13 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			admin_url( 'post.php' )
 		);
 
+		// @todo get dashboard URL from config id
+		$dashboard_url = '#';
+
 		$note = sprintf(
 			__( 'Check the payment of order %s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal' ),
 			$order->get_order_number(),
-			esc_attr( $configuration->getDashboardUrl() ),
+			esc_attr( $dashboard_url ),
 			esc_attr( $edit_order_link )
 		);
 
@@ -225,7 +222,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * Mail the new order e-mail recipient
      * 
      * @param WC_Order $order
-     * @param Pronamic_WordPress_IDeal_Configuration $configuration
      */
     private function mail_check_payment( $order, $note ) {
 		global $woocommerce;
@@ -255,8 +251,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * Process iDEAL payment
      * 
      * @param WC_Order $order
-     * @param Pronamic_WordPress_IDeal_Configuration $configuration
-     * @param Pronamic_IDeal_Variant $variant
+     * 
      * @return array
      */
     private function process_gateway_html_form( $order ) {
@@ -277,16 +272,15 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * Process iDEAL advanced payment
      * 
      * @param WC_Order $order
-     * @param Pronamic_WordPress_IDeal_Configuration $configuration
      * @param Pronamic_IDeal_Variant $variant
      * @return array
      */
-    private function process_gateway_http_redirect( $order, $configuration, $gateway ) {
+    private function process_gateway_http_redirect( $order, $gateway ) {
     	global $woocommerce;
 
-		$data = new Pronamic_WooCommerce_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_WooCommerce_PaymentData( $order );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+		Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 

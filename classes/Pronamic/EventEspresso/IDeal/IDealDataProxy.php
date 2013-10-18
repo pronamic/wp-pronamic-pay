@@ -49,20 +49,20 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return sprintf( __( 'Attendee %s', 'pronamic_ideal' ), $this->data['attendee_id'] );
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->data['attendee_id'];
 	}
 
@@ -107,7 +107,7 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		return $this->data['attendee_email'];
 	}
 
@@ -165,19 +165,19 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 
 	//////////////////////////////////////////////////
 
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return $this->get_return_url();
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->get_cancel_return();
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->get_return_url();
 	}
 	
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->get_return_url();
 	}
 }

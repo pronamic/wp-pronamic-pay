@@ -47,9 +47,10 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 			add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
-		
-			add_filter( 'pronamic_ideal_source_column_classipress', array( __CLASS__, 'source_column' ), 10, 2 );
+			$slug = self::SLUG;
+
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
 	}
 
@@ -97,8 +98,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			array(
 				'type'    => 'select',
 				'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
-				'options' => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options(),
-				'id'      => $app_abbr . '_pronamic_ideal_configuration_id'
+				'options' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+				'id'      => $app_abbr . '_pronamic_ideal_config_id'
 			),
             array(
             	'type'    => 'tabend',
@@ -110,18 +111,18 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the configuration
+	 * Get the config
 	 * 
 	 * @return Pronamic_WordPress_IDeal_Configuration
 	 */
-	private function get_configuration() {
+	private function get_gateway() {
 		global $app_abbr;
 		
-		$configuration_id = get_option( $app_abbr . '_pronamic_ideal_configuration_id' );
+		$config_id = get_option( $app_abbr . '_pronamic_ideal_config_id' );
 		
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 		
-		return $configuration;
+		return $gateway;
 	}
 
 	//////////////////////////////////////////////////
@@ -144,9 +145,11 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 */
 	public static function process_gateway() {
 		if ( isset( $_POST['classipress_pronamic_ideal'] ) ) {
-			$configuration = self::get_configuration();
-
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			global $app_abbr;
+			
+			$config_id = get_option( $app_abbr . '_pronamic_ideal_config_id' );
+			
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 				
 			if ( $gateway ) {
 				$id = filter_input( INPUT_POST, 'oid', FILTER_SANITIZE_STRING );
@@ -155,7 +158,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 				$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 					
-				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+				Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 					
 				if ( $gateway->is_http_redirect() ) {
 					$gateway->redirect();
@@ -179,15 +182,17 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 		$transaction_id = Pronamic_ClassiPress_ClassiPress::add_transaction_entry( $order_values );
 
 		// Handle gateway
-		$configuration = self::get_configuration();
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		global $app_abbr;
+		
+		$config_id = get_option( $app_abbr . '_pronamic_ideal_config_id' );
+		
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
 
 			if ( $gateway->is_html_form() ) {
-				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+				Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
 				echo $gateway->get_form_html( $auto_submit = true );
 			}
@@ -202,7 +207,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 					echo Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 						'cp_payment_method'  => 'pronamic_ideal',
-						'oid'                => $data->getOrderId()
+						'oid'                => $data->get_order_id()
 					) );
 
 					echo $gateway->get_input_html();
@@ -232,7 +237,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * 
 	 * @param string $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG ) {
 			$id = $payment->getSourceId();
 
@@ -240,7 +245,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 			$data  = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 
-			$url = $data->getNormalReturnUrl();
+			$url = $data->get_normal_return_url();
 
 			switch ( $payment->status ) {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
@@ -261,7 +266,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 						Pronamic_ClassiPress_ClassiPress::update_payment_status_by_txn_id( $id, Pronamic_ClassiPress_PaymentStatuses::COMPLETED );
 					}
 
-	            	$url = $data->getSuccessUrl();
+	            	$url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
@@ -285,7 +290,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'ClassiPress', 'pronamic_ideal' ) . '<br />';
@@ -294,7 +299,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			// get_edit_post_link( $payment->getSourceId() ),
 			add_query_arg( 'page', 'transactions', admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() ) 
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id ) 
 		);
 
 		return $text;

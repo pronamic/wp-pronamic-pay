@@ -1,9 +1,22 @@
-#icon-pronamic_ideal {
+#icon-pronamic_ideal,
+#icon-gf_edit_forms {
 	background: url("../../images/icon-32x32.png") no-repeat;	
 }
 
 td.column-version {
 	width: 5em;
+}
+
+/**
+ * Payment log postbox
+ */
+#pronamic_payment_log.postbox .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#pronamic_payment_log .comments-box {
+    border: 0 none;
 }
 
 /**
@@ -27,6 +40,21 @@ pre.security-data {
 body.ideal_page_pronamic_ideal_documentation tr.deprecated td,
 body.ideal_page_pronamic_ideal_documentation tr.deprecated a {
 	color: #AAAAAA;
+}
+
+/**
+ * Gravity Forms notifications
+ */
+.pronamic-pay-gf-notifications {
+	margin-left: 28px;
+}
+
+.pronamic-pay-gf-notifications ul {
+	margin: 0;	
+}
+
+.pronamic-pay-gf-notifications li {
+	margin: 0;	
 }
 
 /**

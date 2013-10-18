@@ -26,11 +26,11 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Configuration
+	 * Pronamic_Pay_Config
 	 * 
-	 * @var Pronamic_WordPress_IDeal_Configuration
+	 * @var int
 	 */
-	protected $configuration;
+	protected $config;
 
 	/////////////////////////////////////////////////
 
@@ -96,10 +96,10 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		$this->configuration = $configuration;
+	public function __construct( Pronamic_Pay_Config $config ) {
+		$this->config = $config;
 	}
 
 	/////////////////////////////////////////////////
@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
+		$transient = 'pronamic_ideal_issuers_' . spl_object_hash( $this->config );
 
 		$result = get_transient( $transient );
 		// $result = false;
@@ -265,9 +265,9 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Handle payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function payment( Pronamic_Pay_Payment $payment ) {
 		
 	}
 	

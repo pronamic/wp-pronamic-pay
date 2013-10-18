@@ -21,10 +21,10 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
@@ -32,12 +32,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Pay_Gateways_Ogone_DirectLink_Client();
-		$this->client->psp_id   = $configuration->pspId;
-		$this->client->sha_in   = $configuration->shaInPassPhrase;
-		$this->client->user_id  = $configuration->ogone_user_id;
-		$this->client->password = $configuration->ogone_password;
+		$this->client->psp_id   = $config->psp_id;
+		$this->client->sha_in   = $config->sha_in_pass_phrase;
+		$this->client->user_id  = $config->user_id;
+		$this->client->password = $config->password;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
@@ -48,12 +48,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		
 		$ogone_data_general
 			->set_psp_id( $this->client->psp_id )
-			->set_order_id( $data->getOrderId() )
-			->set_order_description( $data->getDescription() )
+			->set_order_id( $data->get_order_id() )
+			->set_order_description( $data->get_description() )
 			->set_currency( $data->getCurrencyAlphabeticCode() )
 			->set_amount( $data->getAmount() )
 			->set_customer_name( $data->getCustomerName() )
-			->set_email_address( $data->getEMailAddress() )
+			->set_email_address( $data->get_email() )
 		;
 
 		// DirectLink
@@ -84,13 +84,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$data['SHASIGN'] = $kassa->getSignatureIn();
 		
 		$result = $this->client->order_direct( $data );
-		
-		var_dump( $result );
-		exit;
 
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
+			$this->set_transaction_id( $result->pay_id );
+
 			$this->set_action_url( add_query_arg( 'status', $result->status ) );
 		}
 	}

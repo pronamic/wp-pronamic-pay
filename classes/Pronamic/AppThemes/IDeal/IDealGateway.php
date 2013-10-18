@@ -23,15 +23,15 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Returns an array representing the form to output for admin configuration
+	 * Returns an array representing the form to output for admin config
 	 */
 	public function form() {
 		$form_values = array(
 			array(
 				'title'   => __( 'Configuration', 'pronamic_ideal' ),
 				'type'    => 'select',
-				'name'    => 'configuration_id',
-				'choices' => Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options() 
+				'name'    => 'config_id',
+				'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
 			),
 		);
 		
@@ -49,17 +49,17 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 	 * Processes a payment using this Gateway
 	 */
 	public function process( $order, $options ) {
-		if ( isset( $options['configuration_id'] ) ) {
-			$configuration_id = $options['configuration_id'];
-			$configuration    = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+		if ( isset( $options['config_id'] ) ) {
+			$config_id = $options['config_id'];
+			$config    = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $config_id );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config );
 			
 			if ( $gateway ) {
 				$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
 
 				if ( filter_has_var( INPUT_POST, 'classipress_pronamic_ideal' ) ) {
-					Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+					Pronamic_WordPress_IDeal_IDeal::start( $config, $gateway, $data );
 					
 					$error = $gateway->get_error();
 					

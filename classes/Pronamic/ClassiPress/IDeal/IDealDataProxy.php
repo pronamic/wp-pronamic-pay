@@ -46,20 +46,20 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
-		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->getOrderId() );
+	public function get_description() {
+		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->get_order_id() );
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		$order_id = null;
 		
 		if ( isset( $this->order_values['oid'] ) ) {
@@ -113,7 +113,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		$user_id = $this->order_values['user_id'];
 		
 		return get_the_author_meta( 'user_email', $user_id );
@@ -233,19 +233,19 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 
 	//////////////////////////////////////////////////
 	
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return $this->get_notify_url();
 	}
 	
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->get_notify_url();
 	}
 	
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->get_return_url();
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->get_notify_url();
 	}
 }

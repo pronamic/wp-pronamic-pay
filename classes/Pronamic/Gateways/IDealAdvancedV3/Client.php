@@ -251,13 +251,13 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 	 * @param string $issuer_id
 	 * @return Pronamic_Gateways_IDealAdvancedV3_XML_TransactionResponseMessage
 	 */
-	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $issuer_id ) {
+	public function create_transaction( Pronamic_Gateways_IDealAdvancedV3_Transaction $transaction, $return_url, $issuer_id ) {
 		$message = new Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage();
 
 		$merchant = $message->get_merchant();
 		$merchant->set_id( $this->merchant_id );
 		$merchant->set_sub_id( $this->sub_id );
-		$merchant->set_return_url( add_query_arg( 'gateway', 'ideal_advanced_v3', home_url( '/' ) ) );
+		$merchant->set_return_url( $return_url );
 
 		$message->issuer = new Pronamic_Gateways_IDealAdvancedV3_Issuer();
 		$message->issuer->set_id( $issuer_id );
@@ -323,21 +323,29 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			$key->passphrase = $this->private_key_password;
 			$key->loadKey( $this->private_key );
 			
-			// Sign
-			$dsig->sign( $key );
+			// Test if we can get an private key object, to prefent the following errors:
+			// Warning: openssl_sign() [function.openssl-sign]: supplied key param cannot be coerced into a private key 
+			$result = openssl_get_privatekey( $this->private_key, $this->private_key_password );
 			
-			// The public key must be referenced using a fingerprint of an X.509 
-			// certificate. The fingerprint must be calculated according
-			// to the following formula HEX(SHA-1(DER certificate)) (13)
-			// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 31
-			$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
-
-			$dsig->addKeyInfoAndName( $fingerprint );
-
-			// Add the signature
-			$dsig->appendSignature( $document->documentElement );
-
-			$result = $document;
+			if ( $result !== false ) {
+				// Sign
+				$dsig->sign( $key );
+				
+				// The public key must be referenced using a fingerprint of an X.509 
+				// certificate. The fingerprint must be calculated according
+				// to the following formula HEX(SHA-1(DER certificate)) (13)
+				// @see http://pronamic.nl/wp-content/uploads/2012/12/iDEAL-Merchant-Integration-Guide-ENG-v3.3.1.pdf #page 31
+				$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->private_certificate );
+	
+				$dsig->addKeyInfoAndName( $fingerprint );
+	
+				// Add the signature
+				$dsig->appendSignature( $document->documentElement );
+	
+				$result = $document;
+			} else {
+				throw new Exception( 'Can not load private key' );
+			}
 		} catch ( Exception $e ) {
 			$this->error = new WP_Error( 'xml_security', $e->getMessage(), $e );
 		}

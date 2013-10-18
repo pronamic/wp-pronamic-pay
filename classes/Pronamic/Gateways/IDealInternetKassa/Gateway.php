@@ -21,10 +21,10 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_WordPress_IDeal_Configuration $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_WordPress_IDeal_Configuration $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( true );
@@ -33,10 +33,10 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 
 		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
 
-		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-		$this->client->setPspId( $configuration->pspId );
-		$this->client->setPassPhraseIn( $configuration->shaInPassPhrase );
-		$this->client->setPassPhraseOut( $configuration->shaOutPassPhrase );
+		$this->client->setPaymentServerUrl( $config->getPaymentServerUrl() );
+		$this->client->setPspId( $config->pspId );
+		$this->client->setPassPhraseIn( $config->shaInPassPhrase );
+		$this->client->setPassPhraseOut( $config->shaOutPassPhrase );
 	}
 
 	/////////////////////////////////////////////////
@@ -48,17 +48,17 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$this->set_action_url( $this->client->getPaymentServerUrl() );
 
 		$this->client->setLanguage( $data->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
-		$this->client->setOrderId( $data->getOrderId() );
-		$this->client->setOrderDescription( $data->getDescription() );
+		$this->client->setOrderId( $data->get_order_id() );
+		$this->client->setOrderDescription( $data->get_description() );
 		$this->client->setAmount( $data->getAmount() );
 		
 		$this->client->setCustomerName( $data->getCustomerName() );
-		$this->client->setEMailAddress( $data->getEMailAddress() );
+		$this->client->setEMailAddress( $data->get_email() );
 
 		$url = add_query_arg(
 			array(

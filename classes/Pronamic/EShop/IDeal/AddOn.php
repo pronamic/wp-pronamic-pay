@@ -30,7 +30,7 @@ class Pronamic_EShop_IDeal_AddOn {
 		/**
 		 * Pronamic iDEAL filters
 		 */
-		add_filter('pronamic_ideal_source_column_eshop', array(__CLASS__, 'sourceColumn'), 10, 2);
+		add_filter('pronamic_payment_source_text_eshop', array(__CLASS__, 'sourceColumn'), 10, 2);
 		
 		/**
 		 * eShop actions
@@ -116,18 +116,10 @@ class Pronamic_EShop_IDeal_AddOn {
 		// Globals
 		global $eshop_metabox_plugin, $eshopoptions;
 
-		// Configurations
-    	$configurations = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurations();
-    	$configurationOptions = array('' => __('&mdash; Select configuration &mdash;', 'pronamic_ideal'));
-    	foreach($configurations as $configuration) {
-    		$configurationOptions[$configuration->getId()] = $configuration->getName();
-    	}
-
 		// eShop options
-		$configurationId = null;
-		if(isset($eshopoptions['pronamic_ideal'])) {
-			$configurationId = null;
-		}
+		$config_id = @$eshopoptions['pronamic_ideal'];
+		
+		$configs = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 
 		?>
 		<fieldset>
@@ -137,18 +129,27 @@ class Pronamic_EShop_IDeal_AddOn {
 				<input id="eshop_method_pronamic_ideal" name="eshop_method[]" type="checkbox" value="pronamic_ideal" <?php checked(in_array('pronamic_ideal', (array) $eshopoptions['method'])); ?> />
 
 				<label for="eshop_method_pronamic_ideal" class="eshopmethod">
-					<?php _e('Accept payment by iDEAL', 'pronamic_ideal'); ?>
+					<?php _e( 'Accept payment by iDEAL', 'pronamic_ideal' ); ?>
 				</label>
 			</p>
 
-			<label for="eshop_pronamic_ideal_configuration_id">
-				<?php _e('Configuration', 'pronamic_ideal') ?>:
+			<label for="eshop_pronamic_ideal_config_id">
+				<?php _e( 'Configuration', 'pronamic_ideal' ) ?>:
 			</label>
 
-			<select name="eshop_pronamic_ideal_configuration_id" id="eshop_pronamic_ideal_configuration_id">
-				<?php foreach($configurationOptions as $id => $name): ?>
-				<option value="<?php echo $id; ?>" <?php selected($configurationId, $id); ?>><?php echo $name; ?></option>
-				<?php endforeach; ?>
+			<select name="eshop_pronamic_ideal_config_id" id="eshop_pronamic_ideal_config_id">
+				<?php
+				
+				foreach ( $configs as $id => $name ) {
+					printf(
+						'<option value="%s" %s>%s</option>',
+						esc_attr( $id ),
+						selected( $id, $config_id, false ),
+						esc_html( $name )
+					);
+				}
+
+				?>
 			</select>
 		</fieldset>
 		<?php
@@ -161,9 +162,9 @@ class Pronamic_EShop_IDeal_AddOn {
 	 */
 	public static function sourceColumn($text, $payment) {
 		$text  = '';
-		$text .= __('eShop', 'pronamic_ideal') . '<br />';
-		$text .= sprintf('<a href="%s">', add_query_arg(array('page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId()), admin_url('admin.php')));
-		$text .= sprintf(__('Order #%s', 'pronamic_ideal'), $payment->getSourceId());
+		$text .= __( 'eShop', 'pronamic_ideal' ) . '<br />';
+		$text .= sprintf('<a href="%s">', add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ) );
+		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() );
 		$text .= '</a>';
 
 		return $text;

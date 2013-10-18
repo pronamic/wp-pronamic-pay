@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Qantani
+ * Title: Qantani gateway
  * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -19,12 +19,12 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an Mollie gateway
+	 * Constructs and initializes an Qantani gateway
 	 *
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Qantani_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Qantani_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( false );
@@ -32,9 +32,9 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_slug( self::SLUG );
 
 		$this->client = new Pronamic_Gateways_Qantani_Qantani();
-		$this->client->set_merchant_id( $configuration->qantani_merchant_id );
-		$this->client->set_merchant_key( $configuration->qantani_merchant_key );
-		$this->client->set_merchant_secret( $configuration->qantani_merchant_secret );
+		$this->client->set_merchant_id( $config->merchant_id );
+		$this->client->set_merchant_key( $config->merchant_key );
+		$this->client->set_merchant_secret( $config->merchant_secret );
 	}
 
 	/////////////////////////////////////////////////
@@ -81,18 +81,23 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->getAmount(),
 			$data->getCurrencyAlphabeticCode(),
 			$data->get_issuer_id(),
-			$data->getDescription(),
-			add_query_arg( 'gateway', 'qantani', home_url( '/' ) )
+			$data->get_description(),
+			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->bank_url );
+			
+			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->bank_url );
+			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
+
+			update_post_meta( $payment->id, '_pronamic_payment_qantani_code', $result->code );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -103,9 +108,23 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		$transaction_id = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
+		$status         = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
+		$salt           = filter_input( INPUT_GET, 'salt', FILTER_SANITIZE_STRING );
+		$checksum       = filter_input( INPUT_GET, 'checksum', FILTER_SANITIZE_STRING );
+		
+		switch ( $status ) {
+			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
+				$payment->set_status( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS );
+				
+				break;
+			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_CANCELLED:
+				$payment->set_status( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED );
+				
+				break;
+		}
 	}
 }

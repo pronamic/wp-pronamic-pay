@@ -2,7 +2,7 @@
 
 global $pronamic_ideal_errors;
 
-$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $configuration );
+$gateway = new Pronamic_Gateways_IDealAdvancedV3_Gateway( $config );
 
 ?>
 

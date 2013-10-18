@@ -281,7 +281,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->description;
 	}
 

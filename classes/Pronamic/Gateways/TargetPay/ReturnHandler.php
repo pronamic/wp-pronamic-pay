@@ -26,7 +26,7 @@ class Pronamic_Gateways_TargetPay_ReturnHandler extends Pronamic_Gateways_Return
 
 	public function returns( $transaction_id, $entrance_code ) {
 		// We can't find our payment by the entrance code, because this information is not known
-		$payment = Pronamic_WordPress_IDeal_PaymentsRepository::getPaymentByIdAndEc( $transaction_id );
+		$payment = get_pronamic_payment_by_transaction_id( $transaction_id );
 
 		if ( $payment != null ) {
 			$can_redirect = true;

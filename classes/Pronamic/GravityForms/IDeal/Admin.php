@@ -25,7 +25,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
-		add_filter( 'wp_ajax_gf_ideal_load_notifications', array( __CLASS__, 'ajax_load_notifications' ) );
 		
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'gravity_forms_admin_scripts' ) );
 	}
@@ -37,9 +36,9 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 */
 	public static function addon_navigation( $menus ) {
 		$menus[] = array(
-			'name'       => 'gf_pronamic_ideal',
+			'name'       => 'edit.php?post_type=pronamic_pay_gf',
 			'label'      => __( 'iDEAL', 'pronamic_ideal' ),
-			'callback'   =>  array( __CLASS__, 'page' ),
+			'callback'   => null,
 			'permission' => 'gravityforms_ideal'
 		);
 
@@ -231,21 +230,5 @@ class Pronamic_GravityForms_IDeal_Admin {
 		echo json_encode( $result );
 
 		die();
-	}
-	
-	public static function ajax_load_notifications() {
-		
-		$form_id = $_POST["form_id"];
-        
-		$form = RGFormsModel::get_form_meta( $form_id );
-        
-		$notifications = array();
-		
-        if( is_array( $form['notifications'] ) ){
-            foreach( $form["notifications"] as $notification ){
-                $notifications[] = array( "name" => $notification["name"], "id" => $notification["id"] );
-            }
-        }
-        die( json_encode( $notifications ) );
 	}
 }
