@@ -389,18 +389,18 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal', 
-			__( 'Configurations', 'pronamic_ideal' ), 
-			__( 'Configurations', 'pronamic_ideal' ), 
-			'pronamic_ideal',
-			'edit.php?post_type=pronamic_gateway'
-		);
-
-		add_submenu_page(
-			'pronamic_ideal', 
 			__( 'Payments', 'pronamic_ideal' ), 
 			__( 'Payments', 'pronamic_ideal' ), 
 			'pronamic_ideal_payments',
 			'edit.php?post_type=pronamic_payment'
+		);
+
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Configurations', 'pronamic_ideal' ), 
+			__( 'Configurations', 'pronamic_ideal' ), 
+			'pronamic_ideal',
+			'edit.php?post_type=pronamic_gateway'
 		);
 
 		add_submenu_page(
