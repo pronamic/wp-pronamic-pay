@@ -156,63 +156,61 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$lead_id = $payment->getSourceId();
+		$lead_id = $payment->get_source_id();
 
-			$lead = RGFormsModel::get_lead( $lead_id );
+		$lead = RGFormsModel::get_lead( $lead_id );
 
-			if ( $lead ) {
-				$form_id = $lead['form_id'];
+		if ( $lead ) {
+			$form_id = $lead['form_id'];
 
-				$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
+			$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
 
-				if ( $feed ) {
-					$url = null;
+			if ( $feed ) {
+				$url = null;
 
-					switch ( $payment->status ) {
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
+				switch ( $payment->status ) {
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-							if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
-								// Only fullfill order if the payment isn't approved aloready
-								$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+						if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
+							// Only fullfill order if the payment isn't approved aloready
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
 
-								self::fulfill_order( $lead );
-							}
+							self::fulfill_order( $lead );
+						}
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-						default:
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					default:
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
-							break;
-					}
+						break;
+				}
 
-					RGFormsModel::update_lead( $lead );
+				RGFormsModel::update_lead( $lead );
 
-					if ( $url && $can_redirect ) {
-						wp_redirect( $url, 303 );
+				if ( $url && $can_redirect ) {
+					wp_redirect( $url, 303 );
 
-						exit;
-					}
+					exit;
 				}
 			}
 		}
@@ -481,7 +479,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
 	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
-		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
+		$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $feed->config_id, $gateway, $data );
 
@@ -527,7 +525,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handle_gateway_html_form( $confirmation, $form, $feed, $lead, $gateway ) {
 		$configuration = $feed->getIDealConfiguration();
 
-		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
+		$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 

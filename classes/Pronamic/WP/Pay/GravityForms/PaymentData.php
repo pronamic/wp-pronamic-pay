@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Gravity Forms form object
 	 * 
@@ -245,7 +245,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	//////////////////////////////////////////////////
 	
 	public function get_normal_return_url() {
-		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
+		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
         if ( $url != null ) {
         	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
@@ -256,7 +256,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	}
 	
 	public function get_cancel_url() {
-		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
+		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
         if ( $url != null ) {
         	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
@@ -267,7 +267,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	}
 	
 	public function get_success_url() {
-		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
+		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
         if ( $url != null ) {
         	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
@@ -278,7 +278,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	}
 
 	public function get_error_url() {
-		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
+		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
         if ( $url != null ) {
         	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
