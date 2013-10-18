@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Merchant
 	 * 
@@ -30,6 +30,43 @@ class Pronamic_WPeCommerce_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 		$this->merchant = $merchant;
 	}
 
+	//////////////////////////////////////////////////
+	// WP e-Commerce specific
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get purchase ID
+	 * 
+	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-includes/merchant.class.php#L41
+	 * @return string
+	 */
+	public function get_purchase_id() {
+		$purchase_id = null;
+		
+		if ( isset( $this->merchant->purchase_id ) ) {
+			$purchase_id = $this->merchant->purchase_id;
+		}
+		
+		return $purchase_id;
+	}
+	
+
+	/**
+	 * Get session ID
+	 * 
+	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-includes/merchant.class.php#L175
+	 * @return string
+	 */
+	public function get_session_id() {
+		$session_id = null;
+		
+		if ( isset( $this->merchant->cart_data['session_id'] ) ) {
+			$session_id = $this->merchant->cart_data['session_id'];
+		}
+		
+		return $session_id;
+	}
+	
 	//////////////////////////////////////////////////
 
 	/**

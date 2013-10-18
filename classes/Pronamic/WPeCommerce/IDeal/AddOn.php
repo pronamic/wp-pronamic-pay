@@ -95,7 +95,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $payment->source_id );
-		$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
+		$data = new Pronamic_WP_Pay_WPeCommerce_PaymentData( $merchant );
 
 		$url = $data->get_normal_return_url();
 

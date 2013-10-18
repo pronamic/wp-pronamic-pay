@@ -42,12 +42,12 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
-			$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $this );
+			$data = new Pronamic_WP_Pay_WPeCommerce_PaymentData( $this );
 
 			$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
-			update_post_meta( $payment->ID, '_pronamic_payment_wpsc_purchase_id', $this->purchase_id );
-			update_post_meta( $payment->ID, '_pronamic_payment_wpsc_session_id', $this->session_id );
+			update_post_meta( $payment->id, '_pronamic_payment_wpsc_purchase_id', $data->get_purchase_id() );
+			update_post_meta( $payment->id, '_pronamic_payment_wpsc_session_id', $data->get_session_id() );
 
 			$error = $gateway->get_error();
 			
