@@ -114,6 +114,15 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+				/*
+				 * Transactions results
+				 * 
+				 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-merchants/paypal-pro.merchant.php#L303
+				 */
+				$session_id = get_post_meta( $payment->id, '_pronamic_payment_wpsc_session_id', true );
+				
+				transaction_results( $session_id );
+
             	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
                 $url = $data->get_success_url();
