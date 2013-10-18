@@ -14,12 +14,12 @@ if ( empty( $comments ) ) : ?>
 	<table class="widefat fixed comments comments-box" cellspacing="0">	
 		<tbody>
 			<?php foreach ( $comments as $comment ) : ?>
-			
+
 				<?php 
-				
+
 				$html_id    = 'comment-' . $comment->comment_ID;
 				$html_class = join( ' ', get_comment_class( wp_get_comment_status( $comment->comment_ID ) ) );
-				
+
 				?>
 				<tr id="<?php esc_attr( $html_id ); ?>" class="<?php esc_attr( $html_class ); ?>">
 					<td>

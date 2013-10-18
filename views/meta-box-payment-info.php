@@ -92,12 +92,4 @@ $payment = get_pronamic_payment( $post_id );
 			?>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<?php _e( 'Source', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php echo $payment->get_source_text(); ?>
-		</td>
-	</tr>
 </table>
