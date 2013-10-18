@@ -47,6 +47,21 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Constructs and initializes an payment object
+	 */
+	public function __construct() {
+		
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_source() {
+		return $this->source;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
