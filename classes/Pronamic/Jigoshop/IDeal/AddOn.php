@@ -62,7 +62,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		$id = $payment->getSourceId();
+		$id = $payment->get_source_id();
 
 		$order = new jigoshop_order( (int) $id );
 		$data  = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );

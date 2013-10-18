@@ -60,6 +60,10 @@ class Pronamic_Pay_Payment {
 		return $this->source;
 	}
 
+	public function get_source_id() {
+		return $this->source_id;
+	}
+
 	//////////////////////////////////////////////////
 
 	public function get_transaction_id() {
