@@ -13,6 +13,9 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
+		// Actions
+		add_action( 'admin_init',               array( __CLASS__, 'maybe_redirect_to_entry' ) );
+
 		// Filters
 		add_filter( 'gform_addon_navigation',   array( __CLASS__, 'addon_navigation' ) );
 
@@ -20,19 +23,19 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		add_filter( 'gform_custom_merge_tags',  array( __CLASS__, 'custom_merge_tags' ), 10 );
 
-		// Actions
-		add_action( 'admin_init',               array( __CLASS__, 'maybe_redirect_to_entry' ) );
-
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
 		
-		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'gravity_forms_admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts',    array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Create the admin menu
+	 * Gravity Forms addon navigation
+	 * 
+	 * @param $menus array with addon menu items
+	 * @return array
 	 */
 	public static function addon_navigation( $menus ) {
 		$menus[] = array(
@@ -52,11 +55,10 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * @access public
 	 * @return void
 	 */
-	public static function gravity_forms_admin_scripts() {
-		
+	public static function enqueue_scripts() {
 		wp_localize_script( 'proanmic_ideal_admin', 'GravityForms_IDeal_Feed_Config', array(
-			'loader_img' => plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ),
-			'not_loaded' => __( 'Notifications could not be loaded, please try again', 'pronamic_ideal' ),
+			'loader_img'       => plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ),
+			'not_loaded'       => __( 'Notifications could not be loaded, please try again', 'pronamic_ideal' ),
 			'no_notifications' => __( 'No notifications exist for this form', 'pronamic_ideal' )
 		) );
 	}
