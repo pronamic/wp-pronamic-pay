@@ -26,9 +26,9 @@
 							<?php 
 	
 							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
-								'link'  => __( 'http://www.pronamic.eu/', 'pronamic_client' ),
+								'link'  => __( 'http://www.pronamic.eu/', 'pronamic_ideal' ),
 								'url'   => 'http://feeds.feedburner.com/pronamic',
-								'title' => __( 'Pronamic News', 'pronamic_client' ),
+								'title' => __( 'Pronamic News', 'pronamic_ideal' ),
 								'items' => 5
 							) );
 							
