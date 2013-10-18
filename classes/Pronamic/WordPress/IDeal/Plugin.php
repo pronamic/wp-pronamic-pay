@@ -143,6 +143,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 			if ( $gateway ) {
 				$gateway->update_status( $payment );
 
+				update_post_meta( $payment->id, '_pronamic_payment_status', $payment->status );
+				update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $payment->consumer_name );
+				update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $payment->consumer_account_number );
+				update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $payment->consumer_city );
+
 				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 			}
