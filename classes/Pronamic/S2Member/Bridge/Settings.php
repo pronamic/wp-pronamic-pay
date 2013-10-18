@@ -64,10 +64,10 @@ class Pronamic_S2Member_Bridge_Settings {
 	}
 
     public function view_options_page() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 's2member/settings' );
+		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/settings' );
     }
 
 	public function view_buttongen_page() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 's2member/buttons-generator' );
+		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/buttons-generator' );
 	}
 }

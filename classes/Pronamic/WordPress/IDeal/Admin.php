@@ -410,7 +410,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Settings', 'pronamic_ideal' ), 
 			'pronamic_ideal_settings', 
 			'pronamic_ideal_settings', 
-			array( __CLASS__, 'pageSettings' )
+			array( __CLASS__, 'page_settings' )
 		);
 
 		add_submenu_page(
@@ -446,7 +446,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Variants', 'pronamic_ideal' ), 
 			'pronamic_ideal_variants', 
 			'pronamic_ideal_variants', 
-			array( __CLASS__, 'pageVariants' )
+			array( __CLASS__, 'page_variants' )
 		);
 
 		add_submenu_page(
@@ -455,7 +455,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Documentation', 'pronamic_ideal' ), 
 			'pronamic_ideal_documentation', 
 			'pronamic_ideal_documentation', 
-			array( __CLASS__, 'pageDocumentation' )
+			array( __CLASS__, 'page_documentation' )
 		);
 
 		add_submenu_page(
@@ -473,7 +473,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Pages Generator', 'pronamic_ideal' ), 
 			'pronamic_ideal_pages_generator', 
 			'pronamic_ideal_pages_generator', 
-			array( __CLASS__, 'pagePagesGenerator' )
+			array( __CLASS__, 'page_pages_generator' )
 		);
 
 		global $submenu;
@@ -486,39 +486,39 @@ class Pronamic_WordPress_IDeal_Admin {
 	//////////////////////////////////////////////////
 
 	public static function page_dashboard() {
-		return self::renderView( 'dashboard' );
+		return self::render_view( 'dashboard' );
 	}
 
-	public static function pageSettings() {
-		self::renderView( 'settings' );
+	public static function page_settings() {
+		return self::render_view( 'settings' );
 	}
 
-	public static function pagePagesGenerator() {
-		self::renderView( 'pages-generator' );
+	public static function page_pages_generator() {
+		return self::render_view( 'pages-generator' );
 	}
 
 	public static function page_system_status() {
-		self::renderView( 'status-system' );
+		return self::render_view( 'status-system' );
 	}
 
 	public static function page_ideal_status() {
-		self::renderView( 'status-ideal' );
+		return self::render_view( 'status-ideal' );
 	}
 
 	public static function page_providers() {
-		self::renderView( 'providers' );
+		return self::render_view( 'providers' );
 	}
 
-	public static function pageVariants() {
-		self::renderView( 'variants' );
+	public static function page_variants() {
+		return self::render_view( 'variants' );
 	}
 
-	public static function pageDocumentation() {
-		self::renderView( 'documentation' );
+	public static function page_documentation() {
+		return self::render_view( 'documentation' );
 	}
 
 	public static function page_branding() {
-		self::renderView( 'branding' );
+		return self::render_view( 'branding' );
 	}
 
 	//////////////////////////////////////////////////
@@ -526,7 +526,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Render the specified view
 	 */
-	public static function renderView($name) {
+	public static function render_view($name) {
 		$result = false;
 
 		$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'views/' . $name . '.php';
