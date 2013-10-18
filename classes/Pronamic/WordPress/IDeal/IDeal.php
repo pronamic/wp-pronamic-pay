@@ -77,20 +77,6 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $options;
 	}
 
-	/**
-	 * Get the config option name
-	 *
-	 * @param Pronamic_WordPress_IDeal_Configuration $config
-	 */
-	public static function get_configuration_option_name( Pronamic_WordPress_IDeal_Configuration $config ) {
-		return sprintf(
-			'%s. %s (%s)',
-			$config->getId(),
-			$config->getName(),
-			$config->mode
-		);
-	}
-
 	//////////////////////////////////////////////////
 
 	/**
