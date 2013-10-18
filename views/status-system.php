@@ -194,12 +194,17 @@
 			</td>
 		</tr>
 		<tr>
-			<?php global $wpdb; ?>
 			<th scope="row">
 				<?php _e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td class="column-version">
-                <?php echo $wpdb->db_version(); ?>
+                <?php 
+
+                global $wpdb;
+
+                echo $wpdb->db_version();
+
+                ?>
 			</td>
 			<td>
 				<?php 
