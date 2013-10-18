@@ -420,11 +420,20 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal', 
-			__( 'Status', 'pronamic_ideal' ), 
-			__( 'Status', 'pronamic_ideal' ), 
+			__( 'System Status', 'pronamic_ideal' ), 
+			__( 'System Status', 'pronamic_ideal' ), 
+			'pronamic_ideal_status', 
+			'pronamic_pay_system_status', 
+			array( __CLASS__, 'page_system_status' )
+		);
+
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'iDEAL Status', 'pronamic_ideal' ), 
+			__( 'iDEAL Status', 'pronamic_ideal' ), 
 			'pronamic_ideal_status', 
 			'pronamic_ideal_status', 
-			array( __CLASS__, 'page_status' )
+			array( __CLASS__, 'page_ideal_status' )
 		);
 
 		add_submenu_page(
@@ -556,8 +565,12 @@ class Pronamic_WordPress_IDeal_Admin {
 		self::renderView( 'pages-generator' );
 	}
 
-	public static function page_status() {
-		self::renderView( 'status' );
+	public static function page_system_status() {
+		self::renderView( 'status-system' );
+	}
+
+	public static function page_ideal_status() {
+		self::renderView( 'status-ideal' );
 	}
 
 	public static function page_providers() {
