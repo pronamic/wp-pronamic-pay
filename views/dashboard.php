@@ -6,11 +6,34 @@
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
-				<div class="postbox">
-					<h3 class="hndle"><span><?php _e( 'Status', 'twinfield' ); ?></span></h3>
-
-					<div class="inside">
-						
+				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
+					<div class="postbox">
+						<h3 class="hndle"><span><?php _e( 'Status', 'twinfield' ); ?></span></h3>
+	
+						<div class="inside">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="postbox-container-2" class="postbox-container">
+				<div id="side-sortables" class="meta-box-sortables ui-sortable">
+					<div class="postbox">
+						<h3 class="hndle"><span><?php _e( 'Pronamic News', 'twinfield' ); ?></span></h3>
+	
+						<div class="inside">
+							<?php 
+	
+							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
+								'link' => __( 'http://pronamic.eu/', 'pronamic_client' ),
+								'url' => 'http://feeds.feedburner.com/pronamic',
+								'title' => __( 'Pronamic News', 'pronamic_client' ),
+								'items' => 5
+							) );
+							
+							?>
+						</div>
 					</div>
 				</div>
 			</div>
