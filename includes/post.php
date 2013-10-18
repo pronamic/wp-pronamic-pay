@@ -110,12 +110,11 @@ add_filter( 'manage_edit-pronamic_gateway_columns', 'pronamic_gateway_columns' )
 
 function pronamic_gateway_custom_column( $column, $post_id ) {
 	global $post;
+	global $pronamic_pay_gateways;
 
 	switch( $column ) {
 		case 'pronamic_gateway_variant':
 			$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-
-			global $pronamic_pay_gateways;
 			
 			if ( isset( $pronamic_pay_gateways[$id] ) ) {
 				echo $pronamic_pay_gateways[$id]['name'];
@@ -155,7 +154,42 @@ function pronamic_gateway_custom_column( $column, $post_id ) {
 
 			break;
 		case 'pronamic_gateway_dashboard':
-			echo '?';
+			$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
+
+			if ( isset( $pronamic_pay_gateways[$id] ) ) {
+				$urls = array();
+
+				if ( isset( $pronamic_pay_gateways[$id]['dashboard_url'] ) ) {
+					$url = $pronamic_pay_gateways[$id]['dashboard_url'];
+					
+					$urls[$url] = __( 'Dashboard', 'pronamic_ideal' );
+				}
+
+				if ( isset( $pronamic_pay_gateways[$id]['test'], $pronamic_pay_gateways[$id]['test']['dashboard_url'] ) ) {
+					$url = $pronamic_pay_gateways[$id]['test']['dashboard_url'];
+
+					$urls[$url] = __( 'Test', 'pronamic_ideal' );
+				}
+
+				if ( isset( $pronamic_pay_gateways[$id]['live'], $pronamic_pay_gateways[$id]['live']['dashboard_url'] ) ) {
+					$url = $pronamic_pay_gateways[$id]['live']['dashboard_url'];
+
+					$urls[$url] = __( 'Production', 'pronamic_ideal' );					
+				}
+				
+				// Output
+				$content = array();
+				
+				foreach ( $urls as $url => $name ) {
+					$content[] = sprintf(
+						'<a href="%s" target="_blank">%s</a>',
+						esc_attr( $url ),
+						esc_html( $name )
+					);
+				}
+				
+				echo implode( ' | ', $content );
+			} 
 			
 			break;
 	}

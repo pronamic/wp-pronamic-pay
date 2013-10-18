@@ -106,17 +106,16 @@ $pronamic_pay_gateways = array(
 	),
 	// Buckaroo
 	'buckaroo' => array(
-		'provider' => 'buckaroo',
-		'gateway'  => 'buckaroo',
-		'name'     => 'Buckaroo - iDEAL',
-		'url'      => 'https://payment.buckaroo.nl/',
-		'test'     => array(
-			'payment_server_url' => 'https://testcheckout.buckaroo.nl/html/',
-			'dashboard_url'      => 'https://payment.buckaroo.nl/'
+		'provider'      => 'buckaroo',
+		'gateway'       => 'buckaroo',
+		'name'          => 'Buckaroo - iDEAL',
+		'url'           => 'https://payment.buckaroo.nl/',
+		'dashboard_url' => 'https://payment.buckaroo.nl/',
+		'test'          => array(
+			'payment_server_url' => 'https://testcheckout.buckaroo.nl/html/'
 		),
-		'live'     => array(
-			'payment_server_url' => 'https://checkout.buckaroo.nl/html/',
-			'dashboard_url'      => 'https://payment.buckaroo.nl/'
+		'live'          => array(
+			'payment_server_url' => 'https://checkout.buckaroo.nl/html/'
 		)
 	),
 	// Deutsche Bank - iDEAL Expert - v3
@@ -143,7 +142,7 @@ $pronamic_pay_gateways = array(
 		),
 		'live'     => array(
 			'payment_server_url' => 'https://myideal.db.com/ideal/iDealv3',
-			'dashboard_url'      => 'https://myidealtest.db.com/'
+			'dashboard_url'      => 'https://myideal.db.com/'
 		),
 		'certificates' => array(
 			'certificates/deutschebank-ideal-expert-v3/?.cer'
@@ -151,31 +150,25 @@ $pronamic_pay_gateways = array(
 	),
 	// Dutch Payment Group
 	'paydutch' => array(
-		'provider' => 'dutchpaymentgroup',
-		'gateway'  => 'paydutch',
-		'name'     => 'PayDutch',
-		'url'      => 'http://www.paydutch.nl/',
-		'test'     => array(
+		'provider'      => 'dutchpaymentgroup',
+		'gateway'       => 'paydutch',
+		'name'          => 'PayDutch',
+		'url'           => 'http://www.paydutch.nl/',
+		'dashboard_url' => 'https://www.paydutch.nl/paydutchmanager/',
+		'test'          => array(
 			'payment_server_url' => 'https://www.paydutch.nl/api/processreq.aspx',
-			'dashboard_url'      => 'https://www.paydutch.nl/paydutchmanager/'
 		),
 		'live'     => array(
-			'payment_server_url' => 'https://www.paydutch.nl/api/processreq.aspx',
-			'dashboard_url'      => 'https://www.paydutch.nl/paydutchmanager/'
+			'payment_server_url' => 'https://www.paydutch.nl/api/processreq.aspx'
 		)
 	),
 	// Easy iDeal
 	'easy-ideal' => array(
-		'provider' => 'easy-ideal',
-		'gateway'  => 'qantani',
-		'name'     => 'Easy iDeal - iDEAL',
-		'url'      => 'http://www.easy-ideal.com/',
-		'test'     => array(
-			'dashboard_url'      => 'https://www.qantanipayments.com/backoffice/login/'
-		),
-		'live'     => array(
-			'dashboard_url'      => 'https://www.qantanipayments.com/backoffice/login/'
-		)
+		'provider'      => 'easy-ideal',
+		'gateway'       => 'qantani',
+		'name'          => 'Easy iDeal - iDEAL',
+		'url'           => 'http://www.easy-ideal.com/',
+		'dashboard_url' => 'https://www.qantanipayments.com/backoffice/login/'
 	),
 	// Fortis Bank
 	'fortis-bank-ideal-hosted' => array(
@@ -259,15 +252,10 @@ $pronamic_pay_gateways = array(
 	),
 	// ICEPAY
 	'icepay-ideal' => array(
-		'provider' => 'icepay',
-		'gateway'  => 'icepay',
-		'name'     => 'ICEPAY - iDEAL',
-		'test'     => array(
-			'dashboard_url' => 'https://www.icepay.com/Merchant/NL/Reports/Transactions'
-		),
-		'live'     => array(
-			'dashboard_url' => 'https://www.icepay.com/Merchant/NL/Reports/Transactions'
-		),
+		'provider'      => 'icepay',
+		'gateway'       => 'icepay',
+		'name'          => 'ICEPAY - iDEAL',
+		'dashboard_url' => 'https://www.icepay.com/Merchant/NL/Reports/Transactions'
 	),
 	// iDEAL Simulator
 	'ideal-simulator-ideal-basic' => array(
@@ -372,40 +360,33 @@ $pronamic_pay_gateways = array(
 	),
 	// Mollie
 	'mollie-ideal' => array(
-		'provider' => 'mollie',
-		'gateway'  => 'mollie',
-		'name'     => 'Mollie - iDEAL',
-		'test'     => array(
-			'dashboard_url'      => 'http://www.mollie.nl/'
-		),
-		'live'     => array(
-			'dashboard_url'      => 'http://www.mollie.nl/'
-		),
+		'provider'      => 'mollie',
+		'gateway'       => 'mollie',
+		'name'          => 'Mollie - iDEAL',
+		'dashboard_url' => 'http://www.mollie.nl/'
 	),
 	'mollie-ideal-basic' => array(
-		'provider' => 'mollie',
-		'gateway'  => 'ideal_basic',
-		'name'     => 'Mollie - iDEAL Basic',
-		'test'     => array(
-			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/',
-			'dashboard_url'      => 'http://www.mollie.nl/'
+		'provider'      => 'mollie',
+		'gateway'       => 'ideal_basic',
+		'name'          => 'Mollie - iDEAL Basic',
+		'dashboard_url' => 'http://www.mollie.nl/',
+		'test'          => array(
+			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/'
 		),
-		'live'     => array(
-			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
-			'dashboard_url'      => 'http://www.mollie.nl/'
+		'live'          => array(
+			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/lite/'
 		),
 	),
 	'mollie-ideal-advanced' => array(
-		'provider' => 'mollie',
-		'gateway'  => 'ideal_advanced',
-		'name'     => 'Mollie - iDEAL Advanced',
-		'test'     => array(
-			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/',
-			'dashboard_url'      => 'http://www.mollie.nl/'
+		'provider'      => 'mollie',
+		'gateway'       => 'ideal_advanced',
+		'name'          => 'Mollie - iDEAL Advanced',
+		'dashboard_url' => 'http://www.mollie.nl/',
+		'test'          => array(
+			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/testmode/'
 		),
-		'live'     => array(
-			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/',
-			'dashboard_url'      => 'http://www.mollie.nl/'
+		'live'          => array(
+			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/'
 		),
 		'certificates' => array(
 			'certificates/mollie-ideal-advanced/mollie.cer'
@@ -504,18 +485,17 @@ $pronamic_pay_gateways = array(
 		)
 	),
 	'rabobank-omnikassa' => array(
-		'provider' => 'rabobank',
-		'gateway'  => 'omnikassa',
-		'name'     => 'Rabobank - OmniKassa',
+		'provider'      => 'rabobank',
+		'gateway'       => 'omnikassa',
+		'name'          => 'Rabobank - OmniKassa',
+		'dashboard_url' => 'https://dashboard.omnikassa.rabobank.nl/',
 		'test'     => array(
 			'payment_server_url' => 'https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet',
-			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
-			'dashboard_url'      => 'https://dashboard.omnikassa.rabobank.nl/'
+			'download_url'       => 'https://download.omnikassa.rabobank.nl/'
 		),
 		'live'     => array(
 			'payment_server_url' => 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet',
-			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
-			'dashboard_url'      => 'https://dashboard.omnikassa.rabobank.nl/'
+			'download_url'       => 'https://download.omnikassa.rabobank.nl/'
 		)
 	),
 	'rabobank-ideal-professional' => array(
@@ -553,68 +533,51 @@ $pronamic_pay_gateways = array(
 	),
 	// Sisow
 	'sisow-ideal' => array(
-		'provider' => 'sisow',
-		'gateway'  => 'sisow',
-		'name'     => 'Sisow - iDEAL',
-		'test'     => array(
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
-		),
-		'live'     => array(
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
-		)
+		'provider'      => 'sisow',
+		'gateway'       => 'sisow',
+		'name'          => 'Sisow - iDEAL',
+		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
 	),
 	'sisow-ideal-basic' => array(
-		'provider' => 'sisow',
-		'gateway'  => 'ideal_basic',
-		'name'     => 'Sisow - iDEAL Basic',
-		'test'     => array(
-			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
+		'provider'      => 'sisow',
+		'gateway'       => 'ideal_basic',
+		'name'          => 'Sisow - iDEAL Basic',
+		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+		'test'          => array(
+			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test'
 		),
-		'live'     => array(
-			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
+		'live'          => array(
+			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx'
 		)
 	),
 	'sisow-ideal-advanced' => array(
-		'provider' => 'sisow',
-		'gateway'  => 'ideal_advanced',
-		'name'     => 'Sisow - iDEAL Advanced',
-		'test'     => array(
-			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test',
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
+		'provider'      => 'sisow',
+		'gateway'       => 'ideal_advanced',
+		'name'          => 'Sisow - iDEAL Advanced',
+		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+		'test'          => array(
+			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test'
 		),
-		'live'     => array(
-			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
-			'dashboard_url'      => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx'
+		'live'          => array(
+			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx'
 		),
-		'certificates'           => array(
+		'certificates'  => array(
 			'certificates/sisow-ideal-advanced/sisowideal.cer'
 		)
 	),
 	// TargetPay
 	'targetpay-ideal' => array(
-		'provider' => 'targetpay',
-		'gateway'  => 'targetpay',
-		'name'     => 'TargetPay - iDEAL',
-		'test'     => array(
-			'dashboard_url'      => 'https://www.targetpay.com/login'
-		),
-		'live'     => array(
-			'dashboard_url'      => 'https://www.targetpay.com/login'
-		)
+		'provider'      => 'targetpay',
+		'gateway'       => 'targetpay',
+		'name'          => 'TargetPay - iDEAL',
+		'dashboard_url' => 'https://www.targetpay.com/login'
 	),
 	// Qantani
 	'qantani' => array(
-		'provider' => 'qantani',
-		'gateway'  => 'qantani',
-		'name'     => 'Qantani - iDEAL',
-		'url'      => 'https://www.qantani.com/',
-		'test'     => array(
-			'dashboard_url'      => 'https://www.qantanipayments.com/backoffice/login/'
-		),
-		'live'     => array(
-			'dashboard_url'      => 'https://www.qantanipayments.com/backoffice/login/'
-		)
+		'provider'      => 'qantani',
+		'gateway'       => 'qantani',
+		'name'          => 'Qantani - iDEAL',
+		'url'           => 'https://www.qantani.com/',
+		'dashboard_url' => 'https://www.qantanipayments.com/backoffice/login/'
 	)
 );
