@@ -83,7 +83,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			'config_id'   => array(
 				'title'       => __( 'Config', 'pronamic_ideal' ) , 
 				'type'        => 'select' , 
-				'description' => $description_prefix . __( 'Select an config.', 'pronamic_ideal' ) , 
 				'default'     => '' , 
 				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
 			)
