@@ -320,9 +320,9 @@ class Pronamic_WordPress_IDeal_Admin {
 		$screen = get_current_screen();
 
 		$enqueue  = false;
-		$enqueue |= $screen->id == 'pronamic_gateway';
-		$enqueue |= $screen->id == 'pronamic_payment';
-		$enqueue |= $screen->id == 'pronamic_pay_gf';
+		$enqueue |= $screen->post_type == 'pronamic_gateway';
+		$enqueue |= $screen->post_type == 'pronamic_payment';
+		$enqueue |= $screen->post_type == 'pronamic_pay_gf';
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
 		if ( $enqueue ) {
