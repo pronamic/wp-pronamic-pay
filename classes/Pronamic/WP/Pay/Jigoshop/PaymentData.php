@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order
 	 * 

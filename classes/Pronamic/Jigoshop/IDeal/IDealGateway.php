@@ -152,12 +152,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	function receipt_page( $order_id ) {
 		$order = &new jigoshop_order( $order_id );
 		
-		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( this->config_id, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 			echo $gateway->get_form_html();
 		}
@@ -212,7 +212,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	}
 
     private function process_gateway_http_redirect( $order, $gateway ) {
-		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
@@ -220,6 +220,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		if ( is_wp_error( $error ) ) {
 			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+
+			if ( current_user_can( 'administrator' ) ) {
+				foreach ( $error->get_error_codes() as $code ) {
+					jigoshop::add_error( $error->get_error_message( $code ) );
+				}
+			}
 
 			// see https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
 			return array(
