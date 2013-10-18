@@ -58,7 +58,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 				if ( $feed === null ) {
 					$html .= sprintf(
 						"<a class='ideal-edit-link' href='%s' target='_blank'>%s</a>", 
-						Pronamic_GravityForms_IDeal_Admin::get_edit_feed_link(), 
+						add_query_arg( 'post_type', 'pronamic_pay_gf', admin_url( 'post-new.php' ) ), 
 						__( 'Create iDEAL feed', 'pronamic_ideal' )
 					);
 				} else {
