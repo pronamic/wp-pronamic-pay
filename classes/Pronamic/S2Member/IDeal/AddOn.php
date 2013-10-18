@@ -64,8 +64,8 @@ class Pronamic_S2Member_IDeal_AddOn {
 					// Make a user with the username as the email
 					$user_id = wp_create_user( $email, $random_string, $email );
 											
-					$subject = __( 'Account Confirmation', 'pronamic-ideal' ) . ' | ' . get_bloginfo( 'name' );
-					$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic-ideal' ), $random_string );
+					$subject = __( 'Account Confirmation', 'pronamic_ideal' ) . ' | ' . get_bloginfo( 'name' );
+					$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic_ideal' ), $random_string );
 					wp_mail( $email, $subject, $message );
 
 					$user = new WP_User( $user_id );
