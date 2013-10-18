@@ -638,7 +638,19 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 
 add_action( 'save_post', 'pronamic_pay_save_pay_gf' );
 
+/**
+ * Post edit form tag
+ * 
+ * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/edit-form-advanced.php#L299
+ * @see https://github.com/WordPress/WordPress/blob/3.5.2/wp-admin/edit-form-advanced.php#L299
+ * 
+ * @param WP_Post $post (only available @since 3.5.2)
+ */
 function pronamic_pay_gateway_post_edit_form_tag( $post ) {
+	if ( empty( $post ) ) {
+		global $post;
+	}
+
 	if ( $post ) {
 		if ( $post->post_type == 'pronamic_gateway' ) {
 			echo ' enctype="multipart/form-data"';
