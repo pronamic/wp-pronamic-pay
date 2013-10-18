@@ -1,6 +1,6 @@
 <?php
 
-function pronamic_payment_gateways_create_initial_post_types() {
+function pronamic_pay_create_initial_post_types() {
 	register_post_type( 'pronamic_gateway', array(
 		'label'              => __( 'Gateway Configs', 'pronamic_ideal' ),
 		'labels'             => array(
@@ -87,7 +87,7 @@ function pronamic_payment_gateways_create_initial_post_types() {
 	) );
 }
 
-add_action( 'init', 'pronamic_payment_gateways_create_initial_post_types', 20 ); // highest priority
+add_action( 'init', 'pronamic_pay_create_initial_post_types', 20 ); // highest priority
 
 
 
