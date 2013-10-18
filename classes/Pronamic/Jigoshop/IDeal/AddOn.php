@@ -135,8 +135,8 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			get_edit_post_link( $payment->source_id ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
+			get_edit_post_link( $payment->get_source_id() ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;
