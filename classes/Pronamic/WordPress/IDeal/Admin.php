@@ -414,15 +414,6 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal', 
-			__( 'Pages Generator', 'pronamic_ideal' ), 
-			__( 'Pages Generator', 'pronamic_ideal' ), 
-			'pronamic_ideal_pages_generator', 
-			'pronamic_ideal_pages_generator', 
-			array( __CLASS__, 'pagePagesGenerator' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal', 
 			__( 'System Status', 'pronamic_ideal' ), 
 			__( 'System Status', 'pronamic_ideal' ), 
 			'pronamic_ideal_status', 
@@ -473,6 +464,15 @@ class Pronamic_WordPress_IDeal_Admin {
 			'pronamic_ideal_branding', 
 			'pronamic_ideal_branding', 
 			array( __CLASS__, 'page_branding' )
+		);
+
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Pages Generator', 'pronamic_ideal' ), 
+			__( 'Pages Generator', 'pronamic_ideal' ), 
+			'pronamic_ideal_pages_generator', 
+			'pronamic_ideal_pages_generator', 
+			array( __CLASS__, 'pagePagesGenerator' )
 		);
 
 		global $submenu;
