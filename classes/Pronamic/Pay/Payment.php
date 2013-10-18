@@ -50,6 +50,50 @@ class Pronamic_Pay_Payment {
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
+
+	//////////////////////////////////////////////////
+
+	public function set_status( $status ) {
+		$this->status = $status;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_name( $name ) {
+		$this->consumer_name = $consumer_name;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_account_number( $account_number ) {
+		$this->consumer_account_number = $account_number;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_iban( $iban ) {
+		$this->consumer_iban = $iban;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_bic( $bic ) {
+		$this->consumer_bic = $bic;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_city( $city ) {
+		$this->consumer_city = $city;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_email() {
+		return $this->email;
+	}
+
+	//////////////////////////////////////////////////
 	
 	public function add_note( $note ) {
 		

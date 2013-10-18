@@ -59,10 +59,10 @@ class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDe
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->data['attendee_id'];
 	}
 

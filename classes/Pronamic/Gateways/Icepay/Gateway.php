@@ -105,7 +105,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setDescription( $data->get_description() )
 				->setCurrency( $data->getCurrencyAlphabeticCode() )
 				->setIssuer( $data->get_issuer_id() )
-				->setOrderID( $data->getOrderId() );
+				->setOrderID( $data->get_order_id() );
 		
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode

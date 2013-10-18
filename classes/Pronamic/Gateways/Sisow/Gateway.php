@@ -67,7 +67,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
-			$data->getOrderId(),
+			$data->get_order_id(),
 			$data->getAmount(),
 			$data->get_description(),
 			$data->get_entrance_code(),
@@ -97,11 +97,11 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result !== false ) {
 			$transaction = $result;
-
-			update_post_meta( $payment->id, '_pronamic_payment_status', $transaction->status );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $transaction->consumer_name );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $transaction->consumer_account );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $transaction->consumer_city );
+			
+			$payment->set_status( $transaction->status );
+			$payment->set_consumer_name( $transaction->consumer_name );
+			$payment->set_consumer_account_number( $transaction->consumer_account );
+			$payment->set_consumer_city( $transaction->consumer_city );
 		} else {
 			$this->error = $this->client->get_error();
 		}

@@ -109,7 +109,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		// Transaction request message
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-		$transaction->setPurchaseId( $data->getOrderId() );
+		$transaction->setPurchaseId( $data->get_order_id() );
 		$transaction->setAmount( $data->getAmount() );
 		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$transaction->setExpirationPeriod( 'PT3M30S' );

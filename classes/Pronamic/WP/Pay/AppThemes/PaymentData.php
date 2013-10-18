@@ -54,10 +54,10 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->order->get_id();
 	}
 
@@ -73,7 +73,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 		// Item
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
+		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( $this->get_description() );
 		$item->setPrice( $this->order->get_total() );
 		$item->setQuantity( 1 );

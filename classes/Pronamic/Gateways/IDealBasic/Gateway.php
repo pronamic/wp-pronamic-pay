@@ -37,12 +37,12 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$this->set_action_url( $this->client->getPaymentServerUrl() );
 		
 		$this->client->setLanguage( $data->getLanguageIso639Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
-		$this->client->setPurchaseId( $data->getOrderId() );
+		$this->client->setPurchaseId( $data->get_order_id() );
 		$this->client->setDescription( $data->get_description() );
 		$this->client->setItems( $data->getItems() );
 		

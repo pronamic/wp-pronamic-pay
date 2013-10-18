@@ -53,12 +53,12 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$this->set_action_url( $this->client->get_action_url() );
 
 		$this->client->setCustomerLanguage( $data->getLanguageIso639Code() );
 		$this->client->setCurrencyNumericCode( $data->getCurrencyNumericCode() );
-		$this->client->set_order_id( $data->getOrderId() );
+		$this->client->set_order_id( $data->get_order_id() );
 		$this->client->set_normal_return_url( home_url( '/' ) );
 		$this->client->set_automatic_response_url( home_url( '/' ) );
 		$this->client->set_amount( $data->getAmount() );

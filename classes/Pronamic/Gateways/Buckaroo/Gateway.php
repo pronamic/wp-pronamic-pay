@@ -45,7 +45,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
+		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$this->set_action_url( $this->client->get_payment_server_url() );
 
 		// Buckaroo uses 'nl-NL' instead of 'nl_NL'
@@ -53,7 +53,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client->set_culture( $culture );
 		$this->client->set_currency( $data->getCurrencyAlphabeticCode() );
-		$this->client->set_invoice_number( $data->getOrderId() );
+		$this->client->set_invoice_number( $data->get_order_id() );
 		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->getAmount() );
 		

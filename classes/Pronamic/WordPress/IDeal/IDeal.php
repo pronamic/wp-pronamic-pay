@@ -191,7 +191,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$meta = array(
 				$prefix . 'config_id'               => $configuration_id,
 				$prefix . 'transaction_id'          => $gateway->get_transaction_id(),
-				$prefix . 'purchase_id'             => $data->getOrderId(),
+				$prefix . 'purchase_id'             => $data->get_order_id(),
 				$prefix . 'currency'                => $data->getCurrencyAlphabeticCode(),
 				$prefix . 'amount'                  => $data->getAmount(),
 				$prefix . 'expiration_period'       => null,

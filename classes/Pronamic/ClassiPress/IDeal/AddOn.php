@@ -207,7 +207,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 					echo Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 						'cp_payment_method'  => 'pronamic_ideal',
-						'oid'                => $data->getOrderId()
+						'oid'                => $data->get_order_id()
 					) );
 
 					echo $gateway->get_input_html();

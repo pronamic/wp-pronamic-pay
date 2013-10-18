@@ -88,7 +88,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
-		$transaction->set_purchase_id( $data->getOrderId() );
+		$transaction->set_purchase_id( $data->get_order_id() );
 		$transaction->set_amount( $data->getAmount() );
 		$transaction->set_currency( $data->getCurrencyAlphabeticCode() );
 		$transaction->set_expiration_period( 'PT3M30S' );

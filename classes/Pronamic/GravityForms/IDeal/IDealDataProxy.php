@@ -94,10 +94,10 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		// @see http://www.gravityhelp.com/documentation/page/Entry_Object#Standard
 		return $this->lead['id'];
 	}
@@ -248,7 +248,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
         if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
         	$url = add_query_arg( 'status', 'normal', $url );
         }
         
@@ -259,7 +259,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
         if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
         	$url = add_query_arg( 'status', 'cancel', $url );
         }
         
@@ -270,7 +270,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
         if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
         	$url = add_query_arg( 'status', 'success', $url );
         }
         
@@ -281,7 +281,7 @@ class Pronamic_GravityForms_IDeal_IDealDataProxy extends Pronamic_WordPress_IDea
 		$url = $this->feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
         if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->getOrderId(), $url );
+        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
         	$url = add_query_arg( 'status', 'error', $url );
         }
         

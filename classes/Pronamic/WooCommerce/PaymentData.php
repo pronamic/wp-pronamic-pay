@@ -49,7 +49,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 
 	public function get_title() {
-		return sprintf( __( 'WooCommerce order %s', 'pronamic_ideal' ), $this->getOrderId() );
+		return sprintf( __( 'WooCommerce order %s', 'pronamic_ideal' ), $this->get_order_id() );
 	}
 
 	/**
@@ -59,16 +59,16 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * @return string
 	 */
 	public function get_description() {
-		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->getOrderId() );
+		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->get_order_id() );
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		// @see https://github.com/woothemes/woocommerce/blob/v1.6.5.2/classes/class-wc-order.php#L269
 		$order_id = $this->order->get_order_number();
 
@@ -113,7 +113,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		// Item
 		// We only add one total item, because iDEAL cant work with negative price items (discount)
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
+		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( $this->get_description() );
 		// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/classes/class-wc-order.php#L50
 		$item->setPrice( $this->order->order_total );

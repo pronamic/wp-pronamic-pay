@@ -63,6 +63,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 		// Combine the passed options
 		$atts = shortcode_atts( $defaults, $atts );
+		$atts['order_id'] = uniqid();
 		
 		// Output
 		$output = '';
@@ -97,6 +98,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 			$output .= Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 				'pronamic_pay_s2member_hash'              => $this->create_hash( $atts ),
+				'pronamic_pay_s2member_data[order_id]'    => $atts['order_id'],
 				'pronamic_pay_s2member_data[period]'      => $atts['period'],
 				'pronamic_pay_s2member_data[cost]'        => $atts['cost'],
 				'pronamic_pay_s2member_data[level]'       => $atts['level'],
@@ -124,7 +126,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		if ( filter_has_var( INPUT_POST, 'pronamic_pay_s2member' ) ) {
 			$hash = filter_input( INPUT_POST, 'pronamic_pay_s2member_hash', FILTER_SANITIZE_STRING );
 			$data = filter_input( INPUT_POST, 'pronamic_pay_s2member_data', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
-			
+
 			if ( $this->create_hash( $data ) == $hash ) {
 				// Config
 				$config_id = get_option( 'pronamic_pay_s2member_config_id' );
@@ -138,8 +140,8 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				// Start
 				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
-				update_post_meta( $payment->ID, '_pronamic_payment_s2member_period', $data->get_period() );
-				update_post_meta( $payment->ID, '_pronamic_payment_s2member_level', $data->get_level() );
+				update_post_meta( $payment->id, '_pronamic_payment_s2member_period', $data->get_period() );
+				update_post_meta( $payment->id, '_pronamic_payment_s2member_level', $data->get_level() );
 
 				// Redirect
 				$gateway->redirect();

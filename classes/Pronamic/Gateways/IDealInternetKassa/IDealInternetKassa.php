@@ -283,7 +283,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @return an order id
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->get_field( Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID );
 	}
 
@@ -699,7 +699,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			// general parameters
 			'PSPID'        => $this->getPspId(),
-			'orderID'      => $this->getOrderId(),
+			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() ),
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),

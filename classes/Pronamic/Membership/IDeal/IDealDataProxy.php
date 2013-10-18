@@ -21,12 +21,12 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 		return $this->membership->id . '$' . $this->subscription->sub_id() . '$' . time();
 	}
 
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->membership->id . '$' . $this->subscription->sub_id() . '$' . time();
 	}
 
 	public function get_description() {
-		return $this->getOrderId();
+		return $this->get_order_id();
 	}
 
 	public function getItems() {
@@ -35,7 +35,7 @@ class Pronamic_Membership_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_
 		$items = new Pronamic_IDeal_Items();
 
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
+		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( $this->get_description() );
 		$item->setPrice( number_format( $pricing_array[0]['amount'], 2 ) );
 		$item->setQuantity( 1 );

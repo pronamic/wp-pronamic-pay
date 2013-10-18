@@ -38,19 +38,27 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	//////////////////////////////////////////////////
 
-	public function getOrderId() {
-		return $this->data['orderID'];
+	public function get_order_id() {
+		return $this->data['order_id'];
 	}
 
 	public function get_description() {
-		return str_replace( '{{order_id}}', $this->getOrderId(), $this->data['description'] );
+		$search = array(
+			'{{order_id}}'
+		);
+		
+		$replace = array(
+			$this->get_order_id()
+		);
+
+		return str_replace( $search, $replace, $this->data['description'] );
 	}
 
 	public function getItems() {
 		$items = new Pronamic_IDeal_Items();
 
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
+		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( $this->get_description() );
 		$item->setPrice( $this->data['cost'] );
 		$item->setQuantity( 1 );

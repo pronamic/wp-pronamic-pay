@@ -50,16 +50,16 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	 * @return string
 	 */
 	public function get_description() {
-		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->getOrderId() );
+		return sprintf( __( 'Advertisement %s', 'pronamic_ideal' ), $this->get_order_id() );
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		$order_id = null;
 		
 		if ( isset( $this->order_values['oid'] ) ) {

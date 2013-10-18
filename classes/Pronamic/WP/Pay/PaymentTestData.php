@@ -56,16 +56,16 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	 * @return string
 	 */
 	public function get_description() {
-		return sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->getOrderId() );
+		return sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->get_order_id() );
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return time();
 	}
 
@@ -81,8 +81,8 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 		// Item
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
-		$item->setDescription( sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->getOrderId() ) );
+		$item->setNumber( $this->get_order_id() );
+		$item->setDescription( sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->get_order_id() ) );
 		$item->setPrice( $this->amount );
 		$item->setQuantity( 1 );
 

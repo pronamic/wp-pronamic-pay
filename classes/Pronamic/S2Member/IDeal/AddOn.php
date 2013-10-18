@@ -30,8 +30,8 @@ class Pronamic_S2Member_IDeal_AddOn {
 
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {		
 		$data = new Pronamic_WP_Pay_S2Member_PaymentData( array(
-			'level'  => get_post_meta( $payment->id, '_pronamic_payment_s2member_period', true ),
-			'period' => get_post_meta( $payment->id, '_pronamic_payment_s2member_level', true )
+			'level'  => get_post_meta( $payment->id, '_pronamic_payment_s2member_level', true ),
+			'period' => get_post_meta( $payment->id, '_pronamic_payment_s2member_period', true )
 		) );
 
 		$url = $data->get_normal_return_url();
@@ -51,7 +51,7 @@ class Pronamic_S2Member_IDeal_AddOn {
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 				$url = $data->get_success_url();
-				$email = $data->get_email();
+				$email = $payment->get_email();
 
 				// get account from email
 				$user = get_user_by( 'email', $email );
@@ -67,32 +67,52 @@ class Pronamic_S2Member_IDeal_AddOn {
 					$subject = __( 'Account Confirmation', 'pronamic-ideal' ) . ' | ' . get_bloginfo( 'name' );
 					$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic-ideal' ), $random_string );
 					wp_mail( $email, $subject, $message );
-					
-				} else {
-					$user_id = $user->ID;
+
+					$user = new WP_User( $user_id );
 				}
 
-				// Add a registration time for their level
-				$registration_times = get_user_option( 's2member_paid_registration_times', $user_id );
+				$level      = $data->get_level();
+				$period     = $data->get_period();
 
-				$level  = $data->get_level();
-				$period = $data->get_period();
+				$capability = 'access_s2member_level' . $level;
+				$role       = 's2member_level' . $level;
 
+				// Update user role
+				if ( user_can( $user, $capability ) ) {
+					$note = sprintf(
+						__( 'User "%s" already has access to "%s".', 'pronamic_ideal' ),
+						$email,
+						$capability
+					);
+				} else {
+					$user->add_cap( $capability );
+					$user->set_role( $role );
+					
+					$note = sprintf(
+						__( 'Update user "%s" to role "%s" and added custom capability "%s".', 'pronamic_ideal' ),
+						$email,
+						$role,
+						$capability
+					);
+				}
+
+				$payment->add_note( $note );
+
+				// Registration times
+				$registration_time = time();
+
+				$registration_times = get_user_option( 's2member_paid_registration_times', $user->ID );
 				if ( empty( $registration_times ) )
 					$registration_times = array( );
 				
-				$registration_times[ 'level' . $level ]	 = time();
+				$registration_times[ 'level' . $level ]	 = $registration_time;
 
-				$user = new WP_User( $user_id );
-				// $user->add_cap( "s2member_level{$ordered_level}" );
-				$user->add_cap( "access_s2member_level{$level}" );
-				// $user->set_role( "s2member_level{$ordered_level}" );
+				update_user_option( $user->ID, 's2member_paid_registration_times', $registration_times );
 
-				update_user_option( $user_id, 's2member_paid_registration_times', $registration_times );
+				// Auto end of time
+				$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time( $user->ID, $period, false, false, $registration_time );
 
-				$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time( $user_id, $period, false, false, $registration_times[ 'level' . $level ] );
-
-				update_user_option( $user_id, 's2member_auto_eot_time', $auto_time );
+				update_user_option( $user->ID, 's2member_auto_eot_time', $auto_time );
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

@@ -208,7 +208,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 *
 	 * @return an order id
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->orderId;
 	}
 
@@ -445,7 +445,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			'PSPID'        => $this->getPspId(),
 
-			'orderID'      => $this->getOrderId(),
+			'orderID'      => $this->get_order_id(),
 			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() ), 
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),

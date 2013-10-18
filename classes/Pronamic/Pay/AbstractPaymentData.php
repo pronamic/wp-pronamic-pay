@@ -22,7 +22,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	public abstract function getSource();
 	
 	public function get_source_id() {
-		return $this->getOrderId();
+		return $this->get_order_id();
 	}
 
 	//////////////////////////////////////////////////
@@ -33,7 +33,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	
 	public abstract function get_description();
 
-	public abstract function getOrderId();
+	public abstract function get_order_id();
 
 	public abstract function getItems();
 

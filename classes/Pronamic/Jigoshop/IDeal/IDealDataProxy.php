@@ -58,10 +58,10 @@ class Pronamic_Jigoshop_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_ID
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L50
 		return $this->order->id;
 	}

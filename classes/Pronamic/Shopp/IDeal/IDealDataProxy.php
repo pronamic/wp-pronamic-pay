@@ -67,10 +67,10 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->purchase->id;
 	}
 
