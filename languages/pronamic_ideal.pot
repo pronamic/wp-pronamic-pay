@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 1.3.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-16 09:24:59+00:00\n"
+"POT-Creation-Date: 2013-10-18 09:28:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,15 +12,15 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/includes/upgrade.php:76
+#: admin/includes/upgrade.php:99
 msgid "Config %d"
 msgstr ""
 
-#: admin/includes/upgrade.php:250
+#: admin/includes/upgrade.php:256
 msgid "Feed %d"
 msgstr ""
 
-#: admin/includes/upgrade.php:341
+#: admin/includes/upgrade.php:360
 msgid "Payment %d"
 msgstr ""
 
@@ -47,8 +47,8 @@ msgstr ""
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:54
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
-#: classes/Pronamic/WordPress/IDeal/Admin.php:284
-#: classes/Pronamic/WordPress/IDeal/Admin.php:285 views/config-edit.php:52
+#: classes/Pronamic/WordPress/IDeal/Admin.php:382
+#: classes/Pronamic/WordPress/IDeal/Admin.php:383 views/config-edit.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
 msgstr ""
@@ -70,8 +70,8 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
-#: classes/Pronamic/Membership/Bridge/Settings.php:44 includes/post.php:291
-#: includes/post.php:330 views/s2member/settings.php:30
+#: classes/Pronamic/Membership/Bridge/Settings.php:44 includes/post.php:327
+#: includes/post.php:366
 msgid "Configuration"
 msgstr ""
 
@@ -84,14 +84,13 @@ msgstr ""
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:121
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:146
 #: classes/Pronamic/Membership/IDeal/IDealGateway.php:83
-#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:80
-#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:137
+#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:111
 msgid "Pay with iDEAL"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/Membership/Bridge/Settings.php:15
-#: classes/Pronamic/S2Member/Bridge/Settings.php:27
+#: classes/Pronamic/S2Member/Bridge/Settings.php:50
 msgid "iDEAL Options"
 msgstr ""
 
@@ -112,7 +111,6 @@ msgid "No"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:111
 msgid "iDEAL Configuration"
 msgstr ""
 
@@ -129,8 +127,10 @@ msgid "Accept payment by iDEAL"
 msgstr ""
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:137
+#: classes/Pronamic/S2Member/Bridge/Settings.php:28
+#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
-#: includes/post.php:241 views/gravityforms/feed-edit.php:50
+#: includes/post.php:277 views/gravityforms/feed-edit.php:50
 msgid "Config"
 msgstr ""
 
@@ -158,7 +158,8 @@ msgstr ""
 msgid "Activate Pronamic iDEAL?"
 msgstr ""
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:355 views/settings.php:140
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:355
+#: views/status-system.php:125
 msgid "Event Espresso"
 msgstr ""
 
@@ -172,7 +173,7 @@ msgid "Attendee %s"
 msgstr ""
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:152 views/settings.php:114
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:152 views/status-system.php:99
 msgid "WooCommerce"
 msgstr ""
 
@@ -206,7 +207,7 @@ msgstr ""
 msgid "Choose your bank"
 msgstr ""
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:120 includes/post.php:171
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:120 includes/post.php:207
 #: views/meta-box-payment-info.php:27
 msgid "Amount"
 msgstr ""
@@ -274,7 +275,7 @@ msgstr ""
 msgid "Sisow Bank (test)"
 msgstr ""
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:82 views/settings.php:75
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:82 views/status-system.php:60
 msgid "Gravity Forms"
 msgstr ""
 
@@ -283,12 +284,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:108
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:582
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:589
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:112
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:586
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:593
 msgid "Administrator"
 msgstr ""
 
@@ -362,7 +363,7 @@ msgstr ""
 msgid "iDEAL payment unknown."
 msgstr ""
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/settings.php:88
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/status-system.php:73
 msgid "Jigoshop"
 msgstr ""
 
@@ -381,8 +382,8 @@ msgid "Allow iDEAL payments."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:72 includes/post.php:95
-#: includes/post.php:168 includes/post.php:239 views/branding.php:109
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:72 includes/post.php:97
+#: includes/post.php:204 includes/post.php:275 views/branding.php:109
 #: views/documentation.php:557 views/pages-generator.php:123
 msgid "Title"
 msgstr ""
@@ -394,7 +395,7 @@ msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78
-#: includes/post.php:170 views/meta-box-payment-info.php:19
+#: includes/post.php:206 views/meta-box-payment-info.php:19
 msgid "Description"
 msgstr ""
 
@@ -407,7 +408,7 @@ msgid "Pending iDEAL payment."
 msgstr ""
 
 #: classes/Pronamic/Membership/Bridge/Settings.php:14
-#: classes/Pronamic/S2Member/Bridge/Settings.php:26
+#: classes/Pronamic/S2Member/Bridge/Settings.php:49
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -495,32 +496,49 @@ msgstr ""
 msgid "1 year"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Settings.php:35
+#: classes/Pronamic/S2Member/Bridge/Settings.php:21
+#: classes/Pronamic/WordPress/IDeal/Admin.php:67 views/config-edit.php:29
+msgid "General"
+msgstr ""
+
+#: classes/Pronamic/S2Member/Bridge/Settings.php:58
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Settings.php:36
+#: classes/Pronamic/S2Member/Bridge/Settings.php:59
 msgid "iDEAL Buttons"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:46
+#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:61
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:126
-#: views/gravityforms/feed-edit.php:301
+#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
+#: views/gravityforms/feed-edit.php:287 views/meta-box-payment-info.php:67
 msgid "Email"
 msgstr ""
 
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:65
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:67
 msgid "Account Confirmation"
 msgstr ""
 
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:66
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:68
 msgid "Your password is %s . Please change your password when you login"
 msgstr ""
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:146 views/settings.php:101
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:83
+msgid "User \"%s\" already has access to \"%s\"."
+msgstr ""
+
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:92
+msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
+msgstr ""
+
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:139
+msgid "s2Member"
+msgstr ""
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:146 views/status-system.php:86
 msgid "Shopp"
 msgstr ""
 
@@ -533,20 +551,16 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:149 views/settings.php:127
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:145
+#: views/status-system.php:112
 msgid "WP e-Commerce"
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:157
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:153
 msgid "Purchase #%s"
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:115
-msgid "&mdash; Select configuration &mdash;"
-msgstr ""
-
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:66
-#: views/s2member/settings.php:22
 msgid "Enable/Disable"
 msgstr ""
 
@@ -588,10 +602,6 @@ msgstr ""
 msgid "WooCommerce order %s"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:67 views/config-edit.php:29
-msgid "General"
-msgstr ""
-
 #: classes/Pronamic/WordPress/IDeal/Admin.php:74
 msgid "Support License Key"
 msgstr ""
@@ -601,7 +611,7 @@ msgid "Payment Status Pages"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:92
-#: views/gravityforms/feed-edit.php:352
+#: views/gravityforms/feed-edit.php:338
 msgid "Error"
 msgstr ""
 
@@ -616,7 +626,7 @@ msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:95
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:35
-#: views/gravityforms/feed-edit.php:353
+#: views/gravityforms/feed-edit.php:339
 msgid "Expired"
 msgstr ""
 
@@ -624,62 +634,66 @@ msgstr ""
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:151
+#: classes/Pronamic/WordPress/IDeal/Admin.php:249
 msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:294
-#: classes/Pronamic/WordPress/IDeal/Admin.php:295
+#: classes/Pronamic/WordPress/IDeal/Admin.php:392
+#: classes/Pronamic/WordPress/IDeal/Admin.php:393
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:302
-#: classes/Pronamic/WordPress/IDeal/Admin.php:303 includes/post.php:34
+#: classes/Pronamic/WordPress/IDeal/Admin.php:400
+#: classes/Pronamic/WordPress/IDeal/Admin.php:401 includes/post.php:34
 #: includes/post.php:36 includes/post.php:47
 msgid "Payments"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:310
-#: classes/Pronamic/WordPress/IDeal/Admin.php:311
+#: classes/Pronamic/WordPress/IDeal/Admin.php:408
+#: classes/Pronamic/WordPress/IDeal/Admin.php:409
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:319
-#: classes/Pronamic/WordPress/IDeal/Admin.php:320
+#: classes/Pronamic/WordPress/IDeal/Admin.php:417
+#: classes/Pronamic/WordPress/IDeal/Admin.php:418
 msgid "Pages Generator"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:328
-#: classes/Pronamic/WordPress/IDeal/Admin.php:329 includes/post.php:174
-#: views/dashboard.php:10
-msgid "Status"
+#: classes/Pronamic/WordPress/IDeal/Admin.php:426
+#: classes/Pronamic/WordPress/IDeal/Admin.php:427
+msgid "System Status"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:337
+#: classes/Pronamic/WordPress/IDeal/Admin.php:435
+#: classes/Pronamic/WordPress/IDeal/Admin.php:436
+msgid "iDEAL Status"
+msgstr ""
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:444
 msgid "Gateway Providers"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:338
+#: classes/Pronamic/WordPress/IDeal/Admin.php:445
 msgid "Providers"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:346
-#: classes/Pronamic/WordPress/IDeal/Admin.php:347
+#: classes/Pronamic/WordPress/IDeal/Admin.php:453
+#: classes/Pronamic/WordPress/IDeal/Admin.php:454
 msgid "Variants"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:355
-#: classes/Pronamic/WordPress/IDeal/Admin.php:356
+#: classes/Pronamic/WordPress/IDeal/Admin.php:462
+#: classes/Pronamic/WordPress/IDeal/Admin.php:463
 msgid "Documentation"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:364
-#: classes/Pronamic/WordPress/IDeal/Admin.php:365
+#: classes/Pronamic/WordPress/IDeal/Admin.php:471
+#: classes/Pronamic/WordPress/IDeal/Admin.php:472
 msgid "Branding"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:374 includes/post.php:99
-#: views/variants.php:23
+#: classes/Pronamic/WordPress/IDeal/Admin.php:481 includes/post.php:101
+#: includes/post.php:165 views/variants.php:23
 msgid "Dashboard"
 msgstr ""
 
@@ -687,17 +701,17 @@ msgstr ""
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:37 views/status.php:57
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:37 views/status-ideal.php:55
 msgid "Failure"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:39
-#: views/gravityforms/feed-edit.php:349
+#: views/gravityforms/feed-edit.php:335
 msgid "Open"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:41
-#: views/gravityforms/feed-edit.php:350 views/status.php:54
+#: views/gravityforms/feed-edit.php:336 views/status-ideal.php:52
 msgid "Success"
 msgstr ""
 
@@ -710,18 +724,18 @@ msgstr ""
 msgid "&mdash; Select config &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:177
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:179
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:493
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:500
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
 "\">iDEAL settings page</a>."
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:509
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:516
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -785,7 +799,7 @@ msgstr ""
 msgid "Configs"
 msgstr ""
 
-#: includes/post.php:37 includes/post.php:309
+#: includes/post.php:37 includes/post.php:345
 msgid "Payment"
 msgstr ""
 
@@ -865,50 +879,58 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: includes/post.php:96 views/config-edit.php:580
+#: includes/post.php:98 views/config-edit.php:580
 msgid "Variant"
 msgstr ""
 
-#: includes/post.php:97 views/meta-box-payment-info.php:11
+#: includes/post.php:99 views/meta-box-payment-info.php:11
 msgid "ID"
 msgstr ""
 
-#: includes/post.php:98
+#: includes/post.php:100
 msgid "Secret"
 msgstr ""
 
-#: includes/post.php:100 includes/post.php:175 includes/post.php:243
-#: views/documentation.php:558 views/status.php:51
+#: includes/post.php:102 includes/post.php:211 includes/post.php:279
+#: views/documentation.php:558 views/status-ideal.php:49
 msgid "Date"
 msgstr ""
 
-#: includes/post.php:169 views/variants.php:22
-msgid "Gateway"
-msgstr ""
-
-#: includes/post.php:172 views/meta-box-payment-info.php:67
-msgid "Consumer"
-msgstr ""
-
-#: includes/post.php:173 views/meta-box-payment-info.php:85
-msgid "Source"
-msgstr ""
-
-#: includes/post.php:240
-msgid "Form"
-msgstr ""
-
-#: includes/post.php:242 views/gravityforms/feed-edit.php:83
-msgid "Transaction Description"
-msgstr ""
-
-#: includes/post.php:300 views/config-edit.php:46 views/config-test.php:24
-#: views/test-method-advanced-v3.php:97 views/test-method-advanced.php:100
-#: views/test-method-basic.php:82
+#: includes/post.php:171 includes/post.php:336 views/config-edit.php:46
+#: views/config-test.php:26 views/test-method-advanced-v3.php:97
+#: views/test-method-advanced.php:100 views/test-method-basic.php:82
 msgid "Test"
 msgstr ""
 
-#: includes/post.php:318
+#: includes/post.php:177
+msgid "Production"
+msgstr ""
+
+#: includes/post.php:205 views/variants.php:22
+msgid "Gateway"
+msgstr ""
+
+#: includes/post.php:208 views/meta-box-payment-info.php:79
+msgid "Consumer"
+msgstr ""
+
+#: includes/post.php:209 views/meta-box-payment-info.php:97
+msgid "Source"
+msgstr ""
+
+#: includes/post.php:210 views/dashboard.php:11
+msgid "Status"
+msgstr ""
+
+#: includes/post.php:276
+msgid "Form"
+msgstr ""
+
+#: includes/post.php:278 views/gravityforms/feed-edit.php:69
+msgid "Transaction Description"
+msgstr ""
+
+#: includes/post.php:354
 msgid "Log"
 msgstr ""
 
@@ -1242,7 +1264,7 @@ msgid ""
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:450 views/gravityforms/feed-edit.php:307
+#: views/config-edit.php:450 views/gravityforms/feed-edit.php:293
 msgid "Country"
 msgstr ""
 
@@ -1346,6 +1368,16 @@ msgstr ""
 msgid "filename"
 msgstr ""
 
+#: views/dashboard.php:23 views/dashboard.php:31
+msgid "Pronamic News"
+msgstr ""
+
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 1.3.4)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#: views/dashboard.php:29
+msgid "http://www.pronamic.eu/"
+msgstr ""
+
 #: views/documentation.php:5
 msgid "iDEAL Documentation"
 msgstr ""
@@ -1378,134 +1410,130 @@ msgstr ""
 msgid "&mdash; Select a form &mdash;"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:60
-msgid "&mdash; Select config &mdash; "
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:102
+#: views/gravityforms/feed-edit.php:88
 msgid ""
 "Maximum number of charachters is 32, you should also consider the use of "
 "variables Gravity Forms. An generated description that is longer than 32 "
 "characters will be automatically truncated."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:104
+#: views/gravityforms/feed-edit.php:90
 msgid ""
 "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
 "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:111
+#: views/gravityforms/feed-edit.php:97
 msgid "Condition"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:127
+#: views/gravityforms/feed-edit.php:113
 msgid "Enable"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:142
+#: views/gravityforms/feed-edit.php:128
 msgid "is"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:143
+#: views/gravityforms/feed-edit.php:129
 msgid "is not"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:162
+#: views/gravityforms/feed-edit.php:148
 msgid "Send to gateway if %s %s %s"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:172
+#: views/gravityforms/feed-edit.php:158
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:178
+#: views/gravityforms/feed-edit.php:164
 msgid "Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:183
+#: views/gravityforms/feed-edit.php:169
 msgid "Send Notifications Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:203
+#: views/gravityforms/feed-edit.php:189
 msgid "Send notifications only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:254
+#: views/gravityforms/feed-edit.php:240
 msgid "Send admin notification only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:261
+#: views/gravityforms/feed-edit.php:247
 msgid "Send user notification only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:280
+#: views/gravityforms/feed-edit.php:266
 msgid "Create Post Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:286
+#: views/gravityforms/feed-edit.php:272
 msgid "Create post only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:293
+#: views/gravityforms/feed-edit.php:279
 msgid "Fields"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:299
+#: views/gravityforms/feed-edit.php:285
 msgid "First Name"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:300
+#: views/gravityforms/feed-edit.php:286
 msgid "Last Name"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:302
+#: views/gravityforms/feed-edit.php:288
 msgid "Address"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:303
+#: views/gravityforms/feed-edit.php:289
 msgid "Address 2"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:304
+#: views/gravityforms/feed-edit.php:290
 msgid "City"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:305
+#: views/gravityforms/feed-edit.php:291
 msgid "State"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:306
+#: views/gravityforms/feed-edit.php:292
 msgid "Zip"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:325
 msgid "Status Links"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:351
+#: views/gravityforms/feed-edit.php:337
 msgid "Cancel"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:379
+#: views/gravityforms/feed-edit.php:365
 msgid "Page:"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:387
+#: views/gravityforms/feed-edit.php:373
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:396
+#: views/gravityforms/feed-edit.php:382
 msgid "URL:"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:406 views/variants.php:62
+#: views/gravityforms/feed-edit.php:392 views/variants.php:62
 msgid "Advanced"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:413
+#: views/gravityforms/feed-edit.php:399
 msgid "Update user role"
 msgstr ""
 
@@ -1655,110 +1683,103 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: views/settings.php:10
-msgid "iDEAL Settings"
-msgstr ""
-
-#: views/settings.php:22
-msgid "License Information"
-msgstr ""
-
-#: views/settings.php:30
-msgid "No license information available."
-msgstr ""
-
-#: views/settings.php:41
-msgid "Activation Date"
-msgstr ""
-
-#: views/settings.php:44 views/settings.php:57 views/settings.php:254
-msgid "Y/m/d g:i:s A"
-msgstr ""
-
-#: views/settings.php:54
-msgid "Expiration Date"
-msgstr ""
-
-#: views/settings.php:68
-msgid "Supported Plugins"
-msgstr ""
-
-#: views/settings.php:153
-msgid "Event Espresso Lite"
-msgstr ""
-
-#: views/settings.php:166
-msgid "Installation Status"
-msgstr ""
-
-#: views/settings.php:172
-msgid "Site URL"
-msgstr ""
-
-#: views/settings.php:183
-msgid "Home URL"
-msgstr ""
-
-#: views/settings.php:194
-msgid "PHP Version"
-msgstr ""
-
-#: views/settings.php:205
-msgid "Pronamic iDEAL requires PHP 5.2 or above."
-msgstr ""
-
-#: views/settings.php:213
-msgid "MySQL Version"
-msgstr ""
-
-#: views/settings.php:224
-msgid "Pronamic iDEAL requires MySQL 5 or above."
-msgstr ""
-
-#: views/settings.php:232
-msgid "WordPress Version"
-msgstr ""
-
-#: views/settings.php:243
-msgid "Pronamic iDEAL requires WordPress 3.2 or above."
-msgstr ""
-
-#: views/settings.php:251
-msgid "Time"
-msgstr ""
-
-#: views/settings.php:263
-msgid "OpenSSL"
-msgstr ""
-
-#: views/settings.php:283
-msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
-msgstr ""
-
-#: views/settings.php:291
-msgid "Registered Hashing Algorithms"
-msgstr ""
-
-#: views/settings.php:308
-msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
-msgstr ""
-
-#: views/status.php:5
-msgid "iDEAL Status"
-msgstr ""
-
-#: views/status.php:12
+#: views/status-ideal.php:10
 msgid ""
 "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
 "the following status of the various iDEAL banks:"
 msgstr ""
 
-#: views/status.php:45
+#: views/status-ideal.php:43
 msgid "Issuer Name"
 msgstr ""
 
-#: views/status.php:48
+#: views/status-ideal.php:46
 msgid "Issuer ID"
+msgstr ""
+
+#: views/status-system.php:7
+msgid "License Information"
+msgstr ""
+
+#: views/status-system.php:15
+msgid "No license information available."
+msgstr ""
+
+#: views/status-system.php:26
+msgid "Activation Date"
+msgstr ""
+
+#: views/status-system.php:29 views/status-system.php:42
+#: views/status-system.php:245
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: views/status-system.php:39
+msgid "Expiration Date"
+msgstr ""
+
+#: views/status-system.php:53
+msgid "Supported Plugins"
+msgstr ""
+
+#: views/status-system.php:138
+msgid "Event Espresso Lite"
+msgstr ""
+
+#: views/status-system.php:151
+msgid "Installation Status"
+msgstr ""
+
+#: views/status-system.php:157
+msgid "Site URL"
+msgstr ""
+
+#: views/status-system.php:168
+msgid "Home URL"
+msgstr ""
+
+#: views/status-system.php:179
+msgid "PHP Version"
+msgstr ""
+
+#: views/status-system.php:190
+msgid "Pronamic iDEAL requires PHP 5.2 or above."
+msgstr ""
+
+#: views/status-system.php:198
+msgid "MySQL Version"
+msgstr ""
+
+#: views/status-system.php:215
+msgid "Pronamic iDEAL requires MySQL 5 or above."
+msgstr ""
+
+#: views/status-system.php:223
+msgid "WordPress Version"
+msgstr ""
+
+#: views/status-system.php:234
+msgid "Pronamic iDEAL requires WordPress 3.2 or above."
+msgstr ""
+
+#: views/status-system.php:242
+msgid "Time"
+msgstr ""
+
+#: views/status-system.php:254
+msgid "OpenSSL"
+msgstr ""
+
+#: views/status-system.php:274
+msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
+msgstr ""
+
+#: views/status-system.php:282
+msgid "Registered Hashing Algorithms"
+msgstr ""
+
+#: views/status-system.php:299
+msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr ""
 
 #: views/test-method-advanced-v3.php:10 views/test-method-advanced.php:11
@@ -1818,8 +1839,4 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Pronamic"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
 msgstr ""
