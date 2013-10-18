@@ -14,6 +14,10 @@
 					</div>
 				</div>
 			</div>
+	
+			<div class="clear"></div>
 		</div>
 	</div>
+
+	<?php include 'pronamic.php'; ?>
 </div>
