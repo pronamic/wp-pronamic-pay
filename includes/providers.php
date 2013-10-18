@@ -78,7 +78,7 @@ $pronamic_pay_providers = array(
 		'affiliate_url' => 'https://www.targetpay.com/quickreg/85315'
 	),
 	'qantani' => array(
-		'name'          => 'Qantani - iDEAL',
+		'name'          => 'Qantani',
 		'url'           => 'https://www.qantani.com/',
 		'affiliate_url' => 'https://www.qantani.com/?referrer=pronamic'
 	)
