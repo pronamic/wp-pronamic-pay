@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 1.3.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-18 09:28:49+00:00\n"
+"POT-Creation-Date: 2013-10-18 11:05:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +63,7 @@ msgstr ""
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:48
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:104
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
 msgid "Pronamic iDEAL"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
 #: classes/Pronamic/Membership/Bridge/Settings.php:44 includes/post.php:327
-#: includes/post.php:366
+#: includes/post.php:375
 msgid "Configuration"
 msgstr ""
 
@@ -371,8 +371,8 @@ msgstr ""
 #: classes/Pronamic/Jigoshop/IDeal/IDealDataProxy.php:83
 #: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:64
 #: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:90
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:55
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:83
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
 #: classes/Pronamic/WooCommerce/PaymentData.php:62
 msgid "Order %s"
 msgstr ""
@@ -551,12 +551,12 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:145
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:154
 #: views/status-system.php:112
 msgid "WP e-Commerce"
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:153
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:162
 msgid "Purchase #%s"
 msgstr ""
 
@@ -576,25 +576,21 @@ msgid ""
 "bank."
 msgstr ""
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:86
-msgid "Select an config."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:164
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:163
 msgid "Awaiting iDEAL payment."
 msgstr ""
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:213
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:212
 msgid ""
 "Check the payment of order %s in your <a href=\"%s\">iDEAL dashboard</a> and "
 "<a href=\"%s\">update the status of the order</a>."
 msgstr ""
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:234
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:233
 msgid "Check iDEAL payment"
 msgstr ""
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:242
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:241
 msgid "Check iDEAL payment for order %s"
 msgstr ""
 
@@ -656,40 +652,40 @@ msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:417
 #: classes/Pronamic/WordPress/IDeal/Admin.php:418
-msgid "Pages Generator"
+msgid "System Status"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:426
 #: classes/Pronamic/WordPress/IDeal/Admin.php:427
-msgid "System Status"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:435
-#: classes/Pronamic/WordPress/IDeal/Admin.php:436
 msgid "iDEAL Status"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:444
+#: classes/Pronamic/WordPress/IDeal/Admin.php:435
 msgid "Gateway Providers"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:445
+#: classes/Pronamic/WordPress/IDeal/Admin.php:436
 msgid "Providers"
+msgstr ""
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:444
+#: classes/Pronamic/WordPress/IDeal/Admin.php:445
+msgid "Variants"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:453
 #: classes/Pronamic/WordPress/IDeal/Admin.php:454
-msgid "Variants"
+msgid "Documentation"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:462
 #: classes/Pronamic/WordPress/IDeal/Admin.php:463
-msgid "Documentation"
+msgid "Branding"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:471
 #: classes/Pronamic/WordPress/IDeal/Admin.php:472
-msgid "Branding"
+msgid "Pages Generator"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:481 includes/post.php:101
@@ -835,11 +831,7 @@ msgstr ""
 msgid "No payments found in Trash"
 msgstr ""
 
-#: includes/post.php:61
-msgid "Feeds"
-msgstr ""
-
-#: includes/post.php:63 includes/post.php:74
+#: includes/post.php:61 includes/post.php:63 includes/post.php:74
 msgid "Payment Forms"
 msgstr ""
 
@@ -914,7 +906,8 @@ msgstr ""
 msgid "Consumer"
 msgstr ""
 
-#: includes/post.php:209 views/meta-box-payment-info.php:97
+#: includes/post.php:209 includes/post.php:354
+#: views/meta-box-payment-source.php:11
 msgid "Source"
 msgstr ""
 
@@ -930,7 +923,7 @@ msgstr ""
 msgid "Transaction Description"
 msgstr ""
 
-#: includes/post.php:354
+#: includes/post.php:363
 msgid "Log"
 msgstr ""
 
@@ -1552,6 +1545,22 @@ msgstr ""
 #. translators: comment date format. See http:php.net/date
 #: views/meta-box-payment-log.php:30
 msgid "Y/m/d"
+msgstr ""
+
+#: views/meta-box-payment-source.php:22
+msgid "Period"
+msgstr ""
+
+#: views/meta-box-payment-source.php:30
+msgid "Level"
+msgstr ""
+
+#: views/meta-box-payment-source.php:43
+msgid "Purchase ID"
+msgstr ""
+
+#: views/meta-box-payment-source.php:51
+msgid "Session ID"
 msgstr ""
 
 #: views/pages-generator.php:43

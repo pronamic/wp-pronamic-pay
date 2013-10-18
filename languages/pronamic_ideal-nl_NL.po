@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-18 09:28:49+00:00\n"
-"PO-Revision-Date: 2013-10-18 12:29+0100\n"
+"POT-Creation-Date: 2013-10-18 11:05:22+00:00\n"
+"PO-Revision-Date: 2013-10-18 13:06+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -18,9 +18,8 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/includes/upgrade.php:99
-#, fuzzy
 msgid "Config %d"
-msgstr "Configuration %d"
+msgstr "Configuratie %d"
 
 #: admin/includes/upgrade.php:256
 msgid "Feed %d"
@@ -69,7 +68,7 @@ msgstr "iDEAL"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:48
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:104
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -77,7 +76,7 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
 #: classes/Pronamic/Membership/Bridge/Settings.php:44 includes/post.php:327
-#: includes/post.php:366
+#: includes/post.php:375
 msgid "Configuration"
 msgstr "Configuratie"
 
@@ -137,7 +136,6 @@ msgstr "Accepteeer betaling via iDEAL"
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
 #: includes/post.php:277 views/gravityforms/feed-edit.php:50
-#, fuzzy
 msgid "Config"
 msgstr "Configuratie"
 
@@ -228,9 +226,8 @@ msgid "Capture Mode"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:123
-#, fuzzy
 msgid "Currency Code"
-msgstr "Valuta"
+msgstr "Valuta code"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:124
 #: views/config-edit.php:59 views/config-edit.php:160
@@ -239,9 +236,8 @@ msgid "Merchant ID"
 msgstr "Winkelier ID"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:125
-#, fuzzy
 msgid "Order ID"
-msgstr "Bestelling"
+msgstr "Bestelling ID"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:126
 #, fuzzy
@@ -385,8 +381,8 @@ msgstr "Jigoshop"
 #: classes/Pronamic/Jigoshop/IDeal/IDealDataProxy.php:83
 #: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:64
 #: classes/Pronamic/Shopp/IDeal/IDealDataProxy.php:90
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:55
-#: classes/Pronamic/WPeCommerce/IDeal/IDealDataProxy.php:83
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
 #: classes/Pronamic/WooCommerce/PaymentData.php:62
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -566,12 +562,12 @@ msgstr "Selecteer configuratie"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:145
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:154
 #: views/status-system.php:112
 msgid "WP e-Commerce"
 msgstr "WP e-Commerce"
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:153
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:162
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
@@ -595,16 +591,11 @@ msgstr ""
 "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:86
-#, fuzzy
-msgid "Select an config."
-msgstr "Selecteer een iDEAL-configuratie."
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:164
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:163
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:213
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:212
 msgid ""
 "Check the payment of order %s in your <a href=\"%s\">iDEAL dashboard</a> and "
 "<a href=\"%s\">update the status of the order</a>."
@@ -612,11 +603,11 @@ msgstr ""
 "Controleer de betaling voor bestelling #%s in uw <a href=\"%s\">iDEAL-"
 "dashboard</a> en <a href=\"%s\">update de status van de bestelling</a>."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:234
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:233
 msgid "Check iDEAL payment"
 msgstr "Controleer iDEAL-betaling"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:242
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:241
 msgid "Check iDEAL payment for order %s"
 msgstr "Controleer iDEAL-betaling voor bestelling #%s"
 
@@ -657,9 +648,8 @@ msgid "Completed"
 msgstr "Voltooid"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:249
-#, fuzzy
 msgid "&mdash; Select a page &mdash;"
-msgstr "&mdash; Selecteren &mdash;"
+msgstr "&mdash; Selecteer een pagina &mdash;"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:392
 #: classes/Pronamic/WordPress/IDeal/Admin.php:393
@@ -679,42 +669,41 @@ msgstr "Instellingen"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:417
 #: classes/Pronamic/WordPress/IDeal/Admin.php:418
-msgid "Pages Generator"
-msgstr "Pagina's generator"
+msgid "System Status"
+msgstr "Systeemstatus"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:426
 #: classes/Pronamic/WordPress/IDeal/Admin.php:427
-#, fuzzy
-msgid "System Status"
-msgstr "Betalingsstatus"
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:435
-#: classes/Pronamic/WordPress/IDeal/Admin.php:436
 msgid "iDEAL Status"
 msgstr "iDEAL-status"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:444
+#: classes/Pronamic/WordPress/IDeal/Admin.php:435
 msgid "Gateway Providers"
 msgstr "Gateway providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:445
+#: classes/Pronamic/WordPress/IDeal/Admin.php:436
 msgid "Providers"
 msgstr "Providers"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:453
-#: classes/Pronamic/WordPress/IDeal/Admin.php:454
+#: classes/Pronamic/WordPress/IDeal/Admin.php:444
+#: classes/Pronamic/WordPress/IDeal/Admin.php:445
 msgid "Variants"
 msgstr "Varianten"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:462
-#: classes/Pronamic/WordPress/IDeal/Admin.php:463
+#: classes/Pronamic/WordPress/IDeal/Admin.php:453
+#: classes/Pronamic/WordPress/IDeal/Admin.php:454
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:471
-#: classes/Pronamic/WordPress/IDeal/Admin.php:472
+#: classes/Pronamic/WordPress/IDeal/Admin.php:462
+#: classes/Pronamic/WordPress/IDeal/Admin.php:463
 msgid "Branding"
 msgstr "Huisstijl"
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:471
+#: classes/Pronamic/WordPress/IDeal/Admin.php:472
+msgid "Pages Generator"
+msgstr "Pagina's generator"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:481 includes/post.php:101
 #: includes/post.php:165 views/variants.php:23
@@ -747,7 +736,6 @@ msgstr ""
 "op een andere manier."
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:71
-#, fuzzy
 msgid "&mdash; Select config &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
@@ -840,7 +828,6 @@ msgid "No gateway configs found in Trash"
 msgstr "Geen gateways gevonden in prullenbak."
 
 #: includes/post.php:18
-#, fuzzy
 msgid "Configs"
 msgstr "Configuraties"
 
@@ -880,12 +867,7 @@ msgstr "Geen betalingen gevonden."
 msgid "No payments found in Trash"
 msgstr "Geen betalingen gevonden in prullenbak."
 
-#: includes/post.php:61
-#, fuzzy
-msgid "Feeds"
-msgstr "iDEAL-feeds"
-
-#: includes/post.php:63 includes/post.php:74
+#: includes/post.php:61 includes/post.php:63 includes/post.php:74
 msgid "Payment Forms"
 msgstr "Betalingsformulieren"
 
@@ -961,7 +943,8 @@ msgstr "Gateway"
 msgid "Consumer"
 msgstr "Consument"
 
-#: includes/post.php:209 views/meta-box-payment-info.php:97
+#: includes/post.php:209 includes/post.php:354
+#: views/meta-box-payment-source.php:11
 msgid "Source"
 msgstr "Bron"
 
@@ -977,7 +960,7 @@ msgstr "Formulier"
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
-#: includes/post.php:354
+#: includes/post.php:363
 msgid "Log"
 msgstr ""
 
@@ -1654,6 +1637,22 @@ msgstr ""
 msgid "Y/m/d"
 msgstr ""
 
+#: views/meta-box-payment-source.php:22
+msgid "Period"
+msgstr "Periode"
+
+#: views/meta-box-payment-source.php:30
+msgid "Level"
+msgstr "Niveau"
+
+#: views/meta-box-payment-source.php:43
+msgid "Purchase ID"
+msgstr "Aankoop ID"
+
+#: views/meta-box-payment-source.php:51
+msgid "Session ID"
+msgstr "Sessie ID"
+
 #: views/pages-generator.php:43
 msgid "iDEAL Pages Generator"
 msgstr "iDEAL-pagina's generator"
@@ -1947,6 +1946,13 @@ msgstr ""
 msgid "Pronamic"
 msgstr "Pronamic"
 
+#~ msgid "Select an config."
+#~ msgstr "Selecteer een configuratie."
+
+#, fuzzy
+#~ msgid "Feeds"
+#~ msgstr "iDEAL-feeds"
+
 #, fuzzy
 #~ msgid "&mdash; Select config &mdash; "
 #~ msgstr "&mdash; Selecteer configuratie &mdash;"
@@ -2010,9 +2016,6 @@ msgstr "Pronamic"
 
 #~ msgid "No payments found."
 #~ msgstr "Geen betalingen gevonden."
-
-#~ msgid "Purchase ID"
-#~ msgstr "Aankoop ID"
 
 #~ msgid "Details"
 #~ msgstr "Details"
@@ -2175,9 +2178,6 @@ msgstr "Pronamic"
 
 #~ msgid "Owner ZIP"
 #~ msgstr "Eigenaar postcode"
-
-#~ msgid "version %s"
-#~ msgstr "versie %s"
 
 #~ msgid "%s"
 #~ msgstr "%s"
