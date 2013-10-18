@@ -54,27 +54,13 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				<?php 
 				
 				$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
+
+				Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+					'name'     => '_pronamic_pay_gf_config_id',
+					'selected' => $config_id
+				) );
 				
 				?>
-				<select id="_pronamic_pay_gf_config_id" name="_pronamic_pay_gf_config_id">
-					<option value=""><?php _e( '&mdash; Select config &mdash; ', 'pronamic_ideal' ); ?></option>
-	
-					<?php
-	
-					$configs = get_posts( array(
-						'post_type' => 'pronamic_gateway',
-						'nopaging'  => true
-					) );
-	
-					foreach ( $configs as $config ) : ?>
-	
-						<option value="<?php echo $config->ID; ?>" <?php selected( $config_id, $config->ID ); ?>>
-							<?php echo get_the_title( $config->ID ); ?>
-						</option>
-	
-					<?php endforeach; ?>
-	
-				</select>
 			</td>
 		</tr>
 		<tr>
