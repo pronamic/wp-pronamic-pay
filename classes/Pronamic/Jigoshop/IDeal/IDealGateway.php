@@ -174,9 +174,6 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status( 'pending', __( 'Pending iDEAL payment.', 'pronamic_ideal' ) );
 
-		// Empty cart
-		jigoshop_cart::empty_cart();
-
 		// Do specifiek iDEAL variant processing
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 		
