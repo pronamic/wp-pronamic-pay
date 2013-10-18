@@ -294,7 +294,14 @@ function pronamic_pay_gf_custom_column( $column, $post_id ) {
 			$form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
 			
 			if ( ! empty( $form_id ) ) {
-				echo get_pronamic_pay_gf_form_title( $form_id );
+				printf(
+					'<a href="%s">%s</a>',
+					add_query_arg( array(
+						'page' => 'gf_edit_forms',
+						'id'   => $form_id
+					), admin_url( 'admin.php' ) ),
+					get_pronamic_pay_gf_form_title( $form_id )
+				);
 			} else {
 				echo '—';
 			}
