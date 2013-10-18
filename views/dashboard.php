@@ -20,7 +20,7 @@
 			<div id="postbox-container-2" class="postbox-container">
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Pronamic News', 'twinfield' ); ?></span></h3>
+						<h3 class="hndle"><span><?php _e( 'Pronamic News', 'pronamic_ideal' ); ?></span></h3>
 	
 						<div class="inside">
 							<?php 
