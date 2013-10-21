@@ -526,7 +526,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	/**
 	 * Render the specified view
 	 */
-	public static function render_view($name) {
+	public static function render_view( $name ) {
 		$result = false;
 
 		$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'views/' . $name . '.php';
