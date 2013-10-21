@@ -72,13 +72,15 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * @param array $lead
 	 */
 	public static function entry_info( $form_id, $lead ) {
-		if ( false ):
+		$payment_id = gform_get_meta( $lead['id'], 'pronamic_payment_id' );
 
-			_e( 'iDEAL', 'pronamic_ideal' ); ?>: 
-			<a href="#" target="_blank">transaction 1</a>
-			<br /><br /><?php
-		
-		endif;
+		if ( $payment_id ) {
+			printf( 
+				'<a href="%s">%s</a>',
+				get_edit_post_link( $payment_id ),
+				get_the_title( $payment_id )
+			);
+		}
 	}
 
 	//////////////////////////////////////////////////

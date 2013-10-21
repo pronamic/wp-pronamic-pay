@@ -140,8 +140,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$user = new WP_User( $created_by );
 		}
 
-		if ( $user && ! empty( $feed->userRoleFieldId ) && isset( $lead[$feed->userRoleFieldId] ) ) {
-			$value = $lead[$feed->userRoleFieldId];
+		if ( $user && ! empty( $feed->user_role_field_id ) && isset( $lead[$feed->user_role_field_id] ) ) {
+			$value = $lead[$feed->user_role_field_id];
 			$value = GFCommon::get_selection_value( $value );
 
 			$user->set_role( $value );
@@ -225,7 +225,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 */
     public static function fulfill_order( $entry ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
 
 		if ( $feed !== null ) {
 			self::maybe_update_user_role( $entry, $feed );
@@ -233,10 +233,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
 
 			// Determine if the feed has Gravity Form 1.7 Feed IDs
-			if ( $feed->hasNotificationIds() ) {
+			if ( $feed->has_delayed_notifications() ) {
 
 				// Get those ID's
-				$notification_ids = $feed->getNotificationIds();
+				$notification_ids = $feed->delay_notification_ids;
 
 				// Go through all form notifications
 				foreach ( $form_meta['notifications'] as $notification ) {
@@ -246,19 +246,21 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 						// Send the notification now.
 						GFCommon::send_notification( $notification, $form_meta, $entry );
+
 					}
+
 				}
 			}
 
-			if ( $feed->delayAdminNotification ) {
+			if ( $feed->delay_admin_notification ) {
 				GFCommon::send_admin_notification( $form_meta, $entry );
 			}
 
-			if ( $feed->delayUserNotification ) {
+			if ( $feed->delay_user_notification ) {
 				GFCommon::send_user_notification( $form_meta, $entry );
 			}
 
-			if ( $feed->delayPostCreation ) {
+			if ( $feed->delay_post_creation ) {
 				RGFormsModel::create_post( $form_meta, $entry );
 			}
         }
@@ -363,7 +365,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		if ( $pay_form !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayAdminNotification;
+				$is_disabled = $feed->delay_admin_notification;
 			}
 		}
 
@@ -383,7 +385,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayUserNotification;
+				$is_disabled = $feed->delay_user_notification;
 			}
 		}
 
@@ -449,12 +451,53 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
 
 				if ( $gateway ) {
-					if ( $gateway->is_http_redirect() ) {
-						$confirmation = self::handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway );
-					}
+					$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
+					
+					$payment = Pronamic_WordPress_IDeal_IDeal::start( $feed->config_id, $gateway, $data );
 
-					if ( $gateway->is_html_form() ) {
-						$confirmation = self::handle_gateway_html_form( $confirmation, $form, $feed, $lead, $gateway );
+					$error = $gateway->get_error();
+					
+					if ( is_wp_error( $error ) ) {
+						$html = '';
+					
+						$html .= '<ul>';
+						$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
+					
+						foreach ( $error->get_error_messages() As $message ) {
+							$html .= '<li>' . $message . '</li>';
+						}
+					
+						$html .= '</ul>';
+					
+						$confirmation = $html;
+					} else {
+						// Updating lead's payment_status to Processing
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->getAmount();
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
+						
+						gform_update_meta( $lead['id'], 'pronamic_payment_id', $payment->id );
+
+						RGFormsModel::update_lead( $lead );
+
+						if ( $gateway->is_http_redirect() ) {
+							// Redirect user to the issuer
+							$confirmation = array( 'redirect' => $gateway->get_action_url() );
+						}
+
+						if ( $gateway->is_html_form() ) {
+					        // HTML
+					        $html  = '';
+					        $html .= '<div id="gforms_confirmation_message">';
+					        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
+					        $html .= 	$gateway->get_form_html();
+							$html .= '</div>';
+					
+					        // Extend the confirmation with the iDEAL form
+					        $confirmation = $html;
+						}
 					}
 				}
 			}
@@ -472,87 +515,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		return $confirmation;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Handle iDEAL advanced
-	 *
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-	 */
-	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
-		$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
-
-		Pronamic_WordPress_IDeal_IDeal::start( $feed->config_id, $gateway, $data );
-
-		$error = $gateway->get_error();
-
-    	$url = $gateway->get_action_url();
-
-		if ( is_wp_error( $error ) ) {
-			$html = '';
-
-			$html .= '<ul>';
-			$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
-
-			foreach ( $error->get_error_messages() As $message ) {
-				$html .= '<li>' . $message . '</li>';
-			}
-
-			$html .= '</ul>';
-
-			$confirmation = $html;
-		} else {
-			// Updating lead's payment_status to Processing
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->getAmount();
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
-
-			RGFormsModel::update_lead( $lead );
-
-			// Redirect user to the issuer
-			$confirmation = array( 'redirect' => $url );
-		}
-
-		return $confirmation;
-	}
-
-	/**
-	 * Handle iDEAL form
-	 *
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-	 */
-	public static function handle_gateway_html_form( $confirmation, $form, $feed, $lead, $gateway ) {
-		$configuration = $feed->getIDealConfiguration();
-
-		$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
-
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
-		// Updating lead's payment_status to Processing
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->getAmount();
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
-
-        RGFormsModel::update_lead( $lead );
-
-        // HTML
-        $html  = '';
-        $html .= '<div id="gforms_confirmation_message">';
-        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-        $html .= 	$gateway->get_form_html();
-		$html .= '</div>';
-
-        // Extend the confirmation with the iDEAL form
-        $confirmation = $html;
-
-        // Return
-        return $confirmation;
 	}
 
 	//////////////////////////////////////////////////
