@@ -131,6 +131,11 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			$this->set_error( $error );
 		} else {
 			$transaction = $result->transaction;
+			
+			$payment->set_status( $transaction->getStatus() );
+			$payment->set_consumer_name( $transaction->getConsumerName() );
+			$payment->set_consumer_account_number( $transaction->getConsumerAccountNumber() );
+			$payment->set_consumer_city( $transaction->getConsumerCity() );
 
 			update_post_meta( $payment->id, '_pronamic_payment_status', $transaction->get_status() );
 			update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $transaction->get_consumer_name() );

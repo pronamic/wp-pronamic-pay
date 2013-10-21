@@ -195,10 +195,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		} else {
 			$transaction = $result->transaction;
 
-			update_post_meta( $payment->id, '_pronamic_payment_status', $transaction->getStatus() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $transaction->getConsumerName() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $transaction->getConsumerAccountNumber() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $transaction->getConsumerCity() );
+			$payment->set_status( $transaction->getStatus() );
+			$payment->set_consumer_name( $transaction->getConsumerName() );
+			$payment->set_consumer_account_number( $transaction->getConsumerAccountNumber() );
+			$payment->set_consumer_city( $transaction->getConsumerCity() );
 		}
 	}
 }
