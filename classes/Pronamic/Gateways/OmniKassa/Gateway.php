@@ -104,17 +104,14 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			switch ( $response_code ) {
 				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-
-					update_post_meta( $payment->id, '_pronamic_payment_status', $status );
-
 					break;
 				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
 					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					
-					update_post_meta( $payment->id, '_pronamic_payment_status', $status );
-
 					break;
 			}
+			
+			// Set the status of the payment
+			$payment->set_status( $status );
 			
 			$labels = array(
 				'amount' 	           => __( 'Amount', 'pronamic_ideal' ),
@@ -151,8 +148,6 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			$note .= '</dl>';
 			
 			$payment->add_note( $note ); 
-
-			$payment->status = $status;
 		}
 	}
 }
