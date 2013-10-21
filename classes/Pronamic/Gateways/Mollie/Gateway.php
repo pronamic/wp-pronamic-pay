@@ -114,13 +114,13 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 
 			switch ( $result->status ) {
 				case Pronamic_Gateways_Mollie_Statuses::SUCCESS:
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $consumer->name );
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $consumer->account );
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $consumer->city );
+					$payment->set_consumer_name( $consumer->name );
+					$payment->set_consumer_account_number( $consumer->account );
+					$payment->set_consumer_city( $consumer->city );
 				case Pronamic_Gateways_Mollie_Statuses::CANCELLED:
 				case Pronamic_Gateways_Mollie_Statuses::EXPIRED:
 				case Pronamic_Gateways_Mollie_Statuses::FAILURE:
-					update_post_meta( $payment->id, '_pronamic_payment_status', $result->status );
+					$payment->set_status( $result->status );
 
 					break;
 				case Pronamic_Gateways_Mollie_Statuses::CHECKED_BEFORE:
