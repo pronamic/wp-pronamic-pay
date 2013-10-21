@@ -33,6 +33,8 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->source_id      = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
 
 		$this->email          = get_post_meta( $post_id, '_pronamic_payment_email', true );
+		
+		$this->status         = get_post_meta( $post_id, '_pronamic_payment_status', true );
 	}
 
 	//////////////////////////////////////////////////

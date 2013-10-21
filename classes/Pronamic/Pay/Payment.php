@@ -63,6 +63,10 @@ class Pronamic_Pay_Payment {
 	public function get_source_id() {
 		return $this->source_id;
 	}
+	
+	public function get_status() {
+		return $this->status;
+	}
 
 	//////////////////////////////////////////////////
 
