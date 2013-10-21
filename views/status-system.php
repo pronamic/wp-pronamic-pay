@@ -122,11 +122,11 @@
 			<?php foreach ( $plugins as $plugin ) : ?>
 	
 				<tr>
-					<th scope="row">
+					<td>
 						<a href="<?php esc_attr( $plugin['url'] ); ?>" target="_blank">
 							<?php echo esc_html( $plugin['name'] ); ?>
 						</a>
-					</th>
+					</td>
 					<td>
 		                <?php echo esc_html( $plugin['tested_up_to'] ); ?>
 					</td>
