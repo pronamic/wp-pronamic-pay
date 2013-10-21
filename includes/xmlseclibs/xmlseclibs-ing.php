@@ -105,7 +105,7 @@ function canonical($tree, $element, $withcomments) {
     /* Create an array with namespace URIs as keys, and sort them */
     foreach ($arAtts AS $attnode) {
         if (array_key_exists($attnode->namespaceURI, $arNS) &&
-                ($arNS[$attnode->namespaceURI] == $attnode->prefix)) {
+            ($arNS[$attnode->namespaceURI] == $attnode->prefix)) {
             continue;
         }
         $prefix = $tree->lookupPrefix($attnode->namespaceURI);
@@ -471,12 +471,40 @@ class XMLSecurityKey {
         return $decrypted;
     }
 
+    function custom_openssl_sign($data, &$signature, $priv_key_id, $signature_alg = 'sha256WithRSAEncryption') {
+        $pinfo = openssl_pkey_get_details($priv_key_id);
+        $hash = hash('sha256', $data);
+        $t = '3031300d060960864801650304020105000420'; # sha256
+        $t .= $hash;
+        $pslen = $pinfo['bits']/8 - (strlen($t)/2 + 3);
+
+        $eb = '0001' . str_repeat('FF', $pslen) . '00' . $t;
+        $eb = pack('H*', $eb);
+
+        return openssl_private_encrypt($eb, $signature, $priv_key_id, OPENSSL_NO_PADDING);
+    }
+
+    function custom_openssl_verify ($data, &$signature, $priv_key_id, $signature_alg = 'sha256WithRSAEncryption') {
+        $pinfo = openssl_pkey_get_details($priv_key_id);
+        $hash = hash('sha256', $data);
+        $t = '3031300d060960864801650304020105000420'; # sha256
+        $t .= $hash;
+        $pslen = $pinfo['bits']/8 - (strlen($t)/2 + 3);
+
+        $eb = '0001' . str_repeat('FF', $pslen) . '00' . $t;
+        $eb = pack('H*', $eb);
+
+        return openssl_public_decrypt($eb, $signature, $priv_key_id, OPENSSL_NO_PADDING);
+    }
+
     private function signOpenSSL($data) {
         $algo = OPENSSL_ALGO_SHA1;
         if (!empty($this->cryptParams['digest'])) {
             $algo = $this->cryptParams['digest'];
         }
-        if (!openssl_sign($data, $signature, $this->key, $algo)) {
+        $signature = '';
+
+        if (!$this->custom_openssl_sign($data, $signature, $this->key)) {
             throw new Exception('Failure Signing Data: ' . openssl_error_string() . ' - ' . $algo);
             return;
         }
@@ -488,7 +516,7 @@ class XMLSecurityKey {
         if (!empty($this->cryptParams['digest'])) {
             $algo = $this->cryptParams['digest'];
         }
-        return openssl_verify($data, $signature, $this->key, $algo);
+        return $this->custom_openssl_verify($data, $signature, $this->key);
     }
 
     public function encryptData($data) {
@@ -581,7 +609,7 @@ class XMLSecurityKey {
     }
 
     public function serializeKey($parent) {
-        
+
     }
 
     /**
@@ -680,10 +708,10 @@ class XMLSecurityDSig {
     static function generate_GUID($prefix='pfx') {
         $uuid = md5(uniqid(rand(), true));
         $guid = $prefix . substr($uuid, 0, 8) . "-" .
-                substr($uuid, 8, 4) . "-" .
-                substr($uuid, 12, 4) . "-" .
-                substr($uuid, 16, 4) . "-" .
-                substr($uuid, 20, 12);
+            substr($uuid, 8, 4) . "-" .
+            substr($uuid, 12, 4) . "-" .
+            substr($uuid, 16, 4) . "-" .
+            substr($uuid, 20, 12);
         return $guid;
     }
 
@@ -1079,8 +1107,8 @@ class XMLSecurityDSig {
                 $transNode = $this->createNewSignNode('Transform');
                 $transNodes->appendChild($transNode);
                 if (is_array($transform) &&
-                        (!empty($transform['http://www.w3.org/TR/1999/REC-xpath-19991116'])) &&
-                        (!empty($transform['http://www.w3.org/TR/1999/REC-xpath-19991116']['query']))) {
+                    (!empty($transform['http://www.w3.org/TR/1999/REC-xpath-19991116'])) &&
+                    (!empty($transform['http://www.w3.org/TR/1999/REC-xpath-19991116']['query']))) {
                     $transNode->setAttribute('Algorithm', 'http://www.w3.org/TR/1999/REC-xpath-19991116');
                     $XPathNode = $this->createNewSignNode('XPath', $transform['http://www.w3.org/TR/1999/REC-xpath-19991116']['query']);
                     $transNode->appendChild($XPathNode);
@@ -1220,7 +1248,7 @@ class XMLSecurityDSig {
     }
 
     public function appendCert() {
-        
+
     }
 
     public function appendKey($objKey, $parent=NULL) {
@@ -1235,7 +1263,7 @@ class XMLSecurityDSig {
      *
      * @param $node  The node the signature element should be inserted into.
      * @param $beforeNode  The node the signature element should be located before.
-     * 
+     *
      * @return DOMNode The signature element node
      */
     public function insertSignature($node, $beforeNode = NULL) {
@@ -1770,5 +1798,6 @@ class XMLSecEnc {
         }
         return XMLSecEnc::staticLocateKeyInfo($objBaseKey, $node);
     }
+
 
 }
