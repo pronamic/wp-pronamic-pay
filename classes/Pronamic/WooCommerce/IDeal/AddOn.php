@@ -36,7 +36,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		if ( Pronamic_WooCommerce_WooCommerce::is_active() ) {
 			$slug = self::SLUG;
 			
-			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
 			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
 	}
