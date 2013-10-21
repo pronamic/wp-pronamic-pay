@@ -33,6 +33,20 @@ class Pronamic_EventEspresso_EventEspresso {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Check if Event Espresso is active (Automattic/developer style)
+	 *
+	 * @see https://github.com/jigoshop/jigoshop/blob/1.8/jigoshop.php#L45
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'EVENT_ESPRESSO_VERSION' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get payment data by attendee ID
 	 * 
 	 * @param string $id

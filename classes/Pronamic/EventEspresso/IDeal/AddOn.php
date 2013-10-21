@@ -22,7 +22,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
-		if ( defined( 'EVENT_ESPRESSO_VERSION' ) ) {
+		if ( Pronamic_EventEspresso_EventEspresso::is_active() ) {
 			add_action( 'init', array( __CLASS__, 'init' ) );
 		}
 	}
@@ -69,7 +69,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Process gateway
 	 */
 	public static function process_gateway() {
-		if ( isset( $_POST['event_espresso_pronamic_ideal'] ) ) {
+		if ( filter_has_var( INPUT_POST, 'event_espresso_pronamic_ideal' ) ) {
 			$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
 			
 			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
@@ -81,7 +81,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					'attendee_id' => apply_filters( 'filter_hook_espresso_transactions_get_attendee_id', '' )
 				);
 
-				$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
+				$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 			
 				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
@@ -109,7 +109,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
 
 		if ( $gateway ) {
-			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
+			$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 
 			?>
 			<div id="pronamic-payment-option-dv" class="payment-option-dv">
@@ -194,12 +194,12 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		}
 
 		// Configuration 
-		$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
+		$config_id = get_option( 'pronamic_pay_ideal_event_espresso_config_id' );
 
-		if ( isset( $_POST['pronamic_ideal_event_espresso_configuration_id'] ) ) {
-			$configuration_id = filter_input( INPUT_POST, 'pronamic_ideal_event_espresso_configuration_id', FILTER_VALIDATE_INT );
+		if ( filter_has_var( INPUT_POST, 'pronamic_pay_ideal_event_espresso_config_id' ) ) {
+			$config_id = filter_input( INPUT_POST, 'pronamic_pay_ideal_event_espresso_config_id', FILTER_VALIDATE_INT );
 
-			update_option( 'pronamic_ideal_event_espresso_configuration_id', $configuration_id );
+			update_option( 'pronamic_pay_ideal_event_espresso_config_id', $config_id );
 		}
 		
 		// Active
@@ -210,9 +210,6 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		if ( ! $is_active ) {
 			$postbox_style = 'closed';
 		}
-
-		// Configurations
-    	$configuration_options = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
 
     	// URL
 		$url = add_query_arg( 'page', 'payment_gateways', admin_url( 'admin.php' ) );
@@ -241,26 +238,20 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 											<td valign="top">
 												<ul>
 													<li>
-														<label for="pronamic_ideal_configuration_field">
+														<label for="pronamic_pay_ideal_event_espresso_config_id">
 															<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 														</label>
 														
 														<br />
-		
-														<select id="pronamic_ideal_configuration_field" name="pronamic_ideal_event_espresso_configuration_id">
-															<?php 
-															
-															foreach ( $configuration_options as $value => $label ) {
-																printf(
-																	'<option value="%s" %s>%s</option>',
-																	esc_attr( $value ),
-																	selected( $configuration_id, $value, false ),
-																	$label
-																);
-															}
-															
-															?>
-														</select>
+														
+														<?php 
+														
+														Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+															'name'     => 'pronamic_pay_ideal_event_espresso_config_id',
+															'selected' => $config_id
+														) );
+														
+														?>
 														
 														<br />
 													</li>
@@ -295,46 +286,44 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$id = $payment->getSourceId();
-			$status = $payment->status;
+		$id = $payment->get_source_id();
 
-			$payment_data = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
-			$data = new Pronamic_EventEspresso_IDeal_IDealDataProxy( $payment_data );
+		$payment_data = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
 
-			$url = $data->get_normal_return_url();
+		$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 
-			switch($status) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-					
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-					
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-	            	$payment_data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
-	            	$payment_data['txn_type']       = __( 'iDEAL', 'pronamic_ideal' );
-	            	$payment_data['txn_id']         = $payment->transaction_id;
+		$url = $data->get_normal_return_url();
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+		switch ( $payment->get_status() ) {
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+				
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+				
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+				
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+            	$payment_data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
+            	$payment_data['txn_type']       = __( 'iDEAL', 'pronamic_ideal' );
+            	$payment_data['txn_id']         = $payment->transaction_id;
 
-					break;
-				default:
-					
-					break;
-			}
-			
-			Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 
-			if ( $can_redirect ) {
-				wp_redirect( $url, 303 );
+				break;
+			default:
+				
+				break;
+		}
+		
+		Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
 
-				exit;
-			}
+		if ( $can_redirect ) {
+			wp_redirect( $url, 303 );
+
+			exit;
 		}
 	}
 
