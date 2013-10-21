@@ -71,15 +71,15 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 			$data->getAmount(),
 			$data->get_description(),
 			$data->get_entrance_code(),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->issuer_url );
 			
-			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->issuer_url );
-			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->id );
+			$payment->set_authentication_url( $result->issuer_url );
+			$payment->set_transaction_id( $result->id );
 		} else {
 			$this->error = $this->client->get_error();
 		}

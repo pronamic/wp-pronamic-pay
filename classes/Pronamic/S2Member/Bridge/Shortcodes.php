@@ -140,8 +140,8 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				// Start
 				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
-				update_post_meta( $payment->id, '_pronamic_payment_s2member_period', $data->get_period() );
-				update_post_meta( $payment->id, '_pronamic_payment_s2member_level', $data->get_level() );
+				update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', $data->get_period() );
+				update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', $data->get_level() );
 
 				// Redirect
 				$gateway->redirect();

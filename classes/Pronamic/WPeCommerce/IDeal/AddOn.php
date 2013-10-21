@@ -119,7 +119,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 				 * 
 				 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-merchants/paypal-pro.merchant.php#L303
 				 */
-				$session_id = get_post_meta( $payment->id, '_pronamic_payment_wpsc_session_id', true );
+				$session_id = get_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', true );
 				
 				transaction_results( $session_id );
 

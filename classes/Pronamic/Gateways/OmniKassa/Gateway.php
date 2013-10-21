@@ -64,7 +64,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_amount( $data->getAmount() );
 		$this->client->set_transaction_reference( $this->get_transaction_id() );
 
-		update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $this->get_transaction_id() );
+		$payment->set_transaction_id( $this->get_transaction_id() );
 	}
 	
 	/////////////////////////////////////////////////

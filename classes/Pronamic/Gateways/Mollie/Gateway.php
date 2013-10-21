@@ -84,16 +84,17 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_issuer_id(),
 			Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ),
 			$data->get_description(),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ),
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 		
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->url );
 			
-			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->url );
-			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
+			$payment->set_transaction_id( $result->transaction_id );
+			$payment->set_authentication_url( $result->url );
+			
 		} else {
 			$this->error = $this->client->get_error();
 		}

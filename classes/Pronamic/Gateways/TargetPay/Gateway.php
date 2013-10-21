@@ -81,16 +81,16 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$data->get_issuer_id(),
 			$data->get_description(),
 			$data->getAmount(),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) ),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ),
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
 		if ( $result ) {
 			$this->set_action_url( $result->url );
 			$this->set_transaction_id( $result->transaction_id );
 			
-			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->url );
-			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
+			$payment->set_authentication_url( $result->url );
+			$payment->set_transaction_id( $result->transaction_id );
 		} else {
 			$this->set_error( $this->client->get_error() );
 		}
