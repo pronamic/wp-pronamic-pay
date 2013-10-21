@@ -240,13 +240,23 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		
 		// Send the mail
 		woocommerce_mail(
-			get_option( 'woocommerce_new_order_email_recipient' ),
+			$this->get_new_order_email_recipient(),
 			sprintf(
 				__( 'Check iDEAL payment for order %s', 'pronamic_ideal' ),
 				$order->get_order_number()
 			),
 			$message
 		);
+    }
+
+    private function get_new_order_email_recipient() {
+    	if ( is_array( $options = get_option( 'woocommerce_new_order_settings' ) ) && ( $recipient = trim( @$options['recipient'] ) ) ) 
+    		return $recipient;
+
+    	else if ( $recipient = trim( get_option( 'woocommerce_new_order_email_recipient' ) ) )
+    		return $recipient;
+
+    	return get_bloginfo( 'admin_email' );
     }
 
 	//////////////////////////////////////////////////
