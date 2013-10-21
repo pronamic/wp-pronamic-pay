@@ -81,7 +81,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		$note   = null;
 		$url    = $data->get_normal_return_url();
 		
-		$status = get_post_meta( $payment->id, '_pronamic_payment_status', true );
+		$status = $payment->get_status();
 
 		switch ( $status ) {
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
