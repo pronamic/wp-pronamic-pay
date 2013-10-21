@@ -93,7 +93,7 @@ class Pronamic_Membership_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Membership', 'pronamic_ideal' ) . '<br />';
@@ -105,7 +105,7 @@ class Pronamic_Membership_IDeal_AddOn {
 				'action'  => 'transactions',
 				'gateway' => 'pronamic_ideal'
 			), admin_url( 'admin.php') ),
-			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->source_id )
+			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;

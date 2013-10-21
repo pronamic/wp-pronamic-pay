@@ -63,7 +63,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	 * @return string
 	 */
 	public function get_source_text() {
-		$text = $this->source . '<br />' . $this->source_id;
+		$text = $this->get_source() . '<br />' . $this->get_source_id();
 			
 		$text = apply_filters( 'pronamic_payment_source_text_' . $this->source, $text, $this );
 		$text = apply_filters( 'pronamic_payment_source_text', $text, $this );

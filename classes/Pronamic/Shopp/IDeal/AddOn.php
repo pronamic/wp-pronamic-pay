@@ -140,15 +140,15 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
-			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->source_id ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
+			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->get_source_id() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;

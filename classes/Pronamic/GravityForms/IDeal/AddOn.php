@@ -76,15 +76,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Gravity Forms', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			add_query_arg( array( 'pronamic_gf_lid' => $payment->source_id ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->source_id )
+			add_query_arg( array( 'pronamic_gf_lid' => $payment->get_source_id() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;

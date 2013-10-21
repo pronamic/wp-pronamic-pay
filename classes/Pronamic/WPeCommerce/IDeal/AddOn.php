@@ -94,7 +94,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $payment->source_id );
+		$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $payment->get_source_id() );
 		$data = new Pronamic_WP_Pay_WPeCommerce_PaymentData( $merchant );
 
 		$url = $data->get_normal_return_url();
@@ -157,9 +157,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			add_query_arg( array(
 				'page'           => 'wpsc-sales-logs', 
-				'purchaselog_id' => $payment->source_id
+				'purchaselog_id' => $payment->get_source_id()
 			), admin_url( 'index.php' ) ),
-			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->source_id )
+			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;
