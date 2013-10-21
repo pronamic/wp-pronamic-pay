@@ -134,7 +134,7 @@
 			'wp_org_url'   => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
 			'github_url'   => 'https://github.com/wp-e-commerce/WP-e-Commerce',
 			'active'       => Pronamic_WPeCommerce_WPeCommerce::is_active(),
-			'tested_up_to' => '3.8',
+			'tested_up_to' => '3.8.12.1',
 			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
 			'auhtor_url'   => 'http://www.woothemes.com/'
 		),
