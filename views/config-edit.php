@@ -772,7 +772,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					<?php
 					
 					$private_key_password = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_key_password', true );
-					$number_days_valid    = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_number_days_valid', true );
+					$number_days_valid    = get_post_meta( get_the_ID(), '_pronamic_gateway_number_days_valid', true );
 
 					$filename = __( 'filename', 'pronamic_ideal' );
 	
