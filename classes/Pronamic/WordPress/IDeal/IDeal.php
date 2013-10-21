@@ -151,7 +151,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		if ( $payment ) {
 			$gateway->start( $data, $payment );
 			
-			update_post_meta( $payment->get_id(), '_pronamic_transaction_id', $payment->get_transaction_id() );
+			update_post_meta( $payment->get_id(), '_pronamic_payment_transaction_id', $payment->get_transaction_id() );
 			update_post_meta( $payment->get_id(), '_pronamic_payment_authentication_url', $payment->get_authentication_url() );
 			
 			$gateway->payment( $payment );
