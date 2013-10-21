@@ -68,6 +68,20 @@ class Pronamic_Shopp_Shopp {
 	 * @var string
 	 */
 	const PAYMENT_STATUS_CAPTURED = 'captured';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if Shopp is active (Automattic/developer style)
+	 *
+	 * @see https://bitbucket.org/Pronamic/shopp/src/12ebdb1d82a029bed956a58135833e3507baf432/Shopp.php?at=1.2.9#cl-29
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'SHOPP_VERSION' );
+	}
 	
 	//////////////////////////////////////////////////
 

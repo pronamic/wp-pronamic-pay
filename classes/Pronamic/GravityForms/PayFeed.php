@@ -34,6 +34,42 @@ class Pronamic_GravityForms_PayFeed {
 	public $condition_enabled;
 
 	//////////////////////////////////////////////////
+	// Delay
+	//////////////////////////////////////////////////
+
+	/**
+	 * Delay notification ID's contains an array of notification ID's wich 
+	 * should be delayed till the payment is succesfull
+	 *
+	 * @since Gravity Forms 1.7 
+	 * @var array
+	 */
+	public $delay_notification_ids;
+
+	/**
+	 * Flag to delay the creation of an post till the the payment is succesfull
+	 * 
+	 * @var boolean
+	 */
+	public $delay_post_creation;
+
+	/**
+	 * Flag to delay the creation of an post till the the payment is succesfull
+	 * 
+	 * @deprecated Gravity Forms 1.7 
+	 * @var boolean
+	 */
+	public $delay_admin_notification;
+
+	/**
+	 * Flag to delay the creation of an post till the the payment is succesfull
+	 * 
+	 * @deprecated Gravity Forms 1.7 
+	 * @var boolean
+	 */
+	public $delay_user_notification;
+	
+	//////////////////////////////////////////////////
 
 	/**
 	 * Construct and initialize payment object
@@ -45,27 +81,30 @@ class Pronamic_GravityForms_PayFeed {
 		$this->post = get_post( $post_id );
 
 		// Load
-		$this->config_id               = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
+		$this->config_id                = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 
-		$this->transaction_description = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
+		$this->transaction_description  = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 
-		$this->condition_enabled       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_enabled', true );
-		$this->condition_field_id      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
-		$this->condition_operator      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
-		$this->condition_value         = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
+		$this->condition_enabled        = get_post_meta( $post_id, '_pronamic_pay_gf_condition_enabled', true );
+		$this->condition_field_id       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
+		$this->condition_operator       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
+		$this->condition_value          = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
 		
 		$ids = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
-		$this->delay_notification_ids  = is_array( $ids ) ? $ids : array();
+		$this->delay_notification_ids   = is_array( $ids ) ? $ids : array();
 
-		$this->delay_post_creation     = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
+		$this->delay_post_creation      = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
+		
+		$this->delay_admin_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_notification', true );
+		$this->delay_user_notification  = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_notification', true );
 
 		$fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
-		$this->fields                  = is_array( $fields ) ? $fields : array();
+		$this->fields                   = is_array( $fields ) ? $fields : array();
 
 		$links = get_post_meta( $post_id, '_pronamic_pay_gf_links', true );
-		$this->links                  = is_array( $links ) ? $links : array();
+		$this->links                    = is_array( $links ) ? $links : array();
 
-		$this->user_role_field_id      = get_post_meta( $post_id, '_pronamic_pay_gf_user_role_field_id', true );
+		$this->user_role_field_id       = get_post_meta( $post_id, '_pronamic_pay_gf_user_role_field_id', true );
 	}
 
 	//////////////////////////////////////////////////
@@ -97,5 +136,14 @@ class Pronamic_GravityForms_PayFeed {
 		}
 	
 		return $url;
+	}
+
+	/**
+	 * Returns a boolean if this feed has some delayed notifications
+	 *
+	 * @return boolean
+	 */
+	public function has_delayed_notifications() {
+		return ( ! empty( $this->delay_notification_ids ) );
 	}
 }

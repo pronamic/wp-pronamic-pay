@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: Event Espresso iDEAL data proxy
+ * Title: Event Espresso payment data
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_EventEspresso_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Data
 	 * 

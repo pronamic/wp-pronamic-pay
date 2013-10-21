@@ -8,10 +8,56 @@
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Status', 'pronamic_ideal' ); ?></span></h3>
+						<h3 class="hndle"><span><?php _e( 'Payments', 'pronamic_ideal' ); ?></span></h3>
 	
 						<div class="inside">
+							<?php 
 							
+							$payments = get_posts( array(
+								'post_type'      => 'pronamic_payment',
+								'posts_per_page' => 5
+							) );
+							
+							if ( empty( $payments ) ) : ?>
+
+								
+							
+							<?php else : ?>
+	
+								<div id="dashboard_recent_drafts">
+									<ul>
+
+										<?php foreach ( $payments as $payment ) : ?>
+											
+											<li>
+												<h4>
+													<?php 
+
+													printf(
+														'<a href="%s">%s</a>',
+														get_edit_post_link( $payment ),
+														get_the_title( $payment )
+													);
+													
+													?>
+													<?php 
+							
+													printf( '<abbr title="%s">%s</abbr>',
+														/* translators: comment date format. See http://php.net/date */
+														get_the_time( __( 'c' ), $payment ),
+														get_the_time( get_option( 'date_format' ), $payment )
+													);
+							
+													?>
+												</h4>
+											</li>
+										
+										<?php endforeach; ?>
+									
+									</ul>
+								</div>
+							
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
