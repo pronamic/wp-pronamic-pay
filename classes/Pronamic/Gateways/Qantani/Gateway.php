@@ -87,15 +87,15 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 			$data->getCurrencyAlphabeticCode(),
 			$data->get_issuer_id(),
 			$data->get_description(),
-			add_query_arg( 'payment', $payment->id, home_url( '/' ) )
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->transaction_id );
 			$this->set_action_url( $result->bank_url );
 			
-			update_post_meta( $payment->id, '_pronamic_payment_authentication_url', $result->bank_url );
-			update_post_meta( $payment->id, '_pronamic_payment_transaction_id', $result->transaction_id );
+			$payment->set_transaction_id( $result->transaction_id );
+			$payment->set_authentication_url( $result->bank_url );
 
 			update_post_meta( $payment->id, '_pronamic_payment_qantani_code', $result->code );
 		} else {
