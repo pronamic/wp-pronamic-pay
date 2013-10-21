@@ -78,7 +78,7 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
-	public function set_consumer_name( $name ) {
+	public function set_consumer_name( $consumer_name ) {
 		$this->consumer_name = $consumer_name;
 	}
 
