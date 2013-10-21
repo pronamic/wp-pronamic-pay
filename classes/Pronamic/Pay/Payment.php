@@ -2,6 +2,7 @@
 
 class Pronamic_Pay_Payment {
 
+	protected $id;
 
 	//////////////////////////////////////////////////
 	// Source
@@ -10,7 +11,7 @@ class Pronamic_Pay_Payment {
 	public $source;
 
 	public $source_id;
-
+	
 	//////////////////////////////////////////////////
 	
 	public $purchase_id;
@@ -46,6 +47,15 @@ class Pronamic_Pay_Payment {
 	public $email;
 	
 	public $authentication_url;
+	
+	public function get_id() {
+		return $this->get_id;
+	}
+	
+	public function set_id( $id ) {
+		$this->id = $id;
+		return $this;
+	}
 
 	//////////////////////////////////////////////////
 
