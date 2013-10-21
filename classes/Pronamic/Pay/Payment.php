@@ -49,7 +49,7 @@ class Pronamic_Pay_Payment {
 	public $authentication_url;
 	
 	public function get_id() {
-		return $this->get_id;
+		return $this->id;
 	}
 	
 	public function set_id( $id ) {
@@ -85,6 +85,11 @@ class Pronamic_Pay_Payment {
 
 	public function set_status( $status ) {
 		$this->status = $status;
+	}
+	
+	public function set_transaction_id( $transaction_id ) {
+		$this->transaction_id = $transaction_id;
+		return $this;
 	}
 	
 	public function set_authentication_url( $authentication_url ) {
