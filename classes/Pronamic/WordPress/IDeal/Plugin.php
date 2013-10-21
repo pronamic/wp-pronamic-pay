@@ -73,7 +73,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/gateways.php';
 		require_once self::$dirname . '/includes/post.php';
-		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs.php';
+		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';
 
 		// On template redirect handle an possible return from iDEAL

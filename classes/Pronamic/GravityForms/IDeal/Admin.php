@@ -116,26 +116,22 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 * Maybed redirect to Gravity Forms entry
 	 */
 	public static function maybe_redirect_to_entry() {
-		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
+		if ( filter_has_var( INPUT_GET, 'pronamic_gf_lid' ) ) {
+			$lead_id = filter_input( INPUT_GET, 'pronamic_gf_lid', FILTER_SANITIZE_STRING );
 
-		if ( $page == 'gf_pronamic_ideal' ) {
-			$lead_id = filter_input( INPUT_GET, 'lid', FILTER_SANITIZE_STRING );
+			$lead = RGFormsModel::get_lead( $lead_id );
 
-			if ( ! empty( $lead_id ) ) {
-				$lead = RGFormsModel::get_lead( $lead_id );
+			if ( ! empty($lead ) ) {
+				$url = add_query_arg( array(
+					'page' => 'gf_entries',
+					'view' => 'entry',
+					'id'   => $lead['form_id'],
+					'lid'  => $lead_id,
+				),  admin_url('admin.php') );
 
-				if ( ! empty($lead ) ) {
-					$url = add_query_arg( array(
-						'page' => 'gf_entries',
-						'view' => 'entry',
-						'id'   => $lead['form_id'],
-						'lid'  => $lead_id,
-					),  admin_url('admin.php') );
+				wp_redirect( $url, 303 );
 
-					wp_redirect( $url, 303 );
-
-					exit;
-				}
+				exit;
 			}
 		}
 	}

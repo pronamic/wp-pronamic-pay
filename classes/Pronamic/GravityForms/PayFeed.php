@@ -96,10 +96,6 @@ class Pronamic_GravityForms_PayFeed {
 			}
 		}
 	
-		if ( empty ( $url ) ) {
-			$url = home_url( '/' );
-		}
-	
 		return $url;
 	}
 }
