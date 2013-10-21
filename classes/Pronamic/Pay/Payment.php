@@ -44,6 +44,8 @@ class Pronamic_Pay_Payment {
 	public $status_requests;
 	
 	public $email;
+	
+	public $authentication_url;
 
 	//////////////////////////////////////////////////
 
@@ -64,11 +66,19 @@ class Pronamic_Pay_Payment {
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
+	
+	public function get_authentication_url() {
+		return $this->authentication_url;
+	}
 
 	//////////////////////////////////////////////////
 
 	public function set_status( $status ) {
 		$this->status = $status;
+	}
+	
+	public function set_authentication_url( $authentication_url ) {
+		$this->authentication_url = $authentication_url;
 	}
 
 	//////////////////////////////////////////////////
