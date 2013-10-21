@@ -83,7 +83,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->source_id ), admin_url( 'admin.php' ) ),
+			add_query_arg( array( 'pronamic_gf_lid' => $payment->source_id ), admin_url( 'admin.php' ) ),
 			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
