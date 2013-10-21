@@ -2,13 +2,6 @@
 
 class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	/**
-	 * The payment (post) ID.
-	 * 
-	 * @var int
-	 */
-	public $id;
-
-	/**
 	 * The payment post object
 	 */
 	public $post;
