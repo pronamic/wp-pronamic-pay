@@ -187,12 +187,35 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 
 		$message = new Pronamic_Gateways_PayDutch_XML_QueryRequestMessage( $merchant );
 
-		$response = $this->request( $message );
-		
-		if ( is_wp_error( $response ) ) {
-			$this->error = $response;
+		$result = $this->request( $message );
+
+		if ( is_wp_error( $result ) ) {
+			$this->error = $result;
 		} else {
-			
+			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+
+			if ( is_wp_error( $xml ) ) {
+				$this->error = $xml;
+			} else {
+				$result = Pronamic_Gateways_PayDutch_XML_PaymentInfoParser::parse( $xml->paymentinfo );
+			}	
+		}
+		
+		return $result;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Transform an PayDutch state
+	 * 
+	 * @param string $status
+	 */
+	public static function transform_state( $state ) {
+		switch ( $state ) {
+			case Pronamic_Gateways_PayDutch_States::REGISTER:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
+			// @todo
 		}
 	}
 }

@@ -130,6 +130,7 @@ function pronamic_gateway_custom_column( $column, $post_id ) {
 				get_post_meta( $post_id, '_pronamic_gateway_buckaroo_website_key', true ),
 				get_post_meta( $post_id, '_pronamic_gateway_icepay_merchant_id', true ),
 				get_post_meta( $post_id, '_pronamic_gateway_mollie_partner_id', true ),
+				get_post_meta( $post_id, '_pronamic_gateway_paydutch_username', true ),
 				get_post_meta( $post_id, '_pronamic_gateway_qantani_merchant_id', true ),
 				get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true ),
 				get_post_meta( $post_id, '_pronamic_gateway_targetpay_layout_code', true ),

@@ -78,22 +78,26 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$transaction_request = $this->client->get_transaction_request();
-		$transaction_request->reference = $data->get_order_id();
+
+		$transaction_request->reference   = $payment->get_id();
 		$transaction_request->description = $data->get_description();
-		$transaction_request->amount = $data->getAmount();
-		$transaction_request->methodcode = Pronamic_Gateways_PayDutch_Methods::WEDEAL;
-		$transaction_request->issuer_id = $data->get_issuer_id();
-		$transaction_request->test = true;
-		$transaction_request->success_url = site_url( '/' );
-		$transaction_request->fail_url = site_url( '/' );
+		$transaction_request->amount      = $data->getAmount();
+		$transaction_request->methodcode  = Pronamic_Gateways_PayDutch_Methods::WEDEAL;
+		$transaction_request->issuer_id   = $data->get_issuer_id();
+		$transaction_request->test        = true;
+		$transaction_request->success_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
+		$transaction_request->fail_url    = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
 		$result = $this->client->request_transaction( $transaction_request );
 
 		if ( $result !== false ) {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->url );
+			
+			$payment->set_authentication_url( $result->url );
+			$payment->set_transaction_id( $result->id );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -107,6 +111,16 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		
+		$result = $this->client->get_payment_status( $payment->get_id() );
+
+		if ( $result ) {
+			$payment->set_status( $result->state );
+			$payment->set_consumer_name( $result->consumername );
+			$payment->set_consumer_account_number( $result->consumeraccount );
+			$payment->set_consumer_city( $result->consumercity );
+			// $payment->set_consumer_country( $result->consumercountry );
+		} else {
+			$this->error = $this->client->get_error();
+		}
 	}
 }
