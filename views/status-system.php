@@ -50,21 +50,25 @@
 	<?php endif; ?>
 
 	<h3>
-		<?php _e( 'Supported Plugins', 'pronamic_ideal' ); ?>
+		<?php _e( 'Supported Extensions', 'pronamic_ideal' ); ?>
 	</h3>
 
 	<?php 
 	
-	$plugins = array(
+	$extensions = array(
+		// Plugins
 		'event-espresso'      => array(
 			'name'         => __( 'Event Espresso', 'pronamic_ideal' ),
 			'url'          => 'http://eventespresso.com/',
+			'github_url'   => 'https://github.com/eventespresso/event-espresso-core',
 			'active'       => Pronamic_EventEspresso_EventEspresso::is_active(),
 			'tested_up_to' => '3.1.24'
 		),
 		'event-espresso-free' => array(
 			'name'         => __( 'Event Espresso Lite', 'pronamic_ideal' ),
-			'url'          => 'http://wordpress.org/extend/plugins/event-espresso-free/',
+			'url'          => 'http://eventespresso.com/',
+			'github_url'   => 'https://github.com/eventespresso/event-espresso-core',
+			'wp_org_url'   => 'http://wordpress.org/extend/plugins/event-espresso-free/',
 			'active'       => Pronamic_EventEspresso_EventEspresso::is_active(),
 			'tested_up_to' => '3.1.29'
 		),			
@@ -72,41 +76,103 @@
 			'name'         => __( 'Gravity Forms', 'pronamic_ideal' ),
 			'url'          => 'http://www.gravityforms.com/',
 			'active'       => Pronamic_GravityForms_GravityForms::is_active(),
-			'tested_up_to' => '1.6'
+			'tested_up_to' => '1.6',
+			'author'       => __( 'Rocketgenius', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.rocketgenius.com/'
 		),
 		'jigoshop'            => array(
 			'name'         => __( 'Jigoshop', 'pronamic_ideal' ),
-			'url'          => 'http://wordpress.org/extend/plugins/jigoshop/',
+			'url'          => 'http://jigoshop.com/',
+			'wp_org_url'   => 'http://wordpress.org/extend/plugins/jigoshop/',
+			'github_url'   => 'https://github.com/jigoshop/jigoshop',
 			'active'       => Pronamic_Jigoshop_Jigoshop::is_active(),
-			'tested_up_to' => '1.1'
+			'tested_up_to' => '1.1',
+			'author'       => __( 'Jigowatt', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://jigowatt.co.uk/'
+		),
+		'membership'          => array(
+			'name'         => __( 'Membership', 'pronamic_ideal' ),
+			'url'          => 'http://premium.wpmudev.org/project/membership/',
+			'wp_org_url'   => 'http://wordpress.org/plugins/membership/',
+			'active'       => Pronamic_Membership_Membership::is_active(),
+			'tested_up_to' => '3.4.4.1',
+			'author'       => __( 'WPMUDEV.org', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.wpmudev.org/'
+		),
+		's2member'            => array(
+			'name'         => __( 's2Member®', 'pronamic_ideal' ),
+			'url'          => 'http://www.s2member.com/',
+			'wp_org_url'   => 'http://wordpress.org/plugins/membership/',
+			'github_url'   => 'https://github.com/WebSharks/s2Member',
+			'active'       => Pronamic_S2Member_S2Member::is_active(),
+			'tested_up_to' => '130816',
+			'author'       => __( 'WPMUDEV.org', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.wpmudev.org/'
 		),
 		'shopp'               => array(
 			'name'         => __( 'Shopp', 'pronamic_ideal' ),
 			'url'          => 'https://shopplugin.net/',
+			'github_url'   => 'https://github.com/ingenesis/shopp',
 			'active'       => Pronamic_Shopp_Shopp::is_active(),
-			'tested_up_to' => '1.1'
+			'tested_up_to' => '1.1',
+			'author'       => __( 'Ingenesis Limited', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://ingenesis.net/'
 		),
 		'woocommerce'         => array(
 			'name'         => __( 'WooCommerce', 'pronamic_ideal' ),
-			'url'          => 'http://wordpress.org/extend/plugins/woocommerce/',
+			'url'          => 'http://www.woothemes.com/woocommerce/',
+			'github_url'   => 'https://github.com/woothemes/woocommerce',
+			'wp_org_url'   => 'http://wordpress.org/extend/plugins/woocommerce/',
 			'active'       => Pronamic_WooCommerce_WooCommerce::is_active(),
-			'tested_up_to' => '2.0.12'
+			'tested_up_to' => '2.0.12',
+			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.woothemes.com/'
 		),
 		'wp-e-commerce'       => array(
 			'name'         => __( 'WP e-Commerce', 'pronamic_ideal' ),
-			'url'          => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
+			'url'          => 'http://getshopped.org/',
+			'wp_org_url'   => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
+			'github_url'   => 'https://github.com/wp-e-commerce/WP-e-Commerce',
 			'active'       => Pronamic_WPeCommerce_WPeCommerce::is_active(),
-			'tested_up_to' => '3.8'
+			'tested_up_to' => '3.8',
+			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.woothemes.com/'
+		),
+		// Themes
+		'classipress'         => array(
+			'name'         => __( 'ClassiPress', 'pronamic_ideal' ),
+			'url'          => 'http://www.appthemes.com/themes/classipress/',
+			'active'       => Pronamic_ClassiPress_ClassiPress::is_active(),
+			'tested_up_to' => '3.3.1',
+			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.appthemes.com/'
+		),
+		'jobroller'           => array(
+			'name'         => __( 'JobRoller', 'pronamic_ideal' ),
+			'url'          => 'http://www.appthemes.com/themes/jobroller/',
+			'active'       => Pronamic_JobRoller_JobRoller::is_active(),
+			'tested_up_to' => '1.7.1',
+			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
+			'auhtor_url'   => 'http://www.appthemes.com/'
 		)
 	);
 	
 	?>
 
-	<table class="wp-list-table widefat" style="width: auto;">
+	<table class="wp-list-table widefat">
 		<thead>
 			<tr>
 				<th scope="col">
 					<?php _e( 'Plugin', 'pronamic_ideal' ); ?>
+				</th>
+				<th scope="col">
+					<?php _e( 'Author', 'pronamic_ideal' ); ?>
+				</th>
+				<th scope="col">
+					<?php _e( 'WordPress.org', 'pronamic_ideal' ); ?>
+				</th>
+				<th scope="col">
+					<?php _e( 'GitHub', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
 					<?php _e( 'Tested up to', 'pronamic_ideal' ); ?>
@@ -119,19 +185,58 @@
 		
 		<tbody>
 
-			<?php foreach ( $plugins as $plugin ) : ?>
+			<?php foreach ( $extensions as $extension ) : ?>
 	
 				<tr>
 					<td>
-						<a href="<?php esc_attr( $plugin['url'] ); ?>" target="_blank">
-							<?php echo esc_html( $plugin['name'] ); ?>
+						<a href="<?php echo esc_attr( $extension['url'] ); ?>" target="_blank">
+							<?php echo esc_html( $extension['name'] ); ?>
 						</a>
 					</td>
 					<td>
-		                <?php echo esc_html( $plugin['tested_up_to'] ); ?>
+						<?php
+						
+						if ( isset( $extension['author'] ) ) {
+							printf(
+								'<a href="%s" target="_blank">%s</a>',
+								esc_attr( $extension['author_url'] ),
+								esc_html( $extension['author'] )
+							);
+						}
+						
+						?>
 					</td>
 					<td>
-						<?php if ( $plugin['active'] ) : ?>
+						<?php
+						
+						if ( isset( $extension['wp_org_url'] ) ) {
+							printf(
+								'<a href="%s" target="_blank">%s</a>',
+								esc_attr( $extension['wp_org_url'] ),
+								esc_html( $extension['wp_org_url'] )
+							);
+						}
+						
+						?>
+					</td>
+					<td>
+						<?php
+						
+						if ( isset( $extension['github_url'] ) ) {
+							printf(
+								'<a href="%s" target="_blank">%s</a>',
+								esc_attr( $extension['github_url'] ),
+								esc_html( $extension['github_url'] )
+							);
+						}
+						
+						?>
+					</td>
+					<td>
+		                <?php echo esc_html( $extension['tested_up_to'] ); ?>
+					</td>
+					<td>
+						<?php if ( $extension['active'] ) : ?>
 							&#10003;
 						<?php endif; ?>
 					</td>

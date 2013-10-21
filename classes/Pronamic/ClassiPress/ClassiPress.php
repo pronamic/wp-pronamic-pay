@@ -10,6 +10,20 @@
  */
 class Pronamic_ClassiPress_ClassiPress {
 	/**
+	 * Check if ClassiPress is active (Automattic/developer style)
+	 *
+	 * @see https://bitbucket.org/Pronamic/classipress/src/bc1334736c6eace2a6801625a9d38c5490f4540a/functions.php?at=3.2.1#cl-28
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'APP_TD' ) && APP_TD == 'classipress';
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get the current ClassPress version number
 	 * 
 	 * @return string
