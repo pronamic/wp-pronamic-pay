@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: s2Member iDEAL data proxy
+ * Title: s2Member payment data
  * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
