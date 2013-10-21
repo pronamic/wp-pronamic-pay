@@ -112,24 +112,27 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		);
 
 		if ( $status ) {
+			$status_text = '';
+			
 			switch ( $status->code ) {
 				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
-					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS );
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $status->account_name );
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_account_number', $status->account_number );
-					update_post_meta( $payment->id, '_pronamic_payment_consumer_city', $status->account_city );
-
+					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
+					
+					$payment->set_consumer_name( $status->account_name );
+					$payment->set_consumer_account_number( $status->account_number );
+					$payment->set_consumer_city( $status->account_city );
+					
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::OPEN );
+					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::OPEN;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED );
+					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					update_post_meta( $payment->id, '_pronamic_payment_status', Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED );
+					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
@@ -151,6 +154,8 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 
 					break;
 			}
+			
+			$payment->set_status( $status_text );
 		}
 	}
 }
