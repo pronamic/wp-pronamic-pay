@@ -68,6 +68,20 @@ class Pronamic_WooCommerce_WooCommerce {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Check if WooCommerce is active (Automattic/developer style)
+	 *
+	 * @see https://github.com/jigoshop/jigoshop/blob/1.8/jigoshop.php#L45
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'WOOCOMMERCE_VERSION' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Version compare
 	 * 
 	 * @param string $version

@@ -290,7 +290,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'ClassiPress', 'pronamic_ideal' ) . '<br />';
@@ -299,7 +299,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			// get_edit_post_link( $payment->getSourceId() ),
 			add_query_arg( 'page', 'transactions', admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id ) 
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() ) 
 		);
 
 		return $text;

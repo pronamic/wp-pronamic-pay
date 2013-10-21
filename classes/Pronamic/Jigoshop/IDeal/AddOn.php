@@ -32,7 +32,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initailze
+	 * Initialize
 	 */
 	public static function init() {
 		if ( Pronamic_Jigoshop_Jigoshop::is_active() ) {

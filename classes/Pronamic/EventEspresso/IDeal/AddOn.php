@@ -343,7 +343,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$url = add_query_arg( array(
 			'page'                => 'events' ,
 			'event_admin_reports' => 'event_list_attendees' , 
@@ -357,7 +357,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		$text .= sprintf( 
 			'<a href="%s">%s</a>', 
 			esc_attr( $url ),
-			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->source_id )
+			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;
