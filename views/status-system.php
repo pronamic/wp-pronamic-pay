@@ -53,98 +53,92 @@
 		<?php _e( 'Supported Plugins', 'pronamic_ideal' ); ?>
 	</h3>
 
-	<table class="form-table">
-		<tr>
-			<th scope="row">
-				<a href="http://www.gravityforms.com/" target="_blank">
-					<?php _e( 'Gravity Forms', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                1.6 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">
-					<?php _e( 'Jigoshop', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                1.1 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="https://shopplugin.net/" target="_blank">
-					<?php _e( 'Shopp', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                1.1 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">
-					<?php _e( 'WooCommerce', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                1.4 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">
-					<?php _e( 'WP e-Commerce', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                3.8 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="http://eventespresso.com/" target="_blank">
-					<?php _e( 'Event Espresso', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                3.1.24 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<a href="http://wordpress.org/extend/plugins/event-espresso-free/" target="_blank">
-					<?php _e( 'Event Espresso Lite', 'pronamic_ideal' ); ?>
-				</a>
-			</th>
-			<td class="column-version">
-                3.1.29 &gt;
-			</td>
-			<td>
-				&#10003;
-			</td>
-		</tr>
+	<?php 
+	
+	$plugins = array(
+		'event-espresso'      => array(
+			'name'         => __( 'Event Espresso', 'pronamic_ideal' ),
+			'url'          => 'http://eventespresso.com/',
+			'active'       => Pronamic_EventEspresso_EventEspresso::is_active(),
+			'tested_up_to' => '3.1.24'
+		),
+		'event-espresso-free' => array(
+			'name'         => __( 'Event Espresso Lite', 'pronamic_ideal' ),
+			'url'          => 'http://wordpress.org/extend/plugins/event-espresso-free/',
+			'active'       => Pronamic_EventEspresso_EventEspresso::is_active(),
+			'tested_up_to' => '3.1.29'
+		),			
+		'gravityforms'        => array(
+			'name'         => __( 'Gravity Forms', 'pronamic_ideal' ),
+			'url'          => 'http://www.gravityforms.com/',
+			'active'       => Pronamic_GravityForms_GravityForms::is_active(),
+			'tested_up_to' => '1.6'
+		),
+		'jigoshop'            => array(
+			'name'         => __( 'Jigoshop', 'pronamic_ideal' ),
+			'url'          => 'http://wordpress.org/extend/plugins/jigoshop/',
+			'active'       => Pronamic_Jigoshop_Jigoshop::is_active(),
+			'tested_up_to' => '1.1'
+		),
+		'shopp'               => array(
+			'name'         => __( 'Shopp', 'pronamic_ideal' ),
+			'url'          => 'https://shopplugin.net/',
+			'active'       => Pronamic_Shopp_Shopp::is_active(),
+			'tested_up_to' => '1.1'
+		),
+		'woocommerce'         => array(
+			'name'         => __( 'WooCommerce', 'pronamic_ideal' ),
+			'url'          => 'http://wordpress.org/extend/plugins/woocommerce/',
+			'active'       => Pronamic_WooCommerce_WooCommerce::is_active(),
+			'tested_up_to' => '1.4'
+		),
+		'wp-e-commerce'       => array(
+			'name'         => __( 'WP e-Commerce', 'pronamic_ideal' ),
+			'url'          => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
+			'active'       => Pronamic_WPeCommerce_WPeCommerce::is_active(),
+			'tested_up_to' => '3.8'
+		)
+	);
+	
+	?>
+
+	<table class="wp-list-table widefat" style="width: auto;">
+		<thead>
+			<tr>
+				<th scope="col">
+					<?php _e( 'Plugin', 'pronamic_ideal' ); ?>
+				</th>
+				<th scope="col">
+					<?php _e( 'Tested up to', 'pronamic_ideal' ); ?>
+				</th>
+				<th scope="col">
+					<?php _e( 'Active', 'pronamic_ideal' ); ?>
+				</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+
+			<?php foreach ( $plugins as $plugin ) : ?>
+	
+				<tr>
+					<th scope="row">
+						<a href="<?php esc_attr( $plugin['url'] ); ?>" target="_blank">
+							<?php echo esc_html( $plugin['name'] ); ?>
+						</a>
+					</th>
+					<td>
+		                <?php echo esc_html( $plugin['tested_up_to'] ); ?>
+					</td>
+					<td>
+						<?php if ( $plugin['active'] ) : ?>
+							&#10003;
+						<?php endif; ?>
+					</td>
+				</tr>
+			
+			<?php endforeach; ?>
+
 	</table>
 
 	<h3>
