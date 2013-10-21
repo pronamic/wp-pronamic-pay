@@ -136,11 +136,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			$payment->set_consumer_name( $transaction->getConsumerName() );
 			$payment->set_consumer_account_number( $transaction->getConsumerAccountNumber() );
 			$payment->set_consumer_city( $transaction->getConsumerCity() );
-
-			update_post_meta( $payment->id, '_pronamic_payment_status', $transaction->get_status() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_name', $transaction->get_consumer_name() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_iban', $transaction->get_consumer_iban() );
-			update_post_meta( $payment->id, '_pronamic_payment_consumer_bic', $transaction->get_consumer_bic() );
 		}
 	}
 	
