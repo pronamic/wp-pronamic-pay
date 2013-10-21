@@ -247,9 +247,8 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	public function get_normal_return_url() {
 		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
 
-        if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
-        	$url = add_query_arg( 'status', 'normal', $url );
+		if ( empty( $url ) ) {
+        	$url = parent::get_normal_return_url();
         }
         
         return $url;
@@ -258,9 +257,8 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	public function get_cancel_url() {
 		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
 
-        if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
-        	$url = add_query_arg( 'status', 'cancel', $url );
+        if ( empty( $url ) ) {
+        	$url = parent::get_cancel_url();
         }
         
         return $url;
@@ -269,9 +267,8 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	public function get_success_url() {
 		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
 
-        if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
-        	$url = add_query_arg( 'status', 'success', $url );
+		if ( empty( $url ) ) {
+        	$url = parent::get_success_url();
         }
         
         return $url;
@@ -280,9 +277,8 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	public function get_error_url() {
 		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
 
-        if ( $url != null ) {
-        	$url = add_query_arg( 'transaction', $this->get_order_id(), $url );
-        	$url = add_query_arg( 'status', 'error', $url );
+		if ( empty( $url ) ) {
+			$url = parent::get_error_url();
         }
         
         return $url;

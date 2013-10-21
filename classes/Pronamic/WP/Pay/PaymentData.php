@@ -77,19 +77,31 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	// URL's
 	//////////////////////////////////////////////////
 	
+	private function get_url( $name ) {
+		$url = home_url( '/' );
+		
+		$permalink = get_permalink( pronamic_pay_get_page_id( $name ) );
+		
+		if ( $permalink ) {
+			$url = $permalink;
+		}
+		
+		return $url;
+	}
+	
 	public function get_normal_return_url() {
-		return get_permalink( pronamic_pay_get_page_id( 'unknown' ) );
+		return $this->get_url( 'unknown' );
 	}
 	
 	public function get_cancel_url() {
-		return get_permalink( pronamic_pay_get_page_id( 'cancel' ) );
+		return $this->get_url( 'cancel' );
 	}
 	
 	public function get_success_url() {
-		return get_permalink( pronamic_pay_get_page_id( 'completed' ) );
+		return $this->get_url( 'completed' );
 	}
 	
 	public function get_error_url() {
-		return get_permalink( pronamic_pay_get_page_id( 'error' ) );
+		return $this->get_url( 'error' );
 	}
 }
