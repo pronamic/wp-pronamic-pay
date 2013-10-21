@@ -90,7 +90,7 @@
 			'name'         => __( 'WooCommerce', 'pronamic_ideal' ),
 			'url'          => 'http://wordpress.org/extend/plugins/woocommerce/',
 			'active'       => Pronamic_WooCommerce_WooCommerce::is_active(),
-			'tested_up_to' => '1.4'
+			'tested_up_to' => '2.0.12'
 		),
 		'wp-e-commerce'       => array(
 			'name'         => __( 'WP e-Commerce', 'pronamic_ideal' ),
