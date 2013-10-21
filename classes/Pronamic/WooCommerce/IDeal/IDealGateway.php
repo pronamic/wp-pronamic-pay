@@ -175,12 +175,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			if ( $gateway->is_html_form() ) {
 				$return = $this->process_gateway_html_form( $order );
 			}
-			
-			if ( ! $gateway->has_feedback() ) {
-				$note = self::get_check_payment_note( $order );
-
-				self::mail_check_payment( $order, $note );
-			}
 		}
 
 		// Mark as pending (we're awaiting the payment)
@@ -188,61 +182,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		// Return
 		return $return;
-    }
-
-    /**
-     * Get check payment note
-     * 
-     * @param WC_Order $order
-     */
-    private static function get_check_payment_note( $order ) {
-		// get_edit_post_link() will not work, has permissions check for current user
-		$edit_order_link = add_query_arg( 
-			array(
-				'post'   => $order->id, 
-				'action' => 'edit' 
-			),
-			admin_url( 'post.php' )
-		);
-
-		// @todo get dashboard URL from config id
-		$dashboard_url = '#';
-
-		$note = sprintf(
-			__( 'Check the payment of order %s in your <a href="%s">iDEAL dashboard</a> and <a href="%s">update the status of the order</a>.', 'pronamic_ideal' ),
-			$order->get_order_number(),
-			esc_attr( $dashboard_url ),
-			esc_attr( $edit_order_link )
-		);
-
-		return $note;
-    }
-
-    /**
-     * Mail the new order e-mail recipient
-     * 
-     * @param WC_Order $order
-     */
-    private function mail_check_payment( $order, $note ) {
-		global $woocommerce;
-		
-		// E-mail
-		$mailer = $woocommerce->mailer();
-
-		$message = $mailer->wrap_message( 
-			__( 'Check iDEAL payment', 'pronamic_ideal' ),
-			$note
-		);
-		
-		// Send the mail
-		woocommerce_mail(
-			get_option( 'woocommerce_new_order_email_recipient' ),
-			sprintf(
-				__( 'Check iDEAL payment for order %s', 'pronamic_ideal' ),
-				$order->get_order_number()
-			),
-			$message
-		);
     }
 
 	//////////////////////////////////////////////////
