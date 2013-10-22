@@ -232,6 +232,30 @@ $sections = array(
 					__( 'https://www.icepay.com/EN/Login', 'pronamic_ideal' ),
 					__( 'https://www.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
 				)
+			),
+			array(
+				'id'          => 'pronamic_pay_icepay_thank_you_page_url',
+				'title'       => __( 'Thank you page URL', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'value'       => home_url( '/' ),
+				'readonly'    => true
+			),
+			array(
+				'id'          => 'pronamic_pay_icepay_error_page_url',
+				'title'       => __( 'Error page URL', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'value'       => home_url( '/' ),
+				'readonly'    => true
+			),
+			array(
+				'id'          => 'pronamic_pay_icepay_postback_url',
+				'title'       => __( 'Postback URL', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'value'       => home_url( '/' ),
+				'readonly'    => true
 			)
 		)
 	),
