@@ -61,7 +61,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_order_id( $data->get_order_id() );
 		$this->client->set_normal_return_url( home_url( '/' ) );
 		$this->client->set_automatic_response_url( home_url( '/' ) );
-		$this->client->set_amount( $data->getAmount() );
+		$this->client->set_amount( $data->get_amount() );
 		$this->client->set_transaction_reference( $this->get_transaction_id() );
 
 		$payment->set_transaction_id( $this->get_transaction_id() );

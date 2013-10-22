@@ -50,11 +50,11 @@ class Pronamic_IDeal_Items implements IteratorAggregate {
 	/**
 	 * Calculate the total amount of all items
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		$amount = 0;
 
 		foreach($this->items as $item) {
-			$amount += $item->getAmount();
+			$amount += $item->get_amount();
 		}
 
 		return $amount;

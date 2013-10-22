@@ -37,8 +37,8 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	public abstract function getItems();
 
-	public function getAmount() {
-		return $this->getItems()->getAmount();
+	public function get_amount() {
+		return $this->getItems()->get_amount();
 	}
 
 	//////////////////////////////////////////////////

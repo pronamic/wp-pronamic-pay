@@ -560,8 +560,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	/**
 	 * Calculate the total amount of all items
 	 */
-	public function getAmount() {
-		return $this->items->getAmount();
+	public function get_amount() {
+		return $this->items->get_amount();
 	}
 
 	//////////////////////////////////////////////////
@@ -582,7 +582,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = $this->getSubId();
 
 		// Total amount of transaction
-		$string[] = Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() );
+		$string[] = Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() );
 
 		// The online shop's unique order number, also known as purchase id
 		$string[] = $this->getPurchaseId(); 
@@ -643,7 +643,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['merchantID']  = $this->getMerchantId();
 		$fields['subID']       = $this->getSubId();
 
-		$fields['amount']      = Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() );
+		$fields['amount']      = Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() );
 		$fields['purchaseID']  = $this->getPurchaseId();
 		$fields['language']    = $this->getLanguage();
 		$fields['currency']    = $this->getCurrency();

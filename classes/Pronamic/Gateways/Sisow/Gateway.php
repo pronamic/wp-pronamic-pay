@@ -68,7 +68,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
 			$data->get_order_id(),
-			$data->getAmount(),
+			$data->get_amount(),
 			$data->get_description(),
 			$data->get_entrance_code(),
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )

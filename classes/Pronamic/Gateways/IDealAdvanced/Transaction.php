@@ -201,7 +201,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * 
 	 * @return string
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 

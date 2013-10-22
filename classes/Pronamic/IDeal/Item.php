@@ -137,7 +137,7 @@ class Pronamic_IDeal_Item {
 	 * 
 	 * @return float
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->price * $this->quantity;
 	}
 }

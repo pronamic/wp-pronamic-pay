@@ -311,7 +311,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	 * 
 	 * @return float
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 
@@ -446,7 +446,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'PSPID'        => $this->getPspId(),
 
 			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() ), 
+			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ), 
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 

@@ -110,7 +110,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		// Transaction request message
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 		$transaction->setPurchaseId( $data->get_order_id() );
-		$transaction->setAmount( $data->getAmount() );
+		$transaction->setAmount( $data->get_amount() );
 		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
 		$transaction->setExpirationPeriod( 'PT3M30S' );
 		$transaction->setLanguage( $data->getLanguageIso639Code() );

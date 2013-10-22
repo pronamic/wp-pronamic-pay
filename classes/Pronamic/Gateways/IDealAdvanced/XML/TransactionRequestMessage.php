@@ -61,7 +61,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 
 		$element = self::addElement( $document, $document->documentElement, 'Transaction' );
 		self::addElement( $document, $element, 'purchaseID', $transaction->getPurchaseId() );
-		self::addElement( $document, $element, 'amount', Pronamic_WordPress_Util::amount_to_cents( $transaction->getAmount() ) );
+		self::addElement( $document, $element, 'amount', Pronamic_WordPress_Util::amount_to_cents( $transaction->get_amount() ) );
 		self::addElement( $document, $element, 'currency', $transaction->getCurrency() );
 		self::addElement( $document, $element, 'expirationPeriod', $transaction->getExpirationPeriod() );
 		self::addElement( $document, $element, 'language', $transaction->getLanguage() );
@@ -87,7 +87,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 			$this->getMerchant()->subId, 
 			$this->getMerchant()->returnUrl, 
 			$this->transaction->getPurchaseId(),
-			Pronamic_WordPress_Util::amount_to_cents( $this->transaction->getAmount() ),
+			Pronamic_WordPress_Util::amount_to_cents( $this->transaction->get_amount() ),
 			$this->transaction->getCurrency(),
 			$this->transaction->getLanguage(),
 			$this->transaction->get_description(),

@@ -350,7 +350,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 	 *
 	 * @return float
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 
@@ -700,7 +700,7 @@ class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
 			// general parameters
 			'PSPID'        => $this->getPspId(),
 			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() ),
+			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ),
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 
