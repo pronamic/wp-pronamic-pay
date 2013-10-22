@@ -74,7 +74,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 	 * @param Pronamic_Gateways_PayDutch_XML_RequestMessage $message
 	 */
 	private function request( Pronamic_Gateways_PayDutch_XML_RequestMessage $message ) {
-		return Pronamic_WordPress_Util::remote_get_body( self::API_URL, 200, array(
+		return Pronamic_WP_Util::remote_get_body( self::API_URL, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'headers'   => array( 'Content-Type' => 'text/xml' ),
@@ -96,7 +96,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 			
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -119,7 +119,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 			
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -192,7 +192,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;

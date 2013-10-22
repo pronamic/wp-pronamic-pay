@@ -87,7 +87,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 					} elseif ( $issuer_field ) {
 						$choices = $issuer_field['choices'];
 
-						$options = Pronamic_IDeal_HTML_Helper::select_options_grouped( $choices, $value );
+						$options = Pronamic_WP_HTML_Helper::select_options_grouped( $choices, $value );
 						// Double quotes are not working, se we replace them with an single quote
 						$options = str_replace( '"', '\'', $options );
 

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_OmniKassa_Listener extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_OmniKassa_Listener implements Pronamic_Pay_Gateways_ListenerInterface {
 	public function listen() {
 		$condition  = true;
 		$condition &= filter_has_var( INPUT_POST, 'Data' );

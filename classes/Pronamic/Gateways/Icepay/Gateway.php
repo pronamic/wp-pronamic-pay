@@ -98,7 +98,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			$payment_object = new Icepay_PaymentObject();
 			$payment_object
 				->setPaymentMethod( $this->client->getCode() )
-				->setAmount( Pronamic_WordPress_Util::amount_to_cents( $data->get_amount() ) )
+				->setAmount( Pronamic_WP_Util::amount_to_cents( $data->get_amount() ) )
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )
 				->setReference( $payment->get_id() )

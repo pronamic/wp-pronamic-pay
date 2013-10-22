@@ -116,9 +116,9 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// WordPress functions uses URL encoding
 		// @see http://codex.wordpress.org/Function_Reference/build_query
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
-		$url = Pronamic_WordPress_Util::build_url( self::API_URL, $parameters );
+		$url = Pronamic_WP_Util::build_url( self::API_URL, $parameters );
 
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'sslverify' => false
 		) );
 	}
@@ -138,7 +138,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -223,7 +223,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::FETCH, $parameters );
 
 		if ( $result !== false ) {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -253,7 +253,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::CHECK, $parameters );
 
 		if ( $result !== false ) {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;

@@ -42,7 +42,7 @@ class Pronamic_Gateways_PayDutch_XML_TransactionRequestMessage extends Pronamic_
 			'amount'      => Pronamic_Gateways_PayDutch_PayDutch::format_amount( $this->transaction_request->amount ),
 			'methodcode'  => $this->transaction_request->method_code,
 			'issuerid'    => $this->transaction_request->issuer_id,
-			'test'        => Pronamic_WordPress_Util::to_string_boolean( $this->transaction_request->test ),
+			'test'        => Pronamic_WP_Util::to_string_boolean( $this->transaction_request->test ),
 			'successurl'  => $this->transaction_request->success_url,
 			'failurl'     => $this->transaction_request->fail_url
 		) );

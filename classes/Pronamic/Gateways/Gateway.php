@@ -374,7 +374,7 @@ abstract class Pronamic_Gateways_Gateway {
 							'<select id="%s" name="%s">%s</select>',
 							esc_attr( $field['id'] ),
 							esc_attr( $field['name'] ),
-							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
+							Pronamic_WP_HTML_Helper::select_options_grouped( $field['choices'] )
 						);
 						
 						break;

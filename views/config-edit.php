@@ -699,7 +699,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	
 									printf(
 										'<input %s />',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
 									);
 	
 									break;
@@ -709,7 +709,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	
 									printf(
 										'<textarea %s />%s</textarea>',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
+										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
 										esc_textarea( $value )
 									);
 	
@@ -719,15 +719,15 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	
 									printf(
 										'<input %s />',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes )
+										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
 									);
 	
 									break;
 								case 'select' :
 									printf(
 										'<select %s>%s</select>',
-										Pronamic_IDeal_HTML_Helper::array_to_html_attributes( $attributes ),
-										Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['options'], $value )
+										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+										Pronamic_WP_HTML_Helper::select_options_grouped( $field['options'], $value )
 									);
 	
 									break;

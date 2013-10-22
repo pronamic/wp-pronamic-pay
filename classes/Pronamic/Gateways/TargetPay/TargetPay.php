@@ -107,7 +107,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	//////////////////////////////////////////////////
 
 	private function remote_get( $url ) {
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'sslverify' => false
 		) );
 	}
@@ -126,16 +126,16 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	 * @param string $cinfo_in_callback https://www.targetpay.com/info/directdebit-docu
 	 */
 	public function start_transaction( $rtlo, $bank, $description, $amount, $returnurl, $reporturl, $cinfo_in_callback = 1 ) {
-		$url = Pronamic_WordPress_Util::build_url(
+		$url = Pronamic_WP_Util::build_url(
 			self::URL_START_TRANSACTION,
 			array(
 				'rtlo'              => $rtlo,
 				'bank'              => $bank,
 				'description'       => $description,
-				'amount'            => Pronamic_WordPress_Util::amount_to_cents( $amount ),
+				'amount'            => Pronamic_WP_Util::amount_to_cents( $amount ),
 				'returnurl'         => $returnurl,
 				'reporturl'         => $reporturl,
-				'cinfo_in_callback' => Pronamic_WordPress_Util::to_numeric_boolean( $cinfo_in_callback )
+				'cinfo_in_callback' => Pronamic_WP_Util::to_numeric_boolean( $cinfo_in_callback )
 			)
 		);
 
@@ -239,13 +239,13 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	public function check_status( $rtlo, $transaction_id, $once, $test ) {
 		$result = null;
 
-		$url = Pronamic_WordPress_Util::build_url(
+		$url = Pronamic_WP_Util::build_url(
 			self::URL_CHECK_TRANSACTION,
 			array(
 				'rtlo'  => $rtlo,
 				'trxid' => $transaction_id,
-				'once'  => Pronamic_WordPress_Util::to_numeric_boolean( $once ),
-				'test'  => Pronamic_WordPress_Util::to_numeric_boolean( $test )
+				'once'  => Pronamic_WP_Util::to_numeric_boolean( $once ),
+				'test'  => Pronamic_WP_Util::to_numeric_boolean( $test )
 			)
 		);
 
@@ -273,7 +273,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		$data = self::remote_get( $url );
 		
 		if ( $data !== false ) {	
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $data );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $data );
 				
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;

@@ -27,7 +27,7 @@ class Pronamic_Gateways_Sisow_XML_TransactionParser extends Pronamic_Gateways_Si
 		}
 
 		if ( isset( $xml->amount ) ) {
-			$transaction->amount           = Pronamic_WordPress_Util::cents_to_amount( (string) $xml->amount );
+			$transaction->amount           = Pronamic_WP_Util::cents_to_amount( (string) $xml->amount );
 		}
 
 		if ( isset( $xml->purchaseid ) ) {

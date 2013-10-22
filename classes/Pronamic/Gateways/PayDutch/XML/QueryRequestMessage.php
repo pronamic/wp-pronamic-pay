@@ -38,7 +38,7 @@ class Pronamic_Gateways_PayDutch_XML_QueryRequestMessage extends Pronamic_Gatewa
 			'username'    => $this->merchant->username,
 			'password'    => $this->merchant->password,
 			'reference'   => $this->merchant->reference,
-			'test'        => Pronamic_WordPress_Util::to_string_boolean( $this->merchant->test )
+			'test'        => Pronamic_WP_Util::to_string_boolean( $this->merchant->test )
 		) );
 
 		// Return

@@ -35,7 +35,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WordPress_Util::remote_get_body( Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
+		$result = Pronamic_WP_Util::remote_get_body( Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $data
@@ -44,7 +44,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 		
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;

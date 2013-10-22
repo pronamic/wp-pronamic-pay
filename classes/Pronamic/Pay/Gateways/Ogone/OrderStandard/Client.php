@@ -362,7 +362,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	public function setAmount( $amount ) {
 		$this->amount = $amount;
 
-		$this->set_field( Pronamic_Pay_Gateways_Ogone_Parameters::AMOUNT, Pronamic_WordPress_Util::amount_to_cents( $amount ) );
+		$this->set_field( Pronamic_Pay_Gateways_Ogone_Parameters::AMOUNT, Pronamic_WP_Util::amount_to_cents( $amount ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -700,7 +700,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 			// general parameters
 			'PSPID'        => $this->getPspId(),
 			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ),
+			'amount'       => Pronamic_WP_Util::amount_to_cents( $this->get_amount() ),
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 

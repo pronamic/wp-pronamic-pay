@@ -582,7 +582,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = $this->getSubId();
 
 		// Total amount of transaction
-		$string[] = Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() );
+		$string[] = Pronamic_WP_Util::amount_to_cents( $this->get_amount() );
 
 		// The online shop's unique order number, also known as purchase id
 		$string[] = $this->getPurchaseId(); 
@@ -608,7 +608,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$string[] = $item->getQuantity();
 
 			// Price of article <n> in whole eurocents
-			$string[] = Pronamic_WordPress_Util::amount_to_cents( $item->getPrice() ); // Price of article in whole cents
+			$string[] = Pronamic_WP_Util::amount_to_cents( $item->getPrice() ); // Price of article in whole cents
 		}
 
 		$concatString = implode('', $string);
@@ -643,7 +643,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['merchantID']  = $this->getMerchantId();
 		$fields['subID']       = $this->getSubId();
 
-		$fields['amount']      = Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() );
+		$fields['amount']      = Pronamic_WP_Util::amount_to_cents( $this->get_amount() );
 		$fields['purchaseID']  = $this->getPurchaseId();
 		$fields['language']    = $this->getLanguage();
 		$fields['currency']    = $this->getCurrency();
@@ -657,7 +657,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$fields['itemNumber' . $serial_number]      = $item->getNumber();
 			$fields['itemDescription' . $serial_number] = $item->get_description();
 			$fields['itemQuantity' . $serial_number]    = $item->getQuantity();
-			$fields['itemPrice' . $serial_number]       = Pronamic_WordPress_Util::amount_to_cents( $item->getPrice() );
+			$fields['itemPrice' . $serial_number]       = Pronamic_WP_Util::amount_to_cents( $item->getPrice() );
 
 			$serial_number++;
 		}

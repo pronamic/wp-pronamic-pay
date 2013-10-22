@@ -132,7 +132,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 	private function send_request( $data ) {
 		$url = $this->get_payment_server_url();
 
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => array(
@@ -210,7 +210,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -259,7 +259,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 		if ( is_wp_error( $response ) ) {
 			$this->error = $response;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $response );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $response );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;

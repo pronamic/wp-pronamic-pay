@@ -158,7 +158,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 				if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 					$body = wp_remote_retrieve_body( $response );
 	
-					$xml = Pronamic_WordPress_Util::simplexml_load_string( $body );
+					$xml = Pronamic_WP_Util::simplexml_load_string( $body );
 					
 					if ( is_wp_error( $xml ) ) {
 						$this->error = $xml;

@@ -340,7 +340,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @return int
 	 */
 	public function get_formatted_amount() {
-		return Pronamic_WordPress_Util::amount_to_cents( $this->amount );
+		return Pronamic_WP_Util::amount_to_cents( $this->amount );
 	}
 
 	/**

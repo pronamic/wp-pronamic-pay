@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Title: Gateway return handler
+ * Title: Gateway listener interface
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_ReturnHandler {
-	public abstract function listen();
+interface Pronamic_Pay_Gateways_ListenerInterface {
+	public function listen();
 }

@@ -211,7 +211,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * Process iDEAL advanced payment
      * 
      * @param WC_Order $order
-     * @param Pronamic_IDeal_Variant $variant
      * @return array
      */
     private function process_gateway_http_redirect( $order, $gateway ) {

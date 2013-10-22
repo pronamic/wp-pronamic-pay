@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealBasic_Listener extends Pronamic_Gateways_ReturnHandler {
+class Pronamic_Gateways_IDealBasic_Listener implements Pronamic_Pay_Gateways_ListenerInterface {
 	public function listen() {
 		$condition  = true;
 		$condition &= filter_has_var( INPUT_GET, 'xml_notifaction' );
@@ -16,7 +16,7 @@ class Pronamic_Gateways_IDealBasic_Listener extends Pronamic_Gateways_ReturnHand
 		if ( $condition ) {
 			$http_raw_post_data = file_get_contents( 'php://input' );
 						
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 						
 			if ( is_wp_error( $xml ) ) {
 				// @todo what todo?

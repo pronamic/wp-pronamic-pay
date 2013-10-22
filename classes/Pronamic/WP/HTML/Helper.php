@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_HTML_Helper {
+class Pronamic_WP_HTML_Helper {
 	/**
 	 * Array to HTML attributes
 	 * 

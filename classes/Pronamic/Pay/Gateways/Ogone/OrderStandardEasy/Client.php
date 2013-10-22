@@ -446,7 +446,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'PSPID'        => $this->getPspId(),
 
 			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WordPress_Util::amount_to_cents( $this->get_amount() ), 
+			'amount'       => Pronamic_WP_Util::amount_to_cents( $this->get_amount() ), 
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 

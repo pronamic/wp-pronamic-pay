@@ -1,6 +1,14 @@
 <?php
 
-class Pronamic_Gateways_Icepay_Listener extends Pronamic_Gateways_ReturnHandler {
+/**
+ * Title: ICEPAY listener
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2011
+ * Company: Pronamic
+ * @author Remco Tolsma
+ * @version 1.0
+ */
+class Pronamic_Gateways_Icepay_Listener implements Pronamic_Pay_Gateways_ListenerInterface {
 	public function listen() {
 		$condition  = true;
 		$condition &= filter_has_var( INPUT_GET, 'Status' );
