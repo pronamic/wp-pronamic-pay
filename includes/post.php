@@ -509,7 +509,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 		// TargetPay
 		'_pronamic_gateway_targetpay_layoutcode' => FILTER_SANITIZE_STRING,
 		// Ogone
-		'_pronamic_gateway_ogone_pspid' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_psp_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_sha_in' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_sha_out' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_user_id' => FILTER_SANITIZE_STRING,
@@ -517,21 +517,21 @@ function pronamic_pay_save_gateway( $post_id ) {
 		// Ogone DirectLink
 		'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
 		// Qantani
-		'_pronamic_gateway_qantani_merchant_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_qantani_merchant_secret' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_qantani_merchant_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_id'        => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_secret'    => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_key'       => FILTER_SANITIZE_STRING,
 		// Advanced
 		'_pronamic_gateway_ideal_private_key_password' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ideal_private_key' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ideal_private_certificate' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_number_days_valid' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_country' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_state_or_province' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_locality' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_organization' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_organization_unit' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_common_name' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_email' => FILTER_SANITIZE_STRING
+		'_pronamic_gateway_ideal_private_key'          => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_private_certificate'  => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_number_days_valid'          => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_country'                    => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_state_or_province'          => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_locality'                   => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_organization'               => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_organization_unit'          => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_common_name'                => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_email'                      => FILTER_SANITIZE_STRING
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );
