@@ -78,7 +78,7 @@
 			'active'       => Pronamic_GravityForms_GravityForms::is_active(),
 			'tested_up_to' => '1.6',
 			'author'       => __( 'Rocketgenius', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.rocketgenius.com/'
+			'author_url'   => 'http://www.rocketgenius.com/'
 		),
 		'jigoshop'            => array(
 			'name'         => __( 'Jigoshop', 'pronamic_ideal' ),
@@ -88,7 +88,7 @@
 			'active'       => Pronamic_Jigoshop_Jigoshop::is_active(),
 			'tested_up_to' => '1.1',
 			'author'       => __( 'Jigowatt', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://jigowatt.co.uk/'
+			'author_url'   => 'http://jigowatt.co.uk/'
 		),
 		'membership'          => array(
 			'name'         => __( 'Membership', 'pronamic_ideal' ),
@@ -97,7 +97,7 @@
 			'active'       => Pronamic_Membership_Membership::is_active(),
 			'tested_up_to' => '3.4.4.1',
 			'author'       => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.wpmudev.org/'
+			'author_url'   => 'http://www.wpmudev.org/'
 		),
 		's2member'            => array(
 			'name'         => __( 's2Member®', 'pronamic_ideal' ),
@@ -106,8 +106,8 @@
 			'github_url'   => 'https://github.com/WebSharks/s2Member',
 			'active'       => Pronamic_S2Member_S2Member::is_active(),
 			'tested_up_to' => '130816',
-			'author'       => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.wpmudev.org/'
+			'author'       => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
+			'author_url'   => 'http://www.websharks-inc.com/'
 		),
 		'shopp'               => array(
 			'name'         => __( 'Shopp', 'pronamic_ideal' ),
@@ -116,7 +116,7 @@
 			'active'       => Pronamic_Shopp_Shopp::is_active(),
 			'tested_up_to' => '1.1',
 			'author'       => __( 'Ingenesis Limited', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://ingenesis.net/'
+			'author_url'   => 'http://ingenesis.net/'
 		),
 		'woocommerce'         => array(
 			'name'         => __( 'WooCommerce', 'pronamic_ideal' ),
@@ -126,7 +126,7 @@
 			'active'       => Pronamic_WooCommerce_WooCommerce::is_active(),
 			'tested_up_to' => '2.0.12',
 			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.woothemes.com/'
+			'author_url'   => 'http://www.woothemes.com/'
 		),
 		'wp-e-commerce'       => array(
 			'name'         => __( 'WP e-Commerce', 'pronamic_ideal' ),
@@ -136,7 +136,7 @@
 			'active'       => Pronamic_WPeCommerce_WPeCommerce::is_active(),
 			'tested_up_to' => '3.8.12.1',
 			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.woothemes.com/'
+			'author_url'   => 'http://www.woothemes.com/'
 		),
 		// Themes
 		'classipress'         => array(
@@ -145,7 +145,7 @@
 			'active'       => Pronamic_ClassiPress_ClassiPress::is_active(),
 			'tested_up_to' => '3.3.1',
 			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.appthemes.com/'
+			'author_url'   => 'http://www.appthemes.com/'
 		),
 		'jobroller'           => array(
 			'name'         => __( 'JobRoller', 'pronamic_ideal' ),
@@ -153,7 +153,7 @@
 			'active'       => Pronamic_JobRoller_JobRoller::is_active(),
 			'tested_up_to' => '1.7.1',
 			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
-			'auhtor_url'   => 'http://www.appthemes.com/'
+			'author_url'   => 'http://www.appthemes.com/'
 		)
 	);
 	
@@ -196,7 +196,7 @@
 					<td>
 						<?php
 						
-						if ( isset( $extension['author'] ) ) {
+						if ( isset( $extension['author'], $extension['author_url'] ) ) {
 							printf(
 								'<a href="%s" target="_blank">%s</a>',
 								esc_attr( $extension['author_url'] ),
