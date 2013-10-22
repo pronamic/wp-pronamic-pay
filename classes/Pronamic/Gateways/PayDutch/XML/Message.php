@@ -55,6 +55,23 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get the DOM document
+	 * 
+	 * @return DOMDocument
+	 */
+	public static function new_dom_document() {
+		$document = new DOMDocument( self::XML_VERSION, self::XML_ENCODING );
+
+		// Settings
+		$document->preserveWhiteSpace = false;
+		$document->formatOutput = true;
+		
+		return $document;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Create and add an element with the specified name and value to the specified parent
 	 * 
 	 * @param DOMDocument $document

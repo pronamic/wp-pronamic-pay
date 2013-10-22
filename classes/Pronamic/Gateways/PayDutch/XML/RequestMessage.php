@@ -15,7 +15,7 @@ abstract class Pronamic_Gateways_PayDutch_XML_RequestMessage extends Pronamic_Ga
 	 * @param string $name
 	 */
 	public function __construct( $type ) {
-		parent::__construct( 'reqeust' );
+		parent::__construct( 'request' );
 		
 		$this->type = $type;
 	}
@@ -28,11 +28,7 @@ abstract class Pronamic_Gateways_PayDutch_XML_RequestMessage extends Pronamic_Ga
 	 * @return DOMDocument
 	 */
 	protected function get_document() {
-		$document = new DOMDocument( parent::XML_VERSION, parent::XML_ENCODING );
-		// We can't disable preservere white space and format the output
-		// this is causing 'Invalid electronic signature' errors
-		// $document->preserveWhiteSpace = true;
-		// $document->formatOutput = true;
+		$document = Pronamic_Gateways_PayDutch_XML_Message::new_dom_document();
 		
 		// Root
 		$root = $document->createElement( $this->get_name() );

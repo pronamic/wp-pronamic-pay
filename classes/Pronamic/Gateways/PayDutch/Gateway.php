@@ -84,7 +84,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 		$transaction_request->reference   = $payment->get_id();
 		$transaction_request->description = $data->get_description();
 		$transaction_request->amount      = $data->get_amount();
-		$transaction_request->methodcode  = Pronamic_Gateways_PayDutch_Methods::WEDEAL;
+		$transaction_request->method_code = Pronamic_Gateways_PayDutch_Methods::WEDEAL;
 		$transaction_request->issuer_id   = $data->get_issuer_id();
 		$transaction_request->test        = true;
 		$transaction_request->success_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
@@ -114,7 +114,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 		$result = $this->client->get_payment_status( $payment->get_id() );
 
 		if ( $result ) {
-			$payment->set_status( $result->state );
+			$payment->set_status( Pronamic_Gateways_PayDutch_PayDutch::transform_state( $result->state ) );
 			$payment->set_consumer_name( $result->consumername );
 			$payment->set_consumer_account_number( $result->consumeraccount );
 			$payment->set_consumer_city( $result->consumercity );

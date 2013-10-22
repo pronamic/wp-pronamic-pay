@@ -16,8 +16,11 @@ class Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage extends Pron
 	/**
 	 * Constructs and initialize a directory request message
 	 */
-	public function __construct() {
+	public function __construct( $method_code, $test = false ) {
 		parent::__construct( self::TYPE );
+		
+		$this->method_code = $method_code;
+		$this->test        = $test;
 	}
 
 	//////////////////////////////////////////////////
@@ -33,8 +36,8 @@ class Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage extends Pron
 		// Retrieve Bank List
 		$element = self::add_element( $document, $document->documentElement, 'retrievebanklist' );
 		self::add_elements( $document, $element, array(
-			'methodcode' => Pronamic_Gateways_PayDutch_Methods::WEDEAL,
-			'test'       => Pronamic_WordPress_Util::to_string_boolean( true )
+			'methodcode' => $this->method_code,
+			'test'       => Pronamic_WordPress_Util::to_string_boolean( $this->test )
 		) );
 
 		// Return

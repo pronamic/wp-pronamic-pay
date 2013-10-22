@@ -112,7 +112,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 	public function get_bank_list() {
 		$list = null;
 
-		$message = new Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage();
+		$message = new Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage( Pronamic_Gateways_PayDutch_Methods::WEDEAL, true );
 
 		$result = $this->request( $message );
 
@@ -207,6 +207,22 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 	/////////////////////////////////////////////////
 
 	/**
+	 * Format amount to PayDutch notation
+	 * 
+	 * The amount in euro’s that the consumer need to pay. 
+	 * Notation: euro(s),cent(s) 00,00. 
+	 * Max 10000,00 Most banks have a maximum iDeal amount of ten thousand euro.
+	 * 
+	 * @param float $amount
+	 * @return string
+	 */
+	public static function format_amount( $amount ) {
+		return number_format( $amount, 2, ',', '' );
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Transform an PayDutch state
 	 * 
 	 * @param string $status
@@ -215,7 +231,22 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		switch ( $state ) {
 			case Pronamic_Gateways_PayDutch_States::REGISTER:
 				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
-			// @todo
+			case Pronamic_Gateways_PayDutch_States::PROCESSING:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
+			case Pronamic_Gateways_PayDutch_States::INCOME:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+			case Pronamic_Gateways_PayDutch_States::ASSEMBLE:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
+			case Pronamic_Gateways_PayDutch_States::PAYOUT:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+			case Pronamic_Gateways_PayDutch_States::SUCCESS:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
+			case Pronamic_Gateways_PayDutch_States::CANCELLED:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
+			case Pronamic_Gateways_PayDutch_States::FAILED:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE;
+			default:
+				return Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
 		}
 	}
 }
