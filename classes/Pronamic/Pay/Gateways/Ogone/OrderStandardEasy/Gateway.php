@@ -25,6 +25,18 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->setPaymentServerUrl( $config->url );
 		$this->client->setPspId( $config->psp_id );
 	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get output HTML
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_output_html()
+	 * @return string
+	 */
+	public function get_output_html() {
+		return $this->client->getHtmlFields();
+	}
 	
 	/////////////////////////////////////////////////
 
@@ -33,9 +45,9 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
-		$this->set_action_url( $this->client->getPaymentServerUrl() );
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
+		$payment->set_action_url( $this->client->getPaymentServerUrl() );
 
 		$this->client->setLanguage( $data->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
@@ -48,13 +60,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->setOwnerCity( $data->getOwnerCity() );
 		$this->client->setOwnerZip( $data->getOwnerZip() );
 
-		$url = add_query_arg(
-			array(
-				'gateway'        => 'ideal_easy',
-				'transaction_id' => $this->get_transaction_id()
-			),
-			home_url( '/' )
-		);
+		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 		
 		$this->client->set_accept_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
 		$this->client->set_decline_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
@@ -63,16 +69,19 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->set_back_url( home_url( '/' ) );
 		$this->client->set_home_url( home_url( '/' ) );
 	}
-
+	
 	/////////////////////////////////////////////////
-
+	
 	/**
-	 * Get output HTML
-	 * 
-	 * @see Pronamic_Gateways_Gateway::get_output_html()
-	 * @return string
+	 * Update status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function get_output_html() {
-		return $this->client->getHtmlFields();
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		if ( filter_has_var( INPUT_GET, 'status' ) ) {
+			$status = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
+	
+			$payment->set_status( $status );
+		}
 	}
 }

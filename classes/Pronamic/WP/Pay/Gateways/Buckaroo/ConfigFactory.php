@@ -7,6 +7,8 @@ class Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory {
 		$config->website_key = get_post_meta( $post_id, '_pronamic_gateway_buckaroo_website_key', true );
 		$config->secret_key  = get_post_meta( $post_id, '_pronamic_gateway_buckaroo_secret_key', true );
 
+		$config->mode        = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
 		return $config;
 	}
 }

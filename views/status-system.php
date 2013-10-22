@@ -163,7 +163,7 @@
 		<thead>
 			<tr>
 				<th scope="col">
-					<?php _e( 'Plugin', 'pronamic_ideal' ); ?>
+					<?php _e( 'Name', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
 					<?php _e( 'Author', 'pronamic_ideal' ); ?>
@@ -399,6 +399,16 @@
 				}
 				
 				?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php _e( 'Travis CI build status', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<a href="https://travis-ci.org/pronamic/wp-pronamic-ideal">
+					<img src="https://travis-ci.org/pronamic/wp-pronamic-ideal.png" alt="" />
+				</a>
 			</td>
 		</tr>
 	</table>

@@ -47,9 +47,9 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
-		$this->set_action_url( $this->client->getPaymentServerUrl() );
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
+		$payment->set_action_url( $this->client->getPaymentServerUrl() );
 
 		$this->client->setLanguage( $data->getLanguageIso639AndCountryIso3166Code() );
 		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
@@ -60,13 +60,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->client->setCustomerName( $data->getCustomerName() );
 		$this->client->setEMailAddress( $data->get_email() );
 
-		$url = add_query_arg(
-			array(
-				'gateway'        => 'internetkassa',
-				'transaction_id' => $this->get_transaction_id()
-			),
-			home_url( '/' )
-		);
+		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
 		$this->client->setAcceptUrl( add_query_arg( 'status', 'accept', $url ) );
 		$this->client->setCancelUrl( add_query_arg( 'status', 'cancel', $url ) );

@@ -255,7 +255,7 @@ $pronamic_pay_gateways = array(
 		'provider'      => 'icepay',
 		'gateway'       => 'icepay',
 		'name'          => 'ICEPAY - iDEAL',
-		'dashboard_url' => 'https://www.icepay.com/Merchant/NL/Reports/Transactions'
+		'dashboard_url' => __( 'https://www.icepay.com/Merchant/EN/Reports/Transactions', 'pronamic_ideal' )
 	),
 	// iDEAL Simulator
 	'ideal-simulator-ideal-basic' => array(

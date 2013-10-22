@@ -324,6 +324,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		$enqueue |= $screen->post_type == 'pronamic_payment';
 		$enqueue |= $screen->post_type == 'pronamic_pay_gf';
 		$enqueue |= $screen->id == 'toplevel_page_gf_edit_forms';
+		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
 		if ( $enqueue ) {

@@ -79,33 +79,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
 
-		add_action( 'pronamic_ideal_advanced_return_raw',      array( 'Pronamic_Gateways_IDealAdvanced_ReturnHandler', 'returns' ), 10, 3 );
-		add_action( 'pronamic_ideal_advanced_v3_return_raw',   array( 'Pronamic_Gateways_IDealAdvancedV3_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_easy_return_raw',          array( 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_basic_return_raw',         array( 'Pronamic_Gateways_IDealBasic_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_internetkassa_return_raw', array( 'Pronamic_Gateways_IDealInternetKassa_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_mollie_return_raw',        array( 'Pronamic_Gateways_Mollie_ReturnHandler', 'returns' ) );
-		add_action( 'pronamic_ideal_buckaroo_return_raw',      array( 'Pronamic_Gateways_Buckaroo_ReturnHandler', 'returns' ), 10, 2);
-		add_action( 'pronamic_ideal_omnikassa_return_raw',     array( 'Pronamic_Gateways_OmniKassa_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_targetpay_return_raw',     array( 'Pronamic_Gateways_TargetPay_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_icepay_return_raw',        array( 'Pronamic_Gateways_Icepay_ReturnHandler', 'returns' ), 10, 2 );
-		add_action( 'pronamic_ideal_sisow_return_raw',         array( 'Pronamic_Gateways_Sisow_ReturnHandler', 'returns' ), 10, 5 );
-		add_action( 'pronamic_ideal_qantani_return_raw',       array( 'Pronamic_Gateways_Qantani_ReturnHandler', 'returns' ), 10, 4 );
-
-		// Check the payment status on an iDEAL return
-		add_action( 'pronamic_ideal_advanced_return',      array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
-		add_action( 'pronamic_ideal_advanced_v3_return',   array( __CLASS__, 'checkPaymentStatus' ),                  10, 2 );
-		add_action( 'pronamic_ideal_basic_return',         array( __CLASS__, 'update_ideal_basic_payment_status' ),   10, 3 );
-		add_action( 'pronamic_ideal_easy_return',          array( __CLASS__, 'update_ideal_easy_payment_status' ),    10, 3 );
-		add_action( 'pronamic_ideal_internetkassa_return', array( __CLASS__, 'update_internetkassa_payment_status' ), 10, 2 );
-		add_action( 'pronamic_ideal_omnikassa_return',     array( __CLASS__, 'update_omnikassa_payment_status' ),     10, 2 );
-		add_action( 'pronamic_ideal_mollie_return',        array( __CLASS__, 'update_mollie_payment_status' ),        10, 2 );
-		add_action( 'pronamic_ideal_targetpay_return',     array( __CLASS__, 'update_targetpay_payment_status' ),     10, 2 );
-		add_action( 'pronamic_ideal_buckaroo_return',      array( __CLASS__, 'update_buckaroo_payment_status' ),      10, 2 );
-		add_action( 'pronamic_ideal_icepay_return',        array( __CLASS__, 'update_icepay_payment_status' ),        10, 2 );
-		add_action( 'pronamic_ideal_sisow_return',         array( __CLASS__, 'update_sisow_payment_status' ),         10, 2 );
-		add_action( 'pronamic_ideal_qantani_return',       array( __CLASS__, 'update_qantani_payment_status' ),       10, 2 );
-
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
 
@@ -146,6 +119,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 				update_post_meta( $payment->get_id(), '_pronamic_payment_status', $payment->status );
 				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_name', $payment->consumer_name );
 				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_account_number', $payment->consumer_account_number );
+				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_iban', $payment->consumer_iban );
+				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_bic', $payment->consumer_bic );
 				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_city', $payment->consumer_city );
 
 				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
@@ -168,18 +143,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 			self::update_payment( $payment );
 		}
 
-		// Pronamic_Gateways_IDealAdvanced_ReturnHandler::listen();
-		// Pronamic_Gateways_IDealAdvancedV3_ReturnHandler::listen();
-		Pronamic_Gateways_IDealBasic_ReturnHandler::listen();
-		Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_ReturnHandler::listen();
 		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
-		Pronamic_Gateways_Mollie_ReturnHandler::listen();
-		Pronamic_Gateways_Buckaroo_ReturnHandler::listen();
-		Pronamic_Gateways_OmniKassa_ReturnHandler::listen();
-		Pronamic_Gateways_TargetPay_ReturnHandler::listen();
-		Pronamic_Gateways_Icepay_ReturnHandler::listen();
-		// Pronamic_Gateways_Sisow_ReturnHandler::listen();
-		Pronamic_Gateways_Qantani_ReturnHandler::listen();
+
+		Pronamic_Gateways_IDealBasic_Listener::listen();
+		Pronamic_Gateways_OmniKassa_Listener::listen();
+		Pronamic_Gateways_Icepay_Listener::listen();
 	}
 
 	/**
@@ -251,184 +219,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
-	}
-
-	/**
-	 * Update OmniKassa payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_omnikassa_payment_status( $data, $can_redirect = false ) {
-		$transaction_reference = $data['transactionReference'];
-
-		$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
-
-		if ( $payment != null ) {
-			$response_code = $data['responseCode'];
-
-			$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
-
-			switch ( $response_code ) {
-				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-					break;
-				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-			}
-
-			$payment->status = $status;
-
-			$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-		}
-	}
-
-	/**
-	 * Update Mollie payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_mollie_payment_status( $payment, $can_redirect = false ) {
-		$transaction_id = $payment->transaction_id;
-
-		$configuration = $payment->configuration;
-
-		$gateway = new Pronamic_Gateways_Mollie_Gateway( $configuration );
-
-		$gateway->update_status( $payment );
-
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-  	/**
-	 * Update Buckaroo payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_buckaroo_payment_status( $data, $can_redirect = false ) {
-		$invoice_number = $data[Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER];
-		$status_code    = $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE];
-
-		$payment = get_pronamic_payment_by_purchase_id( $invoice_number );
-
-		if ( $payment != null ) {
-			$status = null;
-
-			switch ( $status_code ) {
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_SUCCESS:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_FAILURE:
-				case Pronamic_Gateways_Buckaroo_Statuses::VALIDATION_FAILURE:
-				case Pronamic_Gateways_Buckaroo_Statuses::TECHNICAL_ERROR:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_REJECTED:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE;
-					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_USER_INPUT:
-				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_PROCESSOR:
-				case Pronamic_Gateways_Buckaroo_Statuses::WAITING_ON_CONSUMER_ACTION:
-				case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_ON_HOLD:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
-					break;
-				case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_CONSUMER:
-				case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_MERCHANT:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-			}
-
-			if ( $status != null ) {
-				$payment->status        = $status;
-				$payment->consumer_iban = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN];
-				$payment->consumer_bic  = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC];
-				$payment->consumer_name = $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME];
-
-				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-			}
-
-			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-		}
-	}
-
-	public static function update_icepay_payment_status( $payment, $can_redirect = false ) {
-		$configuration = $payment->configuration;
-
-		$gateway = new Pronamic_Gateways_Icepay_Gateway( $configuration );
-		$gateway->update_status( $payment );
-
-		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-
-	public static function update_sisow_payment_status( $payment, $can_redirect = false ) {
-		$config = $payment->config;
-
-		$gateway = new Pronamic_Gateways_Sisow_Gateway( $config );
-		$gateway->update_status( $payment );
-
-		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-
-	public static function update_qantani_payment_status( $payment, $can_redirect = false ) {
-		Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-
-	/**
-	 * Update TargetPay payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_targetpay_payment_status( $payment, $can_redirect = false ) {
-		$transaction_id = $payment->transaction_id;
-
-		$configuration = $payment->configuration;
-
-		$gateway = new Pronamic_Gateways_TargetPay_Gateway( $configuration );
-
-		$gateway->update_status( $payment );
-
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-
-	/**
-	 * Update iDEAL Basic payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_ideal_basic_payment_status( $payment, $status, $can_redirect = false ) {
-		$payment->status = $status;
-
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-	}
-
-	/**
-	 * Update iDEAL Easy payment status
-	 *
-	 * @param array $result
-	 * @param boolean $canRedirect
-	 */
-	public static function update_ideal_easy_payment_status( $payment, $status, $can_redirect = false ) {
-		$payment->status = $status;
-
-		$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-
-		do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 	}
 
 	//////////////////////////////////////////////////

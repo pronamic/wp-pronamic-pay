@@ -86,9 +86,6 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		);
 
 		if ( $result ) {
-			$this->set_action_url( $result->url );
-			$this->set_transaction_id( $result->transaction_id );
-			
 			$payment->set_action_url( $result->url );
 			$payment->set_transaction_id( $result->transaction_id );
 		} else {
@@ -116,7 +113,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			
 			switch ( $status->code ) {
 				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
-					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS;
+					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
 					
 					$payment->set_consumer_name( $status->account_name );
 					$payment->set_consumer_account_number( $status->account_number );
@@ -124,15 +121,15 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 					
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::OPEN;
+					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED;
+					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					$status_text = Pronamic_Gateways_IDealAdvancedV3_Status::EXPIRED;
+					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED;
 
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:

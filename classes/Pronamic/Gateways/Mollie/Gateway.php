@@ -89,9 +89,6 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		);
 		
 		if ( $result !== false ) {
-			$this->set_transaction_id( $result->transaction_id );
-			$this->set_action_url( $result->url );
-			
 			$payment->set_transaction_id( $result->transaction_id );
 			$payment->set_action_url( $result->url );
 			

@@ -93,15 +93,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {	
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		try {
-			$payment = new Icepay_PaymentObject();
-			$payment
+			$payment_object = new Icepay_PaymentObject();
+			$payment_object
 				->setPaymentMethod( $this->client->getCode() )
 				->setAmount( Pronamic_WordPress_Util::amount_to_cents( $data->get_amount() ) )
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )
-				->setReference( site_url( '/' ) )
+				->setReference( $payment->get_id() )
 				->setDescription( $data->get_description() )
 				->setCurrency( $data->getCurrencyAlphabeticCode() )
 				->setIssuer( $data->get_issuer_id() )
@@ -112,9 +112,9 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setMerchantID( $this->config->merchant_id )
 				->setSecretCode( $this->config->secret_code )
 				->setProtocol( 'http' )
-				->validatePayment( $payment );
+				->validatePayment( $payment_object );
 			
-			$this->set_action_url( $basicmode->getURL() );
+			$payment->set_action_url( $basicmode->getURL() );
 		} catch ( Exception $e ) {
 			$this->error = new WP_Error( $e->getMessage() );
 		}
@@ -142,15 +142,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				// What was the status response
 				switch ( $result->getStatus() ) {
 					case Icepay_StatusCode::SUCCESS:
-						$payment->status = 'Success';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS );
 
 						break;					
 					case Icepay_StatusCode::OPEN:
-						$payment->status = 'Open';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::OPEN );
 
 						break;					
 					case Icepay_StatusCode::ERROR:
-						$payment->status = 'Error';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE );
 
 						break;
 				}
