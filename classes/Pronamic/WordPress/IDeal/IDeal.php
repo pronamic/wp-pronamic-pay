@@ -152,7 +152,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$gateway->start( $data, $payment );
 			
 			update_post_meta( $payment->get_id(), '_pronamic_payment_transaction_id', $payment->get_transaction_id() );
-			update_post_meta( $payment->get_id(), '_pronamic_payment_authentication_url', $payment->get_authentication_url() );
+			update_post_meta( $payment->get_id(), '_pronamic_payment_action_url', $payment->get_action_url() );
 			
 			$gateway->payment( $payment );
 		}
@@ -179,7 +179,6 @@ class Pronamic_WordPress_IDeal_IDeal {
 
 			$meta = array(
 				$prefix . 'config_id'               => $configuration_id,
-				$prefix . 'transaction_id'          => $gateway->get_transaction_id(),
 				$prefix . 'purchase_id'             => $data->get_order_id(),
 				$prefix . 'currency'                => $data->getCurrencyAlphabeticCode(),
 				$prefix . 'amount'                  => $data->get_amount(),
