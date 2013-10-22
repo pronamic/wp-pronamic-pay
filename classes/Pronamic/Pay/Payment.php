@@ -46,7 +46,9 @@ class Pronamic_Pay_Payment {
 	
 	public $email;
 	
-	public $authentication_url;
+	public $action_url;
+
+	//////////////////////////////////////////////////
 	
 	public function get_id() {
 		return $this->id;
@@ -54,7 +56,6 @@ class Pronamic_Pay_Payment {
 	
 	public function set_id( $id ) {
 		$this->id = $id;
-		return $this;
 	}
 
 	//////////////////////////////////////////////////
@@ -66,34 +67,35 @@ class Pronamic_Pay_Payment {
 	public function get_source_id() {
 		return $this->source_id;
 	}
-	
-	public function get_status() {
-		return $this->status;
-	}
 
 	//////////////////////////////////////////////////
+
+	public function set_transaction_id( $transaction_id ) {
+		$this->transaction_id = $transaction_id;
+	}
 
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
-	
-	public function get_authentication_url() {
-		return $this->authentication_url;
-	}
 
 	//////////////////////////////////////////////////
+
+	public function get_status() {
+		return $this->status;
+	}
 
 	public function set_status( $status ) {
 		$this->status = $status;
 	}
+
+	//////////////////////////////////////////////////
 	
-	public function set_transaction_id( $transaction_id ) {
-		$this->transaction_id = $transaction_id;
-		return $this;
+	public function get_action_url() {
+		return $this->action_url;
 	}
 	
-	public function set_authentication_url( $authentication_url ) {
-		$this->authentication_url = $authentication_url;
+	public function set_action_url( $action_url ) {
+		$this->action_url = $action_url;
 	}
 
 	//////////////////////////////////////////////////

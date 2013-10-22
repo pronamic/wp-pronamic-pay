@@ -129,7 +129,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 			$this->set_action_url( $result->issuer->authenticationUrl );
 			$this->set_transaction_id( $result->transaction->getId() );
 			
-			$payment->set_authentication_url( $result->issuer->authenticationUrl );
+			$payment->set_action_url( $result->issuer->authenticationUrl );
 			$payment->set_transaction_id( $result->transaction->getId() );
 		}
 	}

@@ -484,7 +484,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 						if ( $gateway->is_http_redirect() ) {
 							// Redirect user to the issuer
-							$confirmation = array( 'redirect' => $gateway->get_action_url() );
+							$confirmation = array( 'redirect' => $payment->get_action_url() );
 						}
 
 						if ( $gateway->is_html_form() ) {
@@ -492,7 +492,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					        $html  = '';
 					        $html .= '<div id="gforms_confirmation_message">';
 					        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-					        $html .= 	$gateway->get_form_html();
+					        $html .= 	$gateway->get_form_html( $payment );
 							$html .= '</div>';
 					
 					        // Extend the confirmation with the iDEAL form

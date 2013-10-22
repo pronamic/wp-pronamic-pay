@@ -238,7 +238,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		if ( $gateway ) {
 			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $this );
 
-			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 			$error = $gateway->get_error();
 
@@ -248,7 +248,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 				exit;
 			} else {
-		    	$gateway->redirect();
+		    	$gateway->redirect( $payment );
 			}
 		}
 	}

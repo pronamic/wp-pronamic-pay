@@ -96,7 +96,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->url );
 			
-			$payment->set_authentication_url( $result->url );
+			$payment->set_action_url( $result->url );
 			$payment->set_transaction_id( $result->id );
 		} else {
 			$this->error = $this->client->get_error();

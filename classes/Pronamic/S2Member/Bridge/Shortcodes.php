@@ -144,7 +144,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', $data->get_level() );
 
 				// Redirect
-				$gateway->redirect();
+				$gateway->redirect( $payment );
 			}
 		}
 	}

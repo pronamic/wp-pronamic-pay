@@ -89,7 +89,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_action_url( $result->url );
 			$this->set_transaction_id( $result->transaction_id );
 			
-			$payment->set_authentication_url( $result->url );
+			$payment->set_action_url( $result->url );
 			$payment->set_transaction_id( $result->transaction_id );
 		} else {
 			$this->set_error( $this->client->get_error() );

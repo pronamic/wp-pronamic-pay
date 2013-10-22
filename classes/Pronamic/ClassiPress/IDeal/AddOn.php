@@ -158,10 +158,10 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 				$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order );
 					
-				Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 					
 				if ( $gateway->is_http_redirect() ) {
-					$gateway->redirect();
+					$gateway->redirect( $payment );
 				}
 			}
 		}

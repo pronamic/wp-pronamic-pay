@@ -83,14 +83,14 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 				$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 			
-				Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+				$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
 					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
 				} else {
-					$gateway->redirect();
+					$gateway->redirect( $payment );
 				}
 			}
 		}

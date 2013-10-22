@@ -54,7 +54,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 			if ( is_wp_error( $error ) ) {
 				// @todo what todo?
 			} else {
-				$gateway->redirect();
+				$gateway->redirect( $payment );
 			}
 		}
 	}

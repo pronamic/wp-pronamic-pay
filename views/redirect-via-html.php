@@ -120,7 +120,7 @@
 					<?php _e( 'Please click the button below if you are not automatically redirected.', 'pronamic_ideal' ); ?>
 				</p>
 
-				<?php echo $this->get_form_html( true ); ?>
+				<?php echo $this->get_form_html( $payment, true ); ?>
 			</div>
 		</div>
 	</body>

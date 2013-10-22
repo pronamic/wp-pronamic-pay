@@ -129,15 +129,15 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 		if ( $gateway->is_html_form() ) {
 			// Lets set it up, and get it started!
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
+			$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
 			
-			$gateway->redirect();
+			$gateway->redirect( $payment );
 		} else if( $gateway->is_http_redirect() ) {
 			ob_start();
 
 			?>
 			<form method="post">
-				<?php echo $gateway->get_input_html(); ?>
+				<?php echo $gateway->get_input_html( $payment ); ?>
 				<input type="hidden" name="pronamic_ideal_membership_checkout" value="<?php echo Pronamic_Membership_IDeal_Addon::encrypt_data( $subscription->sub_id(), $pricing, $user_id ); ?>" />
 				<input type="hidden" name="subscription_id" value="<?php echo $subscription->sub_id(); ?>" />
 				<input type="hidden" name="pricing" value='<?php echo serialize( $pricing ); ?>' />

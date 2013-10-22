@@ -78,8 +78,8 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_transaction_id( $result->id );
 			$this->set_action_url( $result->issuer_url );
 			
-			$payment->set_authentication_url( $result->issuer_url );
 			$payment->set_transaction_id( $result->id );
+			$payment->set_action_url( $result->issuer_url );
 		} else {
 			$this->error = $this->client->get_error();
 		}

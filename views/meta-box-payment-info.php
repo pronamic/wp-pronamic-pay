@@ -46,12 +46,12 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Authentication URL', 'pronamic_ideal' ); ?>
+			<?php _e( 'Action URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 			
-			$url = get_post_meta( $post_id, '_pronamic_payment_authentication_url', true );
+			$url = get_post_meta( $post_id, '_pronamic_payment_action_url', true );
 
 			printf(
 				'<a href="%s" target="_blank">%s</a>',
