@@ -17,19 +17,19 @@ class Pronamic_Gateways_PayDutch_XML_PaymentInfoParser extends Pronamic_Gateways
 	public static function parse( SimpleXMLElement $xml ) {
 		$payment_info = new Pronamic_Gateways_PayDutch_PaymentInfo();
 		
-		$payment_info->test            = (string) $xml->test;
-		$payment_info->id              = (string) $xml->id;
-		$payment_info->description     = (string) $xml->description;
-		$payment_info->amount          = (string) $xml->amount;
-		$payment_info->state           = (string) $xml->state;
-		$payment_info->reference       = (string) $xml->reference;
-		$payment_info->methodcode      = (string) $xml->methodcode;
-		$payment_info->methodname      = (string) $xml->methodname;
-		$payment_info->consumername    = (string) $xml->consumername;
-		$payment_info->consumercity    = (string) $xml->consumercity;
-		$payment_info->consumeraccount = (string) $xml->consumeraccount;
-		$payment_info->consumercountry = (string) $xml->consumercountry;
-		$payment_info->created         = (string) $xml->created;
+		$payment_info->test            = filter_var( $xml->test, FILTER_VALIDATE_BOOLEAN );
+		$payment_info->id              = filter_var( $xml->id, FILTER_SANITIZE_STRING );
+		$payment_info->description     = filter_var( $xml->description, FILTER_SANITIZE_STRING );
+		$payment_info->amount          = Pronamic_Gateways_PayDutch_PayDutch::parse_amount( $xml->amount );
+		$payment_info->state           = filter_var( $xml->state, FILTER_SANITIZE_STRING );
+		$payment_info->reference       = filter_var( $xml->reference, FILTER_SANITIZE_STRING );
+		$payment_info->methodcode      = filter_var( $xml->methodcode, FILTER_SANITIZE_STRING );
+		$payment_info->methodname      = filter_var( $xml->methodname, FILTER_SANITIZE_STRING );
+		$payment_info->consumername    = filter_var( $xml->consumername, FILTER_SANITIZE_STRING );
+		$payment_info->consumercity    = filter_var( $xml->consumercity, FILTER_SANITIZE_STRING );
+		$payment_info->consumeraccount = filter_var( $xml->consumeraccount, FILTER_SANITIZE_STRING );
+		$payment_info->consumercountry = filter_var( $xml->consumercountry, FILTER_SANITIZE_STRING );
+		$payment_info->created         = filter_var( $xml->created, FILTER_SANITIZE_STRING );
 		
 		return $payment_info;
 	}

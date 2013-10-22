@@ -220,6 +220,18 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		return number_format( $amount, 2, ',', '' );
 	}
 
+	/**
+	 * Parse PayDutch notation amount to float
+	 * 
+	 * @param string $amount
+	 * @return float
+	 */
+	public static function parse_amount( $amount ) {
+		$amount = str_replace( ',', '.', $amount );
+		
+		return filter_var( $amount, FILTER_VALIDATE_FLOAT );
+	}
+
 	/////////////////////////////////////////////////
 
 	/**
