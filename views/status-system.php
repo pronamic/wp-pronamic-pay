@@ -135,8 +135,8 @@
 			'github_url'   => 'https://github.com/wp-e-commerce/WP-e-Commerce',
 			'active'       => Pronamic_WPeCommerce_WPeCommerce::is_active(),
 			'tested_up_to' => '3.8.12.1',
-			'author'       => __( 'WooThemes', 'pronamic_ideal' ),
-			'author_url'   => 'http://www.woothemes.com/'
+			'author'       => __( 'Instinct Entertainment', 'pronamic_ideal' ),
+			'author_url'   => 'http://instinct.co.nz/'
 		),
 		// Themes
 		'classipress'         => array(
