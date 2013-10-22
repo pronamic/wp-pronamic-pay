@@ -512,38 +512,46 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get data
-	 * 
-	 * @return string
-	 */
-	public function get_data() {
+	public function get_data_array() {
 		$expiration_date = $this->getExpirationDate();
-
+		
 		// Payment Request - required fields
-		$required_fields = array( 
+		$required_fields = array(
+			'amount'               => $this->get_formatted_amount(),
 			'currencyCode'         => $this->getCurrencyNumericCode(),
 			'merchantId'           => $this->get_merchant_id(),
 			'normalReturnUrl'      => $this->get_normal_return_url(),
-			'amount'               => $this->get_formatted_amount(),
 			'transactionReference' => $this->get_transaction_reference(),
 			'keyVersion'           => $this->get_key_version()
 		);
 		
 		// Payment request - optional fields
 		$optional_fields = array(
-			'automaticResponseUrl' => $this->get_automatic_response_url(), 
+			'automaticResponseUrl' => $this->get_automatic_response_url(),
 			'customerLanguage'     => $this->getCustomerLanguage(),
 			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
 			'orderId'              => $this->get_order_id(),
 			'expirationDate'       => $this->getFormattedExpirationDate()
 		);
-
+		
 		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
 		$optional_fields = array_filter( $optional_fields );
-
+		
 		// Data
 		$data = $required_fields + $optional_fields;
+		
+		return $data;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get data
+	 * 
+	 * @return string
+	 */
+	public function get_data() {
+		$data = $this->get_data_array();
 
 		return self::create_piped_string( $data );
 	}

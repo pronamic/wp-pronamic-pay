@@ -1,6 +1,6 @@
 <?php
 
-class Pronamic_Gateways_IDealBasic_Test extends WP_UnitTestCase {
+class Pronamic_Pay_Gateways_IDealBasic_TestHashCoding extends WP_UnitTestCase {
 	function test_hashcoding() {
 		// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Basic_EN_v2.3.pdf #page 23
 		$ideal_basic = new Pronamic_Gateways_IDealBasic_IDealBasic();

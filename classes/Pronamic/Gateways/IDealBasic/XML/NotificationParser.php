@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealBasic_XML_NotifcationParser {
+class Pronamic_Gateways_IDealBasic_XML_NotificationParser {
 	/**
 	 * Parse
 	 * 
@@ -22,7 +22,7 @@ class Pronamic_Gateways_IDealBasic_XML_NotifcationParser {
 		}
 
 		if ( $xml->createDateTimeStamp ) {
-			$notification->set_date( new DateTime( '@' . $xml->createDateTimeStamp ) );
+			$notification->set_date( new DateTime( $xml->createDateTimeStamp ) );
 		}
 
 		if ( $xml->transactionID ) {

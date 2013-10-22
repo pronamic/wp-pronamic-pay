@@ -32,36 +32,6 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start an transaction with the specified data
-	 * 
-	 * @see Pronamic_Gateways_Gateway::start()
-	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->get_order_id() ) );
-		$this->set_action_url( $this->client->getPaymentServerUrl() );
-		
-		$this->client->setLanguage( $data->getLanguageIso639Code() );
-		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
-		$this->client->setPurchaseId( $data->get_order_id() );
-		$this->client->setDescription( $data->get_description() );
-		$this->client->setItems( $data->getItems() );
-		
-		$url = add_query_arg(
-			array(
-				'gateway'        => 'ideal_basic',
-				'transaction_id' => $this->get_transaction_id()
-			),
-			home_url( '/' )
-		); 
-		
-		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );
-		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
-		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
-	}
-	
-	/////////////////////////////////////////////////
-
-	/**
 	 * Get output HTML
 	 * 
 	 * @see Pronamic_Gateways_Gateway::get_output_html()
@@ -69,5 +39,44 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function get_output_html() {
 		return $this->client->getHtmlFields();
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Start an transaction with the specified data
+	 * 
+	 * @see Pronamic_Gateways_Gateway::start()
+	 */
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
+		$payment->set_action_url( $this->client->getPaymentServerUrl() );
+		
+		$this->client->setLanguage( $data->getLanguageIso639Code() );
+		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
+		$this->client->setPurchaseId( $data->get_order_id() );
+		$this->client->setDescription( $data->get_description() );
+		$this->client->setItems( $data->getItems() );
+		
+		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ); 
+		
+		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );
+		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
+		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Update status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
+	 */
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		if ( filter_has_var( INPUT_GET, 'status' ) ) {
+			$status = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
+		
+			$payment->set_status( $status );
+		}
 	}
 }
