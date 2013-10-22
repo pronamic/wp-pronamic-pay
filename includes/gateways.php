@@ -435,11 +435,11 @@ $pronamic_pay_gateways = array(
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp',
-			'dashboard_url'      => 'https://secure.ogone.com/ncol/test/admin_ogone.asp'
+			'dashboard_url'      => 'https://secure.ogone.com/ncol/test/backoffice'
 		),
 		'live'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
-			'dashboard_url'      => 'https://secure.ogone.com/ncol/prod/admin_ogone.asp'
+			'dashboard_url'      => 'https://secure.ogone.com/ncol/prod/backoffice'
 		),
 	),
 	'ogone-directlink' => array(
