@@ -131,7 +131,6 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			
 			$note = '';
 			
-			
 			$note .= '<p>';
 			$note .= __( 'OmniKassa return data:', 'pronamic_ideal' );
 			$note .= '</p>';
