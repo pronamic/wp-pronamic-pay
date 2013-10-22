@@ -1,20 +1,31 @@
 <?php
 
 /**
- * Title: Easy
+ * Title: Ogone order standard gateway
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
 	 * 
 	 * @var string
 	 */
-	const SLUG = 'internetkassa';
+	const SLUG = 'ogone_orderstandard';
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get output HTML
+	 * 
+	 * @see Pronamic_Gateways_Gateway::get_output_html()
+	 */
+	public function get_output_html() {
+		return $this->client->getHtmlFields();
+	}
 
 	/////////////////////////////////////////////////
 
@@ -23,7 +34,7 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	 * 
 	 * @param Pronamic_WordPress_IDeal_Configuration $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $config ) {
+	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandard_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
@@ -31,12 +42,12 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 		$this->set_amount_minimum( 0.01 );
 		$this->set_slug( self::SLUG );
 
-		$this->client = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$this->client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$this->client->setPaymentServerUrl( $config->getPaymentServerUrl() );
-		$this->client->setPspId( $config->pspId );
-		$this->client->setPassPhraseIn( $config->shaInPassPhrase );
-		$this->client->setPassPhraseOut( $config->shaOutPassPhrase );
+		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->setPspId( $config->psp_id );
+		$this->client->setPassPhraseIn( $config->sha_in_pass_phrase );
+		$this->client->setPassPhraseOut( $config->sha_out_pass_phrase );
 	}
 
 	/////////////////////////////////////////////////
@@ -69,13 +80,24 @@ class Pronamic_Gateways_IDealInternetKassa_Gateway extends Pronamic_Gateways_Gat
 	}
 	
 	/////////////////////////////////////////////////
-
+	
 	/**
-	 * Get output HTML
-	 * 
-	 * @see Pronamic_Gateways_Gateway::get_output_html()
+	 * Update status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function get_output_html() {
-		return $this->client->getHtmlFields();
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		$inputs = array(
+			INPUT_GET  => $_GET,
+			INPUT_POST => $_POST
+		);
+			
+		foreach ( $inputs as $input => $data ) {
+			$data = $this->client->verifyRequest( $data );
+
+			if ( $data !== false ) {
+				$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[Pronamic_Pay_Gateways_Ogone_Parameters::STATUS] ) );
+			}
+		}
 	}
 }

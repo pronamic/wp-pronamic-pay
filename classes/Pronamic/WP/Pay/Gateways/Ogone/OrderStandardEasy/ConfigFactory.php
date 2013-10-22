@@ -6,6 +6,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory {
 
 		$config->psp_id = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 
+		$config->mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
 		$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 		

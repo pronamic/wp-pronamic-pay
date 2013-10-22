@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 1.3.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-22 12:04:46+00:00\n"
+"POT-Creation-Date: 2013-10-22 12:47:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,12 +273,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:108
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:404
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:379
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:112
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:408
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:383
 msgid "Administrator"
 msgstr ""
 
@@ -704,14 +704,14 @@ msgstr ""
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:315
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:290
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
 "\">iDEAL settings page</a>."
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:331
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:306
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -851,7 +851,7 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: includes/post.php:98 views/config-edit.php:580
+#: includes/post.php:98 views/config-edit.php:604
 msgid "Variant"
 msgstr ""
 
@@ -1012,7 +1012,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: views/config-edit.php:119 views/config-edit.php:350
+#: views/config-edit.php:119 views/config-edit.php:374
 msgid "Password"
 msgstr ""
 
@@ -1106,200 +1106,212 @@ msgid ""
 "websites</a>."
 msgstr ""
 
-#: views/config-edit.php:239
-msgid "Sisow"
+#: views/config-edit.php:238
+msgid "Thank you page URL"
 msgstr ""
 
 #: views/config-edit.php:246
+msgid "Error page URL"
+msgstr ""
+
+#: views/config-edit.php:254
+msgid "Postback URL"
+msgstr ""
+
+#: views/config-edit.php:263
+msgid "Sisow"
+msgstr ""
+
+#: views/config-edit.php:270
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:250
+#: views/config-edit.php:274
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 
-#: views/config-edit.php:259
+#: views/config-edit.php:283
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:263
+#: views/config-edit.php:287
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
 "a>."
 msgstr ""
 
-#: views/config-edit.php:271
+#: views/config-edit.php:295
 msgid "TargetPay"
 msgstr ""
 
-#: views/config-edit.php:278
+#: views/config-edit.php:302
 msgid "Layout Code"
 msgstr ""
 
-#: views/config-edit.php:280
+#: views/config-edit.php:304
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr ""
 
-#: views/config-edit.php:285
+#: views/config-edit.php:309
 msgid "Ogone"
 msgstr ""
 
-#: views/config-edit.php:292
+#: views/config-edit.php:316
 msgid "PSPID"
 msgstr ""
 
-#: views/config-edit.php:296
+#: views/config-edit.php:320
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 
-#: views/config-edit.php:303
+#: views/config-edit.php:327
 msgid "Character encoding"
 msgstr ""
 
-#: views/config-edit.php:311
+#: views/config-edit.php:335
 msgid "Hash algorithm"
 msgstr ""
 
-#: views/config-edit.php:321 views/config-edit.php:364
+#: views/config-edit.php:345 views/config-edit.php:388
 msgid "SHA-IN Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:324 views/config-edit.php:367
+#: views/config-edit.php:348 views/config-edit.php:391
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
 "iDEAL provider."
 msgstr ""
 
-#: views/config-edit.php:331
+#: views/config-edit.php:355
 msgid "SHA-OUT Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:334
+#: views/config-edit.php:358
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
 "provider."
 msgstr ""
 
-#: views/config-edit.php:341
+#: views/config-edit.php:365
 msgid "User ID"
 msgstr ""
 
-#: views/config-edit.php:358
+#: views/config-edit.php:382
 msgid "Ogone DirectLink"
 msgstr ""
 
-#: views/config-edit.php:373
+#: views/config-edit.php:397
 msgid "Qantani"
 msgstr ""
 
-#: views/config-edit.php:380
+#: views/config-edit.php:404
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:388
+#: views/config-edit.php:412
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:396
+#: views/config-edit.php:420
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: views/config-edit.php:403
+#: views/config-edit.php:427
 msgid "iDEAL Advanced"
 msgstr ""
 
-#: views/config-edit.php:410
+#: views/config-edit.php:434
 msgid "Private Key Password"
 msgstr ""
 
-#: views/config-edit.php:418 views/config-edit.php:768
+#: views/config-edit.php:442 views/config-edit.php:792
 msgid "Private Key"
 msgstr ""
 
-#: views/config-edit.php:427 views/config-edit.php:792
+#: views/config-edit.php:451 views/config-edit.php:816
 msgid "Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:435
+#: views/config-edit.php:459
 msgid "Private Key and Certificate"
 msgstr ""
 
-#: views/config-edit.php:442
+#: views/config-edit.php:466
 msgid "Number Days Valid"
 msgstr ""
 
-#: views/config-edit.php:444
+#: views/config-edit.php:468
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:450 views/gravityforms/feed-edit.php:293
+#: views/config-edit.php:474 views/gravityforms/feed-edit.php:293
 msgid "Country"
 msgstr ""
 
-#: views/config-edit.php:452
+#: views/config-edit.php:476
 msgid "2 letter code [NL]"
 msgstr ""
 
-#: views/config-edit.php:458
+#: views/config-edit.php:482
 msgid "State or Province"
 msgstr ""
 
-#: views/config-edit.php:460
+#: views/config-edit.php:484
 msgid "full name [Friesland]"
 msgstr ""
 
-#: views/config-edit.php:466
+#: views/config-edit.php:490
 msgid "Locality"
 msgstr ""
 
-#: views/config-edit.php:468
+#: views/config-edit.php:492
 msgid "eg, city"
 msgstr ""
 
-#: views/config-edit.php:474
+#: views/config-edit.php:498
 msgid "Organization"
 msgstr ""
 
-#: views/config-edit.php:476
+#: views/config-edit.php:500
 msgid "eg, company [Pronamic]"
 msgstr ""
 
-#: views/config-edit.php:482
+#: views/config-edit.php:506
 msgid "Organization Unit"
 msgstr ""
 
-#: views/config-edit.php:484
+#: views/config-edit.php:508
 msgid "eg, section"
 msgstr ""
 
-#: views/config-edit.php:490
+#: views/config-edit.php:514
 msgid "Common Name"
 msgstr ""
 
-#: views/config-edit.php:493
+#: views/config-edit.php:517
 msgid "eg, YOUR name"
 msgstr ""
 
-#: views/config-edit.php:494
+#: views/config-edit.php:518
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
 msgstr ""
 
-#: views/config-edit.php:495
+#: views/config-edit.php:519
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1307,45 +1319,45 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: views/config-edit.php:501
+#: views/config-edit.php:525
 msgid "Email Address"
 msgstr ""
 
-#: views/config-edit.php:513
+#: views/config-edit.php:537
 msgid "Download Private Key"
 msgstr ""
 
-#: views/config-edit.php:535
+#: views/config-edit.php:559
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: views/config-edit.php:541
+#: views/config-edit.php:565
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: views/config-edit.php:544
+#: views/config-edit.php:568
 msgid "Valid From"
 msgstr ""
 
-#: views/config-edit.php:549
+#: views/config-edit.php:573
 msgid "Valid To"
 msgstr ""
 
-#: views/config-edit.php:560
+#: views/config-edit.php:584
 msgid "Download Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:757
+#: views/config-edit.php:781
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: views/config-edit.php:761
+#: views/config-edit.php:785
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: views/config-edit.php:777
+#: views/config-edit.php:801
 msgid "filename"
 msgstr ""
 

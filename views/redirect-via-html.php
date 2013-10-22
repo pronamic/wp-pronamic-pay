@@ -106,8 +106,15 @@
 			}
 		</style>
 	</head>
+	
+	<?php 
+	
+	$auto_submit = false;
+	$onload      = $auto_submit ? 'document.forms[0].submit();' : '';
+	
+	?>
 
-	<body onload="document.forms[0].submit();">
+	<body onload="<?php esc_attr( $onload ); ?>">
 		<div id="page">
 			<div id="primary">
 				<h1><?php _e( 'Redirecting&hellip;', 'pronamic_ideal' ); ?></h1>
@@ -120,7 +127,7 @@
 					<?php _e( 'Please click the button below if you are not automatically redirected.', 'pronamic_ideal' ); ?>
 				</p>
 
-				<?php echo $this->get_form_html( $payment, true ); ?>
+				<?php echo $this->get_form_html( $payment, $auto_submit ); ?>
 			</div>
 		</div>
 	</body>

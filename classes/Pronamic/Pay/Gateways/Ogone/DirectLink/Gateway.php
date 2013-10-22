@@ -76,12 +76,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 		
 		// Kassa
-		$kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
-		$kassa->setPassPhraseIn( $this->client->sha_in );
-		$kassa->set_fields( $ogone_data->get_fields() );
+		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
+		$client->setPassPhraseIn( $this->client->sha_in );
+		$client->set_fields( $ogone_data->get_fields() );
 
-		$data = $kassa->get_fields();
-		$data['SHASIGN'] = $kassa->getSignatureIn();
+		$data = $client->get_fields();
+		$data['SHASIGN'] = $client->getSignatureIn();
 		
 		$result = $this->client->order_direct( $data );
 

@@ -1,13 +1,3 @@
-<?php 
-
-$gateway = new Pronamic_Gateways_IDealBasic_Gateway( $config );
-
-?>
-
-<h3>
-	<?php _e( 'Mandatory Tests', 'pronamic_ideal' ); ?>
-</h3>
-
 <table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
 	<thead>
 		<tr>
@@ -17,14 +7,11 @@ $gateway = new Pronamic_Gateways_IDealBasic_Gateway( $config );
 			<th scope="col">
 				<?php _e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
 			</th>
-			<th scope="col">
-				<?php _e( 'Actions', 'pronamic_ideal' ); ?>
-			</th>
 		</tr>
 	</thead>
-	
+
 	<?php 
-	
+
 	$test_cases = array(
 		1 => array(
 			'amount' => 1,
@@ -61,36 +48,16 @@ $gateway = new Pronamic_Gateways_IDealBasic_Gateway( $config );
 			<tr>
 				<td>
 					<?php 
-					
+
 					printf( 
 						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ), 
 						Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
 					);
-					
+
 					?>
 				</td>
 				<td>
 					<?php echo $data['result']; ?>
-				</td>
-				<td>
-					<?php
-
-					$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $test_case );
-					
-					$gateway->start( $data );
-
-					$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
-
-					?>
-					<form method="post" action="<?php echo esc_attr( $gateway->get_action_url() ); ?>" target="_blank" style="display: inline">
-						<?php 
-					
-						echo $gateway->get_output_html();
-					
-						submit_button( $name, 'secondary', 'submit', false ); 
-					
-						?>
-					</form>
 				</td>
 			</tr>
 

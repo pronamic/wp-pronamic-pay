@@ -143,82 +143,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 			self::update_payment( $payment );
 		}
 
-		Pronamic_Gateways_IDealInternetKassa_ReturnHandler::listen();
-
 		Pronamic_Gateways_IDealBasic_Listener::listen();
 		Pronamic_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
-	}
-
-	/**
-	 * Update kassa payment status
-	 *
-	 * @param array $data
-	 * @param boolean $canRedirect
-	 */
-	public static function update_internetkassa_payment_status( $data, $can_redirect = false ) {
-		$payment = get_pronamic_payment_by_purchase_id( $data['ORDERID'] );
-
-		if ( $payment != null ) {
-			$status = null;
-
-			switch ( $data['STATUS'] ) {
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::INCOMPLETE_OR_INVALID:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_REFUSED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_REFUSED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_REFUSED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_REFUSED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REFUSED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE;
-					break;
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::CANCELLED_BY_CLIENT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED_AND_CANCELLED_64:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::ORDER_STORED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::STORED_WAITING_EXTERNAL_RESULT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::WAITING_CLIENT_PAYMENT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUHTORIZED_WAITING_EXTERNAL_RESULT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_WAITING:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZATION_NOT_KNOWN:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::STAND_BY:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::OK_WITH_SCHEDULED_PAYMENTS:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::ERROR_IN_SCHEDULED_PAYMENTS:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUHORIZ_TO_GET_MANUALLY:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_WAITING:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHOR_DELETION_UNCERTAIN:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_PENDING:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETION_UNCERTAIN:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETED_74:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::DELETION_PROCESSED_BY_MERCHANT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_PENDING:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_UNCERTAIN:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_UNCERTAIN:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_PROCESSING:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::BEING_PROCESSED:
-					// pending
-					break;
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::AUTHORIZED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_DELETED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::REFUND_PROCESSED_BY_MERCHANT:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_REQUESTED:
-				case Pronamic_Gateways_IDealInternetKassa_Statuses::PAYMENT_PROCESSED_BY_MERCHANT:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-					break;
-			}
-
-			if ( $status != null ) {
-				$payment->status = $status;
-
-				$updated = Pronamic_WordPress_IDeal_PaymentsRepository::updateStatus( $payment );
-			}
-
-			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-		}
 	}
 
 	//////////////////////////////////////////////////

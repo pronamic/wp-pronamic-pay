@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: iDEAL Internet Kassa gateway
+ * Title: Ogone order standard client
  * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa {
+class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
 	 * Indicator for hash algorithm SHA-1
 	 *

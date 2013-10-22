@@ -339,7 +339,7 @@ $sections = array(
 				'readonly'    => true
 			),
 			array(
-				'meta_key'    => '_pronamic_gateway_ogone_sha_in',
+				'meta_key'    => '_pronamic_gateway_ogone_sha_in_pass_phrase',
 				'name'        => 'shaInPassPhrase',
 				'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
@@ -349,7 +349,7 @@ $sections = array(
 				'methods'     => array( 'ogone_orderstandard' )
 			),
 			array(
-				'meta_key'    => '_pronamic_gateway_ogone_sha_out',
+				'meta_key'    => '_pronamic_gateway_ogone_sha_out_pass_phrase',
 				'name'        => 'shaOutPassPhrase',
 				'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 				'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),

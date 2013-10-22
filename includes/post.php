@@ -510,8 +510,8 @@ function pronamic_pay_save_gateway( $post_id ) {
 		'_pronamic_gateway_targetpay_layoutcode' => FILTER_SANITIZE_STRING,
 		// Ogone
 		'_pronamic_gateway_ogone_psp_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ogone_sha_in' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ogone_sha_out' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_sha_out_pass_phrase' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_user_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_password' => FILTER_SANITIZE_STRING,
 		// Ogone DirectLink

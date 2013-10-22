@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: iDEAL Internet Kassa statuses constants
+ * Title: Ogone statuses constants
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -9,7 +9,7 @@
  * @version 1.0
  * @see http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-List-of-the-payment-statuses-and-error-codes.pdf
  */
-class Pronamic_Gateways_IDealInternetKassa_Statuses {
+class Pronamic_Pay_Gateways_Ogone_Statuses {
 	/**
 	 * Incomplete or invalid 
 	 * @var int
@@ -249,4 +249,58 @@ class Pronamic_Gateways_IDealInternetKassa_Statuses {
 	 * @var int
 	 */
 	const BEING_PROCESSED = 99;
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Transform an Buckaroo state to an more global status
+	 * 
+	 * @param string $status
+	 */
+	public static function transform( $status ) {
+		switch ( $status ) {
+			case Pronamic_Pay_Gateways_Ogone_Statuses::INCOMPLETE_OR_INVALID:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZATION_REFUSED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHOR_DELETION_REFUSED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DELETION_REFUSED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND_REFUSED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DECLIEND_BY_THE_ACQUIRER:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_REFUSED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND_DECLINED_BY_THE_ACQUIRER:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE;
+			case Pronamic_Pay_Gateways_Ogone_Statuses::CANCELLED_BY_CLIENT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZED_AND_CANCELLED_64:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
+			case Pronamic_Pay_Gateways_Ogone_Statuses::ORDER_STORED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::STORED_WAITING_EXTERNAL_RESULT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::WAITING_CLIENT_PAYMENT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUHTORIZED_WAITING_EXTERNAL_RESULT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZATION_WAITING:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZATION_NOT_KNOWN:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::STAND_BY:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::OK_WITH_SCHEDULED_PAYMENTS:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::ERROR_IN_SCHEDULED_PAYMENTS:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUHORIZ_TO_GET_MANUALLY:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHOR_DELETION_WAITING:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHOR_DELETION_UNCERTAIN:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DELETION_PENDING:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DELETION_UNCERTAIN:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DELETED_74:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::DELETION_PROCESSED_BY_MERCHANT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND_PENDING:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND_UNCERTAIN:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_UNCERTAIN:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_PROCESSING:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::BEING_PROCESSED:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
+			case Pronamic_Pay_Gateways_Ogone_Statuses::AUTHORIZED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_DELETED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::REFUND_PROCESSED_BY_MERCHANT:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_REQUESTED:
+			case Pronamic_Pay_Gateways_Ogone_Statuses::PAYMENT_PROCESSED_BY_MERCHANT:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
+		}
+	}
 }
