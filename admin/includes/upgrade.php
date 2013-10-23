@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Execute changes made in Pronamic iDEAL 1.5.0
+ * Execute changes made in Pronamic iDEAL 2.1.0
  *
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
- * @since 1.4.0
+ * @since 2.1.0
  */
-function orbis_ideal_upgrade_150() {
+function orbis_ideal_upgrade_210() {
 	global $wpdb;
 
 	//////////////////////////////////////////////////
@@ -24,12 +24,12 @@ function orbis_ideal_upgrade_150() {
 }
 
 /**
- * Execute changes made in Pronamic iDEAL 1.4.0
+ * Execute changes made in Pronamic iDEAL 2.0.0
  *
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
- * @since 1.4.0
+ * @since 2.0.0
  */
-function orbis_ideal_upgrade_140() {
+function orbis_ideal_upgrade_200() {
 	global $wpdb;
 
 	require_once ABSPATH . '/wp-admin/includes/upgrade.php';
