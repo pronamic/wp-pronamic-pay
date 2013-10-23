@@ -88,7 +88,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 				$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 			
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
 				$error = $gateway->get_error();
 
@@ -196,7 +196,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			update_option( 'event_espresso_active_gateways', $active_gateways );
 		}
 
-		// Configuration 
+		// Config 
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
 		if ( filter_has_var( INPUT_POST, self::OPTION_CONFIG_ID ) ) {
