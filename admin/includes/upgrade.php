@@ -328,9 +328,7 @@ function orbis_ideal_upgrade_200() {
 		source VARCHAR(32) NULL DEFAULT NULL,
 		source_id VARCHAR(32) NULL DEFAULT NULL,
 		email VARCHAR(128) NULL DEFAULT NULL,
-		PRIMARY KEY  (id),
-		KEY configuration_id (configuration_id),
-		UNIQUE (entrance_code)
+		PRIMARY KEY  (id)
 	) $charset_collate;";
 	
 	dbDelta( $sql );
