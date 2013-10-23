@@ -1,34 +1,49 @@
 <?php
 
 /**
- * Title: WPMU Membership iDEAL gateway
+ * Title: Membership iDEAL gateway
  * Copyright: Pronamic (c) 2005 - 2013
  * Company: Pronamic
+ * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.freesubscriptions.php
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
  */
-
 class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
+	/**
+	 * Gateway name/slug
+	 * 
+	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L10
+	 * @var string
+	 */
+	public $gateway = 'ideal';
 
-	public $gateway = 'pronamic_ideal';
+	/**
+	 * Gateway title
+	 * 
+	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L11
+	 * @var string
+	 */
 	public $title = 'iDEAL';
+	
+	//////////////////////////////////////////////////
 
-	public static $html;
-
+	/**
+	 * Constructs and initliaze an Membership iDEAL gateway
+	 */
 	public function __construct() {
 		parent::M_Gateway();
-		
-		$active_ideal = get_option( 'pronamic_ideal_membership_enabled' );
-		
-		if ( 1 == $active_ideal) {
+
+		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.freesubscriptions.php#L30
+		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L97
+		if ( $this->is_active() ) {
 			add_action( 'init', array( $this, 'handle_real_form' ) );
 			add_action( 'init', array( $this, 'redirect_http' ) );
-
+			
 			add_action( 'membership_purchase_button', array( $this, 'display_subscribe_button' ), 1, 3 );
 		}
 	}
 
-	public function build_subscribe_button( $subscription, $pricing, $user_id ) {
+	public function build_subscribe_button( $subscription, $pricing, $user_id, $sublevel = 1 ) {
 		
 		if ( ! empty( $pricing ) ) {
 			$free = true;
@@ -56,7 +71,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	}
 
-	public function display_subscribe_button( $subscription, $pricing, $user_id ) {
+	public function display_subscribe_button( $subscription, $pricing, $user_id, $sublevel = 1 ) {
 		echo $this->build_subscribe_button( $subscription, $pricing, $user_id );
 	}
 
@@ -125,7 +140,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			return;
 
 		// Prepare the form data
-		$ideal_data = new Pronamic_Membership_IDeal_IDealDataProxy( $subscription, $membership );
+		$ideal_data = new Pronamic_WP_Pay_Membership_PaymentData( $subscription, $membership );
 
 		if ( $gateway->is_html_form() ) {
 			// Lets set it up, and get it started!
@@ -187,7 +202,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			return;
 
 		// Prepare the form data
-		$ideal_data = new Pronamic_Membership_IDeal_IDealDataProxy( $subscription, $membership );
+		$ideal_data = new Pronamic_WP_Pay_Membership_PaymentData( $subscription, $membership );
 
 		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $ideal_data );
 		$gateway->redirect_via_http();
@@ -205,4 +220,3 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 		return '';
 	}
 }
-

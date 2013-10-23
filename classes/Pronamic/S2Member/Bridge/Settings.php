@@ -49,7 +49,7 @@ class Pronamic_S2Member_Bridge_Settings {
 			__( 'Pronamic iDEAL Options', 'pronamic_ideal' ),
 			__( 'iDEAL Options', 'pronamic_ideal' ),
 			'create_users',
-            's2member_pronamic_ideal',
+            'pronamic_pay_s2member_settings',
             array( $this, 'view_options_page' )
 		);
 
@@ -58,7 +58,7 @@ class Pronamic_S2Member_Bridge_Settings {
 			__( 'Pronamic iDEAL Buttons Generator', 'pronamic_ideal' ),
 			__( 'iDEAL Buttons', 'pronamic_ideal' ),
 			'create_users',
-			's2member_pronamic_ideal_buttons',
+			'pronamic_pay_s2member_buttons',
 			array( $this, 'view_buttongen_page' )
 		);
 	}

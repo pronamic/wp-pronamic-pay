@@ -8,25 +8,44 @@
  * @since 1.2.6
  */
 class Pronamic_Membership_IDeal_AddOn {
+	/**
+	 * The slug of this addon
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'membership';
+	
+	//////////////////////////////////////////////////
 
+	/**
+	 * Bootstrap
+	 */
 	public static function bootstrap() {
-		if ( function_exists( 'M_get_membership_active' ) && 'no' != M_get_membership_active() ) {
-			self::load();
+		add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ) );
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Plugins loaded
+	 */
+	public static function plugins_loaded() {
+		if ( Pronamic_Membership_Membership::is_active() ) {
+			// Register the Membership iDEAL gateway
+			M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
+
+			$slug = self::SLUG;
+
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
+			
+			if ( is_admin() ) {
+				$admin = new Pronamic_WP_Pay_Membership_Admin();
+			}
 		}
 	}
-
-	public static function load() {
-		// Register Bridge Settings
-		new Pronamic_Membership_Bridge_Settings();
-
-		// Register the Gateway Class
-		M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
-
-		$slug = 'membership';
-
-		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
-	}
+	
+	//////////////////////////////////////////////////
 
 	public static function record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
 
@@ -91,7 +110,11 @@ class Pronamic_Membership_IDeal_AddOn {
 	//////////////////////////////////////////////////
 	
 	/**
-	 * Source column
+	 * Source text
+	 * 
+	 * @param text $text
+	 * @param Pronamic_Pay_Payment $payment
+	 * @return string
 	 */
 	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
@@ -110,5 +133,4 @@ class Pronamic_Membership_IDeal_AddOn {
 
 		return $text;
 	}
-
 }
