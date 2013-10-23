@@ -71,7 +71,11 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$options = array( '' => __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
-			$options[$gateway->ID] = get_the_title( $gateway->ID );
+			$options[$gateway->ID] = sprintf(
+				'%s (%s)',
+				get_the_title( $gateway->ID ),
+				get_post_meta( $gateway->ID, '_pronamic_gateway_mode', true )
+			);
 		}
 
 		return $options;
