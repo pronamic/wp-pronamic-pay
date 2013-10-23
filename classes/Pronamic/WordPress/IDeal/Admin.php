@@ -39,12 +39,12 @@ class Pronamic_WordPress_IDeal_Admin {
 		self::settings_init();
 
 		// Maybe update
-		global $pronamic_ideal_db_version;
+		global $pronamic_pay_db_version;
 
-		if ( get_option( 'pronamic_ideal_db_version' ) != $pronamic_ideal_db_version ) {
-			do_action( 'pronamic_pay_upgrade', $pronamic_ideal_db_version );
+		if ( get_option( 'pronamic_pay_db_version' ) != $pronamic_pay_db_version ) {
+			do_action( 'pronamic_pay_upgrade', $pronamic_pay_db_version );
 
-			update_option( 'pronamic_ideal_db_version', $pronamic_ideal_db_version );
+			update_option( 'pronamic_pay_db_version', $pronamic_pay_db_version );
 		}
 	}
 
@@ -258,10 +258,10 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function upgrade() {
 		require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/admin/includes/upgrade.php';
 
-		$db_version = get_option( 'pronamic_ideal_db_version' );
+		$db_version = get_option( 'pronamic_pay_db_version' );
 
 		if ( $db_version < 200 ) {
-			orbis_ideal_upgrade_200();
+			pronamic_pay_upgrade_200();
 		}
 	}
 

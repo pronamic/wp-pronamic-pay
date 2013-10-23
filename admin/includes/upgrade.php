@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Execute changes made in Pronamic iDEAL 2.1.0
+ * Execute changes made in Pronamic Pay 2.1.0
  *
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
  * @since 2.1.0
  */
-function orbis_ideal_upgrade_210() {
+function pronamic_pay_upgrade_210() {
 	global $wpdb;
 
 	//////////////////////////////////////////////////
@@ -19,8 +19,6 @@ function orbis_ideal_upgrade_210() {
 	// Options delete
 	//////////////////////////////////////////////////
 
-	// s2Member
-	delete_option( 'pronamic_ideal_s2member_enabled' );
 }
 
 /**
@@ -29,7 +27,7 @@ function orbis_ideal_upgrade_210() {
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
  * @since 2.0.0
  */
-function orbis_ideal_upgrade_200() {
+function pronamic_pay_upgrade_200() {
 	global $wpdb;
 
 	require_once ABSPATH . '/wp-admin/includes/upgrade.php';
@@ -55,7 +53,7 @@ function orbis_ideal_upgrade_200() {
 	UPDATE wp_rg_ideal_feeds SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';
 
-	UPDATE wp_options SET option_value = 0 WHERE option_name = 'pronamic_ideal_db_version';
+	UPDATE wp_options SET option_value = 0 WHERE option_name = 'pronamic_pay_db_version';
 
 	DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 
@@ -409,16 +407,21 @@ function orbis_ideal_upgrade_200() {
 	$options = array(
 		// EventEspresso
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/EventEspresso/IDeal/AddOn.php#L72
-		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_ideal_event_espreso_config_id',
+		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_ideal_event_espreso_config_id',
 		// Jigoshop
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Jigoshop/IDeal/IDealGateway.php#L62
-		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_ideal_jigoshop_config_id',
+		'jigoshop_pronamic_ideal_enabled'                => 'pronamic_pay_ideal_jigoshop_enabled',
+		'jigoshop_pronamic_ideal_title'                  => 'pronamic_pay_ideal_jigoshop_title',
+		'jigoshop_pronamic_ideal_description'            => 'pronamic_pay_ideal_jigoshop_description',
+		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_pay_ideal_jigoshop_config_id',
+		// Membership
+		'pronamic_ideal_membership_chosen_configuration' => 'pronamic_pay_ideal_membership_config_id',
 		// s2Member
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/S2Member/Bridge/Settings.php#L52
-		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_ideal_s2member_config_id',
+		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_pay_ideal_s2member_config_id',
 		// WP e-Commerce
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
-		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_ideal_wpsc_config_id'
+		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id'
 	);
 	
 	foreach ( $options as $key_old => $key_new ) {
@@ -471,6 +474,8 @@ function orbis_ideal_upgrade_200() {
 
 		$settings['config_id'] = @$config_ids_map[$value];
 		
-		update_option( 'woocommerce_pronamic_ideal_settings', $settings );
+		unset( $settings['configuration_id'] );
+		
+		update_option( 'woocommerce_pronamic_pay_ideal_settings', $settings );
 	}
 }

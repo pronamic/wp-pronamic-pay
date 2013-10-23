@@ -16,6 +16,13 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 */
 	const SLUG = 'event-espresso';
 
+	/**
+	 * Option for config ID
+	 * 
+	 * @var string
+	 */
+	const OPTION_CONFIG_ID = 'pronamic_pay_ideal_event_espreso_config_id';
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -70,11 +77,9 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 */
 	public static function process_gateway() {
 		if ( filter_has_var( INPUT_POST, 'event_espresso_pronamic_ideal' ) ) {
-			$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
-			
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
+			$config_id = get_option( self::OPTION_CONFIG_ID );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 			
 			if ( $gateway ) {
 				$payment_data = array(
@@ -102,11 +107,9 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Display gateway
 	 */
 	public static function display_gateway( $payment_data ) {
-		$configuration_id = get_option( 'pronamic_ideal_event_espresso_configuration_id' );
+		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-	
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
@@ -194,12 +197,12 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		}
 
 		// Configuration 
-		$config_id = get_option( 'pronamic_pay_ideal_event_espresso_config_id' );
+		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		if ( filter_has_var( INPUT_POST, 'pronamic_pay_ideal_event_espresso_config_id' ) ) {
-			$config_id = filter_input( INPUT_POST, 'pronamic_pay_ideal_event_espresso_config_id', FILTER_VALIDATE_INT );
+		if ( filter_has_var( INPUT_POST, self::OPTION_CONFIG_ID ) ) {
+			$config_id = filter_input( INPUT_POST, self::OPTION_CONFIG_ID, FILTER_VALIDATE_INT );
 
-			update_option( 'pronamic_pay_ideal_event_espresso_config_id', $config_id );
+			update_option( self::OPTION_CONFIG_ID, $config_id );
 		}
 		
 		// Active
@@ -247,7 +250,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 														<?php 
 														
 														Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
-															'name'     => 'pronamic_pay_ideal_event_espresso_config_id',
+															'name'     => self::OPTION_CONFIG_ID,
 															'selected' => $config_id
 														) );
 														

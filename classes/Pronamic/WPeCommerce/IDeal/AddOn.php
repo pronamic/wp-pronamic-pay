@@ -16,6 +16,13 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	const SLUG = 'wp-e-commerce';
 
+	/**
+	 * Option for config ID
+	 * 
+	 * @var string
+	 */
+	const OPTION_CONFIG_ID = 'pronamic_pay_ideal_wpsc_config_id';
+
 	//////////////////////////////////////////////////
 	
 	/**
@@ -75,7 +82,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	private function advanced_inputs() {
 		$output = '';
 
-		$config_id = get_option( 'pronamic_ideal_wpsc_config_id' );
+		$config_id = get_option( self::OPTION_CONFIG_ID );
 
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 

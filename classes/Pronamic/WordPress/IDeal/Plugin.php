@@ -189,7 +189,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * Checks if the plugin is installed
 	 */
 	public static function is_installed() {
-		return get_option( 'pronamic_ideal_version', false ) !== false;
+		return get_option( 'pronamic_pay_version', false ) !== false;
 	}
 
 	/**
@@ -283,9 +283,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
-		global $pronamic_ideal_version;
+		global $pronamic_pay_version;
 
-		if ( get_option( 'pronamic_ideal_version' ) != $pronamic_ideal_version ) {
+		if ( get_option( 'pronamic_pay_version' ) != $pronamic_pay_version ) {
 			// Add some new capabilities
 			$capabilities = array(
 				'read'                           => true,
@@ -315,7 +315,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			self::set_roles( $roles );
 
 			// Update version
-			update_option( 'pronamic_ideal_version', $pronamic_ideal_version );
+			update_option( 'pronamic_pay_version', $pronamic_pay_version );
 		}
 	}
 }

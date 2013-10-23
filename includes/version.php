@@ -4,15 +4,15 @@
  *
  * @global string $pronamic_events_version
  */
-global $pronamic_ideal_version;
+global $pronamic_pay_version;
 
-$pronamic_ideal_version = '2.0.0';
+$pronamic_pay_version = '2.0.0';
 
 /**
- * Holds the Pronamic iDEAL DB revision, increments when changes are made to the Pronamic iDEAL DB schema.
+ * Holds the Pronamic Pay DB revision, increments when changes are made to the Pronamic Pay DB schema.
  *
- * @global int $pronamic_ideal_db_version
+ * @global int $pronamic_pay_db_version
  */
-global $pronamic_ideal_db_version;
+global $pronamic_pay_db_version;
 
-$pronamic_ideal_db_version = 200;
+$pronamic_pay_db_version = 200;

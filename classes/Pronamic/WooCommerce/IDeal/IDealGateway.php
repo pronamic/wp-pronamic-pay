@@ -14,7 +14,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 * 
 	 * @var string
 	 */
-	const ID = 'pronamic_ideal';
+	const ID = 'pronamic_pay_ideal';
 
 	//////////////////////////////////////////////////
 

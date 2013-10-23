@@ -54,12 +54,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$this->has_fields       = true;
 
 		// Set default Jigoshop variables, load them form the WordPress options
-		$this->enabled          = get_option( 'jigoshop_pronamic_ideal_enabled' );
-		$this->title            = get_option( 'jigoshop_pronamic_ideal_title' );
-		$this->description      = get_option( 'jigoshop_pronamic_ideal_description' );
+		$this->enabled          = get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
+		$this->title            = get_option( 'pronamic_pay_ideal_jigoshop_title' );
+		$this->description      = get_option( 'pronamic_pay_ideal_jigoshop_description' );
 		
 		// Set own variables, load them form the WordPress options
-		$this->config_id = get_option( 'jigoshop_pronamic_ideal_config_id' );
+		$this->config_id        = get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
 		// Actions	
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );
@@ -87,7 +87,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Enable iDEAL', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> '',
-			'id' 		=> 'jigoshop_pronamic_ideal_enabled',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_enabled',
 			'std' 		=> 'yes',
 			'type' 		=> 'checkbox',
 			'choices'	=> array(
@@ -100,7 +100,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Title', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ),
-			'id' 		=> 'jigoshop_pronamic_ideal_title',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_title',
 			'std' 		=> __( 'iDEAL', 'pronamic_ideal' ),
 			'type' 		=> 'text'
 		);
@@ -109,7 +109,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Description', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> __( 'This controls the description which the user sees during checkout.', 'pronamic_ideal' ),
-			'id' 		=> 'jigoshop_pronamic_ideal_description',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_description',
 			'std' 		=> '',
 			'type' 		=> 'longtext'
 		);
@@ -118,7 +118,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Configuration', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> '',
-			'id' 		=> 'jigoshop_pronamic_ideal_config_id',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_config_id',
 			'std' 		=> '',
 			'type' 		=> 'select',
 			'choices'	=> Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 

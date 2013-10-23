@@ -32,7 +32,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	 * Submit to gateway
 	 */
 	public function submit() {
-		$config_id = get_option( 'pronamic_ideal_wpsc_config_id' );
+		$config_id = get_option( Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID );
 
 		// Set process to 'order_received' (2)
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L301
@@ -73,7 +73,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		$html .= '	</td>';
 		$html .= '	<td>';
 		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array( 
-			'name' => 'pronamic_ideal_wpsc_config_id',
+			'name' => Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID,
 			'echo' => false
 		) );
 		$html .= '	</td>';
@@ -86,7 +86,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	 * Admin config submit
 	 */
 	public static function admin_config_submit() {
-		$name = 'pronamic_ideal_wpsc_config_id';
+		$name = Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID;
 
 		if ( filter_has_var( INPUT_POST, $name ) ) {
 			$config_id = filter_input( INPUT_POST, $name, FILTER_SANITIZE_STRING );
