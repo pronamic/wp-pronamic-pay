@@ -14,6 +14,13 @@ class Pronamic_Membership_IDeal_AddOn {
 	 * @var string
 	 */
 	const SLUG = 'membership';
+
+	/**
+	 * Indiactor for the config id options
+	 * 
+	 * @var string
+	 */
+	const OPTION_CONFIG_ID = 'pronamic_pay_membership_config_id';
 	
 	//////////////////////////////////////////////////
 

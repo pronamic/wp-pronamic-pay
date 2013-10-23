@@ -39,9 +39,64 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			add_action( 'init', array( $this, 'handle_real_form' ) );
 			add_action( 'init', array( $this, 'redirect_http' ) );
 			
-			add_action( 'membership_purchase_button', array( $this, 'display_subscribe_button' ), 1, 3 );
+			// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/includes/payment.form.php#L78
+			add_action( 'membership_purchase_button', array( $this, 'purchase_button' ), 1, 3 );
 		}
 	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Purchase button
+	 * 
+	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/includes/payment.form.php#L78
+	 * 
+	 * @param M_Subscription $subscription
+	 *     @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.subscription.php
+	 *     
+	 * @param array $pricing
+	 *     @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.subscription.php#L110
+	 *     
+	 *     array(
+	 *         array(
+	 *             'period' => '1',
+	 *             'amount' => '50.00',
+	 *             'type'   => 'indefinite',
+	 *             'unit'   => 'm'
+	 *         )
+	 *     )
+	 *     
+	 * @param int $user_id WordPress user/member ID
+	 */
+	public function purchase_button( $subscription, $pricing, $user_id ) {
+		if ( Pronamic_Membership_Membership::is_pricing_free( $pricing ) ) {
+			// @todo what todo?
+		} else {
+			$membership = new M_Membership( $user_id );
+
+			$config_id = get_option( Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID );
+
+			$data = new Pronamic_WP_Pay_Membership_PaymentData( $subscription, $membership );
+
+			printf( '<form method="post" action="">' );
+			
+			echo Pronamic_IDeal_IDeal::htmlHiddenFields( array(
+				'pronamic_pay' => 'true',
+				'config_id'    => $config_id
+			) );
+
+			echo Pronamic_IDeal_IDeal::htmlHiddenFields( Pronamic_WordPress_IDeal_Plugin::payment_data_to_array( $data ));
+					
+			printf(
+				'<input type="image" border="0" alt="%s" src="%s" name="pronamic_pay" />',
+				esc_attr__( 'iDEAL - Online betalen via uw eigen bank', 'pronamic_ideal' ),
+				esc_attr( plugins_url( 'images/ideal-logo-pay-off-2-lines.png', Pronamic_WordPress_IDeal_Plugin::$file ) )
+			);
+			printf( '</form>' );
+		}
+	}
+	
+	//////////////////////////////////////////////////
 
 	public function build_subscribe_button( $subscription, $pricing, $user_id, $sublevel = 1 ) {
 		
@@ -73,10 +128,6 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	public function display_subscribe_button( $subscription, $pricing, $user_id, $sublevel = 1 ) {
 		echo $this->build_subscribe_button( $subscription, $pricing, $user_id );
-	}
-
-	public function display_payment_form() {
-
 	}
 
 	public function single_sub_button( $pricing, $subscription, $user_id, $norepeat = false ) {

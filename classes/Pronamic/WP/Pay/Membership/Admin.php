@@ -10,15 +10,6 @@
  */
 class Pronamic_WP_Pay_Membership_Admin {
 	/**
-	 * Indiactor for the config id options
-	 * 
-	 * @var string
-	 */
-	const OPTION_CONFIG_ID = 'pronamic_pay_membership_config_id';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Bootstrap
 	 */
 	public function __construct() {
@@ -26,7 +17,7 @@ class Pronamic_WP_Pay_Membership_Admin {
 
 		add_action( 'membership_add_menu_items_after_gateways', array( $this, 'add_menu_items' ) );
 
-		add_action( 'update_option_' . self::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 10, 2 );
+		add_action( 'update_option_' . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -53,14 +44,14 @@ class Pronamic_WP_Pay_Membership_Admin {
     	);
 
     	add_settings_field(
-    		self::OPTION_CONFIG_ID, // id
+    		Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, // id
     		__( 'Configuration', 'pronamic_ideal' ), // title
     		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
     		'pronamic_pay_membership', // page
     		'pronamic_pay_membership_general', // section
     		array( // args 
-    			'name'      => self::OPTION_CONFIG_ID,
-    			'label_for' => self::OPTION_CONFIG_ID
+    			'name'      => Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID,
+    			'label_for' => Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID
     		)
     	);
 

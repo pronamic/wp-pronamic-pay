@@ -21,4 +21,25 @@ class Pronamic_Membership_Membership {
 	public static function is_active() {
 		return class_exists( 'M_Membership' );
 	}
+
+	/**
+	 * Check if the Membership pricing array is free
+	 * 
+	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.paypalexpress.php#L578
+	 * 
+	 * @param array $pricing
+	 */
+	public static function is_pricing_free( $pricing ) {
+		$free = true;
+		
+		if ( is_array( $pricing ) ) {
+			foreach ( $pricing as $key => $price ) {
+				if ( isset( $price['amount'] ) && $price['amount'] > 0 ) {
+					$free = false;
+				}
+			}
+		}
+		
+		return $free;
+	}
 }
