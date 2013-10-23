@@ -108,7 +108,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 	//////////////////////////////////////////////////
 
 	public function get_email() {
-		return $this->data['attendee_email'];
+		return $this->data['email'];
 	}
 
 	public function getCustomerName() {
