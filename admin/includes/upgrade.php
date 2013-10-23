@@ -43,6 +43,9 @@ function orbis_ideal_upgrade_200() {
 	}
 
 	/*
+	
+	-- You can undo the database upgrade by executing the following queries
+	
 	UPDATE wp_pronamic_ideal_configurations SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_gateway';
 
@@ -55,6 +58,7 @@ function orbis_ideal_upgrade_200() {
 	UPDATE wp_options SET option_value = 0 WHERE option_name = 'pronamic_ideal_db_version';
 
 	DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
+
 	*/
 	
 	//////////////////////////////////////////////////
@@ -407,20 +411,20 @@ function orbis_ideal_upgrade_200() {
 	$options = array(
 		// EventEspresso
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/EventEspresso/IDeal/AddOn.php#L72
-		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_ideal_event_espreso_config_id',
+		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_ideal_event_espreso_config_id',
 		// Jigoshop
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Jigoshop/IDeal/IDealGateway.php#L62
-		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_pay_ideal_jigoshop_config_id',
+		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_ideal_jigoshop_config_id',
 		// s2Member
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/S2Member/Bridge/Settings.php#L52
-		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_pay_ideal_s2member_config_id',
+		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_ideal_s2member_config_id',
 		// WP e-Commerce
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
-		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id'
+		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_ideal_wpsc_config_id'
 	);
 	
 	foreach ( $options as $key_old => $key_new ) {
-		$value = get_option( $option_old );
+		$value = get_option( $key_old );
 	
 		if ( ! empty ( $value ) ) {
 			$value_new = @$config_ids_map[$value];
@@ -435,24 +439,40 @@ function orbis_ideal_upgrade_200() {
 	
 	// Shopp
 	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Shopp/IDeal/GatewayModule.php#L72
+	$shopp_meta_table = $wpdb->prefix . 'shopp_meta';
+	
+	// @see http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
+	if ( $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) == $shopp_meta_table ) {
+		$query = "SELECT id, value FROM $shopp_meta_table WHERE type = 'setting' AND name = 'Pronamic_Shopp_IDeal_GatewayModule';";
+
+		$row = $wpdb->get_row( $query );
+		
+		if ( $row ) {
+			$settings = maybe_unserialize( $row->value );
+
+			if ( is_array( $settings ) && isset( $settings['pronamic_shopp_ideal_configuration'] ) ) {
+				$value = $settings['pronamic_shopp_ideal_configuration'];
+
+				$settings['config_id'] = @$config_ids_map[$value];
+
+				$wpdb->update(
+					$shopp_meta_table,
+					array( 'value' => serialize( $settings ) ),
+					array( 'id'    => $row->id )
+				);
+			}
+		}
+	}
 	
 	// WooCommerce
 	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WooCommerce/IDeal/IDealGateway.php#L42
+	$settings = get_option( 'woocommerce_pronamic_ideal_settings' );
+	
+	if ( is_array( $settings ) && isset( $settings['configuration_id'] ) ) {
+		$value = $settings['configuration_id'];
 
-	//////////////////////////////////////////////////
-	// Options rename
-	//////////////////////////////////////////////////
-
-	// Other options
-	$options = array(
+		$settings['config_id'] = @$config_ids_map[$value];
 		
-	);
-	
-	foreach ( $options as $key_old => $key_new ) {
-		$value = get_option( $key_old );
-	
-		if ( ! empty( $value ) ) {
-			update_option( $key_new, $value );
-		}
+		update_option( 'woocommerce_pronamic_ideal_settings', $settings );
 	}
 }

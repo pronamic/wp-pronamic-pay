@@ -260,8 +260,8 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		$db_version = get_option( 'pronamic_ideal_db_version' );
 
-		if ( $db_version < 140 ) {
-			orbis_ideal_upgrade_140();
+		if ( $db_version < 200 ) {
+			orbis_ideal_upgrade_200();
 		}
 	}
 
