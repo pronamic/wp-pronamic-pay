@@ -91,13 +91,13 @@ add_action( 'init', 'pronamic_pay_create_initial_post_types', 20 ); // highest p
 
 
 
-function pronamic_gateway_columns( $columns ) {
+function pronamic_pay_gateway_columns( $columns ) {
 	$columns = array(
 		'cb'                           => '<input type="checkbox" />',
 		'title'                        => __( 'Title', 'pronamic_ideal' ),
 		'pronamic_gateway_variant'     => __( 'Variant', 'pronamic_ideal' ),
 		'pronamic_gateway_id'          => __( 'ID', 'pronamic_ideal' ),
-		'pronamic_gateway_secret'      => __( 'Secret', 'pronamic_ideal' ),
+		// 'pronamic_gateway_secret'      => __( 'Secret', 'pronamic_ideal' ),
 		'pronamic_gateway_dashboard'   => __( 'Dashboard', 'pronamic_ideal' ),
 		'date'                         => __( 'Date', 'pronamic_ideal' )
 	);
@@ -105,10 +105,10 @@ function pronamic_gateway_columns( $columns ) {
 	return $columns;
 }
 
-add_filter( 'manage_edit-pronamic_gateway_columns', 'pronamic_gateway_columns' ) ;
+add_filter( 'manage_edit-pronamic_gateway_columns', 'pronamic_pay_gateway_columns' ) ;
 
 
-function pronamic_gateway_custom_column( $column, $post_id ) {
+function pronamic_pay_gateway_custom_column( $column, $post_id ) {
 	global $post;
 	global $pronamic_pay_gateways;
 
@@ -197,14 +197,15 @@ function pronamic_gateway_custom_column( $column, $post_id ) {
 	}
 }
 
-add_action( 'manage_pronamic_gateway_posts_custom_column', 'pronamic_gateway_custom_column', 10, 2 );
+add_action( 'manage_pronamic_gateway_posts_custom_column', 'pronamic_pay_gateway_custom_column', 10, 2 );
 
 
-function pronamic_payment_columns( $columns ) {
+function pronamic_pay_payment_columns( $columns ) {
 	$columns = array(
 		'cb'                           => '<input type="checkbox" />',
 		'title'                        => __( 'Title', 'pronamic_ideal' ),
 		'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
+		'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
 		'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 		'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
 		'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
@@ -216,10 +217,10 @@ function pronamic_payment_columns( $columns ) {
 	return $columns;
 }
 
-add_filter( 'manage_edit-pronamic_payment_columns', 'pronamic_payment_columns' ) ;
+add_filter( 'manage_edit-pronamic_payment_columns', 'pronamic_pay_payment_columns' ) ;
 
 
-function pronamic_payment_custom_column( $column, $post_id ) {
+function pronamic_pay_payment_custom_column( $column, $post_id ) {
 	global $post;
 
 	switch( $column ) {
@@ -231,6 +232,10 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 			} else {
 				echo '—';
 			}
+
+			break;
+		case 'pronamic_payment_transaction':
+			echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
 
 			break;
 		case 'pronamic_payment_description':
@@ -268,7 +273,7 @@ function pronamic_payment_custom_column( $column, $post_id ) {
 	}
 }
 
-add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_payment_custom_column', 10, 2 );
+add_action( 'manage_pronamic_payment_posts_custom_column', 'pronamic_pay_payment_custom_column', 10, 2 );
 
 
 function pronamic_pay_gf_columns( $columns ) {
