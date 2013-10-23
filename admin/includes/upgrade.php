@@ -406,40 +406,38 @@ function orbis_ideal_upgrade_140() {
 
 	$options = array(
 		// EventEspresso
-		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_event_espreso_config_id',
+		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/EventEspresso/IDeal/AddOn.php#L72
+		'pronamic_ideal_event_espresso_configuration_id' => 'pronamic_pay_ideal_event_espreso_config_id',
 		// Jigoshop
-		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_pay_jigoshop_config_id',
+		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Jigoshop/IDeal/IDealGateway.php#L62
+		'jigoshop_pronamic_ideal_configuration_id'       => 'pronamic_pay_ideal_jigoshop_config_id',
 		// s2Member
-		'pronamic_ideal_s2member_config_id'              => 'pronamic_pay_s2member_config_id',
-		// Shopp
-		'pronamic_shopp_ideal_configuration'             => 'pronamic_pay_shopp_config_id',
-		// WooCommerce
-		'woocommerce_pronamic_ideal_settings'            => array(
-			'type' => 'object',
-			'var'  => 'configuration_id',
-			'name' => 'config_id'
-		),
+		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/S2Member/Bridge/Settings.php#L52
+		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_pay_ideal_s2member_config_id',
 		// WP e-Commerce
-		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_wpsc_config_id'
+		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
+		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id'
 	);
 	
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $option_old );
 	
 		if ( ! empty ( $value ) ) {
-			// Simple option
-			if ( is_string( $key_new ) ) {
-				$value_new = @$config_ids_map[$value];
+			$value_new = @$config_ids_map[$value];
 
-				update_option( $key_new, $value_new );
-			}
-			
-			// Complex option
-			if ( is_array( $key_new ) ) {
-				
-			}
+			update_option( $key_new, $value_new );
 		}
 	}
+	
+	//////////////////////////////////////////////////
+	// Complex options config IDs
+	//////////////////////////////////////////////////
+	
+	// Shopp
+	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Shopp/IDeal/GatewayModule.php#L72
+	
+	// WooCommerce
+	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WooCommerce/IDeal/IDealGateway.php#L42
 
 	//////////////////////////////////////////////////
 	// Options rename
