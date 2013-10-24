@@ -117,7 +117,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 					printf(
 						'<img src="%s" alt="%s" />',
 						esc_attr( plugins_url( 'images/ideal-logo-pay-off-2-lines.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
-						esc_attr__( 'iDEAL - Online betalen via uw eigen bank', 'pronamic_ideal' )
+						esc_attr__( 'iDEAL - Online payment through your own bank', 'pronamic_ideal' )
 					);
 		
 					echo '<div style="margin-top: 1em;">';
