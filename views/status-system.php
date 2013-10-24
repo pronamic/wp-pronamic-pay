@@ -57,7 +57,7 @@
 	
 	$extensions = array(
 		// Plugins
-		'event-espresso'      => array(
+		'event-espresso'        => array(
 			'name'              => __( 'Event Espresso', 'pronamic_ideal' ),
 			'url'               => 'http://eventespresso.com/',
 			'github_url'        => 'https://github.com/eventespresso/event-espresso-core',
@@ -65,7 +65,7 @@
 			'requires_at_least' => '3.1.24',
 			'tested_up_to'      => '3.1.24'
 		),
-		'event-espresso-free' => array(
+		'event-espresso-free'   => array(
 			'name'              => __( 'Event Espresso Lite', 'pronamic_ideal' ),
 			'url'               => 'http://eventespresso.com/',
 			'github_url'        => 'https://github.com/eventespresso/event-espresso-core',
@@ -74,7 +74,7 @@
 			'requires_at_least' => '3.1.29.1.L',
 			'tested_up_to'      => '3.1.35.L'
 		),			
-		'gravityforms'        => array(
+		'gravityforms'          => array(
 			'name'              => __( 'Gravity Forms', 'pronamic_ideal' ),
 			'url'               => 'http://www.gravityforms.com/',
 			'active'            => Pronamic_GravityForms_GravityForms::is_active(),
@@ -83,7 +83,7 @@
 			'author'            => __( 'Rocketgenius', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.rocketgenius.com/'
 		),
-		'jigoshop'            => array(
+		'jigoshop'              => array(
 			'name'              => __( 'Jigoshop', 'pronamic_ideal' ),
 			'url'               => 'http://jigoshop.com/',
 			'wp_org_url'        => 'http://wordpress.org/extend/plugins/jigoshop/',
@@ -94,9 +94,9 @@
 			'author'            => __( 'Jigowatt', 'pronamic_ideal' ),
 			'author_url'        => 'http://jigowatt.co.uk/'
 		),
-		'membership'          => array(
+		'membership'            => array(
 			'name'              => __( 'Membership', 'pronamic_ideal' ),
-			'url'               => 'http://premium.wpmudev.org/project/membership/',
+			'url'               => 'http://wordpress.org/plugins/membership/',
 			'wp_org_url'        => 'http://wordpress.org/plugins/membership/',
 			'active'            => Pronamic_Membership_Membership::is_active(),
 			'requires_at_least' => '3.4.4.1',
@@ -104,7 +104,16 @@
 			'author'            => __( 'WPMUDEV.org', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.wpmudev.org/'
 		),
-		's2member'            => array(
+		'membership-premium'    => array(
+			'name'              => __( 'Membership Premium', 'pronamic_ideal' ),
+			'url'               => 'http://premium.wpmudev.org/project/membership/',
+			'active'            => Pronamic_Membership_Membership::is_active(),
+			'requires_at_least' => '3.4.6',
+			'tested_up_to'      => '3.4.6',
+			'author'            => __( 'WPMUDEV.org', 'pronamic_ideal' ),
+			'author_url'        => 'http://www.wpmudev.org/'
+		),
+		's2member'              => array(
 			'name'              => __( 's2Member®', 'pronamic_ideal' ),
 			'url'               => 'http://www.s2member.com/',
 			'wp_org_url'        => 'http://wordpress.org/plugins/membership/',
@@ -115,7 +124,7 @@
 			'author'            => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.websharks-inc.com/'
 		),
-		'shopp'               => array(
+		'shopp'                 => array(
 			'name'              => __( 'Shopp', 'pronamic_ideal' ),
 			'url'               => 'https://shopplugin.net/',
 			'github_url'        => 'https://github.com/ingenesis/shopp',
@@ -125,7 +134,7 @@
 			'author'            => __( 'Ingenesis Limited', 'pronamic_ideal' ),
 			'author_url'        => 'http://ingenesis.net/'
 		),
-		'woocommerce'         => array(
+		'woocommerce'           => array(
 			'name'              => __( 'WooCommerce', 'pronamic_ideal' ),
 			'url'               => 'http://www.woothemes.com/woocommerce/',
 			'github_url'        => 'https://github.com/woothemes/woocommerce',
@@ -136,7 +145,7 @@
 			'author'            => __( 'WooThemes', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.woothemes.com/'
 		),
-		'wp-e-commerce'       => array(
+		'wp-e-commerce'         => array(
 			'name'              => __( 'WP e-Commerce', 'pronamic_ideal' ),
 			'url'               => 'http://getshopped.org/',
 			'wp_org_url'        => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
