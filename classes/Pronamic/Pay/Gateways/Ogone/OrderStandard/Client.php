@@ -10,29 +10,6 @@
  */
 class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	/**
-	 * Indicator for hash algorithm SHA-1
-	 *
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_1 = 'sha1';
-
-	/**
-	 * Indicator for hash algorithm SHA-256
-	 *
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_256 = 'sha256';
-
-	/**
-	 * Indicator for hash algorithm SHA-512
-	 *
-	 * @var string
-	 */
-	const HASH_ALGORITHM_SHA_512 = 'sha512';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * The payment server URL
 	 *
 	 * @var string
@@ -84,7 +61,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 		$this->calculations_parameters_in  = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
 		$this->calculations_parameters_out = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
 
-		$this->hash_algorithm = self::HASH_ALGORITHM_SHA_1;
+		$this->hash_algorithm = Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1;
 	}
 
 	//////////////////////////////////////////////////

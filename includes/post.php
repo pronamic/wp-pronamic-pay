@@ -486,45 +486,46 @@ function pronamic_pay_save_gateway( $post_id ) {
 	/* OK, its safe for us to save the data now. */
 	$definition = array(
 		// General
-		'_pronamic_gateway_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_id'   => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_mode' => FILTER_SANITIZE_STRING,
 		// Basic
 		'_pronamic_gateway_ideal_merchant_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ideal_sub_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ideal_hash_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_sub_id'      => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ideal_hash_key'    => FILTER_SANITIZE_STRING,
 		// PayDutch
 		'_pronamic_gateway_paydutch_username' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_paydutch_password' => FILTER_SANITIZE_STRING,
 		// Mollie
-		'_pronamic_gateway_mollie_partner_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_mollie_partner_id'  => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_mollie_profile_key' => FILTER_SANITIZE_STRING,
 		// OmniKassa
 		'_pronamic_gateway_omnikassa_merchant_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_omnikassa_secret_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_omnikassa_secret_key'  => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_omnikassa_key_version' => FILTER_SANITIZE_STRING,
 		// Buckaroo
 		'_pronamic_gateway_buckaroo_website_key' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_buckaroo_secret_key' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_buckaroo_secret_key'  => FILTER_SANITIZE_STRING,
 		// ICEPAY
 		'_pronamic_gateway_icepay_merchant_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_icepay_secret_code' => FILTER_SANITIZE_STRING,
 		// Sisow
-		'_pronamic_gateway_sisow_merchant_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_sisow_merchant_id'  => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_sisow_merchant_key' => FILTER_SANITIZE_STRING,
 		// TargetPay
 		'_pronamic_gateway_targetpay_layoutcode' => FILTER_SANITIZE_STRING,
 		// Ogone
-		'_pronamic_gateway_ogone_psp_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ogone_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_psp_id'              => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_hash_algorithm'      => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_sha_in_pass_phrase'  => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ogone_sha_out_pass_phrase' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ogone_user_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_ogone_password' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_user_id'             => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
 		// Ogone DirectLink
 		'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
 		// Qantani
-		'_pronamic_gateway_qantani_merchant_id'        => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_qantani_merchant_secret'    => FILTER_SANITIZE_STRING,
-		'_pronamic_gateway_qantani_merchant_key'       => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_id'     => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_secret' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_qantani_merchant_key'    => FILTER_SANITIZE_STRING,
 		// Advanced
 		'_pronamic_gateway_ideal_private_key_password' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_ideal_private_key'          => FILTER_SANITIZE_STRING,

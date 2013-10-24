@@ -48,6 +48,10 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 		$this->client->setPspId( $config->psp_id );
 		$this->client->setPassPhraseIn( $config->sha_in_pass_phrase );
 		$this->client->setPassPhraseOut( $config->sha_out_pass_phrase );
+		
+		if ( ! empty( $config->hash_algorithm ) ) {
+			$this->client->set_hash_algorithm( $config->hash_algorithm );
+		}
 	}
 
 	/////////////////////////////////////////////////
