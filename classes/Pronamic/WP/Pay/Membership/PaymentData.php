@@ -6,12 +6,24 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 	public $subscription;
 	public $membership;
 
+	//////////////////////////////////////////////////
+
 	public function __construct( M_Subscription $subscription, M_Membership $membership ) {
 		parent::__construct();
 
 		$this->subscription = $subscription;
 		$this->membership = $membership;
 	}
+
+	//////////////////////////////////////////////////
+	// s2Member specific data
+	//////////////////////////////////////////////////
+
+	public function get_subscription_id() {
+		return $this->subscription->sub_id();
+	}
+
+	//////////////////////////////////////////////////
 
 	public function getSource() {
 		return 'membership';
@@ -26,7 +38,7 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 	}
 
 	public function get_description() {
-		return $this->get_order_id();
+		return $this->subscription->sub_name();
 	}
 
 	public function getItems() {
