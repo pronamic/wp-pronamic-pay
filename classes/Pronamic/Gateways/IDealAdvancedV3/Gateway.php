@@ -107,9 +107,6 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		} else {
 			$issuer = $result->issuer;
 
-			$this->set_action_url( $result->issuer->get_authentication_url() );
-			$this->set_transaction_id( $result->transaction->get_id() );
-			
 			$payment->set_action_url( $result->issuer->get_authentication_url() );
 			$payment->set_transaction_id( $result->transaction->get_id() );
 		}

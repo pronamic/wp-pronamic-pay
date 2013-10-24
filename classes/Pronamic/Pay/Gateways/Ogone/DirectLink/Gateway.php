@@ -88,9 +88,8 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$this->set_transaction_id( $result->pay_id );
-
-			$this->set_action_url( add_query_arg( 'status', $result->status ) );
+			$payment->set_transaction_id( $result->pay_id );
+			$payment->set_action_url( add_query_arg( 'status', $result->status ) );
 		}
 	}
 }
