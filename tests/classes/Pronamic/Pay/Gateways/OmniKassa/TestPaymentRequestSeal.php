@@ -5,7 +5,7 @@ class Pronamic_Pay_Gateways_OmniKassa_TestPaymentRequestSeal extends WP_UnitTest
 		$omnikassa = new Pronamic_Gateways_OmniKassa_OmniKassa();
 		
 		$omnikassa->set_amount( 0.55 );
-		$omnikassa->setCurrencyNumericCode( 978 );
+		$omnikassa->set_currency_numeric_code( 978 );
 		$omnikassa->set_merchant_id( '011223744550001' );
 		$omnikassa->set_normal_return_url( 'http://www.normalreturnurl.nl' );
 		$omnikassa->set_automatic_response_url( 'http://www.automaticresponseurl.nl' );
