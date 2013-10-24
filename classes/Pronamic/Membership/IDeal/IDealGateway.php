@@ -29,8 +29,12 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	/**
 	 * Constructs and initliaze an Membership iDEAL gateway
+	 * 
+	 * Warning: The constructor of this class can not be named '__construct'. 
+	 * The M_Gateway class is calling the '__construct' method wich will cause
+	 * an infinite loop and an 'Fatal error: Allowed memory size'.
 	 */
-	public function __construct() {
+	public function Pronamic_Membership_IDeal_IDealGateway() {
 		parent::M_Gateway();
 
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.freesubscriptions.php#L30
