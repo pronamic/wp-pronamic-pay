@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-24 12:42:47+00:00\n"
-"PO-Revision-Date: 2013-10-24 14:43+0100\n"
+"POT-Creation-Date: 2013-10-24 13:13:36+00:00\n"
+"PO-Revision-Date: 2013-10-24 15:13+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -48,7 +48,7 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:312
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:43
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
@@ -207,12 +207,14 @@ msgid "Amount"
 msgstr "Bedrag"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
+msgctxt "creditcard"
 msgid "Capture Day"
-msgstr ""
+msgstr "Belast dag"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:117
+msgctxt "creditcard"
 msgid "Capture Mode"
-msgstr ""
+msgstr "Belast modus"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:118
 msgid "Currency Code"
@@ -229,14 +231,12 @@ msgid "Order ID"
 msgstr "Bestelling ID"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:121
-#, fuzzy
 msgid "Transaction Date Time"
-msgstr "Transactie ID"
+msgstr "Transactie tijdstip"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:122
-#, fuzzy
 msgid "Transaction Reference"
-msgstr "Transactie ID"
+msgstr "Transactie referentie"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:123
 #: views/config-edit.php:176
@@ -244,27 +244,24 @@ msgid "Key Version"
 msgstr "Sleutel versie"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:124
-#, fuzzy
 msgid "Authorisation ID"
-msgstr "Transactie ID"
+msgstr "Autorisatie ID"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:125
-#, fuzzy
 msgid "Payment Mean Brand"
-msgstr "Betaling %d"
+msgstr "Betaalmethode merknaam"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:126
-#, fuzzy
 msgid "Payment Mean Type"
-msgstr "Betalingsdatum"
+msgstr "Betaalmethode type"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:127
 msgid "Response Code"
-msgstr ""
+msgstr "Antwoord code"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:133
-msgid "OmniKassa return data:"
-msgstr ""
+msgid "OmniKassa transaction data in response message:"
+msgstr "OmniKassa transactiedata in antwoordbericht:"
 
 #: classes/Pronamic/Gateways/Sisow/Sisow.php:136
 msgid "Unknwon Sisow message (%s)"
@@ -292,27 +289,19 @@ msgstr "iDEAL-beheerder"
 msgid "Administrator"
 msgstr "Beheerder"
 
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:61
-msgid "Notifications could not be loaded, please try again"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:62
-msgid "No notifications exist for this form"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:93
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:76
 msgid "Payment Status"
 msgstr "Betalingsstatus"
 
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:98
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:81
 msgid "Payment Date"
 msgstr "Betalingsdatum"
 
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:103
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:86
 msgid "Transaction Id"
 msgstr "Transactie ID"
 
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:108
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:91
 msgid "Payment Amount"
 msgstr "Te betalen bedrag"
 
@@ -405,8 +394,8 @@ msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
 #: classes/Pronamic/Membership/IDeal/IDealGateway.php:120
-msgid "iDEAL - Online betalen via uw eigen bank"
-msgstr ""
+msgid "iDEAL - Online payment through your own bank"
+msgstr "iDEAL - Online betalen via uw eigen bank"
 
 #: classes/Pronamic/S2Member/Bridge/Order.php:15
 msgid "One Time ( for %s access, non-recurring )"
@@ -514,11 +503,13 @@ msgstr "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt."
 
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:83
 msgid "User \"%s\" already has access to \"%s\"."
-msgstr ""
+msgstr "Gebruiker \"%s\" heeft al toegang tot \"%s\"."
 
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:92
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
+"Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
+"toegevoegd."
 
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:139
 msgid "s2Member"
@@ -748,7 +739,7 @@ msgstr ""
 "Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
 "te maken van extra extensies, support en meer dan %d betalingen."
 
-#: includes/gateways.php:258
+#: includes/gateways.php:257
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
 
@@ -925,7 +916,7 @@ msgstr "Transactie beschrijving"
 
 #: includes/post.php:377
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 #: views/branding.php:5
 msgid "iDEAL Branding"
@@ -1270,16 +1261,14 @@ msgid "Merchant ID"
 msgstr "Merchant ID"
 
 #: views/config-edit.php:412
-#, fuzzy
 msgctxt "qantani"
 msgid "Merchant Key"
-msgstr "Winkelier sleutel"
+msgstr "Merchant Key"
 
 #: views/config-edit.php:420
-#, fuzzy
 msgctxt "qantani"
 msgid "Merchant Secret"
-msgstr "Merchant Key"
+msgstr "Merchant Secret"
 
 #: views/config-edit.php:427
 msgid "iDEAL Advanced"
@@ -1426,7 +1415,7 @@ msgstr "bestandsnaam"
 #. translators: comment date format. See http:php.net/date
 #: views/dashboard.php:47
 msgid "c"
-msgstr ""
+msgstr "c"
 
 #: views/dashboard.php:69 views/dashboard.php:77
 msgid "Pronamic News"
@@ -1638,7 +1627,7 @@ msgstr "%1$s om %2$s"
 #. translators: comment date format. See http:php.net/date
 #: views/meta-box-payment-log.php:30
 msgid "Y/m/d"
-msgstr ""
+msgstr "d-m-Y"
 
 #: views/meta-box-payment-source.php:22
 msgid "Period"
@@ -1995,6 +1984,9 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
+
+#~ msgid "No notifications exist for this form"
+#~ msgstr "Er b"
 
 #~ msgid "Enabled/Disable"
 #~ msgstr "Ingeschaked/uitgeschakeld"

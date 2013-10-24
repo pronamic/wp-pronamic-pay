@@ -113,8 +113,8 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			
 			$labels = array(
 				'amount' 	           => __( 'Amount', 'pronamic_ideal' ),
-				'captureDay'           => __( 'Capture Day', 'pronamic_ideal' ),
-				'captureMode'          => __( 'Capture Mode', 'pronamic_ideal' ),
+				'captureDay'           => _x( 'Capture Day', 'creditcard', 'pronamic_ideal' ),
+				'captureMode'          => _x( 'Capture Mode', 'creditcard', 'pronamic_ideal' ),
 				'currencyCode'         => __( 'Currency Code', 'pronamic_ideal' ),
 				'merchantId'           => __( 'Merchant ID', 'pronamic_ideal' ),
 				'orderId'              => __( 'Order ID', 'pronamic_ideal' ),
@@ -130,7 +130,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			$note = '';
 			
 			$note .= '<p>';
-			$note .= __( 'OmniKassa return data:', 'pronamic_ideal' );
+			$note .= __( 'OmniKassa transaction data in response message:', 'pronamic_ideal' );
 			$note .= '</p>';
 			
 			$note .= '<dl>';
