@@ -123,12 +123,11 @@ $pronamic_pay_gateways = array(
 		'provider' => 'deutschebank',
 		'gateway'  => 'ogone_orderstandard_easy',
 		'name'     => 'Deutsche Bank - iDEAL via Ogone',
-		'url'      => 'https://ideal.db.com/',
 		'test'     => array(
-			'payment_server_url' => 'https://myideal.db.com/ideal/iDealv3'
+			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp'
 		),
 		'live'     => array(
-			'payment_server_url' => 'https://myideal.db.com/ideal/iDealv3'
+			'payment_server_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp'
 		)
 	),
 	'deutschebank-ideal-expert-v3' => array(
