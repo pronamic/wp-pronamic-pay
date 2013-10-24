@@ -269,22 +269,18 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Download private certificate
 	 */
 	public static function maybe_download_private_certificate() {
-		if ( isset( $_POST['download_private_certificate'] ) ) {
-			$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
+		if ( filter_has_var( INPUT_POST, 'download_private_certificate' ) ) {
+			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
 
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			$filename = sprintf( 'ideal-private-certificate-%s.cer', $post_id );
 
-			if ( ! empty( $configuration ) ) {
-				$filename = 'ideal-private-certificate-' . $id . '.cer';
+			header( 'Content-Description: File Transfer' );
+			header( 'Content-Disposition: attachment; filename=' . $filename );
+			header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
 
-				header( 'Content-Description: File Transfer' );
-				header( 'Content-Disposition: attachment; filename=' . $filename );
-				header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true );
 
-				echo $configuration->privateCertificate;
-
-				exit;
-			}
+			exit;
 		}
 	}
 
@@ -292,22 +288,18 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Download private key
 	 */
 	public static function maybe_download_private_key() {
-		if ( isset( $_POST['download_private_key'] ) ) {
-			$id = filter_input( INPUT_POST, 'pronamic_ideal_configuration_id', FILTER_SANITIZE_STRING );
+		if ( filter_has_var( INPUT_POST, 'download_private_key' ) ) {
+			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
 
-			$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $id );
+			$filename = sprintf( 'ideal-private-key-%s.key', $post_id );
 
-			if ( ! empty( $configuration ) ) {
-				$filename = 'ideal-private-key-' . $id . '.key';
+			header( 'Content-Description: File Transfer' );
+			header( 'Content-Disposition: attachment; filename=' . $filename );
+			header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
 
-				header( 'Content-Description: File Transfer' );
-				header( 'Content-Disposition: attachment; filename=' . $filename );
-				header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true );
 
-				echo $configuration->privateKey;
-
-				exit;
-			}
+			exit;
 		}
 	}
 	
