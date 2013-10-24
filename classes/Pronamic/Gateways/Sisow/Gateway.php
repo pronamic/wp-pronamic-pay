@@ -67,7 +67,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
-			$data->get_order_id(),
+			$payment->get_id(),
 			$data->get_amount(),
 			$data->get_description(),
 			$data->get_entrance_code(),
@@ -75,9 +75,6 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 		);
 
 		if ( $result !== false ) {
-			$this->set_transaction_id( $result->id );
-			$this->set_action_url( $result->issuer_url );
-			
 			$payment->set_transaction_id( $result->id );
 			$payment->set_action_url( $result->issuer_url );
 		} else {
