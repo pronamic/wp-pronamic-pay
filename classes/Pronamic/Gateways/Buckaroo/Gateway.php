@@ -53,10 +53,10 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		// Buckaroo uses 'nl-NL' instead of 'nl_NL'
-		$culture = str_replace( '_', '-', $data->getLanguageIso639AndCountryIso3166Code() );
+		$culture = str_replace( '_', '-', $data->get_language_and_country() );
 
 		$this->client->set_culture( $culture );
-		$this->client->set_currency( $data->getCurrencyAlphabeticCode() );
+		$this->client->set_currency( $data->get_currency() );
 		$this->client->set_invoice_number( $data->get_order_id() );
 		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->get_amount() );

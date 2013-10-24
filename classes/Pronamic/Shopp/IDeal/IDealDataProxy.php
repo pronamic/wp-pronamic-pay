@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Purchase
 	 * 
@@ -100,7 +100,7 @@ class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDeal
 	// Currency
 	//////////////////////////////////////////////////
 
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		// @see /shopp/core/model/Lookup.php#L58
 		// @see /shopp/core/model/Gateway.php
 		return $this->gateway->baseop['currency']['code'];

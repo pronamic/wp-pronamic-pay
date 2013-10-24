@@ -45,11 +45,11 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 		return $items;
 	}
 
-	//////////////////////
-	// CURRENCY
-	//////////////////////
+	//////////////////////////////////////////////////
+	// Currency
+	//////////////////////////////////////////////////
 
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		global $M_options;
 
 		if ( empty( $M_options['paymentcurrency'] ) )
@@ -58,9 +58,9 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 		return $M_options['paymentcurrency'];
 	}
 
-	//////////////////
-	// CUSTOMER
-	//////////////////
+	//////////////////////////////////////////////////
+	// Customer
+	//////////////////////////////////////////////////
 
 	public function get_email() {
 		return $this->membership->user_email;

@@ -90,9 +90,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
 		$transaction->set_purchase_id( $data->get_order_id() );
 		$transaction->set_amount( $data->get_amount() );
-		$transaction->set_currency( $data->getCurrencyAlphabeticCode() );
+		$transaction->set_currency( $data->get_currency() );
 		$transaction->set_expiration_period( 'PT3M30S' );
-		$transaction->set_language( $data->getLanguageIso639Code() );
+		$transaction->set_language( $data->get_language() );
 		$transaction->set_description( $data->get_description() );
 		$transaction->set_entrance_code( $data->get_entrance_code() );
 

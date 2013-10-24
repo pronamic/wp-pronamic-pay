@@ -131,10 +131,10 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Get currency
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/admin/woocommerce-admin-settings.php#L32
 		return get_option( 'woocommerce_currency' );
 	}

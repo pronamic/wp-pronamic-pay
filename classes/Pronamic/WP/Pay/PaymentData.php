@@ -32,21 +32,21 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	/**
 	 * Get the ISO 639 language code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_language()
 	 * @return string
 	 */
-	public function getLanguageIso639Code() {
-		return Pronamic_WordPress_IDeal_Util::getLanguageIso639Code();
+	public function get_language() {
+		return Pronamic_WordPress_IDeal_Util::get_language();
 	}
 
 	/**
 	 * Get the language ISO 639 and ISO 3166 country code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639AndCountryIso3166Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_language_and_country()
 	 * @return string
 	 */
-	public function getLanguageIso639AndCountryIso3166Code() {
-		return Pronamic_WordPress_IDeal_Util::getLanguageIso639AndCountryIso3166Code();
+	public function get_language_and_country() {
+		return Pronamic_WordPress_IDeal_Util::get_language_and_country();
 	}
 
 	//////////////////////////////////////////////////
@@ -88,6 +88,8 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 		
 		return $url;
 	}
+
+	//////////////////////////////////////////////////
 	
 	public function get_normal_return_url() {
 		return $this->get_url( 'unknown' );

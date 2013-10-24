@@ -134,10 +134,10 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	/**
 	 * Get currency alphabetic code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L177
 		return $this->merchant->cart_data['store_currency'];
 	}

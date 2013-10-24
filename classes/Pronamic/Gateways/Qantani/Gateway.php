@@ -84,7 +84,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->get_amount(),
-			$data->getCurrencyAlphabeticCode(),
+			$data->get_currency(),
 			$data->get_issuer_id(),
 			$data->get_description(),
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )

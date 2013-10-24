@@ -52,8 +52,8 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$payment->set_action_url( $this->client->getPaymentServerUrl() );
 		
-		$this->client->setLanguage( $data->getLanguageIso639Code() );
-		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
+		$this->client->setLanguage( $data->get_language() );
+		$this->client->setCurrency( $data->get_currency() );
 		$this->client->setPurchaseId( $data->get_order_id() );
 		$this->client->setDescription( $data->get_description() );
 		$this->client->setItems( $data->getItems() );

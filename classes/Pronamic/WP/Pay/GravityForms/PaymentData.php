@@ -209,10 +209,10 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	/**
 	 * Get currency alphabetic code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		return GFCommon::get_currency();
 	}
 

@@ -52,9 +52,9 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client->set_merchant_reference( $data->get_order_id() );
 		$this->client->set_payment_amount( $data->get_amount() );
-		$this->client->set_currency_code( $data->getCurrencyAlphabeticCode() );
+		$this->client->set_currency_code( $data->get_currency() );
 		$this->client->set_ship_before_date( new DateTime( '+5 days' ) );
-		$this->client->set_shopper_locale( $data->getLanguageIso639AndCountryIso3166Code() );
+		$this->client->set_shopper_locale( $data->get_language_and_country() );
 		$this->client->set_order_data( $data->get_description() );
 		$this->client->set_session_validity( new DateTime ( '+1 hour' ) );
 		$this->client->set_shopper_reference( $data->get_email() );

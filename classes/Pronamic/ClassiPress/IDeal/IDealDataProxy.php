@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal_IDealDataProxy {
+class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order values
 	 * 
@@ -105,7 +105,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WordPress_IDeal
 	// Currency
 	//////////////////////////////////////////////////
 
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		return get_option( 'cp_curr_pay_type' );
 	}
 

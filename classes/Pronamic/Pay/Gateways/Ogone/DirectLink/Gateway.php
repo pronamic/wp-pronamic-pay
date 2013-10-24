@@ -50,7 +50,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_psp_id( $this->client->psp_id )
 			->set_order_id( $data->get_order_id() )
 			->set_order_description( $data->get_description() )
-			->set_currency( $data->getCurrencyAlphabeticCode() )
+			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
 			->set_customer_name( $data->getCustomerName() )
 			->set_email_address( $data->get_email() )

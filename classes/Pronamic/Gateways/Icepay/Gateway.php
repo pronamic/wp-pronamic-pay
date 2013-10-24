@@ -103,7 +103,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setLanguage( 'NL' )
 				->setReference( $payment->get_id() )
 				->setDescription( $data->get_description() )
-				->setCurrency( $data->getCurrencyAlphabeticCode() )
+				->setCurrency( $data->get_currency() )
 				->setIssuer( $data->get_issuer_id() )
 				->setOrderID( $data->get_order_id() );
 		

@@ -152,7 +152,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function payment_data_to_array( Pronamic_Pay_PaymentDataInterface $data ) {
 		return array(
 			'amount'       => $data->get_amount(),
-			'currency'     => $data->getCurrencyAlphabeticCode(),
+			'currency'     => $data->get_currency(),
 			'source'       => $data->getSource(),
 			'order_id'     => $data->get_order_id()
 		);

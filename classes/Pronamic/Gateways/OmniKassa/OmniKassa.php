@@ -268,7 +268,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string currency numeric code
 	 */
-	public function getCurrencyNumericCode() {
+	public function get_currency_numeric_code() {
 		return $this->currencyNumericCode;
 	}
 
@@ -277,8 +277,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $currencyCode
 	 */
-	public function setCurrencyNumericCode( $currencyNumericCode ) {
-		$this->currencyNumericCode = $currencyNumericCode;
+	public function set_currency_numeric_code( $currency_numeric_code ) {
+		$this->currencyNumericCode = $currency_numeric_code;
 	}
 
 	//////////////////////////////////////////////////
@@ -518,7 +518,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 		// Payment Request - required fields
 		$required_fields = array(
 			'amount'               => $this->get_formatted_amount(),
-			'currencyCode'         => $this->getCurrencyNumericCode(),
+			'currencyCode'         => $this->get_currency_numeric_code(),
 			'merchantId'           => $this->get_merchant_id(),
 			'normalReturnUrl'      => $this->get_normal_return_url(),
 			'transactionReference' => $this->get_transaction_reference(),
