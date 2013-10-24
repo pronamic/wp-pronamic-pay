@@ -78,7 +78,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
-		add_action( 'template_redirect', array( __CLASS__, 'maybe_pay' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -147,63 +146,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealBasic_Listener::listen();
 		Pronamic_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
-	}
-
-	public static function payment_data_to_array( Pronamic_Pay_PaymentDataInterface $data ) {
-		return array(
-			'amount'       => $data->get_amount(),
-			'currency'     => $data->get_currency(),
-			'source'       => $data->getSource(),
-			'order_id'     => $data->get_order_id()
-		);
-	}
-
-	/**
-	 * Maybe pay
-	 */
-	public static function maybe_pay() {
-		if ( filter_has_var( INPUT_POST, 'pronamic_pay_2' ) ) {
-			$config_id = filter_input( INPUT_POST, 'config_id', FILTER_SANITIZE_STRING );
-			
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-			
-			if ( $gateway ) {
-				$data = new Pronamic_WP_Pay_PaymentInputData();
-				
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( 'config_id', $gateway, $data );
-				
-				$error = $gateway->get_error();
-
-				if ( is_wp_error( $error ) ) {
-					var_dump( $error );
-				} else {
-					$gateway->redirect( $payment );
-				}
-			}
-		}
-
-		if ( filter_has_var( INPUT_POST, 'pronamic_pay' ) ) {
-			$config_id = filter_input( INPUT_POST, 'config_id', FILTER_SANITIZE_STRING );
-			
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-			
-			if ( $gateway ) {
-				printf( '<form method="post" action="">' );
-
-				echo $gateway->get_input_html();
-
-				echo Pronamic_IDeal_IDeal::htmlHiddenFields( $_POST );
-
-				printf(
-					'<input type="submit" name="pronamic_pay_2" value="%s" />',
-					esc_attr( 'Pay', 'pronamic_ideal' )
-				);
-
-				printf( '</form>' );
-				
-				exit;
-			}
-		}
 	}
 
 	//////////////////////////////////////////////////
