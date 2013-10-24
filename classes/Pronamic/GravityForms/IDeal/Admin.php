@@ -25,8 +25,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 		// Actions - AJAX
 		add_action( 'wp_ajax_gf_get_form_data', array( __CLASS__, 'ajax_get_form_data' ) );
-		
-		add_action( 'admin_enqueue_scripts',    array( __CLASS__, 'enqueue_scripts' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -46,21 +44,6 @@ class Pronamic_GravityForms_IDeal_Admin {
 		);
 
         return $menus;
-	}
-	
-	/**
-	 * Localizes the pronamic ideal admin script with some variables
-	 * required for Gravity Forms Edit page.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public static function enqueue_scripts() {
-		wp_localize_script( 'proanmic_ideal_admin', 'GravityForms_IDeal_Feed_Config', array(
-			'loader_img'       => plugins_url( 'images/loading.gif', Pronamic_WordPress_IDeal_Plugin::$file ),
-			'not_loaded'       => __( 'Notifications could not be loaded, please try again', 'pronamic_ideal' ),
-			'no_notifications' => __( 'No notifications exist for this form', 'pronamic_ideal' )
-		) );
 	}
 
 	//////////////////////////////////////////////////
