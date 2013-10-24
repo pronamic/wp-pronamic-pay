@@ -109,7 +109,7 @@
 	
 	<?php 
 	
-	$auto_submit = false;
+	$auto_submit = true;
 	$onload      = $auto_submit ? 'document.forms[0].submit();' : '';
 	
 	?>
