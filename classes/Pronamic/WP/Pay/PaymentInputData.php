@@ -71,7 +71,7 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 		// Items
 		$items = new Pronamic_IDeal_Items();
 		
-		$amount = filter_input( $this->type, 'order_id', FILTER_VALIDATE_FLOAT );
+		$amount = filter_input( $this->type, 'amount', FILTER_VALIDATE_FLOAT );
 
 		// Item
 		$item = new Pronamic_IDeal_Item();
