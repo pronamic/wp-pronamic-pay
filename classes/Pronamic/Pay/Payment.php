@@ -70,6 +70,18 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function get_amount() {
+		return $this->amount;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_currency() {
+		return $this->currency;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function set_transaction_id( $transaction_id ) {
 		$this->transaction_id = $transaction_id;
 	}
