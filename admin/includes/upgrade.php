@@ -8,6 +8,14 @@
  */
 function pronamic_pay_upgrade_201() {
 	global $wpdb;
+
+	/*
+	
+	-- You can undo the database upgrade by executing the following queries
+
+	DELETE FROM wp_options WHERE option_name = 'pronamic_pay_license_key';
+	
+	*/
 	
 	//////////////////////////////////////////////////
 	// Options
