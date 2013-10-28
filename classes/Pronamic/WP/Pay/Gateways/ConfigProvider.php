@@ -14,12 +14,9 @@ class Pronamic_WP_Pay_Gateways_ConfigProvider {
 			$class_name = self::$factories[$name];
 
 			if ( class_exists( $class_name ) ) {
-				// Fix - Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM
-				if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-					$config = $class_name::get_config( $post_id );
-				} else {
-					$config = call_user_func( array( $class_name, 'get_config' ), $post_id );
-				}
+				// Backward compatibility PHP 5.2
+				// $config = $class_name::get_config( $post_id );
+				$config = call_user_func( array( $class_name, 'get_config' ), $post_id );
 			}
 		}
 
