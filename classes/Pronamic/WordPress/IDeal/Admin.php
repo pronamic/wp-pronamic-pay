@@ -59,7 +59,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	}
 
 	public static function settings_init() {
-		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ) );
+		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ), 10, 2 );
 		
 		// Settings - General
 		add_settings_section(
