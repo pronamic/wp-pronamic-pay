@@ -285,6 +285,14 @@ function pronamic_pay_upgrade_200() {
 			$meta['fields']                   = @$feed_meta['fields'];
 			$meta['links']                    = @$feed_meta['links'];
 			
+			if ( is_array( $meta['links'] ) ) {
+				foreach ( $meta['links'] as &$link ) {
+					if ( isset( $link['pageId'] ) ) {
+						$link['page_id'] = $link['pageId'];
+					}
+				}
+			}
+			
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {
 					$meta_key = '_pronamic_pay_gf_' . $key;
