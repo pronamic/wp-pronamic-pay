@@ -22,19 +22,19 @@ class Pronamic_Gateways_IDealBasic_XML_NotificationParser {
 		}
 
 		if ( $xml->createDateTimeStamp ) {
-			$notification->set_date( new DateTime( $xml->createDateTimeStamp ) );
+			$notification->set_date( new DateTime( Pronamic_XML_Util::filter( $xml->createDateTimeStamp ) ) );
 		}
 
 		if ( $xml->transactionID ) {
-			$notification->set_transaction_id( (string) $xml->transactionID );
+			$notification->set_transaction_id( Pronamic_XML_Util::filter( $xml->transactionID ) );
 		}
 
 		if ( $xml->purchaseID ) {
-			$notification->set_purchase_id( (string) $xml->purchaseID );
+			$notification->set_purchase_id( Pronamic_XML_Util::filter( $xml->purchaseID ) );
 		}
 
 		if ( $xml->status ) {
-			$notification->set_status( (string) $xml->status );
+			$notification->set_status( Pronamic_XML_Util::filter( $xml->status ) );
 		}
 
 		return $notification;

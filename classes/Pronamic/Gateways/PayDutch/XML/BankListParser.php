@@ -18,8 +18,8 @@ class Pronamic_Gateways_PayDutch_XML_BankListParser extends Pronamic_Gateways_Pa
 		$list = array();
 		
 		foreach ( $xml->issuer as $issuer ) {
-			$id   = (string) $issuer->issuerid;
-			$name = (string) $issuer->bankname;
+			$id   = Pronamic_XML_Util::filter( $issuer->issuerid, FILTER_SANITIZE_STRING );
+			$name = Pronamic_XML_Util::filter( $issuer->bankname, FILTER_SANITIZE_STRING );
 
 			$list[$id] = $name;
 		}

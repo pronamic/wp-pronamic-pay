@@ -217,14 +217,14 @@ class Pronamic_Gateways_Qantani_Qantani {
 			} else {
 				if ( $xml->Status == self::RESPONSE_STATUS_OK ) {
 					foreach ( $xml->Banks->Bank as $bank ) {
-						$id   = (string) $bank->Id;
-						$name = (string) $bank->Name;
+						$id   = Pronamic_XML_Util::filter( $bank->Id );
+						$name = Pronamic_XML_Util::filter( $bank->Name );
 
 						$banks[$id] = $name;
 					}
 				} else {
-					$id          = (string) $xml->Error->ID;
-					$description = (string) $xml->Error->Description;
+					$id          = Pronamic_XML_Util::filter( $xml->Error->ID );
+					$description = Pronamic_XML_Util::filter( $xml->Error->Description );
 
 					$qantani_error = new Pronamic_Gateways_Qantani_Error( $id, $description );
 
@@ -268,13 +268,13 @@ class Pronamic_Gateways_Qantani_Qantani {
 					$xml_response = $xml->Response;
 
 					$result = new stdClass();
-					$result->transaction_id = (string) $xml_response->TransactionID;
-					$result->code           = (string) $xml_response->Code;
-					$result->bank_url       = (string) $xml_response->BankURL;
-					$result->acquirer       = (string) $xml_response->Acquirer;
+					$result->transaction_id = Pronamic_XML_Util::filter( $xml_response->TransactionID );
+					$result->code           = Pronamic_XML_Util::filter( $xml_response->Code );
+					$result->bank_url       = Pronamic_XML_Util::filter( $xml_response->BankURL );
+					$result->acquirer       = Pronamic_XML_Util::filter( $xml_response->Acquirer );
 				} else {
-					$error_id          = (string) $xml->Error->ID;
-					$error_description = (string) $xml->Error->Description;
+					$error_id          = Pronamic_XML_Util::filter( $xml->Error->ID );
+					$error_description = Pronamic_XML_Util::filter( $xml->Error->Description );
 
 					$error = new Pronamic_Gateways_Qantani_Error( $error_id, $error_description );
 					

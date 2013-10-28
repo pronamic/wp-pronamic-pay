@@ -281,8 +281,8 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 				$issuers = array();
 
 				foreach ( $xml->issuer as $xml_issuer ) {
-					$id   = (string) $xml_issuer['id'];
-					$name = (string) $xml_issuer;
+					$id   = Pronamic_XML_Util::filter( $xml_issuer['id'] );
+					$name = Pronamic_XML_Util::filter( $xml_issuer );
 	
 					$issuers[$id] = $name;
 				}

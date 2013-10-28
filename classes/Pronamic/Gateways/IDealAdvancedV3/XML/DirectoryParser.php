@@ -18,7 +18,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryParser extends Pronamic_Gat
 	public static function parse( SimpleXMLElement $xml ) {
 		$directory = new Pronamic_Gateways_IDealAdvancedV3_Directory();
 
-		$timestamp = (string) $xml->directoryDateTimestamp;
+		$timestamp = Pronamic_XML_Util::filter( $xml->directoryDateTimestamp );
 		$directory->set_date( new DateTime( $timestamp ) );
 		
 		foreach ( $xml->Country as $element ) {

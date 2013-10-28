@@ -260,15 +260,16 @@ class Pronamic_Gateways_Mollie_Mollie {
 			} else {
 				$order = new stdClass();
 				
-				$order->transaction_id = (string) $xml->order->transaction_id;
-				$order->amount         = (string) $xml->order->amount;
-				$order->payed          = filter_var( $xml->order->currency, FILTER_VALIDATE_BOOLEAN );
-				$order->status         = (string) $xml->order->status;
+				$order->transaction_id = Pronamic_XML_Util::filter( $xml->order->transaction_id );
+				$order->amount         = Pronamic_XML_Util::filter( $xml->order->amount );
+				$order->currency       = Pronamic_XML_Util::filter( $xml->order->currency );
+				$order->payed          = Pronamic_XML_Util::filter( $xml->order->payed, FILTER_VALIDATE_BOOLEAN );
+				$order->status         = Pronamic_XML_Util::filter( $xml->order->status );
 
 				$order->consumer          = new stdClass();
-				$order->consumer->name    = (string) $xml->order->consumer->consumerName;
-				$order->consumer->account = (string) $xml->order->consumer->consumerAccount;
-				$order->consumer->city    = (string) $xml->order->consumer->consumerCity;
+				$order->consumer->name    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerName );
+				$order->consumer->account = Pronamic_XML_Util::filter( $xml->order->consumer->consumerAccount );
+				$order->consumer->city    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerCity );
 				
 				$result = $order;
 			}

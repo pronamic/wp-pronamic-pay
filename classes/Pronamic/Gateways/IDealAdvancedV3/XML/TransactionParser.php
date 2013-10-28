@@ -21,27 +21,27 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionParser extends Pronamic_G
 		}
 
 		if ( $xml->transactionID ) {
-			$transaction->set_id( (string) $xml->transactionID );
+			$transaction->set_id( Pronamic_XML_Util::filter( $xml->transactionID ) );
 		}
 
 		if ( $xml->purchaseID ) {
-			$transaction->set_purchase_id( (string) $xml->purchaseID );
+			$transaction->set_purchase_id( Pronamic_XML_Util::filter( $xml->purchaseID ) );
 		}
 
 		if ( $xml->status ) {
-			$transaction->set_status( (string) $xml->status );
+			$transaction->set_status( Pronamic_XML_Util::filter( $xml->status ) );
 		}
 
 		if ( $xml->consumerName ) {
-			$transaction->set_consumer_name( (string) $xml->consumerName );
+			$transaction->set_consumer_name( Pronamic_XML_Util::filter( $xml->consumerName ) );
 		}
 
 		if ( $xml->consumerIBAN ) {
-			$transaction->set_consumer_iban( (string) $xml->consumerIBAN );
+			$transaction->set_consumer_iban( Pronamic_XML_Util::filter( $xml->consumerIBAN ) );
 		}
 
 		if ( $xml->consumerBIC ) {
-			$transaction->set_consumer_bic( (string) $xml->consumerBIC );
+			$transaction->set_consumer_bic( Pronamic_XML_Util::filter( $xml->consumerBIC ) );
 		}
 
 		return $transaction;
