@@ -21,19 +21,19 @@ class Pronamic_Gateways_IDealAdvanced_XML_IssuerParser extends Pronamic_Gateways
 		}
 
 		if ( $xml->issuerID ) {
-			$issuer->setId( (string) $xml->issuerID );
+			$issuer->setId( Pronamic_XML_Util::filter( $xml->issuerID ) );
 		}
 
 		if ( $xml->issuerName ) {
-			$issuer->setName( (string) $xml->issuerName );
+			$issuer->setName( Pronamic_XML_Util::filter( $xml->issuerName ) );
 		}
 		
 		if ( $xml->issuerList ) {
-			$issuer->setList( (string) $xml->issuerList );
+			$issuer->setList( Pronamic_XML_Util::filter( $xml->issuerList ) );
 		}
 		
 		if ( $xml->issuerAuthenticationURL ) {
-			$issuer->authenticationUrl = (string) $xml->issuerAuthenticationURL;
+			$issuer->authenticationUrl = Pronamic_XML_Util::filter( $xml->issuerAuthenticationURL );
 		}
 
 		return $issuer;

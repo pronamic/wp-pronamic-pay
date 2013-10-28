@@ -170,13 +170,13 @@ class Pronamic_Gateways_Adyen_Adyen {
 
 	public function get_signature() {
 		$data = array(
-			Pronamic_WordPress_Util::amount_to_cents( $this->get_payment_amount() ),
+			Pronamic_WP_Util::amount_to_cents( $this->get_payment_amount() ),
 			$this->get_currency_code(),
-			Pronamic_WordPress_Util::format_date( 'Y-m-d', $this->get_ship_before_date() ),
+			Pronamic_WP_Util::format_date( 'Y-m-d', $this->get_ship_before_date() ),
 			$this->get_merchant_reference(),
 			$this->get_skin_code(),
 			$this->get_merchant_account(),
-			Pronamic_WordPress_Util::format_date( DATE_ATOM, $this->get_session_validity() ),
+			Pronamic_WP_Util::format_date( DATE_ATOM, $this->get_session_validity() ),
 			$this->get_shopper_email(),
 			$this->get_shopper_reference()
 		);
@@ -198,14 +198,14 @@ class Pronamic_Gateways_Adyen_Adyen {
 	public function get_html_fields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
 			Pronamic_Gateways_Adyen_Parameters::MERCHANT_REFERENCE => $this->get_merchant_reference(),
-			Pronamic_Gateways_Adyen_Parameters::PAYMENT_AMOUNT     => Pronamic_WordPress_Util::amount_to_cents( $this->get_payment_amount() ),
+			Pronamic_Gateways_Adyen_Parameters::PAYMENT_AMOUNT     => Pronamic_WP_Util::amount_to_cents( $this->get_payment_amount() ),
 			Pronamic_Gateways_Adyen_Parameters::CURRENCY_CODE      => $this->get_currency_code(),
-			Pronamic_Gateways_Adyen_Parameters::SHIP_BEFORE_DATE   => Pronamic_WordPress_Util::format_date( 'Y-m-d', $this->get_ship_before_date() ),
+			Pronamic_Gateways_Adyen_Parameters::SHIP_BEFORE_DATE   => Pronamic_WP_Util::format_date( 'Y-m-d', $this->get_ship_before_date() ),
 			Pronamic_Gateways_Adyen_Parameters::SKIN_CODE          => $this->get_skin_code(),
 			Pronamic_Gateways_Adyen_Parameters::MERCHANT_ACCOUNT   => $this->get_merchant_account(),
 			Pronamic_Gateways_Adyen_Parameters::SHOPPER_LOCALE     => $this->get_shopper_locale(),
 			Pronamic_Gateways_Adyen_Parameters::ORDER_DATA         => base64_encode( gzencode( $this->get_order_data() ) ),
-			Pronamic_Gateways_Adyen_Parameters::SESSION_VALIDITY   => Pronamic_WordPress_Util::format_date( DATE_ATOM, $this->get_session_validity() ),
+			Pronamic_Gateways_Adyen_Parameters::SESSION_VALIDITY   => Pronamic_WP_Util::format_date( DATE_ATOM, $this->get_session_validity() ),
 			Pronamic_Gateways_Adyen_Parameters::MERCHANT_SIGNATURE => $this->get_signature(),
 			Pronamic_Gateways_Adyen_Parameters::SHOPPER_EMAIL      => $this->get_shopper_email(),
 			Pronamic_Gateways_Adyen_Parameters::SHOPPER_REFERENCE  => $this->get_shopper_reference()

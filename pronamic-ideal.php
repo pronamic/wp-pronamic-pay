@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Pronamic iDEAL
-Plugin URI: http://pronamic.eu/wp-plugins/ideal/
+Plugin URI: http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/
 Description: The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
-Version: 1.3.4
+Version: 2.0.0
 Requires at least: 3.0
 
 Author: Pronamic
-Author URI: http://pronamic.eu/
+Author URI: http://www.pronamic.eu/
 
 Text Domain: pronamic_ideal
 Domain Path: /languages/

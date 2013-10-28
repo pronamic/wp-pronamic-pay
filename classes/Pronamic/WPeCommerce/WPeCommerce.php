@@ -56,4 +56,18 @@ class Pronamic_WPeCommerce_WPeCommerce {
 	 * @var int
 	 */
 	const PURCHASE_STATUS_DECLINED_PAYMENT = 6;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if WP e-Comerce is active (Automattic/developer style)
+	 * 
+	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wp-shopping-cart.php#L11
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 * 
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return class_exists( 'WP_eCommerce' );
+	}
 }

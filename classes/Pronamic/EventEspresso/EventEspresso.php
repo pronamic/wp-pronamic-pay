@@ -33,6 +33,21 @@ class Pronamic_EventEspresso_EventEspresso {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Check if Event Espresso is active (Automattic/developer style)
+	 *
+	 * @see https://github.com/eventespresso/event-espresso-core/blob/master/espresso.php#L37
+	 * @see http://plugins.trac.wordpress.org/browser/event-espresso-free/tags/3.1.35.L/espresso.php#L39
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return defined( 'EVENT_ESPRESSO_VERSION' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Get payment data by attendee ID
 	 * 
 	 * @param string $id

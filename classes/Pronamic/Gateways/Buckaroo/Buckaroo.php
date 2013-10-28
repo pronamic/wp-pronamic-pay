@@ -10,6 +10,22 @@
  */
 class Pronamic_Gateways_Buckaroo_Buckaroo {
 	/**
+	 * Gateway URL
+	 * 
+	 * @var string
+	 */
+	const GATEWAY_URL = 'https://checkout.buckaroo.nl/html/';
+	
+	/**
+	 * Gateway test URL
+	 * 
+	 * @var string
+	 */
+	const GATEWAY_TEST_URL = 'https://testcheckout.buckaroo.nl/html/';
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Indicator for the iDEAL payment method
 	 * 
 	 * @var string
@@ -40,7 +56,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct() {
-		$this->set_payment_method( self::PAYMENT_METHOD_IDEAL );
+		$this->set_payment_server_url( self::GATEWAY_URL );
 	}
 
 	//////////////////////////////////////////////////

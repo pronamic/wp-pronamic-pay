@@ -37,53 +37,22 @@ class Pronamic_WordPress_IDeal_Util {
 	/**
 	 * Get the ISO 639 language code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_language()
 	 * @return string
 	 */
-	public static function getLanguageIso639Code() {
+	public static function get_language() {
 		$language = self::getLanguage();
 	
-		return substr($language, 0, 2);
+		return substr( $language, 0, 2 );
 	}
 
 	/**
 	 * Get the language ISO 639 and ISO 3166 country code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getLanguageIso639AndCountryIso3166Code()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_language_and_country()
 	 * @return string
 	 */
-	public static function getLanguageIso639AndCountryIso3166Code() {
+	public static function get_language_and_country() {
 		return self::getLanguage();
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Transform currency code to number
-	 * 
-	 * @param string $code
-	 * @return string
-	 */
-	public static function transform_currency_code_to_number( $code ) {
-		$currencies = array();
-
-		$file = dirname( Pronamic_WordPress_IDeal_Plugin::$file ) . '/other/dl_iso_table_a1.xml';
-
-		$xml = simplexml_load_file( $file );
-	
-		foreach ( $xml->ISO_CURRENCY as $currency ) {
-			$alphabetic_code = (string) $currency->ALPHABETIC_CODE;
-			$numeric_code    = (string) $currency->NUMERIC_CODE;
-		
-			$currencies[$alphabetic_code] = $numeric_code;
-		}
-
-		$number = null;
-
-		if ( isset( $currencies[$code] ) ) {
-			$number = $currencies[$code];
-		}
-
-		return $number;
 	}
 }

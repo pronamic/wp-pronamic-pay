@@ -21,10 +21,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and intializes an Icepay gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_Icepay_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Icepay_Config $config ) {
+		parent::__construct( $config );
 		
 		// Default properties for this gateway
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
@@ -93,28 +93,28 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {	
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		try {
-			$payment = new Icepay_PaymentObject();
-			$payment
+			$payment_object = new Icepay_PaymentObject();
+			$payment_object
 				->setPaymentMethod( $this->client->getCode() )
-				->setAmount( Pronamic_WordPress_Util::amount_to_cents( $data->getAmount() ) )
+				->setAmount( Pronamic_WP_Util::amount_to_cents( $data->get_amount() ) )
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )
-				->setReference( site_url( '/' ) )
-				->setDescription( $data->getDescription() )
-				->setCurrency( $data->getCurrencyAlphabeticCode() )
+				->setReference( $payment->get_id() )
+				->setDescription( $data->get_description() )
+				->setCurrency( $data->get_currency() )
 				->setIssuer( $data->get_issuer_id() )
-				->setOrderID( $data->getOrderId() );
+				->setOrderID( $data->get_order_id() );
 		
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode
-				->setMerchantID( $this->configuration->icepayMerchantId )
-				->setSecretCode( $this->configuration->icepaySecretCode )
+				->setMerchantID( $this->config->merchant_id )
+				->setSecretCode( $this->config->secret_code )
 				->setProtocol( 'http' )
-				->validatePayment( $payment );
+				->validatePayment( $payment_object );
 			
-			$this->set_action_url( $basicmode->getURL() );
+			$payment->set_action_url( $basicmode->getURL() );
 		} catch ( Exception $e ) {
 			$this->error = new WP_Error( $e->getMessage() );
 		}
@@ -125,15 +125,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update the status of the specified payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 * @throws Exception
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function update_status( Pronamic_Pay_Payment $payment ) {
 		// Get the Icepay Result and set the required fields
 		$result = new Icepay_Result();
 		$result
-			->setMerchantID( $this->configuration->icepayMerchantId )
-			->setSecretCode( $this->configuration->icepaySecretCode );
+			->setMerchantID( $this->config->merchant_id )
+			->setSecretCode( $this->config->secret_code );
 		
 		try {
 			// Determine if the result can be validated
@@ -142,15 +142,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				// What was the status response
 				switch ( $result->getStatus() ) {
 					case Icepay_StatusCode::SUCCESS:
-						$payment->status = 'Success';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS );
 
 						break;					
 					case Icepay_StatusCode::OPEN:
-						$payment->status = 'Open';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::OPEN );
 
 						break;					
 					case Icepay_StatusCode::ERROR:
-						$payment->status = 'Error';
+						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE );
 
 						break;
 				}

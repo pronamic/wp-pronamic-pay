@@ -74,4 +74,31 @@ class Pronamic_Gateways_Buckaroo_Statuses {
 	 * @var int
 	 */
 	const CANCELLED_BY_MERCHANT = 891;
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Transform an Buckaroo state to an more global status
+	 * 
+	 * @param string $status
+	 */
+	public static function transform( $status_code ) {
+		switch ( $status_code ) {
+			case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_SUCCESS:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
+			case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_FAILURE:
+			case Pronamic_Gateways_Buckaroo_Statuses::VALIDATION_FAILURE:
+			case Pronamic_Gateways_Buckaroo_Statuses::TECHNICAL_ERROR:
+			case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_REJECTED:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE;
+			case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_USER_INPUT:
+			case Pronamic_Gateways_Buckaroo_Statuses::WAITING_FOR_PROCESSOR:
+			case Pronamic_Gateways_Buckaroo_Statuses::WAITING_ON_CONSUMER_ACTION:
+			case Pronamic_Gateways_Buckaroo_Statuses::PAYMENT_ON_HOLD:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
+			case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_CONSUMER:
+			case Pronamic_Gateways_Buckaroo_Statuses::CANCELLED_BY_MERCHANT:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
+		}
+	}
 }

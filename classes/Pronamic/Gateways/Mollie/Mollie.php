@@ -116,9 +116,9 @@ class Pronamic_Gateways_Mollie_Mollie {
 		// WordPress functions uses URL encoding
 		// @see http://codex.wordpress.org/Function_Reference/build_query
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
-		$url = Pronamic_WordPress_Util::build_url( self::API_URL, $parameters );
+		$url = Pronamic_WP_Util::build_url( self::API_URL, $parameters );
 
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'sslverify' => false
 		) );
 	}
@@ -138,7 +138,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -223,7 +223,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::FETCH, $parameters );
 
 		if ( $result !== false ) {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -253,22 +253,23 @@ class Pronamic_Gateways_Mollie_Mollie {
 		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::CHECK, $parameters );
 
 		if ( $result !== false ) {
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
 				$order = new stdClass();
 				
-				$order->transaction_id = (string) $xml->order->transaction_id;
-				$order->amount         = (string) $xml->order->amount;
-				$order->payed          = filter_var( $xml->order->currency, FILTER_VALIDATE_BOOLEAN );
-				$order->status         = (string) $xml->order->status;
+				$order->transaction_id = Pronamic_XML_Util::filter( $xml->order->transaction_id );
+				$order->amount         = Pronamic_XML_Util::filter( $xml->order->amount );
+				$order->currency       = Pronamic_XML_Util::filter( $xml->order->currency );
+				$order->payed          = Pronamic_XML_Util::filter( $xml->order->payed, FILTER_VALIDATE_BOOLEAN );
+				$order->status         = Pronamic_XML_Util::filter( $xml->order->status );
 
 				$order->consumer          = new stdClass();
-				$order->consumer->name    = (string) $xml->order->consumer->consumerName;
-				$order->consumer->account = (string) $xml->order->consumer->consumerAccount;
-				$order->consumer->city    = (string) $xml->order->consumer->consumerCity;
+				$order->consumer->name    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerName );
+				$order->consumer->account = Pronamic_XML_Util::filter( $xml->order->consumer->consumerAccount );
+				$order->consumer->city    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerCity );
 				
 				$result = $order;
 			}

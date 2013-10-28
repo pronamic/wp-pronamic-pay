@@ -26,11 +26,11 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Configuration
+	 * Pronamic_Pay_Config
 	 * 
-	 * @var Pronamic_WordPress_IDeal_Configuration
+	 * @var int
 	 */
-	protected $configuration;
+	protected $config;
 
 	/////////////////////////////////////////////////
 
@@ -96,10 +96,10 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Pay_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		$this->configuration = $configuration;
+	public function __construct( Pronamic_Pay_Config $config ) {
+		$this->config = $config;
 	}
 
 	/////////////////////////////////////////////////
@@ -230,7 +230,7 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . $this->configuration->getId();
+		$transient = 'pronamic_ideal_issuers_' . spl_object_hash( $this->config );
 
 		$result = get_transient( $transient );
 		// $result = false;
@@ -265,50 +265,10 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Handle payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function payment( Pronamic_Pay_Payment $payment ) {
 		
-	}
-	
-	/////////////////////////////////////////////////
-	
-	/**
-	 * Get the transaction ID
-	 * 
-	 * @return string
-	 */
-	public function get_transaction_id() {
-		return $this->transaction_id;
-	}
-	
-	/**
-	 * Set the transaction ID
-	 * 
-	 * @return string
-	 */
-	public function set_transaction_id( $transaction_id ) {
-		$this->transaction_id = $transaction_id;
-	}
-	
-	/////////////////////////////////////////////////
-	
-	/**
-	 * Get the action URL
-	 * 
-	 * @return string
-	 */
-	public function get_action_url() {
-		return $this->action_url;
-	}
-	
-	/**
-	 * Set the action URL
-	 * 
-	 * @return string
-	 */
-	public function set_action_url( $action_url ) {
-		$this->action_url = $action_url;
 	}
 	
 	/////////////////////////////////////////////////
@@ -316,32 +276,32 @@ abstract class Pronamic_Gateways_Gateway {
 	/**
 	 * Redirect to the gateway action URL
 	 */
-	public function redirect() {
+	public function redirect( Pronamic_Pay_Payment $payment ) {
 		switch ( $this->method ) {
 			case self::METHOD_HTTP_REDIRECT:
-				return $this->redirect_via_http();
+				return $this->redirect_via_http( $payment );
 			case self::METHOD_HTML_FORM:
-				return $this->redirect_via_html();
+				return $this->redirect_via_html( $payment);
 			default:
 				// No idea how to redirect to the gateway
 		}
 	}
 
-	public function redirect_via_http() {
+	public function redirect_via_http( Pronamic_Pay_Payment $payment ) {
 		if ( headers_sent() ) {
-			$this->redirect_via_html();
+			$this->redirect_via_html( $payment );
 		} else {
 			// Redirect, See Other
 			// http://en.wikipedia.org/wiki/HTTP_303
-			wp_redirect( $this->get_action_url(), 303 );
+			wp_redirect( $payment->get_action_url(), 303 );
 		}
 
 		exit;
 	}
 
-	public function redirect_via_html() {
+	public function redirect_via_html( Pronamic_Pay_Payment $payment ) {
 		if ( headers_sent() ) {
-			echo $this->get_form_html( true );
+			echo $this->get_form_html( $payment, true );
 		} else {
 			include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
 		}
@@ -414,7 +374,7 @@ abstract class Pronamic_Gateways_Gateway {
 							'<select id="%s" name="%s">%s</select>',
 							esc_attr( $field['id'] ),
 							esc_attr( $field['name'] ),
-							Pronamic_IDeal_HTML_Helper::select_options_grouped( $field['choices'] )
+							Pronamic_WP_HTML_Helper::select_options_grouped( $field['choices'] )
 						);
 						
 						break;
@@ -430,7 +390,7 @@ abstract class Pronamic_Gateways_Gateway {
 	 * 
 	 * @return string
 	 */
-	public function get_form_html( $auto_submit = false ) {
+	public function get_form_html( Pronamic_Pay_Payment $payment, $auto_submit = false ) {
 		$html = '';
 
 		// Form
@@ -443,7 +403,7 @@ abstract class Pronamic_Gateways_Gateway {
 		
 		$form = sprintf(
 			'<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">%s</form>',
-			esc_attr( $this->get_action_url() ),
+			esc_attr( $payment->get_action_url() ),
 			$form_inner
 		);
 		

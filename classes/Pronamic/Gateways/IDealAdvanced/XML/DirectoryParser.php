@@ -18,7 +18,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryParser extends Pronamic_Gatew
 	public static function parse( SimpleXMLElement $xml ) {
 		$directory = new Pronamic_Gateways_IDealAdvanced_Directory();
 
-		$timestamp = (string) $xml->directoryDateTimeStamp;
+		$timestamp = Pronamic_XML_Util::filter( $xml->directoryDateTimeStamp );
 		$directory->setDate( new DateTime( $timestamp ) );
 		
 		foreach ( $xml->Issuer as $element ) {

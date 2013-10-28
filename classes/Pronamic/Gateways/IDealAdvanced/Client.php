@@ -191,7 +191,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 			if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
 				$body = wp_remote_retrieve_body( $response );
 
-				$xml = Pronamic_WordPress_Util::simplexml_load_string( $body );
+				$xml = Pronamic_WP_Util::simplexml_load_string( $body );
 				
 				if ( is_wp_error( $xml ) ) {
 					$this->error = $xml;
@@ -310,7 +310,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	//////////////////////////////////////////////////
 
-	public function create_transaction( Pronamic_Gateways_IDealAdvanced_Transaction $transaction, $issuer_id ) {
+	public function create_transaction( Pronamic_Gateways_IDealAdvanced_Transaction $transaction, $return_url, $issuer_id ) {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage();
 
 		$issuer = new Pronamic_Gateways_IDealAdvanced_Issuer();
@@ -320,7 +320,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->id             = $this->merchant_id;
 		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = self::AUTHENTICATION_SHA1_RSA;
-		$merchant->returnUrl      = add_query_arg( 'gateway', 'ideal_advanced', home_url( '/' ) );
+		$merchant->returnUrl      = $return_url;
 		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 		
 		$message->issuer      = $issuer;

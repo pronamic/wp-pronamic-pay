@@ -54,12 +54,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$this->has_fields       = true;
 
 		// Set default Jigoshop variables, load them form the WordPress options
-		$this->enabled          = get_option( 'jigoshop_pronamic_ideal_enabled' );
-		$this->title            = get_option( 'jigoshop_pronamic_ideal_title' );
-		$this->description      = get_option( 'jigoshop_pronamic_ideal_description' );
+		$this->enabled          = get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
+		$this->title            = get_option( 'pronamic_pay_ideal_jigoshop_title' );
+		$this->description      = get_option( 'pronamic_pay_ideal_jigoshop_description' );
 		
 		// Set own variables, load them form the WordPress options
-		$this->configuration_id = get_option( 'jigoshop_pronamic_ideal_configuration_id' );
+		$this->config_id        = get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
 		// Actions	
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );
@@ -87,7 +87,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Enable iDEAL', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> '',
-			'id' 		=> 'jigoshop_pronamic_ideal_enabled',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_enabled',
 			'std' 		=> 'yes',
 			'type' 		=> 'checkbox',
 			'choices'	=> array(
@@ -100,7 +100,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Title', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ),
-			'id' 		=> 'jigoshop_pronamic_ideal_title',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_title',
 			'std' 		=> __( 'iDEAL', 'pronamic_ideal' ),
 			'type' 		=> 'text'
 		);
@@ -109,7 +109,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Description', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> __( 'This controls the description which the user sees during checkout.', 'pronamic_ideal' ),
-			'id' 		=> 'jigoshop_pronamic_ideal_description',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_description',
 			'std' 		=> '',
 			'type' 		=> 'longtext'
 		);
@@ -118,10 +118,10 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'name'		=> __( 'Configuration', 'pronamic_ideal' ),
 			'desc' 		=> '',
 			'tip' 		=> '',
-			'id' 		=> 'jigoshop_pronamic_ideal_configuration_id',
+			'id' 		=> 'pronamic_pay_ideal_jigoshop_config_id',
 			'std' 		=> '',
 			'type' 		=> 'select',
-			'choices'	=> Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options() 
+			'choices'	=> Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
 		);
 
 		return $defaults;
@@ -137,9 +137,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			echo wpautop( wptexturize( $this->description ) );
 		}
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-		
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			echo $gateway->get_input_html();
@@ -152,16 +150,14 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Receipt page
 	 */
 	function receipt_page( $order_id ) {
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-		
 		$order = &new jigoshop_order( $order_id );
 		
-		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 			echo $gateway->get_form_html();
 		}
@@ -178,17 +174,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status( 'pending', __( 'Pending iDEAL payment.', 'pronamic_ideal' ) );
 
-		// Empty cart
-		jigoshop_cart::empty_cart();
-
 		// Do specifiek iDEAL variant processing
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $this->configuration_id );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 		
 		if ( $gateway ) {
 			if ( $gateway->is_http_redirect() ) {
-				$return = $this->process_gateway_http_redirect( $order, $configuration, $gateway );
+				$return = $this->process_gateway_http_redirect( $order, $gateway );
 			}
 
 			if ( $gateway->is_html_form() ) {
@@ -217,15 +208,21 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		);
 	}
 
-    private function process_gateway_http_redirect( $order, $configuration, $gateway ) {
-		$data = new Pronamic_Jigoshop_IDeal_IDealDataProxy( $order );
+    private function process_gateway_http_redirect( $order, $gateway ) {
+		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
+		Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
 			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+
+			if ( current_user_can( 'administrator' ) ) {
+				foreach ( $error->get_error_codes() as $code ) {
+					jigoshop::add_error( $error->get_error_message( $code ) );
+				}
+			}
 
 			// see https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
 			return array(

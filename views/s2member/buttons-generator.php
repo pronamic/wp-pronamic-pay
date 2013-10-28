@@ -1,38 +1,38 @@
 <div class="wrap">
-	<?php screen_icon(); ?>
+	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<div class="pronamic_ideal_shortcode_generator">
 		<script type="text/javascript">
-			jQuery(function() {
-				var cost = jQuery('.jPronamicIdealCost'),
-					period = jQuery('.jPronamicIdealPeriodShortcode'),
-					level = jQuery('.jPronamicIdealLevelShortcode'),
-					description = jQuery('.jPronamicIdealDescriptionShortcode'),
-					generate_button = jQuery('.jPronamicIdealGenerateShortcode'),
-					output = jQuery('.jPronamicIdealButtonShortcodeOutput');
+			jQuery( function() {
+				var cost = jQuery( '.jPronamicIdealCost' ),
+					period = jQuery( '.jPronamicIdealPeriodShortcode' ),
+					level = jQuery( '.jPronamicIdealLevelShortcode' ),
+					description = jQuery( '.jPronamicIdealDescriptionShortcode' ),
+					generate_button = jQuery( '.jPronamicIdealGenerateShortcode' ),
+					output = jQuery( '.jPronamicIdealButtonShortcodeOutput' );
 
 				generate_button.click( function() {
 					var shortcode = '';
 
 					shortcode += '[pronamic_ideal_s2member ';
 
-					if (cost.val().length > 0)
+					if ( cost.val().length > 0 )
 						shortcode += 'cost="' + cost.val() + '" ';
 
-					if (period.val().length > 0)
+					if ( period.val().length > 0 )
 						shortcode += 'period="' + period.val() + '" ';
 
-					if (level.val().length > 0)
+					if ( level.val().length > 0 )
 						shortcode += 'level="' + level.val() + '" ';
 
-					if (description.val().length > 0)
-						shortcode += 'description="' + description.val() + ' || {{order_id}}" ';
+					if ( description.val().length > 0 )
+						shortcode += 'description="' + description.val() + ' {{order_id}}" ';
 
 					shortcode += ']';
 
-					output.val(shortcode);
+					output.val( shortcode );
 				});
 			});
 		</script>
@@ -40,7 +40,7 @@
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th><?php _e( 'iDEAL Buttons Code Generator', 'pronamic_ideal' ); ?></th>
+					<th><?php _e( 'Generator', 'pronamic_ideal' ); ?></th>
 					<td>
 						<p>
 							<?php
@@ -82,9 +82,9 @@
 					</td>
 				</tr>
 				<tr>
-					<th><?php _e( 'Button Shortcode', 'pronamic_ideal' ); ?></th>
+					<th><?php _e( 'Shortcode', 'pronamic_ideal' ); ?></th>
 					<td>
-						<textarea class='jPronamicIdealButtonShortcodeOutput' style='width:100%;min-height:30px;'></textarea>
+						<textarea class="jPronamicIdealButtonShortcodeOutput" style="width: 100%; min-height: 30px;"></textarea>
 					</td>
 				</tr>
 			</tbody>

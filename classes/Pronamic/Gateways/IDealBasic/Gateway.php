@@ -12,10 +12,10 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Construct and intialize an gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_IDealBasic_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_IDealBasic_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
@@ -23,40 +23,10 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_IDealBasic_IDealBasic();
 		
-		$this->client->setPaymentServerUrl( $configuration->getPaymentServerUrl() );
-		$this->client->setMerchantId( $configuration->getMerchantId() );
-		$this->client->setSubId( $configuration->getSubId() );
-		$this->client->setHashKey( $configuration->hashKey );
-	}
-	
-	/////////////////////////////////////////////////
-
-	/**
-	 * Start an transaction with the specified data
-	 * 
-	 * @see Pronamic_Gateways_Gateway::start()
-	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
-		$this->set_transaction_id( md5( time() . $data->getOrderId() ) );
-		$this->set_action_url( $this->client->getPaymentServerUrl() );
-		
-		$this->client->setLanguage( $data->getLanguageIso639Code() );
-		$this->client->setCurrency( $data->getCurrencyAlphabeticCode() );
-		$this->client->setPurchaseId( $data->getOrderId() );
-		$this->client->setDescription( $data->getDescription() );
-		$this->client->setItems( $data->getItems() );
-		
-		$url = add_query_arg(
-			array(
-				'gateway'        => 'ideal_basic',
-				'transaction_id' => $this->get_transaction_id()
-			),
-			home_url( '/' )
-		); 
-		
-		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::CANCELLED, $url ) );
-		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
-		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
+		$this->client->setPaymentServerUrl( $config->url );
+		$this->client->setMerchantId( $config->merchant_id );
+		$this->client->setSubId( $config->sub_id );
+		$this->client->setHashKey( $config->hash_key );
 	}
 	
 	/////////////////////////////////////////////////
@@ -69,5 +39,44 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function get_output_html() {
 		return $this->client->getHtmlFields();
+	}
+	
+	/////////////////////////////////////////////////
+
+	/**
+	 * Start an transaction with the specified data
+	 * 
+	 * @see Pronamic_Gateways_Gateway::start()
+	 */
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
+		$payment->set_action_url( $this->client->getPaymentServerUrl() );
+		
+		$this->client->setLanguage( $data->get_language() );
+		$this->client->setCurrency( $data->get_currency() );
+		$this->client->setPurchaseId( $data->get_order_id() );
+		$this->client->setDescription( $data->get_description() );
+		$this->client->setItems( $data->getItems() );
+		
+		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ); 
+		
+		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED, $url ) );
+		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS, $url ) );
+		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE, $url ) );
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Update status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
+	 */
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		if ( filter_has_var( INPUT_GET, 'status' ) ) {
+			$status = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
+		
+			$payment->set_status( $status );
+		}
 	}
 }

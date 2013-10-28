@@ -161,4 +161,18 @@ class Pronamic_GravityForms_GravityForms {
 	 * @var string
 	 */
 	const OPERATOR_IS_NOT = '!=';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if Gravity Forms is active (Automattic/developer style)
+	 *
+	 * @see https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/gravityforms.php?at=1.7.8#cl-95
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return class_exists( 'GFForms' );
+	}
 }

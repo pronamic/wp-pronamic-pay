@@ -26,29 +26,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Option version
-	 *
-	 * @var string
-	 */
-	const OPTION_VERSION = 'gf_ideal_version';
-
-	/**
-	 * The current version of this plugin
-	 *
-	 * @var string
-	 */
-	const VERSION = '1.3.4';
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Bootstrap
 	 */
 	public static function bootstrap() {
 		// Initialize hook, Gravity Forms uses the default priority (10)
-		add_action( 'init',           array( __CLASS__, 'initialize' ), 20 );
-
-		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
+		add_action( 'init', array( __CLASS__, 'init' ), 20 );
+		
+		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -56,7 +40,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Initialize
 	 */
-	public static function initialize() {
+	public static function init() {
 		if ( self::is_gravityforms_supported() ) {
 			// Admin
 			if ( is_admin() ) {
@@ -75,9 +59,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				add_filter( 'gform_disable_notification',		array( __CLASS__, 'maybe_delay_notification' ), 10, 4 );
 			}
 
-			add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'update_status' ), 10, 2 );
+			$slug = self::SLUG;
 
-			add_filter( 'pronamic_ideal_source_column_gravityformsideal', array( __CLASS__, 'source_column' ), 10, 2 );
+			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 
 			add_filter( 'gform_replace_merge_tags', array( __CLASS__, 'replace_merge_tags' ), 10, 7 );
 
@@ -91,15 +76,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Gravity Forms', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			add_query_arg( array( 'pronamic_gf_lid' => $payment->get_source_id() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Entry #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;
@@ -108,13 +93,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Setup, creates or updates database tables. Will only run when version changes
+	 * Upgrade
 	 */
-	public static function setup() {
-		if ( self::is_gravityforms_supported() && ( get_option( self::OPTION_VERSION ) != self::VERSION ) ) {
-			// Update tables
-			Pronamic_GravityForms_IDeal_FeedsRepository::update_table();
-
+	public static function upgrade() {
+		if ( self::is_gravityforms_supported() ) {
 			// Add some new capabilities
 			$capabilities = array(
 				'read'               => true,
@@ -133,9 +115,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			);
 
 			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
-
-			// Update version
-			update_option( self::OPTION_VERSION, self::VERSION );
 		}
 	}
 
@@ -161,8 +140,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$user = new WP_User( $created_by );
 		}
 
-		if ( $user && ! empty( $feed->userRoleFieldId ) && isset( $lead[$feed->userRoleFieldId] ) ) {
-			$value = $lead[$feed->userRoleFieldId];
+		if ( $user && ! empty( $feed->user_role_field_id ) && isset( $lead[$feed->user_role_field_id] ) ) {
+			$value = $lead[$feed->user_role_field_id];
 			$value = GFCommon::get_selection_value( $value );
 
 			$user->set_role( $value );
@@ -176,64 +155,65 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 *
 	 * @param string $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$lead_id = $payment->getSourceId();
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$lead_id = $payment->get_source_id();
 
-			$lead = RGFormsModel::get_lead( $lead_id );
+		$lead = RGFormsModel::get_lead( $lead_id );
 
-			if ( $lead ) {
-				$form_id = $lead['form_id'];
+		if ( $lead ) {
+			$form_id = $lead['form_id'];
 
-				$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form_id );
+			$form = RGFormsModel::get_form( $form_id );
+			$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
+			
+			$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
 
-				if ( $feed ) {
-					$url = null;
+			if ( $feed ) {
+				$url = null;
 
-					switch ( $payment->status ) {
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
+				switch ( $payment->status ) {
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_CANCELLED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
+						$url = $data->get_cancel_url();
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_EXPIRED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
+						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_FAILED;
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
+						$url = $data->get_error_url();
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-							if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
-								// Only fullfill order if the payment isn't approved aloready
-								$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+						if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
+							// Only fullfill order if the payment isn't approved aloready
+							$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
 
-								self::fulfill_order( $lead );
-							}
+							self::fulfill_order( $lead );
+						}
 
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
+						$url = $data->get_success_url();
 
-							break;
-						case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-						default:
-							$url = $feed->getUrl( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
+						break;
+					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					default:
+						$url = $data->get_normal_return_url();
 
-							break;
-					}
+						break;
+				}
 
-					RGFormsModel::update_lead( $lead );
+				RGFormsModel::update_lead( $lead );
 
-					if ( $url && $can_redirect ) {
-						wp_redirect( $url, 303 );
+				if ( $url && $can_redirect ) {
+					wp_redirect( $url, 303 );
 
-						exit;
-					}
+					exit;
 				}
 			}
 		}
@@ -245,7 +225,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 */
     public static function fulfill_order( $entry ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $entry['form_id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
 
 		if ( $feed !== null ) {
 			self::maybe_update_user_role( $entry, $feed );
@@ -253,10 +233,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
 
 			// Determine if the feed has Gravity Form 1.7 Feed IDs
-			if ( $feed->hasNotificationIds() ) {
+			if ( $feed->has_delayed_notifications() ) {
 
 				// Get those ID's
-				$notification_ids = $feed->getNotificationIds();
+				$notification_ids = $feed->delay_notification_ids;
 
 				// Go through all form notifications
 				foreach ( $form_meta['notifications'] as $notification ) {
@@ -266,19 +246,21 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 						// Send the notification now.
 						GFCommon::send_notification( $notification, $form_meta, $entry );
+
 					}
+
 				}
 			}
 
-			if ( $feed->delayAdminNotification ) {
+			if ( $feed->delay_admin_notification ) {
 				GFCommon::send_admin_notification( $form_meta, $entry );
 			}
 
-			if ( $feed->delayUserNotification ) {
+			if ( $feed->delay_user_notification ) {
 				GFCommon::send_user_notification( $form_meta, $entry );
 			}
 
-			if ( $feed->delayPostCreation ) {
+			if ( $feed->delay_post_creation ) {
 				RGFormsModel::create_post( $form_meta, $entry );
 			}
         }
@@ -313,8 +295,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function is_condition_true( $form, $feed ) {
 		$result = true;
 
-        if ( $feed->conditionEnabled ) {
-			$field = RGFormsModel::get_field( $form, $feed->conditionFieldId );
+        if ( $feed->condition_enabled ) {
+			$field = RGFormsModel::get_field( $form, $feed->condition_field_id );
 
 			if ( empty( $field ) ) {
 				// unknown field
@@ -328,9 +310,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				} else {
 					$value = RGFormsModel::get_field_value( $field, array() );
 
-					$is_match = RGFormsModel::is_value_match( $value, $feed->conditionValue );
+					$is_match = RGFormsModel::is_value_match( $value, $feed->condition_value );
 
-					switch ( $feed->conditionOperator ) {
+					switch ( $feed->condition_operator ) {
 						case Pronamic_GravityForms_GravityForms::OPERATOR_IS:
 							$result = $is_match;
 							break;
@@ -356,11 +338,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$notification_ids = $feed->getNotificationIds();
+				$notification_ids = $feed->delay_notification_ids;
 
 				if ( in_array( $notification['id'], $notification_ids ) )
 					$is_disabled = true;
@@ -379,11 +361,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if admin notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( $pay_form !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayAdminNotification;
+				$is_disabled = $feed->delay_admin_notification;
 			}
 		}
 
@@ -399,11 +381,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if user notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayUserNotification;
+				$is_disabled = $feed->delay_user_notification;
 			}
 		}
 
@@ -413,17 +395,17 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	/**
 	 * Maybe delay post creation
 	 *
-	 * @param boolean $isDisabled
+	 * @param boolean $is_disabled
 	 * @param array $form
 	 * @param array $lead
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$is_disabled = $feed->delayPostCreation;
+				$is_disabled = $feed->delay_post_creation;
 			}
 		}
 
@@ -444,7 +426,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			return;
 		}
 
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 		if ( $feed !== null ) {
 			// Update form meta with current feed id
 			gform_update_meta( $entry['id'], 'ideal_feed_id', $feed->id );
@@ -462,27 +444,66 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
 	public static function handle_ideal( $confirmation, $form, $lead, $ajax ) {
-		$feed = Pronamic_GravityForms_IDeal_FeedsRepository::getFeedByFormId( $form['id'] );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( $feed !== null ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
-				$configuration = $feed->getIDealConfiguration();
-
-				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
 
 				if ( $gateway ) {
-					if ( $gateway->is_http_redirect() ) {
-						$confirmation = self::handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway );
-					}
+					$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
+					
+					$payment = Pronamic_WordPress_IDeal_IDeal::start( $feed->config_id, $gateway, $data );
 
-					if ( $gateway->is_html_form() ) {
-						$confirmation = self::handle_gateway_html_form( $confirmation, $form, $feed, $lead, $gateway );
+					$error = $gateway->get_error();
+					
+					if ( is_wp_error( $error ) ) {
+						$html = '';
+					
+						$html .= '<ul>';
+						$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
+					
+						foreach ( $error->get_error_messages() As $message ) {
+							$html .= '<li>' . $message . '</li>';
+						}
+					
+						$html .= '</ul>';
+					
+						$confirmation = $html;
+					} else {
+						// Updating lead's payment_status to Processing
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->get_amount();
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
+						$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
+						
+						gform_update_meta( $lead['id'], 'pronamic_payment_id', $payment->id );
+
+						RGFormsModel::update_lead( $lead );
+
+						if ( $gateway->is_http_redirect() ) {
+							// Redirect user to the issuer
+							$confirmation = array( 'redirect' => $payment->get_action_url() );
+						}
+
+						if ( $gateway->is_html_form() ) {
+					        // HTML
+					        $html  = '';
+					        $html .= '<div id="gforms_confirmation_message">';
+					        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
+					        $html .= 	$gateway->get_form_html( $payment );
+							$html .= '</div>';
+					
+					        // Extend the confirmation with the iDEAL form
+					        $confirmation = $html;
+						}
 					}
 				}
 			}
 		}
 
-		if ( (headers_sent() || $ajax ) && is_array( $confirmation ) && isset( $confirmation['redirect'] ) ) {
+		if ( ( headers_sent() || $ajax ) && is_array( $confirmation ) && isset( $confirmation['redirect'] ) ) {
 			$url = $confirmation['redirect'];
 
 			// Using esc_js() and esc_url() on the URL is causing problems, the & in the URL is modified to &amp; or &#038;
@@ -494,89 +515,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		return $confirmation;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Handle iDEAL advanced
-	 *
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-	 */
-	public static function handle_gateway_http_redirect( $confirmation, $form, $feed, $lead, $gateway ) {
-		$configuration = $feed->getIDealConfiguration();
-
-		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
-
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
-		$error = $gateway->get_error();
-
-    	$url = $gateway->get_action_url();
-
-		if ( is_wp_error( $error ) ) {
-			$html = '';
-
-			$html .= '<ul>';
-			$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
-
-			foreach ( $error->get_error_messages() As $message ) {
-				$html .= '<li>' . $message . '</li>';
-			}
-
-			$html .= '</ul>';
-
-			$confirmation = $html;
-		} else {
-			// Updating lead's payment_status to Processing
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->getAmount();
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-			$lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
-
-			RGFormsModel::update_lead( $lead );
-
-			// Redirect user to the issuer
-			$confirmation = array( 'redirect' => $url );
-		}
-
-		return $confirmation;
-	}
-
-	/**
-	 * Handle iDEAL form
-	 *
-	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
-	 */
-	public static function handle_gateway_html_form( $confirmation, $form, $feed, $lead, $gateway ) {
-		$configuration = $feed->getIDealConfiguration();
-
-		$data = new Pronamic_GravityForms_IDeal_IDealDataProxy( $form, $lead, $feed );
-
-		Pronamic_WordPress_IDeal_IDeal::start( $configuration, $gateway, $data );
-
-		// Updating lead's payment_status to Processing
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS]   = Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_PROCESSING;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_AMOUNT]   = $data->getAmount();
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_DATE]     = gmdate( 'y-m-d H:i:s' );
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_TYPE] = Pronamic_GravityForms_GravityForms::TRANSACTION_TYPE_PAYMENT;
-        $lead[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_TRANSACTION_ID]   = $gateway->get_transaction_id();
-
-        RGFormsModel::update_lead( $lead );
-
-        // HTML
-        $html  = '';
-        $html .= '<div id="gforms_confirmation_message">';
-        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-        $html .= 	$gateway->get_form_html();
-		$html .= '</div>';
-
-        // Extend the confirmation with the iDEAL form
-        $confirmation = $html;
-
-        // Return
-        return $confirmation;
 	}
 
 	//////////////////////////////////////////////////

@@ -44,20 +44,20 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	/**
 	 * Get description
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getDescription()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->order->get_description();
 	}
 
 	/**
 	 * Get order ID
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getOrderId()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
-	public function getOrderId() {
+	public function get_order_id() {
 		return $this->order->get_id();
 	}
 
@@ -73,8 +73,8 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 		// Item
 		$item = new Pronamic_IDeal_Item();
-		$item->setNumber( $this->getOrderId() );
-		$item->setDescription( $this->getDescription() );
+		$item->setNumber( $this->get_order_id() );
+		$item->setDescription( $this->get_description() );
 		$item->setPrice( $this->order->get_total() );
 		$item->setQuantity( 1 );
 
@@ -90,10 +90,10 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	/**
 	 * Get currency alphabetic code
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getCurrencyAlphabeticCode()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
-	public function getCurrencyAlphabeticCode() {
+	public function get_currency_alphabetic_code() {
 		return $this->order->get_currency();
 	}
 
@@ -101,7 +101,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getEMailAddress() {
+	public function get_email() {
 		$author_id = $this->order->get_author();
 		
 		return get_the_author_meta( 'user_email', $author_id );
@@ -131,19 +131,19 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-includes/merchant.class.php#L184
 	//////////////////////////////////////////////////
 
-	public function getNormalReturnUrl() {
+	public function get_normal_return_url() {
 		return $this->order->get_return_url();
 	}
 
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->order->get_cancel_url();
 	}
 
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->order->get_return_url();
 	}
 
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->order->get_return_url();
 	}
 }

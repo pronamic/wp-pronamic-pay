@@ -2,25 +2,25 @@
 
 class Pronamic_Gateways_InternetKassa_Test extends WP_UnitTestCase {
 	function test_signature_in_empty() {
-		$internet_kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$signature_in = $internet_kassa->getSignatureIn();
+		$signature_in = $client->getSignatureIn();
 
 		$this->assertEquals( 'DA39A3EE5E6B4B0D3255BFEF95601890AFD80709', $signature_in );
 	}
 	
 	function test_signature_in_from_documentation() {
 		// http://pronamic.nl/wp-content/uploads/2012/02/ABNAMRO_e-Com-BAS_EN.pdf #page 11
-		$internet_kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$internet_kassa->setAmount( 15 );
-		$internet_kassa->setCurrency( 'EUR' );
-		$internet_kassa->setLanguage( 'en_US' );
-		$internet_kassa->setOrderId( '1234' );
-		$internet_kassa->setPspId( 'MyPSPID' );
-		$internet_kassa->setPassPhraseIn( 'Mysecretsig1875!?' );
+		$client->setAmount( 15 );
+		$client->setCurrency( 'EUR' );
+		$client->setLanguage( 'en_US' );
+		$client->setOrderId( '1234' );
+		$client->setPspId( 'MyPSPID' );
+		$client->setPassPhraseIn( 'Mysecretsig1875!?' );
 
-		$signature_in = $internet_kassa->getSignatureIn();
+		$signature_in = $client->getSignatureIn();
 
 		$this->assertEquals( 'F4CC376CD7A834D997B91598FA747825A238BE0A', $signature_in );
 	}
@@ -41,12 +41,12 @@ class Pronamic_Gateways_InternetKassa_Test extends WP_UnitTestCase {
 			'SHASIGN'    => '8DC2A769700CA4B3DF87FE8E3B6FD162D6F6A5FA'
 		);
 
-		$internet_kassa = new Pronamic_Gateways_IDealInternetKassa_IDealInternetKassa();
+		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
 
-		$internet_kassa->setPspId( 'MyPSPID' );
-		$internet_kassa->setPassPhraseOut( 'Mysecretsig1875!?' );
+		$client->setPspId( 'MyPSPID' );
+		$client->setPassPhraseOut( 'Mysecretsig1875!?' );
 
-		$result = $internet_kassa->verifyRequest( $_GET );
+		$result = $client->verifyRequest( $_GET );
 
 		$this->assertNotSame( false, $result );
 	}

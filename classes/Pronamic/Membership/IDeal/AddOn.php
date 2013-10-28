@@ -8,91 +8,59 @@
  * @since 1.2.6
  */
 class Pronamic_Membership_IDeal_AddOn {
+	/**
+	 * The slug of this addon
+	 * 
+	 * @var string
+	 */
+	const SLUG = 'membership';
 
+	/**
+	 * Indiactor for the config id options
+	 * 
+	 * @var string
+	 */
+	const OPTION_CONFIG_ID = 'pronamic_pay_membership_config_id';
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Bootstrap
+	 */
 	public static function bootstrap() {
-		if ( function_exists( 'M_get_membership_active' ) && 'no' != M_get_membership_active() ) {
-			self::load();
-		}
+		add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ) );
 	}
+	
+	//////////////////////////////////////////////////
 
-	public static function load() {
-		// Register Bridge Settings
-		new Pronamic_Membership_Bridge_Settings();
+	/**
+	 * Plugins loaded
+	 */
+	public static function plugins_loaded() {
+		if ( Pronamic_Membership_Membership::is_active() ) {
+			// Register the Membership iDEAL gateway
+			M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
 
-		// Register the Gateway Class
-		M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
+			$slug = self::SLUG;
 
-		add_action( 'pronamic_ideal_status_update', array( __CLASS__, 'status_update' ) );
-		
-		add_filter( 'pronamic_ideal_source_column_membership', array( __CLASS__, 'source_column' ), 10, 2 );
-	}
-
-	public static function record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
-
-		global $wpdb;
-
-		$subscription_transaction_table = membership_db_prefix( $wpdb, 'subscription_transaction' );
-
-		$data = array( );
-		$data[ 'transaction_subscription_ID' ] = $sub_id;
-		$data[ 'transaction_user_ID' ] = $user_id;
-		$data[ 'transaction_paypal_ID' ] = $paypal_ID;
-		$data[ 'transaction_stamp' ] = $timestamp;
-		$data[ 'transaction_currency' ] = $currency;
-		$data[ 'transaction_status' ] = $status;
-		$data[ 'transaction_total_amount' ] = (int) round( $amount * 100 );
-		$data[ 'transaction_note' ] = $note;
-		$data[ 'transaction_gateway' ] = 'pronamic_ideal';
-
-		$existing_id = $wpdb->get_var( $wpdb->prepare( "SELECT transaction_ID FROM {$subscription_transaction_table} WHERE transaction_paypal_ID = %s LIMIT 1", $paypal_ID ) );
-
-		if ( ! empty( $existing_id ) ) {
-			// Update
-			$wpdb->update( $subscription_transaction_table, $data, array( 'transaction_ID' => $existing_id ) );
-		} else {
-			// Insert
-			$wpdb->insert( $subscription_transaction_table, $data );
-		}
-	}
-
-	public static function status_update( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
-		if ( 'membership' == $payment->getSource() ) {
-			// Get the raw source id
-			$data_id = $payment->getSourceId();
-
-			// Split the order id to get an array of userid, subscriptionid and time
-			$data = explode( '$', $data_id );
-
-			// Prepared data
-			$user_id = $data[ 0 ];
-			$sub_id = $data[ 1 ];
-			$time = $data[ 2 ];
-
-			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-					self::record_transaction( $user_id, $sub_id, $payment->amount, 'EUR', $time, $data_id, 'Success', '' );
-
-					$member = new M_Membership( $user_id );
-					if ( $member ) {
-						$member->create_subscription( $sub_id, 'pronamic_ideal' );
-					}
-
-					do_action( 'membership_payment_processed', $user_id, $sub_id, $payment->amount, 'EUR', $data_id );
-					break;
+			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
+			
+			if ( is_admin() ) {
+				$admin = new Pronamic_WP_Pay_Membership_Admin();
 			}
 		}
-	}
-
-	public function encrypt_data( $subscription_id, $pricing, $user_id ) {
-		return sha1( $subscription_id . serialize( $pricing ) . $user_id . AUTH_SALT );
 	}
 
 	//////////////////////////////////////////////////
 	
 	/**
-	 * Source column
+	 * Source text
+	 * 
+	 * @param text $text
+	 * @param Pronamic_Pay_Payment $payment
+	 * @return string
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Membership', 'pronamic_ideal' ) . '<br />';
@@ -104,10 +72,9 @@ class Pronamic_Membership_IDeal_AddOn {
 				'action'  => 'transactions',
 				'gateway' => 'pronamic_ideal'
 			), admin_url( 'admin.php') ),
-			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			sprintf( __( 'Transaction #%s', 'pronamic_ideal' ), $payment->get_id() )
 		);
 
 		return $text;
 	}
-
 }

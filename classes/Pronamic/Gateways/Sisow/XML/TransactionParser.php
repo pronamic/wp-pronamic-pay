@@ -14,52 +14,52 @@ class Pronamic_Gateways_Sisow_XML_TransactionParser extends Pronamic_Gateways_Si
 
 		// Transaction request
 		if ( isset( $xml->trxid ) ) {
-			$transaction->id               = (string) $xml->trxid;
+			$transaction->id               = Pronamic_XML_Util::filter( $xml->trxid );
 		}
 		
 		if ( isset( $xml->issuerurl ) ) {
-			$transaction->issuer_url       = urldecode( (string) $xml->issuerurl );
+			$transaction->issuer_url       = urldecode( Pronamic_XML_Util::filter( $xml->issuerurl ) );
 		}
 
 		// Status response
 		if ( isset( $xml->status ) ) {
-			$transaction->status           = (string) $xml->status;
+			$transaction->status           = Pronamic_XML_Util::filter( $xml->status );
 		}
 
 		if ( isset( $xml->amount ) ) {
-			$transaction->amount           = Pronamic_WordPress_Util::cents_to_amount( (string) $xml->amount );
+			$transaction->amount           = Pronamic_WP_Util::cents_to_amount( Pronamic_XML_Util::filter( $xml->amount ) );
 		}
 
 		if ( isset( $xml->purchaseid ) ) {
-			$transaction->purchase_id      = (string) $xml->purchaseid;
+			$transaction->purchase_id      = Pronamic_XML_Util::filter( $xml->purchaseid );
 		}
 
 		if ( isset( $xml->description ) ) {
-			$transaction->description      = (string) $xml->description;
+			$transaction->description      = Pronamic_XML_Util::filter( $xml->description );
 		}
 		
 		if ( isset( $xml->entrancecode ) ) {
-			$transaction->entrance_code    = (string) $xml->entrancecode;
+			$transaction->entrance_code    = Pronamic_XML_Util::filter( $xml->entrancecode );
 		}
 		
 		if ( isset( $xml->issuerid ) ) {
-			$transaction->issuer_id        = (string) $xml->issuerid;
+			$transaction->issuer_id        = Pronamic_XML_Util::filter( $xml->issuerid );
 		}
 
 		if ( isset( $xml->timestamp ) ) {
-			$transaction->timestamp        = new DateTime( (string) $xml->timestamp );
+			$transaction->timestamp        = new DateTime( Pronamic_XML_Util::filter( $xml->timestamp ) );
 		}
 
 		if ( isset( $xml->consumername ) ) {
-			$transaction->consumer_name    = (string) $xml->consumername;
+			$transaction->consumer_name    = Pronamic_XML_Util::filter( $xml->consumername );
 		}
 		
 		if ( isset( $xml->consumeraccount ) ) {
-			$transaction->consumer_account = (string) $xml->consumeraccount;
+			$transaction->consumer_account = Pronamic_XML_Util::filter( $xml->consumeraccount );
 		}
 		
 		if ( isset( $xml->consumercity ) ) {
-			$transaction->consumer_city    = (string) $xml->consumercity;
+			$transaction->consumer_city    = Pronamic_XML_Util::filter( $xml->consumercity );
 		}
 
 		return $transaction;

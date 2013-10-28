@@ -60,8 +60,8 @@ class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 			'account'          => $this->getAccount(),
 			'site_id'          => $this->getSiteId(),
 			'site_secure_code' => $this->getSiteSecureCode(),
-			'amount'           => $this->getAmount(),
-			'description'      => $this->getDescription(),
+			'amount'           => $this->get_amount(),
+			'description'      => $this->get_description(),
 			'items'            => $this->getItems()
 		) );
 	}

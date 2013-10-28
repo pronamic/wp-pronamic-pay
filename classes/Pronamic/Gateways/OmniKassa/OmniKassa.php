@@ -9,6 +9,26 @@
  * @version 1.0
  */
 class Pronamic_Gateways_OmniKassa_OmniKassa {
+	/**
+	 * Action URL to start a payment request in the test environment, 
+	 * the POST data is sent to.
+	 * 
+	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf 
+	 * @var string
+	 */	
+	const ACTION_URL_TEST = 'https://payment‐webinit.simu.omnikassa.rabobank.nl/paymentServlet';
+
+	/**
+	 * Action URL For a payment request in the production environment, 
+	 * the POST data is sent to
+	 * 
+	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf
+	 * @var string
+	 */
+	const ACTION_URL_PRUDCTION = 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet';
+
+	//////////////////////////////////////////////////
+
 	const ISO_639_1_ENGLISH = 'en';
 
 	const ISO_639_1_FRENCH = 'fr';
@@ -81,11 +101,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The payment server URL
+	 * The action URL
 	 * 
 	 * @var string
 	 */
-	private $paymentServerUrl;
+	private $action_url;
 
 	//////////////////////////////////////////////////
 
@@ -113,14 +133,14 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string N15
 	 */
-	private $merchantId;
+	private $merchant_id;
 
 	/**
 	 * Normal return URL
 	 * 
 	 * @var string ANS512 url
 	 */
-	private $normalReturnUrl;
+	private $normal_return_url;
 
 	/**
 	 * Amount
@@ -141,7 +161,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string N10
 	 */
-	private $keyVersion;
+	private $key_version;
 
 	//////////////////////////////////////////////////
 
@@ -150,7 +170,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string ANS512 url
 	 */
-	private $automaticResponseUrl;
+	private $automatic_response_url;
 
 	/**
 	 * Customer language in ISO 639‐1 Alpha2
@@ -172,7 +192,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string AN32
 	 */
-	private $orderId;
+	private $order_id;
 
 	/**
 	 * Expiration date
@@ -188,7 +208,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @var string
 	 */
-	private $secretKey;
+	private $secret_key;
 
 	//////////////////////////////////////////////////
 
@@ -204,21 +224,21 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	//////////////////////////////////////////////////
 	
 	/**
-	 * Get the payment server URL
+	 * Get the action URL
 	 *
-	 * @return the payment server URL
+	 * @return the action URL
 	 */
-	public function getPaymentServerUrl() {
-		return $this->paymentServerUrl;
+	public function get_action_url() {
+		return $this->action_url;
 	}
 	
 	/**
-	 * Set the payment server URL
+	 * Set the action URL
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl( $url ) {
-		$this->paymentServerUrl = $url;
+	public function set_action_url( $url ) {
+		$this->action_url = $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -248,7 +268,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string currency numeric code
 	 */
-	public function getCurrencyNumericCode() {
+	public function get_currency_numeric_code() {
 		return $this->currencyNumericCode;
 	}
 
@@ -257,8 +277,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $currencyCode
 	 */
-	public function setCurrencyNumericCode( $currencyNumericCode ) {
-		$this->currencyNumericCode = $currencyNumericCode;
+	public function set_currency_numeric_code( $currency_numeric_code ) {
+		$this->currencyNumericCode = $currency_numeric_code;
 	}
 
 	//////////////////////////////////////////////////
@@ -268,17 +288,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getMerchantId() {
-		return $this->merchantId;
+	public function get_merchant_id() {
+		return $this->merchant_id;
 	}
 
 	/**
 	 * Set the merchant ID
 	 * 
-	 * @param string $merchantdId
+	 * @param string $merchant_id
 	 */
-	public function setMerchantId( $merchantId ) {
-		$this->merchantId = $merchantId;
+	public function set_merchant_id( $merchant_id ) {
+		$this->merchant_id = $merchant_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -288,8 +308,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getNormalReturnUrl() {
-		return $this->normalReturnUrl;
+	public function get_normal_return_url() {
+		return $this->normal_return_url;
 	}
 
 	/**
@@ -297,10 +317,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * LET OP! De URL mag geen parameters bevatten.
 	 * 
-	 * @param string $normalReturnUrl
+	 * @param string $normal_return_url
 	 */
-	public function setNormalReturnUrl( $normalReturnUrl ) {
-		$this->normalReturnUrl = $normalReturnUrl;
+	public function set_normal_return_url( $normal_return_url ) {
+		$this->normal_return_url = $normal_return_url;
 	}
 
 	//////////////////////////////////////////////////
@@ -310,7 +330,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return float
 	 */
-	public function getAmount() {
+	public function get_amount() {
 		return $this->amount;
 	}
 
@@ -319,8 +339,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return int
 	 */
-	public function getFormattedAmount() {
-		return Pronamic_WordPress_Util::amount_to_cents( $this->amount );
+	public function get_formatted_amount() {
+		return Pronamic_WP_Util::amount_to_cents( $this->amount );
 	}
 
 	/**
@@ -328,7 +348,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param float $amount
 	 */
-	public function setAmount( $amount ) {
+	public function set_amount( $amount ) {
 		$this->amount = $amount;
 	}
 
@@ -339,8 +359,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getTransactionReference() {
-		return $this->transactionReference;
+	public function get_transaction_reference() {
+		return $this->transaction_reference;
 	}
 
 	/**
@@ -349,8 +369,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $transactionReference
 	 */
-	public function setTransactionReference( $transactionReference ) {
-		$this->transactionReference = substr( $transactionReference, 0, 35 );
+	public function set_transaction_reference( $transaction_reference ) {
+		$this->transaction_reference = substr( $transaction_reference, 0, 35 );
 	}
 
 	//////////////////////////////////////////////////
@@ -360,17 +380,17 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getKeyVersion() {
-		return $this->keyVersion;
+	public function get_key_version() {
+		return $this->key_version;
 	}
 
 	/**
 	 * Set key version
 	 * 
-	 * @param string $keyVersion
+	 * @param string $key_version
 	 */
-	public function setKeyVersion( $keyVersion ) {
-		$this->keyVersion = $keyVersion;
+	public function set_key_version( $key_version ) {
+		$this->key_version = $key_version;
 	}
 
 	//////////////////////////////////////////////////
@@ -380,8 +400,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getAutomaticResponseUrl() {
-		return $this->automaticResponseUrl;
+	public function get_automatic_response_url() {
+		return $this->automatic_response_url;
 	}
 
 	/**
@@ -389,10 +409,10 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * LET OP! De URL mag geen parameters bevatten.
 	 * 
-	 * @param string $automaticResponseUrl
+	 * @param string $automatic_response_url
 	 */
-	public function setAutomaticResponseUrl( $automaticResponseUrl ) {
-		$this->automaticResponseUrl = $automaticResponseUrl;
+	public function set_automatic_response_url( $automatic_response_url ) {
+		$this->automatic_response_url = $automatic_response_url;
 	}
 
 	//////////////////////////////////////////////////
@@ -442,8 +462,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getOrderId() {
-		return $this->orderId;
+	public function get_order_id() {
+		return $this->order_id;
 	}
 
 	/**
@@ -451,8 +471,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @param string $orderId
 	 */
-	public function setOrderId( $orderId ) {
-		$this->orderId = $orderId;
+	public function set_order_id( $order_id ) {
+		$this->order_id = $order_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -492,40 +512,48 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	//////////////////////////////////////////////////
 
+	public function get_data_array() {
+		$expiration_date = $this->getExpirationDate();
+		
+		// Payment Request - required fields
+		$required_fields = array(
+			'amount'               => $this->get_formatted_amount(),
+			'currencyCode'         => $this->get_currency_numeric_code(),
+			'merchantId'           => $this->get_merchant_id(),
+			'normalReturnUrl'      => $this->get_normal_return_url(),
+			'transactionReference' => $this->get_transaction_reference(),
+			'keyVersion'           => $this->get_key_version()
+		);
+		
+		// Payment request - optional fields
+		$optional_fields = array(
+			'automaticResponseUrl' => $this->get_automatic_response_url(),
+			'customerLanguage'     => $this->getCustomerLanguage(),
+			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
+			'orderId'              => $this->get_order_id(),
+			'expirationDate'       => $this->getFormattedExpirationDate()
+		);
+		
+		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
+		$optional_fields = array_filter( $optional_fields );
+		
+		// Data
+		$data = $required_fields + $optional_fields;
+		
+		return $data;
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Get data
 	 * 
 	 * @return string
 	 */
-	public function getData() {
-		$expiration_date = $this->getExpirationDate();
+	public function get_data() {
+		$data = $this->get_data_array();
 
-		// Payment Request - required fields
-		$required_fields = array( 
-			'currencyCode'         => $this->getCurrencyNumericCode(),
-			'merchantId'           => $this->getMerchantId(),
-			'normalReturnUrl'      => $this->getNormalReturnUrl(),
-			'amount'               => $this->getFormattedAmount(),
-			'transactionReference' => $this->getTransactionReference(),
-			'keyVersion'           => $this->getkeyVersion()
-		);
-		
-		// Payment request - optional fields
-		$optional_fields = array(
-			'automaticResponseUrl' => $this->getAutomaticResponseUrl(), 
-			'customerLanguage'     => $this->getCustomerLanguage(),
-			'paymentMeanBrandList' => $this->getPaymentMeanBrandList(),
-			'orderId'              => $this->getOrderId(),
-			'expirationDate'       => $this->getFormattedExpirationDate()
-		);
-
-		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
-		$optional_fields = array_filter( $optional_fields );
-
-		// Data
-		$data = $required_fields + $optional_fields;
-
-		return self::createPipedString( $data );
+		return self::create_piped_string( $data );
 	}
 
 	//////////////////////////////////////////////////
@@ -535,8 +563,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getSecretKey() {
-		return $this->secretKey;
+	public function get_secret_key() {
+		return $this->secret_key;
 	}
 
 	/**
@@ -544,8 +572,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function setSecretKey( $secretKey ) {
-		$this->secretKey = $secretKey;
+	public function set_secret_key( $secret_key ) {
+		$this->secret_key = $secret_key;
 	}
 
 	//////////////////////////////////////////////////
@@ -555,11 +583,11 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * 
 	 * @return string
 	 */
-	public function getSeal() {
-		$data = $this->getData();
-		$secretKey = $this->getSecretKey();
+	public function get_seal() {
+		$data       = $this->get_data();
+		$secret_key = $this->get_secret_key();
 
-		return self::computeSeal( $data, $secretKey );
+		return self::compute_seal( $data, $secret_key );
 	}
 
 	/**
@@ -568,8 +596,8 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param string $data
 	 * @param string $secretKey
 	 */
-	public static function computeSeal( $data, $secretKey ) {
-		$value = $data . $secretKey;
+	public static function compute_seal( $data, $secret_key ) {
+		$value = $data . $secret_key;
 		$value = utf8_encode( $value );
 
 		return hash( self::HASH_ALGORITHM_SHA256, $value );
@@ -584,9 +612,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 */
 	public function getHtmlFields() {
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( array(
-			'Data'             => $this->getData(),
+			'Data'             => $this->get_data(),
 			'InterfaceVersion' => $this->get_interface_version(),
-			'Seal'             => $this->getSeal()
+			'Seal'             => $this->get_seal()
 		) );
 		
 		return $html;
@@ -600,7 +628,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param array $data
 	 * @return string
 	 */
-	public static function createPipedString( array $data ) {
+	public static function create_piped_string( array $data ) {
 		// @see http://core.trac.wordpress.org/browser/tags/3.3.1/wp-includes/functions.php#L1385
 		return _http_build_query( $data, null, '|', '', false );
 	}
@@ -611,7 +639,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	 * @param string $string
 	 * @return array
 	 */
-	public static function parsePipedString($string) {
+	public static function parse_piped_string($string) {
 		$data = array();
 
 		$pairs = explode('|', $string);

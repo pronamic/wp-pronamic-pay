@@ -326,7 +326,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an description
 	 */
-	public function getDescription() {
+	public function get_description() {
 		return $this->description;
 	}
 
@@ -482,7 +482,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getSuccessUrl() {
+	public function get_success_url() {
 		return $this->successUrl;
 	}
 
@@ -502,7 +502,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getCancelUrl() {
+	public function get_cancel_url() {
 		return $this->cancelUrl;
 	}
 	
@@ -522,7 +522,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 *
 	 * @return an URL
 	 */
-	public function getErrorUrl() {
+	public function get_error_url() {
 		return $this->errorUrl;
 	}
 	
@@ -560,8 +560,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	/**
 	 * Calculate the total amount of all items
 	 */
-	public function getAmount() {
-		return $this->items->getAmount();
+	public function get_amount() {
+		return $this->items->get_amount();
 	}
 
 	//////////////////////////////////////////////////
@@ -582,7 +582,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = $this->getSubId();
 
 		// Total amount of transaction
-		$string[] = Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() );
+		$string[] = Pronamic_WP_Util::amount_to_cents( $this->get_amount() );
 
 		// The online shop's unique order number, also known as purchase id
 		$string[] = $this->getPurchaseId(); 
@@ -602,13 +602,13 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$string[] = $item->getNumber();
 
 			// Description of article <n>
-			$string[] = $item->getDescription();
+			$string[] = $item->get_description();
 	
 			// Number of items of article <n> that the consumer wants to buy
 			$string[] = $item->getQuantity();
 
 			// Price of article <n> in whole eurocents
-			$string[] = Pronamic_WordPress_Util::amount_to_cents( $item->getPrice() ); // Price of article in whole cents
+			$string[] = Pronamic_WP_Util::amount_to_cents( $item->getPrice() ); // Price of article in whole cents
 		}
 
 		$concatString = implode('', $string);
@@ -643,11 +643,11 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['merchantID']  = $this->getMerchantId();
 		$fields['subID']       = $this->getSubId();
 
-		$fields['amount']      = Pronamic_WordPress_Util::amount_to_cents( $this->getAmount() );
+		$fields['amount']      = Pronamic_WP_Util::amount_to_cents( $this->get_amount() );
 		$fields['purchaseID']  = $this->getPurchaseId();
 		$fields['language']    = $this->getLanguage();
 		$fields['currency']    = $this->getCurrency();
-		$fields['description'] = $this->getDescription();
+		$fields['description'] = $this->get_description();
 		$fields['hash']        = $this->createHash();
 		$fields['paymentType'] = $this->getPaymentType();
 		$fields['validUntil']  = $this->getExpireDate()->format( $this->getExpireDateFormat() );
@@ -655,16 +655,16 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$serial_number = 1;
 		foreach ( $this->getItems() as $item) {
 			$fields['itemNumber' . $serial_number]      = $item->getNumber();
-			$fields['itemDescription' . $serial_number] = $item->getDescription();
+			$fields['itemDescription' . $serial_number] = $item->get_description();
 			$fields['itemQuantity' . $serial_number]    = $item->getQuantity();
-			$fields['itemPrice' . $serial_number]       = Pronamic_WordPress_Util::amount_to_cents( $item->getPrice() );
+			$fields['itemPrice' . $serial_number]       = Pronamic_WP_Util::amount_to_cents( $item->getPrice() );
 
 			$serial_number++;
 		}
 
-		$fields['urlCancel']   = $this->getCancelUrl();
-		$fields['urlSuccess']  = $this->getSuccessUrl();
-		$fields['urlError']    = $this->getErrorUrl();
+		$fields['urlCancel']   = $this->get_cancel_url();
+		$fields['urlSuccess']  = $this->get_success_url();
+		$fields['urlError']    = $this->get_error_url();
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );
 	}

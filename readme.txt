@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 3.5.2
-Stable tag: 1.3.4
+Tested up to: 3.7
+Stable tag: 2.0.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -115,6 +115,11 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 WordPress installation and then activate the Plugin from Plugins page.
 
 
+== Developers ==
+
+*	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/pronamic-ideal ~/wp/git/pronamic-ideal/languages/pronamic_ideal.pot
+
+
 == Screenshots ==
 
 1.	Configuration edit page
@@ -145,6 +150,31 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.0.0 =
+*	Refactor - Converted configurations to posts (custom post type).
+*	Refactor - Converted payments to posts (custom post type).
+*	Refactor - Converted Gravity Forms pay feeds to posts (custom post type).
+*	Refactor - Rewritten all gateways, configurations, update status functions and more.
+*	Refactor - Settings pages now use the WordPress settings API.
+*	Refactor - s2Member iDEAL gateway rewritten.
+*	Refactor - Membership iDEAL gateway rewritten.
+*	Refactor - WP e-Commerce iDEAL gateway rewritten.
+*	Refactor - WordPress Coding Standards optimizations.
+*	Feature - Added support for the "Deutsche Bank - iDEAL via Ogone" gateway.
+*	Feature - Added support for the "Ogone - DirectLink" gateway.
+*	Feature - Added support for the "Dutch Payment Group - PayDutch" gateway. 
+*	Feature - Extended the iDEAL Advanced v3 private key and certifcate generate commands.
+*	Feature - Added log/note/comment system to payments using WordPress comment system.
+*	Feature - Added an dashboard page - latest payments, Pronamic news and more.
+*	Feature - Added an system status - supported extensions, versions, build status and more.
+*	Feature - Added settings for global return pages.
+*	Tweak - Added support for iDEAL Advanced v3 on PHP 5.2 (thanks to ING).
+*	Tweak - Display ICEPAY return URL's in readonly fields.
+*	Tweak - Adjusted Ogone dashboard URL's to the new dashboard URL's.
+*	Tweak - Added support for Ogone hash algorithms (SHA-1, SHA-256 and SHA-512).
+*	Tweak - Added more unit testing for gateways and XML parsing.
+*	Localization - Added POT file and use makepot.php
 
 = 1.3.4 =
 *	Improved support for cancelled payments in WooCommerce

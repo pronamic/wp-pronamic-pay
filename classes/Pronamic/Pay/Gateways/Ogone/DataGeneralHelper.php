@@ -76,7 +76,7 @@ class Pronamic_Pay_Gateways_Ogone_DataGeneralHelper {
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_amount( $amount ) {
-		$this->data->set_field( 'AMOUNT', Pronamic_WordPress_Util::amount_to_cents( $amount ) );
+		$this->data->set_field( 'AMOUNT', Pronamic_WP_Util::amount_to_cents( $amount ) );
 		
 		return $this;
 	}

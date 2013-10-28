@@ -9,15 +9,15 @@
  * @version 1.0
  */
 class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
-	public function __construct( $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_Sisow_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
-		$this->client = new Pronamic_Gateways_Sisow_Sisow( $configuration->sisowMerchantId, $configuration->sisowMerchantKey );
-		$this->client->set_test_mode( $configuration->mode == Pronamic_IDeal_IDeal::MODE_TEST );
+		$this->client = new Pronamic_Gateways_Sisow_Sisow( $config->merchant_id, $config->merchant_key );
+		$this->client->set_test_mode( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
 
 	/////////////////////////////////////////////////
@@ -64,19 +64,19 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
-			$data->getOrderId(),
-			$data->getAmount(),
-			$data->getDescription(),
+			$payment->get_id(),
+			$data->get_amount(),
+			$data->get_description(),
 			$data->get_entrance_code(),
-			add_query_arg( 'gateway', 'sisow', home_url( '/' ) )
+			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
 		if ( $result !== false ) {
-			$this->set_transaction_id( $result->id );
-			$this->set_action_url( $result->issuer_url );
+			$payment->set_transaction_id( $result->id );
+			$payment->set_action_url( $result->issuer_url );
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -87,18 +87,18 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Update status of the specified payment
 	 *
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-		$result = $this->client->get_status( $payment->transaction_id );
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		$result = $this->client->get_status( $payment->get_transaction_id() );
 
 		if ( $result !== false ) {
 			$transaction = $result;
-
-			$payment->status                  = $transaction->status;
-			$payment->consumer_name           = $transaction->consumer_name;
-			$payment->consumer_account_number = $transaction->consumer_account;
-			$payment->consumer_city           = $transaction->consumer_city;
+			
+			$payment->set_status( $transaction->status );
+			$payment->set_consumer_name( $transaction->consumer_name );
+			$payment->set_consumer_account_number( $transaction->consumer_account );
+			$payment->set_consumer_city( $transaction->consumer_city );
 		} else {
 			$this->error = $this->client->get_error();
 		}

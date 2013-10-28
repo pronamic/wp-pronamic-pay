@@ -31,11 +31,10 @@ class Pronamic_Shopp_IDeal_AddOn {
 	public static function intialize() {
 		self::add_gateway();
 
-		// Actions
-		add_action( 'pronamic_ideal_status_update',       array( __CLASS__, 'update_status' ), 10, 2 );
-		
-		// Filters
-		add_filter( 'pronamic_ideal_source_column_shopp', array( __CLASS__, 'source_column' ), 10, 2 );
+		$slug = self::SLUG;
+
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -81,9 +80,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Update lead status of the specified advanced payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function update_status( Pronamic_WordPress_IDeal_Payment $payment, $can_redirect = false ) {
+	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		if ( $payment->getSource() == self::SLUG && self::is_shopp_supported() ) {
 			global $Shopp;
 
@@ -94,13 +93,13 @@ class Pronamic_Shopp_IDeal_AddOn {
 			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
 			
 			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) {
-				$url = $data->getNormalReturnUrl();
+				$url = $data->get_normal_return_url();
 
 				switch ( $payment->status ) {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED );
 
-						$url = $data->getCancelUrl();
+						$url = $data->get_cancel_url();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -110,13 +109,13 @@ class Pronamic_Shopp_IDeal_AddOn {
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE );
 
-						$url = $data->getErrorUrl();
+						$url = $data->get_error_url();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CAPTURED );
 
-						$url = $data->getSuccessUrl();
+						$url = $data->get_success_url();
 
 						$Shopp->resession();
 
@@ -141,15 +140,15 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
-			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->getSourceId() ), admin_url( 'admin.php' ) ),
-			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->get_source_id() ), admin_url( 'admin.php' ) ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;

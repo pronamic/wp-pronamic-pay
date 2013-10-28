@@ -16,6 +16,13 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	const SLUG = 'wp-e-commerce';
 
+	/**
+	 * Option for config ID
+	 * 
+	 * @var string
+	 */
+	const OPTION_CONFIG_ID = 'pronamic_pay_ideal_wpsc_config_id';
+
 	//////////////////////////////////////////////////
 	
 	/**
@@ -23,13 +30,15 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 */
 	public static function bootstrap(){
 		// Add gateway to gateways
-		add_filter( 'wpsc_merchants_modules',                     array( __CLASS__, 'merchants_modules' ) );
-		
+		add_filter( 'wpsc_merchants_modules',               array( __CLASS__, 'merchants_modules' ) );
+
+		$slug = self::SLUG;
+
 		// Update payment status when returned from iDEAL
-		add_action( 'pronamic_ideal_status_update',               array( __CLASS__, 'status_update' ), 10, 2 );
-		
+		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+
 		// Source Column
-		add_filter( 'pronamic_ideal_source_column_wp-e-commerce', array( __CLASS__, 'source_column' ), 10, 2 );
+		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -73,11 +82,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	private function advanced_inputs() {
 		$output = '';
 
-		$configuration_id = get_option( 'pronamic_ideal_wpsc_configuration_id' );
+		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$configuration = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $configuration_id );
-
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration );
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$output = $gateway->get_input_html();
@@ -91,50 +98,55 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	/**
 	 * Update lead status of the specified payment
 	 * 
-	 * @param string $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function status_update( $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$id = $payment->getSourceId();
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $payment->get_source_id() );
+		$data = new Pronamic_WP_Pay_WPeCommerce_PaymentData( $merchant );
 
-			$merchant = new Pronamic_WPeCommerce_IDeal_IDealMerchant( $id );
-			$data = new Pronamic_WPeCommerce_IDeal_IDealDataProxy( $merchant );
+		$url = $data->get_normal_return_url();
 
-			$url = $data->getNormalReturnUrl();
+		switch ( $payment->status ) {
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+				// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 
-			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-					$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
-					// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
+                $url = $data->get_cancel_url();
 
-	                $url = $data->getCancelUrl();
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+				/*
+				 * Transactions results
+				 * 
+				 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-merchants/paypal-pro.merchant.php#L303
+				 */
+				$session_id = get_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', true );
+				
+				transaction_results( $session_id );
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-	            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
+            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
-	                $url = $data->getSuccessUrl();
+                $url = $data->get_success_url();
 
-					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+				break;
+			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 
-					break;
-				default:
+				break;
+			default:
 
-					break;
-			}
-			
-			if ( $can_redirect ) {
-				wp_redirect( $url, 303 );
+				break;
+		}
+		
+		if ( $can_redirect ) {
+			wp_redirect( $url, 303 );
 
-				exit;
-			}
+			exit;
 		}
 	}
 
@@ -143,7 +155,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	/**
 	 * Source column
 	 */
-	public static function source_column( $text, $payment ) {
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
 		$text  = '';
 
 		$text .= __( 'WP e-Commerce', 'pronamic_ideal' ) . '<br />';
@@ -152,9 +164,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			'<a href="%s">%s</a>',
 			add_query_arg( array(
 				'page'           => 'wpsc-sales-logs', 
-				'purchaselog_id' => $payment->getSourceId()
+				'purchaselog_id' => $payment->get_source_id()
 			), admin_url( 'index.php' ) ),
-			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->getSourceId() )
+			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);
 
 		return $text;

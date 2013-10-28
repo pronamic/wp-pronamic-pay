@@ -96,7 +96,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 	private function send_request( $method, array $parameters = array() ) {
 		$url = self::API_URL . '/' . $method;
 
-		return Pronamic_WordPress_Util::remote_get_body( $url, 200, array(
+		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $parameters
@@ -153,7 +153,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		} else {
 			$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::DIRECTORY_REQUEST );
 
-			$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
@@ -188,7 +188,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		return sha1(
 			$purchase_id .
 			$entrance_code .
-			Pronamic_WordPress_Util::amount_to_cents( $amount ) .
+			Pronamic_WP_Util::amount_to_cents( $amount ) .
 			$shop_id .
 			$merchant_id .
 			$merchant_key
@@ -217,7 +217,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		$parameters['merchantid']   = $this->merchant_id;
 		$parameters['issuerid']     = $issuer_id;
 		$parameters['purchaseid']   = $purchase_id;
-		$parameters['amount']       = Pronamic_WordPress_Util::amount_to_cents( $amount );
+		$parameters['amount']       = Pronamic_WP_Util::amount_to_cents( $amount );
 		$parameters['description']  = $description;
 		$parameters['entrancecode'] = $entrance_code;
 		$parameters['returnurl']    = $return_url;
@@ -228,7 +228,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 		$response = $this->send_request( Pronamic_Gateways_Sisow_Methods::TRANSACTION_REQUEST, $parameters );
 
-		$xml = Pronamic_WordPress_Util::simplexml_load_string( $response );
+		$xml = Pronamic_WP_Util::simplexml_load_string( $response );
 
 		if ( is_wp_error( $xml ) ) {
 			$this->error = $xml;
@@ -273,7 +273,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 		$result = $this->send_request( Pronamic_Gateways_Sisow_Methods::STATUS_REQUEST, $parameters );
 
-		$xml = Pronamic_WordPress_Util::simplexml_load_string( $result );
+		$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 		if ( is_wp_error( $xml ) ) {
 			$this->error = $xml;

@@ -10,12 +10,35 @@
  */
 class Pronamic_S2Member_Bridge_Settings {
     public function __construct() {
-    	add_action( 'init',       array( $this, 'save_options_page' ) );
+    	add_action( 'admin_init', array( $this, 'admin_init' ) );
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+    }
+    
+    public function admin_init() {
+    	// Settings - General
+    	add_settings_section(
+    		'pronamic_pay_s2member_general', // id
+    		__( 'General', 'pronamic_ideal' ), // title
+    		array( 'Pronamic_WordPress_IDeal_Admin', 'settings_section' ), // callback
+    		'pronamic_pay_s2member' // page
+    	);
 
-        add_action( 'admin_menu', array( $this, 'menu' ) );
+    	add_settings_field(
+    		'pronamic_pay_s2member_config_id', // id
+    		__( 'Configuration', 'pronamic_ideal' ), // title
+    		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
+    		'pronamic_pay_s2member', // page
+    		'pronamic_pay_s2member_general', // section
+    		array( // args 
+    			'name'      => 'pronamic_pay_s2member_config_id',
+    			'label_for' => 'pronamic_pay_s2member_config_id'
+    		)
+    	);
+
+    	register_setting( 'pronamic_pay_s2member', 'pronamic_pay_s2member_config_id' );
     }
 
-    public function menu() {
+    public function admin_menu() {
         $parent_slug = apply_filters( 'ws_plugin__s2member_during_add_admin_options_menu_slug', 'ws-plugin--s2member-start' );
 
         if ( apply_filters( 'ws_plugin__s2member_during_add_admin_options_add_divider_6', true, get_defined_vars() ) ) /* Divider. */
@@ -26,7 +49,7 @@ class Pronamic_S2Member_Bridge_Settings {
 			__( 'Pronamic iDEAL Options', 'pronamic_ideal' ),
 			__( 'iDEAL Options', 'pronamic_ideal' ),
 			'create_users',
-            'pronamic-ideal-s2member-options',
+            'pronamic_pay_s2member_settings',
             array( $this, 'view_options_page' )
 		);
 
@@ -35,75 +58,16 @@ class Pronamic_S2Member_Bridge_Settings {
 			__( 'Pronamic iDEAL Buttons Generator', 'pronamic_ideal' ),
 			__( 'iDEAL Buttons', 'pronamic_ideal' ),
 			'create_users',
-			'pronamic-ideal-s2member-buttongen',
+			'pronamic_pay_s2member_buttons',
 			array( $this, 'view_buttongen_page' )
 		);
 	}
 
     public function view_options_page() {
-        // Generate nonce field
-        $nonce = wp_nonce_field( 'pronamic-ideal-s2member-options', 'pronamic-ideal-s2member-options-nonce', true, false );
-
-        // Get all configurations
-        $configurations = Pronamic_WordPress_IDeal_IDeal::get_configurations_select_options();
-
-        // Get existing options
-        $pronamic_ideal_s2member_enabled                = get_option( 'pronamic_ideal_s2member_enabled' );
-        $pronamic_ideal_s2member_chosen_configuration   = get_option( 'pronamic_ideal_s2member_chosen_configuration' );
-        ?>
-
-        <div class="wrap">
-            <?php screen_icon(); ?>
-            <h2><?php echo get_admin_page_title(); ?></h2>
-            <form action="" method="POST">
-                <?php echo $nonce; ?>
-                <table class="form-table">
-                    <tr>
-                        <th><?php _e( 'Enable/Disable', 'pronamic_ideal' ); ?></th>
-                        <td>
-                            <input type="checkbox" name="pronamic_ideal_s2member_enabled" value="1" <?php if ( $pronamic_ideal_s2member_enabled == 1 ) : ?> checked="checked" <?php endif;?> />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><?php _e( 'Configuration', 'pronamic_ideal' ); ?></th>
-                        <td>
-                            <select name="pronamic_ideal_s2member_chosen_configuration">
-                                <?php foreach ( $configurations as $value => $name ) : ?>
-                                    <?php if ( $value == $pronamic_ideal_s2member_chosen_configuration ) : ?>
-                                        <option value="<?php echo $value; ?>" selected="selected"><?php echo $name; ?></option>
-                                    <?php else: ?>
-                                        <option value="<?php echo $value; ?>"><?php echo $name; ?></option>
-                                    <?php endif;?>
-                                <?php endforeach; ?>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <?php submit_button(); ?>
-            </form>
-		</div>
-        <?php
-    }
-
-    public function save_options_page() {
-        if ( ! isset( $_POST['pronamic-ideal-s2member-options-nonce'] ) )
-            return;
-
-        if ( ! wp_verify_nonce( $_POST['pronamic-ideal-s2member-options-nonce'], 'pronamic-ideal-s2member-options') )
-            return;
-
-        // Clean options
-        $pronamic_ideal_s2member_enabled = filter_input( INPUT_POST, 'pronamic_ideal_s2member_enabled', FILTER_VALIDATE_INT );
-        $pronamic_ideal_s2member_chosen_configuration = filter_input( INPUT_POST, 'pronamic_ideal_s2member_chosen_configuration', FILTER_VALIDATE_INT );
-
-        // Save options
-        update_option( 'pronamic_ideal_s2member_enabled', $pronamic_ideal_s2member_enabled );
-        update_option( 'pronamic_ideal_s2member_chosen_configuration', $pronamic_ideal_s2member_chosen_configuration );
-
-        return;
+		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/settings' );
     }
 
 	public function view_buttongen_page() {
-		return Pronamic_WordPress_IDeal_Admin::renderView( 's2member/buttons-generator' );
+		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/buttons-generator' );
 	}
 }

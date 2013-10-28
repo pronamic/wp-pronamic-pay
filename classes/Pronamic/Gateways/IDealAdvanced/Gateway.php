@@ -12,10 +12,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Constructs and initializes an iDEAL Advanced gateway
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
+	 * @param Pronamic_Gateways_IDealAdvanced_Config $config
 	 */
-	public function __construct( Pronamic_WordPress_IDeal_Configuration $configuration ) {
-		parent::__construct( $configuration );
+	public function __construct( Pronamic_Gateways_IDealAdvanced_Config $config ) {
+		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
@@ -23,35 +23,21 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 
 		// Client
 		$client = new Pronamic_Gateways_IDealAdvanced_Client();
-		$client->setAcquirerUrl( $configuration->getPaymentServerUrl() );
-		$client->merchant_id = $configuration->getMerchantId();
-		$client->sub_id = $configuration->getSubId();
-		$client->setPrivateKey( $configuration->privateKey );
-		$client->setPrivateKeyPassword( $configuration->privateKeyPassword );
-		$client->setPrivateCertificate( $configuration->privateCertificate );
+		$client->setAcquirerUrl( $config->directory_request_url );
+		$client->merchant_id = $config->merchant_id;
+		$client->sub_id = $config->sub_id;
+		$client->setPrivateKey( $config->private_key );
+		$client->setPrivateKeyPassword( $config->private_key_password );
+		$client->setPrivateCertificate( $config->private_certificate );
 
-		$variant = $configuration->getVariant();
+		$client->directory_request_url   = $config->directory_request_url; 
+		$client->transaction_request_url = $config->transaction_request_url; 
+		$client->status_request_url      = $config->status_request_url; 
 		
-		if ( $variant ) {
-			$settings = ( $configuration->getMode() == Pronamic_IDeal_IDeal::MODE_TEST ) ? $variant->testSettings : $variant->liveSettings;
-
-			if ( $settings ) {
-				if ( isset( $settings->directoryRequestUrl ) && ! empty( $settings->directoryRequestUrl ) ) {
-					$client->directory_request_url = $settings->directoryRequestUrl; 
-				}
-				if ( isset( $settings->transactionRequestUrl ) && ! empty( $settings->transactionRequestUrl ) ) {
-					$client->transaction_request_url = $settings->transactionRequestUrl; 
-				}
-				if ( isset( $settings->statusRequestUrl ) && ! empty( $settings->statusRequestUrl ) ) {
-					$client->status_request_url = $settings->statusRequestUrl; 
-				}
-				
-				foreach ( $variant->certificates as $certificate ) {
-					$client->addPublicCertificate( $certificate );
-				}
-			}
+		foreach ( $config->certificates as $certificate ) {
+			$client->addPublicCertificate( $certificate );
 		}
-		
+
 		$this->client = $client;
 	}
 	
@@ -120,28 +106,28 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * 
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		// Transaction request message
 		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-		$transaction->setPurchaseId( $data->getOrderId() );
-		$transaction->setAmount( $data->getAmount() );
-		$transaction->setCurrency( $data->getCurrencyAlphabeticCode() );
+		$transaction->setPurchaseId( $data->get_order_id() );
+		$transaction->setAmount( $data->get_amount() );
+		$transaction->setCurrency( $data->get_currency() );
 		$transaction->setExpirationPeriod( 'PT3M30S' );
-		$transaction->setLanguage( $data->getLanguageIso639Code() );
-		$transaction->setDescription( $data->getDescription() );
+		$transaction->setLanguage( $data->get_language() );
+		$transaction->setDescription( $data->get_description() );
 		$transaction->setEntranceCode( $data->get_entrance_code() );
 
-		$result = $this->client->create_transaction( $transaction, $data->get_issuer_id() );
+		$return_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
+
+		$result = $this->client->create_transaction( $transaction, $return_url, $data->get_issuer_id() );
 
 		$error = $this->client->get_error();
 
 		if ( $error !== null ) {
 			$this->error = $error;
 		} else {
-			$issuer = $result->issuer;
-
-			$this->set_action_url( $result->issuer->authenticationUrl );
-			$this->set_transaction_id( $result->transaction->getId() );
+			$payment->set_action_url( $result->issuer->authenticationUrl );
+			$payment->set_transaction_id( $result->transaction->getId() );
 		}
 	}
 	
@@ -151,9 +137,9 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	 * Payment
 	 * 
 	 * @see Pronamic_Gateways_Gateway::payment()
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function payment( Pronamic_WordPress_IDeal_Payment $payment ) {
+	public function payment( Pronamic_Pay_Payment $payment ) {
 		/*
 		 * Schedule status requests	
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
@@ -178,13 +164,13 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>    30 ) );
+		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>    30 ) );
 		// Half-way through an expirationPeriod
-		wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  1800 ) );
+		wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>  1800 ) );
 		// Just after an expirationPeriod
-		wp_schedule_single_event( $time +  3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' =>  3600 ) );
+		wp_schedule_single_event( $time +  3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>  3600 ) );
 		// A certain period after the end of the expirationPeriod
-		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->getId(), 'seconds' => 86400 ) );
+		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 86400 ) );
 	}
 	
 	/////////////////////////////////////////////////
@@ -192,10 +178,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Update status of the specified payment
 	 * 
-	 * @param Pronamic_WordPress_IDeal_Payment $payment
+	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public function update_status( Pronamic_WordPress_IDeal_Payment $payment ) {
-		$result = $this->client->get_status( $payment->transaction_id );
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		$result = $this->client->get_status( $payment->get_transaction_id() );
 
 		$error = $this->client->get_error();
 
@@ -204,10 +190,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		} else {
 			$transaction = $result->transaction;
 
-			$payment->status                  = $transaction->getStatus();
-			$payment->consumer_name           = $transaction->getConsumerName();
-			$payment->consumer_account_number = $transaction->getConsumerAccountNumber();
-			$payment->consumer_city           = $transaction->getConsumerCity();
+			$payment->set_status( $transaction->getStatus() );
+			$payment->set_consumer_name( $transaction->getConsumerName() );
+			$payment->set_consumer_account_number( $transaction->getConsumerAccountNumber() );
+			$payment->set_consumer_city( $transaction->getConsumerCity() );
 		}
 	}
 }
