@@ -152,7 +152,13 @@ Here is a list of known plugin conflicts:
 == Changelog ==
 
 = 2.0.1 =
-*	Fix - Fixed an issue saving Pronamic iDEAL settings
+*	Fix - Fixed an issue saving Pronamic iDEAL settings.
+*	Fix - WooCommerce issue on iDEAL checkout.
+*	Fix - Jigoshop issue on iDEAL checkout.
+*	Localization - Danish translation by Pronamic.
+*	Test - Jigoshop tested up to 1.8.
+*	Test - WooCommerce tested up to 2.0.18.
+*	Test - s2Member tested up to 131026.
 
 = 2.0.0 =
 *	Refactor - Converted configurations to posts (custom post type).
