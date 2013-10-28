@@ -156,7 +156,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return string
 	 */
 	public static function get_key() {
-		return get_option( 'pronamic_ideal_key' );
+		return get_option( 'pronamic_pay_license_key' );
 	}
 
 	/**
