@@ -90,7 +90,7 @@
 			'github_url'        => 'https://github.com/jigoshop/jigoshop',
 			'active'            => Pronamic_Jigoshop_Jigoshop::is_active(),
 			'requires_at_least' => '1.1',
-			'tested_up_to'      => '1.1',
+			'tested_up_to'      => '1.8',
 			'author'            => __( 'Jigowatt', 'pronamic_ideal' ),
 			'author_url'        => 'http://jigowatt.co.uk/'
 		),
@@ -120,7 +120,7 @@
 			'github_url'        => 'https://github.com/WebSharks/s2Member',
 			'active'            => Pronamic_S2Member_S2Member::is_active(),
 			'requires_at_least' => '130816',
-			'tested_up_to'      => '130816',
+			'tested_up_to'      => '131026',
 			'author'            => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.websharks-inc.com/'
 		),
@@ -141,7 +141,7 @@
 			'wp_org_url'        => 'http://wordpress.org/extend/plugins/woocommerce/',
 			'active'            => Pronamic_WooCommerce_WooCommerce::is_active(),
 			'requires_at_least' => '2.0.0',
-			'tested_up_to'      => '2.0.12',
+			'tested_up_to'      => '2.0.18',
 			'author'            => __( 'WooThemes', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.woothemes.com/'
 		),
