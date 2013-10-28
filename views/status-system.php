@@ -436,8 +436,15 @@
 				<?php _e( 'Travis CI build status', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
+				<?php 
+				
+				global $pronamic_pay_version;
+				
+				$url = add_query_arg( 'branch', $pronamic_pay_version, 'https://travis-ci.org/pronamic/wp-pronamic-ideal.png' );
+				
+				?>
 				<a href="https://travis-ci.org/pronamic/wp-pronamic-ideal">
-					<img src="https://travis-ci.org/pronamic/wp-pronamic-ideal.png" alt="" />
+					<img src="<?php echo esc_attr( $url ); ?>" alt="" />
 				</a>
 			</td>
 		</tr>
