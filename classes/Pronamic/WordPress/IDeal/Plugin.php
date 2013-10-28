@@ -169,6 +169,19 @@ class Pronamic_WordPress_IDeal_Plugin {
 	}
 
 	/**
+	 * Get number payments
+	 * 
+	 * @return int
+	 */
+	public static function get_number_payments() {
+		global $wpdb;
+		
+		$count = $wpdb->get_var( "SELECT COUNT( ID ) FROM $wpdb->posts WHERE post_type = 'pronamic_payment' AND post_status = 'publish';" );
+		
+		return $count;
+	}
+
+	/**
 	 * Check if there is an valid license key
 	 *
 	 * @return boolean
@@ -198,7 +211,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return boolean true if plugin can be used, false otherwise
 	 */
 	public static function can_be_used() {
-		return self::is_installed() && self::has_valid_key();
+		return self::is_installed() && ( self::has_valid_key() || self::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE );
 	}
 
 	//////////////////////////////////////////////////
