@@ -260,6 +260,10 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		$db_version = get_option( 'pronamic_pay_db_version' );
 
+		if ( $db_version < 201 ) {
+			pronamic_pay_upgrade_201();
+		}
+
 		if ( $db_version < 200 ) {
 			pronamic_pay_upgrade_200();
 		}
