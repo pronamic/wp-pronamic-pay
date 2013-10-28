@@ -17,7 +17,7 @@ class Pronamic_Gateways_PayDutch_XML_PaymentInfoParser extends Pronamic_Gateways
 	public static function parse( SimpleXMLElement $xml ) {
 		$payment_info = new Pronamic_Gateways_PayDutch_PaymentInfo();
 		
-		$payment_info->test            = filter_var( $xml->test, FILTER_VALIDATE_BOOLEAN );
+		$payment_info->test            = filter_var( (string) $xml->test, FILTER_VALIDATE_BOOLEAN );
 		$payment_info->id              = filter_var( $xml->id, FILTER_SANITIZE_STRING );
 		$payment_info->description     = filter_var( $xml->description, FILTER_SANITIZE_STRING );
 		$payment_info->amount          = Pronamic_Gateways_PayDutch_PayDutch::parse_amount( $xml->amount );
