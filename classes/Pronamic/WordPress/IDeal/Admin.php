@@ -59,7 +59,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	}
 
 	public static function settings_init() {
-		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ) );
+		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ), 10, 2 );
 		
 		// Settings - General
 		add_settings_section(
@@ -259,6 +259,10 @@ class Pronamic_WordPress_IDeal_Admin {
 		require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/admin/includes/upgrade.php';
 
 		$db_version = get_option( 'pronamic_pay_db_version' );
+
+		if ( $db_version < 201 ) {
+			pronamic_pay_upgrade_201();
+		}
 
 		if ( $db_version < 200 ) {
 			pronamic_pay_upgrade_200();

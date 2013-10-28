@@ -218,7 +218,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		$data = new Pronamic_WooCommerce_PaymentData( $order );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
@@ -234,7 +234,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'result' 	=> 'failed'
 			);
 		} else {
-	    	$url = $gateway->get_action_url();
+	    	$url = $payment->get_action_url();
 	
 			return array(
 				'result' 	=> 'success',
