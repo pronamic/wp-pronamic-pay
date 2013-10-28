@@ -211,7 +211,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
     private function process_gateway_http_redirect( $order, $gateway ) {
 		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
-		Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
@@ -229,7 +229,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 				'result' 	=> 'failed'
 			);
 		} else {
-	    	$url = $gateway->get_action_url();
+	    	$url = $payment->get_action_url();
 	
 			return array(
 				'result' 	=> 'success',
