@@ -19,6 +19,15 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusReqMessage extends Pro
 	//////////////////////////////////////////////////
 
 	/**
+	 * Transaction
+	 * 
+	 * @var Pronamic_Gateways_IDealAdvancedV3_Transaction
+	 */
+	public $transaction;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initialize an status request message
 	 */
 	public function __construct() {

@@ -157,9 +157,9 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
-			echo $gateway->get_form_html();
+			echo $gateway->get_form_html( $payment );
 		}
 	}
 

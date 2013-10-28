@@ -157,21 +157,22 @@
 			'author_url'        => 'http://instinct.co.nz/'
 		),
 		// Themes
-		'classipress'         => array(
-			'name'         => __( 'ClassiPress', 'pronamic_ideal' ),
-			'url'          => 'http://www.appthemes.com/themes/classipress/',
-			'active'       => Pronamic_ClassiPress_ClassiPress::is_active(),
-			'tested_up_to' => '3.3.1',
-			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'   => 'http://www.appthemes.com/'
+		'classipress'           => array(
+			'name'              => __( 'ClassiPress', 'pronamic_ideal' ),
+			'url'               => 'http://www.appthemes.com/themes/classipress/',
+			'active'            => Pronamic_ClassiPress_ClassiPress::is_active(),
+			'requires_at_least' => '3.3.1',
+			'tested_up_to'      => '3.3.1',
+			'author'            => __( 'AppThemes', 'pronamic_ideal' ),
+			'author_url'        => 'http://www.appthemes.com/'
 		),
-		'jobroller'           => array(
-			'name'         => __( 'JobRoller', 'pronamic_ideal' ),
-			'url'          => 'http://www.appthemes.com/themes/jobroller/',
-			'active'       => Pronamic_JobRoller_JobRoller::is_active(),
-			'tested_up_to' => '1.7.1',
-			'author'       => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'   => 'http://www.appthemes.com/'
+		'jobroller'             => array(
+			'name'              => __( 'JobRoller', 'pronamic_ideal' ),
+			'url'               => 'http://www.appthemes.com/themes/jobroller/',
+			'active'            => Pronamic_JobRoller_JobRoller::is_active(),
+			'tested_up_to'      => '1.7.1',
+			'author'            => __( 'AppThemes', 'pronamic_ideal' ),
+			'author_url'        => 'http://www.appthemes.com/'
 		)
 	);
 	

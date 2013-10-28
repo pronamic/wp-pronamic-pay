@@ -192,9 +192,9 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			$data = new Pronamic_ClassiPress_IDeal_IDealDataProxy( $order_values );
 
 			if ( $gateway->is_html_form() ) {
-				Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 
-				echo $gateway->get_form_html( $auto_submit = true );
+				echo $gateway->get_form_html( $payment, $auto_submit = true );
 			}
 			
 			if ( $gateway->is_http_redirect() ) {

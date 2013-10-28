@@ -128,11 +128,11 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			$this->set_error( $error );
 		} else {
 			$transaction = $result->transaction;
-			
-			$payment->set_status( $transaction->getStatus() );
-			$payment->set_consumer_name( $transaction->getConsumerName() );
-			$payment->set_consumer_account_number( $transaction->getConsumerAccountNumber() );
-			$payment->set_consumer_city( $transaction->getConsumerCity() );
+
+			$payment->set_status( $transaction->get_status() );
+			$payment->set_consumer_name( $transaction->get_consumer_name() );
+			$payment->set_consumer_iban( $transaction->get_consumer_iban() );
+			$payment->set_consumer_bic( $transaction->get_consumer_bic() );
 		}
 	}
 	
