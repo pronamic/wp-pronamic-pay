@@ -106,7 +106,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setCurrency( $data->get_currency() )
 				->setIssuer( $data->get_issuer_id() )
 				->setOrderID( $data->get_order_id() );
-		
+
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode
 				->setMerchantID( $this->config->merchant_id )
@@ -115,8 +115,8 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->validatePayment( $payment_object );
 			
 			$payment->set_action_url( $basicmode->getURL() );
-		} catch ( Exception $e ) {
-			$this->error = new WP_Error( $e->getMessage() );
+		} catch ( Exception $exception ) {
+			$this->error = new WP_Error( 'icepay_error', $exception->getMessage(), $exception );
 		}
 	}
 
@@ -138,7 +138,6 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		try {
 			// Determine if the result can be validated
 			if ( $result->validate() ) {
-				
 				// What was the status response
 				switch ( $result->getStatus() ) {
 					case Icepay_StatusCode::SUCCESS:
@@ -154,11 +153,9 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 
 						break;
 				}
-			} else {
-				throw new Exception( "Didn't validate" );
 			}
-		} catch ( Exception $exc ) {
-			$this->error = new WP_Error( $exc->getMessage() );
-		}	
+		} catch ( Exception $exception ) {
+			$this->error = new WP_Error( 'icepay_error', $exception->getMessage(), $exception );
+		}
 	}
 }
