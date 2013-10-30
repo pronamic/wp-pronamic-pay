@@ -20,10 +20,10 @@ class Pronamic_Gateways_OmniKassa_Listener implements Pronamic_Pay_Gateways_List
 			
 			$data = Pronamic_Gateways_OmniKassa_OmniKassa::parse_piped_string( $input_data );
 			
-			$reference = $data['transactionReference'];
+			$transaction_reference = $data['transactionReference'];
 			
 			$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
-			
+
 			Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
 		}
 	}

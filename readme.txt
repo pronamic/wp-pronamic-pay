@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.7
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -151,9 +151,14 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.0.5 =
+*	Fix - Ogone DirectLink - Fatal error: Call to a member function set_transaction_id() on a non-object.
+*	Fix - Rabobank OmniKassa - Fixed status update listener.
+*	Tweak - ICEPAY - Improved error handling.
+
 = 2.0.4 =
-*	Fix - Gravity Forms - Fatal error: Call to undefined method Pronamic_Pay_Gateway::get_transaction_id()
-*	Tewak - Improved upgrade function to convert custom tables to custom post types
+*	Fix - Gravity Forms - Fatal error: Call to undefined method Pronamic_Pay_Gateway::get_transaction_id().
+*	Tweak - Improved upgrade function to convert custom tables to custom post types.
 
 = 2.0.3 =
 *	Fix - ClassiPress - Improved support for HTML gateways.

@@ -92,21 +92,12 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		$transaction_reference = $data['transactionReference'];
 
 		$seal = Pronamic_Gateways_OmniKassa_OmniKassa::compute_seal( $input_data, $this->config->secret_key );
-		
+
 		// Check if the posted seal is equal to our seal
 		if ( strcasecmp( $input_seal, $seal ) === 0 ) {
 			$response_code = $data['responseCode'];
 
-			$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN;
-
-			switch ( $response_code ) {
-				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_TRANSACTION_SUCCES:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS;
-					break;
-				case Pronamic_Gateways_OmniKassa_OmniKassa::RESPONSE_CODE_CANCELLATION_OF_PAYMENT:
-					$status = Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED;
-					break;
-			}
+			$status = Pronamic_Gateways_OmniKassa_ResponseCodes::transform( $response_code );
 			
 			// Set the status of the payment
 			$payment->set_status( $status );

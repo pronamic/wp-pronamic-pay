@@ -462,7 +462,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					
 						$html .= '<ul>';
 						$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
-					
+
 						foreach ( $error->get_error_messages() As $message ) {
 							$html .= '<li>' . $message . '</li>';
 						}
