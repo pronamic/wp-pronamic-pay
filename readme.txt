@@ -153,6 +153,7 @@ Here is a list of known plugin conflicts:
 
 = 2.0.5 =
 *	Fix - Ogone DirectLink - Fatal error: Call to a member function set_transaction_id() on a non-object.
+*	Fix - Rabobank OmniKassa - Fixed status update listener.
 *	Tweak - ICEPAY - Improved error handling.
 
 = 2.0.4 =

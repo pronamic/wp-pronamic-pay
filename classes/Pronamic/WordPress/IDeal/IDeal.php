@@ -149,14 +149,25 @@ class Pronamic_WordPress_IDeal_IDeal {
 		}
 	}
 
-	public static function start( $configuration_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
-		$payment = self::create_payment( $configuration_id, $gateway, $data );
+	public static function start( $config_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+		$payment = self::create_payment( $config_id, $gateway, $data );
 
 		if ( $payment ) {
 			$gateway->start( $data, $payment );
-			
-			update_post_meta( $payment->get_id(), '_pronamic_payment_transaction_id', $payment->get_transaction_id() );
-			update_post_meta( $payment->get_id(), '_pronamic_payment_action_url', $payment->get_action_url() );
+
+			// Meta
+			$prefix = '_pronamic_payment_';
+
+			$meta = array(
+				$prefix . 'transaction_id' => $payment->get_transaction_id(),
+				$prefix . 'action_url'     => $payment->get_action_url()
+			);
+
+			foreach ( $meta as $key => $value ) {
+				if ( ! empty( $value ) ) {
+					update_post_meta( $post_id, $key, $value );
+				}
+			}
 			
 			$gateway->payment( $payment );
 		}
@@ -164,7 +175,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		return $payment;
 	}
 
-	public static function create_payment( $configuration_id, $gateway, $data ) {
+	public static function create_payment( $config_id, $gateway, $data ) {
 		$payment = null;
 
 		$result = wp_insert_post( array(
@@ -182,7 +193,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-				$prefix . 'config_id'               => $configuration_id,
+				$prefix . 'config_id'               => $config_id,
 				$prefix . 'purchase_id'             => $data->get_order_id(),
 				$prefix . 'currency'                => $data->get_currency(),
 				$prefix . 'amount'                  => $data->get_amount(),
