@@ -40,7 +40,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 
 	/////////////////////////////////////////////////
 
-	public function start( Pronamic_Pay_PaymentDataInterface $data ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$ogone_data = new Pronamic_Pay_Gateways_Ogone_Data();
 		
 		// Default

@@ -151,6 +151,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.0.5 =
+*	Fix - Ogone DirectLink - Fatal error: Call to a member function set_transaction_id() on a non-object
+
 = 2.0.4 =
 *	Fix - Gravity Forms - Fatal error: Call to undefined method Pronamic_Pay_Gateway::get_transaction_id().
 *	Tweak - Improved upgrade function to convert custom tables to custom post types.
