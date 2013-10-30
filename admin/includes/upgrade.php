@@ -41,6 +41,13 @@ function pronamic_pay_upgrade_201() {
  * @since 2.0.0
  */
 function pronamic_pay_upgrade_200() {
+	// Check if there is not already an upgrade running
+	if ( get_transient( 'pronamic_pay_upgrade_200' ) ) 
+		return;
+
+	set_transient( 'pronamic_pay_upgrade_200', true, 900 ); // 15 minutes
+
+	// Upgrade
 	global $wpdb;
 
 	require_once ABSPATH . '/wp-admin/includes/upgrade.php';
@@ -54,9 +61,9 @@ function pronamic_pay_upgrade_200() {
 	}
 
 	/*
-	
+
 	-- You can undo the database upgrade by executing the following queries
-	
+
 	UPDATE wp_pronamic_ideal_configurations SET post_id = null;
 	DELETE FROM wp_posts WHERE post_type = 'pronamic_gateway';
 
@@ -105,107 +112,115 @@ function pronamic_pay_upgrade_200() {
 			$config_table
 		WHERE
 			post_id IS NULL
+		LIMIT
+			1
 		;
 	";
 	
-	$configs = $wpdb->get_results( $query );
+	$have_configs = true;
 
-	foreach ( $configs as $config ) {
-		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
+	while ( $have_configs ) {
+		$configs = $wpdb->get_results( $query );
 
-		if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
-			$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
-		}
-
-		// Post
-		$post = array(
-			'post_title'    => $title,
-			'post_type'     => 'pronamic_gateway',
-			'post_status'   => 'publish'
-		);
-		
-		$post_id = wp_insert_post( $post );
-
-		if ( $post_id ) {		
-			$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
-
-			// Meta
-			// We ignore (@) all notice of not existing properties
-			$config_meta = json_decode( $config->meta );
-
-			$meta = array();
-
-			$meta['legacy_id'] = $config->id;
-			$meta['id']        = $config->variant_id;
-			$meta['mode']      = $config->mode;
-
-			// iDEAL
-			$meta['ideal_merchant_id'] = $config->merchant_id;
-			$meta['ideal_sub_id']      = $config->sub_id;
-					
-			// iDEAL Basic
-			$meta['ideal_hash_key'] = $config->hash_key;
-					
-			// iDEAL Advanced
-			$meta['ideal_private_key']          = $config->private_key;
-			$meta['ideal_private_key_password'] = $config->private_key_password;
-			$meta['ideal_private_certificate']  = $config->private_certificate;
-
-			// OmniKassa
-			if ( $config->variant_id == 'rabobank-omnikassa' ) {
-				$meta['omnikassa_merchant_id'] = $config->merchant_id;
-				$meta['omnikassa_secret_key']  = $config->hash_key;
-				$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
-				
-				unset( $meta['ideal_merchant_id'] );
-				unset( $meta['ideal_hash_key'] );
+		$have_configs = ! empty( $configs );
+	
+		foreach ( $configs as $config ) {
+			$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
+	
+			if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
+				$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
 			}
+	
+			// Post
+			$post = array(
+				'post_title'    => $title,
+				'post_type'     => 'pronamic_gateway',
+				'post_status'   => 'publish'
+			);
+			
+			$post_id = wp_insert_post( $post );
+	
+			if ( $post_id ) {		
+				$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
+	
+				// Meta
+				// We ignore (@) all notice of not existing properties
+				$config_meta = json_decode( $config->meta );
+	
+				$meta = array();
+	
+				$meta['legacy_id'] = $config->id;
+				$meta['id']        = $config->variant_id;
+				$meta['mode']      = $config->mode;
+	
+				// iDEAL
+				$meta['ideal_merchant_id'] = $config->merchant_id;
+				$meta['ideal_sub_id']      = $config->sub_id;
+						
+				// iDEAL Basic
+				$meta['ideal_hash_key'] = $config->hash_key;
+						
+				// iDEAL Advanced
+				$meta['ideal_private_key']          = $config->private_key;
+				$meta['ideal_private_key_password'] = $config->private_key_password;
+				$meta['ideal_private_certificate']  = $config->private_certificate;
+	
+				// OmniKassa
+				if ( $config->variant_id == 'rabobank-omnikassa' ) {
+					$meta['omnikassa_merchant_id'] = $config->merchant_id;
+					$meta['omnikassa_secret_key']  = $config->hash_key;
+					$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
+					
+					unset( $meta['ideal_merchant_id'] );
+					unset( $meta['ideal_hash_key'] );
+				}
+					
+				// Buckaroo
+				$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
+				$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
 				
-			// Buckaroo
-			$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
-			$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
-			
-			// Icepay
-			$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
-			$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
-			
-			// Mollie
-			$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
-			$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
-			
-			// Sisow
-			$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
-			$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
-			
-			// TargetPay
-			$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
-			
-			// Qantani
-			$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
-			$meta['qantani_merchant_key']    = @$config_meta->qantani_merchant_key;
-			$meta['qantani_merchant_secret'] = @$config_meta->qantani_merchant_secret;
-
-			// Ogone
-			$meta['ogone_psp_id']            = @$config_meta->pspId;
-			$meta['ogone_sha_in']            = @$config_meta->shaInPassPhrase;
-			$meta['ogone_sha_out']           = @$config_meta->shaOutPassPhrase;
-			$meta['ogone_user_id']           = @$config_meta->ogone_user_id;
-			$meta['ogone_password']          = @$config_meta->ogone_password;
-
-			// Other
-			$meta['country']                 = @$config_meta->country;
-			$meta['state_or_province']       = @$config_meta->stateOrProvince;
-			$meta['locality']                = @$config_meta->locality;
-			$meta['organization']            = @$config_meta->organization;
-			$meta['organization_unit']       = @$config_meta->organizationUnit;
-			$meta['common_name']             = @$config_meta->commonName;
-			$meta['email']                   = @$config_meta->eMailAddress;
-			
-			foreach ( $meta as $key => $value ) {
-				if ( ! empty( $value ) ) {
-					$meta_key = '_pronamic_gateway_' . $key;
-
-					update_post_meta( $post_id, $meta_key, $value );
+				// Icepay
+				$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
+				$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
+				
+				// Mollie
+				$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
+				$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
+				
+				// Sisow
+				$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
+				$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
+				
+				// TargetPay
+				$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
+				
+				// Qantani
+				$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
+				$meta['qantani_merchant_key']    = @$config_meta->qantani_merchant_key;
+				$meta['qantani_merchant_secret'] = @$config_meta->qantani_merchant_secret;
+	
+				// Ogone
+				$meta['ogone_psp_id']            = @$config_meta->pspId;
+				$meta['ogone_sha_in']            = @$config_meta->shaInPassPhrase;
+				$meta['ogone_sha_out']           = @$config_meta->shaOutPassPhrase;
+				$meta['ogone_user_id']           = @$config_meta->ogone_user_id;
+				$meta['ogone_password']          = @$config_meta->ogone_password;
+	
+				// Other
+				$meta['country']                 = @$config_meta->country;
+				$meta['state_or_province']       = @$config_meta->stateOrProvince;
+				$meta['locality']                = @$config_meta->locality;
+				$meta['organization']            = @$config_meta->organization;
+				$meta['organization_unit']       = @$config_meta->organizationUnit;
+				$meta['common_name']             = @$config_meta->commonName;
+				$meta['email']                   = @$config_meta->eMailAddress;
+				
+				foreach ( $meta as $key => $value ) {
+					if ( ! empty( $value ) ) {
+						$meta_key = '_pronamic_gateway_' . $key;
+	
+						update_post_meta( $post_id, $meta_key, $value );
+					}
 				}
 			}
 		}
@@ -260,59 +275,67 @@ function pronamic_pay_upgrade_200() {
 			$feeds_table
 		WHERE
 			post_id IS NULL
+		LIMIT
+			1
 		;
 	";
 	
-	$feeds = $wpdb->get_results( $query );
+	$have_feeds = true;
+
+	while ( $have_feeds ) {
+		$feeds = $wpdb->get_results( $query );
+
+		$have_feeds = ! empty( $feeds );
+		
+		foreach ( $feeds as $feed ) {
+			// Post
+			$post = array(
+				'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
+				'post_type'     => 'pronamic_pay_gf',
+				'post_status'   => 'publish'
+			);
+			
+			$post_id = wp_insert_post( $post );
+			
+			if ( $post_id ) {		
+				$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
 	
-	foreach ( $feeds as $feed ) {
-		// Post
-		$post = array(
-			'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
-			'post_type'     => 'pronamic_pay_gf',
-			'post_status'   => 'publish'
-		);
-		
-		$post_id = wp_insert_post( $post );
-		
-		if ( $post_id ) {		
-			$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
-
-			// Meta
-			// We ignore (@) all notice of not existing properties
-			$meta = array();
-
-			$feed_meta = json_decode( $feed->meta, true );
-			
-			$meta['form_id']                  = $feed->form_id;
-			$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
-			$meta['is_active']                = $feed->is_active;
-			$meta['transaction_description']  = @$feed_meta['transactionDescription'];
-			$meta['delay_notification_ids']   = @$feed_meta['delayNotificationIds'];
-			$meta['delay_admin_motification'] = @$feed_meta['delayAdminNotification'];
-			$meta['delay_users_motification'] = @$feed_meta['delayUserNotification'];
-			$meta['delay_post_creation']      = @$feed_meta['delayPostCreation'];
-			$meta['condition_enabled']        = @$feed_meta['conditionEnabled'];
-			$meta['condition_field_id']       = @$feed_meta['conditionFieldId'];
-			$meta['condition_operator']       = @$feed_meta['conditionOperator'];
-			$meta['condition_value']          = @$feed_meta['conditionValue'];
-			$meta['user_role_field_id']       = @$feed_meta['userRoleFieldId'];
-			$meta['fields']                   = @$feed_meta['fields'];
-			$meta['links']                    = @$feed_meta['links'];
-			
-			if ( is_array( $meta['links'] ) ) {
-				foreach ( $meta['links'] as &$link ) {
-					if ( isset( $link['pageId'] ) ) {
-						$link['page_id'] = $link['pageId'];
+				// Meta
+				// We ignore (@) all notice of not existing properties
+				$meta = array();
+	
+				$feed_meta = json_decode( $feed->meta, true );
+				
+				$meta['form_id']                  = $feed->form_id;
+				$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
+				$meta['is_active']                = $feed->is_active;
+				$meta['transaction_description']  = @$feed_meta['transactionDescription'];
+				$meta['delay_notification_ids']   = @$feed_meta['delayNotificationIds'];
+				$meta['delay_admin_motification'] = @$feed_meta['delayAdminNotification'];
+				$meta['delay_users_motification'] = @$feed_meta['delayUserNotification'];
+				$meta['delay_post_creation']      = @$feed_meta['delayPostCreation'];
+				$meta['condition_enabled']        = @$feed_meta['conditionEnabled'];
+				$meta['condition_field_id']       = @$feed_meta['conditionFieldId'];
+				$meta['condition_operator']       = @$feed_meta['conditionOperator'];
+				$meta['condition_value']          = @$feed_meta['conditionValue'];
+				$meta['user_role_field_id']       = @$feed_meta['userRoleFieldId'];
+				$meta['fields']                   = @$feed_meta['fields'];
+				$meta['links']                    = @$feed_meta['links'];
+				
+				if ( is_array( $meta['links'] ) ) {
+					foreach ( $meta['links'] as &$link ) {
+						if ( isset( $link['pageId'] ) ) {
+							$link['page_id'] = $link['pageId'];
+						}
 					}
 				}
-			}
-			
-			foreach ( $meta as $key => $value ) {
-				if ( ! empty( $value ) ) {
-					$meta_key = '_pronamic_pay_gf_' . $key;
-
-					update_post_meta( $post_id, $meta_key, $value );
+				
+				foreach ( $meta as $key => $value ) {
+					if ( ! empty( $value ) ) {
+						$meta_key = '_pronamic_pay_gf_' . $key;
+	
+						update_post_meta( $post_id, $meta_key, $value );
+					}
 				}
 			}
 		}
@@ -364,7 +387,7 @@ function pronamic_pay_upgrade_200() {
 		WHERE
 			post_id IS NULL
 		LIMIT
-			0, 100
+			1
 		;
 	";
 	
@@ -379,6 +402,7 @@ function pronamic_pay_upgrade_200() {
 			// Post
 			$post = array(
 				'post_title'    => sprintf( __( 'Payment %d', 'pronamic_ideal' ), $payment->id ),
+				'post_date'     => get_date_from_gmt( $payment->date_gmt ),
 				'post_date_gmt' => $payment->date_gmt,
 				'post_type'     => 'pronamic_payment',
 				'post_status'   => 'publish'
@@ -393,6 +417,7 @@ function pronamic_pay_upgrade_200() {
 				$meta = array(
 					'config_id'               => @$config_ids_map[$payment->configuration_id],
 					'purchase_id'             => $payment->purchase_id,
+					'transaction_id'          => $payment->transaction_id,
 					'currency'                => $payment->currency,
 					'amount'                  => $payment->amount,
 					'expiration_period'       => $payment->expiration_period,
@@ -499,4 +524,6 @@ function pronamic_pay_upgrade_200() {
 		
 		update_option( 'woocommerce_pronamic_pay_ideal_settings', $settings );
 	}
+	
+	delete_transient( 'pronamic_pay_upgrade_200' );
 }
