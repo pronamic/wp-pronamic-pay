@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.0.3\n"
+"Project-Id-Version: Pronamic iDEAL 2.0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-28 15:06:40+00:00\n"
+"POT-Creation-Date: 2013-10-30 08:30:57+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,8 +53,6 @@ msgstr ""
 msgid "iDEAL"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.0.3)  #-#-#-#-#
-#. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:226
@@ -73,8 +71,8 @@ msgstr ""
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
 #: classes/Pronamic/WP/Pay/Membership/Admin.php:48
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
-#: includes/post.php:284 includes/post.php:341 includes/post.php:389
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84 includes/post.php:284
+#: includes/post.php:341 includes/post.php:389
 #: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:50
 msgid "Configuration"
 msgstr ""
@@ -117,8 +115,7 @@ msgstr ""
 msgid "iDEAL Configuration"
 msgstr ""
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
-#: views/status-system.php:161
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/status-system.php:161
 msgid "ClassiPress"
 msgstr ""
 
@@ -160,8 +157,7 @@ msgid "Attendee #%s"
 msgstr ""
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148
-#: views/status-system.php:138
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/status-system.php:138
 msgid "WooCommerce"
 msgstr ""
 
@@ -172,8 +168,7 @@ msgstr ""
 
 #: classes/Pronamic/Gateways/IDealAdvanced/Client.php:208
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:175
-msgid ""
-"The response code (<code>%s<code>) from the iDEAL provider was incorrect."
+msgid "The response code (<code>%s<code>) from the iDEAL provider was incorrect."
 msgstr ""
 
 #: classes/Pronamic/Gateways/IDealAdvanced/Client.php:243
@@ -215,9 +210,8 @@ msgstr ""
 msgid "Currency Code"
 msgstr ""
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:119
-#: views/config-edit.php:59 views/config-edit.php:160
-#: views/config-edit.php:215
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:119 views/config-edit.php:59
+#: views/config-edit.php:160 views/config-edit.php:215
 msgid "Merchant ID"
 msgstr ""
 
@@ -367,8 +361,8 @@ msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78
-#: includes/post.php:209 views/meta-box-payment-info.php:19
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78 includes/post.php:209
+#: views/meta-box-payment-info.php:19
 msgid "Description"
 msgstr ""
 
@@ -538,17 +532,14 @@ msgid "Test %s"
 msgstr ""
 
 #: classes/Pronamic/WP/Util.php:32
-msgid ""
-"The response code (<code>%s<code>) was incorrect, required response code "
-"<code>%s</code>."
+msgid "The response code (<code>%s<code>) was incorrect, required response code <code>%s</code>."
 msgstr ""
 
 #: classes/Pronamic/WP/Util.php:63
 msgid "Could not load the XML string."
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
-#: views/status-system.php:149
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/status-system.php:149
 msgid "WP e-Commerce"
 msgstr ""
 
@@ -561,15 +552,11 @@ msgid "Enable/Disable"
 msgstr ""
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:80
-msgid ""
-"Give the customer instructions for paying via iDEAL, and let them know that "
-"their order won't be shipping until the money is received."
+msgid "Give the customer instructions for paying via iDEAL, and let them know that their order won't be shipping until the money is received."
 msgstr ""
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:81
-msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank."
+msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
 msgstr ""
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:163
@@ -694,8 +681,7 @@ msgid "Success"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:55
-msgid ""
-"Paying with iDEAL is not possible. Please try again later or pay another way."
+msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:71
@@ -707,16 +693,11 @@ msgid "Payment for %s"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:230
-msgid ""
-"<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
-"payments of %d, you should enter an valid license key on the <a href=\"%s"
-"\">iDEAL settings page</a>."
+msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href=\"%s\">iDEAL settings page</a>."
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:246
-msgid ""
-"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
-"extensions, get support and more than %d payments."
+msgid "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments."
 msgstr ""
 
 #: includes/gateways.php:257
@@ -964,9 +945,7 @@ msgid "Live"
 msgstr ""
 
 #: views/config-edit.php:62
-msgid ""
-"You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
-"provider."
+msgid "You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider."
 msgstr ""
 
 #: views/config-edit.php:69
@@ -986,9 +965,7 @@ msgid "Hash Key"
 msgstr ""
 
 #: views/config-edit.php:88
-msgid ""
-"You configure the hash key (also known as: key or secret key) in the iDEAL "
-"dashboard of your iDEAL provider."
+msgid "You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider."
 msgstr ""
 
 #: views/config-edit.php:93
@@ -1016,9 +993,7 @@ msgid "Partner ID"
 msgstr ""
 
 #: views/config-edit.php:136
-msgid ""
-"Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle "
-"betaling tegoed bijgeschreven."
+msgid "Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven."
 msgstr ""
 
 #: views/config-edit.php:142
@@ -1026,10 +1001,7 @@ msgid "Profile Key"
 msgstr ""
 
 #: views/config-edit.php:146
-msgid ""
-"Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
-"linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
-"href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
+msgid "Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
 msgstr ""
 
 #: views/config-edit.php:153 views/variants.php:59
@@ -1041,9 +1013,7 @@ msgid "Secret Key"
 msgstr ""
 
 #: views/config-edit.php:179
-msgid ""
-"You can find the key version in the <a href=\"%s\" target=\"_blank"
-"\">OmniKassa Download Dashboard</a>."
+msgid "You can find the key version in the <a href=\"%s\" target=\"_blank\">OmniKassa Download Dashboard</a>."
 msgstr ""
 
 #: views/config-edit.php:184
@@ -1055,16 +1025,11 @@ msgid "Website Key"
 msgstr ""
 
 #: views/config-edit.php:194
-msgid ""
-"You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
-"\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
+msgid "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
 msgstr ""
 
 #: views/config-edit.php:203
-msgid ""
-"You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
-"\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
-"Digital Signature\"."
+msgid "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for Digital Signature\"."
 msgstr ""
 
 #: views/config-edit.php:208
@@ -1072,10 +1037,7 @@ msgid "ICEPAY"
 msgstr ""
 
 #: views/config-edit.php:218
-msgid ""
-"You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
-"\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
-"websites</a>."
+msgid "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My websites</a>."
 msgstr ""
 
 #: views/config-edit.php:219 views/config-edit.php:232
@@ -1091,10 +1053,7 @@ msgid "Secret Code"
 msgstr ""
 
 #: views/config-edit.php:231
-msgid ""
-"You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
-"\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
-"websites</a>."
+msgid "You can find your Secret Code on your <a href=\"%s\" target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My websites</a>."
 msgstr ""
 
 #: views/config-edit.php:238
@@ -1119,9 +1078,7 @@ msgid "Merchant ID"
 msgstr ""
 
 #: views/config-edit.php:274
-msgid ""
-"You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
-"account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
+msgid "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 
 #: views/config-edit.php:283
@@ -1130,10 +1087,7 @@ msgid "Merchant Key"
 msgstr ""
 
 #: views/config-edit.php:287
-msgid ""
-"You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
-"\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
-"a>."
+msgid "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 
 #: views/config-edit.php:295
@@ -1157,8 +1111,7 @@ msgid "PSPID"
 msgstr ""
 
 #: views/config-edit.php:320
-msgid ""
-"If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
+msgid "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 
 #: views/config-edit.php:327
@@ -1186,10 +1139,7 @@ msgid "SHA-IN Pass phrase"
 msgstr ""
 
 #: views/config-edit.php:352 views/config-edit.php:395
-msgid ""
-"You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
-"&raquo; Technical information &raquo; Data and origin verification) of your "
-"iDEAL provider."
+msgid "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider."
 msgstr ""
 
 #: views/config-edit.php:359
@@ -1197,10 +1147,7 @@ msgid "SHA-OUT Pass phrase"
 msgstr ""
 
 #: views/config-edit.php:362
-msgid ""
-"You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
-"&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
-"provider."
+msgid "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider."
 msgstr ""
 
 #: views/config-edit.php:369 views/meta-box-payment-source.php:64
@@ -1255,9 +1202,7 @@ msgid "Number Days Valid"
 msgstr ""
 
 #: views/config-edit.php:472
-msgid ""
-"specify the length of time for which the generated certificate will be "
-"valid, in days."
+msgid "specify the length of time for which the generated certificate will be valid, in days."
 msgstr ""
 
 #: views/config-edit.php:478 views/gravityforms/feed-edit.php:293
@@ -1309,17 +1254,11 @@ msgid "eg, YOUR name"
 msgstr ""
 
 #: views/config-edit.php:522
-msgid ""
-"Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
-"the domainname of your website."
+msgid "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website."
 msgstr ""
 
 #: views/config-edit.php:523
-msgid ""
-"Do you have an iDEAL subscription with ABN AMRO, please fill in "
-"\"ideal_<strong>company</strong>\", where \"company\" is your company name "
-"(as specified in the request for the subscription). The value must not "
-"exceed 25 characters."
+msgid "Do you have an iDEAL subscription with ABN AMRO, please fill in \"ideal_<strong>company</strong>\", where \"company\" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters."
 msgstr ""
 
 #: views/config-edit.php:529
@@ -1355,9 +1294,7 @@ msgid "Private Key and Certificate Generator"
 msgstr ""
 
 #: views/config-edit.php:789
-msgid ""
-"You have to use the following commands to generate an private key and "
-"certificate for iDEAL v3:"
+msgid "You have to use the following commands to generate an private key and certificate for iDEAL v3:"
 msgstr ""
 
 #: views/config-edit.php:805
@@ -1365,6 +1302,7 @@ msgid "filename"
 msgstr ""
 
 #. translators: comment date format. See http:php.net/date
+
 #: views/dashboard.php:47
 msgid "c"
 msgstr ""
@@ -1373,8 +1311,6 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.0.3)  #-#-#-#-#
-#. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
 msgstr ""
@@ -1416,16 +1352,11 @@ msgid "&mdash; Select a form &mdash;"
 msgstr ""
 
 #: views/gravityforms/feed-edit.php:88
-msgid ""
-"Maximum number of charachters is 32, you should also consider the use of "
-"variables Gravity Forms. An generated description that is longer than 32 "
-"characters will be automatically truncated."
+msgid "Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated."
 msgstr ""
 
 #: views/gravityforms/feed-edit.php:90
-msgid ""
-"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
-"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
+msgid "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 msgstr ""
 
 #: views/gravityforms/feed-edit.php:97
@@ -1449,9 +1380,7 @@ msgid "Send to gateway if %s %s %s"
 msgstr ""
 
 #: views/gravityforms/feed-edit.php:158
-msgid ""
-"To create a condition, your form must have a drop down, checkbox or multiple "
-"choice field."
+msgid "To create a condition, your form must have a drop down, checkbox or multiple choice field."
 msgstr ""
 
 #: views/gravityforms/feed-edit.php:164
@@ -1567,6 +1496,7 @@ msgid "%1$s at %2$s"
 msgstr ""
 
 #. translators: comment date format. See http:php.net/date
+
 #: views/meta-box-payment-log.php:30
 msgid "Y/m/d"
 msgstr ""
@@ -1596,8 +1526,7 @@ msgid "iDEAL Pages Generator"
 msgstr ""
 
 #: views/pages-generator.php:47
-msgid ""
-"This page allows you to easily create pages for each iDEAL payment status."
+msgid "This page allows you to easily create pages for each iDEAL payment status."
 msgstr ""
 
 #: views/pages-generator.php:58
@@ -1721,9 +1650,7 @@ msgid "Shortcode"
 msgstr ""
 
 #: views/status-ideal.php:10
-msgid ""
-"The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
-"the following status of the various iDEAL banks:"
+msgid "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors the following status of the various iDEAL banks:"
 msgstr ""
 
 #: views/status-ideal.php:43
@@ -1906,17 +1833,22 @@ msgstr ""
 #: views/variants.php:65
 msgid "Advanced v3"
 msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "Pronamic iDEAL"
+msgstr ""
 
 #. Plugin URI of the plugin/theme
 msgid "http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid ""
-"The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method "
-"to your WordPress website."
+msgid "The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website."
 msgstr ""
 
 #. Author of the plugin/theme
 msgid "Pronamic"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
 msgstr ""
