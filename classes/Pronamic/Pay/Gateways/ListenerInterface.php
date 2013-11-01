@@ -9,5 +9,5 @@
  * @version 1.0
  */
 interface Pronamic_Pay_Gateways_ListenerInterface {
-	public function listen();
+	public static function listen();
 }

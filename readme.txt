@@ -151,6 +151,11 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.0.7 =
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically
+
 = 2.0.6 =
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
 
