@@ -200,11 +200,11 @@ function pronamic_pay_upgrade_200() {
 				$meta['qantani_merchant_secret'] = @$config_meta->qantani_merchant_secret;
 	
 				// Ogone
-				$meta['ogone_psp_id']            = @$config_meta->pspId;
-				$meta['ogone_sha_in']            = @$config_meta->shaInPassPhrase;
-				$meta['ogone_sha_out']           = @$config_meta->shaOutPassPhrase;
-				$meta['ogone_user_id']           = @$config_meta->ogone_user_id;
-				$meta['ogone_password']          = @$config_meta->ogone_password;
+				$meta['ogone_psp_id']              = @$config_meta->pspId;
+				$meta['ogone_sha_in_pass_phrase']  = @$config_meta->shaInPassPhrase;
+				$meta['ogone_sha_out_pass_phrase'] = @$config_meta->shaOutPassPhrase;
+				$meta['ogone_user_id']             = @$config_meta->ogone_user_id;
+				$meta['ogone_password']            = @$config_meta->ogone_password;
 	
 				// Other
 				$meta['country']                 = @$config_meta->country;

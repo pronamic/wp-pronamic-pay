@@ -153,6 +153,7 @@ Here is a list of known plugin conflicts:
 
 = 2.0.7 =
 *	Tweak - Sisow - Use order ID as purchase ID if not empty
+*	Fix - Ogone OrderStandard - Improved upgrade function to convert SHA IN and OUT pass phrases.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically
