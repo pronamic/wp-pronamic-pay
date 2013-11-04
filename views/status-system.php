@@ -63,7 +63,7 @@
 			'github_url'        => 'https://github.com/eventespresso/event-espresso-core',
 			'active'            => Pronamic_EventEspresso_EventEspresso::is_active(),
 			'requires_at_least' => '3.1.24',
-			'tested_up_to'      => '3.1.24'
+			'tested_up_to'      => '3.1.35.P'
 		),
 		'event-espresso-free'   => array(
 			'name'              => __( 'Event Espresso Lite', 'pronamic_ideal' ),
