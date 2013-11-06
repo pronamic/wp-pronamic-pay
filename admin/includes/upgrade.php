@@ -169,8 +169,13 @@ function pronamic_pay_upgrade_200() {
 				if ( $config->variant_id == 'rabobank-omnikassa' ) {
 					$meta['omnikassa_merchant_id'] = $config->merchant_id;
 					$meta['omnikassa_secret_key']  = $config->hash_key;
-					$meta['omnikassa_key_version'] = @$config_meta->keyVersion;
-					
+
+					$key_version = @$config_meta->keyVersion;
+					// In Pronamic iDEAL v1.0 we stored the key version in the iDEAL sub ID
+					$key_version = empty( $key_version ) ? $config->sub_id : $key_version;
+
+					$meta['omnikassa_key_version'] = $key_version;
+
 					unset( $meta['ideal_merchant_id'] );
 					unset( $meta['ideal_hash_key'] );
 				}

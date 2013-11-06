@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.7
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -154,14 +154,15 @@ Here is a list of known plugin conflicts:
 = 2.0.7 =
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.
 *	Tweak - Event Espresso - Improved support for e-mail notifications after payment.
-*	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests
-*	Tweak - ICEPAY - Limit the get supported issuers calls
-*	Tweak - Qantani - Limit the get banks calls
+*	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests.
+*	Tweak - ICEPAY - Limit the get supported issuers calls.
+*	Tweak - Qantani - Limit the get banks calls.
+*	Tweak - Rabobank OmniKassa - Improved upgrade script to convert key version from 1.0 to 2.0. 
 *	Test - Event Espresso - Tested up to 3.1.35.P.
 *	Fix - Ogone OrderStandard - Improved upgrade function to convert SHA IN and OUT pass phrases.
-*	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically
-*	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically
-*	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically.
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically.
+*	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically.
 
 = 2.0.6 =
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
@@ -576,4 +577,3 @@ Here is a list of known plugin conflicts:
 *	[Maildit](http://wordpress.org/extend/plugins/maildit/)
 *	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
 *	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
-
