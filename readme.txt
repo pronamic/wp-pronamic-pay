@@ -154,6 +154,9 @@ Here is a list of known plugin conflicts:
 = 2.0.7 =
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.
 *	Tweak - Event Espresso - Improved support for e-mail notifications after payment.
+*	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests
+*	Tweak - ICEPAY - Limit the get supported issuers calls
+*	Tweak - Qantani - Limit the get banks calls
 *	Test - Event Espresso - Tested up to 3.1.35.P.
 *	Fix - Ogone OrderStandard - Improved upgrade function to convert SHA IN and OUT pass phrases.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically
