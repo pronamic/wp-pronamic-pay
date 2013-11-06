@@ -75,7 +75,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
 			'required' => true,
 			'type'     => 'select',
-			'choices'  => $this->get_issuers()
+			'choices'  => $this->get_transient_issuers()
 		);
 	}
 	
