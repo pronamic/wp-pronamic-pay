@@ -9,7 +9,7 @@
  * @version 1.0
  */
 class Pronamic_Gateways_Icepay_Listener implements Pronamic_Pay_Gateways_ListenerInterface {
-	public function listen() {
+	public static function listen() {
 		$condition  = true;
 		$condition &= filter_has_var( INPUT_GET, 'Status' );
 		$condition &= filter_has_var( INPUT_GET, 'StatusCode' );

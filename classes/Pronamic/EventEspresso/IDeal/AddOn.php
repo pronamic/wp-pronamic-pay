@@ -40,13 +40,13 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 * Initiliaze
 	 */
 	public static function init() {
-		add_filter( 'action_hook_espresso_display_gateway_settings',       array( __CLASS__, 'display_gateway_settings' ) );
+		add_filter( 'action_hook_espresso_display_gateway_settings', array( __CLASS__, 'display_gateway_settings' ) );
 
-		add_action( 'action_hook_espresso_display_onsite_payment_header',  'espresso_display_onsite_payment_header' );
-		add_action( 'action_hook_espresso_display_onsite_payment_footer',  'espresso_display_onsite_payment_footer' );
+		add_action( 'action_hook_espresso_display_onsite_payment_header', 'espresso_display_onsite_payment_header' );
+		add_action( 'action_hook_espresso_display_onsite_payment_footer', 'espresso_display_onsite_payment_footer' );
 		add_action( 'action_hook_espresso_display_onsite_payment_gateway', array( __CLASS__, 'display_gateway' ) );
 
-		add_filter( 'filter_hook_espresso_transactions_get_attendee_id',   array( __CLASS__, 'transactions_get_attendee_id' ) );
+		add_filter( 'filter_hook_espresso_transactions_get_attendee_id', array( __CLASS__, 'transactions_get_attendee_id' ) );
 
 		add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
 		
@@ -322,6 +322,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		}
 		
 		Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
+		Pronamic_EventEspresso_EventEspresso::email_after_payment( $payment_data );
 
 		if ( $can_redirect ) {
 			wp_redirect( $url, 303 );

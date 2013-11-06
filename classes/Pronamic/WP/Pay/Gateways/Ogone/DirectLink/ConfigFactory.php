@@ -4,9 +4,11 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 	public static function get_config( $post_id ) {
 		$config = new Pronamic_Pay_Gateways_Ogone_DirectLink_Config();
 
+		$config->mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+
 		$config->psp_id = get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true );
 
-		$config->mode = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
+		$config->hash_algorithm = get_post_meta( $post_id, '_pronamic_gateway_ogone_hash_algorithm', true );
 
 		$config->user_id  = get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true );
 		$config->password = get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true );
