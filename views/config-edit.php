@@ -340,7 +340,7 @@ $sections = array(
 			 		Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
 			 		Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
 			 	),
-				'methods'     => array( 'ogone_orderstandard' )
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' )
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_sha_in_pass_phrase',

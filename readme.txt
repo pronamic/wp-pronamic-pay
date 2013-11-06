@@ -157,8 +157,10 @@ Here is a list of known plugin conflicts:
 *	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests.
 *	Tweak - ICEPAY - Limit the get supported issuers calls.
 *	Tweak - Qantani - Limit the get banks calls.
-*	Tweak - Rabobank OmniKassa - Improved upgrade script to convert key version from 1.0 to 2.0. 
+*	Tweak - Rabobank OmniKassa - Improved upgrade script to convert key version from 1.0 to 2.0.
+*	Tweak - Ogone DirectLink - Show Ogone error when nc_error is not empty.
 *	Test - Event Espresso - Tested up to 3.1.35.P.
+*	Fix - Ogone DirectLink - Added support for Ogone hashing algorithm.
 *	Fix - Ogone OrderStandard - Improved upgrade function to convert SHA IN and OUT pass phrases.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_IDealBasic_Listener::listen() should not be called statically.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically.

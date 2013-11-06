@@ -28,6 +28,17 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 	/////////////////////////////////////////////////
 
 	/**
+	 * Get error
+	 * 
+	 * @return WP_Error
+	 */
+	public function get_error() {
+		return $this->error;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Order direct
 	 * 
 	 * @param array $data
@@ -50,7 +61,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 				$this->error = $xml;
 			} else {
 				$order_response = Pronamic_Gateways_Ogone_XML_OrderResponseParser::parse( $xml );
-				
+
 				if ( ! empty( $order_response->nc_error ) ) {
 					$ogone_error = new Pronamic_Pay_Gateways_Ogone_Error();
 					$ogone_error->code        = Pronamic_XML_Util::filter( $order_response->nc_error );

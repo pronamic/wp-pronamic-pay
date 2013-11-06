@@ -77,19 +77,38 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		
 		// Kassa
 		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
-		$client->setPassPhraseIn( $this->client->sha_in );
+
+		if ( ! empty( $this->config->hash_algorithm ) ) {
+			$client->set_hash_algorithm( $this->config->hash_algorithm );
+		}
+
+		$client->setPassPhraseIn( $this->config->sha_in_pass_phrase );
 		$client->set_fields( $ogone_data->get_fields() );
 
 		$data = $client->get_fields();
 		$data['SHASIGN'] = $client->getSignatureIn();
 		
 		$result = $this->client->order_direct( $data );
+		
+		$error = $this->client->get_error();
 
-		if ( is_wp_error( $result ) ) {
-			$this->error = $result;
+		if ( is_wp_error( $error ) ) {
+			$this->error = $error;
 		} else {
 			$payment->set_transaction_id( $result->pay_id );
-			$payment->set_action_url( add_query_arg( 'status', $result->status ) );
+			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
+			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
 		}
+	}
+	
+	/////////////////////////////////////////////////
+	
+	/**
+	 * Update status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
+	 */
+	public function update_status( Pronamic_Pay_Payment $payment ) {
+		
 	}
 }
