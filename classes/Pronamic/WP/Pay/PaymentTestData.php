@@ -120,4 +120,21 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	public function getOwnerZip() {
 		return '';
 	}
+
+	//////////////////////////////////////////////////
+	// Creditcard
+	//////////////////////////////////////////////////
+	
+	public function get_credit_card() {
+		$credit_card = new Pronamic_Pay_CreditCard();
+
+		// @see http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm
+		$credit_card->set_number( '5555555555554444' );
+		$credit_card->set_expiration_month( 12 );
+		$credit_card->set_expiration_year( date( 'Y' ) + 5 );
+		$credit_card->set_security_code( '123' );
+		$credit_card->set_name( 'Pronamic' );
+
+		return $credit_card;
+	}
 }
