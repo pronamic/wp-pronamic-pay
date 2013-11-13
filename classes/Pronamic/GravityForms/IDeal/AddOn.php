@@ -338,14 +338,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$notification_ids = $feed->delay_notification_ids;
 
-				if ( in_array( $notification['id'], $notification_ids ) )
-					$is_disabled = true;
+				$is_disabled = in_array( $notification['id'], $notification_ids );
 			}
 		}
 
@@ -361,6 +362,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if admin notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
@@ -381,6 +384,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if user notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
@@ -401,6 +406,8 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
