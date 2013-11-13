@@ -61,6 +61,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Admin
 		if ( is_admin() ) {
 			Pronamic_WordPress_IDeal_Admin::bootstrap();
+		} else {
+			add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ) );
 		}
 
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
@@ -84,6 +86,17 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// Show license message if the license is not valid
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Comments clauses
+	 */
+	public static function exclude_comment_payment_notes( $clauses ) {
+		$clauses['where'] .= " AND comment_type != 'payment_note'";
+
+		return $clauses;
 	}
 
 	//////////////////////////////////////////////////
