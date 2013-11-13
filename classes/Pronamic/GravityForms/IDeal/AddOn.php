@@ -52,6 +52,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	            // Set entry meta after submission
 	            add_action( 'gform_after_submission', array( __CLASS__, 'set_entry_meta' ), 5, 2 );
 
+	            add_action( 'gform_after_submission', array( __CLASS__, 'maybe_delay_campaignmonitor_subscription' ), 1, 2 );
+	            add_action( 'gform_after_submission', array( __CLASS__, 'maybe_delay_mailchimp_subscription' ), 1, 2 );
+
 	            // Delay
 	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
 	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybe_delay_user_notification' ), 10, 3 );
@@ -251,6 +254,14 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if ( $feed->delay_post_creation ) {
 				RGFormsModel::create_post( $form_meta, $entry );
 			}
+
+			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
+				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, true );
+			}
+
+			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
+				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, true );
+			}
         }
 
         // The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
@@ -405,6 +416,34 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		return $is_disabled;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe delay Campaign Monitor subscription
+	 */
+	public static function maybe_delay_campaignmonitor_subscription( $entry, $form ) {
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
+
+		if ( null !== $feed ) {
+			if ( $feed->delay_campaignmonitor_subscription ) {
+				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2);
+			}
+		}
+	}
+
+	/**
+	 * Maybe delay MailChimp subscription
+	 */
+	public static function maybe_delay_mailchimp_subscription( $entry, $form ) {
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
+
+		if ( null !== $feed ) {
+			if ( $feed->delay_mailchimp_subscription ) {
+				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2);
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////

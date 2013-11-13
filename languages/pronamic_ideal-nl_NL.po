@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-13 09:06:28+00:00\n"
-"PO-Revision-Date: 2013-11-13 10:07+0100\n"
+"POT-Creation-Date: 2013-11-13 13:04:50+00:00\n"
+"PO-Revision-Date: 2013-11-13 14:10+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -489,7 +489,7 @@ msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr "iDEAL s2Member betaling || {{order_id}}"
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
-#: views/gravityforms/feed-edit.php:287 views/meta-box-payment-info.php:67
+#: views/gravityforms/feed-edit.php:321 views/meta-box-payment-info.php:67
 msgid "Email"
 msgstr "E-mail"
 
@@ -602,7 +602,7 @@ msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:92
-#: views/gravityforms/feed-edit.php:338
+#: views/gravityforms/feed-edit.php:372
 msgid "Error"
 msgstr "Fout"
 
@@ -617,7 +617,7 @@ msgstr "Onbekend"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:95
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:35
-#: views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:373
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -697,12 +697,12 @@ msgid "Failure"
 msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:39
-#: views/gravityforms/feed-edit.php:335
+#: views/gravityforms/feed-edit.php:369
 msgid "Open"
 msgstr "Open"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:41
-#: views/gravityforms/feed-edit.php:336 views/status-ideal.php:52
+#: views/gravityforms/feed-edit.php:370 views/status-ideal.php:52
 msgid "Success"
 msgstr "Succes"
 
@@ -1313,7 +1313,7 @@ msgid ""
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/config-edit.php:478 views/gravityforms/feed-edit.php:293
+#: views/config-edit.php:478 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr "Land"
 
@@ -1552,63 +1552,82 @@ msgstr "Bericht aanmaken uitstellen"
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: views/gravityforms/feed-edit.php:279
+#: views/gravityforms/feed-edit.php:283
+msgid "Campaign Monitor Subscription Delay"
+msgstr "Campaign Monitor inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:289
+msgid "Subscribe user to Campaign Monitor only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij Campaign Monitor wanneer de betaling is "
+"ontvangen."
+
+#: views/gravityforms/feed-edit.php:300
+msgid "MailChimp Subscription Delay"
+msgstr "MailChimp inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:306
+msgid "Subscribe user to MailChimp only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij MailChimp wanneer de betaling is ontvangen."
+
+#: views/gravityforms/feed-edit.php:313
 msgid "Fields"
 msgstr "Velden"
 
-#: views/gravityforms/feed-edit.php:285
+#: views/gravityforms/feed-edit.php:319
 msgid "First Name"
 msgstr "Voornaam"
 
-#: views/gravityforms/feed-edit.php:286
+#: views/gravityforms/feed-edit.php:320
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: views/gravityforms/feed-edit.php:288
+#: views/gravityforms/feed-edit.php:322
 msgid "Address"
 msgstr "Adres"
 
-#: views/gravityforms/feed-edit.php:289
+#: views/gravityforms/feed-edit.php:323
 msgid "Address 2"
 msgstr "Adres 2"
 
-#: views/gravityforms/feed-edit.php:290
+#: views/gravityforms/feed-edit.php:324
 msgid "City"
 msgstr "Plaats"
 
-#: views/gravityforms/feed-edit.php:291
+#: views/gravityforms/feed-edit.php:325
 msgid "State"
 msgstr "Provincie"
 
-#: views/gravityforms/feed-edit.php:292
+#: views/gravityforms/feed-edit.php:326
 msgid "Zip"
 msgstr "Postcode"
 
-#: views/gravityforms/feed-edit.php:325
+#: views/gravityforms/feed-edit.php:359
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: views/gravityforms/feed-edit.php:337
+#: views/gravityforms/feed-edit.php:371
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: views/gravityforms/feed-edit.php:365
+#: views/gravityforms/feed-edit.php:399
 msgid "Page:"
 msgstr "Pagina:"
 
-#: views/gravityforms/feed-edit.php:373
+#: views/gravityforms/feed-edit.php:407
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Selecteren &mdash;"
 
-#: views/gravityforms/feed-edit.php:382
+#: views/gravityforms/feed-edit.php:416
 msgid "URL:"
 msgstr "URL:"
 
-#: views/gravityforms/feed-edit.php:392 views/variants.php:62
+#: views/gravityforms/feed-edit.php:426 views/variants.php:62
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/gravityforms/feed-edit.php:399
+#: views/gravityforms/feed-edit.php:433
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
