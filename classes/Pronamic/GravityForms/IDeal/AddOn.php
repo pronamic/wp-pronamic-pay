@@ -487,7 +487,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					        $html  = '';
 					        $html .= '<div id="gforms_confirmation_message">';
 					        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-					        $html .= 	$gateway->get_form_html( $payment );
+					        $html .= 	$gateway->get_form_html( $payment, true );
 							$html .= '</div>';
 					
 					        // Extend the confirmation with the iDEAL form
