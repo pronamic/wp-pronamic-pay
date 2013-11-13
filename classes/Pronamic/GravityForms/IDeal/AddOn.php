@@ -225,38 +225,26 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 */
     public static function fulfill_order( $entry ) {
-		$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $entry['form_id'] );
 
 		if ( null !== $feed ) {
 			self::maybe_update_user_role( $entry, $feed );
 
-			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
+			$form = RGFormsModel::get_form_meta( $entry['form_id'] );
 
 			// Determine if the feed has Gravity Form 1.7 Feed IDs
 			if ( $feed->has_delayed_notifications() ) {
-
-				// Get those ID's
-				$notification_ids = $feed->delay_notification_ids;
-
-				// Go through all form notifications
-				foreach ( $form_meta['notifications'] as $notification ) {
-
-					// If this specific form id is a chosen delay
-					if ( in_array( $notification['id'], $notification_ids ) ) {
-
-						// Send the notification now.
-						GFCommon::send_notification( $notification, $form_meta, $entry );
-
-					}
-
-				}
+				// @see https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1512
+				GFCommon::send_notifications( $feed->delay_notification_ids, $form, $entry, true, 'form_submission' );
 			}
 
 			if ( $feed->delay_admin_notification ) {
+				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1336
 				GFCommon::send_admin_notification( $form_meta, $entry );
 			}
 
 			if ( $feed->delay_user_notification ) {
+				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1329
 				GFCommon::send_user_notification( $form_meta, $entry );
 			}
 
