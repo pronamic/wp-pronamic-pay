@@ -363,7 +363,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $pay_form !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_admin_notification;
 			}
@@ -383,7 +383,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_user_notification;
 			}
@@ -403,7 +403,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_post_creation;
 			}
@@ -427,7 +427,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			// Update form meta with current feed id
 			gform_update_meta( $entry['id'], 'ideal_feed_id', $feed->id );
 
@@ -446,7 +446,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handle_ideal( $confirmation, $form, $lead, $ajax ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
 
