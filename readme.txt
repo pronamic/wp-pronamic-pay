@@ -151,6 +151,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.0.8 =
+*	Tweak - Added character set to the system status page.
+*	Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
+
 = 2.0.7 =
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.
 *	Tweak - Event Espresso - Improved support for e-mail notifications after payment.
