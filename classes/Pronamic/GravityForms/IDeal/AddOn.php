@@ -227,7 +227,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
     public static function fulfill_order( $entry ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			self::maybe_update_user_role( $entry, $feed );
 
 			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
