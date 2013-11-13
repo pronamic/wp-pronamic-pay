@@ -262,10 +262,10 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
 				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, true );
 			}
-        }
+		}
 
-        // The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
-        do_action( 'gform_ideal_fulfillment', $entry, $feed );
+		// The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
+		do_action( 'gform_ideal_fulfillment', $entry, $feed );
     }
 
 	//////////////////////////////////////////////////
