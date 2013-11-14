@@ -369,6 +369,26 @@
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
+			</th>
+			<td class="column-version">
+                <?php bloginfo( 'charset' ); ?>
+			</td>
+			<td>
+				<?php 
+
+				// @see http://codex.wordpress.org/Function_Reference/bloginfo#Show_Character_Set
+				if ( strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) == 0 ) {
+					echo '&#10003;';
+				} else {
+					_e( 'Pronamic iDEAL advices to set the character encoding to UTF-8.', 'pronamic_ideal' );
+				}
+
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php _e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
 			<td class="column-version">

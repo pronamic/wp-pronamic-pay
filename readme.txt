@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 3.7
-Stable tag: 2.0.7
+Tested up to: 3.7.1
+Stable tag: 2.1.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -150,6 +150,14 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.1.0 =
+*	Tweak - Added character set to the system status page.
+*	Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
+*	Tweak - Gravity Forms - Added support for Campaign Monitor Subscription Delay.
+*	Tweak - Gravity Forms - Added support for MailChimp Subscription Delay.
+*	Tweak - ABN AMRO - iDEAL Easy - Improved support for mulitple payments for same order.
+*	Tweak - Ogone - DirectLink - Improved payment status update.
 
 = 2.0.7 =
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.

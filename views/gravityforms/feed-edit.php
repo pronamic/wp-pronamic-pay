@@ -273,6 +273,40 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				</label>
 			</td>
 		</tr>
+		<tr>
+			<?php 
+
+			$delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
+			
+			?>
+			<th scope="row">
+				<?php _e( 'Campaign Monitor Subscription Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" name="_pronamic_pay_gf_delay_campaignmonitor_subscription" id="_pronamic_pay_gf_delay_campaignmonitor_subscription" value="true" <?php checked( $delay_campaignmonitor_subscription ); ?> />
+	
+				<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
+					<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
+				</label>
+			</td>
+		</tr> 
+		<tr>
+			<?php 
+
+			$delay_mailchimp_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
+			
+			?>
+			<th scope="row">
+				<?php _e( 'MailChimp Subscription Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" name="_pronamic_pay_gf_delay_mailchimp_subscription" id="_pronamic_pay_gf_delay_mailchimp_subscription" value="true" <?php checked( $delay_mailchimp_subscription ); ?> />
+	
+				<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
+					<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
+				</label>
+			</td>
+		</tr> 
 	</table>
 	
 	<h4>

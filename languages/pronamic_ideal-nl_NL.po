@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-10-28 12:04:37+00:00\n"
-"PO-Revision-Date: 2013-11-06 14:53+0100\n"
+"POT-Creation-Date: 2013-11-14 09:58:57+00:00\n"
+"PO-Revision-Date: 2013-11-14 10:59+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -17,20 +17,20 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/includes/upgrade.php:114
+#: admin/includes/upgrade.php:128
 msgid "Configuration %d"
 msgstr "Configuratie %d"
 
-#: admin/includes/upgrade.php:271
+#: admin/includes/upgrade.php:298
 msgid "Payment Form %d"
 msgstr "Betalingsformulier %d"
 
-#: admin/includes/upgrade.php:381
+#: admin/includes/upgrade.php:409
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/status-system.php:165
-#: views/status-system.php:173
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/status-system.php:166
+#: views/status-system.php:174
 msgid "AppThemes"
 msgstr "AppThemes"
 
@@ -58,7 +58,7 @@ msgstr "Bestelling #%s"
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.0.1)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.1.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -155,12 +155,12 @@ msgstr "Instellingen bijwerken"
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:347
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:348
 #: views/status-system.php:61
 msgid "Event Espresso"
 msgstr "Event Espresso"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:352
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:353
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
@@ -201,65 +201,65 @@ msgstr "&mdash; Andere banken &mdash;"
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115 includes/post.php:210
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106 includes/post.php:210
 #: views/meta-box-payment-info.php:27
 msgid "Amount"
 msgstr "Bedrag"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:107
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:117
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:118
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:109
 msgid "Currency Code"
 msgstr "Valuta code"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:119
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
 #: views/config-edit.php:59 views/config-edit.php:160
 #: views/config-edit.php:215
 msgid "Merchant ID"
 msgstr "Winkelier ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:120
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:111
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:121
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
 msgid "Transaction Date Time"
 msgstr "Transactie tijdstip"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:122
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:113
 msgid "Transaction Reference"
 msgstr "Transactie referentie"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:123
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
 #: views/config-edit.php:176
 msgid "Key Version"
 msgstr "Sleutel versie"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:124
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115
 msgid "Authorisation ID"
 msgstr "Autorisatie ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:125
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
 msgid "Payment Mean Brand"
 msgstr "Betaalmethode merknaam"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:126
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:117
 msgid "Payment Mean Type"
 msgstr "Betaalmethode type"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:127
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:118
 msgid "Response Code"
 msgstr "Antwoord code"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:133
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:124
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
@@ -271,21 +271,21 @@ msgstr "Onbekend Sisow-bericht (%s)"
 msgid "Sisow Bank (test)"
 msgstr "Sisow bank (test)"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:82 views/status-system.php:78
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:85 views/status-system.php:78
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:87
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:90
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:108
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:306
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:111
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:328
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:112
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:310
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:115
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:332
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -489,7 +489,7 @@ msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr "iDEAL s2Member betaling || {{order_id}}"
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
-#: views/gravityforms/feed-edit.php:287 views/meta-box-payment-info.php:67
+#: views/gravityforms/feed-edit.php:321 views/meta-box-payment-info.php:67
 msgid "Email"
 msgstr "E-mail"
 
@@ -602,7 +602,7 @@ msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:92
-#: views/gravityforms/feed-edit.php:338
+#: views/gravityforms/feed-edit.php:372
 msgid "Error"
 msgstr "Fout"
 
@@ -617,7 +617,7 @@ msgstr "Onbekend"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:95
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:35
-#: views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:373
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -697,12 +697,12 @@ msgid "Failure"
 msgstr "Storing"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:39
-#: views/gravityforms/feed-edit.php:335
+#: views/gravityforms/feed-edit.php:369
 msgid "Open"
 msgstr "Open"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:41
-#: views/gravityforms/feed-edit.php:336 views/status-ideal.php:52
+#: views/gravityforms/feed-edit.php:370 views/status-ideal.php:52
 msgid "Success"
 msgstr "Succes"
 
@@ -717,11 +717,11 @@ msgstr ""
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:172
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:171
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:217
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:239
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
@@ -731,7 +731,7 @@ msgstr ""
 "betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:233
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:255
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -1313,7 +1313,7 @@ msgid ""
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/config-edit.php:478 views/gravityforms/feed-edit.php:293
+#: views/config-edit.php:478 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr "Land"
 
@@ -1433,7 +1433,7 @@ msgstr "c"
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.0.1)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.1.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1552,63 +1552,82 @@ msgstr "Bericht aanmaken uitstellen"
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: views/gravityforms/feed-edit.php:279
+#: views/gravityforms/feed-edit.php:283
+msgid "Campaign Monitor Subscription Delay"
+msgstr "Campaign Monitor inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:289
+msgid "Subscribe user to Campaign Monitor only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij Campaign Monitor wanneer de betaling is "
+"ontvangen."
+
+#: views/gravityforms/feed-edit.php:300
+msgid "MailChimp Subscription Delay"
+msgstr "MailChimp inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:306
+msgid "Subscribe user to MailChimp only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij MailChimp wanneer de betaling is ontvangen."
+
+#: views/gravityforms/feed-edit.php:313
 msgid "Fields"
 msgstr "Velden"
 
-#: views/gravityforms/feed-edit.php:285
+#: views/gravityforms/feed-edit.php:319
 msgid "First Name"
 msgstr "Voornaam"
 
-#: views/gravityforms/feed-edit.php:286
+#: views/gravityforms/feed-edit.php:320
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: views/gravityforms/feed-edit.php:288
+#: views/gravityforms/feed-edit.php:322
 msgid "Address"
 msgstr "Adres"
 
-#: views/gravityforms/feed-edit.php:289
+#: views/gravityforms/feed-edit.php:323
 msgid "Address 2"
 msgstr "Adres 2"
 
-#: views/gravityforms/feed-edit.php:290
+#: views/gravityforms/feed-edit.php:324
 msgid "City"
 msgstr "Plaats"
 
-#: views/gravityforms/feed-edit.php:291
+#: views/gravityforms/feed-edit.php:325
 msgid "State"
 msgstr "Provincie"
 
-#: views/gravityforms/feed-edit.php:292
+#: views/gravityforms/feed-edit.php:326
 msgid "Zip"
 msgstr "Postcode"
 
-#: views/gravityforms/feed-edit.php:325
+#: views/gravityforms/feed-edit.php:359
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: views/gravityforms/feed-edit.php:337
+#: views/gravityforms/feed-edit.php:371
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: views/gravityforms/feed-edit.php:365
+#: views/gravityforms/feed-edit.php:399
 msgid "Page:"
 msgstr "Pagina:"
 
-#: views/gravityforms/feed-edit.php:373
+#: views/gravityforms/feed-edit.php:407
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Selecteren &mdash;"
 
-#: views/gravityforms/feed-edit.php:382
+#: views/gravityforms/feed-edit.php:416
 msgid "URL:"
 msgstr "URL:"
 
-#: views/gravityforms/feed-edit.php:392 views/variants.php:62
+#: views/gravityforms/feed-edit.php:426 views/variants.php:62
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: views/gravityforms/feed-edit.php:399
+#: views/gravityforms/feed-edit.php:433
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
@@ -1821,7 +1840,7 @@ msgid "Activation Date"
 msgstr "Activatie datum"
 
 #: views/status-system.php:29 views/status-system.php:42
-#: views/status-system.php:374
+#: views/status-system.php:395
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
@@ -1873,95 +1892,103 @@ msgstr "WooThemes"
 msgid "Instinct Entertainment"
 msgstr "Instinct Entertainment"
 
-#: views/status-system.php:169
+#: views/status-system.php:170
 msgid "JobRoller"
 msgstr "JobRoller"
 
-#: views/status-system.php:184 views/variants.php:21
+#: views/status-system.php:185 views/variants.php:21
 msgid "Name"
 msgstr "Naam"
 
-#: views/status-system.php:187
+#: views/status-system.php:188
 msgid "Author"
 msgstr "Auteur"
 
-#: views/status-system.php:190
+#: views/status-system.php:191
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: views/status-system.php:193
+#: views/status-system.php:194
 msgid "GitHub"
 msgstr "GitHub"
 
-#: views/status-system.php:196
+#: views/status-system.php:197
 msgid "Requires at least"
 msgstr "Vereist minimaal"
 
-#: views/status-system.php:199
+#: views/status-system.php:200
 msgid "Tested up to"
 msgstr "Getest tot"
 
-#: views/status-system.php:202
+#: views/status-system.php:203
 msgid "Active"
 msgstr "Actief"
 
-#: views/status-system.php:280
+#: views/status-system.php:281
 msgid "Installation Status"
 msgstr "Installatie status"
 
-#: views/status-system.php:286
+#: views/status-system.php:287
 msgid "Site URL"
 msgstr "Site URL"
 
-#: views/status-system.php:297
+#: views/status-system.php:298
 msgid "Home URL"
 msgstr "Home URL"
 
-#: views/status-system.php:308
+#: views/status-system.php:309
 msgid "PHP Version"
 msgstr "PHP versie"
 
-#: views/status-system.php:319
+#: views/status-system.php:320
 msgid "Pronamic iDEAL requires PHP 5.2 or above."
 msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
 
-#: views/status-system.php:327
+#: views/status-system.php:328
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: views/status-system.php:344
+#: views/status-system.php:345
 msgid "Pronamic iDEAL requires MySQL 5 or above."
 msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
 
-#: views/status-system.php:352
+#: views/status-system.php:353
 msgid "WordPress Version"
 msgstr "WordPress versie"
 
-#: views/status-system.php:363
+#: views/status-system.php:364
 msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 
-#: views/status-system.php:371
+#: views/status-system.php:372
+msgid "Character Set"
+msgstr "Tekencodering"
+
+#: views/status-system.php:384
+msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
+msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
+
+#: views/status-system.php:392
 msgid "Time"
 msgstr "Tijd"
 
-#: views/status-system.php:383
+#: views/status-system.php:404
 msgid "OpenSSL"
 msgstr "OpenSSL"
 
-#: views/status-system.php:403
+#: views/status-system.php:424
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
 
-#: views/status-system.php:411
+#: views/status-system.php:432
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: views/status-system.php:428
+#: views/status-system.php:449
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: views/status-system.php:436
+#: views/status-system.php:457
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 

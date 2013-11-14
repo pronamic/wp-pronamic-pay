@@ -92,11 +92,14 @@ class Pronamic_GravityForms_PayFeed {
 		
 		$ids = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 		$this->delay_notification_ids   = is_array( $ids ) ? $ids : array();
-
-		$this->delay_post_creation      = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
 		
 		$this->delay_admin_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_notification', true );
 		$this->delay_user_notification  = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_notification', true );
+
+		$this->delay_post_creation      = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
+		
+		$this->delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
+		$this->delay_mailchimp_subscription       = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
 
 		$fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 		$this->fields                   = is_array( $fields ) ? $fields : array();

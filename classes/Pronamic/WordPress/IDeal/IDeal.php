@@ -155,19 +155,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		if ( $payment ) {
 			$gateway->start( $data, $payment );
 
-			// Meta
-			$prefix = '_pronamic_payment_';
-
-			$meta = array(
-				$prefix . 'transaction_id' => $payment->get_transaction_id(),
-				$prefix . 'action_url'     => $payment->get_action_url()
-			);
-
-			foreach ( $meta as $key => $value ) {
-				if ( ! empty( $value ) ) {
-					update_post_meta( $payment->get_id(), $key, $value );
-				}
-			}
+			pronamic_wp_pay_update_payment( $payment );
 			
 			$gateway->payment( $payment );
 		}

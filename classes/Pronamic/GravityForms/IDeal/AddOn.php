@@ -52,6 +52,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	            // Set entry meta after submission
 	            add_action( 'gform_after_submission', array( __CLASS__, 'set_entry_meta' ), 5, 2 );
 
+	            add_action( 'gform_after_submission', array( __CLASS__, 'maybe_delay_campaignmonitor_subscription' ), 1, 2 );
+	            add_action( 'gform_after_submission', array( __CLASS__, 'maybe_delay_mailchimp_subscription' ), 1, 2 );
+
 	            // Delay
 	            add_filter( 'gform_disable_admin_notification', array( __CLASS__, 'maybe_delay_admin_notification' ), 10, 3 );
 	            add_filter( 'gform_disable_user_notification',  array( __CLASS__, 'maybe_delay_user_notification' ), 10, 3 );
@@ -225,48 +228,44 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param array $entry
 	 */
     public static function fulfill_order( $entry ) {
-		$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $entry['form_id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			self::maybe_update_user_role( $entry, $feed );
 
-			$form_meta = RGFormsModel::get_form_meta( $entry['form_id'] );
+			$form = RGFormsModel::get_form_meta( $entry['form_id'] );
 
 			// Determine if the feed has Gravity Form 1.7 Feed IDs
 			if ( $feed->has_delayed_notifications() ) {
-
-				// Get those ID's
-				$notification_ids = $feed->delay_notification_ids;
-
-				// Go through all form notifications
-				foreach ( $form_meta['notifications'] as $notification ) {
-
-					// If this specific form id is a chosen delay
-					if ( in_array( $notification['id'], $notification_ids ) ) {
-
-						// Send the notification now.
-						GFCommon::send_notification( $notification, $form_meta, $entry );
-
-					}
-
-				}
+				// @see https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1512
+				GFCommon::send_notifications( $feed->delay_notification_ids, $form, $entry, true, 'form_submission' );
 			}
 
 			if ( $feed->delay_admin_notification ) {
+				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1336
 				GFCommon::send_admin_notification( $form_meta, $entry );
 			}
 
 			if ( $feed->delay_user_notification ) {
+				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1329
 				GFCommon::send_user_notification( $form_meta, $entry );
 			}
 
 			if ( $feed->delay_post_creation ) {
 				RGFormsModel::create_post( $form_meta, $entry );
 			}
-        }
 
-        // The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
-        do_action( 'gform_ideal_fulfillment', $entry, $feed );
+			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
+				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, true );
+			}
+
+			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
+				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, true );
+			}
+		}
+
+		// The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
+		do_action( 'gform_ideal_fulfillment', $entry, $feed );
     }
 
 	//////////////////////////////////////////////////
@@ -338,14 +337,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	public static function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
 		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$notification_ids = $feed->delay_notification_ids;
 
-				if ( in_array( $notification['id'], $notification_ids ) )
-					$is_disabled = true;
+				$is_disabled = in_array( $notification['id'], $notification_ids );
 			}
 		}
 
@@ -361,9 +361,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if admin notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $pay_form !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_admin_notification;
 			}
@@ -381,9 +383,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if user notification is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_user_notification;
 			}
@@ -401,15 +405,45 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @return boolean true if post creation is disabled / delayed, false otherwise
 	 */
 	public static function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
+		$is_disabled = false;
+
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$is_disabled = $feed->delay_post_creation;
 			}
 		}
 
 		return $is_disabled;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe delay Campaign Monitor subscription
+	 */
+	public static function maybe_delay_campaignmonitor_subscription( $entry, $form ) {
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
+
+		if ( null !== $feed ) {
+			if ( $feed->delay_campaignmonitor_subscription ) {
+				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2);
+			}
+		}
+	}
+
+	/**
+	 * Maybe delay MailChimp subscription
+	 */
+	public static function maybe_delay_mailchimp_subscription( $entry, $form ) {
+		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
+
+		if ( null !== $feed ) {
+			if ( $feed->delay_mailchimp_subscription ) {
+				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2);
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -427,7 +461,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			// Update form meta with current feed id
 			gform_update_meta( $entry['id'], 'ideal_feed_id', $feed->id );
 
@@ -446,7 +480,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function handle_ideal( $confirmation, $form, $lead, $ajax ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $form['id'] );
 
-		if ( $feed !== null ) {
+		if ( null !== $feed ) {
 			if ( self::is_condition_true( $form, $feed ) ) {
 				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
 
@@ -492,7 +526,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					        $html  = '';
 					        $html .= '<div id="gforms_confirmation_message">';
 					        $html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-					        $html .= 	$gateway->get_form_html( $payment );
+					        $html .= 	$gateway->get_form_html( $payment, true );
 							$html .= '</div>';
 					
 					        // Extend the confirmation with the iDEAL form
