@@ -6,7 +6,7 @@
  */
 global $pronamic_pay_version;
 
-$pronamic_pay_version = '2.0.7';
+$pronamic_pay_version = '2.1.0';
 
 /**
  * Holds the Pronamic Pay DB revision, increments when changes are made to the Pronamic Pay DB schema.
@@ -15,4 +15,4 @@ $pronamic_pay_version = '2.0.7';
  */
 global $pronamic_pay_db_version;
 
-$pronamic_pay_db_version = 207;
+$pronamic_pay_db_version = 210;
