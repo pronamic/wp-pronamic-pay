@@ -89,15 +89,15 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$data['SHASIGN'] = $client->getSignatureIn();
 		
 		$result = $this->client->order_direct( $data );
-		
+
 		$error = $this->client->get_error();
 
 		if ( is_wp_error( $error ) ) {
 			$this->error = $error;
 		} else {
 			$payment->set_transaction_id( $result->pay_id );
-			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
+			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 		}
 	}
 	

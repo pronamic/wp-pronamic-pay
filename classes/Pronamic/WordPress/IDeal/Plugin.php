@@ -74,6 +74,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		require_once self::$dirname . '/includes/gravityforms.php';
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/gateways.php';
+		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';
@@ -129,12 +130,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			if ( $gateway ) {
 				$gateway->update_status( $payment );
 
-				update_post_meta( $payment->get_id(), '_pronamic_payment_status', $payment->status );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_name', $payment->consumer_name );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_account_number', $payment->consumer_account_number );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_iban', $payment->consumer_iban );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_bic', $payment->consumer_bic );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_consumer_city', $payment->consumer_city );
+				pronamic_wp_pay_update_payment( $payment );
 
 				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
