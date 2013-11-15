@@ -151,6 +151,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.2.0 =
+*	Feature - WooCommerce - Added support for payment description with WooCommerce tags like {order_number} and {blogname}.
+
 = 2.1.0 =
 *	Tweak - Added character set to the system status page.
 *	Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
