@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-14 09:58:57+00:00\n"
-"PO-Revision-Date: 2013-11-14 10:59+0100\n"
+"POT-Creation-Date: 2013-11-15 12:52:42+00:00\n"
+"PO-Revision-Date: 2013-11-15 13:53+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -68,7 +68,7 @@ msgstr "iDEAL"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:55
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:117
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -369,7 +369,7 @@ msgstr "Titel"
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:74
 msgid "This controls the title which the user sees during checkout."
-msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78
@@ -379,7 +379,7 @@ msgstr "Beschrijving"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
 msgid "This controls the description which the user sees during checkout."
-msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:175
 msgid "Pending iDEAL payment."
@@ -529,7 +529,6 @@ msgstr "Selecteer configuratie"
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
-#: classes/Pronamic/WooCommerce/PaymentData.php:62
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -582,14 +581,35 @@ msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
 msgstr ""
-"Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de "
+"Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:163
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:90
+msgid "Payment Options"
+msgstr "Betalingsopties"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+msgid "Payment Description"
+msgstr "Betalingsomschrijving"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
+msgid "This controls the payment description. Default: <code>%s</code>."
+msgstr ""
+"Hiermee beheer je de betalingsomschrijving. Standaard: <code>%s</code>."
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:100
+msgid "Tags: %s"
+msgstr "Tags: %s"
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:177
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
 #: classes/Pronamic/WooCommerce/PaymentData.php:52
+msgid "Order {order_number}"
+msgstr "Bestelling {order_number}"
+
+#: classes/Pronamic/WooCommerce/PaymentData.php:74
 msgid "WooCommerce order %s"
 msgstr "WooCommerce bestelling %s"
 
@@ -727,8 +747,8 @@ msgid ""
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
 "\">iDEAL settings page</a>."
 msgstr ""
-"<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis "
-"betalingen van %d overschreden, u dient een geldige licentie sleutel in te "
+"<strong>Pronamic iDEAL beperkt:</strong> Je hebt het maximaal aantal gratis "
+"betalingen van %d overschreden, je dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:255
@@ -1204,7 +1224,7 @@ msgstr "PSPID"
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
-"Als u gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
+"Als je gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
 #: views/config-edit.php:327
@@ -1688,7 +1708,7 @@ msgstr "iDEAL-pagina's generator"
 msgid ""
 "This page allows you to easily create pages for each iDEAL payment status."
 msgstr ""
-"Via deze pagina kunt u eenvoudig pagina's aanmaken voor de verschillende "
+"Via deze pagina kun je eenvoudig pagina's aanmaken voor de verschillende "
 "iDEAL-betalingsstatussen."
 
 #: views/pages-generator.php:58
@@ -1785,7 +1805,7 @@ msgstr "U wordt automatisch doorgestuurd naar de online betaalomgeving."
 
 #: views/redirect-via-html.php:127
 msgid "Please click the button below if you are not automatically redirected."
-msgstr "Klik op onderstaande knop als u niet automatisch wordt doorgestuurd."
+msgstr "Klik op onderstaande knop als je niet automatisch wordt doorgestuurd."
 
 #: views/s2member/buttons-generator.php:43
 msgid "Generator"
@@ -2531,9 +2551,6 @@ msgstr "Pronamic"
 
 #~ msgid "info@pronamic.eu"
 #~ msgstr "info@pronamic.nl"
-
-#~ msgid "T: %s"
-#~ msgstr "T: %s"
 
 #~ msgid "Latitude"
 #~ msgstr "Breedtegraad"

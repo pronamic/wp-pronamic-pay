@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 2.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-14 09:58:57+00:00\n"
+"POT-Creation-Date: 2013-11-15 12:52:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -63,7 +63,7 @@ msgstr ""
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:55
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:117
 msgid "Pronamic iDEAL"
 msgstr ""
 
@@ -522,7 +522,6 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
-#: classes/Pronamic/WooCommerce/PaymentData.php:62
 msgid "Order %s"
 msgstr ""
 
@@ -572,11 +571,31 @@ msgid ""
 "bank."
 msgstr ""
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:163
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:90
+msgid "Payment Options"
+msgstr ""
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+msgid "Payment Description"
+msgstr ""
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
+msgid "This controls the payment description. Default: <code>%s</code>."
+msgstr ""
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:100
+msgid "Tags: %s"
+msgstr ""
+
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:177
 msgid "Awaiting iDEAL payment."
 msgstr ""
 
 #: classes/Pronamic/WooCommerce/PaymentData.php:52
+msgid "Order {order_number}"
+msgstr ""
+
+#: classes/Pronamic/WooCommerce/PaymentData.php:74
 msgid "WooCommerce order %s"
 msgstr ""
 
