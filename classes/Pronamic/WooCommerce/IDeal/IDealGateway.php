@@ -63,29 +63,29 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
     	$this->form_fields = array(
     		'enabled'     => array(
-				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ) , 
-				'type'    => 'checkbox' , 
-				'label'   => __( 'Enable iDEAL', 'pronamic_ideal' ) , 
-				'default' => 'yes' 
-			) ,  
+				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ),
+				'type'    => 'checkbox',
+				'label'   => __( 'Enable iDEAL', 'pronamic_ideal' ),
+				'default' => 'yes',
+			),  
 			'title'       => array(
-				'title'       => __( 'Title', 'pronamic_ideal' ) , 
-				'type'        => 'text' , 
-				'description' => $description_prefix . __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ) , 
-				'default'     => __( 'iDEAL', 'pronamic_ideal' ) 
-			) , 
+				'title'       => __( 'Title', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => $description_prefix . __( 'This controls the title which the user sees during checkout.', 'pronamic_ideal' ),
+				'default'     => __( 'iDEAL', 'pronamic_ideal' ),
+			), 
 			'description' => array(
-				'title'       => __( 'Description', 'pronamic_ideal' ) , 
-				'type'        => 'textarea' , 
-				'description' => $description_prefix . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ) , 
-				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' )
-			) , 
+				'title'       => __( 'Description', 'pronamic_ideal' ),
+				'type'        => 'textarea',
+				'description' => $description_prefix . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ),
+				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' ),
+			), 
 			'config_id'   => array(
-				'title'       => __( 'Configuration', 'pronamic_ideal' ) , 
-				'type'        => 'select' , 
-				'default'     => '' , 
-				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
-			)
+				'title'       => __( 'Configuration', 'pronamic_ideal' ),
+				'type'        => 'select',
+				'default'     => '',
+				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(), 
+			),
 		);
     }
 
