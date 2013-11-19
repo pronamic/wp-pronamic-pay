@@ -17,6 +17,13 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 */
 	private $order;
 
+	/**
+	 * Description
+	 * 
+	 * @var string
+	 */
+	private $description;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -24,10 +31,25 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * 
 	 * @param WC_Order $order
 	 */
-	public function __construct( $order ) {
+	public function __construct( $order, $description = null ) {
 		parent::__construct();
 
 		$this->order = $order;
+
+		$this->description = ( null == $description ) ? self::get_default_description() : $description;
+	}
+
+	//////////////////////////////////////////////////
+	// Specific WooCommerce
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get default description
+	 * 
+	 * @return string
+	 */
+	public static function get_default_description() {
+		return __( 'Order {order_number}', 'pronamic_ideal' );
 	}
 
 	//////////////////////////////////////////////////
@@ -59,7 +81,26 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * @return string
 	 */
 	public function get_description() {
-		return sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->get_order_id() );
+		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
+		$find    = array();
+		$replace = array();
+
+		$find[]    = '{blogname}';
+		$replace[] = get_bloginfo( 'name' );
+
+		$find[]    = '{site_title}';
+		$replace[] = get_bloginfo( 'name' );
+
+		$find[]    = '{order_date}';
+		$replace[] = date_i18n( woocommerce_date_format(), strtotime( $this->order->order_date ) );
+		
+		$find[]    = '{order_number}';
+		$replace[] = $this->order->get_order_number();
+
+		// Description
+		$description = str_replace( $find, $replace, $this->description );
+
+		return $description;
 	}
 
 	/**

@@ -78,15 +78,15 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-Internetkassa_-Parameter-Cookbook.pdf',
 					'url2'    => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp',
 					'name'    => 'Parameter Cookbook'
-				)
-			)
+				),
+			),
 		),
 		'adyen.com' => array(
 			'name'      => 'Adyen',
 			'url'       => 'http://adyen.com/', 
 			'resources' => array(
 						
-			)
+			),
 		),
 		'buckaroo' => array(
 			'name'      => 'Buckaroo',
@@ -103,8 +103,8 @@
 					'name'    => 'Buckaroo Payment Engine 3.0 - iDEAL',
 					'version' => '2.01',
 					'date'    => new DateTime( '14-02-2013' )
-				)
-			)
+				),
+			),
 		),
 		'cardgate.com' => array(
 			'name'      => 'Card Gate Plus',
@@ -115,8 +115,8 @@
 					'name'    => 'Technische aansluit documentatie',
 					'version' => '2.23',
 					'date'    => new DateTime( '19-08-2011' )
-				)
-			)
+				),
+			),
 		),
 		'currence.nl' => array(
 			'name'      => 'Currence',
@@ -158,8 +158,8 @@
 					'name'    => 'iDEAL Merchant Integration Guide',
 					'version' => '3.3.1',
 					'date'    => new DateTime( '01-11-2012' )
-				)
-			)
+				),
+			),
 		),
 		'dutchpaymentgroup.com' => array(
 			'name'      => 'Dutch Payment Group',
@@ -169,8 +169,8 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/DPG-Merchant-Integration-Manual-V201.pdf',
 					'name'    => 'Dutch Payment Group payment platform: Merchant Integration Manual',
 					'version' => '020'
-				)
-			)
+				),
+			),
 		),
 		'frieslandbank.nl' => array(
 			'name'      => 'Friesland Bank',
@@ -189,8 +189,19 @@
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/friesland-bank-ideal-dashboard-08-10.pdf',
 					'name'    => 'iDEAL Dashboard'
-				)
-			)
+				),
+			),
+		),
+		'icepay.com' => array(
+			'name'      => 'ICEPAY',
+			'url'       => 'http://www.icepay.com/',
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/11/icepay_implementation_guide.pdf',
+					'name'    => 'Implementation Guide - v1.3.0',
+					'version' => '1.3.0'
+				),
+			),
 		),
 		'ideal.nl' => array(
 			'name'      => 'iDEAL',
@@ -203,8 +214,18 @@
 				array(
 					'url'  => 'http://www.ideal.nl/acceptant/?s=banner',
 					'name' => 'iDEAL-banners die altijd actueel blijven' 
-				)
-			)
+				),
+			),
+		),
+		'idealdesk.com' => array(
+			'name'      => 'iDEALdesk',
+			'url'       => 'https://www.idealdesk.com/', 
+			'resources' => array(
+				array(
+					'url'  => 'http://huisstijl.idealdesk.com/',
+					'name' => 'Online styleguide van iDEAL' 
+				),
+			),
 		),
 		'ing.nl' => array(
 			'name'      => 'ING',
@@ -264,18 +285,8 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_General_EN_v2.3.pdf',
 					'name'    => 'Introduction and procedure for iDEAL',
 					'version' => '2.3'
-				)
-			)
-		),
-		'idealdesk.com' => array(
-			'name'      => 'iDEALdesk',
-			'url'       => 'https://www.idealdesk.com/', 
-			'resources' => array(
-				array(
-					'url'  => 'http://huisstijl.idealdesk.com/',
-					'name' => 'Online styleguide van iDEAL' 
-				) 
-			)
+				),
+			),
 		),
 		'mollie.nl' => array(
 			'name'      => 'Mollie',
@@ -288,22 +299,22 @@
 				array(
 					'url'  => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/',
 					'name' => 'iDEAL Professional/Advanced' 
-				)
-			)
+				),
+			),
 		),
-	  'buckaroo.nl' => array(
+		'buckaroo.nl' => array(
 			'name'      => 'Buckaroo',
 			'url'       => 'http://buckaroo.nl/',
 			'resources' => array(
 				array(
 					'url'  => 'http://payment.buckaroo.nl/',
 					'name' => 'iDEAL Payment Gateway and Support'
-				) 
-			)
+				), 
+			),
 		),
 		'ogone.nl' => array(
-			'name' => 'Ogone' ,
-			'url' => 'http://www.ogone.nl/' ,
+			'name'      => 'Ogone' ,
+			'url'       => 'http://www.ogone.nl/' ,
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Ogone_eCom_STD_Integration_20041224_EN.pdf',
@@ -325,20 +336,20 @@
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Lijst-van-de-betaalstatussen-en-foutcodes.pdf',
 					'name'    => 'Ogone - Lijst van de betaalstatussen en foutcodes'
-				)
-			)
+				),
+			),
 		),
 		'paygate.co.za' => array(
-			'name' => 'PayGate' ,
-			'url' => 'http://paygate.co.za/' ,
+			'name'      => 'PayGate' ,
+			'url'       => 'http://paygate.co.za/' ,
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/PayGate-PayWebv2-v1.15.pdf',
 					'name'    => 'PayGate - PayWeb',
 					'date'    => new DateTime( '01-02-2012' ),
 					'version' => '1.0'
-				)
-			)
+				),
+			),
 		),
 		'rabobank.nl' => array(
 			'name'      => 'Rabobank',
@@ -505,8 +516,8 @@
 					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 5.1, oktboer 2013',
 					'version'    => '5.1',
 					'date'       => new DateTime( '01-10-2013' )
-				)
-			)
+				),
+			),
 		),
 		'sisow.nl' => array(
 			'name'      => 'Sisow',
@@ -525,8 +536,8 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-webservice-api-v2.0.pdf',
 					'name'    => 'Sisow - WebService API',
 					'version' => '2.0'
-				)
-			)
+				),
+			),
 		),
 		'qantani.com' => array(
 			'name'      => 'Qantani',
@@ -541,9 +552,9 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-xml-v1.pdf',
 					'name'    => 'Qantani - Connecting to the API',
 					'version' => '1.0'
-				)
-			)
-		)
+				),
+			),
+		),
 	);
 	
 	?>

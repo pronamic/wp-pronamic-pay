@@ -95,17 +95,27 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		try {
+			/*
+			 * Order ID
+			 * Your unique order number.
+			 * This can be auto incremental number from your payments table
+			 * 
+			 * Data type  = String
+			 * Max length = 10
+			 * Required   = Yes
+			 */
+
 			$payment_object = new Icepay_PaymentObject();
 			$payment_object
 				->setPaymentMethod( $this->client->getCode() )
 				->setAmount( Pronamic_WP_Util::amount_to_cents( $data->get_amount() ) )
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )
-				->setReference( $payment->get_id() )
+				->setReference( $data->get_order_id() )
 				->setDescription( $data->get_description() )
 				->setCurrency( $data->get_currency() )
 				->setIssuer( $data->get_issuer_id() )
-				->setOrderID( $data->get_order_id() );
+				->setOrderID( $payment->get_id() );
 
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode

@@ -141,7 +141,7 @@ $sections = array(
 				'id'          => 'pronamic_ideal_mollie_profile_key',
 				'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'classes'     => array( 'code' ),
+				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf(
 					__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 					'https://www.mollie.nl/beheer/account/profielen/'
