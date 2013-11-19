@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-15 12:52:42+00:00\n"
-"PO-Revision-Date: 2013-11-15 13:53+0100\n"
+"POT-Creation-Date: 2013-11-19 08:09:37+00:00\n"
+"PO-Revision-Date: 2013-11-19 09:09+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -51,14 +51,14 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:76
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
 #: classes/Pronamic/WordPress/IDeal/Admin.php:381 views/config-edit.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.1.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -68,7 +68,7 @@ msgstr "iDEAL"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:55
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:117
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:118
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -78,7 +78,7 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
 #: classes/Pronamic/WP/Pay/Membership/Admin.php:48
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:84
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:85
 #: includes/post.php:284 includes/post.php:341 includes/post.php:389
 #: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:50
 msgid "Configuration"
@@ -104,7 +104,7 @@ msgstr "iDEAL-instellingen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:87
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:68
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:69
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
@@ -360,19 +360,19 @@ msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:72 includes/post.php:97
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73 includes/post.php:97
 #: includes/post.php:206 includes/post.php:282 views/branding.php:109
-#: views/documentation.php:557 views/pages-generator.php:123
+#: views/documentation.php:568 views/pages-generator.php:123
 msgid "Title"
 msgstr "Titel"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:74
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:78
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:79
 #: includes/post.php:209 views/meta-box-payment-info.php:19
 msgid "Description"
 msgstr "Beschrijving"
@@ -564,11 +564,11 @@ msgstr "WP e-Commerce"
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:66
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:67
 msgid "Enable/Disable"
 msgstr "Inschakelen/uitschakelen"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:80
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:81
 msgid ""
 "Give the customer instructions for paying via iDEAL, and let them know that "
 "their order won't be shipping until the money is received."
@@ -576,7 +576,7 @@ msgstr ""
 "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat "
 "hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:81
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:82
 msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
@@ -584,24 +584,24 @@ msgstr ""
 "Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:90
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:91
 msgid "Payment Options"
 msgstr "Betalingsopties"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:96
 msgid "Payment Description"
 msgstr "Betalingsomschrijving"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:99
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:100
 msgid "This controls the payment description. Default: <code>%s</code>."
 msgstr ""
 "Hiermee beheer je de betalingsomschrijving. Standaard: <code>%s</code>."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:100
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:101
 msgid "Tags: %s"
 msgstr "Tags: %s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:177
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:178
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
@@ -892,7 +892,7 @@ msgid "ID"
 msgstr "ID"
 
 #: includes/post.php:102 includes/post.php:214 includes/post.php:286
-#: views/documentation.php:558 views/status-ideal.php:49
+#: views/documentation.php:569 views/status-ideal.php:49
 msgid "Date"
 msgstr "Datum"
 
@@ -1453,7 +1453,7 @@ msgstr "c"
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.1.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1463,7 +1463,7 @@ msgstr "http://www.pronamic.nl/"
 msgid "iDEAL Documentation"
 msgstr "iDEAL-documentatie"
 
-#: views/documentation.php:559
+#: views/documentation.php:570
 msgid "Version"
 msgstr "Versie"
 
