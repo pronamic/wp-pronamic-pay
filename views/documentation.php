@@ -192,6 +192,17 @@
 				)
 			)
 		),
+		'icepay.com' => array(
+			'name'      => 'ICEPAY',
+			'url'       => 'http://www.icepay.com/',
+			'resources' => array(
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/11/icepay_implementation_guide.pdf',
+					'name'    => 'Implementation Guide - v1.3.0',
+					'version' => '1.3.0'
+				),
+			)
+		),
 		'ideal.nl' => array(
 			'name'      => 'iDEAL',
 			'url'       => 'http://ideal.nl/', 
