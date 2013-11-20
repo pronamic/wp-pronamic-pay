@@ -17,8 +17,6 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 
 		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
 			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
-		} else {
-			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 		}
 
 		return $config;
