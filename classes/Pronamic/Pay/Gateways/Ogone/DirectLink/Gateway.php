@@ -75,7 +75,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		;
 		
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
-		
+
 		// Kassa
 		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
 
@@ -88,7 +88,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 
 		$data = $client->get_fields();
 		$data['SHASIGN'] = $client->getSignatureIn();
-		
+
 		$result = $this->client->order_direct( $data );
 
 		$error = $this->client->get_error();
@@ -101,9 +101,9 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 		}
 	}
-	
+
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Update status of the specified payment
 	 *

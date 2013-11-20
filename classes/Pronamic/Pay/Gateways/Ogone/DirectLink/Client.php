@@ -60,12 +60,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 			'sslverify' => false,
 			'body'      => $data
 		) );
-		
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
-		
+
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
@@ -80,7 +80,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 				}
 			}
 		}
-		
+
 		return $order_response;
 	}
 }
