@@ -15,13 +15,27 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink {
 	 * @var string
 	 */
 	const API_TEST_URL = 'https://secure.ogone.com/ncol/test/orderdirect.asp';
-	
+
+	/**
+	 * Ogone DirectLink test API endpoint URL
+	 * 
+	 * @var string
+	 */
+	const API_TEST_UTF8_URL = 'https://secure.ogone.com/ncol/test/orderdirect_utf8.asp';
+
 	/**
 	 * Ogone DirectLink production API endpoint URL
 	 *
 	 * @var string
 	 */
 	const API_PRODUCTION_URL = 'https://secure.ogone.com/ncol/prod/orderdirect.asp';
+
+	/**
+	 * Ogone DirectLink production API endpoint URL
+	 *
+	 * @var string
+	 */
+	const API_PRODUCTION_UTF8_URL = 'https://secure.ogone.com/ncol/prod/orderdirect_utf8.asp';
 
 	/////////////////////////////////////////////////
 
