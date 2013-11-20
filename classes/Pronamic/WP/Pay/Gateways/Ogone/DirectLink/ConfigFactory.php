@@ -15,6 +15,12 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 
 		$config->sha_in_pass_phrase = get_post_meta( $post_id, '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase', true );
 
+		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
+			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
+		} else {
+			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+		}
+
 		return $config;
 	}
 }

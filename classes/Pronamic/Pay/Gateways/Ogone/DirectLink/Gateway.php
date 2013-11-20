@@ -36,6 +36,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$this->client->sha_in   = $config->sha_in_pass_phrase;
 		$this->client->user_id  = $config->user_id;
 		$this->client->password = $config->password;
+		$this->client->api_url  = $config->api_url;
 	}
 
 	/////////////////////////////////////////////////
@@ -45,7 +46,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		
 		// Default
 		$ogone_data_general = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
-		
+
 		$ogone_data_general
 			->set_psp_id( $this->client->psp_id )
 			->set_order_id( $data->get_order_id() )
