@@ -16,4 +16,13 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_Pay_Gateway
 	public $sha_in_pass_phrase;
 
 	public $api_url;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an Ogone DirectLink config object
+	 */
+	public function __construct() {
+		$this->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+	}
 }
