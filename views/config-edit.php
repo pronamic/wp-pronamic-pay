@@ -347,7 +347,7 @@ $sections = array(
 				'name'        => 'shaInPassPhrase',
 				'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
-				'type'        => 'text',
+				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_orderstandard' )
@@ -357,7 +357,7 @@ $sections = array(
 				'name'        => 'shaOutPassPhrase',
 				'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 				'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
-				'type'        => 'text',
+				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_orderstandard' )
@@ -376,7 +376,7 @@ $sections = array(
 				'name'        => 'ogone_password',
 				'id'          => 'pronamic_ideal_ogone_password',
 				'title'       => __( 'Password', 'pronamic_ideal' ),
-				'type'        => 'text',
+				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'ogone_directlink' )
 			)
@@ -390,7 +390,7 @@ $sections = array(
 				'meta_key'    => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
 				'id'          => 'pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
-				'type'        => 'text',
+				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' )
@@ -698,7 +698,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	
 							switch ( $field['type'] ) {
 								case 'text' :
-									$attributes['type']  = 'text';
+								case 'password' :
+									$attributes['type']  = $field['type'];
 									$attributes['value'] = $value;
 	
 									printf(
