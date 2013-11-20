@@ -72,17 +72,11 @@ $pronamic_pay_gateways = array(
 		'name'     => 'ABN AMRO - iDEAL Zelfbouw - v3',
 		'url'      => 'https://abnamro.ideal-payment.de/',
 		'test'     => array(
-			'payment_server_url'      => 'https://abnamro-test.ideal-payment.de/ideal/iDeal',
-			'directory_request_url'   => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Directory.aspx',
-			'transaction_request_url' => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Transaction.aspx',
-			'status_request_url'      => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Status.aspx',
+			'payment_server_url'      => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
 			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/'
 		),
 		'live'     => array(
-			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDeal',
-			'directory_request_url'   => 'https://idealm.abnamro.nl/nl/issuerInformation/getIssuerInformation.xml',
-			'transaction_request_url' => 'https://idealm.abnamro.nl/nl/acquirerTrxRegistration/getAcquirerTrxRegistration.xml',
-			'status_request_url'      => 'https://idealm.abnamro.nl/nl/acquirerStatusInquiry/getAcquirerStatusInquiry.xml',
+			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
 			'dashboard_url'           => 'https://abnamro.ideal-payment.de/'
 		),
 		'certificates' => array(
