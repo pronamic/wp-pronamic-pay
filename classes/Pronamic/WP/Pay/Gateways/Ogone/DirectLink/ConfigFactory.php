@@ -15,8 +15,21 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 
 		$config->sha_in_pass_phrase = get_post_meta( $post_id, '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase', true );
 
+		// API URL
+		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) == 0;
+
+		if ( $is_utf8 ) {
+			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_UTF8_URL;
+		} else {
+			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
+		}
+
 		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
-			$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
+			if ( $is_utf8 ) {
+				$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_UTF8_URL;
+			} else {
+				$config->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL;
+			}
 		}
 
 		return $config;
