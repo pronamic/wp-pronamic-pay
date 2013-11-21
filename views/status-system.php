@@ -401,6 +401,46 @@
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php _e( 'cURL', 'pronamic_ideal' ); ?>
+			</th>
+			<td class="column-version">
+				<?php if ( function_exists( 'curl_version' ) ) : ?>
+
+					<dl>
+						<?php 
+						
+						$version = curl_version(); 
+						
+						$elements = array(
+							// 'version_number'     => 'cURL 24 bit version number',
+							'version'            => __( 'cURL version', 'pronamic_ideal' ), // cURL version number, as a string
+							// 'ssl_version_number' => 'OpenSSL 24 bit version number',
+							'ssl_version'        => __( 'OpenSSL version', 'pronamic_ideal' ), // OpenSSL version number, as a string
+							'libz_version'       => __( 'Zlib version', 'pronamic_ideal' ), // zlib version number, as a string
+							'host'               => __( 'Host cURL built', 'pronamic_ideal' ), // Information about the host where cURL was built
+							'age'                => __( 'Age', 'pronamic_ideal' ),
+							// 'features'           => 'A bitmask of the CURL_VERSION_XXX constants',
+							// 'protocols'          => __( 'Protocols', 'pronamic_ideal' ), // An array of protocols names supported by cURL
+						);
+
+						foreach ( $elements as $indice => $description ) {
+							if ( isset ( $version[$indice] ) ) {
+								printf( '<dt>%s</dt>', $description );
+								printf( '<dd>%s</dd>', $version[$indice] );
+							}
+						}
+						
+						?>
+					</dl>
+					
+				<?php endif; ?>
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php _e( 'OpenSSL', 'pronamic_ideal' ); ?>
 			</th>
 			<td class="column-version">
