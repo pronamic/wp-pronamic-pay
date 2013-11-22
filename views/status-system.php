@@ -404,21 +404,17 @@
 				<?php _e( 'cURL', 'pronamic_ideal' ); ?>
 			</th>
 			<td class="column-version">
-				<?php if ( function_exists( 'curl_version' ) ) : ?>
+				<?php
 
-					<dl>
-						<?php 
-						
-						$version = curl_version(); 
+				if ( function_exists( 'curl_version' ) ) {						
+					$version = curl_version(); 
 
-						if ( isset( $version['version'] ) ) {
-							echo $version['version'];
-						}
-						
-						?>
-					</dl>
-					
-				<?php endif; ?>
+					if ( isset( $version['version'] ) ) {
+						echo $version['version'];
+					}
+				}
+
+				?>
 			</td>
 			<td>
 				
