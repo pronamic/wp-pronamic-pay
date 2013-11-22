@@ -246,7 +246,7 @@ class Pronamic_WordPress_IDeal_Admin {
 		wp_dropdown_pages( array(
 			'name' => $name,
 			'selected' => get_option( $name, '' ),
-			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_companies' )
+			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_ideal' )
 		) );
 	}
 
