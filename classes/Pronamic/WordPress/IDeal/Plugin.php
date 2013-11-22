@@ -161,6 +161,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 					$should_redirect = false;
 				}
 			}
+			
+			// Check if the request is an notify request
+			// Sisow gatway will extend callback requests with querystring "notify=true"
+			if ( filter_has_var( INPUT_GET, 'notify' ) ) {
+				$is_notify = filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN );
+				
+				if ( $is_notify ) {
+					$should_redirect = false;
+				}
+			}
 
 			self::update_payment( $payment, $should_redirect );
 		}
