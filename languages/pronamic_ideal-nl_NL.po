@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-19 08:09:37+00:00\n"
-"PO-Revision-Date: 2013-11-19 09:09+0100\n"
+"POT-Creation-Date: 2013-11-22 08:18:34+00:00\n"
+"PO-Revision-Date: 2013-11-22 09:18+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -58,7 +58,7 @@ msgstr "Bestelling #%s"
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -759,7 +759,7 @@ msgstr ""
 "Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
 "te maken van extra extensies, support en meer dan %d betalingen."
 
-#: includes/gateways.php:257
+#: includes/gateways.php:251
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
 
@@ -1310,11 +1310,11 @@ msgstr "iDEAL geavanceerd"
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/config-edit.php:446 views/config-edit.php:796
+#: views/config-edit.php:446 views/config-edit.php:797
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/config-edit.php:455 views/config-edit.php:820
+#: views/config-edit.php:455 views/config-edit.php:821
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
@@ -1428,11 +1428,11 @@ msgstr "Geldig tot"
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/config-edit.php:785
+#: views/config-edit.php:786
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/config-edit.php:789
+#: views/config-edit.php:790
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -1440,7 +1440,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: views/config-edit.php:805
+#: views/config-edit.php:806
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -1453,7 +1453,7 @@ msgstr "c"
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.1)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1993,22 +1993,26 @@ msgid "Time"
 msgstr "Tijd"
 
 #: views/status-system.php:404
+msgid "cURL"
+msgstr "cURL"
+
+#: views/status-system.php:425
 msgid "OpenSSL"
 msgstr "OpenSSL"
 
-#: views/status-system.php:424
+#: views/status-system.php:445
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
 
-#: views/status-system.php:432
+#: views/status-system.php:453
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: views/status-system.php:449
+#: views/status-system.php:470
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: views/status-system.php:457
+#: views/status-system.php:478
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
