@@ -45,7 +45,7 @@ function pronamic_pay_upgrade_200() {
 	if ( get_transient( 'pronamic_pay_upgrade_200' ) ) 
 		return;
 
-	set_transient( 'pronamic_pay_upgrade_200', true, 900 ); // 15 minutes
+	set_transient( 'pronamic_pay_upgrade_200', true, 3600 ); // 60 minutes
 
 	// Upgrade
 	global $wpdb;

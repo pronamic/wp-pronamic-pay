@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -150,6 +150,13 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.2.1 =
+*	Tweak - Added cURL version to system status page (for cURL bug in v7.31.0 http://sourceforge.net/p/curl/bugs/1249/).
+*	Tweak - Ogone DirectLink - Converted pass phrase and password config fields to password fields.
+*	Tweak - Ogone DirectLink - Use UTF-8 URL's when WordPress charset is set to UTF-8.
+*	Fix - Ogone DirectLink - Fixed the API URL's in production mode.
+*	Fix - ABN AMRO - iDEAL Zelfbouw - v3 - Fixed the gateway URL's.
 
 = 2.2.0 =
 *	Feature - WooCommerce - Added support for payment description with WooCommerce tags like {order_number} and {blogname}.

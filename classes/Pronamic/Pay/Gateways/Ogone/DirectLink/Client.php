@@ -19,10 +19,19 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 	/////////////////////////////////////////////////
 
 	/**
+	 * API URL
+	 * 
+	 * @var string
+	 */
+	public $api_url;
+
+	/////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initializes an Ogone DirectLink client
 	 */
 	public function __construct() {
-		
+		$this->api_url = Pronamic_Pay_Gateways_Ogone_DirectLink::API_PRODUCTION_URL;
 	}
 
 	/////////////////////////////////////////////////
@@ -46,17 +55,17 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 	public function order_direct( array $data = array() ) {
 		$order_response = false;
 
-		$result = Pronamic_WP_Util::remote_get_body( Pronamic_Pay_Gateways_Ogone_DirectLink::API_TEST_URL, 200, array(
+		$result = Pronamic_WP_Util::remote_get_body( $this->api_url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => $data
 		) );
-		
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
-		
+
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
@@ -71,7 +80,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 				}
 			}
 		}
-		
+
 		return $order_response;
 	}
 }

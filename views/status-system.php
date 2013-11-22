@@ -401,6 +401,27 @@
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php _e( 'cURL', 'pronamic_ideal' ); ?>
+			</th>
+			<td class="column-version">
+				<?php
+
+				if ( function_exists( 'curl_version' ) ) {						
+					$version = curl_version(); 
+
+					if ( isset( $version['version'] ) ) {
+						echo $version['version'];
+					}
+				}
+
+				?>
+			</td>
+			<td>
+				&#10003;
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php _e( 'OpenSSL', 'pronamic_ideal' ); ?>
 			</th>
 			<td class="column-version">
