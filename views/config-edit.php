@@ -839,7 +839,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 					$subj = '';
 					foreach ( $subj_args as $type => $value ) {
-						$subj .= '/' . $type . '=' . escapeshellarg( $value );
+						$subj .= '/' . $type . '=' . '"' . addslashes( $value ) . '"';
 					}
 
 					$command = trim( sprintf(
