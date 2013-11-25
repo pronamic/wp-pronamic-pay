@@ -42,7 +42,8 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerErrorResMessage extends Pron
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
-		$message = parent::parse( $xml, new self() );
+		$message = self::parse_create_date( $xml, new self() );
+
 		$message->error = Pronamic_Gateways_IDealAdvancedV3_XML_ErrorParser::parse( $xml->Error );
 
 		return $message;
