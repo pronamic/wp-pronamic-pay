@@ -8,11 +8,11 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
+interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
 	/**
 	 * Parse the specified XML element
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public abstract static function parse( SimpleXMLElement $xml );
+	public static function parse( SimpleXMLElement $xml );
 }
