@@ -47,4 +47,4 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage extends Pro
 
 		return $message;
 	}
-};
+}
