@@ -522,6 +522,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 		'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
 		// Ogone DirectLink
 		'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_3d_secure_enabled' => FILTER_VALIDATE_BOOLEAN,
 		// Qantani
 		'_pronamic_gateway_qantani_merchant_id'     => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_qantani_merchant_secret' => FILTER_SANITIZE_STRING,

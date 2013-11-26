@@ -337,6 +337,10 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Lijst-van-de-betaalstatussen-en-foutcodes.pdf',
 					'name'    => 'Ogone - Lijst van de betaalstatussen en foutcodes'
 				),
+				array(
+					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/11/Ogone_DirectLink-3-D_EN.pdf',
+					'name'    => 'Ogone - DirectLink with 3-D Secure',
+				),
 			),
 		),
 		'paygate.co.za' => array(

@@ -379,7 +379,7 @@ $sections = array(
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'ogone_directlink' )
-			)
+			),
 		)
 	),
 	array(
@@ -394,6 +394,13 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' )
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_3d_secure_enabled',
+				'title'       => __( '3-D Secure', 'pronamic_ideal' ),
+				'type'        => 'checkbox',
+				'label'       => __( 'Enable 3-D Secure protocol', 'pronamic_ideal' ),
+				'methods'     => array( 'ogone_directlink' ),
 			),
 		)
 	),
@@ -657,11 +664,19 @@ function pronamic_ideal_private_certificate_field( $field ) {
 							$classes[] = 'method-' . $method;
 						}
 					}
+
+					if ( isset( $field['id'] ) ) {
+						$id = $field['id'];
+					} elseif( isset( $field['meta_key'] ) ) {
+						$id = $field['meta_key'];
+					} else {
+						$id = uniqid();
+					}
 	
 					?>
 					<tr class="<?php echo implode( ' ', $classes ); ?>">
 						<th scope="col">
-							<label for="<?php echo $field['id']; ?>">
+							<label for="<?php echo esc_attr( $id ); ?>">
 								<?php echo $field['title']; ?>
 							</label>
 						</th>
@@ -669,8 +684,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 							<?php
 	
 							$attributes = array();
-							$attributes['id']   = $field['id'];
-							$attributes['name'] = $field['id'];
+							$attributes['id']   = $id;
+							$attributes['name'] = $id;
 	
 							$classes = array();
 							if ( isset( $field['classes'] ) ) {
@@ -705,6 +720,25 @@ function pronamic_ideal_private_certificate_field( $field ) {
 									printf(
 										'<input %s />',
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
+									);
+
+									break;
+								case 'checkbox' :
+									$attributes['type']  = $field['type'];
+									$attributes['value'] = '1';
+	
+									printf(
+										'<input %s %s />',
+										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+										checked( $value, true, false )
+									);
+									
+									printf( ' ' );
+									
+									printf(
+										'<label for="%s">%s</label>',
+										$attributes['id'],
+										$field['label']
 									);
 	
 									break;
