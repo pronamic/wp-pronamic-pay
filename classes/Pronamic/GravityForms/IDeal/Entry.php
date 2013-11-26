@@ -18,10 +18,10 @@ class Pronamic_GravityForms_IDeal_Entry {
 	public static function is_payment_approved( array $entry ) {
 		$approved = false;
 		
-		if ( isset( $entry[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS] ) ) {
-			$payment_status = $entry[Pronamic_GravityForms_GravityForms::LEAD_PROPERTY_PAYMENT_STATUS];
+		if ( isset( $entry[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] ) ) {
+			$payment_status = $entry[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS];
 
-			$approved = $payment_status == Pronamic_GravityForms_GravityForms::PAYMENT_STATUS_APPROVED;
+			$approved = ( $payment_status == Pronamic_GravityForms_PaymentStatuses::APPROVED );
 		}
 		
 		return $approved;

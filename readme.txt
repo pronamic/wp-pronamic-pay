@@ -151,6 +151,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.3.0 =
+*	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
+
 = 2.2.2 =
 *	Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
 *	Tweak - Added support for slashes in the gateway configuration meta values.
