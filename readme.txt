@@ -153,6 +153,10 @@ Here is a list of known plugin conflicts:
 
 = 2.2.2 =
 *	Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
+*	Tweak - Added support for slashes in the gateway configuration meta values.
+*	Tweak - Added support for '(' and ')' charachters in private key and certificate commands.
+*	Tweak - Sisow - Improved support for 'callback' and 'notify' requests to ensure Google Analytics e-commerce tracking.
+*	Tweak - Shopp - Improved status update. 
 
 = 2.2.1 =
 *	Tweak - Added cURL version to system status page (for cURL bug in v7.31.0 http://sourceforge.net/p/curl/bugs/1249/).
