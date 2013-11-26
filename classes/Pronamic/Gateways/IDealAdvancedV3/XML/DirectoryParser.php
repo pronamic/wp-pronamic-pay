@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryParser extends Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
+class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryParser implements Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
 	/**
 	 * Parse
 	 * 

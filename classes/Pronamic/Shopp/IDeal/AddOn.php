@@ -31,10 +31,8 @@ class Pronamic_Shopp_IDeal_AddOn {
 	public static function intialize() {
 		self::add_gateway();
 
-		$slug = self::SLUG;
-
-		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
+		add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
+		add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -82,16 +80,16 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 * 
 	 * @param Pronamic_Pay_Payment $payment
 	 */
-	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG && self::is_shopp_supported() ) {
+	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		if ( $payment->get_source() == self::SLUG && self::is_shopp_supported() ) {
 			global $Shopp;
 
-			$id = $payment->getSourceId();
+			$id = $payment->get_source_id();
 			
 			$purchase = new Purchase( $id );
-			$gateway = new Pronamic_Shopp_IDeal_GatewayModule();
-			$data = new Pronamic_Shopp_IDeal_IDealDataProxy( $purchase, $gateway );
-			
+			$gateway  = new Pronamic_Shopp_IDeal_GatewayModule();
+			$data     = new Pronamic_Shopp_PaymentData( $purchase, $gateway );
+
 			if ( ! Pronamic_Shopp_Shopp::is_purchase_paid( $purchase ) ) {
 				$url = $data->get_normal_return_url();
 

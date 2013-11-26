@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Title: Shopp iDEAL data proxy
+ * Title: Shopp payment data
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Shopp_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentData {
+class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Purchase
 	 * 

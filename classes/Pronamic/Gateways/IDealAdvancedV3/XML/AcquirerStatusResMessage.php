@@ -42,9 +42,10 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_AcquirerStatusResMessage extends Pro
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
-		$message = parent::parse( $xml, new self() );
+		$message = self::parse_create_date( $xml, new self() );
+
 		$message->transaction = Pronamic_Gateways_IDealAdvancedV3_XML_TransactionParser::parse( $xml->Transaction );
 
 		return $message;
 	}
-};
+}

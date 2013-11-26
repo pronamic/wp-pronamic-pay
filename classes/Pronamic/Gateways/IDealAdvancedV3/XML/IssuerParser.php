@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvancedV3_XML_IssuerParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
+class Pronamic_Gateways_IDealAdvancedV3_XML_IssuerParser implements Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
 	/**
 	 * Parse
 	 * 

@@ -148,8 +148,31 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
 			
 			$payment = get_pronamic_payment( $payment_id );
+			
+			// Check if we should redirect
+			$should_redirect = true;
+			
+			// Check if the request is an callback request
+			// Sisow gatway will extend callback requests with querystring "callback=true"
+			if ( filter_has_var( INPUT_GET, 'callback' ) ) {
+				$is_callback = filter_input( INPUT_GET, 'callback', FILTER_VALIDATE_BOOLEAN );
+				
+				if ( $is_callback ) {
+					$should_redirect = false;
+				}
+			}
+			
+			// Check if the request is an notify request
+			// Sisow gatway will extend callback requests with querystring "notify=true"
+			if ( filter_has_var( INPUT_GET, 'notify' ) ) {
+				$is_notify = filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN );
+				
+				if ( $is_notify ) {
+					$should_redirect = false;
+				}
+			}
 
-			self::update_payment( $payment );
+			self::update_payment( $payment, $should_redirect );
 		}
 
 		Pronamic_Gateways_IDealBasic_Listener::listen();

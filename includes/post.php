@@ -556,20 +556,40 @@ function pronamic_pay_save_gateway( $post_id ) {
 		}
 	}
 
-	// Meta
-	foreach ( $data as $key => $value ) {
-		if ( isset( $value ) ) {
-			update_post_meta( $post_id, $key, $value );
-		} else {
-			delete_post_meta( $post_id, $key );
-		}
-	}
-	
+	// Update post meta data
+	pronamic_pay_update_post_meta_data( $post_id, $data );
+
 	// Transient
 	delete_transient( 'pronamic_ideal_issuers_' . $post_id );
 }
 
 add_action( 'save_post', 'pronamic_pay_save_gateway' );
+
+/**
+ * Helper function to update post meta data
+ * 
+ * @param int $post_id
+ * @param array $data
+ */
+function pronamic_pay_update_post_meta_data( $post_id, array $data ) {
+	// Meta
+	foreach ( $data as $key => $value ) {
+		if ( isset( $value ) ) {
+			/*
+			 * Post meta values are passed through the stripslashes() function
+			* upon being stored, so you will need to be careful when passing
+			* in values (such as JSON) that might include \ escaped characters.
+			*
+			* @see http://codex.wordpress.org/Function_Reference/update_post_meta
+			*/
+			$value = addslashes( $value );
+	
+			update_post_meta( $post_id, $key, $value );
+		} else {
+			delete_post_meta( $post_id, $key );
+		}
+	}
+}
 
 /**
  * When the post is saved, saves our custom data.
@@ -632,14 +652,8 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 	
 	$data = filter_input_array( INPUT_POST, $definition );
 
-	// Meta
-	foreach ( $data as $key => $value ) {
-		if ( isset( $value ) ) {
-			update_post_meta( $post_id, $key, $value );
-		} else {
-			delete_post_meta( $post_id, $key );
-		}
-	}
+	// Update post meta data
+	pronamic_pay_update_post_meta_data( $post_id, $data );
 	
 	// Transient
 	delete_transient( 'pronamic_ideal_issuers_' . $post_id );

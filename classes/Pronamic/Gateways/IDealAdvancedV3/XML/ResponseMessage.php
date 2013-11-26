@@ -23,7 +23,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_ResponseMessage extends Pro
 	 * 
 	 * @param SimpleXMLElement $xml
 	 */
-	public static function parse( SimpleXMLElement $xml, self $message ) {
+	public static function parse_create_date( SimpleXMLElement $xml, self $message ) {
 		if ( $xml->createDateTimestamp ) {
 			$date = new DateTime( (string) $xml->createDateTimestamp );
 
