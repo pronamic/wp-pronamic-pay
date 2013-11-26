@@ -100,7 +100,9 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 			$data = $this->client->verifyRequest( $data );
 
 			if ( $data !== false ) {
-				$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[Pronamic_Pay_Gateways_Ogone_Parameters::STATUS] ) );
+				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[Pronamic_Pay_Gateways_Ogone_Parameters::STATUS] );
+
+				$payment->set_status( $status );
 			}
 		}
 	}
