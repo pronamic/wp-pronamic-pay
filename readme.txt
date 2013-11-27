@@ -2,7 +2,7 @@
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
-Requires at least: 3.0
+Requires at least: 3.6
 Tested up to: 3.7.1
 Stable tag: 2.2.2
 
@@ -153,6 +153,8 @@ Here is a list of known plugin conflicts:
 
 = 2.3.0 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
+*	Fix - Warning: addslashes() expects parameter 1 to be string, array given.
+*	Fix - Fatal error: Class Pronamic_Gateways_Ogone_XML_OrderResponseParser cannot extend from interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser.
 
 = 2.2.2 =
 *	Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
