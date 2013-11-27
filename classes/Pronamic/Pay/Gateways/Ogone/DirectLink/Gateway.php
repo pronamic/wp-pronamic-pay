@@ -58,10 +58,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		;
 
 		// DirectLink
-		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
 
-		$ogone_data->set_field( 'USERID', $this->client->user_id );
-		$ogone_data->set_field( 'PSWD', $this->client->password );
+		$ogone_data_directlink
+			->set_user_id( $this->client->user_id )
+			->set_password( $this->client->password )
+		;
 
 		// Credit card
 		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
