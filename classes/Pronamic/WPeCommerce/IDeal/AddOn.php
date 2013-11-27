@@ -79,7 +79,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	 * 
 	 * @return string
 	 */
-	private function advanced_inputs() {
+	private static function advanced_inputs() {
 		$output = '';
 
 		$config_id = get_option( self::OPTION_CONFIG_ID );
