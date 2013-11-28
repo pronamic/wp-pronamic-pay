@@ -177,10 +177,10 @@ class Pronamic_GravityForms_IDeal_Processor {
 			gform_update_meta( $lead['id'], 'pronamic_payment_id', $this->payment->get_id() );
 
 			// Update entry meta with feed ID
-			gform_update_meta( $entry['id'], 'ideal_feed_id', $feed->id );
+			gform_update_meta( $lead['id'], 'ideal_feed_id', $feed->id );
 			
 			// Update entry meta with current payment gateway
-			gform_update_meta( $entry['id'], 'payment_gateway', 'ideal' );
+			gform_update_meta( $lead['id'], 'payment_gateway', 'ideal' );
 
 			// Update lead
 			RGFormsModel::update_lead( $lead );
@@ -193,7 +193,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	// Delay functions
 	//////////////////////////////////////////////////
 	
-	public function maybe_delay_notification( $is_disabled, $notification, $form, $entry ) {
+	public function maybe_delay_notification( $is_disabled, $notification, $form, $lead ) {
 		$is_disabled = false;
 	
 		if ( $this->process ) {
@@ -264,7 +264,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	/**
 	 * Maybe delay Campaign Monitor subscription
 	 */
-	public function maybe_delay_campaignmonitor_subscription( $entry, $form ) {
+	public function maybe_delay_campaignmonitor_subscription( $lead, $form ) {
 		if ( $this->process ) {
 			if ( $this->feed->delay_campaignmonitor_subscription ) {
 				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2);
@@ -275,7 +275,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	/**
 	 * Maybe delay MailChimp subscription
 	 */
-	public function maybe_delay_mailchimp_subscription( $entry, $form ) {
+	public function maybe_delay_mailchimp_subscription( $lead, $form ) {
 		if ( $this->process ) {
 			if ( $this->feed->delay_mailchimp_subscription ) {
 				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2);
