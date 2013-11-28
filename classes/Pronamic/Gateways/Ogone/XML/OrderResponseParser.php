@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Ogone_XML_OrderResponseParser extends Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
+class Pronamic_Gateways_Ogone_XML_OrderResponseParser {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
 	 * 

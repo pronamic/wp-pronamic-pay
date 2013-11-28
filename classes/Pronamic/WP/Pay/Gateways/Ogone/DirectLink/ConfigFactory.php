@@ -15,6 +15,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 
 		$config->sha_in_pass_phrase = get_post_meta( $post_id, '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase', true );
 
+		$config->enabled_secure_3d = get_post_meta( $post_id, '_pronamic_gateway_ogone_3d_secure_enabled', true );
+
 		// API URL
 		$is_utf8 = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) == 0;
 

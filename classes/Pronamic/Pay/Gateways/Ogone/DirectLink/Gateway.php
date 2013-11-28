@@ -58,10 +58,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		;
 
 		// DirectLink
-		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
+		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
 
-		$ogone_data->set_field( 'USERID', $this->client->user_id );
-		$ogone_data->set_field( 'PSWD', $this->client->password );
+		$ogone_data_directlink
+			->set_user_id( $this->client->user_id )
+			->set_password( $this->client->password )
+		;
 
 		// Credit card
 		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
@@ -75,6 +77,17 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		;
 		
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
+		
+		// 3-D Secure
+		if ( false ) {
+			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
+	
+			$secure_data_helper
+				->set_3d_secure_flag( true )
+				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
+				->set_window( 'MAINW' )
+			;
+		}
 
 		// Kassa
 		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();

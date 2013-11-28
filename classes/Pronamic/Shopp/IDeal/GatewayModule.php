@@ -117,9 +117,9 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		 * function is probably redirecting the user. We want to make sure all actions
 		 * added by other plugins are executed.
 		 */
-		add_action( 'shopp_process_order',      array( $this, 'process_order' ), 50 );
+		add_action( 'shopp_process_order', array( $this, 'process_order' ), 50 );
 
-		add_action( 'shopp_order_success',      array( $this, 'order_success' ) );
+		add_action( 'shopp_order_success', array( $this, 'order_success' ) );
 	}
 
 	//////////////////////////////////////////////////

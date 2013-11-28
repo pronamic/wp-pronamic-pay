@@ -522,6 +522,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 		'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
 		// Ogone DirectLink
 		'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
+		'_pronamic_gateway_ogone_3d_secure_enabled' => FILTER_VALIDATE_BOOLEAN,
 		// Qantani
 		'_pronamic_gateway_qantani_merchant_id'     => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_qantani_merchant_secret' => FILTER_SANITIZE_STRING,
@@ -572,18 +573,18 @@ add_action( 'save_post', 'pronamic_pay_save_gateway' );
  * @param array $data
  */
 function pronamic_pay_update_post_meta_data( $post_id, array $data ) {
+	/*
+	 * Post meta values are passed through the stripslashes() function
+	 * upon being stored, so you will need to be careful when passing
+	 * in values (such as JSON) that might include \ escaped characters.
+	 *
+	 * @see http://codex.wordpress.org/Function_Reference/update_post_meta
+	 */
+	$data = wp_slash( $data );
+
 	// Meta
 	foreach ( $data as $key => $value ) {
-		if ( isset( $value ) ) {
-			/*
-			 * Post meta values are passed through the stripslashes() function
-			* upon being stored, so you will need to be careful when passing
-			* in values (such as JSON) that might include \ escaped characters.
-			*
-			* @see http://codex.wordpress.org/Function_Reference/update_post_meta
-			*/
-			$value = addslashes( $value );
-	
+		if ( isset( $value ) && $value != '' ) {
 			update_post_meta( $post_id, $key, $value );
 		} else {
 			delete_post_meta( $post_id, $key );
