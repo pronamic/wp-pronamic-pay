@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-26 09:56:33+00:00\n"
-"PO-Revision-Date: 2013-11-26 10:56+0100\n"
+"POT-Creation-Date: 2013-11-28 12:59:25+00:00\n"
+"PO-Revision-Date: 2013-11-28 13:59+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -58,7 +58,7 @@ msgstr "Bestelling #%s"
 msgid "iDEAL"
 msgstr "iDEAL"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.2)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.3)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -271,20 +271,20 @@ msgstr "Onbekend Sisow-bericht (%s)"
 msgid "Sisow Bank (test)"
 msgstr "Sisow bank (test)"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:85 views/status-system.php:78
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/status-system.php:78
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:90
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:111
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:351
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:115
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:355
 msgid "Administrator"
 msgstr "Beheerder"
@@ -362,7 +362,7 @@ msgstr "iDEAL-betalingen toestaan."
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73 includes/post.php:97
 #: includes/post.php:206 includes/post.php:282 views/branding.php:109
-#: views/documentation.php:568 views/pages-generator.php:123
+#: views/documentation.php:572 views/pages-generator.php:123
 msgid "Title"
 msgstr "Titel"
 
@@ -883,7 +883,7 @@ msgstr "Geen betalingsformulieren gevonden"
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
 
-#: includes/post.php:98 views/config-edit.php:608
+#: includes/post.php:98 views/config-edit.php:617
 msgid "Variant"
 msgstr "Variant"
 
@@ -892,7 +892,7 @@ msgid "ID"
 msgstr "ID"
 
 #: includes/post.php:102 includes/post.php:214 includes/post.php:286
-#: views/documentation.php:569 views/status-ideal.php:49
+#: views/documentation.php:573 views/status-ideal.php:49
 msgid "Date"
 msgstr "Datum"
 
@@ -1283,105 +1283,105 @@ msgstr "Gebruiker ID"
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: views/config-edit.php:401
+#: views/config-edit.php:410
 msgid "Qantani"
 msgstr "Qantani"
 
-#: views/config-edit.php:408
+#: views/config-edit.php:417
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: views/config-edit.php:416
+#: views/config-edit.php:425
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: views/config-edit.php:424
+#: views/config-edit.php:433
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
 
-#: views/config-edit.php:431
+#: views/config-edit.php:440
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: views/config-edit.php:438
+#: views/config-edit.php:447
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/config-edit.php:446 views/config-edit.php:797
+#: views/config-edit.php:455 views/config-edit.php:833
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/config-edit.php:455 views/config-edit.php:821
+#: views/config-edit.php:464 views/config-edit.php:857
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: views/config-edit.php:463
+#: views/config-edit.php:472
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: views/config-edit.php:470
+#: views/config-edit.php:479
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/config-edit.php:472
+#: views/config-edit.php:481
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/config-edit.php:478 views/gravityforms/feed-edit.php:327
+#: views/config-edit.php:487 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr "Land"
 
-#: views/config-edit.php:480
+#: views/config-edit.php:489
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/config-edit.php:486
+#: views/config-edit.php:495
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/config-edit.php:488
+#: views/config-edit.php:497
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/config-edit.php:494
+#: views/config-edit.php:503
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/config-edit.php:496
+#: views/config-edit.php:505
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/config-edit.php:502
+#: views/config-edit.php:511
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/config-edit.php:504
+#: views/config-edit.php:513
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/config-edit.php:510
+#: views/config-edit.php:519
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/config-edit.php:512
+#: views/config-edit.php:521
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/config-edit.php:518
+#: views/config-edit.php:527
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/config-edit.php:521
+#: views/config-edit.php:530
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/config-edit.php:522
+#: views/config-edit.php:531
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -1389,7 +1389,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/config-edit.php:523
+#: views/config-edit.php:532
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1400,39 +1400,39 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/config-edit.php:529
+#: views/config-edit.php:538
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/config-edit.php:541
+#: views/config-edit.php:550
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: views/config-edit.php:563
+#: views/config-edit.php:572
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/config-edit.php:569
+#: views/config-edit.php:578
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: views/config-edit.php:572
+#: views/config-edit.php:581
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/config-edit.php:577
+#: views/config-edit.php:586
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/config-edit.php:588
+#: views/config-edit.php:597
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/config-edit.php:786
+#: views/config-edit.php:822
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/config-edit.php:790
+#: views/config-edit.php:826
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -1440,7 +1440,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: views/config-edit.php:806
+#: views/config-edit.php:842
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -1453,7 +1453,7 @@ msgstr "c"
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.2)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.3)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1463,7 +1463,7 @@ msgstr "http://www.pronamic.nl/"
 msgid "iDEAL Documentation"
 msgstr "iDEAL-documentatie"
 
-#: views/documentation.php:570
+#: views/documentation.php:574
 msgid "Version"
 msgstr "Versie"
 
