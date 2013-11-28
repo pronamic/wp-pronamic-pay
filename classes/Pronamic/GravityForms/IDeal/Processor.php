@@ -314,11 +314,17 @@ class Pronamic_GravityForms_IDeal_Processor {
 				}
 		
 				if ( $this->gateway->is_html_form() ) {
+					$auto_submit = true;
+					if ( $ajax ) {
+						// On AJAX enabled forms we can't auto submit, this will auto submit in a hidden iframe
+						$auto_submit = false;
+					}
+
 					// HTML
 					$html  = '';
 					$html .= '<div id="gforms_confirmation_message">';
 					$html .= 	GFCommon::replace_variables( $form['confirmation']['message'], $form, $lead, false, true, true );
-					$html .= 	$this->gateway->get_form_html( $this->payment, true );
+					$html .= 	$this->gateway->get_form_html( $this->payment, $auto_submit );
 					$html .= '</div>';
 
 					// Extend the confirmation with the iDEAL form

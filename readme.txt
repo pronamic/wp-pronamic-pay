@@ -151,8 +151,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
-= 2.3.0 =
+= 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
+*	Fix - Gravity Forms - Improved support for AJAX driven forms.
 *	Fix - Warning: addslashes() expects parameter 1 to be string, array given.
 *	Fix - Fatal error: Class Pronamic_Gateways_Ogone_XML_OrderResponseParser cannot extend from interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser.
 *	Fix - Strict Standards: Non-static method Pronamic_WPeCommerce_IDeal_AddOn::advanced_inputs() should not be called statically.
