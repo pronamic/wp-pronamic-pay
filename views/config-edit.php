@@ -395,6 +395,7 @@ $sections = array(
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' )
 			),
+			/*
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_3d_secure_enabled',
 				'title'       => __( '3-D Secure', 'pronamic_ideal' ),
@@ -402,6 +403,7 @@ $sections = array(
 				'label'       => __( 'Enable 3-D Secure protocol', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' ),
 			),
+			*/
 		)
 	),
 	array(

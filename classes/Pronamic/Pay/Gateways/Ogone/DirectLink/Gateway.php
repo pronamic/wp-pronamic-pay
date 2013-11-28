@@ -79,13 +79,15 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 		
 		// 3-D Secure
-		$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
-
-		$secure_data_helper
-			->set_3d_secure_flag( true )
-			->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
-			->set_window( 'MAINW' )
-		;
+		if ( false ) {
+			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
+	
+			$secure_data_helper
+				->set_3d_secure_flag( true )
+				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
+				->set_window( 'MAINW' )
+			;
+		}
 
 		// Kassa
 		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
