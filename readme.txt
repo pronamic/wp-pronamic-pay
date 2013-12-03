@@ -151,6 +151,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.2.4 =
+*	Tweak - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
+
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
 *	Fix - Gravity Forms - Improved support for AJAX driven forms.
