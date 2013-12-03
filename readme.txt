@@ -153,6 +153,7 @@ Here is a list of known plugin conflicts:
 
 = 2.2.4 =
 *	Tweak - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
+*	Fix - Notice: Undefined variable: redirect. This notice occurred when the "pronamic_login_form" was used with the "redirect_to" variable.
 
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
