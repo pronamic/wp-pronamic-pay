@@ -19,7 +19,9 @@ class Pronamic_Gateways_Ogone_XML_OrderResponseParser {
 		if ( ! $order_response instanceof Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse ) {
 			$order_response = new Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse();
 		}
-
+echo '<pre>';
+echo htmlspecialchars( $xml->saveXML() );
+echo '</pre>';
 		$order_response->order_id      = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID] );
 		$order_response->pay_id        = Pronamic_XML_Util::filter( $xml['PAYID'] );
 		$order_response->nc_status     = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::NC_STATUS] );

@@ -76,17 +76,26 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_security_code( $credit_card->get_security_code() )
 		;
 		
-		$ogone_data->set_field( 'OPERATION', 'SAL' );
+		$ogone_data->set_field( 'OPERATION', 'RES' );
 		
 		// 3-D Secure
-		if ( false ) {
+		if ( true ) {
 			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
 	
 			$secure_data_helper
 				->set_3d_secure_flag( true )
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
+				->set_http_accept( '*/*' )
 				->set_window( 'MAINW' )
 			;
+			
+			$ogone_data->set_field( 'HTTP_USER_AGENT', filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) );
+			$ogone_data->set_field( 'ACCEPTURL', home_url( '/' ) );
+			$ogone_data->set_field( 'DECLINEURL', home_url( '/' ) );
+			$ogone_data->set_field( 'EXCEPTIONURL', home_url( '/' ) );
+			$ogone_data->set_field( 'PARAMPLUS', '' );
+			$ogone_data->set_field( 'COMPLUS', '' );
+			$ogone_data->set_field( 'LANGUAGE', 'en_US' );
 		}
 
 		// Kassa
@@ -103,7 +112,11 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$data['SHASIGN'] = $client->getSignatureIn();
 
 		$result = $this->client->order_direct( $data );
-
+echo '<pre>';
+var_dump( $data );
+echo '</pre>';
+var_dump( $result );
+exit;
 		$error = $this->client->get_error();
 
 		if ( is_wp_error( $error ) ) {
