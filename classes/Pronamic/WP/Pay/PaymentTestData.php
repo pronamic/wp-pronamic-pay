@@ -133,11 +133,12 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 		// Test card to simulate a 3-D Secure registered card
 		$credit_card->set_number( '4000 0000 0000 0002' );
 		$credit_card->set_number( '4111111111111111' );
+		$credit_card->set_number( '4000000000000002' );
 		//$credit_card->set_number( '4000 0000 0000 0002' );
-		//$credit_card->set_number( '5300000000000006' );
+		$credit_card->set_number( '5300000000000006' );
 		$credit_card->set_expiration_month( 12 );
 		$credit_card->set_expiration_year( date( 'Y' ) + 5 );
-		$credit_card->set_security_code( '111' );
+		$credit_card->set_security_code( '123' );
 		$credit_card->set_name( 'Pronamic' );
 
 		return $credit_card;
