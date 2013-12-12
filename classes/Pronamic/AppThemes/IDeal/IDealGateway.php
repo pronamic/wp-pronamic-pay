@@ -31,13 +31,13 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 				'title'   => __( 'Configuration', 'pronamic_ideal' ),
 				'type'    => 'select',
 				'name'    => 'config_id',
-				'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options() 
+				'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
 			),
 		);
 		
 		$return_array = array(
 			'title'   => __( 'General Information', 'pronamic_ideal' ),
-			'fields'  => $form_values
+			'fields'  => $form_values,
 		);
 
 		return $return_array;
