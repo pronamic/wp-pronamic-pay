@@ -54,8 +54,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_merchant_id',
-				'name'        => 'merchantId',
-				'id'          => 'pronamic_ideal_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -80,8 +78,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_hash_key',
-				'name'        => 'hashKey',
-				'id'          => 'pronamic_ideal_hash_key',
 				'title'       => __( 'Hash Key', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -89,7 +85,6 @@ $sections = array(
 				'methods'     => array( 'ideal_basic' ),
 			),
 			array(
-				'id'          => 'pronamic_ideal_basic_xml_notification_url',
 				'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -108,14 +103,12 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_paydutch_username',
-				'id'          => 'pronamic_gateway_paydutch_username',
 				'title'       => __( 'Username', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_paydutch_password',
-				'id'          => 'pronamic_gateway_paydutch_password',
 				'title'       => __( 'Password', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -128,8 +121,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_mollie_partner_id',
-				'name'        => 'molliePartnerId',
-				'id'          => 'pronamic_ideal_mollie_partner_id',
 				'title'       => __( 'Partner ID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -137,8 +128,6 @@ $sections = array(
 			),
 			 array(
 				'meta_key'    => '_pronamic_gateway_mollie_profile_key',
-				'name'        => 'mollieProfileKey',
-				'id'          => 'pronamic_ideal_mollie_profile_key',
 				'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -155,24 +144,18 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_omnikassa_merchant_id',
-				'name'        => 'keyVersion',
-				'id'          => 'pronamic_ideal_omnikassa_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_omnikassa_secret_key',
-				'name'        => 'keyVersion',
-				'id'          => 'pronamic_ideal_omnikassa_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'large-text', 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_omnikassa_key_version',
-				'name'        => 'keyVersion',
-				'id'          => 'pronamic_ideal_key_version',
 				'title'       => __( 'Key Version', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'small-text', 'code' ),
@@ -186,8 +169,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_buckaroo_website_key',
-				'name'        => 'buckarooWebsiteKey',
-				'id'          => 'pronamic_ideal_buckaroo_website_key',
 				'title'       => __( 'Website Key', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -195,8 +176,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_buckaroo_secret_key',
-				'name'        => 'buckarooSecretKey',
-				'id'          => 'pronamic_ideal_buckaroo_secret_key',
 				'title'       => __( 'Secret Key', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -210,8 +189,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_merchant_id',
-				'name'        => 'icepayMerchantId',
-				'id'	      => 'pronamic_ideal_icepay_merchant_id',
 				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => sprintf(
@@ -222,8 +199,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_secret_code',
-				'name'        => 'icepaySecretCode',
-				'id'          => 'pronamic_ideal_icepay_secret_code',
 				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -234,7 +209,6 @@ $sections = array(
 				),
 			),
 			array(
-				'id'          => 'pronamic_pay_icepay_thank_you_page_url',
 				'title'       => __( 'Thank you page URL', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -242,7 +216,6 @@ $sections = array(
 				'readonly'    => true,
 			),
 			array(
-				'id'          => 'pronamic_pay_icepay_error_page_url',
 				'title'       => __( 'Error page URL', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -250,7 +223,6 @@ $sections = array(
 				'readonly'    => true,
 			),
 			array(
-				'id'          => 'pronamic_pay_icepay_postback_url',
 				'title'       => __( 'Postback URL', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -265,8 +237,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_sisow_merchant_id',
-				'name'        => 'sisowMerchantId',
-				'id'          => 'pronamic_ideal_sisow_merchant_id',
 				'title'       => _x( 'Merchant ID', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -278,8 +248,6 @@ $sections = array(
 			),
 			 array(
 				'meta_key'    => '_pronamic_gateway_sisow_merchant_key',
-				'name'        => 'sisowMerchantKey',
-				'id'          => 'pronamic_ideal_sisow_merchant_key',
 				'title'       => _x( 'Merchant Key', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -297,8 +265,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_targetpay_layoutcode',
-				'name'        => 'targetPayLayoutCode',
-				'id'          => 'pronamic_ideal_targetpay_layoutcode',
 				'title'       => __( 'Layout Code', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts.', 'pronamic_ideal' ),
@@ -311,8 +277,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_psp_id',
-				'name'        => 'pspId',
-				'id'          => 'pronamic_ideal_pspid',
 				'title'       => __( 'PSPID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
@@ -323,7 +287,6 @@ $sections = array(
 				'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
 			),
 			array(
-				'id'          => 'pronamic_ideal_character_encoding',
 				'title'       => __( 'Character encoding', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'value'       => get_bloginfo( 'charset' ),
@@ -332,7 +295,6 @@ $sections = array(
 			),
 			 array(
 				'meta_key'    => '_pronamic_gateway_ogone_hash_algorithm',
-				'id'          => 'pronamic_ideal_hash_algorithm',
 				'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
 				'type'        => 'optgroup',
 			 	'options'     => array(
@@ -344,8 +306,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_sha_in_pass_phrase',
-				'name'        => 'shaInPassPhrase',
-				'id'          => 'pronamic_ideal_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -354,8 +314,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_sha_out_pass_phrase',
-				'name'        => 'shaOutPassPhrase',
-				'id'          => 'pronamic_ideal_sha_out_pass_phrase',
 				'title'       => __( 'SHA-OUT Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -364,8 +322,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_user_id',
-				'name'        => 'ogone_user_id',
-				'id'          => 'pronamic_ideal_ogone_user_id',
 				'title'       => __( 'User ID', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -373,8 +329,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_password',
-				'name'        => 'ogone_password',
-				'id'          => 'pronamic_ideal_ogone_password',
 				'title'       => __( 'Password', 'pronamic_ideal' ),
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -388,7 +342,6 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
-				'id'          => 'pronamic_gateway_ogone_directlink_sha_in_pass_phrase',
 				'title'       => __( 'SHA-IN Pass phrase', 'pronamic_ideal' ),
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -410,24 +363,18 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_qantani_merchant_id',
-				'name'        => 'qantani_merchant_id',
-				'id'          => 'pronamic_ideal_qantani_merchant_id',
 				'title'       => _x( 'Merchant ID', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_qantani_merchant_key',
-				'name'        => 'qantani_merchant_key',
-				'id'          => 'pronamic_ideal_qantani_merchant_key',
 				'title'       => _x( 'Merchant Key', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_qantani_merchant_secret',
-				'name'        => 'qantani_merchant_secret',
-				'id'          => 'pronamic_ideal_qantani_merchant_secret',
 				'title'       => _x( 'Merchant Secret', 'qantani', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
@@ -440,16 +387,12 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_private_key_password',
-				'name'        => 'privateKeyPassword',
-				'id'          => 'pronamic_ideal_private_key_password',
 				'title'       => __( 'Private Key Password', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_private_key',
-				'name'        => 'privateKey',
-				'id'          => 'pronamic_ideal_private_key',
 				'title'       => __( 'Private Key', 'pronamic_ideal' ),
 				'type'        => 'textarea',
 				'callback'    => 'pronamic_ideal_private_key_field',
@@ -457,8 +400,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ideal_private_certificate',
-				'name'        => 'privateCertificate',
-				'id'          => 'pronamic_ideal_private_certificate',
 				'title'       => __( 'Private Certificate', 'pronamic_ideal' ),
 				'type'        => 'textarea',
 				'callback'    => 'pronamic_ideal_private_certificate_field',
@@ -472,56 +413,42 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_number_days_valid',
-				'name'        => 'numberDaysValid',
-				'id'          => 'pronamic_ideal_number_days_valid',
 				'title'       => __( 'Number Days Valid', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'specify the length of time for which the generated certificate will be valid, in days.', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_country',
-				'name'        => 'country',
-				'id'          => 'pronamic_ideal_country',
 				'title'       => __( 'Country', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( '2 letter code [NL]', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_state_or_province',
-				'name'        => 'stateOrProvince',
-				'id'          => 'pronamic_ideal_state_or_province',
 				'title'       => __( 'State or Province', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'full name [Friesland]', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_locality',
-				'name'        => 'locality',
-				'id'          => 'pronamic_ideal_locality',
 				'title'       => __( 'Locality', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'eg, city', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_organization',
-				'name'        => 'organization',
-				'id'          => 'pronamic_ideal_organization',
 				'title'       => __( 'Organization', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'eg, company [Pronamic]', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_organization_unit',
-				'name'        => 'organizationUnit',
-				'id'          => 'pronamic_ideal_organization_unit',
 				'title'       => __( 'Organization Unit', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => __( 'eg, section', 'pronamic_ideal' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_common_name',
-				'name'        => 'commonName',
-				'id'          => 'pronamic_ideal_common_name',
 				'title'       => __( 'Common Name', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' =>
@@ -531,8 +458,6 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_email',
-				'name'        => 'eMailAddress',
-				'id'          => 'pronamic_ideal_email_address',
 				'title'       => __( 'Email Address', 'pronamic_ideal' ),
 				'type'        => 'text',
 			),
