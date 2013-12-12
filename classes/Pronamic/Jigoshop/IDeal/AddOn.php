@@ -48,7 +48,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	/**
 	 * Add the gateway to Jigoshop
 	 */
-	function payment_gateways( $methods ) {
+	public static function payment_gateways( $methods ) {
 		$methods[] = 'Pronamic_Jigoshop_IDeal_IDealGateway';
 
 		return $methods;
