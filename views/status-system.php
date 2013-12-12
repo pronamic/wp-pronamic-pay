@@ -369,6 +369,34 @@
 		</tr>
 		<tr>
 			<th scope="row">
+				<?php _e( 'WP Memory Limit', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php 
+				
+				$memory = pronamic_pay_let_to_num( WP_MEMORY_LIMIT );
+				
+				echo size_format( $memory );
+				
+				?>
+			</td>
+			<td>
+				<?php 
+				
+				if ( $memory > 67108864 ) { // 64 MB
+					echo '&#10003;';
+				} else {
+					printf(
+						__( 'We recommend setting memory to at least 64MB. See: <a href="%s">Increasing memory allocated to PHP</a>', 'pronamic_ideal' ),
+						'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP'
+					);
+				}
+
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
