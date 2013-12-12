@@ -238,8 +238,8 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$id = $payment->getSourceId();
+		if ( $payment->get_source() == self::SLUG ) {
+			$id = $payment->get_source_id();
 
 			$order = Pronamic_ClassiPress_ClassiPress::get_order_by_id( $id );
 
@@ -297,7 +297,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
-			// get_edit_post_link( $payment->getSourceId() ),
+			// get_edit_post_link( $payment->get_source_id() ),
 			add_query_arg( 'page', 'transactions', admin_url( 'admin.php' ) ),
 			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() ) 
 		);

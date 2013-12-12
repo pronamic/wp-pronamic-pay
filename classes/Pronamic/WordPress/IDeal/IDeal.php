@@ -195,7 +195,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 				$prefix . 'consumer_bic'            => null,
 				$prefix . 'consumer_city'           => null,
 				$prefix . 'status'                  => null,
-				$prefix . 'source'                  => $data->getSource(),
+				$prefix . 'source'                  => $data->get_source(),
 				$prefix . 'source_id'               => $data->get_source_id(),
 				$prefix . 'email'                   => $data->get_email()
 			);

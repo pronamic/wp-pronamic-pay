@@ -43,7 +43,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
 	 * @return string
 	 */
-	public function getSource() {
+	public function get_source() {
 		return 'test';
 	}
 
