@@ -281,12 +281,12 @@
 		<?php _e( 'Installation Status', 'pronamic_ideal' ); ?>
 	</h3>
 
-	<table class="form-table">
+	<table class="pronamic-pay-status-table widefat">
 		<tr>
 			<th scope="row">
 				<?php _e( 'Site URL', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php echo site_url(); ?>
 			</td>
 			<td>
@@ -297,7 +297,7 @@
 			<th scope="row">
 				<?php _e( 'Home URL', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php echo home_url(); ?>
 			</td>
 			<td>
@@ -308,7 +308,7 @@
 			<th scope="row">
 				<?php _e( 'PHP Version', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php echo phpversion(); ?>
 			</td>
 			<td>
@@ -327,7 +327,7 @@
 			<th scope="row">
 				<?php _e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php 
 
                 global $wpdb;
@@ -352,7 +352,7 @@
 			<th scope="row">
 				<?php _e( 'WordPress Version', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php echo get_bloginfo( 'version' ); ?>
 			</td>
 			<td>
@@ -371,7 +371,7 @@
 			<th scope="row">
 				<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php bloginfo( 'charset' ); ?>
 			</td>
 			<td>
@@ -391,7 +391,7 @@
 			<th scope="row">
 				<?php _e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
                 <?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
                 <?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
 			</td>
@@ -403,7 +403,7 @@
 			<th scope="row">
 				<?php _e( 'cURL', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
 				<?php
 
 				if ( function_exists( 'curl_version' ) ) {						
@@ -424,7 +424,7 @@
 			<th scope="row">
 				<?php _e( 'OpenSSL', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
 				<?php 
 
 				if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
@@ -452,7 +452,7 @@
 			<th scope="row">
 				<?php _e( 'Registered Hashing Algorithms', 'pronamic_ideal' ); ?>
 			</th>
-			<td class="column-version">
+			<td>
 				<?php 
 				
 				$algorithms = hash_algos();
@@ -488,6 +488,9 @@
 				<a href="https://travis-ci.org/pronamic/wp-pronamic-ideal">
 					<img src="<?php echo esc_attr( $url ); ?>" alt="" />
 				</a>
+			</td>
+			<td>
+				
 			</td>
 		</tr>
 	</table>
