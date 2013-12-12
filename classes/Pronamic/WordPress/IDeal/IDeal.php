@@ -68,7 +68,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			'nopaging'  => true
 		) );
 
-		$options = array( '' => __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
+		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
 			$options[$gateway->ID] = sprintf(
