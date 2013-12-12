@@ -592,9 +592,9 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	echo '<div>';
 	
 	submit_button(
-	__( 'Download Private Certificate', 'pronamic_ideal' ),
-	'secondary' , 'download_private_certificate',
-	false
+		__( 'Download Private Certificate', 'pronamic_ideal' ),
+		'secondary' , 'download_private_certificate',
+		false
 	);
 	
 	echo ' ';
