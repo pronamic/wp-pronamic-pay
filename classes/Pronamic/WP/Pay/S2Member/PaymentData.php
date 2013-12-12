@@ -68,7 +68,7 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		return $items;
 	}
 
-	public function getSource() {
+	public function get_source() {
 		return 's2member';
 	}
 
