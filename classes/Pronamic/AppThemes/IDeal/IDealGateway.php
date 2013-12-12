@@ -51,9 +51,8 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 	public function process( $order, $options ) {
 		if ( isset( $options['config_id'] ) ) {
 			$config_id = $options['config_id'];
-			$config    = Pronamic_WordPress_IDeal_ConfigurationsRepository::getConfigurationById( $config_id );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config );
+			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 			
 			if ( $gateway ) {
 				$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
