@@ -159,7 +159,19 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		if ( $gateway ) {
 			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 
-			echo $gateway->get_form_html( $payment );
+			$error = $gateway->get_error();
+
+			if ( is_wp_error( $error ) ) {
+				jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+			
+				if ( current_user_can( 'administrator' ) ) {
+					foreach ( $error->get_error_codes() as $code ) {
+						jigoshop::add_error( $error->get_error_message( $code ) );
+					}
+				}
+			} else {
+				echo $gateway->get_form_html( $payment );
+			}
 		}
 	}
 
@@ -171,30 +183,6 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	function process_payment( $order_id ) {
 		$order = new jigoshop_order( $order_id );
 
-		// Mark as on-hold (we're awaiting the payment)
-		$order->update_status( 'pending', __( 'Pending iDEAL payment.', 'pronamic_ideal' ) );
-
-		// Do specifiek iDEAL variant processing
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
-		
-		if ( $gateway ) {
-			if ( $gateway->is_http_redirect() ) {
-				$return = $this->process_gateway_http_redirect( $order, $gateway );
-			}
-
-			if ( $gateway->is_html_form() ) {
-				$return = $this->process_gateway_html_form( $order );
-			}
-			
-			if ( ! $gateway->has_feedback() ) {
-				
-			}
-		}
-		
-		return $return;
-    }
-
-	private function process_gateway_html_form( $order ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
@@ -206,35 +194,5 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 				get_permalink( jigoshop_get_page_id( 'pay' ) ) 
 			)
 		);
-	}
-
-    private function process_gateway_http_redirect( $order, $gateway ) {
-		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
-
-		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
-
-		$error = $gateway->get_error();
-
-		if ( is_wp_error( $error ) ) {
-			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
-
-			if ( current_user_can( 'administrator' ) ) {
-				foreach ( $error->get_error_codes() as $code ) {
-					jigoshop::add_error( $error->get_error_message( $code ) );
-				}
-			}
-
-			// see https://github.com/jigoshop/jigoshop/blob/1.4.9/shortcodes/pay.php#L55
-			return array(
-				'result' 	=> 'failed'
-			);
-		} else {
-	    	$url = $payment->get_action_url();
-	
-			return array(
-				'result' 	=> 'success',
-				'redirect'	=> $url
-			);
-		}
     }
 }
