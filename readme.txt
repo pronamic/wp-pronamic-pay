@@ -155,6 +155,9 @@ Here is a list of known plugin conflicts:
 *	Tweak - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
 *	Test - WordPress tested up to 3.8.
 *	Fix - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_WooCommerce_IDeal_AddOn::payment_gateways() should not be called statically.
+*	Fix - Fatal error: Class 'Pronamic_WordPress_IDeal_ConfigurationsRepository' not found in classes\Pronamic\AppThemes\IDeal\IDealGateway.php on line 54.
+*	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Payment::getSource() in classes/Pronamic/AppThemes/IDeal/AddOn.php on line 52.
+*	Fix - Strict Standards: Declaration of Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse() should be compatible with Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage::parse(SimpleXMLElement $xml, Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage $message).
 
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
