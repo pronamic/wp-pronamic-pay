@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 2.2.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-11-28 12:59:25+00:00\n"
+"POT-Creation-Date: 2013-12-12 10:25:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +71,7 @@ msgstr ""
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:48
+#: classes/Pronamic/WP/Pay/Membership/Admin.php:49
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:85
 #: includes/post.php:284 includes/post.php:341 includes/post.php:389
@@ -83,7 +83,7 @@ msgstr ""
 msgid "General Information"
 msgstr ""
 
-#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:83
+#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:82
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:124
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:149
@@ -93,7 +93,7 @@ msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/S2Member/Bridge/Settings.php:50
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:70
+#: classes/Pronamic/WP/Pay/Membership/Admin.php:71
 msgid "iDEAL Options"
 msgstr ""
 
@@ -216,8 +216,8 @@ msgid "Currency Code"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
-#: views/config-edit.php:59 views/config-edit.php:160
-#: views/config-edit.php:215
+#: views/config-edit.php:57 views/config-edit.php:147
+#: views/config-edit.php:192
 msgid "Merchant ID"
 msgstr ""
 
@@ -234,7 +234,7 @@ msgid "Transaction Reference"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
-#: views/config-edit.php:176
+#: views/config-edit.php:159
 msgid "Key Version"
 msgstr ""
 
@@ -457,17 +457,25 @@ msgid "6 month"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Order.php:34
+#: classes/Pronamic/S2Member/Bridge/Order.php:35
+#: classes/Pronamic/S2Member/Bridge/Order.php:36
+#: classes/Pronamic/S2Member/Bridge/Order.php:37
+#: classes/Pronamic/S2Member/Bridge/Order.php:38
 msgid "1 year"
 msgstr ""
 
+#: classes/Pronamic/S2Member/Bridge/Order.php:39
+msgid "lifetime"
+msgstr ""
+
 #: classes/Pronamic/S2Member/Bridge/Settings.php:21
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:41
+#: classes/Pronamic/WP/Pay/Membership/Admin.php:42
 #: classes/Pronamic/WordPress/IDeal/Admin.php:67 views/config-edit.php:29
 msgid "General"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:49
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:69
+#: classes/Pronamic/WP/Pay/Membership/Admin.php:70
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -862,7 +870,7 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: includes/post.php:98 views/config-edit.php:617
+#: includes/post.php:98 views/config-edit.php:542
 msgid "Variant"
 msgstr ""
 
@@ -982,358 +990,358 @@ msgstr ""
 msgid "Live"
 msgstr ""
 
-#: views/config-edit.php:62
+#: views/config-edit.php:60
 msgid ""
 "You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
 "provider."
 msgstr ""
 
-#: views/config-edit.php:69
+#: views/config-edit.php:67
 msgid "Sub ID"
 msgstr ""
 
-#: views/config-edit.php:72
+#: views/config-edit.php:70
 msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
 msgstr ""
 
-#: views/config-edit.php:78 views/variants.php:53
+#: views/config-edit.php:76 views/variants.php:53
 msgid "Basic"
 msgstr ""
 
-#: views/config-edit.php:85
+#: views/config-edit.php:81
 msgid "Hash Key"
 msgstr ""
 
-#: views/config-edit.php:88
+#: views/config-edit.php:84
 msgid ""
 "You configure the hash key (also known as: key or secret key) in the iDEAL "
 "dashboard of your iDEAL provider."
 msgstr ""
 
-#: views/config-edit.php:93
+#: views/config-edit.php:88
 msgid "XML Notification URL"
 msgstr ""
 
-#: views/config-edit.php:106
+#: views/config-edit.php:101
 msgid "PayDutch"
 msgstr ""
 
-#: views/config-edit.php:112
+#: views/config-edit.php:106
 msgid "Username"
 msgstr ""
 
-#: views/config-edit.php:119 views/config-edit.php:378
+#: views/config-edit.php:112 views/config-edit.php:332
 msgid "Password"
 msgstr ""
 
-#: views/config-edit.php:126
+#: views/config-edit.php:119
 msgid "Mollie"
 msgstr ""
 
-#: views/config-edit.php:133
+#: views/config-edit.php:124
 msgid "Partner ID"
 msgstr ""
 
-#: views/config-edit.php:136
+#: views/config-edit.php:127
 msgid ""
 "Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle "
 "betaling tegoed bijgeschreven."
 msgstr ""
 
-#: views/config-edit.php:142
+#: views/config-edit.php:131
 msgid "Profile Key"
 msgstr ""
 
-#: views/config-edit.php:146
+#: views/config-edit.php:135
 msgid ""
 "Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
 "linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
 "href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
 msgstr ""
 
-#: views/config-edit.php:153 views/variants.php:59
+#: views/config-edit.php:142 views/variants.php:59
 msgid "OmniKassa"
 msgstr ""
 
-#: views/config-edit.php:168 views/config-edit.php:200
+#: views/config-edit.php:153 views/config-edit.php:179
 msgid "Secret Key"
 msgstr ""
 
-#: views/config-edit.php:179
+#: views/config-edit.php:162
 msgid ""
 "You can find the key version in the <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
 msgstr ""
 
-#: views/config-edit.php:184
+#: views/config-edit.php:167
 msgid "Buckaroo"
 msgstr ""
 
-#: views/config-edit.php:191
+#: views/config-edit.php:172
 msgid "Website Key"
 msgstr ""
 
-#: views/config-edit.php:194
+#: views/config-edit.php:175
 msgid ""
 "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
 msgstr ""
 
-#: views/config-edit.php:203
+#: views/config-edit.php:182
 msgid ""
 "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
 "Digital Signature\"."
 msgstr ""
 
-#: views/config-edit.php:208
+#: views/config-edit.php:187
 msgid "ICEPAY"
 msgstr ""
 
-#: views/config-edit.php:218
+#: views/config-edit.php:195
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
 "websites</a>."
 msgstr ""
 
-#: views/config-edit.php:219 views/config-edit.php:232
+#: views/config-edit.php:196 views/config-edit.php:207
 msgid "https://www.icepay.com/EN/Login"
 msgstr ""
 
-#: views/config-edit.php:220 views/config-edit.php:233
+#: views/config-edit.php:197 views/config-edit.php:208
 msgid "https://www.icepay.com/Merchant/EN/Websites"
 msgstr ""
 
-#: views/config-edit.php:227
+#: views/config-edit.php:202
 msgid "Secret Code"
 msgstr ""
 
-#: views/config-edit.php:231
+#: views/config-edit.php:206
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
 "websites</a>."
 msgstr ""
 
-#: views/config-edit.php:238
+#: views/config-edit.php:212
 msgid "Thank you page URL"
 msgstr ""
 
-#: views/config-edit.php:246
+#: views/config-edit.php:219
 msgid "Error page URL"
 msgstr ""
 
-#: views/config-edit.php:254
+#: views/config-edit.php:226
 msgid "Postback URL"
 msgstr ""
 
-#: views/config-edit.php:263
+#: views/config-edit.php:235
 msgid "Sisow"
 msgstr ""
 
-#: views/config-edit.php:270
+#: views/config-edit.php:240
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:274
+#: views/config-edit.php:244
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 
-#: views/config-edit.php:283
+#: views/config-edit.php:251
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:287
+#: views/config-edit.php:255
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
 "a>."
 msgstr ""
 
-#: views/config-edit.php:295
+#: views/config-edit.php:263
 msgid "TargetPay"
 msgstr ""
 
-#: views/config-edit.php:302
+#: views/config-edit.php:268
 msgid "Layout Code"
 msgstr ""
 
-#: views/config-edit.php:304
+#: views/config-edit.php:270
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr ""
 
-#: views/config-edit.php:309
+#: views/config-edit.php:275
 msgid "Ogone"
 msgstr ""
 
-#: views/config-edit.php:316
+#: views/config-edit.php:280
 msgid "PSPID"
 msgstr ""
 
-#: views/config-edit.php:320
+#: views/config-edit.php:284
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 
-#: views/config-edit.php:327
+#: views/config-edit.php:290
 msgid "Character encoding"
 msgstr ""
 
-#: views/config-edit.php:336
+#: views/config-edit.php:298
 msgid "Hash algorithm"
 msgstr ""
 
-#: views/config-edit.php:339
+#: views/config-edit.php:301
 msgid "SHA-1"
 msgstr ""
 
-#: views/config-edit.php:340
+#: views/config-edit.php:302
 msgid "SHA-256"
 msgstr ""
 
-#: views/config-edit.php:341
+#: views/config-edit.php:303
 msgid "SHA-512"
 msgstr ""
 
-#: views/config-edit.php:349 views/config-edit.php:392
+#: views/config-edit.php:309 views/config-edit.php:345
 msgid "SHA-IN Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:352 views/config-edit.php:395
+#: views/config-edit.php:312 views/config-edit.php:348
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
 "iDEAL provider."
 msgstr ""
 
-#: views/config-edit.php:359
+#: views/config-edit.php:317
 msgid "SHA-OUT Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:362
+#: views/config-edit.php:320
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
 "provider."
 msgstr ""
 
-#: views/config-edit.php:369 views/meta-box-payment-source.php:64
+#: views/config-edit.php:325 views/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr ""
 
-#: views/config-edit.php:386
+#: views/config-edit.php:340
 msgid "Ogone DirectLink"
 msgstr ""
 
-#: views/config-edit.php:410
+#: views/config-edit.php:363
 msgid "Qantani"
 msgstr ""
 
-#: views/config-edit.php:417
+#: views/config-edit.php:368
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:425
+#: views/config-edit.php:374
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:433
+#: views/config-edit.php:380
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: views/config-edit.php:440
+#: views/config-edit.php:387
 msgid "iDEAL Advanced"
 msgstr ""
 
-#: views/config-edit.php:447
+#: views/config-edit.php:392
 msgid "Private Key Password"
 msgstr ""
 
-#: views/config-edit.php:455 views/config-edit.php:833
+#: views/config-edit.php:398 views/config-edit.php:758
 msgid "Private Key"
 msgstr ""
 
-#: views/config-edit.php:464 views/config-edit.php:857
+#: views/config-edit.php:405 views/config-edit.php:782
 msgid "Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:472
+#: views/config-edit.php:413
 msgid "Private Key and Certificate"
 msgstr ""
 
-#: views/config-edit.php:479
+#: views/config-edit.php:418
 msgid "Number Days Valid"
 msgstr ""
 
-#: views/config-edit.php:481
+#: views/config-edit.php:420
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:487 views/gravityforms/feed-edit.php:327
+#: views/config-edit.php:424 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr ""
 
-#: views/config-edit.php:489
+#: views/config-edit.php:426
 msgid "2 letter code [NL]"
 msgstr ""
 
-#: views/config-edit.php:495
+#: views/config-edit.php:430
 msgid "State or Province"
 msgstr ""
 
-#: views/config-edit.php:497
+#: views/config-edit.php:432
 msgid "full name [Friesland]"
 msgstr ""
 
-#: views/config-edit.php:503
+#: views/config-edit.php:436
 msgid "Locality"
 msgstr ""
 
-#: views/config-edit.php:505
+#: views/config-edit.php:438
 msgid "eg, city"
 msgstr ""
 
-#: views/config-edit.php:511
+#: views/config-edit.php:442
 msgid "Organization"
 msgstr ""
 
-#: views/config-edit.php:513
+#: views/config-edit.php:444
 msgid "eg, company [Pronamic]"
 msgstr ""
 
-#: views/config-edit.php:519
+#: views/config-edit.php:448
 msgid "Organization Unit"
 msgstr ""
 
-#: views/config-edit.php:521
+#: views/config-edit.php:450
 msgid "eg, section"
 msgstr ""
 
-#: views/config-edit.php:527
+#: views/config-edit.php:454
 msgid "Common Name"
 msgstr ""
 
-#: views/config-edit.php:530
+#: views/config-edit.php:457
 msgid "eg, YOUR name"
 msgstr ""
 
-#: views/config-edit.php:531
+#: views/config-edit.php:458
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
 msgstr ""
 
-#: views/config-edit.php:532
+#: views/config-edit.php:459
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1341,45 +1349,45 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: views/config-edit.php:538
+#: views/config-edit.php:463
 msgid "Email Address"
 msgstr ""
 
-#: views/config-edit.php:550
+#: views/config-edit.php:475
 msgid "Download Private Key"
 msgstr ""
 
-#: views/config-edit.php:572
+#: views/config-edit.php:497
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: views/config-edit.php:578
+#: views/config-edit.php:503
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: views/config-edit.php:581
+#: views/config-edit.php:506
 msgid "Valid From"
 msgstr ""
 
-#: views/config-edit.php:586
+#: views/config-edit.php:511
 msgid "Valid To"
 msgstr ""
 
-#: views/config-edit.php:597
+#: views/config-edit.php:522
 msgid "Download Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:822
+#: views/config-edit.php:747
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: views/config-edit.php:826
+#: views/config-edit.php:751
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: views/config-edit.php:842
+#: views/config-edit.php:767
 msgid "filename"
 msgstr ""
 
@@ -1782,7 +1790,7 @@ msgid "Activation Date"
 msgstr ""
 
 #: views/status-system.php:29 views/status-system.php:42
-#: views/status-system.php:395
+#: views/status-system.php:423
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
@@ -1903,38 +1911,48 @@ msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr ""
 
 #: views/status-system.php:372
+msgid "WP Memory Limit"
+msgstr ""
+
+#: views/status-system.php:390
+msgid ""
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
+"memory allocated to PHP</a>"
+msgstr ""
+
+#: views/status-system.php:400
 msgid "Character Set"
 msgstr ""
 
-#: views/status-system.php:384
+#: views/status-system.php:412
 msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
 msgstr ""
 
-#: views/status-system.php:392
+#: views/status-system.php:420
 msgid "Time"
 msgstr ""
 
-#: views/status-system.php:404
+#: views/status-system.php:432
 msgid "cURL"
 msgstr ""
 
-#: views/status-system.php:425
+#: views/status-system.php:453
 msgid "OpenSSL"
 msgstr ""
 
-#: views/status-system.php:445
+#: views/status-system.php:473
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr ""
 
-#: views/status-system.php:453
+#: views/status-system.php:481
 msgid "Registered Hashing Algorithms"
 msgstr ""
 
-#: views/status-system.php:470
+#: views/status-system.php:498
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr ""
 
-#: views/status-system.php:478
+#: views/status-system.php:506
 msgid "Travis CI build status"
 msgstr ""
 
