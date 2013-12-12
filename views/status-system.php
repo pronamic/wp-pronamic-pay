@@ -63,7 +63,7 @@
 			'github_url'        => 'https://github.com/eventespresso/event-espresso-core',
 			'active'            => Pronamic_EventEspresso_EventEspresso::is_active(),
 			'requires_at_least' => '3.1.24',
-			'tested_up_to'      => '3.1.35.P'
+			'tested_up_to'      => '3.1.35.P',
 		),
 		'event-espresso-free'   => array(
 			'name'              => __( 'Event Espresso Lite', 'pronamic_ideal' ),
@@ -72,7 +72,7 @@
 			'wp_org_url'        => 'http://wordpress.org/extend/plugins/event-espresso-free/',
 			'active'            => Pronamic_EventEspresso_EventEspresso::is_active(),
 			'requires_at_least' => '3.1.29.1.L',
-			'tested_up_to'      => '3.1.35.L'
+			'tested_up_to'      => '3.1.35.L',
 		),			
 		'gravityforms'          => array(
 			'name'              => __( 'Gravity Forms', 'pronamic_ideal' ),
@@ -81,7 +81,7 @@
 			'requires_at_least' => '1.6',
 			'tested_up_to'      => '1.7.11',
 			'author'            => __( 'Rocketgenius', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.rocketgenius.com/'
+			'author_url'        => 'http://www.rocketgenius.com/',
 		),
 		'jigoshop'              => array(
 			'name'              => __( 'Jigoshop', 'pronamic_ideal' ),
@@ -92,7 +92,7 @@
 			'requires_at_least' => '1.1',
 			'tested_up_to'      => '1.8',
 			'author'            => __( 'Jigowatt', 'pronamic_ideal' ),
-			'author_url'        => 'http://jigowatt.co.uk/'
+			'author_url'        => 'http://jigowatt.co.uk/',
 		),
 		'membership'            => array(
 			'name'              => __( 'Membership', 'pronamic_ideal' ),
@@ -102,7 +102,7 @@
 			'requires_at_least' => '3.4.4.1',
 			'tested_up_to'      => '3.4.4.1',
 			'author'            => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.wpmudev.org/'
+			'author_url'        => 'http://www.wpmudev.org/',
 		),
 		'membership-premium'    => array(
 			'name'              => __( 'Membership Premium', 'pronamic_ideal' ),
@@ -111,7 +111,7 @@
 			'requires_at_least' => '3.4.6',
 			'tested_up_to'      => '3.4.6',
 			'author'            => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.wpmudev.org/'
+			'author_url'        => 'http://www.wpmudev.org/',
 		),
 		's2member'              => array(
 			'name'              => __( 's2Member®', 'pronamic_ideal' ),
@@ -122,7 +122,7 @@
 			'requires_at_least' => '130816',
 			'tested_up_to'      => '131026',
 			'author'            => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.websharks-inc.com/'
+			'author_url'        => 'http://www.websharks-inc.com/',
 		),
 		'shopp'                 => array(
 			'name'              => __( 'Shopp', 'pronamic_ideal' ),
@@ -132,7 +132,7 @@
 			'requires_at_least' => '1.1',
 			'tested_up_to'      => '1.2.9',
 			'author'            => __( 'Ingenesis Limited', 'pronamic_ideal' ),
-			'author_url'        => 'http://ingenesis.net/'
+			'author_url'        => 'http://ingenesis.net/',
 		),
 		'woocommerce'           => array(
 			'name'              => __( 'WooCommerce', 'pronamic_ideal' ),
@@ -143,7 +143,7 @@
 			'requires_at_least' => '2.0.0',
 			'tested_up_to'      => '2.0.18',
 			'author'            => __( 'WooThemes', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.woothemes.com/'
+			'author_url'        => 'http://www.woothemes.com/',
 		),
 		'wp-e-commerce'         => array(
 			'name'              => __( 'WP e-Commerce', 'pronamic_ideal' ),
@@ -154,7 +154,7 @@
 			'requires_at_least' => '3.8.12.1',
 			'tested_up_to'      => '3.8.12.1',
 			'author'            => __( 'Instinct Entertainment', 'pronamic_ideal' ),
-			'author_url'        => 'http://instinct.co.nz/'
+			'author_url'        => 'http://instinct.co.nz/',
 		),
 		// Themes
 		'classipress'           => array(
@@ -164,7 +164,7 @@
 			'requires_at_least' => '3.3.1',
 			'tested_up_to'      => '3.3.1',
 			'author'            => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.appthemes.com/'
+			'author_url'        => 'http://www.appthemes.com/',
 		),
 		'jobroller'             => array(
 			'name'              => __( 'JobRoller', 'pronamic_ideal' ),
@@ -172,8 +172,8 @@
 			'active'            => Pronamic_JobRoller_JobRoller::is_active(),
 			'tested_up_to'      => '1.7.1',
 			'author'            => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'        => 'http://www.appthemes.com/'
-		)
+			'author_url'        => 'http://www.appthemes.com/',
+		),
 	);
 	
 	?>
