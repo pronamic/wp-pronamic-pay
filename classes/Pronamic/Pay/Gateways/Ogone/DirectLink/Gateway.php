@@ -76,16 +76,15 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_security_code( $credit_card->get_security_code() )
 		;
 		
-		$ogone_data->set_field( 'OPERATION', 'RES' );
+		$ogone_data->set_field( 'OPERATION', 'SAL' );
 		
 		// 3-D Secure
-		if ( true ) {
+		if ( false ) {
 			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
 	
 			$secure_data_helper
 				->set_3d_secure_flag( true )
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
-				->set_http_accept( '*/*' )
 				->set_window( 'MAINW' )
 			;
 			
@@ -112,11 +111,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$data['SHASIGN'] = $client->getSignatureIn();
 
 		$result = $this->client->order_direct( $data );
-echo '<pre>';
-var_dump( $data );
-echo '</pre>';
-var_dump( $result );
-exit;
+
 		$error = $this->client->get_error();
 
 		if ( is_wp_error( $error ) ) {

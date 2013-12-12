@@ -60,9 +60,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Client {
 			'sslverify' => false,
 			'body'      => $data
 		) );
-echo '<pre>';
-echo htmlspecialchars( $result );
-echo '</pre>';
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
