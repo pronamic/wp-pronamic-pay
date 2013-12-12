@@ -81,6 +81,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// On template redirect handle an possible return from iDEAL
 		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'maybe_redirect' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
@@ -178,6 +179,23 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealBasic_Listener::listen();
 		Pronamic_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
+	}
+
+	/**
+	 * Maybe redirect
+	 */
+	public static function maybe_redirect() {
+		if ( filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
+			$payment_id = filter_input( INPUT_GET, 'payment_redirect', FILTER_SANITIZE_NUMBER_INT );
+			
+			$payment = get_pronamic_payment( $payment_id );
+			
+			if ( ! empty( $payment->action_url ) ) {
+				wp_redirect( $payment->action_url );
+				
+				exit;
+			}
+		}
 	}
 
 	//////////////////////////////////////////////////

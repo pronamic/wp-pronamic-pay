@@ -154,6 +154,7 @@ Here is a list of known plugin conflicts:
 = 2.2.4 =
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
 *	Tweak - Membership - Improved activating of the iDEAL gateway.
+*	Tweak - Jigoshop - Added workaround for the wp_safe_redirect() non AJAX issue to the admin URL.
 *	Test - WordPress tested up to 3.8.
 *	Test - ClassiPress tested up to 3.3.1.
 *	Fix - Fatal error: Class 'Pronamic_WordPress_IDeal_ConfigurationsRepository' not found in classes\Pronamic\AppThemes\IDeal\IDealGateway.php on line 54.
