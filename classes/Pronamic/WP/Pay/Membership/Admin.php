@@ -17,7 +17,8 @@ class Pronamic_WP_Pay_Membership_Admin {
 
 		add_action( 'membership_add_menu_items_after_gateways', array( $this, 'add_menu_items' ) );
 
-		add_action( 'update_option_' . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 10, 2 );
+		add_action( 'add_option_'    . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'add_option_config_id'    ), 11, 2 );
+		add_action( 'update_option_' . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 11, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -111,5 +112,17 @@ class Pronamic_WP_Pay_Membership_Admin {
     		
     		update_option( 'membership_activated_gateways', array_unique( $activated_gateways ) );
     	}
+    }
+    
+    //////////////////////////////////////////////////
+    
+    /**
+     * Add config id option
+     *
+     * @param string $option
+     * @param string $value
+     */
+    public function add_option_config_id( $option, $value ) {
+    	$this->update_option_config_id( null, $value );
     }
 }

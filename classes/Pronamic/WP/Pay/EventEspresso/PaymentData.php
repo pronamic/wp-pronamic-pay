@@ -37,10 +37,10 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 	/**
 	 * Get source indicator
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
-	public function getSource() {
+	public function get_source() {
 		return 'event-espresso';
 	}
 

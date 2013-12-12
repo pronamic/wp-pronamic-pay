@@ -32,6 +32,11 @@ class Pronamic_S2Member_Bridge_Order {
 			'5 M' => sprintf( $label, __( '5 month', 'pronamic_ideal' ) ),
 			'6 M' => sprintf( $label, __( '6 month', 'pronamic_ideal' ) ),
 			'1 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
+			'2 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
+			'3 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
+			'4 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
+			'5 Y' => sprintf( $label, __( '1 year', 'pronamic_ideal' ) ),
+			'1 L' => sprintf( $label, __( 'lifetime', 'pronamic_ideal' ) ),
 		);
 
 		self::$periods = apply_filters( 'pronamic_ideal_s2member_default_periods', $periods );

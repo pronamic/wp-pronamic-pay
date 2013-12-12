@@ -87,6 +87,14 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
 				->set_window( 'MAINW' )
 			;
+			
+			$ogone_data->set_field( 'HTTP_USER_AGENT', filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) );
+			$ogone_data->set_field( 'ACCEPTURL', home_url( '/' ) );
+			$ogone_data->set_field( 'DECLINEURL', home_url( '/' ) );
+			$ogone_data->set_field( 'EXCEPTIONURL', home_url( '/' ) );
+			$ogone_data->set_field( 'PARAMPLUS', '' );
+			$ogone_data->set_field( 'COMPLUS', '' );
+			$ogone_data->set_field( 'LANGUAGE', 'en_US' );
 		}
 
 		// Kassa

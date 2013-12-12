@@ -46,7 +46,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	/**
 	 * Add the gateway to WooCommerce
 	 */
-	function payment_gateways( $gateways ) {
+	public static function payment_gateways( $gateways ) {
 		$gateways[] = 'Pronamic_WooCommerce_IDeal_IDealGateway';
 
 		return $gateways;

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvanced_XML_ErrorParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
+class Pronamic_Gateways_IDealAdvanced_XML_ErrorParser implements Pronamic_Gateways_IDealAdvanced_XML_Parser {
 	/**
 	 * Parse iDEAL Advanced error from the specified XML element
 	 * 

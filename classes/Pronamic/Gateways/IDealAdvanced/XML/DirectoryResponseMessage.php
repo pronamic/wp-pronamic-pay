@@ -55,7 +55,8 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
-		$message = parent::parse( $xml, new self() );
+		$message = new self();
+
 		$message->directory = Pronamic_Gateways_IDealAdvanced_XML_DirectoryParser::parse( $xml->Directory );
 
 		return $message;

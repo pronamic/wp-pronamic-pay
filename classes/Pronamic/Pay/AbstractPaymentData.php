@@ -19,7 +19,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	//////////////////////////////////////////////////
 
-	public abstract function getSource();
+	public abstract function get_source();
 	
 	public function get_source_id() {
 		return $this->get_order_id();

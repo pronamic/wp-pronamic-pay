@@ -25,7 +25,7 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 
 	//////////////////////////////////////////////////
 
-	public function getSource() {
+	public function get_source() {
 		return 'membership';
 	}
 

@@ -62,7 +62,8 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
-		$message = parent::parse( $xml, new self() );
+		$message = new self();
+
 		$message->set_error( Pronamic_Gateways_IDealAdvanced_XML_ErrorParser::parse( $xml->Error ) );
 
 		return $message;
