@@ -150,7 +150,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Receipt page
 	 */
 	function receipt_page( $order_id ) {
-		$order = &new jigoshop_order( $order_id );
+		$order = new jigoshop_order( $order_id );
 		
 		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
@@ -169,7 +169,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	 * Process the payment and return the result
 	 */
 	function process_payment( $order_id ) {
-		$order = &new jigoshop_order( $order_id );
+		$order = new jigoshop_order( $order_id );
 
 		// Mark as on-hold (we're awaiting the payment)
 		$order->update_status( 'pending', __( 'Pending iDEAL payment.', 'pronamic_ideal' ) );
