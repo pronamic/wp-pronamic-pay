@@ -153,7 +153,8 @@ Here is a list of known plugin conflicts:
 
 = 2.2.4 =
 *	Tweak - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
-*	Fix - Notice: Undefined variable: redirect. This notice occurred when the "pronamic_login_form" was used with the "redirect_to" variable.
+*	Test - WordPress tested up to 3.8.
+*	Fix - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_WooCommerce_IDeal_AddOn::payment_gateways() should not be called statically.
 
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
