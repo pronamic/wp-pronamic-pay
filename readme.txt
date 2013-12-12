@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.8
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -157,13 +157,13 @@ Here is a list of known plugin conflicts:
 *	Tweak - Jigoshop - Added workaround for the wp_safe_redirect() non AJAX issue to the admin URL.
 *	Test - WordPress tested up to 3.8.
 *	Test - ClassiPress tested up to 3.3.1.
-*	Fix - Fatal error: Class 'Pronamic_WordPress_IDeal_ConfigurationsRepository' not found in classes\Pronamic\AppThemes\IDeal\IDealGateway.php on line 54.
-*	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Payment::getSource() in classes/Pronamic/AppThemes/IDeal/AddOn.php on line 52.
-*	Tweak - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_WooCommerce_IDeal_AddOn::payment_gateways() should not be called statically.
+*	Fix - AppThemes - Fatal error: Class 'Pronamic_WordPress_IDeal_ConfigurationsRepository' not found in classes\Pronamic\AppThemes\IDeal\IDealGateway.php on line 54.
+*	Fix - AppThemes - Fatal error: Call to undefined method Pronamic_WP_Pay_Payment::getSource() in classes/Pronamic/AppThemes/IDeal/AddOn.php on line 52.
+*	Tweak - WooCommerce - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_WooCommerce_IDeal_AddOn::payment_gateways() should not be called statically.
 *	Tweak - Strict Standards: Declaration of Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse() should be compatible with Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage::parse(SimpleXMLElement $xml, Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage $message).
-*	Tweak - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_Jigoshop_IDeal_AddOn::payment_gateways() should not be called statically.
-*	Tweak - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 153.
-*	Tweak - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
+*	Tweak - Jigoshop - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_Jigoshop_IDeal_AddOn::payment_gateways() should not be called statically.
+*	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 153.
+*	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
 
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
