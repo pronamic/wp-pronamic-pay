@@ -58,7 +58,7 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 				$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
 
 				if ( filter_has_var( INPUT_POST, 'classipress_pronamic_ideal' ) ) {
-					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config, $gateway, $data );
+					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
 					
 					$error = $gateway->get_error();
 					
