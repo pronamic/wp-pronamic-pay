@@ -125,6 +125,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 				'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
+				'methods'     => array( 'mollie_ideal' ),
 			),
 			 array(
 				'meta_key'    => '_pronamic_gateway_mollie_profile_key',
@@ -135,6 +136,14 @@ $sections = array(
 					__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 					'https://www.mollie.nl/beheer/account/profielen/'
 				),
+				'methods'     => array( 'mollie_ideal' ),
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_mollie_api_key',
+				'title'       => __( 'API Key', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'methods'     => array( 'mollie' ),
 			),
 		),
 	),

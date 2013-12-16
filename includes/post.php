@@ -496,6 +496,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 		'_pronamic_gateway_paydutch_username' => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_paydutch_password' => FILTER_SANITIZE_STRING,
 		// Mollie
+		'_pronamic_gateway_mollie_api_key'     => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_mollie_partner_id'  => FILTER_SANITIZE_STRING,
 		'_pronamic_gateway_mollie_profile_key' => FILTER_SANITIZE_STRING,
 		// OmniKassa

@@ -9,7 +9,7 @@
  * @version 1.0
  * @see https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/en/
  */
-class Pronamic_Gateways_Mollie_Actions {
+class Pronamic_Gateways_Mollie_IDeal_Actions {
 	/**
 	 * Check
 	 * 

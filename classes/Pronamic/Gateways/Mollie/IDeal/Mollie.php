@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Mollie_Mollie {
+class Pronamic_Gateways_Mollie_IDeal_Mollie {
 	/**
 	 * Mollie API endpoint URL
 	 * 
@@ -133,7 +133,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 	public function get_banks() {
 		$banks = false;
 
-		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::BANK_LIST );
+		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::BANK_LIST );
 
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
@@ -169,7 +169,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 		
 		if ( isset( $xml->item ) ) {
 			if ( $xml->item['type'] == 'error' ) {
-				$error = new Pronamic_Gateways_Mollie_Error(
+				$error = new Pronamic_Gateways_Mollie_IDeal_Error(
 					(string) $xml->item->errorcode, 
 					(string) $xml->item->message
 				);
@@ -220,7 +220,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 			$parameters['profile_key'] = $this->profile_key;
 		}
 
-		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::FETCH, $parameters );
+		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::FETCH, $parameters );
 
 		if ( $result !== false ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
@@ -250,7 +250,7 @@ class Pronamic_Gateways_Mollie_Mollie {
 			'transaction_id' => $transaction_id
 		);
 
-		$result = $this->send_request( Pronamic_Gateways_Mollie_Actions::CHECK, $parameters );
+		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::CHECK, $parameters );
 
 		if ( $result !== false ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
