@@ -352,9 +352,15 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// Mollie
-	'mollie-ideal' => array(
+	'mollie' => array(
 		'provider'      => 'mollie',
 		'gateway'       => 'mollie',
+		'name'          => 'Mollie',
+		'dashboard_url' => 'http://www.mollie.nl/',
+	),
+	'mollie-ideal' => array(
+		'provider'      => 'mollie',
+		'gateway'       => 'mollie_ideal',
 		'name'          => 'Mollie - iDEAL',
 		'dashboard_url' => 'http://www.mollie.nl/',
 	),

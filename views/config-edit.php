@@ -117,7 +117,7 @@ $sections = array(
 	),
 	array(
 		'title'   => __( 'Mollie', 'pronamic_ideal' ),
-		'methods' => array( 'mollie' ),
+		'methods' => array( 'mollie', 'mollie_ideal' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_mollie_partner_id',
