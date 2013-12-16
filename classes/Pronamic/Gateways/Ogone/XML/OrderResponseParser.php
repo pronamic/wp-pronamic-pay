@@ -32,6 +32,8 @@ class Pronamic_Gateways_Ogone_XML_OrderResponseParser {
 		$order_response->currency      = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::CURRENCY] );
 		$order_response->pm            = Pronamic_XML_Util::filter( $xml['PM'] );
 		$order_response->brand         = Pronamic_XML_Util::filter( $xml['BRAND'] );
+		
+		$order_response->html_answer   = base64_decode( Pronamic_XML_Util::filter( $xml->HTML_ANSWER ) );
 
 		return $order_response;
 	}
