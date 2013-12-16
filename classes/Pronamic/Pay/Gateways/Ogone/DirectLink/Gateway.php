@@ -137,7 +137,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$inputs = array(
 			INPUT_GET  => $_GET,
-			INPUT_POST => $_POST
+			INPUT_POST => $_POST,
 		);
 
 		foreach ( $inputs as $input => $data ) {
