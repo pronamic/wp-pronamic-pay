@@ -6,7 +6,7 @@ function pronamic_wp_pay_update_payment( Pronamic_WP_Pay_Payment $payment ) {
 	// Meta
 	$prefix = '_pronamic_payment_';
 	
-	$meta = array(
+	$meta = $payment->meta + array(
 		'transaction_id'          => $payment->get_transaction_id(),
 		'action_url'              => $payment->get_action_url(),
 		'status'                  => $payment->status,
