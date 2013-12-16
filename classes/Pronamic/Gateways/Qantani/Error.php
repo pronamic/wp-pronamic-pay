@@ -7,7 +7,6 @@
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
- * @see https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/en/
  */
 class Pronamic_Gateways_Qantani_Error {
 	/**
