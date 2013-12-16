@@ -10,6 +10,14 @@
  */
 class Pronamic_XML_Util {
 	public static function filter( $variable, $filter = FILTER_SANITIZE_STRING ) {
-		return filter_var( (string) $variable, $filter );
+		$result = null;
+
+		$value = filter_var( (string) $variable, $filter );
+		
+		if ( strlen( $value ) > 0 ) {
+			$result = $value;
+		}
+		
+		return $result;
 	}
 }
