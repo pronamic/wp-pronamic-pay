@@ -7,7 +7,6 @@ function pronamic_wp_pay_update_payment( Pronamic_WP_Pay_Payment $payment ) {
 	$prefix = '_pronamic_payment_';
 
 	$meta = array_merge(
-		$payment->meta,
 		array(
 			'transaction_id'          => $payment->get_transaction_id(),
 			'action_url'              => $payment->get_action_url(),
@@ -17,7 +16,8 @@ function pronamic_wp_pay_update_payment( Pronamic_WP_Pay_Payment $payment ) {
 			'consumer_iban'           => $payment->consumer_iban,
 			'consumer_bic'            => $payment->consumer_bic,
 			'consumer_city'           => $payment->consumer_city,
-		)
+		),
+		$payment->meta
 	);
 
 	foreach ( $meta as $key => $value ) {
