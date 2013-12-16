@@ -10,6 +10,8 @@ class Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory {
 
 		$config->hash_algorithm = get_post_meta( $post_id, '_pronamic_gateway_ogone_hash_algorithm', true );
 
+		$config->sha_out_pass_phrase = get_post_meta( $post_id, '_pronamic_gateway_ogone_sha_out_pass_phrase', true );
+
 		$config->user_id  = get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true );
 		$config->password = get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true );
 

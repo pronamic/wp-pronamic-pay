@@ -88,10 +88,12 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 				->set_http_user_agent( filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) )
 				->set_window( 'MAINW' )
 			;
+			
+			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
-			$ogone_data->set_field( 'ACCEPTURL', home_url( '/' ) );
-			$ogone_data->set_field( 'DECLINEURL', home_url( '/' ) );
-			$ogone_data->set_field( 'EXCEPTIONURL', home_url( '/' ) );
+			$ogone_data->set_field( 'ACCEPTURL', $url );
+			$ogone_data->set_field( 'DECLINEURL', $url );
+			$ogone_data->set_field( 'EXCEPTIONURL', $url );
 			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
 			$ogone_data->set_field( 'LANGUAGE', 'en_US' );
@@ -137,11 +139,18 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			INPUT_GET  => $_GET,
 			INPUT_POST => $_POST
 		);
-			
-		foreach ( $inputs as $input => $data ) {
-			$data = $this->client->verifyRequest( $data );
 
-			if ( $data !== false ) {
+		foreach ( $inputs as $input => $data ) {
+			$data = array_change_key_case( $data, CASE_UPPER );
+
+			$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
+			
+			$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
+
+			$signature = $data['SHASIGN'];
+			$signature_out = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
+
+			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
 				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );

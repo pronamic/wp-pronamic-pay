@@ -318,7 +318,7 @@ $sections = array(
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'ogone_orderstandard' ),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_user_id',

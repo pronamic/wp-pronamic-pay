@@ -95,7 +95,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 			INPUT_GET  => $_GET,
 			INPUT_POST => $_POST
 		);
-			
+
 		foreach ( $inputs as $input => $data ) {
 			$data = $this->client->verifyRequest( $data );
 
