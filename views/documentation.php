@@ -300,6 +300,10 @@
 					'url'  => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/',
 					'name' => 'iDEAL Professional/Advanced', 
 				),
+				array(
+					'url'  => 'http://pronamic.nl/wp-content/uploads/2013/12/payments-api-nl.pdf',
+					'name' => 'De Mollie betalings-API (universal API)', 
+				),
 			),
 		),
 		'buckaroo.nl' => array(
