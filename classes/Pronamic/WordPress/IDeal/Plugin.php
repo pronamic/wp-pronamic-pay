@@ -190,6 +190,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 			
 			$payment = get_pronamic_payment( $payment_id );
 			
+			// HTML Answer
+			$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
+			
+			if ( ! empty( $html_answer ) ) {
+				echo $html_answer;
+				
+				exit;
+			}
+			
+			// Action URL
 			if ( ! empty( $payment->action_url ) ) {
 				wp_redirect( $payment->action_url );
 				
