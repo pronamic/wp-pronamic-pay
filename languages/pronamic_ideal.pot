@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.2.4\n"
+"Project-Id-Version: Pronamic iDEAL 2.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-12-12 12:48:45+00:00\n"
+"POT-Creation-Date: 2013-12-16 12:39:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "iDEAL"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.4)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.3.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -197,7 +197,7 @@ msgid "Choose your bank"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106 includes/post.php:210
-#: views/meta-box-payment-info.php:27
+#: views/meta-box-payment-info.php:35
 msgid "Amount"
 msgstr ""
 
@@ -368,7 +368,7 @@ msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:79
-#: includes/post.php:209 views/meta-box-payment-info.php:19
+#: includes/post.php:209 views/meta-box-payment-info.php:27
 msgid "Description"
 msgstr ""
 
@@ -492,7 +492,7 @@ msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
-#: views/gravityforms/feed-edit.php:321 views/meta-box-payment-info.php:67
+#: views/gravityforms/feed-edit.php:321 views/meta-box-payment-info.php:75
 msgid "Email"
 msgstr ""
 
@@ -870,16 +870,17 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: includes/post.php:98 views/config-edit.php:542
+#: includes/post.php:98 views/config-edit.php:540
 msgid "Variant"
 msgstr ""
 
-#: includes/post.php:99 views/meta-box-payment-info.php:11
+#: includes/post.php:99 views/meta-box-payment-info.php:19
 msgid "ID"
 msgstr ""
 
 #: includes/post.php:102 includes/post.php:214 includes/post.php:286
-#: views/documentation.php:573 views/status-ideal.php:49
+#: views/documentation.php:573 views/meta-box-payment-info.php:11
+#: views/status-ideal.php:49
 msgid "Date"
 msgstr ""
 
@@ -900,7 +901,7 @@ msgstr ""
 msgid "Transaction"
 msgstr ""
 
-#: includes/post.php:211 views/meta-box-payment-info.php:79
+#: includes/post.php:211 views/meta-box-payment-info.php:87
 msgid "Consumer"
 msgstr ""
 
@@ -1238,110 +1239,118 @@ msgstr ""
 msgid "Ogone DirectLink"
 msgstr ""
 
-#: views/config-edit.php:363
+#: views/config-edit.php:353
+msgid "3-D Secure"
+msgstr ""
+
+#: views/config-edit.php:355
+msgid "Enable 3-D Secure protocol"
+msgstr ""
+
+#: views/config-edit.php:361
 msgid "Qantani"
 msgstr ""
 
-#: views/config-edit.php:368
+#: views/config-edit.php:366
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:374
+#: views/config-edit.php:372
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:380
+#: views/config-edit.php:378
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: views/config-edit.php:387
+#: views/config-edit.php:385
 msgid "iDEAL Advanced"
 msgstr ""
 
-#: views/config-edit.php:392
+#: views/config-edit.php:390
 msgid "Private Key Password"
 msgstr ""
 
-#: views/config-edit.php:398 views/config-edit.php:758
+#: views/config-edit.php:396 views/config-edit.php:756
 msgid "Private Key"
 msgstr ""
 
-#: views/config-edit.php:405 views/config-edit.php:782
+#: views/config-edit.php:403 views/config-edit.php:780
 msgid "Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:413
+#: views/config-edit.php:411
 msgid "Private Key and Certificate"
 msgstr ""
 
-#: views/config-edit.php:418
+#: views/config-edit.php:416
 msgid "Number Days Valid"
 msgstr ""
 
-#: views/config-edit.php:420
+#: views/config-edit.php:418
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:424 views/gravityforms/feed-edit.php:327
+#: views/config-edit.php:422 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr ""
 
-#: views/config-edit.php:426
+#: views/config-edit.php:424
 msgid "2 letter code [NL]"
 msgstr ""
 
-#: views/config-edit.php:430
+#: views/config-edit.php:428
 msgid "State or Province"
 msgstr ""
 
-#: views/config-edit.php:432
+#: views/config-edit.php:430
 msgid "full name [Friesland]"
 msgstr ""
 
-#: views/config-edit.php:436
+#: views/config-edit.php:434
 msgid "Locality"
 msgstr ""
 
-#: views/config-edit.php:438
+#: views/config-edit.php:436
 msgid "eg, city"
 msgstr ""
 
-#: views/config-edit.php:442
+#: views/config-edit.php:440
 msgid "Organization"
 msgstr ""
 
-#: views/config-edit.php:444
+#: views/config-edit.php:442
 msgid "eg, company [Pronamic]"
 msgstr ""
 
-#: views/config-edit.php:448
+#: views/config-edit.php:446
 msgid "Organization Unit"
 msgstr ""
 
-#: views/config-edit.php:450
+#: views/config-edit.php:448
 msgid "eg, section"
 msgstr ""
 
-#: views/config-edit.php:454
+#: views/config-edit.php:452
 msgid "Common Name"
 msgstr ""
 
-#: views/config-edit.php:457
+#: views/config-edit.php:455
 msgid "eg, YOUR name"
 msgstr ""
 
-#: views/config-edit.php:458
+#: views/config-edit.php:456
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
 msgstr ""
 
-#: views/config-edit.php:459
+#: views/config-edit.php:457
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1349,45 +1358,45 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: views/config-edit.php:463
+#: views/config-edit.php:461
 msgid "Email Address"
 msgstr ""
 
-#: views/config-edit.php:475
+#: views/config-edit.php:473
 msgid "Download Private Key"
 msgstr ""
 
-#: views/config-edit.php:497
+#: views/config-edit.php:495
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: views/config-edit.php:503
+#: views/config-edit.php:501
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: views/config-edit.php:506
+#: views/config-edit.php:504
 msgid "Valid From"
 msgstr ""
 
-#: views/config-edit.php:511
+#: views/config-edit.php:509
 msgid "Valid To"
 msgstr ""
 
-#: views/config-edit.php:522
+#: views/config-edit.php:520
 msgid "Download Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:747
+#: views/config-edit.php:745
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: views/config-edit.php:751
+#: views/config-edit.php:749
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: views/config-edit.php:767
+#: views/config-edit.php:765
 msgid "filename"
 msgstr ""
 
@@ -1400,7 +1409,7 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.2.4)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.3.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1597,11 +1606,15 @@ msgstr ""
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr ""
 
-#: views/meta-box-payment-info.php:41
-msgid "Transaction ID"
+#: views/meta-box-payment-info.php:14
+msgid "l jS \\o\\f F Y, h:ia"
 msgstr ""
 
 #: views/meta-box-payment-info.php:49
+msgid "Transaction ID"
+msgstr ""
+
+#: views/meta-box-payment-info.php:57
 msgid "Action URL"
 msgstr ""
 
