@@ -119,9 +119,8 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 			
 			if ( ! empty( $result->html_answer ) ) {
-				echo $result->html_answer;
-
-				exit;
+				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
+				$payment->set_action_url( add_query_arg( 'payment_redirect', $payment->get_id(), home_url( '/' ) ) );
 			}
 		}
 	}
