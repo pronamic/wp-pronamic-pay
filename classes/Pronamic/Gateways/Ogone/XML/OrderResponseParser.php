@@ -20,7 +20,7 @@ class Pronamic_Gateways_Ogone_XML_OrderResponseParser {
 			$order_response = new Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse();
 		}
 
-		$order_response->order_id      = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID] );
+		$order_response->order_id      = Pronamic_XML_Util::filter( $xml['orderID'] );
 		$order_response->pay_id        = Pronamic_XML_Util::filter( $xml['PAYID'] );
 		$order_response->nc_status     = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::NC_STATUS] );
 		$order_response->nc_error      = Pronamic_XML_Util::filter( $xml[Pronamic_Pay_Gateways_Ogone_Parameters::NC_ERROR] );
@@ -33,7 +33,9 @@ class Pronamic_Gateways_Ogone_XML_OrderResponseParser {
 		$order_response->pm            = Pronamic_XML_Util::filter( $xml['PM'] );
 		$order_response->brand         = Pronamic_XML_Util::filter( $xml['BRAND'] );
 		
-		$order_response->html_answer   = base64_decode( Pronamic_XML_Util::filter( $xml->HTML_ANSWER ) );
+		if ( $xml->HTML_ANSWER ) {
+			$order_response->html_answer   = base64_decode( Pronamic_XML_Util::filter( $xml->HTML_ANSWER ) );
+		}
 
 		return $order_response;
 	}
