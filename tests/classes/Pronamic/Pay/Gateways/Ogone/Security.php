@@ -1,6 +1,6 @@
 <?php
 
-class Pronamic_Gateways_Ogone_SecurityTest extends WP_UnitTestCase {
+class Pronamic_Pay_Gateways_Ogone_SecurityTest extends WP_UnitTestCase {
 	function test_get_calculations_parameters_in() {
 		$parameters = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
 		
