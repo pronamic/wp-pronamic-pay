@@ -87,7 +87,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'description' =>
 					$description_prefix . 
 					__( 'This controls the icon which the user sees during checkout.', 'pronamic_ideal' ) . '<br />' .
-					sprintf( 'Default: <code>%s</code>.', plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
 				'default'     => plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
 			),
 			'config_id'   => array(
@@ -107,7 +107,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'description' => 
 					$description_prefix . 
 					__( 'This controls the payment description.', 'pronamic_ideal' ) . '<br />' .
-					sprintf( 'Default: <code>%s</code>.', Pronamic_WooCommerce_PaymentData::get_default_description() ) . '<br />' .
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), Pronamic_WooCommerce_PaymentData::get_default_description() ) . '<br />' .
 					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code> <code>%s</code>', '{order_number}', '{order_date}', '{blogname}' ) ),
 				'default'     => Pronamic_WooCommerce_PaymentData::get_default_description(),
 			),
