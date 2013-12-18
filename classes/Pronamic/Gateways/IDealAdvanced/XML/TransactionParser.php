@@ -8,17 +8,14 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvanced_XML_TransactionParser extends Pronamic_Gateways_IDealAdvanced_XML_Parser {
+class Pronamic_Gateways_IDealAdvanced_XML_TransactionParser implements Pronamic_Gateways_IDealAdvanced_XML_Parser {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
 	 * 
 	 * @param SimpleXMLElement $xml
-	 * @param Pronamic_Gateways_IDealAdvanced_Transaction $transaction
 	 */
-	public static function parse( SimpleXMLElement $xml, $transaction = null ) {
-		if ( ! $transaction instanceof Pronamic_Gateways_IDealAdvanced_Transaction ) {
-			$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
-		}
+	public static function parse( SimpleXMLElement $xml ) {
+		$transaction = new Pronamic_Gateways_IDealAdvanced_Transaction();
 
 		if ( $xml->transactionID ) {
 			$transaction->setId( Pronamic_XML_Util::filter( $xml->transactionID ) );

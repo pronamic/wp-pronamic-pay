@@ -49,6 +49,24 @@ class Pronamic_Pay_Payment {
 	public $action_url;
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Meta
+	 * 
+	 * @var array
+	 */
+	public $meta;
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initialize an payment object
+	 */
+	public function __construct() {
+		$this->meta = array();
+	}
+
+	//////////////////////////////////////////////////
 	
 	public function get_id() {
 		return $this->id;
@@ -150,5 +168,21 @@ class Pronamic_Pay_Payment {
 	
 	public function add_note( $note ) {
 		
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_meta( $key ) {
+		$value = null;
+	
+		if ( isset( $this->meta[ $key ] ) ) {
+			$value = $this->meta[ $key ];
+		}
+		
+		return $value;
+	}
+
+	public function set_meta( $key, $value ) {
+		$this->meta[ $key ] = $value;
 	}
 }

@@ -68,7 +68,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 			'nopaging'  => true
 		) );
 
-		$options = array( '' => __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
+		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
 			$options[$gateway->ID] = sprintf(
@@ -111,6 +111,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_advanced_v3', 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_basic', 'Pronamic_WP_Pay_Gateways_IDealBasic_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'mollie', 'Pronamic_WP_Pay_Gateways_Mollie_ConfigFactory' );
+		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'mollie_ideal', 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_directlink', 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_orderstandard', 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory' );
 		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_orderstandard_easy', 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory' );
@@ -129,6 +130,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Mollie_Config', 'Pronamic_Gateways_Mollie_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Mollie_IDeal_Config', 'Pronamic_Gateways_Mollie_IDeal_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_OmniKassa_Config', 'Pronamic_Gateways_OmniKassa_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_PayDutch_Config', 'Pronamic_Gateways_PayDutch_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Qantani_Config', 'Pronamic_Gateways_Qantani_Gateway' );
@@ -195,7 +197,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 				$prefix . 'consumer_bic'            => null,
 				$prefix . 'consumer_city'           => null,
 				$prefix . 'status'                  => null,
-				$prefix . 'source'                  => $data->getSource(),
+				$prefix . 'source'                  => $data->get_source(),
 				$prefix . 'source_id'               => $data->get_source_id(),
 				$prefix . 'email'                   => $data->get_email()
 			);

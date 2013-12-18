@@ -8,6 +8,14 @@ $payment = get_pronamic_payment( $post_id );
 <table class="form-table">
 	<tr>
 		<th scope="row">
+			<?php _e( 'Date', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php _e( 'ID', 'pronamic_ideal' ); ?>
 		</th>
 		<td>

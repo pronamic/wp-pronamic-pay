@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 3.7.1
-Stable tag: 2.2.3
+Tested up to: 3.8
+Stable tag: 2.3.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -151,9 +151,27 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.3.0 =
+*	Feature - Added support for the Ogone - DirectLink - 3-D Secure feature.
+*	Feature - Added payment date the payment details admin meta box.
+*	Feature - WooCommerce - Added an option field for the gateway icon URL.
+*	Feature - Mollie - Added support for the new universal Mollie API.
+*	Feature - Mollie - Added some Mollie badges on the WordPress admin "Branding" page.
+*	Feature - Mister Cash - Added three Misther Cash icons on the WordPress admin "Branding" page.
+
 = 2.2.4 =
-*	Tweak - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
-*	Fix - Notice: Undefined variable: redirect. This notice occurred when the "pronamic_login_form" was used with the "redirect_to" variable.
+*	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
+*	Tweak - Membership - Improved activating of the iDEAL gateway.
+*	Tweak - Jigoshop - Added workaround for the wp_safe_redirect() non AJAX issue to the admin URL.
+*	Test - WordPress tested up to 3.8.
+*	Test - ClassiPress tested up to 3.3.1.
+*	Fix - AppThemes - Fatal error: Class 'Pronamic_WordPress_IDeal_ConfigurationsRepository' not found in classes\Pronamic\AppThemes\IDeal\IDealGateway.php on line 54.
+*	Fix - AppThemes - Fatal error: Call to undefined method Pronamic_WP_Pay_Payment::getSource() in classes/Pronamic/AppThemes/IDeal/AddOn.php on line 52.
+*	Tweak - WooCommerce - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_WooCommerce_IDeal_AddOn::payment_gateways() should not be called statically.
+*	Tweak - Strict Standards: Declaration of Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage::parse() should be compatible with Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage::parse(SimpleXMLElement $xml, Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage $message).
+*	Tweak - Jigoshop - Strict Standards: call_user_func_array() expects parameter 1 to be a valid callback, non-static method Pronamic_Jigoshop_IDeal_AddOn::payment_gateways() should not be called statically.
+*	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 153.
+*	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
 
 = 2.2.3 =
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.

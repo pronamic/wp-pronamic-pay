@@ -39,7 +39,8 @@ class Pronamic_Gateways_IDealAdvanced_XML_StatusResponseMessage extends Pronamic
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
-		$message = parent::parse( $xml, new self() );
+		$message = new self();
+
 		$message->transaction = Pronamic_Gateways_IDealAdvanced_XML_TransactionParser::parse( $xml->Transaction );
 		// $message->transaction = SignatureParser::parse($xml->Signature);
 

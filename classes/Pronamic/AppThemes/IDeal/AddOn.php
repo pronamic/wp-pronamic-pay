@@ -49,8 +49,8 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->getSource() == self::SLUG ) {
-			$id = $payment->getSourceId();
+		if ( $payment->get_source() == self::SLUG ) {
+			$id = $payment->get_source_id();
 
 			$order = appthemes_get_order( $id );
 

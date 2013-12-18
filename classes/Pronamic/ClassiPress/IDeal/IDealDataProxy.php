@@ -34,10 +34,10 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 	/**
 	 * Get source indicatir
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
-	public function getSource() {
+	public function get_source() {
 		return 'classipress';
 	}
 

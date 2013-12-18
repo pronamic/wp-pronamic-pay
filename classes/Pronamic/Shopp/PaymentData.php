@@ -45,10 +45,10 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Get source indicator
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getSource()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
-	public function getSource() {
+	public function get_source() {
 		return 'shopp';
 	}
 

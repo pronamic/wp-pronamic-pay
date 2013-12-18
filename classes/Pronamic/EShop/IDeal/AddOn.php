@@ -132,8 +132,8 @@ class Pronamic_EShop_IDeal_AddOn {
 	public static function sourceColumn( $text, $payment ) {
 		$text  = '';
 		$text .= __( 'eShop', 'pronamic_ideal' ) . '<br />';
-		$text .= sprintf('<a href="%s">', add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->getSourceId() ), admin_url( 'admin.php' ) ) );
-		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->getSourceId() );
+		$text .= sprintf('<a href="%s">', add_query_arg( array( 'page' => 'gf_pronamic_ideal', 'lid' => $payment->get_source_id() ), admin_url( 'admin.php' ) ) );
+		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() );
 		$text .= '</a>';
 
 		return $text;
