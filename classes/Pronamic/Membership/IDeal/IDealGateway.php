@@ -114,6 +114,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 				} else {
                     global $M_options;
 
+                    // @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/membershipadmin.php#K2908
                     if ( isset( $M_options['formtype'] ) && 'new' == strtolower( $M_options['formtype'] ) ) {
                         $action = add_query_arg( array(
                         	'action'       => 'buynow',
