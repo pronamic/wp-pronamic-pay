@@ -158,6 +158,7 @@ Here is a list of known plugin conflicts:
 *	Feature - Mollie - Added support for the new universal Mollie API.
 *	Feature - Mollie - Added some Mollie badges on the WordPress admin "Branding" page.
 *	Feature - Mister Cash - Added three Misther Cash icons on the WordPress admin "Branding" page.
+*	Tweak - Improved support for WordPress lower then 3.6 by adding the wp_slash() function.
 *	Tweak - Membership - Improved support for "Popup registration form" form type.
 *	Fix - Membership - Pass in the correct subscription ID in the Membership create_subscription() function.
 
