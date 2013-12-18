@@ -154,6 +154,10 @@ Here is a list of known plugin conflicts:
 = 2.3.0 =
 *	Feature - Added support for the Ogone - DirectLink - 3-D Secure feature.
 *	Feature - Added payment date the payment details admin meta box.
+*	Feature - WooCommerce - Added an option field for the gateway icon URL.
+*	Feature - Mollie - Added support for the new universal Mollie API.
+*	Feature - Mollie - Added some Mollie badges on the WordPress admin "Branding" page.
+*	Feature - Mister Cash - Added three Misther Cash icons on the WordPress admin "Branding" page.
 
 = 2.2.4 =
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
