@@ -145,6 +145,13 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'mollie' ),
 			),
+			array(
+				'title'       => __( 'Webhook', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'large-text', 'code' ),
+				'value'       => add_query_arg( 'mollie_webhook', '', home_url( '/' ) ),
+				'readonly'    => true,
+			),
 		),
 	),
 	array(
