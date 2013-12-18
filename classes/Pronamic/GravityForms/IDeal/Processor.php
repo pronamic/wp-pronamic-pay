@@ -165,7 +165,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * @param array $form
 	 */
 	public function entry_post_save( $lead, $form ) {
-		if ( $this->process && $this->form == $form ) {
+		if ( $this->process && $this->payment && $this->form == $form ) {
 			// Updating lead's payment_status to Processing
 			$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS]   = Pronamic_GravityForms_PaymentStatuses::PROCESSING;
 			$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_AMOUNT]   = $this->payment->get_amount();
