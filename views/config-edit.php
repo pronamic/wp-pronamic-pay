@@ -140,7 +140,7 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_mollie_api_key',
-				'title'       => __( 'API Key', 'pronamic_ideal' ),
+				'title'       => _x( 'API Key', 'mollie', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'mollie' ),
