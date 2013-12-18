@@ -114,8 +114,11 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 				} else {
                     global $M_options;
 
-                    if ( isset( $M_options[ 'formtype' ] ) && strtolower( $M_options[ 'formtype' ] ) === 'new' ) {
-                        $action = admin_url( 'admin-ajax.php' ) . '?action=buynow&subscription=' . $subscription->id;
+                    if ( isset( $M_options['formtype'] ) && 'new' == strtolower( $M_options['formtype'] ) ) {
+                        $action = add_query_arg( array(
+                        	'action'       => 'buynow',
+                        	'subscription' => $data->get_subscription_id()
+                        ), admin_url( 'admin-ajax.php' ) );
                     } else {
                         $action = '#pronamic-pay-form';
                     }
