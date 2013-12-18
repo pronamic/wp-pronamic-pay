@@ -179,6 +179,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealBasic_Listener::listen();
 		Pronamic_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
+		Pronamic_Gateways_Mollie_Listener::listen();
 	}
 
 	/**
