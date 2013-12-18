@@ -64,27 +64,56 @@ class Pronamic_Gateways_Mollie_Client {
 	 * @param string $action
 	 * @param array $parameters
 	 */
-	private function send_request( $resource, array $data = array() ) {
-		$url = self::API_URL . $resource . '/';
+	private function send_request( $end_point, $method = 'POST', array $data = array() ) {
+		$url = self::API_URL . $end_point;
 
 		return wp_remote_request( $url, array(
-			'method'    => 'POST',
+			'method'    => $method,
 			'sslverify' => false,
 			'headers'   => array(
 				'Authorization' => 'Bearer ' . $this->api_key,
 			),
-			'data'      => $data,
+			'body'      => $data,
 		) );
 	}
 
 	/////////////////////////////////////////////////
 
-	public function create_payment( $amount, $description ) {
-		$result = $this->send_request( 'payments', array(
-			'amount'      => number_format( $amount, 2, '.', '' ),
-			'description' => $description,
-		) );
+	public function create_payment( Pronamic_Gateways_Mollie_PaymentRequest $request ) {
+		$result = null;
+
+		$data = $request->get_array();
+
+		$response = $this->send_request( 'payments/', 'POST', $data );
 		
-		var_dump( $result );
+		$response_code = wp_remote_retrieve_response_code( $response ) ;
+
+		if ( $response_code == 201 ) {
+			$body = wp_remote_retrieve_body( $response );
+
+			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit. 
+			$result = json_decode( $body );
+		} else {
+			$this->error = new WP_Error( 'mollie_error', $response_code, $response_code );
+		}
+
+		return $result;
+	}
+
+	public function get_payment( $id ) {
+		$result = null;
+		
+		$response = $this->send_request( 'payments/' . $id, 'GET' );
+		
+		$response_code = wp_remote_retrieve_response_code( $response ) ;
+
+		if ( $response_code == 200 ) {
+			$body = wp_remote_retrieve_body( $response );
+
+			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit. 
+			$result = json_decode( $body );
+		}
+
+		return $result;
 	}
 }

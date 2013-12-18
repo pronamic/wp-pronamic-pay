@@ -43,9 +43,20 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$result = $this->client->create_payment( 500, 'Test' );
-		
-		var_dump( $result );
+		$request = new Pronamic_Gateways_Mollie_PaymentRequest();
+
+		$request->amount       = $data->get_amount();
+		$request->description  = $data->get_description();
+		$request->redirect_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
+
+		$result = $this->client->create_payment( $request );
+
+		if ( $result ) {
+			$payment->set_transaction_id( $result->id );
+			$payment->set_action_url( $result->links->paymentUrl );
+		} else {
+			$this->error = $this->client->get_error();
+		}
 	}
 
 	/////////////////////////////////////////////////
@@ -56,6 +67,14 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-	
+		$mollie_payment = $this->client->get_payment( $payment->get_transaction_id() );
+
+		if ( $mollie_payment ) {
+			$payment->set_status( Pronamic_Gateways_Mollie_Statuses::transform( $mollie_payment->status ) );
+			$payment->set_consumer_name( $mollie_payment->details->consumerName );
+			$payment->set_consumer_iban( $mollie_payment->details->consumerAccount );
+		} else {
+			$this->error = $this->client->get_error();
+		}
 	}
 }
