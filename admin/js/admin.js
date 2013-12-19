@@ -284,6 +284,9 @@
 		elements.configId.change( obj.updateConfigFields );
 		elements.conditionEnabled.change( obj.toggleConditionConfig );
 		elements.conditionFieldId.change( obj.updateConditionValues );
+		elements.delayNotifications.change( function() {
+			$( 'input', elements.delayNotificationsHolder ).prop( 'checked', $( this ).prop( 'checked' ) );
+		} );
 	};
 	
 	//////////////////////////////////////////////////
