@@ -110,7 +110,7 @@
 						?>
 					</td>
 					<td>
-						<textarea class="regular-text code" cols="60" rows="3"><?php echo esc_textarea( $icon['url'] ); ?></textarea>
+						<textarea class="regular-text code" cols="30" rows="3"><?php echo esc_textarea( $icon['url'] ); ?></textarea>
 					</td>
 				</tr>
 
@@ -272,7 +272,7 @@
 						<?php echo $code; ?>
 					</td>
 					<td>
-						<textarea class="regular-text code" cols="60" rows="3"><?php echo esc_textarea( $code ); ?></textarea>
+						<textarea class="regular-text code" cols="30" rows="3"><?php echo esc_textarea( $code ); ?></textarea>
 					</td>
 				</tr>
 
