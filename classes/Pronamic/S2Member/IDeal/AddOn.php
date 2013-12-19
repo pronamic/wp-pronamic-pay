@@ -109,11 +109,18 @@ class Pronamic_S2Member_IDeal_AddOn {
 
 				update_user_option( $user->ID, 's2member_paid_registration_times', $registration_times );
 
-				// Auto end of time
-				$auto_time = c_ws_plugin__s2member_utils_time::auto_eot_time( $user->ID, $period, false, false, $registration_time );
+				if ( in_array( $period, array( '1 L' ) ) ) {
+					// Lifetime, delete end of time option
+					delete_user_option( $user->ID, 's2member_auto_eot_time' );
+				} else {
+					// Auto end of time
+					// @see https://github.com/WebSharks/s2Member/blob/131126/s2member/includes/classes/utils-time.inc.php#L100
+					$eot_time_current = get_user_option( 's2member_auto_eot_time', $user->ID );
+					$eot_time_new     = c_ws_plugin__s2member_utils_time::auto_eot_time( $user->ID, false, $period, false, $eot_time_current );
 
-				update_user_option( $user->ID, 's2member_auto_eot_time', $auto_time );
-
+					update_user_option( $user->ID, 's2member_auto_eot_time', $eot_time_new );
+				}
+					
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 				$url = $data->get_normal_return_url();
