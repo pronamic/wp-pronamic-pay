@@ -162,6 +162,9 @@ Here is a list of known plugin conflicts:
 *	Tweak - Membership - Improved support for "Popup registration form" form type.
 *	Fix - Membership - Pass in the correct subscription ID in the Membership create_subscription() function.
 *	Tweak - Gravity Forms - Improved usability for delaying notifications.
+*	Fix - s2Member - Remove end of time user option if subscription period is lifetime.
+*	Fix - s2Member - Calculate new end of time based on the previous end of time.
+*	Test - s2Member - Tested up to version 131126.
 
 = 2.2.4 =
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
