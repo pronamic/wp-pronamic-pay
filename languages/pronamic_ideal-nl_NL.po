@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-12-18 15:08:01+00:00\n"
-"PO-Revision-Date: 2013-12-18 16:08+0100\n"
+"POT-Creation-Date: 2013-12-19 14:05:31+00:00\n"
+"PO-Revision-Date: 2013-12-19 15:07+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -53,8 +53,8 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:76
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
-#: classes/Pronamic/WordPress/IDeal/Admin.php:381 views/branding.php:13
-#: views/branding.php:19 views/branding.php:25 views/config-edit.php:52
+#: classes/Pronamic/WordPress/IDeal/Admin.php:381 views/branding.php:14
+#: views/branding.php:20 views/branding.php:26 views/config-edit.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
 msgstr "iDEAL"
@@ -171,7 +171,7 @@ msgid "WooCommerce"
 msgstr "WooCommerce"
 
 #: classes/Pronamic/Gateways/Gateway.php:401
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:129
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:144
 msgid "Pay"
 msgstr "Betalen"
 
@@ -280,12 +280,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:380
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:381
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:384
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:385
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -361,9 +361,8 @@ msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73 includes/post.php:97
-#: includes/post.php:206 includes/post.php:282 views/branding.php:78
-#: views/branding.php:234 views/documentation.php:576
-#: views/pages-generator.php:123
+#: includes/post.php:206 includes/post.php:282 views/branding.php:218
+#: views/documentation.php:576 views/pages-generator.php:123
 msgid "Title"
 msgstr "Titel"
 
@@ -394,7 +393,7 @@ msgstr "Membership"
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:120
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:135
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
@@ -520,7 +519,7 @@ msgstr ""
 "Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
 "toegevoegd."
 
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:139
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:146
 msgid "s2Member"
 msgstr "s2Member"
 
@@ -594,6 +593,7 @@ msgstr ""
 "veilige omgeving van uw eigen bank."
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:85
+#: views/branding.php:128
 msgid "Icon"
 msgstr "Icoon"
 
@@ -762,7 +762,7 @@ msgstr "&mdash; Selecteer configuratie &mdash;"
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:291
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:292
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
@@ -772,7 +772,7 @@ msgstr ""
 "betalingen van %d overschreden, je dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:307
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:308
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -960,83 +960,86 @@ msgstr "Transactie beschrijving"
 msgid "Log"
 msgstr "Log"
 
-#: views/branding.php:6
-msgid "Icons"
-msgstr "Iconen"
+#: views/branding.php:38
+msgid "Banner 234&times;100"
+msgstr "Banner 234&times;100"
 
-#: views/branding.php:32 views/branding.php:38 views/branding.php:44
+#: views/branding.php:44
+msgid "Banner 234&times;100 (without campaign statements)"
+msgstr "Banner 234&times;100 (zonder campagne-uitingen)"
+
+#: views/branding.php:50
+msgid "Banner 234&times;60"
+msgstr "Banner 234&times;60"
+
+#: views/branding.php:56
+msgid "Banner 234&times;60 (without campaign statements)"
+msgstr "Banner 234&times;60 (zonder campagne-uitingen)"
+
+#: views/branding.php:62
+msgid "Banner 155&times;100"
+msgstr "Banner 155&times;100"
+
+#: views/branding.php:68
+msgid "Banner 155&times;100 (without campaign statements)"
+msgstr "Banner 155&times;100 (zonder campagne-uitingen)"
+
+#: views/branding.php:74
+msgid "Banner 155&times;55"
+msgstr "Banner 155&times;55"
+
+#: views/branding.php:80
+msgid "Banner 155&times;55 (without campaign statements)"
+msgstr "Banner 155&times;55 (zonder campagne-uitingen)"
+
+#: views/branding.php:86
+msgid "Banner 100&times;100"
+msgstr "Banner 100&times;100"
+
+#: views/branding.php:92
+msgid "Banner 100&times;100 (without campaign statements)"
+msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
+
+#: views/branding.php:104 views/branding.php:110 views/branding.php:116
+msgid "Mister Cash"
+msgstr "Mister Cash"
+
+#: views/branding.php:135
+msgid "Logo Extra Small"
+msgstr "Logo Extra Small"
+
+#: views/branding.php:142 views/branding.php:148 views/branding.php:154
+msgid "Mollie bage - Powered by"
+msgstr "Mollie bage - Powered by"
+
+#: views/branding.php:160 views/branding.php:166 views/branding.php:172
+msgid "Mollie bage - Betaling groen"
+msgstr "Mollie bage - Betaling groen"
+
+#: views/branding.php:185 views/branding.php:191 views/branding.php:197
 #: views/config-edit.php:158 views/variants.php:59
 msgid "OmniKassa"
 msgstr "OmniKassa"
 
-#: views/branding.php:51 views/branding.php:57 views/branding.php:63
-msgid "Mister Cash"
-msgstr "Mister Cash"
-
-#: views/branding.php:79 views/branding.php:235
+#: views/branding.php:219
 msgid "Size"
 msgstr "Formaat"
 
-#: views/branding.php:80 views/branding.php:236
+#: views/branding.php:220
 msgid "Image"
 msgstr "Afbeelding"
 
-#: views/branding.php:81 views/branding.php:237 views/error.php:9
-#: views/error.php:24 views/error.php:50
+#: views/branding.php:221 views/error.php:9 views/error.php:24
+#: views/error.php:50
 msgid "Code"
 msgstr "Code"
 
-#: views/branding.php:122
-msgid "Banners"
-msgstr "Banners"
-
-#: views/branding.php:128
-msgid "Banner 234&times;100"
-msgstr "Banner 234&times;100"
-
-#: views/branding.php:134
-msgid "Banner 234&times;100 (without campaign statements)"
-msgstr "Banner 234&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:140
-msgid "Banner 234&times;60"
-msgstr "Banner 234&times;60"
-
-#: views/branding.php:146
-msgid "Banner 234&times;60 (without campaign statements)"
-msgstr "Banner 234&times;60 (zonder campagne-uitingen)"
-
-#: views/branding.php:152
-msgid "Banner 155&times;100"
-msgstr "Banner 155&times;100"
-
-#: views/branding.php:158
-msgid "Banner 155&times;100 (without campaign statements)"
-msgstr "Banner 155&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:165
-msgid "Banner 155&times;55"
-msgstr "Banner 155&times;55"
-
-#: views/branding.php:171
-msgid "Banner 155&times;55 (without campaign statements)"
-msgstr "Banner 155&times;55 (zonder campagne-uitingen)"
-
-#: views/branding.php:177
-msgid "Banner 100&times;100"
-msgstr "Banner 100&times;100"
-
-#: views/branding.php:183
-msgid "Banner 100&times;100 (without campaign statements)"
-msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:189 views/branding.php:195 views/branding.php:201
-msgid "Mollie bage - Powered by"
-msgstr "Mollie bage - Powered by"
-
-#: views/branding.php:207 views/branding.php:213 views/branding.php:219
-msgid "Mollie bage - Betaling groen"
-msgstr "Mollie bage - Betaling groen"
+#: views/branding.php:282
+msgid ""
+"PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
+msgstr ""
+"PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
+"\">TinyPNG</a>."
 
 #: views/config-edit.php:42
 msgid "Mode"
@@ -2118,6 +2121,12 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
+
+#~ msgid "Icons"
+#~ msgstr "Iconen"
+
+#~ msgid "Banners"
+#~ msgstr "Banners"
 
 #~ msgid "iDEAL Branding"
 #~ msgstr "iDEAL-huisstijl"
