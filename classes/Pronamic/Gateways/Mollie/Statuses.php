@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: iDEAL Mollie statuses constants
+ * Title: Mollie statuses constants
  * Description: 
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -11,37 +11,61 @@
  */
 class Pronamic_Gateways_Mollie_Statuses {
 	/**
-	 * Success
+	 * Open
 	 * 
 	 * @var string
 	 */
-	const SUCCESS = 'Success';
+	const OPEN = 'open';
 
 	/**
 	 * Cancelled
 	 * 
 	 * @var string
 	 */
-	const CANCELLED = 'Cancelled';
+	const CANCELLED = 'cancelled';
+
+	/**
+	 * Paid out
+	 * 
+	 * @var string
+	 */
+	const PAID_OUT = 'paidout';
+
+	/**
+	 * Paid
+	 * 
+	 * @var string
+	 */
+	const PAID = 'paid';
 
 	/**
 	 * Expired
 	 * 
 	 * @var string
 	 */
-	const EXPIRED = 'Expired';
+	const EXPIRED = 'expired';
 
+	/////////////////////////////////////////////////
+	
 	/**
-	 * Failure
-	 * 
-	 * @var string
+	 * Transform an Mollie state to an more global status
+	 *
+	 * @param string $status
 	 */
-	const FAILURE = 'Failure';
-
-	/**
-	 * Checked before
-	 * 
-	 * @var string
-	 */
-	const CHECKED_BEFORE = 'CheckedBefore';
+	public static function transform( $status ) {
+		switch ( $status ) {
+			case Pronamic_Gateways_Mollie_Statuses::OPEN:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
+			case Pronamic_Gateways_Mollie_Statuses::CANCELLED:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
+			case Pronamic_Gateways_Mollie_Statuses::PAID_OUT:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
+			case Pronamic_Gateways_Mollie_Statuses::PAID:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
+			case Pronamic_Gateways_Mollie_Statuses::EXPIRED:
+				return Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED;
+			default:
+				return null;
+		}
+	}
 }

@@ -253,7 +253,7 @@ class Pronamic_Pay_Gateways_Ogone_Statuses {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Transform an Buckaroo state to an more global status
+	 * Transform an Ogone status to an Pronamic Pay status
 	 * 
 	 * @param string $status
 	 */

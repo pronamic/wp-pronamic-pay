@@ -70,6 +70,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/functions.php';
+		require_once self::$dirname . '/includes/formatting.php';
 		require_once self::$dirname . '/includes/page-functions.php';
 		require_once self::$dirname . '/includes/gravityforms.php';
 		require_once self::$dirname . '/includes/providers.php';
@@ -179,6 +180,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 		Pronamic_Gateways_IDealBasic_Listener::listen();
 		Pronamic_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
+		Pronamic_Gateways_Mollie_Listener::listen();
 	}
 
 	/**
@@ -190,6 +192,16 @@ class Pronamic_WordPress_IDeal_Plugin {
 			
 			$payment = get_pronamic_payment( $payment_id );
 			
+			// HTML Answer
+			$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
+			
+			if ( ! empty( $html_answer ) ) {
+				echo $html_answer;
+				
+				exit;
+			}
+			
+			// Action URL
 			if ( ! empty( $payment->action_url ) ) {
 				wp_redirect( $payment->action_url );
 				

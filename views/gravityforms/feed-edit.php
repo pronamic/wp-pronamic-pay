@@ -124,9 +124,9 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					$select_operator = '<select id="gf_ideal_condition_operator" name="_pronamic_pay_gf_condition_operator">';
 						
 					$operators = array(
-							'' => '',
-							Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
-							Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' )
+						'' => '',
+						Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
+						Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' ),
 					);
 
 					foreach ( $operators as $value => $label ) {

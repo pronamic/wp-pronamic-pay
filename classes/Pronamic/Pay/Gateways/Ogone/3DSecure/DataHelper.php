@@ -54,6 +54,18 @@ class Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper {
 	}
 
 	/**
+	 * Set HTTP User-Agent
+	 * 
+	 * @param string $user_agent
+	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
+	 */
+	public function set_http_user_agent( $user_agent ) {
+		$this->data->set_field( 'HTTP_USER_AGENT', $user_agent );
+
+		return $this;
+	}
+
+	/**
 	 * Set window
 	 * 
 	 * @param string $window

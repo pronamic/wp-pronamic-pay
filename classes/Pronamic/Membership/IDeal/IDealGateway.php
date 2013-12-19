@@ -112,7 +112,22 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 					// Redirect
 					$gateway->redirect( $payment );
 				} else {
-					printf( '<form id="pronamic-pay-form" method="post" action="#pronamic-pay-form">' );
+                    global $M_options;
+
+                    // @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/membershipadmin.php#K2908
+                    if ( isset( $M_options['formtype'] ) && 'new' == strtolower( $M_options['formtype'] ) ) {
+                        $action = add_query_arg( array(
+                        	'action'       => 'buynow',
+                        	'subscription' => $data->get_subscription_id()
+                        ), admin_url( 'admin-ajax.php' ) );
+                    } else {
+                        $action = '#pronamic-pay-form';
+                    }
+
+                    printf(
+                        '<form id="pronamic-pay-form" method="post" action="%s">',
+                        $action
+                    );
 						
 					printf(
 						'<img src="%s" alt="%s" />',
@@ -185,7 +200,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS:
 				$member = new M_Membership( $user_id );
 				if ( $member ) {
-					$member->create_subscription( $subscription_id, $this->gateway );
+					$member->create_subscription( $sub_id, $this->gateway );
 				}
 
 				// Added for affiliate system link

@@ -117,7 +117,7 @@ $sections = array(
 	),
 	array(
 		'title'   => __( 'Mollie', 'pronamic_ideal' ),
-		'methods' => array( 'mollie' ),
+		'methods' => array( 'mollie', 'mollie_ideal' ),
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_mollie_partner_id',
@@ -125,6 +125,7 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 				'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
+				'methods'     => array( 'mollie_ideal' ),
 			),
 			 array(
 				'meta_key'    => '_pronamic_gateway_mollie_profile_key',
@@ -135,6 +136,21 @@ $sections = array(
 					__( 'Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a href="%s" target="_blank">bekijk overzicht van uw profielen</a>].', 'pronamic_ideal' ),
 					'https://www.mollie.nl/beheer/account/profielen/'
 				),
+				'methods'     => array( 'mollie_ideal' ),
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_mollie_api_key',
+				'title'       => _x( 'API Key', 'mollie', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'methods'     => array( 'mollie' ),
+			),
+			array(
+				'title'       => __( 'Webhook', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'large-text', 'code' ),
+				'value'       => add_query_arg( 'mollie_webhook', '', home_url( '/' ) ),
+				'readonly'    => true,
 			),
 		),
 	),
@@ -318,7 +334,7 @@ $sections = array(
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Transaction feedback) of your iDEAL provider.', 'pronamic_ideal' ),
-				'methods'     => array( 'ogone_orderstandard' ),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_user_id',
@@ -348,7 +364,6 @@ $sections = array(
 				'description' => __( 'You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration &raquo; Technical information &raquo; Data and origin verification) of your iDEAL provider.', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' ),
 			),
-			/*
 			array(
 				'meta_key'    => '_pronamic_gateway_ogone_3d_secure_enabled',
 				'title'       => __( '3-D Secure', 'pronamic_ideal' ),
@@ -356,7 +371,6 @@ $sections = array(
 				'label'       => __( 'Enable 3-D Secure protocol', 'pronamic_ideal' ),
 				'methods'     => array( 'ogone_directlink' ),
 			),
-			*/
 		),
 	),
 	array(

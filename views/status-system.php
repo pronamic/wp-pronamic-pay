@@ -120,7 +120,7 @@
 			'github_url'        => 'https://github.com/WebSharks/s2Member',
 			'active'            => Pronamic_S2Member_S2Member::is_active(),
 			'requires_at_least' => '130816',
-			'tested_up_to'      => '131026',
+			'tested_up_to'      => '131126',
 			'author'            => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
 			'author_url'        => 'http://www.websharks-inc.com/',
 		),

@@ -79,38 +79,37 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 		
 		// 3-D Secure
-		if ( false ) {
+		if ( $this->config->enabled_3d_secure ) {
 			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
 	
 			$secure_data_helper
 				->set_3d_secure_flag( true )
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
+				->set_http_user_agent( filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) )
 				->set_window( 'MAINW' )
 			;
 			
-			$ogone_data->set_field( 'HTTP_USER_AGENT', filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) );
-			$ogone_data->set_field( 'ACCEPTURL', home_url( '/' ) );
-			$ogone_data->set_field( 'DECLINEURL', home_url( '/' ) );
-			$ogone_data->set_field( 'EXCEPTIONURL', home_url( '/' ) );
+			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
+
+			$ogone_data->set_field( 'ACCEPTURL', $url );
+			$ogone_data->set_field( 'DECLINEURL', $url );
+			$ogone_data->set_field( 'EXCEPTIONURL', $url );
 			$ogone_data->set_field( 'PARAMPLUS', '' );
 			$ogone_data->set_field( 'COMPLUS', '' );
 			$ogone_data->set_field( 'LANGUAGE', 'en_US' );
 		}
 
-		// Kassa
-		$client = new Pronamic_Pay_Gateways_Ogone_OrderStandard_Client();
+		// Signature
+		$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
+		
+		$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $ogone_data->get_fields() );
 
-		if ( ! empty( $this->config->hash_algorithm ) ) {
-			$client->set_hash_algorithm( $this->config->hash_algorithm );
-		}
-
-		$client->setPassPhraseIn( $this->config->sha_in_pass_phrase );
-		$client->set_fields( $ogone_data->get_fields() );
-
-		$data = $client->get_fields();
-		$data['SHASIGN'] = $client->getSignatureIn();
-
-		$result = $this->client->order_direct( $data );
+		$signature = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_in_pass_phrase, $this->config->hash_algorithm );
+		
+		$ogone_data->set_field( 'SHASIGN', $signature );
+		
+		// Order
+		$result = $this->client->order_direct( $ogone_data->get_fields() );
 
 		$error = $this->client->get_error();
 
@@ -120,6 +119,11 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			$payment->set_transaction_id( $result->pay_id );
 			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
 			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
+			
+			if ( ! empty( $result->html_answer ) ) {
+				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
+				$payment->set_action_url( add_query_arg( 'payment_redirect', $payment->get_id(), home_url( '/' ) ) );
+			}
 		}
 	}
 
@@ -131,6 +135,26 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		
+		$inputs = array(
+			INPUT_GET  => $_GET,
+			INPUT_POST => $_POST,
+		);
+
+		foreach ( $inputs as $input => $data ) {
+			$data = array_change_key_case( $data, CASE_UPPER );
+
+			$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
+			
+			$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
+
+			$signature = $data['SHASIGN'];
+			$signature_out = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
+
+			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
+				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
+
+				$payment->set_status( $status );
+			}
+		}
 	}
 }

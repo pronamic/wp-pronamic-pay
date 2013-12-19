@@ -24,7 +24,6 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     public function __construct() { 
 		$this->id           = self::ID;
 		$this->method_title = __( 'Pronamic iDEAL', 'pronamic_ideal' );
-		$this->icon         = plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file );
 
 		// The iDEAL payment gateway has an issuer select field in case of the iDEAL advanced variant
 		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/classes/gateways/class-wc-payment-gateway.php#L24
@@ -37,6 +36,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->init_settings();
 		
 		// Define user set variables
+		$this->icon                = $this->get_option( 'icon' );
 		$this->title               = $this->get_option( 'title' );
 		$this->description         = $this->get_option( 'description' );
 		$this->config_id           = $this->get_option( 'config_id' );
@@ -81,6 +81,15 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'description' => $description_prefix . __( 'Give the customer instructions for paying via iDEAL, and let them know that their order won\'t be shipping until the money is received.', 'pronamic_ideal' ),
 				'default'     => __( 'With iDEAL you can easily pay online in the secure environment of your own bank.', 'pronamic_ideal' ),
 			),
+			'icon'        => array(
+				'title'       => __( 'Icon', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' =>
+					$description_prefix . 
+					__( 'This controls the icon which the user sees during checkout.', 'pronamic_ideal' ) . '<br />' .
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
+				'default'     => plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+			),
 			'config_id'   => array(
 				'title'       => __( 'Configuration', 'pronamic_ideal' ),
 				'type'        => 'select',
@@ -97,7 +106,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				'description' => 
 					$description_prefix . 
-					sprintf( __( 'This controls the payment description. Default: <code>%s</code>.', 'pronamic_ideal' ), Pronamic_WooCommerce_PaymentData::get_default_description() ) . '<br />' .
+					__( 'This controls the payment description.', 'pronamic_ideal' ) . '<br />' .
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), Pronamic_WooCommerce_PaymentData::get_default_description() ) . '<br />' .
 					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code> <code>%s</code>', '{order_number}', '{order_date}', '{blogname}' ) ),
 				'default'     => Pronamic_WooCommerce_PaymentData::get_default_description(),
 			),

@@ -58,9 +58,6 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	public function __construct() {
 		$this->fields = array();
 
-		$this->calculations_parameters_in  = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
-		$this->calculations_parameters_out = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
-
 		$this->hash_algorithm = Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1;
 	}
 
@@ -142,48 +139,6 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	 */
 	public function setPassPhraseOut($passPhraseOut) {
 		$this->passPhraseOut = $passPhraseOut;
-	}
-
-	//////////////////////////////////////////////////
-	// Calculation parameters
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get calculations parameters IN
-	 *
-	 * @return array
-	 */
-	public function get_calculations_parameters_in() {
-		return $this->calculations_parameters_in;
-	}
-
-	/**
-	 * Set calculations parameters IN
-	 *
-	 * @param array $parameters
-	 */
-	public function set_calculations_parameters_in( array $parameters ) {
-		$this->calculations_parameters_in = $parameters;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get calculations parameters OUT
-	 *
-	 * @return array
-	 */
-	public function get_calculations_parameters_out() {
-		return $this->calculations_parameters_out;
-	}
-
-	/**
-	 * Set calculations parameters OUT
-	 *
-	 * @param array $parameters
-	 */
-	public function set_calculations_parameters_out( array $parameters ) {
-		$this->calculations_parameters_out = $parameters;
 	}
 
 	//////////////////////////////////////////////////
@@ -580,78 +535,16 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get signature fields IN
-	 *
-	 * @param array $fields
-	 * @return array
-	 */
-	private function getSignatureFieldsIn( $fields ) {
-		$calculations_parameters = array_flip( $this->calculations_parameters_in );
-
-		return array_intersect_key( $fields, $calculations_parameters );
-	}
-
-	/**
-	 * Get signature fields OUT
-	 *
-	 * @param array $fields
-	 * @return array
-	 */
-	private function getSignatureFieldsOut( $fields ) {
-		$calculations_parameters = array_flip( $this->calculations_parameters_out );
-
-		return array_intersect_key( $fields, $calculations_parameters );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get signature
-	 *
-	 * @param array $fields
-	 * @param string $passprahse
-	 * @return string
-	 */
-	private function getSignature( $fields, $passprahse ) {
-		// This string is constructed by concatenating the values of the fields sent with the order (sorted
-		// alphabetically, in the format ‘parameter=value’), separated by a passphrase.
-		$string = '';
-
-		// All parameters need to be put alphabetically
-		ksort( $fields );
-
-		// Loop
-		foreach ( $fields as $name => $value ) {
-			$value = (string) $value;
-
-			// Use of empty will fail, value can be string '0'
-			if ( strlen( $value ) > 0 ) {
-				$name = strtoupper( $name );
-
-				$string .= $name . '=' . $value . $passprahse;
-			}
-		}
-
-		// Hash
-		$result = hash( $this->hash_algorithm, $string );
-
-		// String to uppercase
-		$result = strtoupper( $result );
-
-		return $result;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Get signature IN
 	 *
 	 * @return string
 	 */
 	public function getSignatureIn() {
-		$fields = $this->getSignatureFieldsIn( $this->fields );
+		$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
 
-		return $this->getSignature( $fields, $this->getPassPhraseIn() );
+		$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $this->fields );
+
+		return Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->getPassPhraseIn(), $this->hash_algorithm );
 	}
 
 	/**
@@ -660,9 +553,11 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	 * @param array $fields
 	 */
 	public function getSignatureOut( $fields ) {
-		$fields = $this->getSignatureFieldsOut( $fields );
+		$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
 
-		return $this->getSignature( $fields, $this->getPassPhraseOut() );
+		$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $fields );
+
+		return Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->getPassPhraseOut(), $this->hash_algorithm );
 	}
 
 	//////////////////////////////////////////////////
