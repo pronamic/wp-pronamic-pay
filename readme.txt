@@ -161,6 +161,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - Improved support for WordPress lower then 3.6 by adding the wp_slash() function.
 *	Tweak - Membership - Improved support for "Popup registration form" form type.
 *	Fix - Membership - Pass in the correct subscription ID in the Membership create_subscription() function.
+*	Tweak - Gravity Forms - Improved usability for delaying notifications.
 
 = 2.2.4 =
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
