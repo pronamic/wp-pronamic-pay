@@ -128,11 +128,31 @@ class Pronamic_GravityForms_IDeal_Processor {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Check if we are processing the passed in form
+	 *
+	 * @param array $form an Gravity Forms form array
+	 * @return boolean true if the passed in form is processed, false otherwise
+	 */
+	public function is_processing( $form ) {
+		$is_form = false;
+
+		if ( isset( $form['id'] ) ) {
+			$is_form = ( $this->form_id == $form['id'] );
+		}
+
+		$is_processing = $this->process && $is_form;
+
+		return $is_processing;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Pre submission
 	 */
 	public function pre_submission( $form ) {
-		if ( $this->process ) {
-			
+		if ( $this->is_processing( $form ) ) {
+
 		}
 	}
 
@@ -145,14 +165,14 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * @param array $form
 	 */
 	public function entry_created( $lead, $form ) {
-		if ( $this->process && $this->form == $form ) {
+		if ( $this->is_processing( $form ) ) {
 			$this->gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->feed->config_id );
 
 			if ( $this->gateway ) {
 				$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $this->feed );
 			
 				$this->payment = Pronamic_WordPress_IDeal_IDeal::start( $this->feed->config_id, $this->gateway, $data );
-			
+
 				$this->error = $this->gateway->get_error();
 			}
 		}
@@ -165,7 +185,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * @param array $form
 	 */
 	public function entry_post_save( $lead, $form ) {
-		if ( $this->process && $this->payment && $this->form == $form ) {
+		if ( $this->is_processing( $form ) && $this->payment ) {
 			// Updating lead's payment_status to Processing
 			$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS]   = Pronamic_GravityForms_PaymentStatuses::PROCESSING;
 			$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_AMOUNT]   = $this->payment->get_amount();
@@ -196,7 +216,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_notification( $is_disabled, $notification, $form, $lead ) {
 		$is_disabled = false;
 	
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			$notification_ids = $this->feed->delay_notification_ids;
 
 			$is_disabled = in_array( $notification['id'], $notification_ids );
@@ -216,7 +236,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_admin_notification( $is_disabled, $form, $lead ) {
 		$is_disabled = false;
 	
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			$is_disabled = $this->feed->delay_admin_notification;
 		}
 	
@@ -234,7 +254,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_user_notification( $is_disabled, $form, $lead ) {
 		$is_disabled = false;
 	
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			$is_disabled = $this->feed->delay_user_notification;
 		}
 	
@@ -252,7 +272,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_post_creation( $is_disabled, $form, $lead ) {
 		$is_disabled = false;
 	
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			$is_disabled = $feed->delay_post_creation;
 		}
 	
@@ -265,7 +285,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * Maybe delay Campaign Monitor subscription
 	 */
 	public function maybe_delay_campaignmonitor_subscription( $lead, $form ) {
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			if ( $this->feed->delay_campaignmonitor_subscription ) {
 				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2);
 			}
@@ -276,7 +296,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * Maybe delay MailChimp subscription
 	 */
 	public function maybe_delay_mailchimp_subscription( $lead, $form ) {
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			if ( $this->feed->delay_mailchimp_subscription ) {
 				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2);
 			}
@@ -293,7 +313,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * @see http://www.gravityhelp.com/documentation/page/Gform_confirmation
 	 */
 	public function confirmation( $confirmation, $form, $lead, $ajax ) {
-		if ( $this->process && $this->gateway && $this->payment ) {
+		if ( $this->is_processing( $form ) && $this->gateway && $this->payment ) {
 			if ( is_wp_error( $this->error ) ) {
 				$html  = '';
 
@@ -353,7 +373,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 * After submission
 	 */
 	public function after_submission( $lead, $form ) {
-		if ( $this->process ) {
+		if ( $this->is_processing( $form ) ) {
 			
 		}
 	}
