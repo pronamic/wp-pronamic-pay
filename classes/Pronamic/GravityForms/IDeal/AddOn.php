@@ -239,6 +239,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				GFCommon::send_notifications( $feed->delay_notification_ids, $form, $entry, true, 'form_submission' );
 			}
 
+            // TODO $form_meta is never set, this should probably be fixed.
 			if ( $feed->delay_admin_notification ) {
 				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1336
 				GFCommon::send_admin_notification( $form_meta, $entry );
