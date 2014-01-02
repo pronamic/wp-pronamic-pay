@@ -148,6 +148,10 @@ Here is a list of known plugin conflicts:
 	output of an WordPress website and changes 'http' URLs to 'https' URLs, this 
 	results in OmniKassa data that no longer matches the signature.
 
+== To Do ==
+
+*	Qantani - Check Callback URL implementation.
+*	Mollie - Add unit tests for new API.
 
 == Changelog ==
 
