@@ -36,11 +36,11 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$this->init_settings();
 		
 		// Define user set variables
-		$this->icon                = $this->get_option( 'icon' );
-		$this->title               = $this->get_option( 'title' );
-		$this->description         = $this->get_option( 'description' );
-		$this->config_id           = $this->get_option( 'config_id' );
-		$this->payment_description = $this->get_option( 'payment_description' );
+		$this->icon                = $this->get_pronamic_option( 'icon' );
+		$this->title               = $this->get_pronamic_option( 'title' );
+		$this->description         = $this->get_pronamic_option( 'description' );
+		$this->config_id           = $this->get_pronamic_option( 'config_id' );
+		$this->payment_description = $this->get_pronamic_option( 'payment_description' );
 		
 		// Actions
 		$update_action = 'woocommerce_update_options_payment_gateways_' . $this->id;
@@ -51,7 +51,29 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		add_action( $update_action, array( $this, 'process_admin_options' ) );
 
 		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
-    } 
+    }
+
+    /**
+     * Get Pronamic option
+     * 
+     * The WooCommerce settings API only have an 'get_option' function in 
+     * WooCommerce version 2 or higher.
+     * 
+     * @see https://github.com/woothemes/woocommerce/blob/v2.0.0/classes/abstracts/abstract-wc-settings-api.php#L130
+     * 
+     * @param string $name
+     */
+    public function get_pronamic_option( $key ) {
+    	$value = false;
+
+    	if ( method_exists( $this, 'get_option' ) ) {
+    		$value = parent::get_option( $key );	
+    	} elseif ( isset( $this->settings[ $key ] ) ) {
+    		$value = $this->settings[ $key ];
+    	}
+
+    	return $value;
+    }
 
 	/**
      * Initialise form fields
