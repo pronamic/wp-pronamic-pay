@@ -155,6 +155,11 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.3.2 =
+*	Tweak - WooCommerce - Improved support for WooCommerce Sequential Order Numbers.
+*	Tweak - Shopp - Improved support for Shopp 1.3.
+*	Test - Shopp - Tested up to version 1.3.
+
 = 2.3.1 =
 *	Tweak - Gravity Forms - Improved the form check in the Gravity Forms payment processor.
 
