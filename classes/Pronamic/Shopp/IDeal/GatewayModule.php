@@ -314,7 +314,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	/**
 	 * Settings
 	 */
-	function settings() {
+	public function settings() {
 		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 
 		$this->ui->menu( 0, array(
