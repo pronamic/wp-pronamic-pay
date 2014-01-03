@@ -53,32 +53,32 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function add_gateway() {
 		global $Shopp;
-		
-		// @see https://github.com/ingenesis/shopp/blob/1.2.9/core/model/Modules.php#L123
-		// @see https://github.com/ingenesis/shopp/blob/1.3/core/library/Modules.php#L262
+
 		if ( Pronamic_Shopp_Shopp::version_compare( '1.3', '<' ) ) {
 			// Shop 1.2.9 (or lower)
+			// @see https://github.com/ingenesis/shopp/blob/1.2.9/core/model/Modules.php#L123
 			$path = dirname( __FILE__ );
 			$file = '/GatewayModule.php';
-
+                
 			$module = new ModuleFile( $path, $file );
-			
 			if ( $module->addon ) {
-				$Shopp->Gateways->modules[$module->classname] = $module;
+				$Shopp->Gateways->modules[$module->subpackage] = $module;
 			} else {
 				$Shopp->Gateways->legacy[] = md5_file( $path . $file );
 			}
 
 			if ( isset( $Shopp->Settings ) ) {
 				$activeGateways = $Shopp->Settings->get( 'active_gateways' );
-			
+
 				if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false ) {
 					$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 				}
 			}
 		} else {
 			// Shop 1.3 (or higer)
+			// @see https://github.com/ingenesis/shopp/blob/1.3/core/library/Modules.php#L262
 			$class = new ReflectionClass( 'GatewayModules' );
+
 			$property = $class->getProperty( 'paths' );
 			$property->setAccessible( true );
 			
