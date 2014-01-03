@@ -159,7 +159,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
 			get_edit_post_link( $payment->source_id ),
-			sprintf( __( 'Order %s', 'pronamic_ideal' ), $value )
+			sprintf( __( 'Order %s', 'pronamic_ideal' ), $order_number )
 		);
 
 		return $text;
