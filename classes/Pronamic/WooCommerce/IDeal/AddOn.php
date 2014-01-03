@@ -147,19 +147,10 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 		$text .= __( 'WooCommerce', 'pronamic_ideal' ) . '<br />';
 
-		// Check order post meta for order number
-		$order_number = '#' . $payment->source_id;
-
-		$value = get_post_meta( $payment->source_id, '_order_number', true );
-		
-		if ( ! empty( $value ) ) {
-			$order_number = $value;
-		}
-
 		$text .= sprintf(
 			'<a href="%s">%s</a>', 
 			get_edit_post_link( $payment->source_id ),
-			sprintf( __( 'Order %s', 'pronamic_ideal' ), $order_number )
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
 		);
 
 		return $text;
