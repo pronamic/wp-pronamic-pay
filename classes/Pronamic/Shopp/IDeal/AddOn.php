@@ -20,7 +20,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	 */
 	public static function bootstrap() {
 		// Actions
-		add_action( 'shopp_init', array( __CLASS__, 'intialize' ) );
+		add_action( 'shopp_init', array( __CLASS__, 'shopp_init' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -28,7 +28,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	/**
 	 * Initialize the Shopp Add-On
 	 */
-	public static function intialize() {
+	public static function shopp_init() {
 		self::add_gateway();
 
 		add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
@@ -54,22 +54,39 @@ class Pronamic_Shopp_IDeal_AddOn {
 	public static function add_gateway() {
 		global $Shopp;
 		
-		$path = dirname( __FILE__ );
-		$file = '/GatewayModule.php';
-		
-		$module = new ModuleFile( $path, $file );
-		if ( $module->addon ) {
-			$Shopp->Gateways->modules[$module->subpackage] = $module;
-		} else {
-			$Shopp->Gateways->legacy[] = md5_file( $path . $file );
-		}
+		// @see https://github.com/ingenesis/shopp/blob/1.2.9/core/model/Modules.php#L123
+		// @see https://github.com/ingenesis/shopp/blob/1.3/core/library/Modules.php#L262
+		if ( Pronamic_Shopp_Shopp::version_compare( '1.3', '<' ) ) {
+			// Shop 1.2.9 (or lower)
+			$path = dirname( __FILE__ );
+			$file = '/GatewayModule.php';
 
-		if ( isset( $Shopp->Settings ) ) {
-			$activeGateways = $Shopp->Settings->get( 'active_gateways' );
-
-			if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false ) {
-				$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
+			$module = new ModuleFile( $path, $file );
+			
+			if ( $module->addon ) {
+				$Shopp->Gateways->modules[$module->classname] = $module;
+			} else {
+				$Shopp->Gateways->legacy[] = md5_file( $path . $file );
 			}
+
+			if ( isset( $Shopp->Settings ) ) {
+				$activeGateways = $Shopp->Settings->get( 'active_gateways' );
+			
+				if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false ) {
+					$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
+				}
+			}
+		} else {
+			// Shop 1.3 (or higer)
+			$class = new ReflectionClass( 'GatewayModules' );
+			$property = $class->getProperty( 'paths' );
+			$property->setAccessible( true );
+			
+			$paths = $property->getValue( $Shopp->Gateways );
+			// @see https://github.com/ingenesis/shopp/blob/1.3/Shopp.php#L193
+			$paths[] = Pronamic_WordPress_IDeal_Plugin::$dirname . '/classes/Pronamic/Shopp/Gateways';
+
+			$property->setValue( $Shopp->Gateways, $paths );
 		}
 	}
 	

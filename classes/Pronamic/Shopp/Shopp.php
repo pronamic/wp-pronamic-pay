@@ -82,6 +82,25 @@ class Pronamic_Shopp_Shopp {
 	public static function is_active() {
 		return defined( 'SHOPP_VERSION' );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Version compare
+	 * 
+	 * @param string $version
+	 * @param string $operator
+	 */
+	public static function version_compare( $version, $operator ) {
+		$result = true;
+
+		// @see https://github.com/ingenesis/shopp/blob/1.3/Shopp.php#L142
+		if ( defined( 'SHOPP_VERSION' ) ) {
+			$result = version_compare( SHOPP_VERSION, $version, $operator );
+		}
+
+		return $result;
+	}
 	
 	//////////////////////////////////////////////////
 
