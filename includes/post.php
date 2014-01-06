@@ -13,8 +13,8 @@ function pronamic_pay_create_initial_post_types() {
 			'all_items'          => __( 'All Payment Gateway Configurations', 'pronamic_ideal' ),
 			'view_item'          => __( 'View Payment Gateway Configuration', 'pronamic_ideal' ),
 			'search_items'       => __( 'Search Payment Gateway Configurations', 'pronamic_ideal' ),
-			'not_found'          => __( 'No payment gateaway configurations found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No payment gateaway configurations found in Trash', 'pronamic_ideal' ),
+			'not_found'          => __( 'No payment gateway configurations found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No payment gateway configurations found in Trash', 'pronamic_ideal' ),
 			'menu_name'          => __( 'Configurations', 'pronamic_ideal' )
 		),
 		'public'             => false,
