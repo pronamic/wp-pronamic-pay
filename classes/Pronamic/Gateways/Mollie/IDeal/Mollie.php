@@ -208,12 +208,12 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 	public function create_payment( $bank_id, $amount, $description, $return_url, $report_url ) {
 		$result = false;
 
-		$parameters = array (
+		$parameters = array(
 			'bank_id'     => $bank_id,
 			'amount'      => $amount,
 			'description' => $description,
 			'reporturl'   => $report_url,
-			'returnurl'   => $return_url
+			'returnurl'   => $return_url,
 		);
 
 		if ( $this->profile_key ) {
