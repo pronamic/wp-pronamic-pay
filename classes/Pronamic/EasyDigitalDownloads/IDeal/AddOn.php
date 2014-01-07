@@ -22,31 +22,29 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * Bootstrap
      */
     public static function bootstrap() {
-        add_action( 'init', array( __CLASS__, 'init' ) );
-
-        // Remove the Easy Digital Downloads credit card form
-        add_action( 'edd_' . self::SLUG . '_cc_form', '__return_false' );
-
-        add_filter( 'edd_payment_gateways', array( __CLASS__, 'payment_gateways' ) );
-
-        add_filter( 'edd_settings_gateways', array( __CLASS__, 'settings_gateways' ) );
-
-        add_action( 'edd_purchase_form_before_submit', array( __CLASS__, 'payment_fields' ) );
-
-        add_action( 'edd_gateway_' . self::SLUG, array( __CLASS__, 'process_purchase' ) );
+        // The "plugins_loaded" is one of the earliest hooks after EDD is set up
+        add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ) );
     }
 
     //////////////////////////////////////////////////
 
     /**
-     * Initialize
+     * Test to see if the Easy Digital Downloads plugin is active, then add all actions.
      */
-    public static function init() {
+    public static function plugins_loaded() {
         if ( Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active() ) {
-            $slug = self::SLUG;
+            // Remove the Easy Digital Downloads credit card form
+            add_action( 'edd_' . self::SLUG . '_cc_form', '__return_false' );
 
-            add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-            add_filter( "pronamic_payment_source_text_$slug"  , array( __CLASS__, 'source_text' ), 10, 2 );
+            // Other actions
+            add_action( 'edd_purchase_form_before_submit'             , array( __CLASS__, 'payment_fields' ) );
+            add_action( 'edd_gateway_' . self::SLUG                   , array( __CLASS__, 'process_purchase' ) );
+            add_action( "pronamic_payment_status_update_" . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
+            add_filter( "pronamic_payment_source_text_" . self::SLUG  , array( __CLASS__, 'source_text' ), 10, 2 );
+
+            // Filters
+            add_filter( 'edd_settings_gateways', array( __CLASS__, 'settings_gateways' ) );
+            add_filter( 'edd_payment_gateways' , array( __CLASS__, 'payment_gateways' ) );
         }
     }
 
@@ -238,6 +236,8 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
                 if ( $should_update ) {
                     edd_insert_payment_note( $source_id, __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
                 }
+
+                edd_update_payment_status( $source_id, Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::ORDER_STATUS_PUBLISH );
 
                 edd_empty_cart();
 
