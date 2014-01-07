@@ -151,6 +151,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.3.2 =
+*   Feature - Added support for the Easy Digital Downloads plugin.
+*   Fix - A probable bug in the s2Member AddOn could cause a user not to be able to upgrade their account after an EOT.
+
 = 2.3.1 =
 *	Tweak - Gravity Forms - Improved the form check in the Gravity Forms payment processor.
 
