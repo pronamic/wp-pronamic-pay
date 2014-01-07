@@ -78,23 +78,15 @@ class Pronamic_S2Member_IDeal_AddOn {
 				$role       = 's2member_level' . $level;
 
 				// Update user role
-				if ( user_can( $user, $capability ) ) {
-					$note = sprintf(
-						__( 'User "%s" already has access to "%s".', 'pronamic_ideal' ),
-						$email,
-						$capability
-					);
-				} else {
-					$user->add_cap( $capability );
-					$user->set_role( $role );
-					
-					$note = sprintf(
-						__( 'Update user "%s" to role "%s" and added custom capability "%s".', 'pronamic_ideal' ),
-						$email,
-						$role,
-						$capability
-					);
-				}
+                $user->add_cap( $capability );
+                $user->set_role( $role );
+
+                $note = sprintf(
+                    __( 'Update user "%s" to role "%s" and added custom capability "%s".', 'pronamic_ideal' ),
+                    $email,
+                    $role,
+                    $capability
+                );
 
 				$payment->add_note( $note );
 
