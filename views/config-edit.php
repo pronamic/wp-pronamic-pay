@@ -151,6 +151,7 @@ $sections = array(
 				'classes'     => array( 'large-text', 'code' ),
 				'value'       => add_query_arg( 'mollie_webhook', '', home_url( '/' ) ),
 				'readonly'    => true,
+				'methods'     => array( 'mollie' ),
 			),
 		),
 	),
