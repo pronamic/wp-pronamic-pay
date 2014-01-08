@@ -10,75 +10,75 @@
  */
 class Pronamic_S2Member_IDeal_AddOn {
 
-	public static function bootstrap() {
-		add_action( 'plugins_loaded', array( __CLASS__, 'load' ), 100 );
-	}
+    public static function bootstrap() {
+        add_action( 'plugins_loaded', array( __CLASS__, 'load' ), 100 );
+    }
 
-	public static function load() {
-		if ( defined( 'WS_PLUGIN__S2MEMBER_VERSION' ) ) {
-			// Bridge Classes
-			new Pronamic_S2Member_Bridge_Order();
-			new Pronamic_S2Member_Bridge_Settings();
-			new Pronamic_S2Member_Bridge_Shortcodes();
+    public static function load() {
+        if ( defined( 'WS_PLUGIN__S2MEMBER_VERSION' ) ) {
+            // Bridge Classes
+            new Pronamic_S2Member_Bridge_Order();
+            new Pronamic_S2Member_Bridge_Settings();
+            new Pronamic_S2Member_Bridge_Shortcodes();
 
-			$slug = 's2member';
-	
-			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
-		}
-	}
+            $slug = 's2member';
 
-	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {		
-		$data = new Pronamic_WP_Pay_S2Member_PaymentData( array(
-			'level'  => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ),
-			'period' => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true )
-		) );
+            add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
+            add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
+        }
+    }
 
-		$url = $data->get_normal_return_url();
+    public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+        $data = new Pronamic_WP_Pay_S2Member_PaymentData( array(
+            'level'  => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ),
+            'period' => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true )
+        ) );
 
-		switch ( $payment->status ) {
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
-				$url = $data->get_cancel_url();
+        $url = $data->get_normal_return_url();
 
-				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
-				$url = $data->get_error_url();
+        switch ( $payment->status ) {
+            case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+                $url = $data->get_cancel_url();
 
-				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
-				$url = $data->get_error_url();
+                break;
+            case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+                $url = $data->get_error_url();
 
-				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-				$url = $data->get_success_url();
-				$email = $payment->get_email();
+                break;
+            case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+                $url = $data->get_error_url();
 
-				// get account from email
-				$user = get_user_by( 'email', $email );
+                break;
+            case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+                $url = $data->get_success_url();
+                $email = $payment->get_email();
 
-				// No valid user?
-				if ( ! $user ) {
-					// Make a random string for password
-					$random_string = wp_generate_password( 10 );
+                // get account from email
+                $user = get_user_by( 'email', $email );
 
-					// Make a user with the username as the email
-					$user_id = wp_create_user( $email, $random_string, $email );
-											
-					$subject = __( 'Account Confirmation', 'pronamic_ideal' ) . ' | ' . get_bloginfo( 'name' );
-					$message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic_ideal' ), $random_string );
-					wp_mail( $email, $subject, $message );
+                // No valid user?
+                if ( ! $user ) {
+                    // Make a random string for password
+                    $random_string = wp_generate_password( 10 );
 
-					$user = new WP_User( $user_id );
-				}
+                    // Make a user with the username as the email
+                    $user_id = wp_create_user( $email, $random_string, $email );
 
-				$level      = $data->get_level();
-				$period     = $data->get_period();
+                    $subject = __( 'Account Confirmation', 'pronamic_ideal' ) . ' | ' . get_bloginfo( 'name' );
+                    $message = sprintf( __( 'Your password is %s . Please change your password when you login', 'pronamic_ideal' ), $random_string );
+                    wp_mail( $email, $subject, $message );
 
-				$capability = 'access_s2member_level' . $level;
-				$role       = 's2member_level' . $level;
+                    $user = new WP_User( $user_id );
+                }
 
-				// Update user role
-                $user->add_cap( $capability );
+                $level      = $data->get_level();
+                $period     = $data->get_period();
+
+                $capability = 'access_s2member_level' . $level;
+                $role       = 's2member_level' . $level;
+
+                // Update user role
+                //$user->add_cap( $capability ); // TODO Perhaps this should line be removed. At s2Member EOT this capability is not removed, which allows the user to illegitimately view the protected content.
                 $user->set_role( $role );
 
                 $note = sprintf(
@@ -88,55 +88,60 @@ class Pronamic_S2Member_IDeal_AddOn {
                     $capability
                 );
 
-				$payment->add_note( $note );
+                $payment->add_note( $note );
 
-				// Registration times
-				$registration_time = time();
+                // Registration times
+                $registration_time = time();
 
-				$registration_times = get_user_option( 's2member_paid_registration_times', $user->ID );
-				if ( empty( $registration_times ) )
-					$registration_times = array( );
-				
-				$registration_times[ 'level' . $level ]	 = $registration_time;
+                $registration_times = get_user_option( 's2member_paid_registration_times', $user->ID );
+                if ( empty( $registration_times ) )
+                    $registration_times = array( );
 
-				update_user_option( $user->ID, 's2member_paid_registration_times', $registration_times );
+                $registration_times[ 'level' . $level ]	 = $registration_time;
 
-				if ( in_array( $period, array( '1 L' ) ) ) {
-					// Lifetime, delete end of time option
-					delete_user_option( $user->ID, 's2member_auto_eot_time' );
-				} else {
-					// Auto end of time
-					// @see https://github.com/WebSharks/s2Member/blob/131126/s2member/includes/classes/utils-time.inc.php#L100
-					$eot_time_current = get_user_option( 's2member_auto_eot_time', $user->ID );
-					$eot_time_new     = c_ws_plugin__s2member_utils_time::auto_eot_time( $user->ID, false, $period, false, $eot_time_current );
+                update_user_option( $user->ID, 's2member_paid_registration_times', $registration_times );
 
-					update_user_option( $user->ID, 's2member_auto_eot_time', $eot_time_new );
-				}
-					
-				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-				$url = $data->get_normal_return_url();
+                if ( in_array( $period, array( '1 L' ) ) ) {
+                    // Lifetime, delete end of time option
+                    delete_user_option( $user->ID, 's2member_auto_eot_time' );
+                } else {
+                    // Auto end of time
+                    // @see https://github.com/WebSharks/s2Member/blob/131126/s2member/includes/classes/utils-time.inc.php#L100
+                    $eot_time_current = get_user_option( 's2member_auto_eot_time', $user->ID );
 
-				break;
-		}
+                    if ( ! is_numeric( $eot_time_current ) ) {
+                        $eot_time_current = time();
+                    }
 
-		if ( $url && $can_redirect ) {
-			wp_redirect( $url, 303 );
+                    $eot_time_new = c_ws_plugin__s2member_utils_time::auto_eot_time( $user->ID, false, $period, false, $eot_time_current );
 
-			exit;
-		}
-	}
-	
-	//////////////////////////////////////////////////
-	
-	/**
-	 * Source column
-	 */
-	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
-		$text  = '';
+                    update_user_option( $user->ID, 's2member_auto_eot_time', $eot_time_new );
+                }
 
-		$text .= __( 's2Member', 'pronamic_ideal' );
+                break;
+            case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+                $url = $data->get_normal_return_url();
 
-		return $text;
-	}
+                break;
+        }
+
+        if ( $url && $can_redirect ) {
+            wp_redirect( $url, 303 );
+
+            exit;
+        }
+    }
+
+    //////////////////////////////////////////////////
+
+    /**
+     * Source column
+     */
+    public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+        $text  = '';
+
+        $text .= __( 's2Member', 'pronamic_ideal' );
+
+        return $text;
+    }
 }
