@@ -10,6 +10,295 @@ Stable tag: 2.3.1
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
 
+## Extensions
+
+<table>
+		<thead>
+			<tr>
+				<th scope="col">
+					Name				</th>
+				<th scope="col">
+					Author				</th>
+				<th scope="col">
+					WordPress.org				</th>
+				<th scope="col">
+					GitHub				</th>
+				<th scope="col">
+					Requires at least				</th>
+				<th scope="col">
+					Tested up to				</th>
+				<th scope="col">
+					Active				</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+
+				
+				<tr>
+					<td>
+						<a target="_blank" href="https://easydigitaldownloads.com/">
+							Easy Digital Downloads						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://pippinsplugins.com/">Pippin Williamson</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/plugins/easy-digital-downloads/">http://wordpress.org/plugins/easy-digital-downloads/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads">https://github.com/easydigitaldownloads/Easy-Digital-Downloads</a>					</td>
+					<td>
+		                1.8.6					</td>
+					<td>
+		                1.8.6					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://eventespresso.com/">
+							Event Espresso						</a>
+					</td>
+					<td>
+											</td>
+					<td>
+											</td>
+					<td>
+						<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">https://github.com/eventespresso/event-espresso-core</a>					</td>
+					<td>
+		                3.1.24					</td>
+					<td>
+		                3.1.35.P					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://eventespresso.com/">
+							Event Espresso Lite						</a>
+					</td>
+					<td>
+											</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/extend/plugins/event-espresso-free/">http://wordpress.org/extend/plugins/event-espresso-free/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">https://github.com/eventespresso/event-espresso-core</a>					</td>
+					<td>
+		                3.1.29.1.L					</td>
+					<td>
+		                3.1.35.L					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://www.gravityforms.com/">
+							Gravity Forms						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.rocketgenius.com/">Rocketgenius</a>					</td>
+					<td>
+											</td>
+					<td>
+											</td>
+					<td>
+		                1.6					</td>
+					<td>
+		                1.7.11					</td>
+					<td>
+													✓
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://jigoshop.com/">
+							Jigoshop						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://jigowatt.co.uk/">Jigowatt</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/extend/plugins/jigoshop/">http://wordpress.org/extend/plugins/jigoshop/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/jigoshop/jigoshop">https://github.com/jigoshop/jigoshop</a>					</td>
+					<td>
+		                1.1					</td>
+					<td>
+		                1.8					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://wordpress.org/plugins/membership/">
+							Membership						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/plugins/membership/">http://wordpress.org/plugins/membership/</a>					</td>
+					<td>
+											</td>
+					<td>
+		                3.4.4.1					</td>
+					<td>
+		                3.4.4.1					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://premium.wpmudev.org/project/membership/">
+							Membership Premium						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>					</td>
+					<td>
+											</td>
+					<td>
+											</td>
+					<td>
+		                3.4.6					</td>
+					<td>
+		                3.4.6					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://www.s2member.com/">
+							s2Member&reg;						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.websharks-inc.com/">WebSharks, Inc.</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/plugins/membership/">http://wordpress.org/plugins/membership/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/WebSharks/s2Member">https://github.com/WebSharks/s2Member</a>					</td>
+					<td>
+		                130816					</td>
+					<td>
+		                131126					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="https://shopplugin.net/">
+							Shopp						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://ingenesis.net/">Ingenesis Limited</a>					</td>
+					<td>
+											</td>
+					<td>
+						<a target="_blank" href="https://github.com/ingenesis/shopp">https://github.com/ingenesis/shopp</a>					</td>
+					<td>
+		                1.1					</td>
+					<td>
+		                1.3.1					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://www.woothemes.com/woocommerce/">
+							WooCommerce						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.woothemes.com/">WooThemes</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">http://wordpress.org/extend/plugins/woocommerce/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/woothemes/woocommerce">https://github.com/woothemes/woocommerce</a>					</td>
+					<td>
+		                2.0.0					</td>
+					<td>
+		                2.0.18					</td>
+					<td>
+													✓
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://getshopped.org/">
+							WP e-Commerce						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://instinct.co.nz/">Instinct Entertainment</a>					</td>
+					<td>
+						<a target="_blank" href="http://wordpress.org/extend/plugins/wp-e-commerce/">http://wordpress.org/extend/plugins/wp-e-commerce/</a>					</td>
+					<td>
+						<a target="_blank" href="https://github.com/wp-e-commerce/WP-e-Commerce">https://github.com/wp-e-commerce/WP-e-Commerce</a>					</td>
+					<td>
+		                3.8.12.1					</td>
+					<td>
+		                3.8.12.1					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://www.appthemes.com/themes/classipress/">
+							ClassiPress						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>					</td>
+					<td>
+											</td>
+					<td>
+											</td>
+					<td>
+		                3.3.1					</td>
+					<td>
+		                3.3.1					</td>
+					<td>
+											</td>
+				</tr>
+			
+				
+				<tr>
+					<td>
+						<a target="_blank" href="http://www.appthemes.com/themes/jobroller/">
+							JobRoller						</a>
+					</td>
+					<td>
+						<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>					</td>
+					<td>
+											</td>
+					<td>
+											</td>
+					<td>
+		                					</td>
+					<td>
+		                1.7.1					</td>
+					<td>
+											</td>
+				</tr>
+			
+			
+	</tbody></table>
+
 == Description ==
 
 *	Easy installation and configuration
