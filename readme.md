@@ -1,4 +1,4 @@
-# Pronamic iDEAL [![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
+# [Pronamic iDEAL](http://wp.pronamic.eu/plugins/pronamic-ideal/) [![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
 
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
