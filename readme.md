@@ -430,9 +430,10 @@ Here is a list of known plugin conflicts:
 	results in OmniKassa data that no longer matches the signature.
 
 
-== Changelog ==
+## Changelog
 
-= 2.3.2 =
+### 2.3.2
+
 *   Feature - Added support for the Easy Digital Downloads plugin.
 *   Fix - A probable bug in the s2Member AddOn could cause a user not to be able to upgrade their account after an EOT.
 *   Fix - When no EOT date was set, a successful payment would set the new EOT date on the date of tomorrow regardless of the period paid for.
