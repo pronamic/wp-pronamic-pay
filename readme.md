@@ -432,12 +432,15 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
-### 2.3.2
+### 2.4.0
 
-*   Feature - Added support for the Easy Digital Downloads plugin.
-*   Fix - A probable bug in the s2Member AddOn could cause a user not to be able to upgrade their account after an EOT.
-*   Fix - When no EOT date was set, a successful payment would set the new EOT date on the date of tomorrow regardless of the period paid for.
-*   Fix - Event Espresso gave a warning message when trying to pay, saying you would lose your payment data when leaving the page.
+*	Feature - Easy Digital Downloads - Added support for the [Easy Digital Downloads](http://wordpress.org/plugins/easy-digital-downloads/) plugin.
+*	Fix - s2Member - A probable bug in the s2Member AddOn could cause a user not to be able to upgrade their account after an EOT.
+*	Fix - s2Member - When no EOT date was set, a successful payment would set the new EOT date on the date of tomorrow regardless of the period paid for.
+*	Fix - Event Espresso - Gave a warning message when trying to pay, saying you would lose your payment data when leaving the page.
+*	Tweak - WooCommerce - Improved support for WooCommerce Sequential Order Numbers.
+*	Tweak - Shopp - Improved support for Shopp 1.3.
+*	Test - Shopp - Tested up to version 1.3.
 
 ### 2.3.1
 
