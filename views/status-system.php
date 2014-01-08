@@ -90,7 +90,7 @@
 			'url'                => 'http://www.gravityforms.com/',
 			'active'             => Pronamic_GravityForms_GravityForms::is_active(),
 			'requires_at_least'  => '1.6',
-			'tested_up_to'       => '1.7.11',
+			'tested_up_to'       => '1.8',
 			'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
 			'author_url'         => 'http://www.rocketgenius.com/',
 		),

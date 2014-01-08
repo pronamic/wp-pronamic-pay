@@ -104,7 +104,7 @@ your WordPress website.
                 1.6
 			</td>
 			<td>
-				1.7.11
+				1.8
 			</td>
 		</tr>	
 		<tr>
