@@ -145,7 +145,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 								<?php
 		
 								printf(
-									'<input class="ideal-button" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
+									'<input class="ideal-button allow-leave-page" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
 									__( 'Pay with iDEAL', 'pronamic_ideal' )
 								);
 							
