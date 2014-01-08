@@ -132,10 +132,15 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
 
 			if ( $gateway ) {
+                $old_status = strtolower( $payment->status );
+
 				$gateway->update_status( $payment );
+
+                $new_status = strtolower( $payment->status );
 
 				pronamic_wp_pay_update_payment( $payment );
 
+                do_action( "pronamic_payment_status_{$old_status}_to_{$new_status}", $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 			}
