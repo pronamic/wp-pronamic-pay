@@ -439,10 +439,12 @@ Here is a list of known plugin conflicts:
 *   Fix - When no EOT date was set, a successful payment would set the new EOT date on the date of tomorrow regardless of the period paid for.
 *   Fix - Event Espresso gave a warning message when trying to pay, saying you would lose your payment data when leaving the page.
 
-= 2.3.1 =
+### 2.3.1
+
 *	Tweak - Gravity Forms - Improved the form check in the Gravity Forms payment processor.
 
-= 2.3.0 =
+### 2.3.0
+
 *	Feature - Added support for the Ogone - DirectLink - 3-D Secure feature.
 *	Feature - Added payment date the payment details admin meta box.
 *	Feature - WooCommerce - Added an option field for the gateway icon URL.
@@ -457,7 +459,8 @@ Here is a list of known plugin conflicts:
 *	Fix - s2Member - Calculate new end of time based on the previous end of time.
 *	Test - s2Member - Tested up to version 131126.
 
-= 2.2.4 =
+### 2.2.4
+
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
 *	Tweak - Membership - Improved activating of the iDEAL gateway.
 *	Tweak - Jigoshop - Added workaround for the wp_safe_redirect() non AJAX issue to the admin URL.
@@ -471,32 +474,37 @@ Here is a list of known plugin conflicts:
 *	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 153.
 *	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
 
-= 2.2.3 =
+### 2.2.3
+
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
 *	Fix - Gravity Forms - Improved support for AJAX driven forms.
 *	Fix - Warning: addslashes() expects parameter 1 to be string, array given.
 *	Fix - Fatal error: Class Pronamic_Gateways_Ogone_XML_OrderResponseParser cannot extend from interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser.
 *	Fix - Strict Standards: Non-static method Pronamic_WPeCommerce_IDeal_AddOn::advanced_inputs() should not be called statically.
 
-= 2.2.2 =
+### 2.2.2
+
 *	Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
 *	Tweak - Added support for slashes in the gateway configuration meta values.
 *	Tweak - Added support for '(' and ')' charachters in private key and certificate commands.
 *	Tweak - Sisow - Improved support for 'callback' and 'notify' requests to ensure Google Analytics e-commerce tracking.
 *	Tweak - Shopp - Improved status update. 
 
-= 2.2.1 =
+### 2.2.1
+
 *	Tweak - Added cURL version to system status page (for cURL bug in v7.31.0 http://sourceforge.net/p/curl/bugs/1249/).
 *	Tweak - Ogone DirectLink - Converted pass phrase and password config fields to password fields.
 *	Tweak - Ogone DirectLink - Use UTF-8 URL's when WordPress charset is set to UTF-8.
 *	Fix - Ogone DirectLink - Fixed the API URL's in production mode.
 *	Fix - ABN AMRO - iDEAL Zelfbouw - v3 - Fixed the gateway URL's.
 
-= 2.2.0 =
+### 2.2.0
+
 *	Feature - WooCommerce - Added support for payment description with WooCommerce tags like {order_number} and {blogname}.
 *	Tweak - ICEPAY - Use payment ID for the order ID field to prevent "Duplicate IC_OrderID" errors.
 
-= 2.1.0 =
+### 2.1.0
+
 *	Tweak - Added character set to the system status page.
 *	Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
 *	Tweak - Gravity Forms - Added support for Campaign Monitor Subscription Delay.
@@ -504,7 +512,8 @@ Here is a list of known plugin conflicts:
 *	Tweak - ABN AMRO - iDEAL Easy - Improved support for mulitple payments for same order.
 *	Tweak - Ogone - DirectLink - Improved payment status update.
 
-= 2.0.7 =
+### 2.0.7
+
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.
 *	Tweak - Event Espresso - Improved support for e-mail notifications after payment.
 *	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests.
@@ -519,29 +528,35 @@ Here is a list of known plugin conflicts:
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically.
 
-= 2.0.6 =
+### 2.0.6
+
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
 
-= 2.0.5 =
+### 2.0.5
+
 *	Fix - Ogone DirectLink - Fatal error: Call to a member function set_transaction_id() on a non-object.
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
 *	Tweak - ICEPAY - Improved error handling.
 
-= 2.0.4 =
+### 2.0.4
+
 *	Fix - Gravity Forms - Fatal error: Call to undefined method Pronamic_Pay_Gateway::get_transaction_id().
 *	Tweak - Improved upgrade function to convert custom tables to custom post types.
 
-= 2.0.3 =
+### 2.0.3
+
 *	Fix - ClassiPress - Improved support for HTML gateways.
 *	Fix - Jigoshop - Improved support for HTML gateways.
 *	Fix - WooCommerce - Improved support for HTML gateways.
 *	Fix - iDEAL Advanced v3 - Improved status update.
 *	Test - ClassiPress tested up to 3.3.1.
 
-= 2.0.2 =
+### 2.0.2
+
 *	Fix - Improved support for PHP 5.2 (Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM)
 
-= 2.0.1 =
+### 2.0.1
+
 *	Fix - Fixed an issue saving Pronamic iDEAL settings.
 *	Fix - WooCommerce issue on iDEAL checkout.
 *	Fix - Jigoshop issue on iDEAL checkout.
@@ -550,7 +565,8 @@ Here is a list of known plugin conflicts:
 *	Test - WooCommerce tested up to 2.0.18.
 *	Test - s2Member tested up to 131026.
 
-= 2.0.0 =
+### 2.0.0
+
 *	Refactor - Converted configurations to posts (custom post type).
 *	Refactor - Converted payments to posts (custom post type).
 *	Refactor - Converted Gravity Forms pay feeds to posts (custom post type).
@@ -575,43 +591,53 @@ Here is a list of known plugin conflicts:
 *	Tweak - Added more unit testing for gateways and XML parsing.
 *	Localization - Added POT file and use makepot.php
 
-= 1.3.4 =
+### 1.3.4
+
 *	Improved support for cancelled payments in WooCommerce
 
-= 1.3.3 =
+### 1.3.3
+
 *	Fixed bug Fatal error: Class 'Pronamic_WordPress_IDeal_IDealTestDataProxy' not found 
 *	Added support for the 'Deutsche Bank - iDEAL via Ogone' variant
 *	Added check on required OpenSSL version 0.9.8 with SHA256 support
 *	Improved support for Event Espresso 3.1, added iDEAL logo
 
-= 1.3.2 =
+### 1.3.2
+
 *	Updated to Icepay API library v2.3.0
 
-= 1.3.1 =
+### 1.3.1
+
 *	Fixed deprecated notice in Jigoshop Add-On (Assigning the return value of new by reference)
 
-= 1.3.0 =
+### 1.3.0
+
 *	Added support for the Qantani iDEAL payment provider
 
-= 1.2.11 =
+### 1.2.11
+
 *	Fixed saving of private key and certificate
 
-= 1.2.10 = 
+### 1.2.10
+ 
 *	Configuration editor - Removed double private key password field
 *	iDEAL Advanced v3 - Improved error handling signing documents
 
-= 1.2.9 =
+### 1.2.9
+
 *	Sisow - Added support for Sisow REST API
 *	Gravity Forms - Improved send notifications after payment
 *	Configuration editor - Extended v3 with private key and certificate commands
 
-= 1.2.8 =
+### 1.2.8
+
 *	ICEPAY - Added support for the ICEPAY payment provider
 *	Gravity Forms - Fixed send notifications after payment for Gravity Forms 1.7.2+
 *	Event Espresso - Fixed double e-mail notifications
 *	TargetPay - Added support for customer info in callback (direct debit)
 
-= 1.2.7 =
+### 1.2.7
+
 *	Membership - Improved the check for an active iDEAl gateway
 *	Mollie - Enabled feedback support for the Mollie gateway
 *	Cleaned up the configuration editor and add support for certificate info with iDEAL v3
@@ -622,13 +648,15 @@ Here is a list of known plugin conflicts:
 *	iDEAL Easy - Improved return handling
 *	s2Member - Login is no longer required to pay with iDEAL
 
-= 1.2.6 =
+### 1.2.6
+
 *	s2Member - Added support for the s2Member plugin
 *	Membership from WPMUDEV.org - Added support for the Membership from WPMUDEV.org plugin
 *	Mollie - Use transient for issuers/banks list
 *	Jigoshop - Improved order status check, prevent multiple stock reducing with OmniKassa
 
-= 1.2.5 =
+### 1.2.5
+
 *	iDEAL Advanced - Improved handling of parsing response messages
 *	TargetPay - Improved handling of payment status return information
 *	TargetPay - No longer verify SSL
@@ -639,38 +667,44 @@ Here is a list of known plugin conflicts:
 *	Mollie - Improved error handling
 *	Pages generator pages now have by default no index (WordPress SEO by Yoast)
 
-= 1.2.4 =
+### 1.2.4
+
 *	ClassiPress - Improved URL redirect if payment status was not successful
 
-= 1.2.3 =
+### 1.2.3
+
 *	Event Espresso - Improved support for gateways wich have input fields
 *	ClassiPress - Improved support for gateways wich have input fields
 *	Shopp - Fixed issue with gateways with an issuer input field
 *	WooCommerce - Fixed issue with no description and gateway input fields
 *	Display certificate valid from and to values on the confiugration editor
 
-= 1.2.2 =
+### 1.2.2
+
 *	Fix - Fatal error on saving settings
 
-= 1.2.1 =
+### 1.2.1
+
 *	WordPress Coding Standards optimizations
 *	Performance optimizations
 *	Mollie no longer verify SSL, didn't work on all servers
 
-= 1.2 =
+### 1.2
+
 *	Added support for TargetPay iDEAL API
 *	Added support for Mollie iDEAL API
 *	InternetKassa - Improved handling of signature IN and OUT creating
 *	Jigoshop - Improved backwards compatibilty for v1.2 or lower
 *	OmniKassa - Fixed issue with key version error in admin tests page
 
-= 1.1.1 =
+### 1.1.1
+
 *	OmniKassa - Fixed version key issue
 *	Jigoshop - Improved backwards compatibilty for v1.2 or lower
 *	Improved the configurations selector
 *	Added ID column to the configurations overview table  
 
-= 1.1 =
+### 1.1
 *	Added support for iDEAL Advanced version 3.3
 *	Added support for ABN AMRO - iDEAL Zelfbouw
 *	Added status page powered by http://www.ideal-status.nl/
@@ -680,7 +714,8 @@ Here is a list of known plugin conflicts:
 *	Jigoshop - Updated the iDEAL gateway settings section
 *	ClassiPress - Added support for HTTP redirect gateways
 
-= 1.0 =
+### 1.0
+
 *	First official release, removed the 'beta' label.
 *	Added an 'Branding' page for easy adding iDEAL banners.
 *	Added English documentation for changes in v3.3.1.
