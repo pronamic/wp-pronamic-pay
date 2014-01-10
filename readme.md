@@ -311,6 +311,10 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.4.1
+
+*	Fix - WordPress.org readme.txt.
+
 ### 2.4.0
 
 *	Feature - Easy Digital Downloads - Added support for the [Easy Digital Downloads](http://wordpress.org/plugins/easy-digital-downloads/) plugin.
