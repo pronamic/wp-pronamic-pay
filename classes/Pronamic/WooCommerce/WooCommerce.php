@@ -97,4 +97,20 @@ class Pronamic_WooCommerce_WooCommerce {
 
 		return $result;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get WooCommerce date format
+	 * 
+	 * @return string
+	 */
+	public static function get_date_format() {
+		if ( function_exists( 'woocommerce_date_format' ) ) {
+			// @see https://github.com/woothemes/woocommerce/blob/v2.0.20/woocommerce-core-functions.php#L2169
+			return woocommerce_date_format();
+		} else {
+			return get_option( 'date_format' );
+		}
+	} 
 }

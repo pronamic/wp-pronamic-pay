@@ -56,6 +56,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_AppThemes_IDeal_AddOn::bootstrap();
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
 			Pronamic_Membership_IDeal_AddOn::bootstrap();
+            Pronamic_EShop_IDeal_AddOn::bootstrap();
+            Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
 		}
 
 		// Admin
@@ -130,12 +132,21 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
 
 			if ( $gateway ) {
+                $old_status = strtolower( $payment->status );
+
+                if ( strlen( $old_status ) <= 0 ) {
+                    $old_status = 'unknown';
+                }
+
 				$gateway->update_status( $payment );
+
+                $new_status = strtolower( $payment->status );
 
 				pronamic_wp_pay_update_payment( $payment );
 
-				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+                do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
+				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
+				do_action( "pronamic_payment_status_update", $payment, $can_redirect );
 			}
 		}
 	}
@@ -370,7 +381,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 				'pronamic_ideal_settings'        => true,
 				'pronamic_ideal_pages_generator' => true,
 				'pronamic_ideal_status'          => true,
-				'pronamic_ideal_providers'       => true,
 				'pronamic_ideal_variants'        => true,
 				'pronamic_ideal_documentation'   => true,
 				'pronamic_ideal_branding'        => true

@@ -1,140 +1,300 @@
-=== Pronamic iDEAL ===
-Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
-Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
-Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 2.3.1
+# [Pronamic iDEAL](http://wp.pronamic.eu/plugins/pronamic-ideal/) [![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
 
-The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
-your WordPress website.
+The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
-== Description ==
+## Extensions
 
-*	Easy installation and configuration
-*	Automatic updates
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Author</th>
+			<th scope="col">WordPress.org</th>
+			<th scope="col">GitHub</th>
+			<th scope="col">Requires at least</th>
+			<th scope="col">Tested up to</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			<td>
+				<a target="_blank" href="https://easydigitaldownloads.com/">Easy Digital Downloads</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://pippinsplugins.com/">Pippin Williamson</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/plugins/easy-digital-downloads/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads">GitHub</a>
+			</td>
+			<td>
+                1.8.6
+			</td>
+			<td>
+                1.8.6
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="http://eventespresso.com/">
+					Event Espresso
+				</a>
+			</td>
+			<td>
 
-= Gravity Forms =
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the IDEAL Add-On for the 
-[Gravity Forms plugin](http://www.gravityforms.com/) which allows 
-you to add the iDEAL payment method to your Gravity Forms.
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
+			</td>
+			<td>
+                3.1.24
+			</td>
+			<td>
+                3.1.35.P
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://eventespresso.com/">Event Espresso Lite</a>
+			</td>
+			<td>
 
-= WooCommerce =
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/extend/plugins/event-espresso-free/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
+			</td>
+			<td>
+                3.1.29.1.L
+			</td>
+			<td>
+                3.1.35.L
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://www.gravityforms.com/">Gravity Forms</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.rocketgenius.com/">Rocketgenius</a>
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/) 
-from [WooThemes](http://www.woothemes.com/).
+			</td>
+			<td>
 
-= Jigoshop =
+			</td>
+			<td>
+                1.6
+			</td>
+			<td>
+				1.8
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://jigoshop.com/">Jigoshop</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://jigowatt.co.uk/">Jigowatt</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/extend/plugins/jigoshop/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/jigoshop/jigoshop">GitHub</a>
+			</td>
+			<td>
+				1.1
+			</td>
+			<td>
+				1.8
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://wordpress.org/plugins/membership/">Membership</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/) 
-from [Jigowatt](http://jigowatt.co.uk/).
+			</td>
+			<td>
+				3.4.4.1
+			</td>
+			<td>
+				3.4.4.1
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://premium.wpmudev.org/project/membership/">Membership Premium</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
+			</td>
+			<td>
 
-= WP e-Commerce =
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/) 
-from [getShopped.org](http://getshopped.org/).
+			</td>
+			<td>
+				3.4.6
+			</td>
+			<td>
+				3.4.6
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="http://www.s2member.com/">s2Member&reg;</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.websharks-inc.com/">WebSharks, Inc.</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/WebSharks/s2Member">GitHub</a>
+			</td>
+			<td>
+				130816
+			</td>
+			<td>
+				131126
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="https://shopplugin.net/">Shopp</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://ingenesis.net/">Ingenesis Limited</a>
+			</td>
+			<td>
 
-= Shopp =
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/ingenesis/shopp">GitHub</a>
+			</td>
+			<td>
+				1.1
+			</td>
+			<td>
+				1.3.1
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="http://www.woothemes.com/woocommerce/">WooCommerce</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.woothemes.com/">WooThemes</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/woothemes/woocommerce">GitHub</a>
+			</td>
+			<td>
+				2.0.0
+			</td>
+			<td>
+				2.0.18
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://getshopped.org/">WP e-Commerce</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://instinct.co.nz/">Instinct Entertainment</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://wordpress.org/extend/plugins/wp-e-commerce/">WordPress.org</a>
+			</td>
+			<td>
+				<a target="_blank" href="https://github.com/wp-e-commerce/WP-e-Commerce">GitHub</a>
+			</td>
+			<td>
+				3.8.12.1
+			</td>
+			<td>
+				3.8.12.1
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a target="_blank" href="http://www.appthemes.com/themes/classipress/">ClassiPress</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Shopp plugin](http://shopplugin.net/).
+			</td>
+			<td>
 
-= ClassiPress =
+			</td>
+			<td>
+				3.3.1
+			</td>
+			<td>
+				3.3.1
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<a target="_blank" href="http://www.appthemes.com/themes/jobroller/">JobRoller</a>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[ClassiPress theme](http://www.appthemes.com/themes/classipress/).
+			</td>
+			<td>
 
-= Event Espresso =
+			</td>
+			<td>
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Event Espresso plugin](http://eventespresso.com/).
+			</td>
+			<td>
+				1.7.1
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-= s2Member® =
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[s2Member® plugin](http://www.s2member.com/).
-
-= Membership from WPMUDEV.org =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Membership plugin](http://premium.wpmudev.org/project/membership/).
-
-= Banks and variants =
-
-*	ABN AMRO
-	*	iDEAL Easy
-	*	iDEAL Only Kassa
-	*	iDEAL Internetkassa
-	*	iDEAL Hosted
-	*	iDEAL Zelfbouw (zonder kassa)
-	*	iDEAL Zelfbouw (zonder kassa) - v3
-*	Deutsche Bank
-	*	iDEAL Expert - v3 
-*	Fortis Bank
-	*	iDEAL Hosted
-	*	iDEAL Internet Kassa (NEOS Solutions)
-	*	iDEAL Integrated
-*	Friesland Bank
-	*	iDEAL Zakelijk
-	*	iDEAL Zakelijk Plus
-	*	iDEAL Zakelijk Plus - v3
-*	iDEAL Simulator
-	*	iDEAL Lite / Basic
-	*	iDEAL Professional / Advanced / Zelfbouw
-	*	iDEAL Professional / Advanced / Zelfbouw - v3
-*	ING
-	*	iDEAL Basic
-	*	iDEAL Internet Kassa (The Way You Pay (TWYP))
-	*	iDEAL Advanced
-	*	iDEAL Advanced - v3
-*	Mollie
-	*	iDEAL
-	*	iDEAL Basic
-	*	iDEAL Advanced
-*	NEOS
-	*	NEOS
-*	Ogone
-	*	Ogone
-*	Rabobank
-	*	iDEAL Lite
-	*	iDEAL Internetkassa
-	*	OmniKassa
-	*	iDEAL  Professional
-	*	iDEAL  Professional - v3
-*	Sisow
-	*	iDEAL Basic
-	*	iDEAL Advanced
-
-== Installation ==
+## Installation
 
 Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your 
 WordPress installation and then activate the Plugin from Plugins page.
 
 
-== Developers ==
+## Developers
 
 *	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/pronamic-ideal ~/wp/git/pronamic-ideal/languages/pronamic_ideal.pot
 
 
-== Screenshots ==
-
-1.	Configuration edit page
-2.	WooCommerce - Settings - Payment Gateways
-3.	WooCommerce - Wootique theme - Checkout
-4.	Gravity Forms form edit page(iDEAL advanced)
-5.	Gravity Forms form edit page(iDEAL advanced)
-6.	Gravity Forms feed edit page
-7.	Feeds overview page
-8.	Payments overview page
-9.	Gravity Forms form on site with iDEAL feed
-10.	Gravity Forms frontend issuer drop down
-
-
-== Are there any known plugin conflicts? ==
+## Are there any known plugin conflicts?
 
 Unfortunately WordPress is notorious for conflicts between themes and plugins. It is unavoidable as you have no control over what other plugins and themes do. While we do take steps to avoid conflicts as best we can, we have no control over other plugins or themes.
 
@@ -149,12 +309,24 @@ Here is a list of known plugin conflicts:
 	results in OmniKassa data that no longer matches the signature.
 
 
-== Changelog ==
+## Changelog
 
-= 2.3.1 =
+### 2.4.0
+
+*	Feature - Easy Digital Downloads - Added support for the [Easy Digital Downloads](http://wordpress.org/plugins/easy-digital-downloads/) plugin.
+*	Fix - s2Member - A probable bug in the s2Member AddOn could cause a user not to be able to upgrade their account after an EOT.
+*	Fix - s2Member - When no EOT date was set, a successful payment would set the new EOT date on the date of tomorrow regardless of the period paid for.
+*	Fix - Event Espresso - Gave a warning message when trying to pay, saying you would lose your payment data when leaving the page.
+*	Tweak - WooCommerce - Improved support for WooCommerce Sequential Order Numbers.
+*	Tweak - Shopp - Improved support for Shopp 1.3.
+*	Test - Shopp - Tested up to version 1.3.
+
+### 2.3.1
+
 *	Tweak - Gravity Forms - Improved the form check in the Gravity Forms payment processor.
 
-= 2.3.0 =
+### 2.3.0
+
 *	Feature - Added support for the Ogone - DirectLink - 3-D Secure feature.
 *	Feature - Added payment date the payment details admin meta box.
 *	Feature - WooCommerce - Added an option field for the gateway icon URL.
@@ -169,7 +341,8 @@ Here is a list of known plugin conflicts:
 *	Fix - s2Member - Calculate new end of time based on the previous end of time.
 *	Test - s2Member - Tested up to version 131126.
 
-= 2.2.4 =
+### 2.2.4
+
 *	Tweak - s2Member - Added a period option to the s2Member iDEAL buttons addon to be able to subscribe for a lifetime.
 *	Tweak - Membership - Improved activating of the iDEAL gateway.
 *	Tweak - Jigoshop - Added workaround for the wp_safe_redirect() non AJAX issue to the admin URL.
@@ -183,32 +356,37 @@ Here is a list of known plugin conflicts:
 *	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 153.
 *	Tweak - Jigoshop - Deprecated: Assigning the return value of new by reference is deprecated in classes/Pronamic/Jigoshop/IDeal/IDealGateway.php on line 172.
 
-= 2.2.3 =
+### 2.2.3
+
 *	Tweak - Gravity Forms - Added an processor class wich handles payment forms.
 *	Fix - Gravity Forms - Improved support for AJAX driven forms.
 *	Fix - Warning: addslashes() expects parameter 1 to be string, array given.
 *	Fix - Fatal error: Class Pronamic_Gateways_Ogone_XML_OrderResponseParser cannot extend from interface Pronamic_Gateways_IDealAdvancedV3_XML_Parser.
 *	Fix - Strict Standards: Non-static method Pronamic_WPeCommerce_IDeal_AddOn::advanced_inputs() should not be called statically.
 
-= 2.2.2 =
+### 2.2.2
+
 *	Fix - Strict Standards: Declaration of 'function' should be compatible with 'function'.
 *	Tweak - Added support for slashes in the gateway configuration meta values.
 *	Tweak - Added support for '(' and ')' charachters in private key and certificate commands.
 *	Tweak - Sisow - Improved support for 'callback' and 'notify' requests to ensure Google Analytics e-commerce tracking.
 *	Tweak - Shopp - Improved status update. 
 
-= 2.2.1 =
+### 2.2.1
+
 *	Tweak - Added cURL version to system status page (for cURL bug in v7.31.0 http://sourceforge.net/p/curl/bugs/1249/).
 *	Tweak - Ogone DirectLink - Converted pass phrase and password config fields to password fields.
 *	Tweak - Ogone DirectLink - Use UTF-8 URL's when WordPress charset is set to UTF-8.
 *	Fix - Ogone DirectLink - Fixed the API URL's in production mode.
 *	Fix - ABN AMRO - iDEAL Zelfbouw - v3 - Fixed the gateway URL's.
 
-= 2.2.0 =
+### 2.2.0
+
 *	Feature - WooCommerce - Added support for payment description with WooCommerce tags like {order_number} and {blogname}.
 *	Tweak - ICEPAY - Use payment ID for the order ID field to prevent "Duplicate IC_OrderID" errors.
 
-= 2.1.0 =
+### 2.1.0
+
 *	Tweak - Added character set to the system status page.
 *	Tweak - Gravity Forms - Improved delay notifiations function after succesfull payment.
 *	Tweak - Gravity Forms - Added support for Campaign Monitor Subscription Delay.
@@ -216,7 +394,8 @@ Here is a list of known plugin conflicts:
 *	Tweak - ABN AMRO - iDEAL Easy - Improved support for mulitple payments for same order.
 *	Tweak - Ogone - DirectLink - Improved payment status update.
 
-= 2.0.7 =
+### 2.0.7
+
 *	Tweak - Sisow - Use order ID as purchase ID if not empty.
 *	Tweak - Event Espresso - Improved support for e-mail notifications after payment.
 *	Tweak - iDEAL Advanced v3 - Limit the Directory Request requests.
@@ -231,29 +410,35 @@ Here is a list of known plugin conflicts:
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_OmniKassa_Listener::listen() should not be called statically.
 *	Fix - Strict Standards: Non-static method Pronamic_Gateways_Icepay_Listener::listen() should not be called statically.
 
-= 2.0.6 =
+### 2.0.6
+
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
 
-= 2.0.5 =
+### 2.0.5
+
 *	Fix - Ogone DirectLink - Fatal error: Call to a member function set_transaction_id() on a non-object.
 *	Fix - Rabobank OmniKassa - Fixed status update listener.
 *	Tweak - ICEPAY - Improved error handling.
 
-= 2.0.4 =
+### 2.0.4
+
 *	Fix - Gravity Forms - Fatal error: Call to undefined method Pronamic_Pay_Gateway::get_transaction_id().
 *	Tweak - Improved upgrade function to convert custom tables to custom post types.
 
-= 2.0.3 =
+### 2.0.3
+
 *	Fix - ClassiPress - Improved support for HTML gateways.
 *	Fix - Jigoshop - Improved support for HTML gateways.
 *	Fix - WooCommerce - Improved support for HTML gateways.
 *	Fix - iDEAL Advanced v3 - Improved status update.
 *	Test - ClassiPress tested up to 3.3.1.
 
-= 2.0.2 =
+### 2.0.2
+
 *	Fix - Improved support for PHP 5.2 (Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM)
 
-= 2.0.1 =
+### 2.0.1
+
 *	Fix - Fixed an issue saving Pronamic iDEAL settings.
 *	Fix - WooCommerce issue on iDEAL checkout.
 *	Fix - Jigoshop issue on iDEAL checkout.
@@ -262,7 +447,8 @@ Here is a list of known plugin conflicts:
 *	Test - WooCommerce tested up to 2.0.18.
 *	Test - s2Member tested up to 131026.
 
-= 2.0.0 =
+### 2.0.0
+
 *	Refactor - Converted configurations to posts (custom post type).
 *	Refactor - Converted payments to posts (custom post type).
 *	Refactor - Converted Gravity Forms pay feeds to posts (custom post type).
@@ -287,43 +473,53 @@ Here is a list of known plugin conflicts:
 *	Tweak - Added more unit testing for gateways and XML parsing.
 *	Localization - Added POT file and use makepot.php
 
-= 1.3.4 =
+### 1.3.4
+
 *	Improved support for cancelled payments in WooCommerce
 
-= 1.3.3 =
+### 1.3.3
+
 *	Fixed bug Fatal error: Class 'Pronamic_WordPress_IDeal_IDealTestDataProxy' not found 
 *	Added support for the 'Deutsche Bank - iDEAL via Ogone' variant
 *	Added check on required OpenSSL version 0.9.8 with SHA256 support
 *	Improved support for Event Espresso 3.1, added iDEAL logo
 
-= 1.3.2 =
+### 1.3.2
+
 *	Updated to Icepay API library v2.3.0
 
-= 1.3.1 =
+### 1.3.1
+
 *	Fixed deprecated notice in Jigoshop Add-On (Assigning the return value of new by reference)
 
-= 1.3.0 =
+### 1.3.0
+
 *	Added support for the Qantani iDEAL payment provider
 
-= 1.2.11 =
+### 1.2.11
+
 *	Fixed saving of private key and certificate
 
-= 1.2.10 = 
+### 1.2.10
+ 
 *	Configuration editor - Removed double private key password field
 *	iDEAL Advanced v3 - Improved error handling signing documents
 
-= 1.2.9 =
+### 1.2.9
+
 *	Sisow - Added support for Sisow REST API
 *	Gravity Forms - Improved send notifications after payment
 *	Configuration editor - Extended v3 with private key and certificate commands
 
-= 1.2.8 =
+### 1.2.8
+
 *	ICEPAY - Added support for the ICEPAY payment provider
 *	Gravity Forms - Fixed send notifications after payment for Gravity Forms 1.7.2+
 *	Event Espresso - Fixed double e-mail notifications
 *	TargetPay - Added support for customer info in callback (direct debit)
 
-= 1.2.7 =
+### 1.2.7
+
 *	Membership - Improved the check for an active iDEAl gateway
 *	Mollie - Enabled feedback support for the Mollie gateway
 *	Cleaned up the configuration editor and add support for certificate info with iDEAL v3
@@ -334,13 +530,15 @@ Here is a list of known plugin conflicts:
 *	iDEAL Easy - Improved return handling
 *	s2Member - Login is no longer required to pay with iDEAL
 
-= 1.2.6 =
+### 1.2.6
+
 *	s2Member - Added support for the s2Member plugin
 *	Membership from WPMUDEV.org - Added support for the Membership from WPMUDEV.org plugin
 *	Mollie - Use transient for issuers/banks list
 *	Jigoshop - Improved order status check, prevent multiple stock reducing with OmniKassa
 
-= 1.2.5 =
+### 1.2.5
+
 *	iDEAL Advanced - Improved handling of parsing response messages
 *	TargetPay - Improved handling of payment status return information
 *	TargetPay - No longer verify SSL
@@ -351,38 +549,44 @@ Here is a list of known plugin conflicts:
 *	Mollie - Improved error handling
 *	Pages generator pages now have by default no index (WordPress SEO by Yoast)
 
-= 1.2.4 =
+### 1.2.4
+
 *	ClassiPress - Improved URL redirect if payment status was not successful
 
-= 1.2.3 =
+### 1.2.3
+
 *	Event Espresso - Improved support for gateways wich have input fields
 *	ClassiPress - Improved support for gateways wich have input fields
 *	Shopp - Fixed issue with gateways with an issuer input field
 *	WooCommerce - Fixed issue with no description and gateway input fields
 *	Display certificate valid from and to values on the confiugration editor
 
-= 1.2.2 =
+### 1.2.2
+
 *	Fix - Fatal error on saving settings
 
-= 1.2.1 =
+### 1.2.1
+
 *	WordPress Coding Standards optimizations
 *	Performance optimizations
 *	Mollie no longer verify SSL, didn't work on all servers
 
-= 1.2 =
+### 1.2
+
 *	Added support for TargetPay iDEAL API
 *	Added support for Mollie iDEAL API
 *	InternetKassa - Improved handling of signature IN and OUT creating
 *	Jigoshop - Improved backwards compatibilty for v1.2 or lower
 *	OmniKassa - Fixed issue with key version error in admin tests page
 
-= 1.1.1 =
+### 1.1.1
+
 *	OmniKassa - Fixed version key issue
 *	Jigoshop - Improved backwards compatibilty for v1.2 or lower
 *	Improved the configurations selector
 *	Added ID column to the configurations overview table  
 
-= 1.1 =
+### 1.1
 *	Added support for iDEAL Advanced version 3.3
 *	Added support for ABN AMRO - iDEAL Zelfbouw
 *	Added status page powered by http://www.ideal-status.nl/
@@ -392,32 +596,38 @@ Here is a list of known plugin conflicts:
 *	Jigoshop - Updated the iDEAL gateway settings section
 *	ClassiPress - Added support for HTTP redirect gateways
 
-= 1.0 =
+### 1.0
+
 *	First official release, removed the 'beta' label.
 *	Added an 'Branding' page for easy adding iDEAL banners.
 *	Added English documentation for changes in v3.3.1.
 *	ClassiPress - Tweak - Improved support for the ClassiPress theme.
 
-= beta-0.11.1 =
+### beta-0.11.1
+
 *	WP e-Commerce - Tweak - Improved the support for iDEAL Advanced variants.
 
-= beta-0.11.0 =
+### beta-0.11.0
+
 *	Tweak - Improved support for the iDEAL Easy variant, this variant requires an PSP ID
 *	Shopp - Fix - Force auth only for the iDEAL gateway
 *	OmniKassa - Removed the optional parameter 'customerLanguage', was giving "Ongeldige waarde  : customerLanguage=NL" error
 *	OmniKassa - Added documentation "Integration guide Rabo OmniKassa – Version 2.0.1 April 2012"
 *	Gravity Forms - Added custom merge tags for payment status, date, amount and transaction id
 
-= beta-0.10.1 =
+### beta-0.10.1
+
 *	Fix - OmniKassa configuration could net input hash key 
 
-= beta-0.10 =
+### beta-0.10
+
 *	Tweak - Added extra check in loading certificates files from the iDEAL XML file
 *	Shopp - Fix - Purchases with discount payments fix
 *	Tweak - Added ABN AMRO Bank : Parameter Cookbook documentation link
 *	Feature - Added support for the iDEAL Internet Kassa of Ogone
 
-= beta-0.9.9 =
+### beta-0.9.9
+
 *	Shopp - Test - Checked the 1.2.2 changelog (https://shopplugin.net/blog/shopp-1-2-1-release-notes/)
 *	Shopp - Fix - Shopp is not showing the new payments settings after saving, bug in Shopp
 *	Tweak - Changed home_url() to site_url() for retrieving license information
@@ -430,12 +640,14 @@ Here is a list of known plugin conflicts:
 *	Shopp - Tweak - Improved the automatic status update of purchases
 *	WordPress - Test - Version 3.4.1
 
-= beta-0.9.8 =
+### beta-0.9.8
+
 *	Shopp - Fix - The 'selected' parameter in module settings UI render drop-down menu function is sometimes type sensitive
 *	Shopp - Fix - Added wrapper code to JavaScript so $ will work for calling jQuery
 *	Event Espresso - Added support for the Event Espresso plugin
 
-= beta-0.9.7 =
+### beta-0.9.7
+
 *	OmniKassa - Added the "Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa" PDF file to the documentation page
 *	OmniKassa - Added an easy interface to execute the five iDEAL simulation transactions
 *	Jigoshop - Updated the HTML options table head of the IDEAL gateway to the default Jigoshop format
@@ -451,17 +663,20 @@ Here is a list of known plugin conflicts:
 *	Tweak - Improved the iDEAL Basic test page, the WordPress language value is now used 
 *	Gravity Forms - Fix - Removed the esc_js() function from the AJAX redirection JavaScript function
 
-= beta-0.9.6 =
+### beta-0.9.6
+
 *	Gravity Forms - Fixed bug with hidden conditional field, ignore iDEAL
 
-= beta-0.9.5 =
+### beta-0.9.5
+
 *	Gravity Forms - Added extra constants for the payment statuses
 *	Gravity Forms - Improved the way we update the entry payment status
 *	WooCommerce - Added WooCommerce utility base class
 *	Jigoshop - Added Jigoshop utility base class
 *	OmniKassa - Changed the use of the site_url() function, now called with an slash
 
-= beta-0.9.4 =
+### beta-0.9.4
+
 *	Fixed issue with the use of the [dbDelta](http://codex.wordpress.org/Creating_Tables_with_Plugins) function wich was causing "WordPress database error: [Multiple primary key defined]" errors
 *	Fixed check on (un)paid Shopp 1.2+ purchases, in some way this was mixed up.
 *	Gravity Forms - Added field type title for the issuer drop down field
@@ -469,27 +684,31 @@ Here is a list of known plugin conflicts:
 *	Gravity Forms - Fixed redirecting issue with an AJAX enabled Gravity Forms form
 *	ClassiPress - Added experimental iDEAL gateway
 
-= beta-0.9.3 =
+### beta-0.9.3
+
 *	Added some icons for the iDEAL banks to create a nicer issuer select element
 *	Added exprimental support for ClassiPress
 *	Added Gravity Forms delay admin notification option
 *	Added Gravity Forms delay user notification option
 *	Added Gravity Forms delay post creation option
 
-= beta-0.9.2 =
+### beta-0.9.2
+
 *	Fixed line delimters wich was causing unexpected T_CLASS error in classes/Pronamic/WPeCommerce/IDeal/AddOn.php 
 *	Added an array_filter() to the optional OmniKassa data fields
 *	Fixed an issue in the Shopp Add-On caused by an Shopp bug (see ticket https://shopp.lighthouseapp.com/projects/47561/tickets/1536-shoppcheckoutoffline-instructions-tag-seemingly-absent-from-12)
 *	Added support plugins section to the settings page
 
-= beta-0.9.1 =
+### beta-0.9.1
+
 *	Added an overview of the registered hashing algorithms and check for sha1 algorithm
 *	Fixed plugins_url() function call in the WP e-Commerce Add-On
 *	Fixed retrieving succes URL in the Gravity Forms Add-On from an iDEAL feed 
 *	Fixed edit order link in check iDEAL payment e-mail in the WooCommerce Add-On
 *	Added check for unavailable or removed iDEAL variant in Gravity Forms iDEAL feed editor
 
-= beta-0.9 =
+### beta-0.9
+
 *	Added an data proxy class, all add-ons are now optimized
 *	Added OmniKassa support for all add-ons
 *	Added support for the WP e-Commerce plugin
@@ -497,7 +716,8 @@ Here is a list of known plugin conflicts:
 *	Changed the text domain from 'pronamic-ideal' to 'pronamic_ideal'
 *	Replaced all references to class constant TEXT_DOMAIN to an string
 
-= beta-0.8.6 =
+### beta-0.8.6
+
 *	Added documentation for the Rabobank OmniKassa payment method
 *	Added documentation for the ABN AMRO iDEAL Only Kassa payment method
 *	WooCommerce iDEAL payment orders now get the status "on-hold" instead of "pending" 
@@ -506,14 +726,16 @@ Here is a list of known plugin conflicts:
 *	Replaced get_permalink(get_option('woocommerce_pay_page_id')) with get_permalink(woocommerce_get_page_id('pay'))
 *	WooCommerce iDEAL Easy and Basic payments send an check payment mail and add note to order
 
-= beta-0.8.5 =
+### beta-0.8.5
+
 *	Fixed an nonce check wich was causing a lot "Are you sure you want to do this?" notices
 *	Added an uninstall hook wich will delete all extra database tables and options
 *	Removed the custom made uninstall block from the iDEAL configurations page
 *	Fixed database errors / unexpected output while installing the plugin
 *	Pages generator will now generate pages with comments closed by default
 
-= beta-0.8.4 =
+### beta-0.8.4
+
 *	Shopp - Fixed fatal error in Shopp 1.2RC1, the $registry variable in the Settings class is declared as private in version 1.2RC1
 *	Gravity Forms - Added link to Gravity Forms entry / lead details on the iDEAL payments page
 *	Shopp - Improved the not paid check for the Shopp iDEAL gateway module, now also works with 1.2+
@@ -522,7 +744,8 @@ Here is a list of known plugin conflicts:
 *	Fixed notice and bug while generating security certificates and keys
 *	Added mandatory tests for the iDEAL advanced variants
 
-= beta-0.8.3 =
+### beta-0.8.3
+
 *	Fixed notice wp_register_style was called incorrectly in admin
 *	Fixed notice undefined variable: nl2br in the Gravity Forms Add-On
 *	Fixed issue in WooCommerce with building the iDEAL basic succes URL, Google Analytics e-commerce tracking was not possible
@@ -536,7 +759,8 @@ Here is a list of known plugin conflicts:
 *	Improved the scheduling of status requests of iDEAL advanced payments
 *	Fixed the notice if no status pages or URL's are configured in an Gravity Forms iDEAL feed
 
-= beta-0.8.2 =
+### beta-0.8.2
+
 *	Replaced the DateTime::getTimestamp() call (PHP 5 >= 5.3.0) with DateTime::format('U') (PHP 5 >= 5.2.0)
 *	Removed the addItem function from the iDEAL basic class and added an extra items class
 *	Improved the way we load iDEAL items in the Gravity Forms iDEAL Add-On
@@ -545,17 +769,20 @@ Here is a list of known plugin conflicts:
 *	Improved and fixed the WooCommerce iDEAL gateway, the status of orders is now set to pending iDEAL payment
 *	Moved all the documentation files to an external server, plugin is now much smaller (from 20 MB to 3 MB)
 
-= beta-0.8.1 =
+### beta-0.8.1
+
 *	Fixed an issue with the WooCommerce iDEAL gateway, the order status is now updated
 *	Improved the payment status update of the Shopp and Gravity Forms add-ons
 
-= beta-0.8 =
+### beta-0.8
+
 *	Fixed an issue with the success, cancel and error URL's in the iDEAL lite variant gateway for WooCommerce
 *	Added support for the [Shopp plugin](http://shopplugin.net/)
 *	Added search box on the payments page so you can search on transaction ID, consumer name, account number and city
 *	Adjusted the default expiration date modifier from +1 hour to +30 minutes
 
-= beta-0.7.2 =
+### beta-0.7.2
+
 *	Fixed an issue with character set in the iDEAL lite variant with the decoding of HTML entities
 *	Added the current time to the iDEAL settings page so users can easily check the server time
 *	Improved the expiration date of the iDEAL lite variant, now uses UTC timezone
@@ -563,7 +790,8 @@ Here is a list of known plugin conflicts:
 *	Changed the database column width of the entrance code to 40 instead of 32
 *	For WooCommerce iDEAL Lite payment we now only add one total item, otherwise the cart discount amount is an issue
 
-= beta-0.7.1 =
+### beta-0.7.1
+
 *	Fixed issue with loading JavaScripts on the Gravity Forms edit / new form page
 *	Added some extra data length checks for iDEAL lite payments
 *	Added an extra role iDEAL Administrator, so you can outsource the configuration of iDEAL
@@ -571,43 +799,52 @@ Here is a list of known plugin conflicts:
 *	Fixed bug with ordering the iDEAL payment by date
 *	Added an pages generator to easily create pages for each iDEAL payment status
 
-= beta-0.7 =
+### beta-0.7
+
 *	Added support for the WooCommerce WordPress plugin
 *	Improved the payments repository class
 *	Improved the payments overview page (now with pagination)
 *	Improved the loading of the admin JavaScripts and stylesheets
 
-= beta-0.6.2 =
+### beta-0.6.2
+
 *	Gravity Forms iDEAL Lite button is now translatable
 *	For iDEAL Lite you can now easily run the mandatory tests
 *	Added an private key and certificate generator
 
-= beta-0.6.1 =
+### beta-0.6.1
+
 *	Improved the calculation of the Gravity Forms price fields and the total amount 
 
-= beta-0.6 =
+### beta-0.6
+
 *	Added and activated some extra iDEAL banks / variants
 *	Enabled the Transient API for retrieving the issuers lists, was temporary disabled for debugging
 
-= beta-0.5 =
+### beta-0.5
+
 *	Fixed some security issues
 
-= beta-0.4 =
+### beta-0.4
+
 *	Improved the retrieving of license information from the license provider
 *	Added some extra admin CSS styling like an iDEAL screen icon
 
-= beta-0.3 =
+### beta-0.3
+
 *	Improved the Gravity Forms confirmation message when an iDEAL basic payment is executed, now working correct with AJAX
 *	Improved the iDEAL configuration editor and the Gravity Forms iDEAL feed editor, display only necessary input fields
 *	Fixed the Rabobank iDEAL payment server URLs in the ideal.xml configuration file
 
-= beta-0.2 =
+### beta-0.2
+
 *	Removed all PHP 5.3+ namespace declarations, the plugin should now be compatible with PHP 5.2+
 *	Fixed the link to the payment detail page in WordPress admin
 *	Fixed the link on the payment detail page to the iDEAL configuration page
 *	Fixed redirection problem with AJAX enabled Gravity Forms  
 
-= beta-0.1 =
+### beta-0.1
+
 *	Issuers list transient is now deleted after updating an iDEAL configuration
 *	Added the issuers list to the iDEAL configuration tests page
 *	The Gravity Forms iDEAL Issuer Drop Down remembers 
@@ -622,7 +859,7 @@ Here is a list of known plugin conflicts:
 *	Initial release
 
 
-== Links ==
+## Links
 
 *	[Pronamic](http://pronamic.eu/)
 *	[Remco Tolsma](http://remcotolsma.nl/)
@@ -635,7 +872,7 @@ Here is a list of known plugin conflicts:
 		"Markdown is what the parser uses to process much of the readme file"
 
 
-== Pronamic plugins ==
+## Pronamic plugins
 
 *	[Pronamic Google Maps](http://wordpress.org/extend/plugins/pronamic-google-maps/)
 *	[Gravity Forms (nl)](http://wordpress.org/extend/plugins/gravityforms-nl/)

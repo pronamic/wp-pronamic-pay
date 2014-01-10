@@ -7,10 +7,10 @@
  * @copyright Pronamic
  * @package shopp
  * @since 1.1.9
- * @subpackage Pronamic_Shopp_IDeal_GatewayModule
+ * @subpackage Pronamic_Shopp_Gateways_IDeal_IDeal
  **/
 
-class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements GatewayModule {
+class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements GatewayModule {
 	/**
 	 * Shopp 1.1 or lower will retrieve this from the documentation block above
 	 *

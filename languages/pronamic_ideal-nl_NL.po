@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2013-12-20 12:15:03+00:00\n"
-"PO-Revision-Date: 2013-12-20 13:15+0100\n"
+"POT-Creation-Date: 2014-01-10 07:48:15+00:00\n"
+"PO-Revision-Date: 2014-01-10 08:48+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -16,6 +16,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: admin/includes/upgrade.php:128
 msgid "Configuration %d"
@@ -29,29 +31,31 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/status-system.php:166
-#: views/status-system.php:174
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/status-system.php:177
+#: views/status-system.php:185
 msgid "AppThemes"
 msgstr "AppThemes"
 
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:116
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:286
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:149
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:153
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:166
 msgid "Order #%s"
 msgstr "Bestelling #%s"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:62
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:312
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:76
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
 #: classes/Pronamic/WordPress/IDeal/Admin.php:381 views/branding.php:14
 #: views/branding.php:20 views/branding.php:26 views/config-edit.php:52
@@ -68,7 +72,7 @@ msgstr "iDEAL"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:55
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:128
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:150
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -78,7 +82,7 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
 #: classes/Pronamic/WP/Pay/Membership/Admin.php:49
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:94
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:116
 #: includes/post.php:284 includes/post.php:341 includes/post.php:389
 #: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:50
 msgid "Configuration"
@@ -104,7 +108,7 @@ msgstr "iDEAL-instellingen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:87
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:69
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:91
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
@@ -123,7 +127,7 @@ msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
-#: views/status-system.php:161
+#: views/status-system.php:172
 msgid "ClassiPress"
 msgstr "ClassiPress"
 
@@ -134,6 +138,68 @@ msgstr "Advertentie %s"
 #: classes/Pronamic/EShop/IDeal/AddOn.php:134
 msgid "eShop"
 msgstr "eShop"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:88
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:111
+#: classes/Pronamic/Shopp/Gateways/IDeal/IDeal.php:323
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:323
+msgid "Select configuration"
+msgstr "Selecteer configuratie"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:96
+msgid "No iDEAL configuration has been created yet"
+msgstr "Er zijn nog geen iDEAL configuraties aangemaakt"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:102
+msgid "iDEAL Settings"
+msgstr "iDEAL-instellingen"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:103
+msgid "Configure the iDEAL settings"
+msgstr "Configureer de iDEAL-instellingen"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
+msgid "iDEAL configuration"
+msgstr "iDEAL-configuratie"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:171
+msgid "Payment Error"
+msgstr "Betalingsfout"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:171
+msgid ""
+"Payment creation failed before sending buyer to the iDEAL provider. Payment "
+"data: %s"
+msgstr ""
+"Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
+"naar de iDEAL provider. Betalingsinformatie: %s"
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:237
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
+msgid "iDEAL payment completed."
+msgstr "iDEAL-betaling voltooid."
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:249
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
+msgid "iDEAL payment open."
+msgstr "iDEAL-betaling open."
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:255
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
+msgid "iDEAL payment unknown."
+msgstr "iDEAL-betaling onbekend."
+
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:281
+#: views/status-system.php:61
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
+
+#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
+msgid "Easy Digital Downloads order %s"
+msgstr "Easy Digital Downloads bestelling %s"
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
 msgid "Choose a different payment option"
@@ -155,18 +221,18 @@ msgstr "Instellingen bijwerken"
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:348
-#: views/status-system.php:61
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328
+#: views/status-system.php:72
 msgid "Event Espresso"
 msgstr "Event Espresso"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:353
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:333
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148
-#: views/status-system.php:138
+#: views/status-system.php:149
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -221,8 +287,8 @@ msgid "Currency Code"
 msgstr "Valuta code"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
-#: views/config-edit.php:57 views/config-edit.php:163
-#: views/config-edit.php:208
+#: views/config-edit.php:57 views/config-edit.php:164
+#: views/config-edit.php:209
 msgid "Merchant ID"
 msgstr "Winkelier ID"
 
@@ -239,7 +305,7 @@ msgid "Transaction Reference"
 msgstr "Transactie referentie"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
-#: views/config-edit.php:175
+#: views/config-edit.php:176
 msgid "Key Version"
 msgstr "Sleutel versie"
 
@@ -271,7 +337,7 @@ msgstr "Onbekend Sisow-bericht (%s)"
 msgid "Sisow Bank (test)"
 msgstr "Sisow bank (test)"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/status-system.php:78
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/status-system.php:89
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -280,12 +346,12 @@ msgid "Entry #%s"
 msgstr "Inzending #%s"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:381
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:391
 msgid "iDEAL Administrator"
 msgstr "iDEAL-beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:385
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:395
 msgid "Administrator"
 msgstr "Beheerder"
 
@@ -336,22 +402,7 @@ msgstr "iDEAL-betaling verlopen."
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
-msgid "iDEAL payment completed."
-msgstr "iDEAL-betaling voltooid."
-
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
-msgid "iDEAL payment open."
-msgstr "iDEAL-betaling open."
-
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
-msgid "iDEAL payment unknown."
-msgstr "iDEAL-betaling onbekend."
-
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/status-system.php:87
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/status-system.php:98
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
@@ -360,19 +411,19 @@ msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:73 includes/post.php:97
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
 #: includes/post.php:206 includes/post.php:282 views/branding.php:218
 #: views/documentation.php:576 views/pages-generator.php:123
 msgid "Title"
 msgstr "Titel"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:75
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:79
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:101
 #: includes/post.php:209 views/meta-box-payment-info.php:27
 msgid "Description"
 msgstr "Beschrijving"
@@ -385,7 +436,7 @@ msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/status-system.php:98
+#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/status-system.php:109
 msgid "Membership"
 msgstr "Membership"
 
@@ -509,27 +560,19 @@ msgstr "Account bevestiging"
 msgid "Your password is %s . Please change your password when you login"
 msgstr "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt."
 
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:83
-msgid "User \"%s\" already has access to \"%s\"."
-msgstr "Gebruiker \"%s\" heeft al toegang tot \"%s\"."
-
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:92
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:85
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 "Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
 "toegevoegd."
 
-#: classes/Pronamic/S2Member/IDeal/AddOn.php:146
+#: classes/Pronamic/S2Member/IDeal/AddOn.php:143
 msgid "s2Member"
 msgstr "s2Member"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:144 views/status-system.php:128
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/status-system.php:139
 msgid "Shopp"
 msgstr "Shopp"
-
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:323
-msgid "Select configuration"
-msgstr "Selecteer configuratie"
 
 #: classes/Pronamic/Shopp/PaymentData.php:64
 #: classes/Pronamic/Shopp/PaymentData.php:90
@@ -537,6 +580,7 @@ msgstr "Selecteer configuratie"
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:162
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -564,7 +608,7 @@ msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
-#: views/status-system.php:149
+#: views/status-system.php:160
 msgid "WP e-Commerce"
 msgstr "WP e-Commerce"
 
@@ -572,11 +616,11 @@ msgstr "WP e-Commerce"
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:67
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:89
 msgid "Enable/Disable"
 msgstr "Inschakelen/uitschakelen"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:81
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
 msgid ""
 "Give the customer instructions for paying via iDEAL, and let them know that "
 "their order won't be shipping until the money is received."
@@ -584,7 +628,7 @@ msgstr ""
 "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat "
 "hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:82
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:104
 msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
@@ -592,37 +636,37 @@ msgstr ""
 "Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:85
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:107
 #: views/branding.php:128
 msgid "Icon"
 msgstr "Icoon"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:89
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:111
 msgid "This controls the icon which the user sees during checkout."
 msgstr "Hiermee beheer je het icoon die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:90
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:110
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:112
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:132
 msgid "Default: <code>%s</code>."
 msgstr "Standaard: <code>%s</code>."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:100
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:122
 msgid "Payment Options"
 msgstr "Betalingsopties"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:105
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:127
 msgid "Payment Description"
 msgstr "Betalingsomschrijving"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:109
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:131
 msgid "This controls the payment description."
 msgstr "Hiermee beheer je de betalingsomschrijving."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:111
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:133
 msgid "Tags: %s"
 msgstr "Tags: %s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:188
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:210
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
@@ -697,34 +741,26 @@ msgid "iDEAL Status"
 msgstr "iDEAL-status"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:433
-msgid "Gateway Providers"
-msgstr "Gateway providers"
-
 #: classes/Pronamic/WordPress/IDeal/Admin.php:434
-msgid "Providers"
-msgstr "Providers"
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:442
-#: classes/Pronamic/WordPress/IDeal/Admin.php:443
 msgid "Variants"
 msgstr "Varianten"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:451
-#: classes/Pronamic/WordPress/IDeal/Admin.php:452
+#: classes/Pronamic/WordPress/IDeal/Admin.php:442
+#: classes/Pronamic/WordPress/IDeal/Admin.php:443
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:460
-#: classes/Pronamic/WordPress/IDeal/Admin.php:461
+#: classes/Pronamic/WordPress/IDeal/Admin.php:451
+#: classes/Pronamic/WordPress/IDeal/Admin.php:452
 msgid "Branding"
 msgstr "Huisstijl"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:469
-#: classes/Pronamic/WordPress/IDeal/Admin.php:470
+#: classes/Pronamic/WordPress/IDeal/Admin.php:460
+#: classes/Pronamic/WordPress/IDeal/Admin.php:461
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:479 includes/post.php:101
+#: classes/Pronamic/WordPress/IDeal/Admin.php:470 includes/post.php:101
 #: includes/post.php:167 views/variants.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -762,7 +798,7 @@ msgstr "&mdash; Selecteer configuratie &mdash;"
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:292
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:303
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
@@ -772,7 +808,7 @@ msgstr ""
 "betalingen van %d overschreden, je dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:308
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:319
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -821,11 +857,11 @@ msgid "Search Payment Gateway Configurations"
 msgstr "Zoek betalingsgateway configuraties"
 
 #: includes/post.php:16
-msgid "No payment gateaway configurations found"
+msgid "No payment gateway configurations found"
 msgstr "Geen betalingsgateway configuraties gevonden"
 
 #: includes/post.php:17
-msgid "No payment gateaway configurations found in Trash"
+msgid "No payment gateway configurations found in Trash"
 msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
 
 #: includes/post.php:37 includes/post.php:359
@@ -904,7 +940,7 @@ msgstr "Geen betalingsformulieren gevonden"
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
 
-#: includes/post.php:98 views/config-edit.php:556
+#: includes/post.php:98 views/config-edit.php:557
 msgid "Variant"
 msgstr "Variant"
 
@@ -1017,7 +1053,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr "Mollie bage - Betaling groen"
 
 #: views/branding.php:185 views/branding.php:191 views/branding.php:197
-#: views/config-edit.php:158 views/variants.php:59
+#: views/config-edit.php:159 views/variants.php:59
 msgid "OmniKassa"
 msgstr "OmniKassa"
 
@@ -1093,7 +1129,7 @@ msgstr "PayDutch"
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: views/config-edit.php:112 views/config-edit.php:348
+#: views/config-edit.php:112 views/config-edit.php:349
 msgid "Password"
 msgstr "Wachtwoord"
 
@@ -1136,11 +1172,11 @@ msgstr "API key"
 msgid "Webhook"
 msgstr "Webhook"
 
-#: views/config-edit.php:169 views/config-edit.php:195
+#: views/config-edit.php:170 views/config-edit.php:196
 msgid "Secret Key"
 msgstr "Geheime sleutel"
 
-#: views/config-edit.php:178
+#: views/config-edit.php:179
 msgid ""
 "You can find the key version in the <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
@@ -1148,15 +1184,15 @@ msgstr ""
 "Je kunt de sleutel versie vind in het <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
 
-#: views/config-edit.php:183
+#: views/config-edit.php:184
 msgid "Buckaroo"
 msgstr "Buckaroo"
 
-#: views/config-edit.php:188
+#: views/config-edit.php:189
 msgid "Website Key"
 msgstr "Website sleutel"
 
-#: views/config-edit.php:191
+#: views/config-edit.php:192
 msgid ""
 "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
@@ -1164,7 +1200,7 @@ msgstr ""
 "Je kunt je Buckaroo website sleutels vinden in de <a href=\"%s\" target="
 "\"_blank\">Buckaroo Payment Plaza</a> onder \"Profiel\" » \"Website\"."
 
-#: views/config-edit.php:198
+#: views/config-edit.php:199
 msgid ""
 "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
@@ -1174,11 +1210,11 @@ msgstr ""
 "\"_blank\">Buckaroo Payment Plaza</a> onder \"Configuratie\" » \"Secret key "
 "voor Digitale handtekening\"."
 
-#: views/config-edit.php:203
+#: views/config-edit.php:204
 msgid "ICEPAY"
 msgstr "ICEPAY"
 
-#: views/config-edit.php:211
+#: views/config-edit.php:212
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1187,19 +1223,19 @@ msgstr ""
 "Je kunt je winkelier ID vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
-#: views/config-edit.php:212 views/config-edit.php:223
+#: views/config-edit.php:213 views/config-edit.php:224
 msgid "https://www.icepay.com/EN/Login"
 msgstr "https://www.icepay.com/NL/Login"
 
-#: views/config-edit.php:213 views/config-edit.php:224
+#: views/config-edit.php:214 views/config-edit.php:225
 msgid "https://www.icepay.com/Merchant/EN/Websites"
 msgstr "https://www.icepay.com/Merchant/NL/Websites"
 
-#: views/config-edit.php:218
+#: views/config-edit.php:219
 msgid "Secret Code"
 msgstr "Geheime code"
 
-#: views/config-edit.php:222
+#: views/config-edit.php:223
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1208,28 +1244,28 @@ msgstr ""
 "Je kunt je geheime code vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
 "account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
-#: views/config-edit.php:228
+#: views/config-edit.php:229
 msgid "Thank you page URL"
 msgstr "Bedanktpagina URL"
 
-#: views/config-edit.php:235
+#: views/config-edit.php:236
 msgid "Error page URL"
 msgstr "Foutmeldingspagina URL"
 
-#: views/config-edit.php:242
+#: views/config-edit.php:243
 msgid "Postback URL"
 msgstr "Postback URL"
 
-#: views/config-edit.php:251
+#: views/config-edit.php:252
 msgid "Sisow"
 msgstr "Sisow"
 
-#: views/config-edit.php:256
+#: views/config-edit.php:257
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: views/config-edit.php:260
+#: views/config-edit.php:261
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
@@ -1237,12 +1273,12 @@ msgstr ""
 "Je kunt je Merchant ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
-#: views/config-edit.php:267
+#: views/config-edit.php:268
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: views/config-edit.php:271
+#: views/config-edit.php:272
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
@@ -1251,58 +1287,58 @@ msgstr ""
 "Je kunt je Merchant Key vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
-#: views/config-edit.php:279
+#: views/config-edit.php:280
 msgid "TargetPay"
 msgstr "TargetPay"
 
-#: views/config-edit.php:284
+#: views/config-edit.php:285
 msgid "Layout Code"
 msgstr "Layout code"
 
-#: views/config-edit.php:286
+#: views/config-edit.php:287
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 
-#: views/config-edit.php:291
+#: views/config-edit.php:292
 msgid "Ogone"
 msgstr "Ogone"
 
-#: views/config-edit.php:296
+#: views/config-edit.php:297
 msgid "PSPID"
 msgstr "PSPID"
 
-#: views/config-edit.php:300
+#: views/config-edit.php:301
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 "Als je gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
-#: views/config-edit.php:306
+#: views/config-edit.php:307
 msgid "Character encoding"
 msgstr "Tekencodering"
 
-#: views/config-edit.php:314
+#: views/config-edit.php:315
 msgid "Hash algorithm"
 msgstr "Hash-algoritme"
 
-#: views/config-edit.php:317
+#: views/config-edit.php:318
 msgid "SHA-1"
 msgstr "SHA-1"
 
-#: views/config-edit.php:318
+#: views/config-edit.php:319
 msgid "SHA-256"
 msgstr "SHA-256"
 
-#: views/config-edit.php:319
+#: views/config-edit.php:320
 msgid "SHA-512"
 msgstr "SHA-512"
 
-#: views/config-edit.php:325 views/config-edit.php:361
+#: views/config-edit.php:326 views/config-edit.php:362
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-IN versleuteling"
 
-#: views/config-edit.php:328 views/config-edit.php:364
+#: views/config-edit.php:329 views/config-edit.php:365
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -1312,11 +1348,11 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Verificatie data en herkomst) van je "
 "iDEAL provider."
 
-#: views/config-edit.php:333
+#: views/config-edit.php:334
 msgid "SHA-OUT Pass phrase"
 msgstr "SHA-OUT versleuteling"
 
-#: views/config-edit.php:336
+#: views/config-edit.php:337
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
@@ -1326,121 +1362,121 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/config-edit.php:341 views/meta-box-payment-source.php:64
+#: views/config-edit.php:342 views/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: views/config-edit.php:356
+#: views/config-edit.php:357
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: views/config-edit.php:369
+#: views/config-edit.php:370
 msgid "3-D Secure"
 msgstr "3-D Secure"
 
-#: views/config-edit.php:371
+#: views/config-edit.php:372
 msgid "Enable 3-D Secure protocol"
 msgstr "3-D Secure protocol inschakelen"
 
-#: views/config-edit.php:377
+#: views/config-edit.php:378
 msgid "Qantani"
 msgstr "Qantani"
 
-#: views/config-edit.php:382
+#: views/config-edit.php:383
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: views/config-edit.php:388
+#: views/config-edit.php:389
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: views/config-edit.php:394
+#: views/config-edit.php:395
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
 
-#: views/config-edit.php:401
+#: views/config-edit.php:402
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: views/config-edit.php:406
+#: views/config-edit.php:407
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/config-edit.php:412 views/config-edit.php:772
+#: views/config-edit.php:413 views/config-edit.php:773
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/config-edit.php:419 views/config-edit.php:796
+#: views/config-edit.php:420 views/config-edit.php:797
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: views/config-edit.php:427
+#: views/config-edit.php:428
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: views/config-edit.php:432
+#: views/config-edit.php:433
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/config-edit.php:434
+#: views/config-edit.php:435
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/config-edit.php:438 views/gravityforms/feed-edit.php:327
+#: views/config-edit.php:439 views/gravityforms/feed-edit.php:327
 msgid "Country"
 msgstr "Land"
 
-#: views/config-edit.php:440
+#: views/config-edit.php:441
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/config-edit.php:444
+#: views/config-edit.php:445
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/config-edit.php:446
+#: views/config-edit.php:447
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/config-edit.php:450
+#: views/config-edit.php:451
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/config-edit.php:452
+#: views/config-edit.php:453
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/config-edit.php:456
+#: views/config-edit.php:457
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/config-edit.php:458
+#: views/config-edit.php:459
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/config-edit.php:462
+#: views/config-edit.php:463
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/config-edit.php:464
+#: views/config-edit.php:465
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/config-edit.php:468
+#: views/config-edit.php:469
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/config-edit.php:471
+#: views/config-edit.php:472
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/config-edit.php:472
+#: views/config-edit.php:473
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -1448,7 +1484,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/config-edit.php:473
+#: views/config-edit.php:474
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1459,39 +1495,39 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/config-edit.php:477
+#: views/config-edit.php:478
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/config-edit.php:489
+#: views/config-edit.php:490
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: views/config-edit.php:511
+#: views/config-edit.php:512
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/config-edit.php:517
+#: views/config-edit.php:518
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: views/config-edit.php:520
+#: views/config-edit.php:521
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/config-edit.php:525
+#: views/config-edit.php:526
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/config-edit.php:536
+#: views/config-edit.php:537
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/config-edit.php:761
+#: views/config-edit.php:762
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/config-edit.php:765
+#: views/config-edit.php:766
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -1499,7 +1535,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: views/config-edit.php:781
+#: views/config-edit.php:782
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -1853,10 +1889,6 @@ msgstr "Meta"
 msgid "Generate Pages"
 msgstr "Genereer pagina's"
 
-#: views/providers.php:17 views/variants.php:20
-msgid "Provider"
-msgstr "Provider"
-
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
 msgid "Redirecting&hellip;"
 msgstr "Doorverwijzen&hellip;"
@@ -1922,7 +1954,7 @@ msgid "Activation Date"
 msgstr "Activatie datum"
 
 #: views/status-system.php:29 views/status-system.php:42
-#: views/status-system.php:423
+#: views/status-system.php:434
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
@@ -1934,119 +1966,123 @@ msgstr "Verval datum"
 msgid "Supported Extensions"
 msgstr "Ondersteunde extensies"
 
-#: views/status-system.php:69
+#: views/status-system.php:68
+msgid "Pippin Williamson"
+msgstr "Pippin Williamson"
+
+#: views/status-system.php:80
 msgid "Event Espresso Lite"
 msgstr "Event Espresso Lite"
 
-#: views/status-system.php:83
+#: views/status-system.php:94
 msgid "Rocketgenius"
 msgstr "Rocketgenius"
 
-#: views/status-system.php:94
+#: views/status-system.php:105
 msgid "Jigowatt"
 msgstr "Jigowatt"
 
-#: views/status-system.php:104 views/status-system.php:113
+#: views/status-system.php:115 views/status-system.php:124
 msgid "WPMUDEV.org"
 msgstr "WPMUDEV.org"
 
-#: views/status-system.php:108
+#: views/status-system.php:119
 msgid "Membership Premium"
 msgstr "Membership Premium"
 
-#: views/status-system.php:117
+#: views/status-system.php:128
 msgid "s2Member®"
 msgstr "s2Member®"
 
-#: views/status-system.php:124
+#: views/status-system.php:135
 msgid "WebSharks, Inc."
 msgstr "WebSharks, Inc."
 
-#: views/status-system.php:134
+#: views/status-system.php:145
 msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
-#: views/status-system.php:145
+#: views/status-system.php:156
 msgid "WooThemes"
 msgstr "WooThemes"
 
-#: views/status-system.php:156
+#: views/status-system.php:167
 msgid "Instinct Entertainment"
 msgstr "Instinct Entertainment"
 
-#: views/status-system.php:170
+#: views/status-system.php:181
 msgid "JobRoller"
 msgstr "JobRoller"
 
-#: views/status-system.php:185 views/variants.php:21
+#: views/status-system.php:196 views/variants.php:21
 msgid "Name"
 msgstr "Naam"
 
-#: views/status-system.php:188
+#: views/status-system.php:199
 msgid "Author"
 msgstr "Auteur"
 
-#: views/status-system.php:191
+#: views/status-system.php:202
 msgid "WordPress.org"
 msgstr "WordPress.org"
 
-#: views/status-system.php:194
+#: views/status-system.php:205
 msgid "GitHub"
 msgstr "GitHub"
 
-#: views/status-system.php:197
+#: views/status-system.php:208
 msgid "Requires at least"
 msgstr "Vereist minimaal"
 
-#: views/status-system.php:200
+#: views/status-system.php:211
 msgid "Tested up to"
 msgstr "Getest tot"
 
-#: views/status-system.php:203
+#: views/status-system.php:214
 msgid "Active"
 msgstr "Actief"
 
-#: views/status-system.php:281
+#: views/status-system.php:292
 msgid "Installation Status"
 msgstr "Installatie status"
 
-#: views/status-system.php:287
+#: views/status-system.php:298
 msgid "Site URL"
 msgstr "Site URL"
 
-#: views/status-system.php:298
+#: views/status-system.php:309
 msgid "Home URL"
 msgstr "Home URL"
 
-#: views/status-system.php:309
+#: views/status-system.php:320
 msgid "PHP Version"
 msgstr "PHP versie"
 
-#: views/status-system.php:320
+#: views/status-system.php:331
 msgid "Pronamic iDEAL requires PHP 5.2 or above."
 msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
 
-#: views/status-system.php:328
+#: views/status-system.php:339
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: views/status-system.php:345
+#: views/status-system.php:356
 msgid "Pronamic iDEAL requires MySQL 5 or above."
 msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
 
-#: views/status-system.php:353
+#: views/status-system.php:364
 msgid "WordPress Version"
 msgstr "WordPress versie"
 
-#: views/status-system.php:364
+#: views/status-system.php:375
 msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 
-#: views/status-system.php:372
+#: views/status-system.php:383
 msgid "WP Memory Limit"
 msgstr "WP geheugenlimiet"
 
-#: views/status-system.php:390
+#: views/status-system.php:401
 msgid ""
 "We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
 "memory allocated to PHP</a>"
@@ -2054,45 +2090,49 @@ msgstr ""
 "We adviseren om het geheugen minimaal in te stellen op 64MB. Zie: <a "
 "href=”%s”>Verhoog toegewezen geheugen aan PHP</a>."
 
-#: views/status-system.php:400
+#: views/status-system.php:411
 msgid "Character Set"
 msgstr "Tekencodering"
 
-#: views/status-system.php:412
+#: views/status-system.php:423
 msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
 msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
 
-#: views/status-system.php:420
+#: views/status-system.php:431
 msgid "Time"
 msgstr "Tijd"
 
-#: views/status-system.php:432
+#: views/status-system.php:443
 msgid "cURL"
 msgstr "cURL"
 
-#: views/status-system.php:453
+#: views/status-system.php:464
 msgid "OpenSSL"
 msgstr "OpenSSL"
 
-#: views/status-system.php:473
+#: views/status-system.php:484
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
 
-#: views/status-system.php:481
+#: views/status-system.php:492
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: views/status-system.php:498
+#: views/status-system.php:509
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: views/status-system.php:506
+#: views/status-system.php:517
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
 #: views/variants.php:11
 msgid "iDEAL Variants"
 msgstr "iDEAL-varianten"
+
+#: views/variants.php:20
+msgid "Provider"
+msgstr "Provider"
 
 #: views/variants.php:50
 msgid "Easy"
@@ -2121,6 +2161,15 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
+
+#~ msgid "User \"%s\" already has access to \"%s\"."
+#~ msgstr "Gebruiker \"%s\" heeft al toegang tot \"%s\"."
+
+#~ msgid "Gateway Providers"
+#~ msgstr "Gateway providers"
+
+#~ msgid "Providers"
+#~ msgstr "Providers"
 
 #~ msgid "Icons"
 #~ msgstr "Iconen"
@@ -2204,9 +2253,6 @@ msgstr "Pronamic"
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://www.pronamic.nl/"
 
-#~ msgid "iDEAL Settings"
-#~ msgstr "iDEAL-instellingen"
-
 #, fuzzy
 #~ msgid "Add New Configuration"
 #~ msgstr "Configuratie"
@@ -2226,10 +2272,6 @@ msgstr "Pronamic"
 #, fuzzy
 #~ msgid "Search Configurations"
 #~ msgstr "Configuraties"
-
-#, fuzzy
-#~ msgid "No configurations found"
-#~ msgstr "Geen iDEAL-configuraties gevonden, %s."
 
 #~ msgctxt "qantani"
 #~ msgid "Secret"
@@ -2324,9 +2366,6 @@ msgstr "Pronamic"
 
 #~ msgid "back to list"
 #~ msgstr "terug naar lijst"
-
-#~ msgid "create an iDEAL configuration"
-#~ msgstr "creëer een iDEAL-configuratie"
 
 #~ msgid "Options"
 #~ msgstr "Opties"

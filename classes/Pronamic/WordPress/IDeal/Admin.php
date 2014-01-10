@@ -430,15 +430,6 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal', 
-			__( 'Gateway Providers', 'pronamic_ideal' ), 
-			__( 'Providers', 'pronamic_ideal' ), 
-			'pronamic_ideal_providers', 
-			'pronamic_ideal_providers', 
-			array( __CLASS__, 'page_providers' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal', 
 			__( 'Variants', 'pronamic_ideal' ), 
 			__( 'Variants', 'pronamic_ideal' ), 
 			'pronamic_ideal_variants', 
@@ -500,10 +491,6 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	public static function page_ideal_status() {
 		return self::render_view( 'status-ideal' );
-	}
-
-	public static function page_providers() {
-		return self::render_view( 'providers' );
 	}
 
 	public static function page_variants() {
