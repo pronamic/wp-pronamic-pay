@@ -20,4 +20,45 @@ class Pronamic_XML_Util {
 		
 		return $result;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Create and add an element with the specified name and value to the specified parent
+	 * 
+	 * @param DOMDocument $document
+	 * @param DOMNode $parent
+	 * @param string $name
+	 * @param string $value
+	 */
+	public static function add_element( DOMDocument $document, DOMNode $parent, $name, $value = null ) {
+		$element = $document->createElement( $name );
+		
+		if ( $value !== null ) {
+			$element->appendChild( new DOMText( $value ) );
+		}
+
+		$parent->appendChild( $element );
+
+		return $element;
+	}
+
+	/**
+	 * Add the specified elements to the parent node
+	 * 
+	 * @param DOMDocument $document
+	 * @param DOMNode $parent
+	 * @param array $elements
+	 */
+	public static function add_elements( DOMDocument $document, DOMNode $parent, array $elements = array() ) {
+		foreach ( $elements as $name => $value ) {
+			$element = $document->createElement( $name );
+
+			if ( $value !== null ) {
+				$element->appendChild( new DOMText( $value ) );
+			}
+			
+			$parent->appendChild( $element );
+		}
+	}
 }
