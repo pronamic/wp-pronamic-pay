@@ -155,6 +155,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.4.2 =
+*   Fix - Buckaroo - When a payment's invoice number was set to "null" the payment would fail.
+
 = 2.4.1 =
 *	Fix - WordPress.org readme.txt.
 
