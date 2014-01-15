@@ -36,7 +36,9 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	 * @return string
 	 */
 	public function get_language() {
-		return Pronamic_WordPress_IDeal_Util::get_language();
+		$locale = get_locale();
+
+		return substr( $locale, 0, 2 );
 	}
 
 	/**
@@ -46,7 +48,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	 * @return string
 	 */
 	public function get_language_and_country() {
-		return Pronamic_WordPress_IDeal_Util::get_language_and_country();
+		return get_locale();
 	}
 
 	//////////////////////////////////////////////////
