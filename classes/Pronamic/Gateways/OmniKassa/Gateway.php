@@ -89,8 +89,6 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		
 		$data = Pronamic_Gateways_OmniKassa_OmniKassa::parse_piped_string( $input_data );
 
-		$transaction_reference = $data['transactionReference'];
-
 		$seal = Pronamic_Gateways_OmniKassa_OmniKassa::compute_seal( $input_data, $this->config->secret_key );
 
 		// Check if the posted seal is equal to our seal
@@ -98,7 +96,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 			$response_code = $data['responseCode'];
 
 			$status = Pronamic_Gateways_OmniKassa_ResponseCodes::transform( $response_code );
-			
+
 			// Set the status of the payment
 			$payment->set_status( $status );
 			
