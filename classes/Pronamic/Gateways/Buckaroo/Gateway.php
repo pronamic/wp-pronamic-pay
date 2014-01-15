@@ -62,12 +62,12 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->get_amount() );
 
-		$data_order_id = $data->get_order_id();
+		$order_id = $data->get_order_id();
 
-		if ( isset( $data_order_id ) && strlen( $data_order_id ) > 0 ) {
-			$this->client->set_invoice_number( $data_order_id );
-		} else {
+		if ( empty( $order_id ) ) {
 			$this->client->set_invoice_number( $payment->get_id() );
+		} else {
+			$this->client->set_invoice_number( $order_id );
 		}
 
 		$return_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
