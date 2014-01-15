@@ -93,7 +93,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
 			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
 			'expired'   => __( 'Expired', 'pronamic_ideal' ),
-			'completed' => __( 'Completed', 'pronamic_ideal' )
+			'completed' => __( 'Completed', 'pronamic_ideal' ),
 		);
 
 		foreach ( $pages as $key => $label ) {
