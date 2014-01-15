@@ -15,7 +15,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	 * @param string $status
 	 * @return string
 	 */
-	public static function translate_status($status) {
+	public static function translate_status( $status ) {
 		switch ( $status ) {
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED :
 				return __( 'Cancelled', 'pronamic_ideal' );
@@ -53,7 +53,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 	public static function get_config_select_options() {
 		$gateways = get_posts( array(
 			'post_type' => 'pronamic_gateway',
-			'nopaging'  => true
+			'nopaging'  => true,
 		) );
 
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
@@ -159,7 +159,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
 			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
-			'post_status' => 'publish'
+			'post_status' => 'publish',
 		), true );
 
 		if ( is_wp_error( $result ) ) {
@@ -187,7 +187,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 				$prefix . 'status'                  => null,
 				$prefix . 'source'                  => $data->get_source(),
 				$prefix . 'source_id'               => $data->get_source_id(),
-				$prefix . 'email'                   => $data->get_email()
+				$prefix . 'email'                   => $data->get_email(),
 			);
 
 			foreach ( $meta as $key => $value ) {
