@@ -16,7 +16,7 @@ class Pronamic_Gateways_Buckaroo_Security {
 	 * @param string $value
 	 * @return boolean true if match, false otherwise
 	 */
-	private static function key_is( $string, $value ) {
+	private static function string_equals( $string, $value ) {
 		return strcasecmp( $string, $value ) == 0;
 	}
 	
@@ -27,7 +27,7 @@ class Pronamic_Gateways_Buckaroo_Security {
 	 * @param string $prefix
 	 * @return boolean true if match, false otherwise
 	 */
-	private static function key_starts_with( $string, $prefix ) {
+	private static function string_starts_with( $string, $prefix ) {
 		$string = substr( $string, 0, strlen( $prefix ) );
 
 		return strcasecmp( $string, $prefix ) == 0;
@@ -45,7 +45,7 @@ class Pronamic_Gateways_Buckaroo_Security {
 		$result = null;
 
 		foreach ( $data as $key => $value ) {
-			if ( self::key_is( $key, Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE ) ) {
+			if ( self::string_equals( $key, Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE ) ) {
 				return $value;
 			}
 		}
@@ -67,9 +67,9 @@ class Pronamic_Gateways_Buckaroo_Security {
 		// List all parameters prefixed with brq_, add_ or cust_, except brq_signature
 		foreach ( $data as $key => $value ) {
 			if ( 
-				( self::key_starts_with( $key, 'brq_' ) || self::key_starts_with( $key, 'add_' ) || self::key_starts_with( $key, 'cust_' ) ) 
+				( self::string_starts_with( $key, 'brq_' ) || self::string_starts_with( $key, 'add_' ) || self::string_starts_with( $key, 'cust_' ) ) 
 					&& 
-				! self::key_is( $key, Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE )
+				! self::string_equals( $key, Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE )
 			) {
 				if ( $url_decode ) {
 					$value = urldecode( $value );
@@ -84,6 +84,14 @@ class Pronamic_Gateways_Buckaroo_Security {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Create signature
+	 * 
+	 * @param array $data
+	 * @param string $secret_key
+	 * @param boolean $url_decode
+	 * @return string
+	 */
 	public static function create_signature( $data, $secret_key, $url_decode = false ) {
 		$string = '';
 
