@@ -10,18 +10,6 @@
  */
 class Pronamic_WordPress_IDeal_IDeal {
 	/**
-	 * Delete the transient for the specified configuration
-	 *
-	 * @param Pronamic_WordPress_IDeal_Configuration $configuration
-	 * @return boolean true if successful, false otherwise.
-	 */
-	public static function deleteConfigurationTransient(Pronamic_WordPress_IDeal_Configuration $configuration) {
-		return delete_transient('pronamic_ideal_issuers_' . $configuration->getId());
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Get the translaction of the specified status notifier
 	 *
 	 * @param string $status
