@@ -381,7 +381,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 		$signature = Pronamic_Gateways_Buckaroo_Security::get_signature( $data );
 
-		$signature_check = Pronamic_Gateways_Buckaroo_Security::create_signature( $data, $this->get_secret_key(), true );
+		$signature_check = Pronamic_Gateways_Buckaroo_Security::create_signature( $data, $this->get_secret_key() );
 
 		if ( strcasecmp( $signature, $signature_check ) === 0 ) {
 			$data = array_change_key_case( $data, CASE_LOWER );

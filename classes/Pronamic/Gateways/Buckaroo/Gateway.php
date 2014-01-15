@@ -97,13 +97,51 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$data = $this->client->verify_request( $_POST );
+		$data = Pronamic_Gateways_Buckaroo_Util::urldecode( $_POST );
+
+		$data = $this->client->verify_request( $data );
 
 		if ( $data ) {
 			$payment->set_status( Pronamic_Gateways_Buckaroo_Statuses::transform( $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE] ) );
 			$payment->set_consumer_iban( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN] );
 			$payment->set_consumer_bic( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC] );
 			$payment->set_consumer_name( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME] );
+
+			$labels = array(
+				Pronamic_Gateways_Buckaroo_Parameters::PAYMENT                       => __( 'Payment', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD                => __( 'Payment Method', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE                   => __( 'Status Code', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE_DETAIL            => __( 'Status Code Detail', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::STATUS_MESSAGE                => __( 'Status Message', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER                => __( 'Invoice Number', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::AMOUNT                        => __( 'Amount', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::CURRENCY                      => __( 'Currency', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::TIMESTAMP                     => __( 'Timestamp', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_ISSUER => __( 'Service iDEAL Consumer Issuer', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME   => __( 'Service iDEAL Consumer Name', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN   => __( 'Service iDEAL Consumer IBAN', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC    => __( 'Service iDEAL Consumer BIC', 'pronamic_ideal' ),
+				Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => __( 'Transactions', 'pronamic_ideal' ),
+			);
+
+			$note = '';
+
+			$note .= '<p>';
+			$note .= __( 'Buckaroo data:', 'pronamic_ideal' );
+			$note .= '</p>';
+
+			$note .= '<dl>';
+
+			foreach ( $labels as $key => $label ) {
+				if ( isset( $data[$key] ) ) {
+					$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
+					$note .= sprintf( '<dd>%s</dd>', esc_html( $data[$key] ) );
+				}
+			}
+
+			$note .= '</dl>';
+
+			$payment->add_note( $note ); 
 		}
 	}
 }

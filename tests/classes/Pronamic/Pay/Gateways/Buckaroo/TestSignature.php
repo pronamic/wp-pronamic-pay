@@ -6,7 +6,6 @@
  *
  */
 class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
-
 	/**
 	 * @dataProvider provider_case_mix
 	 */
@@ -32,6 +31,8 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
 	 */
 	function test_create_signature( $data ) {
 		$secret_key = '29E9BEB3F3428B2BCAA678DEC489A86A';
+		
+		$data = Pronamic_Gateways_Buckaroo_Util::urldecode( $data );
 
 		$signature = Pronamic_Gateways_Buckaroo_Security::get_signature( $data );
 
