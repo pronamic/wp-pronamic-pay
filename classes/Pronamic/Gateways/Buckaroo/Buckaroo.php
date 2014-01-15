@@ -399,10 +399,10 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 		/*
 		 * Please note: When verifying a received signature, first url-decode
-		* all the field values. A signature is always calculated over the
-		* non-encoded values (i.e The value “J.+de+Tester” should be decoded
-				* to “J. de Tester”).
-		*/
+		 * all the field values. A signature is always calculated over the
+		 * non-encoded values (i.e The value “J.+de+Tester” should be decoded
+		 * to “J. de Tester”).
+		 */
 		$signature_key = null;
 
 		foreach ( $data as $key => &$value ) {
@@ -437,7 +437,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME   => FILTER_SANITIZE_STRING,
 						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN   => FILTER_SANITIZE_STRING,
 						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC    => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => FILTER_SANITIZE_STRING
+						Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => FILTER_SANITIZE_STRING,
 				) );
 			}
 		}
