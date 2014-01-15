@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealBasic_Config extends Pronamic_Pay_Config {
+class Pronamic_Pay_Gateways_IDealBasic_Config extends Pronamic_Pay_Config {
 	public $url;
 
 	public $merchant_id;

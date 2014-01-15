@@ -113,7 +113,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Icepay_Config', 'Pronamic_Gateways_Icepay_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_IDealAdvanced_Config', 'Pronamic_Gateways_IDealAdvanced_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_IDealAdvancedV3_Config', 'Pronamic_Gateways_IDealAdvancedV3_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_IDealBasic_Config', 'Pronamic_Gateways_IDealBasic_Gateway' );
+		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_IDealBasic_Config', 'Pronamic_Gateways_IDealBasic_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_DirectLink_Config', 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway' );
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway' );

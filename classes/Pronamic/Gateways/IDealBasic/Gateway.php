@@ -12,9 +12,9 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Construct and intialize an gateway
 	 * 
-	 * @param Pronamic_Gateways_IDealBasic_Config $config
+	 * @param Pronamic_Pay_Gateways_IDealBasic_Config $config
 	 */
-	public function __construct( Pronamic_Gateways_IDealBasic_Config $config ) {
+	public function __construct( Pronamic_Pay_Gateways_IDealBasic_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
