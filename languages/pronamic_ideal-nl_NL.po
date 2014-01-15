@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-10 07:48:15+00:00\n"
-"PO-Revision-Date: 2014-01-10 10:43+0100\n"
+"POT-Creation-Date: 2014-01-15 13:19:23+00:00\n"
+"PO-Revision-Date: 2014-01-15 14:24+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -236,6 +236,69 @@ msgstr "Deelnemer #%s"
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:111 includes/post.php:37
+#: includes/post.php:359
+msgid "Payment"
+msgstr "Betaling"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:112
+msgid "Payment Method"
+msgstr "Betaalmethode"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:113
+msgid "Status Code"
+msgstr "Statuscode"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:114
+msgid "Status Code Detail"
+msgstr "Statuscode detail"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:115
+msgid "Status Message"
+msgstr "Statusbericht"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:116
+msgid "Invoice Number"
+msgstr "Factuurnummer"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:117
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:104 includes/post.php:210
+#: views/meta-box-payment-info.php:35
+msgid "Amount"
+msgstr "Bedrag"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:118
+msgid "Currency"
+msgstr "Valuta"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:119
+msgid "Timestamp"
+msgstr "Timestamp"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:120
+msgid "Service iDEAL Consumer Issuer"
+msgstr "Service iDEAL gebruiker issuer"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:121
+msgid "Service iDEAL Consumer Name"
+msgstr "Service iDEAL gebruiker naam"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:122
+msgid "Service iDEAL Consumer IBAN"
+msgstr "Service iDEAL gebruiker IBAN"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:123
+msgid "Service iDEAL Consumer BIC"
+msgstr "Service iDEAL gebruiker BIC"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:124
+msgid "Transactions"
+msgstr "Transacties"
+
+#: classes/Pronamic/Gateways/Buckaroo/Gateway.php:130
+msgid "Buckaroo data:"
+msgstr "Buckaroo data:"
+
 #: classes/Pronamic/Gateways/Gateway.php:401
 #: classes/Pronamic/Membership/IDeal/IDealGateway.php:144
 msgid "Pay"
@@ -267,65 +330,60 @@ msgstr "&mdash; Andere banken &mdash;"
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106 includes/post.php:210
-#: views/meta-box-payment-info.php:35
-msgid "Amount"
-msgstr "Bedrag"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:107
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:105
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:109
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:107
 msgid "Currency Code"
 msgstr "Valuta code"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108
 #: views/config-edit.php:57 views/config-edit.php:164
 #: views/config-edit.php:209
 msgid "Merchant ID"
 msgstr "Winkelier ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:111
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:109
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
 msgid "Transaction Date Time"
 msgstr "Transactie tijdstip"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:113
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:111
 msgid "Transaction Reference"
 msgstr "Transactie referentie"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
 #: views/config-edit.php:176
 msgid "Key Version"
 msgstr "Sleutel versie"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:113
 msgid "Authorisation ID"
 msgstr "Autorisatie ID"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
 msgid "Payment Mean Brand"
 msgstr "Betaalmethode merknaam"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:117
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115
 msgid "Payment Mean Type"
 msgstr "Betaalmethode type"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:118
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
 msgid "Response Code"
 msgstr "Antwoord code"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:124
+#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:122
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
@@ -863,10 +921,6 @@ msgstr "Geen betalingsgateway configuraties gevonden"
 #: includes/post.php:17
 msgid "No payment gateway configurations found in Trash"
 msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
-
-#: includes/post.php:37 includes/post.php:359
-msgid "Payment"
-msgstr "Betaling"
 
 #: includes/post.php:39
 msgid "Add New Payment"
@@ -2409,9 +2463,6 @@ msgstr "Pronamic"
 #~ msgid "BIC"
 #~ msgstr "BIC"
 
-#~ msgid "Status Request"
-#~ msgstr "Status verzoek"
-
 #~ msgid "iDEAL Payments"
 #~ msgstr "iDEAL-betalingen"
 
@@ -2532,9 +2583,6 @@ msgstr "Pronamic"
 
 #~ msgid "Uninstall"
 #~ msgstr "Verwijder"
-
-#~ msgid "Customer Message"
-#~ msgstr "Klant  bericht"
 
 #, fuzzy
 #~ msgid "Method Title"
