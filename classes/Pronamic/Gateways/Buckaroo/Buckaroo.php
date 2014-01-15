@@ -369,17 +369,17 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 */
 	public function get_html_fields() {
 		$data = array(
-				Pronamic_Gateways_Buckaroo_Parameters::WEBSITE_KEY       => $this->get_website_key(),
-				Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER    => $this->get_invoice_number(),
-				Pronamic_Gateways_Buckaroo_Parameters::AMOUNT            => number_format( $this->get_amount(), 2, '.', '' ),
-				Pronamic_Gateways_Buckaroo_Parameters::CURRENCY          => $this->get_currency(),
-				Pronamic_Gateways_Buckaroo_Parameters::CULTURE           => $this->get_culture(),
-				Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
-				Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD    => $this->get_payment_method(),
-				Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->get_return_url(),
-				Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->get_return_reject_url(),
-				Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->get_return_error_url(),
-				Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->get_return_cancel_url()
+			Pronamic_Gateways_Buckaroo_Parameters::WEBSITE_KEY       => $this->get_website_key(),
+			Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER    => $this->get_invoice_number(),
+			Pronamic_Gateways_Buckaroo_Parameters::AMOUNT            => number_format( $this->get_amount(), 2, '.', '' ),
+			Pronamic_Gateways_Buckaroo_Parameters::CURRENCY          => $this->get_currency(),
+			Pronamic_Gateways_Buckaroo_Parameters::CULTURE           => $this->get_culture(),
+			Pronamic_Gateways_Buckaroo_Parameters::DESCRIPTION       => $this->get_description(),
+			Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD    => $this->get_payment_method(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_URL        => $this->get_return_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_REJECT_URL => $this->get_return_reject_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_ERROR_URL  => $this->get_return_error_url(),
+			Pronamic_Gateways_Buckaroo_Parameters::RETURN_CANCEL_URL => $this->get_return_cancel_url(),
 		);
 
 		$signature = self::get_signature( $data, $this->get_secret_key() );
@@ -424,20 +424,20 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 				$data = array_change_key_case( $data, CASE_LOWER );
 
 				$result = filter_var_array( $data, array(
-						Pronamic_Gateways_Buckaroo_Parameters::PAYMENT                       => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD                => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE                   => FILTER_VALIDATE_INT,
-						Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE_DETAIL            => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::STATUS_MESSAGE                => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER                => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::AMOUNT                        => FILTER_VALIDATE_FLOAT,
-						Pronamic_Gateways_Buckaroo_Parameters::CURRENCY                      => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::TIMESTAMP                     => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_ISSUER => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME   => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN   => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC    => FILTER_SANITIZE_STRING,
-						Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::PAYMENT                       => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::PAYMENT_METHOD                => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE                   => FILTER_VALIDATE_INT,
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE_DETAIL            => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::STATUS_MESSAGE                => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::INVOICE_NUMBER                => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::AMOUNT                        => FILTER_VALIDATE_FLOAT,
+					Pronamic_Gateways_Buckaroo_Parameters::CURRENCY                      => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::TIMESTAMP                     => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_ISSUER => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME   => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN   => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC    => FILTER_SANITIZE_STRING,
+					Pronamic_Gateways_Buckaroo_Parameters::TRANSACTIONS                  => FILTER_SANITIZE_STRING,
 				) );
 			}
 		}
