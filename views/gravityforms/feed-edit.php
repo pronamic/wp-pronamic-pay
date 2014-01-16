@@ -79,7 +79,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				
 				<span class="description">
 					<br />
-					<?php _e( 'Please enter a prefix for your entry ID\'s. If you use an gateway for multiple stores ensure this prefix is unique as not all gateways will allow payments with the same ID.', 'pronamic_ideal' ); ?>
+					<?php _e( 'Please enter a prefix for your entry ID\'s. If you use an gateway for multiple websites ensure this prefix is unique as not all gateways will allow payments with the same ID.', 'pronamic_ideal' ); ?>
 				</span>
 			</td>
 		</tr>
