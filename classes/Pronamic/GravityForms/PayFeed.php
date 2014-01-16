@@ -83,7 +83,7 @@ class Pronamic_GravityForms_PayFeed {
 		// Load
 		$this->config_id                = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 
-		$this->order_id_prefix          = get_post_meta( $post_id, '_pronamic_pay_gf_order_id_prefix', true );
+		$this->entry_id_prefix          = get_post_meta( $post_id, '_pronamic_pay_gf_entry_id_prefix', true );
 
 		$this->transaction_description  = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 

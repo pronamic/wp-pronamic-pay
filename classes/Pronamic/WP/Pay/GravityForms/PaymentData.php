@@ -99,7 +99,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	 */
 	public function get_order_id() {
 		// @see http://www.gravityhelp.com/documentation/page/Entry_Object#Standard
-		$order_id = $this->feed->order_id_prefix . $this->lead['id'];
+		$order_id = $this->feed->entry_id_prefix . $this->lead['id'];
 
 		return $order_id;
 	}

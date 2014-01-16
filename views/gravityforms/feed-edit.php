@@ -66,16 +66,21 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		<tr>
 			<th scope="row">
 				<label for="_pronamic_pay_gf_order_id">
-					<?php _e( 'Order ID Prefix', 'pronamic_ideal' ); ?>
+					<?php _e( 'Entry ID Prefix', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
 				<?php 
 	
-				$order_id_prefix = get_post_meta( $post_id, '_pronamic_pay_gf_order_id_prefix', true );
+				$entry_id_prefix = get_post_meta( $post_id, '_pronamic_pay_gf_entry_id_prefix', true );
 	
 				?>
-				<input id="_pronamic_pay_gf_order_id_prefix" name="_pronamic_pay_gf_order_id_prefix" value="<?php echo esc_attr( $order_id_prefix ); ?>" type="text" class="regular-text " />
+				<input id="_pronamic_pay_gf_entry_id_prefix" name="_pronamic_pay_gf_entry_id_prefix" value="<?php echo esc_attr( $entry_id_prefix ); ?>" type="text" class="input-text regular-input" maxlength="8" />
+				
+				<span class="description">
+					<br />
+					<?php _e( 'Please enter a prefix for your entry ID\'s. If you use an gateway for multiple stores ensure this prefix is unique as not all gateways will allow payments with the same ID.', 'pronamic_ideal' ); ?>
+				</span>
 			</td>
 		</tr>
 		<tr>
