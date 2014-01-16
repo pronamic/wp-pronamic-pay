@@ -66,23 +66,16 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		<tr>
 			<th scope="row">
 				<label for="_pronamic_pay_gf_order_id">
-					<?php _e( 'Order ID', 'pronamic_ideal' ); ?>
+					<?php _e( 'Order ID Prefix', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
 				<?php 
 	
-				$order_id = get_post_meta( $post_id, '_pronamic_pay_gf_order_id', true );
+				$order_id_prefix = get_post_meta( $post_id, '_pronamic_pay_gf_order_id_prefix', true );
 	
 				?>
-				<input id="_pronamic_pay_gf_order_id" name="_pronamic_pay_gf_order_id" value="<?php echo esc_attr( $order_id ); ?>" type="text" class="regular-text " />
-	
-				<span class="description">
-					<br />
-					<?php _e( 'Maximum number of charachters is 16, you should also consider the use of variables Gravity Forms. An generated order id that is longer than 16 characters will be automatically truncated.', 'pronamic_ideal' ); ?>
-					<br />
-					<?php _e( 'Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>', 'pronamic_ideal' ); ?>
-				</span>
+				<input id="_pronamic_pay_gf_order_id_prefix" name="_pronamic_pay_gf_order_id_prefix" value="<?php echo esc_attr( $order_id_prefix ); ?>" type="text" class="regular-text " />
 			</td>
 		</tr>
 		<tr>
