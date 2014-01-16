@@ -366,11 +366,11 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		$links = is_array( $links ) ? $links : array();
 
 		$fields = array(
-			Pronamic_GravityForms_IDeal_Feed::LINK_OPEN    => __( 'Open', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS => __( 'Success', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_ERROR   => __( 'Error', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED => __( 'Expired', 'pronamic_ideal' )
+			Pronamic_WP_Pay_GravityForms_Links::OPEN    => __( 'Open', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::SUCCESS => __( 'Success', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::ERROR   => __( 'Error', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::EXPIRED => __( 'Expired', 'pronamic_ideal' ),
 		);
 	
 		foreach ( $fields as $name => $label ) : ?>
