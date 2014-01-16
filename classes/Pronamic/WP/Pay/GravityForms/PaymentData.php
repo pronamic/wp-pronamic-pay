@@ -28,7 +28,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	/**
 	 * Pronamic iDEAL feed object
 	 * 
-	 * @var Pronamic_GravityForms_IDeal_Feed
+	 * @var Pronamic_GravityForms_PayFeed
 	 */
 	private $feed;
 
@@ -39,7 +39,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	 * 
 	 * @param array $form
 	 * @param array $lead
-	 * @param Pronamic_GravityForms_IDeal_Feed $feed
+	 * @param Pronamic_GravityForms_PayFeed $feed
 	 */
 	public function __construct( $form, $lead, $feed ) {
 		parent::__construct();
@@ -99,7 +99,9 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	 */
 	public function get_order_id() {
 		// @see http://www.gravityhelp.com/documentation/page/Entry_Object#Standard
-		return $this->lead['id'];
+		$order_id = $this->feed->entry_id_prefix . $this->lead['id'];
+
+		return $order_id;
 	}
 
 	/**
@@ -245,7 +247,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	//////////////////////////////////////////////////
 	
 	public function get_normal_return_url() {
-		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_OPEN );
+		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::OPEN );
 
 		if ( empty( $url ) ) {
         	$url = parent::get_normal_return_url();
@@ -255,7 +257,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	}
 	
 	public function get_cancel_url() {
-		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL );
+		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::CANCEL );
 
         if ( empty( $url ) ) {
         	$url = parent::get_cancel_url();
@@ -265,7 +267,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	}
 	
 	public function get_success_url() {
-		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS );
+		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::SUCCESS );
 
 		if ( empty( $url ) ) {
         	$url = parent::get_success_url();
@@ -275,7 +277,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	}
 
 	public function get_error_url() {
-		$url = $this->feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_ERROR );
+		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::ERROR );
 
 		if ( empty( $url ) ) {
 			$url = parent::get_error_url();

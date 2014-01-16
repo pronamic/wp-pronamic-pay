@@ -182,7 +182,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED:
 						$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] = Pronamic_GravityForms_PaymentStatuses::EXPIRED;
 
-						$url = $feed->get_url( Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED );
+						$url = $feed->get_url( Pronamic_WP_Pay_GravityForms_Links::EXPIRED );
 
 						break;
 					case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE:

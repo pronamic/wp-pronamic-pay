@@ -12,7 +12,7 @@ bind_providers_and_gateways();
 foreach ( $pronamic_pay_providers as $provider ) {
 	$group = array(
 		'name'    => $provider['name'],
-		'options' => array()
+		'options' => array(),
 	);
 
 	if ( isset( $provider['gateways'] ) ) {

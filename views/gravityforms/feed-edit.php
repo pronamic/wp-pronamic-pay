@@ -65,6 +65,26 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		</tr>
 		<tr>
 			<th scope="row">
+				<label for="_pronamic_pay_gf_order_id">
+					<?php _e( 'Entry ID Prefix', 'pronamic_ideal' ); ?>
+				</label>
+			</th>
+			<td>
+				<?php 
+	
+				$entry_id_prefix = get_post_meta( $post_id, '_pronamic_pay_gf_entry_id_prefix', true );
+	
+				?>
+				<input id="_pronamic_pay_gf_entry_id_prefix" name="_pronamic_pay_gf_entry_id_prefix" value="<?php echo esc_attr( $entry_id_prefix ); ?>" type="text" class="input-text regular-input" maxlength="8" />
+				
+				<span class="description">
+					<br />
+					<?php _e( 'Please enter a prefix for your entry ID\'s. If you use an gateway for multiple websites ensure this prefix is unique as not all gateways will allow payments with the same ID.', 'pronamic_ideal' ); ?>
+				</span>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
 				<label for="_pronamic_pay_gf_transaction_description">
 					<?php _e( 'Transaction Description', 'pronamic_ideal' ); ?>
 				</label>
@@ -366,11 +386,11 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		$links = is_array( $links ) ? $links : array();
 
 		$fields = array(
-			Pronamic_GravityForms_IDeal_Feed::LINK_OPEN    => __( 'Open', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_SUCCESS => __( 'Success', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_ERROR   => __( 'Error', 'pronamic_ideal' ),
-			Pronamic_GravityForms_IDeal_Feed::LINK_EXPIRED => __( 'Expired', 'pronamic_ideal' )
+			Pronamic_WP_Pay_GravityForms_Links::OPEN    => __( 'Open', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::SUCCESS => __( 'Success', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::ERROR   => __( 'Error', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_GravityForms_Links::EXPIRED => __( 'Expired', 'pronamic_ideal' ),
 		);
 	
 		foreach ( $fields as $name => $label ) : ?>

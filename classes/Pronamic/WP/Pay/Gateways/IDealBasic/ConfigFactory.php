@@ -2,7 +2,7 @@
 
 class Pronamic_WP_Pay_Gateways_IDealBasic_ConfigFactory {
 	public static function get_config( $post_id ) {
-		$config = new Pronamic_Gateways_IDealBasic_Config();
+		$config = new Pronamic_Pay_Gateways_IDealBasic_Config();
 
 		$config->merchant_id = get_post_meta( $post_id, '_pronamic_gateway_ideal_merchant_id', true );
 		$config->sub_id      = get_post_meta( $post_id, '_pronamic_gateway_ideal_sub_id', true );

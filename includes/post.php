@@ -627,21 +627,22 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 
 	/* OK, its safe for us to save the data now. */
 	$definition = array(
-		'_pronamic_pay_gf_form_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_config_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_transaction_description' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_condition_enabled' => FILTER_VALIDATE_BOOLEAN,
-		'_pronamic_pay_gf_condition_field_id' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_condition_operator' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_condition_value' => FILTER_SANITIZE_STRING,
-		'_pronamic_pay_gf_delay_notification_ids' => array(
+		'_pronamic_pay_gf_form_id'                            => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_config_id'                          => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_entry_id_prefix'                    => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_transaction_description'            => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_enabled'                  => FILTER_VALIDATE_BOOLEAN,
+		'_pronamic_pay_gf_condition_field_id'                 => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_operator'                 => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_condition_value'                    => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_delay_notification_ids'             => array(
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
 		),
-		'_pronamic_pay_gf_delay_post_creation' => FILTER_VALIDATE_BOOLEAN,
+		'_pronamic_pay_gf_delay_post_creation'                => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_delay_campaignmonitor_subscription' => FILTER_VALIDATE_BOOLEAN,
-		'_pronamic_pay_gf_delay_mailchimp_subscription' => FILTER_VALIDATE_BOOLEAN,
-		'_pronamic_pay_gf_fields' => array(
+		'_pronamic_pay_gf_delay_mailchimp_subscription'       => FILTER_VALIDATE_BOOLEAN,
+		'_pronamic_pay_gf_fields'                             => array(
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
 		),
@@ -649,7 +650,7 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
 		),
-		'_pronamic_pay_gf_user_role_field_id' => FILTER_SANITIZE_STRING
+		'_pronamic_pay_gf_user_role_field_id'                 => FILTER_SANITIZE_STRING
 	);
 	
 	$data = filter_input_array( INPUT_POST, $definition );
