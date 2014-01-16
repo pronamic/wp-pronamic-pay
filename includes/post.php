@@ -629,6 +629,7 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 	$definition = array(
 		'_pronamic_pay_gf_form_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_config_id' => FILTER_SANITIZE_STRING,
+		'_pronamic_pay_gf_order_id' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_transaction_description' => FILTER_SANITIZE_STRING,
 		'_pronamic_pay_gf_condition_enabled' => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_condition_field_id' => FILTER_SANITIZE_STRING,
