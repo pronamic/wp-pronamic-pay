@@ -7,7 +7,6 @@ $form_id = get_post_meta( $post_id, '_pronamic_pay_gf_form_id', true );
 $form_meta = RGFormsModel::get_form_meta( $form_id );
 
 $feed = new stdClass();
-$feed->transactionDescription = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
 $feed->conditionFieldId       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 $feed->conditionOperator      = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
 $feed->conditionValue         = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
