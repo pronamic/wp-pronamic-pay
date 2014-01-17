@@ -15,26 +15,13 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestRedirectTransactionParser e
 	 * @depends test_init
 	 */
 	function test_parser( $simplexml ) {
-		$response = Pronamic_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseParser::parse( $simplexml );
 		
-		$this->assertInstanceOf( 'Pronamic_Pay_Gateways_MultiSafepay_Connect_OrderResponse', $response );
-		
-		return $response;
 	}
 
 	/**
 	 * @depends test_parser
 	 */
 	function test_values( $response ) {
-		$expected = new Pronamic_Gateways_MultiSafepay_Connect_RedirectTransactionResponse();
-		$expected->order_id      = '52';
-		$expected->pay_id        = '0';
-		$expected->nc_error      = '50001123';
-		$expected->status        = '0';
-		$expected->nc_error_plus = 'Card type not active for the merchant';
-
-		$this->assertEquals( $expected, $order_response );
 		
-		return $banklist;
 	}
 }

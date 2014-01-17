@@ -1,41 +1,42 @@
-<?xml version=”1.0” encoding=”utf-8”?> 
+<?xml version="1.0" encoding="utf-8"?> 
+
 <redirecttransaction ua=”PHP-class-1.0”> 
-<merchant> 
-<account>1001001</account> 
-<site_id>60</site_id> 
-<site_secure_code>123</site_secure_code> 
-<notification_url>http://www.example.com/msp/notify.php</notification_url> 
-<redirect_url>http://www.example.com/msp/thanks.php</redirect_url> 
-<cancel_url>http://www.example.com/msp/cancel.php</cancel_url> 
-<close_window>false</close_window> 
-</merchant> 
-<customer> 
-<locale>nl_NL</account> 
-<ipaddress>127.0.0.1</site_id> 
-<forwardedip></forwardedip> 
-<firstname>Jan</firstname> 
-<lastname>Modaal</lastname> 
-<address1>de Straat</address1> 
-<address2></address2> 
-<housenumber>81</housenumber> 
-<zipcode>8181HA</zipcode> 
-<city>Amsterdam</city> 
-<country>Nederland</country> 
-<phone>0201234567</phone> 
-<email>webshops@multisafepay.com</email> 
-</customer> 
-<transaction> 
-<id>ABCD1234</id> 
-<currency>EUR</currency> 
-<amount>1000</amount> 
-<description>Mijn Product beschrijving</description> 
-<var1></var1> 
-<var2></var2> 
-<var3></var3> 
-<items><ul><li>Product 1</li><li>Product 2</li></ul></items> 
-<manual>false</manual> 
-<gateway></gateway> 
-<daysactive></daysactive> 
-</transaction> 
-<signature>652a5f2d94d384ba3fecad57c77586e1</signature> 
-</redirecttransaction> 
+	<merchant> 
+		<account>1001001</account> 
+		<site_id>60</site_id> 
+		<site_secure_code>123</site_secure_code> 
+		<notification_url>http://www.example.com/msp/notify.php</notification_url> 
+		<redirect_url>http://www.example.com/msp/thanks.php</redirect_url> 
+		<cancel_url>http://www.example.com/msp/cancel.php</cancel_url> 
+		<close_window>false</close_window> 
+	</merchant> 
+	<customer> 
+		<locale>nl_NL</account> 
+		<ipaddress>127.0.0.1</site_id> 
+		<forwardedip></forwardedip> 
+		<firstname>Jan</firstname> 
+		<lastname>Modaal</lastname> 
+		<address1>de Straat</address1> 
+		<address2></address2> 
+		<housenumber>81</housenumber> 
+		<zipcode>8181HA</zipcode> 
+		<city>Amsterdam</city> 
+		<country>Nederland</country> 
+		<phone>0201234567</phone> 
+		<email>webshops@multisafepay.com</email> 
+	</customer> 
+	<transaction> 
+		<id>ABCD1234</id> 
+		<currency>EUR</currency> 
+		<amount>1000</amount> 
+		<description>Mijn Product beschrijving</description> 
+		<var1></var1> 
+		<var2></var2> 
+		<var3></var3> 
+		<items><ul><li>Product 1</li><li>Product 2</li></ul></items> 
+		<manual>false</manual> 
+		<gateway></gateway> 
+		<daysactive></daysactive> 
+	</transaction> 
+	<signature>652a5f2d94d384ba3fecad57c77586e1</signature> 
+</redirecttransaction>
