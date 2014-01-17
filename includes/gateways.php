@@ -392,11 +392,10 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// MultiSafepay
-	'dutchpaymentgroup' => array(
+	'multisafepay-connect' => array(
 		'provider' => 'multisafepay',
-		'gateway'  => 'multisafepay',
-		'disabled' => true,
-		'name'     => 'MultiSafepay',
+		'gateway'  => 'multisafepay_connect',
+		'name'     => 'MultiSafepay - Connect',
 		'url'      => 'http://www.multisafepay.com/',
 	),
 	// NEOS
