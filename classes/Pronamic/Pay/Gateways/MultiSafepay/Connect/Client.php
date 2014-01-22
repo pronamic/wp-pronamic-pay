@@ -47,20 +47,28 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	/////////////////////////////////////////////////
 
-	/**
-	 * Order direct
-	 * 
-	 * @param array $data
-	 */
-	public function start_transaction( $message ) {
-		$return = false;
+	private function parse_xml( $xml ) {
+		switch ( $xml->getName() ) {
+			case Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionRequestMessage::NAME:
+				return Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseMessage::parse( $xml );;
+			case Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusRequestMessage::NAME:
+				return Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage::parse( $xml );;
+		}
 
+		return false;
+	}
+
+	/////////////////////////////////////////////////
+
+	private function reuqest( $message ) {
+		$return = false;
+		
 		$result = Pronamic_WP_Util::remote_get_body( $this->api_url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
-			'body'      => (string) $message
+			'body'      => (string) $message,
 		) );
-
+		
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
@@ -69,12 +77,48 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
-				$message = Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseMessage::parse( $xml );
-
-				$transaction = $message->transaction;
-				
-				$return = $transaction;
+				$return = $this->parse_xml( $xml );
 			}
+		}
+		
+		return $return;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Start transaction
+	 * 
+	 * @param array $data
+	 */
+	public function start_transaction( $message ) {
+		$return = false;
+
+		$response = $this->reuqest( $message );
+
+		if ( $response ) {
+			$transaction = $response->transaction;
+				
+			$return = $transaction;
+		}
+
+		return $return;
+	}
+
+	/////////////////////////////////////////////////
+
+	/**
+	 * Get status
+	 * 
+	 * @param array $data
+	 */
+	public function get_status( $message ) {
+		$return = false;
+
+		$response = $this->reuqest( $message );
+
+		if ( $response ) {
+			$return = $response;
 		}
 
 		return $return;

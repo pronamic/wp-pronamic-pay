@@ -306,6 +306,22 @@
 				),
 			),
 		),
+		'multisafepay.com' => array(
+			'name'      => 'MultiSafepay',
+			'url'       => 'https://www.multisafepay.com/',
+			'resources' => array(
+				array(
+					'url'  => 'http://pronamic.nl/wp-content/uploads/2014/01/Handleiding_connectENG.pdf',
+					'name' => 'MultiSafepay Connect - Implementation Guide Connect',
+					'date' => new DateTime( '27-12-2013' ),
+				),
+				array(
+					'url'  => 'http://pronamic.nl/wp-content/uploads/2014/01/Handleiding_connectNL.pdf',
+					'name' => 'MultiSafepay Connect - Implementatie handleiding Connect',
+					'date' => new DateTime( '27-12-2013' ),
+				),
+			),
+		),
 		'buckaroo.nl' => array(
 			'name'      => 'Buckaroo',
 			'url'       => 'http://buckaroo.nl/',

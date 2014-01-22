@@ -98,6 +98,25 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway extends Pronamic_Gatewa
 	}
 	
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		
+		$merchant = new Pronamic_Pay_Gateways_MultiSafepay_Connect_Merchant();
+		$merchant->account = $this->config->account_id;
+		$merchant->site_id = $this->config->site_id;
+		$merchant->site_secure_code = $this->config->site_code;
+	
+		$message = new Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusRequestMessage( $merchant, $payment->get_transaction_id() );
+
+		$result = $this->client->get_status( $message );
+
+		if ( $result ) {
+			$status = Pronamic_Pay_Gateways_MultiSafepay_Connect_Statuses::transform( $result->ewallet->status );
+
+			$payment->set_status( $status );
+			$payment->set_consumer_name( $result->payment_details->account_holder_name );
+			$payment->set_consumer_iban( $result->payment_details->account_iban );
+			$payment->set_consumer_bic( $result->payment_details->account_bic );
+			$payment->set_consumer_account_number( $result->payment_details->account_id );
+		} else {
+			$this->error = $this->client->get_error();
+		}
 	}
 }
