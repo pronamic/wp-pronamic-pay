@@ -15,13 +15,26 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestRedirectTransactionParser e
 	 * @depends test_init
 	 */
 	function test_parser( $simplexml ) {
+		$message = Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseMessage::parse( $simplexml );
 		
+		$this->assertInstanceOf( 'Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseMessage', $message );
+		
+		return $message;
 	}
 
 	/**
 	 * @depends test_parser
 	 */
-	function test_values( $response ) {
+	function test_values( $message ) {
+		$expected = new Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionResponseMessage();	
+		$expected->result = 'ok';
 		
+		$transaction = new Pronamic_Pay_Gateways_MultiSafepay_Connect_Transaction();
+		$transaction->id = 'ABCD1234';
+		$transaction->payment_url = 'http://www.multisafepay.com/pay/...&lang=en';
+		
+		$expected->transaction = $transaction;
+
+		$this->assertEquals( $expected, $message );		
 	}
 }
