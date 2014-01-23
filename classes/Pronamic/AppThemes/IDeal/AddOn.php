@@ -80,7 +80,7 @@ class Pronamic_AppThemes_IDeal_AddOn {
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 					$order->complete();
 
-	                $url = $data->get_success_url();
+					$url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
