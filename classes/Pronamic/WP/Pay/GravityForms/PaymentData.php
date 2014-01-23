@@ -51,17 +51,23 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get the field value of the specifled field
+	 * 
+	 * @param string $field_name
+	 * @return Ambigous <NULL, multitype:>
+	 */
 	private function get_field_value( $field_name ) {
 		$value = null;
 
-		if ( isset( $this->feed->fields[$field_name] ) ) {
-			$field_id = $this->feed->fields[$field_name];
+		if ( isset( $this->feed->fields[ $field_name ] ) ) {
+			$field_id = $this->feed->fields[ $field_name ];
 			
-			if ( isset( $this->lead[$field_id] ) ) {
-				$value = $this->lead[$field_id];
+			if ( isset( $this->lead[ $field_id ] ) ) {
+				$value = $this->lead[ $field_id ];
 			}
 		}
-		
+
 		return $value;
 	}
 
