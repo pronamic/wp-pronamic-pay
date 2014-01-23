@@ -2,6 +2,197 @@
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
+## Gateways
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Provider</th>
+			<th scope="col">Name</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Easy</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Hosted</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Only Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Zelfbouw</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.adyen.com/">Adyen</a></td>
+			<td>Adyen</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
+			<td>Buckaroo - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
+			<td>Deutsche Bank - iDEAL via Ogone</td>
+		</tr>
+		<tr>
+			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
+			<td>Deutsche Bank - iDEAL Expert - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.dutchpaymentgroup.com/">Dutch Payment Group</a></td>
+			<td>PayDutch</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.easy-ideal.com/">Easy iDeal</a></td>
+			<td>Easy iDeal - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Hosted</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Integrated</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk Plus</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk Plus - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.icepay.nl/">ICEPAY</a></td>
+			<td>ICEPAY - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Lite / Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Advanced - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.multisafepay.com/">MultiSafepay</a></td>
+			<td>MultiSafepay - Connect</td>
+		</tr>
+		<tr>
+			<td><a href="http://neossolution.com/">NEOS</a></td>
+			<td>NEOS - Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - Easy</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - OrderStandard</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - DirectLink</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Lite</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - Rabo iDEAL Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - OmniKassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Professional</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Professional - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.targetpay.com/">TargetPay</a></td>
+			<td>TargetPay - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.qantani.com/">Qantani</a></td>
+			<td>Qantani - iDEAL</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Extensions
 
 <table>
