@@ -26,7 +26,7 @@
 						<?php _e( 'Activation Date', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-		                 <?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->activationDate ); ?>
+						<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->activationDate ); ?>
 					</td>
 				</tr>
 	
@@ -39,7 +39,7 @@
 						<?php _e( 'Expiration Date', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-		                 <?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->expirationDate ); ?>
+						<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->expirationDate ); ?>
 					</td>
 				</tr>
 	
@@ -57,17 +57,17 @@
 	
 	$extensions = array(
 		// Plugins
-        'easy-digital-downloads' => array(
-            'name'               => __( 'Easy Digital Downloads', 'pronamic_ideal' ),
-            'url'                => 'https://easydigitaldownloads.com/',
-            'wp_org_url'         => 'http://wordpress.org/plugins/easy-digital-downloads/',
-            'github_url'         => 'https://github.com/easydigitaldownloads/Easy-Digital-Downloads',
-            'active'             => Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active(),
-            'requires_at_least'  => '1.8.6',
-            'tested_up_to'       => '1.8.6',
-            'author'             => __( 'Pippin Williamson', 'pronamic_ideal' ),
-            'author_url'         => 'http://pippinsplugins.com/',
-        ),
+		'easy-digital-downloads' => array(
+			'name'               => __( 'Easy Digital Downloads', 'pronamic_ideal' ),
+			'url'                => 'https://easydigitaldownloads.com/',
+			'wp_org_url'         => 'http://wordpress.org/plugins/easy-digital-downloads/',
+			'github_url'         => 'https://github.com/easydigitaldownloads/Easy-Digital-Downloads',
+			'active'             => Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active(),
+			'requires_at_least'  => '1.8.6',
+			'tested_up_to'       => '1.8.6',
+			'author'             => __( 'Pippin Williamson', 'pronamic_ideal' ),
+			'author_url'         => 'http://pippinsplugins.com/',
+		),
 		'event-espresso'         => array(
 			'name'               => __( 'Event Espresso', 'pronamic_ideal' ),
 			'url'                => 'http://eventespresso.com/',
