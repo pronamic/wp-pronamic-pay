@@ -63,7 +63,6 @@
 
 			?></td>
 			<td><?php echo esc_html( $extension['tested_up_to'] ); ?></td>
-			<td><?php if ( $extension['active'] ) : ?>&#10003;<?php endif; ?></td>
 		</tr>
 <?php endforeach; ?>
 	</tbody>

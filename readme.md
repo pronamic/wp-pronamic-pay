@@ -211,7 +211,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
 			<td>1.8.6</td>
 			<td>1.8.6</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso</a></td>
@@ -220,7 +219,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>3.1.24</td>
 			<td>3.1.35.P</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso Lite</a></td>
@@ -229,7 +227,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>3.1.29.1.L</td>
 			<td>3.1.35.L</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
@@ -238,7 +235,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>1.6</td>
 			<td>1.8</td>
-			<td>&#10003;</td>
 		</tr>
 		<tr>
 			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
@@ -247,7 +243,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
 			<td>1.1</td>
 			<td>1.8</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">Membership</a></td>
@@ -256,7 +251,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>3.4.4.1</td>
 			<td>3.4.4.1</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
@@ -265,7 +259,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>3.4.6</td>
 			<td>3.4.6</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
@@ -274,7 +267,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
 			<td>130816</td>
 			<td>131126</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
@@ -283,7 +275,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
 			<td>1.3.1</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
@@ -292,7 +283,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
 			<td>2.0.0</td>
 			<td>2.0.18</td>
-			<td>&#10003;</td>
 		</tr>
 		<tr>
 			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
@@ -301,7 +291,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
 			<td>3.8.12.1</td>
 			<td>3.8.12.1</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
@@ -310,7 +299,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>3.3.1</td>
 			<td>3.3.1</td>
-			<td></td>
 		</tr>
 		<tr>
 			<td><a href="http://www.appthemes.com/themes/jobroller/" target="_blank">JobRoller</a></td>
@@ -319,7 +307,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td></td>
 			<td>1.7.1</td>
-			<td></td>
 		</tr>
 	</tbody>
 </table>
