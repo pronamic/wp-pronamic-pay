@@ -83,6 +83,7 @@ $pronamic_pay_gateways = array(
 			'certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer'
 		),
 	),
+	/*
 	// Adyen
 	'adyen' => array(
 		'provider' => 'adyen',
@@ -98,6 +99,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://ca-live.adyen.com/',
 		),
 	),
+	*/
 	// Buckaroo
 	'buckaroo' => array(
 		'provider'      => 'buckaroo',
@@ -392,11 +394,10 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// MultiSafepay
-	'dutchpaymentgroup' => array(
+	'multisafepay-connect' => array(
 		'provider' => 'multisafepay',
-		'gateway'  => 'multisafepay',
-		'disabled' => true,
-		'name'     => 'MultiSafepay',
+		'gateway'  => 'multisafepay_connect',
+		'name'     => 'MultiSafepay - Connect',
 		'url'      => 'http://www.multisafepay.com/',
 	),
 	// NEOS

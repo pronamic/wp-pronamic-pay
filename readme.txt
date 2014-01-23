@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.8
-Stable tag: 2.4.3
+Stable tag: 2.5.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -154,6 +154,13 @@ Here is a list of known plugin conflicts:
 *	Mollie - Add unit tests for new API.
 
 == Changelog ==
+
+= 2.5.0 =
+*	Tweak - Rabobank - OmniKassa - Moved listener on payment status up in the WordPress code flow.
+*	Documentation - Rabobank - OmniKassa - Added OmniKassa documentation v6.0.
+*	Feature - MultiSafepay - Added support the MultiSafepay gateway.
+*	Fix - Gravity Forms - Improved support for payment feed description with quotes.
+*	Feature - Gravity Forms - Added an 'User Registration Delay' setting for the Gravity Forms User Registration Add-On.
 
 = 2.4.3 =
 *	Feature - Gravity Forms - Added an entry ID prefix field to the payment feed.

@@ -406,7 +406,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Settings', 'pronamic_ideal' ), 
 			__( 'Settings', 'pronamic_ideal' ), 
 			'pronamic_ideal_settings', 
-			'pronamic_ideal_settings', 
+			'pronamic_pay_settings', 
 			array( __CLASS__, 'page_settings' )
 		);
 
@@ -430,11 +430,20 @@ class Pronamic_WordPress_IDeal_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal', 
-			__( 'Variants', 'pronamic_ideal' ), 
-			__( 'Variants', 'pronamic_ideal' ), 
-			'pronamic_ideal_variants', 
-			'pronamic_ideal_variants', 
-			array( __CLASS__, 'page_variants' )
+			__( 'Gateways', 'pronamic_ideal' ), 
+			__( 'Gateways', 'pronamic_ideal' ), 
+			'pronamic_ideal', 
+			'pronamic_pay_gateways', 
+			array( __CLASS__, 'page_gateways' )
+		);
+
+		add_submenu_page(
+			'pronamic_ideal', 
+			__( 'Extensions', 'pronamic_ideal' ), 
+			__( 'Extensions', 'pronamic_ideal' ), 
+			'pronamic_ideal', 
+			'pronamic_pay_extensions', 
+			array( __CLASS__, 'page_extensions' )
 		);
 
 		add_submenu_page(
@@ -442,7 +451,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Documentation', 'pronamic_ideal' ), 
 			__( 'Documentation', 'pronamic_ideal' ), 
 			'pronamic_ideal_documentation', 
-			'pronamic_ideal_documentation', 
+			'pronamic_pay_documentation', 
 			array( __CLASS__, 'page_documentation' )
 		);
 
@@ -451,7 +460,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			__( 'Branding', 'pronamic_ideal' ), 
 			__( 'Branding', 'pronamic_ideal' ), 
 			'pronamic_ideal_branding', 
-			'pronamic_ideal_branding', 
+			'pronamic_pay_branding', 
 			array( __CLASS__, 'page_branding' )
 		);
 
@@ -473,37 +482,15 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function page_dashboard() {
-		return self::render_view( 'dashboard' );
-	}
-
-	public static function page_settings() {
-		return self::render_view( 'settings' );
-	}
-
-	public static function page_pages_generator() {
-		return self::render_view( 'pages-generator' );
-	}
-
-	public static function page_system_status() {
-		return self::render_view( 'status-system' );
-	}
-
-	public static function page_ideal_status() {
-		return self::render_view( 'status-ideal' );
-	}
-
-	public static function page_variants() {
-		return self::render_view( 'variants' );
-	}
-
-	public static function page_documentation() {
-		return self::render_view( 'documentation' );
-	}
-
-	public static function page_branding() {
-		return self::render_view( 'branding' );
-	}
+	public static function page_dashboard() { return self::render_view( 'dashboard' ); }
+	public static function page_settings() { return self::render_view( 'settings' ); }
+	public static function page_pages_generator() { return self::render_view( 'pages-generator' ); }
+	public static function page_system_status() { return self::render_view( 'status-system' ); }
+	public static function page_ideal_status() { return self::render_view( 'status-ideal' ); }
+	public static function page_extensions() { return self::render_view( 'extensions' ); }
+	public static function page_gateways() { return self::render_view( 'gateways' ); }
+	public static function page_documentation() { return self::render_view( 'documentation' ); }
+	public static function page_branding() { return self::render_view( 'branding' ); }
 
 	//////////////////////////////////////////////////
 

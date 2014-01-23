@@ -123,6 +123,8 @@ class Pronamic_GravityForms_IDeal_Processor {
 		// Delay
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_campaignmonitor_subscription' ), 1, 2 );
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_mailchimp_subscription' ), 1, 2 );
+		
+		add_action( 'gform_disable_registration', array( $this, 'maybe_delay_user_registration' ), 10, 4 );
 	}
 
 	//////////////////////////////////////////////////
@@ -301,6 +303,23 @@ class Pronamic_GravityForms_IDeal_Processor {
 				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2);
 			}
 		}
+	}
+	
+	/**
+	 * Maybe delay user registration
+	 */
+	public function maybe_delay_user_registration( $disable_registration, $form, $entry, $fulfilled ) {
+		if ( $this->is_processing( $form ) ) {
+			$order_total = GFCommon::get_order_total( $form, $entry );
+				
+			// delay the registration IF:
+			// - the delay registration option is checked
+			// - the order total does NOT equal zero (no delay since there will never be a payment)
+			// - the payment has not already been fulfilled
+			$disable_registration = $this->feed->delay_user_registration && ( $order_total != 0 ) && ! $fulfilled;
+		}
+		
+		return $disable_registration;
 	}
 
 	//////////////////////////////////////////////////

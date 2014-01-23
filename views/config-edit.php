@@ -156,6 +156,33 @@ $sections = array(
 		),
 	),
 	array(
+		'title'   => __( 'MultiSafepay', 'pronamic_ideal' ),
+		'methods' => array( 'multisafepay_connect' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_multisafepay_account_id',
+				'title'       => __( 'Account ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'code' ),
+				'methods'     => array( 'multisafepay_connect' ),
+			),
+			 array(
+				'meta_key'    => '_pronamic_gateway_multisafepay_site_id',
+				'title'       => __( 'Site ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'code' ),
+				'methods'     => array( 'multisafepay_connect' ),
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_multisafepay_site_code',
+				'title'       => __( 'Site Security Code', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'code' ),
+				'methods'     => array( 'multisafepay_connect' ),
+			),
+		),
+	),
+	array(
 		'title'   => __( 'OmniKassa', 'pronamic_ideal' ),
 		'methods' => array( 'omnikassa' ),
 		'fields'  => array(

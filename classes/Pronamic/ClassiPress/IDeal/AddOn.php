@@ -70,42 +70,42 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 			array(
 				'type'    => 'tab',
 				'tabname' => __( 'iDEAL', 'pronamic_ideal' ),
-				'id'      => ''
+				'id'      => '',
 			),
 			// Title
 			array(
 				'type'    => 'title',
 				'name'    => __( 'iDEAL Options', 'pronamic_ideal' ),
-				'id'      => ''
+				'id'      => '',
 			),
 			// Logo/Picture
 			array(
 				'type'    => 'logo',
 				'name'    => sprintf( '<img src="%s" alt="" />', plugins_url( 'images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
-				'id'      => ''
+				'id'      => '',
 			),
-            // Select Box
-            array(
-            	'type'    => 'select',
+			// Select Box
+			array(
+				'type'    => 'select',
 				'name'    => __( 'Enable iDEAL', 'pronamic_ideal' ),
 				'options' => array(
 					'yes' => __( 'Yes', 'pronamic_ideal' ),
-					'no'  => __( 'No', 'pronamic_ideal' )
+					'no'  => __( 'No', 'pronamic_ideal' ),
 				) , 
-				'id'      => $app_abbr . '_pronamic_ideal_enable'
+				'id'      => $app_abbr . '_pronamic_ideal_enable',
 			),
 			// Select Box
 			array(
 				'type'    => 'select',
 				'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
 				'options' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
-				'id'      => $app_abbr . '_pronamic_ideal_config_id'
+				'id'      => $app_abbr . '_pronamic_ideal_config_id',
 			),
-            array(
-            	'type'    => 'tabend',
-				'id'      => ''
+			array(
+				'type'    => 'tabend',
+				'id'      => '',
 			)
-        );
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -131,11 +131,11 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * Add the option to the payment drop-down list on checkout
 	 */
 	public static function payment_method() {
-	    global $app_abbr;
+		global $app_abbr;
 
-	    if ( get_option( $app_abbr . '_pronamic_ideal_enable' ) == 'yes' ) {
-	        echo '<option value="pronamic_ideal">' . __( 'iDEAL', 'pronamic_ideal' ) . '</option>';
-	    }
+		if ( get_option( $app_abbr . '_pronamic_ideal_enable' ) == 'yes' ) {
+			echo '<option value="pronamic_ideal">' . __( 'iDEAL', 'pronamic_ideal' ) . '</option>';
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -266,7 +266,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 						Pronamic_ClassiPress_ClassiPress::update_payment_status_by_txn_id( $id, Pronamic_ClassiPress_PaymentStatuses::COMPLETED );
 					}
 
-	            	$url = $data->get_success_url();
+					$url = $data->get_success_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

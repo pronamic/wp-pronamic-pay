@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<status result="ok">
+	<ewallet>
+		<id>12345</id>
+		<status>completed</status>
+		<created>20070723171623</created>
+		<modified>20070903155907</modified>
+		<reasoncode></reasoncode>
+		<reason></reason>
+	</ewallet>
+
+	<customer>
+		<currency>EUR</currency>
+		<amount>1000</amount>
+		<exchange_rate>1</exchange_rate>
+		<firstname>First</firstname>
+		<lastname>Last</lastname>
+		<city>City</city>
+		<state></state>
+		<country>NL</country>
+	</customer>
+
+	<transaction>
+		<id>ABCD1234</id>
+		<currency>EUR</currency>
+		<amount>1000</amount>
+		<description>My Description</description>
+		<var1></var1>
+		<var2></var2>
+		<var3></var3>
+		<items>My Items</items>
+	</transaction>
+
+	<paymentdetails>
+		<type>IDEAL</type>
+		<accountiban></accountiban>
+		<accountbic></accountbic>
+		<accountid></accountid>
+		<accountholdername></accountholdername>
+		<externaltransactionid></externaltransactionid>
+	</paymentdetails>
+</status>

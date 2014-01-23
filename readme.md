@@ -2,6 +2,193 @@
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
+## Gateways
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Provider</th>
+			<th scope="col">Name</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Easy</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Hosted</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Only Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Zelfbouw</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
+			<td>Buckaroo - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
+			<td>Deutsche Bank - iDEAL via Ogone</td>
+		</tr>
+		<tr>
+			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
+			<td>Deutsche Bank - iDEAL Expert - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.dutchpaymentgroup.com/">Dutch Payment Group</a></td>
+			<td>PayDutch</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.easy-ideal.com/">Easy iDeal</a></td>
+			<td>Easy iDeal - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Hosted</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank - iDEAL Integrated</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk Plus</td>
+		</tr>
+		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk Plus - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.icepay.nl/">ICEPAY</a></td>
+			<td>ICEPAY - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Lite / Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</td>
+		</tr>
+		<tr>
+			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="http://ing.nl/">ING</a></td>
+			<td>ING - iDEAL Advanced - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.mollie.nl/">Mollie</a></td>
+			<td>Mollie - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.multisafepay.com/">MultiSafepay</a></td>
+			<td>MultiSafepay - Connect</td>
+		</tr>
+		<tr>
+			<td><a href="http://neossolution.com/">NEOS</a></td>
+			<td>NEOS - Internet Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - Easy</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - OrderStandard</td>
+		</tr>
+		<tr>
+			<td><a href="http://ogone.com/">Ogone</a></td>
+			<td>Ogone - DirectLink</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Lite</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - Rabo iDEAL Kassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - OmniKassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Professional</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Professional - v3</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL Basic</td>
+		</tr>
+		<tr>
+			<td><a href="http://sisow.nl/">Sisow</a></td>
+			<td>Sisow - iDEAL Advanced</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.targetpay.com/">TargetPay</a></td>
+			<td>TargetPay - iDEAL</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.qantani.com/">Qantani</a></td>
+			<td>Qantani - iDEAL</td>
+		</tr>
+	</tbody>
+</table>
+
+
 ## Extensions
 
 <table>
@@ -18,266 +205,108 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	
 	<tbody>
 		<tr>
-			<td>
-				<a target="_blank" href="https://easydigitaldownloads.com/">Easy Digital Downloads</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://pippinsplugins.com/">Pippin Williamson</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/easy-digital-downloads/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads">GitHub</a>
-			</td>
-			<td>
-                1.8.6
-			</td>
-			<td>
-                1.8.6
-			</td>
+			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
+			<td><a href="http://pippinsplugins.com/" target="_blank">Pippin Williamson</a></td>
+			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
+			<td>1.8.6</td>
+			<td>1.8.6</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://eventespresso.com/">
-					Event Espresso
-				</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
-			</td>
-			<td>
-                3.1.24
-			</td>
-			<td>
-                3.1.35.P
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://eventespresso.com/">Event Espresso Lite</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/event-espresso-free/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
-			</td>
-			<td>
-                3.1.29.1.L
-			</td>
-			<td>
-                3.1.35.L
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://www.gravityforms.com/">Gravity Forms</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.rocketgenius.com/">Rocketgenius</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-                1.6
-			</td>
-			<td>
-				1.8
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://jigoshop.com/">Jigoshop</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://jigowatt.co.uk/">Jigowatt</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/jigoshop/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/jigoshop/jigoshop">GitHub</a>
-			</td>
-			<td>
-				1.1
-			</td>
-			<td>
-				1.8
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">Membership</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.4.4.1
-			</td>
-			<td>
-				3.4.4.1
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://premium.wpmudev.org/project/membership/">Membership Premium</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.4.6
-			</td>
-			<td>
-				3.4.6
-			</td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso</a></td>
+			<td></td>
+			<td></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>3.1.24</td>
+			<td>3.1.35.P</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.s2member.com/">s2Member&reg;</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.websharks-inc.com/">WebSharks, Inc.</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/WebSharks/s2Member">GitHub</a>
-			</td>
-			<td>
-				130816
-			</td>
-			<td>
-				131126
-			</td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso Lite</a></td>
+			<td></td>
+			<td><a href="http://wordpress.org/extend/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>3.1.29.1.L</td>
+			<td>3.1.35.L</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="https://shopplugin.net/">Shopp</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://ingenesis.net/">Ingenesis Limited</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/ingenesis/shopp">GitHub</a>
-			</td>
-			<td>
-				1.1
-			</td>
-			<td>
-				1.3.1
-			</td>
+			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td></td>
+			<td>1.6</td>
+			<td>1.8</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.woothemes.com/woocommerce/">WooCommerce</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.woothemes.com/">WooThemes</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/woothemes/woocommerce">GitHub</a>
-			</td>
-			<td>
-				2.0.0
-			</td>
-			<td>
-				2.0.18
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://getshopped.org/">WP e-Commerce</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://instinct.co.nz/">Instinct Entertainment</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/wp-e-commerce/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/wp-e-commerce/WP-e-Commerce">GitHub</a>
-			</td>
-			<td>
-				3.8.12.1
-			</td>
-			<td>
-				3.8.12.1
-			</td>
+			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
+			<td><a href="http://jigowatt.co.uk/" target="_blank">Jigowatt</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
+			<td>1.1</td>
+			<td>1.8</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/themes/classipress/">ClassiPress</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.3.1
-			</td>
-			<td>
-				3.3.1
-			</td>
-		</tr>	
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">Membership</a></td>
+			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
+			<td></td>
+			<td>3.4.4.1</td>
+			<td>3.4.4.1</td>
+		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/themes/jobroller/">JobRoller</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				1.7.1
-			</td>
+			<td><a href="http://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
+			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
+			<td></td>
+			<td></td>
+			<td>3.4.6</td>
+			<td>3.4.6</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
+			<td><a href="http://www.websharks-inc.com/" target="_blank">WebSharks, Inc.</a></td>
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
+			<td>130816</td>
+			<td>131126</td>
+		</tr>
+		<tr>
+			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
+			<td><a href="http://ingenesis.net/" target="_blank">Ingenesis Limited</a></td>
+			<td></td>
+			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
+			<td>1.1</td>
+			<td>1.3.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
+			<td><a href="http://www.woothemes.com/" target="_blank">WooThemes</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
+			<td>2.0.0</td>
+			<td>2.0.18</td>
+		</tr>
+		<tr>
+			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
+			<td><a href="http://instinct.co.nz/" target="_blank">Instinct Entertainment</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
+			<td>3.8.12.1</td>
+			<td>3.8.12.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td>3.3.1</td>
+			<td>3.3.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/jobroller/" target="_blank">JobRoller</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.7.1</td>
 		</tr>
 	</tbody>
 </table>
@@ -310,6 +339,14 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.5.0
+
+*	Tweak - Rabobank - OmniKassa - Moved listener on payment status up in the WordPress code flow.
+*	Documentation - Rabobank - OmniKassa - Added OmniKassa documentation v6.0.
+*	Feature - MultiSafepay - Added support the MultiSafepay gateway.
+*	Fix - Gravity Forms - Improved support for payment feed description with quotes.
+*	Feature - Gravity Forms - Added an 'User Registration Delay' setting for the Gravity Forms User Registration Add-On.
 
 ### 2.4.3
 

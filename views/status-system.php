@@ -26,7 +26,7 @@
 						<?php _e( 'Activation Date', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-		                 <?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->activationDate ); ?>
+						<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->activationDate ); ?>
 					</td>
 				</tr>
 	
@@ -39,7 +39,7 @@
 						<?php _e( 'Expiration Date', 'pronamic_ideal' ); ?>
 					</th>
 					<td>
-		                 <?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->expirationDate ); ?>
+						<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->expirationDate ); ?>
 					</td>
 				</tr>
 	
@@ -48,245 +48,6 @@
 		</table>
 	
 	<?php endif; ?>
-
-	<h3>
-		<?php _e( 'Supported Extensions', 'pronamic_ideal' ); ?>
-	</h3>
-
-	<?php 
-	
-	$extensions = array(
-		// Plugins
-        'easy-digital-downloads' => array(
-            'name'               => __( 'Easy Digital Downloads', 'pronamic_ideal' ),
-            'url'                => 'https://easydigitaldownloads.com/',
-            'wp_org_url'         => 'http://wordpress.org/plugins/easy-digital-downloads/',
-            'github_url'         => 'https://github.com/easydigitaldownloads/Easy-Digital-Downloads',
-            'active'             => Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active(),
-            'requires_at_least'  => '1.8.6',
-            'tested_up_to'       => '1.8.6',
-            'author'             => __( 'Pippin Williamson', 'pronamic_ideal' ),
-            'author_url'         => 'http://pippinsplugins.com/',
-        ),
-		'event-espresso'         => array(
-			'name'               => __( 'Event Espresso', 'pronamic_ideal' ),
-			'url'                => 'http://eventespresso.com/',
-			'github_url'         => 'https://github.com/eventespresso/event-espresso-core',
-			'active'             => Pronamic_EventEspresso_EventEspresso::is_active(),
-			'requires_at_least'  => '3.1.24',
-			'tested_up_to'       => '3.1.35.P',
-		),
-		'event-espresso-free'    => array(
-			'name'               => __( 'Event Espresso Lite', 'pronamic_ideal' ),
-			'url'                => 'http://eventespresso.com/',
-			'github_url'         => 'https://github.com/eventespresso/event-espresso-core',
-			'wp_org_url'         => 'http://wordpress.org/extend/plugins/event-espresso-free/',
-			'active'             => Pronamic_EventEspresso_EventEspresso::is_active(),
-			'requires_at_least'  => '3.1.29.1.L',
-			'tested_up_to'       => '3.1.35.L',
-		),
-		'gravityforms'           => array(
-			'name'               => __( 'Gravity Forms', 'pronamic_ideal' ),
-			'url'                => 'http://www.gravityforms.com/',
-			'active'             => Pronamic_GravityForms_GravityForms::is_active(),
-			'requires_at_least'  => '1.6',
-			'tested_up_to'       => '1.8',
-			'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.rocketgenius.com/',
-		),
-		'jigoshop'               => array(
-			'name'               => __( 'Jigoshop', 'pronamic_ideal' ),
-			'url'                => 'http://jigoshop.com/',
-			'wp_org_url'         => 'http://wordpress.org/extend/plugins/jigoshop/',
-			'github_url'         => 'https://github.com/jigoshop/jigoshop',
-			'active'             => Pronamic_Jigoshop_Jigoshop::is_active(),
-			'requires_at_least'  => '1.1',
-			'tested_up_to'       => '1.8',
-			'author'             => __( 'Jigowatt', 'pronamic_ideal' ),
-			'author_url'         => 'http://jigowatt.co.uk/',
-		),
-		'membership'             => array(
-			'name'               => __( 'Membership', 'pronamic_ideal' ),
-			'url'                => 'http://wordpress.org/plugins/membership/',
-			'wp_org_url'         => 'http://wordpress.org/plugins/membership/',
-			'active'             => Pronamic_Membership_Membership::is_active(),
-			'requires_at_least'  => '3.4.4.1',
-			'tested_up_to'       => '3.4.4.1',
-			'author'             => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.wpmudev.org/',
-		),
-		'membership-premium'     => array(
-			'name'               => __( 'Membership Premium', 'pronamic_ideal' ),
-			'url'                => 'http://premium.wpmudev.org/project/membership/',
-			'active'             => Pronamic_Membership_Membership::is_active(),
-			'requires_at_least'  => '3.4.6',
-			'tested_up_to'       => '3.4.6',
-			'author'             => __( 'WPMUDEV.org', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.wpmudev.org/',
-		),
-		's2member'               => array(
-			'name'               => __( 's2Member®', 'pronamic_ideal' ),
-			'url'                => 'http://www.s2member.com/',
-			'wp_org_url'         => 'http://wordpress.org/plugins/membership/',
-			'github_url'         => 'https://github.com/WebSharks/s2Member',
-			'active'             => Pronamic_S2Member_S2Member::is_active(),
-			'requires_at_least'  => '130816',
-			'tested_up_to'       => '131126',
-			'author'             => __( 'WebSharks, Inc.', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.websharks-inc.com/',
-		),
-		'shopp'                  => array(
-			'name'               => __( 'Shopp', 'pronamic_ideal' ),
-			'url'                => 'https://shopplugin.net/',
-			'github_url'         => 'https://github.com/ingenesis/shopp',
-			'active'             => Pronamic_Shopp_Shopp::is_active(),
-			'requires_at_least'  => '1.1',
-			'tested_up_to'       => '1.3.1',
-			'author'             => __( 'Ingenesis Limited', 'pronamic_ideal' ),
-			'author_url'         => 'http://ingenesis.net/',
-		),
-		'woocommerce'            => array(
-			'name'               => __( 'WooCommerce', 'pronamic_ideal' ),
-			'url'                => 'http://www.woothemes.com/woocommerce/',
-			'github_url'         => 'https://github.com/woothemes/woocommerce',
-			'wp_org_url'         => 'http://wordpress.org/extend/plugins/woocommerce/',
-			'active'             => Pronamic_WooCommerce_WooCommerce::is_active(),
-			'requires_at_least'  => '2.0.0',
-			'tested_up_to'       => '2.0.18',
-			'author'             => __( 'WooThemes', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.woothemes.com/',
-		),
-		'wp-e-commerce'          => array(
-			'name'               => __( 'WP e-Commerce', 'pronamic_ideal' ),
-			'url'                => 'http://getshopped.org/',
-			'wp_org_url'         => 'http://wordpress.org/extend/plugins/wp-e-commerce/',
-			'github_url'         => 'https://github.com/wp-e-commerce/WP-e-Commerce',
-			'active'             => Pronamic_WPeCommerce_WPeCommerce::is_active(),
-			'requires_at_least'  => '3.8.12.1',
-			'tested_up_to'       => '3.8.12.1',
-			'author'             => __( 'Instinct Entertainment', 'pronamic_ideal' ),
-			'author_url'         => 'http://instinct.co.nz/',
-		),
-		// Themes
-		'classipress'            => array(
-			'name'               => __( 'ClassiPress', 'pronamic_ideal' ),
-			'url'                => 'http://www.appthemes.com/themes/classipress/',
-			'active'             => Pronamic_ClassiPress_ClassiPress::is_active(),
-			'requires_at_least'  => '3.3.1',
-			'tested_up_to'       => '3.3.1',
-			'author'             => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.appthemes.com/',
-		),
-		'jobroller'              => array(
-			'name'               => __( 'JobRoller', 'pronamic_ideal' ),
-			'url'                => 'http://www.appthemes.com/themes/jobroller/',
-			'active'             => Pronamic_JobRoller_JobRoller::is_active(),
-			'tested_up_to'       => '1.7.1',
-			'author'             => __( 'AppThemes', 'pronamic_ideal' ),
-			'author_url'         => 'http://www.appthemes.com/',
-		),
-	);
-	
-	?>
-
-	<table class="wp-list-table widefat">
-		<thead>
-			<tr>
-				<th scope="col">
-					<?php _e( 'Name', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'Author', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'WordPress.org', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'GitHub', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'Requires at least', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'Tested up to', 'pronamic_ideal' ); ?>
-				</th>
-				<th scope="col">
-					<?php _e( 'Active', 'pronamic_ideal' ); ?>
-				</th>
-			</tr>
-		</thead>
-		
-		<tbody>
-
-			<?php foreach ( $extensions as $extension ) : ?>
-	
-				<tr>
-					<td>
-						<a href="<?php echo esc_attr( $extension['url'] ); ?>" target="_blank">
-							<?php echo esc_html( $extension['name'] ); ?>
-						</a>
-					</td>
-					<td>
-						<?php
-						
-						if ( isset( $extension['author'], $extension['author_url'] ) ) {
-							printf(
-								'<a href="%s" target="_blank">%s</a>',
-								esc_attr( $extension['author_url'] ),
-								esc_html( $extension['author'] )
-							);
-						}
-						
-						?>
-					</td>
-					<td>
-						<?php
-						
-						if ( isset( $extension['wp_org_url'] ) ) {
-							printf(
-								'<a href="%s" target="_blank">%s</a>',
-								esc_attr( $extension['wp_org_url'] ),
-								esc_html( $extension['wp_org_url'] )
-							);
-						}
-						
-						?>
-					</td>
-					<td>
-						<?php
-						
-						if ( isset( $extension['github_url'] ) ) {
-							printf(
-								'<a href="%s" target="_blank">%s</a>',
-								esc_attr( $extension['github_url'] ),
-								esc_html( $extension['github_url'] )
-							);
-						}
-						
-						?>
-					</td>
-					<td>
-		                <?php
-						
-						if ( isset( $extension['requires_at_least'] ) ) {
-							echo $extension['requires_at_least'];
-						}
-		                
-		                ?>
-					</td>
-					<td>
-		                <?php echo esc_html( $extension['tested_up_to'] ); ?>
-					</td>
-					<td>
-						<?php if ( $extension['active'] ) : ?>
-							&#10003;
-						<?php endif; ?>
-					</td>
-				</tr>
-			
-			<?php endforeach; ?>
-
-	</table>
 
 	<h3>
 		<?php _e( 'Installation Status', 'pronamic_ideal' ); ?>
@@ -298,7 +59,7 @@
 				<?php _e( 'Site URL', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo site_url(); ?>
+				<?php echo site_url(); ?>
 			</td>
 			<td>
 				&#10003;
@@ -309,7 +70,7 @@
 				<?php _e( 'Home URL', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo home_url(); ?>
+				<?php echo home_url(); ?>
 			</td>
 			<td>
 				&#10003;
@@ -320,7 +81,7 @@
 				<?php _e( 'PHP Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo phpversion(); ?>
+				<?php echo phpversion(); ?>
 			</td>
 			<td>
 				<?php 
@@ -339,13 +100,13 @@
 				<?php _e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php 
+				<?php 
 
-                global $wpdb;
+				global $wpdb;
 
-                echo $wpdb->db_version();
+				echo $wpdb->db_version();
 
-                ?>
+				?>
 			</td>
 			<td>
 				<?php 
@@ -364,7 +125,7 @@
 				<?php _e( 'WordPress Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo get_bloginfo( 'version' ); ?>
+				<?php echo get_bloginfo( 'version' ); ?>
 			</td>
 			<td>
 				<?php 
@@ -411,7 +172,7 @@
 				<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php bloginfo( 'charset' ); ?>
+				<?php bloginfo( 'charset' ); ?>
 			</td>
 			<td>
 				<?php 
@@ -431,8 +192,8 @@
 				<?php _e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
-                <?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
+				<?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
+				<?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
 			</td>
 			<td>
 				&#10003;
