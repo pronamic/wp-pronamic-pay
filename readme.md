@@ -18,266 +18,121 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	
 	<tbody>
 		<tr>
-			<td>
-				<a target="_blank" href="https://easydigitaldownloads.com/">Easy Digital Downloads</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://pippinsplugins.com/">Pippin Williamson</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/easy-digital-downloads/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads">GitHub</a>
-			</td>
-			<td>
-                1.8.6
-			</td>
-			<td>
-                1.8.6
-			</td>
+			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
+			<td><a href="http://pippinsplugins.com/" target="_blank">Pippin Williamson</a></td>
+			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
+			<td>1.8.6</td>
+			<td>1.8.6</td>
+			<td></td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://eventespresso.com/">
-					Event Espresso
-				</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
-			</td>
-			<td>
-                3.1.24
-			</td>
-			<td>
-                3.1.35.P
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://eventespresso.com/">Event Espresso Lite</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/event-espresso-free/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/eventespresso/event-espresso-core">GitHub</a>
-			</td>
-			<td>
-                3.1.29.1.L
-			</td>
-			<td>
-                3.1.35.L
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://www.gravityforms.com/">Gravity Forms</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.rocketgenius.com/">Rocketgenius</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-                1.6
-			</td>
-			<td>
-				1.8
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://jigoshop.com/">Jigoshop</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://jigowatt.co.uk/">Jigowatt</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/jigoshop/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/jigoshop/jigoshop">GitHub</a>
-			</td>
-			<td>
-				1.1
-			</td>
-			<td>
-				1.8
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">Membership</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.4.4.1
-			</td>
-			<td>
-				3.4.4.1
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://premium.wpmudev.org/project/membership/">Membership Premium</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.wpmudev.org/">WPMUDEV.org</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.4.6
-			</td>
-			<td>
-				3.4.6
-			</td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso</a></td>
+			<td></td>
+			<td></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>3.1.24</td>
+			<td>3.1.35.P</td>
+			<td></td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.s2member.com/">s2Member&reg;</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.websharks-inc.com/">WebSharks, Inc.</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/plugins/membership/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/WebSharks/s2Member">GitHub</a>
-			</td>
-			<td>
-				130816
-			</td>
-			<td>
-				131126
-			</td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso Lite</a></td>
+			<td></td>
+			<td><a href="http://wordpress.org/extend/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>3.1.29.1.L</td>
+			<td>3.1.35.L</td>
+			<td></td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="https://shopplugin.net/">Shopp</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://ingenesis.net/">Ingenesis Limited</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/ingenesis/shopp">GitHub</a>
-			</td>
-			<td>
-				1.1
-			</td>
-			<td>
-				1.3.1
-			</td>
+			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td></td>
+			<td>1.6</td>
+			<td>1.8</td>
+			<td>&#10003;</td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.woothemes.com/woocommerce/">WooCommerce</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.woothemes.com/">WooThemes</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/woocommerce/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/woothemes/woocommerce">GitHub</a>
-			</td>
-			<td>
-				2.0.0
-			</td>
-			<td>
-				2.0.18
-			</td>
-		</tr>	
-		<tr>
-			<td>
-				<a target="_blank" href="http://getshopped.org/">WP e-Commerce</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://instinct.co.nz/">Instinct Entertainment</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://wordpress.org/extend/plugins/wp-e-commerce/">WordPress.org</a>
-			</td>
-			<td>
-				<a target="_blank" href="https://github.com/wp-e-commerce/WP-e-Commerce">GitHub</a>
-			</td>
-			<td>
-				3.8.12.1
-			</td>
-			<td>
-				3.8.12.1
-			</td>
+			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
+			<td><a href="http://jigowatt.co.uk/" target="_blank">Jigowatt</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
+			<td>1.1</td>
+			<td>1.8</td>
+			<td></td>
 		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/themes/classipress/">ClassiPress</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				3.3.1
-			</td>
-			<td>
-				3.3.1
-			</td>
-		</tr>	
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">Membership</a></td>
+			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
+			<td></td>
+			<td>3.4.4.1</td>
+			<td>3.4.4.1</td>
+			<td></td>
+		</tr>
 		<tr>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/themes/jobroller/">JobRoller</a>
-			</td>
-			<td>
-				<a target="_blank" href="http://www.appthemes.com/">AppThemes</a>
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-
-			</td>
-			<td>
-				1.7.1
-			</td>
+			<td><a href="http://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
+			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
+			<td></td>
+			<td></td>
+			<td>3.4.6</td>
+			<td>3.4.6</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
+			<td><a href="http://www.websharks-inc.com/" target="_blank">WebSharks, Inc.</a></td>
+			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
+			<td>130816</td>
+			<td>131126</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
+			<td><a href="http://ingenesis.net/" target="_blank">Ingenesis Limited</a></td>
+			<td></td>
+			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
+			<td>1.1</td>
+			<td>1.3.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
+			<td><a href="http://www.woothemes.com/" target="_blank">WooThemes</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
+			<td>2.0.0</td>
+			<td>2.0.18</td>
+			<td>&#10003;</td>
+		</tr>
+		<tr>
+			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
+			<td><a href="http://instinct.co.nz/" target="_blank">Instinct Entertainment</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
+			<td>3.8.12.1</td>
+			<td>3.8.12.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td>3.3.1</td>
+			<td>3.3.1</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/jobroller/" target="_blank">JobRoller</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.7.1</td>
+			<td></td>
 		</tr>
 	</tbody>
 </table>
