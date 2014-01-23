@@ -83,6 +83,15 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 		return 'gravityformsideal';
 	}
 
+	/**
+	 * Get source ID
+	 * 
+	 * @see Pronamic_Pay_AbstractPaymentData::get_source_id()
+	 */
+	public function get_source_id() {
+		return $this->lead['id'];
+	}
+
 	//////////////////////////////////////////////////
 
 	/**
