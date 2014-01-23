@@ -255,11 +255,15 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			}
 
 			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
-				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, true );
+				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, false );
 			}
 
 			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
-				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, true );
+				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, false );
+			}
+
+			if ( $feed->delay_user_registration && method_exists( 'GFUser', 'gf_create_user' ) ) {
+				call_user_func( array( 'GFUser', 'gf_create_user' ), $entry, $form, false );
 			}
 		}
 

@@ -103,6 +103,8 @@ class Pronamic_GravityForms_PayFeed {
 		$this->delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
 		$this->delay_mailchimp_subscription       = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
 
+		$this->delay_user_registration            = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_registration', true );
+
 		$fields = get_post_meta( $post_id, '_pronamic_pay_gf_fields', true );
 		$this->fields                   = is_array( $fields ) ? $fields : array();
 

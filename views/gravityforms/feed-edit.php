@@ -307,8 +307,17 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
 					<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
 				</label>
+				
+				<span class="description"><br /><?php
+					printf(
+						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
+						'http://www.gravityforms.com/add-ons/campaign-monitor/',
+						'Gravity Forms Campaign Monitor Add-On'
+					);
+
+				?></span>
 			</td>
-		</tr> 
+		</tr>
 		<tr>
 			<?php 
 
@@ -324,6 +333,41 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
 					<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
 				</label>
+				
+				<span class="description"><br /><?php
+					printf(
+						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
+						'http://www.gravityforms.com/add-ons/mailchimp/',
+						'Gravity Forms MailChimp Add-On'
+					);
+
+				?></span>
+			</td>
+		</tr>
+		<tr>
+			<?php 
+
+			$delay_user_registration = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_registration', true );
+			
+			?>
+			<th scope="row">
+				<?php _e( 'User Registration Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" name="_pronamic_pay_gf_delay_user_registration" id="_pronamic_pay_gf_delay_user_registration" value="true" <?php checked( $delay_user_registration ); ?> />
+	
+				<label for="_pronamic_pay_gf_delay_user_registration">
+					<?php _e( 'Register user only when a payment is received.', 'pronamic_ideal' ); ?>
+				</label>
+				
+				<span class="description"><br /><?php
+					printf(
+						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
+						'http://www.gravityforms.com/add-ons/user-registration/',
+						'Gravity Forms User Registration Add-On'
+					);
+
+				?></span>
 			</td>
 		</tr> 
 	</table>

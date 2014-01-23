@@ -646,6 +646,7 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 		'_pronamic_pay_gf_delay_post_creation'                => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_delay_campaignmonitor_subscription' => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_delay_mailchimp_subscription'       => FILTER_VALIDATE_BOOLEAN,
+		'_pronamic_pay_gf_delay_user_registration'            => FILTER_VALIDATE_BOOLEAN,
 		'_pronamic_pay_gf_fields'                             => array(
 			'filter'    => FILTER_SANITIZE_STRING,
 			'flags'     => FILTER_REQUIRE_ARRAY
