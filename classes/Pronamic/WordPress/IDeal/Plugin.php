@@ -82,9 +82,9 @@ class Pronamic_WordPress_IDeal_Plugin {
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
 		require_once self::$dirname . '/includes/wp-e-commerce.php';
 
-		// On template redirect handle an possible return from iDEAL
-		add_action( 'template_redirect', array( __CLASS__, 'handle_returns' ) );
-		add_action( 'template_redirect', array( __CLASS__, 'maybe_redirect' ) );
+		// If WordPress is loaded check on returns and maybe redirect requests
+		add_action( 'wp_loaded', array( __CLASS__, 'handle_returns' ) );
+		add_action( 'wp_loaded', array( __CLASS__, 'maybe_redirect' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
