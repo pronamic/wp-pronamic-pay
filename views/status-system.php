@@ -201,7 +201,7 @@
 				<?php _e( 'Site URL', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo site_url(); ?>
+				<?php echo site_url(); ?>
 			</td>
 			<td>
 				&#10003;
@@ -212,7 +212,7 @@
 				<?php _e( 'Home URL', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo home_url(); ?>
+				<?php echo home_url(); ?>
 			</td>
 			<td>
 				&#10003;
@@ -223,7 +223,7 @@
 				<?php _e( 'PHP Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo phpversion(); ?>
+				<?php echo phpversion(); ?>
 			</td>
 			<td>
 				<?php 
@@ -242,13 +242,13 @@
 				<?php _e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php 
+				<?php 
 
-                global $wpdb;
+				global $wpdb;
 
-                echo $wpdb->db_version();
+				echo $wpdb->db_version();
 
-                ?>
+				?>
 			</td>
 			<td>
 				<?php 
@@ -267,7 +267,7 @@
 				<?php _e( 'WordPress Version', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo get_bloginfo( 'version' ); ?>
+				<?php echo get_bloginfo( 'version' ); ?>
 			</td>
 			<td>
 				<?php 
@@ -314,7 +314,7 @@
 				<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php bloginfo( 'charset' ); ?>
+				<?php bloginfo( 'charset' ); ?>
 			</td>
 			<td>
 				<?php 
@@ -334,8 +334,8 @@
 				<?php _e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-                <?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
-                <?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
+				<?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
+				<?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
 			</td>
 			<td>
 				&#10003;
