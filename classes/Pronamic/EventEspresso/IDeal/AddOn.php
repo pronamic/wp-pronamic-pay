@@ -52,7 +52,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		
 		$slug = self::SLUG;
 
-        add_action( "pronamic_payment_status_update_{$slug}_unknown_to_success", array( __CLASS__, 'update_status_unknown_to_success' ), 10, 2 );
+		add_action( "pronamic_payment_status_update_{$slug}_unknown_to_success", array( __CLASS__, 'update_status_unknown_to_success' ), 10, 2 );
 		add_filter( "pronamic_payment_source_text_{$slug}",   array( __CLASS__, 'source_text' ), 10, 2 );
 
 		// Fix fatal error since Event Espresso 3.1.29.1.P
@@ -214,7 +214,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			$postbox_style = 'closed';
 		}
 
-    	// URL
+		// URL
 		$url = add_query_arg( 'page', 'payment_gateways', admin_url( 'admin.php' ) );
 
 		?>
@@ -283,37 +283,37 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 	//////////////////////////////////////////////////
 
-    /**
-     * Update lead status of the specified payment
-     *
-     * @param Pronamic_Pay_Payment $payment
-     * @param bool                 $can_redirect
-     */
-    public static function update_status_unknown_to_success( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-        $id = $payment->get_source_id();
+	/**
+	 * Update lead status of the specified payment
+	 *
+	 * @param Pronamic_Pay_Payment $payment
+	 * @param bool                 $can_redirect
+	 */
+	public static function update_status_unknown_to_success( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
+		$id = $payment->get_source_id();
 
-        $payment_data                   = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
-        $payment_data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
-        $payment_data['txn_type']       = __( 'iDEAL', 'pronamic_ideal' );
-        $payment_data['txn_id']         = $payment->transaction_id;
+		$payment_data                   = Pronamic_EventEspresso_EventEspresso::get_payment_data_by_attendee_id( $id );
+		$payment_data['payment_status'] = Pronamic_EventEspresso_EventEspresso::PAYMENT_STATUS_COMPLETED;
+		$payment_data['txn_type']       = __( 'iDEAL', 'pronamic_ideal' );
+		$payment_data['txn_id']         = $payment->transaction_id;
 
-        Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
-        Pronamic_EventEspresso_EventEspresso::email_after_payment( $payment_data );
+		Pronamic_EventEspresso_EventEspresso::update_payment( $payment_data );
+		Pronamic_EventEspresso_EventEspresso::email_after_payment( $payment_data );
 
-        $data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
+		$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 
-        $url = $data->get_normal_return_url();
+		$url = $data->get_normal_return_url();
 
-        if ( $can_redirect ) {
-            wp_redirect( $url, 303 );
+		if ( $can_redirect ) {
+			wp_redirect( $url, 303 );
 
-            exit;
-        }
-    }
+			exit;
+		}
+	}
 
-    //////////////////////////////////////////////////
+	//////////////////////////////////////////////////
 
-    /**
+	/**
 	 * Source column
 	 */
 	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
