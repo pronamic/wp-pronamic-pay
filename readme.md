@@ -34,10 +34,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
 		</tr>
 		<tr>
-			<td><a href="http://www.adyen.com/">Adyen</a></td>
-			<td>Adyen</td>
-		</tr>
-		<tr>
 			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
 			<td>Buckaroo - iDEAL</td>
 		</tr>
