@@ -160,6 +160,7 @@ Here is a list of known plugin conflicts:
 *	Documentation - Rabobank - OmniKassa - Added OmniKassa documentation v6.0.
 *	Feature - MultiSafepay - Added support the MultiSafepay gateway.
 *	Fix - Gravity Forms - Improved support for payment feed description with quotes.
+*	Feature - Gravity Forms - Added an 'User Registration Delay' setting for the Gravity Forms User Registration Add-On.
 
 = 2.4.3 =
 *	Feature - Gravity Forms - Added an entry ID prefix field to the payment feed.
