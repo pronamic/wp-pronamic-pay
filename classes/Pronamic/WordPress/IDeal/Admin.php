@@ -473,37 +473,14 @@ class Pronamic_WordPress_IDeal_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function page_dashboard() {
-		return self::render_view( 'dashboard' );
-	}
-
-	public static function page_settings() {
-		return self::render_view( 'settings' );
-	}
-
-	public static function page_pages_generator() {
-		return self::render_view( 'pages-generator' );
-	}
-
-	public static function page_system_status() {
-		return self::render_view( 'status-system' );
-	}
-
-	public static function page_ideal_status() {
-		return self::render_view( 'status-ideal' );
-	}
-
-	public static function page_variants() {
-		return self::render_view( 'variants' );
-	}
-
-	public static function page_documentation() {
-		return self::render_view( 'documentation' );
-	}
-
-	public static function page_branding() {
-		return self::render_view( 'branding' );
-	}
+	public static function page_dashboard() { return self::render_view( 'dashboard' ); }
+	public static function page_settings() { return self::render_view( 'settings' ); }
+	public static function page_pages_generator() { return self::render_view( 'pages-generator' ); }
+	public static function page_system_status() { return self::render_view( 'status-system' ); }
+	public static function page_ideal_status() { return self::render_view( 'status-ideal' ); }
+	public static function page_variants() { return self::render_view( 'variants' ); }
+	public static function page_documentation() { return self::render_view( 'documentation' ); }
+	public static function page_branding() { return self::render_view( 'branding' ); }
 
 	//////////////////////////////////////////////////
 
