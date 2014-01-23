@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 2.5.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-23 13:46:10+00:00\n"
+"POT-Creation-Date: 2014-01-23 14:50:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,8 +24,8 @@ msgstr ""
 msgid "Payment %d"
 msgstr ""
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/status-system.php:177
-#: views/status-system.php:185
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/extensions.php:131
+#: views/extensions.php:139
 msgid "AppThemes"
 msgstr ""
 
@@ -120,8 +120,7 @@ msgstr ""
 msgid "iDEAL Configuration"
 msgstr ""
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
-#: views/status-system.php:172
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:126
 msgid "ClassiPress"
 msgstr ""
 
@@ -185,7 +184,7 @@ msgid "iDEAL payment unknown."
 msgstr ""
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:281
-#: views/status-system.php:61
+#: views/extensions.php:15
 msgid "Easy Digital Downloads"
 msgstr ""
 
@@ -213,8 +212,7 @@ msgstr ""
 msgid "Activate Pronamic iDEAL?"
 msgstr ""
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328
-#: views/status-system.php:72
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328 views/extensions.php:26
 msgid "Event Espresso"
 msgstr ""
 
@@ -223,8 +221,7 @@ msgid "Attendee #%s"
 msgstr ""
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148
-#: views/status-system.php:149
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:103
 msgid "WooCommerce"
 msgstr ""
 
@@ -387,7 +384,7 @@ msgstr ""
 msgid "Sisow Bank (test)"
 msgstr ""
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/status-system.php:89
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/extensions.php:43
 msgid "Gravity Forms"
 msgstr ""
 
@@ -452,7 +449,7 @@ msgstr ""
 msgid "iDEAL payment failed."
 msgstr ""
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/status-system.php:98
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:52
 msgid "Jigoshop"
 msgstr ""
 
@@ -486,7 +483,7 @@ msgstr ""
 msgid "Pending iDEAL payment."
 msgstr ""
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/status-system.php:109
+#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:63
 msgid "Membership"
 msgstr ""
 
@@ -618,7 +615,7 @@ msgstr ""
 msgid "s2Member"
 msgstr ""
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/status-system.php:139
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:93
 msgid "Shopp"
 msgstr ""
 
@@ -653,8 +650,7 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
-#: views/status-system.php:160
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:114
 msgid "WP e-Commerce"
 msgstr ""
 
@@ -738,7 +734,7 @@ msgid "Canceled"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:94
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:31 views/variants.php:71
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:31
 msgid "Unknown"
 msgstr ""
 
@@ -784,26 +780,31 @@ msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:433
 #: classes/Pronamic/WordPress/IDeal/Admin.php:434
-msgid "Variants"
+msgid "Gateways"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:442
 #: classes/Pronamic/WordPress/IDeal/Admin.php:443
-msgid "Documentation"
+msgid "Extensions"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:451
 #: classes/Pronamic/WordPress/IDeal/Admin.php:452
-msgid "Branding"
+msgid "Documentation"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:460
 #: classes/Pronamic/WordPress/IDeal/Admin.php:461
+msgid "Branding"
+msgstr ""
+
+#: classes/Pronamic/WordPress/IDeal/Admin.php:469
+#: classes/Pronamic/WordPress/IDeal/Admin.php:470
 msgid "Pages Generator"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Admin.php:470 includes/post.php:101
-#: includes/post.php:167 views/variants.php:23
+#: classes/Pronamic/WordPress/IDeal/Admin.php:479 includes/post.php:101
+#: includes/post.php:167
 msgid "Dashboard"
 msgstr ""
 
@@ -994,7 +995,7 @@ msgstr ""
 msgid "Production"
 msgstr ""
 
-#: includes/post.php:207 views/variants.php:22
+#: includes/post.php:207
 msgid "Gateway"
 msgstr ""
 
@@ -1084,7 +1085,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr ""
 
 #: views/branding.php:185 views/branding.php:191 views/branding.php:197
-#: views/config-edit.php:186 views/variants.php:59
+#: views/config-edit.php:186
 msgid "OmniKassa"
 msgstr ""
 
@@ -1128,7 +1129,7 @@ msgstr ""
 msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
 msgstr ""
 
-#: views/config-edit.php:76 views/variants.php:53
+#: views/config-edit.php:76
 msgid "Basic"
 msgstr ""
 
@@ -1587,6 +1588,133 @@ msgstr ""
 msgid "Accept payment by iDEAL"
 msgstr ""
 
+#: views/extensions-readme-md.php:4 views/gateways-readme-md.php:5
+msgctxt "readme.md"
+msgid "Name"
+msgstr ""
+
+#: views/extensions-readme-md.php:5
+msgctxt "readme.md"
+msgid "Author"
+msgstr ""
+
+#: views/extensions-readme-md.php:6
+msgctxt "readme.md"
+msgid "WordPress.org"
+msgstr ""
+
+#: views/extensions-readme-md.php:7
+msgctxt "readme.md"
+msgid "GitHub"
+msgstr ""
+
+#: views/extensions-readme-md.php:8
+msgctxt "readme.md"
+msgid "Requires at least"
+msgstr ""
+
+#: views/extensions-readme-md.php:9
+msgctxt "readme.md"
+msgid "Tested up to"
+msgstr ""
+
+#: views/extensions-readme-md.php:42 views/extensions-wp-admin.php:11
+msgid "WordPress.org"
+msgstr ""
+
+#: views/extensions-readme-md.php:53 views/extensions-wp-admin.php:14
+msgid "GitHub"
+msgstr ""
+
+#: views/extensions-wp-admin.php:5 views/gateways-wp-admin.php:5
+msgid "Name"
+msgstr ""
+
+#: views/extensions-wp-admin.php:8
+msgid "Author"
+msgstr ""
+
+#: views/extensions-wp-admin.php:17
+msgid "Requires at least"
+msgstr ""
+
+#: views/extensions-wp-admin.php:20
+msgid "Tested up to"
+msgstr ""
+
+#: views/extensions-wp-admin.php:23
+msgid "Active"
+msgstr ""
+
+#: views/extensions.php:7
+msgid "Supported Extensions"
+msgstr ""
+
+#: views/extensions.php:22
+msgid "Pippin Williamson"
+msgstr ""
+
+#: views/extensions.php:34
+msgid "Event Espresso Lite"
+msgstr ""
+
+#: views/extensions.php:48
+msgid "Rocketgenius"
+msgstr ""
+
+#: views/extensions.php:59
+msgid "Jigowatt"
+msgstr ""
+
+#: views/extensions.php:69 views/extensions.php:78
+msgid "WPMUDEV.org"
+msgstr ""
+
+#: views/extensions.php:73
+msgid "Membership Premium"
+msgstr ""
+
+#: views/extensions.php:82
+msgid "s2Member®"
+msgstr ""
+
+#: views/extensions.php:89
+msgid "WebSharks, Inc."
+msgstr ""
+
+#: views/extensions.php:99
+msgid "Ingenesis Limited"
+msgstr ""
+
+#: views/extensions.php:110
+msgid "WooThemes"
+msgstr ""
+
+#: views/extensions.php:121
+msgid "Instinct Entertainment"
+msgstr ""
+
+#: views/extensions.php:135
+msgid "JobRoller"
+msgstr ""
+
+#: views/extensions.php:148 views/gateways.php:21
+msgid "Markdown"
+msgstr ""
+
+#: views/gateways-readme-md.php:4
+msgctxt "readme.md"
+msgid "Provider"
+msgstr ""
+
+#: views/gateways-wp-admin.php:4
+msgid "Provider"
+msgstr ""
+
+#: views/gateways.php:7
+msgid "Supported Gateways"
+msgstr ""
+
 #: views/gravityforms/feed-edit.php:29
 msgid "Gravity Form"
 msgstr ""
@@ -1754,7 +1882,7 @@ msgstr ""
 msgid "URL:"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:489 views/variants.php:62
+#: views/gravityforms/feed-edit.php:489
 msgid "Advanced"
 msgstr ""
 
@@ -1967,7 +2095,7 @@ msgid "Activation Date"
 msgstr ""
 
 #: views/status-system.php:29 views/status-system.php:42
-#: views/status-system.php:434
+#: views/status-system.php:195
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
@@ -1976,185 +2104,85 @@ msgid "Expiration Date"
 msgstr ""
 
 #: views/status-system.php:53
-msgid "Supported Extensions"
-msgstr ""
-
-#: views/status-system.php:68
-msgid "Pippin Williamson"
-msgstr ""
-
-#: views/status-system.php:80
-msgid "Event Espresso Lite"
-msgstr ""
-
-#: views/status-system.php:94
-msgid "Rocketgenius"
-msgstr ""
-
-#: views/status-system.php:105
-msgid "Jigowatt"
-msgstr ""
-
-#: views/status-system.php:115 views/status-system.php:124
-msgid "WPMUDEV.org"
-msgstr ""
-
-#: views/status-system.php:119
-msgid "Membership Premium"
-msgstr ""
-
-#: views/status-system.php:128
-msgid "s2Member®"
-msgstr ""
-
-#: views/status-system.php:135
-msgid "WebSharks, Inc."
-msgstr ""
-
-#: views/status-system.php:145
-msgid "Ingenesis Limited"
-msgstr ""
-
-#: views/status-system.php:156
-msgid "WooThemes"
-msgstr ""
-
-#: views/status-system.php:167
-msgid "Instinct Entertainment"
-msgstr ""
-
-#: views/status-system.php:181
-msgid "JobRoller"
-msgstr ""
-
-#: views/status-system.php:196 views/variants.php:21
-msgid "Name"
-msgstr ""
-
-#: views/status-system.php:199
-msgid "Author"
-msgstr ""
-
-#: views/status-system.php:202
-msgid "WordPress.org"
-msgstr ""
-
-#: views/status-system.php:205
-msgid "GitHub"
-msgstr ""
-
-#: views/status-system.php:208
-msgid "Requires at least"
-msgstr ""
-
-#: views/status-system.php:211
-msgid "Tested up to"
-msgstr ""
-
-#: views/status-system.php:214
-msgid "Active"
-msgstr ""
-
-#: views/status-system.php:292
 msgid "Installation Status"
 msgstr ""
 
-#: views/status-system.php:298
+#: views/status-system.php:59
 msgid "Site URL"
 msgstr ""
 
-#: views/status-system.php:309
+#: views/status-system.php:70
 msgid "Home URL"
 msgstr ""
 
-#: views/status-system.php:320
+#: views/status-system.php:81
 msgid "PHP Version"
 msgstr ""
 
-#: views/status-system.php:331
+#: views/status-system.php:92
 msgid "Pronamic iDEAL requires PHP 5.2 or above."
 msgstr ""
 
-#: views/status-system.php:339
+#: views/status-system.php:100
 msgid "MySQL Version"
 msgstr ""
 
-#: views/status-system.php:356
+#: views/status-system.php:117
 msgid "Pronamic iDEAL requires MySQL 5 or above."
 msgstr ""
 
-#: views/status-system.php:364
+#: views/status-system.php:125
 msgid "WordPress Version"
 msgstr ""
 
-#: views/status-system.php:375
+#: views/status-system.php:136
 msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 msgstr ""
 
-#: views/status-system.php:383
+#: views/status-system.php:144
 msgid "WP Memory Limit"
 msgstr ""
 
-#: views/status-system.php:401
+#: views/status-system.php:162
 msgid ""
 "We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
 "memory allocated to PHP</a>"
 msgstr ""
 
-#: views/status-system.php:411
+#: views/status-system.php:172
 msgid "Character Set"
 msgstr ""
 
-#: views/status-system.php:423
+#: views/status-system.php:184
 msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
 msgstr ""
 
-#: views/status-system.php:431
+#: views/status-system.php:192
 msgid "Time"
 msgstr ""
 
-#: views/status-system.php:443
+#: views/status-system.php:204
 msgid "cURL"
 msgstr ""
 
-#: views/status-system.php:464
+#: views/status-system.php:225
 msgid "OpenSSL"
 msgstr ""
 
-#: views/status-system.php:484
+#: views/status-system.php:245
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr ""
 
-#: views/status-system.php:492
+#: views/status-system.php:253
 msgid "Registered Hashing Algorithms"
 msgstr ""
 
-#: views/status-system.php:509
+#: views/status-system.php:270
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr ""
 
-#: views/status-system.php:517
+#: views/status-system.php:278
 msgid "Travis CI build status"
-msgstr ""
-
-#: views/variants.php:11
-msgid "iDEAL Variants"
-msgstr ""
-
-#: views/variants.php:20
-msgid "Provider"
-msgstr ""
-
-#: views/variants.php:50
-msgid "Easy"
-msgstr ""
-
-#: views/variants.php:56
-msgid "Internetkassa"
-msgstr ""
-
-#: views/variants.php:65
-msgid "Advanced v3"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
