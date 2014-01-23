@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.4.3\n"
+"Project-Id-Version: Pronamic iDEAL 2.5.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-16 13:16:12+00:00\n"
+"POT-Creation-Date: 2014-01-23 13:46:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "iDEAL"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.4.3)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.5.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -78,7 +78,7 @@ msgstr ""
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:116
 #: includes/post.php:284 includes/post.php:341 includes/post.php:389
-#: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:50
+#: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:49
 msgid "Configuration"
 msgstr ""
 
@@ -337,8 +337,8 @@ msgid "Currency Code"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108
-#: views/config-edit.php:57 views/config-edit.php:164
-#: views/config-edit.php:209
+#: views/config-edit.php:57 views/config-edit.php:191
+#: views/config-edit.php:236
 msgid "Merchant ID"
 msgstr ""
 
@@ -355,7 +355,7 @@ msgid "Transaction Reference"
 msgstr ""
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
-#: views/config-edit.php:176
+#: views/config-edit.php:203
 msgid "Key Version"
 msgstr ""
 
@@ -463,7 +463,7 @@ msgstr ""
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
 #: includes/post.php:206 includes/post.php:282 views/branding.php:218
-#: views/documentation.php:576 views/pages-generator.php:123
+#: views/documentation.php:606 views/pages-generator.php:123
 msgid "Title"
 msgstr ""
 
@@ -598,7 +598,7 @@ msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
-#: views/gravityforms/feed-edit.php:341 views/meta-box-payment-info.php:75
+#: views/gravityforms/feed-edit.php:384 views/meta-box-payment-info.php:75
 msgid "Email"
 msgstr ""
 
@@ -729,7 +729,7 @@ msgid "Payment Status Pages"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:92
-#: views/gravityforms/feed-edit.php:392
+#: views/gravityforms/feed-edit.php:435
 msgid "Error"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:95
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:23
-#: views/gravityforms/feed-edit.php:393
+#: views/gravityforms/feed-edit.php:436
 msgid "Expired"
 msgstr ""
 
@@ -816,12 +816,12 @@ msgid "Failure"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:27
-#: views/gravityforms/feed-edit.php:389
+#: views/gravityforms/feed-edit.php:432
 msgid "Open"
 msgstr ""
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:29
-#: views/gravityforms/feed-edit.php:390 views/status-ideal.php:52
+#: views/gravityforms/feed-edit.php:433 views/status-ideal.php:52
 msgid "Success"
 msgstr ""
 
@@ -834,7 +834,7 @@ msgstr ""
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:161
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:163
 msgid "Payment for %s"
 msgstr ""
 
@@ -971,7 +971,7 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: includes/post.php:98 views/config-edit.php:557
+#: includes/post.php:98 views/config-edit.php:584
 msgid "Variant"
 msgstr ""
 
@@ -980,7 +980,7 @@ msgid "ID"
 msgstr ""
 
 #: includes/post.php:102 includes/post.php:214 includes/post.php:286
-#: views/documentation.php:577 views/meta-box-payment-info.php:11
+#: views/documentation.php:607 views/meta-box-payment-info.php:11
 #: views/status-ideal.php:49
 msgid "Date"
 msgstr ""
@@ -1019,7 +1019,7 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: includes/post.php:285 views/gravityforms/feed-edit.php:89
+#: includes/post.php:285 views/gravityforms/feed-edit.php:88
 msgid "Transaction Description"
 msgstr ""
 
@@ -1084,7 +1084,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr ""
 
 #: views/branding.php:185 views/branding.php:191 views/branding.php:197
-#: views/config-edit.php:159 views/variants.php:59
+#: views/config-edit.php:186 views/variants.php:59
 msgid "OmniKassa"
 msgstr ""
 
@@ -1154,7 +1154,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: views/config-edit.php:112 views/config-edit.php:349
+#: views/config-edit.php:112 views/config-edit.php:376
 msgid "Password"
 msgstr ""
 
@@ -1192,293 +1192,309 @@ msgstr ""
 msgid "Webhook"
 msgstr ""
 
-#: views/config-edit.php:170 views/config-edit.php:196
+#: views/config-edit.php:159
+msgid "MultiSafepay"
+msgstr ""
+
+#: views/config-edit.php:164
+msgid "Account ID"
+msgstr ""
+
+#: views/config-edit.php:171
+msgid "Site ID"
+msgstr ""
+
+#: views/config-edit.php:178
+msgid "Site Security Code"
+msgstr ""
+
+#: views/config-edit.php:197 views/config-edit.php:223
 msgid "Secret Key"
 msgstr ""
 
-#: views/config-edit.php:179
+#: views/config-edit.php:206
 msgid ""
 "You can find the key version in the <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
 msgstr ""
 
-#: views/config-edit.php:184
+#: views/config-edit.php:211
 msgid "Buckaroo"
 msgstr ""
 
-#: views/config-edit.php:189
+#: views/config-edit.php:216
 msgid "Website Key"
 msgstr ""
 
-#: views/config-edit.php:192
+#: views/config-edit.php:219
 msgid ""
 "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
 msgstr ""
 
-#: views/config-edit.php:199
+#: views/config-edit.php:226
 msgid ""
 "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
 "Digital Signature\"."
 msgstr ""
 
-#: views/config-edit.php:204
+#: views/config-edit.php:231
 msgid "ICEPAY"
 msgstr ""
 
-#: views/config-edit.php:212
+#: views/config-edit.php:239
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
 "websites</a>."
 msgstr ""
 
-#: views/config-edit.php:213 views/config-edit.php:224
+#: views/config-edit.php:240 views/config-edit.php:251
 msgid "https://www.icepay.com/EN/Login"
 msgstr ""
 
-#: views/config-edit.php:214 views/config-edit.php:225
+#: views/config-edit.php:241 views/config-edit.php:252
 msgid "https://www.icepay.com/Merchant/EN/Websites"
 msgstr ""
 
-#: views/config-edit.php:219
+#: views/config-edit.php:246
 msgid "Secret Code"
 msgstr ""
 
-#: views/config-edit.php:223
+#: views/config-edit.php:250
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
 "websites</a>."
 msgstr ""
 
-#: views/config-edit.php:229
+#: views/config-edit.php:256
 msgid "Thank you page URL"
 msgstr ""
 
-#: views/config-edit.php:236
+#: views/config-edit.php:263
 msgid "Error page URL"
 msgstr ""
 
-#: views/config-edit.php:243
+#: views/config-edit.php:270
 msgid "Postback URL"
 msgstr ""
 
-#: views/config-edit.php:252
+#: views/config-edit.php:279
 msgid "Sisow"
 msgstr ""
 
-#: views/config-edit.php:257
+#: views/config-edit.php:284
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:261
+#: views/config-edit.php:288
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 
-#: views/config-edit.php:268
+#: views/config-edit.php:295
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:272
+#: views/config-edit.php:299
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
 "a>."
 msgstr ""
 
-#: views/config-edit.php:280
+#: views/config-edit.php:307
 msgid "TargetPay"
 msgstr ""
 
-#: views/config-edit.php:285
+#: views/config-edit.php:312
 msgid "Layout Code"
 msgstr ""
 
-#: views/config-edit.php:287
+#: views/config-edit.php:314
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr ""
 
-#: views/config-edit.php:292
+#: views/config-edit.php:319
 msgid "Ogone"
 msgstr ""
 
-#: views/config-edit.php:297
+#: views/config-edit.php:324
 msgid "PSPID"
 msgstr ""
 
-#: views/config-edit.php:301
+#: views/config-edit.php:328
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 
-#: views/config-edit.php:307
+#: views/config-edit.php:334
 msgid "Character encoding"
 msgstr ""
 
-#: views/config-edit.php:315
+#: views/config-edit.php:342
 msgid "Hash algorithm"
 msgstr ""
 
-#: views/config-edit.php:318
+#: views/config-edit.php:345
 msgid "SHA-1"
 msgstr ""
 
-#: views/config-edit.php:319
+#: views/config-edit.php:346
 msgid "SHA-256"
 msgstr ""
 
-#: views/config-edit.php:320
+#: views/config-edit.php:347
 msgid "SHA-512"
 msgstr ""
 
-#: views/config-edit.php:326 views/config-edit.php:362
+#: views/config-edit.php:353 views/config-edit.php:389
 msgid "SHA-IN Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:329 views/config-edit.php:365
+#: views/config-edit.php:356 views/config-edit.php:392
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
 "iDEAL provider."
 msgstr ""
 
-#: views/config-edit.php:334
+#: views/config-edit.php:361
 msgid "SHA-OUT Pass phrase"
 msgstr ""
 
-#: views/config-edit.php:337
+#: views/config-edit.php:364
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
 "provider."
 msgstr ""
 
-#: views/config-edit.php:342 views/meta-box-payment-source.php:64
+#: views/config-edit.php:369 views/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr ""
 
-#: views/config-edit.php:357
+#: views/config-edit.php:384
 msgid "Ogone DirectLink"
 msgstr ""
 
-#: views/config-edit.php:370
+#: views/config-edit.php:397
 msgid "3-D Secure"
 msgstr ""
 
-#: views/config-edit.php:372
+#: views/config-edit.php:399
 msgid "Enable 3-D Secure protocol"
 msgstr ""
 
-#: views/config-edit.php:378
+#: views/config-edit.php:405
 msgid "Qantani"
 msgstr ""
 
-#: views/config-edit.php:383
+#: views/config-edit.php:410
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:389
+#: views/config-edit.php:416
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:395
+#: views/config-edit.php:422
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: views/config-edit.php:402
+#: views/config-edit.php:429
 msgid "iDEAL Advanced"
 msgstr ""
 
-#: views/config-edit.php:407
+#: views/config-edit.php:434
 msgid "Private Key Password"
 msgstr ""
 
-#: views/config-edit.php:413 views/config-edit.php:773
+#: views/config-edit.php:440 views/config-edit.php:800
 msgid "Private Key"
 msgstr ""
 
-#: views/config-edit.php:420 views/config-edit.php:797
+#: views/config-edit.php:447 views/config-edit.php:824
 msgid "Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:428
+#: views/config-edit.php:455
 msgid "Private Key and Certificate"
 msgstr ""
 
-#: views/config-edit.php:433
+#: views/config-edit.php:460
 msgid "Number Days Valid"
 msgstr ""
 
-#: views/config-edit.php:435
+#: views/config-edit.php:462
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:439 views/gravityforms/feed-edit.php:347
+#: views/config-edit.php:466 views/gravityforms/feed-edit.php:390
 msgid "Country"
 msgstr ""
 
-#: views/config-edit.php:441
+#: views/config-edit.php:468
 msgid "2 letter code [NL]"
 msgstr ""
 
-#: views/config-edit.php:445
+#: views/config-edit.php:472
 msgid "State or Province"
 msgstr ""
 
-#: views/config-edit.php:447
+#: views/config-edit.php:474
 msgid "full name [Friesland]"
 msgstr ""
 
-#: views/config-edit.php:451
+#: views/config-edit.php:478
 msgid "Locality"
 msgstr ""
 
-#: views/config-edit.php:453
+#: views/config-edit.php:480
 msgid "eg, city"
 msgstr ""
 
-#: views/config-edit.php:457
+#: views/config-edit.php:484
 msgid "Organization"
 msgstr ""
 
-#: views/config-edit.php:459
+#: views/config-edit.php:486
 msgid "eg, company [Pronamic]"
 msgstr ""
 
-#: views/config-edit.php:463
+#: views/config-edit.php:490
 msgid "Organization Unit"
 msgstr ""
 
-#: views/config-edit.php:465
+#: views/config-edit.php:492
 msgid "eg, section"
 msgstr ""
 
-#: views/config-edit.php:469
+#: views/config-edit.php:496
 msgid "Common Name"
 msgstr ""
 
-#: views/config-edit.php:472
+#: views/config-edit.php:499
 msgid "eg, YOUR name"
 msgstr ""
 
-#: views/config-edit.php:473
+#: views/config-edit.php:500
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
 msgstr ""
 
-#: views/config-edit.php:474
+#: views/config-edit.php:501
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -1486,45 +1502,45 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: views/config-edit.php:478
+#: views/config-edit.php:505
 msgid "Email Address"
 msgstr ""
 
-#: views/config-edit.php:490
+#: views/config-edit.php:517
 msgid "Download Private Key"
 msgstr ""
 
-#: views/config-edit.php:512
+#: views/config-edit.php:539
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: views/config-edit.php:518
+#: views/config-edit.php:545
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: views/config-edit.php:521
+#: views/config-edit.php:548
 msgid "Valid From"
 msgstr ""
 
-#: views/config-edit.php:526
+#: views/config-edit.php:553
 msgid "Valid To"
 msgstr ""
 
-#: views/config-edit.php:537
+#: views/config-edit.php:564
 msgid "Download Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:762
+#: views/config-edit.php:789
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: views/config-edit.php:766
+#: views/config-edit.php:793
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: views/config-edit.php:782
+#: views/config-edit.php:809
 msgid "filename"
 msgstr ""
 
@@ -1537,7 +1553,7 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.4.3)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.5.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1547,7 +1563,7 @@ msgstr ""
 msgid "iDEAL Documentation"
 msgstr ""
 
-#: views/documentation.php:578
+#: views/documentation.php:608
 msgid "Version"
 msgstr ""
 
@@ -1571,165 +1587,178 @@ msgstr ""
 msgid "Accept payment by iDEAL"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:30
+#: views/gravityforms/feed-edit.php:29
 msgid "Gravity Form"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:35
+#: views/gravityforms/feed-edit.php:34
 msgid "&mdash; Select a form &mdash;"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:69
+#: views/gravityforms/feed-edit.php:68
 msgid "Entry ID Prefix"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:82
+#: views/gravityforms/feed-edit.php:81
 msgid ""
 "Please enter a prefix for your entry ID's. If you use an gateway for "
 "multiple websites ensure this prefix is unique as not all gateways will "
 "allow payments with the same ID."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:108
+#: views/gravityforms/feed-edit.php:107
 msgid ""
 "Maximum number of charachters is 32, you should also consider the use of "
 "variables Gravity Forms. An generated description that is longer than 32 "
 "characters will be automatically truncated."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:110
+#: views/gravityforms/feed-edit.php:109
 msgid ""
 "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
 "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:117
+#: views/gravityforms/feed-edit.php:116
 msgid "Condition"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:133
+#: views/gravityforms/feed-edit.php:132
 msgid "Enable"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:148
+#: views/gravityforms/feed-edit.php:147
 msgid "is"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:149
+#: views/gravityforms/feed-edit.php:148
 msgid "is not"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:168
+#: views/gravityforms/feed-edit.php:167
 msgid "Send to gateway if %s %s %s"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:178
+#: views/gravityforms/feed-edit.php:177
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:184
+#: views/gravityforms/feed-edit.php:183
 msgid "Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:189
+#: views/gravityforms/feed-edit.php:188
 msgid "Send Notifications Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:209
+#: views/gravityforms/feed-edit.php:208
 msgid "Send notifications only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:260
+#: views/gravityforms/feed-edit.php:259
 msgid "Send admin notification only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:267
+#: views/gravityforms/feed-edit.php:266
 msgid "Send user notification only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:286
+#: views/gravityforms/feed-edit.php:285
 msgid "Create Post Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:292
+#: views/gravityforms/feed-edit.php:291
 msgid "Create post only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:303
+#: views/gravityforms/feed-edit.php:302
 msgid "Campaign Monitor Subscription Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:309
+#: views/gravityforms/feed-edit.php:308
 msgid "Subscribe user to Campaign Monitor only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:320
+#: views/gravityforms/feed-edit.php:313 views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:365
+msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
+msgstr ""
+
+#: views/gravityforms/feed-edit.php:328
 msgid "MailChimp Subscription Delay"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:326
+#: views/gravityforms/feed-edit.php:334
 msgid "Subscribe user to MailChimp only when payment is received."
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:333
+#: views/gravityforms/feed-edit.php:354
+msgid "User Registration Delay"
+msgstr ""
+
+#: views/gravityforms/feed-edit.php:360
+msgid "Register user only when a payment is received."
+msgstr ""
+
+#: views/gravityforms/feed-edit.php:376
 msgid "Fields"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:382
 msgid "First Name"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:340
+#: views/gravityforms/feed-edit.php:383
 msgid "Last Name"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:342
+#: views/gravityforms/feed-edit.php:385
 msgid "Address"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:343
+#: views/gravityforms/feed-edit.php:386
 msgid "Address 2"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:344
+#: views/gravityforms/feed-edit.php:387
 msgid "City"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:345
+#: views/gravityforms/feed-edit.php:388
 msgid "State"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:346
+#: views/gravityforms/feed-edit.php:389
 msgid "Zip"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:379
+#: views/gravityforms/feed-edit.php:422
 msgid "Status Links"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:391
+#: views/gravityforms/feed-edit.php:434
 msgid "Cancel"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:419
+#: views/gravityforms/feed-edit.php:462
 msgid "Page:"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:427
+#: views/gravityforms/feed-edit.php:470
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:436
+#: views/gravityforms/feed-edit.php:479
 msgid "URL:"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:446 views/variants.php:62
+#: views/gravityforms/feed-edit.php:489 views/variants.php:62
 msgid "Advanced"
 msgstr ""
 
-#: views/gravityforms/feed-edit.php:453
+#: views/gravityforms/feed-edit.php:496
 msgid "Update user role"
 msgstr ""
 
