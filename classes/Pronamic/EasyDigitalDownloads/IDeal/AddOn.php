@@ -36,8 +36,11 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
             // Remove the Easy Digital Downloads credit card form
             add_action( 'edd_' . self::SLUG . '_cc_form', '__return_false' );
 
-            // Other actions
-            add_action( 'edd_purchase_form_before_submit'             , array( __CLASS__, 'payment_fields' ) );
+            // Pronamic iDEAL Remove CC Form
+            // @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/checkout/template.php#L97
+            // @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/gateways/paypal-standard.php#L12
+            add_action( 'edd_pronamic_ideal_cc_form', array( __CLASS__, 'payment_fields' ) );
+            
             add_action( 'edd_gateway_' . self::SLUG                   , array( __CLASS__, 'process_purchase' ) );
             add_action( "pronamic_payment_status_update_" . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
             add_filter( "pronamic_payment_source_text_" . self::SLUG  , array( __CLASS__, 'source_text' ), 10, 2 );
@@ -96,11 +99,19 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
 
     //////////////////////////////////////////////////
 
+    /**
+     * Payment fields for this gateway
+     * 
+     * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/checkout/template.php#L167
+     */
     public static function payment_fields() {
         $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( 'pronamic_ideal_config_id' ) );
 
         if ( $gateway ) {
+        	echo '<fieldset id="edd_cc_fields" class="edd-do-validate">';
+        	echo '<span><legend>', __( 'iDEAL', 'pronamic_ideal' ), '</legend></span>';
             echo $gateway->get_input_html();
+            echo '</fieldset>';
         }
     }
 
@@ -136,7 +147,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
             'downloads'     => $purchase_data['downloads'],
             'user_info'     => $purchase_data['user_info'],
             'cart_details'  => $purchase_data['cart_details'],
-            'gateway'       => self::SLUG,
+            'gateway'       => 'pronamic_ideal',
             'status'        => 'pending',
         );
 
