@@ -155,6 +155,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.5.1 =
+*	Tweak - Easy Digital Downloads - Improved support for the Pronamic iDEAL gateway.
+
 = 2.5.0 =
 *	Tweak - Rabobank - OmniKassa - Moved listener on payment status up in the WordPress code flow.
 *	Documentation - Rabobank - OmniKassa - Added OmniKassa documentation v6.0.
