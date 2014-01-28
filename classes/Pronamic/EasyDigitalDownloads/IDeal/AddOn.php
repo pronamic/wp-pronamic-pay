@@ -58,8 +58,8 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * @return mixed $gateways
      */
     public static function payment_gateways( $gateways ) {
-        $gateways[ self::SLUG ] = array(
-            'admin_label'    => __( 'iDEAL', 'pronamic_ideal' ),
+        $gateways['pronamic_ideal'] = array(
+            'admin_label'    => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
             'checkout_label' => __( 'iDEAL', 'pronamic_ideal' ),
             'supports'       => array( 'buy_now' ),
         );
@@ -77,40 +77,18 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * @return mixed $settings_gateways
      */
     public static function settings_gateways( $settings_gateways ) {
-        // Get configurations
-        $ideal_configurations_query = new WP_Query( array(
-            'post_type'   => 'pronamic_gateway',
-            'post_status' => 'publish',
-        ) );
-
-        // Build array with configurations
-        if ( $ideal_configurations_query->have_posts() ) {
-            $ideal_configurations = array( -1 =>  __( 'Select configuration', 'pronamic_ideal' ) );
-
-            while ( $ideal_configurations_query->have_posts() ) {
-                $ideal_configuration = $ideal_configurations_query->next_post();
-
-                $ideal_configurations[ $ideal_configuration->ID ] = $ideal_configuration->post_title;
-            }
-        } else {
-            $ideal_configurations = array( -1 => __( 'No iDEAL configuration has been created yet', 'pronamic_ideal' ) );
-        }
-
-        // Add header
-        $settings_gateways[ self::SLUG ] = array(
-            'id'   => self::SLUG,
+        $settings_gateways['pronamic_ideal'] = array(
+            'id'   => 'pronamic_ideal',
             'name' => '<strong>' . __( 'iDEAL Settings', 'pronamic_ideal' ) . '</strong>',
             'desc' => __( 'Configure the iDEAL settings', 'pronamic_ideal' ),
             'type' => 'header',
         );
 
-        // Add configurations
-        $settings_gateways[ self::SLUG . '_config_id' ] = array(
-            'id'      => self::SLUG . '_config_id',
-            'name'    => __( 'iDEAL configuration', 'pronamic_ideal' ),
-            'desc'    => __( 'Select configuration', 'pronamic_ideal' ),
+        $settings_gateways['pronamic_ideal_config_id'] = array(
+            'id'      => 'pronamic_ideal_config_id',
+            'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
             'type'    => 'select',
-            'options' => $ideal_configurations,
+            'options' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
         );
 
         return $settings_gateways;
@@ -119,7 +97,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
     //////////////////////////////////////////////////
 
     public static function payment_fields() {
-        $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( self::SLUG . '_config_id' ) );
+        $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( 'pronamic_ideal_config_id' ) );
 
         if ( $gateway ) {
             echo $gateway->get_input_html();
@@ -146,7 +124,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * );
      */
     public static function process_purchase( $purchase_data ) {
-        $config_id = edd_get_option( self::SLUG . '_config_id' );
+        $config_id = edd_get_option( 'pronamic_ideal_config_id' );
 
         // Collect payment data
         $payment_data = array(
