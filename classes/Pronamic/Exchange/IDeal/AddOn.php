@@ -11,6 +11,13 @@
 class Pronamic_Exchange_IDeal_AddOn {
 
 	/**
+	 * The add-on's slug.
+	 *
+	 * @var string
+	 */
+	public static $slug = 'pronamic-ideal';
+
+	/**
 	 * Options group.
 	 *
 	 * @const string
@@ -29,7 +36,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 *
 	 * @const string
 	 */
-	const TITLE_OPTION_KEY = 'pronamic_exchange_ideal_addon_title';
+	const BUTTON_TITLE_OPTION_KEY = 'pronamic_exchange_ideal_addon_button_title';
 
 	//////////////////////////////////////////////////
 
@@ -48,6 +55,8 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function init() {
 
+		$slug = self::$slug;
+
 		$options = array(
 			'name'              => __( 'iDEAL', 'pronamic_ideal' ),
 			'description'       => __( 'Adds the ability for users to checkout with iDEAL.', 'pronamic_ideal' ),
@@ -60,11 +69,21 @@ class Pronamic_Exchange_IDeal_AddOn {
 			'settings-callback' => array( __CLASS__, 'settings' ),
 		);
 
-		it_exchange_register_addon( 'ideal', $options );
+		it_exchange_register_addon( $slug, $options );
 
+		// Actions
 		add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
+
+		add_action( 'template_redirect', array( __CLASS__, 'process_payment', 11 ) );
+
+		// Filters
+		add_filter( "pronamic_payment_source_text_{$slug}", array( __CLASS__, 'source_text' ), 10, 2 );
+
+		add_filter( "it_exchange_get_{$slug}_make_payment_button", array( __CLASS__, 'make_payment_button' ) );
 	}
 
+	//////////////////////////////////////////////////
+	// Settings
 	//////////////////////////////////////////////////
 
 	/**
@@ -72,7 +91,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function register_settings() {
 
-		register_setting( self::OPTION_GROUP, self::TITLE_OPTION_KEY );
+		register_setting( self::OPTION_GROUP, self::BUTTON_TITLE_OPTION_KEY );
 		register_setting( self::OPTION_GROUP, self::CONFIGURATION_OPTION_KEY );
 	}
 
@@ -83,10 +102,105 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		$data = new stdClass();
 
-		$data->title                 = get_option( self::TITLE_OPTION_KEY, __( 'Pay with iDEAL', 'pronamic_ideal' ) );
-		$data->current_configuration = get_option( self::CONFIGURATION_OPTION_KEY, 0 );
+		$data->title                 = self::get_gateway_button_title();
+		$data->current_configuration = self::get_gateway_configuration_id();
 		$data->configurations        = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
 
 		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'settings.php';
+	}
+
+	/**
+	 * Get the iDEAL gateway title.
+	 *
+	 * @return string $button_title
+	 */
+	public static function get_gateway_button_title() {
+
+		return get_option( self::BUTTON_TITLE_OPTION_KEY, __( 'Pay with iDEAL', 'pronamic_ideal' ) );
+	}
+
+	/**
+	 * Get the iDEAL gateway configuration ID.
+	 *
+	 * @return string $configuration_id
+	 */
+	public static function get_gateway_configuration_id() {
+
+		return get_option( self::CONFIGURATION_OPTION_KEY, 0 );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Build the iDEAL payment form.
+	 */
+	public static function make_payment_button() {
+
+		$payment_form = '';
+
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( self::get_gateway_configuration_id() );
+
+		if ( $gateway ) {
+
+			$payment_form .= '<form action="' . it_exchange_get_page_url( 'transaction' ) . '" method="post">';
+			$payment_form .=     '<input type="hidden" name="it-exchange-transaction-method" value="' . self::$slug . '" />';
+			$payment_form .=     $gateway->get_input_html();
+			$payment_form .=     wp_nonce_field( 'pronamic-ideal-checkout', '_pronamic_ideal_nonce', true, false );
+			$payment_form .=     '<input type="submit" name="pronamic_ideal_process_payment" value="' . self::get_gateway_button_title() . '" />';
+			$payment_form .= '</form>';
+		}
+
+		return $payment_form;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if an iDEAL payment needs to be processed.
+	 */
+	public static function process_payment() {
+
+		$process_payment = filter_input( INPUT_POST, 'pronamic_ideal_process_payment', FILTER_SANITIZE_STRING );
+
+		if ( strlen( $process_payment ) <= 0 ) {
+
+			return;
+		}
+
+		$unique_hash        = it_exchange_create_unique_hash();
+		$current_customer   = it_exchange_get_current_customer();
+		$transaction_object = it_exchange_generate_transaction_object();
+
+		if ( $transaction_object === false ) {
+
+			return;
+		}
+
+		it_exchange_add_transient_transaction( self::$slug, $unique_hash, $current_customer, $transaction_object );
+
+		// TODO Start iDEAL payment
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Source column
+	 *
+	 * @param string                  $text
+	 * @param Pronamic_WP_Pay_Payment $payment
+	 *
+	 * @return string $text
+	 */
+	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
+
+		$text  = '';
+		$text .= __( 'iThemes Exchange', 'pronamic_ideal' ) . '<br />';
+		$text .= sprintf(
+			'<a href="%s">%s</a>',
+			get_edit_post_link( $payment->source_id ),
+			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id )
+		);
+
+		return $text;
 	}
 }

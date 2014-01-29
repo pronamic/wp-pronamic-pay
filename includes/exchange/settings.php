@@ -18,7 +18,7 @@
 
 			<tr>
 				<th>
-					<label for="<?php echo Pronamic_Exchange_IDeal_AddOn::TITLE_OPTION_KEY; ?>">
+					<label for="<?php echo Pronamic_Exchange_IDeal_AddOn::BUTTON_TITLE_OPTION_KEY; ?>">
 						<?php _e( 'Title', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
@@ -26,8 +26,8 @@
 				<td>
 					<input
 						type="text"
-						id="<?php echo Pronamic_Exchange_IDeal_AddOn::TITLE_OPTION_KEY; ?>"
-						name="<?php echo Pronamic_Exchange_IDeal_AddOn::TITLE_OPTION_KEY; ?>"
+						id="<?php echo Pronamic_Exchange_IDeal_AddOn::BUTTON_TITLE_OPTION_KEY; ?>"
+						name="<?php echo Pronamic_Exchange_IDeal_AddOn::BUTTON_TITLE_OPTION_KEY; ?>"
 					    value="<?php echo $data->title; ?>"
 				    />
 				</td>
