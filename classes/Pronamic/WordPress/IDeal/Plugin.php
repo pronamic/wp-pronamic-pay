@@ -58,6 +58,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_Membership_IDeal_AddOn::bootstrap();
             Pronamic_EShop_IDeal_AddOn::bootstrap();
             Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
+			Pronamic_Exchange_IDeal_AddOn::bootstrap();
 		}
 
 		// Admin
