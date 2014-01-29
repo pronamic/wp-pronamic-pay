@@ -74,7 +74,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 		// Actions
 		add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
 
-		add_action( 'template_redirect', array( __CLASS__, 'process_payment', 11 ) );
+		add_action( 'template_redirect', array( __CLASS__, 'process_payment' ), 11 );
 
 		// Filters
 		add_filter( "pronamic_payment_source_text_{$slug}", array( __CLASS__, 'source_text' ), 10, 2 );
@@ -177,6 +177,21 @@ class Pronamic_Exchange_IDeal_AddOn {
 		}
 
 		it_exchange_add_transient_transaction( self::$slug, $unique_hash, $current_customer, $transaction_object );
+
+//		$data = new Pronamic_Exchange_PaymentData( $unique_hash, $transaction_object );
+
+		//var_dump($unique_hash); echo '<br />';var_dump($current_customer); echo '<br />';var_dump($transaction_object);
+
+		foreach ( $transaction_object as $key => $value ) {
+
+			echo $key . ' => ';
+
+			var_dump($value);
+
+			echo '<br />';
+		}
+
+		die();
 
 		// TODO Start iDEAL payment
 	}

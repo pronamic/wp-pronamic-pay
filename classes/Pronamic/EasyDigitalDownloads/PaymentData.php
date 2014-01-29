@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: WooCommerce payment data
+ * Title: Easy Digital Downloads payment data
  * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
@@ -140,7 +140,7 @@ class Pronamic_EasyDigitalDownloads_PaymentData extends Pronamic_WP_Pay_PaymentD
             if ( isset( $this->payment_data['user_info']['first_name'] ) ) {
                 $name .= $this->payment_data['user_info']['first_name'];
 
-                if ( isset( $this->payment_data['user_info']['first_name'] ) ) {
+                if ( isset( $this->payment_data['user_info']['last_name'] ) ) {
                     $name .= ' ' . $this->payment_data['user_info']['last_name'];
                 }
             }
