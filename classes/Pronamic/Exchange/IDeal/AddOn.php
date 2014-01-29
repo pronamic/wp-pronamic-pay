@@ -248,6 +248,8 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 				$url = $data->get_success_url();
 
+				it_exchange_empty_shopping_cart();
+
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
 
