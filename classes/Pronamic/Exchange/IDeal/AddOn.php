@@ -160,9 +160,9 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function process_payment() {
 
-		$process_payment = filter_input( INPUT_POST, 'pronamic_ideal_process_payment', FILTER_SANITIZE_STRING );
+		$do_process_payment = filter_input( INPUT_POST, 'pronamic_ideal_process_payment', FILTER_SANITIZE_STRING );
 
-		if ( strlen( $process_payment ) <= 0 ) {
+		if ( strlen( $do_process_payment ) <= 0 ) {
 
 			return;
 		}
@@ -178,22 +178,20 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		it_exchange_add_transient_transaction( self::$slug, $unique_hash, $current_customer, $transaction_object );
 
-//		$data = new Pronamic_Exchange_PaymentData( $unique_hash, $transaction_object );
+		$configuration_id = self::get_gateway_configuration_id();
 
-		//var_dump($unique_hash); echo '<br />';var_dump($current_customer); echo '<br />';var_dump($transaction_object);
+		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration_id );
 
-		foreach ( $transaction_object as $key => $value ) {
+		if ( $gateway ) {
 
-			echo $key . ' => ';
+			$data = new Pronamic_Exchange_PaymentData( $unique_hash, $transaction_object );
 
-			var_dump($value);
+			$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration_id, $gateway, $data );
 
-			echo '<br />';
+			$gateway->redirect( $payment );
+
+			exit;
 		}
-
-		die();
-
-		// TODO Start iDEAL payment
 	}
 
 	//////////////////////////////////////////////////
