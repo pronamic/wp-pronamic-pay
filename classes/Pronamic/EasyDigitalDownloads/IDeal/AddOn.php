@@ -180,10 +180,10 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
     //////////////////////////////////////////////////
 
     /**
-     * Update lead status of the specified payment
+     * Update the status of the specified payment
      *
      * @param Pronamic_Pay_Payment $payment
-     * @param boolean              $can_redirect
+     * @param boolean              $can_redirect (optional, defaults to false)
      */
     public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
         $source_id = $payment->get_source_id();

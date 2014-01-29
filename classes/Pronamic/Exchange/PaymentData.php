@@ -11,7 +11,7 @@
 class Pronamic_Exchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
-	 * Unique hash by which the transaction details can be retrieved.
+	 * Unique hash with which the transaction data can be retrieved
 	 *
 	 * @var string
 	 */
@@ -212,7 +212,7 @@ class Pronamic_Exchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 */
 	public function get_success_url() {
 
-		$page_url = it_exchange_get_page_url('confirmation');
+		$page_url = it_exchange_get_transaction_confirmation_url( $this->unique_hash );
 
 		if ( $page_url === false ) {
 			return home_url();
