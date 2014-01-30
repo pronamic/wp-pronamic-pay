@@ -846,7 +846,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					}
 
 					$command = trim( sprintf(
-						'openssl req -x509 -new -key %s.key -passin pass:%s -days %d -out %s.cer %s',
+						'openssl req -x509 -sha256 -new -key %s.key -passin pass:%s -days %d -out %s.cer %s',
 						$filename,
 						$private_key_password,
 						$number_days_valid,
