@@ -8,7 +8,7 @@
  * @author Stefan Boonstra
  * @version 1.0
  */
-class Pronamic_Exchange_IDeal_AddOn {
+class Pronamic_IThemesExchange_IDeal_AddOn {
 
 	/**
 	 * The add-on's slug.
@@ -22,21 +22,21 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 *
 	 * @const string
 	 */
-	const OPTION_GROUP = 'pronamic_exchange_ideal_addon';
+	const OPTION_GROUP = 'pronamic_ithemes_exchange_ideal_addon';
 
 	/**
 	 * The option key that stores the configuration ID.
 	 *
 	 * @const string
 	 */
-	const CONFIGURATION_OPTION_KEY = 'pronamic_exchange_ideal_addon_configuration';
+	const CONFIGURATION_OPTION_KEY = 'pronamic_ithemes_exchange_ideal_addon_configuration';
 
 	/**
 	 * The option key that stores the iDEAL payment button text.
 	 *
 	 * @const string
 	 */
-	const BUTTON_TITLE_OPTION_KEY = 'pronamic_exchange_ideal_addon_button_title';
+	const BUTTON_TITLE_OPTION_KEY = 'pronamic_ithemes_exchange_ideal_addon_button_title';
 
 	//////////////////////////////////////////////////
 
@@ -63,7 +63,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 			'author'            => 'Pronamic',
 			'author_url'        => 'http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/',
 			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
-			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
+			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
 			'category'          => 'transaction-methods',
 			'supports'          => array( 'transaction_status' => true ),
 			'settings-callback' => array( __CLASS__, 'settings' ),
@@ -203,7 +203,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function settings() {
 
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'settings.php';
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'settings.php';
 	}
 
 	/**
@@ -211,7 +211,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function wizard_settings() {
 
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
 	}
 
 	/**
@@ -321,7 +321,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		if ( $gateway ) {
 
-			$data = new Pronamic_Exchange_PaymentData( $unique_hash, $transaction_object );
+			$data = new Pronamic_IThemesExchange_PaymentData( $unique_hash, $transaction_object );
 
 			$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration_id, $gateway, $data );
 
@@ -342,7 +342,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 
 		// Create empty payment data object to be able to get the URLs
-		$empty_data = new Pronamic_Exchange_PaymentData( 0, new stdClass() );
+		$empty_data = new Pronamic_IThemesExchange_PaymentData( 0, new stdClass() );
 
 		switch ( $payment->get_status() ) {
 
@@ -366,7 +366,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 				$transaction_id = it_exchange_add_transaction(
 					self::$slug,
 					$payment->get_source_id(),
-					Pronamic_Exchange_Exchange::ORDER_STATUS_PAID,
+					Pronamic_IThemesExchange_IThemesExchange::ORDER_STATUS_PAID,
 					$transient_transaction['customer_id'],
 					$transient_transaction['transaction_object']
 				);
@@ -378,7 +378,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 					break;
 				}
 
-				$data = new Pronamic_Exchange_PaymentData( $transaction_id, new stdClass() );
+				$data = new Pronamic_IThemesExchange_PaymentData( $transaction_id, new stdClass() );
 
 				$url = $data->get_success_url();
 

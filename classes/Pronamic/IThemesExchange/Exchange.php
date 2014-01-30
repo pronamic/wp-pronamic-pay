@@ -8,7 +8,7 @@
  * @author Stefan Boonstra
  * @version 1.0
  */
-class Pronamic_Exchange_Exchange {
+class Pronamic_IThemesExchange_IThemesExchange {
 
     /**
      * Order status pending

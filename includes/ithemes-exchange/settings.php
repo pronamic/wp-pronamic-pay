@@ -8,9 +8,9 @@
 	</div>
 
 	<form action="options.php" method="post">
-		<?php settings_fields( Pronamic_Exchange_IDeal_AddOn::OPTION_GROUP ); ?>
+		<?php settings_fields( Pronamic_IThemesExchange_IDeal_AddOn::OPTION_GROUP ); ?>
 
-		<?php do_settings_sections( Pronamic_Exchange_IDeal_AddOn::OPTION_GROUP ); ?>
+		<?php do_settings_sections( Pronamic_IThemesExchange_IDeal_AddOn::OPTION_GROUP ); ?>
 
 		<?php submit_button(); ?>
 	</form>

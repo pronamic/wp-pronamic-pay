@@ -8,7 +8,7 @@
  * @author Stefan Boonstra
  * @version 1.0
  */
-class Pronamic_Exchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
+class Pronamic_IThemesExchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Unique hash with which the transaction data can be retrieved
@@ -58,7 +58,7 @@ class Pronamic_Exchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * @return string
 	 */
 	public function get_source() {
-		return Pronamic_Exchange_IDeal_AddOn::$slug;
+		return Pronamic_IThemesExchange_IDeal_AddOn::$slug;
 	}
 
 	/**
