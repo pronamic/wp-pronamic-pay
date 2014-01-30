@@ -41,7 +41,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Bootstrap
+	 * Bootstrap.
 	 */
 	public static function bootstrap() {
 
@@ -51,7 +51,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initialize
+	 * Initialize.
 	 */
 	public static function init() {
 
@@ -80,6 +80,8 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		add_action( "it_exchange_print_{$slug}_wizard_settings", array( __CLASS__, 'wizard_settings' ) );
 
+		add_action( "it_exchange_save_{$slug}_wizard_settings", array( __CLASS__, 'save_wizard_settings' ) );
+
 		// Filters
 		add_filter( "pronamic_payment_source_text_{$slug}", array( __CLASS__, 'source_text' ), 10, 2 );
 
@@ -89,13 +91,13 @@ class Pronamic_Exchange_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Register settings
+	 * Register settings.
 	 */
 	public static function register_settings() {
 
 		add_settings_section(
 			self::OPTION_GROUP, // id
-			__( 'iDEAL Gateway Settings', 'pronamic_ideal' ), // title
+			null, // title
 			'__return_false', // callback
 			self::OPTION_GROUP // page
 		);
@@ -130,7 +132,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	}
 
 	/**
-	 * Input text
+	 * Input text.
 	 *
 	 * @param array $args
 	 */
@@ -157,7 +159,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	}
 
 	/**
-	 * Input select
+	 * Input select.
 	 *
 	 * @param array $args
 	 */
@@ -197,21 +199,48 @@ class Pronamic_Exchange_IDeal_AddOn {
 	}
 
 	/**
-	 * Gateway settings
+	 * Addon settings.
 	 */
 	public static function settings() {
 
 		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'settings.php';
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 *
+	 * Wizard settings.
 	 */
 	public static function wizard_settings() {
 
-		echo '<div class="field pronamic-ideal-wizard">hallo</div>';
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
+	}
+
+	/**
+	 * Save wizard settings.
+	 *
+	 * @param array $errors
+	 *
+	 * @return array $errors
+	 */
+	public static function save_wizard_settings( $errors ) {
+
+		$title            = filter_input( INPUT_POST, self::BUTTON_TITLE_OPTION_KEY , FILTER_SANITIZE_STRING );
+		$configuration_id = filter_input( INPUT_POST, self::CONFIGURATION_OPTION_KEY, FILTER_VALIDATE_INT );
+
+		update_option( self::BUTTON_TITLE_OPTION_KEY, $title );
+
+		$saved_configuration_id = false;
+
+		if ( is_numeric( $configuration_id ) ) {
+			update_option( self::CONFIGURATION_OPTION_KEY, $configuration_id );
+
+			$saved_configuration_id = true;
+		}
+
+		if ( ! $saved_configuration_id ) {
+			return $errors[] = __( 'iDEAL Configuration ID could not be saved', 'pronamic_ideal' );
+		}
+
+		return $errors;
 	}
 
 	//////////////////////////////////////////////////
