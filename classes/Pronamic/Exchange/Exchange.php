@@ -37,4 +37,18 @@ class Pronamic_Exchange_Exchange {
      * @var string
      */
     const ORDER_STATUS_VOIDED = 'voided';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Check if iThemes Exchange is active (Automattic/developer style)
+	 *
+	 * @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.14/init.php#L18
+	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
+	 *
+	 * @return boolean
+	 */
+	public static function is_active() {
+		return class_exists( 'IT_Exchange' );
+	}
 }
