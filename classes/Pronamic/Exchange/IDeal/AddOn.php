@@ -78,6 +78,8 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		add_action( "pronamic_payment_status_update_{$slug}", array( __CLASS__, 'status_update' ), 10, 2 );
 
+		add_action( "it_exchange_print_{$slug}_wizard_settings", array( __CLASS__, 'wizard_settings' ) );
+
 		// Filters
 		add_filter( "pronamic_payment_source_text_{$slug}", array( __CLASS__, 'source_text' ), 10, 2 );
 
@@ -85,16 +87,113 @@ class Pronamic_Exchange_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	// Settings
-	//////////////////////////////////////////////////
 
 	/**
 	 * Register settings
 	 */
 	public static function register_settings() {
 
+		add_settings_section(
+			self::OPTION_GROUP, // id
+			__( 'iDEAL Gateway Settings', 'pronamic_ideal' ), // title
+			'__return_false', // callback
+			self::OPTION_GROUP // page
+		);
+
+		add_settings_field(
+			self::BUTTON_TITLE_OPTION_KEY, // id
+			__( 'Title', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_text' ), // callback
+			self::OPTION_GROUP, // page
+			self::OPTION_GROUP, // section
+			array(
+				'label_for' => self::BUTTON_TITLE_OPTION_KEY,
+				'classes'   => array( 'regular-text' ),
+				'default'   => self::get_gateway_button_title(),
+			) // args
+		);
+
+		add_settings_field(
+			self::CONFIGURATION_OPTION_KEY, // id
+			__( 'iDEAL Configuration', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_select' ), // callback
+			self::OPTION_GROUP, // page
+			self::OPTION_GROUP, // section
+			array(
+				'label_for' => self::CONFIGURATION_OPTION_KEY,
+				'options'   => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+			) // args
+		);
+
 		register_setting( self::OPTION_GROUP, self::BUTTON_TITLE_OPTION_KEY );
 		register_setting( self::OPTION_GROUP, self::CONFIGURATION_OPTION_KEY );
+	}
+
+	/**
+	 * Input text
+	 *
+	 * @param array $args
+	 */
+	public static function input_text( $args ) {
+		$name = $args['label_for'];
+
+		$classes = array();
+		if ( isset( $args['classes'] ) ) {
+			$classes = $args['classes'];
+		}
+
+		$default = '';
+		if ( isset( $args['default'] ) ) {
+			$default = $args['default'];
+		}
+
+		printf(
+			'<input name="%s" id="%s" type="text" class="%s" value="%s" />',
+			esc_attr( $name ),
+			esc_attr( $name ),
+			esc_attr( implode( ' ', $classes ) ),
+			esc_attr( get_option( $name, $default ) )
+		);
+	}
+
+	/**
+	 * Input select
+	 *
+	 * @param array $args
+	 */
+	public static function input_select( $args ) {
+		$name = $args['label_for'];
+
+		$classes = array();
+		if ( isset( $args['classes'] ) ) {
+			$classes = $args['classes'];
+		}
+
+		$options = array();
+		if ( isset( $args['options'] ) ) {
+			$options = $args['options'];
+		}
+
+		printf(
+			'<select name="%s" id="%s" class="%s">',
+			esc_attr( $name ),
+			esc_attr( $name ),
+			esc_attr( implode( ' ', $classes ) )
+		);
+
+		$current_value = get_option( $name );
+
+		foreach ( $options as $option_key => $option ) {
+
+			printf(
+				'<option value="%s" %s>%s</option>',
+				esc_attr( $option_key ),
+				selected( $option_key, $current_value, false ),
+				esc_attr( $option )
+			);
+		}
+
+		echo '</select>';
 	}
 
 	/**
@@ -102,14 +201,20 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 */
 	public static function settings() {
 
-		$data = new stdClass();
-
-		$data->title                 = self::get_gateway_button_title();
-		$data->current_configuration = self::get_gateway_configuration_id();
-		$data->configurations        = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
-
 		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'settings.php';
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 *
+	 */
+	public static function wizard_settings() {
+
+		echo '<div class="field pronamic-ideal-wizard">hallo</div>';
+	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Get the iDEAL gateway title.

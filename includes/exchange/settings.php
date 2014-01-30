@@ -1,5 +1,3 @@
-<?php if ( isset( $data ) && $data instanceof stdClass ) : ?>
-
 <div class="wrap">
 	<h2><?php _e( 'iDEAL Gateway Settings', 'pronamic_ideal' ); ?></h2>
 
@@ -10,6 +8,14 @@
 	</div>
 
 	<form action="options.php" method="post">
+		<?php settings_fields( Pronamic_Exchange_IDeal_AddOn::OPTION_GROUP ); ?>
+
+		<?php do_settings_sections( Pronamic_Exchange_IDeal_AddOn::OPTION_GROUP ); ?>
+
+		<?php submit_button(); ?>
+	</form>
+
+	<!--<form action="options.php" method="post">
 
 		<?php settings_fields( Pronamic_Exchange_IDeal_AddOn::OPTION_GROUP ); ?>
 
@@ -60,7 +66,5 @@
 
 		<?php submit_button(); ?>
 
-	</form>
+	</form>-->
 </div>
-
-<?php endif; ?>
