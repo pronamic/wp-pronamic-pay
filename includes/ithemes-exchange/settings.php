@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php _e( 'iDEAL Gateway Settings', 'pronamic_ideal' ); ?></h2>
+	<h2><?php _e( 'iDEAL', 'pronamic_ideal' ); ?></h2>
 
 	<div class="it-exchange-return-to-addons">
 		<p>

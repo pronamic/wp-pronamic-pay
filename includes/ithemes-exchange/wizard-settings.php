@@ -1,5 +1,5 @@
 <div class="field <?php echo Pronamic_IThemesExchange_IDeal_AddOn::$slug; ?>-wizard">
-	<h3><?php _e( 'iDEAL Gateway Settings', 'pronamic_ideal' ); ?></h3>
+	<h3><?php _e( 'iDEAL', 'pronamic_ideal' ); ?></h3>
 
 	<?php settings_fields( Pronamic_IThemesExchange_IDeal_AddOn::OPTION_GROUP ); ?>
 
