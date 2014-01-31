@@ -337,7 +337,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @param string $description
 	 */
 	public function setDescription( $description ) {
-		$this->description = substr( str_replace( '#', '', $description ), 0, 32 );
+		$this->description = Pronamic_Gateways_IDealBasic_DataHelper::an32( $description );
 	}
 
 	//////////////////////////////////////////////////
@@ -545,7 +545,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function getItems() {
 		return $this->items;
 	}
-	
+
 	/**
 	 * Set the items
 	 * 
