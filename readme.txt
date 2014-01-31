@@ -158,6 +158,8 @@ Here is a list of known plugin conflicts:
 = 2.6.0 =
 *   Feature - iThemes Exchange - Added support for the [iThemes Exchange](http://wordpress.org/plugins/ithemes-exchange/) plugin.
 *	Tweak - Easy Digital Downloads - Improved support for the Pronamic iDEAL gateway.
+*   Fix - iDEAL Basic - Sisow iDEAL Basic returned error TA3260 when the payment description contained a hash tag.
+*   Fix - Easy Digital Downloads - Customers weren't redirected to the payment provider upon payment.
 
 = 2.5.0 =
 *	Tweak - Rabobank - OmniKassa - Moved listener on payment status up in the WordPress code flow.

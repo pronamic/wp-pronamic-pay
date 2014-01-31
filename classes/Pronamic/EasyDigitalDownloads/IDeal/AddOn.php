@@ -14,7 +14,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      *
      * @var string
      */
-    const SLUG = 'easydigitaldownloads';
+    const SLUG = 'pronamic_ideal';
 
     //////////////////////////////////////////////////
 
@@ -33,17 +33,14 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      */
     public static function plugins_loaded() {
         if ( Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active() ) {
-            // Remove the Easy Digital Downloads credit card form
-            add_action( 'edd_' . self::SLUG . '_cc_form', '__return_false' );
-
             // Pronamic iDEAL Remove CC Form
             // @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/checkout/template.php#L97
             // @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/gateways/paypal-standard.php#L12
-            add_action( 'edd_pronamic_ideal_cc_form', array( __CLASS__, 'payment_fields' ) );
+            add_action( 'edd_' . self::SLUG . '_cc_form', array( __CLASS__, 'payment_fields' ) );
             
             add_action( 'edd_gateway_' . self::SLUG                   , array( __CLASS__, 'process_purchase' ) );
-            add_action( "pronamic_payment_status_update_" . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
-            add_filter( "pronamic_payment_source_text_" . self::SLUG  , array( __CLASS__, 'source_text' ), 10, 2 );
+            add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
+            add_filter( 'pronamic_payment_source_text_' . self::SLUG  , array( __CLASS__, 'source_text' ), 10, 2 );
 
             // Filters
             add_filter( 'edd_settings_gateways', array( __CLASS__, 'settings_gateways' ) );
@@ -61,7 +58,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * @return mixed $gateways
      */
     public static function payment_gateways( $gateways ) {
-        $gateways['pronamic_ideal'] = array(
+        $gateways[ self::SLUG ] = array(
             'admin_label'    => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
             'checkout_label' => __( 'iDEAL', 'pronamic_ideal' ),
             'supports'       => array( 'buy_now' ),
@@ -80,15 +77,15 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * @return mixed $settings_gateways
      */
     public static function settings_gateways( $settings_gateways ) {
-        $settings_gateways['pronamic_ideal'] = array(
-            'id'   => 'pronamic_ideal',
+        $settings_gateways[ self::SLUG ] = array(
+            'id'   => self::SLUG,
             'name' => '<strong>' . __( 'iDEAL Settings', 'pronamic_ideal' ) . '</strong>',
             'desc' => __( 'Configure the iDEAL settings', 'pronamic_ideal' ),
             'type' => 'header',
         );
 
-        $settings_gateways['pronamic_ideal_config_id'] = array(
-            'id'      => 'pronamic_ideal_config_id',
+        $settings_gateways[ self::SLUG . '_config_id'] = array(
+            'id'      => self::SLUG . '_config_id',
             'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
             'type'    => 'select',
             'options' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
@@ -105,7 +102,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/checkout/template.php#L167
      */
     public static function payment_fields() {
-        $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( 'pronamic_ideal_config_id' ) );
+        $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( self::SLUG . '_config_id' ) );
 
         if ( $gateway ) {
         	echo '<fieldset id="edd_cc_fields" class="edd-do-validate">';
@@ -135,7 +132,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
      * );
      */
     public static function process_purchase( $purchase_data ) {
-        $config_id = edd_get_option( 'pronamic_ideal_config_id' );
+        $config_id = edd_get_option( self::SLUG . '_config_id' );
 
         // Collect payment data
         $payment_data = array(
@@ -147,7 +144,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
             'downloads'     => $purchase_data['downloads'],
             'user_info'     => $purchase_data['user_info'],
             'cart_details'  => $purchase_data['cart_details'],
-            'gateway'       => 'pronamic_ideal',
+            'gateway'       => self::SLUG,
             'status'        => 'pending',
         );
 
