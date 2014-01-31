@@ -55,7 +55,7 @@
 			'wp_org_url'         => 'http://wordpress.org/extend/plugins/ithemes-exchange/',
 			'active'             => Pronamic_IThemesExchange_IThemesExchange::is_active(),
 			'requires_at_least'  => '1.7.14',
-			'tested_up_to'       => '1.7.14',
+			'tested_up_to'       => '1.7.16',
 			'author'             => __( 'iThemes', 'pronamic_ideal' ),
 			'author_url'         => 'http://ithemes.com/',
 		),
