@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-29 16:50+0100\n"
-"PO-Revision-Date: 2014-01-29 16:52+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-01-31 13:21+0100\n"
+"PO-Revision-Date: 2014-01-31 13:21+0100\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -34,16 +34,16 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/extensions.php:131
-#: views/extensions.php:139
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/extensions.php:142
+#: views/extensions.php:150
 msgid "AppThemes"
 msgstr "AppThemes"
 
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:116
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:275
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:273
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/Exchange/IDeal/AddOn.php:284
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
 #, php-format
@@ -53,24 +53,26 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:66
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:112
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
-#: classes/Pronamic/Exchange/IDeal/AddOn.php:61
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
 #: classes/Pronamic/WordPress/IDeal/Admin.php:381
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61 views/branding.php:14
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
+#: includes/ithemes-exchange/settings.php:2
+#: includes/ithemes-exchange/wizard-settings.php:2 views/branding.php:14
 #: views/branding.php:20 views/branding.php:26 views/config-edit.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
 msgstr "iDEAL"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:65
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:226
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:47
@@ -102,7 +104,7 @@ msgstr "Algemene informatie"
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:124
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:149
-#: classes/Pronamic/Exchange/IDeal/AddOn.php:121
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:241
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:111
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
@@ -130,12 +132,12 @@ msgid "No"
 msgstr "Nee"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:92
-#: includes/exchange/settings.php:39
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:90
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:126
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:137
 msgid "ClassiPress"
 msgstr "ClassiPress"
 
@@ -149,19 +151,19 @@ msgstr "Advertentie %s"
 msgid "Easy Digital Downloads order %s"
 msgstr "Easy Digital Downloads bestelling %s"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:85
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
 msgid "iDEAL Settings"
 msgstr "iDEAL-instellingen"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:86
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:84
 msgid "Configure the iDEAL settings"
 msgstr "Configureer de iDEAL-instellingen"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:160
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:160
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
 #, php-format
 msgid ""
 "Payment creation failed before sending buyer to the iDEAL provider. Payment "
@@ -170,25 +172,25 @@ msgstr ""
 "Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
 "naar de iDEAL provider. Betalingsinformatie: %s"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:226
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:224
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:238
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:236
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:244
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:242
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:270
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:268
 #: views/extensions.php:15
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
@@ -226,21 +228,8 @@ msgstr "Event Espresso"
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
-#: classes/Pronamic/Exchange/PaymentData.php:70
-#, php-format
-msgid "iThemes Exchange order %s"
-msgstr "iThemes Exchange bestelling %s"
-
-#: classes/Pronamic/Exchange/IDeal/AddOn.php:62
-msgid "Adds the ability for users to checkout with iDEAL."
-msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
-
-#: classes/Pronamic/Exchange/IDeal/AddOn.php:283
-msgid "iThemes Exchange"
-msgstr "iThemes Exchange"
-
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:103
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:114
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -458,6 +447,28 @@ msgstr "Banken uitschuifkeuzelijst"
 msgid "iDEAL Fields"
 msgstr "iDEAL-velden"
 
+#: classes/Pronamic/IThemesExchange/PaymentData.php:70
+#, php-format
+msgid "iThemes Exchange order %s"
+msgstr "iThemes Exchange bestelling %s"
+
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
+msgid "Adds the ability for users to checkout with iDEAL."
+msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
+
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
+#: includes/post.php:206 includes/post.php:282 views/branding.php:218
+#: views/documentation.php:606 views/pages-generator.php:123
+msgid "Title"
+msgstr "Titel"
+
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
+#: views/extensions.php:52
+msgid "iThemes Exchange"
+msgstr "iThemes Exchange"
+
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:83
 msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
@@ -472,21 +483,13 @@ msgstr "iDEAL-betaling verlopen."
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:52
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:63
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
-
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
-#: includes/post.php:206 includes/post.php:282
-#: includes/exchange/settings.php:22 views/branding.php:218
-#: views/documentation.php:606 views/pages-generator.php:123
-msgid "Title"
-msgstr "Titel"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
@@ -507,7 +510,7 @@ msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:63
+#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:74
 msgid "Membership"
 msgstr "Membership"
 
@@ -661,7 +664,7 @@ msgstr "Bestelling %s"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:93
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:104
 msgid "Shopp"
 msgstr "Shopp"
 
@@ -902,7 +905,7 @@ msgstr "Test %s"
 msgid "Attendee %s"
 msgstr "Deelnemer %s"
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:114
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125
 msgid "WP e-Commerce"
 msgstr "WP e-Commerce"
 
@@ -1087,11 +1090,7 @@ msgstr "Transactie beschrijving"
 msgid "Log"
 msgstr "Log"
 
-#: includes/exchange/settings.php:4
-msgid "iDEAL Gateway Settings"
-msgstr "iDEAL Gateway Instellingen"
-
-#: includes/exchange/settings.php:8
+#: includes/ithemes-exchange/settings.php:6
 msgid "Back to Add-ons"
 msgstr "Terug naar Add-ons"
 
@@ -1775,42 +1774,46 @@ msgid "Rocketgenius"
 msgstr "Rocketgenius"
 
 #: views/extensions.php:59
+msgid "iThemes"
+msgstr "iThemes"
+
+#: views/extensions.php:70
 msgid "Jigowatt"
 msgstr "Jigowatt"
 
-#: views/extensions.php:69 views/extensions.php:78
+#: views/extensions.php:80 views/extensions.php:89
 msgid "WPMUDEV.org"
 msgstr "WPMUDEV.org"
 
-#: views/extensions.php:73
+#: views/extensions.php:84
 msgid "Membership Premium"
 msgstr "Membership Premium"
 
-#: views/extensions.php:82
+#: views/extensions.php:93
 msgid "s2Member®"
 msgstr "s2Member®"
 
-#: views/extensions.php:89
+#: views/extensions.php:100
 msgid "WebSharks, Inc."
 msgstr "WebSharks, Inc."
 
-#: views/extensions.php:99
+#: views/extensions.php:110
 msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
-#: views/extensions.php:110
+#: views/extensions.php:121
 msgid "WooThemes"
 msgstr "WooThemes"
 
-#: views/extensions.php:121
+#: views/extensions.php:132
 msgid "Instinct Entertainment"
 msgstr "Instinct Entertainment"
 
-#: views/extensions.php:135
+#: views/extensions.php:146
 msgid "JobRoller"
 msgstr "JobRoller"
 
-#: views/extensions.php:148 views/gateways.php:21
+#: views/extensions.php:159 views/gateways.php:21
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -2145,8 +2148,8 @@ msgstr ""
 
 #: views/gravityforms/feed-edit.php:109
 msgid ""
-"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>"
-"{form_id}</code>, Form Title = <code>{form_title}</code>"
+"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 msgstr ""
 "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
 "Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</"
@@ -2330,12 +2333,6 @@ msgstr "Genereer shortcode"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#~ msgid "No iDEAL configuration has been created yet"
-#~ msgstr "Er zijn nog geen iDEAL configuraties aangemaakt"
-
-#~ msgid "iDEAL configuration"
-#~ msgstr "iDEAL-configuratie"
-
 #~ msgid "http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/"
 #~ msgstr "http://www.pronamic.nl/wordpress-plugins/pronamic-ideal/"
 
@@ -2348,6 +2345,18 @@ msgstr "Shortcode"
 
 #~ msgid "Pronamic"
 #~ msgstr "Pronamic"
+
+#~ msgid "iDEAL Configuration ID could not be saved"
+#~ msgstr "iDEAL-configuratie ID kon nie t"
+
+#~ msgid "iDEAL Gateway Settings"
+#~ msgstr "iDEAL Gateway Instellingen"
+
+#~ msgid "No iDEAL configuration has been created yet"
+#~ msgstr "Er zijn nog geen iDEAL configuraties aangemaakt"
+
+#~ msgid "iDEAL configuration"
+#~ msgstr "iDEAL-configuratie"
 
 #~ msgid "Variants"
 #~ msgstr "Varianten"
@@ -2556,9 +2565,6 @@ msgstr "Shortcode"
 
 #~ msgid "Not available"
 #~ msgstr "Niet beschikbaar"
-
-#~ msgid "iDEAL Configurations"
-#~ msgstr "iDEAL-configuraties"
 
 #~ msgid "iDEAL Feed"
 #~ msgstr "iDEAL-feed"

@@ -44,7 +44,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * Bootstrap.
 	 */
 	public static function bootstrap() {
-
 		add_action( 'it_exchange_register_addons', array( __CLASS__, 'init' ) );
 	}
 
@@ -54,7 +53,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * Initialize.
 	 */
 	public static function init() {
-
 		$slug = self::$slug;
 
 		$options = array(
@@ -96,7 +94,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * Register settings.
 	 */
 	public static function register_settings() {
-
 		add_settings_section(
 			self::OPTION_GROUP, // id
 			null, // title
@@ -224,23 +221,11 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * @return array $errors
 	 */
 	public static function save_wizard_settings( $errors ) {
-
-		$title            = filter_input( INPUT_POST, self::BUTTON_TITLE_OPTION_KEY , FILTER_SANITIZE_STRING );
-		$configuration_id = filter_input( INPUT_POST, self::CONFIGURATION_OPTION_KEY, FILTER_VALIDATE_INT );
+		$title     = filter_input( INPUT_POST, self::BUTTON_TITLE_OPTION_KEY , FILTER_SANITIZE_STRING );
+		$config_id = filter_input( INPUT_POST, self::CONFIGURATION_OPTION_KEY, FILTER_VALIDATE_INT );
 
 		update_option( self::BUTTON_TITLE_OPTION_KEY, $title );
-
-		$saved_configuration_id = false;
-
-		if ( is_numeric( $configuration_id ) ) {
-			update_option( self::CONFIGURATION_OPTION_KEY, $configuration_id );
-
-			$saved_configuration_id = true;
-		}
-
-		if ( ! $saved_configuration_id ) {
-			return $errors[] = __( 'iDEAL Configuration ID could not be saved', 'pronamic_ideal' );
-		}
+		update_option( self::CONFIGURATION_OPTION_KEY, $config_id );
 
 		return $errors;
 	}
@@ -253,7 +238,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * @return string $button_title
 	 */
 	public static function get_gateway_button_title() {
-
 		return get_option( self::BUTTON_TITLE_OPTION_KEY, __( 'Pay with iDEAL', 'pronamic_ideal' ) );
 	}
 
@@ -263,7 +247,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * @return string $configuration_id
 	 */
 	public static function get_gateway_configuration_id() {
-
 		return get_option( self::CONFIGURATION_OPTION_KEY, 0 );
 	}
 
@@ -273,7 +256,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * Build the iDEAL payment form.
 	 */
 	public static function make_payment_button() {
-
 		$payment_form = '';
 
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( self::get_gateway_configuration_id() );
@@ -297,7 +279,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * Check if an iDEAL payment needs to be processed.
 	 */
 	public static function process_payment() {
-
 		$do_process_payment = filter_input( INPUT_POST, 'pronamic_ideal_process_payment', FILTER_SANITIZE_STRING );
 
 		if ( strlen( $do_process_payment ) <= 0 ) {
@@ -342,7 +323,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * @param bool                 $can_redirect (optional, defaults to false)
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-
 		// Create empty payment data object to be able to get the URLs
 		$empty_data = new Pronamic_IThemesExchange_PaymentData( 0, new stdClass() );
 
@@ -414,7 +394,6 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 * @return string $text
 	 */
 	public static function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
-
 		$text  = '';
 		$text .= __( 'iThemes Exchange', 'pronamic_ideal' ) . '<br />';
 		$text .= sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->source_id );
