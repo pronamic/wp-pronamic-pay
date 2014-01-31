@@ -8,7 +8,7 @@
  * @author Stefan Boonstra
  * @version 1.0
  */
-class Pronamic_Exchange_IDeal_AddOn {
+class Pronamic_IThemesExchange_IDeal_AddOn {
 
 	/**
 	 * The add-on's slug.
@@ -22,26 +22,26 @@ class Pronamic_Exchange_IDeal_AddOn {
 	 *
 	 * @const string
 	 */
-	const OPTION_GROUP = 'pronamic_exchange_ideal_addon';
+	const OPTION_GROUP = 'pronamic_ithemes_exchange_ideal_addon';
 
 	/**
 	 * The option key that stores the configuration ID.
 	 *
 	 * @const string
 	 */
-	const CONFIGURATION_OPTION_KEY = 'pronamic_exchange_ideal_addon_configuration';
+	const CONFIGURATION_OPTION_KEY = 'pronamic_ithemes_exchange_ideal_addon_configuration';
 
 	/**
 	 * The option key that stores the iDEAL payment button text.
 	 *
 	 * @const string
 	 */
-	const BUTTON_TITLE_OPTION_KEY = 'pronamic_exchange_ideal_addon_button_title';
+	const BUTTON_TITLE_OPTION_KEY = 'pronamic_ithemes_exchange_ideal_addon_button_title';
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Bootstrap
+	 * Bootstrap.
 	 */
 	public static function bootstrap() {
 
@@ -51,7 +51,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initialize
+	 * Initialize.
 	 */
 	public static function init() {
 
@@ -63,7 +63,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 			'author'            => 'Pronamic',
 			'author_url'        => 'http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/',
 			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
-			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
+			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
 			'category'          => 'transaction-methods',
 			'supports'          => array( 'transaction_status' => true ),
 			'settings-callback' => array( __CLASS__, 'settings' ),
@@ -78,6 +78,10 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		add_action( "pronamic_payment_status_update_{$slug}", array( __CLASS__, 'status_update' ), 10, 2 );
 
+		add_action( "it_exchange_print_{$slug}_wizard_settings", array( __CLASS__, 'wizard_settings' ) );
+
+		add_action( "it_exchange_save_{$slug}_wizard_settings", array( __CLASS__, 'save_wizard_settings' ) );
+
 		// Filters
 		add_filter( "pronamic_payment_source_text_{$slug}", array( __CLASS__, 'source_text' ), 10, 2 );
 
@@ -85,31 +89,161 @@ class Pronamic_Exchange_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	// Settings
-	//////////////////////////////////////////////////
 
 	/**
-	 * Register settings
+	 * Register settings.
 	 */
 	public static function register_settings() {
+
+		add_settings_section(
+			self::OPTION_GROUP, // id
+			null, // title
+			'__return_false', // callback
+			self::OPTION_GROUP // page
+		);
+
+		add_settings_field(
+			self::BUTTON_TITLE_OPTION_KEY, // id
+			__( 'Title', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_text' ), // callback
+			self::OPTION_GROUP, // page
+			self::OPTION_GROUP, // section
+			array(
+				'label_for' => self::BUTTON_TITLE_OPTION_KEY,
+				'classes'   => array( 'regular-text' ),
+				'default'   => self::get_gateway_button_title(),
+			) // args
+		);
+
+		add_settings_field(
+			self::CONFIGURATION_OPTION_KEY, // id
+			__( 'iDEAL Configuration', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_select' ), // callback
+			self::OPTION_GROUP, // page
+			self::OPTION_GROUP, // section
+			array(
+				'label_for' => self::CONFIGURATION_OPTION_KEY,
+				'options'   => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+			) // args
+		);
 
 		register_setting( self::OPTION_GROUP, self::BUTTON_TITLE_OPTION_KEY );
 		register_setting( self::OPTION_GROUP, self::CONFIGURATION_OPTION_KEY );
 	}
 
 	/**
-	 * Gateway settings
+	 * Input text.
+	 *
+	 * @param array $args
+	 */
+	public static function input_text( $args ) {
+		$name = $args['label_for'];
+
+		$classes = array();
+		if ( isset( $args['classes'] ) ) {
+			$classes = $args['classes'];
+		}
+
+		$default = '';
+		if ( isset( $args['default'] ) ) {
+			$default = $args['default'];
+		}
+
+		printf(
+			'<input name="%s" id="%s" type="text" class="%s" value="%s" />',
+			esc_attr( $name ),
+			esc_attr( $name ),
+			esc_attr( implode( ' ', $classes ) ),
+			esc_attr( get_option( $name, $default ) )
+		);
+	}
+
+	/**
+	 * Input select.
+	 *
+	 * @param array $args
+	 */
+	public static function input_select( $args ) {
+		$name = $args['label_for'];
+
+		$classes = array();
+		if ( isset( $args['classes'] ) ) {
+			$classes = $args['classes'];
+		}
+
+		$options = array();
+		if ( isset( $args['options'] ) ) {
+			$options = $args['options'];
+		}
+
+		printf(
+			'<select name="%s" id="%s" class="%s">',
+			esc_attr( $name ),
+			esc_attr( $name ),
+			esc_attr( implode( ' ', $classes ) )
+		);
+
+		$current_value = get_option( $name );
+
+		foreach ( $options as $option_key => $option ) {
+
+			printf(
+				'<option value="%s" %s>%s</option>',
+				esc_attr( $option_key ),
+				selected( $option_key, $current_value, false ),
+				esc_attr( $option )
+			);
+		}
+
+		echo '</select>';
+	}
+
+	/**
+	 * Addon settings.
 	 */
 	public static function settings() {
 
-		$data = new stdClass();
-
-		$data->title                 = self::get_gateway_button_title();
-		$data->current_configuration = self::get_gateway_configuration_id();
-		$data->configurations        = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
-
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'exchange' . DIRECTORY_SEPARATOR . 'settings.php';
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'settings.php';
 	}
+
+	/**
+	 * Wizard settings.
+	 */
+	public static function wizard_settings() {
+
+		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
+	}
+
+	/**
+	 * Save wizard settings.
+	 *
+	 * @param array $errors
+	 *
+	 * @return array $errors
+	 */
+	public static function save_wizard_settings( $errors ) {
+
+		$title            = filter_input( INPUT_POST, self::BUTTON_TITLE_OPTION_KEY , FILTER_SANITIZE_STRING );
+		$configuration_id = filter_input( INPUT_POST, self::CONFIGURATION_OPTION_KEY, FILTER_VALIDATE_INT );
+
+		update_option( self::BUTTON_TITLE_OPTION_KEY, $title );
+
+		$saved_configuration_id = false;
+
+		if ( is_numeric( $configuration_id ) ) {
+			update_option( self::CONFIGURATION_OPTION_KEY, $configuration_id );
+
+			$saved_configuration_id = true;
+		}
+
+		if ( ! $saved_configuration_id ) {
+			return $errors[] = __( 'iDEAL Configuration ID could not be saved', 'pronamic_ideal' );
+		}
+
+		return $errors;
+	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Get the iDEAL gateway title.
@@ -187,7 +321,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 
 		if ( $gateway ) {
 
-			$data = new Pronamic_Exchange_PaymentData( $unique_hash, $transaction_object );
+			$data = new Pronamic_IThemesExchange_PaymentData( $unique_hash, $transaction_object );
 
 			$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration_id, $gateway, $data );
 
@@ -208,7 +342,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 
 		// Create empty payment data object to be able to get the URLs
-		$empty_data = new Pronamic_Exchange_PaymentData( 0, new stdClass() );
+		$empty_data = new Pronamic_IThemesExchange_PaymentData( 0, new stdClass() );
 
 		switch ( $payment->get_status() ) {
 
@@ -232,7 +366,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 				$transaction_id = it_exchange_add_transaction(
 					self::$slug,
 					$payment->get_source_id(),
-					Pronamic_Exchange_Exchange::ORDER_STATUS_PAID,
+					Pronamic_IThemesExchange_IThemesExchange::ORDER_STATUS_PAID,
 					$transient_transaction['customer_id'],
 					$transient_transaction['transaction_object']
 				);
@@ -244,7 +378,7 @@ class Pronamic_Exchange_IDeal_AddOn {
 					break;
 				}
 
-				$data = new Pronamic_Exchange_PaymentData( $transaction_id, new stdClass() );
+				$data = new Pronamic_IThemesExchange_PaymentData( $transaction_id, new stdClass() );
 
 				$url = $data->get_success_url();
 
