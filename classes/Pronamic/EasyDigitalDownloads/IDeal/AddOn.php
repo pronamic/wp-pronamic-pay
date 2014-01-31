@@ -38,9 +38,10 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
             // @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/gateways/paypal-standard.php#L12
             add_action( 'edd_' . self::SLUG . '_cc_form', array( __CLASS__, 'payment_fields' ) );
             
-            add_action( 'edd_gateway_' . self::SLUG                   , array( __CLASS__, 'process_purchase' ) );
-            add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
-            add_filter( 'pronamic_payment_source_text_' . self::SLUG  , array( __CLASS__, 'source_text' ), 10, 2 );
+            add_action( 'edd_gateway_' . self::SLUG, array( __CLASS__, 'process_purchase' ) );
+
+            add_action( 'pronamic_payment_status_update_easydigitaldownloads', array( __CLASS__, 'status_update' ), 10, 2 );
+            add_filter( 'pronamic_payment_source_text_easydigitaldownloads', array( __CLASS__, 'source_text' ), 10, 2 );
 
             // Filters
             add_filter( 'edd_settings_gateways', array( __CLASS__, 'settings_gateways' ) );

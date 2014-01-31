@@ -56,7 +56,7 @@ class Pronamic_EasyDigitalDownloads_PaymentData extends Pronamic_WP_Pay_PaymentD
      * @return string
      */
     public function get_source() {
-        return Pronamic_EasyDigitalDownloads_IDeal_AddOn::SLUG;
+        return 'easydigitaldownloads';
     }
 
     //////////////////////////////////////////////////
