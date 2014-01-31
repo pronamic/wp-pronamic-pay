@@ -16,6 +16,8 @@ class Pronamic_Gateways_Sisow_Util {
 	 */
 	private static $pattern;
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Get unallowed character pattern
 	 * 
@@ -81,6 +83,8 @@ class Pronamic_Gateways_Sisow_Util {
 		return self::$pattern;
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Filter all Sisow unallowed charachters
 	 * 
@@ -88,6 +92,6 @@ class Pronamic_Gateways_Sisow_Util {
 	 * @return mixed
 	 */
 	public static function filter( $string ) {
-		return preg_filter( self::get_pattern(), '', $string );
+		return preg_replace( self::get_pattern(), '', $string );
 	}
 }
