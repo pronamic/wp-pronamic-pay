@@ -63,6 +63,8 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 			'author'            => 'Pronamic',
 			'author_url'        => 'http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/',
 			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+			// @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.16/core-addons/load.php#L42 
+			'wizard-icon'       => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
 			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
 			'category'          => 'transaction-methods',
 			'supports'          => array( 'transaction_status' => true ),
