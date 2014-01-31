@@ -337,7 +337,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @param string $description
 	 */
 	public function setDescription( $description ) {
-		$this->description = substr( $description, 0, 32 );
+		$this->description = substr( str_replace( '#', '', $description ), 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
