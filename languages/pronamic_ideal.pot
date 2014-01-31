@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.5.0\n"
+"Project-Id-Version: Pronamic iDEAL 2.6.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-23 14:50:29+00:00\n"
+"POT-Creation-Date: 2014-01-31 12:21:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,15 +24,16 @@ msgstr ""
 msgid "Payment %d"
 msgstr ""
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/extensions.php:131
-#: views/extensions.php:139
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:112 views/extensions.php:142
+#: views/extensions.php:150
 msgid "AppThemes"
 msgstr ""
 
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:116
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:286
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:273
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
 msgid "Order #%s"
@@ -41,25 +42,29 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:62
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
-#: classes/Pronamic/WordPress/IDeal/Admin.php:381 views/branding.php:14
+#: classes/Pronamic/WordPress/IDeal/Admin.php:381
+#: includes/ithemes-exchange/settings.php:2
+#: includes/ithemes-exchange/wizard-settings.php:2 views/branding.php:14
 #: views/branding.php:20 views/branding.php:26 views/config-edit.php:52
 #: views/pages-generator.php:57
 msgid "iDEAL"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.5.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:226
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:47
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:80
@@ -90,6 +95,7 @@ msgstr ""
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:124
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:149
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:241
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:111
 msgid "Pay with iDEAL"
 msgstr ""
@@ -117,10 +123,12 @@ msgid "No"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:90
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
 msgid "iDEAL Configuration"
 msgstr ""
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:126
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:137
 msgid "ClassiPress"
 msgstr ""
 
@@ -132,58 +140,43 @@ msgstr ""
 msgid "eShop"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:88
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:111
-#: classes/Pronamic/Shopp/Gateways/IDeal/IDeal.php:323
-#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:323
-msgid "Select configuration"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:96
-msgid "No iDEAL configuration has been created yet"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:102
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
 msgid "iDEAL Settings"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:103
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:84
 msgid "Configure the iDEAL settings"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
-msgid "iDEAL configuration"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:171
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
 msgid "Payment Error"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:171
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
 msgid ""
 "Payment creation failed before sending buyer to the iDEAL provider. Payment "
 "data: %s"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:237
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:224
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
 msgid "iDEAL payment completed."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:249
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:236
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
 msgid "iDEAL payment open."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:255
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:242
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
 msgid "iDEAL payment unknown."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:281
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:268
 #: views/extensions.php:15
 msgid "Easy Digital Downloads"
 msgstr ""
@@ -221,7 +214,7 @@ msgid "Attendee #%s"
 msgstr ""
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:103
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:114
 msgid "WooCommerce"
 msgstr ""
 
@@ -393,12 +386,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:391
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:392
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:395
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:396
 msgid "Administrator"
 msgstr ""
 
@@ -435,6 +428,27 @@ msgstr ""
 msgid "iDEAL Fields"
 msgstr ""
 
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
+msgid "Adds the ability for users to checkout with iDEAL."
+msgstr ""
+
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
+#: includes/post.php:206 includes/post.php:282 views/branding.php:218
+#: views/documentation.php:606 views/pages-generator.php:123
+msgid "Title"
+msgstr ""
+
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
+#: views/extensions.php:52
+msgid "iThemes Exchange"
+msgstr ""
+
+#: classes/Pronamic/IThemesExchange/PaymentData.php:70
+msgid "iThemes Exchange order %s"
+msgstr ""
+
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:83
 msgid "iDEAL payment cancelled."
 msgstr ""
@@ -449,19 +463,12 @@ msgstr ""
 msgid "iDEAL payment failed."
 msgstr ""
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:52
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:63
 msgid "Jigoshop"
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
-msgstr ""
-
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95 includes/post.php:97
-#: includes/post.php:206 includes/post.php:282 views/branding.php:218
-#: views/documentation.php:606 views/pages-generator.php:123
-msgid "Title"
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
@@ -483,7 +490,7 @@ msgstr ""
 msgid "Pending iDEAL payment."
 msgstr ""
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:63
+#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:74
 msgid "Membership"
 msgstr ""
 
@@ -615,7 +622,12 @@ msgstr ""
 msgid "s2Member"
 msgstr ""
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:93
+#: classes/Pronamic/Shopp/Gateways/IDeal/IDeal.php:323
+#: classes/Pronamic/Shopp/IDeal/GatewayModule.php:323
+msgid "Select configuration"
+msgstr ""
+
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:104
 msgid "Shopp"
 msgstr ""
 
@@ -650,7 +662,7 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr ""
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:114
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125
 msgid "WP e-Commerce"
 msgstr ""
 
@@ -839,21 +851,25 @@ msgstr ""
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:303
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:304
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
 "\">iDEAL settings page</a>."
 msgstr ""
 
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:319
+#: classes/Pronamic/WordPress/IDeal/Plugin.php:320
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
 msgstr ""
 
-#: includes/gateways.php:251
+#: includes/gateways.php:253
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
+msgstr ""
+
+#: includes/ithemes-exchange/settings.php:6
+msgid "Back to Add-ons"
 msgstr ""
 
 #: includes/post.php:5 includes/post.php:7
@@ -1554,7 +1570,7 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.5.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
@@ -1663,42 +1679,46 @@ msgid "Rocketgenius"
 msgstr ""
 
 #: views/extensions.php:59
+msgid "iThemes"
+msgstr ""
+
+#: views/extensions.php:70
 msgid "Jigowatt"
 msgstr ""
 
-#: views/extensions.php:69 views/extensions.php:78
+#: views/extensions.php:80 views/extensions.php:89
 msgid "WPMUDEV.org"
 msgstr ""
 
-#: views/extensions.php:73
+#: views/extensions.php:84
 msgid "Membership Premium"
 msgstr ""
 
-#: views/extensions.php:82
+#: views/extensions.php:93
 msgid "s2Member®"
 msgstr ""
 
-#: views/extensions.php:89
+#: views/extensions.php:100
 msgid "WebSharks, Inc."
 msgstr ""
 
-#: views/extensions.php:99
+#: views/extensions.php:110
 msgid "Ingenesis Limited"
 msgstr ""
 
-#: views/extensions.php:110
+#: views/extensions.php:121
 msgid "WooThemes"
 msgstr ""
 
-#: views/extensions.php:121
+#: views/extensions.php:132
 msgid "Instinct Entertainment"
 msgstr ""
 
-#: views/extensions.php:135
+#: views/extensions.php:146
 msgid "JobRoller"
 msgstr ""
 
-#: views/extensions.php:148 views/gateways.php:21
+#: views/extensions.php:159 views/gateways.php:21
 msgid "Markdown"
 msgstr ""
 

@@ -72,7 +72,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 			$order->status,
 			array(
 				Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED,
-				Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PROCESSING
+				Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PROCESSING,
 			)
 		);
 

@@ -278,7 +278,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 			// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
 			return array(
-				'result' 	=> 'failed'
+				'result' 	=> 'failed',
 			);
 		} else {
 	    	$url = $payment->get_action_url();

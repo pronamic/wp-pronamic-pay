@@ -237,6 +237,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8</td>
 		</tr>
 		<tr>
+			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
+			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
+			<td><a href="http://wordpress.org/extend/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/wp-plugins/ithemes-exchange" target="_blank">GitHub</a></td>
+			<td>1.7.14</td>
+			<td>1.7.14</td>
+		</tr>
+		<tr>
 			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
 			<td><a href="http://jigowatt.co.uk/" target="_blank">Jigowatt</a></td>
 			<td><a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
@@ -339,6 +347,13 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.6.0
+
+*	Feature - iThemes Exchange - Added support for the [iThemes Exchange](http://wordpress.org/plugins/ithemes-exchange/) plugin.
+*	Tweak - Easy Digital Downloads - Improved support for the Pronamic iDEAL gateway.
+*	Fix - iDEAL Basic - Sisow iDEAL Basic returned error TA3260 when the payment description contained a hash tag.
+*	Fix - Easy Digital Downloads - Customers weren't redirected to the payment provider upon payment.
 
 ### 2.5.0
 
