@@ -157,6 +157,8 @@ Here is a list of known plugin conflicts:
 
 = 2.6.1 =
 *	Tweak - Reduced transient name length to avoid "data too long for column 'option_name'" errors.
+*	Tweak - Membership - Added support for coupon codes.
+*	Tweak - Membership - After successful payment redirect user to the "Registration completed page". 
 
 = 2.6.0 =
 *	Feature - iThemes Exchange - Added support for the [iThemes Exchange](http://wordpress.org/plugins/ithemes-exchange/) plugin.
