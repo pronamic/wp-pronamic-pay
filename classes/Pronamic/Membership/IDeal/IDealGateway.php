@@ -138,7 +138,18 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 					echo '<div style="margin-top: 1em;">';
 	
 					echo $gateway->get_input_html();
-						
+
+					// Coupon
+					$coupon = membership_get_current_coupon();
+					
+					if ( $coupon ) {
+						printf(
+							'<input type="hidden" name="coupon_code" id="subscription_coupon_code" value="%s" />',
+							esc_attr( $coupon->get_coupon_code() )
+						);
+					}
+
+					// Submit button
 					printf(
 						'<input type="submit" name="pronamic_pay_membership" value="%s" />',
 						esc_attr__( 'Pay', 'pronamic_ideal' )

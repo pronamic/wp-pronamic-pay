@@ -44,12 +44,19 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 	public function getItems() {
 		$pricing_array = $this->subscription->get_pricingarray();
 
+		// Coupon
+		$coupon = membership_get_current_coupon();
+		
+		if ( ! empty( $pricing_array ) && ! empty( $coupon ) ) {
+			$pricing_array = $coupon->apply_coupon_pricing( $pricing_array );
+		}
+
 		$items = new Pronamic_IDeal_Items();
 
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( $this->get_description() );
-		$item->setPrice( number_format( $pricing_array[0]['amount'], 2 ) );
+		$item->setPrice( $pricing_array[0]['amount'] );
 		$item->setQuantity( 1 );
 
 		$items->addItem( $item );
