@@ -13,6 +13,15 @@ class Pronamic_Gateways_IDealBasic_DataHelper {
 	/**
 	 * Alphanumerical, free text
 	 * 
+	 * The iDEAL Basic documentation is not very clear about which characters 
+	 * are allowed within the alphanumeric (AN) specification. Pronamic 
+	 * contacted some of the iDEAL providers and the ING Customer Support 
+	 * Desk (csd.icm@ing.nl) replied with the following message (Dutch):
+	 * 
+	 * > Naast A-Z, a-z en 0-9 is alleen de spatie nog een geaccepteerd teken binnen AN.
+	 * > 
+	 * > Andere karakters zijn niet toegestaan. Het is met name belangrijk dat er geen html tags in voorkomen.:
+	 * 
 	 * @var array
 	 */
 	private static $characters_an = array( 'A-Z', 'a-z', '0-9', ' ' );
