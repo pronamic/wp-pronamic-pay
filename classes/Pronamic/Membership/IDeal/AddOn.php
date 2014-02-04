@@ -41,9 +41,7 @@ class Pronamic_Membership_IDeal_AddOn {
 			// Register the Membership iDEAL gateway
 			M_register_gateway( 'pronamic_ideal', 'Pronamic_Membership_IDeal_IDealGateway' );
 
-			$slug = self::SLUG;
-
-			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
+			add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
 			
 			if ( is_admin() ) {
 				$admin = new Pronamic_WP_Pay_Membership_Admin();
