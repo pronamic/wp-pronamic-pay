@@ -155,6 +155,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.6.1 =
+*	Tweak - Reduced transient name length to avoid "data too long for column 'option_name'" errors. 
+
 = 2.6.0 =
 *	Feature - iThemes Exchange - Added support for the [iThemes Exchange](http://wordpress.org/plugins/ithemes-exchange/) plugin.
 *	Tweak - Easy Digital Downloads - Improved support for the Pronamic iDEAL gateway.

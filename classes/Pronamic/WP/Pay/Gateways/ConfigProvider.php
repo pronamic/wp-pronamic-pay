@@ -13,10 +13,12 @@ class Pronamic_WP_Pay_Gateways_ConfigProvider {
 		if ( isset( self::$factories[$name] ) ) {
 			$class_name = self::$factories[$name];
 
-			if ( class_exists( $class_name ) ) {
+			if ( method_exists( $class_name, 'get_config' ) ) {
 				// Backward compatibility PHP 5.2
 				// $config = $class_name::get_config( $post_id );
 				$config = call_user_func( array( $class_name, 'get_config' ), $post_id );
+
+				$config->id = $post_id;
 			}
 		}
 

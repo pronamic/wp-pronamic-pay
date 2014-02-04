@@ -230,7 +230,8 @@ abstract class Pronamic_Gateways_Gateway {
 	public function get_transient_issuers() {
 		$issuers = null;
 
-		$transient = 'pronamic_ideal_issuers_' . spl_object_hash( $this->config );
+		// Transient name. Expected to not be SQL-escaped. Should be 45 characters or less in length.
+		$transient = 'pronamic_pay_issuers_' . $this->config->id;
 
 		$result = get_transient( $transient );
 		// $result = false;
