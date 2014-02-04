@@ -104,7 +104,7 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 	//////////////////
 
 	public function get_normal_return_url() {
-
+		return M_get_returnurl_permalink();
 	}
 
 	public function get_cancel_url() {
@@ -112,7 +112,7 @@ class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData
 	}
 
 	public function get_success_url() {
-
+		return M_get_registrationcompleted_permalink();
 	}
 
 	public function get_error_url() {
