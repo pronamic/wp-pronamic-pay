@@ -589,11 +589,13 @@ function pronamic_ideal_private_certificate_field( $field ) {
                 	<option value=""></option>
 
                 	<?php foreach ( $pronamic_pay_providers as $provider ) : ?>
-						<optgroup label="<?php echo $provider['name']; ?>">
-							<?php foreach ( $provider['gateways']  as $id => $gateway ) : ?>
-								<option data-ideal-method="<?php echo $gateway['gateway']; ?>" value="<?php echo $id; ?>" <?php selected( $variant_id, $id ); ?>><?php echo $gateway['name']; ?></option>
-							<?php endforeach; ?>
-						</optgroup>
+                		<?php if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) : ?>
+							<optgroup label="<?php echo $provider['name']; ?>">
+								<?php foreach ( $provider['gateways']  as $id => $gateway ) : ?>
+									<option data-ideal-method="<?php echo $gateway['gateway']; ?>" value="<?php echo $id; ?>" <?php selected( $variant_id, $id ); ?>><?php echo $gateway['name']; ?></option>
+								<?php endforeach; ?>
+							</optgroup>
+						<?php endif; ?>
 					<?php endforeach; ?>
 
                	</select>

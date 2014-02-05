@@ -106,10 +106,14 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
         $gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( self::SLUG . '_config_id' ) );
 
         if ( $gateway ) {
-        	echo '<fieldset id="edd_cc_fields" class="edd-do-validate">';
-        	echo '<span><legend>', __( 'iDEAL', 'pronamic_ideal' ), '</legend></span>';
-            echo $gateway->get_input_html();
-            echo '</fieldset>';
+        	$input = $gateway->get_input_html();
+
+        	if ( $input ) {
+        		echo '<fieldset id="edd_cc_fields" class="edd-do-validate">';
+        		echo '<span><legend>', __( 'iDEAL', 'pronamic_ideal' ), '</legend></span>';
+            	echo $input; 
+            	echo '</fieldset>';
+        	}
         }
     }
 

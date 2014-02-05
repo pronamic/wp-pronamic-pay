@@ -303,7 +303,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 					printf(
 						__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
 						self::PAYMENTS_MAX_LICENSE_FREE,
-						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) )
+						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
 					);
 
 					?>
@@ -318,7 +318,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 					printf(
 						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
-						add_query_arg( 'page', 'pronamic_ideal_settings', get_admin_url( null, 'admin.php' ) ),
+						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 						self::PAYMENTS_MAX_LICENSE_FREE
 					);
 

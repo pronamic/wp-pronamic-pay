@@ -566,7 +566,7 @@ function pronamic_pay_save_gateway( $post_id ) {
 	pronamic_pay_update_post_meta_data( $post_id, $data );
 
 	// Transient
-	delete_transient( 'pronamic_ideal_issuers_' . $post_id );
+	delete_transient( 'pronamic_pay_issuers_' . $post_id );
 }
 
 add_action( 'save_post', 'pronamic_pay_save_gateway' );
@@ -662,9 +662,6 @@ function pronamic_pay_save_pay_gf( $post_id ) {
 
 	// Update post meta data
 	pronamic_pay_update_post_meta_data( $post_id, $data );
-	
-	// Transient
-	delete_transient( 'pronamic_ideal_issuers_' . $post_id );
 }
 
 add_action( 'save_post', 'pronamic_pay_save_pay_gf' );

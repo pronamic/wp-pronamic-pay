@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-31 13:21+0100\n"
-"PO-Revision-Date: 2014-01-31 13:21+0100\n"
+"POT-Creation-Date: 2014-02-05 10:38:17+00:00\n"
+"PO-Revision-Date: 2014-02-05 11:38+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -16,21 +16,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: admin/includes/upgrade.php:128
-#, php-format
 msgid "Configuration %d"
 msgstr "Configuratie %d"
 
 #: admin/includes/upgrade.php:298
-#, php-format
 msgid "Payment Form %d"
 msgstr "Betalingsformulier %d"
 
 #: admin/includes/upgrade.php:409
-#, php-format
 msgid "Payment %d"
 msgstr "Betaling %d"
 
@@ -41,12 +36,11 @@ msgstr "AppThemes"
 
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:116
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:273
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
-#, php-format
 msgid "Order #%s"
 msgstr "Bestelling #%s"
 
@@ -54,16 +48,16 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:113
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
 #: classes/Pronamic/WordPress/IDeal/Admin.php:380
 #: classes/Pronamic/WordPress/IDeal/Admin.php:381
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2 views/branding.php:14
 #: views/branding.php:20 views/branding.php:26 views/config-edit.php:52
@@ -71,16 +65,17 @@ msgstr "Bestelling #%s"
 msgid "iDEAL"
 msgstr "iDEAL"
 
+#. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:63
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:226
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:47
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:80
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:150
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:55
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:18
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:150
 msgid "Pronamic iDEAL"
 msgstr "Pronamic iDEAL"
 
@@ -88,9 +83,9 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:116
 #: classes/Pronamic/WP/Pay/Membership/Admin.php:49
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:116
 #: includes/post.php:284 includes/post.php:341 includes/post.php:389
 #: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:49
 msgid "Configuration"
@@ -142,14 +137,12 @@ msgid "ClassiPress"
 msgstr "ClassiPress"
 
 #: classes/Pronamic/ClassiPress/IDeal/IDealDataProxy.php:53
-#, php-format
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
 
-#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
-#, php-format
-msgid "Easy Digital Downloads order %s"
-msgstr "Easy Digital Downloads bestelling %s"
+#: classes/Pronamic/EShop/IDeal/AddOn.php:134
+msgid "eShop"
+msgstr "eShop"
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
 msgid "iDEAL Settings"
@@ -159,12 +152,11 @@ msgstr "iDEAL-instellingen"
 msgid "Configure the iDEAL settings"
 msgstr "Configureer de iDEAL-instellingen"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
-#, php-format
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
 msgid ""
 "Payment creation failed before sending buyer to the iDEAL provider. Payment "
 "data: %s"
@@ -172,32 +164,32 @@ msgstr ""
 "Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
 "naar de iDEAL provider. Betalingsinformatie: %s"
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:224
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:236
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:242
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:268
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
 #: views/extensions.php:15
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
 
-#: classes/Pronamic/EShop/IDeal/AddOn.php:134
-msgid "eShop"
-msgstr "eShop"
+#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
+msgid "Easy Digital Downloads order %s"
+msgstr "Easy Digital Downloads bestelling %s"
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
 msgid "Choose a different payment option"
@@ -224,7 +216,6 @@ msgid "Event Espresso"
 msgstr "Event Espresso"
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:333
-#, php-format
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
@@ -232,11 +223,6 @@ msgstr "Deelnemer #%s"
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148 views/extensions.php:114
 msgid "WooCommerce"
 msgstr "WooCommerce"
-
-#: classes/Pronamic/Gateways/Gateway.php:401
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:144
-msgid "Pay"
-msgstr "Betalen"
 
 #: classes/Pronamic/Gateways/Buckaroo/Gateway.php:111 includes/post.php:37
 #: includes/post.php:359
@@ -301,9 +287,29 @@ msgstr "Transacties"
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
 
-#: classes/Pronamic/Gateways/Icepay/Gateway.php:82
+#: classes/Pronamic/Gateways/Gateway.php:402
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:155
+msgid "Pay"
+msgstr "Betalen"
+
+#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:208
+#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:175
+msgid ""
+"The response code (<code>%s<code>) from the iDEAL provider was incorrect."
+msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
+
+#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:243
+#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:215
+msgid "Unknwon iDEAL message (%s)"
+msgstr "Onbekend iDEAL-bericht (%s)"
+
+#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:86
+msgid "&mdash; Other banks &mdash;"
+msgstr "&mdash; Andere banken &mdash;"
+
 #: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:95
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
+#: classes/Pronamic/Gateways/Icepay/Gateway.php:82
 #: classes/Pronamic/Gateways/Mollie/IDeal/Gateway.php:67
 #: classes/Pronamic/Gateways/PayDutch/Gateway.php:66
 #: classes/Pronamic/Gateways/Qantani/Gateway.php:69
@@ -311,23 +317,6 @@ msgstr "Buckaroo data:"
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
 msgid "Choose your bank"
 msgstr "Kies uw bank"
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:208
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:175
-#, php-format
-msgid ""
-"The response code (<code>%s<code>) from the iDEAL provider was incorrect."
-msgstr "De antwoord code (<code>%s<code>) van de iDEAL-provider was onjuist."
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:243
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:215
-#, php-format
-msgid "Unknwon iDEAL message (%s)"
-msgstr "Onbekend iDEAL-bericht (%s)"
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:86
-msgid "&mdash; Other banks &mdash;"
-msgstr "&mdash; Andere banken &mdash;"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:105
 msgctxt "creditcard"
@@ -387,7 +376,6 @@ msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
 #: classes/Pronamic/Gateways/Sisow/Sisow.php:136
-#, php-format
 msgid "Unknwon Sisow message (%s)"
 msgstr "Onbekend Sisow-bericht (%s)"
 
@@ -400,7 +388,6 @@ msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
-#, php-format
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -447,11 +434,6 @@ msgstr "Banken uitschuifkeuzelijst"
 msgid "iDEAL Fields"
 msgstr "iDEAL-velden"
 
-#: classes/Pronamic/IThemesExchange/PaymentData.php:70
-#, php-format
-msgid "iThemes Exchange order %s"
-msgstr "iThemes Exchange bestelling %s"
-
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
@@ -468,6 +450,10 @@ msgstr "Titel"
 #: views/extensions.php:52
 msgid "iThemes Exchange"
 msgstr "iThemes Exchange"
+
+#: classes/Pronamic/IThemesExchange/PaymentData.php:70
+msgid "iThemes Exchange order %s"
+msgstr "iThemes Exchange bestelling %s"
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:83
 msgid "iDEAL payment cancelled."
@@ -510,12 +496,11 @@ msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:74
+#: classes/Pronamic/Membership/IDeal/AddOn.php:91 views/extensions.php:74
 msgid "Membership"
 msgstr "Membership"
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:75
-#, php-format
+#: classes/Pronamic/Membership/IDeal/AddOn.php:100
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
@@ -524,7 +509,6 @@ msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
 #: classes/Pronamic/S2Member/Bridge/Order.php:15
-#, php-format
 msgid "One Time ( for %s access, non-recurring )"
 msgstr "Eenmalig ( voor %s toegang, niet terugkerend )"
 
@@ -601,8 +585,8 @@ msgid "lifetime"
 msgstr "lifetime"
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:21
-#: classes/Pronamic/WordPress/IDeal/Admin.php:67
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:42 views/config-edit.php:29
+#: classes/Pronamic/WP/Pay/Membership/Admin.php:42
+#: classes/Pronamic/WordPress/IDeal/Admin.php:67 views/config-edit.php:29
 msgid "General"
 msgstr "Algemeen"
 
@@ -624,7 +608,7 @@ msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr "iDEAL s2Member betaling || {{order_id}}"
 
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:84
-#: views/meta-box-payment-info.php:75 views/gravityforms/feed-edit.php:384
+#: views/gravityforms/feed-edit.php:384 views/meta-box-payment-info.php:75
 msgid "Email"
 msgstr "E-mail"
 
@@ -633,12 +617,10 @@ msgid "Account Confirmation"
 msgstr "Account bevestiging"
 
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:68
-#, php-format
 msgid "Your password is %s . Please change your password when you login"
 msgstr "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt."
 
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:85
-#, php-format
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 "Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
@@ -647,17 +629,6 @@ msgstr ""
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:143
 msgid "s2Member"
 msgstr "s2Member"
-
-#: classes/Pronamic/Shopp/PaymentData.php:64
-#: classes/Pronamic/Shopp/PaymentData.php:90
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:162
-#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:55
-#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
-#, php-format
-msgid "Order %s"
-msgstr "Bestelling %s"
 
 #: classes/Pronamic/Shopp/Gateways/IDeal/IDeal.php:323
 #: classes/Pronamic/Shopp/IDeal/GatewayModule.php:323
@@ -668,14 +639,46 @@ msgstr "Selecteer configuratie"
 msgid "Shopp"
 msgstr "Shopp"
 
-#: classes/Pronamic/WooCommerce/PaymentData.php:52
-msgid "Order {order_number}"
-msgstr "Bestelling {order_number}"
+#: classes/Pronamic/Shopp/PaymentData.php:64
+#: classes/Pronamic/Shopp/PaymentData.php:90
+#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:55
+#: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:162
+msgid "Order %s"
+msgstr "Bestelling %s"
 
-#: classes/Pronamic/WooCommerce/PaymentData.php:74
-#, php-format
-msgid "WooCommerce order %s"
-msgstr "WooCommerce bestelling %s"
+#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
+#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
+msgid "Attendee %s"
+msgstr "Deelnemer %s"
+
+#: classes/Pronamic/WP/Pay/PaymentInputData.php:79
+#: classes/Pronamic/WP/Pay/PaymentTestData.php:59
+#: classes/Pronamic/WP/Pay/PaymentTestData.php:85
+msgid "Test %s"
+msgstr "Test %s"
+
+#: classes/Pronamic/WP/Util.php:32
+msgid ""
+"The response code (<code>%s<code>) was incorrect, required response code "
+"<code>%s</code>."
+msgstr ""
+"De antwoord code (<code>%s<code>) was onjuist, veriste antwoorde code <code>"
+"%s</code>."
+
+#: classes/Pronamic/WP/Util.php:63
+msgid "Could not load the XML string."
+msgstr "Kon de XML tekst niet inladen."
+
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
+
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:169
+msgid "Purchase #%s"
+msgstr "Aankoop #%s"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:89
 msgid "Enable/Disable"
@@ -708,7 +711,6 @@ msgstr "Hiermee beheer je het icoon die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:112
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:132
-#, php-format
 msgid "Default: <code>%s</code>."
 msgstr "Standaard: <code>%s</code>."
 
@@ -725,13 +727,20 @@ msgid "This controls the payment description."
 msgstr "Hiermee beheer je de betalingsomschrijving."
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:133
-#, php-format
 msgid "Tags: %s"
 msgstr "Tags: %s"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:210
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
+
+#: classes/Pronamic/WooCommerce/PaymentData.php:52
+msgid "Order {order_number}"
+msgstr "Bestelling {order_number}"
+
+#: classes/Pronamic/WooCommerce/PaymentData.php:74
+msgid "WooCommerce order %s"
+msgstr "WooCommerce bestelling %s"
 
 #: classes/Pronamic/WordPress/IDeal/Admin.php:74
 msgid "Support License Key"
@@ -838,8 +847,8 @@ msgstr "Storing"
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:29 views/status-ideal.php:52
-#: views/gravityforms/feed-edit.php:433
+#: classes/Pronamic/WordPress/IDeal/IDeal.php:29
+#: views/gravityforms/feed-edit.php:433 views/status-ideal.php:52
 msgid "Success"
 msgstr "Succes"
 
@@ -855,12 +864,10 @@ msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
 #: classes/Pronamic/WordPress/IDeal/IDeal.php:163
-#, php-format
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:304
-#, php-format
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
@@ -871,7 +878,6 @@ msgstr ""
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
 #: classes/Pronamic/WordPress/IDeal/Plugin.php:320
-#, php-format
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -879,44 +885,13 @@ msgstr ""
 "Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
 "te maken van extra extensies, support en meer dan %d betalingen."
 
-#: classes/Pronamic/WP/Util.php:32
-#, php-format
-msgid ""
-"The response code (<code>%s<code>) was incorrect, required response code "
-"<code>%s</code>."
-msgstr ""
-"De antwoord code (<code>%s<code>) was onjuist, veriste antwoorde code <code>"
-"%s</code>."
-
-#: classes/Pronamic/WP/Util.php:63
-msgid "Could not load the XML string."
-msgstr "Kon de XML tekst niet inladen."
-
-#: classes/Pronamic/WP/Pay/PaymentInputData.php:79
-#: classes/Pronamic/WP/Pay/PaymentTestData.php:59
-#: classes/Pronamic/WP/Pay/PaymentTestData.php:85
-#, php-format
-msgid "Test %s"
-msgstr "Test %s"
-
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
-#, php-format
-msgid "Attendee %s"
-msgstr "Deelnemer %s"
-
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125
-msgid "WP e-Commerce"
-msgstr "WP e-Commerce"
-
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:169
-#, php-format
-msgid "Purchase #%s"
-msgstr "Aankoop #%s"
-
 #: includes/gateways.php:253
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
+
+#: includes/ithemes-exchange/settings.php:6
+msgid "Back to Add-ons"
+msgstr "Terug naar Add-ons"
 
 #: includes/post.php:5 includes/post.php:7
 msgid "Payment Gateway Configurations"
@@ -1090,10 +1065,6 @@ msgstr "Transactie beschrijving"
 msgid "Log"
 msgstr "Log"
 
-#: includes/ithemes-exchange/settings.php:6
-msgid "Back to Add-ons"
-msgstr "Terug naar Add-ons"
-
 #: views/branding.php:38
 msgid "Banner 234&times;100"
 msgstr "Banner 234&times;100"
@@ -1196,7 +1167,6 @@ msgid "Sub ID"
 msgstr "Sub ID"
 
 #: views/config-edit.php:70
-#, php-format
 msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
 msgstr "Je ontvangt de sub ID van je iDEAL-provider, standaard is dit: %s."
 
@@ -1253,7 +1223,6 @@ msgid "Profile Key"
 msgstr "Profiel sleutel"
 
 #: views/config-edit.php:136
-#, php-format
 msgid ""
 "Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
 "linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
@@ -1293,7 +1262,6 @@ msgid "Secret Key"
 msgstr "Geheime sleutel"
 
 #: views/config-edit.php:206
-#, php-format
 msgid ""
 "You can find the key version in the <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
@@ -1310,7 +1278,6 @@ msgid "Website Key"
 msgstr "Website sleutel"
 
 #: views/config-edit.php:219
-#, php-format
 msgid ""
 "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
@@ -1319,7 +1286,6 @@ msgstr ""
 "\"_blank\">Buckaroo Payment Plaza</a> onder \"Profiel\" » \"Website\"."
 
 #: views/config-edit.php:226
-#, php-format
 msgid ""
 "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
@@ -1334,7 +1300,6 @@ msgid "ICEPAY"
 msgstr "ICEPAY"
 
 #: views/config-edit.php:239
-#, php-format
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1356,7 +1321,6 @@ msgid "Secret Code"
 msgstr "Geheime code"
 
 #: views/config-edit.php:250
-#, php-format
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1387,7 +1351,6 @@ msgid "Merchant ID"
 msgstr "Merchant ID"
 
 #: views/config-edit.php:288
-#, php-format
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
@@ -1401,7 +1364,6 @@ msgid "Merchant Key"
 msgstr "Merchant Key"
 
 #: views/config-edit.php:299
-#, php-format
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
@@ -1431,7 +1393,6 @@ msgid "PSPID"
 msgstr "PSPID"
 
 #: views/config-edit.php:328
-#, php-format
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
@@ -1529,11 +1490,11 @@ msgstr "iDEAL geavanceerd"
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/config-edit.php:440 views/config-edit.php:800
+#: views/config-edit.php:440 views/config-edit.php:802
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/config-edit.php:447 views/config-edit.php:824
+#: views/config-edit.php:447 views/config-edit.php:826
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
@@ -1647,11 +1608,11 @@ msgstr "Geldig tot"
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/config-edit.php:789
+#: views/config-edit.php:791
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/config-edit.php:793
+#: views/config-edit.php:795
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -1659,10 +1620,11 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: views/config-edit.php:809
+#: views/config-edit.php:811
 msgid "filename"
 msgstr "bestandsnaam"
 
+#. translators: comment date format. See http:php.net/date
 #: views/dashboard.php:47
 msgid "c"
 msgstr "c"
@@ -1671,6 +1633,7 @@ msgstr "c"
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
+#. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
@@ -1698,6 +1661,10 @@ msgstr "Voorgestelde actie"
 #: views/error.php:36 views/error.php:62
 msgid "Consumer Message"
 msgstr "Consumenten bericht"
+
+#: views/eshop/settings-meta-box.php:13
+msgid "Accept payment by iDEAL"
+msgstr "Accepteeer betaling via iDEAL"
 
 #: views/extensions-readme-md.php:4 views/gateways-readme-md.php:5
 msgctxt "readme.md"
@@ -1830,6 +1797,197 @@ msgstr "Provider"
 msgid "Supported Gateways"
 msgstr "Ondersteunde gateways"
 
+#: views/gravityforms/feed-edit.php:29
+msgid "Gravity Form"
+msgstr "Gravity Form"
+
+#: views/gravityforms/feed-edit.php:34
+msgid "&mdash; Select a form &mdash;"
+msgstr "&mdash; Selecteer een formulier &mdash;"
+
+#: views/gravityforms/feed-edit.php:68
+msgid "Entry ID Prefix"
+msgstr "Inzending ID prefix"
+
+#: views/gravityforms/feed-edit.php:81
+msgid ""
+"Please enter a prefix for your entry ID's. If you use an gateway for "
+"multiple websites ensure this prefix is unique as not all gateways will "
+"allow payments with the same ID."
+msgstr ""
+"Voer een prefix in voor je inzending ID's. Als je een gateway gebruikt voor "
+"meerdere websites zorg er dan voor dat deze prefix uniek is, niet alle "
+"gateways staan betalingen toe met dezelfde ID."
+
+#: views/gravityforms/feed-edit.php:107
+msgid ""
+"Maximum number of charachters is 32, you should also consider the use of "
+"variables Gravity Forms. An generated description that is longer than 32 "
+"characters will be automatically truncated."
+msgstr ""
+"Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van "
+"Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 "
+"tekens zal automatisch worden afgekapt."
+
+#: views/gravityforms/feed-edit.php:109
+msgid ""
+"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
+msgstr ""
+"Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
+"Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</"
+"code>"
+
+#: views/gravityforms/feed-edit.php:116
+msgid "Condition"
+msgstr "Conditie"
+
+#: views/gravityforms/feed-edit.php:132
+msgid "Enable"
+msgstr "Inschakelen"
+
+#: views/gravityforms/feed-edit.php:147
+msgid "is"
+msgstr "is"
+
+#: views/gravityforms/feed-edit.php:148
+msgid "is not"
+msgstr "is niet"
+
+#: views/gravityforms/feed-edit.php:167
+msgid "Send to gateway if %s %s %s"
+msgstr "Verstuur naar gateway als %s %s %s"
+
+#: views/gravityforms/feed-edit.php:177
+msgid ""
+"To create a condition, your form must have a drop down, checkbox or multiple "
+"choice field."
+msgstr ""
+"Om een conditie in te stellen moet je formulier een selectieveld, "
+"selectievakje of meerkeuzeveld bevatten."
+
+#: views/gravityforms/feed-edit.php:183
+msgid "Delay"
+msgstr "Uitstellen"
+
+#: views/gravityforms/feed-edit.php:188
+msgid "Send Notifications Delay"
+msgstr "Verstuur notificaties uitstellen"
+
+#: views/gravityforms/feed-edit.php:208
+msgid "Send notifications only when payment is received."
+msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
+
+#: views/gravityforms/feed-edit.php:259
+msgid "Send admin notification only when payment is received."
+msgstr ""
+"Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
+
+#: views/gravityforms/feed-edit.php:266
+msgid "Send user notification only when payment is received."
+msgstr ""
+"Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
+
+#: views/gravityforms/feed-edit.php:285
+msgid "Create Post Delay"
+msgstr "Bericht aanmaken uitstellen"
+
+#: views/gravityforms/feed-edit.php:291
+msgid "Create post only when payment is received."
+msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
+
+#: views/gravityforms/feed-edit.php:302
+msgid "Campaign Monitor Subscription Delay"
+msgstr "Campaign Monitor inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:308
+msgid "Subscribe user to Campaign Monitor only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij Campaign Monitor wanneer de betaling is "
+"ontvangen."
+
+#: views/gravityforms/feed-edit.php:313 views/gravityforms/feed-edit.php:339
+#: views/gravityforms/feed-edit.php:365
+msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
+msgstr "Deze instelling vereist de <a href=”%s”>%s</a> plugin."
+
+#: views/gravityforms/feed-edit.php:328
+msgid "MailChimp Subscription Delay"
+msgstr "MailChimp inschrijving uitstellen"
+
+#: views/gravityforms/feed-edit.php:334
+msgid "Subscribe user to MailChimp only when payment is received."
+msgstr ""
+"Gebruiker alleen inschrijving bij MailChimp wanneer de betaling is ontvangen."
+
+#: views/gravityforms/feed-edit.php:354
+msgid "User Registration Delay"
+msgstr "Gebruikerregistratie uitstellen"
+
+#: views/gravityforms/feed-edit.php:360
+msgid "Register user only when a payment is received."
+msgstr "Registreer gebruiker alleen wanneer de betaling is ontvangen."
+
+#: views/gravityforms/feed-edit.php:376
+msgid "Fields"
+msgstr "Velden"
+
+#: views/gravityforms/feed-edit.php:382
+msgid "First Name"
+msgstr "Voornaam"
+
+#: views/gravityforms/feed-edit.php:383
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: views/gravityforms/feed-edit.php:385
+msgid "Address"
+msgstr "Adres"
+
+#: views/gravityforms/feed-edit.php:386
+msgid "Address 2"
+msgstr "Adres 2"
+
+#: views/gravityforms/feed-edit.php:387
+msgid "City"
+msgstr "Plaats"
+
+#: views/gravityforms/feed-edit.php:388
+msgid "State"
+msgstr "Provincie"
+
+#: views/gravityforms/feed-edit.php:389
+msgid "Zip"
+msgstr "Postcode"
+
+#: views/gravityforms/feed-edit.php:422
+msgid "Status Links"
+msgstr "Status koppelingen"
+
+#: views/gravityforms/feed-edit.php:434
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: views/gravityforms/feed-edit.php:462
+msgid "Page:"
+msgstr "Pagina:"
+
+#: views/gravityforms/feed-edit.php:470
+msgid "&mdash; Select &mdash;"
+msgstr "&mdash; Selecteren &mdash;"
+
+#: views/gravityforms/feed-edit.php:479
+msgid "URL:"
+msgstr "URL:"
+
+#: views/gravityforms/feed-edit.php:489
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: views/gravityforms/feed-edit.php:496
+msgid "Update user role"
+msgstr "Update gebruikersrol"
+
 #: views/ideal-test-cases.php:5
 msgid "Order"
 msgstr "Bestelling"
@@ -1839,7 +1997,6 @@ msgid "Expected result if integration is correct"
 msgstr "Verwacht resultaat als de integratie juist is"
 
 #: views/ideal-test-cases.php:53
-#, php-format
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
@@ -1856,10 +2013,10 @@ msgid "Action URL"
 msgstr "Actie URL"
 
 #: views/meta-box-payment-log.php:28
-#, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s om %2$s"
 
+#. translators: comment date format. See http:php.net/date
 #: views/meta-box-payment-log.php:30
 msgid "Y/m/d"
 msgstr "d-m-Y"
@@ -1987,8 +2144,31 @@ msgstr "U wordt automatisch doorgestuurd naar de online betaalomgeving."
 msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op onderstaande knop als je niet automatisch wordt doorgestuurd."
 
+#: views/s2member/buttons-generator.php:43
+msgid "Generator"
+msgstr "Generator"
+
+#: views/s2member/buttons-generator.php:57
+msgid "I want to charge: %s / %s"
+msgstr "Ik wil %s in rekening brengen voor %s"
+
+#: views/s2member/buttons-generator.php:71
+msgid "for access to level %s content"
+msgstr "voor toegang tot %s niveau content"
+
+#: views/s2member/buttons-generator.php:76
+msgid "Description:"
+msgstr "Beschrijving:"
+
+#: views/s2member/buttons-generator.php:80
+msgid "Generate Shortcode"
+msgstr "Genereer shortcode"
+
+#: views/s2member/buttons-generator.php:85
+msgid "Shortcode"
+msgstr "Shortcode"
+
 #: views/status-ideal.php:10
-#, php-format
 msgid ""
 "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
 "the following status of the various iDEAL banks:"
@@ -2066,7 +2246,6 @@ msgid "WP Memory Limit"
 msgstr "WP geheugenlimiet"
 
 #: views/status-system.php:162
-#, php-format
 msgid ""
 "We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
 "memory allocated to PHP</a>"
@@ -2110,241 +2289,21 @@ msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
-#: views/eshop/settings-meta-box.php:13
-msgid "Accept payment by iDEAL"
-msgstr "Accepteeer betaling via iDEAL"
+#. Plugin URI of the plugin/theme
+msgid "http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/"
+msgstr "http://www.pronamic.nl/wordpress-plugins/pronamic-ideal/"
 
-#: views/gravityforms/feed-edit.php:29
-msgid "Gravity Form"
-msgstr "Gravity Form"
-
-#: views/gravityforms/feed-edit.php:34
-msgid "&mdash; Select a form &mdash;"
-msgstr "&mdash; Selecteer een formulier &mdash;"
-
-#: views/gravityforms/feed-edit.php:68
-msgid "Entry ID Prefix"
-msgstr "Inzending ID prefix"
-
-#: views/gravityforms/feed-edit.php:81
+#. Description of the plugin/theme
 msgid ""
-"Please enter a prefix for your entry ID's. If you use an gateway for "
-"multiple websites ensure this prefix is unique as not all gateways will "
-"allow payments with the same ID."
+"The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method "
+"to your WordPress website."
 msgstr ""
-"Voer een prefix in voor je inzending ID's. Als je een gateway gebruikt voor "
-"meerdere websites zorg er dan voor dat deze prefix uniek is, niet alle "
-"gateways staan betalingen toe met dezelfde ID."
+"De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
+"betaalmethode toe te voegen aan je WordPress website."
 
-#: views/gravityforms/feed-edit.php:107
-msgid ""
-"Maximum number of charachters is 32, you should also consider the use of "
-"variables Gravity Forms. An generated description that is longer than 32 "
-"characters will be automatically truncated."
-msgstr ""
-"Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van "
-"Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 "
-"tekens zal automatisch worden afgekapt."
-
-#: views/gravityforms/feed-edit.php:109
-msgid ""
-"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
-"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
-msgstr ""
-"Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
-"Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</"
-"code>"
-
-#: views/gravityforms/feed-edit.php:116
-msgid "Condition"
-msgstr "Conditie"
-
-#: views/gravityforms/feed-edit.php:132
-msgid "Enable"
-msgstr "Inschakelen"
-
-#: views/gravityforms/feed-edit.php:147
-msgid "is"
-msgstr "is"
-
-#: views/gravityforms/feed-edit.php:148
-msgid "is not"
-msgstr "is niet"
-
-#: views/gravityforms/feed-edit.php:167
-#, php-format
-msgid "Send to gateway if %s %s %s"
-msgstr "Verstuur naar gateway als %s %s %s"
-
-#: views/gravityforms/feed-edit.php:177
-msgid ""
-"To create a condition, your form must have a drop down, checkbox or multiple "
-"choice field."
-msgstr ""
-"Om een conditie in te stellen moet je formulier een selectieveld, "
-"selectievakje of meerkeuzeveld bevatten."
-
-#: views/gravityforms/feed-edit.php:183
-msgid "Delay"
-msgstr "Uitstellen"
-
-#: views/gravityforms/feed-edit.php:188
-msgid "Send Notifications Delay"
-msgstr "Verstuur notificaties uitstellen"
-
-#: views/gravityforms/feed-edit.php:208
-msgid "Send notifications only when payment is received."
-msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
-
-#: views/gravityforms/feed-edit.php:259
-msgid "Send admin notification only when payment is received."
-msgstr ""
-"Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
-
-#: views/gravityforms/feed-edit.php:266
-msgid "Send user notification only when payment is received."
-msgstr ""
-"Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
-
-#: views/gravityforms/feed-edit.php:285
-msgid "Create Post Delay"
-msgstr "Bericht aanmaken uitstellen"
-
-#: views/gravityforms/feed-edit.php:291
-msgid "Create post only when payment is received."
-msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
-
-#: views/gravityforms/feed-edit.php:302
-msgid "Campaign Monitor Subscription Delay"
-msgstr "Campaign Monitor inschrijving uitstellen"
-
-#: views/gravityforms/feed-edit.php:308
-msgid "Subscribe user to Campaign Monitor only when payment is received."
-msgstr ""
-"Gebruiker alleen inschrijving bij Campaign Monitor wanneer de betaling is "
-"ontvangen."
-
-#: views/gravityforms/feed-edit.php:313 views/gravityforms/feed-edit.php:339
-#: views/gravityforms/feed-edit.php:365
-#, php-format
-msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
-msgstr "Deze instelling vereist de <a href=”%s”>%s</a> plugin."
-
-#: views/gravityforms/feed-edit.php:328
-msgid "MailChimp Subscription Delay"
-msgstr "MailChimp inschrijving uitstellen"
-
-#: views/gravityforms/feed-edit.php:334
-msgid "Subscribe user to MailChimp only when payment is received."
-msgstr ""
-"Gebruiker alleen inschrijving bij MailChimp wanneer de betaling is ontvangen."
-
-#: views/gravityforms/feed-edit.php:354
-msgid "User Registration Delay"
-msgstr "Gebruikerregistratie uitstellen"
-
-#: views/gravityforms/feed-edit.php:360
-msgid "Register user only when a payment is received."
-msgstr "Registreer gebruiker alleen wanneer de betaling is ontvangen."
-
-#: views/gravityforms/feed-edit.php:376
-msgid "Fields"
-msgstr "Velden"
-
-#: views/gravityforms/feed-edit.php:382
-msgid "First Name"
-msgstr "Voornaam"
-
-#: views/gravityforms/feed-edit.php:383
-msgid "Last Name"
-msgstr "Achternaam"
-
-#: views/gravityforms/feed-edit.php:385
-msgid "Address"
-msgstr "Adres"
-
-#: views/gravityforms/feed-edit.php:386
-msgid "Address 2"
-msgstr "Adres 2"
-
-#: views/gravityforms/feed-edit.php:387
-msgid "City"
-msgstr "Plaats"
-
-#: views/gravityforms/feed-edit.php:388
-msgid "State"
-msgstr "Provincie"
-
-#: views/gravityforms/feed-edit.php:389
-msgid "Zip"
-msgstr "Postcode"
-
-#: views/gravityforms/feed-edit.php:422
-msgid "Status Links"
-msgstr "Status koppelingen"
-
-#: views/gravityforms/feed-edit.php:434
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: views/gravityforms/feed-edit.php:462
-msgid "Page:"
-msgstr "Pagina:"
-
-#: views/gravityforms/feed-edit.php:470
-msgid "&mdash; Select &mdash;"
-msgstr "&mdash; Selecteren &mdash;"
-
-#: views/gravityforms/feed-edit.php:479
-msgid "URL:"
-msgstr "URL:"
-
-#: views/gravityforms/feed-edit.php:489
-msgid "Advanced"
-msgstr "Geavanceerd"
-
-#: views/gravityforms/feed-edit.php:496
-msgid "Update user role"
-msgstr "Update gebruikersrol"
-
-#: views/s2member/buttons-generator.php:43
-msgid "Generator"
-msgstr "Generator"
-
-#: views/s2member/buttons-generator.php:57
-#, php-format
-msgid "I want to charge: %s / %s"
-msgstr "Ik wil %s in rekening brengen voor %s"
-
-#: views/s2member/buttons-generator.php:71
-#, php-format
-msgid "for access to level %s content"
-msgstr "voor toegang tot %s niveau content"
-
-#: views/s2member/buttons-generator.php:76
-msgid "Description:"
-msgstr "Beschrijving:"
-
-#: views/s2member/buttons-generator.php:80
-msgid "Generate Shortcode"
-msgstr "Genereer shortcode"
-
-#: views/s2member/buttons-generator.php:85
-msgid "Shortcode"
-msgstr "Shortcode"
-
-#~ msgid "http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/"
-#~ msgstr "http://www.pronamic.nl/wordpress-plugins/pronamic-ideal/"
-
-#~ msgid ""
-#~ "The Pronamic iDEAL plugin allows you to easily add the iDEAL payment "
-#~ "method to your WordPress website."
-#~ msgstr ""
-#~ "De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
-#~ "betaalmethode toe te voegen aan je WordPress website."
-
-#~ msgid "Pronamic"
-#~ msgstr "Pronamic"
+#. Author of the plugin/theme
+msgid "Pronamic"
+msgstr "Pronamic"
 
 #~ msgid "iDEAL Configuration ID could not be saved"
 #~ msgstr "iDEAL-configuratie ID kon nie t"

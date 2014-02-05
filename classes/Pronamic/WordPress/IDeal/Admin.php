@@ -51,7 +51,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	//////////////////////////////////////////////////
 
 	public static function pre_update_option_license_key( $newvalue, $oldvalue ) {
-		if ( $newvalue != $oldvalue ) {
+		if ( $newvalue != $oldvalue && ! empty( $newvalue ) ) {
 			$newvalue = md5( trim( $newvalue ) );
 		}
 
