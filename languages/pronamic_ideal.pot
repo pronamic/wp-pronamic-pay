@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.6.0\n"
+"Project-Id-Version: Pronamic iDEAL 2.6.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-ideal\n"
-"POT-Creation-Date: 2014-01-31 12:21:07+00:00\n"
+"POT-Creation-Date: 2014-02-05 10:38:17+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:116
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:273
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
@@ -43,7 +43,7 @@ msgstr ""
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:110
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:113
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
@@ -60,7 +60,7 @@ msgstr ""
 msgid "iDEAL"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:18
 #: classes/Pronamic/EShop/IDeal/AddOn.php:73
@@ -148,35 +148,35 @@ msgstr ""
 msgid "Configure the iDEAL settings"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
 msgid "Payment Error"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:158
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
 msgid ""
 "Payment creation failed before sending buyer to the iDEAL provider. Payment "
 "data: %s"
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:224
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:112
 msgid "iDEAL payment completed."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:236
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
 msgid "iDEAL payment open."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:242
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
 msgid "iDEAL payment unknown."
 msgstr ""
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:268
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
 #: views/extensions.php:15
 msgid "Easy Digital Downloads"
 msgstr ""
@@ -281,8 +281,8 @@ msgstr ""
 msgid "Buckaroo data:"
 msgstr ""
 
-#: classes/Pronamic/Gateways/Gateway.php:401
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:144
+#: classes/Pronamic/Gateways/Gateway.php:402
+#: classes/Pronamic/Membership/IDeal/IDealGateway.php:155
 msgid "Pay"
 msgstr ""
 
@@ -490,11 +490,11 @@ msgstr ""
 msgid "Pending iDEAL payment."
 msgstr ""
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:66 views/extensions.php:74
+#: classes/Pronamic/Membership/IDeal/AddOn.php:91 views/extensions.php:74
 msgid "Membership"
 msgstr ""
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:75
+#: classes/Pronamic/Membership/IDeal/AddOn.php:100
 msgid "Transaction #%s"
 msgstr ""
 
@@ -1435,11 +1435,11 @@ msgstr ""
 msgid "Private Key Password"
 msgstr ""
 
-#: views/config-edit.php:440 views/config-edit.php:800
+#: views/config-edit.php:440 views/config-edit.php:802
 msgid "Private Key"
 msgstr ""
 
-#: views/config-edit.php:447 views/config-edit.php:824
+#: views/config-edit.php:447 views/config-edit.php:826
 msgid "Private Certificate"
 msgstr ""
 
@@ -1547,17 +1547,17 @@ msgstr ""
 msgid "Download Private Certificate"
 msgstr ""
 
-#: views/config-edit.php:789
+#: views/config-edit.php:791
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: views/config-edit.php:793
+#: views/config-edit.php:795
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: views/config-edit.php:809
+#: views/config-edit.php:811
 msgid "filename"
 msgstr ""
 
@@ -1570,7 +1570,7 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_ideal.pot (Pronamic iDEAL 2.6.1)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: views/dashboard.php:75
 msgid "http://www.pronamic.eu/"
