@@ -15,7 +15,7 @@ class Pronamic_S2Member_IDeal_AddOn {
     }
 
     public static function load() {
-        if ( defined( 'WS_PLUGIN__S2MEMBER_VERSION' ) ) {
+        if ( Pronamic_S2Member_S2Member::is_active() ) {
             // Bridge Classes
             new Pronamic_S2Member_Bridge_Order();
             new Pronamic_S2Member_Bridge_Settings();
