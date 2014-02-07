@@ -41,6 +41,11 @@ class Pronamic_WordPress_IDeal_Admin {
 		// Actions
 		// Show license message if the license is not valid
 		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
+		
+		// Post types
+		new Pronamic_WP_Pay_Admin_GatewayPostType();
+		new Pronamic_WP_Pay_Admin_PaymentPostType();
+		new Pronamic_WP_Pay_Admin_PaymentFormPostType();
 
 		// Maybe update
 		global $pronamic_pay_db_version;
