@@ -190,7 +190,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 *
 	 * @param int $post_id The ID of the post being saved.
 	 */
-	public function pronamic_pay_save_gateway( $post_id ) {
+	public function save_post( $post_id ) {
 		// Check if our nonce is set.
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) )
 			return $post_id;
