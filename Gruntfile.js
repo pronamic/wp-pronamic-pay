@@ -10,6 +10,12 @@ module.exports = function( grunt ) {
 			},
 			all: [ 'classes/**/*.php' ]
 		},
+		phpunit: {
+			classes: {},
+			options: {
+				configuration: 'phpunit.xml'
+			}
+		},
 		jshint: {
 			files: ['Gruntfile.js', 'admin/js/*.js' ],
 			options: {
@@ -26,7 +32,8 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-phpunit' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'phplint', 'jshint' ] );
+	grunt.registerTask( 'default', [ 'phplint', 'phpunit', 'jshint' ] );
 };
