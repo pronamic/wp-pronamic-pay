@@ -129,7 +129,7 @@
 		 * @return Array
 		 */
 		this.getFieldsByType = function( types ) {
-			var fields = new Array();
+			var fields = [];
 
 			if ( gravityForm ) {				
 				for ( var i = 0; i < gravityForm.fields.length; i++ ) {
@@ -143,7 +143,7 @@
 		};
 		
 		this.getInputs = function() {
-			var inputs = new Array();
+			var inputs = [];
 			
 			if ( gravityForm ) {
 				$.each( gravityForm.fields, function( key, field ) {
