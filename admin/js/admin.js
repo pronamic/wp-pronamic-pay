@@ -4,24 +4,24 @@
 	 */
 	var GravityFormsIDealFeedEditor = function( element, options ) {
 		var obj     = this;
-		var element = $( element );
+		var $element = $( element );
 
 		// Elements
 		var elements = {};
-		elements.feed = element.find( '#gf_ideal_feed' );
-		elements.gravityForm = element.find( '#gf_ideal_gravity_form' );
-		elements.formId = element.find( '#_pronamic_pay_gf_form_id' );
-		elements.configId = element.find( '#gf_ideal_config_id' );
-		elements.delayPostCreationItem = element.find( '#gf_ideal_delay_post_creation_item' );
-		elements.conditionEnabled = element.find( '#gf_ideal_condition_enabled' );
-		elements.conditionConfig = element.find( '#gf_ideal_condition_config' );
-		elements.conditionFieldId = element.find( '#gf_ideal_condition_field_id' );
-		elements.conditionOperator = element.find( '#gf_ideal_condition_operator' );
-		elements.conditionValue = element.find( '#gf_ideal_condition_value' );
-		elements.userRoleFieldId = element.find( '#gf_ideal_user_role_field_id' );
-		elements.delayNotifications = element.find( '#gf_ideal_delay_notifications' );
-		elements.delayNotificationsHolder = element.find( '.pronamic-pay-gf-notifications' );
-		elements.fieldSelectFields = element.find( 'select.field-select' );
+		elements.feed = $element.find( '#gf_ideal_feed' );
+		elements.gravityForm = $element.find( '#gf_ideal_gravity_form' );
+		elements.formId = $element.find( '#_pronamic_pay_gf_form_id' );
+		elements.configId = $element.find( '#gf_ideal_config_id' );
+		elements.delayPostCreationItem = $element.find( '#gf_ideal_delay_post_creation_item' );
+		elements.conditionEnabled = $element.find( '#gf_ideal_condition_enabled' );
+		elements.conditionConfig = $element.find( '#gf_ideal_condition_config' );
+		elements.conditionFieldId = $element.find( '#gf_ideal_condition_field_id' );
+		elements.conditionOperator = $element.find( '#gf_ideal_condition_operator' );
+		elements.conditionValue = $element.find( '#gf_ideal_condition_value' );
+		elements.userRoleFieldId = $element.find( '#gf_ideal_user_role_field_id' );
+		elements.delayNotifications = $element.find( '#gf_ideal_delay_notifications' );
+		elements.delayNotificationsHolder = $element.find( '.pronamic-pay-gf-notifications' );
+		elements.fieldSelectFields = $element.find( 'select.field-select' );
 
 		// Data
 		var feed = $.parseJSON( elements.feed.val() );
@@ -296,13 +296,13 @@
 	 */
 	$.fn.gravityFormsIdealFeedEditor = function( options ) {
 		return this.each( function() {
-			var element = $( this );
+			$this = $( this );
 
-			if ( element.data( 'gf-ideal-feed-editor' ) ) return;
+			if ( $this.data( 'gf-ideal-feed-editor' ) ) return;
 
 			var editor = new GravityFormsIDealFeedEditor( this, options );
 
-			element.data( 'gf-ideal-feed-editor', editor );
+			$this.data( 'gf-ideal-feed-editor', editor );
 		} );
 	};
 	
@@ -313,11 +313,11 @@
 	 */
 	var PronamicPayGatewayConfigEditor = function( element, options ) {
 		var obj     = this;
-		var element = $( element );
+		var $element = $( element );
 
 		// Elements
 		var elements = {};
-		elements.variantId = element.find( '#pronamic_gateway_id' );
+		elements.variantId = $element.find( '#pronamic_gateway_id' );
 
 		/**
 		 * Update config
@@ -325,8 +325,8 @@
 		this.updateConfigFields = function() {
 			var method = elements.variantId.find( 'option:selected' ).attr( 'data-ideal-method' );
 
-			element.find( '.extra-settings' ).hide();
-			element.find( '.method-' + method ).show();
+			$element.find( '.extra-settings' ).hide();
+			$element.find( '.method-' + method ).show();
 		};
 		
 		/**
@@ -347,13 +347,13 @@
 	 */
 	$.fn.pronamicPayGatewayConfigEditor = function( options ) {
 		return this.each( function() {
-			var element = $( this );
+			var $this = $( this );
 
-			if ( element.data( 'pronamic-pay-gateway-config-editor' ) ) return;
+			if ( $this.data( 'pronamic-pay-gateway-config-editor' ) ) return;
 
 			var editor = new PronamicPayGatewayConfigEditor( this, options );
 
-			element.data( 'pronamic-pay-gateway-config-editor', editor );
+			$this.data( 'pronamic-pay-gateway-config-editor', editor );
 		});
 	};
 
