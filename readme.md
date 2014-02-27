@@ -326,11 +326,6 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 WordPress installation and then activate the Plugin from Plugins page.
 
 
-## Developers
-
-*	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/pronamic-ideal ~/wp/git/pronamic-ideal/languages/pronamic_ideal.pot
-
-
 ## Are there any known plugin conflicts?
 
 Unfortunately WordPress is notorious for conflicts between themes and plugins. It is unavoidable as you have no control over what other plugins and themes do. While we do take steps to avoid conflicts as best we can, we have no control over other plugins or themes.
@@ -347,6 +342,13 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.6.2
+
+*	Tweak - s2Member - Only update user if payment status is changed from 'unknown' to 'succes' to prevent double updates.
+*	Tweak - Did a lot of small adjustments to make this plugin faster.
+*	Tweak - Automated some tasks with Grunt (PHPLint, JSHint, PHPUnit, makepot.php).
+*	Test - WooCommerce - Tested up to version 2.1.2.
 
 ### 2.6.1
 
