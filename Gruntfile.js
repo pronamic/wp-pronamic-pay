@@ -13,7 +13,7 @@ module.exports = function( grunt ) {
 					document: true
 				}
 			}
-	    }
+		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
