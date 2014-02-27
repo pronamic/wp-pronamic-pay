@@ -28,6 +28,22 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		checkwpversion: {
+			options: {
+				readme: 'readme.txt',
+				plugin: 'pronamic-ideal.php',
+			},
+			check: {
+				version1: 'plugin',
+				version2: 'readme',
+				compare: '=='
+			},
+			check2: {
+				version1: 'plugin',
+				version2: '<%= pkg.version %>',
+				compare: '=='
+			}
+		},
 		makepot: {
 			target: {
 				options: {
@@ -42,8 +58,9 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
+	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'phplint', 'phpunit', 'jshint', 'makepot' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion', 'makepot' ] );
 };
