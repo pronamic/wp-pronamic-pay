@@ -3,7 +3,7 @@
 	 * Gravity Forms iDEAL feed editor
 	 */
 	var GravityFormsIDealFeedEditor = function( element, options ) {
-		var obj     = this;
+		var obj = this;
 		var $element = $( element );
 
 		// Elements
@@ -34,12 +34,12 @@
 			var display = false;
 
 			if ( gravityForm ) {
-                // Displaying delayed post creation setting if current form has a post field
-                var postFields = obj.getFieldsByType( [ 'post_title', 'post_content', 'post_excerpt', 'post_category', 'post_custom_field', 'post_image', 'post_tag' ] );
+				// Displaying delayed post creation setting if current form has a post field
+				var postFields = obj.getFieldsByType( [ 'post_title', 'post_content', 'post_excerpt', 'post_category', 'post_custom_field', 'post_image', 'post_tag' ] );
 
-                if ( postFields.length > 0 ) {
-                	display = true;
-                }
+				if ( postFields.length > 0 ) {
+					display = true;
+				}
 			}
 			
 			elements.delayPostCreationItem.toggle( display );
@@ -87,7 +87,7 @@
 		 * Update condition values
 		 */
 		this.updateConditionValues = function() {
-			var id    = elements.conditionFieldId.val();
+			var id	= elements.conditionFieldId.val();
 			var field = obj.getFieldById( id );
 			
 			elements.conditionValue.empty();
@@ -95,9 +95,9 @@
 
 			if ( field && field.choices ) {
 				$.each( field.choices, function( key, choice ) {
-                    var value = choice.value ? choice.value : choice.text;
+					var value = choice.value ? choice.value : choice.text;
 
-    				$( '<option>' )
+					$( '<option>' )
 						.attr( 'value', value )
 						.text( choice.text )
 						.appendTo( elements.conditionValue );
@@ -133,13 +133,13 @@
 
 			if ( gravityForm ) {				
 				for ( var i = 0; i < gravityForm.fields.length; i++ ) {
-                    if ( $.inArray( gravityForm.fields[i].type, types ) >= 0 ) {
-                    	fields.push(gravityForm.fields[i]);
-                    }
-                }
+					if ( $.inArray( gravityForm.fields[i].type, types ) >= 0 ) {
+						fields.push(gravityForm.fields[i]);
+					}
+				}
 			}
 
-            return fields;
+			return fields;
 		};
 		
 		this.getInputs = function() {
@@ -188,7 +188,7 @@
 
 			if ( gravityForm ) {
 				$.each( gravityForm.fields, function( key, field ) {
-	                var label = field.adminLabel ? field.adminLabel : field.label;
+					var label = field.adminLabel ? field.adminLabel : field.label;
 	
 					$( '<option>' )
 						.attr( 'value', field.id )
@@ -251,7 +251,7 @@
 					$( '<option>' ).appendTo( $element );
 
 					$.each( obj.getInputs(), function( key, input ) {
-		                var label = input.adminLabel ? input.adminLabel : input.label;
+						var label = input.adminLabel ? input.adminLabel : input.label;
 
 						$( '<option>' )
 							.attr( 'value', input.id )
@@ -312,7 +312,7 @@
 	 * Pronamic iDEAL config prototype
 	 */
 	var PronamicPayGatewayConfigEditor = function( element, options ) {
-		var obj     = this;
+		var obj = this;
 		var $element = $( element );
 
 		// Elements
