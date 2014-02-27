@@ -27,13 +27,23 @@ module.exports = function( grunt ) {
 					document: true
 				}
 			}
+		},
+		makepot: {
+			target: {
+				options: {
+					cwd: '',
+					domainPath: 'languages',
+					type: 'wp-plugin'
+				}
+			}
 		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
+	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'phplint', 'phpunit', 'jshint' ] );
+	grunt.registerTask( 'default', [ 'phplint', 'phpunit', 'jshint', 'makepot' ] );
 };
