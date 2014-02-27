@@ -51,12 +51,11 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
 			Pronamic_WPeCommerce_IDeal_AddOn::bootstrap();
 			Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
-			Pronamic_EShop_IDeal_AddOn::bootstrap();
 			Pronamic_EventEspresso_IDeal_AddOn::bootstrap();
 			Pronamic_AppThemes_IDeal_AddOn::bootstrap();
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
 			Pronamic_Membership_IDeal_AddOn::bootstrap();
-            Pronamic_EShop_IDeal_AddOn::bootstrap();
+            // Pronamic_EShop_IDeal_AddOn::bootstrap();
             Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
 			Pronamic_IThemesExchange_IDeal_AddOn::bootstrap();
 		}
@@ -89,9 +88,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
-
-		// Show license message if the license is not valid
-		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -286,47 +282,6 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 */
 	public static function can_be_used() {
 		return self::is_installed() && ( self::has_valid_key() || self::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Maybe show an license message
-	 */
-	public static function admin_notices() {
-		if ( ! self::can_be_used() ): ?>
-
-			<div class="error">
-				<p>
-					<?php
-
-					printf(
-						__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
-						self::PAYMENTS_MAX_LICENSE_FREE,
-						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
-					);
-
-					?>
-				</p>
-			</div>
-
-		<?php elseif ( ! self::has_valid_key() ) : ?>
-
-			<div class="updated">
-				<p>
-					<?php
-
-					printf(
-						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
-						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
-						self::PAYMENTS_MAX_LICENSE_FREE
-					);
-
-					?>
-				</p>
-			</div>
-
-		<?php endif;
 	}
 
 	//////////////////////////////////////////////////

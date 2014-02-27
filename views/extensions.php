@@ -117,7 +117,7 @@
 			'wp_org_url'         => 'http://wordpress.org/extend/plugins/woocommerce/',
 			'active'             => Pronamic_WooCommerce_WooCommerce::is_active(),
 			'requires_at_least'  => '2.0.0',
-			'tested_up_to'       => '2.0.18',
+			'tested_up_to'       => '2.1.2',
 			'author'             => __( 'WooThemes', 'pronamic_ideal' ),
 			'author_url'         => 'http://www.woothemes.com/',
 		),

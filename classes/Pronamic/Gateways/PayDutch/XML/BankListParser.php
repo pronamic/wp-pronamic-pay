@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_PayDutch_XML_BankListParser extends Pronamic_Gateways_PayDutch_XML_Parser {
+class Pronamic_Gateways_PayDutch_XML_BankListParser implements Pronamic_Gateways_PayDutch_XML_Parser {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
 	 * 

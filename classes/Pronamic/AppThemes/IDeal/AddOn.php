@@ -23,11 +23,6 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	 */
 	public static function bootstrap() {
 		add_action( 'init', array( __CLASS__, 'load_gateway' ), 100 );
-		
-		$slug = self::SLUG;
-
-		add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
-		add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -38,6 +33,9 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	public static function load_gateway() {
 		if ( function_exists( 'appthemes_register_gateway' ) ) {
 			appthemes_register_gateway( 'Pronamic_AppThemes_IDeal_IDealGateway' );
+
+			add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
+			add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
 	}
 
