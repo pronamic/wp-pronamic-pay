@@ -110,6 +110,8 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				if ( $should_update ) {
 	            	// Payment completed
 	                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
+	                
+	                // Mark order complete
     	            $order->payment_complete();
 				}
 
