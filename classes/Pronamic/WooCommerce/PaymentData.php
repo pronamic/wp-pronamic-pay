@@ -16,6 +16,14 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * @var WC_Order
 	 */
 	private $order;
+	
+	/**
+	 * Gateway
+	 * 
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php
+	 * @var WC_Payment_Gateway
+	 */
+	private $gateway;
 
 	/**
 	 * Description
@@ -31,10 +39,11 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	 * 
 	 * @param WC_Order $order
 	 */
-	public function __construct( $order, $description = null ) {
+	public function __construct( $order, $gateway, $description = null ) {
 		parent::__construct();
 
-		$this->order = $order;
+		$this->order   = $order;
+		$this->gateway = $gateway;
 
 		$this->description = ( null == $description ) ? self::get_default_description() : $description;
 	}
@@ -214,33 +223,13 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get normal return URL
-	 * @see https://github.com/woothemes/woocommerce/blob/v2.0.10/classes/abstracts/abstract-wc-payment-gateway.php#L49
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php#L52
 	 * 
 	 * @see Pronamic_Pay_PaymentDataInterface::get_normal_return_url()
 	 * @return string
 	 */
 	public function get_normal_return_url() { 
-		$thanks_page_id = woocommerce_get_page_id( 'thanks' );
-
-		// Base URL
-		if ( $thanks_page_id ) {
-			$return_url = get_permalink( $thanks_page_id );
-		} else {
-			$return_url = home_url();
-		}
-
-		// Add query arguments to URL
-		$return_url = add_query_arg( array(
-			'key'   => $this->order->order_key,
-			'order' => $this->order->id
-		), $return_url );
-
-		// SSL check
-		if ( is_ssl() || get_option( 'woocommerce_force_ssl_checkout' ) == 'yes' ) {
-			$return_url = str_replace( 'http:', 'https:', $return_url );
-		}
-
-		return apply_filters( 'woocommerce_get_return_url', $return_url );
+		return $this->gateway->get_return_url( $this->order );
 	}
 	
 	public function get_cancel_url() {
