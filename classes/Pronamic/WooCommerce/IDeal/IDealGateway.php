@@ -182,7 +182,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	function receipt_page( $order_id ) {
 		$order = new WC_Order( $order_id );
 
-		$data = new Pronamic_WooCommerce_PaymentData( $order, $this->payment_description );
+		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
 
@@ -263,7 +263,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     private function process_gateway_http_redirect( $order, $gateway ) {
     	global $woocommerce;
 
-		$data = new Pronamic_WooCommerce_PaymentData( $order, $this->payment_description );
+		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
 		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
 

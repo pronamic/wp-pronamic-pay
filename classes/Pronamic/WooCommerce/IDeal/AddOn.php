@@ -62,9 +62,10 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		$source_id = $payment->get_source_id();
 
-		$order = new WC_Order( (int) $source_id );
+		$order   = new WC_Order( (int) $source_id );
+		$gateway = new Pronamic_WooCommerce_IDeal_IDealGateway();
 
-		$data = new Pronamic_WooCommerce_PaymentData( $order );
+		$data = new Pronamic_WooCommerce_PaymentData( $order, $gateway );
 
 		// Only update if order is not 'processing' or 'completed'
 		// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/classes/class-wc-order.php#L1279
@@ -113,9 +114,6 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	                
 	                // Mark order complete
     	            $order->payment_complete();
-    	            
-    	            // Empty cart and clear session
-    	            WC()->cart->empty_cart();
 				}
 
                 $url = $data->get_success_url();
