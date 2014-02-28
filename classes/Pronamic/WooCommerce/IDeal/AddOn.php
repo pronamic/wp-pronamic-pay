@@ -113,6 +113,9 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	                
 	                // Mark order complete
     	            $order->payment_complete();
+    	            
+    	            // Empty cart and clear session
+    	            WC()->cart->empty_cart();
 				}
 
                 $url = $data->get_success_url();
