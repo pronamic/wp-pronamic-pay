@@ -1,4 +1,6 @@
-# [Pronamic iDEAL](http://wp.pronamic.eu/plugins/pronamic-ideal/) [![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
+# [Pronamic iDEAL](http://wp.pronamic.eu/plugins/pronamic-ideal/)
+
+[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -290,7 +292,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
 			<td>2.0.0</td>
-			<td>2.1.2</td>
+			<td>2.1.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
