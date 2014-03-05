@@ -345,6 +345,13 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.6.4
+*	Fix - Gravity Forms - Fixed JavaScript error while editing an payment form post.
+
+### 2.6.3 
+*	Tweak - WooCommerce - Improved usage of WooCommerce gateway/order return URL.
+*	Test - WooCommerce - Tested up to version 2.1.3.
+
 ### 2.6.2
 
 *	Tweak - s2Member - Only update user if payment status is changed from 'unknown' to 'succes' to prevent double updates.

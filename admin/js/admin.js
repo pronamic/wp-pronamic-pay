@@ -205,8 +205,8 @@
 		this.updateConfigFields = function() {
 			var method = elements.configId.find( 'option:selected' ).attr( 'data-ideal-method' );
 
-			element.find( '.extra-settings' ).hide();
-			element.find( '.method-' + method ).show();
+			$element.find( '.extra-settings' ).hide();
+			$element.find( '.method-' + method ).show();
 		};
 		
 		this.updateNotifications = function() {			
