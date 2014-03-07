@@ -345,6 +345,9 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.6.5
+*	Tweak - WooCommerce - Improved the {"result":"failure","messages":"","refresh":"false"} error.
+
 ### 2.6.4
 *	Fix - Gravity Forms - Fixed JavaScript error while editing an payment form post.
 

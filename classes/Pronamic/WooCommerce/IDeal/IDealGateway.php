@@ -223,9 +223,27 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				$return = $this->process_gateway_html_form( $order );
 			}
 		}
+		
+		if ( $return ) {
+			// Mark as pending (we're awaiting the payment)
+			$order->update_status( $new_status_slug, $note );
+		} else {
+			wc_add_notice( Pronamic_WordPress_IDeal_IDeal::get_default_error_message(), 'error' );
+			
+			if ( is_admin() && empty( $this->config_id ) ) {
+				// @see https://github.com/woothemes/woocommerce/blob/v2.1.5/includes/admin/settings/class-wc-settings-page.php#L66
+				$notice = sprintf(
+					__( 'You have to select an iDEAL configuration on the <a href="%s">WooCommerce checkout settings page</a>.', 'pronamic_ideal' ),
+					add_query_arg( array(
+						'page'    => 'wc-settings',
+						'tab'     => 'checkout',
+						'section' => sanitize_title( __CLASS__ ),
+					), admin_url( 'admin.php' ) )
+				);
 
-		// Mark as pending (we're awaiting the payment)
-		$order->update_status( $new_status_slug, $note );
+				wc_add_notice( $notice, 'error' );
+			}
+		}
 
 		// Return
 		return $return;
@@ -270,15 +288,16 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			$woocommerce->add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+			wc_add_notice( Pronamic_WordPress_IDeal_IDeal::get_default_error_message(), 'error' );
 
 			foreach ( $error->get_error_messages() As $message ) {
-				$woocommerce->add_error( $message );
+				wc_add_notice( $message, 'error' );
 			}
 
 			// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518
+			// @see https://github.com/woothemes/woocommerce/blob/v2.1.5/includes/class-wc-checkout.php#L669
 			return array(
-				'result' 	=> 'failed',
+				'result' 	=> 'failure',
 			);
 		} else {
 	    	$url = $payment->get_action_url();
