@@ -15,27 +15,20 @@ namespace Pronamic_Pay {
 		create( Config $config )
 	}
 	
-	Gateway <|-- Adyen
-	Gateway <|-- IDealAdvanced
-	Gateway <|-- IDealBasic
-	Gateway <|-- Mollie
-	Gateway <|-- MultiSafepay
-	Gateway <|-- Ogone
-	Gateway <|-- OmniKassa
-	Gateway <|-- PayDutch
-	Gateway <|-- Qantani
-	Gateway <|-- Sisow
-	Gateway <|-- TargetPay
+	Gateway -right-> Config
 }
 
 namespace Pronamic_Pay_Gateways_Buckaroo {
 	class Gateway {
-	
+		
 	}
 	
 	class Config {
-	
+		website_key
+		secret_key
 	}
+	
+	Gateway -right-> Config
 	
 	Pronamic_Pay.Gateway <|-- Gateway
 	Pronamic_Pay.Config <|-- Config
@@ -47,9 +40,49 @@ namespace Pronamic_Pay_Gateways_Icepay {
 	}
 	
 	class Config {
+		merchant_id
+		secret_code
+	}
+	
+	Gateway -right-> Config
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_IDealBasic {
+	class Gateway {
 	
 	}
 	
+	class Config {
+		url
+		merchant_id
+		sub_id
+		hash_key
+	}
+	
+	Gateway -right-> Config
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_IDealAdvanced {
+	class Gateway {
+	
+	}
+	
+	class Config {
+		merchant_id
+		sub_id
+		private_key_password
+		private_key
+		private_certificate
+	}
+	
+	Gateway -right-> Config
+
 	Pronamic_Pay.Gateway <|-- Gateway
 	Pronamic_Pay.Config <|-- Config
 }
