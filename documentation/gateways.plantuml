@@ -1,22 +1,57 @@
 @startuml
 
-class Gateway {
-	start()
-	payment()
+namespace Pronamic_Pay {
+	class Gateway {
+		start()
+		payment()
+	}
+	
+	class Config {
+	
+	}
+	
+	class GatewayFactory {
+		register( $config_class, $gateway_class )
+		create( Config $config )
+	}
+	
+	Gateway <|-- Adyen
+	Gateway <|-- IDealAdvanced
+	Gateway <|-- IDealBasic
+	Gateway <|-- Mollie
+	Gateway <|-- MultiSafepay
+	Gateway <|-- Ogone
+	Gateway <|-- OmniKassa
+	Gateway <|-- PayDutch
+	Gateway <|-- Qantani
+	Gateway <|-- Sisow
+	Gateway <|-- TargetPay
 }
 
-Gateway <|-- Adyen
-Gateway <|-- Buckaroo
-Gateway <|-- IDealAdvanced
-Gateway <|-- IDealBasic
-Gateway <|-- Icepay
-Gateway <|-- Mollie
-Gateway <|-- MultiSafepay
-Gateway <|-- Ogone
-Gateway <|-- OmniKassa
-Gateway <|-- PayDutch
-Gateway <|-- Qantani
-Gateway <|-- Sisow
-Gateway <|-- TargetPay
+namespace Pronamic_Pay_Gateways_Buckaroo {
+	class Gateway {
+	
+	}
+	
+	class Config {
+	
+	}
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_Icepay {
+	class Gateway {
+	
+	}
+	
+	class Config {
+	
+	}
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
 
 @enduml
