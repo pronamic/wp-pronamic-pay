@@ -1,0 +1,22 @@
+@startuml
+
+class Gateway {
+	start()
+	payment()
+}
+
+Gateway <|-- Adyen
+Gateway <|-- Buckaroo
+Gateway <|-- IDealAdvanced
+Gateway <|-- IDealBasic
+Gateway <|-- Icepay
+Gateway <|-- Mollie
+Gateway <|-- MultiSafepay
+Gateway <|-- Ogone
+Gateway <|-- OmniKassa
+Gateway <|-- PayDutch
+Gateway <|-- Qantani
+Gateway <|-- Sisow
+Gateway <|-- TargetPay
+
+@enduml

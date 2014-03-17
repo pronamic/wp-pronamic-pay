@@ -2,6 +2,8 @@ module.exports = function( grunt ) {
 	// Project configuration.
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
+		
+		// PHPLint
 		phplint: {
 			options: {
 				phpArgs: {
@@ -10,12 +12,16 @@ module.exports = function( grunt ) {
 			},
 			all: [ 'classes/**/*.php' ]
 		},
+		
+		// PHPUnit
 		phpunit: {
 			classes: {},
 			options: {
 				configuration: 'phpunit.xml'
 			}
 		},
+		
+		// JSHint
 		jshint: {
 			files: ['Gruntfile.js', 'admin/js/*.js' ],
 			options: {
@@ -28,6 +34,8 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
+		
+		// Check WordPress version
 		checkwpversion: {
 			options: {
 				readme: 'readme.txt',
@@ -44,6 +52,8 @@ module.exports = function( grunt ) {
 				compare: '=='
 			}
 		},
+		
+		// Make POT
 		makepot: {
 			target: {
 				options: {
@@ -51,6 +61,17 @@ module.exports = function( grunt ) {
 					domainPath: 'languages',
 					type: 'wp-plugin'
 				}
+			}
+		},
+		
+		// Shell
+		shell: {
+			plantuml: {
+				command: 'plantuml ./documentation/uml/*.plantuml',
+		        //    command: 'ls',
+		            options: {
+		                stdout: true
+		            }
 			}
 		}
 	} );
@@ -60,7 +81,9 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-phpunit' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
+	grunt.loadNpmTasks( 'grunt-shell' );
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion', 'makepot' ] );
+	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 };
