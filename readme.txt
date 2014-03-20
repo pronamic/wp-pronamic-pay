@@ -152,6 +152,8 @@ Here is a list of known plugin conflicts:
 
 = 2.6.7 =
 *	Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
+*	Test - WooCommerce - Tested up to version 2.1.5.
+*	Test - ClassiPress - Tested up to version 3.3.3.
 
 = 2.6.6 =
 *	Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
