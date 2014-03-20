@@ -21,10 +21,10 @@ GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
 if ( function_exists( 'spl_autoload_register' ) ) {
 
 	function pronamic_ideal_autoload( $name ) {
-		$name = str_replace( '\\', DIRECTORY_SEPARATOR, $name );
-		$name = str_replace( '_', DIRECTORY_SEPARATOR, $name );
+		$name = str_replace( '\\', '/', $name );
+		$name = str_replace( '_', '/', $name );
 
-		$file = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $name . '.php';
+		$file = plugin_dir_path( __FILE__ ) . 'classes/' . $name . '.php';
 
 		if ( is_file( $file ) ) {
 			require_once $file;
