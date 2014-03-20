@@ -154,6 +154,7 @@ Here is a list of known plugin conflicts:
 *	Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
 *	Test - WooCommerce - Tested up to version 2.1.5.
 *	Test - ClassiPress - Tested up to version 3.3.3.
+*	Tweak - AppThemes - Process the order/gateway also in the 'template_redirect' hook, to improve some redirect issues. 
 
 = 2.6.6 =
 *	Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
