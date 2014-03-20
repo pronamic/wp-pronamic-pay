@@ -154,7 +154,9 @@ Here is a list of known plugin conflicts:
 *	Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
 *	Test - WooCommerce - Tested up to version 2.1.5.
 *	Test - ClassiPress - Tested up to version 3.3.3.
-*	Tweak - AppThemes - Process the order/gateway also in the 'template_redirect' hook, to improve some redirect issues. 
+*	Tweak - AppThemes - Process the order/gateway also in the 'template_redirect' hook, to improve some redirect issues.
+*	Tweak - ABN AMRO - iDEAL Only Kassa - Updated the dashboard URL's to the new BackOffice version URL's.
+*	Fix - s2Member - Fixed Fatal error: Call to a member function get_level() on a non-object.
 
 = 2.6.6 =
 *	Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
