@@ -63,15 +63,11 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		
+
 		// Shell
 		shell: {
 			plantuml: {
-				command: 'plantuml ./documentation/*.plantuml',
-		        //    command: 'ls',
-		            options: {
-		                stdout: true
-		            }
+				command: 'plantuml ./documentation/*.plantuml'
 			}
 		}
 	} );
