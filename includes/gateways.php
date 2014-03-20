@@ -36,11 +36,11 @@ $pronamic_pay_gateways = array(
 		'url'      => 'https://internetkassa.abnamro.nl/',
 		'test'     => array(
 			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp',
-			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/test/admin_ABN.asp',
+			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/test/backoffice',
 		),
 		'live'     => array(
 			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp',
-			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/admin_ABN.asp',
+			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/backoffice',
 		),
 	),
 	'abnamro-ideal-zelfbouw' => array(
