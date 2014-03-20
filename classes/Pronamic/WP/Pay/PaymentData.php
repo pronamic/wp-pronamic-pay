@@ -108,4 +108,19 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	public function get_error_url() {
 		return $this->get_url( 'error' );
 	}
+
+	//////////////////////////////////////////////////
+	// WordPres
+	//////////////////////////////////////////////////
+
+	public function get_blogname() {
+		$blogname = get_option( 'blogname' );
+
+		// @see https://github.com/WordPress/WordPress/blob/3.8.1/wp-includes/pluggable.php#L1085
+		// The blogname option is escaped with esc_html on the way into the database in sanitize_option
+		// we want to reverse this for the gateways.
+		$blogname = wp_specialchars_decode( $blogname, ENT_QUOTES );
+		
+		return $blogname;
+	}
 }
