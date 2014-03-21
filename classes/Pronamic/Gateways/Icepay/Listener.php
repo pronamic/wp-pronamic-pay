@@ -21,7 +21,7 @@ class Pronamic_Gateways_Icepay_Listener implements Pronamic_Pay_Gateways_Listene
 		$condition &= filter_has_var( INPUT_GET, 'Checksum' );
 
 		if ( $condition ) {
-			$reference = filter_input( INPUT_GET, 'Reference', FILTER_SANITIZE_STRING );
+			$reference = filter_input( INPUT_GET, 'OrderID', FILTER_SANITIZE_STRING );
 
 			$payment = get_pronamic_payment( $reference );
 

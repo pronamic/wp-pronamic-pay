@@ -95,10 +95,10 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		$replace = array();
 
 		$find[]    = '{blogname}';
-		$replace[] = get_bloginfo( 'name' );
+		$replace[] = $this->get_blogname();
 
 		$find[]    = '{site_title}';
-		$replace[] = get_bloginfo( 'name' );
+		$replace[] = $this->get_blogname();
 
 		$find[]    = '{order_date}';
 		$replace[] = date_i18n( Pronamic_WooCommerce_WooCommerce::get_date_format(), strtotime( $this->order->order_date ) );

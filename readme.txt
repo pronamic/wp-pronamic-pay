@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.8.1
-Stable tag: 2.6.5
+Stable tag: 2.6.6
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -149,6 +149,16 @@ Here is a list of known plugin conflicts:
 *	Mollie - Add unit tests for new API.
 
 == Changelog ==
+
+= 2.6.6 =
+*	Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
+*	Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
+*	Test - WooCommerce - Tested up to version 2.1.5.
+*	Test - ClassiPress - Tested up to version 3.3.3.
+*	Tweak - AppThemes - Process the order/gateway also in the 'template_redirect' hook, to improve some redirect issues.
+*	Tweak - ABN AMRO - iDEAL Only Kassa - Updated the dashboard URL's to the new BackOffice version URL's.
+*	Fix - s2Member - Fixed Fatal error: Call to a member function get_level() on a non-object.
+*	Test - s2Member - Tested up to version 140105.
 
 = 2.6.5 =
 *	Tweak - WooCommerce - Improved the {"result":"failure","messages":"","refresh":"false"} error.

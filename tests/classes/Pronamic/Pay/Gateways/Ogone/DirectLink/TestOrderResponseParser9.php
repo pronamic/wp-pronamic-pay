@@ -34,7 +34,5 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser9 extends WP
 		$expected->nc_error_plus = '!';
 
 		$this->assertEquals( $expected, $order_response );
-		
-		return $banklist;
 	}
 }

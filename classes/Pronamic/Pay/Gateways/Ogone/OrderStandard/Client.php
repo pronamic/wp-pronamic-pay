@@ -44,6 +44,15 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Pass phrase IN
+	 * 
+	 * @var string
+	 */
+	public $passPhraseIn;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Fields
 	 *
 	 * @var array

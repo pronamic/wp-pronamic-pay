@@ -1,0 +1,90 @@
+@startuml
+
+namespace Pronamic_Pay {
+	class Gateway {
+		start()
+		payment()
+	}
+	
+	class Config {
+	
+	}
+	
+	class GatewayFactory {
+		register( $config_class, $gateway_class )
+		create( Config $config )
+	}
+	
+	Gateway -right-> Config
+}
+
+namespace Pronamic_Pay_Gateways_Buckaroo {
+	class Gateway {
+		
+	}
+	
+	class Config {
+		website_key
+		secret_key
+	}
+	
+	Gateway -right-> Config
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_Icepay {
+	class Gateway {
+	
+	}
+	
+	class Config {
+		merchant_id
+		secret_code
+	}
+	
+	Gateway -right-> Config
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_IDealBasic {
+	class Gateway {
+	
+	}
+	
+	class Config {
+		url
+		merchant_id
+		sub_id
+		hash_key
+	}
+	
+	Gateway -right-> Config
+	
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+namespace Pronamic_Pay_Gateways_IDealAdvanced {
+	class Gateway {
+	
+	}
+	
+	class Config {
+		merchant_id
+		sub_id
+		private_key_password
+		private_key
+		private_certificate
+	}
+	
+	Gateway -right-> Config
+
+	Pronamic_Pay.Gateway <|-- Gateway
+	Pronamic_Pay.Config <|-- Config
+}
+
+@enduml

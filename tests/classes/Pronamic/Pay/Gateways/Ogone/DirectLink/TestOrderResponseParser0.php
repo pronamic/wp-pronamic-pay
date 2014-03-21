@@ -34,7 +34,5 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser0 extends WP
 		$expected->nc_error_plus = 'Card type not active for the merchant';
 
 		$this->assertEquals( $expected, $order_response );
-		
-		return $banklist;
 	}
 }

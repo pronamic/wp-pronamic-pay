@@ -42,7 +42,5 @@ class Pronamic_Pay_Gateways_PayDutch_TestPaymentInfoParser extends WP_UnitTestCa
 		$expected->created         = '01/13/2009 4:29:57 AM';
 
 		$this->assertEquals( $expected, $payment_info );
-		
-		return $banklist;
 	}
 }

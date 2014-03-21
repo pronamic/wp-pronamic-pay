@@ -37,7 +37,5 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser46 extends W
 		$expected->html_answer   = file_get_contents( $filename );
 
 		$this->assertEquals( $expected, $order_response );
-		
-		return $banklist;
 	}
 }
