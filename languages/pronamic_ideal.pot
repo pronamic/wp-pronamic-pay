@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.6.6\n"
+"Project-Id-Version: Pronamic iDEAL 2.6.7\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-03-21 08:02:44+00:00\n"
+"POT-Creation-Date: 2014-03-24 14:07:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +71,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:49
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:49
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:116
 #: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:49
@@ -93,7 +93,7 @@ msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/S2Member/Bridge/Settings.php:50
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:71
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:71
 msgid "iDEAL Options"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgid "Buckaroo data:"
 msgstr ""
 
 #: classes/Pronamic/Gateways/Gateway.php:402
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:155
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:155
 msgid "Pay"
 msgstr ""
 
@@ -473,18 +473,6 @@ msgstr ""
 msgid "Pending iDEAL payment."
 msgstr ""
 
-#: classes/Pronamic/Membership/IDeal/AddOn.php:91 views/extensions.php:74
-msgid "Membership"
-msgstr ""
-
-#: classes/Pronamic/Membership/IDeal/AddOn.php:100
-msgid "Transaction #%s"
-msgstr ""
-
-#: classes/Pronamic/Membership/IDeal/IDealGateway.php:135
-msgid "iDEAL - Online payment through your own bank"
-msgstr ""
-
 #: classes/Pronamic/S2Member/Bridge/Order.php:15
 msgid "One Time ( for %s access, non-recurring )"
 msgstr ""
@@ -562,13 +550,13 @@ msgid "lifetime"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:21
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:42
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:42
 #: classes/Pronamic/WordPress/IDeal/Admin.php:76 views/config-edit.php:29
 msgid "General"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:49
-#: classes/Pronamic/WP/Pay/Membership/Admin.php:70
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:70
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -713,6 +701,19 @@ msgstr ""
 
 #: classes/Pronamic/WP/Util.php:63
 msgid "Could not load the XML string."
+msgstr ""
+
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:94
+#: views/extensions.php:74
+msgid "Membership"
+msgstr ""
+
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:103
+msgid "Transaction #%s"
+msgstr ""
+
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:135
+msgid "iDEAL - Online payment through your own bank"
 msgstr ""
 
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125

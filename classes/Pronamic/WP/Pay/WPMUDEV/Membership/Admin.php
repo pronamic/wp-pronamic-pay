@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_Membership_Admin {
+class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 	/**
 	 * Bootstrap
 	 */
@@ -17,8 +17,8 @@ class Pronamic_WP_Pay_Membership_Admin {
 
 		add_action( 'membership_add_menu_items_after_gateways', array( $this, 'add_menu_items' ) );
 
-		add_action( 'add_option_'    . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'add_option_config_id'    ), 11, 2 );
-		add_action( 'update_option_' . Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 11, 2 );
+		add_action( 'add_option_'    . Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'add_option_config_id'    ), 11, 2 );
+		add_action( 'update_option_' . Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 11, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -45,14 +45,14 @@ class Pronamic_WP_Pay_Membership_Admin {
     	);
 
     	add_settings_field(
-    		Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID, // id
+    		Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, // id
     		__( 'Configuration', 'pronamic_ideal' ), // title
     		array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
     		'pronamic_pay_membership', // page
     		'pronamic_pay_membership_general', // section
     		array( // args 
-    			'name'      => Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID,
-    			'label_for' => Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID
+    			'name'      => Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID,
+    			'label_for' => Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID
     		)
     	);
 
