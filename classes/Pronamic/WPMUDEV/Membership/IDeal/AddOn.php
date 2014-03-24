@@ -39,7 +39,9 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 	public static function plugins_loaded() {
 		if ( Pronamic_WPMUDEV_Membership_Membership::is_active() ) {
 			// Register the Membership iDEAL gateway
-			M_register_gateway( 'pronamic_ideal', 'Pronamic_WPMUDEV_Membership_IDeal_IDealGateway' );
+			if ( function_exists( 'M_register_gateway' ) ) {
+				M_register_gateway( 'pronamic_ideal', 'Pronamic_WPMUDEV_Membership_IDeal_IDealGateway' );
+			}
 
 			add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
 			add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
