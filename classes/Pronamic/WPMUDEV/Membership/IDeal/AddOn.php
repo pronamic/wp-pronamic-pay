@@ -39,6 +39,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 	public static function plugins_loaded() {
 		if ( Pronamic_WPMUDEV_Membership_Membership::is_active() ) {
 			// Register the Membership iDEAL gateway
+			// Membership < 3.5
 			if ( function_exists( 'M_register_gateway' ) ) {
 				M_register_gateway( 'pronamic_ideal', 'Pronamic_WPMUDEV_Membership_IDeal_IDealGateway' );
 			}

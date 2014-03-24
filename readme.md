@@ -345,6 +345,9 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.6.7
+*	Tweak - WPMU DEV Membership - Fixed error after update to Membership 5.3+, we don't support 3.5+ yet.
+
 ### 2.6.6
 *	Tweak - ICEPAY - Use the 'OrderID' in the listener so the correct payment will be updated.
 *	Fix - Buckaroo - Fixed support for & charachter in blog name for WooCommerce payment description.
