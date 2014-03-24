@@ -8,7 +8,7 @@
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
  */
-class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
+class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 	/**
 	 * Gateway name/slug
 	 * 
@@ -34,7 +34,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 	 * The M_Gateway class is calling the '__construct' method wich will cause
 	 * an infinite loop and an 'Fatal error: Allowed memory size'.
 	 */
-	public function Pronamic_Membership_IDeal_IDealGateway() {
+	public function Pronamic_WPMUDEV_Membership_IDeal_IDealGateway() {
 		parent::M_Gateway();
 
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.freesubscriptions.php#L30
@@ -46,7 +46,7 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 			add_action( 'membership_purchase_button', array( $this, 'purchase_button' ), 1, 3 );
 
 			// Status update
-			$slug = Pronamic_Membership_IDeal_AddOn::SLUG;
+			$slug = Pronamic_WPMUDEV_Membership_IDeal_AddOn::SLUG;
 
 			add_action( "pronamic_payment_status_update_$slug", array( $this, 'status_update' ), 10, 2 );
 		}
@@ -77,14 +77,14 @@ class Pronamic_Membership_IDeal_IDealGateway extends M_Gateway {
 	 * @param int $user_id WordPress user/member ID
 	 */
 	public function purchase_button( $subscription, $pricing, $user_id ) {
-		if ( Pronamic_Membership_Membership::is_pricing_free( $pricing ) ) {
+		if ( Pronamic_WPMUDEV_Membership_Membership::is_pricing_free( $pricing ) ) {
 			// @todo what todo?
 		} else {
 			$membership = new M_Membership( $user_id );
 
-			$config_id = get_option( Pronamic_Membership_IDeal_AddOn::OPTION_CONFIG_ID );
+			$config_id = get_option( Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID );
 
-			$data = new Pronamic_WP_Pay_Membership_PaymentData( $subscription, $membership );
+			$data = new Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData( $subscription, $membership );
 	
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 

@@ -1,6 +1,6 @@
 <?php
 
-class Pronamic_WP_Pay_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData {
+class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	public $user;
 
 	public $subscription;

@@ -74,7 +74,7 @@
 			'name'               => __( 'Membership', 'pronamic_ideal' ),
 			'url'                => 'http://wordpress.org/plugins/membership/',
 			'wp_org_url'         => 'http://wordpress.org/plugins/membership/',
-			'active'             => Pronamic_Membership_Membership::is_active(),
+			'active'             => Pronamic_WPMUDEV_Membership_Membership::is_active(),
 			'requires_at_least'  => '3.4.4.1',
 			'tested_up_to'       => '3.4.4.1',
 			'author'             => __( 'WPMUDEV.org', 'pronamic_ideal' ),
@@ -83,7 +83,7 @@
 		'membership-premium'     => array(
 			'name'               => __( 'Membership Premium', 'pronamic_ideal' ),
 			'url'                => 'http://premium.wpmudev.org/project/membership/',
-			'active'             => Pronamic_Membership_Membership::is_active(),
+			'active'             => Pronamic_WPMUDEV_Membership_Membership::is_active(),
 			'requires_at_least'  => '3.4.6',
 			'tested_up_to'       => '3.4.6',
 			'author'             => __( 'WPMUDEV.org', 'pronamic_ideal' ),
