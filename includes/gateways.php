@@ -466,6 +466,13 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://secure.ogone.com/ncol/prod/admin_ogone.asp',
 		),
 	),
+	// Paytor
+	'paytor' => array(
+		'provider'      => 'paytor',
+		'gateway'       => 'mollie',
+		'name'          => 'Paytor',
+		'dashboard_url' => 'http://paytor.com/',
+	),
 	// Rabobank
 	'rabobank-ideal-lite' => array(
 		'provider' => 'rabobank',

@@ -63,6 +63,10 @@ $pronamic_pay_providers = array(
 		'name'          => 'Ogone',
 		'url'           => 'http://ogone.com/'
 	),
+	'paytor'             => array(
+		'name'          => 'Paytor',
+		'url'           => 'http://www.paytor.com/'
+	),
 	'rabobank'          => array(
 		'name'          => 'Rabobank',
 		'url'           => 'http://rabobank.nl/'
