@@ -148,6 +148,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Ogone - DirectLink</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.paytor.com/">Paytor</a></td>
+			<td>Paytor</td>
+		</tr>
+		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>
 			<td>Rabobank - iDEAL Lite</td>
 		</tr>
