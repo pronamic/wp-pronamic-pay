@@ -12,6 +12,8 @@
 	global $pronamic_pay_providers;
 	global $pronamic_pay_gateways;
 
+	bind_providers_and_gateways();
+
 	$gateways = $pronamic_pay_gateways;
 	
 	include 'gateways-wp-admin.php';
