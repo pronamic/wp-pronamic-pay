@@ -153,24 +153,31 @@
 	);
 	
 	include 'extensions-wp-admin.php';
-
-	if ( filter_has_var( INPUT_GET, 'markdown' ) ) : ?>
 	
-		<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
-		
-		<?php 
-		
-		ob_start();
-		
-		include 'extensions-readme-md.php';
-		
-		$markdown = ob_get_clean();
+	$output = array(
+		'readme-md'  => 'extensions-readme-md.php',
+		'readme-txt' => 'extensions-readme-txt.php',
+	);
 
-		?>
+	foreach ( $output as $name => $file ) {
+		if ( filter_has_var( INPUT_GET, $name ) ) : ?>
 		
-		<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
+			<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
+			
+			<?php 
+			
+			ob_start();
+			
+			include $file;
+			
+			$markdown = ob_get_clean();
 	
-	<?php endif; ?>
-
-	<?php include 'pronamic.php'; ?>
+			?>
+			
+			<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
+		
+		<?php endif;
+	}
+	
+	include 'pronamic.php'; ?>
 </div>

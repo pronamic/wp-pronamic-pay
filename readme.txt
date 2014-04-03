@@ -14,100 +14,146 @@ your WordPress website.
 *	Easy installation and configuration
 *	Automatic updates
 
-= Gravity Forms =
+= Extensions =
 
-The Pronamic iDEAL plugin contains the IDEAL Add-On for the 
-[Gravity Forms plugin](http://www.gravityforms.com/) which allows 
-you to add the iDEAL payment method to your Gravity Forms.
+*	[Easy Digital Downloads](https://easydigitaldownloads.com/)
+	*	Author: [Pippin Williamson](http://pippinsplugins.com/)
+	*	WordPress.org: [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
+	*	GitHub: [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
+	*	Requires at least: 1.8.6
+	*	Tested up to: 1.8.6
+*	[Event Espresso](http://eventespresso.com/)
+	*	GitHub: [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
+	*	Requires at least: 3.1.24
+	*	Tested up to: 3.1.35.P
+*	[Event Espresso Lite](http://eventespresso.com/)
+	*	WordPress.org: [http://wordpress.org/extend/plugins/event-espresso-free/](http://wordpress.org/extend/plugins/event-espresso-free/)
+	*	GitHub: [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
+	*	Requires at least: 3.1.29.1.L
+	*	Tested up to: 3.1.35.L
+*	[Gravity Forms](http://www.gravityforms.com/)
+	*	Author: [Rocketgenius](http://www.rocketgenius.com/)
+	*	Requires at least: 1.6
+	*	Tested up to: 1.8
+*	[iThemes Exchange](http://ithemes.com/exchange/)
+	*	Author: [iThemes](http://ithemes.com/)
+	*	WordPress.org: [http://wordpress.org/extend/plugins/ithemes-exchange/](http://wordpress.org/extend/plugins/ithemes-exchange/)
+	*	GitHub: [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
+	*	Requires at least: 1.7.14
+	*	Tested up to: 1.7.16
+*	[Jigoshop](http://jigoshop.com/)
+	*	Author: [Jigowatt](http://jigowatt.co.uk/)
+	*	WordPress.org: [http://wordpress.org/extend/plugins/jigoshop/](http://wordpress.org/extend/plugins/jigoshop/)
+	*	GitHub: [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
+	*	Requires at least: 1.1
+	*	Tested up to: 1.8
+*	[Membership](http://wordpress.org/plugins/membership/)
+	*	Author: [WPMUDEV.org](http://www.wpmudev.org/)
+	*	WordPress.org: [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
+	*	Requires at least: 3.4.4.1
+	*	Tested up to: 3.4.4.1
+*	[Membership Premium](http://premium.wpmudev.org/project/membership/)
+	*	Author: [WPMUDEV.org](http://www.wpmudev.org/)
+	*	Requires at least: 3.4.6
+	*	Tested up to: 3.4.6
+*	[s2Member®](http://www.s2member.com/)
+	*	Author: [WebSharks, Inc.](http://www.websharks-inc.com/)
+	*	WordPress.org: [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
+	*	GitHub: [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
+	*	Requires at least: 130816
+	*	Tested up to: 140105
+*	[Shopp](https://shopplugin.net/)
+	*	Author: [Ingenesis Limited](http://ingenesis.net/)
+	*	GitHub: [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
+	*	Requires at least: 1.1
+	*	Tested up to: 1.3.1
+*	[WooCommerce](http://www.woothemes.com/woocommerce/)
+	*	Author: [WooThemes](http://www.woothemes.com/)
+	*	WordPress.org: [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
+	*	GitHub: [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
+	*	Requires at least: 2.0.0
+	*	Tested up to: 2.1.5
+*	[WP e-Commerce](http://getshopped.org/)
+	*	Author: [Instinct Entertainment](http://instinct.co.nz/)
+	*	WordPress.org: [http://wordpress.org/extend/plugins/wp-e-commerce/](http://wordpress.org/extend/plugins/wp-e-commerce/)
+	*	GitHub: [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
+	*	Requires at least: 3.8.12.1
+	*	Tested up to: 3.8.12.1
+*	[ClassiPress](http://www.appthemes.com/themes/classipress/)
+	*	Author: [AppThemes](http://www.appthemes.com/)
+	*	Requires at least: 3.3.1
+	*	Tested up to: 3.3.3
+*	[JobRoller](http://www.appthemes.com/themes/jobroller/)
+	*	Author: [AppThemes](http://www.appthemes.com/)
+	*	Tested up to: 1.7.1
 
-= WooCommerce =
+= Gateways =
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[WooCommerce e-commerce plugin](http://wordpress.org/extend/plugins/woocommerce/) 
-from [WooThemes](http://www.woothemes.com/).
+*	[ABN AMRO][abnamro] - ABN AMRO - iDEAL Easy
+*	[ABN AMRO][abnamro] - ABN AMRO - iDEAL Hosted
+*	[ABN AMRO][abnamro] - ABN AMRO - iDEAL Only Kassa
+*	[ABN AMRO][abnamro] - ABN AMRO - iDEAL Zelfbouw
+*	[ABN AMRO][abnamro] - ABN AMRO - iDEAL Zelfbouw - v3
+*	[Buckaroo][buckaroo] - Buckaroo - iDEAL
+*	[Deutsche Bank][deutschebank] - Deutsche Bank - iDEAL via Ogone
+*	[Deutsche Bank][deutschebank] - Deutsche Bank - iDEAL Expert - v3
+*	[Dutch Payment Group][dutchpaymentgroup] - PayDutch
+*	[Easy iDeal][easy-ideal] - Easy iDeal - iDEAL
+*	Fortis Bank - Fortis Bank - iDEAL Hosted
+*	Fortis Bank - Fortis Bank - iDEAL Internet Kassa
+*	Fortis Bank - Fortis Bank - iDEAL Integrated
+*	[Friesland Bank][frieslandbank] - Friesland Bank - iDEAL Zakelijk
+*	[Friesland Bank][frieslandbank] - Friesland Bank - iDEAL Zakelijk Plus
+*	[Friesland Bank][frieslandbank] - Friesland Bank - iDEAL Zakelijk Plus - v3
+*	[ICEPAY][icepay] - ICEPAY - iDEAL
+*	[iDEAL Simulator][ideal-simulator] - iDEAL Simulator - iDEAL Lite / Basic
+*	[iDEAL Simulator][ideal-simulator] - iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
+*	[iDEAL Simulator][ideal-simulator] - iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3
+*	[ING][ing] - ING - iDEAL Basic
+*	[ING][ing] - ING - iDEAL Internet Kassa
+*	[ING][ing] - ING - iDEAL Advanced
+*	[ING][ing] - ING - iDEAL Advanced - v3
+*	[Mollie][mollie] - Mollie
+*	[Mollie][mollie] - Mollie - iDEAL
+*	[Mollie][mollie] - Mollie - iDEAL Basic
+*	[Mollie][mollie] - Mollie - iDEAL Advanced
+*	[MultiSafepay][multisafepay] - MultiSafepay - Connect
+*	[NEOS][neos] - NEOS - Internet Kassa
+*	[Ogone][ogone] - Ogone - Easy
+*	[Ogone][ogone] - Ogone - OrderStandard
+*	[Ogone][ogone] - Ogone - DirectLink
+*	[Paytor][paytor] - Paytor
+*	[Rabobank][rabobank] - Rabobank - iDEAL Lite
+*	[Rabobank][rabobank] - Rabobank - Rabo iDEAL Kassa
+*	[Rabobank][rabobank] - Rabobank - OmniKassa
+*	[Rabobank][rabobank] - Rabobank - iDEAL Professional
+*	[Rabobank][rabobank] - Rabobank - iDEAL Professional - v3
+*	[Sisow][sisow] - Sisow - iDEAL
+*	[Sisow][sisow] - Sisow - iDEAL Basic
+*	[Sisow][sisow] - Sisow - iDEAL Advanced
+*	[TargetPay][targetpay] - TargetPay - iDEAL
+*	[Qantani][qantani] - Qantani - iDEAL
 
-= Jigoshop =
+[abnamro]: http://abnamro.nl/
+[adyen]: http://www.adyen.com/
+[buckaroo]: http://www.buckaroo.nl/
+[deutschebank]: http://deutschebank.nl/
+[dutchpaymentgroup]: http://www.dutchpaymentgroup.com/
+[easy-ideal]: http://www.easy-ideal.com/
+[frieslandbank]: http://frieslandbank.nl/
+[icepay]: http://www.icepay.nl/
+[ideal-simulator]: http://ideal-simulator.nl/
+[ing]: http://ing.nl/
+[mollie]: http://www.mollie.nl/
+[multisafepay]: http://www.multisafepay.com/
+[neos]: http://neossolution.com/
+[ogone]: http://ogone.com/
+[paytor]: http://www.paytor.com/
+[rabobank]: http://rabobank.nl/
+[sisow]: http://sisow.nl/
+[targetpay]: https://www.targetpay.com/
+[qantani]: https://www.qantani.com/
 
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Jigoshop e-commerce plugin](http://wordpress.org/extend/plugins/jigoshop/) 
-from [Jigowatt](http://jigowatt.co.uk/).
-
-= WP e-Commerce =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[WP e-Commerce plugin](http://wordpress.org/extend/plugins/wp-e-commerce/) 
-from [getShopped.org](http://getshopped.org/).
-
-= Shopp =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Shopp plugin](http://shopplugin.net/).
-
-= ClassiPress =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[ClassiPress theme](http://www.appthemes.com/themes/classipress/).
-
-= Event Espresso =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Event Espresso plugin](http://eventespresso.com/).
-
-= s2Member® =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[s2Member® plugin](http://www.s2member.com/).
-
-= Membership from WPMUDEV.org =
-
-The Pronamic iDEAL plugin contains the iDEAL payment gateway for the 
-[Membership plugin](http://premium.wpmudev.org/project/membership/).
-
-= Banks and variants =
-
-*	ABN AMRO
-	*	iDEAL Easy
-	*	iDEAL Only Kassa
-	*	iDEAL Internetkassa
-	*	iDEAL Hosted
-	*	iDEAL Zelfbouw (zonder kassa)
-	*	iDEAL Zelfbouw (zonder kassa) - v3
-*	Deutsche Bank
-	*	iDEAL Expert - v3 
-*	Fortis Bank
-	*	iDEAL Hosted
-	*	iDEAL Internet Kassa (NEOS Solutions)
-	*	iDEAL Integrated
-*	Friesland Bank
-	*	iDEAL Zakelijk
-	*	iDEAL Zakelijk Plus
-	*	iDEAL Zakelijk Plus - v3
-*	iDEAL Simulator
-	*	iDEAL Lite / Basic
-	*	iDEAL Professional / Advanced / Zelfbouw
-	*	iDEAL Professional / Advanced / Zelfbouw - v3
-*	ING
-	*	iDEAL Basic
-	*	iDEAL Internet Kassa (The Way You Pay (TWYP))
-	*	iDEAL Advanced
-	*	iDEAL Advanced - v3
-*	Mollie
-	*	iDEAL
-	*	iDEAL Basic
-	*	iDEAL Advanced
-*	NEOS
-	*	NEOS
-*	Ogone
-	*	Ogone
-*	Rabobank
-	*	iDEAL Lite
-	*	iDEAL Internetkassa
-	*	OmniKassa
-	*	iDEAL  Professional
-	*	iDEAL  Professional - v3
-*	Sisow
-	*	iDEAL Basic
-	*	iDEAL Advanced
 
 == Installation ==
 
@@ -149,6 +195,11 @@ Here is a list of known plugin conflicts:
 *	Mollie - Add unit tests for new API.
 
 == Changelog ==
+
+= 2.6.8 =
+*	Feature - Added support for the [Paytor]() provider/gateway.
+*	Tweak - Grayed out deprecated gateways.
+*	Tweak - Improved backwards compatibility for Gravity Forms 1.6.
 
 = 2.6.7 =
 *	Tweak - WPMU DEV Membership - Fixed error after update to Membership 5.3+, we don't support 3.5+ yet.
