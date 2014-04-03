@@ -316,8 +316,8 @@ function pronamic_pay_upgrade_200() {
 				$meta['is_active']                = $feed->is_active;
 				$meta['transaction_description']  = @$feed_meta['transactionDescription'];
 				$meta['delay_notification_ids']   = @$feed_meta['delayNotificationIds'];
-				$meta['delay_admin_motification'] = @$feed_meta['delayAdminNotification'];
-				$meta['delay_users_motification'] = @$feed_meta['delayUserNotification'];
+				$meta['delay_admin_notification'] = @$feed_meta['delayAdminNotification'];
+				$meta['delay_users_notification'] = @$feed_meta['delayUserNotification'];
 				$meta['delay_post_creation']      = @$feed_meta['delayPostCreation'];
 				$meta['condition_enabled']        = @$feed_meta['conditionEnabled'];
 				$meta['condition_field_id']       = @$feed_meta['conditionFieldId'];

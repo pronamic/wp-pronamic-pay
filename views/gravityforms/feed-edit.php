@@ -195,8 +195,8 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					$delay_notification_ids = array();
 				}
 
-				$delay_admin_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_motification', true );
-				$delay_users_motification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_users_motification', true );
+				$delay_admin_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_notification', true );
+				$delay_users_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_users_notification', true );
 	
 				?>
 	
@@ -219,7 +219,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 						if ( ! empty( $notifications ) ) {
 							printf( '<ul>' ); 
-							
+
 							foreach ( $notifications as $notification ) {
 								$id = $notification['id'];
 
@@ -231,7 +231,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 									esc_attr( $id ),
 									checked( in_array( $id, $delay_notification_ids ), true, false )
 								);
-								
+
 								printf( ' ' );
 
 								printf(
@@ -253,14 +253,14 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 	
 					<ul>
 						<li id="gf_ideal_delay_admin_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_motification ); ?> />
+							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_notification ); ?> />
 	
 							<label for="gf_ideal_delay_admin_notification">
 								<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
 							</label>
 						</li>
 						<li id="gf_ideal_delay_user_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_users_motification ); ?> />
+							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_users_notification ); ?> />
 	
 							<label for="gf_ideal_delay_user_notification">
 								<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
