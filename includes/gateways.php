@@ -65,6 +65,7 @@ $pronamic_pay_gateways = array(
 		'certificates' => array(
 			'certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer'
 		),
+		'deprecated' => true,
 	),
 	'abnamro-ideal-zelfbouw-v3' => array(
 		'provider' => 'abnamro',
@@ -171,6 +172,7 @@ $pronamic_pay_gateways = array(
 		'provider' => 'fortis-bank',
 		'gateway'  => 'ideal_basic',
 		'name'     => 'Fortis Bank - iDEAL Hosted',
+		'deprecated' => true,
 	),
 	'fortis-bank-internetkassa' => array(
 		'provider' => 'fortis-bank',
@@ -184,6 +186,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp',
 			'dashboard_url'      => 'https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp',
 		),
+		'deprecated' => true,
 	),
 	'fortis-bank-ideal-integrated' => array(
 		'provider' => 'fortis-bank',
@@ -198,6 +201,7 @@ $pronamic_pay_gateways = array(
 		'certificates' => array(
 			'certificates/fortis-bank-ideal-integrated/fortisbank-0.cer',
 		),
+		'deprecated' => true,
 	),
 	// Friesland Bank
 	'frieslandbank-ideal-zakelijk' => array(
@@ -228,6 +232,7 @@ $pronamic_pay_gateways = array(
 		'certificates' => array(
 			'certificates/frieslandbank-ideal-zakelijke-plus/cert.cer',
 		),
+		'deprecated' => true,
 	),
 	'frieslandbank-ideal-zakelijk-plus-v3' => array(
 		'provider' => 'frieslandbank',
@@ -336,6 +341,7 @@ $pronamic_pay_gateways = array(
 			'certificates/ing-ideal-advanced/ingbank.cer',
 			'certificates/ing-ideal-advanced/ingbank-0.cer',
 		),
+		'deprecated' => true,
 	),
 	'ing-ideal-advanced-v3' => array(
 		'provider' => 'ing',
@@ -365,6 +371,7 @@ $pronamic_pay_gateways = array(
 		'gateway'       => 'mollie_ideal',
 		'name'          => 'Mollie - iDEAL',
 		'dashboard_url' => 'http://www.mollie.nl/',
+		'deprecated' => true,
 	),
 	'mollie-ideal-basic' => array(
 		'provider'      => 'mollie',
@@ -377,6 +384,7 @@ $pronamic_pay_gateways = array(
 		'live'          => array(
 			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
 		),
+		'deprecated' => true,
 	),
 	'mollie-ideal-advanced' => array(
 		'provider'      => 'mollie',
@@ -392,6 +400,7 @@ $pronamic_pay_gateways = array(
 		'certificates' => array(
 			'certificates/mollie-ideal-advanced/mollie.cer',
 		),
+		'deprecated' => true,
 	),
 	// MultiSafepay
 	'multisafepay-connect' => array(
@@ -414,6 +423,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.secure.neos-solution.com/ncol/prod/orderstandard.asp',
 			'dashboard_url'      => 'https://www.secure.neos-solution.com/ncol/prod/admin_NEOS.asp',
 		),
+		'deprecated' => true,
 	),
 	// Ogone
 	'ogone-easy' => array(
@@ -514,6 +524,7 @@ $pronamic_pay_gateways = array(
 			'certificates/rabobank-ideal-professional/ideal_v3.cer',
 			'certificates/rabobank-ideal-professional/ideal_v2.cer',
 		),
+		'deprecated' => true,
 	),
 	'rabobank-ideal-professional-v3' => array(
 		'provider' => 'rabobank',
@@ -549,6 +560,7 @@ $pronamic_pay_gateways = array(
 		'live'          => array(
 			'payment_server_url' => 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx',
 		),
+		'deprecated' => true,
 	),
 	'sisow-ideal-advanced' => array(
 		'provider'      => 'sisow',
@@ -564,6 +576,7 @@ $pronamic_pay_gateways = array(
 		'certificates'  => array(
 			'certificates/sisow-ideal-advanced/sisowideal.cer',
 		),
+		'deprecated' => true,
 	),
 	// TargetPay
 	'targetpay-ideal' => array(
