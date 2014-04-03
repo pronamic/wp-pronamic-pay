@@ -12,27 +12,36 @@
 	global $pronamic_pay_providers;
 	global $pronamic_pay_gateways;
 
+	bind_providers_and_gateways();
+
 	$gateways = $pronamic_pay_gateways;
 	
 	include 'gateways-wp-admin.php';
 
-	if ( filter_has_var( INPUT_GET, 'markdown' ) ) : ?>
-	
-		<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
-		
-		<?php 
-		
-		ob_start();
-		
-		include 'gateways-readme-md.php';
-		
-		$markdown = ob_get_clean();
+	$output = array(
+		'readme-md'  => 'gateways-readme-md.php',
+		'readme-txt' => 'gateways-readme-txt.php',
+	);
 
-		?>
+	foreach ( $output as $name => $file ) {
+		if ( filter_has_var( INPUT_GET, $name ) ) : ?>
 		
-		<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
+			<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
+			
+			<?php 
+			
+			ob_start();
+			
+			include $file;
+			
+			$markdown = ob_get_clean();
 	
-	<?php endif; ?>
-
-	<?php include 'pronamic.php'; ?>
+			?>
+			
+			<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
+		
+		<?php endif;
+	}
+	
+	include 'pronamic.php'; ?>
 </div>

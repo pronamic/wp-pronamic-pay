@@ -7,12 +7,12 @@
 	</thead>
 
 	<tbody>
-<?php foreach ( $gateways as $gateway ): ?>
+<?php foreach ( $gateways as $gateway ) : ?>
 		<tr>
 			<td><?php
 			
-				if ( isset( $gateway['provider'], $pronamic_pay_providers[$gateway['provider']] ) ) {
-					$provider = $pronamic_pay_providers[$gateway['provider']];
+				if ( isset( $gateway['provider'], $pronamic_pay_providers[ $gateway['provider'] ] ) ) {
+					$provider = $pronamic_pay_providers[ $gateway['provider'] ];
 					
 					printf( 
 						'<a href="%s">%s</a>',

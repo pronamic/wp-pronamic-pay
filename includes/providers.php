@@ -7,10 +7,6 @@ $pronamic_pay_providers = array(
 		'name'          => 'ABN AMRO',
 		'url'           => 'http://abnamro.nl/'
 	),
-	'adyen'             => array(
-		'name'          => 'Adyen',
-		'url'           => 'http://www.adyen.com/'
-	),
 	'buckaroo'          => array(
 		'name'          => 'Buckaroo',
 		'url'           => 'http://www.buckaroo.nl/'
@@ -62,6 +58,10 @@ $pronamic_pay_providers = array(
 	'ogone'             => array(
 		'name'          => 'Ogone',
 		'url'           => 'http://ogone.com/'
+	),
+	'paytor'             => array(
+		'name'          => 'Paytor',
+		'url'           => 'http://www.paytor.com/'
 	),
 	'rabobank'          => array(
 		'name'          => 'Rabobank',
