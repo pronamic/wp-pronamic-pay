@@ -135,6 +135,8 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 				'_pronamic_pay_gf_condition_field_id'                 => FILTER_SANITIZE_STRING,
 				'_pronamic_pay_gf_condition_operator'                 => FILTER_SANITIZE_STRING,
 				'_pronamic_pay_gf_condition_value'                    => FILTER_SANITIZE_STRING,
+				'_pronamic_pay_gf_delay_admin_notification'           => FILTER_VALIDATE_BOOLEAN,
+				'_pronamic_pay_gf_delay_user_notification'            => FILTER_VALIDATE_BOOLEAN,
 				'_pronamic_pay_gf_delay_notification_ids'             => array(
 						'filter'    => FILTER_SANITIZE_STRING,
 						'flags'     => FILTER_REQUIRE_ARRAY

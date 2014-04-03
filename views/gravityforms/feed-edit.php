@@ -196,8 +196,8 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				}
 
 				$delay_admin_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_notification', true );
-				$delay_users_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_users_notification', true );
-	
+				$delay_user_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_notification', true );
+
 				?>
 	
 				<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
@@ -253,14 +253,14 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 	
 					<ul>
 						<li id="gf_ideal_delay_admin_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_notification ); ?> />
+							<input type="checkbox" name="_pronamic_pay_gf_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_notification ); ?> />
 	
 							<label for="gf_ideal_delay_admin_notification">
 								<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
 							</label>
 						</li>
 						<li id="gf_ideal_delay_user_notification_item">
-							<input type="checkbox" name="gf_ideal_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_users_notification ); ?> />
+							<input type="checkbox" name="_pronamic_pay_gf_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_user_notification ); ?> />
 	
 							<label for="gf_ideal_delay_user_notification">
 								<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
