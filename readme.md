@@ -349,6 +349,11 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.6.8
+*	Feature - Added support for the [Paytor](http://www.paytor.com/) provider/gateway.
+*	Tweak - Grayed out deprecated gateways.
+*	Tweak - Improved backwards compatibility for Gravity Forms 1.6.
+
 ### 2.6.7
 *	Tweak - WPMU DEV Membership - Fixed error after update to Membership 5.3+, we don't support 3.5+ yet.
 
