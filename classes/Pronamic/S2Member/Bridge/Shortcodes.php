@@ -74,6 +74,9 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Get the gateway from the configuration
 		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
+		// Data
+		$data = new Pronamic_WP_Pay_S2Member_PaymentData( $atts );
+
 		if ( $gateway ) {
 			$output .= '<form method="post" action="">';
 			
@@ -85,9 +88,10 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				);
 				$output .= ' ';
 				$output .= sprintf(
-					'<input id="%s" name="%s" value="" type="text" />',
+					'<input id="%s" name="%s" value="%s" type="text" />',
 					esc_attr( 'pronamic_pay_s2member_email' ),
-					esc_attr( 'pronamic_pay_s2member_email' )
+					esc_attr( 'pronamic_pay_s2member_email' ),
+					$data->get_email()
 				);
 				$output .= ' ';
 			}
@@ -136,15 +140,19 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				
 				// Data
 				$data = new Pronamic_WP_Pay_S2Member_PaymentData( $data );
+				
+				$email = $data->get_email();
 
-				// Start
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
-
-				update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', $data->get_period() );
-				update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', $data->get_level() );
-
-				// Redirect
-				$gateway->redirect( $payment );
+				if ( ! empty( $email ) ) {
+					// Start
+					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+	
+					update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', $data->get_period() );
+					update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', $data->get_level() );
+	
+					// Redirect
+					$gateway->redirect( $payment );
+				}
 			}
 		}
 	}
