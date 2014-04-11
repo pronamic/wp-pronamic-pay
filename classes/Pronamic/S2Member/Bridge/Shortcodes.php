@@ -55,10 +55,10 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 	 */
 	public function shortcode_pay( $atts ) {
 		$defaults = array(
-			'period'		 => null,
-			'cost'			 => null,
-			'level'			 => null,
-			'description'	 => __( 'iDEAL s2Member Payment || {{order_id}}', 'pronamic_ideal' )
+			'period'      => null,
+			'cost'        => null,
+			'level'       => null,
+			'description' => __( 'iDEAL s2Member Payment || {{order_id}}', 'pronamic_ideal' ),
 		);
 
 		// Combine the passed options
