@@ -30,10 +30,12 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 	 * 
 	 * @param mixed $subscription 
 	 *      Membership         v3.4.4.1 = M_Subscription
-	 *      Membership Premium v3.5.1.1 = Membership_Model_Subscription
+	 *      Membership Premium v3.5.1.2 = Membership_Model_Subscription
+	 *      @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Subscription.php#L21
 	 * @param mixed $membership
 	 *      Membership         v3.4.4.1 = M_Membership
-	 *      Membership Premium v3.5.1.1 = Membership_Model_Member
+	 *      Membership Premium v3.5.1.2 = Membership_Model_Member
+	 *      @ee https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Member.php#L21
 	 */
 	public function __construct( Membership_Model_Subscription $subscription, Membership_Model_Member $membership ) {
 		parent::__construct();
@@ -46,7 +48,14 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 	// WPMU DEV Membership specific data
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get subscription ID
+	 * 
+	 * @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Subscription.php#L57
+	 * @return string
+	 */
 	public function get_subscription_id() {
+		// @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Subscription.php#L32
 		return $this->subscription->sub_id();
 	}
 
