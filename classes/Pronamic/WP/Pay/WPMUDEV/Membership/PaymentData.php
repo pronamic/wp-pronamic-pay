@@ -1,9 +1,26 @@
 <?php
 
+/**
+ * Title: WordPress pay WPMU DEV Membership payment data
+ * Description: 
+ * Copyright: Copyright (c) 2005 - 2014
+ * Company: Pronamic
+ * @author Remco Tolsma
+ * @version 1.0
+ */
 class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData {
-	public $user;
-
+	/**
+	 * Subscription
+	 * 
+	 * @var Membership_Model_Subscription
+	 */
 	public $subscription;
+
+	/**
+	 * Membership
+	 * 
+	 * @var Membership_Model_Member
+	 */
 	public $membership;
 
 	//////////////////////////////////////////////////
@@ -26,7 +43,7 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 	}
 
 	//////////////////////////////////////////////////
-	// s2Member specific data
+	// WPMU DEV Membership specific data
 	//////////////////////////////////////////////////
 
 	public function get_subscription_id() {
