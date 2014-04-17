@@ -87,7 +87,7 @@
 			'github_url'         => 'https://github.com/pronamic-wpmudev/membership-premium',
 			'active'             => Pronamic_WPMUDEV_Membership_Membership::is_active(),
 			'requires_at_least'  => '3.4.6',
-			'tested_up_to'       => '3.4.6',
+			'tested_up_to'       => '3.5.1.2',
 			'author'             => __( 'WPMUDEV.org', 'pronamic_ideal' ),
 			'author_url'         => 'http://www.wpmudev.org/',
 		),
