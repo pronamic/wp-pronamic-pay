@@ -73,7 +73,7 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 		return $this->subscription->sub_name();
 	}
 
-	public function getItems() {
+	public function get_items() {
 		$pricing_array = $this->subscription->get_pricingarray();
 
 		// Coupon

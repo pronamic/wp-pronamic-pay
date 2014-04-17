@@ -18,7 +18,7 @@ class Pronamic_Pay_Gateways_IDealBasic_TestHashCoding extends WP_UnitTestCase {
 		$item->setQuantity( 1 );
 		$item->setPrice( 1 );
 
-		$items = $ideal_basic->getItems();
+		$items = $ideal_basic->get_items();
 		$items->addItem( $item );
 
 		// Other variables (not in hash)

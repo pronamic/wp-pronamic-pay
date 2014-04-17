@@ -542,7 +542,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * 
 	 * @return Pronamic_IDeal_Items
 	 */
-	public function getItems() {
+	public function get_items() {
 		return $this->items;
 	}
 
@@ -595,7 +595,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
 		// Iterate through the items and concat
-		foreach ( $this->getItems() as $item ) {
+		foreach ( $this->get_items() as $item ) {
 			// Article number. <n> is 1 for the first product, 2 for the second, etc.
 			// N.B. Note that for every product type the parameters 
 			// itemNumber<n>, itemDescription<n>, itemQuantity<n> and itemPrice<n> are mandatory.
@@ -653,7 +653,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['validUntil']  = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
 		$serial_number = 1;
-		foreach ( $this->getItems() as $item) {
+		foreach ( $this->get_items() as $item) {
 			$fields['itemNumber' . $serial_number]      = $item->getNumber();
 			$fields['itemDescription' . $serial_number] = $item->get_description();
 			$fields['itemQuantity' . $serial_number]    = $item->getQuantity();

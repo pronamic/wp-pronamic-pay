@@ -56,7 +56,7 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->setCurrency( $data->get_currency() );
 		$this->client->setPurchaseId( $data->get_order_id() );
 		$this->client->setDescription( $data->get_description() );
-		$this->client->setItems( $data->getItems() );
+		$this->client->setItems( $data->get_items() );
 		
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ); 
 		

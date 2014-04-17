@@ -64,10 +64,10 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	/**
 	 * Get items
 	 * 
-	 * @see Pronamic_Pay_PaymentDataInterface::getItems()
+	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
-	public function getItems() {
+	public function get_items() {
 		// Items
 		$items = new Pronamic_IDeal_Items();
 
