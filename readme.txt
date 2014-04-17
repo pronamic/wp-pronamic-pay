@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 2.6.8
+Stable tag: 2.6.9
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -33,6 +33,7 @@ your WordPress website.
 	*	**Tested up to:** 3.1.35.L
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
 	*	**Tested up to:** 1.8
 *	[iThemes Exchange](http://ithemes.com/exchange/)
@@ -54,8 +55,9 @@ your WordPress website.
 	*	**Tested up to:** 3.4.4.1
 *	[Membership Premium](http://premium.wpmudev.org/project/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
+	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
 	*	**Requires at least:** 3.4.6
-	*	**Tested up to:** 3.4.6
+	*	**Tested up to:** 3.5.1.2
 *	[s2Member®](http://www.s2member.com/)
 	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
@@ -198,7 +200,7 @@ Here is a list of known plugin conflicts:
 
 = 2.6.9 =
 *	Tweak - s2Member - Require email for not logged in users.
-*	Tweak - Membership Premium - Added support for version 3.5.1.1.
+*	Tweak - Membership Premium - Added support for version 3.5.1.2.
 *	Tweak - Buckaroo - Don't generate an one transaction ID, we now use the 'brq_payment' return value from Buckaroo.
 *	Test - WordPress - Tested up to version 3.9.
 
