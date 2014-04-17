@@ -199,12 +199,12 @@ Here is a list of known plugin conflicts:
 = 2.6.9 =
 *	Tweak - s2Member - Require email for not logged in users.
 *	Tweak - Membership Premium - Added support for version 3.5.1.1.
+*	Test - WordPress - Tested up to version 3.9.
 
 = 2.6.8 =
 *	Feature - Added support for the [Paytor](http://www.paytor.com/) provider/gateway.
 *	Tweak - Grayed out deprecated gateways.
 *	Tweak - Improved backwards compatibility for Gravity Forms 1.6.
-*	Test - WordPress - Tested up to version 3.9.
 
 = 2.6.7 =
 *	Tweak - WPMU DEV Membership - Fixed error after update to Membership 5.3+, we don't support 3.5+ yet.
