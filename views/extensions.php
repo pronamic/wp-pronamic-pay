@@ -42,6 +42,7 @@
 		'gravityforms'           => array(
 			'name'               => __( 'Gravity Forms', 'pronamic_ideal' ),
 			'url'                => 'http://www.gravityforms.com/',
+			'github_url'         => 'https://github.com/gravityforms/gravityforms',
 			'active'             => Pronamic_GravityForms_GravityForms::is_active(),
 			'requires_at_least'  => '1.6',
 			'tested_up_to'       => '1.8',
