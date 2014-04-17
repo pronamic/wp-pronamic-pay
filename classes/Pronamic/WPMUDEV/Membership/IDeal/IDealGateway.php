@@ -63,6 +63,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 		}
 		
 		// Membership >= 3.5
+		// @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Gateway.php#L256
 		if ( method_exists( $this, '_record_transaction' ) ) {
 			$this->_record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note );
 		}
