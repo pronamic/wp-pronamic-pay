@@ -8,7 +8,17 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 
 	//////////////////////////////////////////////////
 
-	public function __construct( M_Subscription $subscription, M_Membership $membership ) {
+	/**
+	 * Constructs and initialize payment data object
+	 * 
+	 * @param mixed $subscription 
+	 *      Membership         v3.4.4.1 = M_Subscription
+	 *      Membership Premium v3.5.1.1 = Membership_Model_Subscription
+	 * @param mixed $membership
+	 *      Membership         v3.4.4.1 = M_Membership
+	 *      Membership Premium v3.5.1.1 = Membership_Model_Member
+	 */
+	public function __construct( Membership_Model_Subscription $subscription, Membership_Model_Member $membership ) {
 		parent::__construct();
 
 		$this->subscription = $subscription;

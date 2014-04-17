@@ -1,6 +1,8 @@
 # [Pronamic iDEAL](http://www.happywp.com/plugins/pronamic-ideal/)
 
-[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Dependency Status](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004/badge.png)](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004)
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 

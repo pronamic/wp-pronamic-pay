@@ -196,6 +196,10 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.6.9 =
+*	Tweak - s2Member - Require email for not logged in users.
+*	Tweak - Membership Premium - Added support for version 3.5.1.1.
+
 = 2.6.8 =
 *	Feature - Added support for the [Paytor](http://www.paytor.com/) provider/gateway.
 *	Tweak - Grayed out deprecated gateways.
