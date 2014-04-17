@@ -109,14 +109,14 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 				if ( $should_update ) {
-	            	// Payment completed
-	                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
+					// Payment completed
+					$order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
 	                
-	                // Mark order complete
-    	            $order->payment_complete();
+					// Mark order complete
+					$order->payment_complete();
 				}
 
-                $url = $data->get_success_url();
+				$url = $data->get_success_url();
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

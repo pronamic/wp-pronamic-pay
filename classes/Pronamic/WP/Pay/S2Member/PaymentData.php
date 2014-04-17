@@ -54,7 +54,7 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		return str_replace( $search, $replace, $this->data['description'] );
 	}
 
-	public function getItems() {
+	public function get_items() {
 		$items = new Pronamic_IDeal_Items();
 
 		$item = new Pronamic_IDeal_Item();

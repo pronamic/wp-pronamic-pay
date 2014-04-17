@@ -62,7 +62,7 @@ class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 			'site_secure_code' => $this->getSiteSecureCode(),
 			'amount'           => $this->get_amount(),
 			'description'      => $this->get_description(),
-			'items'            => $this->getItems()
+			'items'            => $this->get_items(),
 		) );
 	}
 }

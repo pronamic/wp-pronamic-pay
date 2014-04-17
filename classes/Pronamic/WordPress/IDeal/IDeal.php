@@ -168,6 +168,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 			// @todo what todo?
 		} else {
 			$post_id = $result;
+			
+			$data->payment_id = $post_id;
 
 			// Meta 
 			$prefix = '_pronamic_payment_';

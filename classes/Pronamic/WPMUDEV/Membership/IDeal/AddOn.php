@@ -38,15 +38,37 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 	 */
 	public static function plugins_loaded() {
 		if ( Pronamic_WPMUDEV_Membership_Membership::is_active() ) {
+			// Backwards compatibility Membership <= 3.4
+			$class_aliases = array(
+				'M_Gateway'      => 'Membership_Gateway',
+				'M_Subscription' => 'Membership_Model_Subscription',
+				'M_Membership'   => 'Membership_Model_Member',
+			);
+			
+			foreach ( $class_aliases as $orignal => $alias ) {
+				if ( class_exists( $orignal ) && ! class_exists( $alias ) ) {
+					// http://www.php.net/manual/en/function.class-alias.php
+					class_alias( $orignal, $alias );
+				}
+			}
+
 			// Register the Membership iDEAL gateway
 			// Membership < 3.5
 			if ( function_exists( 'M_register_gateway' ) ) {
 				M_register_gateway( 'pronamic_ideal', 'Pronamic_WPMUDEV_Membership_IDeal_IDealGateway' );
 			}
+			
+			// Membership >= 3.5
+			if ( method_exists( 'Membership_Gateway', 'register_gateway' ) ) {
+				Membership_Gateway::register_gateway( 'pronamic_ideal', 'Pronamic_WPMUDEV_Membership_IDeal_IDealGateway' );
+			}
 
 			add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
 			add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
 			
+			// @see https://github.com/WordPress/WordPress/blob/3.8.2/wp-includes/option.php#L91
+			add_filter( 'option_membership_activated_gateways', array( __CLASS__, 'option_membership_activated_gateways' ) );
+
 			if ( is_admin() ) {
 				$admin = new Pronamic_WP_Pay_WPMUDEV_Membership_Admin();
 			}
@@ -104,5 +126,26 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 		);
 
 		return $text;
+	}
+
+	//////////////////////////////////////////////////
+	
+	/**
+	 * Add the Pronamic iDEAL gateway to the activated gateways array if the 
+	 * config option is not empty
+	 *  
+	 * @param array $gateways
+	 * @return array
+	 */
+	public static function option_membership_activated_gateways( $gateways ) {
+		if ( is_array( $gateways ) ) {
+			$config_id = get_option( self::OPTION_CONFIG_ID );
+		
+			if ( ! empty( $config_id ) ) {
+				$gateways[] = 'pronamic_ideal';
+			}
+		}
+		
+		return $gateways;
 	}
 }

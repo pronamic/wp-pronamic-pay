@@ -8,7 +8,7 @@
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
  */
-class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
+class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway {
 	/**
 	 * Gateway name/slug
 	 * 
@@ -29,13 +29,9 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 
 	/**
 	 * Constructs and initliaze an Membership iDEAL gateway
-	 * 
-	 * Warning: The constructor of this class can not be named '__construct'. 
-	 * The M_Gateway class is calling the '__construct' method wich will cause
-	 * an infinite loop and an 'Fatal error: Allowed memory size'.
 	 */
-	public function Pronamic_WPMUDEV_Membership_IDeal_IDealGateway() {
-		parent::M_Gateway();
+	public function __construct() {
+		parent::__construct();
 
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.freesubscriptions.php#L30
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L97
@@ -49,6 +45,27 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 			$slug = Pronamic_WPMUDEV_Membership_IDeal_AddOn::SLUG;
 
 			add_action( "pronamic_payment_status_update_$slug", array( $this, 'status_update' ), 10, 2 );
+		}
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
+	 * Record transaction helper function
+	 * 
+	 * @see https://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
+	 */
+	public function pronamic_record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
+		// Membership <= 3.4
+		// @see https://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
+		if ( method_exists( $this, 'record_transaction' ) ) {
+			$this->record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note );
+		}
+		
+		// Membership >= 3.5
+		// @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Gateway.php#L256
+		if ( method_exists( $this, '_record_transaction' ) ) {
+			$this->_record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note );
 		}
 	}
 	
@@ -98,7 +115,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 					
 					// Membership record transaction
 					// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
-					$this->record_transaction(
+					$this->pronamic_record_transaction(
 						$user_id, // User ID
 						$data->get_subscription_id(), // Sub ID
 						$data->get_amount(), // Amount
@@ -191,7 +208,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 
 		// Membership record transaction
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
-		$this->record_transaction( $user_id, $sub_id, $amount, $currency, time(), $payment->get_id(), $status, $note );
+		$this->pronamic_record_transaction( $user_id, $sub_id, $amount, $currency, time(), $payment->get_id(), $status, $note );
 		
 		switch ( $status ) {
 			case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED:
@@ -223,5 +240,15 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends M_Gateway {
 
 				break;
 		}
+	}
+	
+	/**
+	 * Update
+	 * 
+	 * @return boolean
+	 */
+	public function update() {
+		// Default action is to return true
+		return true;
 	}
 }

@@ -51,7 +51,6 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$payment->set_action_url( $this->client->get_payment_server_url() );
 
 		// Buckaroo uses 'nl-NL' instead of 'nl_NL'
@@ -102,6 +101,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 		$data = $this->client->verify_request( $data );
 
 		if ( $data ) {
+			$payment->set_transaction_id( $data[ Pronamic_Gateways_Buckaroo_Parameters::PAYMENT ] );
 			$payment->set_status( Pronamic_Gateways_Buckaroo_Statuses::transform( $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE] ) );
 			$payment->set_consumer_iban( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN] );
 			$payment->set_consumer_bic( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC] );

@@ -9,6 +9,8 @@
  * @since 1.4.0
  */
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
+	public $payment_id;
+
 	private $entrance_code;
 
 	//////////////////////////////////////////////////
@@ -35,10 +37,10 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	public abstract function get_order_id();
 
-	public abstract function getItems();
+	public abstract function get_items();
 
 	public function get_amount() {
-		return $this->getItems()->get_amount();
+		return $this->get_items()->get_amount();
 	}
 
 	//////////////////////////////////////////////////

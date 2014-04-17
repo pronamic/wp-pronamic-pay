@@ -16,9 +16,6 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		add_action( 'membership_add_menu_items_after_gateways', array( $this, 'add_menu_items' ) );
-
-		add_action( 'add_option_'    . Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'add_option_config_id'    ), 11, 2 );
-		add_action( 'update_option_' . Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, array( $this, 'update_option_config_id' ), 11, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -84,45 +81,5 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 	 */
     public function page_settings() {
 		return Pronamic_WordPress_IDeal_Admin::render_view( 'membership/settings' );
-    }
-
-	//////////////////////////////////////////////////
-
-    /**
-     * Update config id option
-     * 
-     * @param string $old_value
-     * @param string $value
-     */
-    public function update_option_config_id( $old_value, $value ) {
-    	// We add or remove the 'ideal' gateway to the activated gateways array
-    	// when the config id option is updated
-    	$activated_gateways = get_option( 'membership_activated_gateways', array() );
-
-    	if ( is_array( $activated_gateways ) ) {
-    		if ( empty( $value ) ) {
-    			$key = array_search( 'ideal', $activated_gateways );
-
-    			if ( $key !== false ) {
-    				unset( $activated_gateways[$key] );
-    			}
-    		} else {    		
-    			$activated_gateways[] = 'ideal';
-    		}
-    		
-    		update_option( 'membership_activated_gateways', array_unique( $activated_gateways ) );
-    	}
-    }
-    
-    //////////////////////////////////////////////////
-    
-    /**
-     * Add config id option
-     *
-     * @param string $option
-     * @param string $value
-     */
-    public function add_option_config_id( $option, $value ) {
-    	$this->update_option_config_id( null, $value );
     }
 }

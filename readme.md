@@ -1,6 +1,8 @@
-# [Pronamic iDEAL](http://wp.pronamic.eu/plugins/pronamic-ideal/)
+# [Pronamic iDEAL](http://www.happywp.com/plugins/pronamic-ideal/)
 
-[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Dependency Status](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004/badge.png)](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004)
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -238,7 +240,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
 			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
 			<td></td>
-			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
 			<td>1.6</td>
 			<td>1.8</td>
 		</tr>
@@ -270,9 +272,9 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
 			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
 			<td></td>
-			<td></td>
+			<td><a href="https://github.com/pronamic-wpmudev/membership-premium" target="_blank">GitHub</a></td>
 			<td>3.4.6</td>
-			<td>3.4.6</td>
+			<td>3.5.1.2</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
@@ -280,7 +282,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
 			<td>130816</td>
-			<td>131126</td>
+			<td>140105</td>
 		</tr>
 		<tr>
 			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
@@ -296,7 +298,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
 			<td>2.0.0</td>
-			<td>2.1.3</td>
+			<td>2.1.5</td>
 		</tr>
 		<tr>
 			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
@@ -312,7 +314,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td></td>
 			<td>3.3.1</td>
-			<td>3.3.1</td>
+			<td>3.3.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.appthemes.com/themes/jobroller/" target="_blank">JobRoller</a></td>
@@ -348,6 +350,12 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.6.9
+*	Tweak - s2Member - Require email for not logged in users.
+*	Tweak - Membership Premium - Added support for version 3.5.1.2.
+*	Tweak - Buckaroo - Don't generate an one transaction ID, we now use the 'brq_payment' return value from Buckaroo.
+*	Test - WordPress - Tested up to version 3.9.
 
 ### 2.6.8
 *	Feature - Added support for the [Paytor](http://www.paytor.com/) provider/gateway.
