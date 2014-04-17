@@ -65,12 +65,8 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 		return 'membership';
 	}
 
-	public function get_source_id() {
-		return null;
-	}
-
 	public function get_order_id() {
-		return null;
+		return $this->payment_id;
 	}
 
 	public function get_description() {
