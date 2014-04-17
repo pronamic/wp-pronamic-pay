@@ -84,6 +84,7 @@
 		'membership-premium'     => array(
 			'name'               => __( 'Membership Premium', 'pronamic_ideal' ),
 			'url'                => 'http://premium.wpmudev.org/project/membership/',
+			'github_url'         => 'https://github.com/pronamic-wpmudev/membership-premium',
 			'active'             => Pronamic_WPMUDEV_Membership_Membership::is_active(),
 			'requires_at_least'  => '3.4.6',
 			'tested_up_to'       => '3.4.6',
