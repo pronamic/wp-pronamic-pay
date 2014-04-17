@@ -199,6 +199,7 @@ Here is a list of known plugin conflicts:
 = 2.6.9 =
 *	Tweak - s2Member - Require email for not logged in users.
 *	Tweak - Membership Premium - Added support for version 3.5.1.1.
+*	Tweak - Buckaroo - Don't generate an one transaction ID, we now use the 'brq_payment' return value from Buckaroo.
 *	Test - WordPress - Tested up to version 3.9.
 
 = 2.6.8 =
