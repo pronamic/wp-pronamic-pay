@@ -1,6 +1,4 @@
 <div class="wrap">
-	<?php screen_icon( 'pronamic_ideal' ); ?>
-
 	<h2>
 		<?php _e( 'iDEAL Documentation', 'pronamic_ideal' ); ?>
 	</h2>

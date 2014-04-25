@@ -1,6 +1,4 @@
 <div class="wrap">
-	<?php screen_icon( 'pronamic_ideal' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<p>
