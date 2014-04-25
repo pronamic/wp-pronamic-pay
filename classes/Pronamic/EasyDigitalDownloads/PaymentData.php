@@ -14,7 +14,7 @@ class Pronamic_EasyDigitalDownloads_PaymentData extends Pronamic_WP_Pay_PaymentD
      *
      * @var int
      */
-    private $payment_id;
+    public $payment_id;
 
     /**
      * Payment data
