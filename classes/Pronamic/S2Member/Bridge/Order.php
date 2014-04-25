@@ -51,8 +51,9 @@ class Pronamic_S2Member_Bridge_Order {
 		$existing_user_order = get_user_option( 'pronamic_ideal_s2member_order', $user_id );
 
 		// If the user has some order information, remove it
-		if ( $existing_user_order )
+		if ( $existing_user_order ) {
 			$this->remove_order( $user_id, 'pronamic_ideal_s2member_order' );
+		}
 
 		// Store meta information in db
 		update_user_option( $user_id, 'pronamic_ideal_s2member_order', $order_data );
@@ -72,8 +73,9 @@ class Pronamic_S2Member_Bridge_Order {
 
 		$meta = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE user_id = %d AND meta_key = %s", $user_id, $wpdb->prefix . $meta_key ) );
 
-		if ( empty( $meta ) )
+		if ( empty( $meta ) ) {
 			return false;
+		}
 
 		return $meta->umeta_id;
 	}
