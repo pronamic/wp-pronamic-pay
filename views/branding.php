@@ -3,8 +3,8 @@
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<?php 
-	
+	<?php
+
 	$sections = array(
 		'ideal.nl' => array(
 			'name'      => 'iDEAL',
@@ -202,17 +202,17 @@
 			),
 		),
 	);
-	
+
 	?>
 
 	<?php foreach ( $sections as $section ) : ?>
 
 		<h3><?php echo $section['name']; ?></h3>
-	
+
 		<table cellspacing="0" class="widefat fixed">
-	
+
 			<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
-	
+
 				<<?php echo $tag; ?>>
 					<tr>
 						<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ) ?></th>
@@ -221,16 +221,16 @@
 						<th scope="col" class="manage-column"><?php _e( 'Code', 'pronamic_ideal' ) ?></th>
 					</tr>
 				</<?php echo $tag; ?>>
-	
+
 			<?php endforeach; ?>
-	
+
 			<tbody>
-	
-	
+
+
 				<?php foreach ( $section['resources'] as $resource ): ?>
-	
+
 					<tr>
-						<?php 
+						<?php
 
 						$code   = '';
 						$object = '';
@@ -245,22 +245,22 @@
 							$object = $code;
 						}
 
-						if( isset( $resource['file'] ) ) {
+						if ( isset( $resource['file'] ) ) {
 							$filename = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . $resource['file'];
-						
+
 							$code   = file_get_contents( $filename );
 							$object = $code;
 						}
-						
+
 						?>
 						<td>
 							<?php echo $resource['title']; ?>
 						</td>
 						<td>
-							<?php 
-							
+							<?php
+
 							echo $resource['width'], '&times;', $resource['height'];
-							
+
 							?>
 						</td>
 						<td>
@@ -270,14 +270,14 @@
 							<textarea class="regular-text code" cols="30" rows="3"><?php echo esc_textarea( $code ); ?></textarea>
 						</td>
 					</tr>
-	
+
 				<?php endforeach; ?>
-	
+
 			</tbody>
 		</table>
 
 	<?php endforeach; ?>
-	
+
 	<p>
 		<?php _e( 'PNG files are shrinked by <a href="https://www.tinypng.com/">TinyPNG</a>.', 'pronamic_ideal' ); ?>
 	</p>

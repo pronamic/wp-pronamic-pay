@@ -17,7 +17,7 @@ foreach ( $pronamic_pay_providers as $provider ) {
 
 	if ( isset( $provider['gateways'] ) ) {
 		foreach ( $provider['gateways'] as $id => $gateway ) {
-			$group['options'][$id] = $gateway['name'];
+			$group['options'][ $id ] = $gateway['name'];
 		}
 	}
 
@@ -337,15 +337,15 @@ $sections = array(
 				'methods'     => array( 'ogone_orderstandard' ),
 				'readonly'    => true,
 			),
-			 array(
+			array(
 				'meta_key'    => '_pronamic_gateway_ogone_hash_algorithm',
 				'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
 				'type'        => 'optgroup',
-			 	'options'     => array(
-			 		Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
-			 		Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
-			 		Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
-			 	),
+				'options'     => array(
+					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
+					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
+					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
+				),
 				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
 			array(
@@ -518,7 +518,7 @@ function pronamic_ideal_private_key_field( $field ) {
 		'secondary' , 'download_private_key',
 		false
 	);
-	
+
 	echo ' ';
 
 	echo '<input type="file" name="_pronamic_gateway_ideal_private_key_file" />';
@@ -559,17 +559,17 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	}
 
 	echo '<div>';
-	
+
 	submit_button(
 		__( 'Download Private Certificate', 'pronamic_ideal' ),
 		'secondary' , 'download_private_certificate',
 		false
 	);
-	
+
 	echo ' ';
-	
+
 	echo '<input type="file" name="_pronamic_gateway_ideal_private_certificate_file" />';
-	
+
 	echo '</div>';
 }
 
@@ -604,33 +604,33 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	</table>
 
 	<?php foreach ( $sections as $section ) : ?>
-	
+
 		<?php
-	
+
 		$classes = array();
 		if ( isset( $section['methods'] ) ) {
 			$classes[] = 'extra-settings';
-	
+
 			foreach ( $section['methods'] as $method ) {
 				$classes[] = 'method-' . $method;
 			}
 		}
-	
+
 		?>
-	
+
 		<div class="<?php echo implode( ' ', $classes ); ?>">
 			<h4><?php echo $section['title']; ?></h4>
-	
+
 			<table class="form-table">
-	
+
 				<?php foreach ( $section['fields'] as $field ) : ?>
-	
+
 					<?php
-	
+
 					$classes = array();
 					if ( isset( $field['methods'] ) ) {
 						$classes[] = 'extra-settings';
-	
+
 						foreach ( $field['methods'] as $method ) {
 							$classes[] = 'method-' . $method;
 						}
@@ -643,7 +643,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					} else {
 						$id = uniqid();
 					}
-	
+
 					?>
 					<tr class="<?php echo implode( ' ', $classes ); ?>">
 						<th scope="col">
@@ -653,41 +653,41 @@ function pronamic_ideal_private_certificate_field( $field ) {
 						</th>
 						<td>
 							<?php
-	
+
 							$attributes = array();
 							$attributes['id']   = $id;
 							$attributes['name'] = $id;
-	
+
 							$classes = array();
 							if ( isset( $field['classes'] ) ) {
 								$classes = $field['classes'];
 							}
-	
+
 							if ( isset( $field['readonly'] ) && $field['readonly'] ) {
 								$attributes['readonly'] = 'readonly';
-	
+
 								$classes[] = 'readonly';
 							}
-	
+
 							if ( ! empty( $classes ) ) {
 								$attributes['class'] = implode( ' ', $classes );
 							}
-	
+
 							$value = '';
 							if ( isset( $field['meta_key'] ) ) {
 								$attributes['name'] = $field['meta_key'];
-	
+
 								$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
 							} elseif( isset( $field['value'] ) ) {
 								$value = $field['value'];
 							}
-	
+
 							switch ( $field['type'] ) {
 								case 'text' :
 								case 'password' :
 									$attributes['type']  = $field['type'];
 									$attributes['value'] = $value;
-	
+
 									printf(
 										'<input %s />',
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
@@ -697,41 +697,41 @@ function pronamic_ideal_private_certificate_field( $field ) {
 								case 'checkbox' :
 									$attributes['type']  = $field['type'];
 									$attributes['value'] = '1';
-	
+
 									printf(
 										'<input %s %s />',
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
 										checked( $value, true, false )
 									);
-									
+
 									printf( ' ' );
-									
+
 									printf(
 										'<label for="%s">%s</label>',
 										$attributes['id'],
 										$field['label']
 									);
-	
+
 									break;
 								case 'textarea' :
 									$attributes['rows'] = 4;
 									$attributes['cols'] = 65;
-	
+
 									printf(
 										'<textarea %s />%s</textarea>',
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
 										esc_textarea( $value )
 									);
-	
+
 									break;
 								case 'file' :
 									$attributes['type']  = 'file';
-	
+
 									printf(
 										'<input %s />',
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
 									);
-	
+
 									break;
 								case 'select' :
 									printf(
@@ -739,7 +739,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 										Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
 										Pronamic_WP_HTML_Helper::select_options_grouped( $field['options'], $value )
 									);
-	
+
 									break;
 								case 'optgroup' :
 									printf( '<fieldset>' );
@@ -757,44 +757,44 @@ function pronamic_ideal_private_certificate_field( $field ) {
 											$label
 										);
 									}
-	
+
 									break;
 							}
-	
+
 							if ( isset( $field['description'] ) ) {
 								printf(
 									'<span class="description"><br />%s</span>',
 									$field['description']
 								);
 							}
-	
+
 							if ( isset( $field['callback'] ) ) {
 								$callback = $field['callback'];
-	
+
 								$callback( $field );
 							}
-	
+
 							?>
-	
+
 						</td>
 					</tr>
-	
+
 				<?php endforeach; ?>
-	
+
 			</table>
 		</div>
 
 	<?php endforeach; ?>
-	
+
 	<div class="extra-settings method-ideal_advanced_v3">
 		<h4>
 			<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
 		</h4>
-	
+
 		<p>
 			<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>
 		</p>
-	
+
 		<table class="form-table">
 			<tr>
 				<th scope="col">
@@ -804,18 +804,18 @@ function pronamic_ideal_private_certificate_field( $field ) {
 				</th>
 				<td>
 					<?php
-					
+
 					$private_key_password = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_key_password', true );
 					$number_days_valid    = get_post_meta( get_the_ID(), '_pronamic_gateway_number_days_valid', true );
 
 					$filename = __( 'filename', 'pronamic_ideal' );
-	
+
 					$command = sprintf(
 						'openssl genrsa -aes128 -out %s.key -passout pass:%s 2048',
 						$filename,
 						$private_key_password
 					);
-	
+
 					?>
 					<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="large-text code" readonly="readonly" />
 				</td>

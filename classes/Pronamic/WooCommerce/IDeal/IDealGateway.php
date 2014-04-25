@@ -21,7 +21,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	/**
 	 * Constructs and initialize an iDEAL gateway
 	 */
-    public function __construct() {
+	public function __construct() {
 		$this->id           = self::ID;
 		$this->method_title = __( 'Pronamic iDEAL', 'pronamic_ideal' );
 
@@ -51,9 +51,9 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		add_action( $update_action, array( $this, 'process_admin_options' ) );
 
 		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
-    }
+	}
 
-    /**
+	/**
      * Get Pronamic option
      *
      * The WooCommerce settings API only have an 'get_option' function in
@@ -63,17 +63,17 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      *
      * @param string $name
      */
-    public function get_pronamic_option( $key ) {
+	public function get_pronamic_option( $key ) {
     	$value = false;
 
-    	if ( method_exists( $this, 'get_option' ) ) {
-    		$value = parent::get_option( $key );
-    	} elseif ( isset( $this->settings[ $key ] ) ) {
-    		$value = $this->settings[ $key ];
-    	}
+		if ( method_exists( $this, 'get_option' ) ) {
+			$value = parent::get_option( $key );
+		} elseif ( isset( $this->settings[ $key ] ) ) {
+			$value = $this->settings[ $key ];
+		}
 
-    	return $value;
-    }
+		return $value;
+	}
 
 	/**
      * Initialise form fields

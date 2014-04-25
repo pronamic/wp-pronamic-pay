@@ -11,7 +11,7 @@ class Pronamic_Gateways_Sisow_Test extends WP_UnitTestCase {
 			'0123456', // merchant_id
 			'b36d8259346eaddb3c03236b37ad3a1d7a67cec6' // merchant_key
 		);
-		
+
 		$this->assertEquals( 'cb2461bd40ed1a77a6d837a560bfcbc3e03d6c3c', $sha1 );
 	}
 
@@ -23,7 +23,7 @@ class Pronamic_Gateways_Sisow_Test extends WP_UnitTestCase {
 			'0123456', // merchant_id
 			'b36d8259346eaddb3c03236b37ad3a1d7a67cec6' // merchant_key
 		);
-		
+
 		$this->assertEquals( '03fa4fda5cacfe5e2ba123a47690d99f07c6fbd1', $sha1 );
 	}
 }

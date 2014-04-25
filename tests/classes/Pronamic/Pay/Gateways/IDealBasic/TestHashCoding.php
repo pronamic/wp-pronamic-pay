@@ -11,7 +11,7 @@ class Pronamic_Pay_Gateways_IDealBasic_TestHashCoding extends WP_UnitTestCase {
 		$ideal_basic->setPurchaseId( '10' );
 		$ideal_basic->setPaymentType( 'ideal' );
 		$ideal_basic->set_expire_date( new DateTime( '2009-01-01 12:34:56' ) );
-		
+
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( '1' );
 		$item->setDescription( 'omschrijving' );
@@ -25,7 +25,7 @@ class Pronamic_Pay_Gateways_IDealBasic_TestHashCoding extends WP_UnitTestCase {
 		$ideal_basic->setLanguage( 'nl' );
 		$ideal_basic->setCurrency( 'EUR' );
 		$ideal_basic->setDescription( 'Example hashcode' );
-		
+
 		$baseurl = 'http://www.uwwebwinkel.nl';
 
 		$ideal_basic->setSuccessUrl( "$baseurl/Success.html" );
@@ -33,7 +33,7 @@ class Pronamic_Pay_Gateways_IDealBasic_TestHashCoding extends WP_UnitTestCase {
 		$ideal_basic->setErrorUrl( "$baseurl/Error.html" );
 
 		// Create hash
-		$shasign = $ideal_basic->createHash(); 
+		$shasign = $ideal_basic->createHash();
 
 		// Assert
 		$this->assertEquals( '7615604527e1edd65521e2180e445d3a89abc794', $shasign );

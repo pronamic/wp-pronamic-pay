@@ -5,12 +5,12 @@
 		<?php _e('iDEAL Documentation', 'pronamic_ideal'); ?>
 	</h2>
 
-	<?php 
-	
+	<?php
+
 	$providers = array(
 		'abnamro.nl' => array(
 			'name'      => 'ABN AMRO',
-			'url'       => 'http://abnamro.nl/', 
+			'url'       => 'http://abnamro.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEALeasy_NL.pdf',
@@ -40,7 +40,7 @@
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/02/iDEAL_ABN_AMRO_Integrated_NET.pdf',
 					'name'    => 'iDEAL Integrated Asp.NET - Shop Integration Guide',
 					'version' => '1.7',
-				), 
+				),
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/02/iDEAL_ABN_AMRO_Integrated_PHP.pdf',
 					'name'    => 'iDEAL Integrated PHP - Shop Integration Guide',
@@ -83,14 +83,14 @@
 		),
 		'adyen.com' => array(
 			'name'      => 'Adyen',
-			'url'       => 'http://adyen.com/', 
+			'url'       => 'http://adyen.com/',
 			'resources' => array(
-						
+
 			),
 		),
 		'buckaroo' => array(
 			'name'      => 'Buckaroo',
-			'url'       => 'http://www.buckaroo.nl/', 
+			'url'       => 'http://www.buckaroo.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/04/BPE-3.0-Gateway-HTML.1.02.pdf',
@@ -108,7 +108,7 @@
 		),
 		'cardgate.com' => array(
 			'name'      => 'Card Gate Plus',
-			'url'       => 'http://cardgate.com/', 
+			'url'       => 'http://cardgate.com/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Merchant_Integratie_Gids_2.3_NL.pdf',
@@ -120,7 +120,7 @@
 		),
 		'currence.nl' => array(
 			'name'      => 'Currence',
-			'url'       => 'http://currence.nl/', 
+			'url'       => 'http://currence.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Merchant_Integratie_Gids_2.3_NL.pdf',
@@ -205,7 +205,7 @@
 		),
 		'ideal.nl' => array(
 			'name'      => 'iDEAL',
-			'url'       => 'http://ideal.nl/', 
+			'url'       => 'http://ideal.nl/',
 			'resources' => array(
 				array(
 					'url'  => 'http://www.ideal.nl/',
@@ -219,7 +219,7 @@
 		),
 		'idealdesk.com' => array(
 			'name'      => 'iDEALdesk',
-			'url'       => 'https://www.idealdesk.com/', 
+			'url'       => 'https://www.idealdesk.com/',
 			'resources' => array(
 				array(
 					'url'  => 'http://huisstijl.idealdesk.com/',
@@ -229,7 +229,7 @@
 		),
 		'ing.nl' => array(
 			'name'      => 'ING',
-			'url'       => 'http://ing.nl/', 
+			'url'       => 'http://ing.nl/',
 			'resources' => array(
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Basic_NL.pdf',
@@ -298,11 +298,11 @@
 				),
 				array(
 					'url'  => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/',
-					'name' => 'iDEAL Professional/Advanced', 
+					'name' => 'iDEAL Professional/Advanced',
 				),
 				array(
 					'url'  => 'http://pronamic.nl/wp-content/uploads/2013/12/payments-api-nl.pdf',
-					'name' => 'De Mollie betalings-API (universal API)', 
+					'name' => 'De Mollie betalings-API (universal API)',
 				),
 			),
 		),
@@ -329,7 +329,7 @@
 				array(
 					'url'  => 'http://payment.buckaroo.nl/',
 					'name' => 'iDEAL Payment Gateway and Support',
-				), 
+				),
 			),
 		),
 		'ogone.nl' => array(
@@ -377,7 +377,7 @@
 		),
 		'rabobank.nl' => array(
 			'name'      => 'Rabobank',
-			'url'       => 'http://rabobank.nl/', 
+			'url'       => 'http://rabobank.nl/',
 			'resources' => array(
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_lite_2966321.pdf',
@@ -385,14 +385,14 @@
 					'version'    => '2.3',
 					'date'       => new DateTime( '01-12-2009' ),
 					'deprecated' => true,
-				), 
+				),
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/handleiding_ideal_professional_2966322.pdf',
 					'name'       => 'Handleiding iDEAL Professional',
 					'version'    => '2.1',
 					'date'       => new DateTime( '01-03-2007' ),
 					'deprecated' => true,
-				), 
+				),
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf',
 					'name'       => 'Kennismaking Rabobank iDEAL Dashboard',
@@ -437,10 +437,10 @@
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Handleiding-iDEAL-Lite.pdf',
 					'name'       => 'Handleiding iDEAL Lite',
-					'date'       => new DateTime( '01-01-2012' ), 
+					'date'       => new DateTime( '01-01-2012' ),
 					'version'    => '2.6',
 					'deprecated' => true,
-				), 
+				),
 				array(
 					'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Integratiehandleiding_Rabo_Omnikassa_v300_nl.pdf',
 					'name'       => 'Integratiehandleiding Rabo OmniKassa - Versie 3.0 September 2012',
@@ -559,7 +559,7 @@
 		),
 		'sisow.nl' => array(
 			'name'      => 'Sisow',
-			'url'       => 'http://sisow.nl/', 
+			'url'       => 'http://sisow.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf',
@@ -579,7 +579,7 @@
 		),
 		'qantani.com' => array(
 			'name'      => 'Qantani',
-			'url'       => 'http://qantani.com/', 
+			'url'       => 'http://qantani.com/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/05/documentation-for-qantani-frontend-v1.pdf',
@@ -594,9 +594,9 @@
 			),
 		),
 	);
-	
+
 	?>
-	
+
 	<table class="wp-list-table widefat" cellspacing="0">
 
 		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
@@ -612,36 +612,36 @@
 		<?php endforeach; ?>
 
 		<tobdy>
-			
+
 			<?php foreach ( $providers as $provider ): ?>
 
 				<tr>
 					<td colspan="4">
 						<strong><?php echo $provider['name']; ?></strong>
-						<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>					
+						<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>
 					</td>
 				</tr>
 
 				<?php foreach ( $provider['resources'] as $resource ): ?>
-		
-					<?php 
-					
+
+					<?php
+
 					$href = null;
-		
+
 					if ( isset( $resource['path'] ) ) {
 						$href = plugins_url( $resource['path'], Pronamic_WordPress_IDeal_Plugin::$file );
 					}
-		
+
 					if ( isset( $resource['url'] ) ) {
 						$href = $resource['url'];
 					}
-					
+
 					$classes = array();
-					
+
 					if ( isset( $resource['deprecated'] ) ) {
 						$classes[] = 'deprecated';
 					}
-					
+
 					?>
 					<tr class="<?php echo implode( ' ', $classes ); ?>">
 						<td>
@@ -660,14 +660,14 @@
 							<?php endif; ?>
 						</td>
 					</tr>
-		
+
 				<?php endforeach; ?>
-				
+
 			<?php endforeach; ?>
-	
+
 		</tobdy>
 	</table>
-	
+
 
 	<?php include 'pronamic.php'; ?>
 </div>

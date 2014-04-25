@@ -1,7 +1,8 @@
 <?php
 
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) )
-	exit ();
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit;
+}
 
 global $wpdb;
 
@@ -21,7 +22,7 @@ $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_gateway';" );
 $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_payment';" );
 $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';" );
 
-$wpdb->query( "DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );" );
+$wpdb->query( 'DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );' );
 
 //////////////////////////////////////////////////
 // Delete general options
@@ -34,20 +35,20 @@ delete_option( 'pronamic_pay_db_version' );
 // Delete exntesion options
 //////////////////////////////////////////////////
 
-// Event Espresso 
+// Event Espresso
 delete_option( 'pronamic_pay_ideal_event_espreso_config_id' );
 
 // Gravity Forms
 // There are options for Gravity Forms
 
-// Jigoshop 
+// Jigoshop
 // Set default Jigoshop variables, load them form the WordPress options
 delete_option( 'pronamic_pay_ideal_jigoshop_enabled' );
 delete_option( 'pronamic_pay_ideal_jigoshop_title' );
 delete_option( 'pronamic_pay_ideal_jigoshop_description' );
 delete_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
-// Membership 
+// Membership
 delete_option( 'pronamic_pay_ideal_membership_config_id' );
 
 // s2Member®

@@ -6,7 +6,7 @@ class Pronamic_Gateways_Qantani_Test extends WP_UnitTestCase {
 		$parameters = array(
 			'Id'     => '5',
 			'Name'   => 'Qantani',
-			'Action' => 'Pay'
+			'Action' => 'Pay',
 		);
 
 		$secret = '12345';

@@ -2,7 +2,7 @@
 
 /**
  * Title: WP e-Commerce iDEAL merchant
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -50,7 +50,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 			update_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', $data->get_session_id() );
 
 			$error = $gateway->get_error();
-			
+
 			if ( is_wp_error( $error ) ) {
 				// @todo what todo?
 			} else {
@@ -72,7 +72,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		$html .= '		' . __( 'Configuration', 'pronamic_ideal' );
 		$html .= '	</td>';
 		$html .= '	<td>';
-		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array( 
+		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
 			'name' => Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID,
 			'echo' => false
 		) );

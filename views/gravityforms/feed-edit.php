@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $post_id = get_the_ID();
 
@@ -18,7 +18,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 <div id="gf-ideal-feed-editor">
 	<?php wp_nonce_field( 'pronamic_pay_save_pay_gf', 'pronamic_pay_nonce' ); ?>
-	
+
 	<input id="gf_ideal_gravity_form" name="gf_ideal_gravity_form" value="<?php echo esc_attr( json_encode( $form_meta ) ); ?>" type="hidden" />
 	<input id="gf_ideal_feed" name="gf_ideal_feed" value="<?php echo esc_attr( json_encode( $feed ) ); ?>" type="hidden" />
 
@@ -32,13 +32,13 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			<td>
 				<select id="_pronamic_pay_gf_form_id" name="_pronamic_pay_gf_form_id">
 					<option value=""><?php _e( '&mdash; Select a form &mdash;', 'pronamic_ideal' ); ?></option>
-	
+
 					<?php foreach ( RGFormsModel::get_forms() as $form ) : ?>
-	
+
 						<option value="<?php echo $form->id; ?>" <?php selected( $form_id, $form->id ); ?>>
 							<?php echo esc_html( $form->title ); ?>
 						</option>
-	
+
 					<?php endforeach; ?>
 				</select>
 			</td>
@@ -50,15 +50,15 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				</label>
 			</th>
 			<td>
-				<?php 
-				
+				<?php
+
 				$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 
 				Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
 					'name'     => '_pronamic_pay_gf_config_id',
 					'selected' => $config_id
 				) );
-				
+
 				?>
 			</td>
 		</tr>
@@ -69,13 +69,13 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				</label>
 			</th>
 			<td>
-				<?php 
-	
+				<?php
+
 				$entry_id_prefix = get_post_meta( $post_id, '_pronamic_pay_gf_entry_id_prefix', true );
-	
+
 				?>
 				<input id="_pronamic_pay_gf_entry_id_prefix" name="_pronamic_pay_gf_entry_id_prefix" value="<?php echo esc_attr( $entry_id_prefix ); ?>" type="text" class="input-text regular-input" maxlength="8" />
-				
+
 				<span class="description">
 					<br />
 					<?php _e( 'Please enter a prefix for your entry ID\'s. If you use an gateway for multiple websites ensure this prefix is unique as not all gateways will allow payments with the same ID.', 'pronamic_ideal' ); ?>
@@ -89,19 +89,19 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				</label>
 			</th>
 			<td>
-				<?php 
-	
+				<?php
+
 				$transaction_description = get_post_meta( $post_id, '_pronamic_pay_gf_transaction_description', true );
-	
+
 				?>
 				<?php if ( false ) : ?>
 					<div>
 						<?php GFCommon::insert_variables( array(), 'gf_ideal_transaction_description', true, '', ' ' ); ?>
 					</div>
 				<?php endif; ?>
-	
+
 				<input id="_pronamic_pay_gf_transaction_description" name="_pronamic_pay_gf_transaction_description" value="<?php echo esc_attr( $transaction_description ); ?>" type="text" class="regular-text" />
-	
+
 				<span class="description">
 					<br />
 					<?php _e( 'Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated.', 'pronamic_ideal' ); ?>
@@ -123,25 +123,25 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				$condition_field_id = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 				$condition_operator = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
 				$condition_value    = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
-	
+
 				?>
 				<div>
 					<input id="gf_ideal_condition_enabled" name="_pronamic_pay_gf_condition_enabled" value="true" type="checkbox" <?php checked( $condition_enabled ); ?> />
-	
+
 					<label for="gf_ideal_condition_enabled">
 						<?php _e( 'Enable', 'pronamic_ideal' ); ?>
 					</label>
 				</div>
-	
+
 				<div id="gf_ideal_condition_config">
-					<?php 
-					
+					<?php
+
 					// Select field
 					$select_field = '<select id="gf_ideal_condition_field_id" name="_pronamic_pay_gf_condition_field_id"></select>';
-						
+
 					// Select operator
 					$select_operator = '<select id="gf_ideal_condition_operator" name="_pronamic_pay_gf_condition_operator">';
-						
+
 					$operators = array(
 						'' => '',
 						Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
@@ -156,12 +156,12 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 							esc_html( $label )
 						);
 					}
-					
+
 					$select_operator .= '</select>';
 
 					// Select value
 					$select_value = '<select id="gf_ideal_condition_value" name="_pronamic_pay_gf_condition_value"></select>';
-					
+
 					// Print
 					printf(
 						__( 'Send to gateway if %s %s %s', 'pronamic_ideal' ),
@@ -169,27 +169,27 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 						$select_operator,
 						$select_value
 					);
-					
+
 					?>
 				</div>
-	
+
 				<div id="gf_ideal_condition_message">
 					<span class="description"><?php _e( 'To create a condition, your form must have a drop down, checkbox or multiple choice field.', 'pronamic_ideal' ); ?></span>
 				</div>
 			</td>
 		</tr>
 	</table>
-	
+
 	<h4><?php _e( 'Delay', 'pronamic_ideal' ); ?></h4>
-	
+
 	<table class="form-table">
 		<tr>
 			<th scope="row">
 				<?php _e( 'Send Notifications Delay', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php 
-	
+				<?php
+
 				$delay_notification_ids   = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 				if ( ! is_array( $delay_notification_ids ) ) {
 					$delay_notification_ids = array();
@@ -199,26 +199,26 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				$delay_user_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_notification', true );
 
 				?>
-	
+
 				<?php if ( version_compare( GFCommon::$version, '1.7', '>=' ) ) : ?>
-				
+
 					<input name="gf_ideal_selected_notifications_parent" type="checkbox" class="gf_ideal_delay_notifications" value="1" id="gf_ideal_delay_notifications" <?php checked( ! empty( $delay_notification_ids ) ); ?>/>
-	
+
 					<label for="gf_ideal_delay_notifications">
 						<?php _e( 'Send notifications only when payment is received.', 'pronamic_ideal' ); ?>
 					</label>
 
 					<div class="pronamic-pay-gf-notifications">
 
-						<?php 
-						
+						<?php
+
 						$notifications = array();
 						if ( isset( $form_meta['notifications'] ) && is_array( $form_meta['notifications'] ) ) {
 							$notifications = $form_meta['notifications'];
 						}
 
 						if ( ! empty( $notifications ) ) {
-							printf( '<ul>' ); 
+							printf( '<ul>' );
 
 							foreach ( $notifications as $notification ) {
 								$id = $notification['id'];
@@ -242,26 +242,26 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 								printf( '</li>' );
 							}
-							
+
 							printf( '</ul>' );
 						}
-						
+
 						?>
 					</div>
-	
+
 				<?php else : ?>
-	
+
 					<ul>
 						<li id="gf_ideal_delay_admin_notification_item">
 							<input type="checkbox" name="_pronamic_pay_gf_delay_admin_notification" id="gf_ideal_delay_admin_notification" value="true" <?php checked( $delay_admin_notification ); ?> />
-	
+
 							<label for="gf_ideal_delay_admin_notification">
 								<?php _e( 'Send admin notification only when payment is received.', 'pronamic_ideal' ); ?>
 							</label>
 						</li>
 						<li id="gf_ideal_delay_user_notification_item">
 							<input type="checkbox" name="_pronamic_pay_gf_delay_user_notification" id="gf_ideal_delay_user_notification" value="true" <?php checked( $delay_user_notification ); ?> />
-	
+
 							<label for="gf_ideal_delay_user_notification">
 								<?php _e( 'Send user notification only when payment is received.', 'pronamic_ideal' ); ?>
 							</label>
@@ -270,44 +270,44 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 						</li>
 					</ul>
-					
+
 				<?php endif; ?>
-	
+
 			</td>
 		</tr>
 		<tr>
-			<?php 
+			<?php
 
 			$delay_post_creation = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
-			
+
 			?>
 			<th scope="row">
 				<?php _e( 'Create Post Delay', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
 				<input type="checkbox" name="_pronamic_pay_gf_delay_post_creation" id="_pronamic_pay_gf_delay_post_creation" value="true" <?php checked( $delay_post_creation ); ?> />
-	
+
 				<label for="_pronamic_pay_gf_delay_post_creation">
 					<?php _e( 'Create post only when payment is received.', 'pronamic_ideal' ); ?>
 				</label>
 			</td>
 		</tr>
 		<tr>
-			<?php 
+			<?php
 
 			$delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
-			
+
 			?>
 			<th scope="row">
 				<?php _e( 'Campaign Monitor Subscription Delay', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
 				<input type="checkbox" name="_pronamic_pay_gf_delay_campaignmonitor_subscription" id="_pronamic_pay_gf_delay_campaignmonitor_subscription" value="true" <?php checked( $delay_campaignmonitor_subscription ); ?> />
-	
+
 				<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
 					<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
 				</label>
-				
+
 				<span class="description"><br /><?php
 					printf(
 						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
@@ -319,21 +319,21 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			</td>
 		</tr>
 		<tr>
-			<?php 
+			<?php
 
 			$delay_mailchimp_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
-			
+
 			?>
 			<th scope="row">
 				<?php _e( 'MailChimp Subscription Delay', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
 				<input type="checkbox" name="_pronamic_pay_gf_delay_mailchimp_subscription" id="_pronamic_pay_gf_delay_mailchimp_subscription" value="true" <?php checked( $delay_mailchimp_subscription ); ?> />
-	
+
 				<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
 					<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
 				</label>
-				
+
 				<span class="description"><br /><?php
 					printf(
 						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
@@ -345,21 +345,21 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			</td>
 		</tr>
 		<tr>
-			<?php 
+			<?php
 
 			$delay_user_registration = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_registration', true );
-			
+
 			?>
 			<th scope="row">
 				<?php _e( 'User Registration Delay', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
 				<input type="checkbox" name="_pronamic_pay_gf_delay_user_registration" id="_pronamic_pay_gf_delay_user_registration" value="true" <?php checked( $delay_user_registration ); ?> />
-	
+
 				<label for="_pronamic_pay_gf_delay_user_registration">
 					<?php _e( 'Register user only when a payment is received.', 'pronamic_ideal' ); ?>
 				</label>
-				
+
 				<span class="description"><br /><?php
 					printf(
 						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
@@ -369,15 +369,15 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 				?></span>
 			</td>
-		</tr> 
+		</tr>
 	</table>
-	
+
 	<h4>
 		<?php _e( 'Fields', 'pronamic_ideal' ); ?>
 	</h4>
-	
-	<?php 
-	
+
+	<?php
+
 	$fields = array(
 		'first_name' => __( 'First Name', 'pronamic_ideal' ),
 		'last_name'  => __( 'Last Name', 'pronamic_ideal' ),
@@ -389,42 +389,42 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		'zip'        => __( 'Zip', 'pronamic_ideal' ),
 		'country'    => __( 'Country', 'pronamic_ideal' ),
 	);
-	
+
 	?>
-	
+
 	<table class="form-table">
-		
+
 		<?php foreach ( $fields as $name => $label ) : ?>
-		
+
 			<tr>
 				<th scope="row">
 					<?php echo $label; ?>
 				</th>
 				<td>
-					<?php 
-					
+					<?php
+
 					printf(
 						'<select id="%s" name="%s" data-gateway-field-name="%s" class="field-select"><select>',
 						esc_attr( 'gf_ideal_fields_' . $name ),
 						esc_attr( '_pronamic_pay_gf_fields[' . $name . ']' ),
 						esc_attr( $name )
 					);
-					
+
 					?>
 				</td>
 			</tr>
-		
+
 		<?php endforeach; ?>
-	
+
 	</table>
-	
+
 	<h4>
 		<?php _e( 'Status Links', 'pronamic_ideal' ); ?>
 	</h4>
-	
+
 	<table class="form-table">
-		<?php 
-		
+		<?php
+
 		$links = get_post_meta( $post_id, '_pronamic_pay_gf_links', true );
 		$links = is_array( $links ) ? $links : array();
 
@@ -435,9 +435,9 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			Pronamic_WP_Pay_GravityForms_Links::ERROR   => __( 'Error', 'pronamic_ideal' ),
 			Pronamic_WP_Pay_GravityForms_Links::EXPIRED => __( 'Expired', 'pronamic_ideal' ),
 		);
-	
+
 		foreach ( $fields as $name => $label ) : ?>
-	
+
 			<tr>
 				<?php
 
@@ -456,39 +456,39 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 						<legend class="screen-reader-text">
 							<span><?php echo $label; ?></span>
 						</legend>
-	
+
 						<label>
 							<input type="radio" name="_pronamic_pay_gf_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_page" value="page" <?php checked( $type, 'page' ); ?> />
 							<?php _e( 'Page:', 'pronamic_ideal' ); ?>
-						</label> 
-						
-						<?php 
+						</label>
+
+						<?php
 
 						wp_dropdown_pages( array(
-							'selected'         => $page_id, 
-							'name'             => '_pronamic_pay_gf_links[' . $name . '][page_id]' , 
+							'selected'         => $page_id,
+							'name'             => '_pronamic_pay_gf_links[' . $name . '][page_id]' ,
 							'show_option_none' => __( '&mdash; Select &mdash;', 'pronamic_ideal' )
 						) );
-						
-						?> 
-	
+
+						?>
+
 						<br />
-	
+
 						<label>
 							<input type="radio" name="_pronamic_pay_gf_links[<?php echo $name; ?>][type]" id="gf_ideal_link_<?php echo $name; ?>_url" value="url" <?php checked( $type, 'url' ); ?> />
 							<?php _e( 'URL:', 'pronamic_ideal' ); ?>
-						</label> <input type="text" name="_pronamic_pay_gf_links[<?php echo $name; ?>][url]" value="<?php echo esc_attr( $url ); ?>" class="regular-text" /> 
+						</label> <input type="text" name="_pronamic_pay_gf_links[<?php echo $name; ?>][url]" value="<?php echo esc_attr( $url ); ?>" class="regular-text" />
 					</fieldset>
 				<td>
 			</tr>
-	
+
 		<?php endforeach; ?>
 	</table>
-	
+
 	<h4>
 		<?php _e( 'Advanced', 'pronamic_ideal' ); ?>
 	</h4>
-	
+
 	<table class="form-table">
 		<tr>
 			<th scope="row">
@@ -498,7 +498,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			</th>
 			<td>
 				<select id="gf_ideal_user_role_field_id" name="_pronamic_pay_gf_user_role_field_id">
-					
+
 				</select>
 			</td>
 		</tr>
