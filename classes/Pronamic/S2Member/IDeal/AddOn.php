@@ -79,8 +79,9 @@ class Pronamic_S2Member_IDeal_AddOn {
 		$registration_time = time();
 
 		$registration_times = get_user_option( 's2member_paid_registration_times', $user->ID );
-		if ( empty( $registration_times ) )
+		if ( empty( $registration_times ) ) {
 			$registration_times = array( );
+		}
 
 		$registration_times[ 'level' . $level ]	 = $registration_time;
 
