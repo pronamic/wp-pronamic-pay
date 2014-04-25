@@ -23,11 +23,9 @@ function pronamic_pay_create_initial_post_types() {
 		'show_in_nav_menus'  => false,
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
-		'supports'           => array(
-			'title', 'revisions'
-		),
+		'supports'           => array( 'title', 'revisions' ),
 		'rewrite'            => false,
-		'query_var'          => false
+		'query_var'          => false,
 	) );
 
 	register_post_type( 'pronamic_payment', array(
@@ -54,7 +52,7 @@ function pronamic_pay_create_initial_post_types() {
 		'show_in_admin_bar'  => false,
 		'supports'           => false,
 		'rewrite'            => false,
-		'query_var'          => false
+		'query_var'          => false,
 	) );
 
 	register_post_type( 'pronamic_pay_gf', array(
@@ -79,11 +77,9 @@ function pronamic_pay_create_initial_post_types() {
 		'show_in_nav_menus'  => false,
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
-		'supports'           => array(
-			'title', 'revisions'
-		),
+		'supports'           => array( 'title', 'revisions' ),
 		'rewrite'            => false,
-		'query_var'          => false
+		'query_var'          => false,
 	) );
 }
 
@@ -91,7 +87,7 @@ add_action( 'init', 'pronamic_pay_create_initial_post_types', 20 ); // highest p
 
 /**
  * Helper function to update post meta data
- * 
+ *
  * @param int $post_id
  * @param array $data
  */

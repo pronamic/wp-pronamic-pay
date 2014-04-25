@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: WooCommerce
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WooCommerce_WooCommerce {
 	/**
 	 * Order status pending
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L309
 	 * @var string
 	 */
@@ -19,7 +19,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status failed
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L310
 	 * @var string
 	 */
@@ -27,7 +27,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status on-hold
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L311
 	 * @var string
 	 */
@@ -35,7 +35,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status processing
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L312
 	 * @var string
 	 */
@@ -43,7 +43,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status completed
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L313
 	 * @var string
 	 */
@@ -51,7 +51,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status refunded
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L314
 	 * @var string
 	 */
@@ -59,7 +59,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Order status cancelled
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/admin/woocommerce-admin-install.php#L315
 	 * @var string
 	 */
@@ -83,7 +83,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Version compare
-	 * 
+	 *
 	 * @param string $version
 	 * @param string $operator
 	 */
@@ -102,7 +102,7 @@ class Pronamic_WooCommerce_WooCommerce {
 
 	/**
 	 * Get WooCommerce date format
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function get_date_format() {
@@ -112,5 +112,5 @@ class Pronamic_WooCommerce_WooCommerce {
 		} else {
 			return get_option( 'date_format' );
 		}
-	} 
+	}
 }

@@ -40,7 +40,7 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @param string $file
 	 */
 	public static function bootstrap( $file ) {
-		self::$file    = $file;
+		self::$file	= $file;
 		self::$dirname = dirname( $file );
 
 		// Bootstrap the add-ons
@@ -55,8 +55,8 @@ class Pronamic_WordPress_IDeal_Plugin {
 			Pronamic_AppThemes_IDeal_AddOn::bootstrap();
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
 			Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
-            // Pronamic_EShop_IDeal_AddOn::bootstrap();
-            Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
+			// Pronamic_EShop_IDeal_AddOn::bootstrap();
+			Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
 			Pronamic_IThemesExchange_IDeal_AddOn::bootstrap();
 		}
 
@@ -129,21 +129,21 @@ class Pronamic_WordPress_IDeal_Plugin {
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $payment->config_id );
 
 			if ( $gateway ) {
-                $old_status = strtolower( $payment->status );
+				$old_status = strtolower( $payment->status );
 
-                if ( strlen( $old_status ) <= 0 ) {
-                    $old_status = 'unknown';
-                }
+				if ( strlen( $old_status ) <= 0 ) {
+					$old_status = 'unknown';
+				}
 
 				$gateway->update_status( $payment );
 
-                $new_status = strtolower( $payment->status );
+				$new_status = strtolower( $payment->status );
 
 				pronamic_wp_pay_update_payment( $payment );
 
-                do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
+				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
 				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
-				do_action( "pronamic_payment_status_update", $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 			}
 		}
 	}
@@ -156,27 +156,27 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function handle_returns() {
 		if ( filter_has_var( INPUT_GET, 'payment' ) ) {
 			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
-			
+
 			$payment = get_pronamic_payment( $payment_id );
-			
+
 			// Check if we should redirect
 			$should_redirect = true;
-			
+
 			// Check if the request is an callback request
 			// Sisow gatway will extend callback requests with querystring "callback=true"
 			if ( filter_has_var( INPUT_GET, 'callback' ) ) {
 				$is_callback = filter_input( INPUT_GET, 'callback', FILTER_VALIDATE_BOOLEAN );
-				
+
 				if ( $is_callback ) {
 					$should_redirect = false;
 				}
 			}
-			
+
 			// Check if the request is an notify request
 			// Sisow gatway will extend callback requests with querystring "notify=true"
 			if ( filter_has_var( INPUT_GET, 'notify' ) ) {
 				$is_notify = filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN );
-				
+
 				if ( $is_notify ) {
 					$should_redirect = false;
 				}
@@ -197,22 +197,22 @@ class Pronamic_WordPress_IDeal_Plugin {
 	public static function maybe_redirect() {
 		if ( filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
 			$payment_id = filter_input( INPUT_GET, 'payment_redirect', FILTER_SANITIZE_NUMBER_INT );
-			
+
 			$payment = get_pronamic_payment( $payment_id );
-			
+
 			// HTML Answer
 			$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
-			
+
 			if ( ! empty( $html_answer ) ) {
 				echo $html_answer;
-				
+
 				exit;
 			}
-			
+
 			// Action URL
 			if ( ! empty( $payment->action_url ) ) {
 				wp_redirect( $payment->action_url );
-				
+
 				exit;
 			}
 		}
@@ -235,19 +235,19 @@ class Pronamic_WordPress_IDeal_Plugin {
 	 * @return stdClass an onbject with license information or null
 	 */
 	public static function get_license_info() {
-		 return null;
+		return null;
 	}
 
 	/**
 	 * Get number payments
-	 * 
+	 *
 	 * @return int
 	 */
 	public static function get_number_payments() {
 		global $wpdb;
-		
+
 		$count = $wpdb->get_var( "SELECT COUNT( ID ) FROM $wpdb->posts WHERE post_type = 'pronamic_payment' AND post_status = 'publish';" );
-		
+
 		return $count;
 	}
 
@@ -339,17 +339,17 @@ class Pronamic_WordPress_IDeal_Plugin {
 				'pronamic_ideal_status'          => true,
 				'pronamic_ideal_variants'        => true,
 				'pronamic_ideal_documentation'   => true,
-				'pronamic_ideal_branding'        => true
+				'pronamic_ideal_branding'        => true,
 			);
 
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
 					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities
+					'capabilities' => $capabilities,
 				) ,
 				'administrator' => array(
 					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities
+					'capabilities' => $capabilities,
 				)
 			);
 

@@ -59,7 +59,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
-			$options[$gateway->ID] = sprintf(
+			$options[ $gateway->ID ] = sprintf(
 				'%s (%s)',
 				get_the_title( $gateway->ID ),
 				get_post_meta( $gateway->ID, '_pronamic_gateway_mode', true )
@@ -128,9 +128,9 @@ class Pronamic_WordPress_IDeal_IDeal {
 		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_TargetPay_Config', 'Pronamic_Gateways_TargetPay_Gateway' );
 
 		global $pronamic_pay_gateways;
-		
-		if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
-			$gateway      = $pronamic_pay_gateways[$gateway_id];
+
+		if ( isset( $pronamic_pay_gateways[ $gateway_id ] ) ) {
+			$gateway      = $pronamic_pay_gateways[ $gateway_id ];
 			$gateway_slug = $gateway['gateway'];
 
 			$config = Pronamic_WP_Pay_Gateways_ConfigProvider::get_config( $gateway_slug, $config_id );
@@ -148,10 +148,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 			$gateway->start( $data, $payment );
 
 			pronamic_wp_pay_update_payment( $payment );
-			
+
 			$gateway->payment( $payment );
 		}
-		
+
 		return $payment;
 	}
 
@@ -168,10 +168,10 @@ class Pronamic_WordPress_IDeal_IDeal {
 			// @todo what todo?
 		} else {
 			$post_id = $result;
-			
+
 			$data->payment_id = $post_id;
 
-			// Meta 
+			// Meta
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
@@ -199,7 +199,7 @@ class Pronamic_WordPress_IDeal_IDeal {
 					update_post_meta( $post_id, $key, $value );
 				}
 			}
-			
+
 			$payment = new Pronamic_WP_Pay_Payment( $post_id );
 		}
 

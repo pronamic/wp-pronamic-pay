@@ -10,14 +10,14 @@ class Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory {
 
 		$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
-		
+
 		global $pronamic_pay_gateways;
 
-		$gateway  = $pronamic_pay_gateways[$gateway_id];
-		$settings = $gateway[$mode];
-		
+		$gateway  = $pronamic_pay_gateways[ $gateway_id ];
+		$settings = $gateway[ $mode ];
+
 		$url = $settings['payment_server_url'];
-		
+
 		$config->url = $url;
 
 		return $config;

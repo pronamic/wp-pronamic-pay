@@ -2,7 +2,7 @@
 
 /**
  * Title: WooCommerce payment data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,15 +11,15 @@
 class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.2.1/classes/class-wc-order.php
 	 * @var WC_Order
 	 */
 	private $order;
-	
+
 	/**
 	 * Gateway
-	 * 
+	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php
 	 * @var WC_Payment_Gateway
 	 */
@@ -27,7 +27,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
@@ -36,7 +36,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Constructs and initializes an WooCommerce iDEAL data proxy
-	 * 
+	 *
 	 * @param WC_Order $order
 	 */
 	public function __construct( $order, $gateway, $description = null ) {
@@ -54,7 +54,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get default description
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function get_default_description() {
@@ -65,7 +65,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -85,7 +85,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -102,7 +102,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 		$find[]    = '{order_date}';
 		$replace[] = date_i18n( Pronamic_WooCommerce_WooCommerce::get_date_format(), strtotime( $this->order->order_date ) );
-		
+
 		$find[]    = '{order_number}';
 		$replace[] = $this->order->get_order_number();
 
@@ -114,7 +114,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -128,7 +128,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		 * message          = Failure in system
 		 * detail           = System generating error: issuer
 		 * consumer_message = Paying with iDEAL is not possible. Please try again later or pay another way.
-		 * 
+		 *
 		 * Or in case of Sisow:
 		 * <errorresponse xmlns="https://www.sisow.nl/Sisow/REST" version="1.0.0">
 		 *     <error>
@@ -136,13 +136,13 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		 *         <errormessage>No purchaseid</errormessage>
 		 *     </error>
 		 * </errorresponse>
-		 * 
+		 *
 		 * @see http://wcdocs.woothemes.com/user-guide/extensions/functionality/sequential-order-numbers/#add-compatibility
-		 * 
+		 *
 		 * @see page 30 http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf
-		 * 
-		 * The use of characters that are not listed above will not lead to a refusal of a batch or post, but the 
-		 * character will be changed by Equens (formerly Interpay) to a space, question mark or asterisk. The 
+		 *
+		 * The use of characters that are not listed above will not lead to a refusal of a batch or post, but the
+		 * character will be changed by Equens (formerly Interpay) to a space, question mark or asterisk. The
 		 * same goes for diacritical characters (à, ç, ô, ü, ý etcetera).
 		 */
 		$order_id = str_replace( '#', '', $order_id );
@@ -152,7 +152,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -180,7 +180,7 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get currency
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -224,22 +224,22 @@ class Pronamic_WooCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Get normal return URL
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php#L52
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_normal_return_url()
 	 * @return string
 	 */
-	public function get_normal_return_url() { 
+	public function get_normal_return_url() {
 		return $this->gateway->get_return_url( $this->order );
 	}
-	
+
 	public function get_cancel_url() {
 		return $this->order->get_cancel_order_url();
 	}
-	
+
 	public function get_success_url() {
 		return $this->get_normal_return_url();
 	}
-	
+
 	public function get_error_url() {
 		return $this->order->get_checkout_payment_url();
 	}

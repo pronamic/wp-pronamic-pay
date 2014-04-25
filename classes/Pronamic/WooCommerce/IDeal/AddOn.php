@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: WooCommerce iDEAL Add-On
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WooCommerce_IDeal_AddOn {
 	/**
 	 * Slug
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'woocommerce';
@@ -35,7 +35,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	public static function init() {
 		if ( Pronamic_WooCommerce_WooCommerce::is_active() ) {
 			$slug = self::SLUG;
-			
+
 			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'status_update' ), 10, 2 );
 			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
@@ -53,10 +53,10 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Update lead status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
@@ -81,7 +81,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		$status = null;
 		$note   = null;
 		$url    = $data->get_normal_return_url();
-		
+
 		$status = $payment->get_status();
 
 		switch ( $status ) {
@@ -95,7 +95,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 					// @see http://plugins.trac.wordpress.org/browser/woocommerce/tags/1.5.4/classes/gateways/class-wc-paypal.php#L557
 					$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
 				}
-				
+
 				$url = $data->get_error_url();
 
 				break;
@@ -103,7 +103,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				if ( $should_update ) {
 					$order->update_status( Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_FAILED, __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
 				}
-				
+
 				$url = $data->get_error_url();
 
 				break;
@@ -111,7 +111,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 				if ( $should_update ) {
 					// Payment completed
 					$order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
-	                
+
 					// Mark order complete
 					$order->payment_complete();
 				}
@@ -132,7 +132,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 				break;
 		}
-		
+
 		if ( $can_redirect ) {
 			wp_redirect( $url, 303 );
 
@@ -141,7 +141,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Source column
 	 */
@@ -154,13 +154,13 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 		$order_number = '#' . $payment->source_id;
 
 		$value = get_post_meta( $payment->source_id, '_order_number', true );
-		
+
 		if ( ! empty( $value ) ) {
 			$order_number = $value;
 		}
 
 		$text .= sprintf(
-			'<a href="%s">%s</a>', 
+			'<a href="%s">%s</a>',
 			get_edit_post_link( $payment->source_id ),
 			sprintf( __( 'Order %s', 'pronamic_ideal' ), $order_number )
 		);

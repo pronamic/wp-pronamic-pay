@@ -2,7 +2,7 @@
 
 /**
  * Title: XML utility class
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -13,11 +13,11 @@ class Pronamic_XML_Util {
 		$result = null;
 
 		$value = filter_var( (string) $variable, $filter );
-		
+
 		if ( strlen( $value ) > 0 ) {
 			$result = $value;
 		}
-		
+
 		return $result;
 	}
 
@@ -25,7 +25,7 @@ class Pronamic_XML_Util {
 
 	/**
 	 * Create and add an element with the specified name and value to the specified parent
-	 * 
+	 *
 	 * @param DOMDocument $document
 	 * @param DOMNode $parent
 	 * @param string $name
@@ -33,7 +33,7 @@ class Pronamic_XML_Util {
 	 */
 	public static function add_element( DOMDocument $document, DOMNode $parent, $name, $value = null ) {
 		$element = $document->createElement( $name );
-		
+
 		if ( $value !== null ) {
 			$element->appendChild( new DOMText( $value ) );
 		}
@@ -45,7 +45,7 @@ class Pronamic_XML_Util {
 
 	/**
 	 * Add the specified elements to the parent node
-	 * 
+	 *
 	 * @param DOMDocument $document
 	 * @param DOMNode $parent
 	 * @param array $elements
@@ -57,7 +57,7 @@ class Pronamic_XML_Util {
 			if ( $value !== null ) {
 				$element->appendChild( new DOMText( $value ) );
 			}
-			
+
 			$parent->appendChild( $element );
 		}
 	}

@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress AppThemes payment data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,11 +11,11 @@
 class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * AppThemes order
-	 * 
+	 *
 	 * @var APP_Order_Receipt
 	 */
 	private $order;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -23,7 +23,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 	 */
 	public function __construct( $order ) {
 		parent::__construct();
-		
+
 		$this->order = $order;
 	}
 
@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -43,7 +43,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -63,7 +63,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -89,7 +89,7 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	/**
 	 * Get currency alphabetic code
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -103,13 +103,13 @@ class Pronamic_WP_Pay_AppThemes_PaymentData extends Pronamic_WP_Pay_PaymentData 
 
 	public function get_email() {
 		$author_id = $this->order->get_author();
-		
+
 		return get_the_author_meta( 'user_email', $author_id );
 	}
 
 	public function getCustomerName() {
 		$author_id = $this->order->get_author();
-		
+
 		return get_the_author_meta( 'first_name', $author_id ) . ' ' . get_the_author_meta( 'last_name', $author_id );
 	}
 

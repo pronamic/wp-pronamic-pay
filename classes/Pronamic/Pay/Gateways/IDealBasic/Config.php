@@ -12,8 +12,8 @@ class Pronamic_Pay_Gateways_IDealBasic_Config extends Pronamic_Pay_Config {
 	public $url;
 
 	public $merchant_id;
-	
+
 	public $sub_id;
-	
+
 	public $hash_key;
 }

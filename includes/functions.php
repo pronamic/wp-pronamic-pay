@@ -14,7 +14,7 @@ function get_pronamic_pay_gateway_config( $post_id ) {
 
 function get_pronamic_payment_by_purchase_id( $purchase_id ) {
 	global $wpdb;
-	
+
 	$payment = null;
 
 	$db_query = $wpdb->prepare( "
@@ -30,11 +30,11 @@ function get_pronamic_payment_by_purchase_id( $purchase_id ) {
 	", $purchase_id );
 
 	$post_id = $wpdb->get_var( $db_query );
-	
+
 	if ( $post_id ) {
 		$payment = new Pronamic_WP_Pay_Payment( $post_id );
 	}
-	
+
 	return $payment;
 }
 
@@ -67,16 +67,16 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
 function bind_providers_and_gateways() {
 	global $pronamic_pay_providers;
 	global $pronamic_pay_gateways;
-	
+
 	foreach ( $pronamic_pay_gateways as $id => $gateway ) {
-		if ( isset( $pronamic_pay_providers[$gateway['provider']] ) ) {
-			$provider =& $pronamic_pay_providers[$gateway['provider']];
-	
+		if ( isset( $pronamic_pay_providers[ $gateway['provider'] ] ) ) {
+			$provider =& $pronamic_pay_providers[ $gateway['provider'] ];
+
 			if ( ! isset( $provider['gateways'] ) ) {
 				$provider['gateways'] = array();
 			}
-	
-			$provider['gateways'][$id] = $gateway;
+
+			$provider['gateways'][ $id ] = $gateway;
 		}
 	}
 }

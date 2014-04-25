@@ -2,7 +2,7 @@
 
 /**
  * Title: Gravity Forms iDEAL data proxy
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Gravity Forms form object
-	 * 
+	 *
 	 * @see http://www.gravityhelp.com/documentation/page/Form_Object
 	 * @var array
 	 */
@@ -19,7 +19,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Gravity Forms entry object
-	 * 
+	 *
 	 * @see http://www.gravityhelp.com/documentation/page/Entry_Object
 	 * @var array
 	 */
@@ -27,7 +27,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Pronamic iDEAL feed object
-	 * 
+	 *
 	 * @var Pronamic_GravityForms_PayFeed
 	 */
 	private $feed;
@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Constructs and initialize an Gravity Forms iDEAL data proxy
-	 * 
+	 *
 	 * @param array $form
 	 * @param array $lead
 	 * @param Pronamic_GravityForms_PayFeed $feed
@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get the field value of the specifled field
-	 * 
+	 *
 	 * @param string $field_name
 	 * @return Ambigous <NULL, multitype:>
 	 */
@@ -62,7 +62,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 		if ( isset( $this->feed->fields[ $field_name ] ) ) {
 			$field_id = $this->feed->fields[ $field_name ];
-			
+
 			if ( isset( $this->lead[ $field_id ] ) ) {
 				$value = $this->lead[ $field_id ];
 			}
@@ -75,7 +75,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -85,7 +85,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get source ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_AbstractPaymentData::get_source_id()
 	 */
 	public function get_source_id() {
@@ -96,7 +96,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -108,7 +108,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -121,7 +121,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -131,58 +131,58 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 		$number = 0;
 
 		// Products
-        $products = GFCommon::get_product_fields( $this->form, $this->lead );
+		$products = GFCommon::get_product_fields( $this->form, $this->lead );
 
-        foreach ( $products['products'] as $product ) {
-        	$description = $product['name'];
-        	$price = GFCommon::to_number( $product['price'] );
-        	$quantity = $product['quantity'];
+		foreach ( $products['products'] as $product ) {
+			$description = $product['name'];
+			$price = GFCommon::to_number( $product['price'] );
+			$quantity = $product['quantity'];
 
-        	$item = new Pronamic_IDeal_Item();
-        	$item->setNumber( $number++ );
-        	$item->setDescription( $description );
-        	$item->setPrice( $price );
-        	$item->setQuantity( $quantity );
+			$item = new Pronamic_IDeal_Item();
+			$item->setNumber( $number++ );
+			$item->setDescription( $description );
+			$item->setPrice( $price );
+			$item->setQuantity( $quantity );
 
-        	$items->addItem( $item );
+			$items->addItem( $item );
 
 			if ( isset( $product['options']) && is_array( $product['options'] ) ) {
 				foreach( $product['options'] as $option ) {
 					$description = $option['option_label'];
 					$price = GFCommon::to_number( $option['price'] );
 
-		        	$item = new Pronamic_IDeal_Item();
-		        	$item->setNumber( $number++ );
-		        	$item->setDescription( $description );
-		        	$item->setPrice( $price );
-		        	$item->setQuantity( $quantity ); // Product quantity
+					$item = new Pronamic_IDeal_Item();
+					$item->setNumber( $number++ );
+					$item->setDescription( $description );
+					$item->setPrice( $price );
+					$item->setQuantity( $quantity ); // Product quantity
 
-        			$items->addItem( $item );
+					$items->addItem( $item );
 				}
-            }
-        }
+			}
+		}
 
-        // Shipping
-        if ( isset( $products['shipping'] ) ) {
-        	$shipping = $products['shipping'];
+		// Shipping
+		if ( isset( $products['shipping'] ) ) {
+			$shipping = $products['shipping'];
 
-        	if ( isset( $shipping['price'] ) && ! empty( $shipping['price'] ) ) {
-        		$description = $shipping['name'];
+			if ( isset( $shipping['price'] ) && ! empty( $shipping['price'] ) ) {
+				$description = $shipping['name'];
 				$price = GFCommon::to_number( $shipping['price'] );
 				$quantity = 1;
 
 				$item = new Pronamic_IDeal_Item();
-		        $item->setNumber( $number++ );
-		        $item->setDescription( $description );
-		        $item->setPrice( $price );
-	        	$item->setQuantity( $quantity );
+				$item->setNumber( $number++ );
+				$item->setDescription( $description );
+				$item->setPrice( $price );
+				$item->setQuantity( $quantity );
 
-        		$items->addItem( $item );
-        	}
-        }
-        
-        // Donations
-        $donation_fields = GFCommon::get_fields_by_type( $this->form, array( 'donation' ) );
+				$items->addItem( $item );
+			}
+		}
+
+		// Donations
+		$donation_fields = GFCommon::get_fields_by_type( $this->form, array( 'donation' ) );
 
 		foreach ( $donation_fields as $i => $field ) {
 			$value = RGFormsModel::get_lead_field_value( $this->lead, $field );
@@ -194,28 +194,28 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 				} elseif ( isset( $field['label'] ) ) {
 					$description = $field['label'];
 				}
-	
+
 				$separator_position = strpos( $value, '|' );
 				if ( $separator_position !== false ) {
 					$label = substr( $value, 0, $separator_position );
 					$value = substr( $value, $separator_position + 1 );
-					
+
 					$description .= ' - ' . $label;
 				}
-				
+
 				$price = GFCommon::to_number( $value );
 				$quantity = 1;
-	
+
 				$item = new Pronamic_IDeal_Item();
 				$item->setNumber( $i );
 				$item->setDescription( $description );
 				$item->setQuantity( $quantity );
 				$item->setPrice( $price );
-	
+
 				$items->addItem( $item );
 			}
 		}
-		
+
 		return $items;
 	}
 
@@ -225,7 +225,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 	/**
 	 * Get currency alphabetic code
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -260,35 +260,35 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 	//////////////////////////////////////////////////
 	// URL's
 	//////////////////////////////////////////////////
-	
+
 	public function get_normal_return_url() {
 		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::OPEN );
 
 		if ( empty( $url ) ) {
-        	$url = parent::get_normal_return_url();
-        }
-        
-        return $url;
+			$url = parent::get_normal_return_url();
+		}
+
+		return $url;
 	}
-	
+
 	public function get_cancel_url() {
 		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::CANCEL );
 
-        if ( empty( $url ) ) {
-        	$url = parent::get_cancel_url();
-        }
-        
-        return $url;
+		if ( empty( $url ) ) {
+			$url = parent::get_cancel_url();
+		}
+
+		return $url;
 	}
-	
+
 	public function get_success_url() {
 		$url = $this->feed->get_url( Pronamic_WP_Pay_GravityForms_Links::SUCCESS );
 
 		if ( empty( $url ) ) {
-        	$url = parent::get_success_url();
-        }
-        
-        return $url;
+			$url = parent::get_success_url();
+		}
+
+		return $url;
 	}
 
 	public function get_error_url() {
@@ -296,9 +296,9 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 		if ( empty( $url ) ) {
 			$url = parent::get_error_url();
-        }
-        
-        return $url;
+		}
+
+		return $url;
 	}
 
 	//////////////////////////////////////////////////
@@ -314,7 +314,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 		if ( $issuer_field != null ) {
 			$issuer_id =  RGFormsModel::get_field_value( $issuer_field );
 		}
-		
+
 		return $issuer_id;
 	}
 
@@ -326,16 +326,16 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 		$credit_card = null;
 
 		$credit_card_fields = GFCommon::get_fields_by_type( $this->form, array( 'creditcard' ) );
-		
+
 		$credit_card_field = array_shift( $credit_card_fields );
-		
+
 		if ( $credit_card_field ) {
 			$credit_card = new Pronamic_Pay_CreditCard();
 
 			// Number
 			$variable_name = sprintf( 'input_%s_1', $credit_card_field['id'] );
 			$number = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
-			
+
 			$credit_card->set_number( $number );
 
 			// Expiration date
@@ -344,23 +344,23 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 			$month = array_shift( $expiration_date );
 			$year  = array_shift( $expiration_date );
-			
+
 			$credit_card->set_expiration_month( $month );
 			$credit_card->set_expiration_year( $year );
-			
+
 			// Security code
 			$variable_name = sprintf( 'input_%s_3', $credit_card_field['id'] );
 			$security_code = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
-			
+
 			$credit_card->set_security_code( $security_code );
-			
+
 			// Name
 			$variable_name = sprintf( 'input_%s_5', $credit_card_field['id'] );
 			$name = filter_input( INPUT_POST, $variable_name, FILTER_SANITIZE_STRING );
-			
+
 			$credit_card->set_name( $name );
 		}
-		
+
 		return $credit_card;
 	}
 }

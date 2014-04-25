@@ -53,7 +53,7 @@ $pronamic_pay_gateways = array(
 			'directory_request_url'   => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Directory.aspx',
 			'transaction_request_url' => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Transaction.aspx',
 			'status_request_url'      => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Status.aspx',
-			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/'
+			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/',
 		),
 		'live'     => array(
 			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDeal',

@@ -10,21 +10,21 @@ class Pronamic_WP_Pay_Gateways_IDealBasic_ConfigFactory {
 
 		$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
-		
+
 		global $pronamic_pay_gateways;
 
 		if ( isset( $pronamic_pay_gateways[$gateway_id] ) ) {
 			$gateway  = $pronamic_pay_gateways[$gateway_id];
-			
+
 			if ( isset( $gateway[$mode] ) ) {
 				$settings = $gateway[$mode];
-		
+
 				$url = $settings['payment_server_url'];
 
 				$config->url = $url;
 			}
 		}
-		
+
 		return $config;
 	}
 }

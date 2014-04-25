@@ -7,7 +7,7 @@ class Pronamic_WP_Pay_Gateways_TargetPay_ConfigFactory {
 		$config->mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
 
 		$config->layoutcode = get_post_meta( $post_id, '_pronamic_gateway_targetpay_layoutcode', true );
-		
+
 		return $config;
 	}
 }
