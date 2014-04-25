@@ -32,8 +32,8 @@ class Pronamic_S2Member_IDeal_AddOn {
 
 	public static function update_status_unknown_to_success( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
 		$data = new Pronamic_WP_Pay_S2Member_PaymentData( array(
-   			'level'  => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ),
-   			'period' => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true ),
+			'level'  => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ),
+			'period' => get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true ),
 		) );
 
 		$email = $payment->get_email();
