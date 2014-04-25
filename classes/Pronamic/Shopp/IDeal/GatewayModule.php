@@ -80,7 +80,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 		// Actions
 		// @see /shopp/core/model/Gateway.php#L122
-		$name = sanitize_key(__CLASS__);
+		$name = sanitize_key( __CLASS__ );
 
 		add_action( 'shopp_' . $name . '_sale',    array( $this, 'sale' ) );
 		add_action( 'shopp_' . $name . '_auth',    array( $this, 'auth' ) );
@@ -151,7 +151,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			'gateway'   => $Paymethod->processor,
 			'paymethod' => $Paymethod->label,
 			'paytype'   => $Billing->cardtype,
-			'payid'     => $Billing->card
+			'payid'     => $Billing->card,
 		) );
 	}
 

@@ -151,7 +151,7 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 			'gateway'   => $Paymethod->processor,
 			'paymethod' => $Paymethod->label,
 			'paytype'   => $Billing->cardtype,
-			'payid'     => $Billing->card
+			'payid'     => $Billing->card,
 		) );
 	}
 

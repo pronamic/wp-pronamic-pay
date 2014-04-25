@@ -31,19 +31,19 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper {
 
 	/**
 	 * Set user id
-	 * 
+	 *
 	 * @param string $user_id
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_user_id( $user_id ) {
 		$this->data->set_field( 'USERID', $user_id );
-		
+
 		return $this;
 	}
 
 	/**
 	 * Set password
-	 * 
+	 *
 	 * @param string $password
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */

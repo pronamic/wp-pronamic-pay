@@ -10,13 +10,13 @@ function pronamic_pay_upgrade_201() {
 	global $wpdb;
 
 	/*
-	
+
 	-- You can undo the database upgrade by executing the following queries
 
 	DELETE FROM wp_options WHERE option_name = 'pronamic_pay_license_key';
-	
+
 	*/
-	
+
 	//////////////////////////////////////////////////
 	// Options
 	//////////////////////////////////////////////////
@@ -24,10 +24,10 @@ function pronamic_pay_upgrade_201() {
 	$options = array(
 		'pronamic_ideal_key' => 'pronamic_pay_license_key'
 	);
-	
+
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
-	
+
 		if ( ! empty ( $value ) ) {
 			update_option( $key_new, $value );
 		}
@@ -42,7 +42,7 @@ function pronamic_pay_upgrade_201() {
  */
 function pronamic_pay_upgrade_200() {
 	// Check if there is not already an upgrade running
-	if ( get_transient( 'pronamic_pay_upgrade_200' ) ) 
+	if ( get_transient( 'pronamic_pay_upgrade_200' ) )
 		return;
 
 	set_transient( 'pronamic_pay_upgrade_200', true, 3600 ); // 60 minutes
@@ -51,7 +51,7 @@ function pronamic_pay_upgrade_200() {
 	global $wpdb;
 
 	require_once ABSPATH . '/wp-admin/includes/upgrade.php';
-	
+
 	$charset_collate = '';
 	if ( ! empty( $wpdb->charset ) ) {
 		$charset_collate = 'DEFAULT CHARACTER SET ' . $wpdb->charset;
@@ -78,7 +78,7 @@ function pronamic_pay_upgrade_200() {
 	DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 
 	*/
-	
+
 	//////////////////////////////////////////////////
 	// Configs
 	//////////////////////////////////////////////////
@@ -101,7 +101,7 @@ function pronamic_pay_upgrade_200() {
 		meta LONGTEXT,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
-	
+
 	dbDelta( $sql );
 
 	// Query
@@ -116,55 +116,55 @@ function pronamic_pay_upgrade_200() {
 			1
 		;
 	";
-	
+
 	$have_configs = true;
 
 	while ( $have_configs ) {
 		$configs = $wpdb->get_results( $query );
 
 		$have_configs = ! empty( $configs );
-	
+
 		foreach ( $configs as $config ) {
 			$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
-	
+
 			if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
 				$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
 			}
-	
+
 			// Post
 			$post = array(
 				'post_title'    => $title,
 				'post_type'     => 'pronamic_gateway',
 				'post_status'   => 'publish'
 			);
-			
+
 			$post_id = wp_insert_post( $post );
-	
-			if ( $post_id ) {		
+
+			if ( $post_id ) {
 				$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
-	
+
 				// Meta
 				// We ignore (@) all notice of not existing properties
 				$config_meta = json_decode( $config->meta );
-	
+
 				$meta = array();
-	
+
 				$meta['legacy_id'] = $config->id;
 				$meta['id']        = $config->variant_id;
 				$meta['mode']      = $config->mode;
-	
+
 				// iDEAL
 				$meta['ideal_merchant_id'] = $config->merchant_id;
 				$meta['ideal_sub_id']      = $config->sub_id;
-						
+
 				// iDEAL Basic
 				$meta['ideal_hash_key'] = $config->hash_key;
-						
+
 				// iDEAL Advanced
 				$meta['ideal_private_key']          = $config->private_key;
 				$meta['ideal_private_key_password'] = $config->private_key_password;
 				$meta['ideal_private_certificate']  = $config->private_certificate;
-	
+
 				// OmniKassa
 				if ( $config->variant_id == 'rabobank-omnikassa' ) {
 					$meta['omnikassa_merchant_id'] = $config->merchant_id;
@@ -179,38 +179,38 @@ function pronamic_pay_upgrade_200() {
 					unset( $meta['ideal_merchant_id'] );
 					unset( $meta['ideal_hash_key'] );
 				}
-					
+
 				// Buckaroo
 				$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
 				$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
-				
+
 				// Icepay
 				$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
 				$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
-				
+
 				// Mollie
 				$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
 				$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
-				
+
 				// Sisow
 				$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
 				$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
-				
+
 				// TargetPay
 				$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
-				
+
 				// Qantani
 				$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
 				$meta['qantani_merchant_key']    = @$config_meta->qantani_merchant_key;
 				$meta['qantani_merchant_secret'] = @$config_meta->qantani_merchant_secret;
-	
+
 				// Ogone
 				$meta['ogone_psp_id']              = @$config_meta->pspId;
 				$meta['ogone_sha_in_pass_phrase']  = @$config_meta->shaInPassPhrase;
 				$meta['ogone_sha_out_pass_phrase'] = @$config_meta->shaOutPassPhrase;
 				$meta['ogone_user_id']             = @$config_meta->ogone_user_id;
 				$meta['ogone_password']            = @$config_meta->ogone_password;
-	
+
 				// Other
 				$meta['country']                 = @$config_meta->country;
 				$meta['state_or_province']       = @$config_meta->stateOrProvince;
@@ -219,11 +219,11 @@ function pronamic_pay_upgrade_200() {
 				$meta['organization_unit']       = @$config_meta->organizationUnit;
 				$meta['common_name']             = @$config_meta->commonName;
 				$meta['email']                   = @$config_meta->eMailAddress;
-				
+
 				foreach ( $meta as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						$meta_key = '_pronamic_gateway_' . $key;
-	
+
 						update_post_meta( $post_id, $meta_key, $value );
 					}
 				}
@@ -247,17 +247,17 @@ function pronamic_pay_upgrade_200() {
 	$config_ids_map = array();
 
 	$config_ids = $wpdb->get_results( $query );
-	
+
 	foreach ( $config_ids as $config_id ) {
 		$config_ids_map[$config_id->id] = $config_id->post_id;
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Gravity Forms payment feeds
 	//////////////////////////////////////////////////
 
 	$feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
-	
+
 	$sql = "CREATE TABLE $feeds_table (
 		id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
 		post_id BIGINT(20) UNSIGNED NULL,
@@ -269,7 +269,7 @@ function pronamic_pay_upgrade_200() {
 		KEY form_id (form_id),
 		KEY configuration_id (configuration_id)
 	) $charset_collate;";
-	
+
 	dbDelta( $sql );
 
 	// Query
@@ -284,14 +284,14 @@ function pronamic_pay_upgrade_200() {
 			1
 		;
 	";
-	
+
 	$have_feeds = true;
 
 	while ( $have_feeds ) {
 		$feeds = $wpdb->get_results( $query );
 
 		$have_feeds = ! empty( $feeds );
-		
+
 		foreach ( $feeds as $feed ) {
 			// Post
 			$post = array(
@@ -299,18 +299,18 @@ function pronamic_pay_upgrade_200() {
 				'post_type'     => 'pronamic_pay_gf',
 				'post_status'   => 'publish'
 			);
-			
+
 			$post_id = wp_insert_post( $post );
-			
-			if ( $post_id ) {		
+
+			if ( $post_id ) {
 				$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
-	
+
 				// Meta
 				// We ignore (@) all notice of not existing properties
 				$meta = array();
-	
+
 				$feed_meta = json_decode( $feed->meta, true );
-				
+
 				$meta['form_id']                  = $feed->form_id;
 				$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
 				$meta['is_active']                = $feed->is_active;
@@ -326,7 +326,7 @@ function pronamic_pay_upgrade_200() {
 				$meta['user_role_field_id']       = @$feed_meta['userRoleFieldId'];
 				$meta['fields']                   = @$feed_meta['fields'];
 				$meta['links']                    = @$feed_meta['links'];
-				
+
 				if ( is_array( $meta['links'] ) ) {
 					foreach ( $meta['links'] as &$link ) {
 						if ( isset( $link['pageId'] ) ) {
@@ -334,18 +334,18 @@ function pronamic_pay_upgrade_200() {
 						}
 					}
 				}
-				
+
 				foreach ( $meta as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						$meta_key = '_pronamic_pay_gf_' . $key;
-	
+
 						update_post_meta( $post_id, $meta_key, $value );
 					}
 				}
 			}
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Payments
 	//////////////////////////////////////////////////
@@ -377,7 +377,7 @@ function pronamic_pay_upgrade_200() {
 		email VARCHAR(128) NULL DEFAULT NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
-	
+
 	dbDelta( $sql );
 
 	// Query
@@ -395,14 +395,14 @@ function pronamic_pay_upgrade_200() {
 			1
 		;
 	";
-	
+
 	$have_payments = true;
 
 	while ( $have_payments ) {
 		$payments = $wpdb->get_results( $query );
 
 		$have_payments = ! empty( $payments );
-	
+
 		foreach ( $payments as $payment ) {
 			// Post
 			$post = array(
@@ -414,11 +414,11 @@ function pronamic_pay_upgrade_200() {
 			);
 
 			$post_id = wp_insert_post( $post );
-	
-			if ( $post_id ) {			
+
+			if ( $post_id ) {
 				$wpdb->update( $payments_table, array( 'post_id' => $post_id ), array( 'id' => $payment->id ), '%d', '%d' );
 
-				// Meta 
+				// Meta
 				$meta = array(
 					'config_id'               => @$config_ids_map[$payment->configuration_id],
 					'purchase_id'             => $payment->purchase_id,
@@ -439,18 +439,18 @@ function pronamic_pay_upgrade_200() {
 					'source_id'               => $payment->source_id,
 					'email'                   => $payment->email,
 				);
-				
+
 				foreach ( $meta as $key => $value ) {
 					if ( ! empty( $value ) ) {
 						$meta_key = '_pronamic_payment_' . $key;
-	
+
 						update_post_meta( $post_id, $meta_key, $value );
 					}
 				}
 			}
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Options config IDs
 	//////////////////////////////////////////////////
@@ -474,31 +474,31 @@ function pronamic_pay_upgrade_200() {
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
 		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id'
 	);
-	
+
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
-	
+
 		if ( ! empty ( $value ) ) {
 			$value_new = @$config_ids_map[$value];
 
 			update_option( $key_new, $value_new );
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Complex options config IDs
 	//////////////////////////////////////////////////
-	
+
 	// Shopp
 	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/Shopp/IDeal/GatewayModule.php#L72
 	$shopp_meta_table = $wpdb->prefix . 'shopp_meta';
-	
+
 	// @see http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
 	if ( $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) == $shopp_meta_table ) {
 		$query = "SELECT id, value FROM $shopp_meta_table WHERE type = 'setting' AND name = 'Pronamic_Shopp_IDeal_GatewayModule';";
 
 		$row = $wpdb->get_row( $query );
-		
+
 		if ( $row ) {
 			$settings = maybe_unserialize( $row->value );
 
@@ -515,20 +515,20 @@ function pronamic_pay_upgrade_200() {
 			}
 		}
 	}
-	
+
 	// WooCommerce
 	// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WooCommerce/IDeal/IDealGateway.php#L42
 	$settings = get_option( 'woocommerce_pronamic_ideal_settings' );
-	
+
 	if ( is_array( $settings ) && isset( $settings['configuration_id'] ) ) {
 		$value = $settings['configuration_id'];
 
 		$settings['config_id'] = @$config_ids_map[$value];
-		
+
 		unset( $settings['configuration_id'] );
-		
+
 		update_option( 'woocommerce_pronamic_pay_ideal_settings', $settings );
 	}
-	
+
 	delete_transient( 'pronamic_pay_upgrade_200' );
 }

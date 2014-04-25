@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL HTML helper
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_HTML_Helper {
 	/**
 	 * Array to HTML attributes
-	 * 
+	 *
 	 * @param array $pieces
 	 */
 	public static function array_to_html_attributes( array $attributes ) {
@@ -21,7 +21,7 @@ class Pronamic_WP_HTML_Helper {
 		foreach ( $attributes as $key => $value ) {
 			$html .= $space . $key . '=' . '"' . esc_attr( $value ) . '"';
 
-			$space = ' '; 
+			$space = ' ';
 		}
 
 		return $html;
@@ -29,7 +29,7 @@ class Pronamic_WP_HTML_Helper {
 
 	/**
 	 * Select options grouped
-	 * 
+	 *
 	 * @param array $groups
 	 * @param string $selected_value
 	 */
@@ -37,23 +37,23 @@ class Pronamic_WP_HTML_Helper {
 		$html = '';
 
 		if ( is_array( $groups ) ) {
-			foreach( $groups as $group ) {
+			foreach ( $groups as $group ) {
 				$optgroup = isset( $group['name'] ) && ! empty( $group['name'] );
 
 				if ( $optgroup ) {
 					$html .= '<optgroup label="' . $group['name'] . '">';
 				}
-	
-				foreach( $group['options'] as $value => $label ) {
+
+				foreach ( $group['options'] as $value => $label ) {
 					$html .= '<option value="' . $value . '" ' . selected( $selected_value, $value, false ) . '>' . $label . '</option>';
 				}
-	
+
 				if ( $optgroup ) {
 					$html .= '</optgroup>';
 				}
 			}
 		}
-		
+
 		return $html;
 	}
 }

@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone DirectLink order response
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
@@ -10,27 +10,27 @@
  */
 class Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse {
 	public $order_id;
-	
+
 	public $pay_id;
-	
+
 	public $nc_status;
-	
+
 	public $nc_error;
-	
+
 	public $nc_error_plus;
-	
+
 	public $acceptance;
-	
+
 	public $status;
-	
+
 	public $eci;
-	
+
 	public $amount;
-	
+
 	public $currency;
-	
+
 	public $pm;
-	
+
 	public $brand;
 
 	/////////////////////////////////////////////////
@@ -39,6 +39,6 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse {
 	 * Constructs and initializes an Ogone DirectLink order response
 	 */
 	public function __construct() {
-		
+
 	}
 }
