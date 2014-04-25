@@ -11,48 +11,48 @@ class Pronamic_Pay_Payment {
 	public $source;
 
 	public $source_id;
-	
+
 	//////////////////////////////////////////////////
-	
+
 	public $purchase_id;
-	
+
 	public $transaction_id;
-	
+
 	public $amount;
-	
+
 	public $currency;
-	
+
 	public $expiration_period;
-	
+
 	public $language;
-	
+
 	public $entrance_code;
-	
+
 	public $description;
-	
+
 	public $consumer_name;
-	
+
 	public $consumer_account_number;
-	
+
 	public $consumer_iban;
-	
+
 	public $consumer_bic;
-	
+
 	public $consumer_city;
-	
+
 	public $status;
-	
+
 	public $status_requests;
-	
+
 	public $email;
-	
+
 	public $action_url;
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Meta
-	 * 
+	 *
 	 * @var array
 	 */
 	public $meta;
@@ -67,11 +67,11 @@ class Pronamic_Pay_Payment {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public function get_id() {
 		return $this->id;
 	}
-	
+
 	public function set_id( $id ) {
 		$this->id = $id;
 	}
@@ -119,11 +119,11 @@ class Pronamic_Pay_Payment {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public function get_action_url() {
 		return $this->action_url;
 	}
-	
+
 	public function set_action_url( $action_url ) {
 		$this->action_url = $action_url;
 	}
@@ -165,20 +165,20 @@ class Pronamic_Pay_Payment {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public function add_note( $note ) {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_meta( $key ) {
 		$value = null;
-	
+
 		if ( isset( $this->meta[ $key ] ) ) {
 			$value = $this->meta[ $key ];
 		}
-		
+
 		return $value;
 	}
 

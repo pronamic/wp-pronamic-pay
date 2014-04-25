@@ -2,7 +2,7 @@
 
 /**
  * Title: Easy
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Construct and intialize an iDEAL Easy gateway
-	 *  
+	 *
 	 * @param Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config
 	 */
 	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config ) {
@@ -30,19 +30,19 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 
 	/**
 	 * Get output HTML
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_output_html()
 	 * @return string
 	 */
 	public function get_output_html() {
 		return $this->client->getHtmlFields();
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Start transaction with the specified data
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
@@ -63,7 +63,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->setOwnerZip( $data->getOwnerZip() );
 
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
-		
+
 		$this->client->set_accept_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::SUCCESS, $url ) );
 		$this->client->set_decline_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
 		$this->client->set_exception_url( add_query_arg( 'status', Pronamic_Gateways_IDealAdvancedV3_Status::FAILURE, $url ) );
@@ -71,9 +71,9 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 		$this->client->set_back_url( home_url( '/' ) );
 		$this->client->set_home_url( home_url( '/' ) );
 	}
-	
+
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Update status of the specified payment
 	 *
@@ -82,7 +82,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		if ( filter_has_var( INPUT_GET, 'status' ) ) {
 			$status = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
-	
+
 			$payment->set_status( $status );
 		}
 	}
