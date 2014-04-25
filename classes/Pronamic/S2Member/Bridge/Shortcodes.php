@@ -23,7 +23,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 	/**
 	 * Create an hash
-	 * 
+	 *
 	 * @param array $data
 	 * @return string
 	 */
@@ -64,7 +64,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 		// Combine the passed options
 		$atts = shortcode_atts( $defaults, $atts );
 		$atts['order_id'] = uniqid();
-		
+
 		// Output
 		$output = '';
 
@@ -79,7 +79,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 		if ( $gateway ) {
 			$output .= '<form method="post" action="">';
-			
+
 			if ( ! is_user_logged_in() ) {
 				$output .= sprintf(
 					'<label for="%s">%s</label>',
@@ -97,7 +97,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 			}
 
 			$output .= $gateway->get_input_html();
-			
+
 			$output .= ' ';
 
 			$output .= Pronamic_IDeal_IDeal::htmlHiddenFields( array(
@@ -117,7 +117,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 			$output .= '</form>';
 		}
-		
+
 		return $output;
 	}
 
@@ -137,19 +137,19 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 
 				// Gateway
 				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-				
+
 				// Data
 				$data = new Pronamic_WP_Pay_S2Member_PaymentData( $data );
-				
+
 				$email = $data->get_email();
 
 				if ( ! empty( $email ) ) {
 					// Start
 					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
-	
+
 					update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', $data->get_period() );
 					update_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', $data->get_level() );
-	
+
 					// Redirect
 					$gateway->redirect( $payment );
 				}
