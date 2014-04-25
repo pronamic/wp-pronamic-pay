@@ -87,8 +87,9 @@ class Pronamic_S2Member_Bridge_Order {
 
 		$meta = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table WHERE umeta_id = %d", $uid_key ) );
 
-		if ( empty( $meta ) )
+		if ( empty( $meta ) ) {
 			return false;
+		}
 
 		return $meta->user_id;
 	}
