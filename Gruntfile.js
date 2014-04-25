@@ -13,6 +13,16 @@ module.exports = function( grunt ) {
 			all: [ 'classes/**/*.php' ]
 		},
 		
+		// PHP Code Sniffer
+		phpcs: {
+			application: {
+				dir: [ '**/*.php' ]
+			},
+			options: {
+				standard: 'project.ruleset.xml'
+			}
+		},
+
 		// PHPUnit
 		phpunit: {
 			classes: {},
@@ -73,13 +83,14 @@ module.exports = function( grunt ) {
 	} );
 
 	grunt.loadNpmTasks( 'grunt-phplint' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
+	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-shell' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion', 'makepot' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'checkwpversion', 'makepot' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 };
