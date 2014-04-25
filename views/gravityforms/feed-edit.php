@@ -56,7 +56,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 				Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
 					'name'     => '_pronamic_pay_gf_config_id',
-					'selected' => $config_id
+					'selected' => $config_id,
 				) );
 
 				?>
@@ -226,7 +226,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 								printf( '<li>' );
 
 								printf(
-									 '<input id="%s" type="checkbox" value="%s" name="_pronamic_pay_gf_delay_notification_ids[]" %s />',
+									'<input id="%s" type="checkbox" value="%s" name="_pronamic_pay_gf_delay_notification_ids[]" %s />',
 									esc_attr( 'pronamic-pay-gf-notification-' . $id ),
 									esc_attr( $id ),
 									checked( in_array( $id, $delay_notification_ids ), true, false )
@@ -441,9 +441,9 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 			<tr>
 				<?php
 
-				$type    = @$links[$name]['type'];
-				$page_id = @$links[$name]['page_id'];
-				$url     = @$links[$name]['url'];
+				$type    = @$links[ $name ]['type'];
+				$page_id = @$links[ $name ]['page_id'];
+				$url     = @$links[ $name ]['url'];
 
 				?>
 				<th scope="row">
@@ -466,8 +466,8 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 						wp_dropdown_pages( array(
 							'selected'         => $page_id,
-							'name'             => '_pronamic_pay_gf_links[' . $name . '][page_id]' ,
-							'show_option_none' => __( '&mdash; Select &mdash;', 'pronamic_ideal' )
+							'name'             => '_pronamic_pay_gf_links[' . $name . '][page_id]',
+							'show_option_none' => __( '&mdash; Select &mdash;', 'pronamic_ideal' ),
 						) );
 
 						?>

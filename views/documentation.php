@@ -2,7 +2,7 @@
 	<?php screen_icon( 'pronamic_ideal' ); ?>
 
 	<h2>
-		<?php _e('iDEAL Documentation', 'pronamic_ideal'); ?>
+		<?php _e( 'iDEAL Documentation', 'pronamic_ideal' ); ?>
 	</h2>
 
 	<?php
@@ -84,9 +84,7 @@
 		'adyen.com' => array(
 			'name'      => 'Adyen',
 			'url'       => 'http://adyen.com/',
-			'resources' => array(
-
-			),
+			'resources' => array(),
 		),
 		'buckaroo' => array(
 			'name'      => 'Buckaroo',
@@ -333,8 +331,8 @@
 			),
 		),
 		'ogone.nl' => array(
-			'name'      => 'Ogone' ,
-			'url'       => 'http://www.ogone.nl/' ,
+			'name'      => 'Ogone',
+			'url'       => 'http://www.ogone.nl/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Ogone_eCom_STD_Integration_20041224_EN.pdf',
@@ -364,8 +362,8 @@
 			),
 		),
 		'paygate.co.za' => array(
-			'name'      => 'PayGate' ,
-			'url'       => 'http://paygate.co.za/' ,
+			'name'      => 'PayGate',
+			'url'       => 'http://paygate.co.za/',
 			'resources' => array(
 				array(
 					'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/PayGate-PayWebv2-v1.15.pdf',

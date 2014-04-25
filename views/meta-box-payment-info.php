@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $post_id = get_the_ID();
 
@@ -58,7 +58,7 @@ $payment = get_pronamic_payment( $post_id );
 		</th>
 		<td>
 			<?php
-			
+
 			$url = get_post_meta( $post_id, '_pronamic_payment_action_url', true );
 
 			printf(
@@ -66,7 +66,7 @@ $payment = get_pronamic_payment( $post_id );
 				$url,
 				$url
 			);
-			
+
 			?>
 		</td>
 	</tr>

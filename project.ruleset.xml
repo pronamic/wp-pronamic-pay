@@ -5,6 +5,7 @@
 	<exclude-pattern>/includes/icepay</exclude-pattern>
 	<exclude-pattern>/includes/xmlseclibs</exclude-pattern>
 	<exclude-pattern>/node_modules</exclude-pattern>
+	<exclude-pattern>/tests</exclude-pattern>
 
 	<rule ref="WordPress">
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
@@ -16,6 +17,8 @@
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.curl" />
 		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
 		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
 		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />

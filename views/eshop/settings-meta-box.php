@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 global $eshop_metabox_plugin, $eshopoptions;
 
@@ -18,12 +18,12 @@ global $eshop_metabox_plugin, $eshopoptions;
 		<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 	</label>
 
-	<?php 
-	
+	<?php
+
 	Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
 		'name'     => 'eshop_pronamic_ideal_config_id',
-		'selected' => @$eshopoptions['pronamic_ideal']['config_id']
+		'selected' => @$eshopoptions['pronamic_ideal']['config_id'],
 	) );
-	
+
 	?>
 </fieldset>

@@ -90,7 +90,7 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'value'       => add_query_arg( array(
 					'gateway'         => 'ideal_basic',
-					'xml_notifaction' => 'true'
+					'xml_notifaction' => 'true',
 				), site_url( '/' ) ),
 				'methods'     => array( 'ideal_basic' ),
 				'readonly'    => true,
@@ -127,7 +127,7 @@ $sections = array(
 				'description' => __( 'Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle betaling tegoed bijgeschreven.', 'pronamic_ideal' ),
 				'methods'     => array( 'mollie_ideal' ),
 			),
-			 array(
+			array(
 				'meta_key'    => '_pronamic_gateway_mollie_profile_key',
 				'title'       => __( 'Profile Key', 'pronamic_ideal' ),
 				'type'        => 'text',
@@ -166,7 +166,7 @@ $sections = array(
 				'classes'     => array( 'code' ),
 				'methods'     => array( 'multisafepay_connect' ),
 			),
-			 array(
+			array(
 				'meta_key'    => '_pronamic_gateway_multisafepay_site_id',
 				'title'       => __( 'Site ID', 'pronamic_ideal' ),
 				'type'        => 'text',
@@ -272,8 +272,8 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'value'       => home_url( '/' ),
 				'readonly'    => true,
-			)
-		)
+			),
+		),
 	),
 	array(
 		'title'   => __( 'Sisow', 'pronamic_ideal' ),
@@ -290,7 +290,7 @@ $sections = array(
 					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
 				),
 			),
-			 array(
+			array(
 				'meta_key'    => '_pronamic_gateway_sisow_merchant_key',
 				'title'       => _x( 'Merchant Key', 'sisow', 'pronamic_ideal' ),
 				'type'        => 'text',
@@ -581,7 +581,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 		<tr>
 			<th scope="row">
 				<label for="pronamic_gateway_id">
-					<?php _e('Variant', 'pronamic_ideal'); ?>
+					<?php _e( 'Variant', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
@@ -638,7 +638,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 					if ( isset( $field['id'] ) ) {
 						$id = $field['id'];
-					} elseif( isset( $field['meta_key'] ) ) {
+					} elseif ( isset( $field['meta_key'] ) ) {
 						$id = $field['meta_key'];
 					} else {
 						$id = uniqid();
