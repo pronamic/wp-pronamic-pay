@@ -41,8 +41,9 @@ class Pronamic_S2Member_Bridge_Settings {
 	public function admin_menu() {
 		$parent_slug = apply_filters( 'ws_plugin__s2member_during_add_admin_options_menu_slug', 'ws-plugin--s2member-start' );
 
-		if ( apply_filters( 'ws_plugin__s2member_during_add_admin_options_add_divider_6', true, get_defined_vars() ) ) /* Divider. */
+		if ( apply_filters( 'ws_plugin__s2member_during_add_admin_options_add_divider_6', true, get_defined_vars() ) ) { /* Divider. */
 			add_submenu_page( $parent_slug, '', '<span style="display:block; margin:1px 0 1px -5px; padding:0; height:1px; line-height:1px; background:#CCCCCC;"></span>', 'create_users', '#' );
+		}
 
 		add_submenu_page(
 			$parent_slug,
