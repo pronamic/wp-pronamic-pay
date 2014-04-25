@@ -106,7 +106,7 @@ class Pronamic_S2Member_Bridge_Shortcodes {
 				'pronamic_pay_s2member_data[period]'      => $atts['period'],
 				'pronamic_pay_s2member_data[cost]'        => $atts['cost'],
 				'pronamic_pay_s2member_data[level]'       => $atts['level'],
-				'pronamic_pay_s2member_data[description]' => $atts['description']
+				'pronamic_pay_s2member_data[description]' => $atts['description'],
 			) );
 
 			$output .= sprintf(
