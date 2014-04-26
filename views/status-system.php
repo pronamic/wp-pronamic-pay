@@ -205,7 +205,11 @@
 				<?php
 
 				if ( function_exists( 'curl_version' ) ) {
+					// @codingStandardsIgnoreStart
+					// Using cURL functions is highly discouraged within VIP context
+					// We only use this cURL function for on the system status page
 					$version = curl_version();
+					// @codingStandardsIgnoreEnd
 
 					if ( isset( $version['version'] ) ) {
 						echo $version['version'];
