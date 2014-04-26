@@ -831,20 +831,20 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 					// @see http://www.openssl.org/docs/apps/req.html
 					$subj_args = array(
-						'C'             => get_post_meta( get_the_ID(), '_pronamic_gateway_country', true ),
-						'ST'            => get_post_meta( get_the_ID(), '_pronamic_gateway_state_or_province', true ),
-						'L'             => get_post_meta( get_the_ID(), '_pronamic_gateway_locality', true ),
-						'O'             => get_post_meta( get_the_ID(), '_pronamic_gateway_organization', true ),
-						'OU'            => get_post_meta( get_the_ID(), '_pronamic_gateway_organization_unit', true ),
-						'CN'            => get_post_meta( get_the_ID(), '_pronamic_gateway_common_name', true ),
-						'emailAddress'  => get_post_meta( get_the_ID(), '_pronamic_gateway_email', true ),
+						'C'            => get_post_meta( get_the_ID(), '_pronamic_gateway_country', true ),
+						'ST'           => get_post_meta( get_the_ID(), '_pronamic_gateway_state_or_province', true ),
+						'L'            => get_post_meta( get_the_ID(), '_pronamic_gateway_locality', true ),
+						'O'            => get_post_meta( get_the_ID(), '_pronamic_gateway_organization', true ),
+						'OU'           => get_post_meta( get_the_ID(), '_pronamic_gateway_organization_unit', true ),
+						'CN'           => get_post_meta( get_the_ID(), '_pronamic_gateway_common_name', true ),
+						'emailAddress' => get_post_meta( get_the_ID(), '_pronamic_gateway_email', true ),
 					);
 
 					$subj_args = array_filter( $subj_args );
 
 					$subj = '';
 					foreach ( $subj_args as $type => $value ) {
-						$subj .= '/' . $type . '=' . '"' . addslashes( $value ) . '"';
+						$subj .= '/' . $type . '=' . addslashes( $value );
 					}
 
 					$command = trim( sprintf(
@@ -853,7 +853,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 						$private_key_password,
 						$number_days_valid,
 						$filename,
-						empty( $subj ) ? '' : '-subj ' . $subj
+						empty( $subj ) ? '' : sprintf( "-subj '%s'", $subj )
 					) );
 
 					?>
