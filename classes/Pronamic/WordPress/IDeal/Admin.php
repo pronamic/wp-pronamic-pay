@@ -322,39 +322,31 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe show an license message
 	 */
 	public static function admin_notices() {
-		if ( ! Pronamic_WordPress_IDeal_Plugin::can_be_used() ): ?>
+		if ( ! Pronamic_WordPress_IDeal_Plugin::can_be_used() ) {
+			echo '<div class="error">';
+			echo '<p>';
 
-			<div class="error">
-				<p>
-					<?php
+			printf(
+				__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
+				Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE,
+				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
+			);
 
-					printf(
-						__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
-						Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE,
-						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
-					);
+			echo '</p>';
+			echo '</div>';
+		} elseif ( ! Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) {
+			echo '<div class="updated">';
+			echo '<p>';
 
-					?>
-				</p>
-			</div>
+			printf(
+				__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
+				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
+				Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE
+			);
 
-		<?php elseif ( ! Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) : ?>
-
-			<div class="updated">
-				<p>
-					<?php
-
-					printf(
-						__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
-						add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
-						Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE
-					);
-
-					?>
-				</p>
-			</div>
-
-		<?php endif;
+			echo '</p>';
+			echo '</div>';
+		}
 	}
 
 	//////////////////////////////////////////////////
