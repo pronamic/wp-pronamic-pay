@@ -131,7 +131,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	}
 
 	public static function input_checkbox( $args ) {
-		$defaults = array (
+		$defaults = array(
 			'label_for' => '',
 			'type'      => 'text',
 			'label'     => '',
@@ -175,7 +175,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	}
 
 	public static function dropdown_configs( $args ) {
-		$defaults = array (
+		$defaults = array(
 			'name'     => 'pronamic_pay_config_id',
 			'echo'     => true,
 			'selected' => false,
@@ -228,8 +228,8 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * @param array $args
 	 */
 	public static function input_element( $args ) {
-		$defaults = array (
-			'type' => 'text'
+		$defaults = array(
+			'type' => 'text',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -405,12 +405,12 @@ class Pronamic_WordPress_IDeal_Admin {
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $id, $gateway, $data);
+				$payment = Pronamic_WordPress_IDeal_IDeal::start( $id, $gateway, $data );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					 Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
+					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
 				} else {
 					$gateway->redirect( $payment );
 				}

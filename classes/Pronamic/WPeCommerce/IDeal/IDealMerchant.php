@@ -25,7 +25,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 	 */
 	public function construct_value_array() {
 		// No specific data for this merchant
-		return array( );
+		return array();
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		$html .= '	<td>';
 		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
 			'name' => Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID,
-			'echo' => false
+			'echo' => false,
 		) );
 		$html .= '	</td>';
 		$html .= '</tr>';

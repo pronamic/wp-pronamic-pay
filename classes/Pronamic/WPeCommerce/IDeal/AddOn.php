@@ -61,12 +61,12 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			'display_name'           => __( 'iDEAL', 'pronamic_ideal' ),
 			'requirements'           => array(
 				'php_version'   => 5.0,
-				'extra_modules' => array()
+				'extra_modules' => array(),
 			) ,
 			'form'                   => 'pronamic_ideal_wpsc_merchant_form',
 			'submit_function'        => 'pronamic_ideal_wpsc_merchant_submit_function',
 			// this may be legacy, not yet decided
-			'internalname'           => 'wpsc_merchant_pronamic_ideal'
+			'internalname'           => 'wpsc_merchant_pronamic_ideal',
 		);
 
 		$gateway_checkout_form_fields['wpsc_merchant_pronamic_ideal'] = self::advanced_inputs();
@@ -111,7 +111,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 				// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 
-                $url = $data->get_cancel_url();
+				$url = $data->get_cancel_url();
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:

@@ -64,7 +64,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
      * @param string $name
      */
 	public function get_pronamic_option( $key ) {
-    	$value = false;
+		$value = false;
 
 		if ( method_exists( $this, 'get_option' ) ) {
 			$value = parent::get_option( $key );
@@ -78,14 +78,14 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	/**
      * Initialise form fields
      */
-    function init_form_fields() {
+	function init_form_fields() {
 		$description_prefix = '';
 		if ( Pronamic_WooCommerce_WooCommerce::version_compare( '2.0.0', '<' ) ) {
 			$description_prefix = '<br />';
 		}
 
-    	$this->form_fields = array(
-    		'enabled'     => array(
+		$this->form_fields = array(
+			'enabled'     => array(
 				'title'   => __( 'Enable/Disable', 'pronamic_ideal' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Enable iDEAL', 'pronamic_ideal' ),
@@ -106,10 +106,12 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			'icon'        => array(
 				'title'       => __( 'Icon', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' =>
-					$description_prefix .
-					__( 'This controls the icon which the user sees during checkout.', 'pronamic_ideal' ) . '<br />' .
-					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
+				'description' => sprintf(
+					'%s%s<br />%s',
+					$description_prefix,
+					__( 'This controls the icon which the user sees during checkout.', 'pronamic_ideal' ),
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) )
+				),
 				'default'     => plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
 			),
 			'config_id'   => array(
@@ -118,23 +120,25 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'default'     => '',
 				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
 			),
-    		'payment' => array(
-    			'title'       => __( 'Payment Options', 'pronamic_ideal' ),
-    			'type'        => 'title',
-    			'description' => '',
-    		),
+			'payment' => array(
+				'title'       => __( 'Payment Options', 'pronamic_ideal' ),
+				'type'        => 'title',
+				'description' => '',
+			),
 			'payment_description' => array(
 				'title'       => __( 'Payment Description', 'pronamic_ideal' ),
 				'type'        => 'text',
-				'description' =>
-					$description_prefix .
-					__( 'This controls the payment description.', 'pronamic_ideal' ) . '<br />' .
-					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), Pronamic_WooCommerce_PaymentData::get_default_description() ) . '<br />' .
-					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code> <code>%s</code>', '{order_number}', '{order_date}', '{blogname}' ) ),
+				'description' => sprintf(
+					'%s%s<br />%s<br />%s',
+					$description_prefix,
+					__( 'This controls the payment description.', 'pronamic_ideal' ),
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), Pronamic_WooCommerce_PaymentData::get_default_description() ),
+					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code> <code>%s</code>', '{order_number}', '{order_date}', '{blogname}' ) )
+				),
 				'default'     => Pronamic_WooCommerce_PaymentData::get_default_description(),
 			),
 		);
-    }
+	}
 
 	//////////////////////////////////////////////////
 
@@ -145,7 +149,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 * @since 1.0.0
 	 */
 	public function admin_options() {
-    	?>
+		?>
     	<h3>
     		<?php _e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?>
     	</h3>
@@ -154,11 +158,11 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
     		<?php $this->generate_settings_html(); ?>
 		</table>
     	<?php
-    }
+	}
 
 	//////////////////////////////////////////////////
 
-    /**
+	/**
 	 * Payment fields
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/v1.6.6/templates/checkout/form-pay.php#L66
@@ -200,8 +204,8 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 	 *
 	 * @param string $order_id
 	 */
-    function process_payment( $order_id ) {
-    	global $woocommerce;
+	function process_payment( $order_id ) {
+		global $woocommerce;
 
 		$order = new WC_Order( $order_id );
 
@@ -247,39 +251,39 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		// Return
 		return $return;
-    }
+	}
 
 	//////////////////////////////////////////////////
 
-    /**
+	/**
      * Process iDEAL payment
      *
      * @param WC_Order $order
      *
      * @return array
      */
-    private function process_gateway_html_form( $order ) {
+	private function process_gateway_html_form( $order ) {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
 			'redirect'	=> add_query_arg(
 				array(
 					'order' => $order->id,
-					'key'   => $order->order_key
+					'key'   => $order->order_key,
 				),
 				get_permalink( woocommerce_get_page_id( 'pay' ) )
 			)
 		);
-    }
+	}
 
-    /**
+	/**
      * Process iDEAL advanced payment
      *
      * @param WC_Order $order
      * @return array
      */
-    private function process_gateway_http_redirect( $order, $gateway ) {
-    	global $woocommerce;
+	private function process_gateway_http_redirect( $order, $gateway ) {
+		global $woocommerce;
 
 		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
@@ -300,12 +304,12 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 				'result' 	=> 'failure',
 			);
 		} else {
-	    	$url = $payment->get_action_url();
+			$url = $payment->get_action_url();
 
 			return array(
 				'result' 	=> 'success',
-				'redirect'	=> $url
+				'redirect'	=> $url,
 			);
 		}
-    }
+	}
 }

@@ -22,7 +22,7 @@ function pronamic_pay_upgrade_201() {
 	//////////////////////////////////////////////////
 
 	$options = array(
-		'pronamic_ideal_key' => 'pronamic_pay_license_key'
+		'pronamic_ideal_key' => 'pronamic_pay_license_key',
 	);
 
 	foreach ( $options as $key_old => $key_new ) {
@@ -42,8 +42,9 @@ function pronamic_pay_upgrade_201() {
  */
 function pronamic_pay_upgrade_200() {
 	// Check if there is not already an upgrade running
-	if ( get_transient( 'pronamic_pay_upgrade_200' ) )
+	if ( get_transient( 'pronamic_pay_upgrade_200' ) ) {
 		return;
+	}
 
 	set_transient( 'pronamic_pay_upgrade_200', true, 3600 ); // 60 minutes
 
@@ -127,15 +128,15 @@ function pronamic_pay_upgrade_200() {
 		foreach ( $configs as $config ) {
 			$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
-			if ( isset( $pronamic_pay_gateways[$config->variant_id] ) ) {
-				$title = @$pronamic_pay_gateways[$config->variant_id]['name'];
+			if ( isset( $pronamic_pay_gateways[ $config->variant_id ] ) ) {
+				$title = @$pronamic_pay_gateways[ $config->variant_id ]['name'];
 			}
 
 			// Post
 			$post = array(
 				'post_title'    => $title,
 				'post_type'     => 'pronamic_gateway',
-				'post_status'   => 'publish'
+				'post_status'   => 'publish',
 			);
 
 			$post_id = wp_insert_post( $post );
@@ -249,7 +250,7 @@ function pronamic_pay_upgrade_200() {
 	$config_ids = $wpdb->get_results( $query );
 
 	foreach ( $config_ids as $config_id ) {
-		$config_ids_map[$config_id->id] = $config_id->post_id;
+		$config_ids_map[ $config_id->id ] = $config_id->post_id;
 	}
 
 	//////////////////////////////////////////////////
@@ -297,7 +298,7 @@ function pronamic_pay_upgrade_200() {
 			$post = array(
 				'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
 				'post_type'     => 'pronamic_pay_gf',
-				'post_status'   => 'publish'
+				'post_status'   => 'publish',
 			);
 
 			$post_id = wp_insert_post( $post );
@@ -312,7 +313,7 @@ function pronamic_pay_upgrade_200() {
 				$feed_meta = json_decode( $feed->meta, true );
 
 				$meta['form_id']                  = $feed->form_id;
-				$meta['config_id']                = @$config_ids_map[$feed->configuration_id];
+				$meta['config_id']                = @$config_ids_map[ $feed->configuration_id ];
 				$meta['is_active']                = $feed->is_active;
 				$meta['transaction_description']  = @$feed_meta['transactionDescription'];
 				$meta['delay_notification_ids']   = @$feed_meta['delayNotificationIds'];
@@ -410,7 +411,7 @@ function pronamic_pay_upgrade_200() {
 				'post_date'     => get_date_from_gmt( $payment->date_gmt ),
 				'post_date_gmt' => $payment->date_gmt,
 				'post_type'     => 'pronamic_payment',
-				'post_status'   => 'publish'
+				'post_status'   => 'publish',
 			);
 
 			$post_id = wp_insert_post( $post );
@@ -420,7 +421,7 @@ function pronamic_pay_upgrade_200() {
 
 				// Meta
 				$meta = array(
-					'config_id'               => @$config_ids_map[$payment->configuration_id],
+					'config_id'               => @$config_ids_map[ $payment->configuration_id ],
 					'purchase_id'             => $payment->purchase_id,
 					'transaction_id'          => $payment->transaction_id,
 					'currency'                => $payment->currency,
@@ -472,14 +473,14 @@ function pronamic_pay_upgrade_200() {
 		'pronamic_ideal_s2member_chosen_configuration'   => 'pronamic_pay_ideal_s2member_config_id',
 		// WP e-Commerce
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/1.3.4/classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php#L35
-		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id'
+		'pronamic_ideal_wpsc_configuration_id'           => 'pronamic_pay_ideal_wpsc_config_id',
 	);
 
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
 
 		if ( ! empty ( $value ) ) {
-			$value_new = @$config_ids_map[$value];
+			$value_new = @$config_ids_map[ $value ];
 
 			update_option( $key_new, $value_new );
 		}
@@ -505,12 +506,12 @@ function pronamic_pay_upgrade_200() {
 			if ( is_array( $settings ) && isset( $settings['pronamic_shopp_ideal_configuration'] ) ) {
 				$value = $settings['pronamic_shopp_ideal_configuration'];
 
-				$settings['config_id'] = @$config_ids_map[$value];
+				$settings['config_id'] = @$config_ids_map[ $value ];
 
 				$wpdb->update(
 					$shopp_meta_table,
 					array( 'value' => serialize( $settings ) ),
-					array( 'id'    => $row->id )
+					array( 'id' => $row->id )
 				);
 			}
 		}
@@ -523,7 +524,7 @@ function pronamic_pay_upgrade_200() {
 	if ( is_array( $settings ) && isset( $settings['configuration_id'] ) ) {
 		$value = $settings['configuration_id'];
 
-		$settings['config_id'] = @$config_ids_map[$value];
+		$settings['config_id'] = @$config_ids_map[ $value ];
 
 		unset( $settings['configuration_id'] );
 

@@ -678,7 +678,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 								$attributes['name'] = $field['meta_key'];
 
 								$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
-							} elseif( isset( $field['value'] ) ) {
+							} elseif ( isset( $field['value'] ) ) {
 								$value = $field['value'];
 							}
 
