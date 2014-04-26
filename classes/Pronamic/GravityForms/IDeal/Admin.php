@@ -112,7 +112,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 					'view' => 'entry',
 					'id'   => $lead['form_id'],
 					'lid'  => $lead_id,
-				),  admin_url('admin.php') );
+				), admin_url( 'admin.php' ) );
 
 				wp_redirect( $url, 303 );
 

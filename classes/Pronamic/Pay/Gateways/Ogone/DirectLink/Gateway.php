@@ -54,16 +54,14 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
 			->set_customer_name( $data->getCustomerName() )
-			->set_email_address( $data->get_email() )
-		;
+			->set_email_address( $data->get_email() );
 
 		// DirectLink
 		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
 
 		$ogone_data_directlink
 			->set_user_id( $this->client->user_id )
-			->set_password( $this->client->password )
-		;
+			->set_password( $this->client->password );
 
 		// Credit card
 		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
@@ -73,8 +71,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 		$ogone_data_credit_card
 			->set_number( $credit_card->get_number() )
 			->set_expiration_date( $credit_card->get_expiration_date() )
-			->set_security_code( $credit_card->get_security_code() )
-		;
+			->set_security_code( $credit_card->get_security_code() );
 
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
 
@@ -86,8 +83,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 				->set_3d_secure_flag( true )
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
 				->set_http_user_agent( filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) )
-				->set_window( 'MAINW' )
-			;
+				->set_window( 'MAINW' );
 
 			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
