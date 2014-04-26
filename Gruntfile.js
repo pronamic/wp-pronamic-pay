@@ -91,6 +91,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-shell' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'checkwpversion', 'makepot' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'checkwpversion' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
+	grunt.registerTask( 'pot', [ 'makepot' ] );
 };
