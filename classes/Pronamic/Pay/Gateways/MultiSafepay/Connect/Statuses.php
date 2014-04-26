@@ -2,7 +2,7 @@
 
 /**
  * Title: MultiSafepay statuses constants
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,55 +11,55 @@
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_Statuses {
 	/**
 	 * Completed successfully
-	 * 
+	 *
 	 * @var string
 	 */
 	const COMPLETED = 'completed';
 
 	/**
 	 * Created, but uncompleted
-	 * 
+	 *
 	 * @var string
 	 */
 	const INITIALIZED = 'initialized';
 
 	/**
 	 * Created, but not yet exempted (credit cards)
-	 * 
+	 *
 	 * @var string
 	 */
 	const UNCLEARED = 'uncleared';
 
 	/**
 	 * Cancelled
-	 * 
+	 *
 	 * @var string
 	 */
 	const VOID = 'void';
 
 	/**
 	 * Rejected
-	 * 
+	 *
 	 * @var string
 	 */
 	const DECLINED = 'declined';
 
 	/**
 	 * Refunded
-	 * 
+	 *
 	 * @var string
 	 */
 	const REFUNDED = 'refunded';
 
 	/**
 	 * Expired
-	 * 
+	 *
 	 * @var string
 	 */
 	const EXPIRED = 'expired';
 
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Transform an MultiSafepay state to an more global status
 	 *

@@ -2,7 +2,7 @@
 
 /**
  * Title: Transaction
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,35 +11,35 @@
 class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	/**
 	 * Transaction ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $id;
 
 	/**
 	 * Create date
-	 * 
+	 *
 	 * @var unknown_type
 	 */
 	private $create_date;
 
 	/**
 	 * Purchase ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $purchase_id;
 
 	/**
 	 * Amount
-	 * 
+	 *
 	 * @var string
 	 */
 	private $amount;
 
 	/**
 	 * Currency
-	 * 
+	 *
 	 * @var string
 	 */
 	private $currency;
@@ -52,21 +52,21 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * period of 1 hour. PT3M30S indicates a period of 3 and a half
 	 * minutes. Maximum allowed is PT1H; minimum allowed is
 	 * PT1M.
-	 * 
+	 *
 	 * @var string
 	 */
 	private $expirationPeriod;
 
 	/**
 	 * Language
-	 * 
+	 *
 	 * @var string
 	 */
 	private $language;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
@@ -74,7 +74,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	/**
 	 * Mandatory code to identify the customer when he/she is
 	 * redirected back to the merchantReturnURL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $entranceCode;
@@ -83,7 +83,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * The status of this transaction
-	 * 
+	 *
 	 * @var string
 	 */
 	private $status;
@@ -92,21 +92,21 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * The consumer name
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumer_name;
 
 	/**
 	 * Consumer IBAN
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumer_iban;
 
 	/**
 	 * Consumer IBAN
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumer_bic;
@@ -117,14 +117,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	 * Constructs and initializes an transaction
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the ID of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_id() {
@@ -133,7 +133,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the ID of this transaction
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function set_id( $id ) {
@@ -144,9 +144,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the purchase ID of this transaction
-	 * 
+	 *
 	 * the purchase number according to the online shop’s system
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_purchase_id() {
@@ -155,9 +155,9 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the purchase id of this transaction
-	 * 
+	 *
 	 * the purchase number according to the online shop’s system
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function set_purchase_id( $id ) {
@@ -168,7 +168,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the amount of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_amount() {
@@ -177,7 +177,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the amount of this transaction
-	 * 
+	 *
 	 * @param string $amount
 	 */
 	public function set_amount( $amount ) {
@@ -188,7 +188,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the currency of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_currency() {
@@ -197,7 +197,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the currency of this transaction
-	 * 
+	 *
 	 * @param string $amount
 	 */
 	public function set_currency( $currency ) {
@@ -208,7 +208,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the expiration period of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_expiration_period() {
@@ -217,7 +217,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the expiration period of this transaction
-	 * 
+	 *
 	 * @param string $expiration_period
 	 */
 	public function set_expiration_period( $expiration_period ) {
@@ -228,7 +228,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the language of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_language() {
@@ -237,7 +237,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the language of this transaction
-	 * 
+	 *
 	 * @param string $language
 	 */
 	public function set_language( $language ) {
@@ -248,7 +248,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the description of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_description() {
@@ -258,7 +258,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	/**
 	 * Set the description of this transaction
 	 * AN..max32 (AN = Alphanumerical, free text)
-	 * 
+	 *
 	 * @param string $description
 	 */
 	public function set_description( $description ) {
@@ -269,11 +269,11 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the entrance code of this transaction
-	 * 
-	 * a code determined by the online shop with which the purchase can be 
-	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 *
+	 * a code determined by the online shop with which the purchase can be
+	 * authenticated upon redirection to the online shop (see section 4.2.2
 	 * for details).
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_entrance_code() {
@@ -283,11 +283,11 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 	/**
 	 * Set the entrancode
 	 * ANS..max40 (ANS = Strictly alphanumerical (letters and numbers only))
-	 * 
-	 * a code determined by the online shop with which the purchase can be 
-	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 *
+	 * a code determined by the online shop with which the purchase can be
+	 * authenticated upon redirection to the online shop (see section 4.2.2
 	 * for details).
-	 * 
+	 *
 	 * @param string $entrance_code
 	 */
 	public function set_entrance_code( $entrance_code ) {
@@ -298,7 +298,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the status of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_status() {
@@ -307,7 +307,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the status
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public function set_status( $status ) {
@@ -318,7 +318,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the consumer name
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_consumer_name() {
@@ -327,7 +327,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the consumer name
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public function set_consumer_name( $name ) {
@@ -338,7 +338,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the consumer IBAN number
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_consumer_iban() {
@@ -347,7 +347,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the consumer IBAN number
-	 * 
+	 *
 	 * @param string $iban
 	 */
 	public function set_consumer_iban( $iban ) {
@@ -358,7 +358,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Get the consumer IBAN number
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_consumer_bic() {
@@ -367,7 +367,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Transaction {
 
 	/**
 	 * Set the consumer BIC number
-	 * 
+	 *
 	 * @param string $bic
 	 */
 	public function set_consumer_bic( $bic ) {

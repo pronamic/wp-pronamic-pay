@@ -93,14 +93,14 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$inputs = array(
 			INPUT_GET  => $_GET,
-			INPUT_POST => $_POST
+			INPUT_POST => $_POST,
 		);
 
 		foreach ( $inputs as $input => $data ) {
 			$data = $this->client->verifyRequest( $data );
 
 			if ( $data !== false ) {
-				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[Pronamic_Pay_Gateways_Ogone_Parameters::STATUS] );
+				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
 			}

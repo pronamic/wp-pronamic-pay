@@ -61,7 +61,7 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 			'author'            => 'Pronamic',
 			'author_url'        => 'http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/',
 			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
-			// @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.16/core-addons/load.php#L42 
+			// @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.16/core-addons/load.php#L42
 			'wizard-icon'       => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
 			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
 			'category'          => 'transaction-methods',
@@ -263,10 +263,10 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 		if ( $gateway ) {
 
 			$payment_form .= '<form action="' . it_exchange_get_page_url( 'transaction' ) . '" method="post">';
-			$payment_form .=     '<input type="hidden" name="it-exchange-transaction-method" value="' . self::$slug . '" />';
-			$payment_form .=     $gateway->get_input_html();
-			$payment_form .=     wp_nonce_field( 'pronamic-ideal-checkout', '_pronamic_ideal_nonce', true, false );
-			$payment_form .=     '<input type="submit" name="pronamic_ideal_process_payment" value="' . self::get_gateway_button_title() . '" />';
+			$payment_form .= '<input type="hidden" name="it-exchange-transaction-method" value="' . self::$slug . '" />';
+			$payment_form .= $gateway->get_input_html();
+			$payment_form .= wp_nonce_field( 'pronamic-ideal-checkout', '_pronamic_ideal_nonce', true, false );
+			$payment_form .= '<input type="submit" name="pronamic_ideal_process_payment" value="' . self::get_gateway_button_title() . '" />';
 			$payment_form .= '</form>';
 		}
 

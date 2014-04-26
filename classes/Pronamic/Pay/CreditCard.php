@@ -2,7 +2,7 @@
 
 /**
  * Title: Credit card class
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,35 +11,35 @@
 class Pronamic_Pay_CreditCard {
 	/**
 	 * Credit card number
-	 * 
+	 *
 	 * @var string
 	 */
 	private $number;
 
 	/**
 	 * Credit card expiration month
-	 * 
+	 *
 	 * @var string
 	 */
 	private $expiration_month;
 
 	/**
 	 * Credit card expiration year
-	 * 
+	 *
 	 * @var string
 	 */
 	private $expiration_year;
 
 	/**
 	 * Credit card security code
-	 * 
+	 *
 	 * @var string
 	 */
 	private $security_code;
 
 	/**
 	 * Credit card holder name
-	 * 
+	 *
 	 * @var string
 	 */
 	private $name;
@@ -50,14 +50,14 @@ class Pronamic_Pay_CreditCard {
 	 * Constructs and initializes an credit card object
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get credit card number
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_number() {
@@ -66,7 +66,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Set credit card number
-	 * 
+	 *
 	 * @param string $number
 	 */
 	public function set_number( $number ) {
@@ -77,7 +77,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Get expiration month
-	 * 
+	 *
 	 * @return int
 	 */
 	public function get_expiration_month() {
@@ -86,7 +86,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Set expiration month
-	 * 
+	 *
 	 * @param int $month
 	 */
 	public function set_expiration_month( $month ) {
@@ -94,10 +94,10 @@ class Pronamic_Pay_CreditCard {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get expiration year
-	 * 
+	 *
 	 * @return int
 	 */
 	public function get_expiration_year() {
@@ -106,7 +106,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Set expiration year
-	 * 
+	 *
 	 * @param int $year
 	 */
 	public function set_expiration_year( $year ) {
@@ -117,7 +117,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Get expiration date
-	 * 
+	 *
 	 * @return DateTime
 	 */
 	public function get_expiration_date() {
@@ -128,7 +128,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Get security code
-	 * 
+	 *
 	 * @return int
 	 */
 	public function get_security_code() {
@@ -137,7 +137,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Set security code
-	 * 
+	 *
 	 * @param int $security_code
 	 */
 	public function set_security_code( $security_code ) {
@@ -148,7 +148,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Get credit card holder name
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_name() {
@@ -157,7 +157,7 @@ class Pronamic_Pay_CreditCard {
 
 	/**
 	 * Set credit card holder name
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function set_name( $name ) {

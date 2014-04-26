@@ -39,7 +39,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		global $post;
 		global $pronamic_pay_gateways;
 
-		switch( $column ) {
+		switch ( $column ) {
 			case 'pronamic_gateway_variant':
 				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
@@ -192,29 +192,31 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 */
 	public function save_post( $post_id ) {
 		// Check if our nonce is set.
-		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) )
+		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return $post_id;
+		}
 
 		$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
 
 		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_gateway' ) )
+		if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_gateway' ) ) {
 			return $post_id;
+		}
 
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
+		}
 
 		// Check the user's permissions.
 		if ( 'page' == $_POST['post_type'] ) {
-
-			if ( ! current_user_can( 'edit_page', $post_id ) )
+			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
-
+			}
 		} else {
-
-			if ( ! current_user_can( 'edit_post', $post_id ) )
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
 				return $post_id;
+			}
 		}
 
 		/* OK, its safe for us to save the data now. */
@@ -277,7 +279,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_organization'               => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_organization_unit'          => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_common_name'                => FILTER_SANITIZE_STRING,
-			'_pronamic_gateway_email'                      => FILTER_SANITIZE_STRING
+			'_pronamic_gateway_email'                      => FILTER_SANITIZE_STRING,
 		);
 
 		$data = filter_input_array( INPUT_POST, $definition );
@@ -285,14 +287,14 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		// Files
 		$files = array(
 			'_pronamic_gateway_ideal_private_key_file'         => '_pronamic_gateway_ideal_private_key',
-			'_pronamic_gateway_ideal_private_certificate_file' => '_pronamic_gateway_ideal_private_certificate'
+			'_pronamic_gateway_ideal_private_certificate_file' => '_pronamic_gateway_ideal_private_certificate',
 		);
 
 		foreach ( $files as $name => $meta_key ) {
 			if ( isset( $_FILES[ $name ] ) && $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
 				$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
 
-				$data[$meta_key] = $value;
+				$data[ $meta_key ] = $value;
 			}
 		}
 

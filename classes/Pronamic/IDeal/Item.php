@@ -10,29 +10,29 @@
  */
 class Pronamic_IDeal_Item {
 	/**
-	 * The number 
-	 * 
+	 * The number
+	 *
 	 * @var string
 	 */
 	private $number;
 
 	/**
 	 * The description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
 
 	/**
 	 * The quantity
-	 * 
+	 *
 	 * @var int
 	 */
 	private $quantity;
 
 	/**
 	 * The price
-	 * 
+	 *
 	 * @var float
 	 */
 	private $price;
@@ -53,7 +53,7 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Get the number / identifier of this item
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getNumber() {
@@ -62,10 +62,10 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Set the number / identifier of this item
-	 * 
+	 *
 	 * @param string $number
 	 */
-	public function setNumber($number) {
+	public function setNumber( $number ) {
 		$this->number = $number;
 	}
 
@@ -73,7 +73,7 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Get the description of this item
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_description() {
@@ -83,18 +83,18 @@ class Pronamic_IDeal_Item {
 	/**
 	 * Set the description of this item
 	 * AN..max32 (AN = Alphanumeric, free text)
-	 * 
+	 *
 	 * @param string $description
 	 */
-	public function setDescription($description) {
-		$this->description = substr($description, 0, 32);
+	public function setDescription( $description ) {
+		$this->description = substr( $description, 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the quantity of this item
-	 * 
+	 *
 	 * @return int
 	 */
 	public function getQuantity() {
@@ -103,10 +103,10 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Set the quantity of this item
-	 * 
+	 *
 	 * @param int $quantity
 	 */
-	public function setQuantity($quantity) {
+	public function setQuantity( $quantity ) {
 		$this->quantity = $quantity;
 	}
 
@@ -114,7 +114,7 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Get the price of this item
-	 * 
+	 *
 	 * @return float
 	 */
 	public function getPrice() {
@@ -123,10 +123,10 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Set the price of this item
-	 * 
+	 *
 	 * @param float $price
 	 */
-	public function setPrice($price) {
+	public function setPrice( $price ) {
 		$this->price = $price;
 	}
 
@@ -134,7 +134,7 @@ class Pronamic_IDeal_Item {
 
 	/**
 	 * Get the amount
-	 * 
+	 *
 	 * @return float
 	 */
 	public function get_amount() {

@@ -2,7 +2,7 @@
 
 /**
  * Title: Adyen gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,8 +11,8 @@
  */
 class Pronamic_Gateways_Adyen_Adyen {
 	/**
-	 * The payment server URL 
-	 * 
+	 * The payment server URL
+	 *
 	 * @var string
 	 */
 	private $payment_server_url;
@@ -23,11 +23,11 @@ class Pronamic_Gateways_Adyen_Adyen {
 	 * Constructs and initialize a iDEAL kassa object
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the payment server URL
 	 *
@@ -36,7 +36,7 @@ class Pronamic_Gateways_Adyen_Adyen {
 	public function get_payment_server_url() {
 		return $this->payment_server_url;
 	}
-	
+
 	/**
 	 * Set the payment server URL
 	 *
@@ -178,21 +178,21 @@ class Pronamic_Gateways_Adyen_Adyen {
 			$this->get_merchant_account(),
 			Pronamic_WP_Util::format_date( DATE_ATOM, $this->get_session_validity() ),
 			$this->get_shopper_email(),
-			$this->get_shopper_reference()
+			$this->get_shopper_reference(),
 		);
-		
+
 		$data = implode( '', $data );
 
 		$signature = base64_encode( hash_hmac( 'sha1', $data, $this->get_shared_secret(), true ) );
-		
+
 		return $signature;
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get HTML fields
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_html_fields() {

@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress payment input data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,11 +11,11 @@
 class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Input type
-	 * 
+	 *
 	 * @var int
 	 */
 	private $type;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -43,7 +43,7 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -63,14 +63,14 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function get_items() {
 		// Items
 		$items = new Pronamic_IDeal_Items();
-		
+
 		$amount = filter_input( $this->type, 'amount', FILTER_VALIDATE_FLOAT );
 
 		// Item
@@ -91,7 +91,7 @@ class Pronamic_WP_Pay_PaymentInputData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get currency alphabetic code
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */

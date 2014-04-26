@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL directory request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryRequestMessage extends Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'DirectoryReq';
@@ -29,7 +29,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryRequestMessage extends Pron
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvanced_XML_RequestMessage::getDocument()
 	 */
 	public function get_document() {

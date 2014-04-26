@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL Issuer Drop Down
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_GravityForms_IDeal_IssuerDropDown {
 	/**
 	 * Type
-	 * 
+	 *
 	 * @var string
 	 */
 	const TYPE = 'ideal_issuer_drop_down';
@@ -22,6 +22,6 @@ class Pronamic_GravityForms_IDeal_IssuerDropDown {
 	 * Render
 	 */
 	public static function render() {
-		
+
 	}
 }

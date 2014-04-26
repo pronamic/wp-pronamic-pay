@@ -2,7 +2,7 @@
 
 /**
  * Title: Merchant
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,42 +11,42 @@
 class Pronamic_Gateways_IDealAdvanced_Merchant {
 	/**
 	 * ID of the merchant
-	 * 
+	 *
 	 * @var string
 	 */
 	public $id;
 
 	/**
 	 * Sub ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $subId;
 
 	/**
 	 * Authentication
-	 * 
+	 *
 	 * @var string
 	 */
 	public $authentication;
 
 	/**
 	 * Token
-	 * 
+	 *
 	 * @var string
 	 */
 	public $token;
 
 	/**
 	 * Token code
-	 * 
+	 *
 	 * @var string
 	 */
 	public $tokenCode;
 
 	/**
 	 * Return URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $returnUrl;
@@ -57,10 +57,10 @@ class Pronamic_Gateways_IDealAdvanced_Merchant {
 	 * Constructs and initializes an issuer
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
-	
+
 }

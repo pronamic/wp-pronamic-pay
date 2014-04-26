@@ -2,7 +2,7 @@
 
 /**
  * Title: TargetPay gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'targetpay';	
-	
+	const SLUG = 'targetpay';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an TargetPay gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_TargetPay_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_TargetPay_Config $config ) {
@@ -33,28 +33,28 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_TargetPay_TargetPay();
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$groups = array();
 
 		$result = $this->client->get_issuers();
-		
+
 		if ( $result ) {
 			$groups[] = array(
-				'options' => $result
+				'options' => $result,
 			);
 		}
 
 		return $groups;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_issuer_field() {
@@ -67,12 +67,12 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			'choices'  => $this->get_transient_issuers()
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Start
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
@@ -92,12 +92,12 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 			$this->set_error( $this->client->get_error() );
 		}
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
@@ -110,15 +110,15 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $status ) {
 			$status_text = '';
-			
+
 			switch ( $status->code ) {
 				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
-					
+
 					$payment->set_consumer_name( $status->account_name );
 					$payment->set_consumer_account_number( $status->account_number );
 					$payment->set_consumer_city( $status->account_city );
-					
+
 					break;
 				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
@@ -151,7 +151,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 
 					break;
 			}
-			
+
 			$payment->set_status( $status_text );
 		}
 	}

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL Sisow error
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,81 +11,81 @@
 class Pronamic_Gateways_Sisow_Transaction {
 	/**
 	 * Transaction ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $id;
 
 	/**
 	 * The status of the transaction
-	 * 
+	 *
 	 * @var string
 	 */
 	public $status;
 
 	/**
 	 * The amount of the transaction
-	 * 
+	 *
 	 * @var float
 	 */
 	public $amount;
 
 	/**
 	 * Purchase ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $purchase_id;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	public $description;
 
 	/**
 	 * Entrance code
-	 * 
+	 *
 	 * @var string
 	 */
 	public $entrance_code;
 
 	/**
 	 * Issuer ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $issuer_id;
 
 	/**
 	 * Timestamp
-	 * 
+	 *
 	 * @var DateTime
 	 */
 	public $timestamp;
-	
+
 	/////////////////////////////////////////////////
 	// Consumer
 	/////////////////////////////////////////////////
 
 	/**
 	 * Consumer name
-	 * 
+	 *
 	 * @var string
 	 */
 	public $consumer_name;
 
 	/**
 	 * Consumer account
-	 * 
+	 *
 	 * @var string
 	 */
 	public $consumer_account;
 
 	/**
 	 * Consumer city
-	 * 
+	 *
 	 * @var string
 	 */
 	public $consumer_city;
@@ -93,14 +93,14 @@ class Pronamic_Gateways_Sisow_Transaction {
 	/////////////////////////////////////////////////
 	// Other
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Issuer URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $issuer_url;
-	
+
 	/////////////////////////////////////////////////
 
 	/**
@@ -109,16 +109,16 @@ class Pronamic_Gateways_Sisow_Transaction {
 	public function __construct() {
 
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	// @todo getters and setters
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create an string representation of this object
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

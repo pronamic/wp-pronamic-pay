@@ -99,7 +99,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
-			'body'      => $parameters
+			'body'      => $parameters,
 		) );
 	}
 
@@ -115,7 +115,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 
 		$name = $document->getName();
 
-		switch( $name ) {
+		switch ( $name ) {
 			case 'errorresponse':
 				$sisow_error = Pronamic_Gateways_Sisow_XML_ErrorParser::parse( $document->error );
 
@@ -164,7 +164,7 @@ class Pronamic_Gateways_Sisow_Sisow {
 					$id   = (string) $issuer->issuerid;
 					$name = (string) $issuer->issuername;
 
-					$directory[$id] = $name;
+					$directory[ $id ] = $name;
 				}
 			}
 		}

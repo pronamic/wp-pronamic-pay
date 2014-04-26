@@ -45,7 +45,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 
 	/**
 	 * Pass phrase IN
-	 * 
+	 *
 	 * @var string
 	 */
 	public $passPhraseIn;
@@ -86,7 +86,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $url an URL
 	 */
-	public function setPaymentServerUrl($url) {
+	public function setPaymentServerUrl( $url ) {
 		$this->paymentServerUrl = $url;
 	}
 
@@ -126,7 +126,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $passPhraseIn
 	 */
-	public function setPassPhraseIn($passPhraseIn) {
+	public function setPassPhraseIn( $passPhraseIn ) {
 		$this->passPhraseIn = $passPhraseIn;
 	}
 
@@ -146,7 +146,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 	 *
 	 * @param string $passPhraseOut
 	 */
-	public function setPassPhraseOut($passPhraseOut) {
+	public function setPassPhraseOut( $passPhraseOut ) {
 		$this->passPhraseOut = $passPhraseOut;
 	}
 
@@ -172,7 +172,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 		$value = null;
 
 		if ( isset( $this->fields[ $name ] ) ) {
-			$value = $this->fields [$name ];
+			$value = $this->fields[ $name ];
 		}
 
 		return $value;
@@ -637,7 +637,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 					'PAYID'      => FILTER_VALIDATE_INT,
 					'NCERROR'    => FILTER_SANITIZE_STRING,
 					'BRAND'      => FILTER_SANITIZE_STRING,
-					'SHASIGN'    => FILTER_SANITIZE_STRING
+					'SHASIGN'    => FILTER_SANITIZE_STRING,
 				) );
 			}
 		}

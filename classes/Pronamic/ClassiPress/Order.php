@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: Order
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,10 +11,10 @@
 class Pronamic_ClassiPress_Order {
 	/**
 	 * Check if the order info is about an advertisement
-	 * 
+	 *
 	 * @param array $order
 	 * @return boolean
-	 */	
+	 */
 	public static function is_advertisement( array $order ) {
 		return isset( $order['ad_id'] ) && ! empty( $order['ad_id'] );
 	}
@@ -35,7 +35,7 @@ class Pronamic_ClassiPress_Order {
 
 	/**
 	 * Check if the order is completed
-	 * 
+	 *
 	 * @param array $order
 	 * @return boolean
 	 */

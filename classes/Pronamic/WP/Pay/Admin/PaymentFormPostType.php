@@ -118,13 +118,10 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 
 		// Check the user's permissions.
 		if ( 'page' == $_POST['post_type'] ) {
-
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
-
 		} else {
-
 			if ( ! current_user_can( 'edit_post', $post_id ) ) {
 				return $post_id;
 			}

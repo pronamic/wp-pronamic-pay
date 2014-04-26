@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL statuses constants
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -15,28 +15,28 @@ class Pronamic_Pay_Gateways_IDeal_Statuses {
 	 * @var string
 	 */
 	const SUCCESS = 'Success';
-	
+
 	/**
 	 * Status indicator for cancelled
 	 *
 	 * @var string
 	 */
 	const CANCELLED = 'Cancelled';
-	
+
 	/**
 	 * Status indicator for expired
 	 *
 	 * @var string
 	 */
 	const EXPIRED = 'Expired';
-	
+
 	/**
 	 * Status indicator for failure
 	 *
 	 * @var string
 	 */
 	const FAILURE = 'Failure';
-	
+
 	/**
 	 * Status indicator for open
 	 *

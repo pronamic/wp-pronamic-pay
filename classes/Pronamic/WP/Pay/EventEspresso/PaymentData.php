@@ -2,7 +2,7 @@
 
 /**
  * Title: Event Espresso payment data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Data
-	 * 
+	 *
 	 * @var array
 	 */
 	private $data;
@@ -20,7 +20,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Constructs and initializes an Event Espresso iDEAL data proxy
-	 * 
+	 *
 	 * @param array $data
 	 */
 	public function __construct( $data ) {
@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -48,7 +48,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -58,7 +58,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -68,7 +68,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -95,7 +95,7 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get currency
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -137,8 +137,8 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 		return add_query_arg(
 			array(
 				'attendee_id'     => $this->data['attendee_id'],
-				'registration_id' => $this->data['registration_id'], 
-				'event_id'        => $this->data['event_id']
+				'registration_id' => $this->data['registration_id'],
+				'event_id'        => $this->data['event_id'],
 			),
 			get_permalink( $org_options['notify_url'] )
 		);
@@ -150,8 +150,8 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 		return add_query_arg(
 			array(
 				'attendee_id'     => $this->data['attendee_id'],
-				'registration_id' => $this->data['registration_id'], 
-				'event_id'        => $this->data['event_id']
+				'registration_id' => $this->data['registration_id'],
+				'event_id'        => $this->data['event_id'],
 			),
 			get_permalink( $org_options['return_url'] )
 		);
@@ -168,15 +168,15 @@ class Pronamic_WP_Pay_EventEspresso_PaymentData extends Pronamic_WP_Pay_PaymentD
 	public function get_normal_return_url() {
 		return $this->get_return_url();
 	}
-	
+
 	public function get_cancel_url() {
 		return $this->get_cancel_return();
 	}
-	
+
 	public function get_success_url() {
 		return $this->get_return_url();
 	}
-	
+
 	public function get_error_url() {
 		return $this->get_return_url();
 	}

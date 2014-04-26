@@ -15,7 +15,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_MultiSafepay {
 	 * @var string
 	 */
 	const API_TEST_URL = 'https://testapi.multisafepay.com/ewx/';
-	
+
 	/**
 	 * MultiSafepay production API endpoint URL
 	 *

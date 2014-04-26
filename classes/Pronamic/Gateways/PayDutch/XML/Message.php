@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_Gateways_PayDutch_XML_Message {
 	/**
 	 * The XML version of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_VERSION = '1.0';
 
 	/**
 	 * The XML encoding of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_ENCODING = 'UTF-8';
@@ -27,7 +27,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 
 	/**
 	 * The name of this message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $name;
@@ -45,7 +45,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 
 	/**
 	 * Get the name of this message
-	 * 
+	 *
 	 * return string
 	 */
 	public function get_name() {
@@ -56,7 +56,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 
 	/**
 	 * Get the DOM document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	public static function new_dom_document() {
@@ -65,7 +65,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 		// Settings
 		$document->preserveWhiteSpace = false;
 		$document->formatOutput = true;
-		
+
 		return $document;
 	}
 
@@ -73,7 +73,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 
 	/**
 	 * Create and add an element with the specified name and value to the specified parent
-	 * 
+	 *
 	 * @param DOMDocument $document
 	 * @param DOMNode $parent
 	 * @param string $name
@@ -81,7 +81,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 	 */
 	public static function add_element( DOMDocument $document, DOMNode $parent, $name, $value = null ) {
 		$element = $document->createElement( $name );
-		
+
 		if ( $value !== null ) {
 			$element->appendChild( new DOMText( $value ) );
 		}
@@ -93,7 +93,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 
 	/**
 	 * Add the specified elements to the parent node
-	 * 
+	 *
 	 * @param DOMDocument $document
 	 * @param DOMNode $parent
 	 * @param array $elements
@@ -105,7 +105,7 @@ class Pronamic_Gateways_PayDutch_XML_Message {
 			if ( $value !== null ) {
 				$element->appendChild( new DOMText( $value ) );
 			}
-			
+
 			$parent->appendChild( $element );
 		}
 	}

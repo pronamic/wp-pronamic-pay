@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress pay WPMU DEV Membership payment data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2014
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Subscription
-	 * 
+	 *
 	 * @var Membership_Model_Subscription
 	 */
 	public $subscription;
 
 	/**
 	 * Membership
-	 * 
+	 *
 	 * @var Membership_Model_Member
 	 */
 	public $membership;
@@ -27,8 +27,8 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 
 	/**
 	 * Constructs and initialize payment data object
-	 * 
-	 * @param mixed $subscription 
+	 *
+	 * @param mixed $subscription
 	 *      Membership         v3.4.4.1 = M_Subscription
 	 *      Membership Premium v3.5.1.2 = Membership_Model_Subscription
 	 *      @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Subscription.php#L21
@@ -50,7 +50,7 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 
 	/**
 	 * Get subscription ID
-	 * 
+	 *
 	 * @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Model/Subscription.php#L57
 	 * @return string
 	 */
@@ -78,7 +78,7 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 
 		// Coupon
 		$coupon = membership_get_current_coupon();
-		
+
 		if ( ! empty( $pricing_array ) && ! empty( $coupon ) ) {
 			$pricing_array = $coupon->apply_coupon_pricing( $pricing_array );
 		}
@@ -103,8 +103,9 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 	public function get_currency_alphabetic_code() {
 		global $M_options;
 
-		if ( empty( $M_options['paymentcurrency'] ) )
+		if ( empty( $M_options['paymentcurrency'] ) ) {
 			$M_options['paymentcurrency'] = 'EUR';
+		}
 
 		return $M_options['paymentcurrency'];
 	}

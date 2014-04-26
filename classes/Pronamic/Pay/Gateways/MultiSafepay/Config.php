@@ -10,7 +10,7 @@
  */
 class Pronamic_Pay_Gateways_MultiSafepay_Config extends Pronamic_Pay_Config {
 	public $account_id;
-	
+
 	public $site_id;
 
 	public $site_code;

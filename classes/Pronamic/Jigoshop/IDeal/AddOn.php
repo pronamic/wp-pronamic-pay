@@ -37,7 +37,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 	public static function init() {
 		if ( Pronamic_Jigoshop_Jigoshop::is_active() ) {
 			$slug = self::SLUG;
-			
+
 			add_action( "pronamic_payment_status_update_$slug", array( __CLASS__, 'update_status' ), 10, 2 );
 			add_filter( "pronamic_payment_source_text_$slug",   array( __CLASS__, 'source_text' ), 10, 2 );
 		}
@@ -71,7 +71,7 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			$order->status,
 			array(
 				Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_COMPLETED,
-				Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_PROCESSING
+				Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_PROCESSING,
 			)
 		);
 
@@ -79,38 +79,38 @@ class Pronamic_Jigoshop_IDeal_AddOn {
 			$url = $data->get_normal_return_url();
 
 			switch ( $payment->status ) {
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED :
 					$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_CANCELLED, __( 'iDEAL payment cancelled.', 'pronamic_ideal' ) );
 
 					$url = $data->get_cancel_url();
 
 					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED :
 					// Jigoshop PayPal gateway uses 'on-hold' order status for an 'expired' payment
 					// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L430
 					$order->update_status( Pronamic_Jigoshop_Jigoshop::ORDER_STATUS_ON_HOLD, __( 'iDEAL payment expired.', 'pronamic_ideal' ) );
 
 					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE :
 					// Jigoshop PayPal gateway uses 'on-hold' order status for an 'failure' in the payment
 					// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.2.1/gateways/paypal.php#L431
 					$order->update_status( 'failed', __( 'iDEAL payment failed.', 'pronamic_ideal' ) );
 
 					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
-	            	// Payment completed
-	                $order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
-	                $order->payment_complete();
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS :
+					// Payment completed
+					$order->add_order_note( __( 'iDEAL payment completed.', 'pronamic_ideal' ) );
+					$order->payment_complete();
 
-	                $url = $data->get_success_url();
+					$url = $data->get_success_url();
 
 					break;
-				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
-	                $order->add_order_note( __( 'iDEAL payment open.', 'pronamic_ideal' ) );
+				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN :
+					$order->add_order_note( __( 'iDEAL payment open.', 'pronamic_ideal' ) );
 
 					break;
 				default:
-	                $order->add_order_note( __( 'iDEAL payment unknown.', 'pronamic_ideal' ) );
+					$order->add_order_note( __( 'iDEAL payment unknown.', 'pronamic_ideal' ) );
 
 					break;
 			}

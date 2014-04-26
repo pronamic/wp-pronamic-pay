@@ -31,13 +31,13 @@ class Pronamic_Pay_Gateways_Ogone_DataGeneralHelper {
 
 	/**
 	 * Set PSP ID
-	 * 
+	 *
 	 * @param int $number
 	 * @return Pronamic_Pay_Gateways_Ogone_DataGeneralHelper
 	 */
 	public function set_psp_id( $number ) {
 		$this->data->set_field( 'PSPID', $number );
-		
+
 		return $this;
 	}
 
@@ -45,25 +45,25 @@ class Pronamic_Pay_Gateways_Ogone_DataGeneralHelper {
 
 	/**
 	 * Set order ID
-	 * 
+	 *
 	 * @param string $order_id
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_order_id( $order_id ) {
 		$this->data->set_field( 'ORDERID', $order_id );
-		
+
 		return $this;
 	}
 
 	/**
 	 * Set order description
-	 * 
+	 *
 	 * @param string $description
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_order_description( $description ) {
 		$this->data->set_field( 'COM', $description );
-		
+
 		return $this;
 	}
 
@@ -71,25 +71,25 @@ class Pronamic_Pay_Gateways_Ogone_DataGeneralHelper {
 
 	/**
 	 * Set amount
-	 * 
+	 *
 	 * @param float $amount
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_amount( $amount ) {
 		$this->data->set_field( 'AMOUNT', Pronamic_WP_Util::amount_to_cents( $amount ) );
-		
+
 		return $this;
 	}
 
 	/**
 	 * Set currency
-	 * 
+	 *
 	 * @param string $currency
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_currency( $currency ) {
 		$this->data->set_field( 'CURRENCY', $currency );
-		
+
 		return $this;
 	}
 
@@ -97,25 +97,25 @@ class Pronamic_Pay_Gateways_Ogone_DataGeneralHelper {
 
 	/**
 	 * Set customer name
-	 * 
+	 *
 	 * @param string $name
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_customer_name( $name ) {
 		$this->data->set_field( 'CN', $name );
-		
+
 		return $this;
 	}
 
 	/**
 	 * Set email address
-	 * 
+	 *
 	 * @param string $email
 	 * @return Pronamic_Pay_Gateways_Ogone_DataDefaultHelper
 	 */
 	public function set_email_address( $email ) {
 		$this->data->set_field( 'EMAIL', $email );
-		
+
 		return $this;
 	}
 }

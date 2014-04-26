@@ -2,7 +2,7 @@
 
 /**
  * Title: Issuer XML parser
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvancedV3_XML_IssuerParser implements Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
 	/**
 	 * Parse
-	 * 
+	 *
 	 * @param SimpleXMLElement $xml
 	 * @param Pronamic_Gateways_IDealAdvanced_Issuer $issuer
 	 */
@@ -27,7 +27,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_IssuerParser implements Pronamic_Gat
 		if ( $xml->issuerName ) {
 			$issuer->set_name( Pronamic_XML_Util::filter( $xml->issuerName ) );
 		}
-		
+
 		if ( $xml->issuerAuthenticationURL ) {
 			$issuer->set_authentication_url( Pronamic_XML_Util::filter( $xml->issuerAuthenticationURL ) );
 		}

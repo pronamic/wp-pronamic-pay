@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL transaction request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'AcquirerTrxReq';
@@ -20,14 +20,14 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 
 	/**
 	 * Issuer
-	 * 
+	 *
 	 * @var Pronamic_Gateways_IDealAdvancedV3_Issuer
 	 */
 	public $issuer;
 
 	/**
 	 * Transaction
-	 * 
+	 *
 	 * @var Pronamic_Gateways_IDealAdvancedV3_Transaction
 	 */
 	public $transaction;
@@ -45,12 +45,12 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage::get_document()
 	 */
 	public function get_document() {
 		$document = parent::get_document();
-		
+
 		// Root
 		$root = $document->documentElement;
 
@@ -81,7 +81,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_TransactionRequestMessage extends Pr
 			'expirationPeriod' => $transaction->get_expiration_period(),
 			'language'         => $transaction->get_language(),
 			'description'      => $transaction->get_description(),
-			'entranceCode'     => $transaction->get_entrance_code() 
+			'entranceCode'     => $transaction->get_entrance_code()
 		) );
 
 		// Return

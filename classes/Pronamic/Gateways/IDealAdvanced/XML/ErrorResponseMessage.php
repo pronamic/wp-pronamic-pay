@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL error response XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'ErrorRes';
@@ -20,7 +20,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 
 	/**
 	 * The error within this response message
-	 * 
+	 *
 	 * @var Error
 	 */
 	public $error;
@@ -38,7 +38,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 
 	/**
 	 * Get the error object
-	 * 
+	 *
 	 * @return Pronamic_Gateways_IDealAdvanced_Error
 	 */
 	public function get_error() {
@@ -47,7 +47,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 
 	/**
 	 * Set the error object
-	 * 
+	 *
 	 * @param Pronamic_Gateways_IDealAdvanced_Error $error
 	 */
 	public function set_error( Pronamic_Gateways_IDealAdvanced_Error $error ) {
@@ -58,7 +58,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_ErrorResponseMessage extends Pronamic_
 
 	/**
 	 * Parse the specified XML into an directory response message object
-	 * 
+	 *
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {

@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone DirectLink
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
@@ -20,7 +20,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	/**
 	 * API URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $api_url;
@@ -38,7 +38,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	/**
 	 * Get error
-	 * 
+	 *
 	 * @return WP_Error
 	 */
 	public function get_error() {
@@ -62,13 +62,13 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	private function reuqest( $message ) {
 		$return = false;
-		
+
 		$result = Pronamic_WP_Util::remote_get_body( $this->api_url, 200, array(
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => (string) $message,
 		) );
-		
+
 		if ( is_wp_error( $result ) ) {
 			$this->error = $result;
 		} else {
@@ -80,7 +80,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 				$return = $this->parse_xml( $xml );
 			}
 		}
-		
+
 		return $return;
 	}
 
@@ -88,7 +88,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	/**
 	 * Start transaction
-	 * 
+	 *
 	 * @param array $data
 	 */
 	public function start_transaction( $message ) {
@@ -98,7 +98,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 		if ( $response ) {
 			$transaction = $response->transaction;
-				
+
 			$return = $transaction;
 		}
 
@@ -109,7 +109,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 
 	/**
 	 * Get status
-	 * 
+	 *
 	 * @param array $data
 	 */
 	public function get_status( $message ) {

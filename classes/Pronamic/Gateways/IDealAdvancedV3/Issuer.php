@@ -2,7 +2,7 @@
 
 /**
  * Title: Issuer
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,21 +11,21 @@
 class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 	/**
 	 * ID of the issuer
-	 * 
+	 *
 	 * @var string
 	 */
 	private $id;
 
 	/**
 	 * Name of the issuer
-	 * 
+	 *
 	 * @var string
 	 */
 	private $name;
 
 	/**
 	 * Authentication URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $authentication_url;
@@ -36,14 +36,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 	 * Constructs and initializes an issuer
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the ID of this issuer
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_id() {
@@ -52,7 +52,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 
 	/**
 	 * Set the ID of this issuer
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function set_id( $id ) {
@@ -63,7 +63,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 
 	/**
 	 * Get the name of this issuer
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_name() {
@@ -72,7 +72,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 
 	/**
 	 * Set the name of this issuer
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function set_name( $name ) {
@@ -83,7 +83,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 
 	/**
 	 * Get the name of this issuer
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_authentication_url() {
@@ -92,7 +92,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Issuer {
 
 	/**
 	 * Set the name of this issuer
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function set_authentication_url( $authentication_url ) {

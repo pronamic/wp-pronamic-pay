@@ -2,7 +2,7 @@
 
 /**
  * Title: TargetPay gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,112 +11,112 @@
 class Pronamic_Gateways_TargetPay_TargetPay {
 	/**
 	 * URL for issuers in Dutch language
-	 * 
+	 *
 	 * @var string
 	 */
 	const URL_ISSUERS_NL = 'https://www.targetpay.com/ideal/issuers-nl.js';
 
 	/**
 	 * URL for issuers in English language
-	 * 
+	 *
 	 * @var string
 	 */
 	const URL_ISSUERS_EN = 'https://www.targetpay.com/ideal/issuers-en.js';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * URL for retrieving issuers in HTL format
-	 * 
+	 *
 	 * @var string
 	 */
 	const URL_ISSUERS_HTML = 'https://www.targetpay.com/ideal/getissuers.php?format=html';
-	
+
 	/**
 	 * URL for retrieving issuers in XML format
 	 *
 	 * @var string
 	 */
 	const URL_ISSUERS_XML = 'https://www.targetpay.com/ideal/getissuers.php?format=xml';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * URL to start an transaction
-	 * 
+	 *
 	 * @var string
 	 */
 	const URL_START_TRANSACTION = 'https://www.targetpay.com/ideal/start';
 
 	/**
 	 * URL to check an transaction
-	 * 
+	 *
 	 * @var string
 	 */
 	const URL_CHECK_TRANSACTION = 'https://www.targetpay.com/ideal/check';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Token used by TargetPay to separate some values
-	 * 
+	 *
 	 * @var string
 	 */
 	const TOKEN = ' |';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Status indicator for 'Ok'
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_OK = '000000';
 
 	/**
 	 * Status indicator for 'No layout code'
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_NO_LAYOUT_CODE = 'TP0001';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an TargetPay client object
 	 */
 	public function __construct() {
-		
+
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_error() {
 		return $this->error;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	private function remote_get( $url ) {
 		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
-			'sslverify' => false
+			'sslverify' => false,
 		) );
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Start transaction
-	 * 
+	 *
 	 * @param string $rtlo
 	 * @param string $bank
 	 * @param string $description
@@ -140,7 +140,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		);
 
 		$data = self::remote_get( $url );
-		
+
 		if ( $data !== false ) {
 			$status = strtok( $data, self::TOKEN );
 
@@ -162,12 +162,12 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 			}
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Parse an TargetPay status string to an object
-	 * 
+	 *
 	 * @param string $string an TargetPay status string
 	 * @return stdClass
 	 */
@@ -176,7 +176,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		$position_space = strpos( $string, ' ' );
 		$position_pipe  = strpos( $string, '|' );
-		
+
 		if ( $position_space !== false ) {
 			/*
 			 * @see https://www.targetpay.com/info/ideal-docu
@@ -225,12 +225,12 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		return $status;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Check status
-	 * 
+	 *
 	 * @param string $rtlo
 	 * @param string $transaction_id
 	 * @param string $once
@@ -257,12 +257,12 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		return $result;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_issuers() {
@@ -271,10 +271,10 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 		$url = self::URL_ISSUERS_XML;
 
 		$data = self::remote_get( $url );
-		
-		if ( $data !== false ) {	
+
+		if ( $data !== false ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $data );
-				
+
 			if ( is_wp_error( $xml ) ) {
 				$this->error = $xml;
 			} else {
@@ -283,8 +283,8 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 				foreach ( $xml->issuer as $xml_issuer ) {
 					$id   = Pronamic_XML_Util::filter( $xml_issuer['id'] );
 					$name = Pronamic_XML_Util::filter( $xml_issuer );
-	
-					$issuers[$id] = $name;
+
+					$issuers[ $id ] = $name;
 				}
 			}
 		}

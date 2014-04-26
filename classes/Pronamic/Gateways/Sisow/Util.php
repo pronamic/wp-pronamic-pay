@@ -11,7 +11,7 @@
 class Pronamic_Gateways_Sisow_Util {
 	/**
 	 * Holds the unallowed character pattern
-	 * 
+	 *
 	 * @var string
 	 */
 	private static $pattern;
@@ -20,12 +20,12 @@ class Pronamic_Gateways_Sisow_Util {
 
 	/**
 	 * Get unallowed character pattern
-	 * 
+	 *
 	 * Karakterset
 	 * @see http://pronamic.nl/wp-content/uploads/2013/02/sisow-rest-api-v3.2.1.pdf
-	 * 
+	 *
 	 * Hieronder de tabel toegestane karakters.
-	 * 
+	 *
 	 * Karakter(s)  Omschrijving
 	 * A-Z          Hoofdletters
 	 * a-z          Kleine letters
@@ -74,12 +74,12 @@ class Pronamic_Gateways_Sisow_Util {
 				')',
 				'$',
 			);
-			
+
 			// We use a # as a regex delimiter instead of a / so we don't have to escape the slash
 			// @see http://stackoverflow.com/q/12239424
 			self::$pattern = '#[^' . implode( $characters ) . ']#';
 		}
-		
+
 		return self::$pattern;
 	}
 
@@ -87,7 +87,7 @@ class Pronamic_Gateways_Sisow_Util {
 
 	/**
 	 * Filter all Sisow unallowed charachters
-	 * 
+	 *
 	 * @param string $string
 	 * @return mixed
 	 */

@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: AppThemes iDEAL Add-On
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_AppThemes_IDeal_AddOn {
 	/**
 	 * Slug
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'appthemes';
@@ -51,10 +51,10 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Update lead status of the specified payment
-	 * 
+	 *
 	 * @param string $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
@@ -76,13 +76,13 @@ class Pronamic_AppThemes_IDeal_AddOn {
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
 					$order->failed();
-					
+
 					$url = $data->get_error_url();
 
 					break;
 				case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
 					$order->failed();
-					
+
 					$url = $data->get_error_url();
 
 					break;
@@ -101,7 +101,7 @@ class Pronamic_AppThemes_IDeal_AddOn {
 
 					break;
 			}
-			
+
 			if ( $can_redirect ) {
 				wp_redirect( $url, 303 );
 
@@ -111,7 +111,7 @@ class Pronamic_AppThemes_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Source column
 	 */
@@ -120,7 +120,7 @@ class Pronamic_AppThemes_IDeal_AddOn {
 
 		$text .= __( 'AppThemes', 'pronamic_ideal' ) . '<br />';
 
-		$text .= sprintf( '<a href="%s">%s</a>', 
+		$text .= sprintf( '<a href="%s">%s</a>',
 			get_edit_post_link( $payment->get_source_id() ),
 			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);

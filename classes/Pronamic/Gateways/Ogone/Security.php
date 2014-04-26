@@ -11,14 +11,14 @@
 class Pronamic_Gateways_Ogone_Security {
 	/**
 	 * The Ogone calculations parameters in
-	 * 
+	 *
 	 * @var array
 	 */
 	private static $calculations_parameters_in;
 
 	/**
 	 * The Ogone calucations parameters out
-	 * 
+	 *
 	 * @var array
 	 */
 	private static $calculations_parameters_out;
@@ -37,7 +37,7 @@ class Pronamic_Gateways_Ogone_Security {
 				self::$calculations_parameters_in = file( $file, FILE_IGNORE_NEW_LINES );
 			}
 		}
-		
+
 		return self::$calculations_parameters_in;
 	}
 
@@ -55,7 +55,7 @@ class Pronamic_Gateways_Ogone_Security {
 				self::$calculations_parameters_out = file( $file, FILE_IGNORE_NEW_LINES );
 			}
 		}
-		
+
 		return self::$calculations_parameters_out;
 	}
 }

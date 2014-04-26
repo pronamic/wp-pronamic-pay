@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: AppThemes iDEAL Gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -14,8 +14,8 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 	 */
 	public function __construct() {
 		parent::__construct( 'pronamic_ideal', array(
-			'dropdown'  =>  __( 'iDEAL', 'pronamic_ideal' ),
-			'admin'     =>  __( 'Pronamic iDEAL', 'pronamic_ideal' ),
+			'dropdown'  => __( 'iDEAL', 'pronamic_ideal' ),
+			'admin'     => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
 			'recurring' => false,
 		) );
 	}
@@ -34,7 +34,7 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 				'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
 			),
 		);
-		
+
 		$return_array = array(
 			'title'   => __( 'General Information', 'pronamic_ideal' ),
 			'fields'  => $form_values,
@@ -53,15 +53,15 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 			$config_id = $options['config_id'];
 
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-			
+
 			if ( $gateway ) {
 				$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
 
 				if ( filter_has_var( INPUT_POST, 'appthemes_pronamic_ideal' ) ) {
 					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
-					
+
 					$error = $gateway->get_error();
-					
+
 					if ( is_wp_error( $error ) ) {
 						foreach ( $error->get_error_messages() As $message ) {
 							echo $message;
@@ -73,15 +73,15 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 					?>
 					<form method="post" action="">
 						<?php echo $gateway->get_input_html(); ?>
-	
+
 						<p>
 							<?php
-	
+
 							printf(
 								'<input class="ideal-button" type="submit" name="appthemes_pronamic_ideal" value="%s" />',
 								__( 'Pay with iDEAL', 'pronamic_ideal' )
 							);
-						
+
 							?>
 						</p>
 					</form>

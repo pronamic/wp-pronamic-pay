@@ -2,7 +2,7 @@
 
 /**
  * Title: Directory
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_Gateways_IDealAdvanced_Directory {
 	/**
 	 * The date the issuer list was modified
-	 * 
+	 *
 	 * @var string
 	 */
 	private $date;
 
 	/**
 	 * The issuers in this directory
-	 * 
+	 *
 	 * @var array
 	 */
 	private $issuers;
@@ -36,7 +36,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 
 	/**
 	 * Set the specified date
-	 * 
+	 *
 	 * @param DateTime $date
 	 */
 	public function setDate( DateTime $date ) {
@@ -47,7 +47,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 
 	/**
 	 * Add the specified user to this directory
-	 * 
+	 *
 	 * @param Issuer $issuer
 	 */
 	public function addIssuer( Pronamic_Gateways_IDealAdvanced_Issuer $issuer ) {
@@ -56,7 +56,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 
 	/**
 	 * Get the issuers within this directory
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getIssuers() {
@@ -67,7 +67,7 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 
 	/**
 	 * Get the issuers lists within this directory
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getLists() {
@@ -77,13 +77,13 @@ class Pronamic_Gateways_IDealAdvanced_Directory {
 		foreach ( $issuers as $issuer ) {
 			$name = $issuer->getList();
 
-			if ( !isset( $lists[$name] ) ) {
-				$lists[$name] = array();
+			if ( ! isset( $lists[ $name ] ) ) {
+				$lists[ $name ] = array();
 			}
-			
-			$lists[$name][] = $issuer;
+
+			$lists[ $name ][] = $issuer;
 		}
-		
+
 		return $lists;
 	}
 }

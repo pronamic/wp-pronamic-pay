@@ -62,7 +62,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 			$module = new ModuleFile( $path, $file );
 			if ( $module->addon ) {
-				$Shopp->Gateways->modules[$module->subpackage] = $module;
+				$Shopp->Gateways->modules[ $module->subpackage ] = $module;
 			} else {
 				$Shopp->Gateways->legacy[] = md5_file( $path . $file );
 			}

@@ -2,15 +2,15 @@
 
 /**
  * Title: Transaction request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
 class Pronamic_Gateways_PayDutch_XML_TransactionRequestMessage extends Pronamic_Gateways_PayDutch_XML_RequestMessage {
-	const TYPE = 'transaction';	
-	
+	const TYPE = 'transaction';
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -18,7 +18,7 @@ class Pronamic_Gateways_PayDutch_XML_TransactionRequestMessage extends Pronamic_
 	 */
 	public function __construct( $transaction_request ) {
 		parent::__construct( self::TYPE );
-		
+
 		$this->transaction_request = $transaction_request;
 	}
 
@@ -26,7 +26,7 @@ class Pronamic_Gateways_PayDutch_XML_TransactionRequestMessage extends Pronamic_
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvanced_XML_RequestMessage::getDocument()
 	 */
 	public function get_document() {
@@ -44,7 +44,7 @@ class Pronamic_Gateways_PayDutch_XML_TransactionRequestMessage extends Pronamic_
 			'issuerid'    => $this->transaction_request->issuer_id,
 			'test'        => Pronamic_WP_Util::to_string_boolean( $this->transaction_request->test ),
 			'successurl'  => $this->transaction_request->success_url,
-			'failurl'     => $this->transaction_request->fail_url
+			'failurl'     => $this->transaction_request->fail_url,
 		) );
 
 		// Return

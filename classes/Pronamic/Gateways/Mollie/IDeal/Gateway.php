@@ -2,7 +2,7 @@
 
 /**
  * Title: Mollie
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'mollie_ideal';	
-	
+	const SLUG = 'mollie_ideal';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Mollie gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_Mollie_IDeal_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Mollie_IDeal_Config $config ) {
@@ -34,12 +34,12 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client = new Pronamic_Gateways_Mollie_IDeal_Mollie( $config->partner_id );
 		$this->client->set_test_mode( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
@@ -49,7 +49,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result ) {
 			$groups[] = array(
-				'options' => $result
+				'options' => $result,
 			);
 		} else {
 			$this->error = $this->client->get_error();
@@ -57,7 +57,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 
 		return $groups;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_issuer_field() {
@@ -70,12 +70,12 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 			'choices'  => $this->get_transient_issuers()
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start 
-	 * 
+	 * Start
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -87,11 +87,11 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ),
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
-		
+
 		if ( $result !== false ) {
 			$payment->set_transaction_id( $result->transaction_id );
 			$payment->set_action_url( $result->url );
-			
+
 		} else {
 			$this->error = $this->client->get_error();
 		}
@@ -101,7 +101,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {

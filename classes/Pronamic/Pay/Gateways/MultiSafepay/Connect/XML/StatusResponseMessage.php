@@ -2,7 +2,7 @@
 
 /**
  * Title: Transaction XML parser
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,13 +11,13 @@
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage {
 	/**
 	 * Parse the specified XML element into an iDEAL transaction object
-	 * 
+	 *
 	 * @param SimpleXMLElement $xml
 	 * @param Pronamic_Gateways_IDealAdvanced_Transaction $transaction
 	 */
 	public static function parse( SimpleXMLElement $xml ) {
 		$message = new Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage();
-		
+
 		$message->result = Pronamic_XML_Util::filter( $xml['result'] );
 
 		// E-wallet
@@ -29,7 +29,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage {
 			$ewallet->modified = Pronamic_XML_Util::filter( $xml->ewallet->modified );
 			$ewallet->reason_code = Pronamic_XML_Util::filter( $xml->ewallet->reasoncode );
 			$ewallet->reason = Pronamic_XML_Util::filter( $xml->ewallet->reason );
-			
+
 			$message->ewallet = $ewallet;
 		}
 
@@ -45,7 +45,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage {
 			$customer->city = Pronamic_XML_Util::filter( $xml->customer->city );
 			$customer->state = Pronamic_XML_Util::filter( $xml->customer->state );
 			$customer->country = Pronamic_XML_Util::filter( $xml->customer->country );
-			
+
 			$message->customer = $customer;
 		}
 
@@ -60,10 +60,10 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage {
 			$transaction->var2 = Pronamic_XML_Util::filter( $xml->transaction->var2 );
 			$transaction->var3 = Pronamic_XML_Util::filter( $xml->transaction->var3 );
 			$transaction->items = Pronamic_XML_Util::filter( $xml->transaction->items );
-			
+
 			$message->transaction = $transaction;
 		}
-		
+
 		// Payment details
 		if ( $xml->paymentdetails ) {
 			$payment_details = new stdClass();

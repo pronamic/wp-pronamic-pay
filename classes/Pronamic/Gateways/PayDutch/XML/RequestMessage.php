@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,12 +11,12 @@
 abstract class Pronamic_Gateways_PayDutch_XML_RequestMessage extends Pronamic_Gateways_PayDutch_XML_Message  {
 	/**
 	 * Constructs and initialize an request message
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function __construct( $type ) {
 		parent::__construct( 'request' );
-		
+
 		$this->type = $type;
 	}
 
@@ -24,22 +24,22 @@ abstract class Pronamic_Gateways_PayDutch_XML_RequestMessage extends Pronamic_Ga
 
 	/**
 	 * Get the DOM document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	protected function get_document() {
 		$document = Pronamic_Gateways_PayDutch_XML_Message::new_dom_document();
-		
+
 		// Root
 		$root = $document->createElement( $this->get_name() );
 
 		$document->appendChild( $root );
-		
+
 		// Type
 		$element = $document->createElement( 'type', $this->type );
 
 		$root->appendChild( $element );
-	
+
 		return $document;
 	}
 
@@ -47,7 +47,7 @@ abstract class Pronamic_Gateways_PayDutch_XML_RequestMessage extends Pronamic_Ga
 
 	/**
 	 * Create a string representation
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

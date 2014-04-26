@@ -130,9 +130,9 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 				transaction_results( $session_id );
 
-            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
+				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
-                $url = $data->get_success_url();
+				$url = $data->get_success_url();
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:

@@ -244,14 +244,14 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 			if ( is_wp_error( $error ) ) {
 				// @todo what todo?
-				var_dump( $error );
 
 				exit;
 			} else {
-		    	$gateway->redirect( $payment );
+				$gateway->redirect( $payment );
 			}
 		}
 	}
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -283,7 +283,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 
 		if ( $gateway ) {
 			$result .= '<div id="pronamic_ideal_inputs">';
-			$result .=     $gateway->get_input_html();
+			$result .= $gateway->get_input_html();
 			$result .= '</div>';
 
 			// Only show extra fields on this paymethod/gateway
@@ -321,7 +321,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 			'name'     => 'config_id',
 			'keyed'    => true,
 			'label'    => __( 'Select configuration', 'pronamic_ideal' ),
-			'selected' => $this->config_id
+			'selected' => $this->config_id,
 		), $options );
 	}
 }

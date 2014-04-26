@@ -31,19 +31,19 @@ class Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper {
 
 	/**
 	 * Set 3-D Secure flag
-	 * 
+	 *
 	 * @param string $http_accept
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
 	public function set_3d_secure_flag( $flag ) {
 		$this->data->set_field( 'FLAG3D', $flag ? 'Y' : 'N' );
-		
+
 		return $this;
 	}
 
 	/**
 	 * Set HTTP Accept
-	 * 
+	 *
 	 * @param string $http_accept
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
@@ -55,7 +55,7 @@ class Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper {
 
 	/**
 	 * Set HTTP User-Agent
-	 * 
+	 *
 	 * @param string $user_agent
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
@@ -67,7 +67,7 @@ class Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper {
 
 	/**
 	 * Set window
-	 * 
+	 *
 	 * @param string $window
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */
@@ -79,7 +79,7 @@ class Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper {
 
 	/**
 	 * Set language
-	 * 
+	 *
 	 * @param string $language
 	 * @return Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper
 	 */

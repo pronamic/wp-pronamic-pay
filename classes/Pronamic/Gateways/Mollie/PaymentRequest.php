@@ -22,7 +22,7 @@ class Pronamic_Gateways_Mollie_PaymentRequest {
 	/////////////////////////////////////////////////
 
 	public function __construct() {
-		
+
 	}
 
 	/////////////////////////////////////////////////
@@ -35,7 +35,7 @@ class Pronamic_Gateways_Mollie_PaymentRequest {
 			'redirectUrl' => $this->redirect_url,
 			'metadata'    => $this->meta_data,
 		);
-		
+
 		// Array filter will remove values NULL, FALSE and empty strings ('')
 		$array = array_filter( $array );
 

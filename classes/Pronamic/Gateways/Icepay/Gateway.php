@@ -2,7 +2,7 @@
 
 /**
  * Icepay Gateway Class
- * 
+ *
  * @copyright (c) 2013, Pronamic
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
@@ -10,7 +10,7 @@
 class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Holds the Icepay iDEAL object
-	 * 
+	 *
 	 * @access public
 	 * @var Icepay_Paymentmethod_Ideal()
 	 */
@@ -20,21 +20,21 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Constructs and intializes an Icepay gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_Icepay_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Icepay_Config $config ) {
 		parent::__construct( $config );
-		
+
 		// Default properties for this gateway
 		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( 'icepay' );
-		
+
 		if ( ! class_exists( 'Icepay_Paymentmethod_Ideal' ) ) {
 			require_once Pronamic_Wordpress_Ideal_Plugin::$dirname . '/includes/icepay/icepay_api_basic.php';
-			
+
 			// Get the IDeal Payment Method Class
 			require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/includes/icepay/paymentmethods/ideal.php';
 		}
@@ -43,36 +43,36 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$groups = array();
-		
+
 		$results = $this->client->getSupportedIssuers();
-		
+
 		$prepped_results = array();
 		foreach ( $results as $result ) {
-			$prepped_results[$result] = $result;
+			$prepped_results[ $result ] = $result;
 		}
-		
+
 		if ( $prepped_results ) {
 			$groups[] = array(
-				'options' => $prepped_results
+				'options' => $prepped_results,
 			);
 		}
-		
+
 		return $groups;
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get issuer field
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuer_field()
 	 */
 	public function get_issuer_field() {
@@ -90,7 +90,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Start an transaction
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
@@ -99,7 +99,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 			 * Order ID
 			 * Your unique order number.
 			 * This can be auto incremental number from your payments table
-			 * 
+			 *
 			 * Data type  = String
 			 * Max length = 10
 			 * Required   = Yes
@@ -123,7 +123,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				->setSecretCode( $this->config->secret_code )
 				->setProtocol( 'http' )
 				->validatePayment( $payment_object );
-			
+
 			$payment->set_action_url( $basicmode->getURL() );
 		} catch ( Exception $exception ) {
 			$this->error = new WP_Error( 'icepay_error', $exception->getMessage(), $exception );
@@ -131,10 +131,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Update the status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 * @throws Exception
 	 */
@@ -144,7 +144,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		$result
 			->setMerchantID( $this->config->merchant_id )
 			->setSecretCode( $this->config->secret_code );
-		
+
 		try {
 			// Determine if the result can be validated
 			if ( $result->validate() ) {
@@ -153,11 +153,11 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 					case Icepay_StatusCode::SUCCESS:
 						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS );
 
-						break;					
+						break;
 					case Icepay_StatusCode::OPEN:
 						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::OPEN );
 
-						break;					
+						break;
 					case Icepay_StatusCode::ERROR:
 						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE );
 

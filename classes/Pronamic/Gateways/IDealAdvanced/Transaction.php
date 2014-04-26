@@ -2,7 +2,7 @@
 
 /**
  * Title: Transaction
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,35 +11,35 @@
 class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Status indicator for success
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_SUCCESS = 'Success';
 
 	/**
 	 * Status indicator for cancelled
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_CANCELLED = 'Cancelled';
-	
+
 	/**
 	 * Status indicator for expired
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_EXPIRED = 'Expired';
-	
+
 	/**
 	 * Status indicator for failure
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_FAILURE = 'Failure';
-	
+
 	/**
 	 * Status indicator for open
-	 * 
+	 *
 	 * @var string
 	 */
 	const STATUS_OPEN = 'Open';
@@ -48,28 +48,28 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Transaction ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $id;
 
 	/**
 	 * Purchase ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $purchaseId;
 
 	/**
 	 * Amount
-	 * 
+	 *
 	 * @var string
 	 */
 	private $amount;
 
 	/**
 	 * Currency
-	 * 
+	 *
 	 * @var string
 	 */
 	private $currency;
@@ -82,21 +82,21 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * period of 1 hour. PT3M30S indicates a period of 3 and a half
 	 * minutes. Maximum allowed is PT1H; minimum allowed is
 	 * PT1M.
-	 * 
+	 *
 	 * @var string
 	 */
 	private $expirationPeriod;
 
 	/**
 	 * Language
-	 * 
+	 *
 	 * @var string
 	 */
 	private $language;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
@@ -104,7 +104,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Mandatory code to identify the customer when he/she is
 	 * redirected back to the merchantReturnURL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $entranceCode;
@@ -113,7 +113,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * The status of this transaction
-	 * 
+	 *
 	 * @var string
 	 */
 	private $status;
@@ -122,21 +122,21 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * The consumer name
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumerName;
 
 	/**
 	 * The consumer account number
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumerAccountNumber;
 
 	/**
 	 * The consumer city
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumerCity;
@@ -147,14 +147,14 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	 * Constructs and initializes an transaction
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the ID of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getId() {
@@ -163,7 +163,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the ID of this transaction
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function setId( $id ) {
@@ -174,9 +174,9 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the purchase ID of this transaction
-	 * 
+	 *
 	 * the purchase number according to the online shop’s system
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getPurchaseId() {
@@ -185,9 +185,9 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the purchase id of this transaction
-	 * 
+	 *
 	 * the purchase number according to the online shop’s system
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function setPurchaseId( $id ) {
@@ -198,7 +198,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the amount of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_amount() {
@@ -207,7 +207,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the amount of this transaction
-	 * 
+	 *
 	 * @param string $amount
 	 */
 	public function setAmount( $amount ) {
@@ -218,7 +218,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the currency of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getCurrency() {
@@ -227,7 +227,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the currency of this transaction
-	 * 
+	 *
 	 * @param string $amount
 	 */
 	public function setCurrency( $currency ) {
@@ -238,7 +238,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the expiration period of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getExpirationPeriod() {
@@ -247,7 +247,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the expiration period of this transaction
-	 * 
+	 *
 	 * @param string $expiration_period
 	 */
 	public function setExpirationPeriod( $expiration_period ) {
@@ -258,7 +258,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the language of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getLanguage() {
@@ -267,7 +267,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the language of this transaction
-	 * 
+	 *
 	 * @param string $language
 	 */
 	public function setLanguage( $language ) {
@@ -278,7 +278,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the description of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_description() {
@@ -288,22 +288,22 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Set the description of this transaction
 	 * AN..max32 (AN = Alphanumerical, free text)
-	 * 
+	 *
 	 * @param string $description
 	 */
-	public function setDescription($description) {
-		$this->description = substr($description, 0, 32);
+	public function setDescription( $description ) {
+		$this->description = substr( $description, 0, 32 );
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the entrance code of this transaction
-	 * 
-	 * a code determined by the online shop with which the purchase can be 
-	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 *
+	 * a code determined by the online shop with which the purchase can be
+	 * authenticated upon redirection to the online shop (see section 4.2.2
 	 * for details).
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getEntranceCode() {
@@ -313,11 +313,11 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 	/**
 	 * Set the entrancode
 	 * ANS..max40 (ANS = Strictly alphanumerical (letters and numbers only))
-	 * 
-	 * a code determined by the online shop with which the purchase can be 
-	 * authenticated upon redirection to the online shop (see section 4.2.2 
+	 *
+	 * a code determined by the online shop with which the purchase can be
+	 * authenticated upon redirection to the online shop (see section 4.2.2
 	 * for details).
-	 * 
+	 *
 	 * @param string $entrance_code
 	 */
 	public function setEntranceCode( $entrance_code ) {
@@ -328,7 +328,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the status of this transaction
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getStatus() {
@@ -337,7 +337,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the status
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public function setStatus( $status ) {
@@ -348,7 +348,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the consumer name
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getConsumerName() {
@@ -357,7 +357,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the consumer name
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public function setConsumerName( $name ) {
@@ -368,7 +368,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the consumer account number
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getConsumerAccountNumber() {
@@ -377,7 +377,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the consumer account number
-	 * 
+	 *
 	 * @param string $account_number
 	 */
 	public function setConsumerAccountNumber( $account_number ) {
@@ -388,7 +388,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Get the consumer city
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getConsumerCity() {
@@ -397,7 +397,7 @@ class Pronamic_Gateways_IDealAdvanced_Transaction {
 
 	/**
 	 * Set the consumer city
-	 * 
+	 *
 	 * @param string $status
 	 */
 	public function setConsumerCity( $city ) {

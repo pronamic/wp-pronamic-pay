@@ -147,7 +147,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 			$items->addItem( $item );
 
 			if ( isset( $product['options']) && is_array( $product['options'] ) ) {
-				foreach( $product['options'] as $option ) {
+				foreach ( $product['options'] as $option ) {
 					$description = $option['option_label'];
 					$price = GFCommon::to_number( $option['price'] );
 
@@ -312,7 +312,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 		$issuer_field = array_shift( $issuer_fields );
 
 		if ( $issuer_field != null ) {
-			$issuer_id =  RGFormsModel::get_field_value( $issuer_field );
+			$issuer_id = RGFormsModel::get_field_value( $issuer_field );
 		}
 
 		return $issuer_id;

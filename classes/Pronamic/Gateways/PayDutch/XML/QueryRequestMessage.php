@@ -2,15 +2,15 @@
 
 /**
  * Title: Query request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
 class Pronamic_Gateways_PayDutch_XML_QueryRequestMessage extends Pronamic_Gateways_PayDutch_XML_RequestMessage {
-	const TYPE = 'query';	
-	
+	const TYPE = 'query';
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -18,7 +18,7 @@ class Pronamic_Gateways_PayDutch_XML_QueryRequestMessage extends Pronamic_Gatewa
 	 */
 	public function __construct( $merchant ) {
 		parent::__construct( self::TYPE );
-		
+
 		$this->merchant = $merchant;
 	}
 
@@ -26,7 +26,7 @@ class Pronamic_Gateways_PayDutch_XML_QueryRequestMessage extends Pronamic_Gatewa
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvanced_XML_RequestMessage::getDocument()
 	 */
 	public function get_document() {

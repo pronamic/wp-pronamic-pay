@@ -2,7 +2,7 @@
 
 /**
  * Title: Error
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,35 +11,35 @@
 class Pronamic_Gateways_IDealAdvancedV3_Error {
 	/**
 	 * Code
-	 * 
+	 *
 	 * @var string
 	 */
 	private $code;
 
 	/**
 	 * Message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $message;
 
 	/**
 	 * Detail
-	 * 
+	 *
 	 * @var string
 	 */
 	private $detail;
-	
+
 	/**
 	 * Suggested action
-	 * 
+	 *
 	 * @var string
 	 */
 	private $suggested_action;
 
 	/**
 	 * Consumer message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $consumer_message;
@@ -50,14 +50,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 	 * Constructs and initializes an error
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the code of this error
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_code() {
@@ -66,7 +66,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Set the code error
-	 * 
+	 *
 	 * @param string $code
 	 */
 	public function set_code( $code ) {
@@ -77,7 +77,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Get the message of this error
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_message() {
@@ -86,7 +86,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Set the message error
-	 * 
+	 *
 	 * @param string $code
 	 */
 	public function set_message( $message ) {
@@ -97,7 +97,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Get the detail of this error
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_detail() {
@@ -106,7 +106,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Set the detail error
-	 * 
+	 *
 	 * @param string $detail
 	 */
 	public function set_detail( $detail ) {
@@ -117,7 +117,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Get the consumer message
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_suggested_action() {
@@ -126,7 +126,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Set the consumer message
-	 * 
+	 *
 	 * @param string $detail
 	 */
 	public function set_suggested_action( $suggested_action ) {
@@ -137,7 +137,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Get the consumer message
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_consumer_message() {
@@ -146,7 +146,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Error {
 
 	/**
 	 * Set the consumer message
-	 * 
+	 *
 	 * @param string $detail
 	 */
 	public function set_consumer_message( $consumer_message ) {

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL transaction request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pronamic_Gateways_IDealAdvanced_XML_RequestMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'AcquirerTrxReq';
@@ -35,7 +35,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 
 	public function getDocument() {
 		$document = parent::getDocument();
-		
+
 		// Root
 		$root = $document->documentElement;
 
@@ -76,22 +76,22 @@ class Pronamic_Gateways_IDealAdvanced_XML_TransactionRequestMessage extends Pron
 
 	/**
 	 * Get the sign values for this transaction request message
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getSignValues() {
 		return array(
-			$this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT ), 
+			$this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT ),
 			$this->issuer->getId(),
-			$this->getMerchant()->id, 
-			$this->getMerchant()->subId, 
-			$this->getMerchant()->returnUrl, 
+			$this->getMerchant()->id,
+			$this->getMerchant()->subId,
+			$this->getMerchant()->returnUrl,
 			$this->transaction->getPurchaseId(),
 			Pronamic_WP_Util::amount_to_cents( $this->transaction->get_amount() ),
 			$this->transaction->getCurrency(),
 			$this->transaction->getLanguage(),
 			$this->transaction->get_description(),
-			$this->transaction->getEntranceCode()
+			$this->transaction->getEntranceCode(),
 		);
 	}
 }

@@ -2,7 +2,7 @@
 
 /**
  * Title: Jigoshop iDEAL data proxy
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order
-	 * 
+	 *
 	 * @see plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php
 	 * @var jigoshop_order
 	 */
@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Construct and intializes an Jigoshop iDEAL data proxy
-	 * 
+	 *
 	 * @param jigoshop_order $order
 	 */
 	public function __construct( $order ) {
@@ -34,7 +34,7 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get source indicatir
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -46,7 +46,7 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -57,7 +57,7 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -68,7 +68,7 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -132,29 +132,29 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 	// URL's
 	//////////////////////////////////////////////////
-	
+
 	public function get_normal_return_url() {
 		return add_query_arg(
 			array(
 				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			) , 
+				'order' => $this->order->id,
+			) ,
 			// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/jigoshop.php#L442
 			get_permalink( jigoshop_get_page_id( 'view_order' ) )
 		);
 	}
-	
+
 	public function get_cancel_url() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/classes/jigoshop_order.class.php#L320
 		return $this->order->get_cancel_order_url();
 	}
-	
+
 	public function get_success_url() {
 		return add_query_arg(
 			array(
 				'key'   => $this->order->order_key,
-				'order' => $this->order->id
-			) , 
+				'order' => $this->order->id,
+			) ,
 			// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/jigoshop.php#L442
 			get_permalink( jigoshop_get_page_id( 'thanks' ) )
 		);

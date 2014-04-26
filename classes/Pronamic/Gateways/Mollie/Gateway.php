@@ -2,7 +2,7 @@
 
 /**
  * Title: Mollie
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'mollie';	
-	
+	const SLUG = 'mollie';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Mollie gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_Mollie_IDeal_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_Mollie_Config $config ) {
@@ -37,8 +37,8 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start 
-	 * 
+	 * Start
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -63,7 +63,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {

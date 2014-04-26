@@ -2,7 +2,7 @@
 
 /**
  * Title: Error XML parser
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -16,7 +16,7 @@ class Pronamic_Gateways_Sisow_XML_TransactionParser implements Pronamic_Gateways
 		if ( isset( $xml->trxid ) ) {
 			$transaction->id               = Pronamic_XML_Util::filter( $xml->trxid );
 		}
-		
+
 		if ( isset( $xml->issuerurl ) ) {
 			$transaction->issuer_url       = urldecode( Pronamic_XML_Util::filter( $xml->issuerurl ) );
 		}
@@ -37,11 +37,11 @@ class Pronamic_Gateways_Sisow_XML_TransactionParser implements Pronamic_Gateways
 		if ( isset( $xml->description ) ) {
 			$transaction->description      = Pronamic_XML_Util::filter( $xml->description );
 		}
-		
+
 		if ( isset( $xml->entrancecode ) ) {
 			$transaction->entrance_code    = Pronamic_XML_Util::filter( $xml->entrancecode );
 		}
-		
+
 		if ( isset( $xml->issuerid ) ) {
 			$transaction->issuer_id        = Pronamic_XML_Util::filter( $xml->issuerid );
 		}
@@ -53,11 +53,11 @@ class Pronamic_Gateways_Sisow_XML_TransactionParser implements Pronamic_Gateways
 		if ( isset( $xml->consumername ) ) {
 			$transaction->consumer_name    = Pronamic_XML_Util::filter( $xml->consumername );
 		}
-		
+
 		if ( isset( $xml->consumeraccount ) ) {
 			$transaction->consumer_account = Pronamic_XML_Util::filter( $xml->consumeraccount );
 		}
-		
+
 		if ( isset( $xml->consumercity ) ) {
 			$transaction->consumer_city    = Pronamic_XML_Util::filter( $xml->consumercity );
 		}

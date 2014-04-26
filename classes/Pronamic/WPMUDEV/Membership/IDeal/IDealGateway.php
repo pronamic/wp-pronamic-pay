@@ -11,7 +11,7 @@
 class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway {
 	/**
 	 * Gateway name/slug
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L10
 	 * @var string
 	 */
@@ -19,12 +19,12 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 
 	/**
 	 * Gateway title
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L11
 	 * @var string
 	 */
 	public $title = 'iDEAL';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -37,7 +37,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L97
 		if ( $this->is_active() ) {
 			add_action( 'init', array( $this, 'maybe_pay' ) );
-			
+
 			// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/includes/payment.form.php#L78
 			add_action( 'membership_purchase_button', array( $this, 'purchase_button' ), 1, 3 );
 
@@ -47,12 +47,12 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 			add_action( "pronamic_payment_status_update_$slug", array( $this, 'status_update' ), 10, 2 );
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Record transaction helper function
-	 * 
+	 *
 	 * @see https://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
 	 */
 	public function pronamic_record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note ) {
@@ -61,27 +61,27 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 		if ( method_exists( $this, 'record_transaction' ) ) {
 			$this->record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note );
 		}
-		
+
 		// Membership >= 3.5
 		// @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.2/classes/Membership/Gateway.php#L256
 		if ( method_exists( $this, '_record_transaction' ) ) {
 			$this->_record_transaction( $user_id, $sub_id, $amount, $currency, $timestamp, $paypal_ID, $status, $note );
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Purchase button
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/includes/payment.form.php#L78
-	 * 
+	 *
 	 * @param M_Subscription $subscription
 	 *     @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.subscription.php
-	 *     
+	 *
 	 * @param array $pricing
 	 *     @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.subscription.php#L110
-	 *     
+	 *
 	 *     array(
 	 *         array(
 	 *             'period' => '1',
@@ -90,7 +90,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 	 *             'unit'   => 'm'
 	 *         )
 	 *     )
-	 *     
+	 *
 	 * @param int $user_id WordPress user/member ID
 	 */
 	public function purchase_button( $subscription, $pricing, $user_id ) {
@@ -102,7 +102,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 			$config_id = get_option( Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID );
 
 			$data = new Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData( $subscription, $membership );
-	
+
 			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
 
 			if ( $gateway ) {
@@ -112,7 +112,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 
 					update_post_meta( $payment->get_id(), '_pronamic_payment_membership_user_id', $user_id );
 					update_post_meta( $payment->get_id(), '_pronamic_payment_membership_subscription_id', $data->get_subscription_id() );
-					
+
 					// Membership record transaction
 					// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
 					$this->pronamic_record_transaction(
@@ -129,36 +129,36 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 					// Redirect
 					$gateway->redirect( $payment );
 				} else {
-                    global $M_options;
+					global $M_options;
 
-                    // @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/membershipadmin.php#K2908
-                    if ( isset( $M_options['formtype'] ) && 'new' == strtolower( $M_options['formtype'] ) ) {
-                        $action = add_query_arg( array(
-                        	'action'       => 'buynow',
-                        	'subscription' => $data->get_subscription_id()
-                        ), admin_url( 'admin-ajax.php' ) );
-                    } else {
-                        $action = '#pronamic-pay-form';
-                    }
+					// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/membershipadmin.php#K2908
+					if ( isset( $M_options['formtype'] ) && 'new' == strtolower( $M_options['formtype'] ) ) {
+						$action = add_query_arg( array(
+							'action'       => 'buynow',
+							'subscription' => $data->get_subscription_id(),
+						), admin_url( 'admin-ajax.php' ) );
+					} else {
+						$action = '#pronamic-pay-form';
+					}
 
-                    printf(
-                        '<form id="pronamic-pay-form" method="post" action="%s">',
-                        $action
-                    );
-						
+					printf(
+						'<form id="pronamic-pay-form" method="post" action="%s">',
+						$action
+					);
+
 					printf(
 						'<img src="%s" alt="%s" />',
 						esc_attr( plugins_url( 'images/ideal-logo-pay-off-2-lines.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
 						esc_attr__( 'iDEAL - Online payment through your own bank', 'pronamic_ideal' )
 					);
-		
+
 					echo '<div style="margin-top: 1em;">';
-	
+
 					echo $gateway->get_input_html();
 
 					// Coupon
 					$coupon = membership_get_current_coupon();
-					
+
 					if ( $coupon ) {
 						printf(
 							'<input type="hidden" name="coupon_code" id="subscription_coupon_code" value="%s" />',
@@ -171,15 +171,15 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 						'<input type="submit" name="pronamic_pay_membership" value="%s" />',
 						esc_attr__( 'Pay', 'pronamic_ideal' )
 					);
-	
+
 					echo '</div>';
-		
+
 					printf( '</form>' );
 				}
 			}
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -192,7 +192,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 			ob_start();
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -209,21 +209,21 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 		// Membership record transaction
 		// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L176
 		$this->pronamic_record_transaction( $user_id, $sub_id, $amount, $currency, time(), $payment->get_id(), $status, $note );
-		
+
 		switch ( $status ) {
 			case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED:
-				
+
 				break;
 			case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED:
-				
+
 				break;
 			case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE:
-				
+
 				break;
 			case Pronamic_Pay_Gateways_IDeal_Statuses::OPEN:
 				// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.paypalexpress.php#L871
 				do_action( 'membership_payment_pending', $user_id, $sub_id, $amount, $currency, $payment->get_id() );
-				
+
 				break;
 			case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS:
 				$member = new M_Membership( $user_id );
@@ -234,17 +234,17 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 				// Added for affiliate system link
 				// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.paypalexpress.php#L790
 				do_action( 'membership_payment_processed', $user_id, $sub_id, $amount, $currency, $payment->get_id() );
-				
+
 				// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.paypalexpress.php#L901
 				do_action( 'membership_payment_subscr_signup', $user_id, $sub_id );
 
 				break;
 		}
 	}
-	
+
 	/**
 	 * Update
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function update() {

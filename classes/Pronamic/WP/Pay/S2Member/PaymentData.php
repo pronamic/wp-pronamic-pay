@@ -10,12 +10,12 @@
  */
 class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	public $data;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and intialize an s2Member payment data object
-	 * 
+	 *
 	 * @param array $data
 	 */
 	public function __construct( $data ) {
@@ -46,7 +46,7 @@ class Pronamic_WP_Pay_S2Member_PaymentData extends Pronamic_WP_Pay_PaymentData {
 		$search = array(
 			'{{order_id}}'
 		);
-		
+
 		$replace = array(
 			$this->get_order_id()
 		);

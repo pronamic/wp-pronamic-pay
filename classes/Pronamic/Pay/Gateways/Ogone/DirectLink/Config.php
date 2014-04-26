@@ -10,7 +10,7 @@
  */
 class Pronamic_Pay_Gateways_Ogone_DirectLink_Config extends Pronamic_Pay_Gateways_Ogone_Config {
 	public $user_id;
-	
+
 	public $password;
 
 	public $sha_in_pass_phrase;

@@ -51,7 +51,7 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result ) {
 			$groups[] = array(
-				'options' => $result
+				'options' => $result,
 			);
 		} else {
 			$this->error = $this->client->get_error();
@@ -110,15 +110,15 @@ class Pronamic_Gateways_Qantani_Gateway extends Pronamic_Gateways_Gateway {
 		$status         = filter_input( INPUT_GET, 'status', FILTER_SANITIZE_STRING );
 		$salt           = filter_input( INPUT_GET, 'salt', FILTER_SANITIZE_STRING );
 		$checksum       = filter_input( INPUT_GET, 'checksum', FILTER_SANITIZE_STRING );
-		
+
 		switch ( $status ) {
 			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_PAID:
 				$payment->set_status( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS );
-				
+
 				break;
 			case Pronamic_Gateways_Qantani_Qantani::PAYMENT_STATUS_CANCELLED:
 				$payment->set_status( Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED );
-				
+
 				break;
 		}
 	}

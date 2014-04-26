@@ -2,7 +2,7 @@
 
 /**
  * Title: Status message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -23,7 +23,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusRequestMessage extend
 	 */
 	public function __construct( $merchant, $transaction_id ) {
 		parent::__construct( self::NAME );
-		
+
 		$this->merchant       = $merchant;
 		$this->transaction_id = $transaction_id;
 	}
@@ -32,12 +32,12 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusRequestMessage extend
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage::get_document()
 	 */
 	public function get_document() {
 		$document = parent::get_document();
-		
+
 		// Root
 		$root = $document->documentElement;
 
