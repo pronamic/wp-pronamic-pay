@@ -202,6 +202,8 @@ Here is a list of known plugin conflicts:
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.
 *	Tweak - Easy Digital Downloads - Fixed an fatal error (public $payment_id).
 *	Tweak - WPMU DEV Membership - Use Pronamic capability for iDEAL settings page.
+*	Tweak - Moved everything from the 'WordPress' namespace to the 'WP' namespace.
+*	Tweak - Improved the private certifcate generate command.
 
 = 2.6.9 =
 *	Tweak - s2Member - Require email for not logged in users.
