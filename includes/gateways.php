@@ -292,7 +292,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
 		),
 		'live'     => array(
-			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3//',
+			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
 		),
 		'certificates' => array(
 			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',
