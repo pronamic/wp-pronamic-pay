@@ -196,6 +196,7 @@ Here is a list of known plugin conflicts:
 *	Qantani - Check Callback URL implementation.
 *	Mollie - Add unit tests for new API.
 
+
 == Changelog ==
 
 = 2.7.0 =
