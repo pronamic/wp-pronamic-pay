@@ -415,9 +415,9 @@ class Pronamic_WP_Pay_Plugin {
 
 		foreach ( $gateways as $gateway ) {
 			$options[ $gateway->ID ] = sprintf(
-					'%s (%s)',
-					get_the_title( $gateway->ID ),
-					get_post_meta( $gateway->ID, '_pronamic_gateway_mode', true )
+				'%s (%s)',
+				get_the_title( $gateway->ID ),
+				get_post_meta( $gateway->ID, '_pronamic_gateway_mode', true )
 			);
 		}
 
@@ -514,9 +514,9 @@ class Pronamic_WP_Pay_Plugin {
 		$payment = null;
 
 		$result = wp_insert_post( array(
-				'post_type'   => 'pronamic_payment',
-				'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
-				'post_status' => 'publish',
+			'post_type'   => 'pronamic_payment',
+			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
+			'post_status' => 'publish',
 		), true );
 
 		if ( is_wp_error( $result ) ) {
@@ -531,23 +531,23 @@ class Pronamic_WP_Pay_Plugin {
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-					$prefix . 'config_id'               => $config_id,
-					$prefix . 'purchase_id'             => $data->get_order_id(),
-					$prefix . 'currency'                => $data->get_currency(),
-					$prefix . 'amount'                  => $data->get_amount(),
-					$prefix . 'expiration_period'       => null,
-					$prefix . 'language'                => $data->get_language(),
-					$prefix . 'entrance_code'           => $data->get_entrance_code(),
-					$prefix . 'description'             => $data->get_description(),
-					$prefix . 'consumer_name'           => null,
-					$prefix . 'consumer_account_number' => null,
-					$prefix . 'consumer_iban'           => null,
-					$prefix . 'consumer_bic'            => null,
-					$prefix . 'consumer_city'           => null,
-					$prefix . 'status'                  => null,
-					$prefix . 'source'                  => $data->get_source(),
-					$prefix . 'source_id'               => $data->get_source_id(),
-					$prefix . 'email'                   => $data->get_email(),
+				$prefix . 'config_id'               => $config_id,
+				$prefix . 'purchase_id'             => $data->get_order_id(),
+				$prefix . 'currency'                => $data->get_currency(),
+				$prefix . 'amount'                  => $data->get_amount(),
+				$prefix . 'expiration_period'       => null,
+				$prefix . 'language'                => $data->get_language(),
+				$prefix . 'entrance_code'           => $data->get_entrance_code(),
+				$prefix . 'description'             => $data->get_description(),
+				$prefix . 'consumer_name'           => null,
+				$prefix . 'consumer_account_number' => null,
+				$prefix . 'consumer_iban'           => null,
+				$prefix . 'consumer_bic'            => null,
+				$prefix . 'consumer_city'           => null,
+				$prefix . 'status'                  => null,
+				$prefix . 'source'                  => $data->get_source(),
+				$prefix . 'source_id'               => $data->get_source_id(),
+				$prefix . 'email'                   => $data->get_email(),
 			);
 
 			foreach ( $meta as $key => $value ) {
