@@ -66,7 +66,8 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 	}
 
 	public function get_order_id() {
-		return $this->payment_id;
+		// @todo temporary solution
+		return $this->payment_post_id;
 	}
 
 	public function get_description() {

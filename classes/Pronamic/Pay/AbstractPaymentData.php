@@ -9,8 +9,6 @@
  * @since 1.4.0
  */
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
-	public $payment_id;
-
 	private $entrance_code;
 
 	//////////////////////////////////////////////////

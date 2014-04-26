@@ -169,7 +169,8 @@ class Pronamic_WordPress_IDeal_IDeal {
 		} else {
 			$post_id = $result;
 
-			$data->payment_id = $post_id;
+			// @todo temporary solution for WPMU DEV
+			$data->payment_post_id = $post_id;
 
 			// Meta
 			$prefix = '_pronamic_payment_';
