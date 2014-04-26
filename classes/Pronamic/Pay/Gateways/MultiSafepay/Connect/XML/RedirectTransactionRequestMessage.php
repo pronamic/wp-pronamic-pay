@@ -2,7 +2,7 @@
 
 /**
  * Title: MultiSafepay Connect redirect transaction XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionRequestMessage extends Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RequestMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'redirecttransaction';
@@ -23,7 +23,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionRequestM
 	 */
 	public function __construct( $merchant, $customer, $transaction ) {
 		parent::__construct( self::NAME );
-		
+
 		$this->merchant    = $merchant;
 		$this->customer    = $customer;
 		$this->transaction = $transaction;
@@ -33,12 +33,12 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionRequestM
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage::get_document()
 	 */
 	public function get_document() {
 		$document = parent::get_document();
-		
+
 		// Root
 		$root = $document->documentElement;
 
@@ -93,7 +93,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RedirectTransactionRequestM
 			'gateway'     => $transaction->gateway,
 			'daysactive'  => $transaction->days_active,
 		) );
-		
+
 		// Signature
 		$element = Pronamic_XML_Util::add_element( $document, $document->documentElement, 'signature', $this->signature );
 

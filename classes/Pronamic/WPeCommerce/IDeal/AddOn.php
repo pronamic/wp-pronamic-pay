@@ -2,7 +2,7 @@
 
 /**
  * Title: WP eCommerce IDeal Addon
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,20 +11,20 @@
 class Pronamic_WPeCommerce_IDeal_AddOn {
 	/**
 	 * Slug
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'wp-e-commerce';
 
 	/**
 	 * Option for config ID
-	 * 
+	 *
 	 * @var string
 	 */
 	const OPTION_CONFIG_ID = 'pronamic_pay_ideal_wpsc_config_id';
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Bootstrap
 	 */
@@ -42,10 +42,10 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Merchants modules
-	 * 
+	 *
 	 * @param array $gateways
 	 */
 	public static function merchants_modules( $gateways ) {
@@ -54,19 +54,19 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		$gateways[] = array(
 			'name'                   => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
 			'api_version'            => 2.0,
-			'image'                  => plugins_url( '/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+			'image'                  => plugins_url( '/images/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 			'class_name'             => 'Pronamic_WPeCommerce_IDeal_IDealMerchant',
 			'has_recurring_billing'  => false,
 			'wp_admin_cannot_cancel' => false,
 			'display_name'           => __( 'iDEAL', 'pronamic_ideal' ),
 			'requirements'           => array(
-				'php_version'   => 5.0, 
-				'extra_modules' => array()
+				'php_version'   => 5.0,
+				'extra_modules' => array(),
 			) ,
-			'form'                   => 'pronamic_ideal_wpsc_merchant_form', 
-			'submit_function'        => 'pronamic_ideal_wpsc_merchant_submit_function', 
+			'form'                   => 'pronamic_ideal_wpsc_merchant_form',
+			'submit_function'        => 'pronamic_ideal_wpsc_merchant_submit_function',
 			// this may be legacy, not yet decided
-			'internalname'           => 'wpsc_merchant_pronamic_ideal'
+			'internalname'           => 'wpsc_merchant_pronamic_ideal',
 		);
 
 		$gateway_checkout_form_fields['wpsc_merchant_pronamic_ideal'] = self::advanced_inputs();
@@ -76,7 +76,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 	/**
 	 * Advanced inputs
-	 * 
+	 *
 	 * @return string
 	 */
 	private static function advanced_inputs() {
@@ -84,20 +84,20 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$output = $gateway->get_input_html();
 		}
-	
+
 		return $output;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Update lead status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
@@ -111,7 +111,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 				// $merchant->set_transaction_details( $payment->transaction->getId(), Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_INCOMPLETE_SALE );
 
-                $url = $data->get_cancel_url();
+				$url = $data->get_cancel_url();
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
@@ -123,16 +123,16 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
 				/*
 				 * Transactions results
-				 * 
+				 *
 				 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-merchants/paypal-pro.merchant.php#L303
 				 */
 				$session_id = get_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', true );
-				
+
 				transaction_results( $session_id );
 
-            	$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
+				$merchant->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ACCEPTED_PAYMENT );
 
-                $url = $data->get_success_url();
+				$url = $data->get_success_url();
 
 				break;
 			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
@@ -142,7 +142,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 				break;
 		}
-		
+
 		if ( $can_redirect ) {
 			wp_redirect( $url, 303 );
 
@@ -151,7 +151,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Source column
 	 */
@@ -163,7 +163,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		$text .= sprintf(
 			'<a href="%s">%s</a>',
 			add_query_arg( array(
-				'page'           => 'wpsc-sales-logs', 
+				'page'           => 'wpsc-sales-logs',
 				'purchaselog_id' => $payment->get_source_id()
 			), admin_url( 'index.php' ) ),
 			sprintf( __( 'Purchase #%s', 'pronamic_ideal' ), $payment->get_source_id() )

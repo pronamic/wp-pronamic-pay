@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL status request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage extends Pronamic_Gateways_IDealAdvanced_XML_RequestMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'AcquirerStatusReq';
@@ -29,12 +29,12 @@ class Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage extends Pronamic_
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	public function getDocument() {
 		$document = parent::getDocument();
-		
+
 		// Root
 		$root = $document->documentElement;
 
@@ -63,17 +63,17 @@ class Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage extends Pronamic_
 
 	/**
 	 * Get the sign values for this status message
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getSignValues() {
 		$merchant = $this->getMerchant();
 
 		return array(
-			$this->getCreateDate()->format(Pronamic_IDeal_IDeal::DATE_FORMAT),
+			$this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT ),
 			$merchant->id,
-			$merchant->subId, 
-			$this->transaction->getId()
+			$merchant->subId,
+			$this->transaction->getId(),
 		);
 	}
 }

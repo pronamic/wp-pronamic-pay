@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone DirectLink gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'ogone-directlink';	
-	
+	const SLUG = 'ogone-directlink';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Ogone DirectLink gateway
-	 * 
+	 *
 	 * @param Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config
 	 */
 	public function __construct( Pronamic_Pay_Gateways_Ogone_DirectLink_Config $config ) {
@@ -43,7 +43,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$ogone_data = new Pronamic_Pay_Gateways_Ogone_Data();
-		
+
 		// Default
 		$ogone_data_general = new Pronamic_Pay_Gateways_Ogone_DataGeneralHelper( $ogone_data );
 
@@ -54,41 +54,37 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			->set_currency( $data->get_currency() )
 			->set_amount( $data->get_amount() )
 			->set_customer_name( $data->getCustomerName() )
-			->set_email_address( $data->get_email() )
-		;
+			->set_email_address( $data->get_email() );
 
 		// DirectLink
 		$ogone_data_directlink = new Pronamic_Pay_Gateways_Ogone_DirectLink_DataHelper( $ogone_data );
 
 		$ogone_data_directlink
 			->set_user_id( $this->client->user_id )
-			->set_password( $this->client->password )
-		;
+			->set_password( $this->client->password );
 
 		// Credit card
 		$ogone_data_credit_card = new Pronamic_Pay_Gateways_Ogone_DataCreditCardHelper( $ogone_data );
-		
+
 		$credit_card = $data->get_credit_card();
 
 		$ogone_data_credit_card
 			->set_number( $credit_card->get_number() )
 			->set_expiration_date( $credit_card->get_expiration_date() )
-			->set_security_code( $credit_card->get_security_code() )
-		;
-		
+			->set_security_code( $credit_card->get_security_code() );
+
 		$ogone_data->set_field( 'OPERATION', 'SAL' );
-		
+
 		// 3-D Secure
 		if ( $this->config->enabled_3d_secure ) {
 			$secure_data_helper = new Pronamic_Pay_Gateways_Ogone_3DSecure_DataHelper( $ogone_data );
-	
+
 			$secure_data_helper
 				->set_3d_secure_flag( true )
 				->set_http_accept( filter_input( INPUT_SERVER, 'HTTP_ACCEPT' ) )
 				->set_http_user_agent( filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ) )
-				->set_window( 'MAINW' )
-			;
-			
+				->set_window( 'MAINW' );
+
 			$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
 			$ogone_data->set_field( 'ACCEPTURL', $url );
@@ -101,13 +97,13 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 
 		// Signature
 		$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_in();
-		
+
 		$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $ogone_data->get_fields() );
 
 		$signature = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_in_pass_phrase, $this->config->hash_algorithm );
-		
+
 		$ogone_data->set_field( 'SHASIGN', $signature );
-		
+
 		// Order
 		$result = $this->client->order_direct( $ogone_data->get_fields() );
 
@@ -119,7 +115,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			$payment->set_transaction_id( $result->pay_id );
 			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
 			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
-			
+
 			if ( ! empty( $result->html_answer ) ) {
 				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
 				$payment->set_action_url( add_query_arg( 'payment_redirect', $payment->get_id(), home_url( '/' ) ) );
@@ -144,7 +140,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_Gateways_G
 			$data = array_change_key_case( $data, CASE_UPPER );
 
 			$calculation_fields = Pronamic_Gateways_Ogone_Security::get_calculations_parameters_out();
-			
+
 			$fields = Pronamic_Pay_Gateways_Ogone_Security::get_calculation_fields( $calculation_fields, $data );
 
 			$signature = $data['SHASIGN'];

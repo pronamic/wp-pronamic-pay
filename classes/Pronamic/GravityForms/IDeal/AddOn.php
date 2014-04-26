@@ -31,7 +31,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function bootstrap() {
 		// Initialize hook, Gravity Forms uses the default priority (10)
 		add_action( 'init', array( __CLASS__, 'init' ), 20 );
-		
+
 		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
 	}
 
@@ -63,7 +63,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 	/**
 	 * Pre submssion
-	 * 
+	 *
 	 * @param array $form
 	 */
 	public static function pre_submission( $form ) {
@@ -101,21 +101,21 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			// Add some new capabilities
 			$capabilities = array(
 				'read'               => true,
-				'gravityforms_ideal' => true
+				'gravityforms_ideal' => true,
 			);
 
 			$roles = array(
 				'pronamic_ideal_administrator' => array(
 					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities
+					'capabilities' => $capabilities,
 				) ,
 				'administrator' => array(
 					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities
+					'capabilities' => $capabilities,
 				)
 			);
 
-			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
+			Pronamic_WP_Pay_Plugin::set_roles( $roles );
 		}
 	}
 
@@ -136,13 +136,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		}
 
 		if ( $user == false ) {
-			$created_by = $lead[Pronamic_GravityForms_LeadProperties::CREATED_BY];
+			$created_by = $lead[ Pronamic_GravityForms_LeadProperties::CREATED_BY ];
 
 			$user = new WP_User( $created_by );
 		}
 
-		if ( $user && ! empty( $feed->user_role_field_id ) && isset( $lead[$feed->user_role_field_id] ) ) {
-			$value = $lead[$feed->user_role_field_id];
+		if ( $user && ! empty( $feed->user_role_field_id ) && isset( $lead[ $feed->user_role_field_id ] ) ) {
+			$value = $lead[ $feed->user_role_field_id ];
 			$value = GFCommon::get_selection_value( $value );
 
 			$user->set_role( $value );
@@ -166,7 +166,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			$form = RGFormsModel::get_form( $form_id );
 			$feed = get_pronamic_gf_pay_feed_by_form_id( $form_id );
-			
+
 			$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $feed );
 
 			if ( $feed ) {
@@ -174,19 +174,19 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 				switch ( $payment->status ) {
 					case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED:
-						$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] = Pronamic_GravityForms_PaymentStatuses::CANCELLED;
+						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::CANCELLED;
 
 						$url = $data->get_cancel_url();
 
 						break;
 					case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED:
-						$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] = Pronamic_GravityForms_PaymentStatuses::EXPIRED;
+						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::EXPIRED;
 
 						$url = $feed->get_url( Pronamic_WP_Pay_GravityForms_Links::EXPIRED );
 
 						break;
 					case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE:
-						$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] = Pronamic_GravityForms_PaymentStatuses::FAILED;
+						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::FAILED;
 
 						$url = $data->get_error_url();
 
@@ -194,7 +194,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS:
 						if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
 							// Only fullfill order if the payment isn't approved aloready
-							$lead[Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS] = Pronamic_GravityForms_PaymentStatuses::APPROVED;
+							$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::APPROVED;
 
 							self::fulfill_order( $lead );
 						}
@@ -225,7 +225,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 *
 	 * @param array $entry
 	 */
-    public static function fulfill_order( $entry ) {
+	public static function fulfill_order( $entry ) {
 		$feed = get_pronamic_gf_pay_feed_by_form_id( $entry['form_id'] );
 
 		if ( null !== $feed ) {
@@ -268,7 +268,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 		// The Gravity Forms PayPal Add-On executes the 'gform_paypal_fulfillment' action
 		do_action( 'gform_ideal_fulfillment', $entry, $feed );
-    }
+	}
 
 	//////////////////////////////////////////////////
 
@@ -280,9 +280,9 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function is_gravityforms_supported() {
 		if ( class_exists( 'GFCommon' ) ) {
 			return version_compare( GFCommon::$version, self::GRAVITY_FORMS_MINIMUM_VERSION, '>=' );
-        } else {
+		} else {
 			return false;
-        }
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -296,7 +296,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function is_condition_true( $form, $feed ) {
 		$result = true;
 
-        if ( $feed->condition_enabled ) {
+		if ( $feed->condition_enabled ) {
 			$field = RGFormsModel::get_field( $form, $feed->condition_field_id );
 
 			if ( empty( $field ) ) {
@@ -326,12 +326,12 @@ class Pronamic_GravityForms_IDeal_AddOn {
 					}
 				}
 			}
-        } else {
-        	// condition is disabled, result is true
-        	$result = true;
-        }
+		} else {
+			// condition is disabled, result is true
+			$result = true;
+		}
 
-        return $result;
+		return $result;
 	}
 
 	//////////////////////////////////////////////////
@@ -352,23 +352,23 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			'{payment_status}',
 			'{payment_date}',
 			'{transaction_id}',
-			'{payment_amount}'
+			'{payment_amount}',
 		);
 
 		$replace = array(
 			rgar( $entry, 'payment_status' ),
 			rgar( $entry, 'payment_date' ),
 			rgar( $entry, 'transaction_id' ),
-			GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) )
+			GFCommon::to_money( rgar( $entry, 'payment_amount' ) , rgar( $entry, 'currency' ) ),
 		);
 
 		if ( $url_encode ) {
 			foreach ( $replace as &$value ) {
-    			$value = urlencode( $value );
-    		}
-    	}
+				$value = urlencode( $value );
+			}
+		}
 
-    	$text = str_replace( $search, $replace, $text );
+		$text = str_replace( $search, $replace, $text );
 
 		return $text;
 	}

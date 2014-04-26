@@ -2,7 +2,7 @@
 
 /**
  * Title: Basic
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -21,14 +21,14 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	/**
 	 * The expire date format (yyyy-MMddTHH:mm:ss.SSSZ)
 	 * The Z stands for the time zone (CET).
-	 * 
-	 * @var string 
+	 *
+	 * @var string
 	 */
 	const DATE_EXPIRE_FORMAT = 'Y-m-d\TH:i:s.000\Z';
 
 	/**
 	 * The default expire date modifier
-	 * 
+	 *
 	 * @var string
 	 */
 	const EXPIRE_DATE_MODIFIER = '+30 minutes';
@@ -37,7 +37,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Forbidden characters
-	 * 
+	 *
 	 * @doc Manual iDEAL Lite.pdf (4.2 Explanation of the hash code)
 	 * @var string
 	 */
@@ -46,8 +46,8 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The URL for testing 
-	 * 
+	 * The URL for testing
+	 *
 	 * @var string
 	 */
 	private $paymentServerUrl;
@@ -56,42 +56,42 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * The mercahnt ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $merchantId;
 
 	/**
 	 * The sub ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $subId;
 
 	/**
 	 * The hash key
-	 * 
+	 *
 	 * @var string
 	 */
 	private $hashKey;
 
 	/**
 	 * The purchase ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $purchaseId;
 
 	/**
 	 * The language
-	 * 
+	 *
 	 * @var string
 	 */
 	private $language;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
@@ -112,7 +112,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Payment method
-	 * 
+	 *
 	 * @var string
 	 */
 	private $paymentType;
@@ -144,7 +144,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * The forbidden charachters
-	 * 
+	 *
 	 * @var string
 	 */
 	private $forbiddenCharacters;
@@ -153,7 +153,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * The items
-	 * 
+	 *
 	 * @var array
 	 */
 	private $items;
@@ -166,7 +166,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @var string
 	 */
 	private $successUrl;
-	
+
 	/**
 	 * The consumer is automatically directed to this URL after the transaction has been cancelled.
 	 *
@@ -198,7 +198,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the payment server URL
 	 *
@@ -207,7 +207,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function getPaymentServerUrl() {
 		return $this->paymentServerUrl;
 	}
-	
+
 	/**
 	 * Set the payment server URL
 	 *
@@ -341,7 +341,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the currency
 	 *
@@ -350,7 +350,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function getCurrency() {
 		return $this->currency;
 	}
-	
+
 	/**
 	 * Set the currency
 	 *
@@ -361,7 +361,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the payment type
 	 *
@@ -370,7 +370,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function getPaymentType() {
 		return $this->paymentType;
 	}
-	
+
 	/**
 	 * Set the payment type
 	 * AN..max10
@@ -385,9 +385,9 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Get the expire date
-	 * 
+	 *
 	 * @param boolean $createNew indicator for creating a new expire date
-	 * @return 
+	 * @return
 	 */
 	public function getExpireDate( $createNew = false ) {
 		if ( $this->expireDate == null || $createNew ) {
@@ -402,7 +402,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Get the expire date format
-	 * 
+	 *
 	 * @return string the expire date format
 	 */
 	public function getExpireDateFormat() {
@@ -411,7 +411,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Set the expire date formnat
-	 * 
+	 *
 	 * @var string $expireDateFormat an expire date format
 	 */
 	public function setExpireDateFormat( $expireDateFormat ) {
@@ -422,7 +422,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Get the expire date modifier
-	 * 
+	 *
 	 * @return the expire date modifier
 	 */
 	public function getExpireDateModifier() {
@@ -431,7 +431,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Set the expire date modifier
-	 * 
+	 *
 	 * @var string $expireDateModifier an expire date modifier
 	 */
 	public function setExpireDateModifier( $expireDateModifier ) {
@@ -442,7 +442,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Set the expire date
-	 * 
+	 *
 	 * @param DateTime $date
 	 */
 	public function set_expire_date( DateTime $date ) {
@@ -453,7 +453,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Get the forbidden characters
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getForbiddenCharacters() {
@@ -462,11 +462,11 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Set the forbidden characters
-	 * 
+	 *
 	 * @var mixed an array or string with forbidden characters
 	 */
 	public function setForbiddenCharachters( $forbiddenCharacters ) {
-		if ( is_string( $forbiddenCharacters) ) {
+		if ( is_string( $forbiddenCharacters ) ) {
 			$this->forbiddenCharacters = str_split( $forbiddenCharacters );
 		} else if ( is_array( $forbiddenCharacters ) ) {
 			$this->forbiddenCharacters = $forbiddenCharacters;
@@ -476,7 +476,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the success URL
 	 *
@@ -496,7 +496,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the cancel URL
 	 *
@@ -505,7 +505,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function get_cancel_url() {
 		return $this->cancelUrl;
 	}
-	
+
 	/**
 	 * Set the cancel URL
 	 *
@@ -516,7 +516,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the error URL
 	 *
@@ -525,13 +525,13 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	public function get_error_url() {
 		return $this->errorUrl;
 	}
-	
+
 	/**
 	 * Set the error URL
 	 *
 	 * @param string $errorUrl
 	 */
-	public function setErrorUrl ($errorUrl ) {
+	public function setErrorUrl( $errorUrl ) {
 		$this->errorUrl = $errorUrl;
 	}
 
@@ -539,7 +539,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Get the items
-	 * 
+	 *
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function get_items() {
@@ -548,7 +548,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Set the items
-	 * 
+	 *
 	 * @param Pronamic_IDeal_Items $items
 	 */
 	public function setItems( Pronamic_IDeal_Items $items ) {
@@ -571,7 +571,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 */
 	public function createHashString() {
 		$string  = array();
-		
+
 		// SHA1 hashcode, used only with the hashcode approach (Chapter 4).
 		$string[] = $this->getHashKey();
 
@@ -585,25 +585,25 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$string[] = Pronamic_WP_Util::amount_to_cents( $this->get_amount() );
 
 		// The online shop's unique order number, also known as purchase id
-		$string[] = $this->getPurchaseId(); 
+		$string[] = $this->getPurchaseId();
 
 		// ?? Fixed value = ideal
-		$string[] = $this->getPaymentType(); 
+		$string[] = $this->getPaymentType();
 
-		// yyyy-MMddTHH:mm:ss.SSS Z Time at which the transaction expires (maximum of 1 hour later). 
+		// yyyy-MMddTHH:mm:ss.SSS Z Time at which the transaction expires (maximum of 1 hour later).
 		// The consumer has time until then to pay with iDEAL.
 		$string[] = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
 		// Iterate through the items and concat
 		foreach ( $this->get_items() as $item ) {
 			// Article number. <n> is 1 for the first product, 2 for the second, etc.
-			// N.B. Note that for every product type the parameters 
+			// N.B. Note that for every product type the parameters
 			// itemNumber<n>, itemDescription<n>, itemQuantity<n> and itemPrice<n> are mandatory.
 			$string[] = $item->getNumber();
 
 			// Description of article <n>
 			$string[] = $item->get_description();
-	
+
 			// Number of items of article <n> that the consumer wants to buy
 			$string[] = $item->getQuantity();
 
@@ -611,7 +611,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 			$string[] = Pronamic_WP_Util::amount_to_cents( $item->getPrice() ); // Price of article in whole cents
 		}
 
-		$concatString = implode('', $string);
+		$concatString = implode( '', $string );
 
 		// The characters "\t", "\n", "\r", " " (spaces) may not exist in the string
 		$forbiddenCharacters = $this->getForbiddenCharacters();
@@ -625,7 +625,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 
 	/**
 	 * Create hash
-	 * 
+	 *
 	 * @param unknown_type $form
 	 */
 	public function createHash() {
@@ -653,11 +653,11 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 		$fields['validUntil']  = $this->getExpireDate()->format( $this->getExpireDateFormat() );
 
 		$serial_number = 1;
-		foreach ( $this->get_items() as $item) {
-			$fields['itemNumber' . $serial_number]      = $item->getNumber();
-			$fields['itemDescription' . $serial_number] = $item->get_description();
-			$fields['itemQuantity' . $serial_number]    = $item->getQuantity();
-			$fields['itemPrice' . $serial_number]       = Pronamic_WP_Util::amount_to_cents( $item->getPrice() );
+		foreach ( $this->get_items() as $item ) {
+			$fields[ 'itemNumber' . $serial_number ]      = $item->getNumber();
+			$fields[ 'itemDescription' . $serial_number ] = $item->get_description();
+			$fields[ 'itemQuantity' . $serial_number ]    = $item->getQuantity();
+			$fields[ 'itemPrice' . $serial_number ]       = Pronamic_WP_Util::amount_to_cents( $item->getPrice() );
 
 			$serial_number++;
 		}

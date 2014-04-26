@@ -1,7 +1,7 @@
-<?php 
+<?php
 /**
  * Title: Shopp iDEAL Add-On
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -14,7 +14,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 	const SLUG = 'shopp';
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Bootstrap
 	 */
@@ -39,7 +39,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 	/**
 	 * Checks if Shopp is supported
-	 * 
+	 *
 	 * @return true if Shopp is supported, false otherwise
 	 */
 	public static function is_shopp_supported() {
@@ -59,10 +59,10 @@ class Pronamic_Shopp_IDeal_AddOn {
 			// @see https://github.com/ingenesis/shopp/blob/1.2.9/core/model/Modules.php#L123
 			$path = dirname( __FILE__ );
 			$file = '/GatewayModule.php';
-                
+
 			$module = new ModuleFile( $path, $file );
 			if ( $module->addon ) {
-				$Shopp->Gateways->modules[$module->subpackage] = $module;
+				$Shopp->Gateways->modules[ $module->subpackage ] = $module;
 			} else {
 				$Shopp->Gateways->legacy[] = md5_file( $path . $file );
 			}
@@ -81,20 +81,20 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 			$property = $class->getProperty( 'paths' );
 			$property->setAccessible( true );
-			
+
 			$paths = $property->getValue( $Shopp->Gateways );
 			// @see https://github.com/ingenesis/shopp/blob/1.3/Shopp.php#L193
-			$paths[] = Pronamic_WordPress_IDeal_Plugin::$dirname . '/classes/Pronamic/Shopp/Gateways';
+			$paths[] = Pronamic_WP_Pay_Plugin::$dirname . '/classes/Pronamic/Shopp/Gateways';
 
 			$property->setValue( $Shopp->Gateways, $paths );
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Update lead status of the specified advanced payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public static function status_update( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
@@ -102,7 +102,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 			global $Shopp;
 
 			$id = $payment->get_source_id();
-			
+
 			$purchase = new Purchase( $id );
 			$gateway  = new Pronamic_Shopp_IDeal_GatewayModule();
 			$data     = new Pronamic_Shopp_PaymentData( $purchase, $gateway );
@@ -149,9 +149,9 @@ class Pronamic_Shopp_IDeal_AddOn {
 			}
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Source column
 	 */
@@ -161,7 +161,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 		$text .= __( 'Shopp', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
-			'<a href="%s">%s</a>', 
+			'<a href="%s">%s</a>',
 			add_query_arg( array( 'page' => 'shopp-orders', 'id' => $payment->get_source_id() ), admin_url( 'admin.php' ) ),
 			sprintf( __( 'Order #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);

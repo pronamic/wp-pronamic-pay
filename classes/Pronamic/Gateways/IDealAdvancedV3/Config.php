@@ -10,12 +10,12 @@
  */
 class Pronamic_Gateways_IDealAdvancedV3_Config extends Pronamic_Pay_Config {
 	public $merchant_id;
-	
+
 	public $sub_id;
-	
+
 	public $private_key_password;
-	
+
 	public $private_key;
-	
+
 	public $private_certificate;
 }

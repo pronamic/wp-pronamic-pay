@@ -2,12 +2,12 @@
 
 class Pronamic_Pay_Gateways_PayDutch_TestPaymentInfoParser extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/PayDutch/response-query.xml';
-		
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/PayDutch/response-query.xml';
+
 		$simplexml = simplexml_load_file( $filename );
-		
+
 		$this->assertInstanceOf( 'SimpleXMLElement', $simplexml );
-		
+
 		return $simplexml;
 	}
 
@@ -16,16 +16,16 @@ class Pronamic_Pay_Gateways_PayDutch_TestPaymentInfoParser extends WP_UnitTestCa
 	 */
 	function test_parser( $simplexml ) {
 		$payment_info = Pronamic_Gateways_PayDutch_XML_PaymentInfoParser::parse( $simplexml->paymentinfo );
-		
+
 		$this->assertInstanceOf( 'Pronamic_Gateways_PayDutch_PaymentInfo', $payment_info );
-		
+
 		return $payment_info;
 	}
 
 	/**
 	 * @depends test_parser
 	 */
-	function test_values( $payment_info ) {	
+	function test_values( $payment_info ) {
 		$expected = new Pronamic_Gateways_PayDutch_PaymentInfo();
 		$expected->test            = false;
 		$expected->id              = 'cdd622d5-5719-4482-93a9-4631f1263cba';

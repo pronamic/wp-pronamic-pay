@@ -1,14 +1,12 @@
 <div class="wrap">
-	<?php screen_icon( 'pronamic_ideal' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<h3>
 		<?php _e( 'Supported Extensions', 'pronamic_ideal' ); ?>
 	</h3>
 
-	<?php 
-	
+	<?php
+
 	$extensions = array(
 		// Plugins
 		'easy-digital-downloads' => array(
@@ -153,9 +151,9 @@
 			'author_url'         => 'http://www.appthemes.com/',
 		),
 	);
-	
+
 	include 'extensions-wp-admin.php';
-	
+
 	$output = array(
 		'readme-md'  => 'extensions-readme-md.php',
 		'readme-txt' => 'extensions-readme-txt.php',
@@ -163,23 +161,23 @@
 
 	foreach ( $output as $name => $file ) {
 		if ( filter_has_var( INPUT_GET, $name ) ) : ?>
-		
+
 			<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
-			
-			<?php 
-			
+
+			<?php
+
 			ob_start();
-			
+
 			include $file;
-			
+
 			$markdown = ob_get_clean();
-	
+
 			?>
-			
+
 			<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
-		
+
 		<?php endif;
 	}
-	
+
 	include 'pronamic.php'; ?>
 </div>

@@ -2,7 +2,7 @@
 
 /**
  * Title: Gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -18,7 +18,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Method indicator for an gateway wich works through an HTTP redirect
-	 * 
+	 *
 	 * @var int
 	 */
 	const METHOD_HTTP_REDIRECT = 2;
@@ -27,7 +27,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Pronamic_Pay_Config
-	 * 
+	 *
 	 * @var int
 	 */
 	protected $config;
@@ -36,7 +36,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * The slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
 	private $slug;
@@ -45,21 +45,21 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * The method of this gateway
-	 * 
+	 *
 	 * @var int
 	 */
 	private $method;
-	
+
 	/**
-	 * Indiactor if this gateway supports feedback 
-	 * 
+	 * Indiactor if this gateway supports feedback
+	 *
 	 * @var boolean
 	 */
 	private $has_feedback;
 
 	/**
 	 * The mimimum amount this gateway can handle
-	 * 
+	 *
 	 * @var float
 	 */
 	private $amount_minimum;
@@ -68,7 +68,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * The transaction ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $transaction_id;
@@ -77,7 +77,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Action URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $action_url;
@@ -86,7 +86,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	public $error;
@@ -95,7 +95,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Constructs and initializes an gateway
-	 * 
+	 *
 	 * @param Pronamic_Pay_Config $config
 	 */
 	public function __construct( Pronamic_Pay_Config $config ) {
@@ -106,7 +106,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Get the slug of this gateway
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_slug() {
@@ -115,7 +115,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Set the slug of this gateway
-	 * 
+	 *
 	 * @param unknown_type $slug
 	 */
 	public function set_slug( $slug ) {
@@ -126,7 +126,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Get the error
-	 * 
+	 *
 	 * @return WP_Error or null
 	 */
 	public function get_error() {
@@ -135,7 +135,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Has error
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public function has_error() {
@@ -144,7 +144,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Set error
-	 * 
+	 *
 	 * @param WP_Error $error
 	 */
 	public function set_error( WP_Error $error = null ) {
@@ -155,7 +155,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Set the method
-	 * 
+	 *
 	 * @param int $method
 	 */
 	public function set_method( $method ) {
@@ -166,7 +166,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Check if this gateway works trhough an HTTP redirect
-	 * 
+	 *
 	 * @return boolean true if an HTTP redirect is required, false otherwise
 	 */
 	public function is_http_redirect() {
@@ -175,7 +175,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Check if this gateway works through an HTML form
-	 * 
+	 *
 	 * @return boolean true if an HTML form is required, false otherwise
 	 */
 	public function is_html_form() {
@@ -186,7 +186,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Check if this gateway supports feedback
-	 * 
+	 *
 	 * @return boolean true if gateway supports feedback, false otherwise
 	 */
 	public function has_feedback() {
@@ -195,18 +195,18 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Set has feedback
-	 * 
+	 *
 	 * @param boolean $has_feedback
 	 */
 	public function set_has_feedback( $has_feedback ) {
 		$this->has_feedback = $has_feedback;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Set the minimum amount required
-	 * 
+	 *
 	 * @param float $amount
 	 */
 	public function set_amount_minimum( $amount ) {
@@ -217,7 +217,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @return mixed an array or null
 	 */
 	public function get_issuers() {
@@ -254,24 +254,24 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Start transaction/payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		
+
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Handle payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function payment( Pronamic_Pay_Payment $payment ) {
-		
+
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
@@ -279,10 +279,10 @@ abstract class Pronamic_Gateways_Gateway {
 	 */
 	public function redirect( Pronamic_Pay_Payment $payment ) {
 		switch ( $this->method ) {
-			case self::METHOD_HTTP_REDIRECT:
+			case self::METHOD_HTTP_REDIRECT :
 				return $this->redirect_via_http( $payment );
-			case self::METHOD_HTML_FORM:
-				return $this->redirect_via_html( $payment);
+			case self::METHOD_HTML_FORM :
+				return $this->redirect_via_html( $payment );
 			default:
 				// No idea how to redirect to the gateway
 		}
@@ -304,7 +304,7 @@ abstract class Pronamic_Gateways_Gateway {
 		if ( headers_sent() ) {
 			echo $this->get_form_html( $payment, true );
 		} else {
-			include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
+			include Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-via-html.php';
 		}
 
 		exit;
@@ -313,29 +313,29 @@ abstract class Pronamic_Gateways_Gateway {
 	/////////////////////////////////////////////////
 	// Input fields
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Get an isser field
-	 * 
+	 *
 	 * @return mixed an array or null
 	 */
 	public function get_issuer_field() {
 		return null;
 	}
-	
+
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the input fields for this gateway
-	 * 
-	 * This function will automatically add the issuer field to the 
+	 *
+	 * This function will automatically add the issuer field to the
 	 * input fields array of it's not empty
-	 * 
+	 *
 	 * @return array
 	 */
 	public function get_input_fields() {
 		$fields = array();
-		
+
 		$issuer_field = $this->get_issuer_field();
 
 		if ( ! empty( $issuer_field ) ) {
@@ -344,14 +344,14 @@ abstract class Pronamic_Gateways_Gateway {
 
 		return $fields;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get the input HTML
-	 * 
+	 *
 	 * This function will convert all input fields to an HTML notation
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_input_html() {
@@ -359,7 +359,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 		$fields = $this->get_input_fields();
 
-		foreach( $fields as $field ) {
+		foreach ( $fields as $field ) {
 			if ( isset( $field['type'] ) ) {
 				$type = $field['type'];
 
@@ -377,18 +377,18 @@ abstract class Pronamic_Gateways_Gateway {
 							esc_attr( $field['name'] ),
 							Pronamic_WP_HTML_Helper::select_options_grouped( $field['choices'] )
 						);
-						
+
 						break;
 				}
 			}
 		}
-		
+
 		return $html;
 	}
 
 	/**
 	 * Get form HTML
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_form_html( Pronamic_Pay_Payment $payment, $auto_submit = false ) {
@@ -397,17 +397,17 @@ abstract class Pronamic_Gateways_Gateway {
 		// Form
 		$form_inner  = '';
 		$form_inner .= $this->get_output_html();
-		$form_inner .= 	sprintf(
+		$form_inner .= sprintf(
 			'<input class="btn btn-primary" type="submit" name="pay" value="%s" />',
 			__( 'Pay', 'pronamic_ideal' )
 		);
-		
+
 		$form = sprintf(
 			'<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post" action="%s">%s</form>',
 			esc_attr( $payment->get_action_url() ),
 			$form_inner
 		);
-		
+
 		// HTML
 		$html .= $form;
 
@@ -424,7 +424,7 @@ abstract class Pronamic_Gateways_Gateway {
 
 	/**
 	 * Get the output HTML
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_output_html() {

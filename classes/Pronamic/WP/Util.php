@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress utility class
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_Util {
 	/**
 	 * Remote get body
-	 * 
+	 *
 	 * @param string $url
 	 * @param int $required_response_code
 	 */
@@ -27,7 +27,7 @@ class Pronamic_WP_Util {
 				$return = wp_remote_retrieve_body( $result );
 			} else {
 				$return = new WP_Error(
-					'wrong_response_code', 
+					'wrong_response_code',
 					sprintf(
 						__( 'The response code (<code>%s<code>) was incorrect, required response code <code>%s</code>.', 'pronamic_ideal' ),
 						wp_remote_retrieve_response_code( $result ),
@@ -36,7 +36,7 @@ class Pronamic_WP_Util {
 				);
 			}
 		}
-	
+
 		return $return;
 	}
 
@@ -44,19 +44,19 @@ class Pronamic_WP_Util {
 
 	/**
 	 * SimpleXML load string
-	 * 
+	 *
 	 * @param string $string
 	 * @return SimpleXMLElement || WP_Error
 	 */
 	public static function simplexml_load_string( $string ) {
 		$result = false;
-		
+
 		// Suppress all XML errors
 		$use_errors = libxml_use_internal_errors( true );
-		
+
 		// Load
 		$xml = simplexml_load_string( $string );
-		
+
 		if ( $xml !== false ) {
 			$result = $xml;
 		} else {
@@ -67,13 +67,13 @@ class Pronamic_WP_Util {
 			}
 
 			libxml_clear_errors();
-			
+
 			$result = $error;
 		}
-		
+
 		// Set back to previous value
 		libxml_use_internal_errors( $use_errors );
-		
+
 		return $result;
 	}
 
@@ -81,7 +81,7 @@ class Pronamic_WP_Util {
 
 	/**
 	 * Amount to cents
-	 * 
+	 *
 	 * @param float $price
 	 * @return int
 	 */
@@ -91,7 +91,7 @@ class Pronamic_WP_Util {
 
 	/**
 	 * Cents to amount
-	 * 
+	 *
 	 * @param int $cents
 	 * @return float
 	 */
@@ -103,7 +103,7 @@ class Pronamic_WP_Util {
 
 	/**
 	 * Convert boolean to an numceric boolean
-	 * 
+	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
 	 * @param boolean $boolean
 	 * @return int
@@ -116,7 +116,7 @@ class Pronamic_WP_Util {
 
 	/**
 	 * Convert boolean to an string boolean
-	 * 
+	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
 	 * @param boolean $boolean
 	 * @return int
@@ -129,11 +129,11 @@ class Pronamic_WP_Util {
 
 	public static function format_date( $format, DateTime $date = null ) {
 		$result = null;
-		
+
 		if ( $date !== null ) {
 			$result = $date->format( $format );
 		}
-		
+
 		return $result;
 	}
 
@@ -141,7 +141,7 @@ class Pronamic_WP_Util {
 
 	/**
 	 * Build URL with the specified parameters
-	 * 
+	 *
 	 * @param string $url
 	 * @param array $parameters
 	 * @return string

@@ -102,10 +102,10 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $data ) {
 			$payment->set_transaction_id( $data[ Pronamic_Gateways_Buckaroo_Parameters::PAYMENT ] );
-			$payment->set_status( Pronamic_Gateways_Buckaroo_Statuses::transform( $data[Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE] ) );
-			$payment->set_consumer_iban( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN] );
-			$payment->set_consumer_bic( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC] );
-			$payment->set_consumer_name( $data[Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME] );
+			$payment->set_status( Pronamic_Gateways_Buckaroo_Statuses::transform( $data[ Pronamic_Gateways_Buckaroo_Parameters::STATUS_CODE ] ) );
+			$payment->set_consumer_iban( $data[ Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_IBAN ] );
+			$payment->set_consumer_bic( $data[ Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_BIC ] );
+			$payment->set_consumer_name( $data[ Pronamic_Gateways_Buckaroo_Parameters::SERVICE_IDEAL_CONSUMER_NAME ] );
 
 			$labels = array(
 				Pronamic_Gateways_Buckaroo_Parameters::PAYMENT                       => __( 'Payment', 'pronamic_ideal' ),
@@ -133,15 +133,15 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_Gateways_Gateway {
 			$note .= '<dl>';
 
 			foreach ( $labels as $key => $label ) {
-				if ( isset( $data[$key] ) ) {
+				if ( isset( $data[ $key ] ) ) {
 					$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
-					$note .= sprintf( '<dd>%s</dd>', esc_html( $data[$key] ) );
+					$note .= sprintf( '<dd>%s</dd>', esc_html( $data[ $key ] ) );
 				}
 			}
 
 			$note .= '</dl>';
 
-			$payment->add_note( $note ); 
+			$payment->add_note( $note );
 		}
 	}
 }

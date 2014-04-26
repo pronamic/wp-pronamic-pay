@@ -2,25 +2,25 @@
 
 class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 	const ACTION_PAY = 'pay';
-	
+
 	//////////////////////////////////////////////////
 
 	const CURRENCY_EURO = 'EUR';
-	
+
 	//////////////////////////////////////////////////
 
 	const URL_LIVE = 'https://api.multisafepay.com/ewx/post.php';
 
 	const URL_TEST = 'https://testapi.multisafepay.com/ewx/post.php';
-	
+
 	//////////////////////////////////////////////////
 
 	private $currency;
 
 	private $action;
-	
+
 	//////////////////////////////////////////////////
-	
+
 	public function __construct() {
 		$this->setCurrency( self::CURRENCY_EURO );
 		$this->setAction( self::ACTION_PAY );
@@ -32,7 +32,7 @@ class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 		return $this->currency;
 	}
 
-	public function setCurrency($currency) {
+	public function setCurrency( $currency ) {
 		$this->currency = $currency;
 	}
 
@@ -42,12 +42,12 @@ class Pronamic_Gateways_MultiSafepay_MultiSafepay {
 		return $this->action;
 	}
 
-	public function setAction($action) {
+	public function setAction( $action ) {
 		$this->action = $action;
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get HTML fields
 	 *

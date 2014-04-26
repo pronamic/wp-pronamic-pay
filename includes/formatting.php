@@ -16,15 +16,15 @@ if ( ! function_exists( 'wp_slash' ) ) {
 		if ( is_array( $value ) ) {
 			foreach ( $value as $k => $v ) {
 				if ( is_array( $v ) ) {
-					$value[$k] = wp_slash( $v );
+					$value[ $k ] = wp_slash( $v );
 				} else {
-					$value[$k] = addslashes( $v );
+					$value[ $k ] = addslashes( $v );
 				}
 			}
 		} else {
 			$value = addslashes( $value );
 		}
-	
+
 		return $value;
 	}
 }

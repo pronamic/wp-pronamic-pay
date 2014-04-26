@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronamic_Gateways_IDealAdvanced_XML_Message  {
 	/**
 	 * Merchant
-	 * 
+	 *
 	 * @var Merchant
 	 */
 	private $merchant;
@@ -20,7 +20,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 	/**
 	 * Constructs and initialize an request message
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function __construct( $name ) {
@@ -33,7 +33,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 	/**
 	 * Get the merchant
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getMerchant() {
@@ -44,26 +44,26 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 	/**
 	 * Get the DOM document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	protected function getDocument() {
 		$document = new DOMDocument( parent::XML_VERSION, parent::XML_ENCODING );
 		// $document->formatOutput = true;
-		
+
 		// Root
 		$root = $document->createElementNS( parent::XML_NAMESPACE, $this->getName() );
 		$root->setAttribute( 'version', parent::VERSION );
 
 		$document->appendChild( $root );
-		
+
 		// Create date timestamp
 		$timestamp = $this->getCreateDate()->format( Pronamic_IDeal_IDeal::DATE_FORMAT );
 
 		$element = $document->createElement( 'createDateTimeStamp', $timestamp );
 
 		$root->appendChild( $element );
-	
+
 		return $document;
 	}
 
@@ -71,7 +71,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 	/**
 	 * Get the sign values
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getSignValues() {
@@ -98,7 +98,7 @@ abstract class Pronamic_Gateways_IDealAdvanced_XML_RequestMessage extends Pronam
 
 	/**
 	 * Create a string representation
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

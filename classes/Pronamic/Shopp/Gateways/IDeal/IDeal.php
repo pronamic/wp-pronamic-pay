@@ -80,7 +80,7 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 
 		// Actions
 		// @see /shopp/core/model/Gateway.php#L122
-		$name = sanitize_key(__CLASS__);
+		$name = sanitize_key( __CLASS__ );
 
 		add_action( 'shopp_' . $name . '_sale',    array( $this, 'sale' ) );
 		add_action( 'shopp_' . $name . '_auth',    array( $this, 'auth' ) );
@@ -151,7 +151,7 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 			'gateway'   => $Paymethod->processor,
 			'paymethod' => $Paymethod->label,
 			'paytype'   => $Billing->cardtype,
-			'payid'     => $Billing->card
+			'payid'     => $Billing->card,
 		) );
 	}
 
@@ -233,22 +233,21 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 		}
 
 		// Check gateway
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_Shopp_PaymentData( $purchase, $this );
 
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 			$error = $gateway->get_error();
 
 			if ( is_wp_error( $error ) ) {
 				// @todo what todo?
-				var_dump( $error );
 
 				exit;
 			} else {
-		    	$gateway->redirect( $payment );
+				$gateway->redirect( $payment );
 			}
 		}
 	}
@@ -279,11 +278,11 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 	public function inputs( $inputs ) {
 		$result = '';
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			$result .= '<div id="pronamic_ideal_inputs">';
-			$result .=     $gateway->get_input_html();
+			$result .= $gateway->get_input_html();
 			$result .= '</div>';
 
 			// Only show extra fields on this paymethod/gateway
@@ -315,13 +314,13 @@ class Pronamic_Shopp_Gateways_IDeal_IDeal extends GatewayFramework implements Ga
 	 * Settings
 	 */
 	public function settings() {
-		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
+		$options = Pronamic_WP_Pay_Plugin::get_config_select_options();
 
 		$this->ui->menu( 0, array(
 			'name'     => 'config_id',
 			'keyed'    => true,
 			'label'    => __( 'Select configuration', 'pronamic_ideal' ),
-			'selected' => $this->config_id
+			'selected' => $this->config_id,
 		), $options );
 	}
 }

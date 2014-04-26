@@ -2,7 +2,7 @@
 
 /**
  * Title: OmniKassa
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -10,18 +10,18 @@
  */
 class Pronamic_Gateways_OmniKassa_OmniKassa {
 	/**
-	 * Action URL to start a payment request in the test environment, 
+	 * Action URL to start a payment request in the test environment,
 	 * the POST data is sent to.
-	 * 
-	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf 
+	 *
+	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf
 	 * @var string
-	 */	
+	 */
 	const ACTION_URL_TEST = 'https://payment‐webinit.simu.omnikassa.rabobank.nl/paymentServlet';
 
 	/**
-	 * Action URL For a payment request in the production environment, 
+	 * Action URL For a payment request in the production environment,
 	 * the POST data is sent to
-	 * 
+	 *
 	 * @see page 14 - http://pronamic.nl/wp-content/uploads/2013/10/integratiehandleiding_rabo_omnikassa_en_versie_5_0_juni_2013_10_29451215.pdf
 	 * @var string
 	 */
@@ -32,13 +32,13 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	const ISO_639_1_ENGLISH = 'en';
 
 	const ISO_639_1_FRENCH = 'fr';
-	
+
 	const ISO_639_1_GERMAN = 'de';
-	
+
 	const ISO_639_1_ITALIAN = 'it';
-	
+
 	const ISO_639_1_SPANISH = 'es';
-	
+
 	const ISO_639_1_DUTCH = 'nl';
 
 	//////////////////////////////////////////////////
@@ -50,28 +50,28 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			self::ISO_639_1_GERMAN,
 			self::ISO_639_1_ITALIAN,
 			self::ISO_639_1_SPANISH,
-			self::ISO_639_1_DUTCH
+			self::ISO_639_1_DUTCH,
 		);
 	}
 
-	public static function isSupportedLanguage($language) {
+	public static function isSupportedLanguage( $language ) {
 		$languages = self::getSupportedLanguageCodes();
 
-		return in_array($language, $languages);
+		return in_array( $language, $languages );
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Interface version HP 1.0
-	 * 
+	 *
 	 * @var string
 	 */
 	const INTERFACE_VERSION_HP_1_0 = 'HP_1.0';
 
 	/**
 	 * Hash algorithm SHA256 indicator
-	 * 
+	 *
 	 * @var string
 	 */
 	const HASH_ALGORITHM_SHA256 = 'sha256';
@@ -80,7 +80,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * The action URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $action_url;
@@ -89,7 +89,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * The interface version
-	 * 
+	 *
 	 * @var string
 	 */
 	private $interface_version;
@@ -98,45 +98,45 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Currency code in ISO 4217-Numeric codification
-	 * 
+	 *
 	 * @doc http://en.wikipedia.org/wiki/ISO_4217
 	 * @doc http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm
-	 * 
+	 *
 	 * @var string N3
 	 */
 	private $currencyNumericCode;
 
 	/**
 	 * Merchant ID
-	 * 
+	 *
 	 * @var string N15
 	 */
 	private $merchant_id;
 
 	/**
 	 * Normal return URL
-	 * 
+	 *
 	 * @var string ANS512 url
 	 */
 	private $normal_return_url;
 
 	/**
 	 * Amount
-	 * 
+	 *
 	 * @var string N12
 	 */
 	private $amount;
 
 	/**
 	 * Transaction reference
-	 * 
+	 *
 	 * @var string AN35
 	 */
 	private $transactionReference;
 
 	/**
 	 * Key version
-	 * 
+	 *
 	 * @var string N10
 	 */
 	private $key_version;
@@ -145,14 +145,14 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Automatic response URL
-	 * 
+	 *
 	 * @var string ANS512 url
 	 */
 	private $automatic_response_url;
 
 	/**
 	 * Customer language in ISO 639‐1 Alpha2
-	 * 
+	 *
 	 * @doc http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 	 * @var string A2
 	 */
@@ -160,21 +160,21 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Payment mean brand list
-	 * 
+	 *
 	 * @var array
 	 */
 	private $paymentMeanBrandList;
 
 	/**
 	 * Order ID
-	 * 
+	 *
 	 * @var string AN32
 	 */
 	private $order_id;
 
 	/**
 	 * Expiration date
-	 * 
+	 *
 	 * @var DateTime
 	 */
 	private $expirationDate;
@@ -183,7 +183,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Secret key
-	 * 
+	 *
 	 * @var string
 	 */
 	private $secret_key;
@@ -200,7 +200,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the action URL
 	 *
@@ -209,7 +209,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	public function get_action_url() {
 		return $this->action_url;
 	}
-	
+
 	/**
 	 * Set the action URL
 	 *
@@ -223,7 +223,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get interface version
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_interface_version() {
@@ -232,7 +232,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set interface version
-	 * 
+	 *
 	 * @param string $interface_version
 	 */
 	public function set_interface_version( $interface_version ) {
@@ -243,7 +243,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get the currency numeric code
-	 * 
+	 *
 	 * @return string currency numeric code
 	 */
 	public function get_currency_numeric_code() {
@@ -252,7 +252,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set the currency code
-	 * 
+	 *
 	 * @param string $currencyCode
 	 */
 	public function set_currency_numeric_code( $currency_numeric_code ) {
@@ -263,7 +263,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get merchant ID
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_merchant_id() {
@@ -272,7 +272,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set the merchant ID
-	 * 
+	 *
 	 * @param string $merchant_id
 	 */
 	public function set_merchant_id( $merchant_id ) {
@@ -283,7 +283,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get normal return URL
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_normal_return_url() {
@@ -292,9 +292,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set the normal return URL
-	 * 
+	 *
 	 * LET OP! De URL mag geen parameters bevatten.
-	 * 
+	 *
 	 * @param string $normal_return_url
 	 */
 	public function set_normal_return_url( $normal_return_url ) {
@@ -305,7 +305,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get amount
-	 * 
+	 *
 	 * @return float
 	 */
 	public function get_amount() {
@@ -314,7 +314,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get formmated amount
-	 * 
+	 *
 	 * @return int
 	 */
 	public function get_formatted_amount() {
@@ -323,7 +323,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set amount
-	 * 
+	 *
 	 * @param float $amount
 	 */
 	public function set_amount( $amount ) {
@@ -334,7 +334,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get transaction reference
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_transaction_reference() {
@@ -344,7 +344,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 	/**
 	 * Set transaction reference
 	 * AN..max35 (AN = Alphanumeric, free text)
-	 * 
+	 *
 	 * @param string $transactionReference
 	 */
 	public function set_transaction_reference( $transaction_reference ) {
@@ -355,7 +355,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get key version
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_key_version() {
@@ -364,7 +364,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set key version
-	 * 
+	 *
 	 * @param string $key_version
 	 */
 	public function set_key_version( $key_version ) {
@@ -375,7 +375,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get automatic response URL
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_automatic_response_url() {
@@ -384,9 +384,9 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set automatic response URL
-	 * 
+	 *
 	 * LET OP! De URL mag geen parameters bevatten.
-	 * 
+	 *
 	 * @param string $automatic_response_url
 	 */
 	public function set_automatic_response_url( $automatic_response_url ) {
@@ -397,7 +397,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get customer language
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getCustomerLanguage() {
@@ -406,7 +406,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set customer language
-	 * 
+	 *
 	 * @param string $customerLanguage
 	 */
 	public function setCustomerLanguage( $customerLanguage ) {
@@ -417,7 +417,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Add the specified payment mean brand to the payment mean brand list
-	 * 
+	 *
 	 * @param string $paymentMeanBrand
 	 */
 	public function addPaymentMeanBrand( $paymentMeanBrand ) {
@@ -426,7 +426,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get payment mean brand list
-	 * 
+	 *
 	 * @return string ANS128 listString comma separated list
 	 */
 	public function getPaymentMeanBrandList() {
@@ -437,7 +437,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_order_id() {
@@ -446,7 +446,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set order ID
-	 * 
+	 *
 	 * @param string $orderId
 	 */
 	public function set_order_id( $order_id ) {
@@ -457,7 +457,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get expiration date
-	 * 
+	 *
 	 * @return DateTime
 	 */
 	public function getExpirationDate() {
@@ -466,13 +466,13 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get expiration date
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getFormattedExpirationDate() {
 		$result = null;
 
-		if($this->expirationDate != null) {
+		if ( $this->expirationDate != null ) {
 			$result = $this->expirationDate->format( DATE_ISO8601 );
 		}
 
@@ -481,7 +481,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set expiration date
-	 * 
+	 *
 	 * @param DateTime $expirationDate
 	 */
 	public function setExpirationDate( DateTime $expirationDate = null ) {
@@ -492,7 +492,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	public function get_data_array() {
 		$expiration_date = $this->getExpirationDate();
-		
+
 		// Payment Request - required fields
 		$required_fields = array(
 			'amount'               => $this->get_formatted_amount(),
@@ -502,7 +502,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			'transactionReference' => $this->get_transaction_reference(),
 			'keyVersion'           => $this->get_key_version()
 		);
-		
+
 		// Payment request - optional fields
 		$optional_fields = array(
 			'automaticResponseUrl' => $this->get_automatic_response_url(),
@@ -511,13 +511,13 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			'orderId'              => $this->get_order_id(),
 			'expirationDate'       => $this->getFormattedExpirationDate()
 		);
-		
+
 		// @see http://briancray.com/2009/04/25/remove-null-values-php-arrays/
 		$optional_fields = array_filter( $optional_fields );
-		
+
 		// Data
 		$data = $required_fields + $optional_fields;
-		
+
 		return $data;
 	}
 
@@ -525,7 +525,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get data
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_data() {
@@ -538,7 +538,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get secret key
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_secret_key() {
@@ -547,7 +547,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Set secret key
-	 * 
+	 *
 	 * @return string
 	 */
 	public function set_secret_key( $secret_key ) {
@@ -558,7 +558,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get seal
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_seal() {
@@ -570,7 +570,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Compute seal
-	 * 
+	 *
 	 * @param string $data
 	 * @param string $secretKey
 	 */
@@ -585,7 +585,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Get HTML fields
-	 * 
+	 *
 	 * @return string
 	 */
 	public function getHtmlFields() {
@@ -594,7 +594,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 			'InterfaceVersion' => $this->get_interface_version(),
 			'Seal'             => $this->get_seal()
 		) );
-		
+
 		return $html;
 	}
 
@@ -602,7 +602,7 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Create an piped string for the specified data array
-	 * 
+	 *
 	 * @param array $data
 	 * @return string
 	 */
@@ -613,18 +613,18 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	/**
 	 * Parse piped string
-	 * 
+	 *
 	 * @param string $string
 	 * @return array
 	 */
-	public static function parse_piped_string($string) {
+	public static function parse_piped_string( $string ) {
 		$data = array();
 
-		$pairs = explode('|', $string);
-		foreach($pairs as $pair) {
-			list($key, $value) = explode('=', $pair);
+		$pairs = explode( '|', $string );
+		foreach ( $pairs as $pair ) {
+			list( $key, $value ) = explode( '=', $pair );
 
-			$data[$key] = $value;
+			$data[ $key ] = $value;
 		}
 
 		return $data;
@@ -634,25 +634,25 @@ class Pronamic_Gateways_OmniKassa_OmniKassa {
 
 	public function getResponseCodeDescription() {
 		return array(
-			'00' => 'Transaction success, authorization accepted' , 
-			'02' => 'Please call the bank because the authorization limit on the card has been exceeded' , 
-			'03' => 'Invalid merchant contract' , 
-			'05' => 'Do not honor, authorization refused' , 
-			'12' => 'Invalid transaction, check the parameters sent in the request' , 
-			'14' => 'Invalid card number or invalid Card Security Code or Card (for MasterCard) or invalid Card Verification Value (for Visa/MAESTRO)' , 
-			'17' => 'Cancellation of payment by the end user' , 
-			'24' => 'Invalid status' , 
-			'25' => 'Transaction not found in database' , 
-			'30' => 'Invalid format' , 
-			'34' => 'Fraud suspicion' , 
-			'40' => 'Operation not allowed to this Merchant' , 
-			'60' => 'Pending transaction' , 
-			'63' => 'Security breach detected, transaction stopped' , 
-			'75' => 'The number of attempts to enter the card number has been exceeded (three tries exhausted)' , 
-			'90' => 'Acquirer server temporarily unavailable' , 
-			'94' => 'Duplicate transaction' , 
-			'97' => 'Request time-out; transaction refused' , 
-			'99' => 'Payment page temporarily unavailable' 
+			'00' => 'Transaction success, authorization accepted',
+			'02' => 'Please call the bank because the authorization limit on the card has been exceeded',
+			'03' => 'Invalid merchant contract',
+			'05' => 'Do not honor, authorization refused',
+			'12' => 'Invalid transaction, check the parameters sent in the request',
+			'14' => 'Invalid card number or invalid Card Security Code or Card (for MasterCard) or invalid Card Verification Value (for Visa/MAESTRO)',
+			'17' => 'Cancellation of payment by the end user',
+			'24' => 'Invalid status',
+			'25' => 'Transaction not found in database',
+			'30' => 'Invalid format',
+			'34' => 'Fraud suspicion',
+			'40' => 'Operation not allowed to this Merchant',
+			'60' => 'Pending transaction',
+			'63' => 'Security breach detected, transaction stopped',
+			'75' => 'The number of attempts to enter the card number has been exceeded (three tries exhausted)',
+			'90' => 'Acquirer server temporarily unavailable',
+			'94' => 'Duplicate transaction',
+			'97' => 'Request time-out; transaction refused',
+			'99' => 'Payment page temporarily unavailable',
 		);
 	}
 }

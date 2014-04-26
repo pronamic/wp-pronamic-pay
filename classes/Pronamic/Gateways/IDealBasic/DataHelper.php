@@ -12,30 +12,30 @@
 class Pronamic_Gateways_IDealBasic_DataHelper {
 	/**
 	 * Alphanumerical, free text
-	 * 
-	 * The iDEAL Basic documentation is not very clear about which characters 
-	 * are allowed within the alphanumeric (AN) specification. Pronamic 
-	 * contacted some of the iDEAL providers and the ING Customer Support 
+	 *
+	 * The iDEAL Basic documentation is not very clear about which characters
+	 * are allowed within the alphanumeric (AN) specification. Pronamic
+	 * contacted some of the iDEAL providers and the ING Customer Support
 	 * Desk (csd.icm@ing.nl) replied with the following message (Dutch):
-	 * 
+	 *
 	 * > Naast A-Z, a-z en 0-9 is alleen de spatie nog een geaccepteerd teken binnen AN.
-	 * > 
+	 * >
 	 * > Andere karakters zijn niet toegestaan. Het is met name belangrijk dat er geen html tags in voorkomen.:
-	 * 
+	 *
 	 * @var array
 	 */
 	private static $characters_an = array( 'A-Z', 'a-z', '0-9', ' ' );
 
 	/**
 	 * Strictly alphanumerical (letters and numbers only)
-	 * 
+	 *
 	 * @var array
 	 */
 	private static $characters_ans = array( 'A-Z', 'a-z', '0-9' );
 
 	/**
 	 * Numerical
-	 * 
+	 *
 	 * @var array
 	 */
 	private static $characters_n = array( '0-9' );
@@ -44,7 +44,7 @@ class Pronamic_Gateways_IDealBasic_DataHelper {
 
 	/**
 	 * Filter the specified characters from the string
-	 * 
+	 *
 	 * @param array $characters
 	 * @param string $string
 	 * @param int $max
@@ -52,21 +52,21 @@ class Pronamic_Gateways_IDealBasic_DataHelper {
 	 */
 	public static function filter( array $characters, $string, $max = null ) {
 		$pattern = '#[^' . implode( $characters ) . ']#';
-		
+
 		$string = preg_replace( $pattern, '', $string );
 
 		if ( isset( $max ) ) {
 			$string = substr( $string, 0, $max );
 		}
-		
+
 		return $string;
 	}
 
 	//////////////////////////////////////////////////
 
- 	/**
+	/**
  	 * Alphanumerical, free text
- 	 * 
+ 	 *
  	 * @param string $string
  	 * @param string $max
  	 * @return Ambigous <string, mixed>
@@ -80,7 +80,7 @@ class Pronamic_Gateways_IDealBasic_DataHelper {
 
 	/**
 	 * Strictly alphanumerical (letters and numbers only)
-	 * 
+	 *
 	 * @param string $string
 	 * @param string $max
 	 * @return Ambigous <string, mixed>
@@ -94,7 +94,7 @@ class Pronamic_Gateways_IDealBasic_DataHelper {
 
 	/**
 	 * Strictly alphanumerical (letters and numbers only)
-	 * 
+	 *
 	 * @param string $string
 	 * @param string $max
 	 * @return Ambigous <string, mixed>

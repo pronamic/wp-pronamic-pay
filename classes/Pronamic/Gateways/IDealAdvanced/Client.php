@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL client
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_Client {
 	/**
 	 * Indicator for SHA1 RSA authentication
-	 * 
+	 *
 	 * @var string
 	 */
 	const AUTHENTICATION_SHA1_RSA = 'SHA1_RSA';
@@ -20,91 +20,91 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * The acquirer URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $acquirer_url;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Directory request URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $directory_request_url;
 
 	/**
 	 * Transaction request URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $transaction_request_url;
-	
+
 	/**
 	 * Status request URL
-	 * 
+	 *
 	 * @var string
 	 */
 	public $status_request_url;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Merchant ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $merchant_id;
-	
+
 	/**
 	 * Sub ID
-	 * 
+	 *
 	 * @var string
 	 */
 	public $sub_id;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * The private key file
-	 * 
+	 *
 	 * @var string
 	 */
 	private $privateKey;
 
 	/**
 	 * The private key password
-	 * 
+	 *
 	 * @var string
 	 */
 	private $privateKeyPassword;
 
 	/**
 	 * The private certificate file
-	 * 
+	 *
 	 * @var string
 	 */
 	private $privateCertificate;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * The public certificate file
-	 * 
+	 *
 	 * @var string
 	 */
 	private $publicCertificates;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Holds the error of the last operation
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -118,10 +118,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Set the acquirer URL
-	 * 
+	 *
 	 * @param string $acquirerUrl
 	 */
-	public function setAcquirerUrl($url) {
+	public function setAcquirerUrl( $url ) {
 		$this->acquirer_url = $url;
 
 		$this->directory_request_url   = $url;
@@ -131,21 +131,21 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	//////////////////////////////////////////////////
 
-	public function setPrivateKey($key) {
+	public function setPrivateKey( $key ) {
 		$this->privateKey = $key;
 	}
 
-	public function setPrivateKeyPassword($password) {
+	public function setPrivateKeyPassword( $password ) {
 		$this->privateKeyPassword = $password;
 	}
 
-	public function setPrivateCertificate($certificate) {
+	public function setPrivateCertificate( $certificate ) {
 		$this->privateCertificate = $certificate;
 	}
 
 	//////////////////////////////////////////////////
 
-	public function addPublicCertificate($file) {
+	public function addPublicCertificate( $file ) {
 		$this->publicCertificates[] = $file;
 	}
 
@@ -153,13 +153,13 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Get the error
-	 * 
+	 *
 	 * @return WP_Error
 	 */
 	public function get_error() {
 		return $this->error;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -178,10 +178,10 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$response = wp_remote_post( $url, array(
 			'method'    => 'POST',
 			'headers'   => array(
-				'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING
+				'Content-Type' => 'text/xml; charset=' . Pronamic_Gateways_IDealAdvanced_XML_Message::XML_ENCODING,
 			),
 			'sslverify' => false,
-			'body'      => $data
+			'body'      => $data,
 		) );
 
 		// Handle response
@@ -192,12 +192,12 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 				$body = wp_remote_retrieve_body( $response );
 
 				$xml = Pronamic_WP_Util::simplexml_load_string( $body );
-				
+
 				if ( is_wp_error( $xml ) ) {
 					$this->error = $xml;
 				} else {
 					$document = self::parse_document( $xml );
-					
+
 					if ( is_wp_error( $document ) ) {
 						$this->error = $document;
 					} else {
@@ -216,7 +216,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Parse the specified document and return parsed result
-	 * 
+	 *
 	 * @param SimpleXMLElement $document
 	 */
 	private function parse_document( SimpleXMLElement $document ) {
@@ -240,7 +240,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 			default:
 				return new WP_Error(
 					'ideal_advanced_error',
-					sprintf( __( 'Unknwon iDEAL message (%s)', 'pronamic_ideal' ), $name ) 
+					sprintf( __( 'Unknwon iDEAL message (%s)', 'pronamic_ideal' ), $name )
 				);
 		}
 	}
@@ -249,7 +249,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Get directory
-	 * 
+	 *
 	 * @return Directory
 	 */
 	public function getDirectory() {
@@ -261,7 +261,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->id             = $this->merchant_id;
 		$merchant->subId          = $this->sub_id;
 		$merchant->authentication = self::AUTHENTICATION_SHA1_RSA;
-		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate);
+		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
 
 		$response = $this->send_message( $this->directory_request_url, $message );
 
@@ -276,7 +276,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Get the issuers
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getIssuers() {
@@ -293,7 +293,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	/**
 	 * Get the issuers list
-	 * 
+	 *
 	 * @return array
 	 */
 	public function getIssuerLists() {
@@ -322,7 +322,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 		$merchant->authentication = self::AUTHENTICATION_SHA1_RSA;
 		$merchant->returnUrl      = $return_url;
 		$merchant->token          = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $this->privateCertificate );
-		
+
 		$message->issuer      = $issuer;
 		$message->merchant    = $merchant;
 		$message->transaction = $transaction;
@@ -334,7 +334,7 @@ class Pronamic_Gateways_IDealAdvanced_Client {
 
 	public function get_status( $transaction_id ) {
 		$message = new Pronamic_Gateways_IDealAdvanced_XML_StatusRequestMessage();
-	
+
 		$merchant = $message->getMerchant();
 		$merchant->id             = $this->merchant_id;
 		$merchant->subId          = $this->sub_id;

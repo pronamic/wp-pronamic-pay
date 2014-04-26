@@ -2,7 +2,7 @@
 
 /**
  * Title: ClassiPress iDEAL data proxy
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Order values
-	 * 
+	 *
 	 * @var array
 	 */
 	private $order_values;
@@ -20,7 +20,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Construct and intializes an ClassiPress iDEAL data proxy
-	 * 
+	 *
 	 * @param array $order_values
 	 */
 	public function __construct( $order_values ) {
@@ -33,7 +33,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get source indicatir
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -45,7 +45,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -55,13 +55,13 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
 	public function get_order_id() {
 		$order_id = null;
-		
+
 		if ( isset( $this->order_values['oid'] ) ) {
 			$order_id = $this->order_values['oid'];
 		} elseif ( isset( $this->order_values['txn_id'] ) ) {
@@ -73,7 +73,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -89,7 +89,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 		} elseif ( isset( $this->order_values['item_amount'] ) ) {
 			$amount = $this->order_values['item_amount'];
 		}
-		
+
 		$item = new Pronamic_IDeal_Item();
 		$item->setNumber( $this->order_values['item_number'] );
 		$item->setDescription( $this->order_values['item_name'] );
@@ -115,13 +115,13 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	public function get_email() {
 		$user_id = $this->order_values['user_id'];
-		
+
 		return get_the_author_meta( 'user_email', $user_id );
 	}
 
 	public function getCustomerName() {
 		$user_id = $this->order_values['user_id'];
-		
+
 		return get_the_author_meta( 'first_name', $user_id ) . ' ' . get_the_author_meta( 'last_name', $user_id );
 	}
 
@@ -143,7 +143,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 
 	/**
 	 * Get notify URL
-	 * 
+	 *
 	 * @return string
 	 */
 	private function get_notify_url() {
@@ -161,7 +161,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 				$url = add_query_arg(
 					array(
 						'invoice' => $this->order_values['txn_id'],
-						'aid'     => $this->order_values['ad_id']
+						'aid'     => $this->order_values['ad_id'],
 					),
 					home_url( '/' )
 				);
@@ -171,19 +171,19 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 				$url = add_query_arg(
 					array(
 						'invoice' => $this->order_values['txn_id'],
-						'uid'     => $this->order_values['user_id']
+						'uid'     => $this->order_values['user_id'],
 					),
 					home_url( '/' )
 				);
 			}
 		}
-		
+
 		return $url;
 	}
 
 	/**
 	 * Get notify URL
-	 * 
+	 *
 	 * @return string
 	 */
 	private function get_return_url() {
@@ -194,7 +194,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 			/*
 			 * We query the order info sometimes directly from the database,
 			 * if we do this the 'return_url' isn't directly available
-			 * 
+			 *
 			 * ClassiPress has order information about adding an advertisement,
 			 * but also has order information about advertisement packages.
 			 *
@@ -210,7 +210,7 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 				$url = add_query_arg(
 					array(
 						'pid' => $this->order_values['txn_id'],
-						'aid' => $this->order_values['ad_id']
+						'aid' => $this->order_values['ad_id'],
 					),
 					CP_ADD_NEW_CONFIRM_URL
 				);
@@ -221,26 +221,26 @@ class Pronamic_ClassiPress_IDeal_IDealDataProxy extends Pronamic_WP_Pay_PaymentD
 					array(
 						'oid' => $this->order_values['txn_id'],
 						// In some ClassiPress installation the 'wp_cp_order_info' table doesn't have an 'user_id' column
-						'uid' => isset( $this->order_values['user_id'] ) ? $this->order_values['user_id'] : false
+						'uid' => ( isset( $this->order_values['user_id'] ) ? $this->order_values['user_id'] : false ),
 					),
 					CP_MEMBERSHIP_PURCHASE_CONFIRM_URL
 				);
 			}
 		}
-		
+
 		return $url;
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public function get_normal_return_url() {
 		return $this->get_notify_url();
 	}
-	
+
 	public function get_cancel_url() {
 		return $this->get_notify_url();
 	}
-	
+
 	public function get_success_url() {
 		return $this->get_return_url();
 	}

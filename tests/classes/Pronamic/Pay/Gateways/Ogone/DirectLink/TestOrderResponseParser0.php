@@ -2,12 +2,12 @@
 
 class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser0 extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-0-50001123.xml';
-		
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-0-50001123.xml';
+
 		$simplexml = simplexml_load_file( $filename );
-		
+
 		$this->assertInstanceOf( 'SimpleXMLElement', $simplexml );
-		
+
 		return $simplexml;
 	}
 
@@ -16,9 +16,9 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser0 extends WP
 	 */
 	function test_parser( $simplexml ) {
 		$order_response = Pronamic_Gateways_Ogone_XML_OrderResponseParser::parse( $simplexml );
-		
+
 		$this->assertInstanceOf( 'Pronamic_Pay_Gateways_Ogone_DirectLink_OrderResponse', $order_response );
-		
+
 		return $order_response;
 	}
 

@@ -2,7 +2,7 @@
 
 function get_pronamic_gf_pay_feed_by_form_id( $form_id ) {
 	global $wpdb;
-	
+
 	$pay_gf = null;
 
 	$db_query = $wpdb->prepare( "
@@ -18,11 +18,11 @@ function get_pronamic_gf_pay_feed_by_form_id( $form_id ) {
 	", $form_id );
 
 	$post_id = $wpdb->get_var( $db_query );
-	
+
 	if ( $post_id ) {
 		$pay_gf = new Pronamic_GravityForms_PayFeed( $post_id );
 	}
-	
+
 	return $pay_gf;
 }
 
@@ -34,15 +34,15 @@ function get_pronamic_pay_gf_form_title( $form_id ) {
 	if ( ! isset( $pronamic_pay_gf_form_titles ) ) {
 		global $wpdb;
 
-		$form_table_name =  RGFormsModel::get_form_table_name();
+		$form_table_name = RGFormsModel::get_form_table_name();
 
 		$query = "SELECT id, title FROM $form_table_name WHERE is_active;";
 
 		$pronamic_pay_gf_form_titles = $wpdb->get_results( $query, OBJECT_K );
 	}
-	
-	if ( isset( $pronamic_pay_gf_form_titles[$form_id] ) ) {
-		$title = $pronamic_pay_gf_form_titles[$form_id]->title;
+
+	if ( isset( $pronamic_pay_gf_form_titles[ $form_id ] ) ) {
+		$title = $pronamic_pay_gf_form_titles[ $form_id ]->title;
 	}
 
 	return $title;

@@ -2,7 +2,7 @@
 
 /**
  * Title: Mollie
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,23 +11,23 @@
 class Pronamic_Gateways_Mollie_IDeal_Mollie {
 	/**
 	 * Mollie API endpoint URL
-	 * 
+	 *
 	 * @var string
 	 */
 	const API_URL = 'https://secure.mollie.nl//xml/ideal/';
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Mollie partner ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $partner_id;
 
 	/**
 	 * Mollie profile key
-	 * 
+	 *
 	 * @var string
 	 */
 	private $profile_key;
@@ -36,7 +36,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 	/**
 	 * Indicator to use test mode or not
-	 * 
+	 *
 	 * @var boolean
 	 */
 	private $test_mode;
@@ -45,7 +45,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
@@ -54,7 +54,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 	/**
 	 * Constructs and initializes an Mollie client object
-	 * 
+	 *
 	 * @param string $partner_id
 	 */
 	public function __construct( $partner_id ) {
@@ -65,7 +65,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @return WP_Error
 	 */
 	public function get_error() {
@@ -76,18 +76,18 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 	/**
 	 * Set test mode
-	 * 
+	 *
 	 * @param boolean $test_mode
 	 */
 	public function set_test_mode( $test_mode ) {
 		$this->test_mode = $test_mode;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the default parameters wich are required in every Mollie request
-	 * 
+	 *
 	 * @param string $action
 	 * @param array $parameters
 	 */
@@ -98,36 +98,36 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 		if ( $this->test_mode ) {
 			$parameters['testmode'] = 'true';
 		}
-		
+
 		return $parameters;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Send request with the specified action and parameters
-	 * 
+	 *
 	 * @param string $action
 	 * @param array $parameters
 	 */
 	private function send_request( $action, array $parameters = array() ) {
 		$parameters = $this->get_parameters( $action, $parameters );
-		
+
 		// WordPress functions uses URL encoding
 		// @see http://codex.wordpress.org/Function_Reference/build_query
 		// @see http://codex.wordpress.org/Function_Reference/add_query_arg
 		$url = Pronamic_WP_Util::build_url( self::API_URL, $parameters );
 
 		return Pronamic_WP_Util::remote_get_body( $url, 200, array(
-			'sslverify' => false
+			'sslverify' => false,
 		) );
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get banks
-	 * 
+	 *
 	 * @return Ambigous <boolean, multitype:string >
 	 */
 	public function get_banks() {
@@ -149,55 +149,55 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 					$id   = (string) $bank->bank_id;
 					$name = (string) $bank->bank_name;
 
-					$banks[$id] = $name;
+					$banks[ $id ] = $name;
 				}
 			}
 		}
-		
+
 		return $banks;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Parse document
-	 * 
+	 *
 	 * @param SimpleXMLElement $element
 	 */
 	private function parse_document( SimpleXMLElement $xml ) {
 		$result = false;
-		
+
 		if ( isset( $xml->item ) ) {
 			if ( $xml->item['type'] == 'error' ) {
 				$error = new Pronamic_Gateways_Mollie_IDeal_Error(
-					(string) $xml->item->errorcode, 
+					(string) $xml->item->errorcode,
 					(string) $xml->item->message
 				);
-	
+
 				$this->error = new WP_Error( 'mollie_error', (string) $error, $error );
 			}
 		}
 
 		if ( isset( $xml->order ) ) {
 			$order = new stdClass();
-			
+
 			$order->transaction_id = (string) $xml->order->transaction_id;
 			$order->amount         = (string) $xml->order->amount;
 			$order->currency       = (string) $xml->order->currency;
 			$order->url            = (string) $xml->order->URL;
 			$order->message        = (string) $xml->order->message;
-			
+
 			$result = $order;
 		}
-		
+
 		return $result;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create payment with the specified details
-	 * 
+	 *
 	 * @param string $bank_id
 	 * @param float $amount
 	 * @param string $description
@@ -234,20 +234,20 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 		return $result;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Check payment with the specified transaction ID
-	 * 
+	 *
 	 * @param string $transaction_id
 	 * @return stdClass
 	 */
 	public function check_payment( $transaction_id ) {
 		$result = false;
 
-		$parameters = array (
-			'transaction_id' => $transaction_id
+		$parameters = array(
+			'transaction_id' => $transaction_id,
 		);
 
 		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::CHECK, $parameters );
@@ -259,7 +259,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 				$this->error = $xml;
 			} else {
 				$order = new stdClass();
-				
+
 				$order->transaction_id = Pronamic_XML_Util::filter( $xml->order->transaction_id );
 				$order->amount         = Pronamic_XML_Util::filter( $xml->order->amount );
 				$order->currency       = Pronamic_XML_Util::filter( $xml->order->currency );
@@ -270,7 +270,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 				$order->consumer->name    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerName );
 				$order->consumer->account = Pronamic_XML_Util::filter( $xml->order->consumer->consumerAccount );
 				$order->consumer->city    = Pronamic_XML_Util::filter( $xml->order->consumer->consumerCity );
-				
+
 				$result = $order;
 			}
 		}

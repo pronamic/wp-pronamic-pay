@@ -9,10 +9,10 @@
 		<style type="text/css">
 			body {
 				background: #F6F6F6;
-				
+
 				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 			}
-			
+
 			#page {
 				margin: 0 auto;
 
@@ -35,7 +35,7 @@
 
 				text-align: center;
 			}
-			
+
 			#primary h1 {
 				margin: 0;
 			}
@@ -93,7 +93,7 @@
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
 				filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 			}
-			
+
 			#primary .btn {
 				border: 0 none;
 				border-radius: 6px 6px 6px 6px;
@@ -106,12 +106,12 @@
 			}
 		</style>
 	</head>
-	
-	<?php 
-	
+
+	<?php
+
 	$auto_submit = true;
 	$onload      = $auto_submit ? 'document.forms[0].submit();' : '';
-	
+
 	?>
 
 	<body onload="<?php esc_attr( $onload ); ?>">

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 abstract class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RequestMessage extends Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message  {
 	/**
 	 * Constructs and initialize an request message
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function __construct( $name ) {
@@ -22,7 +22,7 @@ abstract class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RequestMessage ext
 
 	/**
 	 * Get the DOM document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	protected function get_document() {
@@ -37,7 +37,7 @@ abstract class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RequestMessage ext
 		$root->setAttribute( 'ua', $this->get_user_agent() );
 
 		$document->appendChild( $root );
-	
+
 		return $document;
 	}
 
@@ -45,7 +45,7 @@ abstract class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_RequestMessage ext
 
 	/**
 	 * Create a string representation
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

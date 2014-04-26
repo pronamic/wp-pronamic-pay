@@ -2,15 +2,13 @@
 
 /**
  * Title: Abstract payment data class
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
  * @since 1.4.0
  */
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
-	public $payment_id;
-
 	private $entrance_code;
 
 	//////////////////////////////////////////////////
@@ -22,17 +20,17 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	//////////////////////////////////////////////////
 
 	public abstract function get_source();
-	
+
 	public function get_source_id() {
 		return $this->get_order_id();
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	public function get_title() {
 		return $this->get_description();
 	}
-	
+
 	public abstract function get_description();
 
 	public abstract function get_order_id();
@@ -48,7 +46,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	//////////////////////////////////////////////////
 
 	public abstract function get_email();
-	
+
 	public abstract function getCustomerName();
 
 	public abstract function getOwnerAddress();
@@ -63,14 +61,14 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	/**
 	 * Get the curreny alphabetic code
-	 * 
+	 *
 	 *  @return string
 	 */
 	public abstract function get_currency_alphabetic_code();
 
 	/**
 	 * Get currency numeric code
-	 * 
+	 *
 	 * @return Ambigous <string, NULL>
 	 */
 	public function get_currency_numeric_code() {
@@ -79,7 +77,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	/**
 	 * Helper function to get the curreny alphabetic code
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_currency() {
@@ -92,19 +90,19 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 
 	/**
 	 * Get the language code (ISO639)
-	 * 
+	 *
 	 * @see http://www.w3.org/WAI/ER/IG/ert/iso639.htm
-	 * 
+	 *
 	 * @return string
 	 */
 	public abstract function get_language();
 
 	/**
-	 * Get the language (ISO639) and country (ISO3166) code 
-	 * 
+	 * Get the language (ISO639) and country (ISO3166) code
+	 *
 	 * @see http://www.w3.org/WAI/ER/IG/ert/iso639.htm
 	 * @see http://www.iso.org/iso/home/standards/country_codes.htm
-	 * 
+	 *
 	 * @return string
 	 */
 	public abstract function get_language_and_country();
@@ -116,7 +114,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	public function get_entrance_code() {
 		return $this->entrance_code;
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Issuer
 	//////////////////////////////////////////////////

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pronamic_Gateways_IDealAdvancedV3_XML_Message  {
 	/**
 	 * Merchant
-	 * 
+	 *
 	 * @var Merchant
 	 */
 	private $merchant;
@@ -20,7 +20,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 
 	/**
 	 * Constructs and initialize an request message
-	 * 
+	 *
 	 * @param string $name
 	 */
 	public function __construct( $name ) {
@@ -33,7 +33,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 
 	/**
 	 * Get the merchant
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_merchant() {
@@ -44,7 +44,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 
 	/**
 	 * Get the DOM document
-	 * 
+	 *
 	 * @return DOMDocument
 	 */
 	protected function get_document() {
@@ -53,13 +53,13 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 		// this is causing 'Invalid electronic signature' errors
 		// $document->preserveWhiteSpace = true;
 		// $document->formatOutput = true;
-		
+
 		// Root
 		$root = $document->createElementNS( parent::XML_NAMESPACE, $this->get_name() );
 		$root->setAttribute( 'version', parent::VERSION );
 
 		$document->appendChild( $root );
-		
+
 		// Create date timestamp
 		// Using DateTime::ISO8601 won't work, this is giving an error
 		$timestamp = $this->get_create_date()->format( 'Y-m-d\TH:i:s.000\Z' );
@@ -67,7 +67,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 		$element = $document->createElement( 'createDateTimestamp', $timestamp );
 
 		$root->appendChild( $element );
-	
+
 		return $document;
 	}
 
@@ -75,7 +75,7 @@ abstract class Pronamic_Gateways_IDealAdvancedV3_XML_RequestMessage extends Pron
 
 	/**
 	 * Create a string representation
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

@@ -12,8 +12,8 @@
 
 			<tr>
 				<td>
-					<?php if ( isset( $gateway['provider'], $pronamic_pay_providers[$gateway['provider']] ) ): ?>
-						<?php $provider = $pronamic_pay_providers[$gateway['provider']]; ?>
+					<?php if ( isset( $gateway['provider'], $pronamic_pay_providers[ $gateway['provider'] ] ) ): ?>
+						<?php $provider = $pronamic_pay_providers[ $gateway['provider'] ]; ?>
 						<a href="<?php echo $provider['url']; ?>">
 							<?php echo $provider['name']; ?>
 						</a>

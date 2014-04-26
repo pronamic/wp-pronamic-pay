@@ -53,7 +53,7 @@ $pronamic_pay_gateways = array(
 			'directory_request_url'   => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Directory.aspx',
 			'transaction_request_url' => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Transaction.aspx',
 			'status_request_url'      => 'https://itt.idealdesk.com/ITTEmulatorAcquirer/Status.aspx',
-			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/'
+			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/',
 		),
 		'live'     => array(
 			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDeal',
@@ -292,7 +292,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
 		),
 		'live'     => array(
-			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3//',
+			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
 		),
 		'certificates' => array(
 			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',

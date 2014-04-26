@@ -9,34 +9,33 @@
  * @version 1.0
  */
 class Pronamic_IThemesExchange_IThemesExchange {
+	/**
+	 * Order status pending
+	 *
+	 * @var string
+	 */
+	const ORDER_STATUS_PENDING = 'pending';
 
-    /**
-     * Order status pending
-     *
-     * @var string
-     */
-    const ORDER_STATUS_PENDING = 'pending';
+	/**
+	 * Order status paid
+	 *
+	 * @var string
+	 */
+	const ORDER_STATUS_PAID = 'paid';
 
-    /**
-     * Order status paid
-     *
-     * @var string
-     */
-    const ORDER_STATUS_PAID = 'paid';
+	/**
+	 * Order status refunded
+	 *
+	 * @var string
+	 */
+	const ORDER_STATUS_REFUNDED = 'refunded';
 
-    /**
-     * Order status refunded
-     *
-     * @var string
-     */
-    const ORDER_STATUS_REFUNDED = 'refunded';
-
-    /**
-     * Order status voided
-     *
-     * @var string
-     */
-    const ORDER_STATUS_VOIDED = 'voided';
+	/**
+	 * Order status voided
+	 *
+	 * @var string
+	 */
+	const ORDER_STATUS_VOIDED = 'voided';
 
 	//////////////////////////////////////////////////
 

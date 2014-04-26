@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $post_id = get_the_ID();
 
@@ -16,7 +16,7 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 
 	<?php if ( $payment->get_source() == 's2member' ) : ?>
-	
+
 		<tr>
 			<th scope="row">
 				<?php _e( 'Period', 'pronamic_ideal' ); ?>
@@ -37,7 +37,7 @@ $payment = get_pronamic_payment( $post_id );
 	<?php endif; ?>
 
 	<?php if ( $payment->get_source() == 'wp-e-commerce' ) : ?>
-	
+
 		<tr>
 			<th scope="row">
 				<?php _e( 'Purchase ID', 'pronamic_ideal' ); ?>
@@ -58,7 +58,7 @@ $payment = get_pronamic_payment( $post_id );
 	<?php endif; ?>
 
 	<?php if ( $payment->get_source() == 'membership' ) : ?>
-	
+
 		<tr>
 			<th scope="row">
 				<?php _e( 'User ID', 'pronamic_ideal' ); ?>

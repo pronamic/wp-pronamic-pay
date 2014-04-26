@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL directory response XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Pronamic_Gateways_IDealAdvanced_XML_ResponseMessage {
 	/**
 	 * The document element name
-	 * 
+	 *
 	 * @var string
 	 */
 	const NAME = 'DirectoryRes';
@@ -20,7 +20,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 
 	/**
 	 * The directory
-	 * 
+	 *
 	 * @var Directory
 	 */
 	public $directory;
@@ -40,7 +40,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 
 	/**
 	 * Get the directory
-	 * 
+	 *
 	 * @return Directory
 	 */
 	public function getDirectory() {
@@ -51,7 +51,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_DirectoryResponseMessage extends Prona
 
 	/**
 	 * Parse the specified XML into an directory response message object
-	 * 
+	 *
 	 * @param SimpleXMLElement $xml
 	 */
 	public static function parse( SimpleXMLElement $xml ) {

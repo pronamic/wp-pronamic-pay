@@ -28,39 +28,39 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
 			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
-			'date'                         => __( 'Date', 'pronamic_ideal' )
+			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
-	
+
 		return $columns;
 	}
 
 	public function custom_columns( $column, $post_id ) {
 		global $post;
-	
-		switch( $column ) {
+
+		switch ( $column ) {
 			case 'pronamic_payment_gateway':
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
-				
+
 				if ( ! empty( $config_id ) ) {
 					echo get_the_title( $config_id );
 				} else {
 					echo '—';
 				}
-	
+
 				break;
 			case 'pronamic_payment_transaction':
 				echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
-	
+
 				break;
 			case 'pronamic_payment_description':
 				echo get_post_meta( $post_id, '_pronamic_payment_description', true );
-	
+
 				break;
 			case 'pronamic_payment_amount':
 				echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				echo ' ';
 				echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
-	
+
 				break;
 			case 'pronamic_payment_consumer':
 				echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
@@ -70,19 +70,19 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
 				echo '<br />';
 				echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
-	
+
 				break;
 			case 'pronamic_payment_source':
 				$payment = get_pronamic_payment( $post_id );
-	
+
 				echo $payment->get_source_text();
-	
+
 				break;
 			case 'pronamic_payment_status':
 				$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
-	
-				echo Pronamic_WordPress_IDeal_IDeal::translate_status( $status );
-	
+
+				echo Pronamic_WP_Pay_Plugin::translate_status( $status );
+
 				break;
 		}
 	}
@@ -99,7 +99,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'normal',
 			'high'
 		);
-	
+
 		add_meta_box(
 			'pronamic_payment_source',
 			__( 'Source', 'pronamic_ideal' ),
@@ -108,7 +108,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'normal',
 			'high'
 		);
-	
+
 		add_meta_box(
 			'pronamic_payment_log',
 			__( 'Log', 'pronamic_ideal' ),
@@ -117,7 +117,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'normal',
 			'high'
 		);
-	
+
 		// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
 		remove_meta_box( 'submitdiv', 'pronamic_payment', 'side' );
 	}
@@ -128,24 +128,24 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-info.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-info.php';
 	}
-	
+
 	/**
 	 * Pronamic Pay gateway config meta box
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_source( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-source.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-source.php';
 	}
-	
+
 	/**
 	 * Pronamic Pay gateway config meta box
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-log.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-log.php';
 	}
 }

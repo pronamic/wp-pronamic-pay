@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone order standard gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'ogone_orderstandard';
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get output HTML
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_output_html()
 	 */
 	public function get_output_html() {
@@ -31,7 +31,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 
 	/**
 	 * Constructs and initializes an InternetKassa gateway
-	 * 
+	 *
 	 * @param Pronamic_WordPress_IDeal_Configuration $config
 	 */
 	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandard_Config $config ) {
@@ -48,7 +48,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 		$this->client->setPspId( $config->psp_id );
 		$this->client->setPassPhraseIn( $config->sha_in_pass_phrase );
 		$this->client->setPassPhraseOut( $config->sha_out_pass_phrase );
-		
+
 		if ( ! empty( $config->hash_algorithm ) ) {
 			$this->client->set_hash_algorithm( $config->hash_algorithm );
 		}
@@ -58,7 +58,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 
 	/**
 	 * Start
-	 * 
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -71,7 +71,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 		$this->client->setOrderId( $data->get_order_id() );
 		$this->client->setOrderDescription( $data->get_description() );
 		$this->client->setAmount( $data->get_amount() );
-		
+
 		$this->client->setCustomerName( $data->getCustomerName() );
 		$this->client->setEMailAddress( $data->get_email() );
 
@@ -82,9 +82,9 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 		$this->client->setDeclineUrl( add_query_arg( 'status', 'decline', $url ) );
 		$this->client->setExceptionUrl( add_query_arg( 'status', 'exception', $url ) );
 	}
-	
+
 	/////////////////////////////////////////////////
-	
+
 	/**
 	 * Update status of the specified payment
 	 *
@@ -93,14 +93,14 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$inputs = array(
 			INPUT_GET  => $_GET,
-			INPUT_POST => $_POST
+			INPUT_POST => $_POST,
 		);
 
 		foreach ( $inputs as $input => $data ) {
 			$data = $this->client->verifyRequest( $data );
 
 			if ( $data !== false ) {
-				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[Pronamic_Pay_Gateways_Ogone_Parameters::STATUS] );
+				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
 			}

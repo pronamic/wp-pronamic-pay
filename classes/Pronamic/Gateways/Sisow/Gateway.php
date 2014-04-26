@@ -34,7 +34,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result ) {
 			$groups[] = array(
-				'options' => $result
+				'options' => $result,
 			);
 		} else {
 			$this->error = $this->client->get_error();
@@ -52,7 +52,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
 			'required' => true,
 			'type'     => 'select',
-			'choices'  => $this->get_transient_issuers()
+			'choices'  => $this->get_transient_issuers(),
 		);
 	}
 
@@ -67,7 +67,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$order_id    = $data->get_order_id();
 		$purchase_id = empty( $order_id ) ? $payment->get_id() : $order_id;
-		
+
 		$result = $this->client->create_transaction(
 			$data->get_issuer_id(),
 			$purchase_id,
@@ -97,7 +97,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result !== false ) {
 			$transaction = $result;
-			
+
 			$payment->set_status( $transaction->status );
 			$payment->set_consumer_name( $transaction->consumer_name );
 			$payment->set_consumer_account_number( $transaction->consumer_account );

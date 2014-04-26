@@ -3,14 +3,14 @@
 class Pronamic_GravityForms_PayFeed {
 	/**
 	 * Indicator for an link to an WordPress page
-	 * 
+	 *
 	 * @var string
 	 */
 	const LINK_TYPE_PAGE = 'page';
 
 	/**
 	 * Indicator for an link to an URL
-	 * 
+	 *
 	 * @var string
 	 */
 	const LINK_TYPE_URL = 'url';
@@ -19,7 +19,7 @@ class Pronamic_GravityForms_PayFeed {
 
 	/**
 	 * The payment (post) ID.
-	 * 
+	 *
 	 * @var int
 	 */
 	public $id;
@@ -38,42 +38,42 @@ class Pronamic_GravityForms_PayFeed {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Delay notification ID's contains an array of notification ID's wich 
+	 * Delay notification ID's contains an array of notification ID's wich
 	 * should be delayed till the payment is succesfull
 	 *
-	 * @since Gravity Forms 1.7 
+	 * @since Gravity Forms 1.7
 	 * @var array
 	 */
 	public $delay_notification_ids;
 
 	/**
 	 * Flag to delay the creation of an post till the the payment is succesfull
-	 * 
+	 *
 	 * @var boolean
 	 */
 	public $delay_post_creation;
 
 	/**
 	 * Flag to delay the creation of an post till the the payment is succesfull
-	 * 
-	 * @deprecated Gravity Forms 1.7 
+	 *
+	 * @deprecated Gravity Forms 1.7
 	 * @var boolean
 	 */
 	public $delay_admin_notification;
 
 	/**
 	 * Flag to delay the creation of an post till the the payment is succesfull
-	 * 
-	 * @deprecated Gravity Forms 1.7 
+	 *
+	 * @deprecated Gravity Forms 1.7
 	 * @var boolean
 	 */
 	public $delay_user_notification;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Construct and initialize payment object
-	 * 
+	 *
 	 * @param int $post_id
 	 */
 	public function __construct( $post_id ) {
@@ -91,15 +91,15 @@ class Pronamic_GravityForms_PayFeed {
 		$this->condition_field_id       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_field_id', true );
 		$this->condition_operator       = get_post_meta( $post_id, '_pronamic_pay_gf_condition_operator', true );
 		$this->condition_value          = get_post_meta( $post_id, '_pronamic_pay_gf_condition_value', true );
-		
+
 		$ids = get_post_meta( $post_id, '_pronamic_pay_gf_delay_notification_ids', true );
 		$this->delay_notification_ids   = is_array( $ids ) ? $ids : array();
-		
+
 		$this->delay_admin_notification = get_post_meta( $post_id, '_pronamic_pay_gf_delay_admin_notification', true );
 		$this->delay_user_notification  = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_notification', true );
 
 		$this->delay_post_creation      = get_post_meta( $post_id, '_pronamic_pay_gf_delay_post_creation', true );
-		
+
 		$this->delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
 		$this->delay_mailchimp_subscription       = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
 
@@ -123,9 +123,9 @@ class Pronamic_GravityForms_PayFeed {
 	 */
 	public function get_url( $name ) {
 		$url = null;
-	
-		if ( isset( $this->links[$name] ) ) {
-			$link = $this->links[$name];
+
+		if ( isset( $this->links[ $name ] ) ) {
+			$link = $this->links[ $name ];
 
 			// link is een standard class object, the type variable could not be defined
 			if ( isset( $link['type'] ) ) {
@@ -141,7 +141,7 @@ class Pronamic_GravityForms_PayFeed {
 				}
 			}
 		}
-	
+
 		return $url;
 	}
 

@@ -2,7 +2,7 @@
 
 /**
  * Title: WordPress payment test data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,18 +11,18 @@
 class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * WordPress uer
-	 * 
+	 *
 	 * @var WP_User
 	 */
 	private $user;
 
 	/**
 	 * Amount
-	 * 
+	 *
 	 * @var float
 	 */
 	private $amount;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -39,7 +39,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -51,7 +51,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -61,7 +61,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -71,7 +71,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -97,7 +97,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get currency alphabetic code
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -124,7 +124,7 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 	// Creditcard
 	//////////////////////////////////////////////////
-	
+
 	public function get_credit_card() {
 		$credit_card = new Pronamic_Pay_CreditCard();
 

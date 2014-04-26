@@ -8,7 +8,7 @@ class Pronamic_Extensions_ExtensionWooCommerce extends Pronamic_Extensions_Exten
 	public function is_active() {
 		return defined( 'WOOCOMMERCE_VERSION' );
 	}
-	
+
 	public function get_version() {
 		return WOOCOMMERCE_VERSION;
 	}

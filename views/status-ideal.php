@@ -1,12 +1,10 @@
 <div class="wrap">
-	<?php screen_icon( 'pronamic_ideal' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<p>
-		<?php 
-		
-		printf( 
+		<?php
+
+		printf(
 			__( 'The <a href="%s" target="_blank">iDEAL-status.nl</a> webservice monitors the following status of the various iDEAL banks:', 'pronamic_ideal' ),
 			'http://www.ideal-status.nl/'
 		);
@@ -14,7 +12,7 @@
 		?>
 	</p>
 
-	<?php 
+	<?php
 
 	$url = 'http://www.ideal-status.nl/static/issuers_current.json';
 
@@ -35,7 +33,7 @@
 	}
 
 	if ( $status_data ): ?>
-	
+
 		<table class="wp-list-table widefat" style="width: auto;">
 			<thead>
 				<tr>
@@ -56,7 +54,7 @@
 					</th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 				<?php foreach ( $status_data as $status ): ?>
 
@@ -77,11 +75,11 @@
 							<?php echo number_format( $status->rate_failure * 100, 1, ',', '.' ); ?>%
 						</td>
 					</tr>
-				
+
 				<?php endforeach; ?>
 			</tbody>
 		</table>
-	
+
 	<?php endif; ?>
 
 	<?php include 'pronamic.php'; ?>

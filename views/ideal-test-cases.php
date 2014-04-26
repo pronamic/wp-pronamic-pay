@@ -10,35 +10,35 @@
 		</tr>
 	</thead>
 
-	<?php 
+	<?php
 
 	$test_cases = array(
 		1 => array(
 			'amount' => 1,
-			'result' => 'Success'
+			'result' => 'Success',
 		),
 		2 => array(
 			'amount' => 2,
-			'result' => 'Cancelled'
+			'result' => 'Cancelled',
 		),
 		3 => array(
 			'amount' => 3,
-			'result' => 'Expired'
+			'result' => 'Expired',
 		),
 		4 => array(
 			'amount' => 4,
-			'result' => 'Open'
+			'result' => 'Open',
 		),
 		5 => array(
 			'amount' => 5,
-			'result' => 'Failure'
+			'result' => 'Failure',
 		),
 		7 => array(
 			'amount' => 7,
-			'result' => 'SO1000 Failure in system'
+			'result' => 'SO1000 Failure in system',
 		),
 	);
-	
+
 	?>
 
 	<tbody>
@@ -47,10 +47,10 @@
 
 			<tr>
 				<td>
-					<?php 
+					<?php
 
-					printf( 
-						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ), 
+					printf(
+						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
 						Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
 					);
 

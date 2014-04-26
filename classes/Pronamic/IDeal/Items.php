@@ -2,7 +2,7 @@
 
 /**
  * Title: Items
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_IDeal_Items implements IteratorAggregate {
 	/**
 	 * The items
-	 * 
+	 *
 	 * @var array
 	 */
 	private $items;
@@ -29,19 +29,19 @@ class Pronamic_IDeal_Items implements IteratorAggregate {
 
 	/**
 	 * Get iterator
-	 * 
+	 *
 	 * @see IteratorAggregate::getIterator()
 	 */
-    public function getIterator() {
-        return new ArrayIterator($this->items);
-    }
+	public function getIterator() {
+		return new ArrayIterator( $this->items );
+	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Add item
 	 */
-	public function addItem(Pronamic_IDeal_Item $item) {
+	public function addItem( Pronamic_IDeal_Item $item ) {
 		$this->items[] = $item;
 	}
 
@@ -53,7 +53,7 @@ class Pronamic_IDeal_Items implements IteratorAggregate {
 	public function get_amount() {
 		$amount = 0;
 
-		foreach($this->items as $item) {
+		foreach ( $this->items as $item ) {
 			$amount += $item->get_amount();
 		}
 

@@ -2,7 +2,7 @@
 
 /**
  * Title: Merchant
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,21 +11,21 @@
 class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 	/**
 	 * ID of the merchant
-	 * 
+	 *
 	 * @var string
 	 */
 	private $id;
 
 	/**
 	 * Sub ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $sub_id;
 
 	/**
 	 * Return URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $return_url;
@@ -36,14 +36,14 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 	 * Constructs and initializes an issuer
 	 */
 	public function __construct() {
-		
+
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get the ID of this merchant
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_id() {
@@ -52,7 +52,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 
 	/**
 	 * Set the ID of this merchant
-	 * 
+	 *
 	 * @param string $id
 	 */
 	public function set_id( $id ) {
@@ -63,7 +63,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 
 	/**
 	 * Get the ID of this merchant
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_sub_id() {
@@ -72,7 +72,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 
 	/**
 	 * Set the ID of this merchant
-	 * 
+	 *
 	 * @param string $sub_id
 	 */
 	public function set_sub_id( $sub_id ) {
@@ -83,7 +83,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 
 	/**
 	 * Get the return URL of this merchant
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_return_url() {
@@ -92,7 +92,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Merchant {
 
 	/**
 	 * Set the ID of this merchant
-	 * 
+	 *
 	 * @param string $sub_id
 	 */
 	public function set_return_url( $return_url ) {

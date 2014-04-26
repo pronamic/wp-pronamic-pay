@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: Event Espresso iDEAL Add-On
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_EventEspresso_IDeal_AddOn {
 	/**
 	 * Slug
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'event-espresso';
 
 	/**
 	 * Option for config ID
-	 * 
+	 *
 	 * @var string
 	 */
 	const OPTION_CONFIG_ID = 'pronamic_pay_ideal_event_espreso_config_id';
@@ -49,7 +49,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		add_filter( 'filter_hook_espresso_transactions_get_attendee_id', array( __CLASS__, 'transactions_get_attendee_id' ) );
 
 		add_action( 'template_redirect', array( __CLASS__, 'process_gateway' ) );
-		
+
 		$slug = self::SLUG;
 
 		add_action( "pronamic_payment_status_update_{$slug}_unknown_to_success", array( __CLASS__, 'update_status_unknown_to_success' ), 10, 2 );
@@ -62,7 +62,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 			if ( ! is_readable( $gateway_init ) ) {
 				$created = wp_mkdir_p( $gateway_dir );
-				
+
 				if ( $created ) {
 					touch( $gateway_init );
 				}
@@ -79,21 +79,21 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		if ( filter_has_var( INPUT_POST, 'event_espresso_pronamic_ideal' ) ) {
 			$config_id = get_option( self::OPTION_CONFIG_ID );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
-			
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+
 			if ( $gateway ) {
 				$payment_data = array(
 					'attendee_id' => apply_filters( 'filter_hook_espresso_transactions_get_attendee_id', '' )
 				);
 
 				$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
-			
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+
+				$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
+					Pronamic_WP_Pay_Plugin::render_errors( $error );
 				} else {
 					$gateway->redirect( $payment );
 				}
@@ -109,7 +109,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	public static function display_gateway( $payment_data ) {
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
@@ -117,14 +117,14 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			?>
 			<div id="pronamic-payment-option-dv" class="payment-option-dv">
 				<a id="pronamic-payment-option-lnk" class="pronamic-option-lnk display-the-hidden" rel="pronamic-payment-option-form" style="cursor:pointer;">
-					<?php 
-					
+					<?php
+
 					printf(
 						'<img alt="%s" src="%s" />',
 						esc_attr__( 'Pay with iDEAL', 'pronamic_ideal' ),
-						esc_attr( plugins_url( 'images/ideal.nl/iDEAL-Payoff-2-klein.gif', Pronamic_WordPress_IDeal_Plugin::$file ) )
+						esc_attr( plugins_url( 'images/ideal.nl/iDEAL-Payoff-2-klein.gif', Pronamic_WP_Pay_Plugin::$file ) )
 					);
-					
+
 					?>
 				</a>
 
@@ -132,23 +132,23 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					<h3 class="payment_header">
 						<?php _e( 'iDEAL', 'pronamic_ideal' ); ?>
 					</h3>
-	
+
 					<div class="event_espresso_form_wrapper">
 						<form method="post" action="<?php echo esc_attr( $data->get_notify_url() ); ?>">
-							<?php 
-		
+							<?php
+
 							echo $gateway->get_input_html();
-							
+
 							?>
-		
+
 							<p>
 								<?php
-		
+
 								printf(
 									'<input class="ideal-button allow-leave-page" type="submit" name="event_espresso_pronamic_ideal" value="%s" />',
 									__( 'Pay with iDEAL', 'pronamic_ideal' )
 								);
-							
+
 								?>
 							</p>
 						</form>
@@ -165,14 +165,14 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Transaction get attendee ID
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function transactions_get_attendee_id() {
-		return filter_input( INPUT_GET, 'attendee_id', FILTER_SANITIZE_STRING );	
+		return filter_input( INPUT_GET, 'attendee_id', FILTER_SANITIZE_STRING );
 	}
 
 	//////////////////////////////////////////////////
@@ -196,7 +196,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 			update_option( 'event_espresso_active_gateways', $active_gateways );
 		}
 
-		// Config 
+		// Config
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
 		if ( filter_has_var( INPUT_POST, self::OPTION_CONFIG_ID ) ) {
@@ -204,7 +204,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 			update_option( self::OPTION_CONFIG_ID, $config_id );
 		}
-		
+
 		// Active
 		$is_active = array_key_exists( 'pronamic_ideal', $active_gateways );
 
@@ -230,11 +230,11 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					<div class="padding">
 						<ul>
 							<?php if ( $is_active ) : ?>
-	
+
 								<li class="red_alert pointer" onclick="location.href='<?php echo add_query_arg( 'deactivate_pronamic_ideal', true, $url ); ?>';" style="width:30%;">
 									<strong><?php _e( 'Deactivate Pronamic iDEAL?', 'pronamic_ideal' ); ?></strong>
 								</li>
-	
+
 								<form method="post" action="">
 									<table width="99%" border="0" cellspacing="5" cellpadding="5">
 										<tr>
@@ -244,25 +244,25 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 														<label for="pronamic_pay_ideal_event_espresso_config_id">
 															<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
 														</label>
-														
+
 														<br />
-														
-														<?php 
-														
-														Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+
+														<?php
+
+														Pronamic_WP_Pay_Admin::dropdown_configs( array(
 															'name'     => self::OPTION_CONFIG_ID,
-															'selected' => $config_id
+															'selected' => $config_id,
 														) );
-														
+
 														?>
-														
+
 														<br />
 													</li>
 												</ul>
 											</td>
 										</tr>
 									</table>
-								
+
 									<?php submit_button( __( 'Update Settings', 'pronamic_ideal' ) ); ?>
 								</form>
 
@@ -318,17 +318,17 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	 */
 	public static function source_text( $text, Pronamic_Pay_Payment $payment ) {
 		$url = add_query_arg( array(
-			'page'                => 'events' ,
-			'event_admin_reports' => 'event_list_attendees' , 
-			'all_a'               => 'true'
+			'page'                => 'events',
+			'event_admin_reports' => 'event_list_attendees',
+			'all_a'               => 'true',
 		), admin_url( 'admin.php' ) );
 
 		$text  = '';
 
 		$text .= __( 'Event Espresso', 'pronamic_ideal' ) . '<br />';
 
-		$text .= sprintf( 
-			'<a href="%s">%s</a>', 
+		$text .= sprintf(
+			'<a href="%s">%s</a>',
 			esc_attr( $url ),
 			sprintf( __( 'Attendee #%s', 'pronamic_ideal' ), $payment->get_source_id() )
 		);

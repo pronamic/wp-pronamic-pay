@@ -2,7 +2,7 @@
 
 /**
  * Title: Issuer XML parser
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryParser implements Pronamic_Gateways_IDealAdvancedV3_XML_Parser {
 	/**
 	 * Parse
-	 * 
+	 *
 	 * @param SimpleXMLElement $xml
 	 * @return Pronamic_Gateways_IDealAdvanced_Directory
 	 */
@@ -20,7 +20,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_DirectoryParser implements Pronamic_
 
 		$timestamp = Pronamic_XML_Util::filter( $xml->directoryDateTimestamp );
 		$directory->set_date( new DateTime( $timestamp ) );
-		
+
 		foreach ( $xml->Country as $element ) {
 			$country = Pronamic_Gateways_IDealAdvancedV3_XML_CountryParser::parse( $element );
 

@@ -2,7 +2,7 @@
 
 /**
  * Title: TargetPay error
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,23 +11,23 @@
 class Pronamic_Gateways_TargetPay_Error {
 	/**
 	 * Code
-	 * 
+	 *
 	 * @var string
 	 */
 	private $code;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an TargetPay client object
-	 * 
+	 *
 	 * @param string $code
 	 * @param string $description
 	 */
@@ -35,16 +35,16 @@ class Pronamic_Gateways_TargetPay_Error {
 		$this->code        = $code;
 		$this->description = $description;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	// @todo getters and setters
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create an string representation of this TargetPay error object
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

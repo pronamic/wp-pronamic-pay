@@ -2,7 +2,7 @@
 
 /**
  * Title: Mollie listener
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -18,11 +18,11 @@ class Pronamic_Gateways_Mollie_Listener implements Pronamic_Pay_Gateways_Listene
 		if ( $condition ) {
 			$type = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_STRING );
 			$id   = filter_input( INPUT_GET, 'id', FILTER_SANITIZE_STRING );
-			
-			if ( 'payment' == $type ) {			
+
+			if ( 'payment' == $type ) {
 				$payment = get_pronamic_payment_by_transaction_id( $id );
 
-				Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
+				Pronamic_WP_Pay_Plugin::update_payment( $payment );
 			}
 		}
 	}

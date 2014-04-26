@@ -2,7 +2,7 @@
 
 /**
  * Title: MutliSafepay Connect signature
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic
  * @author Remco Tolsma
@@ -10,17 +10,17 @@
  */
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_Signature {
 	public $account;
-	
+
 	public $site_id;
-	
+
 	public $site_secure_code;
-	
+
 	public $notification_url;
-	
+
 	public $redirect_url;
-	
+
 	public $cancel_url;
-	
+
 	public $close_window;
 
 	/////////////////////////////////////////////////
@@ -33,14 +33,14 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Signature {
 			Pronamic_WP_Util::amount_to_cents( $amount ),
 			$currency,
 			$account,
-			$site_id, 
+			$site_id,
 			$transaction_id,
 		);
-		
+
 		$string = implode( '', $values );
-		
+
 		$signature = md5( $string );
-		
+
 		return $signature;
 	}
 }

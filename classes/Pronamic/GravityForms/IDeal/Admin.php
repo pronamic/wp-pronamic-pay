@@ -2,7 +2,7 @@
 
 /**
  * Title: Gravity Forms iDEAL Add-On admin
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -31,7 +31,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 	/**
 	 * Gravity Forms addon navigation
-	 * 
+	 *
 	 * @param $menus array with addon menu items
 	 * @return array
 	 */
@@ -40,17 +40,17 @@ class Pronamic_GravityForms_IDeal_Admin {
 			'name'       => 'edit.php?post_type=pronamic_pay_gf',
 			'label'      => __( 'iDEAL', 'pronamic_ideal' ),
 			'callback'   => null,
-			'permission' => 'gravityforms_ideal'
+			'permission' => 'gravityforms_ideal',
 		);
 
-        return $menus;
+		return $menus;
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Render entry info of the specified form and lead
-	 * 
+	 *
 	 * @param string $form_id
 	 * @param array $lead
 	 */
@@ -58,7 +58,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 		$payment_id = gform_get_meta( $lead['id'], 'pronamic_payment_id' );
 
 		if ( $payment_id ) {
-			printf( 
+			printf(
 				'<a href="%s">%s</a>',
 				get_edit_post_link( $payment_id ),
 				get_the_title( $payment_id )
@@ -73,23 +73,23 @@ class Pronamic_GravityForms_IDeal_Admin {
 	 */
 	public static function custom_merge_tags( $merge_tags ) {
 		$merge_tags[] = array(
-			'label' => __( 'Payment Status', 'pronamic_ideal' ), 
-			'tag'   => '{payment_status}'
+			'label' => __( 'Payment Status', 'pronamic_ideal' ),
+			'tag'   => '{payment_status}',
 		);
 
 		$merge_tags[] = array(
 			'label' => __( 'Payment Date', 'pronamic_ideal' ),
-			'tag'   => '{payment_date}'
+			'tag'   => '{payment_date}',
 		);
 
 		$merge_tags[] = array(
 			'label' => __( 'Transaction Id', 'pronamic_ideal' ),
-			'tag'   => '{transaction_id}'
+			'tag'   => '{transaction_id}',
 		);
 
 		$merge_tags[] = array(
 			'label' => __( 'Payment Amount', 'pronamic_ideal' ),
-			'tag'   => '{payment_amount}'
+			'tag'   => '{payment_amount}',
 		);
 
 		return $merge_tags;
@@ -112,7 +112,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 					'view' => 'entry',
 					'id'   => $lead['form_id'],
 					'lid'  => $lead_id,
-				),  admin_url('admin.php') );
+				), admin_url( 'admin.php' ) );
 
 				wp_redirect( $url, 303 );
 
@@ -122,13 +122,13 @@ class Pronamic_GravityForms_IDeal_Admin {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Handle AJAX request get form data
 	 */
 	public static function ajax_get_form_data() {
 		$form_id = filter_input( INPUT_GET, 'formId', FILTER_SANITIZE_STRING );
-		
+
 		$result = new stdClass();
 		$result->success = true;
 		$result->data    = RGFormsModel::get_form_meta( $form_id );

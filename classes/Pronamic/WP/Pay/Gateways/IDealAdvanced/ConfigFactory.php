@@ -13,18 +13,18 @@ class Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory {
 
 		$gateway_id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $post_id, '_pronamic_gateway_mode', true );
-		
+
 		global $pronamic_pay_gateways;
 
-		$gateway  = $pronamic_pay_gateways[$gateway_id];
-		$settings = $gateway[$mode];
-		
+		$gateway  = $pronamic_pay_gateways[ $gateway_id ];
+		$settings = $gateway[ $mode ];
+
 		$url = $settings['payment_server_url'];
-		
+
 		$config->directory_request_url   = $url;
 		$config->transaction_request_url = $url;
 		$config->status_request_url      = $url;
-		
+
 		if ( isset( $settings['directory_request_url'] ) ) {
 			$client->directory_request_url = $settings['directory_request_url'];
 		}
@@ -34,7 +34,7 @@ class Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory {
 		if ( isset( $settings['status_request_url'] ) ) {
 			$client->status_request_url = $settings['status_request_url'];
 		}
-		
+
 		$config->certificates = array();
 		foreach ( $gateway['certificates'] as $certificate ) {
 			$config->certificates[] = $certificate;

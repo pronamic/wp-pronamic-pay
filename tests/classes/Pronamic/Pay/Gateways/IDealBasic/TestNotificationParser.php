@@ -2,26 +2,26 @@
 
 class Pronamic_Pay_Gateways_IDealBasic_TestNotificationParser extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/IDealBasic/notification.xml';
-	
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/IDealBasic/notification.xml';
+
 		$simplexml = simplexml_load_file( $filename );
-	
+
 		$this->assertInstanceOf( 'SimpleXMLElement', $simplexml );
-	
+
 		return $simplexml;
 	}
-	
+
 	/**
 	 * @depends test_init
 	 */
 	function test_parser( $simplexml ) {
 		$notification = Pronamic_Gateways_IDealBasic_XML_NotificationParser::parse( $simplexml );
-	
+
 		$this->assertInstanceOf( 'Pronamic_Gateways_IDealBasic_Notification', $notification );
-	
+
 		return $notification;
 	}
-	
+
 	/**
 	 * @depends test_parser
 	 */

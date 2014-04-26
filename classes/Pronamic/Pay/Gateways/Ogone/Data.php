@@ -47,7 +47,7 @@ class Pronamic_Pay_Gateways_Ogone_Data {
 		$value = null;
 
 		if ( isset( $this->fields[ $name ] ) ) {
-			$value = $this->fields [$name ];
+			$value = $this->fields[ $name ];
 		}
 
 		return $value;
@@ -62,7 +62,7 @@ class Pronamic_Pay_Gateways_Ogone_Data {
 	 */
 	public function set_field( $name, $value ) {
 		$this->fields[ $name ] = $value;
-		
+
 		return $this;
 	}
 }

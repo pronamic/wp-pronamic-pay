@@ -60,10 +60,10 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 			'description'       => __( 'Adds the ability for users to checkout with iDEAL.', 'pronamic_ideal' ),
 			'author'            => 'Pronamic',
 			'author_url'        => 'http://www.pronamic.eu/wordpress-plugins/pronamic-ideal/',
-			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
-			// @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.16/core-addons/load.php#L42 
-			'wizard-icon'       => plugins_url( 'images/icon-50x50.png', Pronamic_WordPress_IDeal_Plugin::$file ),
-			'file'              => Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
+			'icon'              => plugins_url( 'images/icon-50x50.png', Pronamic_WP_Pay_Plugin::$file ),
+			// @see https://github.com/wp-plugins/ithemes-exchange/blob/1.7.16/core-addons/load.php#L42
+			'wizard-icon'       => plugins_url( 'images/icon-50x50.png', Pronamic_WP_Pay_Plugin::$file ),
+			'file'              => Pronamic_WP_Pay_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'add-on.php',
 			'category'          => 'transaction-methods',
 			'supports'          => array( 'transaction_status' => true ),
 			'settings-callback' => array( __CLASS__, 'settings' ),
@@ -122,7 +122,7 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 			self::OPTION_GROUP, // section
 			array(
 				'label_for' => self::CONFIGURATION_OPTION_KEY,
-				'options'   => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+				'options'   => Pronamic_WP_Pay_Plugin::get_config_select_options(),
 			) // args
 		);
 
@@ -202,7 +202,7 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 */
 	public static function settings() {
 
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'settings.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'settings.php';
 	}
 
 	/**
@@ -210,7 +210,7 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	 */
 	public static function wizard_settings() {
 
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'ithemes-exchange' . DIRECTORY_SEPARATOR . 'wizard-settings.php';
 	}
 
 	/**
@@ -258,15 +258,15 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 	public static function make_payment_button() {
 		$payment_form = '';
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( self::get_gateway_configuration_id() );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( self::get_gateway_configuration_id() );
 
 		if ( $gateway ) {
 
 			$payment_form .= '<form action="' . it_exchange_get_page_url( 'transaction' ) . '" method="post">';
-			$payment_form .=     '<input type="hidden" name="it-exchange-transaction-method" value="' . self::$slug . '" />';
-			$payment_form .=     $gateway->get_input_html();
-			$payment_form .=     wp_nonce_field( 'pronamic-ideal-checkout', '_pronamic_ideal_nonce', true, false );
-			$payment_form .=     '<input type="submit" name="pronamic_ideal_process_payment" value="' . self::get_gateway_button_title() . '" />';
+			$payment_form .= '<input type="hidden" name="it-exchange-transaction-method" value="' . self::$slug . '" />';
+			$payment_form .= $gateway->get_input_html();
+			$payment_form .= wp_nonce_field( 'pronamic-ideal-checkout', '_pronamic_ideal_nonce', true, false );
+			$payment_form .= '<input type="submit" name="pronamic_ideal_process_payment" value="' . self::get_gateway_button_title() . '" />';
 			$payment_form .= '</form>';
 		}
 
@@ -300,13 +300,13 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 
 		$configuration_id = self::get_gateway_configuration_id();
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $configuration_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $configuration_id );
 
 		if ( $gateway ) {
 
 			$data = new Pronamic_IThemesExchange_PaymentData( $unique_hash, $transaction_object );
 
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $configuration_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $configuration_id, $gateway, $data );
 
 			$gateway->redirect( $payment );
 

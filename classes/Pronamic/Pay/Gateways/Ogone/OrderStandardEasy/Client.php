@@ -2,7 +2,7 @@
 
 /**
  * Title: Ogone OrderStandard easy client
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -19,8 +19,8 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	//////////////////////////////////////////////////
 
 	/**
-	 * The URL for testing 
-	 * 
+	 * The URL for testing
+	 *
 	 * @var string
 	 */
 	private $paymentServerUrl;
@@ -29,28 +29,28 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * The mercahnt ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $merchantId;
 
 	/**
 	 * The order ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $orderId;
 
 	/**
 	 * The language
-	 * 
+	 *
 	 * @var string
 	 */
 	private $language;
 
 	/**
 	 * Description
-	 * 
+	 *
 	 * @var string
 	 */
 	private $description;
@@ -64,7 +64,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * Payment method
-	 * 
+	 *
 	 * @var string
 	 */
 	private $paymentType;
@@ -73,37 +73,37 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * Name of the customer
-	 * 
+	 *
 	 * @var string
 	 */
 	private $customerName;
 
 	/**
 	 * E-mailaddress
-	 * 
+	 *
 	 * @var string
 	 */
 	private $eMailAddress;
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Owner address
-	 * 
+	 *
 	 * @var string
 	 */
 	private $ownerAddress;
 
 	/**
 	 * Owner city
-	 * 
+	 *
 	 * @var string
 	 */
 	private $ownerCity;
 
 	/**
 	 * Owner ZIP
-	 * 
+	 *
 	 * @var string
 	 */
 	private $ownerZip;
@@ -112,42 +112,42 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * Accept URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $accept_url;
-	
+
 	/**
 	 * Decline URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $decline_url;
-	
+
 	/**
 	 * Exception URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $exception_url;
-	
+
 	/**
 	 * Cancel URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $cancel_url;
-	
+
 	/**
 	 * Back URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $back_url;
-	
+
 	/**
 	 * Home URL
-	 * 
+	 *
 	 * @var string
 	 */
 	private $home_url;
@@ -162,7 +162,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the payment server URL
 	 *
@@ -171,7 +171,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function getPaymentServerUrl() {
 		return $this->paymentServerUrl;
 	}
-	
+
 	/**
 	 * Set the payment server URL
 	 *
@@ -264,7 +264,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the currency
 	 *
@@ -273,7 +273,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function getCurrency() {
 		return $this->currency;
 	}
-	
+
 	/**
 	 * Set the currency
 	 *
@@ -284,7 +284,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the payment type
 	 *
@@ -293,7 +293,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function getPaymentType() {
 		return $this->paymentType;
 	}
-	
+
 	/**
 	 * Set the payment type
 	 * AN..max10
@@ -308,7 +308,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * Get the amount
-	 * 
+	 *
 	 * @return float
 	 */
 	public function get_amount() {
@@ -317,7 +317,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 	/**
 	 * Set the amount
-	 * 
+	 *
 	 * @param float $amount
 	 */
 	public function setAmount( $amount ) {
@@ -385,7 +385,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_accept_url( $url ) {
 		$this->accept_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_decline_url() {
@@ -395,7 +395,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_decline_url( $url ) {
 		$this->decline_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_exception_url() {
@@ -405,7 +405,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_exception_url( $url ) {
 		$this->exception_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_cancel_url() {
@@ -415,7 +415,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_cancel_url( $url ) {
 		$this->cancel_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_back_url() {
@@ -425,7 +425,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_back_url( $url ) {
 		$this->back_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	public function get_home_url() {
@@ -435,7 +435,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 	public function set_home_url( $url ) {
 		$this->home_url = $url;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -446,7 +446,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 			'PSPID'        => $this->getPspId(),
 
 			'orderID'      => $this->get_order_id(),
-			'amount'       => Pronamic_WP_Util::amount_to_cents( $this->get_amount() ), 
+			'amount'       => Pronamic_WP_Util::amount_to_cents( $this->get_amount() ),
 			'currency'     => $this->getCurrency(),
 			'language'     => $this->getLanguage(),
 
@@ -455,11 +455,11 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Client {
 
 			'CN'           => $this->getCustomerName(),
 			'EMAIL'        => $this->get_email(),
-		
+
 			'owneraddress' => $this->getOwnerAddress(),
 			'ownertown'    => $this->getOwnerCity(),
 			'ownerzip'     => $this->getOwnerZip(),
-		
+
 			'accepturl'    => $this->get_accept_url(),
 			'declineurl'   => $this->get_decline_url(),
 			'exceptionurl' => $this->get_exception_url(),

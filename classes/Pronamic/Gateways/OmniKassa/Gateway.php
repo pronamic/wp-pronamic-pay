@@ -2,7 +2,7 @@
 
 /**
  * Title: OmniKassa
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * The OmniKassa client object
-	 * 
+	 *
 	 * @var Pronamic_Gateways_OmniKassa_OmniKassa
 	 */
 	private $client;
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an OmniKassa gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_OmniKassa_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_OmniKassa_Config $config ) {
@@ -32,7 +32,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 
 		// Client
 		$this->client = new Pronamic_Gateways_OmniKassa_OmniKassa();
-		
+
 		$action_url = Pronamic_Gateways_OmniKassa_OmniKassa::ACTION_URL_PRUDCTION;
 		if ( $config->mode == Pronamic_IDeal_IDeal::MODE_TEST ) {
 			$action_url = Pronamic_Gateways_OmniKassa_OmniKassa::ACTION_URL_TEST;
@@ -43,12 +43,12 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_key_version( $config->key_version );
 		$this->client->set_secret_key( $config->secret_key );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Start
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::start()
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 */
@@ -64,29 +64,29 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_amount( $data->get_amount() );
 		$this->client->set_transaction_reference( $payment->get_transaction_id() );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get the output HTML
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_output_html()
 	 */
 	public function get_output_html() {
 		return $this->client->getHtmlFields();
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$input_data = filter_input( INPUT_POST, 'Data', FILTER_SANITIZE_STRING );
 		$input_seal = filter_input( INPUT_POST, 'Seal', FILTER_SANITIZE_STRING );
-		
+
 		$data = Pronamic_Gateways_OmniKassa_OmniKassa::parse_piped_string( $input_data );
 
 		$seal = Pronamic_Gateways_OmniKassa_OmniKassa::compute_seal( $input_data, $this->config->secret_key );
@@ -99,7 +99,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 
 			// Set the status of the payment
 			$payment->set_status( $status );
-			
+
 			$labels = array(
 				'amount' 	           => __( 'Amount', 'pronamic_ideal' ),
 				'captureDay'           => _x( 'Capture Day', 'creditcard', 'pronamic_ideal' ),
@@ -113,27 +113,27 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_Gateways_Gateway {
 				'authorisationId'      => __( 'Authorisation ID', 'pronamic_ideal' ),
 				'paymentMeanBrand'     => __( 'Payment Mean Brand', 'pronamic_ideal' ),
 				'paymentMeanType'      => __( 'Payment Mean Type', 'pronamic_ideal' ),
-				'responseCode'         => __( 'Response Code', 'pronamic_ideal' )
+				'responseCode'         => __( 'Response Code', 'pronamic_ideal' ),
 			);
-			
+
 			$note = '';
-			
+
 			$note .= '<p>';
 			$note .= __( 'OmniKassa transaction data in response message:', 'pronamic_ideal' );
 			$note .= '</p>';
-			
+
 			$note .= '<dl>';
-			
+
 			foreach ( $labels as $key => $label ) {
-				if ( isset( $data[$key] ) ) {
+				if ( isset( $data[ $key ] ) ) {
 					$note .= sprintf( '<dt>%s</dt>', esc_html( $label ) );
-					$note .= sprintf( '<dd>%s</dd>', esc_html( $data[$key] ) );
+					$note .= sprintf( '<dd>%s</dd>', esc_html( $data[ $key ] ) );
 				}
 			}
-			
+
 			$note .= '</dl>';
-			
-			$payment->add_note( $note ); 
+
+			$payment->add_note( $note );
 		}
 	}
 }

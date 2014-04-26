@@ -4,7 +4,7 @@ Plugin Name: Pronamic iDEAL
 Plugin URI: http://www.happywp.com/plugins/pronamic-ideal/
 Description: The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
-Version: 2.6.9
+Version: 2.7.0
 Requires at least: 3.6
 
 Author: Pronamic
@@ -33,5 +33,5 @@ if ( function_exists( 'spl_autoload_register' ) ) {
 
 	spl_autoload_register( 'pronamic_ideal_autoload' );
 
-	Pronamic_WordPress_IDeal_Plugin::bootstrap( __FILE__ );
+	Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
 }

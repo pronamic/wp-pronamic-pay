@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: WP e-Commerce
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WPeCommerce_WPeCommerce {
 	/**
 	 * Purche status
-	 * 
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -19,7 +19,7 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Purche status
-	 *  
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -27,7 +27,7 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Purche status
-	 *  
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -35,7 +35,7 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Purche status
-	 *  
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -43,7 +43,7 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Purche status
-	 *  
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -51,7 +51,7 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Purche status
-	 *  
+	 *
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 	 * @var int
 	 */
@@ -61,10 +61,10 @@ class Pronamic_WPeCommerce_WPeCommerce {
 
 	/**
 	 * Check if WP e-Comerce is active (Automattic/developer style)
-	 * 
+	 *
 	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wp-shopping-cart.php#L11
 	 * @see https://github.com/Automattic/developer/blob/1.1.2/developer.php#L73
-	 * 
+	 *
 	 * @return boolean
 	 */
 	public static function is_active() {

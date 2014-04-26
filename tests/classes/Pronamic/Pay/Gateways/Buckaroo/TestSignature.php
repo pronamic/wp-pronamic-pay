@@ -31,7 +31,7 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
 	 */
 	function test_create_signature( $data ) {
 		$secret_key = '29E9BEB3F3428B2BCAA678DEC489A86A';
-		
+
 		$data = Pronamic_Gateways_Buckaroo_Util::urldecode( $data );
 
 		$signature = Pronamic_Gateways_Buckaroo_Security::get_signature( $data );
@@ -42,7 +42,7 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
 	}
 
 	/////////////////////////////////////////////////
-	
+
 	public function provider() {
 		$data = array(
 			'BRQ_AMOUNT'                       => '50.00',
@@ -69,7 +69,7 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
 			array( $data ),
 		);
 	}
-	
+
 	public function provider_case_mix() {
 		$data_mixcase = array(
 			'Brq_amount'                       => '55.00',
@@ -95,10 +95,10 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignature extends WP_UnitTestCase {
 
 		$data_uppercase = array_change_key_case( $data_mixcase, CASE_UPPER );
 		$data_lowercase = array_change_key_case( $data_mixcase, CASE_LOWER );
-		
+
 		return array(
 			array( $data_mixcase ),
-			array( $data_uppercase ), 
+			array( $data_uppercase ),
 			array( $data_lowercase ),
 		);
 	}

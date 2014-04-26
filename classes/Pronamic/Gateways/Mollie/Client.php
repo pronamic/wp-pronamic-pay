@@ -2,7 +2,7 @@
 
 /**
  * Title: Mollie
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_Mollie_Client {
 	/**
 	 * Mollie API endpoint URL
-	 * 
+	 *
 	 * @var string
 	 */
 	const API_URL = 'https://api.mollie.nl/v1/';
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Mollie API Key ID
-	 * 
+	 *
 	 * @var string
 	 */
 	private $api_key;
@@ -29,7 +29,7 @@ class Pronamic_Gateways_Mollie_Client {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @var WP_Error
 	 */
 	private $error;
@@ -38,7 +38,7 @@ class Pronamic_Gateways_Mollie_Client {
 
 	/**
 	 * Constructs and initializes an Mollie client object
-	 * 
+	 *
 	 * @param string $api_key
 	 */
 	public function __construct( $api_key ) {
@@ -49,18 +49,18 @@ class Pronamic_Gateways_Mollie_Client {
 
 	/**
 	 * Error
-	 * 
+	 *
 	 * @return WP_Error
 	 */
 	public function get_error() {
 		return $this->error;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Send request with the specified action and parameters
-	 * 
+	 *
 	 * @param string $action
 	 * @param array $parameters
 	 */
@@ -85,13 +85,13 @@ class Pronamic_Gateways_Mollie_Client {
 		$data = $request->get_array();
 
 		$response = $this->send_request( 'payments/', 'POST', $data );
-		
-		$response_code = wp_remote_retrieve_response_code( $response ) ;
+
+		$response_code = wp_remote_retrieve_response_code( $response );
 
 		if ( $response_code == 201 ) {
 			$body = wp_remote_retrieve_body( $response );
 
-			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit. 
+			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit.
 			$result = json_decode( $body );
 		} else {
 			$this->error = new WP_Error( 'mollie_error', $response_code, $response_code );
@@ -102,15 +102,15 @@ class Pronamic_Gateways_Mollie_Client {
 
 	public function get_payment( $id ) {
 		$result = null;
-		
+
 		$response = $this->send_request( 'payments/' . $id, 'GET' );
-		
-		$response_code = wp_remote_retrieve_response_code( $response ) ;
+
+		$response_code = wp_remote_retrieve_response_code( $response );
 
 		if ( $response_code == 200 ) {
 			$body = wp_remote_retrieve_body( $response );
 
-			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit. 
+			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit.
 			$result = json_decode( $body );
 		}
 

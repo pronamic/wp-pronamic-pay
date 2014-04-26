@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL directory request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_PayDutch_XML_ListMethodRequestMessage extends Pronamic_Gateways_PayDutch_XML_RequestMessage {
 	/**
 	 * Type
-	 * 
+	 *
 	 * @var string
 	 */
 	const TYPE = 'listmethod';
@@ -23,7 +23,7 @@ class Pronamic_Gateways_PayDutch_XML_ListMethodRequestMessage extends Pronamic_G
 	 */
 	public function __construct( $merchant ) {
 		parent::__construct( self::TYPE );
-		
+
 		$this->merchant = $merchant;
 	}
 
@@ -31,7 +31,7 @@ class Pronamic_Gateways_PayDutch_XML_ListMethodRequestMessage extends Pronamic_G
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvanced_XML_RequestMessage::getDocument()
 	 */
 	public function get_document() {
@@ -43,7 +43,7 @@ class Pronamic_Gateways_PayDutch_XML_ListMethodRequestMessage extends Pronamic_G
 		$element = self::add_element( $document, $document->documentElement, 'merchant' );
 		self::add_elements( $document, $element, array(
 			'username' => $merchant->username,
-			'password' => $merchant->password
+			'password' => $merchant->password,
 		) );
 
 		// Return

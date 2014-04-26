@@ -1,10 +1,8 @@
 <div class="wrap">
-	<?php screen_icon( 'pronamic_ideal' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<?php 
-	
+	<?php
+
 	$sections = array(
 		'ideal.nl' => array(
 			'name'      => 'iDEAL',
@@ -14,19 +12,19 @@
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/ideal/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/ideal/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/ideal/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
@@ -104,19 +102,19 @@
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/mistercash/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/mistercash/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/mistercash/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
@@ -128,14 +126,14 @@
 					'title'  => __( 'Icon', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/mollie/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mollie/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				// Logos
 				array(
 					'title'  => __( 'Logo Extra Small', 'pronamic_ideal' ),
 					'width'  => 80,
 					'height' => 23,
-					'url'    => plugins_url( 'images/mollie/mollie-logo-style-x-small.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mollie/mollie-logo-style-x-small.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				// Badges
 				array(
@@ -185,34 +183,34 @@
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/omnikassa/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/omnikassa/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/omnikassa/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
 	);
-	
+
 	?>
 
 	<?php foreach ( $sections as $section ) : ?>
 
 		<h3><?php echo $section['name']; ?></h3>
-	
+
 		<table cellspacing="0" class="widefat fixed">
-	
+
 			<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
-	
+
 				<<?php echo $tag; ?>>
 					<tr>
 						<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ) ?></th>
@@ -221,16 +219,16 @@
 						<th scope="col" class="manage-column"><?php _e( 'Code', 'pronamic_ideal' ) ?></th>
 					</tr>
 				</<?php echo $tag; ?>>
-	
+
 			<?php endforeach; ?>
-	
+
 			<tbody>
-	
-	
+
+
 				<?php foreach ( $section['resources'] as $resource ): ?>
-	
+
 					<tr>
-						<?php 
+						<?php
 
 						$code   = '';
 						$object = '';
@@ -245,22 +243,22 @@
 							$object = $code;
 						}
 
-						if( isset( $resource['file'] ) ) {
-							$filename = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . $resource['file'];
-						
+						if ( isset( $resource['file'] ) ) {
+							$filename = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . $resource['file'];
+
 							$code   = file_get_contents( $filename );
 							$object = $code;
 						}
-						
+
 						?>
 						<td>
 							<?php echo $resource['title']; ?>
 						</td>
 						<td>
-							<?php 
-							
+							<?php
+
 							echo $resource['width'], '&times;', $resource['height'];
-							
+
 							?>
 						</td>
 						<td>
@@ -270,14 +268,14 @@
 							<textarea class="regular-text code" cols="30" rows="3"><?php echo esc_textarea( $code ); ?></textarea>
 						</td>
 					</tr>
-	
+
 				<?php endforeach; ?>
-	
+
 			</tbody>
 		</table>
 
 	<?php endforeach; ?>
-	
+
 	<p>
 		<?php _e( 'PNG files are shrinked by <a href="https://www.tinypng.com/">TinyPNG</a>.', 'pronamic_ideal' ); ?>
 	</p>

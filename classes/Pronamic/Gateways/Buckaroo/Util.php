@@ -11,7 +11,7 @@
 class Pronamic_Gateways_Buckaroo_Util {
 	/**
 	 * Buckaroo check if the specified string is the specified key
-	 * 
+	 *
 	 * @param string $string
 	 * @param string $value
 	 * @return boolean true if match, false otherwise
@@ -19,10 +19,10 @@ class Pronamic_Gateways_Buckaroo_Util {
 	public static function string_equals( $string, $value ) {
 		return strcasecmp( $string, $value ) == 0;
 	}
-	
+
 	/**
 	 * Buckaroo check if the key starts with an prefix
-	 * 
+	 *
 	 * @param string $string
 	 * @param string $prefix
 	 * @return boolean true if match, false otherwise
@@ -37,7 +37,7 @@ class Pronamic_Gateways_Buckaroo_Util {
 
 	/**
 	 * URL decode array
-	 * 
+	 *
 	 * @param array $data
 	 * @return array
 	 */
@@ -45,7 +45,7 @@ class Pronamic_Gateways_Buckaroo_Util {
 		foreach ( $data as $key => &$value ) {
 			$value = urldecode( $value );
 		}
-		
+
 		return $data;
 	}
 }

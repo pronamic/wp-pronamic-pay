@@ -2,7 +2,7 @@
 
 /**
  * Title: WP e-Commerce iDEAL data proxy
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Merchant
-	 * 
+	 *
 	 * @var wpsc_merchant
 	 * @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php
 	 */
@@ -21,7 +21,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Constructs and initializes an iDEAL WP e-Commerce data proxy
-	 * 
+	 *
 	 * @param wpsc_merchant $merchant
 	 */
 	public function __construct( $merchant ) {
@@ -36,42 +36,42 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Get purchase ID
-	 * 
+	 *
 	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-includes/merchant.class.php#L41
 	 * @return string
 	 */
 	public function get_purchase_id() {
 		$purchase_id = null;
-		
+
 		if ( isset( $this->merchant->purchase_id ) ) {
 			$purchase_id = $this->merchant->purchase_id;
 		}
-		
+
 		return $purchase_id;
 	}
-	
+
 
 	/**
 	 * Get session ID
-	 * 
+	 *
 	 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/v3.8.9.5/wpsc-includes/merchant.class.php#L175
 	 * @return string
 	 */
 	public function get_session_id() {
 		$session_id = null;
-		
+
 		if ( isset( $this->merchant->cart_data['session_id'] ) ) {
 			$session_id = $this->merchant->cart_data['session_id'];
 		}
-		
+
 		return $session_id;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -83,7 +83,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -94,7 +94,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -105,7 +105,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -133,7 +133,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	/**
 	 * Get currency alphabetic code
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
 	 */
@@ -180,8 +180,8 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	public function get_normal_return_url() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'],  
-				'gateway'   => 'wpsc_merchant_pronamic_ideal'
+				'sessionid' => $this->merchant->cart_data['session_id'],
+				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 			),
 			get_option( 'transact_url' )
 		);
@@ -189,16 +189,16 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	public function get_cancel_url() {
 		/*
-		 * If we don't add the 'sessionid' paramater to transaction URL visitors will 
+		 * If we don't add the 'sessionid' paramater to transaction URL visitors will
 		 * see the message 'Sorry your transaction was not accepted.', see:
-		 * 
+		 *
 		 * http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-theme/functions/wpsc-transaction_results_functions.php#L94
 		 */
 		return add_query_arg(
 			array(
 				// 'sessionid' => $this->merchant->cart_data['session_id'],
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
-				'return'    => 'cancel'
+				'return'    => 'cancel',
 			),
 			get_option( 'transact_url' )
 		);
@@ -207,8 +207,8 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	public function get_success_url() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'], 
-				'gateway'   => 'wpsc_merchant_pronamic_ideal'
+				'sessionid' => $this->merchant->cart_data['session_id'],
+				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 			),
 			get_option( 'transact_url' )
 		);
@@ -216,16 +216,16 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	public function get_error_url() {
 		/*
-		 * If we don't add the 'sessionid' paramater to transaction URL visitors will 
+		 * If we don't add the 'sessionid' paramater to transaction URL visitors will
 		 * see the message 'Sorry your transaction was not accepted.', see:
-		 * 
+		 *
 		 * http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.8.3/wpsc-theme/functions/wpsc-transaction_results_functions.php#L94
 		 */
 		return add_query_arg(
 			array(
 				// 'sessionid' => $this->merchant->cart_data['session_id'],
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
-				'return'    => 'error'
+				'return'    => 'error',
 			),
 			get_option( 'transact_url' )
 		);

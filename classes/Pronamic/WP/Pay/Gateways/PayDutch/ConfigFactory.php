@@ -6,7 +6,7 @@ class Pronamic_WP_Pay_Gateways_PayDutch_ConfigFactory {
 
 		$config->username = get_post_meta( $post_id, '_pronamic_gateway_paydutch_username', true );
 		$config->password = get_post_meta( $post_id, '_pronamic_gateway_paydutch_password', true );
-		
+
 		return $config;
 	}
 }

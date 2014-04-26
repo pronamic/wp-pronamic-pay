@@ -136,8 +136,8 @@ class Pronamic_Gateways_Qantani_Qantani {
 			'method'    => 'POST',
 			'sslverify' => false,
 			'body'      => array(
-				'data' => $data
-			)
+				'data' => $data,
+			),
 		) );
 	}
 
@@ -220,7 +220,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 						$id   = Pronamic_XML_Util::filter( $bank->Id );
 						$name = Pronamic_XML_Util::filter( $bank->Name );
 
-						$banks[$id] = $name;
+						$banks[ $id ] = $name;
 					}
 				} else {
 					$id          = Pronamic_XML_Util::filter( $xml->Error->ID );
@@ -249,7 +249,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 			'Currency'    => $currency,
 			'Bank'        => $bank_id,
 			'Description' => $description,
-			'Return'      => $return_url
+			'Return'      => $return_url,
 		);
 
 		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_EXECUTE, $parameters );
@@ -277,7 +277,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 					$error_description = Pronamic_XML_Util::filter( $xml->Error->Description );
 
 					$error = new Pronamic_Gateways_Qantani_Error( $error_id, $error_description );
-					
+
 					$this->error = new WP_Error( 'qantani_error', (string) $error, $error );
 				}
 			}

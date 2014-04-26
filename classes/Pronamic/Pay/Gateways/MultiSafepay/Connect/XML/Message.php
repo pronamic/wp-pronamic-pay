@@ -2,7 +2,7 @@
 
 /**
  * Title: MultiSafepay Connect XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 	/**
 	 * The XML version of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_VERSION = '1.0';
 
 	/**
 	 * The XML encoding of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_ENCODING = 'UTF-8';
@@ -27,7 +27,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 
 	/**
 	 * The name of this message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $name;
@@ -36,7 +36,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 
 	/**
 	 * User agent
-	 * 
+	 *
 	 * @var string
 	 */
 	private $user_agent;
@@ -51,7 +51,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Get the name of this message
 	 *
@@ -65,7 +65,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 
 	/**
 	 * Get user agent
-	 * 
+	 *
 	 * @return string
 	 */
 	public function get_user_agent() {
@@ -74,7 +74,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_Message {
 
 	/**
 	 * Set user agent
-	 * 
+	 *
 	 * @param string $user_agent
 	 */
 	public function set_user_agent( $user_agent ) {

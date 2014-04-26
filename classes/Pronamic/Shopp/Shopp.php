@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: Shopp
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,51 +11,51 @@
 class Pronamic_Shopp_Shopp {
 	/**
 	 * Payment status pending
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_PENDING = 'PENDING';
 
 	/**
 	 * Payment status expired
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_EXPIRED = 'EXPIRED';
 
 	/**
 	 * Payment status cancelled
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_CANCELLED = 'CANCELLED';
 
 	/**
 	 * Payment status failure
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_FAILURE = 'FAILURE';
 
 	/**
 	 * Payment status charged
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_CHARGED = 'CHARGED';
 
 	/**
 	 * Payment status charged
-	 * 
+	 *
 	 * @var string
 	 */
 	const PAYMENT_STATUS_OPEN = 'OPEN';
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Payment status authed
-	 * 
+	 *
 	 * @since Shopp v1.2
 	 * @var string
 	 */
@@ -87,7 +87,7 @@ class Pronamic_Shopp_Shopp {
 
 	/**
 	 * Version compare
-	 * 
+	 *
 	 * @param string $version
 	 * @param string $operator
 	 */
@@ -101,12 +101,12 @@ class Pronamic_Shopp_Shopp {
 
 		return $result;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Check if the purchase is paid
-	 * 
+	 *
 	 * @param Purchase $purchase
 	 */
 	public static function is_purchase_paid( $purchase ) {
@@ -129,15 +129,15 @@ class Pronamic_Shopp_Shopp {
 				)
 			);
 		}
-		
+
 		return $is_paid;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Update purchase status
-	 * 
+	 *
 	 * @param Purchase $purchase
 	 * @param string $status
 	 */

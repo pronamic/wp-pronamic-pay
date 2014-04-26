@@ -2,7 +2,7 @@
 
 /**
  * Title: PayDutch gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,16 +11,16 @@
 class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
-	const SLUG = 'paydutch';	
-	
+	const SLUG = 'paydutch';
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an PayDutch gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_PayDutch_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_PayDutch_Config $config ) {
@@ -33,12 +33,12 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 
 		$this->client = new Pronamic_Gateways_PayDutch_PayDutch( $config->username, $config->password );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
@@ -48,7 +48,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( $result ) {
 			$groups[] = array(
-				'options' => $result
+				'options' => $result,
 			);
 		} else {
 			$this->error = $this->client->get_error();
@@ -56,7 +56,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 
 		return $groups;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	public function get_issuer_field() {
@@ -69,12 +69,12 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 			'choices'  => $this->get_transient_issuers()
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
-	 * Start 
-	 * 
+	 * Start
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -92,7 +92,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 
 		$result = $this->client->request_transaction( $transaction_request );
 
-		if ( $result !== false ) {		
+		if ( $result !== false ) {
 			$payment->set_action_url( $result->url );
 			$payment->set_transaction_id( $result->id );
 		} else {
@@ -104,7 +104,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {

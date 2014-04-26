@@ -2,7 +2,7 @@
 
 /**
  * Title: Adyen gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Slug of this gateway
-	 * 
+	 *
 	 * @var string
 	 */
 	const SLUG = 'adyen';
@@ -20,7 +20,7 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Constructs and initializes an InternetKassa gateway
-	 * 
+	 *
 	 * @param Pronamic_Pay_Config $config
 	 */
 	public function __construct( Pronamic_Pay_Config $config ) {
@@ -42,7 +42,7 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 
 	/**
 	 * Start
-	 * 
+	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
@@ -56,16 +56,16 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_Gateways_Gateway {
 		$this->client->set_ship_before_date( new DateTime( '+5 days' ) );
 		$this->client->set_shopper_locale( $data->get_language_and_country() );
 		$this->client->set_order_data( $data->get_description() );
-		$this->client->set_session_validity( new DateTime ( '+1 hour' ) );
+		$this->client->set_session_validity( new DateTime( '+1 hour' ) );
 		$this->client->set_shopper_reference( $data->get_email() );
 		$this->client->set_shopper_email( $data->get_email() );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get output HTML
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_output_html()
 	 */
 	public function get_output_html() {

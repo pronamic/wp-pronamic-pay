@@ -2,7 +2,7 @@
 
 /**
  * Title: Error XML parser
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -17,7 +17,7 @@ class Pronamic_Gateways_IDealAdvancedV3_XML_ErrorParser implements Pronamic_Gate
 		$error->set_detail( Pronamic_XML_Util::filter( $xml->errorDetail ) );
 		$error->set_suggested_action( Pronamic_XML_Util::filter( $xml->suggestedAction ) );
 		$error->set_consumer_message( Pronamic_XML_Util::filter( $xml->consumerMessage ) );
-		
+
 		return $error;
 	}
 }

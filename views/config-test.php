@@ -2,7 +2,7 @@
 
 global $pronamic_ideal_errors;
 
-$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( get_the_ID() );
+$gateway = Pronamic_WP_Pay_Plugin::get_gateway( get_the_ID() );
 
 if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
@@ -22,21 +22,21 @@ if ( $gateway ) {
 		<input name="test_amount" id="test_amount" value="" class="small-text" type="text" />
 
 		<?php
-	
+
 		$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
-	
-		submit_button( $name, 'secondary', 'test_pay_gateway', false ); 
-	
+
+		submit_button( $name, 'secondary', 'test_pay_gateway', false );
+
 		?>
 	</p>
 
-	<?php 
-	
+	<?php
+
 	$is_ideal  = false;
 	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealBasic_Gateway;
 	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealAdvanced_Gateway;
 	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealAdvancedV3_Gateway;
-	
+
 	if ( $is_ideal ) {
 		include 'ideal-test-cases.php';
 	}

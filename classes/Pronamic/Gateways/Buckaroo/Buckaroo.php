@@ -338,7 +338,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 	 *
 	 * @param string $url
 	 */
-	public function set_return_cancel_url($url) {
+	public function set_return_cancel_url( $url ) {
 		$this->return_cancel_url = $url;
 	}
 
@@ -366,7 +366,7 @@ class Pronamic_Gateways_Buckaroo_Buckaroo {
 
 		$signature = Pronamic_Gateways_Buckaroo_Security::create_signature( $data, $this->get_secret_key() );
 
-		$data[Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE] = $signature;
+		$data[ Pronamic_Gateways_Buckaroo_Parameters::SIGNATURE ] = $signature;
 
 		return Pronamic_IDeal_IDeal::htmlHiddenFields( $data );
 	}

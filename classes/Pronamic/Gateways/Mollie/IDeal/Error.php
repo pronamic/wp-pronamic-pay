@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL Mollie error
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -12,23 +12,23 @@
 class Pronamic_Gateways_Mollie_IDeal_Error {
 	/**
 	 * Mollie error code
-	 * 
+	 *
 	 * @var string
 	 */
 	private $code;
 
 	/**
 	 * Mollie error message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $message;
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes an Mollie error object
-	 * 
+	 *
 	 * @param string $code
 	 * @param string $message
 	 */
@@ -36,16 +36,16 @@ class Pronamic_Gateways_Mollie_IDeal_Error {
 		$this->code    = $code;
 		$this->message = $message;
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	// @todo getters and setters
-	
+
 	//////////////////////////////////////////////////
 
 	/**
 	 * Create an string representation of this object
-	 * 
+	 *
 	 * @return string
 	 */
 	public function __toString() {

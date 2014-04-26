@@ -2,12 +2,12 @@
 
 class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/MultiSafepay/Connect/status-response.xml';
-		
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/MultiSafepay/Connect/status-response.xml';
+
 		$simplexml = simplexml_load_file( $filename );
-		
+
 		$this->assertInstanceOf( 'SimpleXMLElement', $simplexml );
-		
+
 		return $simplexml;
 	}
 
@@ -16,7 +16,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 	 */
 	function test_parser( $simplexml ) {
 		$message = Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage::parse( $simplexml );
-		
+
 		$this->assertInstanceOf( 'Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage', $message );
 
 		return $message;
@@ -26,7 +26,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 	 * @depends test_parser
 	 */
 	function test_values( $message ) {
-		$expected = new Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage();	
+		$expected = new Pronamic_Pay_Gateways_MultiSafepay_Connect_XML_StatusResponseMessage();
 		$expected->result = 'ok';
 
 		// E-wallet
@@ -37,9 +37,9 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 		$ewallet->modified = '20070903155907';
 		$ewallet->reason_code = null;
 		$ewallet->reason = null;
-		
+
 		$expected->ewallet = $ewallet;
-		
+
 		// Customer
 		$customer = new stdClass();
 		$customer->currency = 'EUR';
@@ -50,9 +50,9 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 		$customer->city = 'City';
 		$customer->state = null;
 		$customer->country = 'NL';
-		
+
 		$expected->customer = $customer;
-		
+
 		// Transaction
 		$transaction = new stdClass();
 		$transaction->id = 'ABCD1234';
@@ -63,9 +63,9 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 		$transaction->var2 = null;
 		$transaction->var3 = null;
 		$transaction->items = 'My Items';
-		
+
 		$expected->transaction = $transaction;
-		
+
 		// Payment Details
 		$payment_details = new stdClass();
 		$payment_details->type = 'IDEAL';
@@ -74,9 +74,9 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_TestStatusParser extends WP_Uni
 		$payment_details->account_id = null;
 		$payment_details->account_holder_name = null;
 		$payment_details->external_transaction_id = null;
-		
+
 		$expected->payment_details = $payment_details;
 
-		$this->assertEquals( $expected, $message );		
+		$this->assertEquals( $expected, $message );
 	}
 }

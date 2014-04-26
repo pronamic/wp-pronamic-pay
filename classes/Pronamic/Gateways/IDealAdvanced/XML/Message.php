@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,21 +11,21 @@
 class Pronamic_Gateways_IDealAdvanced_XML_Message {
 	/**
 	 * The XML version of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_VERSION = '1.0';
 
 	/**
 	 * The XML encoding of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_ENCODING = 'UTF-8';
 
 	/**
 	 * The XML namespace of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const XML_NAMESPACE = 'http://www.idealdesk.com/Message';
@@ -34,7 +34,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * The version of the iDEAL messages
-	 * 
+	 *
 	 * @var string
 	 */
 	const VERSION = '1.1.0';
@@ -43,7 +43,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * The name of this message
-	 * 
+	 *
 	 * @var string
 	 */
 	private $name;
@@ -52,7 +52,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * The create date of this message
-	 * 
+	 *
 	 * @var DateTime
 	 */
 	private $createDate;
@@ -71,7 +71,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * Get the name of this message
-	 * 
+	 *
 	 * return string
 	 */
 	public function getName() {
@@ -82,7 +82,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * Get the create date
-	 * 
+	 *
 	 * @return DateTime
 	 */
 	public function getCreateDate() {
@@ -93,7 +93,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 
 	/**
 	 * Create and add an element with the specified name and value to the specified parent
-	 * 
+	 *
 	 * @param DOMDocument $document
 	 * @param DOMNode $parent
 	 * @param string $name
@@ -101,7 +101,7 @@ class Pronamic_Gateways_IDealAdvanced_XML_Message {
 	 */
 	public static function addElement( DOMDocument $document, DOMNode $parent, $name, $value = null ) {
 		$element = $document->createElement( $name );
-		
+
 		if ( $value !== null ) {
 			$element->appendChild( new DOMText( $value ) );
 		}

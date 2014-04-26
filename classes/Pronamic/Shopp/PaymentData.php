@@ -2,7 +2,7 @@
 
 /**
  * Title: Shopp payment data
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Purchase
-	 * 
+	 *
 	 * @see /shopp/core/model/Purchase.php
 	 * @var Purchase
 	 */
@@ -19,7 +19,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Gateway
-	 * 
+	 *
 	 * @see /shopp/core/model/Gateway.php
 	 * @var GatewayFramework
 	 */
@@ -29,7 +29,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Constructs and initialize an Shopp iDEAL data proxy
-	 * 
+	 *
 	 * @param Purchase $purchase
 	 * @param GatewayFramework $gateway
 	 */
@@ -44,7 +44,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get source indicator
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
 	 */
@@ -56,7 +56,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get description
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
 	 */
@@ -66,7 +66,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get order ID
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
 	 */
@@ -76,7 +76,7 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	/**
 	 * Get items
-	 * 
+	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
@@ -138,28 +138,28 @@ class Pronamic_Shopp_PaymentData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 	// URL's
 	//
-	// shoppurl default pages: 
+	// shoppurl default pages:
 	// catalog, account, cart, checkout, confirm, thanks
 	//////////////////////////////////////////////////
-	
+
 	public function get_normal_return_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'open' ), 'thanks' );
 	}
-	
+
 	public function get_cancel_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( array( 'messagetype' => 'cancelled' ), 'thanks' );
 	}
-	
+
 	public function get_success_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364
 		return shoppurl( false, 'thanks' );
 	}
-	
+
 	public function get_error_url() {
 		// @see /shopp/core/functions.php#L1873
 		// @see /shopp/core/flow/Storefront.php#L1364

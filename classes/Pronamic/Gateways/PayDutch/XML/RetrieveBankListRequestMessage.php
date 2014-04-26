@@ -2,15 +2,15 @@
 
 /**
  * Title: iDEAL directory request XML message
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
  * @version 1.0
  */
 class Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage extends Pronamic_Gateways_PayDutch_XML_RequestMessage {
-	const TYPE = 'retrievebanklist';	
-	
+	const TYPE = 'retrievebanklist';
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -18,7 +18,7 @@ class Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage extends Pron
 	 */
 	public function __construct( $method_code, $test = false ) {
 		parent::__construct( self::TYPE );
-		
+
 		$this->method_code = $method_code;
 		$this->test        = $test;
 	}
@@ -27,7 +27,7 @@ class Pronamic_Gateways_PayDutch_XML_RetrieveBankListRequestMessage extends Pron
 
 	/**
 	 * Get document
-	 * 
+	 *
 	 * @see Pronamic_Gateways_IDealAdvanced_XML_RequestMessage::getDocument()
 	 */
 	public function get_document() {

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL Advanced gateway
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,7 +11,7 @@
 class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Constructs and initializes an iDEAL Advanced gateway
-	 * 
+	 *
 	 * @param Pronamic_Gateways_IDealAdvanced_Config $config
 	 */
 	public function __construct( Pronamic_Gateways_IDealAdvanced_Config $config ) {
@@ -30,29 +30,29 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		$client->setPrivateKeyPassword( $config->private_key_password );
 		$client->setPrivateCertificate( $config->private_certificate );
 
-		$client->directory_request_url   = $config->directory_request_url; 
-		$client->transaction_request_url = $config->transaction_request_url; 
-		$client->status_request_url      = $config->status_request_url; 
-		
+		$client->directory_request_url   = $config->directory_request_url;
+		$client->transaction_request_url = $config->transaction_request_url;
+		$client->status_request_url      = $config->status_request_url;
+
 		foreach ( $config->certificates as $certificate ) {
 			$client->addPublicCertificate( $certificate );
 		}
 
 		$this->client = $client;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuers
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$result = $this->client->getIssuerLists();
 
 		$lists = null;
-		
+
 		if ( $result !== null ) {
 			$lists = $result;
 		} elseif ( $error = $this->client->get_error() ) {
@@ -61,49 +61,49 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 
 		return $lists;
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Get issuer field
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::get_issuer_field()
 	 */
 	public function get_issuer_field() {
 		$choices = array();
-		
+
 		$list = $this->get_transient_issuers();
 
 		if ( $list ) {
-			foreach( $list as $name => $issuers ) {
+			foreach ( $list as $name => $issuers ) {
 				$options = array();
-	
+
 				foreach ( $issuers as $issuer ) {
-					$options[$issuer->getId()] = $issuer->getName(); 
+					$options[ $issuer->getId() ] = $issuer->getName();
 				}
 
 				$choices[] = array(
 					'name'    => ( $name == Pronamic_Gateways_IDealAdvanced_Issuer::LIST_LONG ) ? __( '&mdash; Other banks &mdash;', 'pronamic_ideal' ) : false,
-					'options' => $options
+					'options' => $options,
 				);
 			}
 		}
-		
+
 		return array(
 			'id'       => 'pronamic_ideal_issuer_id',
 			'name'     => 'pronamic_ideal_issuer_id',
 			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
 			'required' => true,
 			'type'     => 'select',
-			'choices'  => $choices
+			'choices'  => $choices,
 		);
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Start transaction with the specified date
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
@@ -130,20 +130,20 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 			$payment->set_transaction_id( $result->transaction->getId() );
 		}
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Payment
-	 * 
+	 *
 	 * @see Pronamic_Gateways_Gateway::payment()
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function payment( Pronamic_Pay_Payment $payment ) {
 		/*
-		 * Schedule status requests	
+		 * Schedule status requests
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
-		 * 
+		 *
 		 * @todo
 		 * Considering the number of status requests per transaction:
 		 * - Maximum of five times per transaction;
@@ -152,10 +152,10 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		 * - No status request after a final status has been received for a transaction;
 		 * - No status request for transactions older than 7 days.
 		 */
-	
+
 		/*
-		 * The function wp_schedule_single_event() uses the arguments array as an key for the event, 
-		 * that's why we also add the time to this array, besides that it's also much clearer on 
+		 * The function wp_schedule_single_event() uses the arguments array as an key for the event,
+		 * that's why we also add the time to this array, besides that it's also much clearer on
 		 * the Cron View (http://wordpress.org/extend/plugins/cron-view/) page
 		 */
 
@@ -164,20 +164,20 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time +    30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>    30 ) );
+		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
 		// Half-way through an expirationPeriod
-		wp_schedule_single_event( $time +  1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>  1800 ) );
+		wp_schedule_single_event( $time + 1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 1800 ) );
 		// Just after an expirationPeriod
-		wp_schedule_single_event( $time +  3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' =>  3600 ) );
+		wp_schedule_single_event( $time + 3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 3600 ) );
 		// A certain period after the end of the expirationPeriod
 		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 86400 ) );
 	}
-	
+
 	/////////////////////////////////////////////////
 
 	/**
 	 * Update status of the specified payment
-	 * 
+	 *
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
