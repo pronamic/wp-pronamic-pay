@@ -54,7 +54,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 		$gateways[] = array(
 			'name'                   => __( 'Pronamic iDEAL', 'pronamic_ideal' ),
 			'api_version'            => 2.0,
-			'image'                  => plugins_url( '/images/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+			'image'                  => plugins_url( '/images/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 			'class_name'             => 'Pronamic_WPeCommerce_IDeal_IDealMerchant',
 			'has_recurring_billing'  => false,
 			'wp_admin_cannot_cancel' => false,
@@ -84,7 +84,7 @@ class Pronamic_WPeCommerce_IDeal_AddOn {
 
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$output = $gateway->get_input_html();

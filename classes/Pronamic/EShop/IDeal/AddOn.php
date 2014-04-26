@@ -109,8 +109,8 @@ class Pronamic_EShop_IDeal_AddOn {
 	public static function merchant_img( $image ) {
 		$relative = 'images/ideal-logo-pay-off-2-lines.png';
 
-		$image['path'] = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . $relative;
-		$image['url']  = plugins_url( $relative, Pronamic_WordPress_IDeal_Plugin::$file );
+		$image['path'] = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . $relative;
+		$image['url']  = plugins_url( $relative, Pronamic_WP_Pay_Plugin::$file );
 
 		return $image;
 	}
@@ -121,7 +121,7 @@ class Pronamic_EShop_IDeal_AddOn {
 	 * Meta box
 	 */
 	public static function meta_box() {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/eshop/settings-meta-box.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/eshop/settings-meta-box.php';
 	}
 
 	//////////////////////////////////////////////////

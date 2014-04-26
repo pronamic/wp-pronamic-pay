@@ -33,5 +33,5 @@ if ( function_exists( 'spl_autoload_register' ) ) {
 
 	spl_autoload_register( 'pronamic_ideal_autoload' );
 
-	Pronamic_WordPress_IDeal_Plugin::bootstrap( __FILE__ );
+	Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
 }

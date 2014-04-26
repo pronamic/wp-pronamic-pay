@@ -84,7 +84,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 			$paths = $property->getValue( $Shopp->Gateways );
 			// @see https://github.com/ingenesis/shopp/blob/1.3/Shopp.php#L193
-			$paths[] = Pronamic_WordPress_IDeal_Plugin::$dirname . '/classes/Pronamic/Shopp/Gateways';
+			$paths[] = Pronamic_WP_Pay_Plugin::$dirname . '/classes/Pronamic/Shopp/Gateways';
 
 			$property->setValue( $Shopp->Gateways, $paths );
 		}

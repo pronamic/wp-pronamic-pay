@@ -22,7 +22,7 @@ class Pronamic_Gateways_Mollie_Listener implements Pronamic_Pay_Gateways_Listene
 			if ( 'payment' == $type ) {
 				$payment = get_pronamic_payment_by_transaction_id( $id );
 
-				Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
+				Pronamic_WP_Pay_Plugin::update_payment( $payment );
 			}
 		}
 	}

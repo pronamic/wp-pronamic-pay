@@ -233,12 +233,12 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 		}
 
 		// Check gateway
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_Shopp_PaymentData( $purchase, $this );
 
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 			$error = $gateway->get_error();
 
@@ -279,7 +279,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	public function inputs( $inputs ) {
 		$result = '';
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			$result .= '<div id="pronamic_ideal_inputs">';
@@ -315,7 +315,7 @@ class Pronamic_Shopp_IDeal_GatewayModule extends GatewayFramework implements Gat
 	 * Settings
 	 */
 	public function settings() {
-		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
+		$options = Pronamic_WP_Pay_Plugin::get_config_select_options();
 
 		$this->ui->menu( 0, array(
 			'name'     => 'config_id',

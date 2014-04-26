@@ -304,7 +304,7 @@ abstract class Pronamic_Gateways_Gateway {
 		if ( headers_sent() ) {
 			echo $this->get_form_html( $payment, true );
 		} else {
-			include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/redirect-via-html.php';
+			include Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-via-html.php';
 		}
 
 		exit;

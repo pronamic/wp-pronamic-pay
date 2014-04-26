@@ -625,7 +625,7 @@
 					$href = null;
 
 					if ( isset( $resource['path'] ) ) {
-						$href = plugins_url( $resource['path'], Pronamic_WordPress_IDeal_Plugin::$file );
+						$href = plugins_url( $resource['path'], Pronamic_WP_Pay_Plugin::$file );
 					}
 
 					if ( isset( $resource['url'] ) ) {

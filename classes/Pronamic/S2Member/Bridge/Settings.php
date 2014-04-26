@@ -19,14 +19,14 @@ class Pronamic_S2Member_Bridge_Settings {
 		add_settings_section(
 			'pronamic_pay_s2member_general', // id
 			__( 'General', 'pronamic_ideal' ), // title
-			array( 'Pronamic_WordPress_IDeal_Admin', 'settings_section' ), // callback
+			array( 'Pronamic_WP_Pay_Admin', 'settings_section' ), // callback
 			'pronamic_pay_s2member' // page
 		);
 
 		add_settings_field(
 			'pronamic_pay_s2member_config_id', // id
 			__( 'Configuration', 'pronamic_ideal' ), // title
-			array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
+			array( 'Pronamic_WP_Pay_Admin', 'dropdown_configs' ), // callback
 			'pronamic_pay_s2member', // page
 			'pronamic_pay_s2member_general', // section
 			array( // args
@@ -65,10 +65,10 @@ class Pronamic_S2Member_Bridge_Settings {
 	}
 
 	public function view_options_page() {
-		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/settings' );
+		return Pronamic_WP_Pay_Admin::render_view( 's2member/settings' );
 	}
 
 	public function view_buttongen_page() {
-		return Pronamic_WordPress_IDeal_Admin::render_view( 's2member/buttons-generator' );
+		return Pronamic_WP_Pay_Admin::render_view( 's2member/buttons-generator' );
 	}
 }

@@ -2,7 +2,7 @@
 
 class Pronamic_Pay_Gateways_Ogone_DirectLink_TestOrderResponseParser9 extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-9.xml';
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/Ogone/DirectLink/response-status-9.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 

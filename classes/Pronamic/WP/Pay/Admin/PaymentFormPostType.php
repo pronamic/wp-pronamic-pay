@@ -90,7 +90,7 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_config( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/gravityforms/feed-edit.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/gravityforms/feed-edit.php';
 	}
 
 	/**

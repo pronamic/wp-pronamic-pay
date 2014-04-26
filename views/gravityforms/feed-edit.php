@@ -54,7 +54,7 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 				$config_id = get_post_meta( $post_id, '_pronamic_pay_gf_config_id', true );
 
-				Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+				Pronamic_WP_Pay_Admin::dropdown_configs( array(
 					'name'     => '_pronamic_pay_gf_config_id',
 					'selected' => $config_id,
 				) );

@@ -37,14 +37,14 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 		add_settings_section(
 			'pronamic_pay_membership_general', // id
 			__( 'General', 'pronamic_ideal' ), // title
-			array( 'Pronamic_WordPress_IDeal_Admin', 'settings_section' ), // callback
+			array( 'Pronamic_WP_Pay_Admin', 'settings_section' ), // callback
 			'pronamic_pay_membership' // page
 		);
 
 		add_settings_field(
 			Pronamic_WPMUDEV_Membership_IDeal_AddOn::OPTION_CONFIG_ID, // id
 			__( 'Configuration', 'pronamic_ideal' ), // title
-			array(  'Pronamic_WordPress_IDeal_Admin', 'dropdown_configs' ), // callback
+			array(  'Pronamic_WP_Pay_Admin', 'dropdown_configs' ), // callback
 			'pronamic_pay_membership', // page
 			'pronamic_pay_membership_general', // section
 			array( // args
@@ -80,6 +80,6 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 	 * @return boolean
 	 */
 	public function page_settings() {
-		return Pronamic_WordPress_IDeal_Admin::render_view( 'membership/settings' );
+		return Pronamic_WP_Pay_Admin::render_view( 'membership/settings' );
 	}
 }

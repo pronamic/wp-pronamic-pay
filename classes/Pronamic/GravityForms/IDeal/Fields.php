@@ -74,7 +74,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 			$html_error = '';
 
 			if ( $feed != null ) {
-				$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $feed->config_id );
+				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $feed->config_id );
 
 				if ( $gateway ) {
 					$issuer_field = $gateway->get_issuer_field();
@@ -82,7 +82,7 @@ class Pronamic_GravityForms_IDeal_Fields {
 					$error = $gateway->get_error();
 
 					if ( is_wp_error( $error ) ) {
-						$html_error .= Pronamic_WordPress_IDeal_IDeal::get_default_error_message();
+						$html_error .= Pronamic_WP_Pay_Plugin::get_default_error_message();
 						$html_error .= '<br /><em>' . $error->get_error_message() . '</em>';
 					} elseif ( $issuer_field ) {
 						$choices = $issuer_field['choices'];

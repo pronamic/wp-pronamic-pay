@@ -103,12 +103,12 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 
 			$data = new Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData( $subscription, $membership );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 			if ( $gateway ) {
 				if ( filter_has_var( INPUT_POST, 'pronamic_pay_membership' ) ) {
 					// Start
-					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+					$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 					update_post_meta( $payment->get_id(), '_pronamic_payment_membership_user_id', $user_id );
 					update_post_meta( $payment->get_id(), '_pronamic_payment_membership_subscription_id', $data->get_subscription_id() );
@@ -148,7 +148,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 
 					printf(
 						'<img src="%s" alt="%s" />',
-						esc_attr( plugins_url( 'images/ideal-logo-pay-off-2-lines.png', Pronamic_WordPress_IDeal_Plugin::$file ) ),
+						esc_attr( plugins_url( 'images/ideal-logo-pay-off-2-lines.png', Pronamic_WP_Pay_Plugin::$file ) ),
 						esc_attr__( 'iDEAL - Online payment through your own bank', 'pronamic_ideal' )
 					);
 

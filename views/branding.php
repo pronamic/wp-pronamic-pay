@@ -12,19 +12,19 @@
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/ideal/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/ideal/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'iDEAL', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/ideal/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/ideal/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
@@ -102,19 +102,19 @@
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/mistercash/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/mistercash/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/mistercash/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mistercash/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
@@ -126,14 +126,14 @@
 					'title'  => __( 'Icon', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/mollie/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mollie/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				// Logos
 				array(
 					'title'  => __( 'Logo Extra Small', 'pronamic_ideal' ),
 					'width'  => 80,
 					'height' => 23,
-					'url'    => plugins_url( 'images/mollie/mollie-logo-style-x-small.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/mollie/mollie-logo-style-x-small.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				// Badges
 				array(
@@ -183,19 +183,19 @@
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 16,
 					'height' => 16,
-					'url'    => plugins_url( 'images/omnikassa/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 24,
 					'height' => 24,
-					'url'    => plugins_url( 'images/omnikassa/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 				array(
 					'title'  => __( 'OmniKassa', 'pronamic_ideal' ),
 					'width'  => 32,
 					'height' => 32,
-					'url'    => plugins_url( 'images/omnikassa/icon-32x32.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+					'url'    => plugins_url( 'images/omnikassa/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 				),
 			),
 		),
@@ -244,7 +244,7 @@
 						}
 
 						if ( isset( $resource['file'] ) ) {
-							$filename = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . $resource['file'];
+							$filename = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . $resource['file'];
 
 							$code   = file_get_contents( $filename );
 							$object = $code;

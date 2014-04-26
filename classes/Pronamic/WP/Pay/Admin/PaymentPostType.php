@@ -81,7 +81,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			case 'pronamic_payment_status':
 				$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
 
-				echo Pronamic_WordPress_IDeal_IDeal::translate_status( $status );
+				echo Pronamic_WP_Pay_Plugin::translate_status( $status );
 
 				break;
 		}
@@ -128,7 +128,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-info.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-info.php';
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_source( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-source.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-source.php';
 	}
 
 	/**
@@ -146,6 +146,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include Pronamic_WordPress_IDeal_Plugin::$dirname . '/views/meta-box-payment-log.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-log.php';
 	}
 }

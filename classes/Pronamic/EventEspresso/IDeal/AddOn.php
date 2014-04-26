@@ -79,7 +79,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 		if ( filter_has_var( INPUT_POST, 'event_espresso_pronamic_ideal' ) ) {
 			$config_id = get_option( self::OPTION_CONFIG_ID );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 			if ( $gateway ) {
 				$payment_data = array(
@@ -88,12 +88,12 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 				$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
 
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+				$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
+					Pronamic_WP_Pay_Plugin::render_errors( $error );
 				} else {
 					$gateway->redirect( $payment );
 				}
@@ -109,7 +109,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 	public static function display_gateway( $payment_data ) {
 		$config_id = get_option( self::OPTION_CONFIG_ID );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_WP_Pay_EventEspresso_PaymentData( $payment_data );
@@ -122,7 +122,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 					printf(
 						'<img alt="%s" src="%s" />',
 						esc_attr__( 'Pay with iDEAL', 'pronamic_ideal' ),
-						esc_attr( plugins_url( 'images/ideal.nl/iDEAL-Payoff-2-klein.gif', Pronamic_WordPress_IDeal_Plugin::$file ) )
+						esc_attr( plugins_url( 'images/ideal.nl/iDEAL-Payoff-2-klein.gif', Pronamic_WP_Pay_Plugin::$file ) )
 					);
 
 					?>
@@ -249,7 +249,7 @@ class Pronamic_EventEspresso_IDeal_AddOn {
 
 														<?php
 
-														Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+														Pronamic_WP_Pay_Admin::dropdown_configs( array(
 															'name'     => self::OPTION_CONFIG_ID,
 															'selected' => $config_id,
 														) );

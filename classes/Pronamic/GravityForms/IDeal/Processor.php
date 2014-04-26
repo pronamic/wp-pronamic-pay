@@ -168,12 +168,12 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 */
 	public function entry_created( $lead, $form ) {
 		if ( $this->is_processing( $form ) ) {
-			$this->gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->feed->config_id );
+			$this->gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->feed->config_id );
 
 			if ( $this->gateway ) {
 				$data = new Pronamic_WP_Pay_GravityForms_PaymentData( $form, $lead, $this->feed );
 
-				$this->payment = Pronamic_WordPress_IDeal_IDeal::start( $this->feed->config_id, $this->gateway, $data );
+				$this->payment = Pronamic_WP_Pay_Plugin::start( $this->feed->config_id, $this->gateway, $data );
 
 				$this->error = $this->gateway->get_error();
 			}
@@ -337,7 +337,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 				$html  = '';
 
 				$html .= '<ul>';
-				$html .= '<li>' . Pronamic_WordPress_IDeal_IDeal::get_default_error_message() . '</li>';
+				$html .= '<li>' . Pronamic_WP_Pay_Plugin::get_default_error_message() . '</li>';
 
 				foreach ( $this->error->get_error_messages() As $message ) {
 					$html .= '<li>' . $message . '</li>';

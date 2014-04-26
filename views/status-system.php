@@ -5,7 +5,7 @@
 		<?php _e( 'License Information', 'pronamic_ideal' ); ?>
 	</h3>
 
-	<?php $license_info = Pronamic_WordPress_IDeal_Plugin::get_license_info(); ?>
+	<?php $license_info = Pronamic_WP_Pay_Plugin::get_license_info(); ?>
 
 	<?php if ( empty( $license_info ) ) : ?>
 

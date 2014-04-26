@@ -31,7 +31,7 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 				'title'   => __( 'Configuration', 'pronamic_ideal' ),
 				'type'    => 'select',
 				'name'    => 'config_id',
-				'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+				'choices' => Pronamic_WP_Pay_Plugin::get_config_select_options(),
 			),
 		);
 
@@ -52,13 +52,13 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 		if ( isset( $options['config_id'] ) ) {
 			$config_id = $options['config_id'];
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 			if ( $gateway ) {
 				$data = new Pronamic_WP_Pay_AppThemes_PaymentData( $order );
 
 				if ( filter_has_var( INPUT_POST, 'appthemes_pronamic_ideal' ) ) {
-					$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+					$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 					$error = $gateway->get_error();
 

@@ -110,15 +110,15 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 					'%s%s<br />%s',
 					$description_prefix,
 					__( 'This controls the icon which the user sees during checkout.', 'pronamic_ideal' ),
-					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ) )
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ) )
 				),
-				'default'     => plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file ),
+				'default'     => plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 			),
 			'config_id'   => array(
 				'title'       => __( 'Configuration', 'pronamic_ideal' ),
 				'type'        => 'select',
 				'default'     => '',
-				'options'     => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+				'options'     => Pronamic_WP_Pay_Plugin::get_config_select_options(),
 			),
 			'payment' => array(
 				'title'       => __( 'Payment Options', 'pronamic_ideal' ),
@@ -171,7 +171,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/classes/gateways/class-wc-payment-gateway.php#L181
 		parent::payment_fields();
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			echo $gateway->get_input_html();
@@ -188,10 +188,10 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 			echo $gateway->get_form_html( $payment );
 		}
@@ -214,7 +214,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$note = __( 'Awaiting iDEAL payment.', 'pronamic_ideal' );
 
 		// Do specifiek iDEAL variant processing
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		$return = false;
 
@@ -232,7 +232,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			// Mark as pending (we're awaiting the payment)
 			$order->update_status( $new_status_slug, $note );
 		} else {
-			wc_add_notice( Pronamic_WordPress_IDeal_IDeal::get_default_error_message(), 'error' );
+			wc_add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
 
 			if ( is_admin() && empty( $this->config_id ) ) {
 				// @see https://github.com/woothemes/woocommerce/blob/v2.1.5/includes/admin/settings/class-wc-settings-page.php#L66
@@ -287,12 +287,12 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 
 		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
-		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+		$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			wc_add_notice( Pronamic_WordPress_IDeal_IDeal::get_default_error_message(), 'error' );
+			wc_add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
 
 			foreach ( $error->get_error_messages() As $message ) {
 				wc_add_notice( $message, 'error' );

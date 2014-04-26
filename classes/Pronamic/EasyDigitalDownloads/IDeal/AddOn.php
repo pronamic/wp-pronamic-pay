@@ -89,7 +89,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
 			'id'      => self::SLUG . '_config_id',
 			'name'    => __( 'iDEAL Configuration', 'pronamic_ideal' ),
 			'type'    => 'select',
-			'options' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+			'options' => Pronamic_WP_Pay_Plugin::get_config_select_options(),
 		);
 
 		return $settings_gateways;
@@ -103,7 +103,7 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
 	 * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/1.9.4/includes/checkout/template.php#L167
 	 */
 	public static function payment_fields() {
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( edd_get_option( self::SLUG . '_config_id' ) );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( edd_get_option( self::SLUG . '_config_id' ) );
 
 		if ( $gateway ) {
 			$input = $gateway->get_input_html();
@@ -165,11 +165,11 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
 		} else {
 			$data = new Pronamic_EasyDigitalDownloads_PaymentData( $payment_id, $payment_data );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 			if ( $gateway ) {
 				// Start
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+				$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 				// Redirect
 				$gateway->redirect( $payment );

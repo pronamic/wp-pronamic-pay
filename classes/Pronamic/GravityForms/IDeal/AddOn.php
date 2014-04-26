@@ -115,7 +115,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				)
 			);
 
-			Pronamic_WordPress_IDeal_Plugin::set_roles( $roles );
+			Pronamic_WP_Pay_Plugin::set_roles( $roles );
 		}
 	}
 

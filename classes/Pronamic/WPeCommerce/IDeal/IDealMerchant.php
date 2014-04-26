@@ -39,12 +39,12 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-core/wpsc-functions.php#L115
 		$this->set_purchase_processed_by_purchid( Pronamic_WPeCommerce_WPeCommerce::PURCHASE_STATUS_ORDER_RECEIVED );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
 			$data = new Pronamic_WP_Pay_WPeCommerce_PaymentData( $this );
 
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
 			update_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_purchase_id', $data->get_purchase_id() );
 			update_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', $data->get_session_id() );
@@ -72,7 +72,7 @@ class Pronamic_WPeCommerce_IDeal_IDealMerchant extends wpsc_merchant {
 		$html .= '		' . __( 'Configuration', 'pronamic_ideal' );
 		$html .= '	</td>';
 		$html .= '	<td>';
-		$html .= Pronamic_WordPress_IDeal_Admin::dropdown_configs( array(
+		$html .= Pronamic_WP_Pay_Admin::dropdown_configs( array(
 			'name' => Pronamic_WPeCommerce_IDeal_AddOn::OPTION_CONFIG_ID,
 			'echo' => false,
 		) );

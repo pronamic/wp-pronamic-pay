@@ -32,7 +32,7 @@ class Pronamic_Gateways_Ogone_Security {
 		if ( ! isset( self::$calculations_parameters_in ) ) {
 			self::$calculations_parameters_in = array();
 
-			$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
+			$file = Pronamic_WP_Pay_Plugin::$dirname . '/other/calculations-parameters-sha-in.txt';
 			if ( is_readable( $file ) ) {
 				self::$calculations_parameters_in = file( $file, FILE_IGNORE_NEW_LINES );
 			}
@@ -50,7 +50,7 @@ class Pronamic_Gateways_Ogone_Security {
 		if ( ! isset( self::$calculations_parameters_out ) ) {
 			self::$calculations_parameters_out = array();
 
-			$file = Pronamic_WordPress_IDeal_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
+			$file = Pronamic_WP_Pay_Plugin::$dirname . '/other/calculations-parameters-sha-out.txt';
 			if ( is_readable( $file ) ) {
 				self::$calculations_parameters_out = file( $file, FILE_IGNORE_NEW_LINES );
 			}

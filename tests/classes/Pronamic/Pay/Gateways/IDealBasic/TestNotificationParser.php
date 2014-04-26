@@ -2,7 +2,7 @@
 
 class Pronamic_Pay_Gateways_IDealBasic_TestNotificationParser extends WP_UnitTestCase {
 	function test_init() {
-		$filename = Pronamic_WordPress_IDeal_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/IDealBasic/notification.xml';
+		$filename = Pronamic_WP_Pay_Plugin::$dirname . '/tests/data/Pronamic/Pay/Gateways/IDealBasic/notification.xml';
 
 		$simplexml = simplexml_load_file( $filename );
 

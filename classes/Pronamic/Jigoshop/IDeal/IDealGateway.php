@@ -47,7 +47,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$this->method_title	 = __( 'Pronamic iDEAL', 'pronamic_ideal' );
 
 		// The icon that Jigoshop will display on the payment methods radio list
-		$this->icon			 = plugins_url( 'images/icon-24x24.png', Pronamic_WordPress_IDeal_Plugin::$file );
+		$this->icon			 = plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file );
 
 		// Let Jigoshop know that this gateway has field
 		// Technically only iDEAL advanced variants has fields
@@ -121,7 +121,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			'id'      => 'pronamic_pay_ideal_jigoshop_config_id',
 			'std'     => '',
 			'type'    => 'select',
-			'choices' => Pronamic_WordPress_IDeal_IDeal::get_config_select_options(),
+			'choices' => Pronamic_WP_Pay_Plugin::get_config_select_options(),
 		);
 
 		return $defaults;
@@ -137,7 +137,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 			echo wpautop( wptexturize( $this->description ) );
 		}
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			echo $gateway->get_input_html();
@@ -154,10 +154,10 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 
 		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 			echo $gateway->get_form_html( $payment );
 		}
@@ -175,7 +175,7 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$order->update_status( 'pending', __( 'Pending iDEAL payment.', 'pronamic_ideal' ) );
 
 		// Do specifiek iDEAL variant processing
-		$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $this->config_id );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
 			if ( $gateway->is_http_redirect() ) {
@@ -211,12 +211,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 	private function process_gateway_http_redirect( $order, $gateway ) {
 		$data = new Pronamic_WP_Pay_Jigoshop_PaymentData( $order );
 
-		$payment = Pronamic_WordPress_IDeal_IDeal::start( $this->config_id, $gateway, $data );
+		$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			jigoshop::add_error( Pronamic_WordPress_IDeal_IDeal::get_default_error_message() );
+			jigoshop::add_error( Pronamic_WP_Pay_Plugin::get_default_error_message() );
 
 			if ( current_user_can( 'administrator' ) ) {
 				foreach ( $error->get_error_codes() as $code ) {

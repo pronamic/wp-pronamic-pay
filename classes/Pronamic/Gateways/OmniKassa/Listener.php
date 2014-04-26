@@ -24,7 +24,7 @@ class Pronamic_Gateways_OmniKassa_Listener implements Pronamic_Pay_Gateways_List
 
 			$payment = get_pronamic_payment_by_transaction_id( $transaction_reference );
 
-			Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
+			Pronamic_WP_Pay_Plugin::update_payment( $payment );
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 global $pronamic_ideal_errors;
 
-$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( get_the_ID() );
+$gateway = Pronamic_WP_Pay_Plugin::get_gateway( get_the_ID() );
 
 if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );

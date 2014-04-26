@@ -30,7 +30,7 @@ class Pronamic_Gateways_IDealBasic_Listener implements Pronamic_Pay_Gateways_Lis
 				if ( $payment ) {
 					$payment->set_status( $notification->get_status() );
 
-					Pronamic_WordPress_IDeal_Plugin::update_payment( $payment );
+					Pronamic_WP_Pay_Plugin::update_payment( $payment );
 				}
 			}
 		}

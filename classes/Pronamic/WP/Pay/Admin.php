@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WordPress_IDeal_Admin {
+class Pronamic_WP_Pay_Admin {
 	/**
 	 * Bootstrap
 	 */
@@ -201,7 +201,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			esc_attr( $name )
 		);
 
-		$options = Pronamic_WordPress_IDeal_IDeal::get_config_select_options();
+		$options = Pronamic_WP_Pay_Plugin::get_config_select_options();
 
 		foreach ( $options as $value => $name ) {
 			$output .= sprintf(
@@ -265,7 +265,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Upgrade
 	 */
 	public static function upgrade() {
-		require_once Pronamic_WordPress_IDeal_Plugin::$dirname . '/admin/includes/upgrade.php';
+		require_once Pronamic_WP_Pay_Plugin::$dirname . '/admin/includes/upgrade.php';
 
 		$db_version = get_option( 'pronamic_pay_db_version' );
 
@@ -322,26 +322,26 @@ class Pronamic_WordPress_IDeal_Admin {
 	 * Maybe show an license message
 	 */
 	public static function admin_notices() {
-		if ( ! Pronamic_WordPress_IDeal_Plugin::can_be_used() ) {
+		if ( ! Pronamic_WP_Pay_Plugin::can_be_used() ) {
 			echo '<div class="error">';
 			echo '<p>';
 
 			printf(
 				__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
-				Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE,
+				Pronamic_WP_Pay_Plugin::PAYMENTS_MAX_LICENSE_FREE,
 				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
 			);
 
 			echo '</p>';
 			echo '</div>';
-		} elseif ( ! Pronamic_WordPress_IDeal_Plugin::has_valid_key() ) {
+		} elseif ( ! Pronamic_WP_Pay_Plugin::has_valid_key() ) {
 			echo '<div class="updated">';
 			echo '<p>';
 
 			printf(
 				__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
 				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
-				Pronamic_WordPress_IDeal_Plugin::PAYMENTS_MAX_LICENSE_FREE
+				Pronamic_WP_Pay_Plugin::PAYMENTS_MAX_LICENSE_FREE
 			);
 
 			echo '</p>';
@@ -369,13 +369,13 @@ class Pronamic_WordPress_IDeal_Admin {
 			// Styles
 			wp_enqueue_style(
 				'proanmic_ideal_admin',
-				plugins_url( 'admin/css/admin.css', Pronamic_WordPress_IDeal_Plugin::$file )
+				plugins_url( 'admin/css/admin.css', Pronamic_WP_Pay_Plugin::$file )
 			);
 
 			// Scripts
 			wp_enqueue_script(
 				'proanmic_ideal_admin',
-				plugins_url( 'admin/js/admin.js', Pronamic_WordPress_IDeal_Plugin::$file ),
+				plugins_url( 'admin/js/admin.js', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery' )
 			);
 		}
@@ -390,19 +390,19 @@ class Pronamic_WordPress_IDeal_Admin {
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
 			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
-			$gateway = Pronamic_WordPress_IDeal_IDeal::get_gateway( $id );
+			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $id );
 
 			if ( $gateway ) {
 				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
-				$payment = Pronamic_WordPress_IDeal_IDeal::start( $id, $gateway, $data );
+				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					Pronamic_WordPress_IDeal_IDeal::render_errors( $error );
+					Pronamic_WP_Pay_Plugin::render_errors( $error );
 				} else {
 					$gateway->redirect( $payment );
 				}
@@ -424,7 +424,7 @@ class Pronamic_WordPress_IDeal_Admin {
 			'pronamic_ideal',
 			'pronamic_ideal',
 			array( __CLASS__, 'page_dashboard' ),
-			plugins_url( 'images/icon-16x16.png', Pronamic_WordPress_IDeal_Plugin::$file )
+			plugins_url( 'images/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file )
 		);
 
 		add_submenu_page(
@@ -542,7 +542,7 @@ class Pronamic_WordPress_IDeal_Admin {
 	public static function render_view( $name ) {
 		$result = false;
 
-		$file = plugin_dir_path( Pronamic_WordPress_IDeal_Plugin::$file ) . 'views/' . $name . '.php';
+		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'views/' . $name . '.php';
 
 		if ( is_readable( $file ) ) {
 			include $file;
