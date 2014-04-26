@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.6.9\n"
+"Project-Id-Version: Pronamic iDEAL 2.7.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-04-26 11:07:56+00:00\n"
+"POT-Creation-Date: 2014-04-26 15:18:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -49,10 +49,9 @@ msgstr ""
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
+#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
-#: classes/Pronamic/WordPress/IDeal/Admin.php:422
-#: classes/Pronamic/WordPress/IDeal/Admin.php:423
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2 views/branding.php:12
 #: views/branding.php:18 views/branding.php:24 views/config-edit.php:52
@@ -366,12 +365,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:347
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WordPress/IDeal/Plugin.php:351
+#: classes/Pronamic/WP/Pay/Plugin.php:351
 msgid "Administrator"
 msgstr ""
 
@@ -550,8 +549,9 @@ msgid "lifetime"
 msgstr ""
 
 #: classes/Pronamic/S2Member/Bridge/Settings.php:21
+#: classes/Pronamic/WP/Pay/Admin.php:76
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: classes/Pronamic/WordPress/IDeal/Admin.php:76 views/config-edit.php:29
+#: views/config-edit.php:29
 msgid "General"
 msgstr ""
 
@@ -624,7 +624,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WordPress/IDeal/Admin.php:521
+#: classes/Pronamic/WP/Pay/Admin.php:521
 msgid "Dashboard"
 msgstr ""
 
@@ -682,6 +682,95 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
+#: classes/Pronamic/WP/Pay/Admin.php:83
+msgid "Support License Key"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:95
+msgid "Payment Status Pages"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:101 views/gravityforms/feed-edit.php:435
+msgid "Error"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:102
+msgid "Canceled"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:386
+msgid "Unknown"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:378
+#: views/gravityforms/feed-edit.php:436
+msgid "Expired"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:105
+msgid "Completed"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:258
+msgid "&mdash; Select a page &mdash;"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:330
+msgid ""
+"<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
+"payments of %d, you should enter an valid license key on the <a "
+"href=\"%s\">iDEAL settings page</a>."
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:342
+msgid ""
+"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
+"extensions, get support and more than %d payments."
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
+#: includes/post.php:32 includes/post.php:34 includes/post.php:45
+#: views/dashboard.php:9
+msgid "Payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:440 classes/Pronamic/WP/Pay/Admin.php:441
+#: includes/post.php:18
+msgid "Configurations"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:448 classes/Pronamic/WP/Pay/Admin.php:449
+msgid "Settings"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:457 classes/Pronamic/WP/Pay/Admin.php:458
+msgid "System Status"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:466 classes/Pronamic/WP/Pay/Admin.php:467
+msgid "iDEAL Status"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:475 classes/Pronamic/WP/Pay/Admin.php:476
+msgid "Gateways"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:484 classes/Pronamic/WP/Pay/Admin.php:485
+msgid "Extensions"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:493 classes/Pronamic/WP/Pay/Admin.php:494
+msgid "Documentation"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:502 classes/Pronamic/WP/Pay/Admin.php:503
+msgid "Branding"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:511 classes/Pronamic/WP/Pay/Admin.php:512
+msgid "Pages Generator"
+msgstr ""
+
 #: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
 #: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
 msgid "Attendee %s"
@@ -691,6 +780,37 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:59
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:85
 msgid "Test %s"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:376
+msgid "Cancelled"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:380 views/status-ideal.php:53
+msgid "Failure"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:382 views/gravityforms/feed-edit.php:432
+msgid "Open"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:384 views/gravityforms/feed-edit.php:433
+#: views/status-ideal.php:50
+msgid "Success"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:398
+msgid ""
+"Paying with iDEAL is not possible. Please try again later or pay another "
+"way."
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:414
+msgid "&mdash; Select Configuration &mdash;"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Plugin.php:518
+msgid "Payment for %s"
 msgstr ""
 
 #: classes/Pronamic/WP/Util.php:32
@@ -786,138 +906,6 @@ msgstr ""
 
 #: classes/Pronamic/WooCommerce/PaymentData.php:83
 msgid "WooCommerce order %s"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:83
-msgid "Support License Key"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:95
-msgid "Payment Status Pages"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:101
-#: views/gravityforms/feed-edit.php:435
-msgid "Error"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:102
-msgid "Canceled"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:103
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:31
-msgid "Unknown"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:104
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:23
-#: views/gravityforms/feed-edit.php:436
-msgid "Expired"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:105
-msgid "Completed"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:258
-msgid "&mdash; Select a page &mdash;"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:330
-msgid ""
-"<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
-"payments of %d, you should enter an valid license key on the <a "
-"href=\"%s\">iDEAL settings page</a>."
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:342
-msgid ""
-"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
-"extensions, get support and more than %d payments."
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:432
-#: classes/Pronamic/WordPress/IDeal/Admin.php:433 includes/post.php:32
-#: includes/post.php:34 includes/post.php:45 views/dashboard.php:9
-msgid "Payments"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:440
-#: classes/Pronamic/WordPress/IDeal/Admin.php:441 includes/post.php:18
-msgid "Configurations"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:448
-#: classes/Pronamic/WordPress/IDeal/Admin.php:449
-msgid "Settings"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:457
-#: classes/Pronamic/WordPress/IDeal/Admin.php:458
-msgid "System Status"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:466
-#: classes/Pronamic/WordPress/IDeal/Admin.php:467
-msgid "iDEAL Status"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:475
-#: classes/Pronamic/WordPress/IDeal/Admin.php:476
-msgid "Gateways"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:484
-#: classes/Pronamic/WordPress/IDeal/Admin.php:485
-msgid "Extensions"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:493
-#: classes/Pronamic/WordPress/IDeal/Admin.php:494
-msgid "Documentation"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:502
-#: classes/Pronamic/WordPress/IDeal/Admin.php:503
-msgid "Branding"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/Admin.php:511
-#: classes/Pronamic/WordPress/IDeal/Admin.php:512
-msgid "Pages Generator"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:21
-msgid "Cancelled"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:25 views/status-ideal.php:53
-msgid "Failure"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:27
-#: views/gravityforms/feed-edit.php:432
-msgid "Open"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:29
-#: views/gravityforms/feed-edit.php:433 views/status-ideal.php:50
-msgid "Success"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:43
-msgid ""
-"Paying with iDEAL is not possible. Please try again later or pay another "
-"way."
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:59
-msgid "&mdash; Select Configuration &mdash;"
-msgstr ""
-
-#: classes/Pronamic/WordPress/IDeal/IDeal.php:163
-msgid "Payment for %s"
 msgstr ""
 
 #: includes/gateways.php:258
@@ -2133,23 +2121,23 @@ msgstr ""
 msgid "cURL"
 msgstr ""
 
-#: views/status-system.php:223
+#: views/status-system.php:227
 msgid "OpenSSL"
 msgstr ""
 
-#: views/status-system.php:243
+#: views/status-system.php:247
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr ""
 
-#: views/status-system.php:251
+#: views/status-system.php:255
 msgid "Registered Hashing Algorithms"
 msgstr ""
 
-#: views/status-system.php:268
+#: views/status-system.php:272
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr ""
 
-#: views/status-system.php:276
+#: views/status-system.php:280
 msgid "Travis CI build status"
 msgstr ""
 
