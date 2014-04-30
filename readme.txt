@@ -36,6 +36,21 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
 	*	**Tested up to:** 1.8
+*	[Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformscampaignmonitor](https://github.com/gravityforms/gravityformscampaignmonitor)
+	*	**Requires at least:** 2.5.1
+	*	**Tested up to:** 2.5.1
+*	[Gravity Forms MailChimp Add-On](http://www.gravityforms.com/add-ons/mailchimp/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
+	*	**Requires at least:** 2.4.1
+	*	**Tested up to:** 2.4.1
+*	[Gravity Forms User Registration Add-On](http://www.gravityforms.com/add-ons/user-registration/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
+	*	**Requires at least:** 1.8
+	*	**Tested up to:** 1.8
 *	[iThemes Exchange](http://ithemes.com/exchange/)
 	*	**Author:** [iThemes](http://ithemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/ithemes-exchange/](http://wordpress.org/extend/plugins/ithemes-exchange/)
@@ -57,7 +72,7 @@ your WordPress website.
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
 	*	**Requires at least:** 3.4.6
-	*	**Tested up to:** 3.5.1.2
+	*	**Tested up to:** 3.5.1.3
 *	[s2Member®](http://www.s2member.com/)
 	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
@@ -198,6 +213,13 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.7.1 =
+*	Tweak - WPMU DEV Membership - Make sure the gateway is active check will succeed.
+*	Test - WPMU DEV Membership - Tested up to version 3.5.1.3.
+*	Test - Gravity Forms Campaign Monitor Add-On - Tested up to version 2.5.1.
+*	Test - Gravity Forms MailChimp Add-On - Tested up to version 2.4.1.
+*	Test - Gravity Forms User Registration Add-On - Tested up to version 1.8.
 
 = 2.7.0 =
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.

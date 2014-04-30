@@ -210,7 +210,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<th scope="col">Tested up to</th>
 		</tr>
 	</thead>
-	
+
 	<tbody>
 		<tr>
 			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
@@ -245,6 +245,30 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformscampaignmonitor" target="_blank">GitHub</a></td>
+			<td>2.5.1</td>
+			<td>2.5.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/mailchimp/" target="_blank">Gravity Forms MailChimp Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
+			<td>2.4.1</td>
+			<td>2.4.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/user-registration/" target="_blank">Gravity Forms User Registration Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
+			<td>1.8</td>
+			<td>1.8</td>
+		</tr>
+		<tr>
 			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
 			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
 			<td><a href="http://wordpress.org/extend/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
@@ -274,7 +298,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/pronamic-wpmudev/membership-premium" target="_blank">GitHub</a></td>
 			<td>3.4.6</td>
-			<td>3.5.1.2</td>
+			<td>3.5.1.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
