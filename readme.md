@@ -62,21 +62,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Easy iDeal - iDEAL</td>
 		</tr>
 		<tr>
-			<td><br />
-<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
-<a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Hosted</td>
 		</tr>
 		<tr>
-			<td><br />
-<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
-<a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Internet Kassa</td>
 		</tr>
 		<tr>
-			<td><br />
-<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
-<a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Integrated</td>
 		</tr>
 		<tr>

@@ -14,11 +14,15 @@
 				if ( isset( $gateway['provider'], $pronamic_pay_providers[ $gateway['provider'] ] ) ) {
 					$provider = $pronamic_pay_providers[ $gateway['provider'] ];
 
-					printf(
-						'<a href="%s">%s</a>',
-						esc_attr( $provider['url'] ),
-						esc_html( $provider['name'] )
-					);
+					if ( isset( $provider['url'] ) ) {
+						printf(
+							'<a href="%s">%s</a>',
+							esc_attr( $provider['url'] ),
+							esc_html( $provider['name'] )
+						);
+					} else {
+						echo esc_html( $provider['name'] );
+					}
 				}
 
 			?></td>
