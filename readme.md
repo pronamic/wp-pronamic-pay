@@ -31,6 +31,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - Internetkassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
 			<td>ABN AMRO - iDEAL Zelfbouw</td>
 		</tr>
 		<tr>
@@ -58,15 +62,21 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Easy iDeal - iDEAL</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td><br />
+<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
+<a href="">Fortis Bank</a></td>
 			<td>Fortis Bank - iDEAL Hosted</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td><br />
+<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
+<a href="">Fortis Bank</a></td>
 			<td>Fortis Bank - iDEAL Internet Kassa</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td><br />
+<b>Notice</b>:  Undefined index: url in <b>/Users/remco/wp/git/pronamic-ideal/views/gateways-readme-md.php</b> on line <b>19</b><br />
+<a href="">Fortis Bank</a></td>
 			<td>Fortis Bank - iDEAL Integrated</td>
 		</tr>
 		<tr>
@@ -348,6 +358,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>1.7.1</td>
 		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/vantage/" target="_blank">Vantage</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.3.2</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -374,6 +392,16 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.7.1
+*	Tweak - WPMU DEV Membership - Make sure the gateway is active check will succeed.
+*	Test - WPMU DEV Membership - Tested up to version 3.5.1.3.
+*	Test - Gravity Forms Campaign Monitor Add-On - Tested up to version 2.5.1.
+*	Test - Gravity Forms MailChimp Add-On - Tested up to version 2.4.1.
+*	Test - Gravity Forms User Registration Add-On - Tested up to version 1.8.
+*	Tweak - Marked the gateway "ABN AMRO - iDEAL Hosted" as deprecated.
+*	Tweak - Added the gateway "ABN AMRO - Internetkassa" for completeness.
+*	Feature - Vantage - Added support for the Vantage theme from AppThemes.
 
 ### 2.7.0
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.

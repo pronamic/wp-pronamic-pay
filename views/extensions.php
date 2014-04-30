@@ -177,6 +177,13 @@
 			'author'             => __( 'AppThemes', 'pronamic_ideal' ),
 			'author_url'         => 'http://www.appthemes.com/',
 		),
+		'vantage'              => array(
+			'name'               => __( 'Vantage', 'pronamic_ideal' ),
+			'url'                => 'http://www.appthemes.com/themes/vantage/',
+			'tested_up_to'       => '1.3.2',
+			'author'             => __( 'AppThemes', 'pronamic_ideal' ),
+			'author_url'         => 'http://www.appthemes.com/',
+		),
 	);
 
 	include 'extensions-wp-admin.php';

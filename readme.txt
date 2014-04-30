@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -103,6 +103,9 @@ your WordPress website.
 *	[JobRoller](http://www.appthemes.com/themes/jobroller/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Tested up to:** 1.7.1
+*	[Vantage](http://www.appthemes.com/themes/vantage/)
+	*	**Author:** [AppThemes](http://www.appthemes.com/)
+	*	**Tested up to:** 1.3.2
 
 
 = Gateways =
@@ -111,6 +114,7 @@ your WordPress website.
 	*	ABN AMRO - iDEAL Easy
 	*	ABN AMRO - iDEAL Hosted
 	*	ABN AMRO - iDEAL Only Kassa
+	*	ABN AMRO - Internetkassa
 	*	ABN AMRO - iDEAL Zelfbouw
 	*	ABN AMRO - iDEAL Zelfbouw - v3
 *	[Buckaroo](http://www.buckaroo.nl/)
@@ -222,6 +226,7 @@ Here is a list of known plugin conflicts:
 *	Test - Gravity Forms User Registration Add-On - Tested up to version 1.8.
 *	Tweak - Marked the gateway "ABN AMRO - iDEAL Hosted" as deprecated.
 *	Tweak - Added the gateway "ABN AMRO - Internetkassa" for completeness.
+*	Feature - Vantage - Added support for the Vantage theme from AppThemes.
 
 = 2.7.0 =
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.
