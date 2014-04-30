@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-04-26 15:18:35+00:00\n"
-"PO-Revision-Date: 2014-04-26 17:20+0100\n"
-"Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
+"POT-Creation-Date: 2014-04-30 08:22:44+00:00\n"
+"PO-Revision-Date: 2014-04-30 10:23+0100\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/includes/upgrade.php:129
@@ -29,8 +29,8 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:121 views/extensions.php:142
-#: views/extensions.php:150
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:121 views/extensions.php:169
+#: views/extensions.php:177 views/extensions.php:184
 msgid "AppThemes"
 msgstr "AppThemes"
 
@@ -123,7 +123,7 @@ msgstr "Nee"
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:137
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:164
 msgid "ClassiPress"
 msgstr "ClassiPress"
 
@@ -211,7 +211,7 @@ msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:151 views/extensions.php:114
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:151 views/extensions.php:141
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -432,7 +432,7 @@ msgid "Title"
 msgstr "Titel"
 
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
-#: views/extensions.php:51
+#: views/extensions.php:78
 msgid "iThemes Exchange"
 msgstr "iThemes Exchange"
 
@@ -454,7 +454,7 @@ msgstr "iDEAL-betaling verlopen."
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:62
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:89
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
@@ -610,7 +610,7 @@ msgstr "s2Member"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:104
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:131
 msgid "Shopp"
 msgstr "Shopp"
 
@@ -845,7 +845,7 @@ msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:116
-#: views/extensions.php:73
+#: views/extensions.php:100
 msgid "Membership"
 msgstr "Membership"
 
@@ -857,7 +857,7 @@ msgstr "Transactie #%s"
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:125
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:152
 msgid "WP e-Commerce"
 msgstr "WP e-Commerce"
 
@@ -935,7 +935,7 @@ msgstr "Bestelling {order_number}"
 msgid "WooCommerce order %s"
 msgstr "WooCommerce bestelling %s"
 
-#: includes/gateways.php:258
+#: includes/gateways.php:273
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
 
@@ -1669,51 +1669,68 @@ msgstr "Pippin Williamson"
 msgid "Event Espresso Lite"
 msgstr "Event Espresso Lite"
 
-#: views/extensions.php:47
+#: views/extensions.php:47 views/extensions.php:56 views/extensions.php:65
+#: views/extensions.php:74
 msgid "Rocketgenius"
 msgstr "Rocketgenius"
 
-#: views/extensions.php:58
+#: views/extensions.php:51
+msgid "Gravity Forms Campaign Monitor Add-On"
+msgstr "Gravity Forms Campaign Monitor Add-On"
+
+#: views/extensions.php:60
+msgid "Gravity Forms MailChimp Add-On"
+msgstr "Gravity Forms MailChimp Add-On"
+
+#: views/extensions.php:69
+msgid "Gravity Forms User Registration Add-On"
+msgstr "Gravity Forms User Registration Add-On"
+
+#: views/extensions.php:85
 msgid "iThemes"
 msgstr "iThemes"
 
-#: views/extensions.php:69
+#: views/extensions.php:96
 msgid "Jigowatt"
 msgstr "Jigowatt"
 
-#: views/extensions.php:79 views/extensions.php:89
+#: views/extensions.php:106 views/extensions.php:116
 msgid "WPMUDEV.org"
 msgstr "WPMUDEV.org"
 
-#: views/extensions.php:83
+#: views/extensions.php:110
 msgid "Membership Premium"
 msgstr "Membership Premium"
 
-#: views/extensions.php:93
+#: views/extensions.php:120
 msgid "s2Member®"
 msgstr "s2Member®"
 
-#: views/extensions.php:100
+#: views/extensions.php:127
 msgid "WebSharks, Inc."
 msgstr "WebSharks, Inc."
 
-#: views/extensions.php:110
+#: views/extensions.php:137
 msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
-#: views/extensions.php:121
+#: views/extensions.php:148
 msgid "WooThemes"
 msgstr "WooThemes"
 
-#: views/extensions.php:132
+#: views/extensions.php:159
 msgid "Instinct Entertainment"
 msgstr "Instinct Entertainment"
 
-#: views/extensions.php:146
+#: views/extensions.php:173
 msgid "JobRoller"
 msgstr "JobRoller"
 
-#: views/extensions.php:165 views/gateways.php:27
+#: views/extensions.php:181
+msgid "Vantage"
+msgstr "Vantage"
+
+#: views/extensions.php:199 views/gateways.php:27
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -2718,9 +2735,6 @@ msgstr "Provider"
 
 #~ msgid "Execute"
 #~ msgstr "Uitvoeren"
-
-#~ msgid "Gravity Forms payment %s"
-#~ msgstr "Gravity Forms betaling %s"
 
 #~ msgid "iDEAL Form Settings"
 #~ msgstr "iDEAL formulier instellingen"

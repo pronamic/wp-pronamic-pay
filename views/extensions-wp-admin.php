@@ -87,7 +87,7 @@
 					<?php echo esc_html( $extension['tested_up_to'] ); ?>
 				</td>
 				<td>
-					<?php if ( $extension['active'] ) : ?>
+					<?php if ( isset( $extension['active'] ) && $extension['active'] ) : ?>
 						&#10003;
 					<?php endif; ?>
 				</td>

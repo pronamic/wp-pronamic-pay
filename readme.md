@@ -31,6 +31,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - Internetkassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
 			<td>ABN AMRO - iDEAL Zelfbouw</td>
 		</tr>
 		<tr>
@@ -58,15 +62,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Easy iDeal - iDEAL</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Hosted</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Internet Kassa</td>
 		</tr>
 		<tr>
-			<td><a href="">Fortis Bank</a></td>
+			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Integrated</td>
 		</tr>
 		<tr>
@@ -210,7 +214,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<th scope="col">Tested up to</th>
 		</tr>
 	</thead>
-	
+
 	<tbody>
 		<tr>
 			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
@@ -245,6 +249,30 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformscampaignmonitor" target="_blank">GitHub</a></td>
+			<td>2.5.1</td>
+			<td>2.5.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/mailchimp/" target="_blank">Gravity Forms MailChimp Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
+			<td>2.4.1</td>
+			<td>2.4.1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/user-registration/" target="_blank">Gravity Forms User Registration Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
+			<td>1.8</td>
+			<td>1.8</td>
+		</tr>
+		<tr>
 			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
 			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
 			<td><a href="http://wordpress.org/extend/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
@@ -274,7 +302,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/pronamic-wpmudev/membership-premium" target="_blank">GitHub</a></td>
 			<td>3.4.6</td>
-			<td>3.5.1.2</td>
+			<td>3.5.1.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
@@ -324,6 +352,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>1.7.1</td>
 		</tr>
+		<tr>
+			<td><a href="http://www.appthemes.com/themes/vantage/" target="_blank">Vantage</a></td>
+			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.3.2</td>
+		</tr>
 	</tbody>
 </table>
 
@@ -350,6 +386,16 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.7.1
+*	Tweak - WPMU DEV Membership - Make sure the gateway is active check will succeed.
+*	Test - WPMU DEV Membership - Tested up to version 3.5.1.3.
+*	Test - Gravity Forms Campaign Monitor Add-On - Tested up to version 2.5.1.
+*	Test - Gravity Forms MailChimp Add-On - Tested up to version 2.4.1.
+*	Test - Gravity Forms User Registration Add-On - Tested up to version 1.8.
+*	Tweak - Marked the gateway "ABN AMRO - iDEAL Hosted" as deprecated.
+*	Tweak - Added the gateway "ABN AMRO - Internetkassa" for completeness.
+*	Feature - Vantage - Added support for the Vantage theme from AppThemes.
 
 ### 2.7.0
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.
