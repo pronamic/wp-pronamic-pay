@@ -220,6 +220,8 @@ Here is a list of known plugin conflicts:
 *	Test - Gravity Forms Campaign Monitor Add-On - Tested up to version 2.5.1.
 *	Test - Gravity Forms MailChimp Add-On - Tested up to version 2.4.1.
 *	Test - Gravity Forms User Registration Add-On - Tested up to version 1.8.
+*	Tweak - Marked the gateway "ABN AMRO - iDEAL Hosted" as deprecated.
+*	Tweak - Added the gateway "ABN AMRO - Internetkassa" for completeness.
 
 = 2.7.0 =
 *	Tweak - WordPress Coding Standards optimizations thansk to PHP CodeSniffer.

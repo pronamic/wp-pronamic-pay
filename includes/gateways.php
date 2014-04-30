@@ -17,22 +17,37 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	'abnamro-ideal-hosted' => array(
-		'provider' => 'abnamro',
-		'gateway'  => 'ideal_basic',
-		'name'     => 'ABN AMRO - iDEAL Hosted',
-		'test'     => array(
+		'provider'   => 'abnamro',
+		'gateway'    => 'ideal_basic',
+		'name'       => 'ABN AMRO - iDEAL Hosted',
+		'test'       => array(
 			'payment_server_url' => 'https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do',
 			'dashboard_url'      => 'https://abnamro-test.ideal-payment.de/',
 		),
-		'live'     => array(
+		'live'       => array(
 			'payment_server_url' => 'https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do',
 			'dashboard_url'      => 'https://abnamro.ideal-payment.de/',
 		),
+		'deprecated' => true,
 	),
 	'abnamro-ideal-only-kassa' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ogone_orderstandard',
 		'name'     => 'ABN AMRO - iDEAL Only Kassa',
+		'url'      => 'https://internetkassa.abnamro.nl/',
+		'test'     => array(
+			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp',
+			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/test/backoffice',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp',
+			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/backoffice',
+		),
+	),
+	'abnamro-internetkassa' => array(
+		'provider' => 'abnamro',
+		'gateway'  => 'ogone_orderstandard',
+		'name'     => 'ABN AMRO - Internetkassa',
 		'url'      => 'https://internetkassa.abnamro.nl/',
 		'test'     => array(
 			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/test/orderstandard.asp',
