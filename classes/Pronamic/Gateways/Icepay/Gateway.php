@@ -33,10 +33,10 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		$this->set_slug( 'icepay' );
 
 		if ( ! class_exists( 'Icepay_Paymentmethod_Ideal' ) ) {
-			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/icepay_api_basic.php';
+			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/api/icepay_api_basic.php';
 
 			// Get the IDeal Payment Method Class
-			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/paymentmethods/ideal.php';
+			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/api/paymentmethods/ideal.php';
 		}
 
 		$this->client = new Icepay_Paymentmethod_Ideal();
