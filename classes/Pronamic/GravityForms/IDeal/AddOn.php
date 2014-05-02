@@ -347,7 +347,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	 * @param boolean $nl2br
 	 * @param string $format
 	 */
-	function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
+	public static function replace_merge_tags( $text, $form, $entry, $url_encode, $esc_html, $nl2br, $format ) {
 		$search = array(
 			'{payment_status}',
 			'{payment_date}',
