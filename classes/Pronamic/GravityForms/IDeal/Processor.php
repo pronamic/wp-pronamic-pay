@@ -275,7 +275,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 		$is_disabled = false;
 
 		if ( $this->is_processing( $form ) ) {
-			$is_disabled = $feed->delay_post_creation;
+			$is_disabled = $this->feed->delay_post_creation;
 		}
 
 		return $is_disabled;
