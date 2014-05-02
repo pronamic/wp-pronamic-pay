@@ -199,7 +199,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 			gform_update_meta( $lead['id'], 'pronamic_payment_id', $this->payment->get_id() );
 
 			// Update entry meta with feed ID
-			gform_update_meta( $lead['id'], 'ideal_feed_id', $feed->id );
+			gform_update_meta( $lead['id'], 'ideal_feed_id', $this->feed->id );
 
 			// Update entry meta with current payment gateway
 			gform_update_meta( $lead['id'], 'payment_gateway', 'ideal' );
@@ -275,7 +275,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 		$is_disabled = false;
 
 		if ( $this->is_processing( $form ) ) {
-			$is_disabled = $feed->delay_post_creation;
+			$is_disabled = $this->feed->delay_post_creation;
 		}
 
 		return $is_disabled;

@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.9
-Stable tag: 2.7.1
+Stable tag: 2.7.2
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -35,7 +35,7 @@ your WordPress website.
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
-	*	**Tested up to:** 1.8
+	*	**Tested up to:** 1.8.7
 *	[Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformscampaignmonitor](https://github.com/gravityforms/gravityformscampaignmonitor)
@@ -217,6 +217,9 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.7.2 =
+*	Tweak - Gravity Forms - Fixed some notices and improved saving of payment feed data.
 
 = 2.7.1 =
 *	Tweak - WPMU DEV Membership - Make sure the gateway is active check will succeed.

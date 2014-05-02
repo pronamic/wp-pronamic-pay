@@ -43,7 +43,7 @@
 			'github_url'         => 'https://github.com/gravityforms/gravityforms',
 			'active'             => Pronamic_GravityForms_GravityForms::is_active(),
 			'requires_at_least'  => '1.6',
-			'tested_up_to'       => '1.8',
+			'tested_up_to'       => '1.8.7',
 			'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
 			'author_url'         => 'http://www.rocketgenius.com/',
 		),
