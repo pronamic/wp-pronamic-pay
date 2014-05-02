@@ -129,14 +129,14 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 
 		/* OK, its safe for us to save the data now. */
 		$definition = array(
-			'_pronamic_pay_gf_form_id'                            => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_gf_config_id'                          => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_gf_entry_id_prefix'                    => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_gf_transaction_description'            => FILTER_SANITIZE_STRING,
+			'_pronamic_pay_gf_form_id'                            => 'sanitize_text_field',
+			'_pronamic_pay_gf_config_id'                          => 'sanitize_text_field',
+			'_pronamic_pay_gf_entry_id_prefix'                    => 'sanitize_text_field',
+			'_pronamic_pay_gf_transaction_description'            => 'sanitize_text_field',
 			'_pronamic_pay_gf_condition_enabled'                  => FILTER_VALIDATE_BOOLEAN,
-			'_pronamic_pay_gf_condition_field_id'                 => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_gf_condition_operator'                 => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_gf_condition_value'                    => FILTER_SANITIZE_STRING,
+			'_pronamic_pay_gf_condition_field_id'                 => 'sanitize_text_field',
+			'_pronamic_pay_gf_condition_operator'                 => 'sanitize_text_field',
+			'_pronamic_pay_gf_condition_value'                    => 'sanitize_text_field',
 			'_pronamic_pay_gf_delay_admin_notification'           => FILTER_VALIDATE_BOOLEAN,
 			'_pronamic_pay_gf_delay_user_notification'            => FILTER_VALIDATE_BOOLEAN,
 			'_pronamic_pay_gf_delay_notification_ids'             => array(
@@ -155,12 +155,33 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 				'filter'    => FILTER_SANITIZE_STRING,
 				'flags'     => FILTER_REQUIRE_ARRAY,
 				),
-			'_pronamic_pay_gf_user_role_field_id'                 => FILTER_SANITIZE_STRING,
+			'_pronamic_pay_gf_user_role_field_id'                 => 'sanitize_text_field',
 		);
 
-		$data = filter_input_array( INPUT_POST, $definition );
+		foreach ( $definition as $meta_key => $function ) {
+			if ( filter_has_var( INPUT_POST, $meta_key ) ) {
+				$meta_value = null;
 
-		// Update post meta data
-		pronamic_pay_update_post_meta_data( $post_id, $data );
+				if ( 'sanitize_text_field' == $function ) {
+					$meta_value = sanitize_text_field( $_POST[ $meta_key ] );
+				} else {
+					$filter  = $function;
+					$options = null;
+
+					if ( is_array( $function ) && isset( $function['filter'] ) ) {
+						$filter  = $function['filter'];
+						$options = $function;
+					}
+
+					$meta_value = filter_input( INPUT_POST, $meta_key, $filter, $options );
+				}
+
+				if ( isset( $meta_value ) && '' != $meta_value ) {
+					update_post_meta( $post_id, $meta_key, $meta_value );
+				} else {
+					delete_post_meta( $post_id, $meta_key );
+				}
+			}
+		}
 	}
 }
