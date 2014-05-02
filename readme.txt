@@ -218,6 +218,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.7.3 =
+*	Tweak - ICEPAY - Update to API library version 2.4.
+
 = 2.7.2 =
 *	Tweak - Gravity Forms - Fixed some notices and improved saving of payment feed data.
 
