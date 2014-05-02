@@ -246,7 +246,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
 			<td>1.6</td>
-			<td>1.8</td>
+			<td>1.8.7</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
@@ -386,6 +386,9 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.7.2
+*	Tweak - Gravity Forms - Fixed some notices and improved saving of payment feed data.
 
 ### 2.7.1
 *	Tweak - WPMU DEV Membership - Make sure the gateway is active check will succeed.
