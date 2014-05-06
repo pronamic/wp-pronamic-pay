@@ -58,15 +58,32 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	 * @return string
 	 */
 	public function get_session_id() {
-		$session_id = null;
-
-		if ( isset( $this->merchant->cart_data['session_id'] ) ) {
-			$session_id = $this->merchant->cart_data['session_id'];
-		}
-
-		return $session_id;
+		return $this->get_cart_data( 'session_id' );
 	}
 
+	/**
+	 * Get cart data
+	 *
+	 * @param sring $key1
+	 * @param string $key2
+	 * @return string
+	 */
+	private function get_cart_data( $key1, $key2 = null ) {
+		$data = null;
+
+		if ( isset( $this->merchant->cart_data[ $key1 ] ) ) {
+			$data = $this->merchant->cart_data[ $key1 ];
+
+			if ( isset( $key2 ) && is_array( $data ) && isset( $data[ $key2 ] ) ) {
+				$data = $data[ $key2 ];
+			}
+		}
+
+		return $data;
+	}
+
+	//////////////////////////////////////////////////
+	// Other
 	//////////////////////////////////////////////////
 
 	/**
@@ -119,7 +136,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 		$item->setNumber( $this->merchant->purchase_id );
 		$item->setDescription( sprintf( __( 'Order %s', 'pronamic_ideal' ), $this->merchant->purchase_id ) );
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L188
-		$item->setPrice( $this->merchant->cart_data['total_price'] );
+		$item->setPrice( $this->get_cart_data( 'total_price' ) );
 		$item->setQuantity( 1 );
 
 		$items->addItem( $item );
@@ -139,7 +156,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	 */
 	public function get_currency_alphabetic_code() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L177
-		return $this->merchant->cart_data['store_currency'];
+		return $this->get_cart_data( 'store_currency' );
 	}
 
 	//////////////////////////////////////////////////
@@ -148,27 +165,27 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 	public function get_email() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L191
-		return $this->merchant->cart_data['email_address'];
+		return $this->get_cart_data( 'email_address' );
 	}
 
 	public function getCustomerName() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L60
-		return $this->merchant->cart_data['billing_address']['first_name'] . ' ' . $this->cart_data['billing_address']['last_name'];
+		return $this->get_cart_data( 'billing_address', 'first_name' ) . ' ' . $this->get_cart_data( 'billing_address', 'last_name' );
 	}
 
 	public function getOwnerAddress() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L60
-		return $this->merchant->cart_data['billing_address']['address'];
+		return $this->get_cart_data( 'billing_address', 'address' );
 	}
 
 	public function getOwnerCity() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L60
-		return $this->merchant->cart_data['billing_address']['city'];
+		return $this->get_cart_data( 'billing_address', 'city' );
 	}
 
 	public function getOwnerZip() {
 		// @see http://plugins.trac.wordpress.org/browser/wp-e-commerce/tags/3.8.7.6.2/wpsc-includes/merchant.class.php#L60
-		return $this->merchant->cart_data['billing_address']['post_code'];
+		return $this->get_cart_data( 'billing_address', 'post_code' );
 	}
 
 	//////////////////////////////////////////////////
@@ -180,7 +197,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	public function get_normal_return_url() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'],
+				'sessionid' => $this->get_cart_data( 'session_id' ),
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 			),
 			get_option( 'transact_url' )
@@ -207,7 +224,7 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 	public function get_success_url() {
 		return add_query_arg(
 			array(
-				'sessionid' => $this->merchant->cart_data['session_id'],
+				'sessionid' => $this->get_cart_data( 'session_id' ),
 				'gateway'   => 'wpsc_merchant_pronamic_ideal',
 			),
 			get_option( 'transact_url' )
