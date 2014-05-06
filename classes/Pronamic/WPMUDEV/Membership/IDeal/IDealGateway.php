@@ -15,7 +15,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 	 * @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/classes/class.gateway.php#L10
 	 * @var string
 	 */
-	public $gateway = 'ideal';
+	public $gateway = 'pronamic_ideal';
 
 	/**
 	 * Gateway title
