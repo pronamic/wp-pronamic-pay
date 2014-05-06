@@ -76,6 +76,8 @@ class Pronamic_WP_Pay_WPeCommerce_PaymentData extends Pronamic_WP_Pay_PaymentDat
 
 			if ( isset( $key2 ) && is_array( $data ) && isset( $data[ $key2 ] ) ) {
 				$data = $data[ $key2 ];
+			} else {
+				$data = null;
 			}
 		}
 
