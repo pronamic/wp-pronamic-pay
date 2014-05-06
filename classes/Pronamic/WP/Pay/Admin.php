@@ -463,42 +463,6 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
-			__( 'iDEAL Status', 'pronamic_ideal' ),
-			__( 'iDEAL Status', 'pronamic_ideal' ),
-			'pronamic_ideal_status',
-			'pronamic_ideal_status',
-			array( __CLASS__, 'page_ideal_status' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Gateways', 'pronamic_ideal' ),
-			__( 'Gateways', 'pronamic_ideal' ),
-			'pronamic_ideal',
-			'pronamic_pay_gateways',
-			array( __CLASS__, 'page_gateways' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Extensions', 'pronamic_ideal' ),
-			__( 'Extensions', 'pronamic_ideal' ),
-			'pronamic_ideal',
-			'pronamic_pay_extensions',
-			array( __CLASS__, 'page_extensions' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Documentation', 'pronamic_ideal' ),
-			__( 'Documentation', 'pronamic_ideal' ),
-			'pronamic_ideal_documentation',
-			'pronamic_pay_documentation',
-			array( __CLASS__, 'page_documentation' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
 			__( 'Branding', 'pronamic_ideal' ),
 			__( 'Branding', 'pronamic_ideal' ),
 			'pronamic_ideal_branding',
