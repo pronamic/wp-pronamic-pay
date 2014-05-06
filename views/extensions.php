@@ -155,7 +155,7 @@
 			'github_url'         => 'https://github.com/wp-e-commerce/WP-e-Commerce',
 			'active'             => Pronamic_WPeCommerce_WPeCommerce::is_active(),
 			'requires_at_least'  => '3.8.12.1',
-			'tested_up_to'       => '3.8.12.1',
+			'tested_up_to'       => '3.8.14',
 			'author'             => __( 'Instinct Entertainment', 'pronamic_ideal' ),
 			'author_url'         => 'http://instinct.co.nz/',
 		),
