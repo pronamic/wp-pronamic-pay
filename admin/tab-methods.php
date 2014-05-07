@@ -42,9 +42,7 @@ $methods = array(
 	),
 	'cash-on-delivery' => array( // Rembours
 		'name'    => __( 'Cash on Delivery', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'giftcard' => array(
 		'name'    => __( 'GiftCard', 'pronamic_ideal' ),
@@ -61,52 +59,36 @@ $methods = array(
 	),
 	'direct-debit' => array( // Incasso
 		'name'    => __( 'Direct Debit', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'direkt-ebanking' => array(
 		'name'    => __( 'Direct eBanking', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'giropay' => array(
 		'name'    => __( 'Giropay', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'minitix' => array(
 		'name'    => __( 'MiniTix', 'pronamic_ideal' ),
 		'url'     => 'http://www.minitix.nl/',
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'mister-cash' => array(
 		'name'    => __( 'Mister Cash', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'paysafecard' => array(
 		'name'    => __( 'paysafecard', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'paypal' => array(
 		'name'    => __( 'PayPal', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 	'wallie' => array(
 		'name'    => __( 'Wallie', 'pronamic_ideal' ),
-		'issuers' => array(
-
-		),
+		'issuers' => array(),
 	),
 );
 
