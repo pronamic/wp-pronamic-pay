@@ -7,9 +7,6 @@
 			<th scope="col">
 				<?php _e( 'Website', 'pronamic_ideal' ); ?>
 			</th>
-			<th scope="col">
-				<?php _e( 'Issuers', 'pronamic_ideal' ); ?>
-			</th>
 		</tr>
 	</thead>
 
@@ -30,15 +27,6 @@
 							esc_attr( $method['url'] ),
 							esc_html( $method['url'] )
 						);
-					}
-
-					?>
-				</td>
-				<td>
-					<?php
-
-					if ( isset( $method['issuers'] ) ) {
-						echo implode( ', ', $method['issuers'] );
 					}
 
 					?>

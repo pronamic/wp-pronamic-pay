@@ -1,4 +1,4 @@
-<h3><?php _e( 'Supported Payment Gateways', 'pronamic_ideal' ); ?></h3>
+<h3><?php _e( 'Payment Gateways', 'pronamic_ideal' ); ?></h3>
 
 <?php
 

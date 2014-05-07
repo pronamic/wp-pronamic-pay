@@ -8,13 +8,7 @@
  * @version 1.0
  */
 class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
-	/**
-	 * Holds the Icepay iDEAL object
-	 *
-	 * @access public
-	 * @var Icepay_Paymentmethod_Ideal()
-	 */
-	public $client;
+
 
 	//////////////////////////////////////////////////
 
@@ -34,12 +28,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 
 		if ( ! class_exists( 'Icepay_Paymentmethod_Ideal' ) ) {
 			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/api/icepay_api_basic.php';
-
-			// Get the IDeal Payment Method Class
-			require_once Pronamic_WP_Pay_Plugin::$dirname . '/includes/icepay/api/paymentmethods/ideal.php';
 		}
-
-		$this->client = new Icepay_Paymentmethod_Ideal();
 	}
 
 	//////////////////////////////////////////////////
@@ -107,7 +96,6 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 
 			$payment_object = new Icepay_PaymentObject();
 			$payment_object
-				->setPaymentMethod( $this->client->getCode() )
 				->setAmount( Pronamic_WP_Util::amount_to_cents( $data->get_amount() ) )
 				->setCountry( 'NL' )
 				->setLanguage( 'NL' )

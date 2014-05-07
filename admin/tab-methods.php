@@ -1,4 +1,4 @@
-<h3><?php _e( 'Supported Payment Methods', 'pronamic_ideal' ); ?></h3>
+<h3><?php _e( 'Payment Methods', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -110,4 +110,4 @@ $methods = array(
 	),
 );
 
-include 'payment-methods-wp-admin.php';
+include 'methods-wp-admin.php';
