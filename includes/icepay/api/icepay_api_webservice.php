@@ -3,7 +3,7 @@
 /**
  *  ICEPAY API
  *
- *  @version 2.3.0
+ *  @version 2.4.0
  *  @author Olaf Abbenhuis
  *  @author Wouter van Tilburg
  *  @copyright Copyright (c) 2012, ICEPAY
@@ -11,7 +11,7 @@
  */
 // Define constants
 if (!defined('DIR')) {
-    define("DIR", dirname(__FILE__));
+    define("DIR", realpath(dirname(__FILE__)));
 }
 
 if (!defined('DS')) {
@@ -32,9 +32,10 @@ class Icepay_Api_Webservice extends Icepay_Api_Base {
     private $_service_pay;
     private $_service_paymentMethods;
     private $_service_refunds;
+    private $_service_autoCapture;
     private $_filtering;
     private $_single;
-    protected $version = "1.0.0";
+    protected $version = "1.1.0";
 
     /**
      * Create an instance
@@ -48,6 +49,20 @@ class Icepay_Api_Webservice extends Icepay_Api_Base {
         if (!self::$instance)
             self::$instance = new self();
         return self::$instance;
+    }
+
+    /**
+     * Returns class or creates the Auto Capture class
+     * 
+     * @since 2.4.0
+     * @access public
+     * @return type
+     */
+    public function autoCaptureService()
+    {
+        if (!$this->_service_autoCapture)
+            $this->_service_autoCapture = new Icepay_Webservice_AutoCapture();
+        return $this->_service_autoCapture;
     }
 
     /**
@@ -178,7 +193,7 @@ class Icepay_Webservice_Base extends Icepay_Api_Base {
      * @access protected
      * @return string
      */
-    protected function getTimeStamp()
+    public function getTimeStamp()
     {
         return gmdate("Y-m-d\TH:i:s\Z");
     }
@@ -281,7 +296,7 @@ class Icepay_Webservice_Base extends Icepay_Api_Base {
             $insert = $val;
 
             if (is_bool($val)) {
-                $insert = ($val) ? 'true' : 'false';
+                $insert = ($val) ? 'True' : 'False';
             }
 
             array_push($arr, $insert);
@@ -2283,6 +2298,75 @@ class Icepay_Webservice_Reporting extends Icepay_Webservice_Base {
             throw new Exception('Data could not be verified');
 
         return (array) $searchResults;
+    }
+
+}
+
+/**
+ * Icepay AutoCapture Webservice class
+ * 
+ * @version 1.0.0
+ * @author Wouter van Tilburg <wouter@icepay.eu>
+ * @copyright Copyright (c) 2012, ICEPAY
+ */
+class Icepay_Webservice_AutoCapture extends Icepay_Webservice_Base {
+
+    protected $service = 'https://connect.icepay.com/webservice/APCapture.svc?wsdl';
+
+    /**
+     * AutoCapture Webservice class constructer
+     * 
+     * @since 1.0.0
+     */
+    public function __construct()
+    {
+        $this->setupClient();
+    }
+
+    /**
+     * Capture an authorized AfterPay payment
+     * 
+     * @since 1.0.0
+     * 
+     * @param string $paymentID
+     * @param int $amount
+     * @param string $currency
+     * @return object
+     */
+    public function captureFull($paymentID, $amount = 0, $currency = '')
+    {
+        $obj = new stdClass();
+        
+        $obj->MerchantID = $this->getMerchantID();
+        $obj->Timestamp = $this->getTimestamp();
+        $obj->amount = $amount;
+        $obj->currency = $currency;
+        $obj->PaymentID = $paymentID;
+        
+        // Generate checksum for the request
+        $obj->Checksum = $this->generateChecksum($obj, $this->getSecretCode());
+        
+        // Make the request
+        $request = $this->client->CaptureFull($obj);
+        
+        // Fetch the result
+        $result = $request->CaptureFullResult;
+        
+        // Store result checksum
+        $resultChecksum = $result->Checksum;
+        
+        // Remove result checksum from object
+        unset($result->Checksum);
+        
+        // Create result checksum
+        $checkSum = $this->generateChecksum($result, $this->getSecretCode());
+        
+        // Compare generated checksum and result checksum
+        if ($resultChecksum !== $checkSum)
+            throw new Exception('Data could not be verified');
+        
+        // Return result
+        return $result;
     }
 
 }

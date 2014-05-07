@@ -454,65 +454,11 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
-			__( 'System Status', 'pronamic_ideal' ),
-			__( 'System Status', 'pronamic_ideal' ),
-			'pronamic_ideal_status',
-			'pronamic_pay_system_status',
-			array( __CLASS__, 'page_system_status' )
-		);
-
-		add_submenu_page(
+			__( 'Tools', 'pronamic_ideal' ),
+			__( 'Tools', 'pronamic_ideal' ),
 			'pronamic_ideal',
-			__( 'iDEAL Status', 'pronamic_ideal' ),
-			__( 'iDEAL Status', 'pronamic_ideal' ),
-			'pronamic_ideal_status',
-			'pronamic_ideal_status',
-			array( __CLASS__, 'page_ideal_status' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Gateways', 'pronamic_ideal' ),
-			__( 'Gateways', 'pronamic_ideal' ),
-			'pronamic_ideal',
-			'pronamic_pay_gateways',
-			array( __CLASS__, 'page_gateways' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Extensions', 'pronamic_ideal' ),
-			__( 'Extensions', 'pronamic_ideal' ),
-			'pronamic_ideal',
-			'pronamic_pay_extensions',
-			array( __CLASS__, 'page_extensions' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Documentation', 'pronamic_ideal' ),
-			__( 'Documentation', 'pronamic_ideal' ),
-			'pronamic_ideal_documentation',
-			'pronamic_pay_documentation',
-			array( __CLASS__, 'page_documentation' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Branding', 'pronamic_ideal' ),
-			__( 'Branding', 'pronamic_ideal' ),
-			'pronamic_ideal_branding',
-			'pronamic_pay_branding',
-			array( __CLASS__, 'page_branding' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
-			__( 'Pages Generator', 'pronamic_ideal' ),
-			__( 'Pages Generator', 'pronamic_ideal' ),
-			'pronamic_ideal_pages_generator',
-			'pronamic_ideal_pages_generator',
-			array( __CLASS__, 'page_pages_generator' )
+			'pronamic_pay_tools',
+			array( __CLASS__, 'page_tools' )
 		);
 
 		global $submenu;
@@ -524,15 +470,28 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function page_dashboard() { return self::render_view( 'dashboard' ); }
-	public static function page_settings() { return self::render_view( 'settings' ); }
-	public static function page_pages_generator() { return self::render_view( 'pages-generator' ); }
-	public static function page_system_status() { return self::render_view( 'status-system' ); }
-	public static function page_ideal_status() { return self::render_view( 'status-ideal' ); }
-	public static function page_extensions() { return self::render_view( 'extensions' ); }
-	public static function page_gateways() { return self::render_view( 'gateways' ); }
-	public static function page_documentation() { return self::render_view( 'documentation' ); }
-	public static function page_branding() { return self::render_view( 'branding' ); }
+	public static function page_dashboard() { return self::render_page( 'dashboard' ); }
+	public static function page_settings() { return self::render_page( 'settings' ); }
+	public static function page_tools() { return self::render_page( 'tools' ); }
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Render the specified page
+	 */
+	public static function render_page( $name ) {
+		$result = false;
+
+		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
+
+		if ( is_readable( $file ) ) {
+			include $file;
+
+			$result = true;
+		}
+
+		return $result;
+	}
 
 	//////////////////////////////////////////////////
 

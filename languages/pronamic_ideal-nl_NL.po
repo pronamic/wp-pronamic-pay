@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-05-02 09:06:49+00:00\n"
-"PO-Revision-Date: 2014-05-02 11:07+0100\n"
+"POT-Creation-Date: 2014-05-07 07:02:44+00:00\n"
+"PO-Revision-Date: 2014-05-07 09:03+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -17,6 +17,39 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
+msgid "WordPress.org"
+msgstr "WordPress.org"
+
+#: admin/extensions-readme-md.php:53 admin/extensions-wp-admin.php:14
+msgid "GitHub"
+msgstr "GitHub"
+
+#: admin/extensions-wp-admin.php:5 admin/gateways-wp-admin.php:5
+#: admin/methods-wp-admin.php:5
+msgid "Name"
+msgstr "Naam"
+
+#: admin/extensions-wp-admin.php:8
+msgid "Author"
+msgstr "Auteur"
+
+#: admin/extensions-wp-admin.php:17
+msgid "Requires at least"
+msgstr "Vereist minimaal"
+
+#: admin/extensions-wp-admin.php:20
+msgid "Tested up to"
+msgstr "Getest tot"
+
+#: admin/extensions-wp-admin.php:23
+msgid "Active"
+msgstr "Actief"
+
+#: admin/gateways-wp-admin.php:4
+msgid "Provider"
+msgstr "Provider"
+
 #: admin/includes/upgrade.php:129
 msgid "Configuration %d"
 msgstr "Configuratie %d"
@@ -29,21 +62,83 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:121 views/extensions.php:169
-#: views/extensions.php:177 views/extensions.php:184
-msgid "AppThemes"
-msgstr "AppThemes"
+#: admin/methods-wp-admin.php:8
+msgid "Website"
+msgstr "Website"
 
-#: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
-#: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:166
-msgid "Order #%s"
-msgstr "Bestelling #%s"
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:432
+#: classes/Pronamic/WP/Pay/Admin.php:433 includes/post.php:32
+#: includes/post.php:34 includes/post.php:45
+msgid "Payments"
+msgstr "Betalingen"
 
+#. translators: comment date format. See http:php.net/date
+#: admin/page-dashboard.php:45
+msgid "c"
+msgstr "c"
+
+#: admin/page-dashboard.php:67 admin/page-dashboard.php:75
+msgid "Pronamic News"
+msgstr "Pronamic nieuws"
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
+
+#: admin/page-tools.php:4
+msgid "System Status"
+msgstr "Systeemstatus"
+
+#: admin/page-tools.php:5 admin/tab-ideal_status.php:1
+msgid "iDEAL Status"
+msgstr "iDEAL-status"
+
+#: admin/page-tools.php:6 admin/tab-pages_generator.php:39
+msgid "Pages Generator"
+msgstr "Pagina's generator"
+
+#: admin/page-tools.php:7
+msgid "Gateways"
+msgstr "Gateways"
+
+#: admin/page-tools.php:8
+msgid "Extensions"
+msgstr "Extensies"
+
+#: admin/page-tools.php:9
+msgid "Methods"
+msgstr "Methoden"
+
+#: admin/page-tools.php:10 admin/tab-documentation.php:1
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: admin/page-tools.php:11 admin/tab-branding.php:1
+msgid "Branding"
+msgstr "Huisstijl"
+
+#: admin/page-tools.php:12
+msgid "License"
+msgstr "Licenties"
+
+#. Author of the plugin/theme
+msgid "Pronamic"
+msgstr "Pronamic"
+
+#: admin/pronamic.php:3
+msgid "Facebook"
+msgstr "Facebook"
+
+#: admin/pronamic.php:9
+msgid "Twitter"
+msgstr "Twitter"
+
+#: admin/pronamic.php:16
+msgid "Google+"
+msgstr "Google+"
+
+#: admin/tab-branding.php:11 admin/tab-branding.php:17
+#: admin/tab-branding.php:23 admin/tab-pages_generator.php:52
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
@@ -58,11 +153,551 @@ msgstr "Bestelling #%s"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
 #: includes/ithemes-exchange/settings.php:2
-#: includes/ithemes-exchange/wizard-settings.php:2 views/branding.php:12
-#: views/branding.php:18 views/branding.php:24 views/config-edit.php:52
-#: views/pages-generator.php:55
+#: includes/ithemes-exchange/wizard-settings.php:2 views/config-edit.php:52
 msgid "iDEAL"
 msgstr "iDEAL"
+
+#: admin/tab-branding.php:35
+msgid "Banner 234&times;100"
+msgstr "Banner 234&times;100"
+
+#: admin/tab-branding.php:41
+msgid "Banner 234&times;100 (without campaign statements)"
+msgstr "Banner 234&times;100 (zonder campagne-uitingen)"
+
+#: admin/tab-branding.php:47
+msgid "Banner 234&times;60"
+msgstr "Banner 234&times;60"
+
+#: admin/tab-branding.php:53
+msgid "Banner 234&times;60 (without campaign statements)"
+msgstr "Banner 234&times;60 (zonder campagne-uitingen)"
+
+#: admin/tab-branding.php:59
+msgid "Banner 155&times;100"
+msgstr "Banner 155&times;100"
+
+#: admin/tab-branding.php:65
+msgid "Banner 155&times;100 (without campaign statements)"
+msgstr "Banner 155&times;100 (zonder campagne-uitingen)"
+
+#: admin/tab-branding.php:71
+msgid "Banner 155&times;55"
+msgstr "Banner 155&times;55"
+
+#: admin/tab-branding.php:77
+msgid "Banner 155&times;55 (without campaign statements)"
+msgstr "Banner 155&times;55 (zonder campagne-uitingen)"
+
+#: admin/tab-branding.php:83
+msgid "Banner 100&times;100"
+msgstr "Banner 100&times;100"
+
+#: admin/tab-branding.php:89
+msgid "Banner 100&times;100 (without campaign statements)"
+msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
+
+#: admin/tab-branding.php:101 admin/tab-branding.php:107
+#: admin/tab-branding.php:113 admin/tab-methods.php:78
+msgid "Mister Cash"
+msgstr "Mister Cash"
+
+#: admin/tab-branding.php:125
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:107
+msgid "Icon"
+msgstr "Icoon"
+
+#: admin/tab-branding.php:132
+msgid "Logo Extra Small"
+msgstr "Logo Extra Small"
+
+#: admin/tab-branding.php:139 admin/tab-branding.php:145
+#: admin/tab-branding.php:151
+msgid "Mollie bage - Powered by"
+msgstr "Mollie bage - Powered by"
+
+#: admin/tab-branding.php:157 admin/tab-branding.php:163
+#: admin/tab-branding.php:169
+msgid "Mollie bage - Betaling groen"
+msgstr "Mollie bage - Betaling groen"
+
+#: admin/tab-branding.php:182 admin/tab-branding.php:188
+#: admin/tab-branding.php:194 views/config-edit.php:186
+msgid "OmniKassa"
+msgstr "OmniKassa"
+
+#: admin/tab-branding.php:215 admin/tab-documentation.php:599
+#: admin/tab-pages_generator.php:118
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+msgid "Title"
+msgstr "Titel"
+
+#: admin/tab-branding.php:216
+msgid "Size"
+msgstr "Formaat"
+
+#: admin/tab-branding.php:217
+msgid "Image"
+msgstr "Afbeelding"
+
+#: admin/tab-branding.php:218 views/error.php:9 views/error.php:24
+#: views/error.php:50
+msgid "Code"
+msgstr "Code"
+
+#: admin/tab-branding.php:279
+msgid ""
+"PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
+msgstr ""
+"PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
+"\">TinyPNG</a>."
+
+#: admin/tab-documentation.php:600 admin/tab-ideal_status.php:46
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
+#: views/meta-box-payment-info.php:11
+msgid "Date"
+msgstr "Datum"
+
+#: admin/tab-documentation.php:601
+msgid "Version"
+msgstr "Versie"
+
+#: admin/tab-extensions.php:1
+msgid "Supported Extensions"
+msgstr "Ondersteunde extensies"
+
+#: admin/tab-extensions.php:8
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
+
+#: admin/tab-extensions.php:15
+msgid "Pippin Williamson"
+msgstr "Pippin Williamson"
+
+#: admin/tab-extensions.php:19
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328
+msgid "Event Espresso"
+msgstr "Event Espresso"
+
+#: admin/tab-extensions.php:27
+msgid "Event Espresso Lite"
+msgstr "Event Espresso Lite"
+
+#: admin/tab-extensions.php:36
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: admin/tab-extensions.php:42 admin/tab-extensions.php:51
+#: admin/tab-extensions.php:60 admin/tab-extensions.php:69
+msgid "Rocketgenius"
+msgstr "Rocketgenius"
+
+#: admin/tab-extensions.php:46
+msgid "Gravity Forms Campaign Monitor Add-On"
+msgstr "Gravity Forms Campaign Monitor Add-On"
+
+#: admin/tab-extensions.php:55
+msgid "Gravity Forms MailChimp Add-On"
+msgstr "Gravity Forms MailChimp Add-On"
+
+#: admin/tab-extensions.php:64
+msgid "Gravity Forms User Registration Add-On"
+msgstr "Gravity Forms User Registration Add-On"
+
+#: admin/tab-extensions.php:73
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
+msgid "iThemes Exchange"
+msgstr "iThemes Exchange"
+
+#: admin/tab-extensions.php:80
+msgid "iThemes"
+msgstr "iThemes"
+
+#: admin/tab-extensions.php:84 classes/Pronamic/Jigoshop/IDeal/AddOn.php:134
+msgid "Jigoshop"
+msgstr "Jigoshop"
+
+#: admin/tab-extensions.php:91
+msgid "Jigowatt"
+msgstr "Jigowatt"
+
+#: admin/tab-extensions.php:95
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:116
+msgid "Membership"
+msgstr "Membership"
+
+#: admin/tab-extensions.php:101 admin/tab-extensions.php:111
+msgid "WPMUDEV.org"
+msgstr "WPMUDEV.org"
+
+#: admin/tab-extensions.php:105
+msgid "Membership Premium"
+msgstr "Membership Premium"
+
+#: admin/tab-extensions.php:115
+msgid "s2Member®"
+msgstr "s2Member®"
+
+#: admin/tab-extensions.php:122
+msgid "WebSharks, Inc."
+msgstr "WebSharks, Inc."
+
+#: admin/tab-extensions.php:126 classes/Pronamic/Shopp/IDeal/AddOn.php:161
+msgid "Shopp"
+msgstr "Shopp"
+
+#: admin/tab-extensions.php:132
+msgid "Ingenesis Limited"
+msgstr "Ingenesis Limited"
+
+#: admin/tab-extensions.php:136
+#: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:151
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: admin/tab-extensions.php:143
+msgid "WooThemes"
+msgstr "WooThemes"
+
+#: admin/tab-extensions.php:147
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
+
+#: admin/tab-extensions.php:154
+msgid "Instinct Entertainment"
+msgstr "Instinct Entertainment"
+
+#: admin/tab-extensions.php:159
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
+msgid "ClassiPress"
+msgstr "ClassiPress"
+
+#: admin/tab-extensions.php:164 admin/tab-extensions.php:172
+#: admin/tab-extensions.php:179 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
+msgid "AppThemes"
+msgstr "AppThemes"
+
+#: admin/tab-extensions.php:168
+msgid "JobRoller"
+msgstr "JobRoller"
+
+#: admin/tab-extensions.php:176
+msgid "Vantage"
+msgstr "Vantage"
+
+#: admin/tab-extensions.php:194 admin/tab-gateways.php:22
+msgid "Markdown"
+msgstr "Markdown"
+
+#: admin/tab-gateways.php:1
+msgid "Payment Gateways"
+msgstr "Betalingsgateways"
+
+#: admin/tab-ideal_status.php:7
+msgid ""
+"The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
+"the following status of the various iDEAL banks:"
+msgstr ""
+"De <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitort "
+"de volgende status van de verscheidene iDEAL-banken:"
+
+#: admin/tab-ideal_status.php:40
+msgid "Issuer Name"
+msgstr "Issuer naam"
+
+#: admin/tab-ideal_status.php:43
+msgid "Issuer ID"
+msgstr "Issuer ID"
+
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:384
+#: views/gravityforms/feed-edit.php:433
+msgid "Success"
+msgstr "Succes"
+
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:380
+msgid "Failure"
+msgstr "Storing"
+
+#: admin/tab-license.php:1
+msgid "License Information"
+msgstr "Licentie informatie"
+
+#: admin/tab-license.php:8
+msgid "No license information available."
+msgstr "Geen licentie informatie beschikbaar."
+
+#: admin/tab-license.php:19
+msgid "Activation Date"
+msgstr "Activatie datum"
+
+#: admin/tab-license.php:22 admin/tab-license.php:35
+#: admin/tab-system_status.php:142
+msgid "Y/m/d g:i:s A"
+msgstr "d-m-Y H:i"
+
+#: admin/tab-license.php:32
+msgid "Expiration Date"
+msgstr "Verval datum"
+
+#: admin/tab-methods.php:1
+msgid "Payment Methods"
+msgstr "Betaalmethoden"
+
+#: admin/tab-methods.php:10
+msgid "DigiAccept"
+msgstr "DigiAccept"
+
+#: admin/tab-methods.php:14 admin/tab-methods.php:32
+msgid "Acceptgiro"
+msgstr "Acceptgiro"
+
+#: admin/tab-methods.php:17
+msgid "YourGift"
+msgstr "YourGift"
+
+#: admin/tab-methods.php:21
+msgid "American Express"
+msgstr "American Express"
+
+#: admin/tab-methods.php:25
+msgid "MasterCard"
+msgstr "MasterCard"
+
+#: admin/tab-methods.php:36
+msgid "AfterPay"
+msgstr "AfterPay"
+
+#: admin/tab-methods.php:44
+msgid "Cash on Delivery"
+msgstr "Rembours"
+
+#: admin/tab-methods.php:48
+msgid "GiftCard"
+msgstr "GiftCard"
+
+#: admin/tab-methods.php:54
+msgid "Credit Card"
+msgstr "Creditcard"
+
+#: admin/tab-methods.php:61
+msgid "Direct Debit"
+msgstr "Incasso"
+
+#: admin/tab-methods.php:65
+msgid "Direct eBanking"
+msgstr "Direct eBanking"
+
+#: admin/tab-methods.php:69
+msgid "Giropay"
+msgstr "Giropay"
+
+#: admin/tab-methods.php:73
+msgid "MiniTix"
+msgstr "MiniTix"
+
+#: admin/tab-methods.php:82
+msgid "paysafecard"
+msgstr "paysafecard"
+
+#: admin/tab-methods.php:86
+msgid "PayPal"
+msgstr "PayPal"
+
+#: admin/tab-methods.php:90
+msgid "Wallie"
+msgstr "Wallie"
+
+#: admin/tab-pages_generator.php:42
+msgid ""
+"This page allows you to easily create pages for each iDEAL payment status."
+msgstr ""
+"Via deze pagina kun je eenvoudig pagina's aanmaken voor de verschillende "
+"iDEAL-betalingsstatussen."
+
+#: admin/tab-pages_generator.php:53
+msgid "ideal"
+msgstr "ideal"
+
+#: admin/tab-pages_generator.php:60
+msgid "iDEAL payment error"
+msgstr "iDEAL-betalingsfout"
+
+#: admin/tab-pages_generator.php:61
+msgid "error"
+msgstr "fout"
+
+#: admin/tab-pages_generator.php:62
+msgid "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
+msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL-betaling.</p>"
+
+#: admin/tab-pages_generator.php:68
+msgid "iDEAL payment canceled"
+msgstr "iDEAL-betaling geannuleerd"
+
+#: admin/tab-pages_generator.php:69
+msgid "cancelled"
+msgstr "geannuleerd"
+
+#: admin/tab-pages_generator.php:70
+msgid "<p>You canceled the iDEAL payment.</p>"
+msgstr "<p>U heeft de iDEAL-betaling geannuleerd.</p>"
+
+#: admin/tab-pages_generator.php:76
+msgid "iDEAL payment unknown"
+msgstr "iDEAL-betaling onbekend"
+
+#: admin/tab-pages_generator.php:77
+msgid "unknown"
+msgstr "onbekend"
+
+#: admin/tab-pages_generator.php:78
+msgid "<p>The status of your iDEAL payment is unknown.</p>"
+msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
+
+#: admin/tab-pages_generator.php:84
+msgid "iDEAL payment expired"
+msgstr "iDEAL-betaling verlopen"
+
+#: admin/tab-pages_generator.php:85
+msgid "expired"
+msgstr "verlopen"
+
+#: admin/tab-pages_generator.php:86
+msgid "<p>Unfortunately your iDEAL payment session has expired.</p>"
+msgstr "<p>Uw iDEAL-betalingssessie is helaas verlopen.</p>"
+
+#: admin/tab-pages_generator.php:92
+msgid "iDEAL payment completed"
+msgstr "iDEAL-betaling voltooid"
+
+#: admin/tab-pages_generator.php:93
+msgid "completed"
+msgstr "voltooid"
+
+#: admin/tab-pages_generator.php:94
+msgid "<p>The payment process is successfully completed.</p>"
+msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
+
+#: admin/tab-pages_generator.php:128
+msgid "Slug"
+msgstr "Slug"
+
+#: admin/tab-pages_generator.php:138
+msgid "Content"
+msgstr "Inhoud"
+
+#: admin/tab-pages_generator.php:147
+msgid "Meta"
+msgstr "Meta"
+
+#: admin/tab-pages_generator.php:188
+msgid "Generate Pages"
+msgstr "Genereer pagina's"
+
+#: admin/tab-system_status.php:1
+msgid "Installation Status"
+msgstr "Installatie status"
+
+#: admin/tab-system_status.php:6
+msgid "Site URL"
+msgstr "Site URL"
+
+#: admin/tab-system_status.php:17
+msgid "Home URL"
+msgstr "Home URL"
+
+#: admin/tab-system_status.php:28
+msgid "PHP Version"
+msgstr "PHP versie"
+
+#: admin/tab-system_status.php:39
+msgid "Pronamic iDEAL requires PHP 5.2 or above."
+msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
+
+#: admin/tab-system_status.php:47
+msgid "MySQL Version"
+msgstr "MySQL versie"
+
+#: admin/tab-system_status.php:64
+msgid "Pronamic iDEAL requires MySQL 5 or above."
+msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
+
+#: admin/tab-system_status.php:72
+msgid "WordPress Version"
+msgstr "WordPress versie"
+
+#: admin/tab-system_status.php:83
+msgid "Pronamic iDEAL requires WordPress 3.2 or above."
+msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
+
+#: admin/tab-system_status.php:91
+msgid "WP Memory Limit"
+msgstr "WP geheugenlimiet"
+
+#: admin/tab-system_status.php:109
+msgid ""
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
+"memory allocated to PHP</a>"
+msgstr ""
+"We adviseren om het geheugen minimaal in te stellen op 64MB. Zie: <a "
+"href=”%s”>Verhoog toegewezen geheugen aan PHP</a>."
+
+#: admin/tab-system_status.php:119
+msgid "Character Set"
+msgstr "Tekencodering"
+
+#: admin/tab-system_status.php:131
+msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
+msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
+
+#: admin/tab-system_status.php:139
+msgid "Time"
+msgstr "Tijd"
+
+#: admin/tab-system_status.php:151
+msgid "cURL"
+msgstr "cURL"
+
+#: admin/tab-system_status.php:176
+msgid "OpenSSL"
+msgstr "OpenSSL"
+
+#: admin/tab-system_status.php:196
+msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
+msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
+
+#: admin/tab-system_status.php:204
+msgid "Registered Hashing Algorithms"
+msgstr "Geregistreerde hashing algoritmen"
+
+#: admin/tab-system_status.php:221
+msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
+msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
+
+#: admin/tab-system_status.php:229
+msgid "Travis CI build status"
+msgstr "Travis CI build status"
+
+#: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
+#: classes/Pronamic/EShop/IDeal/AddOn.php:136
+#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
+#: classes/Pronamic/Shopp/IDeal/AddOn.php:166
+msgid "Order #%s"
+msgstr "Bestelling #%s"
 
 #. Plugin Name of the plugin/theme
 msgid "Pronamic iDEAL"
@@ -123,10 +758,6 @@ msgstr "Nee"
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296 views/extensions.php:164
-msgid "ClassiPress"
-msgstr "ClassiPress"
-
 #: classes/Pronamic/ClassiPress/IDeal/IDealDataProxy.php:53
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
@@ -173,11 +804,6 @@ msgstr "iDEAL-betaling open."
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
-#: views/extensions.php:13
-msgid "Easy Digital Downloads"
-msgstr "Easy Digital Downloads"
-
 #: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
 msgid "Easy Digital Downloads order %s"
 msgstr "Easy Digital Downloads bestelling %s"
@@ -202,18 +828,9 @@ msgstr "Instellingen bijwerken"
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328 views/extensions.php:24
-msgid "Event Espresso"
-msgstr "Event Espresso"
-
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:333
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
-
-#: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:151 views/extensions.php:141
-msgid "WooCommerce"
-msgstr "WooCommerce"
 
 #: classes/Pronamic/Gateways/Buckaroo/Gateway.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:96 includes/post.php:35
@@ -280,7 +897,7 @@ msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
 
 #: classes/Pronamic/Gateways/Gateway.php:402
-#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:172
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:200
 msgid "Pay"
 msgstr "Betalen"
 
@@ -301,7 +918,7 @@ msgstr "&mdash; Andere banken &mdash;"
 
 #: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:95
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
-#: classes/Pronamic/Gateways/Icepay/Gateway.php:82
+#: classes/Pronamic/Gateways/Icepay/Gateway.php:71
 #: classes/Pronamic/Gateways/Mollie/IDeal/Gateway.php:67
 #: classes/Pronamic/Gateways/PayDutch/Gateway.php:66
 #: classes/Pronamic/Gateways/Qantani/Gateway.php:69
@@ -365,10 +982,6 @@ msgstr "Onbekend Sisow-bericht (%s)"
 msgid "Sisow Bank (test)"
 msgstr "Sisow bank (test)"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83 views/extensions.php:41
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
 msgid "Entry #%s"
 msgstr "Inzending #%s"
@@ -420,22 +1033,6 @@ msgstr "iDEAL-velden"
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
 
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
-#: views/branding.php:216 views/documentation.php:602
-#: views/pages-generator.php:121
-msgid "Title"
-msgstr "Titel"
-
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
-#: views/extensions.php:78
-msgid "iThemes Exchange"
-msgstr "iThemes Exchange"
-
 #: classes/Pronamic/IThemesExchange/PaymentData.php:70
 msgid "iThemes Exchange order %s"
 msgstr "iThemes Exchange bestelling %s"
@@ -453,10 +1050,6 @@ msgstr "iDEAL-betaling verlopen."
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:104
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
-
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:134 views/extensions.php:89
-msgid "Jigoshop"
-msgstr "Jigoshop"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
 msgid "Allow iDEAL payments."
@@ -610,16 +1203,12 @@ msgstr "s2Member"
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
 
-#: classes/Pronamic/Shopp/IDeal/AddOn.php:161 views/extensions.php:131
-msgid "Shopp"
-msgstr "Shopp"
-
 #: classes/Pronamic/Shopp/PaymentData.php:64
 #: classes/Pronamic/Shopp/PaymentData.php:90
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:55
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:92
-#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:120
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:111
+#: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:139
 #: classes/Pronamic/WooCommerce/IDeal/AddOn.php:165
 msgid "Order %s"
 msgstr "Bestelling %s"
@@ -636,17 +1225,9 @@ msgstr "ID"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:521
+#: classes/Pronamic/WP/Pay/Admin.php:467
 msgid "Dashboard"
 msgstr "Dashboard"
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: views/documentation.php:603 views/meta-box-payment-info.php:11
-#: views/status-ideal.php:47
-msgid "Date"
-msgstr "Datum"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:100
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:162
@@ -746,12 +1327,6 @@ msgstr ""
 "Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
 "te maken van extra extensies, support en meer dan %d betalingen."
 
-#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
-#: includes/post.php:32 includes/post.php:34 includes/post.php:45
-#: views/dashboard.php:9
-msgid "Payments"
-msgstr "Betalingen"
-
 #: classes/Pronamic/WP/Pay/Admin.php:440 classes/Pronamic/WP/Pay/Admin.php:441
 #: includes/post.php:18
 msgid "Configurations"
@@ -762,32 +1337,8 @@ msgid "Settings"
 msgstr "Instellingen"
 
 #: classes/Pronamic/WP/Pay/Admin.php:457 classes/Pronamic/WP/Pay/Admin.php:458
-msgid "System Status"
-msgstr "Systeemstatus"
-
-#: classes/Pronamic/WP/Pay/Admin.php:466 classes/Pronamic/WP/Pay/Admin.php:467
-msgid "iDEAL Status"
-msgstr "iDEAL-status"
-
-#: classes/Pronamic/WP/Pay/Admin.php:475 classes/Pronamic/WP/Pay/Admin.php:476
-msgid "Gateways"
-msgstr "Gateways"
-
-#: classes/Pronamic/WP/Pay/Admin.php:484 classes/Pronamic/WP/Pay/Admin.php:485
-msgid "Extensions"
-msgstr "Extensies"
-
-#: classes/Pronamic/WP/Pay/Admin.php:493 classes/Pronamic/WP/Pay/Admin.php:494
-msgid "Documentation"
-msgstr "Documentatie"
-
-#: classes/Pronamic/WP/Pay/Admin.php:502 classes/Pronamic/WP/Pay/Admin.php:503
-msgid "Branding"
-msgstr "Huisstijl"
-
-#: classes/Pronamic/WP/Pay/Admin.php:511 classes/Pronamic/WP/Pay/Admin.php:512
-msgid "Pages Generator"
-msgstr "Pagina's generator"
+msgid "Tools"
+msgstr "Extra"
 
 #: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
 #: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
@@ -804,18 +1355,9 @@ msgstr "Test %s"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:380 views/status-ideal.php:53
-msgid "Failure"
-msgstr "Storing"
-
 #: classes/Pronamic/WP/Pay/Plugin.php:382 views/gravityforms/feed-edit.php:432
 msgid "Open"
 msgstr "Open"
-
-#: classes/Pronamic/WP/Pay/Plugin.php:384 views/gravityforms/feed-edit.php:433
-#: views/status-ideal.php:50
-msgid "Success"
-msgstr "Succes"
 
 #: classes/Pronamic/WP/Pay/Plugin.php:398
 msgid ""
@@ -844,22 +1386,13 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
-#: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:116
-#: views/extensions.php:100
-msgid "Membership"
-msgstr "Membership"
-
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:125
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
-#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:152
+#: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:175
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
-
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161 views/extensions.php:152
-msgid "WP e-Commerce"
-msgstr "WP e-Commerce"
 
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:169
 msgid "Purchase #%s"
@@ -884,11 +1417,6 @@ msgid ""
 msgstr ""
 "Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:107
-#: views/branding.php:126
-msgid "Icon"
-msgstr "Icoon"
 
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:112
 msgid "This controls the icon which the user sees during checkout."
@@ -935,7 +1463,7 @@ msgstr "Bestelling {order_number}"
 msgid "WooCommerce order %s"
 msgstr "WooCommerce bestelling %s"
 
-#: includes/gateways.php:273
+#: includes/gateways.php:276
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
 
@@ -1058,87 +1586,6 @@ msgstr "Geen betalingsformulieren gevonden"
 #: includes/post.php:71
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
-
-#: views/branding.php:36
-msgid "Banner 234&times;100"
-msgstr "Banner 234&times;100"
-
-#: views/branding.php:42
-msgid "Banner 234&times;100 (without campaign statements)"
-msgstr "Banner 234&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:48
-msgid "Banner 234&times;60"
-msgstr "Banner 234&times;60"
-
-#: views/branding.php:54
-msgid "Banner 234&times;60 (without campaign statements)"
-msgstr "Banner 234&times;60 (zonder campagne-uitingen)"
-
-#: views/branding.php:60
-msgid "Banner 155&times;100"
-msgstr "Banner 155&times;100"
-
-#: views/branding.php:66
-msgid "Banner 155&times;100 (without campaign statements)"
-msgstr "Banner 155&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:72
-msgid "Banner 155&times;55"
-msgstr "Banner 155&times;55"
-
-#: views/branding.php:78
-msgid "Banner 155&times;55 (without campaign statements)"
-msgstr "Banner 155&times;55 (zonder campagne-uitingen)"
-
-#: views/branding.php:84
-msgid "Banner 100&times;100"
-msgstr "Banner 100&times;100"
-
-#: views/branding.php:90
-msgid "Banner 100&times;100 (without campaign statements)"
-msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
-
-#: views/branding.php:102 views/branding.php:108 views/branding.php:114
-msgid "Mister Cash"
-msgstr "Mister Cash"
-
-#: views/branding.php:133
-msgid "Logo Extra Small"
-msgstr "Logo Extra Small"
-
-#: views/branding.php:140 views/branding.php:146 views/branding.php:152
-msgid "Mollie bage - Powered by"
-msgstr "Mollie bage - Powered by"
-
-#: views/branding.php:158 views/branding.php:164 views/branding.php:170
-msgid "Mollie bage - Betaling groen"
-msgstr "Mollie bage - Betaling groen"
-
-#: views/branding.php:183 views/branding.php:189 views/branding.php:195
-#: views/config-edit.php:186
-msgid "OmniKassa"
-msgstr "OmniKassa"
-
-#: views/branding.php:217
-msgid "Size"
-msgstr "Formaat"
-
-#: views/branding.php:218
-msgid "Image"
-msgstr "Afbeelding"
-
-#: views/branding.php:219 views/error.php:9 views/error.php:24
-#: views/error.php:50
-msgid "Code"
-msgstr "Code"
-
-#: views/branding.php:280
-msgid ""
-"PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
-msgstr ""
-"PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
-"\">TinyPNG</a>."
 
 #: views/config-edit.php:42
 msgid "Mode"
@@ -1588,27 +2035,6 @@ msgstr ""
 msgid "filename"
 msgstr "bestandsnaam"
 
-#. translators: comment date format. See http:php.net/date
-#: views/dashboard.php:45
-msgid "c"
-msgstr "c"
-
-#: views/dashboard.php:67 views/dashboard.php:75
-msgid "Pronamic News"
-msgstr "Pronamic nieuws"
-
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
-msgstr "http://www.pronamic.nl/"
-
-#: views/documentation.php:3
-msgid "iDEAL Documentation"
-msgstr "iDEAL-documentatie"
-
-#: views/documentation.php:604
-msgid "Version"
-msgstr "Versie"
-
 #: views/error.php:12 views/error.php:27 views/error.php:53
 msgid "Message"
 msgstr "Bericht"
@@ -1628,119 +2054,6 @@ msgstr "Consumenten bericht"
 #: views/eshop/settings-meta-box.php:13
 msgid "Accept payment by iDEAL"
 msgstr "Accepteeer betaling via iDEAL"
-
-#: views/extensions-readme-md.php:42 views/extensions-wp-admin.php:11
-msgid "WordPress.org"
-msgstr "WordPress.org"
-
-#: views/extensions-readme-md.php:53 views/extensions-wp-admin.php:14
-msgid "GitHub"
-msgstr "GitHub"
-
-#: views/extensions-wp-admin.php:5 views/gateways-wp-admin.php:5
-msgid "Name"
-msgstr "Naam"
-
-#: views/extensions-wp-admin.php:8
-msgid "Author"
-msgstr "Auteur"
-
-#: views/extensions-wp-admin.php:17
-msgid "Requires at least"
-msgstr "Vereist minimaal"
-
-#: views/extensions-wp-admin.php:20
-msgid "Tested up to"
-msgstr "Getest tot"
-
-#: views/extensions-wp-admin.php:23
-msgid "Active"
-msgstr "Actief"
-
-#: views/extensions.php:5
-msgid "Supported Extensions"
-msgstr "Ondersteunde extensies"
-
-#: views/extensions.php:20
-msgid "Pippin Williamson"
-msgstr "Pippin Williamson"
-
-#: views/extensions.php:32
-msgid "Event Espresso Lite"
-msgstr "Event Espresso Lite"
-
-#: views/extensions.php:47 views/extensions.php:56 views/extensions.php:65
-#: views/extensions.php:74
-msgid "Rocketgenius"
-msgstr "Rocketgenius"
-
-#: views/extensions.php:51
-msgid "Gravity Forms Campaign Monitor Add-On"
-msgstr "Gravity Forms Campaign Monitor Add-On"
-
-#: views/extensions.php:60
-msgid "Gravity Forms MailChimp Add-On"
-msgstr "Gravity Forms MailChimp Add-On"
-
-#: views/extensions.php:69
-msgid "Gravity Forms User Registration Add-On"
-msgstr "Gravity Forms User Registration Add-On"
-
-#: views/extensions.php:85
-msgid "iThemes"
-msgstr "iThemes"
-
-#: views/extensions.php:96
-msgid "Jigowatt"
-msgstr "Jigowatt"
-
-#: views/extensions.php:106 views/extensions.php:116
-msgid "WPMUDEV.org"
-msgstr "WPMUDEV.org"
-
-#: views/extensions.php:110
-msgid "Membership Premium"
-msgstr "Membership Premium"
-
-#: views/extensions.php:120
-msgid "s2Member®"
-msgstr "s2Member®"
-
-#: views/extensions.php:127
-msgid "WebSharks, Inc."
-msgstr "WebSharks, Inc."
-
-#: views/extensions.php:137
-msgid "Ingenesis Limited"
-msgstr "Ingenesis Limited"
-
-#: views/extensions.php:148
-msgid "WooThemes"
-msgstr "WooThemes"
-
-#: views/extensions.php:159
-msgid "Instinct Entertainment"
-msgstr "Instinct Entertainment"
-
-#: views/extensions.php:173
-msgid "JobRoller"
-msgstr "JobRoller"
-
-#: views/extensions.php:181
-msgid "Vantage"
-msgstr "Vantage"
-
-#: views/extensions.php:199 views/gateways.php:27
-msgid "Markdown"
-msgstr "Markdown"
-
-#: views/gateways-wp-admin.php:4
-msgid "Provider"
-msgstr "Provider"
-
-#: views/gateways.php:5
-msgid "Supported Gateways"
-msgstr "Ondersteunde gateways"
 
 #: views/gravityforms/feed-edit.php:29
 msgid "Gravity Form"
@@ -1986,113 +2299,6 @@ msgstr "Sessie ID"
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
-#: views/pages-generator.php:41
-msgid "iDEAL Pages Generator"
-msgstr "iDEAL-pagina's generator"
-
-#: views/pages-generator.php:45
-msgid ""
-"This page allows you to easily create pages for each iDEAL payment status."
-msgstr ""
-"Via deze pagina kun je eenvoudig pagina's aanmaken voor de verschillende "
-"iDEAL-betalingsstatussen."
-
-#: views/pages-generator.php:56
-msgid "ideal"
-msgstr "ideal"
-
-#: views/pages-generator.php:63
-msgid "iDEAL payment error"
-msgstr "iDEAL-betalingsfout"
-
-#: views/pages-generator.php:64
-msgid "error"
-msgstr "fout"
-
-#: views/pages-generator.php:65
-msgid "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
-msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL-betaling.</p>"
-
-#: views/pages-generator.php:71
-msgid "iDEAL payment canceled"
-msgstr "iDEAL-betaling geannuleerd"
-
-#: views/pages-generator.php:72
-msgid "cancelled"
-msgstr "geannuleerd"
-
-#: views/pages-generator.php:73
-msgid "<p>You canceled the iDEAL payment.</p>"
-msgstr "<p>U heeft de iDEAL-betaling geannuleerd.</p>"
-
-#: views/pages-generator.php:79
-msgid "iDEAL payment unknown"
-msgstr "iDEAL-betaling onbekend"
-
-#: views/pages-generator.php:80
-msgid "unknown"
-msgstr "onbekend"
-
-#: views/pages-generator.php:81
-msgid "<p>The status of your iDEAL payment is unknown.</p>"
-msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
-
-#: views/pages-generator.php:87
-msgid "iDEAL payment expired"
-msgstr "iDEAL-betaling verlopen"
-
-#: views/pages-generator.php:88
-msgid "expired"
-msgstr "verlopen"
-
-#: views/pages-generator.php:89
-msgid "<p>Unfortunately your iDEAL payment session has expired.</p>"
-msgstr "<p>Uw iDEAL-betalingssessie is helaas verlopen.</p>"
-
-#: views/pages-generator.php:95
-msgid "iDEAL payment completed"
-msgstr "iDEAL-betaling voltooid"
-
-#: views/pages-generator.php:96
-msgid "completed"
-msgstr "voltooid"
-
-#: views/pages-generator.php:97
-msgid "<p>The payment process is successfully completed.</p>"
-msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
-
-#: views/pages-generator.php:131
-msgid "Slug"
-msgstr "Slug"
-
-#: views/pages-generator.php:141
-msgid "Content"
-msgstr "Inhoud"
-
-#: views/pages-generator.php:150
-msgid "Meta"
-msgstr "Meta"
-
-#: views/pages-generator.php:191
-msgid "Generate Pages"
-msgstr "Genereer pagina's"
-
-#. Author of the plugin/theme
-msgid "Pronamic"
-msgstr "Pronamic"
-
-#: views/pronamic.php:3
-msgid "Facebook"
-msgstr "Facebook"
-
-#: views/pronamic.php:9
-msgid "Twitter"
-msgstr "Twitter"
-
-#: views/pronamic.php:16
-msgid "Google+"
-msgstr "Google+"
-
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
 msgid "Redirecting&hellip;"
 msgstr "Doorverwijzen&hellip;"
@@ -2129,127 +2335,6 @@ msgstr "Genereer shortcode"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: views/status-ideal.php:8
-msgid ""
-"The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
-"the following status of the various iDEAL banks:"
-msgstr ""
-"De <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitort "
-"de volgende status van de verscheidene iDEAL-banken:"
-
-#: views/status-ideal.php:41
-msgid "Issuer Name"
-msgstr "Issuer naam"
-
-#: views/status-ideal.php:44
-msgid "Issuer ID"
-msgstr "Issuer ID"
-
-#: views/status-system.php:5
-msgid "License Information"
-msgstr "Licentie informatie"
-
-#: views/status-system.php:13
-msgid "No license information available."
-msgstr "Geen licentie informatie beschikbaar."
-
-#: views/status-system.php:24
-msgid "Activation Date"
-msgstr "Activatie datum"
-
-#: views/status-system.php:27 views/status-system.php:40
-#: views/status-system.php:193
-msgid "Y/m/d g:i:s A"
-msgstr "d-m-Y H:i"
-
-#: views/status-system.php:37
-msgid "Expiration Date"
-msgstr "Verval datum"
-
-#: views/status-system.php:51
-msgid "Installation Status"
-msgstr "Installatie status"
-
-#: views/status-system.php:57
-msgid "Site URL"
-msgstr "Site URL"
-
-#: views/status-system.php:68
-msgid "Home URL"
-msgstr "Home URL"
-
-#: views/status-system.php:79
-msgid "PHP Version"
-msgstr "PHP versie"
-
-#: views/status-system.php:90
-msgid "Pronamic iDEAL requires PHP 5.2 or above."
-msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
-
-#: views/status-system.php:98
-msgid "MySQL Version"
-msgstr "MySQL versie"
-
-#: views/status-system.php:115
-msgid "Pronamic iDEAL requires MySQL 5 or above."
-msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
-
-#: views/status-system.php:123
-msgid "WordPress Version"
-msgstr "WordPress versie"
-
-#: views/status-system.php:134
-msgid "Pronamic iDEAL requires WordPress 3.2 or above."
-msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
-
-#: views/status-system.php:142
-msgid "WP Memory Limit"
-msgstr "WP geheugenlimiet"
-
-#: views/status-system.php:160
-msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
-"memory allocated to PHP</a>"
-msgstr ""
-"We adviseren om het geheugen minimaal in te stellen op 64MB. Zie: <a "
-"href=”%s”>Verhoog toegewezen geheugen aan PHP</a>."
-
-#: views/status-system.php:170
-msgid "Character Set"
-msgstr "Tekencodering"
-
-#: views/status-system.php:182
-msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
-msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
-
-#: views/status-system.php:190
-msgid "Time"
-msgstr "Tijd"
-
-#: views/status-system.php:202
-msgid "cURL"
-msgstr "cURL"
-
-#: views/status-system.php:227
-msgid "OpenSSL"
-msgstr "OpenSSL"
-
-#: views/status-system.php:247
-msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
-msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
-
-#: views/status-system.php:255
-msgid "Registered Hashing Algorithms"
-msgstr "Geregistreerde hashing algoritmen"
-
-#: views/status-system.php:272
-msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
-msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
-
-#: views/status-system.php:280
-msgid "Travis CI build status"
-msgstr "Travis CI build status"
-
 #. Plugin URI of the plugin/theme
 msgid "http://www.happywp.com/plugins/pronamic-ideal/"
 msgstr "http://www.happywp.com/plugins/pronamic-ideal/"
@@ -2261,6 +2346,41 @@ msgid ""
 msgstr ""
 "De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
 "betaalmethode toe te voegen aan je WordPress website."
+
+#: admin/extensions-readme-md.php:4 admin/gateways-readme-md.php:5
+msgctxt "readme.md"
+msgid "Name"
+msgstr "Name"
+
+#: admin/extensions-readme-md.php:5
+msgctxt "readme.md"
+msgid "Author"
+msgstr "Author"
+
+#: admin/extensions-readme-md.php:6
+msgctxt "readme.md"
+msgid "WordPress.org"
+msgstr "WordPress.org"
+
+#: admin/extensions-readme-md.php:7
+msgctxt "readme.md"
+msgid "GitHub"
+msgstr "GitHub"
+
+#: admin/extensions-readme-md.php:8
+msgctxt "readme.md"
+msgid "Requires at least"
+msgstr "Requires at least"
+
+#: admin/extensions-readme-md.php:9
+msgctxt "readme.md"
+msgid "Tested up to"
+msgstr "Tested up to"
+
+#: admin/gateways-readme-md.php:4
+msgctxt "readme.md"
+msgid "Provider"
+msgstr "Provider"
 
 #: classes/Pronamic/Gateways/OmniKassa/Gateway.php:105
 msgctxt "creditcard"
@@ -2302,40 +2422,14 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
 
-#: views/extensions-readme-md.php:4 views/gateways-readme-md.php:5
-msgctxt "readme.md"
-msgid "Name"
-msgstr "Name"
+#~ msgid "iDEAL Documentation"
+#~ msgstr "iDEAL-documentatie"
 
-#: views/extensions-readme-md.php:5
-msgctxt "readme.md"
-msgid "Author"
-msgstr "Author"
+#~ msgid "Supported Gateways"
+#~ msgstr "Ondersteunde gateways"
 
-#: views/extensions-readme-md.php:6
-msgctxt "readme.md"
-msgid "WordPress.org"
-msgstr "WordPress.org"
-
-#: views/extensions-readme-md.php:7
-msgctxt "readme.md"
-msgid "GitHub"
-msgstr "GitHub"
-
-#: views/extensions-readme-md.php:8
-msgctxt "readme.md"
-msgid "Requires at least"
-msgstr "Requires at least"
-
-#: views/extensions-readme-md.php:9
-msgctxt "readme.md"
-msgid "Tested up to"
-msgstr "Tested up to"
-
-#: views/gateways-readme-md.php:4
-msgctxt "readme.md"
-msgid "Provider"
-msgstr "Provider"
+#~ msgid "iDEAL Pages Generator"
+#~ msgstr "iDEAL-pagina's generator"
 
 #~ msgid "iDEAL Configuration ID could not be saved"
 #~ msgstr "iDEAL-configuratie ID kon nie t"
@@ -2610,9 +2704,6 @@ msgstr "Provider"
 
 #~ msgid "Test &euro; %s"
 #~ msgstr "Test &euro; %s"
-
-#~ msgid "Method"
-#~ msgstr "Methode"
 
 #~ msgid "Feedback Payment Status"
 #~ msgstr "Feedback betaling status"

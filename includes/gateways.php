@@ -2,6 +2,9 @@
 
 global $pronamic_pay_gateways;
 
+// @todo http://quickpay.net/
+// @todo http://www.cardgate.com/
+
 $pronamic_pay_gateways = array(
 	// ABN AMRO
 	'abnamro-ideal-easy' => array(
