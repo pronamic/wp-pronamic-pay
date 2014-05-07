@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic iDEAL package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.7.2\n"
+"Project-Id-Version: Pronamic iDEAL 2.7.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-05-07 06:41:59+00:00\n"
+"POT-Creation-Date: 2014-05-07 07:02:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,8 +61,75 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/tab-branding.php:1 views/status-system.php:11
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:432
+#: classes/Pronamic/WP/Pay/Admin.php:433 includes/post.php:32
+#: includes/post.php:34 includes/post.php:45
+msgid "Payments"
+msgstr ""
+
+#: admin/page-dashboard.php:45
+#. translators: comment date format. See http:php.net/date
+msgid "c"
+msgstr ""
+
+#: admin/page-dashboard.php:67 admin/page-dashboard.php:75
+msgid "Pronamic News"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr ""
+
+#: admin/page-tools.php:4
+msgid "System Status"
+msgstr ""
+
+#: admin/page-tools.php:5 admin/tab-ideal_status.php:1
+msgid "iDEAL Status"
+msgstr ""
+
+#: admin/page-tools.php:6 admin/tab-pages_generator.php:39
+msgid "Pages Generator"
+msgstr ""
+
+#: admin/page-tools.php:7
+msgid "Gateways"
+msgstr ""
+
+#: admin/page-tools.php:8
+msgid "Extensions"
+msgstr ""
+
+#: admin/page-tools.php:9
+msgid "Methods"
+msgstr ""
+
+#: admin/page-tools.php:10 admin/tab-documentation.php:1
+msgid "Documentation"
+msgstr ""
+
+#: admin/page-tools.php:11 admin/tab-branding.php:1
 msgid "Branding"
+msgstr ""
+
+#: admin/page-tools.php:12
+msgid "License"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Pronamic"
+msgstr ""
+
+#: admin/pronamic.php:3
+msgid "Facebook"
+msgstr ""
+
+#: admin/pronamic.php:9
+msgid "Twitter"
+msgstr ""
+
+#: admin/pronamic.php:16
+msgid "Google+"
 msgstr ""
 
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
@@ -126,7 +193,7 @@ msgid "Banner 100&times;100 (without campaign statements)"
 msgstr ""
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
-#: admin/tab-branding.php:113 admin/tab-methods.php:88
+#: admin/tab-branding.php:113 admin/tab-methods.php:78
 msgid "Mister Cash"
 msgstr ""
 
@@ -180,10 +247,6 @@ msgstr ""
 
 #: admin/tab-branding.php:279
 msgid "PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
-msgstr ""
-
-#: admin/tab-documentation.php:1 views/status-system.php:10
-msgid "Documentation"
 msgstr ""
 
 #: admin/tab-documentation.php:600 admin/tab-ideal_status.php:46
@@ -332,10 +395,6 @@ msgstr ""
 msgid "Payment Gateways"
 msgstr ""
 
-#: admin/tab-ideal_status.php:1 views/status-system.php:5
-msgid "iDEAL Status"
-msgstr ""
-
 #: admin/tab-ideal_status.php:7
 msgid ""
 "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice "
@@ -412,44 +471,40 @@ msgstr ""
 msgid "Cash on Delivery"
 msgstr ""
 
-#: admin/tab-methods.php:50
+#: admin/tab-methods.php:48
 msgid "GiftCard"
 msgstr ""
 
-#: admin/tab-methods.php:56
+#: admin/tab-methods.php:54
 msgid "Credit Card"
 msgstr ""
 
-#: admin/tab-methods.php:63
+#: admin/tab-methods.php:61
 msgid "Direct Debit"
 msgstr ""
 
-#: admin/tab-methods.php:69
+#: admin/tab-methods.php:65
 msgid "Direct eBanking"
 msgstr ""
 
-#: admin/tab-methods.php:75
+#: admin/tab-methods.php:69
 msgid "Giropay"
 msgstr ""
 
-#: admin/tab-methods.php:81
+#: admin/tab-methods.php:73
 msgid "MiniTix"
 msgstr ""
 
-#: admin/tab-methods.php:94
+#: admin/tab-methods.php:82
 msgid "paysafecard"
 msgstr ""
 
-#: admin/tab-methods.php:100
+#: admin/tab-methods.php:86
 msgid "PayPal"
 msgstr ""
 
-#: admin/tab-methods.php:106
+#: admin/tab-methods.php:90
 msgid "Wallie"
-msgstr ""
-
-#: admin/tab-pages_generator.php:39 views/status-system.php:6
-msgid "Pages Generator"
 msgstr ""
 
 #: admin/tab-pages_generator.php:42
@@ -1244,12 +1299,6 @@ msgid ""
 "extensions, get support and more than %d payments."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
-#: includes/post.php:32 includes/post.php:34 includes/post.php:45
-#: views/dashboard.php:9
-msgid "Payments"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin.php:440 classes/Pronamic/WP/Pay/Admin.php:441
 #: includes/post.php:18
 msgid "Configurations"
@@ -1377,7 +1426,7 @@ msgstr ""
 msgid "WooCommerce order %s"
 msgstr ""
 
-#: includes/gateways.php:273
+#: includes/gateways.php:276
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr ""
 
@@ -1910,19 +1959,6 @@ msgstr ""
 msgid "filename"
 msgstr ""
 
-#: views/dashboard.php:45
-#. translators: comment date format. See http:php.net/date
-msgid "c"
-msgstr ""
-
-#: views/dashboard.php:67 views/dashboard.php:75
-msgid "Pronamic News"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
-msgstr ""
-
 #: views/error.php:12 views/error.php:27 views/error.php:53
 msgid "Message"
 msgstr ""
@@ -2171,22 +2207,6 @@ msgstr ""
 msgid "Subscription ID"
 msgstr ""
 
-#. Author of the plugin/theme
-msgid "Pronamic"
-msgstr ""
-
-#: views/pronamic.php:3
-msgid "Facebook"
-msgstr ""
-
-#: views/pronamic.php:9
-msgid "Twitter"
-msgstr ""
-
-#: views/pronamic.php:16
-msgid "Google+"
-msgstr ""
-
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
 msgid "Redirecting&hellip;"
 msgstr ""
@@ -2221,26 +2241,6 @@ msgstr ""
 
 #: views/s2member/buttons-generator.php:83
 msgid "Shortcode"
-msgstr ""
-
-#: views/status-system.php:4
-msgid "System Status"
-msgstr ""
-
-#: views/status-system.php:7
-msgid "Gateways"
-msgstr ""
-
-#: views/status-system.php:8
-msgid "Extensions"
-msgstr ""
-
-#: views/status-system.php:9
-msgid "Methods"
-msgstr ""
-
-#: views/status-system.php:12
-msgid "License"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
