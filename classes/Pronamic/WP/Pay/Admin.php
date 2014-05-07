@@ -470,9 +470,28 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function page_dashboard() { return self::render_view( 'dashboard' ); }
-	public static function page_settings() { return self::render_view( 'settings' ); }
-	public static function page_tools() { return self::render_view( 'status-system' ); }
+	public static function page_dashboard() { return self::render_page( 'dashboard' ); }
+	public static function page_settings() { return self::render_page( 'settings' ); }
+	public static function page_tools() { return self::render_page( 'tools' ); }
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Render the specified page
+	 */
+	public static function render_page( $name ) {
+		$result = false;
+
+		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
+
+		if ( is_readable( $file ) ) {
+			include $file;
+
+			$result = true;
+		}
+
+		return $result;
+	}
 
 	//////////////////////////////////////////////////
 
