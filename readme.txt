@@ -222,6 +222,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - WPMU DEV Membership - Improved loading activated gateways.
 *	Tweak - WPMU DEV Membership - Display erros if the occur.
 *	Tweak - Mollie - Improved handling of errors.
+*	Fix - Gravity Forms - Fixed bug with disabling payment feed condition.
 
 = 2.7.3 =
 *	Tweak - ICEPAY - Update to API library version 2.4.
