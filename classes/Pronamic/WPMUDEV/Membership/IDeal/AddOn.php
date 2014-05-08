@@ -29,6 +29,11 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 	 */
 	public static function bootstrap() {
 		add_action( 'plugins_loaded', array( __CLASS__, 'plugins_loaded' ) );
+
+		// The gateways are loaded directly when the Membership plugin file is included
+		// @see https://github.com/pronamic-wpmudev/membership-premium/blob/3.5.1.3/membershippremium.php#L234
+		// @see https://github.com/WordPress/WordPress/blob/3.8.2/wp-includes/option.php#L91
+		add_filter( 'option_membership_activated_gateways', array( __CLASS__, 'option_membership_activated_gateways' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -65,9 +70,6 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 
 			add_action( 'pronamic_payment_status_update_' . self::SLUG, array( __CLASS__, 'status_update' ), 10, 2 );
 			add_filter( 'pronamic_payment_source_text_' . self::SLUG,   array( __CLASS__, 'source_text' ), 10, 2 );
-
-			// @see https://github.com/WordPress/WordPress/blob/3.8.2/wp-includes/option.php#L91
-			add_filter( 'option_membership_activated_gateways', array( __CLASS__, 'option_membership_activated_gateways' ) );
 
 			if ( is_admin() ) {
 				$admin = new Pronamic_WP_Pay_WPMUDEV_Membership_Admin();

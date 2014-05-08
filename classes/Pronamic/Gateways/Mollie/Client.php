@@ -94,7 +94,11 @@ class Pronamic_Gateways_Mollie_Client {
 			// NULL is returned if the json cannot be decoded or if the encoded data is deeper than the recursion limit.
 			$result = json_decode( $body );
 		} else {
-			$this->error = new WP_Error( 'mollie_error', $response_code, $response_code );
+			$body = wp_remote_retrieve_body( $response );
+
+			$r = json_decode( $body );
+
+			$this->error = new WP_Error( 'mollie_error', $r->error->message, $r->error );
 		}
 
 		return $result;

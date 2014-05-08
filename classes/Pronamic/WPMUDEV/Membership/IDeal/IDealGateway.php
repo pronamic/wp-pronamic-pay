@@ -93,6 +93,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 				// Start
 				$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
+				// Meta
 				update_post_meta( $payment->get_id(), '_pronamic_payment_membership_user_id', $user_id );
 				update_post_meta( $payment->get_id(), '_pronamic_payment_membership_subscription_id', $data->get_subscription_id() );
 
@@ -109,8 +110,15 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 					'' // Note
 				);
 
-				// Redirect
-				$gateway->redirect( $payment );
+				// Error
+				$error = $gateway->get_error();
+
+				if ( is_wp_error( $error ) ) {
+					$this->error = $error;
+				} else {
+					// Redirect
+					$gateway->redirect( $payment );
+				}
 			}
 		}
 	}
@@ -201,6 +209,12 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 				);
 
 				echo '</div>';
+
+				if ( is_wp_error( $this->error ) ) {
+					foreach ( $this->error->get_error_messages() as $message ) {
+						echo $message, '<br />';
+					}
+				}
 
 				printf( '</form>' );
 			}

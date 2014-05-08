@@ -218,6 +218,11 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.7.4 =
+*	Tweak - WPMU DEV Membership - Improved loading activated gateways.
+*	Tweak - WPMU DEV Membership - Display erros if the occur.
+*	Tweak - Mollie - Improved handling of errors.
+
 = 2.7.3 =
 *	Tweak - ICEPAY - Update to API library version 2.4.
 *	Tweak - Simplified WordPress admin menu iDEAL.
