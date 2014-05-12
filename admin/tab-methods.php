@@ -40,7 +40,7 @@ $methods = array(
 			'acceptgiro',
 		)
 	),
-	'bitcoin' => array( // Rembours
+	'bitcoin' => array(
 		'name'    => __( 'Bitcoin', 'pronamic_ideal' ),
 		'issuers' => array( 'qantani' ),
 	),
