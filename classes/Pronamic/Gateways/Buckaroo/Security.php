@@ -55,6 +55,19 @@ class Pronamic_Gateways_Buckaroo_Security {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Sort the specified data array
+	 *
+	 * @param array $data
+	 */
+	public static function sort( $data ) {
+		uksort( $data, 'strcasecmp' );
+
+		return $data;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Create signature
 	 *
 	 * Please note: When verifying a received signature, first url-decode all the field values.
@@ -72,7 +85,7 @@ class Pronamic_Gateways_Buckaroo_Security {
 		$data = self::filter_data( $data );
 
 		// 2. Sort these parameters alphabetically on the parameter name
-		ksort( $data );
+		$data = self::sort( $data );
 
 		// 3. Concatenate all the parameters
 		foreach ( $data as $key => $value ) {

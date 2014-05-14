@@ -16,10 +16,12 @@ module.exports = function( grunt ) {
 		// PHP Code Sniffer
 		phpcs: {
 			application: {
-				dir: [ '**/*.php' ]
+				dir: [ './' ],
 			},
 			options: {
-				standard: 'project.ruleset.xml'
+				standard: 'project.ruleset.xml',
+				extensions: 'php',
+				ignore: 'wp-svn,deploy,node_modules'
 			}
 		},
 
@@ -69,7 +71,8 @@ module.exports = function( grunt ) {
 				options: {
 					cwd: '',
 					domainPath: 'languages',
-					type: 'wp-plugin'
+					type: 'wp-plugin',
+					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
 				}
 			}
 		},
