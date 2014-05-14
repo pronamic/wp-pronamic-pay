@@ -71,7 +71,8 @@ module.exports = function( grunt ) {
 				options: {
 					cwd: '',
 					domainPath: 'languages',
-					type: 'wp-plugin'
+					type: 'wp-plugin',
+					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
 				}
 			}
 		},

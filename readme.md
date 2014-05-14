@@ -387,6 +387,9 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.7.5
+*	Fix - Buckaroo - Fixed parameter sorting with mixed characther return.
+
 ### 2.7.4
 *	Tweak - WPMU DEV Membership - Improved loading activated gateways.
 *	Tweak - WPMU DEV Membership - Display errors if they occur.
