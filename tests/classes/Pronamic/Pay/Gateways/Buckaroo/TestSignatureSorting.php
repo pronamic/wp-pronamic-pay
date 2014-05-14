@@ -24,14 +24,19 @@ class Pronamic_Pay_Gateways_Buckaroo_TestSignatureSorting extends WP_UnitTestCas
 
 		$expected = array(
 			'brq_active'     => 'true',
-			'brq_amount'     => '50.00',
 			'BRQ_AMOUNT'     => '25.00',
+			'brq_amount'     => '50.00',
 			'brq_websitekey' => '123456',
 		);
 
 		// Sort
 		$data = Pronamic_Gateways_Buckaroo_Security::sort( $data );
 
-		$this->assertEquals( $expected, $data );
+		// Keys
+		$keys_data     = implode( "\n", array_keys( $data ) );
+		$keys_expected = implode( "\n", array_keys( $expected ) );
+
+		// Assert
+		$this->assertEquals( $keys_expected, $keys_data );
 	}
 }
