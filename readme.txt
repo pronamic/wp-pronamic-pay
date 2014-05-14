@@ -223,6 +223,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - WPMU DEV Membership - Display errors if they occur.
 *	Tweak - Mollie - Improved handling of errors.
 *	Fix - Gravity Forms - Fixed bug with disabling payment feed condition.
+*	Fix - WP e-Commerce - Retrieving cart data bug.
 
 = 2.7.3 =
 *	Tweak - ICEPAY - Update to API library version 2.4.
