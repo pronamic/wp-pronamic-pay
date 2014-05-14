@@ -72,7 +72,7 @@ class Pronamic_Gateways_Buckaroo_Security {
 		$data = self::filter_data( $data );
 
 		// 2. Sort these parameters alphabetically on the parameter name
-		ksort( $data );
+		uksort( $data, 'strcasecmp' );
 
 		// 3. Concatenate all the parameters
 		foreach ( $data as $key => $value ) {
