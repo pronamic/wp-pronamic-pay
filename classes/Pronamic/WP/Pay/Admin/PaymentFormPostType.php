@@ -159,28 +159,28 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 		);
 
 		foreach ( $definition as $meta_key => $function ) {
-			if ( filter_has_var( INPUT_POST, $meta_key ) ) {
-				$meta_value = null;
+			$meta_value = null;
 
-				if ( 'sanitize_text_field' == $function ) {
+			if ( 'sanitize_text_field' == $function ) {
+				if ( isset( $_POST[ $meta_key ] ) ) {
 					$meta_value = sanitize_text_field( $_POST[ $meta_key ] );
-				} else {
-					$filter  = $function;
-					$options = null;
+				}
+			} else {
+				$filter  = $function;
+				$options = null;
 
-					if ( is_array( $function ) && isset( $function['filter'] ) ) {
-						$filter  = $function['filter'];
-						$options = $function;
-					}
-
-					$meta_value = filter_input( INPUT_POST, $meta_key, $filter, $options );
+				if ( is_array( $function ) && isset( $function['filter'] ) ) {
+					$filter  = $function['filter'];
+					$options = $function;
 				}
 
-				if ( isset( $meta_value ) && '' != $meta_value ) {
-					update_post_meta( $post_id, $meta_key, $meta_value );
-				} else {
-					delete_post_meta( $post_id, $meta_key );
-				}
+				$meta_value = filter_input( INPUT_POST, $meta_key, $filter, $options );
+			}
+
+			if ( isset( $meta_value ) && '' != $meta_value ) {
+				update_post_meta( $post_id, $meta_key, $meta_value );
+			} else {
+				delete_post_meta( $post_id, $meta_key );
 			}
 		}
 	}
