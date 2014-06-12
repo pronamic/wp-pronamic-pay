@@ -88,14 +88,14 @@ your WordPress website.
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
-	*	**Requires at least:** 2.0.0
+	*	**Requires at least:** 2.1.0
 	*	**Tested up to:** 2.1.5
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/wp-e-commerce/](http://wordpress.org/extend/plugins/wp-e-commerce/)
 	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
 	*	**Requires at least:** 3.8.12.1
-	*	**Tested up to:** 3.8.12.1
+	*	**Tested up to:** 3.8.14
 *	[ClassiPress](http://www.appthemes.com/themes/classipress/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Requires at least:** 3.3.1

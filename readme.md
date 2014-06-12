@@ -325,7 +325,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://www.woothemes.com/" target="_blank">WooThemes</a></td>
 			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
-			<td>2.0.0</td>
+			<td>2.1.0</td>
 			<td>2.1.5</td>
 		</tr>
 		<tr>
@@ -334,7 +334,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
 			<td>3.8.12.1</td>
-			<td>3.8.12.1</td>
+			<td>3.8.14</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
