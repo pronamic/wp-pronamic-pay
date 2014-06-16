@@ -332,6 +332,7 @@ $providers = array(
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Ogone_eCom_STD_Integration_20041224_EN.pdf',
 				'name'    => 'Ogone Document II: Ogone e-Commerce, integration in the merchant\'s WEB site',
+				'date'    => new DateTime( '26-10-2006' ),
 			),
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone_DirectLink_EN.pdf',
@@ -353,6 +354,10 @@ $providers = array(
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/11/Ogone_DirectLink-3-D_EN.pdf',
 				'name'    => 'Ogone - DirectLink with 3-D Secure',
+			),
+			array(
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2014/06/Ogone-Integratieparameters.pdf',
+				'name'    => 'Ogone - Integratieparameters',
 			),
 		),
 	),
