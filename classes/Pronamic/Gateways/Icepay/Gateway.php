@@ -34,50 +34,6 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get issuers
-	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
-	 */
-	public function get_issuers() {
-		$groups = array();
-
-		$results = $this->client->getSupportedIssuers();
-
-		$prepped_results = array();
-		foreach ( $results as $result ) {
-			$prepped_results[ $result ] = $result;
-		}
-
-		if ( $prepped_results ) {
-			$groups[] = array(
-				'options' => $prepped_results,
-			);
-		}
-
-		return $groups;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get issuer field
-	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuer_field()
-	 */
-	public function get_issuer_field() {
-		return array(
-			'id'       => 'pronamic_ideal_issuer_id',
-			'name'     => 'pronamic_ideal_issuer_id',
-			'label'    => __( 'Choose your bank', 'pronamic_ideal' ),
-			'required' => true,
-			'type'     => 'select',
-			'choices'  => $this->get_transient_issuers()
-		);
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Start an transaction
 	 *
 	 * @see Pronamic_Gateways_Gateway::start()
