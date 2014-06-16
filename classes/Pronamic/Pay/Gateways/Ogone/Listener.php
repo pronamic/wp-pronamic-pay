@@ -33,7 +33,15 @@ class Pronamic_Pay_Gateways_Ogone_Listener implements Pronamic_Pay_Gateways_List
 			$data[ Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID ],
 			$data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ]
 		) ) {
+			$payment_id = $data[ Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID ];
 
+			$payment = get_pronamic_payment( $payment_id );
+
+			Pronamic_WP_Pay_Plugin::update_payment( $payment );
+
+			wp_redirect( home_url( '/' ) );
+
+			exit;
 		}
 	}
 }
