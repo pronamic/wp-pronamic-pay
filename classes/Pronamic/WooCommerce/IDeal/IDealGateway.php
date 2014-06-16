@@ -232,7 +232,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 			// Mark as pending (we're awaiting the payment)
 			$order->update_status( $new_status_slug, $note );
 		} else {
-			wc_add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
+			Pronamic_WooCommerce_WooCommerce::add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
 
 			if ( is_admin() && empty( $this->config_id ) ) {
 				// @see https://github.com/woothemes/woocommerce/blob/v2.1.5/includes/admin/settings/class-wc-settings-page.php#L66
@@ -245,7 +245,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 					), admin_url( 'admin.php' ) )
 				);
 
-				wc_add_notice( $notice, 'error' );
+				Pronamic_WooCommerce_WooCommerce::add_notice( $notice, 'error' );
 			}
 		}
 
@@ -266,13 +266,7 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		// Return pay page redirect
 		return array(
 			'result' 	=> 'success',
-			'redirect'	=> add_query_arg(
-				array(
-					'order' => $order->id,
-					'key'   => $order->order_key,
-				),
-				get_permalink( woocommerce_get_page_id( 'pay' ) )
-			)
+			'redirect'	=> Pronamic_WooCommerce_WooCommerce::get_order_pay_url( $order ),
 		);
 	}
 
@@ -292,10 +286,10 @@ class Pronamic_WooCommerce_IDeal_IDealGateway extends WC_Payment_Gateway {
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			wc_add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
+			Pronamic_WooCommerce_WooCommerce::add_notice( Pronamic_WP_Pay_Plugin::get_default_error_message(), 'error' );
 
 			foreach ( $error->get_error_messages() As $message ) {
-				wc_add_notice( $message, 'error' );
+				Pronamic_WooCommerce_WooCommerce::add_notice( $message, 'error' );
 			}
 
 			// @see https://github.com/woothemes/woocommerce/blob/v1.6.6/woocommerce-functions.php#L518

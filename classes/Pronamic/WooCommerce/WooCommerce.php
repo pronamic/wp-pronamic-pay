@@ -113,4 +113,58 @@ class Pronamic_WooCommerce_WooCommerce {
 			return get_option( 'date_format' );
 		}
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get order pay URL for backwards compatibility
+	 *
+	 * @param WC_Order $order
+	 * @return string the pay URL
+	 */
+	public static function get_order_pay_url( $order ) {
+		$url = null;
+
+		if ( method_exists( $order, 'get_checkout_payment_url' ) ) {
+			// WooCommerce >= 2.1
+			// @see http://docs.woothemes.com/document/woocommerce-endpoints-2-1/
+			// @see https://github.com/woothemes/woocommerce/blob/v2.1.0/includes/class-wc-order.php#L1057-L1079
+			$url = $order->get_checkout_payment_url( true );
+		} else {
+			// WooCommerce < 2.1
+			$url = add_query_arg(
+					array(
+							'order' => $order->id,
+							'key'   => $order->order_key,
+					),
+					get_permalink( woocommerce_get_page_id( 'pay' ) )
+			);
+		}
+
+		return $url;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Add notice
+	 *
+	 * @param string $notice
+	 */
+	public static function add_notice( $message, $type = 'success' ) {
+		global $woocommerce;
+
+		if ( function_exists( 'wc_add_notice' ) ) {
+			// @see https://github.com/woothemes/woocommerce/blob/v2.1.0/includes/wc-notice-functions.php#L54-L71
+			wc_add_notice( $message, $type );
+		} elseif ( 'error' == $type && method_exists( $woocommerce, 'add_error' ) ) {
+			// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/woocommerce.php#L1429-L1438
+			// @see https://github.com/woothemes/woocommerce/blob/v2.1.0/woocommerce.php#L797-L804
+			$woocommerce->add_error( $message );
+		} elseif ( method_exists( $woocommerce, 'add_message' ) ) {
+			// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/woocommerce.php#L1441-L1450
+			// @see https://github.com/woothemes/woocommerce/blob/v2.1.0/woocommerce.php#L806-L813
+			$woocommerce->add_message( $message );
+		}
+	}
 }
