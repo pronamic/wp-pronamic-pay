@@ -581,7 +581,7 @@ class XMLSecurityKey {
     }
 
     public function serializeKey($parent) {
-        
+
     }
 
     /**
@@ -1220,7 +1220,7 @@ class XMLSecurityDSig {
     }
 
     public function appendCert() {
-        
+
     }
 
     public function appendKey($objKey, $parent=NULL) {
@@ -1235,7 +1235,7 @@ class XMLSecurityDSig {
      *
      * @param $node  The node the signature element should be inserted into.
      * @param $beforeNode  The node the signature element should be located before.
-     * 
+     *
      * @return DOMNode The signature element node
      */
     public function insertSignature($node, $beforeNode = NULL) {
