@@ -301,16 +301,17 @@ $pronamic_pay_gateways = array(
 			'certificates/ideal-simulator-ideal-advanced/simulator.cer',
 			'certificates/ideal-simulator-ideal-advanced/simulator0.cer',
 		),
+		'deprecated' => true,
 	),
 	'ideal-simulator-ideal-advanced-v3' => array(
 		'provider' => 'ideal-simulator',
 		'gateway'  => 'ideal_advanced_v3',
 		'name'     => 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3',
 		'test'     => array(
-			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
+			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
 		),
 		'live'     => array(
-			'payment_server_url' => 'https://www.ideal-simulator.nl/professional-v3/',
+			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
 		),
 		'certificates' => array(
 			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',
