@@ -88,7 +88,7 @@ your WordPress website.
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
 	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.3.1
+	*	**Tested up to:** 1.3.4
 *	[WooCommerce](http://www.woothemes.com/woocommerce/)
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
@@ -226,6 +226,7 @@ Here is a list of known plugin conflicts:
 = 2.8.0 =
 *	Feature - Added support for the Ogone post-sale request.
 *	Feature - Added support for the Gravity Forms AWeber Add-On.
+*	Test - Shopp - Tested up to version 1.3.4.
 
 = 2.7.7 =
 *	Tweak - WooCommerce - Use the new endpoint URL's for gateways (http://docs.woothemes.com/document/woocommerce-endpoints-2-1/).
