@@ -284,6 +284,19 @@ class Pronamic_GravityForms_IDeal_Processor {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Maybe delay AWeber subscription
+	 *
+	 * @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L124-L125
+	 */
+	public function maybe_delay_aweber_subscription( $lead, $form ) {
+		if ( $this->is_processing( $form ) ) {
+			if ( $this->feed->delay_aweber_subscription ) {
+				remove_action( 'gform_after_submission', array( 'GFAWeber', 'export' ), 10, 2 );
+			}
+		}
+	}
+
+	/**
 	 * Maybe delay Campaign Monitor subscription
 	 */
 	public function maybe_delay_campaignmonitor_subscription( $lead, $form ) {

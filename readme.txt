@@ -36,6 +36,11 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
 	*	**Tested up to:** 1.8.7
+*	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
+	*	**Requires at least:** 1.4.2
+	*	**Tested up to:** 1.4.2
 *	[Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformscampaignmonitor](https://github.com/gravityforms/gravityformscampaignmonitor)

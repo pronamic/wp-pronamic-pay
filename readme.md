@@ -249,6 +249,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8.7</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsaweber" target="_blank">GitHub</a></td>
+			<td>1.4.2</td>
+			<td>1.4.2</td>
+		</tr>
+		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
 			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
 			<td></td>

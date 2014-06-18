@@ -42,6 +42,15 @@ $extensions = array(
 		'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
 		'author_url'         => 'http://www.rocketgenius.com/',
 	),
+	'gravityformsaweber'     => array(
+		'name'               => __( 'Gravity Forms AWeber Add-On', 'pronamic_ideal' ),
+		'url'                => 'http://www.gravityforms.com/add-ons/aweber/',
+		'github_url'         => 'https://github.com/gravityforms/gravityformsaweber',
+		'requires_at_least'  => '1.4.2',
+		'tested_up_to'       => '1.4.2',
+		'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
+		'author_url'         => 'http://www.rocketgenius.com/',
+	),
 	'gravityformscampaignmonitor' => array(
 		'name'               => __( 'Gravity Forms Campaign Monitor Add-On', 'pronamic_ideal' ),
 		'url'                => 'http://www.gravityforms.com/add-ons/campaign-monitor/',

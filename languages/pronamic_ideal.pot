@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 2.7.7\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-06-16 09:48:23+00:00\n"
+"POT-Creation-Date: 2014-06-18 12:19:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,6 +43,241 @@ msgstr ""
 
 #: admin/gateways-wp-admin.php:4
 msgid "Provider"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:29
+msgid "Gravity Form"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:34
+msgid "&mdash; Select a form &mdash;"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:49
+#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
+#: classes/Pronamic/S2Member/Bridge/Settings.php:28
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
+#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:118
+#: views/eshop/settings-meta-box.php:18
+msgid "Configuration"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:68
+msgid "Entry ID Prefix"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:81
+msgid ""
+"Please enter a prefix for your entry ID's. If you use an gateway for "
+"multiple websites ensure this prefix is unique as not all gateways will "
+"allow payments with the same ID."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:88
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:28
+msgid "Transaction Description"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:107
+msgid ""
+"Maximum number of charachters is 32, you should also consider the use of "
+"variables Gravity Forms. An generated description that is longer than 32 "
+"characters will be automatically truncated."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:109
+msgid ""
+"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:116
+msgid "Condition"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:132
+msgid "Enable"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:147
+msgid "is"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:148
+msgid "is not"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:167
+msgid "Send to gateway if %s %s %s"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:177
+msgid ""
+"To create a condition, your form must have a drop down, checkbox or "
+"multiple choice field."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:183
+msgid "Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:188
+msgid "Send Notifications Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:208
+msgid "Send notifications only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:259
+msgid "Send admin notification only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:266
+msgid "Send user notification only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:285
+msgid "Create Post Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:291
+msgid "Create post only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:302
+msgid "AWeber Subscription Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:308
+msgid "Subscribe user to AWeber only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:313
+#: admin/gravityforms/meta-box-config.php:339
+#: admin/gravityforms/meta-box-config.php:365
+#: admin/gravityforms/meta-box-config.php:391
+msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:328
+msgid "Campaign Monitor Subscription Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:334
+msgid "Subscribe user to Campaign Monitor only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:354
+msgid "MailChimp Subscription Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:360
+msgid "Subscribe user to MailChimp only when payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:380
+msgid "User Registration Delay"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:386
+msgid "Register user only when a payment is received."
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:402
+msgid "Fields"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:408
+msgid "First Name"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:409
+msgid "Last Name"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:410
+#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:87
+#: views/meta-box-payment-info.php:75
+msgid "Email"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:411
+msgid "Address"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:412
+msgid "Address 2"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:413
+msgid "City"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:414
+msgid "State"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:415
+msgid "Zip"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:416 views/config-edit.php:466
+msgid "Country"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:448
+msgid "Status Links"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:458
+#: classes/Pronamic/WP/Pay/Plugin.php:383
+msgid "Open"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:459 admin/tab-ideal_status.php:49
+#: classes/Pronamic/WP/Pay/Plugin.php:385
+msgid "Success"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:460
+msgid "Cancel"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:461
+#: classes/Pronamic/WP/Pay/Admin.php:101
+msgid "Error"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:462
+#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:379
+msgid "Expired"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:488
+msgid "Page:"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:496
+msgid "&mdash; Select &mdash;"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:505
+msgid "URL:"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:515
+msgid "Advanced"
+msgstr ""
+
+#: admin/gravityforms/meta-box-config.php:522
+msgid "Update user role"
 msgstr ""
 
 #: admin/includes/upgrade.php:129
@@ -221,7 +456,7 @@ msgstr ""
 msgid "OmniKassa"
 msgstr ""
 
-#: admin/tab-branding.php:215 admin/tab-documentation.php:599
+#: admin/tab-branding.php:215 admin/tab-documentation.php:604
 #: admin/tab-pages_generator.php:118
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
@@ -249,7 +484,7 @@ msgstr ""
 msgid "PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
 msgstr ""
 
-#: admin/tab-documentation.php:600 admin/tab-ideal_status.php:46
+#: admin/tab-documentation.php:605 admin/tab-ideal_status.php:46
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
@@ -257,7 +492,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: admin/tab-documentation.php:601
+#: admin/tab-documentation.php:606
 msgid "Version"
 msgstr ""
 
@@ -409,12 +644,7 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:384
-#: views/gravityforms/feed-edit.php:433
-msgid "Success"
-msgstr ""
-
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:380
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:381
 msgid "Failure"
 msgstr ""
 
@@ -691,20 +921,6 @@ msgstr ""
 msgid "Pronamic iDEAL"
 msgstr ""
 
-#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
-#: classes/Pronamic/S2Member/Bridge/Settings.php:28
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
-#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
-#: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:118
-#: views/eshop/settings-meta-box.php:18 views/gravityforms/feed-edit.php:49
-msgid "Configuration"
-msgstr ""
-
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:39
 msgid "General Information"
 msgstr ""
@@ -970,12 +1186,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:348
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WP/Pay/Plugin.php:351
+#: classes/Pronamic/WP/Pay/Plugin.php:352
 msgid "Administrator"
 msgstr ""
 
@@ -1158,11 +1374,6 @@ msgstr ""
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Shortcodes.php:87
-#: views/gravityforms/feed-edit.php:384 views/meta-box-payment-info.php:75
-msgid "Email"
-msgstr ""
-
 #: classes/Pronamic/S2Member/IDeal/AddOn.php:52
 msgid "Account Confirmation"
 msgstr ""
@@ -1224,11 +1435,6 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:28
-#: views/gravityforms/feed-edit.php:88
-msgid "Transaction Description"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:24
 msgid "Gateway"
 msgstr ""
@@ -1264,21 +1470,12 @@ msgstr ""
 msgid "Payment Status Pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:101 views/gravityforms/feed-edit.php:435
-msgid "Error"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin.php:102
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:386
+#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:387
 msgid "Unknown"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:378
-#: views/gravityforms/feed-edit.php:436
-msgid "Expired"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:105
@@ -1326,25 +1523,21 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:376
+#: classes/Pronamic/WP/Pay/Plugin.php:377
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:382 views/gravityforms/feed-edit.php:432
-msgid "Open"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Plugin.php:398
+#: classes/Pronamic/WP/Pay/Plugin.php:399
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:414
+#: classes/Pronamic/WP/Pay/Plugin.php:415
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:518
+#: classes/Pronamic/WP/Pay/Plugin.php:519
 msgid "Payment for %s"
 msgstr ""
 
@@ -1858,10 +2051,6 @@ msgid ""
 "valid, in days."
 msgstr ""
 
-#: views/config-edit.php:466 views/gravityforms/feed-edit.php:390
-msgid "Country"
-msgstr ""
-
 #: views/config-edit.php:468
 msgid "2 letter code [NL]"
 msgstr ""
@@ -1980,181 +2169,6 @@ msgstr ""
 
 #: views/eshop/settings-meta-box.php:13
 msgid "Accept payment by iDEAL"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:29
-msgid "Gravity Form"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:34
-msgid "&mdash; Select a form &mdash;"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:68
-msgid "Entry ID Prefix"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:81
-msgid ""
-"Please enter a prefix for your entry ID's. If you use an gateway for "
-"multiple websites ensure this prefix is unique as not all gateways will "
-"allow payments with the same ID."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:107
-msgid ""
-"Maximum number of charachters is 32, you should also consider the use of "
-"variables Gravity Forms. An generated description that is longer than 32 "
-"characters will be automatically truncated."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:109
-msgid ""
-"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
-"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:116
-msgid "Condition"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:132
-msgid "Enable"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:147
-msgid "is"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:148
-msgid "is not"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:167
-msgid "Send to gateway if %s %s %s"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:177
-msgid ""
-"To create a condition, your form must have a drop down, checkbox or "
-"multiple choice field."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:183
-msgid "Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:188
-msgid "Send Notifications Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:208
-msgid "Send notifications only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:259
-msgid "Send admin notification only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:266
-msgid "Send user notification only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:285
-msgid "Create Post Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:291
-msgid "Create post only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:302
-msgid "Campaign Monitor Subscription Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:308
-msgid "Subscribe user to Campaign Monitor only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:313 views/gravityforms/feed-edit.php:339
-#: views/gravityforms/feed-edit.php:365
-msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:328
-msgid "MailChimp Subscription Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:334
-msgid "Subscribe user to MailChimp only when payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:354
-msgid "User Registration Delay"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:360
-msgid "Register user only when a payment is received."
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:376
-msgid "Fields"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:382
-msgid "First Name"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:383
-msgid "Last Name"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:385
-msgid "Address"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:386
-msgid "Address 2"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:387
-msgid "City"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:388
-msgid "State"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:389
-msgid "Zip"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:422
-msgid "Status Links"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:434
-msgid "Cancel"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:462
-msgid "Page:"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:470
-msgid "&mdash; Select &mdash;"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:479
-msgid "URL:"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:489
-msgid "Advanced"
-msgstr ""
-
-#: views/gravityforms/feed-edit.php:496
-msgid "Update user role"
 msgstr ""
 
 #: views/ideal-test-cases.php:5

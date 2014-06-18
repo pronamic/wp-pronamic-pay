@@ -295,6 +295,32 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		<tr>
 			<?php
 
+			$delay_aweber_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_aweber_subscription', true );
+
+			?>
+			<th scope="row">
+				<?php _e( 'AWeber Subscription Delay', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<input type="checkbox" name="_pronamic_pay_gf_delay_aweber_subscription" id="_pronamic_pay_gf_delay_aweber_subscription" value="true" <?php checked( $delay_aweber_subscription ); ?> />
+
+				<label for="_pronamic_pay_gf_delay_aweber_subscription">
+					<?php _e( 'Subscribe user to AWeber only when payment is received.', 'pronamic_ideal' ); ?>
+				</label>
+
+				<span class="description"><br /><?php
+					printf(
+						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
+						'http://www.gravityforms.com/add-ons/aweber/',
+						'Gravity Forms AWeber Add-On'
+					);
+
+				?></span>
+			</td>
+		</tr>
+		<tr>
+			<?php
+
 			$delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
 
 			?>
