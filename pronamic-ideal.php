@@ -18,6 +18,18 @@ License: GPL
 GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
 */
 
+/**
+ * Composer autoload
+ */
+$autoload_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload_52.php';
+
+if ( is_readable( $autoload_file ) ) {
+	require_once $autoload_file;
+}
+
+/**
+ * Plugin autoload
+ */
 if ( function_exists( 'spl_autoload_register' ) ) {
 
 	function pronamic_ideal_autoload( $name ) {
