@@ -28,9 +28,6 @@ module.exports = function( grunt ) {
 		// PHPUnit
 		phpunit: {
 			classes: {},
-			options: {
-				configuration: 'phpunit.xml'
-			}
 		},
 
 		// JSHint
