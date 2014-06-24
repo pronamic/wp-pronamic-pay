@@ -606,7 +606,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 			'accepturl'    => $this->getAcceptUrl(),
 			'declineurl'   => $this->getDeclineUrl(),
 			'exceptionurl' => $this->getExceptionUrl(),
-			'cancelurl'    => $this->get_cancel_url()
+			'cancelurl'    => $this->get_cancel_url(),
 		) );
 	}
 

@@ -249,6 +249,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8.7</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformsaweber" target="_blank">GitHub</a></td>
+			<td>1.4.2</td>
+			<td>1.4.2</td>
+		</tr>
+		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
 			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
 			<td></td>
@@ -318,7 +326,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
-			<td>1.3.1</td>
+			<td>1.3.4</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
@@ -386,6 +394,11 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.8.0
+*	Feature - Added support for the Ogone post-sale request.
+*	Feature - Added support for the Gravity Forms AWeber Add-On.
+*	Test - Shopp - Tested up to version 1.3.4.
 
 ### 2.7.7
 *	Tweak - WooCommerce - Use the new endpoint URL's for gateways (http://docs.woothemes.com/document/woocommerce-endpoints-2-1/).

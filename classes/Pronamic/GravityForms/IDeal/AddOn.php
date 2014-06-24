@@ -253,6 +253,11 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				RGFormsModel::create_post( $form, $entry );
 			}
 
+			// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L1167-L1197
+			if ( $feed->delay_aweber_subscription && method_exists( 'GFAWeber', 'export' ) ) {
+				call_user_func( array( 'GFAWeber', 'export' ), $entry, $form, false );
+			}
+
 			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
 				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, false );
 			}

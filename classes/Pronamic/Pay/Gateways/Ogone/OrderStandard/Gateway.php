@@ -63,12 +63,11 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_Gateway
 	 * @see Pronamic_Gateways_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
-		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$payment->set_action_url( $this->client->getPaymentServerUrl() );
 
 		$this->client->setLanguage( $data->get_language_and_country() );
 		$this->client->setCurrency( $data->get_currency() );
-		$this->client->setOrderId( $data->get_order_id() );
+		$this->client->setOrderId( $payment->get_id() );
 		$this->client->setOrderDescription( $data->get_description() );
 		$this->client->setAmount( $data->get_amount() );
 

@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 2.7.7
+Stable tag: 2.8.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -36,6 +36,11 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
 	*	**Tested up to:** 1.8.7
+*	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
+	*	**Requires at least:** 1.4.2
+	*	**Tested up to:** 1.4.2
 *	[Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformscampaignmonitor](https://github.com/gravityforms/gravityformscampaignmonitor)
@@ -83,7 +88,7 @@ your WordPress website.
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
 	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.3.1
+	*	**Tested up to:** 1.3.4
 *	[WooCommerce](http://www.woothemes.com/woocommerce/)
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
@@ -217,6 +222,11 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.8.0 =
+*	Feature - Added support for the Ogone post-sale request.
+*	Feature - Added support for the Gravity Forms AWeber Add-On.
+*	Test - Shopp - Tested up to version 1.3.4.
 
 = 2.7.7 =
 *	Tweak - WooCommerce - Use the new endpoint URL's for gateways (http://docs.woothemes.com/document/woocommerce-endpoints-2-1/).
