@@ -95,7 +95,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_WP_Pay_Gateway {
 		if ( strcasecmp( $input_seal, $seal ) === 0 ) {
 			$response_code = $data['responseCode'];
 
-			$status = Pronamic_Gateways_OmniKassa_ResponseCodes::transform( $response_code );
+			$status = Pronamic_WP_Pay_OmniKassa_ResponseCodes::transform( $response_code );
 
 			// Set the status of the payment
 			$payment->set_status( $status );
