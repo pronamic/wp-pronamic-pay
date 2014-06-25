@@ -134,6 +134,7 @@ $extensions = array(
 	'shopp'                  => array(
 		'name'               => __( 'Shopp', 'pronamic_ideal' ),
 		'url'                => 'https://shopplugin.net/',
+		'wp_org_url'         => 'http://wordpress.org/plugins/shopp/',
 		'github_url'         => 'https://github.com/ingenesis/shopp',
 		'active'             => Pronamic_Shopp_Shopp::is_active(),
 		'requires_at_least'  => '1.1',
