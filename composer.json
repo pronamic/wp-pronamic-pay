@@ -30,9 +30,16 @@
             "role": "Developer"
 		}
 	],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/wp-pay-gateways/mollie"
+		}
+	],
 	"require": {
 		"php": ">=5.2.0",
-		"xrstf/composer-php52": "1.*"
+		"xrstf/composer-php52": "1.*",
+		"wp-pay-gateways/mollie": "dev-develop"
 	},
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master"
