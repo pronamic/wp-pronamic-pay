@@ -70,7 +70,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_WP_Pay_Gateway {
 		$mollie_payment = $this->client->get_payment( $payment->get_transaction_id() );
 
 		if ( $mollie_payment ) {
-			$payment->set_status( Pronamic_Gateways_Mollie_Statuses::transform( $mollie_payment->status ) );
+			$payment->set_status( Pronamic_WP_Pay_Mollie_Statuses::transform( $mollie_payment->status ) );
 			$payment->set_consumer_name( $mollie_payment->details->consumerName );
 			$payment->set_consumer_iban( $mollie_payment->details->consumerAccount );
 		} else {
