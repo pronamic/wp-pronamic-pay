@@ -497,7 +497,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 	}
 
-	public static function start( $config_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
 		$payment = self::create_payment( $config_id, $gateway, $data );
 
 		if ( $payment ) {

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Slug of this gateway
 	 *
@@ -26,7 +26,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_Gateways_Mollie_IDeal_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
@@ -40,7 +40,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Get issuers
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$groups = array();
@@ -77,7 +77,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	 * Start
 	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_payment(

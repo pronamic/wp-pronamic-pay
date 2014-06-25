@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Constructs and initializes an iDEAL Advanced gateway
 	 *
@@ -17,7 +17,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	public function __construct( Pronamic_Gateways_IDealAdvanced_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
@@ -46,7 +46,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Get issuers
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$result = $this->client->getIssuerLists();
@@ -67,7 +67,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Get issuer field
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuer_field()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuer_field()
 	 */
 	public function get_issuer_field() {
 		$choices = array();
@@ -104,7 +104,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Start transaction with the specified date
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		// Transaction request message
@@ -136,7 +136,7 @@ class Pronamic_Gateways_IDealAdvanced_Gateway extends Pronamic_Gateways_Gateway 
 	/**
 	 * Payment
 	 *
-	 * @see Pronamic_Gateways_Gateway::payment()
+	 * @see Pronamic_WP_Pay_Gateway::payment()
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function payment( Pronamic_Pay_Payment $payment ) {

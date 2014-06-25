@@ -7,7 +7,7 @@
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
  */
-class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_Icepay_Gateway extends Pronamic_WP_Pay_Gateway {
 
 
 	//////////////////////////////////////////////////
@@ -21,7 +21,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		parent::__construct( $config );
 
 		// Default properties for this gateway
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( 'icepay' );
@@ -36,7 +36,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Start an transaction
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		try {

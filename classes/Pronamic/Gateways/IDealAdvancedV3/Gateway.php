@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Constructs and initializes an iDEAL Advanced v3 gateway
 	 *
@@ -17,7 +17,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	public function __construct( Pronamic_Gateways_IDealAdvancedV3_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.01 );
 
@@ -38,7 +38,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	/**
 	 * Get issuers
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuers()
 	 * @return array
 	 */
 	public function get_issuers() {
@@ -84,7 +84,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_Gateways_Gatewa
 	/**
 	 * Start
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$transaction = new Pronamic_Gateways_IDealAdvancedV3_Transaction();
