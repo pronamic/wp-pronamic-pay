@@ -33,12 +33,17 @@
 	"repositories": [
 		{
 			"type": "vcs",
+			"url": "https://github.com/wp-pay/core"
+		},
+		{
+			"type": "vcs",
 			"url": "https://github.com/wp-pay-gateways/mollie"
 		}
 	],
 	"require": {
 		"php": ">=5.2.0",
 		"xrstf/composer-php52": "1.*",
+		"wp-pay/core": "dev-develop",
 		"wp-pay-gateways/mollie": "dev-develop"
 	},
 	"require-dev": {
