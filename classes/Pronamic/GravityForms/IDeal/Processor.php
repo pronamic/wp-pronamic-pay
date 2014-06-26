@@ -121,6 +121,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'after_submission' ), 10, 2 );
 
 		// Delay
+		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_aweber_subscription' ), 1, 2 );
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_campaignmonitor_subscription' ), 1, 2 );
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_mailchimp_subscription' ), 1, 2 );
 
