@@ -21,9 +21,9 @@ class Pronamic_Gateways_Adyen_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Constructs and initializes an InternetKassa gateway
 	 *
-	 * @param Pronamic_Pay_Config $config
+	 * @param Pronamic_WP_Pay_GatewayConfig $config
 	 */
-	public function __construct( Pronamic_Pay_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_GatewayConfig $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );

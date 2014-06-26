@@ -7,7 +7,7 @@ class Pronamic_Pay_GatewayFactory {
 		self::$gateways[ $config_class ] = $gateway_class;
 	}
 
-	public static function create( Pronamic_Pay_Config $config ) {
+	public static function create( Pronamic_WP_Pay_GatewayConfig $config ) {
 		$gateway = null;
 
 		$config_class = get_class( $config );

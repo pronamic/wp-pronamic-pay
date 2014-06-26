@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Buckaroo_Config extends Pronamic_Pay_Config {
+class Pronamic_Gateways_Buckaroo_Config extends Pronamic_WP_Pay_GatewayConfig {
 	public $website_key;
 
 	public $secret_key;
