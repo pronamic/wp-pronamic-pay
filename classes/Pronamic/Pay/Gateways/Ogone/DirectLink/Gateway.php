@@ -114,7 +114,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_Gat
 		} else {
 			$payment->set_transaction_id( $result->pay_id );
 			$payment->set_action_url( add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) ) );
-			$payment->set_status( Pronamic_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
+			$payment->set_status( Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $result->status ) );
 
 			if ( ! empty( $result->html_answer ) ) {
 				$payment->set_meta( 'ogone_directlink_html_answer', $result->html_answer );
@@ -147,7 +147,7 @@ class Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway extends Pronamic_WP_Pay_Gat
 			$signature_out = Pronamic_Pay_Gateways_Ogone_Security::get_signature( $fields, $this->config->sha_out_pass_phrase, $this->config->hash_algorithm );
 
 			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
-				$status = Pronamic_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
+				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );
 			}
