@@ -112,7 +112,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 			$status_text = '';
 
 			switch ( $status->code ) {
-				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::OK:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
 
 					$payment->set_consumer_name( $status->account_name );
@@ -120,34 +120,34 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 					$payment->set_consumer_city( $status->account_city );
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
 					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED;
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
 
 					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
+				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
 
 					break;
 			}
