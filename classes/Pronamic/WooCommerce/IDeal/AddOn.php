@@ -69,13 +69,10 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 
 		// Only update if order is not 'processing' or 'completed'
 		// @see https://github.com/woothemes/woocommerce/blob/v2.0.0/classes/class-wc-order.php#L1279
-		$should_update = ! in_array(
-			$order->status,
-			array(
-				Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED,
-				Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PROCESSING,
-			)
-		);
+		$should_update = ! Pronamic_WooCommerce_WooCommerce::order_has_status( $order, array(
+			Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_COMPLETED,
+			Pronamic_WooCommerce_WooCommerce::ORDER_STATUS_PROCESSING,
+		) );
 
 		// Defaults
 		$status = null;
