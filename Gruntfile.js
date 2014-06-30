@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'project.ruleset.xml',
 				extensions: 'php',
-				ignore: 'wp-svn,deploy,node_modules'
+				ignore: 'wp-svn,deploy,node_modules,vendor'
 			}
 		},
 
