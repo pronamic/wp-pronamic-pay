@@ -167,4 +167,28 @@ class Pronamic_WooCommerce_WooCommerce {
 			$woocommerce->add_message( $message );
 		}
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Order has status
+	 *
+	 * @param WC_Order $order
+	 * @param string|array $status
+	 */
+	public static function order_has_status( $order, $status ) {
+		$has_status = false;
+
+		if ( method_exists( $order, 'has_status' ) ) {
+			$has_status = $order->has_status( $status );
+		} else {
+			if ( is_array( $status ) ) {
+				$has_status = in_array( $order->status, $status );
+			} else {
+				$has_status = ( $order->status == $status );
+			}
+		}
+
+		return $has_status;
+	}
 }
