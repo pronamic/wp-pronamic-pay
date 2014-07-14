@@ -88,7 +88,7 @@ module.exports = function( grunt ) {
 					'**',
 					'!.*',
 					'!.*/**',
-					'!composer.json',
+					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
 					'!phpunit.xml',
