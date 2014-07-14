@@ -373,15 +373,15 @@ class Pronamic_WP_Pay_Plugin {
 	 */
 	public static function translate_status( $status ) {
 		switch ( $status ) {
-			case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED :
+			case Pronamic_WP_Pay_Statuses::CANCELLED :
 				return __( 'Cancelled', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED :
+			case Pronamic_WP_Pay_Statuses::EXPIRED :
 				return __( 'Expired', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE :
+			case Pronamic_WP_Pay_Statuses::FAILURE :
 				return __( 'Failure', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::OPEN :
+			case Pronamic_WP_Pay_Statuses::OPEN :
 				return __( 'Open', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS :
+			case Pronamic_WP_Pay_Statuses::SUCCESS :
 				return __( 'Success', 'pronamic_ideal' );
 			default:
 				return __( 'Unknown', 'pronamic_ideal' );

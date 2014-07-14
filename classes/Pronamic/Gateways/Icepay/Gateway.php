@@ -95,15 +95,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_WP_Pay_Gateway {
 				// What was the status response
 				switch ( $result->getStatus() ) {
 					case Icepay_StatusCode::SUCCESS:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
 
 						break;
 					case Icepay_StatusCode::OPEN:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::OPEN );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::OPEN );
 
 						break;
 					case Icepay_StatusCode::ERROR:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::FAILURE );
 
 						break;
 				}

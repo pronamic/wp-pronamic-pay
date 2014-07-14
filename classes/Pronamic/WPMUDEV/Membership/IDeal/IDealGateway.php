@@ -239,21 +239,21 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 		$this->pronamic_record_transaction( $user_id, $sub_id, $amount, $currency, time(), $payment->get_id(), $status, $note );
 
 		switch ( $status ) {
-			case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED:
+			case Pronamic_WP_Pay_Statuses::CANCELLED:
 
 				break;
-			case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED:
+			case Pronamic_WP_Pay_Statuses::EXPIRED:
 
 				break;
-			case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE:
+			case Pronamic_WP_Pay_Statuses::FAILURE:
 
 				break;
-			case Pronamic_Pay_Gateways_IDeal_Statuses::OPEN:
+			case Pronamic_WP_Pay_Statuses::OPEN:
 				// @see http://plugins.trac.wordpress.org/browser/membership/tags/3.4.4.1/membershipincludes/gateways/gateway.paypalexpress.php#L871
 				do_action( 'membership_payment_pending', $user_id, $sub_id, $amount, $currency, $payment->get_id() );
 
 				break;
-			case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS:
+			case Pronamic_WP_Pay_Statuses::SUCCESS:
 				$member = new M_Membership( $user_id );
 				if ( $member ) {
 					$member->create_subscription( $sub_id, $this->gateway );

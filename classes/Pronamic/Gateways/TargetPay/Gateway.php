@@ -113,7 +113,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 
 			switch ( $status->code ) {
 				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::OK:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
+					$status_text = Pronamic_WP_Pay_Statuses::SUCCESS;
 
 					$payment->set_consumer_name( $status->account_name );
 					$payment->set_consumer_account_number( $status->account_number );
@@ -121,15 +121,15 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 
 					break;
 				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
+					$status_text = Pronamic_WP_Pay_Statuses::OPEN;
 
 					break;
 				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
+					$status_text = Pronamic_WP_Pay_Statuses::CANCELLED;
 
 					break;
 				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED;
+					$status_text = Pronamic_WP_Pay_Statuses::EXPIRED;
 
 					break;
 				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
