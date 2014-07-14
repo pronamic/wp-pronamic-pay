@@ -223,6 +223,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.8.1 =
+*	Tweak - Use Composer and Packagist for some of the payment gateways libraries.
+
 = 2.8.0 =
 *	Feature - Added support for the Ogone post-sale request.
 *	Feature - Added support for the Gravity Forms AWeber Add-On.
