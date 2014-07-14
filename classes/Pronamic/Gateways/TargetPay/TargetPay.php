@@ -156,7 +156,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 				$code        = $status;
 				$description = substr( $data, 7 );
 
-				$error = new Pronamic_Gateways_TargetPay_Error( $code, $description );
+				$error = new Pronamic_WP_Pay_Gateways_TargetPay_Error( $code, $description );
 
 				$this->error = new WP_Error( 'targetpay_error', (string) $error, $error );
 			}
@@ -172,7 +172,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 	 * @return stdClass
 	 */
 	public static function parse_status_string( $string ) {
-		$status = new Pronamic_Gateways_TargetPay_Status();
+		$status = new Pronamic_WP_Pay_Gateways_TargetPay_Status();
 
 		$position_space = strpos( $string, ' ' );
 		$position_pipe  = strpos( $string, '|' );

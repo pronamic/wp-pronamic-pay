@@ -7,7 +7,7 @@
  * @author Leon Rowland <leon@rowland.nl>
  * @version 1.0
  */
-class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_Icepay_Gateway extends Pronamic_WP_Pay_Gateway {
 
 
 	//////////////////////////////////////////////////
@@ -21,7 +21,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 		parent::__construct( $config );
 
 		// Default properties for this gateway
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( 'icepay' );
@@ -36,7 +36,7 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Start an transaction
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		try {
@@ -95,15 +95,15 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_Gateways_Gateway {
 				// What was the status response
 				switch ( $result->getStatus() ) {
 					case Icepay_StatusCode::SUCCESS:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
 
 						break;
 					case Icepay_StatusCode::OPEN:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::OPEN );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::OPEN );
 
 						break;
 					case Icepay_StatusCode::ERROR:
-						$payment->set_status( Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE );
+						$payment->set_status( Pronamic_WP_Pay_Statuses::FAILURE );
 
 						break;
 				}

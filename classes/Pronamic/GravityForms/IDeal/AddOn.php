@@ -173,25 +173,25 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				$url = null;
 
 				switch ( $payment->status ) {
-					case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED:
+					case Pronamic_WP_Pay_Statuses::CANCELLED:
 						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::CANCELLED;
 
 						$url = $data->get_cancel_url();
 
 						break;
-					case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED:
+					case Pronamic_WP_Pay_Statuses::EXPIRED:
 						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::EXPIRED;
 
 						$url = $feed->get_url( Pronamic_WP_Pay_GravityForms_Links::EXPIRED );
 
 						break;
-					case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE:
+					case Pronamic_WP_Pay_Statuses::FAILURE:
 						$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::FAILED;
 
 						$url = $data->get_error_url();
 
 						break;
-					case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS:
+					case Pronamic_WP_Pay_Statuses::SUCCESS:
 						if ( ! Pronamic_GravityForms_IDeal_Entry::is_payment_approved( $lead ) ) {
 							// Only fullfill order if the payment isn't approved aloready
 							$lead[ Pronamic_GravityForms_LeadProperties::PAYMENT_STATUS ] = Pronamic_GravityForms_PaymentStatuses::APPROVED;
@@ -202,7 +202,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 						$url = $data->get_success_url();
 
 						break;
-					case Pronamic_Pay_Gateways_IDeal_Statuses::OPEN:
+					case Pronamic_WP_Pay_Statuses::OPEN:
 					default:
 						$url = $data->get_normal_return_url();
 
@@ -239,13 +239,13 @@ class Pronamic_GravityForms_IDeal_AddOn {
 				GFCommon::send_notifications( $feed->delay_notification_ids, $form, $entry, true, 'form_submission' );
 			}
 
-			if ( $feed->delay_admin_notification ) {
-				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1336
+			if ( $feed->delay_admin_notification && method_exists( 'GFCommon', 'send_admin_notification' ) ) {
+				// https://github.com/gravityforms/gravityforms/blob/1.8.9/common.php#L1265-L1270
 				GFCommon::send_admin_notification( $form, $entry );
 			}
 
-			if ( $feed->delay_user_notification ) {
-				// https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1329
+			if ( $feed->delay_user_notification && method_exists( 'GFCommon', 'send_user_notification' ) ) {
+				// https://github.com/gravityforms/gravityforms/blob/1.8.9/common.php#L1258-L1263
 				GFCommon::send_user_notification( $form, $entry );
 			}
 

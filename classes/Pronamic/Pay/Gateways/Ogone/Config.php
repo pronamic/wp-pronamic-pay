@@ -8,6 +8,6 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Pay_Gateways_Ogone_Config extends Pronamic_Pay_Config {
+class Pronamic_Pay_Gateways_Ogone_Config extends Pronamic_WP_Pay_GatewayConfig {
 	public $psp_id;
 }

@@ -21,16 +21,13 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'project.ruleset.xml',
 				extensions: 'php',
-				ignore: 'wp-svn,deploy,node_modules'
+				ignore: 'wp-svn,deploy,node_modules,vendor'
 			}
 		},
 
 		// PHPUnit
 		phpunit: {
 			classes: {},
-			options: {
-				configuration: 'phpunit.xml'
-			}
 		},
 
 		// JSHint
@@ -91,12 +88,14 @@ module.exports = function( grunt ) {
 					'**',
 					'!.*',
 					'!.*/**',
-					'!composer.json',
+					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
 					'!phpunit.xml',
+					'!phpunit.xml.dist',
 					'!project.ruleset.xml',
 					'!readme.md',
+					'!build/**',
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
@@ -132,6 +131,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
+	grunt.loadNpmTasks( 'grunt-composer' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
@@ -147,6 +147,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'deploy', [
 		'checkwpversion',
+		'composer:update',
 		'clean:deploy',
 		'copy:deploy'
 	] );

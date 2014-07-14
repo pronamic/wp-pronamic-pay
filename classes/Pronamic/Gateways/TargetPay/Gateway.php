@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Slug of this gateway
 	 *
@@ -26,7 +26,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_Gateways_TargetPay_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0.84 );
 		$this->set_slug( self::SLUG );
@@ -39,7 +39,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Get issuers
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$groups = array();
@@ -73,7 +73,7 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Start
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->start_transaction(
@@ -109,50 +109,13 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_Gateways_Gateway {
 		);
 
 		if ( $status ) {
-			$status_text = '';
+			$payment->set_status( Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::transform( $status->code ) );
 
-			switch ( $status->code ) {
-				case Pronamic_Gateways_TargetPay_ResponseCodes::OK:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS;
-
-					$payment->set_consumer_name( $status->account_name );
-					$payment->set_consumer_account_number( $status->account_number );
-					$payment->set_consumer_city( $status->account_city );
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::OPEN;
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED;
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					$status_text = Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED;
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
-
-					break;
-				case Pronamic_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
-
-					break;
+			if ( Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::OK == $status->code ) {
+				$payment->set_consumer_name( $status->account_name );
+				$payment->set_consumer_account_number( $status->account_number );
+				$payment->set_consumer_city( $status->account_city );
 			}
-
-			$payment->set_status( $status_text );
 		}
 	}
 }

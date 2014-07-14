@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Slug of this gateway
 	 *
@@ -26,7 +26,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_Gateways_Mollie_IDeal_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
@@ -40,7 +40,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	/**
 	 * Get issuers
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_issuers()
+	 * @see Pronamic_WP_Pay_Gateway::get_issuers()
 	 */
 	public function get_issuers() {
 		$groups = array();
@@ -77,7 +77,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 	 * Start
 	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->create_payment(
@@ -111,17 +111,17 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_Gateways_Gateway {
 			$consumer = $result->consumer;
 
 			switch ( $result->status ) {
-				case Pronamic_Gateways_Mollie_IDeal_Statuses::SUCCESS:
+				case Pronamic_WP_Pay_Mollie_Statuses::SUCCESS :
 					$payment->set_consumer_name( $consumer->name );
 					$payment->set_consumer_account_number( $consumer->account );
 					$payment->set_consumer_city( $consumer->city );
-				case Pronamic_Gateways_Mollie_IDeal_Statuses::CANCELLED:
-				case Pronamic_Gateways_Mollie_IDeal_Statuses::EXPIRED:
-				case Pronamic_Gateways_Mollie_IDeal_Statuses::FAILURE:
+				case Pronamic_WP_Pay_Mollie_Statuses::CANCELLED :
+				case Pronamic_WP_Pay_Mollie_Statuses::EXPIRED :
+				case Pronamic_WP_Pay_Mollie_Statuses::FAILURE :
 					$payment->set_status( $result->status );
 
 					break;
-				case Pronamic_Gateways_Mollie_IDeal_Statuses::CHECKED_BEFORE:
+				case Pronamic_WP_Pay_Mollie_Statuses::CHECKED_BEFORE :
 					// Nothing to do here
 
 					break;

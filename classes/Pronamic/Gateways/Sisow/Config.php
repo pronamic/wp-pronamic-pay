@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Sisow_Config extends Pronamic_Pay_Config {
+class Pronamic_Gateways_Sisow_Config extends Pronamic_WP_Pay_GatewayConfig {
 	public $merchant_id;
 
 	public $merchant_key;

@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Construct and intialize an iDEAL Easy gateway
 	 *
@@ -17,7 +17,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 	public function __construct( Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTML_FORM );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );
 		$this->set_has_feedback( false );
 		$this->set_amount_minimum( 0.01 );
 
@@ -31,7 +31,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 	/**
 	 * Get output HTML
 	 *
-	 * @see Pronamic_Gateways_Gateway::get_output_html()
+	 * @see Pronamic_WP_Pay_Gateway::get_output_html()
 	 * @return string
 	 */
 	public function get_output_html() {
@@ -43,7 +43,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway extends Pronamic_Gat
 	/**
 	 * Start transaction with the specified data
 	 *
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );

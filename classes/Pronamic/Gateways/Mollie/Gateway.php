@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Gateways_Mollie_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Slug of this gateway
 	 *
@@ -26,7 +26,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	public function __construct( Pronamic_Gateways_Mollie_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 1.20 );
 		$this->set_slug( self::SLUG );
@@ -40,7 +40,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 	 * Start
 	 *
 	 * @param Pronamic_Pay_PaymentDataInterface $data
-	 * @see Pronamic_Gateways_Gateway::start()
+	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
 	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
 		$request = new Pronamic_Gateways_Mollie_PaymentRequest();
@@ -70,7 +70,7 @@ class Pronamic_Gateways_Mollie_Gateway extends Pronamic_Gateways_Gateway {
 		$mollie_payment = $this->client->get_payment( $payment->get_transaction_id() );
 
 		if ( $mollie_payment ) {
-			$payment->set_status( Pronamic_Gateways_Mollie_Statuses::transform( $mollie_payment->status ) );
+			$payment->set_status( Pronamic_WP_Pay_Mollie_Statuses::transform( $mollie_payment->status ) );
 			$payment->set_consumer_name( $mollie_payment->details->consumerName );
 			$payment->set_consumer_iban( $mollie_payment->details->consumerAccount );
 		} else {

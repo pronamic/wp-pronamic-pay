@@ -3,7 +3,7 @@
 	"description": "The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.",
     "keywords": ["pronamic", "ideal", "wordpress", "pay"],
 	"homepage": "https://github.com/pronamic/wp-pronamic-ideal",
-	"license": "GPL-2.0+",
+	"license": "GPL",
 	"authors": [
 		{
 			"name": "Remco Tolsma",
@@ -31,9 +31,32 @@
 		}
 	],
 	"require": {
-		"php": ">=5.2.0"
+		"php": ">=5.2.0",
+		"xrstf/composer-php52": "1.*",
+		"wp-pay/core": "dev-develop",
+		"wp-pay-gateways/adyen": "dev-develop",
+		"wp-pay-gateways/buckaroo": "dev-develop",
+		"wp-pay-gateways/ideal": "dev-develop",
+		"wp-pay-gateways/ideal-basic": "dev-develop",
+		"wp-pay-gateways/mollie": "dev-develop",
+		"wp-pay-gateways/ogone": "dev-develop",
+		"wp-pay-gateways/omnikassa": "dev-develop",
+		"wp-pay-gateways/sisow": "dev-develop",
+		"wp-pay-gateways/targetpay": "dev-develop",
+		"wp-pay-gateways/qantani": "dev-develop"
 	},
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master"
-	}
+	},
+    "scripts": {
+        "post-install-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-update-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-autoload-dump": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ]
+    }
 }

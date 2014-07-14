@@ -203,7 +203,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 	public function get_banks() {
 		$banks = false;
 
-		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_GET_BANKS );
+		$document = $this->get_document( Pronamic_WP_Pay_Gateways_Qantani_Actions::IDEAL_GET_BANKS );
 
 		$result = $this->send_request( $document->saveXML() );
 
@@ -226,7 +226,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 					$id          = Pronamic_XML_Util::filter( $xml->Error->ID );
 					$description = Pronamic_XML_Util::filter( $xml->Error->Description );
 
-					$qantani_error = new Pronamic_Gateways_Qantani_Error( $id, $description );
+					$qantani_error = new Pronamic_WP_Pay_Gateways_Qantani_Error( $id, $description );
 
 					$this->error = new WP_Error( 'qantani_error', (string) $qantani_error, $qantani_error );
 				}
@@ -252,7 +252,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 			'Return'      => $return_url,
 		);
 
-		$document = $this->get_document( Pronamic_Gateways_Qantani_Actions::IDEAL_EXECUTE, $parameters );
+		$document = $this->get_document( Pronamic_WP_Pay_Gateways_Qantani_Actions::IDEAL_EXECUTE, $parameters );
 
 		$response = $this->send_request( $document->saveXML() );
 
@@ -276,7 +276,7 @@ class Pronamic_Gateways_Qantani_Qantani {
 					$error_id          = Pronamic_XML_Util::filter( $xml->Error->ID );
 					$error_description = Pronamic_XML_Util::filter( $xml->Error->Description );
 
-					$error = new Pronamic_Gateways_Qantani_Error( $error_id, $error_description );
+					$error = new Pronamic_WP_Pay_Gateways_Qantani_Error( $error_id, $error_description );
 
 					$this->error = new WP_Error( 'qantani_error', (string) $error, $error );
 				}

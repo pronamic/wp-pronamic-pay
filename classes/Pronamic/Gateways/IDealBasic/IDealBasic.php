@@ -337,7 +337,7 @@ class Pronamic_Gateways_IDealBasic_IDealBasic {
 	 * @param string $description
 	 */
 	public function setDescription( $description ) {
-		$this->description = Pronamic_Gateways_IDealBasic_DataHelper::an32( $description );
+		$this->description = Pronamic_WP_Pay_IDealBasic_DataHelper::an32( $description );
 	}
 
 	//////////////////////////////////////////////////

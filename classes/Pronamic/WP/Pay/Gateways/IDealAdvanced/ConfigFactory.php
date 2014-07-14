@@ -1,7 +1,7 @@
 <?php
 
-class Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory {
-	public static function get_config( $post_id ) {
+class Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory extends Pronamic_WP_Pay_GatewayConfigFactory {
+	public function get_config( $post_id ) {
 		$config = new Pronamic_Gateways_IDealAdvanced_Config();
 
 		$config->merchant_id = get_post_meta( $post_id, '_pronamic_gateway_ideal_merchant_id', true );

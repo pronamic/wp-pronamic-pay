@@ -8,7 +8,7 @@
  * @author Remco Tolsma
  * @since 1.4.0
  */
-class Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway extends Pronamic_Gateways_Gateway {
+class Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Slug of this gateway
 	 *
@@ -26,7 +26,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway extends Pronamic_Gatewa
 	public function __construct( Pronamic_Pay_Gateways_MultiSafepay_Config $config ) {
 		parent::__construct( $config );
 
-		$this->set_method( Pronamic_Gateways_Gateway::METHOD_HTTP_REDIRECT );
+		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );
 		$this->set_has_feedback( true );
 		$this->set_amount_minimum( 0 );
 		$this->set_slug( self::SLUG );

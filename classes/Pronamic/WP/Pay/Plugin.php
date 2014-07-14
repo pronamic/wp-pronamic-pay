@@ -373,15 +373,15 @@ class Pronamic_WP_Pay_Plugin {
 	 */
 	public static function translate_status( $status ) {
 		switch ( $status ) {
-			case Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED :
+			case Pronamic_WP_Pay_Statuses::CANCELLED :
 				return __( 'Cancelled', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::EXPIRED :
+			case Pronamic_WP_Pay_Statuses::EXPIRED :
 				return __( 'Expired', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE :
+			case Pronamic_WP_Pay_Statuses::FAILURE :
 				return __( 'Failure', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::OPEN :
+			case Pronamic_WP_Pay_Statuses::OPEN :
 				return __( 'Open', 'pronamic_ideal' );
-			case Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS :
+			case Pronamic_WP_Pay_Statuses::SUCCESS :
 				return __( 'Success', 'pronamic_ideal' );
 			default:
 				return __( 'Unknown', 'pronamic_ideal' );
@@ -449,39 +449,55 @@ class Pronamic_WP_Pay_Plugin {
 
 		$gateway_id = $config->gateway_id;
 
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'buckaroo', 'Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'icepay', 'Pronamic_WP_Pay_Gateways_Icepay_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_advanced', 'Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_advanced_v3', 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ideal_basic', 'Pronamic_WP_Pay_Gateways_IDealBasic_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'mollie', 'Pronamic_WP_Pay_Gateways_Mollie_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'mollie_ideal', 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'multisafepay_connect', 'Pronamic_WP_Pay_Gateways_MultiSafepay_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_directlink', 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_orderstandard', 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'ogone_orderstandard_easy', 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'omnikassa', 'Pronamic_WP_Pay_Gateways_OmniKassa_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'paydutch', 'Pronamic_WP_Pay_Gateways_PayDutch_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'qantani', 'Pronamic_WP_Pay_Gateways_Qantani_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'sisow', 'Pronamic_WP_Pay_Gateways_Sisow_ConfigFactory' );
-		Pronamic_WP_Pay_Gateways_ConfigProvider::register( 'targetpay', 'Pronamic_WP_Pay_Gateways_TargetPay_ConfigFactory' );
+		$config_providers = array(
+			'buckaroo'                 => 'Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory',
+			'icepay'                   => 'Pronamic_WP_Pay_Gateways_Icepay_ConfigFactory',
+			'ideal_advanced'           => 'Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory',
+			'ideal_advanced_v3'        => 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_ConfigFactory',
+			'ideal_basic'              => 'Pronamic_WP_Pay_Gateways_IDealBasic_ConfigFactory',
+			'mollie'                   => 'Pronamic_WP_Pay_Gateways_Mollie_ConfigFactory',
+			'mollie_ideal'             => 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_ConfigFactory',
+			'multisafepay_connect'     => 'Pronamic_WP_Pay_Gateways_MultiSafepay_ConfigFactory',
+			'ogone_directlink'         => 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_ConfigFactory',
+			'ogone_orderstandard'      => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_ConfigFactory',
+			'ogone_orderstandard_easy' => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_ConfigFactory',
+			'omnikassa'                => 'Pronamic_WP_Pay_Gateways_OmniKassa_ConfigFactory',
+			'paydutch'                 => 'Pronamic_WP_Pay_Gateways_PayDutch_ConfigFactory',
+			'qantani'                  => 'Pronamic_WP_Pay_Gateways_Qantani_ConfigFactory',
+			'sisow'                    => 'Pronamic_WP_Pay_Gateways_Sisow_ConfigFactory',
+			'targetpay'                => 'Pronamic_WP_Pay_Gateways_TargetPay_ConfigFactory',
+		);
 
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Buckaroo_Config', 'Pronamic_Gateways_Buckaroo_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Icepay_Config', 'Pronamic_Gateways_Icepay_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_IDealAdvanced_Config', 'Pronamic_Gateways_IDealAdvanced_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_IDealAdvancedV3_Config', 'Pronamic_Gateways_IDealAdvancedV3_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_IDealBasic_Config', 'Pronamic_Gateways_IDealBasic_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_DirectLink_Config', 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config', 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Mollie_Config', 'Pronamic_Gateways_Mollie_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Mollie_IDeal_Config', 'Pronamic_Gateways_Mollie_IDeal_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Pay_Gateways_MultiSafepay_Config', 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_OmniKassa_Config', 'Pronamic_Gateways_OmniKassa_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_PayDutch_Config', 'Pronamic_Gateways_PayDutch_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Qantani_Config', 'Pronamic_Gateways_Qantani_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_Sisow_Config', 'Pronamic_Gateways_Sisow_Gateway' );
-		Pronamic_Pay_GatewayFactory::register( 'Pronamic_Gateways_TargetPay_Config', 'Pronamic_Gateways_TargetPay_Gateway' );
+		$config_providers = apply_filters( 'pronamic_pay_config_providers', $config_providers );
+
+		foreach ( $config_providers as $name => $class_name ) {
+			Pronamic_WP_Pay_Gateways_ConfigProvider::register( $name, $class_name );
+		}
+
+		$config_gateways = array(
+			'Pronamic_Gateways_Buckaroo_Config'                    => 'Pronamic_Gateways_Buckaroo_Gateway',
+			'Pronamic_Gateways_Icepay_Config'                      => 'Pronamic_Gateways_Icepay_Gateway',
+			'Pronamic_Gateways_IDealAdvanced_Config'               => 'Pronamic_Gateways_IDealAdvanced_Gateway',
+			'Pronamic_Gateways_IDealAdvancedV3_Config'             => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
+			'Pronamic_Pay_Gateways_IDealBasic_Config'              => 'Pronamic_Gateways_IDealBasic_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_DirectLink_Config'        => 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config' => 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway',
+			'Pronamic_Gateways_Mollie_Config'                      => 'Pronamic_Gateways_Mollie_Gateway',
+			'Pronamic_Gateways_Mollie_IDeal_Config'                => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
+			'Pronamic_Pay_Gateways_MultiSafepay_Config'            => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
+			'Pronamic_Gateways_OmniKassa_Config'                   => 'Pronamic_Gateways_OmniKassa_Gateway',
+			'Pronamic_Gateways_PayDutch_Config'                    => 'Pronamic_Gateways_PayDutch_Gateway',
+			'Pronamic_Gateways_Qantani_Config'                     => 'Pronamic_Gateways_Qantani_Gateway',
+			'Pronamic_Gateways_Sisow_Config'                       => 'Pronamic_Gateways_Sisow_Gateway',
+			'Pronamic_Gateways_TargetPay_Config'                   => 'Pronamic_Gateways_TargetPay_Gateway',
+		);
+
+		$config_gateways = apply_filters( 'pronamic_pay_config_gateways', $config_gateways );
+
+		foreach ( $config_gateways as $config_class => $gateway_class ) {
+			Pronamic_Pay_GatewayFactory::register( $config_class, $gateway_class );
+		}
 
 		global $pronamic_pay_gateways;
 
@@ -497,7 +513,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 	}
 
-	public static function start( $config_id, Pronamic_Gateways_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
 		$payment = self::create_payment( $config_id, $gateway, $data );
 
 		if ( $payment ) {
