@@ -109,50 +109,13 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 		);
 
 		if ( $status ) {
-			$status_text = '';
+			$payment->set_status( Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::transform( $status->code ) );
 
-			switch ( $status->code ) {
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::OK:
-					$status_text = Pronamic_WP_Pay_Statuses::SUCCESS;
-
-					$payment->set_consumer_name( $status->account_name );
-					$payment->set_consumer_account_number( $status->account_number );
-					$payment->set_consumer_city( $status->account_city );
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_COMPLETED:
-					$status_text = Pronamic_WP_Pay_Statuses::OPEN;
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_CANCLLED:
-					$status_text = Pronamic_WP_Pay_Statuses::CANCELLED;
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_EXPIRED:
-					$status_text = Pronamic_WP_Pay_Statuses::EXPIRED;
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_PROCESSED:
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::ALREADY_USED:
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::LAYOUTCODE_NOT_ENTERED:
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_ID_NOT_ENTERED:
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::TRANSACTION_NOT_FOUND:
-
-					break;
-				case Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::LAYOUCODE_NOT_MATCH_TRANSACTION:
-
-					break;
+			if ( Pronamic_WP_Pay_Gateways_TargetPay_ResponseCodes::OK == $status->code ) {
+				$payment->set_consumer_name( $status->account_name );
+				$payment->set_consumer_account_number( $status->account_number );
+				$payment->set_consumer_city( $status->account_city );
 			}
-
-			$payment->set_status( $status_text );
 		}
 	}
 }
