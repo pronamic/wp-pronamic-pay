@@ -60,9 +60,9 @@ class Pronamic_Gateways_IDealBasic_Gateway extends Pronamic_WP_Pay_Gateway {
 
 		$url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
-		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::CANCELLED, $url ) );
-		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::SUCCESS, $url ) );
-		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_Pay_Gateways_IDeal_Statuses::FAILURE, $url ) );
+		$this->client->setCancelUrl( add_query_arg( 'status', Pronamic_WP_Pay_Gateways_IDeal_Statuses::CANCELLED, $url ) );
+		$this->client->setSuccessUrl( add_query_arg( 'status', Pronamic_WP_Pay_Gateways_IDeal_Statuses::SUCCESS, $url ) );
+		$this->client->setErrorUrl( add_query_arg( 'status', Pronamic_WP_Pay_Gateways_IDeal_Statuses::FAILURE, $url ) );
 	}
 
 	/////////////////////////////////////////////////
