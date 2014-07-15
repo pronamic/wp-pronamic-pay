@@ -86,8 +86,6 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [
 					'**',
-					'!.*',
-					'!.*/**',
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
@@ -102,8 +100,7 @@ module.exports = function( grunt ) {
 					'!wp-svn/**'
 				],
 				dest: 'deploy',
-				expand: true,
-				dot: true
+				expand: true
 			},
 		},
 
