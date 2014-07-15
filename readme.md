@@ -395,6 +395,10 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.8.2
+*	Tweak - Removed dot files.
+*	Tweak - TargetPay - Fixed TargetPay tests.
+
 ### 2.8.1
 *	Tweak - Use Composer and Packagist for some of the payment gateways libraries.
 *	Tweak - TargetPay - Simplified TargetPay status update code.

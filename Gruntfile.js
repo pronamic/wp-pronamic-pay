@@ -143,8 +143,9 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 
 	grunt.registerTask( 'deploy', [
-		'checkwpversion',
+		'default',
 		'composer:update',
+		'composer:dump-autoload:optimize',
 		'clean:deploy',
 		'copy:deploy'
 	] );
