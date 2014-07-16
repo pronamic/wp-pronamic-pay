@@ -223,6 +223,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 2.8.3 =
+*	Tweak - Gravity Forms - Improved support for concept or trashed Gravity Forms payment feeds.
+
 = 2.8.2 =
 *	Tweak - Removed dot files.
 *	Tweak - TargetPay - Fixed TargetPay tests.

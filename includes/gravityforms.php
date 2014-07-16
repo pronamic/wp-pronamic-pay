@@ -7,11 +7,20 @@ function get_pronamic_gf_pay_feed_by_form_id( $form_id ) {
 
 	$db_query = $wpdb->prepare( "
 		SELECT
-			post_id
+			ID
 		FROM
+			$wpdb->posts
+				LEFT JOIN
 			$wpdb->postmeta
+					ON (
+				ID = post_ID
+					AND
+				meta_key = '_pronamic_pay_gf_form_id'
+			)
 		WHERE
-			meta_key = '_pronamic_pay_gf_form_id'
+			post_status = 'publish'
+				AND
+			post_type = 'pronamic_pay_gf'
 				AND
 			meta_value = %s
 		;
