@@ -471,7 +471,7 @@ class Pronamic_WP_Pay_Plugin {
 		$config_providers = apply_filters( 'pronamic_pay_config_providers', $config_providers );
 
 		foreach ( $config_providers as $name => $class_name ) {
-			Pronamic_WP_Pay_Gateways_ConfigProvider::register( $name, $class_name );
+			Pronamic_WP_Pay_ConfigProvider::register( $name, $class_name );
 		}
 
 		$config_gateways = array(
@@ -496,7 +496,7 @@ class Pronamic_WP_Pay_Plugin {
 		$config_gateways = apply_filters( 'pronamic_pay_config_gateways', $config_gateways );
 
 		foreach ( $config_gateways as $config_class => $gateway_class ) {
-			Pronamic_Pay_GatewayFactory::register( $config_class, $gateway_class );
+			Pronamic_WP_Pay_GatewayFactory::register( $config_class, $gateway_class );
 		}
 
 		global $pronamic_pay_gateways;
@@ -505,9 +505,9 @@ class Pronamic_WP_Pay_Plugin {
 			$gateway      = $pronamic_pay_gateways[ $gateway_id ];
 			$gateway_slug = $gateway['gateway'];
 
-			$config = Pronamic_WP_Pay_Gateways_ConfigProvider::get_config( $gateway_slug, $config_id );
+			$config = Pronamic_WP_Pay_ConfigProvider::get_config( $gateway_slug, $config_id );
 
-			$gateway = Pronamic_Pay_GatewayFactory::create( $config );
+			$gateway = Pronamic_WP_Pay_GatewayFactory::create( $config );
 
 			return $gateway;
 		}
