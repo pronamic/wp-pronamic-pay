@@ -35,8 +35,10 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		 * 1.1 = 1202130 - @see https://github.com/jigoshop/jigoshop/blob/1.1/jigoshop.php#L28
 		 * 1.2 = 1203310 - @see https://github.com/jigoshop/jigoshop/blob/1.2/jigoshop.php#L45
 		 * 1.3 = 1207160 - @see https://github.com/jigoshop/jigoshop/blob/1.3/jigoshop.php#L45
+		 * 1.9.5 = 1307110 - @see https://github.com/jigoshop/jigoshop/blob/1.9.5/jigoshop.php#L45
+		 * 1.9.6 = 1.9.6 - @see https://github.com/jigoshop/jigoshop/blob/1.9.6/jigoshop.php#L45-L47
 		 */
-		if ( version_compare( JIGOSHOP_VERSION, 1207160, '>=' ) ) {
+		if ( version_compare( JIGOSHOP_VERSION, 1207160, '>=' ) || version_compare( JIGOSHOP_VERSION, '1.3', '>=' ) ) {
 			parent::__construct();
 		}
 
