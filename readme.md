@@ -294,7 +294,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
 			<td>1.1</td>
-			<td>1.8</td>
+			<td>1.9.6</td>
 		</tr>
 		<tr>
 			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">Membership</a></td>
@@ -315,7 +315,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
 			<td><a href="http://www.websharks-inc.com/" target="_blank">WebSharks, Inc.</a></td>
-			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/s2member/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
 			<td>130816</td>
 			<td>140105</td>
@@ -323,7 +323,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
 			<td><a href="http://ingenesis.net/" target="_blank">Ingenesis Limited</a></td>
-			<td></td>
+			<td><a href="http://wordpress.org/plugins/shopp/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
 			<td>1.3.4</td>
@@ -394,6 +394,11 @@ Here is a list of known plugin conflicts:
 
 
 ## Changelog
+
+### 2.8.3
+*	Tweak - Gravity Forms - Improved support for concept or trashed Gravity Forms payment feeds.
+*	Fix - Jigoshop - Added support for Jigoshop version 1.9.3.
+*	Fix - Mollie - Fixed an status error in the deprecated Mollie iDEAL gateway.
 
 ### 2.8.2
 *	Tweak - Removed dot files.

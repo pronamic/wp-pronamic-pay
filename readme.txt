@@ -67,7 +67,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/jigoshop/](http://wordpress.org/extend/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.8
+	*	**Tested up to:** 1.9.6
 *	[Membership](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
@@ -80,12 +80,13 @@ your WordPress website.
 	*	**Tested up to:** 3.5.1.3
 *	[s2Member®](http://www.s2member.com/)
 	*	**Author:** [WebSharks, Inc.](http://www.websharks-inc.com/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
 	*	**GitHub:** [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
 	*	**Requires at least:** 130816
 	*	**Tested up to:** 140105
 *	[Shopp](https://shopplugin.net/)
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
 	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.3.4
@@ -225,6 +226,8 @@ Here is a list of known plugin conflicts:
 
 = 2.8.3 =
 *	Tweak - Gravity Forms - Improved support for concept or trashed Gravity Forms payment feeds.
+*	Fix - Jigoshop - Added support for Jigoshop version 1.9.3.
+*	Fix - Mollie - Fixed an status error in the deprecated Mollie iDEAL gateway.
 
 = 2.8.2 =
 *	Tweak - Removed dot files.
