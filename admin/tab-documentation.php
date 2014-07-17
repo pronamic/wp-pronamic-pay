@@ -286,12 +286,19 @@ $providers = array(
 		'url'       => 'http://mollie.nl/',
 		'resources' => array(
 			array(
-				'url'  => 'http://www.mollie.nl/support/documentatie/betaaldiensten/ideal/lite/',
-				'name' => 'iDEAL Lite/Basic',
+				'url'        => 'http://www.mollie.nl/support/documentatie/betaaldiensten/ideal/lite/',
+				'name'       => 'iDEAL Lite/Basic',
+				'deprecated' => true,
 			),
 			array(
-				'url'  => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/',
-				'name' => 'iDEAL Professional/Advanced',
+				'url'        => 'https://www.mollie.nl/support/documentatie/betaaldiensten/ideal/professional/',
+				'name'       => 'iDEAL Professional/Advanced',
+				'deprecated' => true,
+			),
+			array(
+				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/07/Integrate-iDEAL-into-your-website-Dutch-payment-method-Mollie.pdf',
+				'name'       => 'iDEAL API',
+				'deprecated' => true,
 			),
 			array(
 				'url'  => 'http://pronamic.nl/wp-content/uploads/2013/12/payments-api-nl.pdf',
