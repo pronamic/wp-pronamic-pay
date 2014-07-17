@@ -546,12 +546,26 @@ $providers = array(
 				'name'       => 'Integration Guide Rabo OmniKassa, Version 6.0, November 2013',
 				'version'    => '6.0',
 				'date'       => new DateTime( '01-11-2013' ),
+				'deprecated' => true,
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/01/integratiehandleiding_nl_12_2013_29420242.pdf',
 				'name'       => 'Integratiehandleiding Rabo OmniKassa, versie 6.0, november 2013',
 				'version'    => '6.0',
 				'date'       => new DateTime( '01-11-2013' ),
+				'deprecated' => true,
+			),
+			array(
+				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_rabo_omnikassa_en_version_7_1_april_2014_final_2_0_29637101.pdf',
+				'name'       => 'Integration Guide Rabo OmniKassa, Version 7.1, April 2014',
+				'version'    => '7.1',
+				'date'       => new DateTime( '01-04-2014' ),
+			),
+			array(
+				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_nl_12_2013_29420242.pdf',
+				'name'       => 'Integratiehandleiding Rabo OmniKassa, versie 7.1, april 2014',
+				'version'    => '7.1',
+				'date'       => new DateTime( '01-04-2014' ),
 			),
 		),
 	),
@@ -595,7 +609,7 @@ $providers = array(
 
 ?>
 
-<table class="wp-list-table widefat" cellspacing="0">
+<table class="pronamic-pay-table wp-list-table widefat" cellspacing="0">
 
 	<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
 
