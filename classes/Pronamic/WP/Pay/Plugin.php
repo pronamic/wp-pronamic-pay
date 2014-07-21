@@ -87,7 +87,7 @@ class Pronamic_WP_Pay_Plugin {
 		add_action( 'wp_loaded', array( __CLASS__, 'maybe_redirect' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'checkStatus' ) );
+		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'check_status' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -108,7 +108,7 @@ class Pronamic_WP_Pay_Plugin {
 	 *
 	 * @param string $paymentId
 	 */
-	public static function checkStatus( $payment_id = null ) {
+	public static function check_status( $payment_id = null ) {
 		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
 
 		if ( $payment !== null ) {
