@@ -164,11 +164,5 @@ class Pronamic_Gateways_IDealAdvancedV3_Gateway extends Pronamic_WP_Pay_Gateway 
 
 		// 30 seconds after a transaction request is sent
 		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
-		// Half-way through an expirationPeriod
-		wp_schedule_single_event( $time + 1800, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 1800 ) );
-		// Just after an expirationPeriod
-		wp_schedule_single_event( $time + 3600, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 3600 ) );
-		// A certain period after the end of the expirationPeriod
-		wp_schedule_single_event( $time + 86400, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 86400 ) );
 	}
 }
