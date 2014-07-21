@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-07-15 07:13:01+00:00\n"
-"PO-Revision-Date: 2014-07-15 09:15+0100\n"
+"POT-Creation-Date: 2014-07-21 10:19:33+00:00\n"
+"PO-Revision-Date: 2014-07-21 12:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -61,7 +61,7 @@ msgstr "&mdash; Selecteer een formulier &mdash;"
 #: admin/gravityforms/meta-box-config.php:49
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:118
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:120
 #: classes/Pronamic/S2Member/Bridge/Settings.php:28
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
@@ -401,7 +401,7 @@ msgstr "Google+"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
 #: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
@@ -479,10 +479,10 @@ msgstr "Mollie bage - Betaling groen"
 msgid "OmniKassa"
 msgstr "OmniKassa"
 
-#: admin/tab-branding.php:215 admin/tab-documentation.php:604
+#: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:118
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:100
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
@@ -510,7 +510,7 @@ msgstr ""
 "PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
 "\">TinyPNG</a>."
 
-#: admin/tab-documentation.php:605 admin/tab-ideal_status.php:46
+#: admin/tab-documentation.php:626 admin/tab-ideal_status.php:46
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
@@ -518,7 +518,7 @@ msgstr ""
 msgid "Date"
 msgstr "Datum"
 
-#: admin/tab-documentation.php:606
+#: admin/tab-documentation.php:627
 msgid "Version"
 msgstr "Versie"
 
@@ -980,18 +980,18 @@ msgid "iDEAL Options"
 msgstr "iDEAL-instellingen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:87
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:89
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:91
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:92
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:95
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:97
 msgid "Yes"
 msgstr "Ja"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:93
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:94
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:96
 msgid "No"
 msgstr "Nee"
 
@@ -1158,9 +1158,9 @@ msgstr "&mdash; Andere banken &mdash;"
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
 #: classes/Pronamic/Gateways/Mollie/IDeal/Gateway.php:67
 #: classes/Pronamic/Gateways/PayDutch/Gateway.php:66
-#: classes/Pronamic/Gateways/Qantani/Gateway.php:69
 #: classes/Pronamic/Gateways/Sisow/Gateway.php:52
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
+#: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
@@ -1288,27 +1288,27 @@ msgstr "iDEAL-betaling verlopen."
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:82
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:84
 msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:102
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:109
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
 #: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:101
 #: views/meta-box-payment-info.php:27
 msgid "Description"
 msgstr "Beschrijving"
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:113
 msgid "This controls the description which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:175
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:177
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
