@@ -450,7 +450,7 @@ class Pronamic_WP_Pay_Plugin {
 		$gateway_id = $config->gateway_id;
 
 		$config_providers = array(
-			'buckaroo'                 => 'Pronamic_WP_Pay_Gateways_Buckaroo_ConfigFactory',
+			'buckaroo'                 => 'Pronamic_WP_Pay_Buckaroo_ConfigFactory',
 			'icepay'                   => 'Pronamic_WP_Pay_Gateways_Icepay_ConfigFactory',
 			'ideal_advanced'           => 'Pronamic_WP_Pay_Gateways_IDealAdvanced_ConfigFactory',
 			'ideal_advanced_v3'        => 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_ConfigFactory',
@@ -471,11 +471,11 @@ class Pronamic_WP_Pay_Plugin {
 		$config_providers = apply_filters( 'pronamic_pay_config_providers', $config_providers );
 
 		foreach ( $config_providers as $name => $class_name ) {
-			Pronamic_WP_Pay_Gateways_ConfigProvider::register( $name, $class_name );
+			Pronamic_WP_Pay_ConfigProvider::register( $name, $class_name );
 		}
 
 		$config_gateways = array(
-			'Pronamic_Gateways_Buckaroo_Config'                    => 'Pronamic_Gateways_Buckaroo_Gateway',
+			'Pronamic_WP_Pay_Buckaroo_Config'                      => 'Pronamic_Gateways_Buckaroo_Gateway',
 			'Pronamic_Gateways_Icepay_Config'                      => 'Pronamic_Gateways_Icepay_Gateway',
 			'Pronamic_Gateways_IDealAdvanced_Config'               => 'Pronamic_Gateways_IDealAdvanced_Gateway',
 			'Pronamic_Gateways_IDealAdvancedV3_Config'             => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
@@ -488,15 +488,15 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_Pay_Gateways_MultiSafepay_Config'            => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
 			'Pronamic_Gateways_OmniKassa_Config'                   => 'Pronamic_Gateways_OmniKassa_Gateway',
 			'Pronamic_Gateways_PayDutch_Config'                    => 'Pronamic_Gateways_PayDutch_Gateway',
-			'Pronamic_Gateways_Qantani_Config'                     => 'Pronamic_Gateways_Qantani_Gateway',
+			'Pronamic_WP_Pay_Gateways_Qantani_Config'              => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
 			'Pronamic_Gateways_Sisow_Config'                       => 'Pronamic_Gateways_Sisow_Gateway',
-			'Pronamic_Gateways_TargetPay_Config'                   => 'Pronamic_Gateways_TargetPay_Gateway',
+			'Pronamic_WP_Pay_Gateways_TargetPay_Config'            => 'Pronamic_Gateways_TargetPay_Gateway',
 		);
 
 		$config_gateways = apply_filters( 'pronamic_pay_config_gateways', $config_gateways );
 
 		foreach ( $config_gateways as $config_class => $gateway_class ) {
-			Pronamic_Pay_GatewayFactory::register( $config_class, $gateway_class );
+			Pronamic_WP_Pay_GatewayFactory::register( $config_class, $gateway_class );
 		}
 
 		global $pronamic_pay_gateways;
@@ -505,9 +505,9 @@ class Pronamic_WP_Pay_Plugin {
 			$gateway      = $pronamic_pay_gateways[ $gateway_id ];
 			$gateway_slug = $gateway['gateway'];
 
-			$config = Pronamic_WP_Pay_Gateways_ConfigProvider::get_config( $gateway_slug, $config_id );
+			$config = Pronamic_WP_Pay_ConfigProvider::get_config( $gateway_slug, $config_id );
 
-			$gateway = Pronamic_Pay_GatewayFactory::create( $config );
+			$gateway = Pronamic_WP_Pay_GatewayFactory::create( $config );
 
 			return $gateway;
 		}

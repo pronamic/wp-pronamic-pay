@@ -21,9 +21,9 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Constructs and initializes an Buckaroo gateway
 	 *
-	 * @param Pronamic_Gateways_Buckaroo_Config $config
+	 * @param Pronamic_WP_Pay_Buckaroo_Config $config
 	 */
-	public function __construct( Pronamic_Gateways_Buckaroo_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_Buckaroo_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTML_FORM );

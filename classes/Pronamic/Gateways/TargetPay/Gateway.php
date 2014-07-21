@@ -21,9 +21,9 @@ class Pronamic_Gateways_TargetPay_Gateway extends Pronamic_WP_Pay_Gateway {
 	/**
 	 * Constructs and initializes an TargetPay gateway
 	 *
-	 * @param Pronamic_Gateways_TargetPay_Config $config
+	 * @param Pronamic_WP_Pay_Gateways_TargetPay_Config $config
 	 */
-	public function __construct( Pronamic_Gateways_TargetPay_Config $config ) {
+	public function __construct( Pronamic_WP_Pay_Gateways_TargetPay_Config $config ) {
 		parent::__construct( $config );
 
 		$this->set_method( Pronamic_WP_Pay_Gateway::METHOD_HTTP_REDIRECT );

@@ -111,17 +111,17 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_WP_Pay_Gateway {
 			$consumer = $result->consumer;
 
 			switch ( $result->status ) {
-				case Pronamic_WP_Pay_Mollie_Statuses::SUCCESS :
+				case Pronamic_WP_Pay_Gateways_Mollie_IDeal_Statuses::SUCCESS :
 					$payment->set_consumer_name( $consumer->name );
 					$payment->set_consumer_account_number( $consumer->account );
 					$payment->set_consumer_city( $consumer->city );
-				case Pronamic_WP_Pay_Mollie_Statuses::CANCELLED :
-				case Pronamic_WP_Pay_Mollie_Statuses::EXPIRED :
-				case Pronamic_WP_Pay_Mollie_Statuses::FAILURE :
+				case Pronamic_WP_Pay_Gateways_Mollie_IDeal_Statuses::CANCELLED :
+				case Pronamic_WP_Pay_Gateways_Mollie_IDeal_Statuses::EXPIRED :
+				case Pronamic_WP_Pay_Gateways_Mollie_IDeal_Statuses::FAILURE :
 					$payment->set_status( $result->status );
 
 					break;
-				case Pronamic_WP_Pay_Mollie_Statuses::CHECKED_BEFORE :
+				case Pronamic_WP_Pay_Gateways_Mollie_IDeal_Statuses::CHECKED_BEFORE :
 					// Nothing to do here
 
 					break;

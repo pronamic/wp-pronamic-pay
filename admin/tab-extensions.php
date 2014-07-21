@@ -96,7 +96,7 @@ $extensions = array(
 		'github_url'         => 'https://github.com/jigoshop/jigoshop',
 		'active'             => Pronamic_Jigoshop_Jigoshop::is_active(),
 		'requires_at_least'  => '1.1',
-		'tested_up_to'       => '1.8',
+		'tested_up_to'       => '1.9.6',
 		'author'             => __( 'Jigowatt', 'pronamic_ideal' ),
 		'author_url'         => 'http://jigowatt.co.uk/',
 	),
