@@ -89,7 +89,22 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_WP_Pay_Gateway {
 	 * @param Pronamic_Pay_Payment $payment
 	 */
 	public function update_status( Pronamic_Pay_Payment $payment ) {
-		$data = Pronamic_WP_Pay_Buckaroo_Util::urldecode( $_POST );
+		$method = filter_input( INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING );
+
+		$data = array();
+
+		switch ( $method ) {
+			case 'GET':
+				$data = $_GET;
+
+				break;
+			case 'POST':
+				$data = $_POST;
+
+				break;
+		}
+
+		$data = Pronamic_WP_Pay_Buckaroo_Util::urldecode( $data );
 
 		$data = $this->client->verify_request( $data );
 
