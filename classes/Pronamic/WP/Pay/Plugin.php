@@ -507,7 +507,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		$config_gateways = array(
-			'Pronamic_WP_Pay_Buckaroo_Config'                      => 'Pronamic_Gateways_Buckaroo_Gateway',
+			'Pronamic_WP_Pay_Buckaroo_Config'                      => 'Pronamic_WP_Pay_Buckaroo_Gateway',
 			'Pronamic_Gateways_Icepay_Config'                      => 'Pronamic_Gateways_Icepay_Gateway',
 			'Pronamic_Gateways_IDealAdvanced_Config'               => 'Pronamic_Gateways_IDealAdvanced_Gateway',
 			'Pronamic_Gateways_IDealAdvancedV3_Config'             => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
