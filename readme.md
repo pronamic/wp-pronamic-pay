@@ -395,6 +395,9 @@ Here is a list of known plugin conflicts:
 
 ## Changelog
 
+### 2.8.4
+*	Feature - Buckaroo - Added support for Buckaroo Push URI.
+
 ### 2.8.3
 *	Tweak - Gravity Forms - Improved support for concept or trashed Gravity Forms payment feeds.
 *	Fix - Jigoshop - Added support for Jigoshop version 1.9.3.
