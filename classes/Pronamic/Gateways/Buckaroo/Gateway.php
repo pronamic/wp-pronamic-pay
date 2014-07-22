@@ -60,14 +60,7 @@ class Pronamic_Gateways_Buckaroo_Gateway extends Pronamic_WP_Pay_Gateway {
 		$this->client->set_currency( $data->get_currency() );
 		$this->client->set_description( $data->get_description() );
 		$this->client->set_amount( $data->get_amount() );
-
-		$order_id = $data->get_order_id();
-
-		if ( empty( $order_id ) ) {
-			$this->client->set_invoice_number( $payment->get_id() );
-		} else {
-			$this->client->set_invoice_number( $order_id );
-		}
+		$this->client->set_invoice_number( $payment->get_id() );
 
 		$return_url = add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) );
 
