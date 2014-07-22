@@ -225,6 +225,13 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf( __( 'You can find your Buckaroo secret key in the <a href="%s" target="_blank">Buckaroo Payment Plaza</a> under "Configuration" » "Secret Key for Digital Signature".', 'pronamic_ideal' ), 'https://payment.buckaroo.nl/' ),
 			),
+			array(
+				'title'       => __( 'Push URI', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'large-text', 'code' ),
+				'value'       => add_query_arg( 'buckaroo_push', '', home_url( '/' ) ),
+				'readonly'    => true,
+			),
 		),
 	),
 	array(
