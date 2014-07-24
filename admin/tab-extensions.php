@@ -112,7 +112,7 @@ $extensions = array(
 	),
 	'membership-premium'     => array(
 		'name'               => __( 'Membership Premium', 'pronamic_ideal' ),
-		'url'                => 'http://premium.wpmudev.org/project/membership/',
+		'url'                => 'https://premium.wpmudev.org/project/membership/',
 		'github_url'         => 'https://github.com/pronamic-wpmudev/membership-premium',
 		'active'             => Pronamic_WPMUDEV_Membership_Membership::is_active(),
 		'requires_at_least'  => '3.4.6',
