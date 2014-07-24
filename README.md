@@ -305,7 +305,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>3.4.4.1</td>
 		</tr>
 		<tr>
-			<td><a href="http://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
+			<td><a href="https://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
 			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
 			<td></td>
 			<td><a href="https://github.com/pronamic-wpmudev/membership-premium" target="_blank">GitHub</a></td>

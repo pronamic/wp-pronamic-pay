@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 2.8.4
+Stable tag: 2.8.5
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -73,7 +73,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
 	*	**Requires at least:** 3.4.4.1
 	*	**Tested up to:** 3.4.4.1
-*	[Membership Premium](http://premium.wpmudev.org/project/membership/)
+*	[Membership Premium](https://premium.wpmudev.org/project/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
 	*	**Requires at least:** 3.4.6
@@ -223,6 +223,9 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.8.5 =
+*	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.
 
 = 2.8.4 =
 *	Feature - Buckaroo - Added support for Buckaroo Push URI.

@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.8.5
+*	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.
+
 ## 2.8.4
 *	Feature - Buckaroo - Added support for Buckaroo Push URI.
 
