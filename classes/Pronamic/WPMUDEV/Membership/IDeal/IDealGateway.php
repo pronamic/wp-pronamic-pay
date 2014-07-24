@@ -194,10 +194,12 @@ class Pronamic_WPMUDEV_Membership_IDeal_IDealGateway extends Membership_Gateway 
 				);
 
 				// Coupon
-				$coupon = membership_get_current_coupon();
+				if ( function_exists( 'membership_get_current_coupon' ) ) {
+					$coupon = membership_get_current_coupon();
 
-				if ( $coupon ) {
-					$fields['coupon_code'] = $coupon->get_coupon_code();
+					if ( $coupon ) {
+						$fields['coupon_code'] = $coupon->get_coupon_code();
+					}
 				}
 
 				echo Pronamic_IDeal_IDeal::htmlHiddenFields( $fields );

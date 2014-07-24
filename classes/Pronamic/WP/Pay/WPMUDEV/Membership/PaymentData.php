@@ -78,10 +78,12 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_PaymentData extends Pronamic_WP_Pay_Pay
 		$pricing_array = $this->subscription->get_pricingarray();
 
 		// Coupon
-		$coupon = membership_get_current_coupon();
+		if ( function_exists( 'membership_get_current_coupon' ) ) {
+			$coupon = membership_get_current_coupon();
 
-		if ( ! empty( $pricing_array ) && ! empty( $coupon ) ) {
-			$pricing_array = $coupon->apply_coupon_pricing( $pricing_array );
+			if ( ! empty( $pricing_array ) && ! empty( $coupon ) ) {
+				$pricing_array = $coupon->apply_coupon_pricing( $pricing_array );
+			}
 		}
 
 		$items = new Pronamic_IDeal_Items();
