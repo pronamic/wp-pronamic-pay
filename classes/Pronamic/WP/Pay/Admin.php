@@ -269,12 +269,16 @@ class Pronamic_WP_Pay_Admin {
 
 		$db_version = get_option( 'pronamic_pay_db_version' );
 
-		if ( $db_version < 201 ) {
-			pronamic_pay_upgrade_201();
-		}
+		if ( $db_version ) {
+			// The upgrade functions only have to run if an previous database version is set
 
-		if ( $db_version < 200 ) {
-			pronamic_pay_upgrade_200();
+			if ( $db_version < 201 ) {
+				pronamic_pay_upgrade_201();
+			}
+	
+			if ( $db_version < 200 ) {
+				pronamic_pay_upgrade_200();
+			}
 		}
 	}
 
