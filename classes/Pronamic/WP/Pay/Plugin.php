@@ -441,8 +441,8 @@ class Pronamic_WP_Pay_Plugin {
 	 */
 	public static function get_config_select_options() {
 		$gateways = get_posts( array(
-				'post_type' => 'pronamic_gateway',
-				'nopaging'  => true,
+			'post_type' => 'pronamic_gateway',
+			'nopaging'  => true,
 		) );
 
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
