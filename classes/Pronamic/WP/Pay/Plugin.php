@@ -439,11 +439,30 @@ class Pronamic_WP_Pay_Plugin {
 	 *
 	 * @return array
 	 */
-	public static function get_config_select_options() {
-		$gateways = get_posts( array(
+	public static function get_config_select_options( $payment_method = null ) {
+		$args = array(
 			'post_type' => 'pronamic_gateway',
 			'nopaging'  => true,
-		) );
+		);
+		
+		if ( isset( $payment_method ) ) {
+			$gateways = array();
+			
+			if ( 'mister_cash' == $payment_method ) {
+				$gateways[] = 'mollie';
+				$gateways[] = 'rabobank-omnikassa';
+			}
+
+			$args['meta_query'] = array(
+				array(
+					'key'     => '_pronamic_gateway_id',
+					'value'   => $gateways,
+					'compare' => 'IN',
+				),
+			);
+		}
+		
+		$gateways = get_posts( $args );
 
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
@@ -546,11 +565,11 @@ class Pronamic_WP_Pay_Plugin {
 		}
 	}
 
-	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method ) {
 		$payment = self::create_payment( $config_id, $gateway, $data );
 
 		if ( $payment ) {
-			$gateway->start( $data, $payment );
+			$gateway->start( $data, $payment, $payment_method );
 
 			pronamic_wp_pay_update_payment( $payment );
 

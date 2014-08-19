@@ -15,6 +15,13 @@ class Pronamic_WooCommerce_Pay_Gateway extends WC_Payment_Gateway {
 	 * @var string
 	 */
 	const ID = 'pronamic_pay_ideal';
+	
+	/**
+	 * The payment method
+	 * 
+	 * @var string
+	 */
+	protected $payment_method;
 
 	//////////////////////////////////////////////////
 
@@ -114,7 +121,7 @@ class Pronamic_WooCommerce_Pay_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'Configuration', 'pronamic_ideal' ),
 				'type'        => 'select',
 				'default'     => '',
-				'options'     => Pronamic_WP_Pay_Plugin::get_config_select_options(),
+				'options'     => Pronamic_WP_Pay_Plugin::get_config_select_options( $this->payment_method ),
 			),
 			'payment' => array(
 				'title'       => __( 'Payment Options', 'pronamic_ideal' ),
@@ -168,7 +175,7 @@ class Pronamic_WooCommerce_Pay_Gateway extends WC_Payment_Gateway {
 		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $this->config_id );
 
 		if ( $gateway ) {
-			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
+			$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data, $this->payment_method );
 
 			echo $gateway->get_form_html( $payment );
 		}
@@ -258,7 +265,7 @@ class Pronamic_WooCommerce_Pay_Gateway extends WC_Payment_Gateway {
 
 		$data = new Pronamic_WooCommerce_PaymentData( $order, $this, $this->payment_description );
 
-		$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data );
+		$payment = Pronamic_WP_Pay_Plugin::start( $this->config_id, $gateway, $data, $this->payment_method );
 
 		$error = $gateway->get_error();
 

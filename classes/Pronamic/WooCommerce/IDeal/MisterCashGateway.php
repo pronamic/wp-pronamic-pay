@@ -22,10 +22,11 @@ class Pronamic_WooCommerce_IDeal_MisterCashGateway extends Pronamic_WooCommerce_
 	 * Constructs and initialize an iDEAL gateway
 	 */
 	public function __construct() {
-		$this->id           = self::ID;
-		$this->method_title = __( 'Mister Cash', 'pronamic_ideal' );
+		$this->id             = self::ID;
+		$this->method_title   = __( 'Mister Cash', 'pronamic_ideal' );
+		$this->payment_method = 'mister_cash';
 
-		parent::__construct( );
+		parent::__construct();
 	}
 
 	/**
