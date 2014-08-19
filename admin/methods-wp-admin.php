@@ -1,12 +1,11 @@
 <table class="wp-list-table widefat">
+	<col width="1" />
+
 	<thead>
 		<tr>
-			<th scope="col">
-				<?php _e( 'Name', 'pronamic_ideal' ); ?>
-			</th>
-			<th scope="col">
-				<?php _e( 'Website', 'pronamic_ideal' ); ?>
-			</th>
+			<th scope="col"><?php _e( 'Icon', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php _e( 'Website', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
 
@@ -15,6 +14,15 @@
 		<?php foreach ( $methods as $method ) : ?>
 
 			<tr>
+				<td>
+					<?php 
+					
+					if ( isset( $method['icon'] ) ) {
+						printf( '<img src="%s" alt="" />', esc_attr( $method['icon'] ) );
+					}
+
+					?>
+				</td>
 				<td>
 					<?php echo esc_html( $method['name'] ); ?>
 				</td>
