@@ -168,7 +168,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 		$result = false;
 
 		if ( isset( $xml->item ) ) {
-			if ( $xml->item['type'] == 'error' ) {
+			if ( 'error' == $xml->item['type'] ) {
 				$error = new Pronamic_Gateways_Mollie_IDeal_Error(
 					(string) $xml->item->errorcode,
 					(string) $xml->item->message
@@ -222,7 +222,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::FETCH, $parameters );
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {
@@ -252,7 +252,7 @@ class Pronamic_Gateways_Mollie_IDeal_Mollie {
 
 		$result = $this->send_request( Pronamic_Gateways_Mollie_IDeal_Actions::CHECK, $parameters );
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $result );
 
 			if ( is_wp_error( $xml ) ) {

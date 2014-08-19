@@ -57,11 +57,11 @@ class Pronamic_Gateways_IDealAdvanced_Security {
 		// The openssl_x509_read() function will throw an warning if the supplied
 		// parameter cannot be coerced into an X509 certificate
 		$resource = @openssl_x509_read( $certificate );
-		if ( $resource !== false ) {
+		if ( false !== $resource ) {
 			$output = null;
 
 			$result = openssl_x509_export( $resource, $output );
-			if ( $result !== false ) {
+			if ( false !== $result ) {
 				$output = str_replace( self::CERTIFICATE_BEGIN, '', $output );
 				$output = str_replace( self::CERTIFICATE_END, '', $output );
 
@@ -94,7 +94,7 @@ class Pronamic_Gateways_IDealAdvanced_Security {
 		$signature = null;
 
 		$resource = openssl_pkey_get_private( $privateKey, $privateKeyPassword );
-		if ( $resource !== false ) {
+		if ( false !== $resource ) {
 			// Compute signature
 			$computed = openssl_sign( $data, $result, $resource );
 			if ( $computed ) {

@@ -92,7 +92,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_WP_Pay_Gateway {
 		$seal = Pronamic_Gateways_OmniKassa_OmniKassa::compute_seal( $input_data, $this->config->secret_key );
 
 		// Check if the posted seal is equal to our seal
-		if ( strcasecmp( $input_seal, $seal ) === 0 ) {
+		if ( 0 === strcasecmp( $input_seal, $seal ) ) {
 			$response_code = $data['responseCode'];
 
 			$status = Pronamic_WP_Pay_OmniKassa_ResponseCodes::transform( $response_code );

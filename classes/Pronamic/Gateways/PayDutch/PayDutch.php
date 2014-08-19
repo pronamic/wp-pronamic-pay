@@ -157,7 +157,7 @@ class Pronamic_Gateways_PayDutch_PayDutch {
 		} else {
 			$url = filter_var( $response, FILTER_VALIDATE_URL );
 
-			if ( $url !== false ) {
+			if ( false !== $url ) {
 				$result = new stdClass();
 
 				$query = parse_url( $url, PHP_URL_QUERY );

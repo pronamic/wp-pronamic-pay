@@ -191,7 +191,7 @@ class Pronamic_WP_Pay_Admin {
 		$name     = $args['name'];
 		$selected = $args['selected'];
 
-		if ( $selected === false ) {
+		if ( false === $selected ) {
 			$selected = get_option( $id );
 		}
 

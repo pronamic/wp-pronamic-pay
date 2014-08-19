@@ -139,7 +139,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 		$document = $message->get_document();
 		$document = $this->sign_document( $document );
 
-		if ( $document !== false ) {
+		if ( false !== $document ) {
 			// Stringify
 			$data = $document->saveXML();
 
@@ -327,7 +327,7 @@ class Pronamic_Gateways_IDealAdvancedV3_Client {
 			// Warning: openssl_sign() [function.openssl-sign]: supplied key param cannot be coerced into a private key
 			$result = openssl_get_privatekey( $this->private_key, $this->private_key_password );
 
-			if ( $result !== false ) {
+			if ( false !== $result ) {
 				// Sign
 				$dsig->sign( $key );
 

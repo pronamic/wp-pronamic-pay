@@ -92,7 +92,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_WP_Pay_Gateway {
 
 		$result = $this->client->request_transaction( $transaction_request );
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$payment->set_action_url( $result->url );
 			$payment->set_transaction_id( $result->id );
 		} else {

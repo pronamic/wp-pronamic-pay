@@ -15,7 +15,7 @@ $payment = get_pronamic_payment( $post_id );
 		</td>
 	</tr>
 
-	<?php if ( $payment->get_source() == 's2member' ) : ?>
+	<?php if ( 's2member' == $payment->get_source() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -36,7 +36,7 @@ $payment = get_pronamic_payment( $post_id );
 
 	<?php endif; ?>
 
-	<?php if ( $payment->get_source() == 'wp-e-commerce' ) : ?>
+	<?php if ( 'wp-e-commerce' == $payment->get_source() ) : ?>
 
 		<tr>
 			<th scope="row">
@@ -57,7 +57,7 @@ $payment = get_pronamic_payment( $post_id );
 
 	<?php endif; ?>
 
-	<?php if ( $payment->get_source() == 'membership' ) : ?>
+	<?php if ( 'membership' == $payment->get_source() ) : ?>
 
 		<tr>
 			<th scope="row">

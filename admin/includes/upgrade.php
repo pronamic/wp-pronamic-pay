@@ -167,7 +167,7 @@ function pronamic_pay_upgrade_200() {
 				$meta['ideal_private_certificate']  = $config->private_certificate;
 
 				// OmniKassa
-				if ( $config->variant_id == 'rabobank-omnikassa' ) {
+				if ( 'rabobank-omnikassa' == $config->variant_id ) {
 					$meta['omnikassa_merchant_id'] = $config->merchant_id;
 					$meta['omnikassa_secret_key']  = $config->hash_key;
 

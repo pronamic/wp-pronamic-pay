@@ -57,7 +57,7 @@ class Pronamic_WP_Util {
 		// Load
 		$xml = simplexml_load_string( $string );
 
-		if ( $xml !== false ) {
+		if ( false !== $xml ) {
 			$result = $xml;
 		} else {
 			$error = new WP_Error( 'simplexml_load_error', __( 'Could not load the XML string.', 'pronamic_ideal' ) );

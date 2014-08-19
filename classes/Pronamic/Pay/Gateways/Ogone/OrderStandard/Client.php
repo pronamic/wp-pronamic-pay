@@ -625,7 +625,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Client {
 
 			$signature_out = $this->getSignatureOut( $data );
 
-			if ( strcasecmp( $signature, $signature_out ) === 0 ) {
+			if ( 0 === strcasecmp( $signature, $signature_out ) ) {
 				$result = filter_var_array( $data, array(
 					Pronamic_Pay_Gateways_Ogone_Parameters::ORDERID  => FILTER_SANITIZE_STRING,
 					Pronamic_Pay_Gateways_Ogone_Parameters::AMOUNT   => FILTER_VALIDATE_FLOAT,
