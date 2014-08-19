@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-07-24 08:00:46+00:00\n"
-"PO-Revision-Date: 2014-07-24 10:02+0100\n"
+"POT-Creation-Date: 2014-08-19 09:50:50+00:00\n"
+"PO-Revision-Date: 2014-08-19 11:51+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.6\n"
+"X-Generator: Poedit 1.6.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
@@ -68,7 +68,7 @@ msgstr "&mdash; Selecteer een formulier &mdash;"
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:118
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:118
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
 msgstr "Configuratie"
@@ -404,7 +404,7 @@ msgstr "Google+"
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
 #: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
+#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2 views/config-edit.php:52
 msgid "iDEAL"
@@ -452,11 +452,11 @@ msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
 #: admin/tab-branding.php:113 admin/tab-methods.php:82
+#: classes/Pronamic/WooCommerce/IDeal/MisterCashGateway.php:26
 msgid "Mister Cash"
 msgstr "Mister Cash"
 
-#: admin/tab-branding.php:125
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:107
+#: admin/tab-branding.php:125 classes/Pronamic/WooCommerce/Pay/Gateway.php:107
 msgid "Icon"
 msgstr "Icoon"
 
@@ -486,7 +486,7 @@ msgstr "OmniKassa"
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:92
 msgid "Title"
 msgstr "Titel"
 
@@ -619,7 +619,7 @@ msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:146
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:149
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -981,7 +981,7 @@ msgstr "iDEAL-instellingen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:89
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:91
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:88
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
@@ -1031,19 +1031,19 @@ msgstr ""
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:110
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:111
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:122
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:128
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -1222,12 +1222,12 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:91
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:93
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:94
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:97
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:101
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:102
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
@@ -1236,13 +1236,13 @@ msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:94
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:101
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:98
 #: views/meta-box-payment-info.php:27
 msgid "Description"
 msgstr "Beschrijving"
@@ -1384,7 +1384,7 @@ msgstr "Selecteer configuratie"
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:109
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:162
+#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:163
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -1565,19 +1565,23 @@ msgstr "Betalen"
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:89
+#: classes/Pronamic/WooCommerce/IDeal/MisterCashGateway.php:37
+msgid "Enable Mister Cash"
+msgstr "Mister Cash inschakelen"
+
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:86
 msgid "Enable/Disable"
 msgstr "Inschakelen/uitschakelen"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:101
 msgid ""
-"Give the customer instructions for paying via iDEAL, and let them know that "
+"Give the customer instructions for paying via %s, and let them know that "
 "their order won't be shipping until the money is received."
 msgstr ""
-"Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat "
-"hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
+"Geef de klant instructies voor het betalen via %s, en laat hen weten dat hun "
+"bestelling niet zal worden verstuurd totdat het geld is ontvangen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:104
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:104
 msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
@@ -1585,36 +1589,36 @@ msgstr ""
 "Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
 "veilige omgeving van uw eigen bank."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:112
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:112
 msgid "This controls the icon which the user sees during checkout."
 msgstr "Hiermee beheer je het icoon die gebruikers zien tijdens het afrekenen."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:113
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:135
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:113
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:135
 msgid "Default: <code>%s</code>."
 msgstr "Standaard: <code>%s</code>."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:124
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:124
 msgid "Payment Options"
 msgstr "Betalingsopties"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:129
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:129
 msgid "Payment Description"
 msgstr "Betalingsomschrijving"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:134
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:134
 msgid "This controls the payment description."
 msgstr "Hiermee beheer je de betalingsomschrijving."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:136
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:136
 msgid "Tags: %s"
 msgstr "Tags: %s"
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:214
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:213
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:240
+#: classes/Pronamic/WooCommerce/Pay/Gateway.php:239
 msgid ""
 "You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
 "checkout settings page</a>."
