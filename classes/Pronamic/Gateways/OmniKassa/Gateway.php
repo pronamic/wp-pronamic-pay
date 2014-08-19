@@ -52,7 +52,7 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_WP_Pay_Gateway {
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $payment_method = null ) {
 		$payment->set_transaction_id( md5( time() . $data->get_order_id() ) );
 		$payment->set_action_url( $this->client->get_action_url() );
 
@@ -63,6 +63,12 @@ class Pronamic_Gateways_OmniKassa_Gateway extends Pronamic_WP_Pay_Gateway {
 		$this->client->set_automatic_response_url( home_url( '/' ) );
 		$this->client->set_amount( $data->get_amount() );
 		$this->client->set_transaction_reference( $payment->get_transaction_id() );
+		
+		if ( isset( $payment_method ) ) {
+			if ( 'mister_cash' == $payment_method ) {
+				$this->client->addPaymentMeanBrand( 'BCMC' );
+			}
+		}
 	}
 
 	/////////////////////////////////////////////////
