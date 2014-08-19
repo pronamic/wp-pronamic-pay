@@ -48,6 +48,7 @@ class Pronamic_WooCommerce_IDeal_AddOn {
 	 */
 	public static function payment_gateways( $gateways ) {
 		$gateways[] = 'Pronamic_WooCommerce_IDeal_IDealGateway';
+		$gateways[] = 'Pronamic_WooCommerce_IDeal_MisterCashGateway';
 
 		return $gateways;
 	}
