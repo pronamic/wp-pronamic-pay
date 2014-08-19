@@ -218,7 +218,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		Pronamic_Gateways_IDealBasic_Listener::listen();
-		Pronamic_Gateways_OmniKassa_Listener::listen();
+		Pronamic_WP_Pay_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
 		Pronamic_Gateways_Mollie_Listener::listen();
 		Pronamic_Pay_Gateways_Ogone_Listener::listen();
@@ -538,7 +538,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_Gateways_Mollie_Config'                      => 'Pronamic_Gateways_Mollie_Gateway',
 			'Pronamic_Gateways_Mollie_IDeal_Config'                => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
 			'Pronamic_Pay_Gateways_MultiSafepay_Config'            => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
-			'Pronamic_Gateways_OmniKassa_Config'                   => 'Pronamic_Gateways_OmniKassa_Gateway',
+			'Pronamic_WP_Pay_Gateways_OmniKassa_Config'            => 'Pronamic_WP_Pay_Gateways_OmniKassa_Gateway',
 			'Pronamic_Gateways_PayDutch_Config'                    => 'Pronamic_Gateways_PayDutch_Gateway',
 			'Pronamic_WP_Pay_Gateways_Qantani_Config'              => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
 			'Pronamic_Gateways_Sisow_Config'                       => 'Pronamic_Gateways_Sisow_Gateway',
