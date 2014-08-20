@@ -45,7 +45,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Bootstrap the add-ons
 		if ( self::can_be_used() ) {
-			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
+			Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
