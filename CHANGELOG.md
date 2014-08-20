@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.8.6
+*	Fix - OmniKassa - Fixed link to the OmniKassa test environment.
+*	Feature - WooCommerce - Added extra gateway for the Mister Cash payment method.
+*	Tweak - No longer create custom database tables for payments and gateway configurations.
+
 ## 2.8.5
 *	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.
 
