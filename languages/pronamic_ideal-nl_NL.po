@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-08-19 09:50:50+00:00\n"
-"PO-Revision-Date: 2014-08-19 11:51+0100\n"
+"POT-Creation-Date: 2014-08-20 14:36:44+00:00\n"
+"PO-Revision-Date: 2014-08-20 16:37+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -14,7 +14,7 @@ msgstr ""
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
@@ -26,7 +26,7 @@ msgid "GitHub"
 msgstr "GitHub"
 
 #: admin/extensions-wp-admin.php:5 admin/gateways-wp-admin.php:5
-#: admin/methods-wp-admin.php:5
+#: admin/methods-wp-admin.php:7
 msgid "Name"
 msgstr "Naam"
 
@@ -68,7 +68,7 @@ msgstr "&mdash; Selecteer een formulier &mdash;"
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:118
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:121
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
 msgstr "Configuratie"
@@ -315,12 +315,17 @@ msgstr "Betalingsformulier %d"
 msgid "Payment %d"
 msgstr "Betaling %d"
 
+#: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:110
+msgid "Icon"
+msgstr "Icoon"
+
 #: admin/methods-wp-admin.php:8
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:432
-#: classes/Pronamic/WP/Pay/Admin.php:433 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:436
+#: classes/Pronamic/WP/Pay/Admin.php:437 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -391,7 +396,8 @@ msgid "Google+"
 msgstr "Google+"
 
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
-#: admin/tab-branding.php:23 admin/tab-pages_generator.php:52
+#: admin/tab-branding.php:23 admin/tab-methods.php:78
+#: admin/tab-pages_generator.php:52
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
@@ -402,11 +408,12 @@ msgstr "Google+"
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
+#: classes/Pronamic/WP/Pay/Admin.php:426 classes/Pronamic/WP/Pay/Admin.php:427
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:26
 #: includes/ithemes-exchange/settings.php:2
-#: includes/ithemes-exchange/wizard-settings.php:2 views/config-edit.php:52
+#: includes/ithemes-exchange/wizard-settings.php:2
+#: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
+#: views/config-edit.php:52
 msgid "iDEAL"
 msgstr "iDEAL"
 
@@ -451,14 +458,9 @@ msgid "Banner 100&times;100 (without campaign statements)"
 msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
-#: admin/tab-branding.php:113 admin/tab-methods.php:82
-#: classes/Pronamic/WooCommerce/IDeal/MisterCashGateway.php:26
+#: admin/tab-branding.php:113 admin/tab-methods.php:88
 msgid "Mister Cash"
 msgstr "Mister Cash"
-
-#: admin/tab-branding.php:125 classes/Pronamic/WooCommerce/Pay/Gateway.php:107
-msgid "Icon"
-msgstr "Icoon"
 
 #: admin/tab-branding.php:132
 msgid "Logo Extra Small"
@@ -486,7 +488,7 @@ msgstr "OmniKassa"
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:92
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:95
 msgid "Title"
 msgstr "Titel"
 
@@ -619,7 +621,7 @@ msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:146
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:149
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -759,19 +761,19 @@ msgstr "Direct eBanking"
 msgid "Giropay"
 msgstr "Giropay"
 
-#: admin/tab-methods.php:77
+#: admin/tab-methods.php:82
 msgid "MiniTix"
 msgstr "MiniTix"
 
-#: admin/tab-methods.php:86
+#: admin/tab-methods.php:92
 msgid "paysafecard"
 msgstr "paysafecard"
 
-#: admin/tab-methods.php:90
+#: admin/tab-methods.php:96
 msgid "PayPal"
 msgstr "PayPal"
 
-#: admin/tab-methods.php:94
+#: admin/tab-methods.php:100
 msgid "Wallie"
 msgstr "Wallie"
 
@@ -981,7 +983,7 @@ msgstr "iDEAL-instellingen"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:89
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:88
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:91
 msgid "Enable iDEAL"
 msgstr "iDEAL inschakelen"
 
@@ -1031,19 +1033,19 @@ msgstr ""
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:111
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:122
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:128
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -1099,60 +1101,6 @@ msgstr "&mdash; Andere banken &mdash;"
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
 msgid "Choose your bank"
 msgstr "Kies uw bank"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:104
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
-#: views/meta-box-payment-info.php:35
-msgid "Amount"
-msgstr "Bedrag"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:107
-msgid "Currency Code"
-msgstr "Valuta code"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108
-#: views/config-edit.php:57 views/config-edit.php:191
-#: views/config-edit.php:243
-msgid "Merchant ID"
-msgstr "Winkelier ID"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:109
-msgid "Order ID"
-msgstr "Bestelling ID"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
-msgid "Transaction Date Time"
-msgstr "Transactie tijdstip"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:111
-msgid "Transaction Reference"
-msgstr "Transactie referentie"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
-#: views/config-edit.php:203
-msgid "Key Version"
-msgstr "Sleutel versie"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:113
-msgid "Authorisation ID"
-msgstr "Autorisatie ID"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
-msgid "Payment Mean Brand"
-msgstr "Betaalmethode merknaam"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115
-msgid "Payment Mean Type"
-msgstr "Betaalmethode type"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
-msgid "Response Code"
-msgstr "Antwoord code"
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:122
-msgid "OmniKassa transaction data in response message:"
-msgstr "OmniKassa transactiedata in antwoordbericht:"
 
 #: classes/Pronamic/Gateways/Sisow/Sisow.php:136
 msgid "Unknwon Sisow message (%s)"
@@ -1222,12 +1170,12 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:91
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:94
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:97
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
@@ -1236,13 +1184,13 @@ msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:94
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:97
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:98
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:101
 #: views/meta-box-payment-info.php:27
 msgid "Description"
 msgstr "Beschrijving"
@@ -1384,7 +1332,7 @@ msgstr "Selecteer configuratie"
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:109
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:163
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -1400,7 +1348,7 @@ msgstr "ID"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:467
+#: classes/Pronamic/WP/Pay/Admin.php:471
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1425,6 +1373,13 @@ msgstr "Gateway"
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:25
 msgid "Transaction"
 msgstr "Transactie"
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:110
+#: views/meta-box-payment-info.php:35
+msgid "Amount"
+msgstr "Bedrag"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
 #: views/meta-box-payment-info.php:87
@@ -1475,7 +1430,7 @@ msgstr "Voltooid"
 msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
-#: classes/Pronamic/WP/Pay/Admin.php:330
+#: classes/Pronamic/WP/Pay/Admin.php:334
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a href=\"%s"
@@ -1485,7 +1440,7 @@ msgstr ""
 "betalingen van %d overschreden, je dient een geldige licentie sleutel in te "
 "voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:342
+#: classes/Pronamic/WP/Pay/Admin.php:346
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
@@ -1493,16 +1448,16 @@ msgstr ""
 "Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
 "te maken van extra extensies, support en meer dan %d betalingen."
 
-#: classes/Pronamic/WP/Pay/Admin.php:440 classes/Pronamic/WP/Pay/Admin.php:441
+#: classes/Pronamic/WP/Pay/Admin.php:444 classes/Pronamic/WP/Pay/Admin.php:445
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:448 classes/Pronamic/WP/Pay/Admin.php:449
+#: classes/Pronamic/WP/Pay/Admin.php:452 classes/Pronamic/WP/Pay/Admin.php:453
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:457 classes/Pronamic/WP/Pay/Admin.php:458
+#: classes/Pronamic/WP/Pay/Admin.php:461 classes/Pronamic/WP/Pay/Admin.php:462
 msgid "Tools"
 msgstr "Extra"
 
@@ -1528,15 +1483,15 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:448
+#: classes/Pronamic/WP/Pay/Plugin.php:467
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:568
+#: classes/Pronamic/WP/Pay/Plugin.php:587
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WP/Util.php:32
+#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:32
 msgid ""
 "The response code (<code>%s<code>) was incorrect, required response code "
 "<code>%s</code>."
@@ -1544,7 +1499,7 @@ msgstr ""
 "De antwoord code (<code>%s<code>) was onjuist, veriste antwoorde code <code>"
 "%s</code>."
 
-#: classes/Pronamic/WP/Util.php:63
+#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:63
 msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
@@ -1564,75 +1519,6 @@ msgstr "Betalen"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:169
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
-
-#: classes/Pronamic/WooCommerce/IDeal/MisterCashGateway.php:37
-msgid "Enable Mister Cash"
-msgstr "Mister Cash inschakelen"
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:86
-msgid "Enable/Disable"
-msgstr "Inschakelen/uitschakelen"
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:101
-msgid ""
-"Give the customer instructions for paying via %s, and let them know that "
-"their order won't be shipping until the money is received."
-msgstr ""
-"Geef de klant instructies voor het betalen via %s, en laat hen weten dat hun "
-"bestelling niet zal worden verstuurd totdat het geld is ontvangen."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:104
-msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank."
-msgstr ""
-"Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
-"veilige omgeving van uw eigen bank."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:112
-msgid "This controls the icon which the user sees during checkout."
-msgstr "Hiermee beheer je het icoon die gebruikers zien tijdens het afrekenen."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:113
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:135
-msgid "Default: <code>%s</code>."
-msgstr "Standaard: <code>%s</code>."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:124
-msgid "Payment Options"
-msgstr "Betalingsopties"
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:129
-msgid "Payment Description"
-msgstr "Betalingsomschrijving"
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:134
-msgid "This controls the payment description."
-msgstr "Hiermee beheer je de betalingsomschrijving."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:136
-msgid "Tags: %s"
-msgstr "Tags: %s"
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:213
-msgid "Awaiting iDEAL payment."
-msgstr "In afwachting van iDEAL-betaling."
-
-#: classes/Pronamic/WooCommerce/Pay/Gateway.php:239
-msgid ""
-"You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
-"checkout settings page</a>."
-msgstr ""
-"Je moet een iDEAL-configuratie selecteren op de <a href=\"%s\">WooCommerce "
-"afrekenen instellingen pagina</a>."
-
-#: classes/Pronamic/WooCommerce/PaymentData.php:61
-msgid "Order {order_number}"
-msgstr "Bestelling {order_number}"
-
-#: classes/Pronamic/WooCommerce/PaymentData.php:83
-msgid "WooCommerce order %s"
-msgstr "WooCommerce bestelling %s"
 
 #: includes/gateways.php:276
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
@@ -1758,6 +1644,79 @@ msgstr "Geen betalingsformulieren gevonden"
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
 
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:89
+msgid "Enable/Disable"
+msgstr "Inschakelen/uitschakelen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:104
+msgid ""
+"Give the customer instructions for paying via %s, and let them know that "
+"their order won't be shipping until the money is received."
+msgstr ""
+"Geef de klant instructies voor het betalen via %s, en laat hen weten dat hun "
+"bestelling niet zal worden verstuurd totdat het geld is ontvangen."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:107
+msgid ""
+"With iDEAL you can easily pay online in the secure environment of your own "
+"bank."
+msgstr ""
+"Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
+"veilige omgeving van uw eigen bank."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:115
+msgid "This controls the icon which the user sees during checkout."
+msgstr "Hiermee beheer je het icoon die gebruikers zien tijdens het afrekenen."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:116
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:138
+msgid "Default: <code>%s</code>."
+msgstr "Standaard: <code>%s</code>."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:127
+msgid "Payment Options"
+msgstr "Betalingsopties"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:132
+msgid "Payment Description"
+msgstr "Betalingsomschrijving"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:137
+msgid "This controls the payment description."
+msgstr "Hiermee beheer je de betalingsomschrijving."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
+msgid "Tags: %s"
+msgstr "Tags: %s"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:198
+msgid "Awaiting iDEAL payment."
+msgstr "In afwachting van iDEAL-betaling."
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:224
+msgid ""
+"You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
+"checkout settings page</a>."
+msgstr ""
+"Je moet een iDEAL-configuratie selecteren op de <a href=\"%s\">WooCommerce "
+"afrekenen instellingen pagina</a>."
+
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:26
+msgid "Bancontact/Mister Cash"
+msgstr "Bancontact/Mister Cash"
+
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:38
+msgid "Enable Bancontact/Mister Cash"
+msgstr "Bancontact/Mister Cash inschakelen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:61
+msgid "Order {order_number}"
+msgstr "Bestelling {order_number}"
+
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:83
+msgid "WooCommerce order %s"
+msgstr "WooCommerce bestelling %s"
+
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:120
 msgid "Payment Method"
 msgstr "Betaalmethode"
@@ -1809,6 +1768,53 @@ msgstr "Transacties"
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:138
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:113
+msgid "Currency Code"
+msgstr "Valuta code"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:114
+#: views/config-edit.php:57 views/config-edit.php:191
+#: views/config-edit.php:243
+msgid "Merchant ID"
+msgstr "Winkelier ID"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:115
+msgid "Order ID"
+msgstr "Bestelling ID"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:116
+msgid "Transaction Date Time"
+msgstr "Transactie tijdstip"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:117
+msgid "Transaction Reference"
+msgstr "Transactie referentie"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:118
+#: views/config-edit.php:203
+msgid "Key Version"
+msgstr "Sleutel versie"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:119
+msgid "Authorisation ID"
+msgstr "Autorisatie ID"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:120
+msgid "Payment Mean Brand"
+msgstr "Betaalmethode merknaam"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:121
+msgid "Payment Mean Type"
+msgstr "Betaalmethode type"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
+msgid "Response Code"
+msgstr "Antwoord code"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:128
+msgid "OmniKassa transaction data in response message:"
+msgstr "OmniKassa transactiedata in antwoordbericht:"
 
 #: views/config-edit.php:42
 msgid "Mode"
@@ -2414,12 +2420,12 @@ msgctxt "readme.md"
 msgid "Provider"
 msgstr "Provider"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:105
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:111
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:112
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
