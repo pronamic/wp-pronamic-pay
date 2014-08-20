@@ -69,7 +69,7 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
+					exclude: [ 'deploy/.*', 'wp-svn/.*', 'wp-content/.*' ],
 				}
 			}
 		},
