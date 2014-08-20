@@ -78,7 +78,7 @@ class Pronamic_Gateways_PayDutch_Gateway extends Pronamic_WP_Pay_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $method = null ) {
 		$transaction_request = $this->client->get_transaction_request();
 
 		$transaction_request->reference   = $payment->get_id();
