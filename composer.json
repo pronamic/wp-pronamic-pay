@@ -30,6 +30,16 @@
             "role": "Developer"
 		}
 	],
+    "repositories": [
+		{
+			"type": "composer",
+			"url": "http://wpackagist.org/"
+		},
+        {
+            "type": "vcs",
+            "url": "https://github.com/wp-pay-extensions/woocommerce"
+        }
+    ],
 	"require": {
 		"php": ">=5.2.0",
 		"xrstf/composer-php52": "1.*",
@@ -44,7 +54,8 @@
 		"wp-pay-gateways/omnikassa": "dev-develop",
 		"wp-pay-gateways/sisow": "dev-develop",
 		"wp-pay-gateways/targetpay": "dev-develop",
-		"wp-pay-gateways/qantani": "dev-develop"
+		"wp-pay-gateways/qantani": "dev-develop",
+		"wp-pay-extensions/woocommerce": "dev-develop"
 	},
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master"
