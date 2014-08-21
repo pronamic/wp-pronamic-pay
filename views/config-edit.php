@@ -113,7 +113,6 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
-			/*
 			array(
 				'title'       => __( 'Success CallbackURL', 'pronamic_ideal' ),
 				'type'        => 'text',
@@ -128,7 +127,6 @@ $sections = array(
 				'value'       => add_query_arg( 'paydutch_callback', '', home_url( '/' ) ),
 				'readonly'    => true,
 			),
-			*/
 		),
 	),
 	array(
