@@ -371,6 +371,30 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	</tbody>
 </table>
 
+## Payment methods
+
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">Gateway support</th>
+			<th scope="col">Extension support</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="https://www.ideal.nl/">iDEAL</a></td>
+			<td>All gateways</td>
+			<td>All extensions</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.bancontact.com/">Bancontact / Mister Cash</a></td>
+			<td>Mollie, Rabobank OmniKassa</td>
+			<td>WooCommerce</td>
+		</tr>
+	</tbody>
+</table>
+
 
 ## Installation
 
