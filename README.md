@@ -388,7 +388,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>All extensions</td>
 		</tr>
 		<tr>
-			<td><a href="https://www.bancontact.com/">Bancontact / Mister Cash</a></td>
+			<td><a href="https://www.bancontact.com/">Bancontact/Mister Cash</a></td>
 			<td>Mollie, Rabobank OmniKassa</td>
 			<td>WooCommerce</td>
 		</tr>
