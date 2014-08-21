@@ -539,7 +539,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_Gateways_Mollie_IDeal_Config'                => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
 			'Pronamic_Pay_Gateways_MultiSafepay_Config'            => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
 			'Pronamic_WP_Pay_Gateways_OmniKassa_Config'            => 'Pronamic_WP_Pay_Gateways_OmniKassa_Gateway',
-			'Pronamic_Gateways_PayDutch_Config'                    => 'Pronamic_Gateways_PayDutch_Gateway',
+			'Pronamic_WP_Pay_Gateways_PayDutch_Config'             => 'Pronamic_WP_Pay_Gateways_PayDutch_Gateway',
 			'Pronamic_WP_Pay_Gateways_Qantani_Config'              => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
 			'Pronamic_Gateways_Sisow_Config'                       => 'Pronamic_Gateways_Sisow_Gateway',
 			'Pronamic_WP_Pay_Gateways_TargetPay_Config'            => 'Pronamic_Gateways_TargetPay_Gateway',
