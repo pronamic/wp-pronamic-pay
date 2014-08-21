@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "97c1ad2bb960f7d29b67776cd644e156",
+    "hash": "50e48d34e03abba97627865a12fce42f",
     "packages": [
         {
             "name": "composer/installers",
@@ -597,6 +597,67 @@
                 "wp"
             ],
             "time": "2014-08-19 15:03:13"
+        },
+        {
+            "name": "wp-pay-gateways/paydutch",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/paydutch.git",
+                "reference": "80ed30d9f105288e04e1d3e409cd63e64a97b8fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/paydutch/zipball/80ed30d9f105288e04e1d3e409cd63e64a97b8fb",
+                "reference": "80ed30d9f105288e04e1d3e409cd63e64a97b8fb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PayDutch driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/paydutch/",
+            "keywords": [
+                "gateway",
+                "pay",
+                "paydutch",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "support": {
+                "email": "support@wp-pay.org",
+                "issues": "https://github.com/wp-pay-gateways/paydutch/issues",
+                "source": "https://github.com/wp-pay-gateways/paydutch"
+            },
+            "time": "2014-08-21 11:01:35"
         },
         {
             "name": "wp-pay-gateways/qantani",
@@ -1398,6 +1459,7 @@
         "wp-pay-gateways/mollie-ideal": 20,
         "wp-pay-gateways/ogone": 20,
         "wp-pay-gateways/omnikassa": 20,
+        "wp-pay-gateways/paydutch": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
         "wp-pay-gateways/qantani": 20,
