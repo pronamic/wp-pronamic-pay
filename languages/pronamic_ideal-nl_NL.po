@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-08-20 14:36:44+00:00\n"
-"PO-Revision-Date: 2014-08-20 16:37+0100\n"
+"POT-Creation-Date: 2014-08-21 13:08:52+00:00\n"
+"PO-Revision-Date: 2014-08-21 15:17+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -250,7 +250,7 @@ msgstr "Provincie"
 msgid "Zip"
 msgstr "Postcode"
 
-#: admin/gravityforms/meta-box-config.php:416 views/config-edit.php:473
+#: admin/gravityforms/meta-box-config.php:416 views/config-edit.php:487
 msgid "Country"
 msgstr "Land"
 
@@ -477,7 +477,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr "Mollie bage - Betaling groen"
 
 #: admin/tab-branding.php:182 admin/tab-branding.php:188
-#: admin/tab-branding.php:194 views/config-edit.php:186
+#: admin/tab-branding.php:194 views/config-edit.php:200
 msgid "OmniKassa"
 msgstr "OmniKassa"
 
@@ -1095,9 +1095,9 @@ msgstr "&mdash; Andere banken &mdash;"
 #: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:95
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
 #: classes/Pronamic/Gateways/Mollie/IDeal/Gateway.php:67
-#: classes/Pronamic/Gateways/PayDutch/Gateway.php:66
 #: classes/Pronamic/Gateways/Sisow/Gateway.php:52
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
+#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
 msgid "Choose your bank"
 msgstr "Kies uw bank"
@@ -1337,7 +1337,7 @@ msgid "Order %s"
 msgstr "Bestelling %s"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
-#: views/config-edit.php:591
+#: views/config-edit.php:605
 msgid "Variant"
 msgstr "Variant"
 
@@ -1774,8 +1774,8 @@ msgid "Currency Code"
 msgstr "Valuta code"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:114
-#: views/config-edit.php:57 views/config-edit.php:191
-#: views/config-edit.php:243
+#: views/config-edit.php:57 views/config-edit.php:205
+#: views/config-edit.php:257
 msgid "Merchant ID"
 msgstr "Winkelier ID"
 
@@ -1792,7 +1792,7 @@ msgid "Transaction Reference"
 msgstr "Transactie referentie"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:118
-#: views/config-edit.php:203
+#: views/config-edit.php:217
 msgid "Key Version"
 msgstr "Sleutel versie"
 
@@ -1868,19 +1868,27 @@ msgstr "PayDutch"
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: views/config-edit.php:112 views/config-edit.php:383
+#: views/config-edit.php:112 views/config-edit.php:397
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: views/config-edit.php:119
+#: views/config-edit.php:117
+msgid "Success CallbackURL"
+msgstr "Success CallbackURL"
+
+#: views/config-edit.php:124
+msgid "Fail CallbackURL"
+msgstr "Fail CallbackURL"
+
+#: views/config-edit.php:133
 msgid "Mollie"
 msgstr "Mollie"
 
-#: views/config-edit.php:124
+#: views/config-edit.php:138
 msgid "Partner ID"
 msgstr "Partner ID"
 
-#: views/config-edit.php:127
+#: views/config-edit.php:141
 msgid ""
 "Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle "
 "betaling tegoed bijgeschreven."
@@ -1888,11 +1896,11 @@ msgstr ""
 "Mollie.nl accountnummer. Op het gespecificeerde account wordt na succesvolle "
 "betaling tegoed bijgeschreven."
 
-#: views/config-edit.php:132
+#: views/config-edit.php:146
 msgid "Profile Key"
 msgstr "Profiel sleutel"
 
-#: views/config-edit.php:136
+#: views/config-edit.php:150
 msgid ""
 "Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
 "linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
@@ -1902,31 +1910,31 @@ msgstr ""
 "linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
 "href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
 
-#: views/config-edit.php:149
+#: views/config-edit.php:163
 msgid "Webhook"
 msgstr "Webhook"
 
-#: views/config-edit.php:159
+#: views/config-edit.php:173
 msgid "MultiSafepay"
 msgstr "MultiSafepay"
 
-#: views/config-edit.php:164
+#: views/config-edit.php:178
 msgid "Account ID"
 msgstr "Account ID"
 
-#: views/config-edit.php:171
+#: views/config-edit.php:185
 msgid "Site ID"
 msgstr "Site ID"
 
-#: views/config-edit.php:178
+#: views/config-edit.php:192
 msgid "Site Security Code"
 msgstr "Site Security Code"
 
-#: views/config-edit.php:197 views/config-edit.php:223
+#: views/config-edit.php:211 views/config-edit.php:237
 msgid "Secret Key"
 msgstr "Geheime sleutel"
 
-#: views/config-edit.php:206
+#: views/config-edit.php:220
 msgid ""
 "You can find the key version in the <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
@@ -1934,15 +1942,15 @@ msgstr ""
 "Je kunt de sleutel versie vind in het <a href=\"%s\" target=\"_blank"
 "\">OmniKassa Download Dashboard</a>."
 
-#: views/config-edit.php:211
+#: views/config-edit.php:225
 msgid "Buckaroo"
 msgstr "Buckaroo"
 
-#: views/config-edit.php:216
+#: views/config-edit.php:230
 msgid "Website Key"
 msgstr "Website sleutel"
 
-#: views/config-edit.php:219
+#: views/config-edit.php:233
 msgid ""
 "You can find your Buckaroo website keys in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Profile\" » \"Website\"."
@@ -1950,7 +1958,7 @@ msgstr ""
 "Je kunt je Buckaroo website sleutels vinden in de <a href=\"%s\" target="
 "\"_blank\">Buckaroo Payment Plaza</a> onder \"Profiel\" » \"Website\"."
 
-#: views/config-edit.php:226
+#: views/config-edit.php:240
 msgid ""
 "You can find your Buckaroo secret key in the <a href=\"%s\" target=\"_blank"
 "\">Buckaroo Payment Plaza</a> under \"Configuration\" » \"Secret Key for "
@@ -1960,15 +1968,15 @@ msgstr ""
 "\"_blank\">Buckaroo Payment Plaza</a> onder \"Configuratie\" » \"Secret key "
 "voor Digitale handtekening\"."
 
-#: views/config-edit.php:229
+#: views/config-edit.php:243
 msgid "Push URI"
 msgstr "Push URI"
 
-#: views/config-edit.php:238
+#: views/config-edit.php:252
 msgid "ICEPAY"
 msgstr "ICEPAY"
 
-#: views/config-edit.php:246
+#: views/config-edit.php:260
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1977,19 +1985,19 @@ msgstr ""
 "Je kunt je winkelier ID vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
-#: views/config-edit.php:247 views/config-edit.php:258
+#: views/config-edit.php:261 views/config-edit.php:272
 msgid "https://www.icepay.com/EN/Login"
 msgstr "https://www.icepay.com/NL/Login"
 
-#: views/config-edit.php:248 views/config-edit.php:259
+#: views/config-edit.php:262 views/config-edit.php:273
 msgid "https://www.icepay.com/Merchant/EN/Websites"
 msgstr "https://www.icepay.com/Merchant/NL/Websites"
 
-#: views/config-edit.php:253
+#: views/config-edit.php:267
 msgid "Secret Code"
 msgstr "Geheime code"
 
-#: views/config-edit.php:257
+#: views/config-edit.php:271
 msgid ""
 "You can find your Secret Code on your <a href=\"%s\" target=\"_blank"
 "\">ICEPAY account page</a> under <a href=\"%s\" target=\"_blank\">My "
@@ -1998,23 +2006,23 @@ msgstr ""
 "Je kunt je geheime code vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
 "account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
-#: views/config-edit.php:263
+#: views/config-edit.php:277
 msgid "Thank you page URL"
 msgstr "Bedanktpagina URL"
 
-#: views/config-edit.php:270
+#: views/config-edit.php:284
 msgid "Error page URL"
 msgstr "Foutmeldingspagina URL"
 
-#: views/config-edit.php:277
+#: views/config-edit.php:291
 msgid "Postback URL"
 msgstr "Postback URL"
 
-#: views/config-edit.php:286
+#: views/config-edit.php:300
 msgid "Sisow"
 msgstr "Sisow"
 
-#: views/config-edit.php:295
+#: views/config-edit.php:309
 msgid ""
 "You can find your Merchant ID on your <a href=\"%s\" target=\"_blank\">Sisow "
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
@@ -2022,7 +2030,7 @@ msgstr ""
 "Je kunt je Merchant ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
-#: views/config-edit.php:306
+#: views/config-edit.php:320
 msgid ""
 "You can find your Merchant Key on your <a href=\"%s\" target=\"_blank"
 "\">Sisow account page</a> under <a href=\"%s\" target=\"_blank\">My profile</"
@@ -2031,58 +2039,58 @@ msgstr ""
 "Je kunt je Merchant Key vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
-#: views/config-edit.php:314
+#: views/config-edit.php:328
 msgid "TargetPay"
 msgstr "TargetPay"
 
-#: views/config-edit.php:319
+#: views/config-edit.php:333
 msgid "Layout Code"
 msgstr "Layout code"
 
-#: views/config-edit.php:321
+#: views/config-edit.php:335
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 
-#: views/config-edit.php:326
+#: views/config-edit.php:340
 msgid "Ogone"
 msgstr "Ogone"
 
-#: views/config-edit.php:331
+#: views/config-edit.php:345
 msgid "PSPID"
 msgstr "PSPID"
 
-#: views/config-edit.php:335
+#: views/config-edit.php:349
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 "Als je gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
-#: views/config-edit.php:341
+#: views/config-edit.php:355
 msgid "Character encoding"
 msgstr "Tekencodering"
 
-#: views/config-edit.php:349
+#: views/config-edit.php:363
 msgid "Hash algorithm"
 msgstr "Hash-algoritme"
 
-#: views/config-edit.php:352
+#: views/config-edit.php:366
 msgid "SHA-1"
 msgstr "SHA-1"
 
-#: views/config-edit.php:353
+#: views/config-edit.php:367
 msgid "SHA-256"
 msgstr "SHA-256"
 
-#: views/config-edit.php:354
+#: views/config-edit.php:368
 msgid "SHA-512"
 msgstr "SHA-512"
 
-#: views/config-edit.php:360 views/config-edit.php:396
+#: views/config-edit.php:374 views/config-edit.php:410
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-IN versleuteling"
 
-#: views/config-edit.php:363 views/config-edit.php:399
+#: views/config-edit.php:377 views/config-edit.php:413
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -2092,11 +2100,11 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Verificatie data en herkomst) van je "
 "iDEAL provider."
 
-#: views/config-edit.php:368
+#: views/config-edit.php:382
 msgid "SHA-OUT Pass phrase"
 msgstr "SHA-OUT versleuteling"
 
-#: views/config-edit.php:371
+#: views/config-edit.php:385
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
@@ -2106,102 +2114,102 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/config-edit.php:376 views/meta-box-payment-source.php:64
+#: views/config-edit.php:390 views/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: views/config-edit.php:391
+#: views/config-edit.php:405
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: views/config-edit.php:404
+#: views/config-edit.php:418
 msgid "3-D Secure"
 msgstr "3-D Secure"
 
-#: views/config-edit.php:406
+#: views/config-edit.php:420
 msgid "Enable 3-D Secure protocol"
 msgstr "3-D Secure protocol inschakelen"
 
-#: views/config-edit.php:412
+#: views/config-edit.php:426
 msgid "Qantani"
 msgstr "Qantani"
 
-#: views/config-edit.php:436
+#: views/config-edit.php:450
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: views/config-edit.php:441
+#: views/config-edit.php:455
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: views/config-edit.php:447 views/config-edit.php:809
+#: views/config-edit.php:461 views/config-edit.php:823
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: views/config-edit.php:454 views/config-edit.php:833
+#: views/config-edit.php:468 views/config-edit.php:847
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: views/config-edit.php:462
+#: views/config-edit.php:476
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: views/config-edit.php:467
+#: views/config-edit.php:481
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: views/config-edit.php:469
+#: views/config-edit.php:483
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: views/config-edit.php:475
+#: views/config-edit.php:489
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: views/config-edit.php:479
+#: views/config-edit.php:493
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: views/config-edit.php:481
+#: views/config-edit.php:495
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: views/config-edit.php:485
+#: views/config-edit.php:499
 msgid "Locality"
 msgstr "Localiteit"
 
-#: views/config-edit.php:487
+#: views/config-edit.php:501
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: views/config-edit.php:491
+#: views/config-edit.php:505
 msgid "Organization"
 msgstr "Organisatie"
 
-#: views/config-edit.php:493
+#: views/config-edit.php:507
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: views/config-edit.php:497
+#: views/config-edit.php:511
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: views/config-edit.php:499
+#: views/config-edit.php:513
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: views/config-edit.php:503
+#: views/config-edit.php:517
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: views/config-edit.php:506
+#: views/config-edit.php:520
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: views/config-edit.php:507
+#: views/config-edit.php:521
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -2209,7 +2217,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: views/config-edit.php:508
+#: views/config-edit.php:522
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -2220,39 +2228,39 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: views/config-edit.php:512
+#: views/config-edit.php:526
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: views/config-edit.php:524
+#: views/config-edit.php:538
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: views/config-edit.php:546
+#: views/config-edit.php:560
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: views/config-edit.php:552
+#: views/config-edit.php:566
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: views/config-edit.php:555
+#: views/config-edit.php:569
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: views/config-edit.php:560
+#: views/config-edit.php:574
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: views/config-edit.php:571
+#: views/config-edit.php:585
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: views/config-edit.php:798
+#: views/config-edit.php:812
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: views/config-edit.php:802
+#: views/config-edit.php:816
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -2260,7 +2268,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: views/config-edit.php:818
+#: views/config-edit.php:832
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -2430,32 +2438,32 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
-#: views/config-edit.php:143
+#: views/config-edit.php:157
 msgctxt "mollie"
 msgid "API Key"
 msgstr "API key"
 
-#: views/config-edit.php:291
+#: views/config-edit.php:305
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: views/config-edit.php:302
+#: views/config-edit.php:316
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: views/config-edit.php:417
+#: views/config-edit.php:431
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: views/config-edit.php:423
+#: views/config-edit.php:437
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: views/config-edit.php:429
+#: views/config-edit.php:443
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
