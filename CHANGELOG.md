@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.8.7
+*	Fix - OmniKassa - Fixed fatal error loading response codes class.
+*	Fix - Mollie - Fixed fatal error loading config class.
+
 ## 2.8.6
 *	Fix - OmniKassa - Fixed link to the OmniKassa test environment.
 *	Feature - WooCommerce - Added extra gateway for the Mister Cash payment method.
