@@ -113,6 +113,20 @@ $sections = array(
 				'type'        => 'text',
 				'classes'     => array( 'code' ),
 			),
+			array(
+				'title'       => __( 'Success CallbackURL', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'large-text', 'code' ),
+				'value'       => add_query_arg( 'paydutch_callback', '', home_url( '/' ) ),
+				'readonly'    => true,
+			),
+			array(
+				'title'       => __( 'Fail CallbackURL', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'large-text', 'code' ),
+				'value'       => add_query_arg( 'paydutch_callback', '', home_url( '/' ) ),
+				'readonly'    => true,
+			),
 		),
 	),
 	array(

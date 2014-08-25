@@ -25,7 +25,7 @@ if ( ! is_wp_error( $response ) ) {
 
 		$data = json_decode( $body );
 
-		if ( $data !== false ) {
+		if ( false !== $data ) {
 			$status_data = $data;
 		}
 	}

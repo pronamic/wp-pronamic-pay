@@ -214,7 +214,7 @@ class Pronamic_IThemesExchange_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 		$page_url = it_exchange_get_transaction_confirmation_url( $this->unique_hash );
 
-		if ( $page_url === false ) {
+		if ( false === $page_url ) {
 			return home_url();
 		}
 

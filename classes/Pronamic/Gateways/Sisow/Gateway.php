@@ -77,7 +77,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_WP_Pay_Gateway {
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$payment->set_transaction_id( $result->id );
 			$payment->set_action_url( $result->issuer_url );
 		} else {
@@ -95,7 +95,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_WP_Pay_Gateway {
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->get_status( $payment->get_transaction_id() );
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$transaction = $result;
 
 			$payment->set_status( $transaction->status );

@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 3.9.1
-Stable tag: 2.8.5
+Tested up to: 3.9.2
+Stable tag: 2.8.7
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -223,6 +223,15 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.8.7 =
+*	Fix - OmniKassa - Fixed fatal error loading response codes class.
+*	Fix - Mollie - Fixed fatal error loading config class.
+
+= 2.8.6 =
+*	Fix - OmniKassa - Fixed link to the OmniKassa test environment.
+*	Feature - WooCommerce - Added extra gateway for the Mister Cash payment method.
+*	Tweak - No longer create custom database tables for payments and gateway configurations.
 
 = 2.8.5 =
 *	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.

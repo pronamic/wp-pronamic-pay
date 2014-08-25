@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'project.ruleset.xml',
 				extensions: 'php',
-				ignore: 'wp-svn,deploy,node_modules,vendor'
+				ignore: 'wp-svn,wp-content,deploy,node_modules,vendor'
 			}
 		},
 
@@ -69,7 +69,7 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
+					exclude: [ 'deploy/.*', 'wp-svn/.*', 'wp-content/.*' ],
 				}
 			}
 		},
@@ -97,7 +97,8 @@ module.exports = function( grunt ) {
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
-					'!wp-svn/**'
+					'!wp-svn/**',
+					'!wp-content/**',
 				],
 				dest: 'deploy',
 				expand: true

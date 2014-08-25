@@ -141,7 +141,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		$data = self::remote_get( $url );
 
-		if ( $data !== false ) {
+		if ( false !== $data ) {
 			$status = strtok( $data, self::TOKEN );
 
 			if ( $status == self::STATUS_OK ) {
@@ -188,7 +188,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		$data = self::remote_get( $url );
 
-		if ( $data !== false ) {
+		if ( false !== $data ) {
 			$result = Pronamic_WP_Pay_Gateways_TargetPay_StatusStringParser::parse( $data );
 		}
 
@@ -209,7 +209,7 @@ class Pronamic_Gateways_TargetPay_TargetPay {
 
 		$data = self::remote_get( $url );
 
-		if ( $data !== false ) {
+		if ( false !== $data ) {
 			$xml = Pronamic_WP_Util::simplexml_load_string( $data );
 
 			if ( is_wp_error( $xml ) ) {

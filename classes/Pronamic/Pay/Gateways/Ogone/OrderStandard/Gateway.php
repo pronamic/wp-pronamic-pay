@@ -98,7 +98,7 @@ class Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway extends Pronamic_WP_Pay_
 		foreach ( $inputs as $input => $data ) {
 			$data = $this->client->verifyRequest( $data );
 
-			if ( $data !== false ) {
+			if ( false !== $data ) {
 				$status = Pronamic_WP_Pay_Gateways_Ogone_Statuses::transform( $data[ Pronamic_Pay_Gateways_Ogone_Parameters::STATUS ] );
 
 				$payment->set_status( $status );

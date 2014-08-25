@@ -196,7 +196,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 				}
 
 				$separator_position = strpos( $value, '|' );
-				if ( $separator_position !== false ) {
+				if ( false !== $separator_position ) {
 					$label = substr( $value, 0, $separator_position );
 					$value = substr( $value, $separator_position + 1 );
 

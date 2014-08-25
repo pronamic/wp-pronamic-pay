@@ -41,7 +41,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	public static function appthemes_init() {
 		global $app_theme;
 
-		if ( $app_theme == 'ClassiPress' ) {
+		if ( 'ClassiPress' == $app_theme ) {
 			add_action( 'cp_action_payment_method',     array( __CLASS__, 'payment_method' ) );
 			add_action( 'cp_action_gateway',            array( __CLASS__, 'gateway_process' ) );
 
@@ -133,7 +133,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	public static function payment_method() {
 		global $app_abbr;
 
-		if ( get_option( $app_abbr . '_pronamic_ideal_enable' ) == 'yes' ) {
+		if ( 'yes' == get_option( $app_abbr . '_pronamic_ideal_enable' ) ) {
 			echo '<option value="pronamic_ideal">' . __( 'iDEAL', 'pronamic_ideal' ) . '</option>';
 		}
 	}
@@ -174,7 +174,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 */
 	public static function gateway_process( $order_values ) {
 		// If gateway wasn't selected then immediately return
-		if ( $order_values['cp_payment_method'] != 'pronamic_ideal' ) {
+		if ( 'pronamic_ideal' != $order_values['cp_payment_method'] ) {
 			return;
 		}
 

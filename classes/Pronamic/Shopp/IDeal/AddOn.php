@@ -70,7 +70,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 			if ( isset( $Shopp->Settings ) ) {
 				$activeGateways = $Shopp->Settings->get( 'active_gateways' );
 
-				if ( strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) !== false ) {
+				if ( false !== strpos( $activeGateways, 'Pronamic_Shopp_IDeal_GatewayModule' ) ) {
 					$Shopp->Gateways->activated[] = 'Pronamic_Shopp_IDeal_GatewayModule';
 				}
 			}
