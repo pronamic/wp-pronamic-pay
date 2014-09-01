@@ -2,6 +2,7 @@
 
 ## 2.8.8
 *	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+*	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
 
 ## 2.8.7
 *	Fix - OmniKassa - Fixed fatal error loading response codes class.
