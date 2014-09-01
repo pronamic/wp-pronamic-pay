@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.8.8
+*	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+
 ## 2.8.7
 *	Fix - OmniKassa - Fixed fatal error loading response codes class.
 *	Fix - Mollie - Fixed fatal error loading config class.
