@@ -132,7 +132,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 
 						$url = $data->get_success_url();
 
-						$Shopp->resession();
+						Pronamic_Shopp_Shopp::resession();
 
 						break;
 					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
