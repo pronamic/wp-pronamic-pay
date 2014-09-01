@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 3.9.2
-Stable tag: 2.8.7
+Tested up to: 4.0
+Stable tag: 2.8.8
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -89,7 +89,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
 	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.3.4
+	*	**Tested up to:** 1.3.5
 *	[WooCommerce](http://www.woothemes.com/woocommerce/)
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
@@ -223,6 +223,10 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.8.8 =
+*	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+*	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
 
 = 2.8.7 =
 *	Fix - OmniKassa - Fixed fatal error loading response codes class.

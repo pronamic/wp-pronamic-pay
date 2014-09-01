@@ -326,7 +326,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/shopp/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
-			<td>1.3.4</td>
+			<td>1.3.5</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>

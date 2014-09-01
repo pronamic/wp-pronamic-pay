@@ -138,7 +138,7 @@ $extensions = array(
 		'github_url'         => 'https://github.com/ingenesis/shopp',
 		'active'             => Pronamic_Shopp_Shopp::is_active(),
 		'requires_at_least'  => '1.1',
-		'tested_up_to'       => '1.3.4',
+		'tested_up_to'       => '1.3.5',
 		'author'             => __( 'Ingenesis Limited', 'pronamic_ideal' ),
 		'author_url'         => 'http://ingenesis.net/',
 	),
