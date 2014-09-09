@@ -72,6 +72,20 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php _e( 'Status', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+
+			echo Pronamic_WP_Pay_Plugin::translate_status( $status );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php _e( 'Email', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
