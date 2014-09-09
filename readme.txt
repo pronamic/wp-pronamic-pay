@@ -228,6 +228,7 @@ Here is a list of known plugin conflicts:
 *	Test - WordPress - Tested up to version 4.0.
 *	Test - Gravity Forms - Tested up to version 1.8.13.
 *	Fix - Sisow - Improved support for Gravity Forms without issuer dropdowns.
+*	Tweak - Added payment status to the WordPress admin payment details page.
 
 = 2.8.8 =
 *	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
