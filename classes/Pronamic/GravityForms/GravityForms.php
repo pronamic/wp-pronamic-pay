@@ -52,4 +52,26 @@ class Pronamic_GravityForms_GravityForms {
 	public static function is_active() {
 		return class_exists( 'GFForms' );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Update entry
+	 *
+	 * @param array $entry
+	 */
+	public static function update_entry( $entry ) {
+		/*
+		 * GFFormsModel::update_lead() is no longer in use since version 1.8.8! Instead use GFAPI::update_entry().
+		 *
+		 * @see https://github.com/gravityforms/gravityforms/blob/1.8.13/forms_model.php#L587-L624
+		 * @see https://github.com/gravityforms/gravityforms/blob/1.8.13/includes/api.php#L495-L654
+		 * @see https://github.com/gravityforms/gravityforms/blob/1.8.7.11/forms_model.php#L587-L621
+		 */
+		if ( method_exists( 'GFAPI', 'update_entry' ) ) {
+			GFAPI::update_entry( $entry );
+		} elseif ( method_exists( 'GFFormsModel', 'update_lead' ) ) {
+			GFFormsModel::update_lead( $entry );
+		}
+	}
 }

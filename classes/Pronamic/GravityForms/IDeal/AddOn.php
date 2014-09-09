@@ -209,7 +209,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 						break;
 				}
 
-				RGFormsModel::update_lead( $lead );
+				Pronamic_GravityForms_GravityForms::update_entry( $lead );
 
 				if ( $url && $can_redirect ) {
 					wp_redirect( $url, 303 );
