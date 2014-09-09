@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.8.9
+*	Test - WordPress - Tested up to version 4.0.
+*	Test - Gravity Forms - Tested up to version 1.8.13.
+*	Fix - Sisow - Improved support for Gravity Forms without issuer dropdowns.
+
 ## 2.8.8
 *	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
 *	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
