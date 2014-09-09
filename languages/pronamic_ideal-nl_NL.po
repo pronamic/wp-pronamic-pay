@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-09-09 09:30:02+00:00\n"
-"PO-Revision-Date: 2014-09-09 11:30+0100\n"
+"POT-Creation-Date: 2014-09-09 09:48:57+00:00\n"
+"PO-Revision-Date: 2014-09-09 11:49+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -225,8 +225,8 @@ msgid "Last Name"
 msgstr "Achternaam"
 
 #: admin/gravityforms/meta-box-config.php:410
+#: admin/meta-box-payment-info.php:89
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:87
-#: views/meta-box-payment-info.php:75
 msgid "Email"
 msgstr "E-mail"
 
@@ -314,6 +314,98 @@ msgstr "Betalingsformulier %d"
 #: admin/includes/upgrade.php:410
 msgid "Payment %d"
 msgstr "Betaling %d"
+
+#: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
+#: admin/tab-ideal_status.php:46
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
+msgid "Date"
+msgstr "Datum"
+
+#: admin/meta-box-payment-info.php:14
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "j F Y H:i:s"
+
+#: admin/meta-box-payment-info.php:19
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
+msgid "ID"
+msgstr "ID"
+
+#: admin/meta-box-payment-info.php:27
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:101
+msgid "Description"
+msgstr "Beschrijving"
+
+#: admin/meta-box-payment-info.php:35
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:110
+msgid "Amount"
+msgstr "Bedrag"
+
+#: admin/meta-box-payment-info.php:49
+msgid "Transaction ID"
+msgstr "Transactie ID"
+
+#: admin/meta-box-payment-info.php:57
+msgid "Action URL"
+msgstr "Actie URL"
+
+#: admin/meta-box-payment-info.php:75
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
+msgid "Status"
+msgstr "Status"
+
+#: admin/meta-box-payment-info.php:101
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
+msgid "Consumer"
+msgstr "Consument"
+
+#: admin/meta-box-payment-log.php:16
+msgid "No logs found."
+msgstr "Geen logs gevonden."
+
+#: admin/meta-box-payment-log.php:34
+msgid "%1$s at %2$s"
+msgstr "%1$s om %2$s"
+
+#. translators: comment date format. See http:php.net/date
+#: admin/meta-box-payment-log.php:36
+msgid "Y/m/d"
+msgstr "d-m-Y"
+
+#: admin/meta-box-payment-source.php:11
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:105
+msgid "Source"
+msgstr "Bron"
+
+#: admin/meta-box-payment-source.php:22
+msgid "Period"
+msgstr "Periode"
+
+#: admin/meta-box-payment-source.php:30
+msgid "Level"
+msgstr "Niveau"
+
+#: admin/meta-box-payment-source.php:43
+msgid "Purchase ID"
+msgstr "Aankoop ID"
+
+#: admin/meta-box-payment-source.php:51
+msgid "Session ID"
+msgstr "Sessie ID"
+
+#: admin/meta-box-payment-source.php:64 views/config-edit.php:390
+msgid "User ID"
+msgstr "Gebruiker ID"
+
+#: admin/meta-box-payment-source.php:72
+msgid "Subscription ID"
+msgstr "Abonnement ID"
 
 #: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:110
@@ -511,14 +603,6 @@ msgid ""
 msgstr ""
 "PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
 "\">TinyPNG</a>."
-
-#: admin/tab-documentation.php:626 admin/tab-ideal_status.php:46
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: views/meta-box-payment-info.php:11
-msgid "Date"
-msgstr "Datum"
 
 #: admin/tab-documentation.php:627
 msgid "Version"
@@ -1098,6 +1182,7 @@ msgstr "&mdash; Andere banken &mdash;"
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
 #: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:52
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
@@ -1178,13 +1263,6 @@ msgstr "iDEAL-betalingen toestaan."
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:97
 msgid "This controls the title which the user sees during checkout."
 msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
-
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:101
-#: views/meta-box-payment-info.php:27
-msgid "Description"
-msgstr "Beschrijving"
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:113
 msgid "This controls the description which the user sees during checkout."
@@ -1332,11 +1410,6 @@ msgstr "Bestelling %s"
 msgid "Variant"
 msgstr "Variant"
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
-#: views/meta-box-payment-info.php:19
-msgid "ID"
-msgstr "ID"
-
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
 #: classes/Pronamic/WP/Pay/Admin.php:471
@@ -1364,28 +1437,6 @@ msgstr "Gateway"
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:25
 msgid "Transaction"
 msgstr "Transactie"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:110
-#: views/meta-box-payment-info.php:35
-msgid "Amount"
-msgstr "Bedrag"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
-#: views/meta-box-payment-info.php:87
-msgid "Consumer"
-msgstr "Consument"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:105
-#: views/meta-box-payment-source.php:11
-msgid "Source"
-msgstr "Bron"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
-msgid "Status"
-msgstr "Status"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:96 includes/post.php:35
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:119
@@ -1807,6 +1858,14 @@ msgstr "Antwoord code"
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
+#: vendor/wp-pay-gateways/sisow/src/Client.php:136
+msgid "Unknwon Sisow message (%s)"
+msgstr "Onbekend Sisow-bericht (%s)"
+
+#: vendor/wp-pay-gateways/sisow/src/Client.php:152
+msgid "Sisow Bank (test)"
+msgstr "Sisow bank (test)"
+
 #: views/config-edit.php:42
 msgid "Mode"
 msgstr "Modus"
@@ -2105,10 +2164,6 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: views/config-edit.php:390 views/meta-box-payment-source.php:64
-msgid "User ID"
-msgstr "Gebruiker ID"
-
 #: views/config-edit.php:405
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
@@ -2295,47 +2350,6 @@ msgstr "Verwacht resultaat als de integratie juist is"
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
-#: views/meta-box-payment-info.php:14
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr "j F Y H:i:s"
-
-#: views/meta-box-payment-info.php:49
-msgid "Transaction ID"
-msgstr "Transactie ID"
-
-#: views/meta-box-payment-info.php:57
-msgid "Action URL"
-msgstr "Actie URL"
-
-#: views/meta-box-payment-log.php:28
-msgid "%1$s at %2$s"
-msgstr "%1$s om %2$s"
-
-#. translators: comment date format. See http:php.net/date
-#: views/meta-box-payment-log.php:30
-msgid "Y/m/d"
-msgstr "d-m-Y"
-
-#: views/meta-box-payment-source.php:22
-msgid "Period"
-msgstr "Periode"
-
-#: views/meta-box-payment-source.php:30
-msgid "Level"
-msgstr "Niveau"
-
-#: views/meta-box-payment-source.php:43
-msgid "Purchase ID"
-msgstr "Aankoop ID"
-
-#: views/meta-box-payment-source.php:51
-msgid "Session ID"
-msgstr "Sessie ID"
-
-#: views/meta-box-payment-source.php:72
-msgid "Subscription ID"
-msgstr "Abonnement ID"
-
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
 msgid "Redirecting&hellip;"
 msgstr "Doorverwijzen&hellip;"
@@ -2458,12 +2472,6 @@ msgstr "Merchant Key"
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
-
-#~ msgid "Unknwon Sisow message (%s)"
-#~ msgstr "Onbekend Sisow-bericht (%s)"
-
-#~ msgid "Sisow Bank (test)"
-#~ msgstr "Sisow bank (test)"
 
 #~ msgid "iDEAL Documentation"
 #~ msgstr "iDEAL-documentatie"
@@ -2630,9 +2638,6 @@ msgstr "Merchant Secret"
 
 #~ msgid "Save"
 #~ msgstr "Opslaan"
-
-#~ msgid "No payments found."
-#~ msgstr "Geen betalingen gevonden."
 
 #~ msgid "Details"
 #~ msgstr "Details"
