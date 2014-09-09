@@ -15,8 +15,8 @@
 
 			<tr>
 				<td>
-					<?php 
-					
+					<?php
+
 					if ( isset( $method['icon'] ) ) {
 						printf( '<img src="%s" alt="" />', esc_attr( $method['icon'] ) );
 					}

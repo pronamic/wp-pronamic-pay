@@ -5,14 +5,20 @@ $comments = get_comments( array(
 	'comment_type' => 'payment_note',
 ) );
 
-if ( empty( $comments ) ) : ?>
+?>
+<table class="widefat fixed comments comments-box" cellspacing="0">
+	<tbody>
 
+		<?php if ( empty( $comments ) ) : ?>
 
+			<tr class="no-items">
+				<td>
+					<?php _e( 'No logs found.', 'pronamic_ideal' ); ?>
+				</td>
+			</tr>
 
-<?php else : ?>
+		<?php else : ?>
 
-	<table class="widefat fixed comments comments-box" cellspacing="0">
-		<tbody>
 			<?php foreach ( $comments as $comment ) : ?>
 
 				<?php
@@ -39,7 +45,8 @@ if ( empty( $comments ) ) : ?>
 				</tr>
 
 			<?php endforeach; ?>
-		</tbody>
-	</table>
 
-<?php endif; ?>
+		<?php endif; ?>
+
+	</tbody>
+</table>

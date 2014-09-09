@@ -246,7 +246,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
 			<td>1.6</td>
-			<td>1.8.7</td>
+			<td>1.8.13</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
@@ -326,7 +326,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/shopp/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
-			<td>1.3.4</td>
+			<td>1.3.5</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
@@ -367,30 +367,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td></td>
 			<td>1.3.2</td>
-		</tr>
-	</tbody>
-</table>
-
-## Payment methods
-
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Name</th>
-			<th scope="col">Gateway support</th>
-			<th scope="col">Extension support</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="https://www.ideal.nl/">iDEAL</a></td>
-			<td>All gateways</td>
-			<td>All extensions</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.bancontact.com/">Bancontact/Mister Cash</a></td>
-			<td>Mollie, Rabobank OmniKassa</td>
-			<td>WooCommerce</td>
 		</tr>
 	</tbody>
 </table>

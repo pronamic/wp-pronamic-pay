@@ -206,7 +206,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 			gform_update_meta( $lead['id'], 'payment_gateway', 'ideal' );
 
 			// Update lead
-			RGFormsModel::update_lead( $lead );
+			Pronamic_GravityForms_GravityForms::update_entry( $lead );
 		}
 
 		return $lead;

@@ -144,10 +144,6 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 				'flags'     => FILTER_REQUIRE_ARRAY,
 			),
 			'_pronamic_pay_gf_delay_post_creation'                => FILTER_VALIDATE_BOOLEAN,
-			'_pronamic_pay_gf_delay_aweber_subscription'          => FILTER_VALIDATE_BOOLEAN,
-			'_pronamic_pay_gf_delay_campaignmonitor_subscription' => FILTER_VALIDATE_BOOLEAN,
-			'_pronamic_pay_gf_delay_mailchimp_subscription'       => FILTER_VALIDATE_BOOLEAN,
-			'_pronamic_pay_gf_delay_user_registration'            => FILTER_VALIDATE_BOOLEAN,
 			'_pronamic_pay_gf_fields'                             => array(
 				'filter'    => FILTER_SANITIZE_STRING,
 				'flags'     => FILTER_REQUIRE_ARRAY,
@@ -158,6 +154,22 @@ class Pronamic_WP_Pay_Admin_PaymentFormPostType {
 				),
 			'_pronamic_pay_gf_user_role_field_id'                 => 'sanitize_text_field',
 		);
+
+		if ( class_exists( 'GFAWeber' ) ) {
+			$definition['_pronamic_pay_gf_delay_aweber_subscription'] = FILTER_VALIDATE_BOOLEAN;
+		}
+
+		if ( class_exists( 'GFCampaignMonitor' ) ) {
+			$definition['_pronamic_pay_gf_delay_campaignmonitor_subscription'] = FILTER_VALIDATE_BOOLEAN;
+		}
+
+		if ( class_exists( 'GFMailChimp' ) ) {
+			$definition['_pronamic_pay_gf_delay_mailchimp_subscription'] = FILTER_VALIDATE_BOOLEAN;
+		}
+
+		if ( class_exists( 'GFUser' ) ) {
+			$definition['_pronamic_pay_gf_delay_user_registration'] = FILTER_VALIDATE_BOOLEAN;
+		}
 
 		foreach ( $definition as $meta_key => $function ) {
 			$meta_value = null;

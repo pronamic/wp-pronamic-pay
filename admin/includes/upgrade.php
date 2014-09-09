@@ -28,7 +28,7 @@ function pronamic_pay_upgrade_201() {
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
 
-		if ( ! empty ( $value ) ) {
+		if ( ! empty( $value ) ) {
 			update_option( $key_new, $value );
 		}
 	}
@@ -479,7 +479,7 @@ function pronamic_pay_upgrade_200() {
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
 
-		if ( ! empty ( $value ) ) {
+		if ( ! empty( $value ) ) {
 			$value_new = @$config_ids_map[ $value ];
 
 			update_option( $key_new, $value_new );

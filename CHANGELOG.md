@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.8.9
+*	Test - WordPress - Tested up to version 4.0.
+*	Test - Gravity Forms - Tested up to version 1.8.13.
+*	Fix - Sisow - Improved support for Gravity Forms without issuer dropdowns.
+*	Tweak - Added payment status to the WordPress admin payment details page.
+*	Tweak - Gravity Forms - Show add-on options only if they are available.
+
+## 2.8.8
+*	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+*	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
+
 ## 2.8.7
 *	Fix - OmniKassa - Fixed fatal error loading response codes class.
 *	Fix - Mollie - Fixed fatal error loading config class.

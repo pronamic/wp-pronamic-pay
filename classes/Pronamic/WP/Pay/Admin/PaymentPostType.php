@@ -128,7 +128,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-info.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-info.php';
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_source( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-source.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-source.php';
 	}
 
 	/**
@@ -146,6 +146,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/meta-box-payment-log.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
 	}
 }

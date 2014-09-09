@@ -292,110 +292,95 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 				</label>
 			</td>
 		</tr>
-		<tr>
-			<?php
 
-			$delay_aweber_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_aweber_subscription', true );
+		<?php if ( class_exists( 'GFAWeber' ) ) : ?>
 
-			?>
-			<th scope="row">
-				<?php _e( 'AWeber Subscription Delay', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<input type="checkbox" name="_pronamic_pay_gf_delay_aweber_subscription" id="_pronamic_pay_gf_delay_aweber_subscription" value="true" <?php checked( $delay_aweber_subscription ); ?> />
+			<tr>
+				<?php
 
-				<label for="_pronamic_pay_gf_delay_aweber_subscription">
-					<?php _e( 'Subscribe user to AWeber only when payment is received.', 'pronamic_ideal' ); ?>
-				</label>
+				$delay_aweber_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_aweber_subscription', true );
 
-				<span class="description"><br /><?php
-					printf(
-						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-						'http://www.gravityforms.com/add-ons/aweber/',
-						'Gravity Forms AWeber Add-On'
-					);
+				?>
+				<th scope="row">
+					<?php _e( 'AWeber Subscription Delay', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<input type="checkbox" name="_pronamic_pay_gf_delay_aweber_subscription" id="_pronamic_pay_gf_delay_aweber_subscription" value="true" <?php checked( $delay_aweber_subscription ); ?> />
 
-				?></span>
-			</td>
-		</tr>
-		<tr>
-			<?php
+					<label for="_pronamic_pay_gf_delay_aweber_subscription">
+						<?php _e( 'Subscribe user to AWeber only when payment is received.', 'pronamic_ideal' ); ?>
+					</label>
+				</td>
+			</tr>
 
-			$delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
+		<?php endif; ?>
 
-			?>
-			<th scope="row">
-				<?php _e( 'Campaign Monitor Subscription Delay', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<input type="checkbox" name="_pronamic_pay_gf_delay_campaignmonitor_subscription" id="_pronamic_pay_gf_delay_campaignmonitor_subscription" value="true" <?php checked( $delay_campaignmonitor_subscription ); ?> />
+		<?php if ( class_exists( 'GFCampaignMonitor' ) ) : ?>
 
-				<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
-					<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
-				</label>
+			<tr>
+				<?php
 
-				<span class="description"><br /><?php
-					printf(
-						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-						'http://www.gravityforms.com/add-ons/campaign-monitor/',
-						'Gravity Forms Campaign Monitor Add-On'
-					);
+				$delay_campaignmonitor_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_campaignmonitor_subscription', true );
 
-				?></span>
-			</td>
-		</tr>
-		<tr>
-			<?php
+				?>
+				<th scope="row">
+					<?php _e( 'Campaign Monitor Subscription Delay', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<input type="checkbox" name="_pronamic_pay_gf_delay_campaignmonitor_subscription" id="_pronamic_pay_gf_delay_campaignmonitor_subscription" value="true" <?php checked( $delay_campaignmonitor_subscription ); ?> />
 
-			$delay_mailchimp_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
+					<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
+						<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
+					</label>
+				</td>
+			</tr>
 
-			?>
-			<th scope="row">
-				<?php _e( 'MailChimp Subscription Delay', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<input type="checkbox" name="_pronamic_pay_gf_delay_mailchimp_subscription" id="_pronamic_pay_gf_delay_mailchimp_subscription" value="true" <?php checked( $delay_mailchimp_subscription ); ?> />
+		<?php endif; ?>
 
-				<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
-					<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
-				</label>
+		<?php if ( class_exists( 'GFMailChimp' ) ) : ?>
 
-				<span class="description"><br /><?php
-					printf(
-						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-						'http://www.gravityforms.com/add-ons/mailchimp/',
-						'Gravity Forms MailChimp Add-On'
-					);
+			<tr>
+				<?php
 
-				?></span>
-			</td>
-		</tr>
-		<tr>
-			<?php
+				$delay_mailchimp_subscription = get_post_meta( $post_id, '_pronamic_pay_gf_delay_mailchimp_subscription', true );
 
-			$delay_user_registration = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_registration', true );
+				?>
+				<th scope="row">
+					<?php _e( 'MailChimp Subscription Delay', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<input type="checkbox" name="_pronamic_pay_gf_delay_mailchimp_subscription" id="_pronamic_pay_gf_delay_mailchimp_subscription" value="true" <?php checked( $delay_mailchimp_subscription ); ?> />
 
-			?>
-			<th scope="row">
-				<?php _e( 'User Registration Delay', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<input type="checkbox" name="_pronamic_pay_gf_delay_user_registration" id="_pronamic_pay_gf_delay_user_registration" value="true" <?php checked( $delay_user_registration ); ?> />
+					<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
+						<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
+					</label>
+				</td>
+			</tr>
 
-				<label for="_pronamic_pay_gf_delay_user_registration">
-					<?php _e( 'Register user only when a payment is received.', 'pronamic_ideal' ); ?>
-				</label>
+		<?php endif; ?>
 
-				<span class="description"><br /><?php
-					printf(
-						__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-						'http://www.gravityforms.com/add-ons/user-registration/',
-						'Gravity Forms User Registration Add-On'
-					);
+		<?php if ( class_exists( 'GFUser' ) ) : ?>
 
-				?></span>
-			</td>
-		</tr>
+			<tr>
+				<?php
+
+				$delay_user_registration = get_post_meta( $post_id, '_pronamic_pay_gf_delay_user_registration', true );
+
+				?>
+				<th scope="row">
+					<?php _e( 'User Registration Delay', 'pronamic_ideal' ); ?>
+				</th>
+				<td>
+					<input type="checkbox" name="_pronamic_pay_gf_delay_user_registration" id="_pronamic_pay_gf_delay_user_registration" value="true" <?php checked( $delay_user_registration ); ?> />
+
+					<label for="_pronamic_pay_gf_delay_user_registration">
+						<?php _e( 'Register user only when a payment is received.', 'pronamic_ideal' ); ?>
+					</label>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
 	</table>
 
 	<h4>

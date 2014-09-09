@@ -150,4 +150,25 @@ class Pronamic_Shopp_Shopp {
 			array( 'id' => $purchase->id )
 		);
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Resession
+	 */
+	public static function resession() {
+		global $Shopp;
+
+		if ( method_exists( 'Shopping', 'resession' ) ) {
+			// Shopp >= 1.2
+			// @see https://github.com/ingenesis/shopp/blob/1.2/Shopp.php#L362-L368
+			// @see https://github.com/ingenesis/shopp/blob/1.2/core/model/Shopping.php#L94-L135
+			Shopping::resession();
+		} elseif ( method_exists( $Shopp, 'resession' ) ) {
+			// Shopp <= 1.1.9.1
+			// @see https://github.com/ingenesis/shopp/blob/1.1.9.1/Shopp.php#L385-L423
+			// @see https://github.com/ingenesis/shopp/blob/1.1/Shopp.php#L382-L413
+			$Shopp->resession();
+		}
+	}
 }
