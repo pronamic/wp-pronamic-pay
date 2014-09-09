@@ -50,4 +50,3 @@ $comments = get_comments( array(
 
 	</tbody>
 </table>
-
