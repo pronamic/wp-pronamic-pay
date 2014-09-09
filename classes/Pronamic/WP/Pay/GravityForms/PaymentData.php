@@ -146,7 +146,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 			$items->addItem( $item );
 
-			if ( isset( $product['options']) && is_array( $product['options'] ) ) {
+			if ( isset( $product['options'] ) && is_array( $product['options'] ) ) {
 				foreach ( $product['options'] as $option ) {
 					$description = $option['option_label'];
 					$price = GFCommon::to_number( $option['price'] );

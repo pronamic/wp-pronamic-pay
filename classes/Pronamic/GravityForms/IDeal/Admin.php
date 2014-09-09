@@ -106,7 +106,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 
 			$lead = RGFormsModel::get_lead( $lead_id );
 
-			if ( ! empty($lead ) ) {
+			if ( ! empty( $lead ) ) {
 				$url = add_query_arg( array(
 					'page' => 'gf_entries',
 					'view' => 'entry',

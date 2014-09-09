@@ -275,7 +275,7 @@ class Pronamic_WP_Pay_Admin {
 			if ( $db_version < 201 ) {
 				pronamic_pay_upgrade_201();
 			}
-	
+
 			if ( $db_version < 200 ) {
 				pronamic_pay_upgrade_200();
 			}
