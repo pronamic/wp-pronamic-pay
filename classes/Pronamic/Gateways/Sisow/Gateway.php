@@ -64,7 +64,7 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_WP_Pay_Gateway {
 	 * @param Pronamic_Pay_PaymentDataInterface $data
 	 * @see Pronamic_WP_Pay_Gateway::start()
 	 */
-	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment ) {
+	public function start( Pronamic_Pay_PaymentDataInterface $data, Pronamic_Pay_Payment $payment, $payment_method = null ) {
 		$order_id    = $data->get_order_id();
 		$purchase_id = empty( $order_id ) ? $payment->get_id() : $order_id;
 
