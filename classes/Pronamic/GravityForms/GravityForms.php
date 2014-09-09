@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: Gravity Forms
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -11,14 +11,14 @@
 class Pronamic_GravityForms_GravityForms {
 	/**
 	 * Indicator for an payment transaction type
-	 * 
+	 *
 	 * @var int
 	 */
 	const TRANSACTION_TYPE_PAYMENT = 1;
 
 	/**
 	 * Indicator for an subscription transaction type
-	 * 
+	 *
 	 * @var int
 	 */
 	const TRANSACTION_TYPE_SUBSCRIPTION = 2;
@@ -27,14 +27,14 @@ class Pronamic_GravityForms_GravityForms {
 
 	/**
 	 * Operator is
-	 * 
+	 *
 	 * @var string
 	 */
 	const OPERATOR_IS = '=';
 
 	/**
 	 * Operator is not
-	 * 
+	 *
 	 * @var string
 	 */
 	const OPERATOR_IS_NOT = '!=';
