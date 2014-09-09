@@ -310,15 +310,6 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					<label for="_pronamic_pay_gf_delay_aweber_subscription">
 						<?php _e( 'Subscribe user to AWeber only when payment is received.', 'pronamic_ideal' ); ?>
 					</label>
-
-					<span class="description"><br /><?php
-						printf(
-							__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-							'http://www.gravityforms.com/add-ons/aweber/',
-							'Gravity Forms AWeber Add-On'
-						);
-
-					?></span>
 				</td>
 			</tr>
 
@@ -341,15 +332,6 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					<label for="_pronamic_pay_gf_delay_campaignmonitor_subscription">
 						<?php _e( 'Subscribe user to Campaign Monitor only when payment is received.', 'pronamic_ideal' ); ?>
 					</label>
-
-					<span class="description"><br /><?php
-						printf(
-							__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-							'http://www.gravityforms.com/add-ons/campaign-monitor/',
-							'Gravity Forms Campaign Monitor Add-On'
-						);
-
-					?></span>
 				</td>
 			</tr>
 
@@ -372,15 +354,6 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					<label for="_pronamic_pay_gf_delay_mailchimp_subscription">
 						<?php _e( 'Subscribe user to MailChimp only when payment is received.', 'pronamic_ideal' ); ?>
 					</label>
-
-					<span class="description"><br /><?php
-						printf(
-							__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-							'http://www.gravityforms.com/add-ons/mailchimp/',
-							'Gravity Forms MailChimp Add-On'
-						);
-
-					?></span>
 				</td>
 			</tr>
 
@@ -403,15 +376,6 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 					<label for="_pronamic_pay_gf_delay_user_registration">
 						<?php _e( 'Register user only when a payment is received.', 'pronamic_ideal' ); ?>
 					</label>
-
-					<span class="description"><br /><?php
-						printf(
-							__( 'This setting requires the <a href="%s">%s</a> plugin.', 'pronamic_ideal' ),
-							'http://www.gravityforms.com/add-ons/user-registration/',
-							'Gravity Forms User Registration Add-On'
-						);
-
-					?></span>
 				</td>
 			</tr>
 
