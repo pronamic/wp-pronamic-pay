@@ -444,10 +444,10 @@ class Pronamic_WP_Pay_Plugin {
 			'post_type' => 'pronamic_gateway',
 			'nopaging'  => true,
 		);
-		
+
 		if ( isset( $payment_method ) ) {
 			$gateways = array();
-			
+
 			if ( 'mister_cash' == $payment_method ) {
 				$gateways[] = 'mollie';
 				$gateways[] = 'rabobank-omnikassa';
@@ -461,7 +461,7 @@ class Pronamic_WP_Pay_Plugin {
 				),
 			);
 		}
-		
+
 		$gateways = get_posts( $args );
 
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
@@ -541,7 +541,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_WP_Pay_Gateways_OmniKassa_Config'            => 'Pronamic_WP_Pay_Gateways_OmniKassa_Gateway',
 			'Pronamic_WP_Pay_Gateways_PayDutch_Config'             => 'Pronamic_WP_Pay_Gateways_PayDutch_Gateway',
 			'Pronamic_WP_Pay_Gateways_Qantani_Config'              => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
-			'Pronamic_Gateways_Sisow_Config'                       => 'Pronamic_Gateways_Sisow_Gateway',
+			'Pronamic_WP_Pay_Gateways_Sisow_Config'                => 'Pronamic_WP_Pay_Gateways_Sisow_Gateway',
 			'Pronamic_WP_Pay_Gateways_TargetPay_Config'            => 'Pronamic_Gateways_TargetPay_Gateway',
 		);
 
