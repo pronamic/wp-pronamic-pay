@@ -95,15 +95,17 @@ class Pronamic_Gateways_Sisow_Gateway extends Pronamic_WP_Pay_Gateway {
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->get_status( $payment->get_transaction_id() );
 
-		if ( false !== $result ) {
+		if ( $result instanceof Pronamic_Gateways_Sisow_Error ) {
+			$this->error = $this->client->get_error();
+		} elseif( false === $result ) {
+			$this->error = $this->client->get_error();
+		} else {
 			$transaction = $result;
 
 			$payment->set_status( $transaction->status );
 			$payment->set_consumer_name( $transaction->consumer_name );
 			$payment->set_consumer_account_number( $transaction->consumer_account );
 			$payment->set_consumer_city( $transaction->consumer_city );
-		} else {
-			$this->error = $this->client->get_error();
 		}
 	}
 }
