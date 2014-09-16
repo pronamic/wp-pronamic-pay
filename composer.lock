@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "97d6f8819c03a5aabe8ba9f0bfc71e6e",
+    "hash": "edf3642d5131c8d5d6ef7eeebf244594",
     "packages": [
         {
             "name": "composer/installers",
@@ -94,6 +94,71 @@
                 "zikula"
             ],
             "time": "2014-08-18 20:00:12"
+        },
+        {
+            "name": "wp-pay-extensions/easy-digital-downloads",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
+                "reference": "ef56b667ce23bcc251a9b5f3290ea0ad52a38706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/ef56b667ce23bcc251a9b5f3290ea0ad52a38706",
+                "reference": "ef56b667ce23bcc251a9b5f3290ea0ad52a38706",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop",
+                "wpackagist-plugin/easy-digital-downloads": "2.1.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easy Digital Downloads driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/easy-digital-downloads/",
+            "keywords": [
+                "digital",
+                "downlaods",
+                "easy",
+                "edd",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "support": {
+                "email": "support@wp-pay.org",
+                "issues": "https://github.com/wp-pay-extensions/easy-digital-downloads/issues",
+                "source": "https://github.com/wp-pay-extensions/easy-digital-downloads"
+            },
+            "time": "2014-09-16 08:27:49"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -661,12 +726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/qantani.git",
-                "reference": "f34288ae273a680bbc1324a213021ac7df1bca69"
+                "reference": "14f6af44af3bc1bfe4cf1f4de8c92ea80f7fed90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/qantani/zipball/f34288ae273a680bbc1324a213021ac7df1bca69",
-                "reference": "f34288ae273a680bbc1324a213021ac7df1bca69",
+                "url": "https://api.github.com/repos/wp-pay-gateways/qantani/zipball/14f6af44af3bc1bfe4cf1f4de8c92ea80f7fed90",
+                "reference": "14f6af44af3bc1bfe4cf1f4de8c92ea80f7fed90",
                 "shasum": ""
             },
             "require": {
@@ -710,7 +775,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-07-17 08:35:40"
+            "time": "2014-09-16 07:34:49"
         },
         {
             "name": "wp-pay-gateways/sisow",
@@ -775,12 +840,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "9447235fd12556292743dd670c3b3ce61fe5e820"
+                "reference": "3411650a9467e97174756e8dc1ac909b20ded067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/9447235fd12556292743dd670c3b3ce61fe5e820",
-                "reference": "9447235fd12556292743dd670c3b3ce61fe5e820",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/3411650a9467e97174756e8dc1ac909b20ded067",
+                "reference": "3411650a9467e97174756e8dc1ac909b20ded067",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +889,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-07-16 14:42:06"
+            "time": "2014-09-11 11:58:31"
         },
         {
             "name": "wp-pay/core",
@@ -878,6 +943,29 @@
                 "wp"
             ],
             "time": "2014-08-19 13:45:36"
+        },
+        {
+            "name": "wpackagist-plugin/easy-digital-downloads",
+            "version": "2.1.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/easy-digital-downloads/",
+                "reference": "tags/2.1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/easy-digital-downloads.2.1.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/easy-digital-downloads": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/easy-digital-downloads/"
         },
         {
             "name": "wpackagist-plugin/woocommerce",
@@ -1459,6 +1547,7 @@
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
         "wp-pay-gateways/qantani": 20,
+        "wp-pay-extensions/easy-digital-downloads": 20,
         "wp-pay-extensions/woocommerce": 20,
         "satooshi/php-coveralls": 20
     },

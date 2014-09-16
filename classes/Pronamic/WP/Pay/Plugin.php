@@ -56,7 +56,7 @@ class Pronamic_WP_Pay_Plugin {
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
 			Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
 			// Pronamic_EShop_IDeal_AddOn::bootstrap();
-			Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
+			Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 			Pronamic_IThemesExchange_IDeal_AddOn::bootstrap();
 		}
 

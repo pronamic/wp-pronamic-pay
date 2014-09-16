@@ -34,7 +34,11 @@
 		{
 			"type": "composer",
 			"url": "http://wpackagist.org/"
-		}
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/wp-pay-extensions/easy-digital-downloads"
+        }
     ],
 	"require": {
 		"php": ">=5.2.0",
@@ -52,6 +56,7 @@
 		"wp-pay-gateways/sisow": "dev-develop",
 		"wp-pay-gateways/targetpay": "dev-develop",
 		"wp-pay-gateways/qantani": "dev-develop",
+		"wp-pay-extensions/easy-digital-downloads": "dev-develop",
 		"wp-pay-extensions/woocommerce": "dev-develop"
 	},
 	"require-dev": {
