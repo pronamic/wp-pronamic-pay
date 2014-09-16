@@ -219,6 +219,13 @@ $sections = array(
 				'classes'     => array( 'small-text', 'code' ),
 				'description' => sprintf( __( 'You can find the key version in the <a href="%s" target="_blank">OmniKassa Download Dashboard</a>.', 'pronamic_ideal' ), 'https://download.omnikassa.rabobank.nl/' ),
 			),
+			array(
+				'meta_key'    => '_pronamic_gateway_omnikassa_transaction_reference',
+				'title'       => __( 'Transaction Reference', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( '<code>{source_id}</code>, <code>{payment_id}</code>, <code>{blog_name}</code>', 'pronamic_ideal' ),
+			),
 		),
 	),
 	array(

@@ -243,6 +243,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_omnikassa_merchant_id' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_omnikassa_secret_key'  => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_omnikassa_key_version' => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_omnikassa_transaction_reference' => FILTER_SANITIZE_STRING,
 			// Buckaroo
 			'_pronamic_gateway_buckaroo_website_key' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_buckaroo_secret_key'  => FILTER_SANITIZE_STRING,
