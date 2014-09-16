@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-09-09 10:33:09+00:00\n"
-"PO-Revision-Date: 2014-09-09 12:33+0100\n"
+"POT-Creation-Date: 2014-09-16 09:03:45+00:00\n"
+"PO-Revision-Date: 2014-09-16 11:05+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -486,8 +486,6 @@ msgstr "Google+"
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:113
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
@@ -497,6 +495,9 @@ msgstr "Google+"
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:314
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
 #: views/config-edit.php:52
 msgid "iDEAL"
@@ -606,7 +607,7 @@ msgid "Supported Extensions"
 msgstr "Ondersteunde extensies"
 
 #: admin/tab-extensions.php:8
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:289
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
 
@@ -733,7 +734,15 @@ msgstr "JobRoller"
 msgid "Vantage"
 msgstr "Vantage"
 
-#: admin/tab-extensions.php:204 admin/tab-gateways.php:22
+#: admin/tab-extensions.php:193
+msgid "Campaignify"
+msgstr "Campaignify"
+
+#: admin/tab-extensions.php:196
+msgid "Astoundify"
+msgstr "Astoundify"
+
+#: admin/tab-extensions.php:211 admin/tab-gateways.php:22
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -1028,10 +1037,10 @@ msgstr "Travis CI build status"
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:294
 msgid "Order #%s"
 msgstr "Bestelling #%s"
 
@@ -1075,8 +1084,8 @@ msgid "No"
 msgstr "Nee"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:90
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:93
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
@@ -1087,48 +1096,6 @@ msgstr "Advertentie %s"
 #: classes/Pronamic/EShop/IDeal/AddOn.php:134
 msgid "eShop"
 msgstr "eShop"
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
-msgid "iDEAL Settings"
-msgstr "iDEAL-instellingen"
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:84
-msgid "Configure the iDEAL settings"
-msgstr "Configureer de iDEAL-instellingen"
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid "Payment Error"
-msgstr "Betalingsfout"
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid ""
-"Payment creation failed before sending buyer to the iDEAL provider. Payment "
-"data: %s"
-msgstr ""
-"Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
-"naar de iDEAL provider. Betalingsinformatie: %s"
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
-msgid "iDEAL payment completed."
-msgstr "iDEAL-betaling voltooid."
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
-msgid "iDEAL payment open."
-msgstr "iDEAL-betaling open."
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
-msgid "iDEAL payment unknown."
-msgstr "iDEAL-betaling onbekend."
-
-#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
-msgid "Easy Digital Downloads order %s"
-msgstr "Easy Digital Downloads bestelling %s"
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
 msgid "Choose a different payment option"
@@ -1247,6 +1214,24 @@ msgstr "iDEAL-betaling verlopen."
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
+msgid "iDEAL payment completed."
+msgstr "iDEAL-betaling voltooid."
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
+msgid "iDEAL payment open."
+msgstr "iDEAL-betaling open."
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+msgid "iDEAL payment unknown."
+msgstr "iDEAL-betaling onbekend."
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:84
 msgid "Allow iDEAL payments."
@@ -1678,6 +1663,32 @@ msgstr "Geen betalingsformulieren gevonden"
 #: includes/post.php:71
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:86
+msgid "iDEAL Settings"
+msgstr "iDEAL-instellingen"
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:87
+msgid "Configure the iDEAL settings"
+msgstr "Configureer de iDEAL-instellingen"
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid "Payment Error"
+msgstr "Betalingsfout"
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid ""
+"Payment creation failed before sending buyer to the iDEAL provider. Payment "
+"data: %s"
+msgstr ""
+"Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
+"naar de iDEAL provider. Betalingsinformatie: %s"
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:65
+msgid "Easy Digital Downloads order %s"
+msgstr "Easy Digital Downloads bestelling %s"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:89
 msgid "Enable/Disable"

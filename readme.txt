@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 2.8.9
+Stable tag: 2.9.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -21,13 +21,13 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 1.8.6
+	*	**Tested up to:** 2.1.3
 *	[Event Espresso](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.24
 	*	**Tested up to:** 3.1.35.P
 *	[Event Espresso Lite](http://eventespresso.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/event-espresso-free/](http://wordpress.org/extend/plugins/event-espresso-free/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/event-espresso-free/](http://wordpress.org/plugins/event-espresso-free/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.29.1.L
 	*	**Tested up to:** 3.1.35.L
@@ -58,13 +58,13 @@ your WordPress website.
 	*	**Tested up to:** 1.8
 *	[iThemes Exchange](http://ithemes.com/exchange/)
 	*	**Author:** [iThemes](http://ithemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/ithemes-exchange/](http://wordpress.org/extend/plugins/ithemes-exchange/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
 	*	**Tested up to:** 1.7.16
 *	[Jigoshop](http://jigoshop.com/)
 	*	**Author:** [Jigowatt](http://jigowatt.co.uk/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/jigoshop/](http://wordpress.org/extend/plugins/jigoshop/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.9.6
@@ -92,16 +92,22 @@ your WordPress website.
 	*	**Tested up to:** 1.3.5
 *	[WooCommerce](http://www.woothemes.com/woocommerce/)
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
 	*	**Tested up to:** 2.1.5
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/wp-e-commerce/](http://wordpress.org/extend/plugins/wp-e-commerce/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
 	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
 	*	**Requires at least:** 3.8.12.1
 	*	**Tested up to:** 3.8.14
+*	[Crowdfunding by Astoundify]()
+	*	**Author:** [Astoundify](http://www.astoundify.com/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/appthemer-crowdfunding/](http://wordpress.org/plugins/appthemer-crowdfunding/)
+	*	**GitHub:** [https://github.com/astoundify/crowdfunding/](https://github.com/astoundify/crowdfunding/)
+	*	**Requires at least:** 1.8.2
+	*	**Tested up to:** 1.8.2
 *	[ClassiPress](http://www.appthemes.com/themes/classipress/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Requires at least:** 3.3.1
@@ -112,6 +118,9 @@ your WordPress website.
 *	[Vantage](http://www.appthemes.com/themes/vantage/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Tested up to:** 1.3.2
+*	[Campaignify](http://www.astoundify.com/)
+	*	**Author:** [Astoundify](http://www.astoundify.com/)
+	*	**Tested up to:** 1.5
 
 
 = Gateways =
@@ -223,6 +232,14 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.9.0 =
+*	Tweak - Easy Digital Downloads - Display gateway errors.
+*	Feature - Easy Digital Downloads - Added support for iDEAL payment icon.
+*	Test - Easy Digital Downloads - Tested up to version 2.1.3.
+*	Tweak - Qantani - Truncate description longer then 30 characters.
+*	Tweak - Initialize post types on 'init' action priority 0 to fix a notice.
+*	Tweak - Show 'No logs found.' when no payment logs are found in the logs meta box.
 
 = 2.8.9 =
 *	Test - WordPress - Tested up to version 4.0.
