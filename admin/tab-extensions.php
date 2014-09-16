@@ -11,7 +11,7 @@ $extensions = array(
 		'github_url'         => 'https://github.com/easydigitaldownloads/Easy-Digital-Downloads',
 		'active'             => Pronamic_EasyDigitalDownloads_EasyDigitalDownloads::is_active(),
 		'requires_at_least'  => '1.8.6',
-		'tested_up_to'       => '1.8.6',
+		'tested_up_to'       => '2.1.3',
 		'author'             => __( 'Pippin Williamson', 'pronamic_ideal' ),
 		'author_url'         => 'http://pippinsplugins.com/',
 	),
