@@ -171,10 +171,24 @@ class Pronamic_EasyDigitalDownloads_IDeal_AddOn {
 				// Start
 				$payment = Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
-				// Redirect
-				$gateway->redirect( $payment );
+				$error = $gateway->get_error();
 
-				exit;
+				if ( is_wp_error( $error ) ) {
+					edd_record_gateway_error( __( 'Payment Error', 'edd' ), sprintf( __( 'Payment creation failed before sending buyer to the iDEAL provider. Payment data: %s', 'pronamic_ideal' ), json_encode( $payment_data ) ), $payment_id );
+
+					edd_set_error( 'pronamic_pay_error', Pronamic_WP_Pay_Plugin::get_default_error_message() );
+
+					foreach ( $error->get_error_messages() as $i => $message ) {
+						edd_set_error( 'pronamic_pay_error_' . $i, $message );
+					}
+
+					edd_send_back_to_checkout( '?payment-mode=' . $purchase_data['post_data']['edd-gateway'] );
+				} else {
+					// Redirect
+					$gateway->redirect( $payment );
+
+					exit;
+				}
 			}
 		}
 	}
