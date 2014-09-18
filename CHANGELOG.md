@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.9.1
+*	Fix - OmniKassa - Fixed fatal error.
+
 ## 2.9.0
 *	Tweak - Easy Digital Downloads - Display gateway errors.
 *	Feature - Easy Digital Downloads - Added support for iDEAL payment icon.
