@@ -83,7 +83,15 @@ function pronamic_pay_create_initial_post_types() {
 	) );
 }
 
-add_action( 'init', 'pronamic_pay_create_initial_post_types', 20 ); // highest priority
+/**
+ * Priotiry of the initial post types function should be set to < 10
+ *
+ * @see https://core.trac.wordpress.org/ticket/28488
+ * @see https://core.trac.wordpress.org/changeset/29318
+ *
+ * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
+ */
+add_action( 'init', 'pronamic_pay_create_initial_post_types', 0 ); // highest priority
 
 /**
  * Helper function to update post meta data

@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.9.0
+*	Tweak - Easy Digital Downloads - Display gateway errors.
+*	Feature - Easy Digital Downloads - Added support for iDEAL payment icon.
+*	Test - Easy Digital Downloads - Tested up to version 2.1.3.
+*	Tweak - Qantani - Truncate description longer then 30 characters.
+*	Tweak - Initialize post types on 'init' action priority 0 to fix a notice.
+*	Tweak - Show 'No logs found.' when no payment logs are found in the logs meta box.
+*	Tweak - Gravity Forms AWeber Add-On - Improved support for delayed subscriptions.
+
 ## 2.8.9
 *	Test - WordPress - Tested up to version 4.0.
 *	Test - Gravity Forms - Tested up to version 1.8.13.

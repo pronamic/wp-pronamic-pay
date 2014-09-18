@@ -13,7 +13,7 @@ if ( $gateway ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
 	}
 
-	include 'errors.php';
+	include Pronamic_WP_Pay_Plugin::$dirname . '/views/errors.php';
 
 	?>
 
@@ -38,6 +38,6 @@ if ( $gateway ) {
 	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealAdvancedV3_Gateway;
 
 	if ( $is_ideal ) {
-		include 'ideal-test-cases.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';
 	}
 }

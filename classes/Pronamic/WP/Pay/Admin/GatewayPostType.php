@@ -173,7 +173,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_config( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/config-edit.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
 	/**
@@ -182,7 +182,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_test( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/config-test.php';
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
 
 	/**

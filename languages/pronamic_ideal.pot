@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.8.9\n"
+"Project-Id-Version: Pronamic iDEAL 2.9.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-09-09 10:33:09+00:00\n"
+"POT-Creation-Date: 2014-09-16 09:03:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -464,8 +464,6 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:113
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
@@ -475,6 +473,9 @@ msgstr ""
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:314
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
 #: views/config-edit.php:52
 msgid "iDEAL"
@@ -581,7 +582,7 @@ msgid "Supported Extensions"
 msgstr ""
 
 #: admin/tab-extensions.php:8
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:289
 msgid "Easy Digital Downloads"
 msgstr ""
 
@@ -707,7 +708,15 @@ msgstr ""
 msgid "Vantage"
 msgstr ""
 
-#: admin/tab-extensions.php:204 admin/tab-gateways.php:22
+#: admin/tab-extensions.php:193
+msgid "Campaignify"
+msgstr ""
+
+#: admin/tab-extensions.php:196
+msgid "Astoundify"
+msgstr ""
+
+#: admin/tab-extensions.php:211 admin/tab-gateways.php:22
 msgid "Markdown"
 msgstr ""
 
@@ -995,10 +1004,10 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:294
 msgid "Order #%s"
 msgstr ""
 
@@ -1042,8 +1051,8 @@ msgid "No"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:90
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:93
 msgid "iDEAL Configuration"
 msgstr ""
 
@@ -1053,46 +1062,6 @@ msgstr ""
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:134
 msgid "eShop"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
-msgid "iDEAL Settings"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:84
-msgid "Configure the iDEAL settings"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid "Payment Error"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid ""
-"Payment creation failed before sending buyer to the iDEAL provider. Payment "
-"data: %s"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
-msgid "iDEAL payment completed."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
-msgid "iDEAL payment open."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
-msgid "iDEAL payment unknown."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
-msgid "Easy Digital Downloads order %s"
 msgstr ""
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
@@ -1210,6 +1179,24 @@ msgstr ""
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:97
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
+msgid "iDEAL payment completed."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
+msgid "iDEAL payment open."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+msgid "iDEAL payment unknown."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:84
@@ -1630,6 +1617,30 @@ msgstr ""
 
 #: includes/post.php:71
 msgid "No payment forms found in Trash"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:86
+msgid "iDEAL Settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:87
+msgid "Configure the iDEAL settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid "Payment Error"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid ""
+"Payment creation failed before sending buyer to the iDEAL provider. Payment "
+"data: %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:65
+msgid "Easy Digital Downloads order %s"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:89
