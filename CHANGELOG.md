@@ -7,6 +7,7 @@
 *	Tweak - Qantani - Truncate description longer then 30 characters.
 *	Tweak - Initialize post types on 'init' action priority 0 to fix a notice.
 *	Tweak - Show 'No logs found.' when no payment logs are found in the logs meta box.
+*	Tweak - Gravity Forms AWeber Add-On - Improved support for delayed subscriptions.
 
 ## 2.8.9
 *	Test - WordPress - Tested up to version 4.0.
