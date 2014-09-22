@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.9.2
+*	Tweak - Payment note comments are always ignored in comment queries.
+*	Feature - Easy Digital Downloads - Added support for Bancontact/Mister Cash icon.
+
 ## 2.9.1
 *	Fix - OmniKassa - Fixed fatal error.
 
