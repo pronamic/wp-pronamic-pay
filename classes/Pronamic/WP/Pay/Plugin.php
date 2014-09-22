@@ -63,10 +63,12 @@ class Pronamic_WP_Pay_Plugin {
 		// Admin
 		if ( is_admin() ) {
 			Pronamic_WP_Pay_Admin::bootstrap();
-		} else {
-			add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ) );
 		}
 
+		// Payment notes
+		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );
+
+		// Setup
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
 
 		// Initialize requirements
@@ -94,9 +96,18 @@ class Pronamic_WP_Pay_Plugin {
 
 	/**
 	 * Comments clauses
+	 *
+	 * @param array $clauses
+	 * @param WP_Comment_Query $query
+	 * @return array
 	 */
-	public static function exclude_comment_payment_notes( $clauses ) {
-		$clauses['where'] .= " AND comment_type != 'payment_note'";
+	public static function exclude_comment_payment_notes( $clauses, $query ) {
+		$type = $query->query_vars[ 'type' ];
+
+		// Ignore payment notes comments if it's not specific requested
+		if ( 'payment_note' != $type ) {
+			$clauses['where'] .= " AND comment_type != 'payment_note'";
+		}
 
 		return $clauses;
 	}
