@@ -402,6 +402,28 @@ $sections = array(
 		),
 	),
 	array(
+		'title'   => __( 'Direct HTTP server-to-server request', 'pronamic_ideal' ),
+		'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
+		'fields'  => array(
+			array(
+				'title'       => __( 'URL accepted, on hold or uncertain', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'value'       => site_url( '/' ),
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( 'If the payment\'s status is "accepted", "on hold" or "uncertain".', 'pronamic_ideal' ),
+				'readonly'    => true,
+			),
+			array(
+				'title'       => __( 'URL cancel or deny', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'value'       => site_url( '/' ),
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( 'If the payment\'s status is "cancelled by the client" or "too many rejections by the acquirer".', 'pronamic_ideal' ),
+				'readonly'    => true,
+			),
+		),
+	),
+	array(
 		'title'   => __( 'Ogone DirectLink', 'pronamic_ideal' ),
 		'methods' => array( 'ogone_directlink' ),
 		'fields'  => array(
