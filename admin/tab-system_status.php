@@ -125,7 +125,7 @@
 			<?php
 
 			// @see http://codex.wordpress.org/Function_Reference/bloginfo#Show_Character_Set
-			if ( strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) == 0 ) {
+			if ( 0 == strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) ) {
 				echo '&#10003;';
 			} else {
 				_e( 'Pronamic iDEAL advices to set the character encoding to UTF-8.', 'pronamic_ideal' );

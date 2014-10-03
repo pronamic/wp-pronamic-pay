@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 3.9.1
-Stable tag: 2.8.5
+Tested up to: 4.0
+Stable tag: 2.9.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -21,13 +21,13 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 1.8.6
+	*	**Tested up to:** 2.1.3
 *	[Event Espresso](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.24
 	*	**Tested up to:** 3.1.35.P
 *	[Event Espresso Lite](http://eventespresso.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/event-espresso-free/](http://wordpress.org/extend/plugins/event-espresso-free/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/event-espresso-free/](http://wordpress.org/plugins/event-espresso-free/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.29.1.L
 	*	**Tested up to:** 3.1.35.L
@@ -35,7 +35,7 @@ your WordPress website.
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
-	*	**Tested up to:** 1.8.7
+	*	**Tested up to:** 1.8.13
 *	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
@@ -58,13 +58,13 @@ your WordPress website.
 	*	**Tested up to:** 1.8
 *	[iThemes Exchange](http://ithemes.com/exchange/)
 	*	**Author:** [iThemes](http://ithemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/ithemes-exchange/](http://wordpress.org/extend/plugins/ithemes-exchange/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
 	*	**Tested up to:** 1.7.16
 *	[Jigoshop](http://jigoshop.com/)
 	*	**Author:** [Jigowatt](http://jigowatt.co.uk/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/jigoshop/](http://wordpress.org/extend/plugins/jigoshop/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.9.6
@@ -89,19 +89,25 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
 	*	**GitHub:** [https://github.com/ingenesis/shopp](https://github.com/ingenesis/shopp)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.3.4
+	*	**Tested up to:** 1.3.5
 *	[WooCommerce](http://www.woothemes.com/woocommerce/)
 	*	**Author:** [WooThemes](http://www.woothemes.com/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/woocommerce/](http://wordpress.org/extend/plugins/woocommerce/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
 	*	**Tested up to:** 2.1.5
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
-	*	**WordPress.org:** [http://wordpress.org/extend/plugins/wp-e-commerce/](http://wordpress.org/extend/plugins/wp-e-commerce/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
 	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
 	*	**Requires at least:** 3.8.12.1
 	*	**Tested up to:** 3.8.14
+*	[Crowdfunding by Astoundify]()
+	*	**Author:** [Astoundify](http://www.astoundify.com/)
+	*	**WordPress.org:** [http://wordpress.org/plugins/appthemer-crowdfunding/](http://wordpress.org/plugins/appthemer-crowdfunding/)
+	*	**GitHub:** [https://github.com/astoundify/crowdfunding/](https://github.com/astoundify/crowdfunding/)
+	*	**Requires at least:** 1.8.2
+	*	**Tested up to:** 1.8.2
 *	[ClassiPress](http://www.appthemes.com/themes/classipress/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Requires at least:** 3.3.1
@@ -112,6 +118,9 @@ your WordPress website.
 *	[Vantage](http://www.appthemes.com/themes/vantage/)
 	*	**Author:** [AppThemes](http://www.appthemes.com/)
 	*	**Tested up to:** 1.3.2
+*	[Campaignify](http://www.astoundify.com/)
+	*	**Author:** [Astoundify](http://www.astoundify.com/)
+	*	**Tested up to:** 1.5
 
 
 = Gateways =
@@ -184,8 +193,35 @@ your WordPress website.
 
 == Installation ==
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your 
-WordPress installation and then activate the Plugin from Plugins page.
+= Requirements =
+
+The Pronamic iDEAL plugin extends WordPress extensions with the iDEAL 
+payment method. To offer the iDEAL payment method to the vistors of
+your WordPress website you also require one of these extensions. Normally
+this is an e-commerce or forms plugin. 
+
+= Automatic installation =
+
+Automatic installation is the easiest option as WordPress handles the file 
+transfers itself and you don’t need to leave your web browser. To do an 
+automatic install of Pronamic iDEAL, log in to your WordPress dashboard, 
+navigate to the Plugins menu and click Add New.
+
+In the search field type “Pronamic iDEAL” and click Search Plugins. Once 
+you’ve found our iDEAL plugin you can view details about it such as the the 
+point release, rating and description. Most importantly of course, you can 
+install it by simply clicking “Install Now”.
+
+= Manual installation =
+
+The manual installation method involves downloading our iDEAL plugin and 
+uploading it to your webserver via your favourite FTP application. 
+The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+
+= Updating =
+
+Automatic updates should work like a charm; as always though, ensure you 
+backup your site just in case.
 
 
 == Screenshots ==
@@ -223,6 +259,38 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.9.1 =
+*	Fix - OmniKassa - Fixed fatal error.
+
+= 2.9.0 =
+*	Tweak - Easy Digital Downloads - Display gateway errors.
+*	Feature - Easy Digital Downloads - Added support for iDEAL payment icon.
+*	Test - Easy Digital Downloads - Tested up to version 2.1.3.
+*	Tweak - Qantani - Truncate description longer then 30 characters.
+*	Tweak - Initialize post types on 'init' action priority 0 to fix a notice.
+*	Tweak - Show 'No logs found.' when no payment logs are found in the logs meta box.
+*	Tweak - Gravity Forms AWeber Add-On - Improved support for delayed subscriptions.
+
+= 2.8.9 =
+*	Test - WordPress - Tested up to version 4.0.
+*	Test - Gravity Forms - Tested up to version 1.8.13.
+*	Fix - Sisow - Improved support for Gravity Forms without issuer dropdowns.
+*	Tweak - Added payment status to the WordPress admin payment details page.
+*	Tweak - Gravity Forms - Show add-on options only if they are available.
+
+= 2.8.8 =
+*	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+*	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
+
+= 2.8.7 =
+*	Fix - OmniKassa - Fixed fatal error loading response codes class.
+*	Fix - Mollie - Fixed fatal error loading config class.
+
+= 2.8.6 =
+*	Fix - OmniKassa - Fixed link to the OmniKassa test environment.
+*	Feature - WooCommerce - Added extra gateway for the Mister Cash payment method.
+*	Tweak - No longer create custom database tables for payments and gateway configurations.
 
 = 2.8.5 =
 *	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.

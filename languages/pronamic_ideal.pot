@@ -2,15 +2,16 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 2.8.5\n"
+"Project-Id-Version: Pronamic iDEAL 2.9.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-07-24 08:00:46+00:00\n"
+"POT-Creation-Date: 2014-10-01 08:01:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.4.7\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
 msgid "WordPress.org"
@@ -21,7 +22,7 @@ msgid "GitHub"
 msgstr ""
 
 #: admin/extensions-wp-admin.php:5 admin/gateways-wp-admin.php:5
-#: admin/methods-wp-admin.php:5
+#: admin/methods-wp-admin.php:7
 msgid "Name"
 msgstr ""
 
@@ -63,7 +64,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:118
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:121
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
 msgstr ""
@@ -151,132 +152,126 @@ msgstr ""
 msgid "Create post only when payment is received."
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:302
+#: admin/gravityforms/meta-box-config.php:305
 msgid "AWeber Subscription Delay"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:308
+#: admin/gravityforms/meta-box-config.php:311
 msgid "Subscribe user to AWeber only when payment is received."
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:313
-#: admin/gravityforms/meta-box-config.php:339
-#: admin/gravityforms/meta-box-config.php:365
-#: admin/gravityforms/meta-box-config.php:391
-msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
-msgstr ""
-
-#: admin/gravityforms/meta-box-config.php:328
+#: admin/gravityforms/meta-box-config.php:327
 msgid "Campaign Monitor Subscription Delay"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:334
+#: admin/gravityforms/meta-box-config.php:333
 msgid "Subscribe user to Campaign Monitor only when payment is received."
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:354
+#: admin/gravityforms/meta-box-config.php:349
 msgid "MailChimp Subscription Delay"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:360
+#: admin/gravityforms/meta-box-config.php:355
 msgid "Subscribe user to MailChimp only when payment is received."
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:380
+#: admin/gravityforms/meta-box-config.php:371
 msgid "User Registration Delay"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:386
+#: admin/gravityforms/meta-box-config.php:377
 msgid "Register user only when a payment is received."
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:402
+#: admin/gravityforms/meta-box-config.php:387
 msgid "Fields"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:408
+#: admin/gravityforms/meta-box-config.php:393
 msgid "First Name"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:409
+#: admin/gravityforms/meta-box-config.php:394
 msgid "Last Name"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:410
+#: admin/gravityforms/meta-box-config.php:395
+#: admin/meta-box-payment-info.php:89
 #: classes/Pronamic/S2Member/Bridge/Shortcodes.php:87
-#: views/meta-box-payment-info.php:75
 msgid "Email"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:411
+#: admin/gravityforms/meta-box-config.php:396
 msgid "Address"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:412
+#: admin/gravityforms/meta-box-config.php:397
 msgid "Address 2"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:413
+#: admin/gravityforms/meta-box-config.php:398
 msgid "City"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:414
+#: admin/gravityforms/meta-box-config.php:399
 msgid "State"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:415
+#: admin/gravityforms/meta-box-config.php:400
 msgid "Zip"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:416 views/config-edit.php:473
+#: admin/gravityforms/meta-box-config.php:401
+#: admin/meta-box-gateway-config.php:509
 msgid "Country"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:448
+#: admin/gravityforms/meta-box-config.php:433
 msgid "Status Links"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:458
-#: classes/Pronamic/WP/Pay/Plugin.php:416
+#: admin/gravityforms/meta-box-config.php:443
+#: classes/Pronamic/WP/Pay/Plugin.php:427
 msgid "Open"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:459 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:418
+#: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
+#: classes/Pronamic/WP/Pay/Plugin.php:429
 msgid "Success"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:460
+#: admin/gravityforms/meta-box-config.php:445
 msgid "Cancel"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:461
+#: admin/gravityforms/meta-box-config.php:446
 #: classes/Pronamic/WP/Pay/Admin.php:101
 msgid "Error"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:462
-#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:412
+#: admin/gravityforms/meta-box-config.php:447
+#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:423
 msgid "Expired"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:488
+#: admin/gravityforms/meta-box-config.php:473
 msgid "Page:"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:496
+#: admin/gravityforms/meta-box-config.php:481
 msgid "&mdash; Select &mdash;"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:505
+#: admin/gravityforms/meta-box-config.php:490
 msgid "URL:"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:515
+#: admin/gravityforms/meta-box-config.php:500
 msgid "Advanced"
 msgstr ""
 
-#: admin/gravityforms/meta-box-config.php:522
+#: admin/gravityforms/meta-box-config.php:507
 msgid "Update user role"
 msgstr ""
 
@@ -292,12 +287,600 @@ msgstr ""
 msgid "Payment %d"
 msgstr ""
 
+#: admin/meta-box-gateway-config.php:29
+#: classes/Pronamic/S2Member/Bridge/Settings.php:21
+#: classes/Pronamic/WP/Pay/Admin.php:76
+#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
+msgid "General"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:42
+msgid "Mode"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:45
+msgid "Live"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:46 admin/meta-box-gateway-test.php:26
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:100
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:162
+msgid "Test"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
+#: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
+#: admin/tab-pages_generator.php:52
+#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
+#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
+#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
+#: classes/Pronamic/GravityForms/IDeal/Admin.php:41
+#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
+#: classes/Pronamic/WP/Pay/Admin.php:426 classes/Pronamic/WP/Pay/Admin.php:427
+#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
+#: includes/ithemes-exchange/settings.php:2
+#: includes/ithemes-exchange/wizard-settings.php:2
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
+#: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
+msgid "iDEAL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:57 admin/meta-box-gateway-config.php:205
+#: admin/meta-box-gateway-config.php:257
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:114
+msgid "Merchant ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:60
+msgid ""
+"You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
+"provider."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:67
+msgid "Sub ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:70
+msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:76
+msgid "Basic"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:81
+msgid "Hash Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:84
+msgid ""
+"You configure the hash key (also known as: key or secret key) in the iDEAL "
+"dashboard of your iDEAL provider."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:88
+msgid "XML Notification URL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:101
+msgid "PayDutch"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:106
+msgid "Username"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:112 admin/meta-box-gateway-config.php:397
+msgid "Password"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:117
+msgid "Success CallbackURL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:124
+msgid "Fail CallbackURL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:133
+msgid "Mollie"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:138
+msgid "Partner ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:141
+msgid ""
+"Mollie.nl accountnummer. Op het gespecificeerde account wordt na "
+"succesvolle betaling tegoed bijgeschreven."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:146
+msgid "Profile Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:150
+msgid ""
+"Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
+"linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
+"href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:163
+msgid "Webhook"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:173
+msgid "MultiSafepay"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:178
+msgid "Account ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:185
+msgid "Site ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:192
+msgid "Site Security Code"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:200 admin/tab-branding.php:182
+#: admin/tab-branding.php:188 admin/tab-branding.php:194
+msgid "OmniKassa"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:211 admin/meta-box-gateway-config.php:237
+msgid "Secret Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:217
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:118
+msgid "Key Version"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:220
+msgid ""
+"You can find the key version in the <a href=\"%s\" "
+"target=\"_blank\">OmniKassa Download Dashboard</a>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:225
+msgid "Buckaroo"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:230
+msgid "Website Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:233
+msgid ""
+"You can find your Buckaroo website keys in the <a href=\"%s\" "
+"target=\"_blank\">Buckaroo Payment Plaza</a> under \"Profile\" » "
+"\"Website\"."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:240
+msgid ""
+"You can find your Buckaroo secret key in the <a href=\"%s\" "
+"target=\"_blank\">Buckaroo Payment Plaza</a> under \"Configuration\" » "
+"\"Secret Key for Digital Signature\"."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:243
+msgid "Push URI"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:252
+msgid "ICEPAY"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:260
+msgid ""
+"You can find your Merchant ID on your <a href=\"%s\" "
+"target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" "
+"target=\"_blank\">My websites</a>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:261 admin/meta-box-gateway-config.php:272
+msgid "https://www.icepay.com/EN/Login"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:262 admin/meta-box-gateway-config.php:273
+msgid "https://www.icepay.com/Merchant/EN/Websites"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:267
+msgid "Secret Code"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:271
+msgid ""
+"You can find your Secret Code on your <a href=\"%s\" "
+"target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" "
+"target=\"_blank\">My websites</a>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:277
+msgid "Thank you page URL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:284
+msgid "Error page URL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:291
+msgid "Postback URL"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:300
+msgid "Sisow"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:309
+msgid ""
+"You can find your Merchant ID on your <a href=\"%s\" "
+"target=\"_blank\">Sisow account page</a> under <a href=\"%s\" "
+"target=\"_blank\">My profile</a>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:320
+msgid ""
+"You can find your Merchant Key on your <a href=\"%s\" "
+"target=\"_blank\">Sisow account page</a> under <a href=\"%s\" "
+"target=\"_blank\">My profile</a>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:328
+msgid "TargetPay"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:333
+msgid "Layout Code"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:335
+msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:340
+msgid "Ogone"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:345
+msgid "PSPID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:349
+msgid "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:355
+msgid "Character encoding"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:363
+msgid "Hash algorithm"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:366
+msgid "SHA-1"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:367
+msgid "SHA-256"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:368
+msgid "SHA-512"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:374 admin/meta-box-gateway-config.php:432
+msgid "SHA-IN Pass phrase"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:377 admin/meta-box-gateway-config.php:435
+msgid ""
+"You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
+"&raquo; Technical information &raquo; Data and origin verification) of your "
+"iDEAL provider."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:382
+msgid "SHA-OUT Pass phrase"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:385
+msgid ""
+"You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
+"&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
+"provider."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:390 admin/meta-box-payment-source.php:64
+msgid "User ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:405
+msgid "Direct HTTP server-to-server request"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:409
+msgid "URL accepted, on hold or uncertain"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:413
+msgid "If the payment's status is \"accepted\", \"on hold\" or \"uncertain\"."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:417
+msgid "URL cancel or deny"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:421
+msgid ""
+"If the payment's status is \"cancelled by the client\" or \"too many "
+"rejections by the acquirer\"."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:427
+msgid "Ogone DirectLink"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:440
+msgid "3-D Secure"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:442
+msgid "Enable 3-D Secure protocol"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:448
+msgid "Qantani"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:472
+msgid "iDEAL Advanced"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:477
+msgid "Private Key Password"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:483 admin/meta-box-gateway-config.php:845
+msgid "Private Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:490 admin/meta-box-gateway-config.php:869
+msgid "Private Certificate"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:498
+msgid "Private Key and Certificate"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:503
+msgid "Number Days Valid"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:505
+msgid ""
+"specify the length of time for which the generated certificate will be "
+"valid, in days."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:511
+msgid "2 letter code [NL]"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:515
+msgid "State or Province"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:517
+msgid "full name [Friesland]"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:521
+msgid "Locality"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:523
+msgid "eg, city"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:527
+msgid "Organization"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:529
+msgid "eg, company [Pronamic]"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:533
+msgid "Organization Unit"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:535
+msgid "eg, section"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:539
+msgid "Common Name"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:542
+msgid "eg, YOUR name"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:543
+msgid ""
+"Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
+"the domainname of your website."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:544
+msgid ""
+"Do you have an iDEAL subscription with ABN AMRO, please fill in "
+"\"ideal_<strong>company</strong>\", where \"company\" is your company name "
+"(as specified in the request for the subscription). The value must not "
+"exceed 25 characters."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:548
+msgid "Email Address"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:560
+msgid "Download Private Key"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:582
+msgid "SHA Fingerprint"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:588
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:591
+msgid "Valid From"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:596
+msgid "Valid To"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:607
+msgid "Download Private Certificate"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:627
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
+msgid "Variant"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:834
+msgid "Private Key and Certificate Generator"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:838
+msgid ""
+"You have to use the following commands to generate an private key and "
+"certificate for iDEAL v3:"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:854
+msgid "filename"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
+#: admin/tab-ideal_status.php:46
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
+#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
+msgid "Date"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:14
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:19
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
+msgid "ID"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:27
+#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:101
+msgid "Description"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:35
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:110
+msgid "Amount"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:49
+msgid "Transaction ID"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:57
+msgid "Action URL"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:75
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
+msgid "Status"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:101
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
+msgid "Consumer"
+msgstr ""
+
+#: admin/meta-box-payment-log.php:16
+msgid "No logs found."
+msgstr ""
+
+#: admin/meta-box-payment-log.php:34
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: admin/meta-box-payment-log.php:36
+#. translators: comment date format. See http:php.net/date
+msgid "Y/m/d"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:11
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:105
+msgid "Source"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:22
+msgid "Period"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:30
+msgid "Level"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:43
+msgid "Purchase ID"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:51
+msgid "Session ID"
+msgstr ""
+
+#: admin/meta-box-payment-source.php:72
+msgid "Subscription ID"
+msgstr ""
+
+#: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:110
+msgid "Icon"
+msgstr ""
+
 #: admin/methods-wp-admin.php:8
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:432
-#: classes/Pronamic/WP/Pay/Admin.php:433 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:436
+#: classes/Pronamic/WP/Pay/Admin.php:437 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -367,26 +950,6 @@ msgstr ""
 msgid "Google+"
 msgstr ""
 
-#: admin/tab-branding.php:11 admin/tab-branding.php:17
-#: admin/tab-branding.php:23 admin/tab-pages_generator.php:52
-#: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
-#: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:64
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:113
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:41
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
-#: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:98
-#: includes/ithemes-exchange/settings.php:2
-#: includes/ithemes-exchange/wizard-settings.php:2 views/config-edit.php:52
-msgid "iDEAL"
-msgstr ""
-
 #: admin/tab-branding.php:35
 msgid "Banner 234&times;100"
 msgstr ""
@@ -428,13 +991,8 @@ msgid "Banner 100&times;100 (without campaign statements)"
 msgstr ""
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
-#: admin/tab-branding.php:113 admin/tab-methods.php:82
+#: admin/tab-branding.php:113 admin/tab-methods.php:88
 msgid "Mister Cash"
-msgstr ""
-
-#: admin/tab-branding.php:125
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:107
-msgid "Icon"
 msgstr ""
 
 #: admin/tab-branding.php:132
@@ -451,11 +1009,6 @@ msgstr ""
 msgid "Mollie bage - Betaling groen"
 msgstr ""
 
-#: admin/tab-branding.php:182 admin/tab-branding.php:188
-#: admin/tab-branding.php:194 views/config-edit.php:186
-msgid "OmniKassa"
-msgstr ""
-
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:118
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
@@ -463,7 +1016,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:25
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:95
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:95
 msgid "Title"
 msgstr ""
 
@@ -484,14 +1037,6 @@ msgstr ""
 msgid "PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
 msgstr ""
 
-#: admin/tab-documentation.php:626 admin/tab-ideal_status.php:46
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:29
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: views/meta-box-payment-info.php:11
-msgid "Date"
-msgstr ""
-
 #: admin/tab-documentation.php:627
 msgid "Version"
 msgstr ""
@@ -501,7 +1046,7 @@ msgid "Supported Extensions"
 msgstr ""
 
 #: admin/tab-extensions.php:8
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:272
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:289
 msgid "Easy Digital Downloads"
 msgstr ""
 
@@ -592,7 +1137,7 @@ msgstr ""
 
 #: admin/tab-extensions.php:146
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:148
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
 msgid "WooCommerce"
 msgstr ""
 
@@ -609,25 +1154,37 @@ msgstr ""
 msgid "Instinct Entertainment"
 msgstr ""
 
-#: admin/tab-extensions.php:169
+#: admin/tab-extensions.php:168
+msgid "Crowdfunding by Astoundify"
+msgstr ""
+
+#: admin/tab-extensions.php:173 admin/tab-extensions.php:205
+msgid "Astoundify"
+msgstr ""
+
+#: admin/tab-extensions.php:178
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
 msgid "ClassiPress"
 msgstr ""
 
-#: admin/tab-extensions.php:174 admin/tab-extensions.php:182
-#: admin/tab-extensions.php:189 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
+#: admin/tab-extensions.php:183 admin/tab-extensions.php:191
+#: admin/tab-extensions.php:198 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
 msgid "AppThemes"
 msgstr ""
 
-#: admin/tab-extensions.php:178
+#: admin/tab-extensions.php:187
 msgid "JobRoller"
 msgstr ""
 
-#: admin/tab-extensions.php:186
+#: admin/tab-extensions.php:195
 msgid "Vantage"
 msgstr ""
 
-#: admin/tab-extensions.php:204 admin/tab-gateways.php:22
+#: admin/tab-extensions.php:202
+msgid "Campaignify"
+msgstr ""
+
+#: admin/tab-extensions.php:220 admin/tab-gateways.php:22
 msgid "Markdown"
 msgstr ""
 
@@ -649,7 +1206,7 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:414
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:425
 msgid "Failure"
 msgstr ""
 
@@ -730,19 +1287,19 @@ msgstr ""
 msgid "Giropay"
 msgstr ""
 
-#: admin/tab-methods.php:77
+#: admin/tab-methods.php:82
 msgid "MiniTix"
 msgstr ""
 
-#: admin/tab-methods.php:86
+#: admin/tab-methods.php:92
 msgid "paysafecard"
 msgstr ""
 
-#: admin/tab-methods.php:90
+#: admin/tab-methods.php:96
 msgid "PayPal"
 msgstr ""
 
-#: admin/tab-methods.php:94
+#: admin/tab-methods.php:100
 msgid "Wallie"
 msgstr ""
 
@@ -915,10 +1472,10 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:277
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:139
 #: classes/Pronamic/Shopp/IDeal/AddOn.php:166
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:294
 msgid "Order #%s"
 msgstr ""
 
@@ -947,7 +1504,7 @@ msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:90
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:89
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:91
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:91
 msgid "Enable iDEAL"
 msgstr ""
 
@@ -962,8 +1519,8 @@ msgid "No"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:90
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:93
 msgid "iDEAL Configuration"
 msgstr ""
 
@@ -973,46 +1530,6 @@ msgstr ""
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:134
 msgid "eShop"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:83
-msgid "iDEAL Settings"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:84
-msgid "Configure the iDEAL settings"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid "Payment Error"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:162
-msgid ""
-"Payment creation failed before sending buyer to the iDEAL provider. Payment "
-"data: %s"
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:228
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:110
-msgid "iDEAL payment completed."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:240
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:121
-msgid "iDEAL payment open."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/IDeal/AddOn.php:246
-#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:127
-msgid "iDEAL payment unknown."
-msgstr ""
-
-#: classes/Pronamic/EasyDigitalDownloads/PaymentData.php:65
-msgid "Easy Digital Downloads order %s"
 msgstr ""
 
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
@@ -1056,72 +1573,11 @@ msgstr ""
 #: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:95
 #: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
 #: classes/Pronamic/Gateways/Mollie/IDeal/Gateway.php:67
-#: classes/Pronamic/Gateways/PayDutch/Gateway.php:66
-#: classes/Pronamic/Gateways/Sisow/Gateway.php:52
 #: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
+#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:52
 msgid "Choose your bank"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:104
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
-#: views/meta-box-payment-info.php:35
-msgid "Amount"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:107
-msgid "Currency Code"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:108 views/config-edit.php:57
-#: views/config-edit.php:191 views/config-edit.php:243
-msgid "Merchant ID"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:109
-msgid "Order ID"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:110
-msgid "Transaction Date Time"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:111
-msgid "Transaction Reference"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:112
-#: views/config-edit.php:203
-msgid "Key Version"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:113
-msgid "Authorisation ID"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:114
-msgid "Payment Mean Brand"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:115
-msgid "Payment Mean Type"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:116
-msgid "Response Code"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:122
-msgid "OmniKassa transaction data in response message:"
-msgstr ""
-
-#: classes/Pronamic/Gateways/Sisow/Sisow.php:136
-msgid "Unknwon Sisow message (%s)"
-msgstr ""
-
-#: classes/Pronamic/Gateways/Sisow/Sisow.php:152
-msgid "Sisow Bank (test)"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
@@ -1129,12 +1585,12 @@ msgid "Entry #%s"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WP/Pay/Plugin.php:381
+#: classes/Pronamic/WP/Pay/Plugin.php:392
 msgid "iDEAL Administrator"
 msgstr ""
 
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WP/Pay/Plugin.php:385
+#: classes/Pronamic/WP/Pay/Plugin.php:396
 msgid "Administrator"
 msgstr ""
 
@@ -1184,13 +1640,31 @@ msgid "iDEAL payment cancelled."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:91
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:93
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
 msgid "iDEAL payment expired."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/AddOn.php:97
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:101
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:102
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
+msgid "iDEAL payment completed."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:109
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
+msgid "iDEAL payment open."
+msgstr ""
+
+#: classes/Pronamic/Jigoshop/IDeal/AddOn.php:113
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+msgid "iDEAL payment unknown."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:84
@@ -1198,15 +1672,8 @@ msgid "Allow iDEAL payments."
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:104
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:97
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:97
 msgid "This controls the title which the user sees during checkout."
-msgstr ""
-
-#: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:111
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:101
-#: views/meta-box-payment-info.php:27
-msgid "Description"
 msgstr ""
 
 #: classes/Pronamic/Jigoshop/IDeal/IDealGateway.php:113
@@ -1293,13 +1760,6 @@ msgstr ""
 msgid "lifetime"
 msgstr ""
 
-#: classes/Pronamic/S2Member/Bridge/Settings.php:21
-#: classes/Pronamic/WP/Pay/Admin.php:76
-#: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: views/config-edit.php:29
-msgid "General"
-msgstr ""
-
 #: classes/Pronamic/S2Member/Bridge/Settings.php:50
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:67
 msgid "Pronamic iDEAL Options"
@@ -1344,30 +1804,14 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Jigoshop/PaymentData.php:83
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:109
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
-#: classes/Pronamic/WooCommerce/IDeal/AddOn.php:162
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
 msgid "Order %s"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
-#: views/config-edit.php:591
-msgid "Variant"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
-#: views/meta-box-payment-info.php:19
-msgid "ID"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:467
+#: classes/Pronamic/WP/Pay/Admin.php:471
 msgid "Dashboard"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:100
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:162
-#: views/config-edit.php:46 views/config-test.php:26
-msgid "Test"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
@@ -1384,21 +1828,6 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:25
 msgid "Transaction"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
-#: views/meta-box-payment-info.php:87
-msgid "Consumer"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:105
-#: views/meta-box-payment-source.php:11
-msgid "Source"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
-msgid "Status"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:96 includes/post.php:35
@@ -1422,7 +1851,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:420
+#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:431
 msgid "Unknown"
 msgstr ""
 
@@ -1434,29 +1863,29 @@ msgstr ""
 msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:330
+#: classes/Pronamic/WP/Pay/Admin.php:334
 msgid ""
 "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
 "payments of %d, you should enter an valid license key on the <a "
 "href=\"%s\">iDEAL settings page</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:342
+#: classes/Pronamic/WP/Pay/Admin.php:346
 msgid ""
 "You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
 "extensions, get support and more than %d payments."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:440 classes/Pronamic/WP/Pay/Admin.php:441
+#: classes/Pronamic/WP/Pay/Admin.php:444 classes/Pronamic/WP/Pay/Admin.php:445
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:448 classes/Pronamic/WP/Pay/Admin.php:449
+#: classes/Pronamic/WP/Pay/Admin.php:452 classes/Pronamic/WP/Pay/Admin.php:453
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:457 classes/Pronamic/WP/Pay/Admin.php:458
+#: classes/Pronamic/WP/Pay/Admin.php:461 classes/Pronamic/WP/Pay/Admin.php:462
 msgid "Tools"
 msgstr ""
 
@@ -1471,31 +1900,31 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:410
+#: classes/Pronamic/WP/Pay/Plugin.php:421
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:432
+#: classes/Pronamic/WP/Pay/Plugin.php:443
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:448
+#: classes/Pronamic/WP/Pay/Plugin.php:478
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:568
+#: classes/Pronamic/WP/Pay/Plugin.php:598
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:32
+#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:32
 msgid ""
 "The response code (<code>%s<code>) was incorrect, required response code "
 "<code>%s</code>."
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:63
+#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:63
 msgid "Could not load the XML string."
 msgstr ""
 
@@ -1514,65 +1943,6 @@ msgstr ""
 
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:169
 msgid "Purchase #%s"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:89
-msgid "Enable/Disable"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:103
-msgid ""
-"Give the customer instructions for paying via iDEAL, and let them know that "
-"their order won't be shipping until the money is received."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:104
-msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:112
-msgid "This controls the icon which the user sees during checkout."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:113
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:135
-msgid "Default: <code>%s</code>."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:124
-msgid "Payment Options"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:129
-msgid "Payment Description"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:134
-msgid "This controls the payment description."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:136
-msgid "Tags: %s"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:214
-msgid "Awaiting iDEAL payment."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/IDeal/IDealGateway.php:240
-msgid ""
-"You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
-"checkout settings page</a>."
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/PaymentData.php:61
-msgid "Order {order_number}"
-msgstr ""
-
-#: classes/Pronamic/WooCommerce/PaymentData.php:83
-msgid "WooCommerce order %s"
 msgstr ""
 
 #: includes/gateways.php:276
@@ -1699,6 +2069,98 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:86
+msgid "iDEAL Settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:87
+msgid "Configure the iDEAL settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid "Payment Error"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
+msgid ""
+"Payment creation failed before sending buyer to the iDEAL provider. Payment "
+"data: %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:320
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:26
+msgid "Bancontact/Mister Cash"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:65
+msgid "Easy Digital Downloads order %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:89
+msgid "Enable/Disable"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:104
+msgid ""
+"Give the customer instructions for paying via %s, and let them know that "
+"their order won't be shipping until the money is received."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:107
+msgid ""
+"With iDEAL you can easily pay online in the secure environment of your own "
+"bank."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:115
+msgid "This controls the icon which the user sees during checkout."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:116
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:138
+msgid "Default: <code>%s</code>."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:127
+msgid "Payment Options"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:132
+msgid "Payment Description"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:137
+msgid "This controls the payment description."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
+msgid "Tags: %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:198
+msgid "Awaiting iDEAL payment."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:224
+msgid ""
+"You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
+"checkout settings page</a>."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:38
+msgid "Enable Bancontact/Mister Cash"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:61
+msgid "Order {order_number}"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:83
+msgid "WooCommerce order %s"
+msgstr ""
+
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:120
 msgid "Payment Method"
 msgstr ""
@@ -1751,413 +2213,48 @@ msgstr ""
 msgid "Buckaroo data:"
 msgstr ""
 
-#: views/config-edit.php:42
-msgid "Mode"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:113
+msgid "Currency Code"
 msgstr ""
 
-#: views/config-edit.php:45
-msgid "Live"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:115
+msgid "Order ID"
 msgstr ""
 
-#: views/config-edit.php:60
-msgid ""
-"You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
-"provider."
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:116
+msgid "Transaction Date Time"
 msgstr ""
 
-#: views/config-edit.php:67
-msgid "Sub ID"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:117
+msgid "Transaction Reference"
 msgstr ""
 
-#: views/config-edit.php:70
-msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:119
+msgid "Authorisation ID"
 msgstr ""
 
-#: views/config-edit.php:76
-msgid "Basic"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:120
+msgid "Payment Mean Brand"
 msgstr ""
 
-#: views/config-edit.php:81
-msgid "Hash Key"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:121
+msgid "Payment Mean Type"
 msgstr ""
 
-#: views/config-edit.php:84
-msgid ""
-"You configure the hash key (also known as: key or secret key) in the iDEAL "
-"dashboard of your iDEAL provider."
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
+msgid "Response Code"
 msgstr ""
 
-#: views/config-edit.php:88
-msgid "XML Notification URL"
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:128
+msgid "OmniKassa transaction data in response message:"
 msgstr ""
 
-#: views/config-edit.php:101
-msgid "PayDutch"
+#: vendor/wp-pay-gateways/sisow/src/Client.php:136
+msgid "Unknwon Sisow message (%s)"
 msgstr ""
 
-#: views/config-edit.php:106
-msgid "Username"
-msgstr ""
-
-#: views/config-edit.php:112 views/config-edit.php:383
-msgid "Password"
-msgstr ""
-
-#: views/config-edit.php:119
-msgid "Mollie"
-msgstr ""
-
-#: views/config-edit.php:124
-msgid "Partner ID"
-msgstr ""
-
-#: views/config-edit.php:127
-msgid ""
-"Mollie.nl accountnummer. Op het gespecificeerde account wordt na "
-"succesvolle betaling tegoed bijgeschreven."
-msgstr ""
-
-#: views/config-edit.php:132
-msgid "Profile Key"
-msgstr ""
-
-#: views/config-edit.php:136
-msgid ""
-"Hiermee kunt u een ander websiteprofielen selecteren om uw betaling aan te "
-"linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
-"href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
-msgstr ""
-
-#: views/config-edit.php:149
-msgid "Webhook"
-msgstr ""
-
-#: views/config-edit.php:159
-msgid "MultiSafepay"
-msgstr ""
-
-#: views/config-edit.php:164
-msgid "Account ID"
-msgstr ""
-
-#: views/config-edit.php:171
-msgid "Site ID"
-msgstr ""
-
-#: views/config-edit.php:178
-msgid "Site Security Code"
-msgstr ""
-
-#: views/config-edit.php:197 views/config-edit.php:223
-msgid "Secret Key"
-msgstr ""
-
-#: views/config-edit.php:206
-msgid ""
-"You can find the key version in the <a href=\"%s\" "
-"target=\"_blank\">OmniKassa Download Dashboard</a>."
-msgstr ""
-
-#: views/config-edit.php:211
-msgid "Buckaroo"
-msgstr ""
-
-#: views/config-edit.php:216
-msgid "Website Key"
-msgstr ""
-
-#: views/config-edit.php:219
-msgid ""
-"You can find your Buckaroo website keys in the <a href=\"%s\" "
-"target=\"_blank\">Buckaroo Payment Plaza</a> under \"Profile\" » "
-"\"Website\"."
-msgstr ""
-
-#: views/config-edit.php:226
-msgid ""
-"You can find your Buckaroo secret key in the <a href=\"%s\" "
-"target=\"_blank\">Buckaroo Payment Plaza</a> under \"Configuration\" » "
-"\"Secret Key for Digital Signature\"."
-msgstr ""
-
-#: views/config-edit.php:229
-msgid "Push URI"
-msgstr ""
-
-#: views/config-edit.php:238
-msgid "ICEPAY"
-msgstr ""
-
-#: views/config-edit.php:246
-msgid ""
-"You can find your Merchant ID on your <a href=\"%s\" "
-"target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" "
-"target=\"_blank\">My websites</a>."
-msgstr ""
-
-#: views/config-edit.php:247 views/config-edit.php:258
-msgid "https://www.icepay.com/EN/Login"
-msgstr ""
-
-#: views/config-edit.php:248 views/config-edit.php:259
-msgid "https://www.icepay.com/Merchant/EN/Websites"
-msgstr ""
-
-#: views/config-edit.php:253
-msgid "Secret Code"
-msgstr ""
-
-#: views/config-edit.php:257
-msgid ""
-"You can find your Secret Code on your <a href=\"%s\" "
-"target=\"_blank\">ICEPAY account page</a> under <a href=\"%s\" "
-"target=\"_blank\">My websites</a>."
-msgstr ""
-
-#: views/config-edit.php:263
-msgid "Thank you page URL"
-msgstr ""
-
-#: views/config-edit.php:270
-msgid "Error page URL"
-msgstr ""
-
-#: views/config-edit.php:277
-msgid "Postback URL"
-msgstr ""
-
-#: views/config-edit.php:286
-msgid "Sisow"
-msgstr ""
-
-#: views/config-edit.php:295
-msgid ""
-"You can find your Merchant ID on your <a href=\"%s\" "
-"target=\"_blank\">Sisow account page</a> under <a href=\"%s\" "
-"target=\"_blank\">My profile</a>."
-msgstr ""
-
-#: views/config-edit.php:306
-msgid ""
-"You can find your Merchant Key on your <a href=\"%s\" "
-"target=\"_blank\">Sisow account page</a> under <a href=\"%s\" "
-"target=\"_blank\">My profile</a>."
-msgstr ""
-
-#: views/config-edit.php:314
-msgid "TargetPay"
-msgstr ""
-
-#: views/config-edit.php:319
-msgid "Layout Code"
-msgstr ""
-
-#: views/config-edit.php:321
-msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
-msgstr ""
-
-#: views/config-edit.php:326
-msgid "Ogone"
-msgstr ""
-
-#: views/config-edit.php:331
-msgid "PSPID"
-msgstr ""
-
-#: views/config-edit.php:335
-msgid "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
-msgstr ""
-
-#: views/config-edit.php:341
-msgid "Character encoding"
-msgstr ""
-
-#: views/config-edit.php:349
-msgid "Hash algorithm"
-msgstr ""
-
-#: views/config-edit.php:352
-msgid "SHA-1"
-msgstr ""
-
-#: views/config-edit.php:353
-msgid "SHA-256"
-msgstr ""
-
-#: views/config-edit.php:354
-msgid "SHA-512"
-msgstr ""
-
-#: views/config-edit.php:360 views/config-edit.php:396
-msgid "SHA-IN Pass phrase"
-msgstr ""
-
-#: views/config-edit.php:363 views/config-edit.php:399
-msgid ""
-"You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
-"&raquo; Technical information &raquo; Data and origin verification) of your "
-"iDEAL provider."
-msgstr ""
-
-#: views/config-edit.php:368
-msgid "SHA-OUT Pass phrase"
-msgstr ""
-
-#: views/config-edit.php:371
-msgid ""
-"You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
-"&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
-"provider."
-msgstr ""
-
-#: views/config-edit.php:376 views/meta-box-payment-source.php:64
-msgid "User ID"
-msgstr ""
-
-#: views/config-edit.php:391
-msgid "Ogone DirectLink"
-msgstr ""
-
-#: views/config-edit.php:404
-msgid "3-D Secure"
-msgstr ""
-
-#: views/config-edit.php:406
-msgid "Enable 3-D Secure protocol"
-msgstr ""
-
-#: views/config-edit.php:412
-msgid "Qantani"
-msgstr ""
-
-#: views/config-edit.php:436
-msgid "iDEAL Advanced"
-msgstr ""
-
-#: views/config-edit.php:441
-msgid "Private Key Password"
-msgstr ""
-
-#: views/config-edit.php:447 views/config-edit.php:809
-msgid "Private Key"
-msgstr ""
-
-#: views/config-edit.php:454 views/config-edit.php:833
-msgid "Private Certificate"
-msgstr ""
-
-#: views/config-edit.php:462
-msgid "Private Key and Certificate"
-msgstr ""
-
-#: views/config-edit.php:467
-msgid "Number Days Valid"
-msgstr ""
-
-#: views/config-edit.php:469
-msgid ""
-"specify the length of time for which the generated certificate will be "
-"valid, in days."
-msgstr ""
-
-#: views/config-edit.php:475
-msgid "2 letter code [NL]"
-msgstr ""
-
-#: views/config-edit.php:479
-msgid "State or Province"
-msgstr ""
-
-#: views/config-edit.php:481
-msgid "full name [Friesland]"
-msgstr ""
-
-#: views/config-edit.php:485
-msgid "Locality"
-msgstr ""
-
-#: views/config-edit.php:487
-msgid "eg, city"
-msgstr ""
-
-#: views/config-edit.php:491
-msgid "Organization"
-msgstr ""
-
-#: views/config-edit.php:493
-msgid "eg, company [Pronamic]"
-msgstr ""
-
-#: views/config-edit.php:497
-msgid "Organization Unit"
-msgstr ""
-
-#: views/config-edit.php:499
-msgid "eg, section"
-msgstr ""
-
-#: views/config-edit.php:503
-msgid "Common Name"
-msgstr ""
-
-#: views/config-edit.php:506
-msgid "eg, YOUR name"
-msgstr ""
-
-#: views/config-edit.php:507
-msgid ""
-"Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
-"the domainname of your website."
-msgstr ""
-
-#: views/config-edit.php:508
-msgid ""
-"Do you have an iDEAL subscription with ABN AMRO, please fill in "
-"\"ideal_<strong>company</strong>\", where \"company\" is your company name "
-"(as specified in the request for the subscription). The value must not "
-"exceed 25 characters."
-msgstr ""
-
-#: views/config-edit.php:512
-msgid "Email Address"
-msgstr ""
-
-#: views/config-edit.php:524
-msgid "Download Private Key"
-msgstr ""
-
-#: views/config-edit.php:546
-msgid "SHA Fingerprint"
-msgstr ""
-
-#: views/config-edit.php:552
-msgid "M j, Y @ G:i"
-msgstr ""
-
-#: views/config-edit.php:555
-msgid "Valid From"
-msgstr ""
-
-#: views/config-edit.php:560
-msgid "Valid To"
-msgstr ""
-
-#: views/config-edit.php:571
-msgid "Download Private Certificate"
-msgstr ""
-
-#: views/config-edit.php:798
-msgid "Private Key and Certificate Generator"
-msgstr ""
-
-#: views/config-edit.php:802
-msgid ""
-"You have to use the following commands to generate an private key and "
-"certificate for iDEAL v3:"
-msgstr ""
-
-#: views/config-edit.php:818
-msgid "filename"
+#: vendor/wp-pay-gateways/sisow/src/Client.php:152
+msgid "Sisow Bank (test)"
 msgstr ""
 
 #: views/error.php:12 views/error.php:27 views/error.php:53
@@ -2190,47 +2287,6 @@ msgstr ""
 
 #: views/ideal-test-cases.php:53
 msgid "Transaction with <code>amount</code> = %s:"
-msgstr ""
-
-#: views/meta-box-payment-info.php:14
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr ""
-
-#: views/meta-box-payment-info.php:49
-msgid "Transaction ID"
-msgstr ""
-
-#: views/meta-box-payment-info.php:57
-msgid "Action URL"
-msgstr ""
-
-#: views/meta-box-payment-log.php:28
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: views/meta-box-payment-log.php:30
-#. translators: comment date format. See http:php.net/date
-msgid "Y/m/d"
-msgstr ""
-
-#: views/meta-box-payment-source.php:22
-msgid "Period"
-msgstr ""
-
-#: views/meta-box-payment-source.php:30
-msgid "Level"
-msgstr ""
-
-#: views/meta-box-payment-source.php:43
-msgid "Purchase ID"
-msgstr ""
-
-#: views/meta-box-payment-source.php:51
-msgid "Session ID"
-msgstr ""
-
-#: views/meta-box-payment-source.php:72
-msgid "Subscription ID"
 msgstr ""
 
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
@@ -2314,42 +2370,42 @@ msgctxt "readme.md"
 msgid "Provider"
 msgstr ""
 
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:105
-msgctxt "creditcard"
-msgid "Capture Day"
-msgstr ""
-
-#: classes/Pronamic/Gateways/OmniKassa/Gateway.php:106
-msgctxt "creditcard"
-msgid "Capture Mode"
-msgstr ""
-
-#: views/config-edit.php:143
+#: admin/meta-box-gateway-config.php:157
 msgctxt "mollie"
 msgid "API Key"
 msgstr ""
 
-#: views/config-edit.php:291
+#: admin/meta-box-gateway-config.php:305
 msgctxt "sisow"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:302
+#: admin/meta-box-gateway-config.php:316
 msgctxt "sisow"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:417
+#: admin/meta-box-gateway-config.php:453
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: views/config-edit.php:423
+#: admin/meta-box-gateway-config.php:459
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: views/config-edit.php:429
+#: admin/meta-box-gateway-config.php:465
 msgctxt "qantani"
 msgid "Merchant Secret"
+msgstr ""
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:111
+msgctxt "creditcard"
+msgid "Capture Day"
+msgstr ""
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:112
+msgctxt "creditcard"
+msgid "Capture Mode"
 msgstr ""

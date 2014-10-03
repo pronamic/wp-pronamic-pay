@@ -61,11 +61,13 @@ class Pronamic_Gateways_Icepay_Gateway extends Pronamic_WP_Pay_Gateway {
 				->setIssuer( $data->get_issuer_id() )
 				->setOrderID( $payment->get_id() );
 
+			$protocol = is_ssl() ? 'https' : 'http';
+
 			$basicmode = Icepay_Basicmode::getInstance();
 			$basicmode
 				->setMerchantID( $this->config->merchant_id )
 				->setSecretCode( $this->config->secret_code )
-				->setProtocol( 'http' )
+				->setProtocol( $protocol )
 				->validatePayment( $payment_object );
 
 			$payment->set_action_url( $basicmode->getURL() );

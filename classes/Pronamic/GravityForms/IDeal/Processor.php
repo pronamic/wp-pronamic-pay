@@ -206,7 +206,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 			gform_update_meta( $lead['id'], 'payment_gateway', 'ideal' );
 
 			// Update lead
-			RGFormsModel::update_lead( $lead );
+			Pronamic_GravityForms_GravityForms::update_entry( $lead );
 		}
 
 		return $lead;
@@ -286,13 +286,12 @@ class Pronamic_GravityForms_IDeal_Processor {
 
 	/**
 	 * Maybe delay AWeber subscription
-	 *
-	 * @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L124-L125
 	 */
 	public function maybe_delay_aweber_subscription( $lead, $form ) {
 		if ( $this->is_processing( $form ) ) {
 			if ( $this->feed->delay_aweber_subscription ) {
-				remove_action( 'gform_after_submission', array( 'GFAWeber', 'export' ), 10, 2 );
+				// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L124-L125
+				remove_action( 'gform_post_submission', array( 'GFAWeber', 'export' ), 10, 2 );
 			}
 		}
 	}
@@ -303,6 +302,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_campaignmonitor_subscription( $lead, $form ) {
 		if ( $this->is_processing( $form ) ) {
 			if ( $this->feed->delay_campaignmonitor_subscription ) {
+				// @see https://github.com/gravityforms/gravityformscampaignmonitor/blob/2.5.1/campaignmonitor.php#L124-L125
 				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2 );
 			}
 		}
@@ -314,6 +314,7 @@ class Pronamic_GravityForms_IDeal_Processor {
 	public function maybe_delay_mailchimp_subscription( $lead, $form ) {
 		if ( $this->is_processing( $form ) ) {
 			if ( $this->feed->delay_mailchimp_subscription ) {
+				// @see https://github.com/gravityforms/gravityformsmailchimp/blob/2.4.1/mailchimp.php#L120-L121
 				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2 );
 			}
 		}

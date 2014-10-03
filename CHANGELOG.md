@@ -1,5 +1,43 @@
 # Changelog
 
+## 2.9.2
+*	Tweak - Payment note comments are always ignored in comment queries.
+*	Feature - Easy Digital Downloads - Added support for Bancontact/Mister Cash icon.
+*	Tweak - ICEPAY - Added support for http:// and https://.
+
+## 2.9.1
+*	Fix - OmniKassa - Fixed fatal error.
+
+## 2.9.0
+*	Tweak - Easy Digital Downloads - Display gateway errors.
+*	Feature - Easy Digital Downloads - Added support for iDEAL payment icon.
+*	Test - Easy Digital Downloads - Tested up to version 2.1.3.
+*	Tweak - Qantani - Truncate description longer then 30 characters.
+*	Tweak - Initialize post types on 'init' action priority 0 to fix a notice.
+*	Tweak - Show 'No logs found.' when no payment logs are found in the logs meta box.
+*	Tweak - Gravity Forms AWeber Add-On - Improved support for delayed subscriptions.
+
+## 2.8.9
+*	Test - WordPress - Tested up to version 4.0.
+*	Test - Gravity Forms - Tested up to version 1.8.13.
+*	Fix - Sisow - Improved support for Gravity Forms without issuer dropdowns.
+*	Tweak - Added payment status to the WordPress admin payment details page.
+*	Tweak - Gravity Forms - Show add-on options only if they are available.
+
+## 2.8.8
+*	Fix - WooCommerce - Fix fatal error: Class 'Pronamic_WooCommerce_WooCommerce' not found.
+*	Fix - Shopp - Fix fatal error: Call to undefined method Shopp::resession().
+
+## 2.8.7
+*	Fix - OmniKassa - Fixed fatal error loading response codes class.
+*	Fix - Mollie - Fixed fatal error loading config class.
+
+## 2.8.6
+*	Fix - OmniKassa - Fixed link to the OmniKassa test environment.
+*	Feature - WooCommerce - Added extra gateway for the Mister Cash payment method.
+*	Tweak - PayDutch - Improved support for test and production environments.
+*	Tweak - No longer create custom database tables for payments and gateway configurations.
+
 ## 2.8.5
 *	Fix - Membership - Check if the Membership Premium function 'membership_get_current_coupon' exists.
 

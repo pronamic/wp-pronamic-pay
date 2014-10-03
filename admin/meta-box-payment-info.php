@@ -1,0 +1,117 @@
+<?php
+
+$post_id = get_the_ID();
+
+$payment = get_pronamic_payment( $post_id );
+
+?>
+<table class="form-table">
+	<tr>
+		<th scope="row">
+			<?php _e( 'Date', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'ID', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo $post_id; ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Description', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo get_post_meta( $post_id, '_pronamic_payment_description', true ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Amount', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
+			echo ' ';
+			echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Transaction ID', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Action URL', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$url = get_post_meta( $post_id, '_pronamic_payment_action_url', true );
+
+			printf(
+				'<a href="%s" target="_blank">%s</a>',
+				$url,
+				$url
+			);
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Status', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+
+			echo Pronamic_WP_Pay_Plugin::translate_status( $status );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Email', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo get_post_meta( $post_id, '_pronamic_payment_email', true );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Consumer', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
+			echo '<br />';
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+			echo '<br />';
+			echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+
+			?>
+		</td>
+	</tr>
+</table>

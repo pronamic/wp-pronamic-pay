@@ -28,7 +28,7 @@ function pronamic_pay_upgrade_201() {
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
 
-		if ( ! empty ( $value ) ) {
+		if ( ! empty( $value ) ) {
 			update_option( $key_new, $value );
 		}
 	}
@@ -167,7 +167,7 @@ function pronamic_pay_upgrade_200() {
 				$meta['ideal_private_certificate']  = $config->private_certificate;
 
 				// OmniKassa
-				if ( $config->variant_id == 'rabobank-omnikassa' ) {
+				if ( 'rabobank-omnikassa' == $config->variant_id ) {
 					$meta['omnikassa_merchant_id'] = $config->merchant_id;
 					$meta['omnikassa_secret_key']  = $config->hash_key;
 
@@ -479,7 +479,7 @@ function pronamic_pay_upgrade_200() {
 	foreach ( $options as $key_old => $key_new ) {
 		$value = get_option( $key_old );
 
-		if ( ! empty ( $value ) ) {
+		if ( ! empty( $value ) ) {
 			$value_new = @$config_ids_map[ $value ];
 
 			update_option( $key_new, $value_new );

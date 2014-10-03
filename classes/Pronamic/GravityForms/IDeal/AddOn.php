@@ -135,7 +135,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			$user = GFUserData::get_user_by_entry_id( $lead['id'] );
 		}
 
-		if ( $user == false ) {
+		if ( false == $user ) {
 			$created_by = $lead[ Pronamic_GravityForms_LeadProperties::CREATED_BY ];
 
 			$user = new WP_User( $created_by );
@@ -209,7 +209,7 @@ class Pronamic_GravityForms_IDeal_AddOn {
 						break;
 				}
 
-				RGFormsModel::update_lead( $lead );
+				Pronamic_GravityForms_GravityForms::update_entry( $lead );
 
 				if ( $url && $can_redirect ) {
 					wp_redirect( $url, 303 );

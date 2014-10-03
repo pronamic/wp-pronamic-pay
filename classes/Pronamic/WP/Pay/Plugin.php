@@ -45,7 +45,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Bootstrap the add-ons
 		if ( self::can_be_used() ) {
-			Pronamic_WooCommerce_IDeal_AddOn::bootstrap();
+			Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 			Pronamic_GravityForms_IDeal_AddOn::bootstrap();
 			Pronamic_Shopp_IDeal_AddOn::bootstrap();
 			Pronamic_Jigoshop_IDeal_AddOn::bootstrap();
@@ -56,17 +56,19 @@ class Pronamic_WP_Pay_Plugin {
 			Pronamic_S2Member_IDeal_AddOn::bootstrap();
 			Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
 			// Pronamic_EShop_IDeal_AddOn::bootstrap();
-			Pronamic_EasyDigitalDownloads_IDeal_AddOn::bootstrap();
+			Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 			Pronamic_IThemesExchange_IDeal_AddOn::bootstrap();
 		}
 
 		// Admin
 		if ( is_admin() ) {
 			Pronamic_WP_Pay_Admin::bootstrap();
-		} else {
-			add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ) );
 		}
 
+		// Payment notes
+		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );
+
+		// Setup
 		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
 
 		// Initialize requirements
@@ -94,9 +96,18 @@ class Pronamic_WP_Pay_Plugin {
 
 	/**
 	 * Comments clauses
+	 *
+	 * @param array $clauses
+	 * @param WP_Comment_Query $query
+	 * @return array
 	 */
-	public static function exclude_comment_payment_notes( $clauses ) {
-		$clauses['where'] .= " AND comment_type != 'payment_note'";
+	public static function exclude_comment_payment_notes( $clauses, $query ) {
+		$type = $query->query_vars[ 'type' ];
+
+		// Ignore payment notes comments if it's not specific requested
+		if ( 'payment_note' != $type ) {
+			$clauses['where'] .= " AND comment_type != 'payment_note'";
+		}
 
 		return $clauses;
 	}
@@ -218,10 +229,10 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		Pronamic_Gateways_IDealBasic_Listener::listen();
-		Pronamic_Gateways_OmniKassa_Listener::listen();
+		Pronamic_WP_Pay_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
-		Pronamic_Gateways_Mollie_Listener::listen();
-		Pronamic_WP_Pay_Gateways_Ogone_Listener::listen();
+		Pronamic_WP_Pay_Gateways_Mollie_Listener::listen();
+		Pronamic_Pay_Gateways_Ogone_Listener::listen();
 		Pronamic_WP_Pay_Buckaroo_Listener::listen();
 	}
 
@@ -439,11 +450,30 @@ class Pronamic_WP_Pay_Plugin {
 	 *
 	 * @return array
 	 */
-	public static function get_config_select_options() {
-		$gateways = get_posts( array(
-				'post_type' => 'pronamic_gateway',
-				'nopaging'  => true,
-		) );
+	public static function get_config_select_options( $payment_method = null ) {
+		$args = array(
+			'post_type' => 'pronamic_gateway',
+			'nopaging'  => true,
+		);
+
+		if ( isset( $payment_method ) ) {
+			$gateways = array();
+
+			if ( 'mister_cash' == $payment_method ) {
+				$gateways[] = 'mollie';
+				$gateways[] = 'rabobank-omnikassa';
+			}
+
+			$args['meta_query'] = array(
+				array(
+					'key'     => '_pronamic_gateway_id',
+					'value'   => $gateways,
+					'compare' => 'IN',
+				),
+			);
+		}
+
+		$gateways = get_posts( $args );
 
 		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
 
@@ -508,22 +538,22 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		$config_gateways = array(
-			'Pronamic_WP_Pay_Buckaroo_Config'                         => 'Pronamic_WP_Pay_Buckaroo_Gateway',
-			'Pronamic_Gateways_Icepay_Config'                         => 'Pronamic_Gateways_Icepay_Gateway',
-			'Pronamic_Gateways_IDealAdvanced_Config'                  => 'Pronamic_Gateways_IDealAdvanced_Gateway',
-			'Pronamic_Gateways_IDealAdvancedV3_Config'                => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
-			'Pronamic_Pay_Gateways_IDealBasic_Config'                 => 'Pronamic_Gateways_IDealBasic_Gateway',
-			'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config'        => 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway',
-			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway',
-			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config' => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway',
-			'Pronamic_Gateways_Mollie_Config'                         => 'Pronamic_Gateways_Mollie_Gateway',
-			'Pronamic_Gateways_Mollie_IDeal_Config'                   => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
-			'Pronamic_Pay_Gateways_MultiSafepay_Config'               => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
-			'Pronamic_Gateways_OmniKassa_Config'                      => 'Pronamic_Gateways_OmniKassa_Gateway',
-			'Pronamic_Gateways_PayDutch_Config'                       => 'Pronamic_Gateways_PayDutch_Gateway',
-			'Pronamic_WP_Pay_Gateways_Qantani_Config'                 => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
-			'Pronamic_Gateways_Sisow_Config'                          => 'Pronamic_Gateways_Sisow_Gateway',
-			'Pronamic_WP_Pay_Gateways_TargetPay_Config'               => 'Pronamic_Gateways_TargetPay_Gateway',
+			'Pronamic_WP_Pay_Buckaroo_Config'                      => 'Pronamic_WP_Pay_Buckaroo_Gateway',
+			'Pronamic_Gateways_Icepay_Config'                      => 'Pronamic_Gateways_Icepay_Gateway',
+			'Pronamic_Gateways_IDealAdvanced_Config'               => 'Pronamic_Gateways_IDealAdvanced_Gateway',
+			'Pronamic_Gateways_IDealAdvancedV3_Config'             => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
+			'Pronamic_Pay_Gateways_IDealBasic_Config'              => 'Pronamic_Gateways_IDealBasic_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_DirectLink_Config'        => 'Pronamic_Pay_Gateways_Ogone_DirectLink_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_Pay_Gateways_Ogone_OrderStandard_Gateway',
+			'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Config' => 'Pronamic_Pay_Gateways_Ogone_OrderStandardEasy_Gateway',
+			'Pronamic_WP_Pay_Gateways_Mollie_Config'               => 'Pronamic_WP_Pay_Gateways_Mollie_Gateway',
+			'Pronamic_Gateways_Mollie_IDeal_Config'                => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
+			'Pronamic_Pay_Gateways_MultiSafepay_Config'            => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
+			'Pronamic_WP_Pay_Gateways_OmniKassa_Config'            => 'Pronamic_WP_Pay_Gateways_OmniKassa_Gateway',
+			'Pronamic_WP_Pay_Gateways_PayDutch_Config'             => 'Pronamic_WP_Pay_Gateways_PayDutch_Gateway',
+			'Pronamic_WP_Pay_Gateways_Qantani_Config'              => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
+			'Pronamic_WP_Pay_Gateways_Sisow_Config'                => 'Pronamic_WP_Pay_Gateways_Sisow_Gateway',
+			'Pronamic_WP_Pay_Gateways_TargetPay_Config'            => 'Pronamic_Gateways_TargetPay_Gateway',
 		);
 
 		$config_gateways = apply_filters( 'pronamic_pay_config_gateways', $config_gateways );
@@ -546,11 +576,11 @@ class Pronamic_WP_Pay_Plugin {
 		}
 	}
 
-	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data ) {
+	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
 		$payment = self::create_payment( $config_id, $gateway, $data );
 
 		if ( $payment ) {
-			$gateway->start( $data, $payment );
+			$gateway->start( $data, $payment, $payment_method );
 
 			pronamic_wp_pay_update_payment( $payment );
 

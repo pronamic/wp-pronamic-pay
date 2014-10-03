@@ -44,7 +44,7 @@ $methods = array(
 		'name'    => __( 'Bitcoin', 'pronamic_ideal' ),
 		'issuers' => array( 'qantani' ),
 	),
-	'cash-on-delivery' => array( // Rembours
+	'cash_on_delivery' => array( // Rembours
 		'name'    => __( 'Cash on Delivery', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
@@ -61,11 +61,11 @@ $methods = array(
 			'mastercard',
 		),
 	),
-	'direct-debit' => array( // Incasso
+	'direct_debit' => array( // Incasso
 		'name'    => __( 'Direct Debit', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
-	'direkt-ebanking' => array(
+	'direkt_ebanking' => array(
 		'name'    => __( 'Direct eBanking', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
@@ -73,12 +73,18 @@ $methods = array(
 		'name'    => __( 'Giropay', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
+	'ideal' => array(
+		'icon'    => plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
+		'name'    => __( 'iDEAL', 'pronamic_ideal' ),
+		'issuers' => array(),
+	),
 	'minitix' => array(
 		'name'    => __( 'MiniTix', 'pronamic_ideal' ),
 		'url'     => 'http://www.minitix.nl/',
 		'issuers' => array(),
 	),
-	'mister-cash' => array(
+	'mister_cash' => array(
+		'icon'    => plugins_url( 'images/mistercash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 		'name'    => __( 'Mister Cash', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),

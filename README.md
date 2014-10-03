@@ -222,7 +222,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
 			<td>1.8.6</td>
-			<td>1.8.6</td>
+			<td>2.1.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso</a></td>
@@ -235,7 +235,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso Lite</a></td>
 			<td></td>
-			<td><a href="http://wordpress.org/extend/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>3.1.29.1.L</td>
 			<td>3.1.35.L</td>
@@ -246,7 +246,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
 			<td>1.6</td>
-			<td>1.8.7</td>
+			<td>1.8.13</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
@@ -283,7 +283,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
 			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
-			<td><a href="http://wordpress.org/extend/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/wp-plugins/ithemes-exchange" target="_blank">GitHub</a></td>
 			<td>1.7.14</td>
 			<td>1.7.16</td>
@@ -291,7 +291,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
 			<td><a href="http://jigowatt.co.uk/" target="_blank">Jigowatt</a></td>
-			<td><a href="http://wordpress.org/extend/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
 			<td>1.1</td>
 			<td>1.9.6</td>
@@ -326,12 +326,12 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/shopp/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
 			<td>1.1</td>
-			<td>1.3.4</td>
+			<td>1.3.5</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
 			<td><a href="http://www.woothemes.com/" target="_blank">WooThemes</a></td>
-			<td><a href="http://wordpress.org/extend/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
 			<td>2.1.0</td>
 			<td>2.1.5</td>
@@ -339,10 +339,18 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
 			<td><a href="http://instinct.co.nz/" target="_blank">Instinct Entertainment</a></td>
-			<td><a href="http://wordpress.org/extend/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
+			<td><a href="http://wordpress.org/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
 			<td>3.8.12.1</td>
 			<td>3.8.14</td>
+		</tr>
+		<tr>
+			<td><a href="" target="_blank">Crowdfunding by Astoundify</a></td>
+			<td><a href="http://www.astoundify.com/" target="_blank">Astoundify</a></td>
+			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/astoundify/crowdfunding/" target="_blank">GitHub</a></td>
+			<td>1.8.2</td>
+			<td>1.8.2</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
@@ -367,6 +375,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td></td>
 			<td>1.3.2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.astoundify.com/" target="_blank">Campaignify</a></td>
+			<td><a href="http://www.astoundify.com/" target="_blank">Astoundify</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.5</td>
 		</tr>
 	</tbody>
 </table>

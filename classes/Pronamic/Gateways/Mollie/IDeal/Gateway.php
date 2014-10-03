@@ -88,7 +88,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_WP_Pay_Gateway {
 			add_query_arg( 'payment', $payment->get_id(), home_url( '/' ) )
 		);
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$payment->set_transaction_id( $result->transaction_id );
 			$payment->set_action_url( $result->url );
 
@@ -107,7 +107,7 @@ class Pronamic_Gateways_Mollie_IDeal_Gateway extends Pronamic_WP_Pay_Gateway {
 	public function update_status( Pronamic_Pay_Payment $payment ) {
 		$result = $this->client->check_payment( $payment->get_transaction_id() );
 
-		if ( $result !== false ) {
+		if ( false !== $result ) {
 			$consumer = $result->consumer;
 
 			switch ( $result->status ) {

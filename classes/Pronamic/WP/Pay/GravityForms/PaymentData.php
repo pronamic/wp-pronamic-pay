@@ -146,7 +146,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 
 			$items->addItem( $item );
 
-			if ( isset( $product['options']) && is_array( $product['options'] ) ) {
+			if ( isset( $product['options'] ) && is_array( $product['options'] ) ) {
 				foreach ( $product['options'] as $option ) {
 					$description = $option['option_label'];
 					$price = GFCommon::to_number( $option['price'] );
@@ -196,7 +196,7 @@ class Pronamic_WP_Pay_GravityForms_PaymentData extends Pronamic_WP_Pay_PaymentDa
 				}
 
 				$separator_position = strpos( $value, '|' );
-				if ( $separator_position !== false ) {
+				if ( false !== $separator_position ) {
 					$label = substr( $value, 0, $separator_position );
 					$value = substr( $value, $separator_position + 1 );
 

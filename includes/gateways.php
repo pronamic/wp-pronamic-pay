@@ -384,6 +384,7 @@ $pronamic_pay_gateways = array(
 		'gateway'       => 'mollie',
 		'name'          => 'Mollie',
 		'dashboard_url' => 'http://www.mollie.nl/',
+		'methods'       => array( 'ideal', 'mister_cash' ),
 	),
 	'mollie-ideal' => array(
 		'provider'      => 'mollie',
@@ -533,6 +534,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet',
 			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
 		),
+		'methods'       => array( 'ideal', 'mister_cash' ),
 	),
 	'rabobank-ideal-professional' => array(
 		'provider' => 'rabobank',
