@@ -363,9 +363,9 @@ $sections = array(
 				'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
 				'type'        => 'optgroup',
 				'options'     => array(
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
 				),
 				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),

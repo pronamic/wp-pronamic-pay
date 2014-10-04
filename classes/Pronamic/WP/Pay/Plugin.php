@@ -232,7 +232,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Gateways_OmniKassa_Listener::listen();
 		Pronamic_Gateways_Icepay_Listener::listen();
 		Pronamic_WP_Pay_Gateways_Mollie_Listener::listen();
-		Pronamic_Pay_Gateways_Ogone_Listener::listen();
+		Pronamic_WP_Pay_Gateways_Ogone_Listener::listen();
 		Pronamic_WP_Pay_Buckaroo_Listener::listen();
 	}
 
