@@ -102,7 +102,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @return array
 	 */
 	public static function exclude_comment_payment_notes( $clauses, $query ) {
-		$type = $query->query_vars[ 'type' ];
+		$type = $query->query_vars['type'];
 
 		// Ignore payment notes comments if it's not specific requested
 		if ( 'payment_note' != $type ) {
