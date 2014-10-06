@@ -9,6 +9,9 @@
 *	Feature - Ogone - Add payment notes on Ogone payment status requests.
 *	Feature - Ogone - Added Ogone Direct HTTP server-to-server request URL fields.
 *	Tweak - Use the global payemnt status pages as backup.
+*	Fix - Jigoshop - Fixed support for Jigoshop version 1.12.
+*	Test - Jigoshop - Tested up to version 1.12.
+*	Tweak - Jigoshop - Moved Jigoshop extension to it's own repository (https://github.com/wp-pay-extensions/jigoshop).
 
 ## 2.9.1
 *	Fix - OmniKassa - Fixed fatal error.
