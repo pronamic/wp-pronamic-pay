@@ -43,25 +43,25 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		}
 
 		// Give this gateway an unique ID so Jigoshop can identiy this gateway
-		$this->id			   = self::ID;
+		$this->id             = self::ID;
 
 		// The method title that Jigoshop will display in the admin
-		$this->method_title	 = __( 'Pronamic iDEAL', 'pronamic_ideal' );
+		$this->method_title   = __( 'Pronamic iDEAL', 'pronamic_ideal' );
 
 		// The icon that Jigoshop will display on the payment methods radio list
-		$this->icon			 = plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file );
+		$this->icon           = plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file );
 
 		// Let Jigoshop know that this gateway has field
 		// Technically only iDEAL advanced variants has fields
-		$this->has_fields	   = true;
+		$this->has_fields     = true;
 
 		// Set default Jigoshop variables, load them form the WordPress options
-		$this->enabled		  = get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
-		$this->title			= get_option( 'pronamic_pay_ideal_jigoshop_title' );
+		$this->enabled        = get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
+		$this->title          = get_option( 'pronamic_pay_ideal_jigoshop_title' );
 		$this->description	  = get_option( 'pronamic_pay_ideal_jigoshop_description' );
 
 		// Set own variables, load them form the WordPress options
-		$this->config_id		= get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
+		$this->config_id      = get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
 		// Actions
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );
