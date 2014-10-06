@@ -70,4 +70,40 @@ class Pronamic_Jigoshop_Jigoshop {
 	public static function is_active() {
 		return defined( 'JIGOSHOP_VERSION' );
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get Jigoshop option
+	 *
+	 * Jigoshop did some changes on how to retrieve options.
+	 *
+	 * @param string $key
+	 * @return boolean
+	 */
+	public static function get_option( $key ) {
+		$value = false;
+
+		if ( method_exists( 'Jigoshop_Base', 'get_options' ) ) {
+			$options = Jigoshop_Base::get_options();
+
+			if ( method_exists( $options, 'get' ) ) {
+				// @since Jigoshop v1.12
+				// @see https://github.com/jigoshop/jigoshop/blob/1.12/gateways/bank_transfer.php
+				$value = $options->get( $key );
+			} elseif( method_exists( $options, 'get_option' ) ) {
+				// @since Jigoshop v1.3
+				// @see https://github.com/jigoshop/jigoshop/blob/1.3/gateways/bank_transfer.php
+				$value = $options->get_option( $key );
+			} else {
+				// @since Jigoshop v1.2
+				// @see https://github.com/jigoshop/jigoshop/blob/1.2/gateways/bank_transfer.php
+				$value = get_option( $key );
+			}
+		} else {
+			$value = get_option( $key );
+		}
+
+		return $value;
+	}
 }

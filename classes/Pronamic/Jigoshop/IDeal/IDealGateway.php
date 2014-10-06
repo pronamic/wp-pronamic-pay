@@ -56,12 +56,12 @@ class Pronamic_Jigoshop_IDeal_IDealGateway extends jigoshop_payment_gateway {
 		$this->has_fields     = true;
 
 		// Set default Jigoshop variables, load them form the WordPress options
-		$this->enabled        = get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
-		$this->title          = get_option( 'pronamic_pay_ideal_jigoshop_title' );
-		$this->description	  = get_option( 'pronamic_pay_ideal_jigoshop_description' );
+		$this->enabled        = Pronamic_Jigoshop_Jigoshop::get_option( 'pronamic_pay_ideal_jigoshop_enabled' );
+		$this->title          = Pronamic_Jigoshop_Jigoshop::get_option( 'pronamic_pay_ideal_jigoshop_title' );
+		$this->description	  = Pronamic_Jigoshop_Jigoshop::get_option( 'pronamic_pay_ideal_jigoshop_description' );
 
 		// Set own variables, load them form the WordPress options
-		$this->config_id      = get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
+		$this->config_id      = Pronamic_Jigoshop_Jigoshop::get_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
 		// Actions
 		add_action( 'receipt_' . self::ID, array( &$this, 'receipt_page' ) );

@@ -97,7 +97,8 @@ class Pronamic_WP_Pay_Jigoshop_PaymentData extends Pronamic_WP_Pay_PaymentData {
 
 	public function get_currency_alphabetic_code() {
 		// @see http://plugins.trac.wordpress.org/browser/jigoshop/tags/1.1.1/admin/jigoshop-admin-settings-options.php#L421
-		return get_option( 'jigoshop_currency' );
+		// @see https://github.com/jigoshop/jigoshop/blob/1.12/jigoshop.php#L1247-L1255
+		return Pronamic_Jigoshop_Jigoshop::get_option( 'jigoshop_currency' );
 	}
 
 	//////////////////////////////////////////////////
