@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1b9d678b7c1f3ccc51488fc81571beae",
+    "hash": "13f1f26e83c340072fe42463e34d802d",
     "packages": [
         {
             "name": "composer/installers",
@@ -155,6 +155,64 @@
                 "wp"
             ],
             "time": "2014-09-22 08:43:27"
+        },
+        {
+            "name": "wp-pay-extensions/jigoshop",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/jigoshop.git",
+                "reference": "d98be7a12402e275d4826725803e22e9b121386e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/d98be7a12402e275d4826725803e22e9b121386e",
+                "reference": "d98be7a12402e275d4826725803e22e9b121386e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop",
+                "wpackagist-plugin/jigoshop": "1.12"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Jigoshop driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/jigoshop/",
+            "keywords": [
+                "extension",
+                "jigoshop",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-10-06 10:32:42"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -547,12 +605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "bfd96f1d6c515ab678a632295f567380f1d022aa"
+                "reference": "63bd4965061c0c1e11af8861d90a4744e9d3d317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/bfd96f1d6c515ab678a632295f567380f1d022aa",
-                "reference": "bfd96f1d6c515ab678a632295f567380f1d022aa",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/63bd4965061c0c1e11af8861d90a4744e9d3d317",
+                "reference": "63bd4965061c0c1e11af8861d90a4744e9d3d317",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +654,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-10-04 09:21:23"
+            "time": "2014-10-06 09:19:41"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -962,6 +1020,29 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/easy-digital-downloads/"
+        },
+        {
+            "name": "wpackagist-plugin/jigoshop",
+            "version": "1.12",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/jigoshop/",
+                "reference": "tags/1.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/jigoshop.1.12.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "replace": {
+                "wpackagist/jigoshop": "self.version"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "http://wordpress.org/plugins/jigoshop/"
         },
         {
             "name": "wpackagist-plugin/woocommerce",
@@ -1544,6 +1625,7 @@
         "wp-pay-gateways/targetpay": 20,
         "wp-pay-gateways/qantani": 20,
         "wp-pay-extensions/easy-digital-downloads": 20,
+        "wp-pay-extensions/jigoshop": 20,
         "wp-pay-extensions/woocommerce": 20,
         "satooshi/php-coveralls": 20
     },
