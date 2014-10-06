@@ -187,6 +187,34 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
 				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+
+				if ( $can_redirect ) {
+					$url     = home_url( '/' );
+					$page_id = null;
+
+					switch ( $payment->status ) {
+						case Pronamic_WP_Pay_Statuses::CANCELLED :
+							$page_id = pronamic_pay_get_page_id( 'cancel' );
+						case Pronamic_WP_Pay_Statuses::EXPIRED :
+							$page_id = pronamic_pay_get_page_id( 'expired' );
+						case Pronamic_WP_Pay_Statuses::FAILURE :
+							$page_id = pronamic_pay_get_page_id( 'error' );
+						case Pronamic_WP_Pay_Statuses::OPEN :
+							$page_id = pronamic_pay_get_page_id( 'unknown' );
+						case Pronamic_WP_Pay_Statuses::SUCCESS :
+							$page_id = pronamic_pay_get_page_id( 'completed' );
+						default:
+							$page_id = pronamic_pay_get_page_id( 'unknown' );
+					}
+
+					if ( ! empty( $page_id ) ) {
+						$url = get_permalink( $page_id );
+					}
+
+					wp_redirect( $url );
+
+					exit;
+				}
 			}
 		}
 	}
