@@ -195,16 +195,22 @@ class Pronamic_WP_Pay_Plugin {
 					switch ( $payment->status ) {
 						case Pronamic_WP_Pay_Statuses::CANCELLED :
 							$page_id = pronamic_pay_get_page_id( 'cancel' );
+							break;
 						case Pronamic_WP_Pay_Statuses::EXPIRED :
 							$page_id = pronamic_pay_get_page_id( 'expired' );
+							break;
 						case Pronamic_WP_Pay_Statuses::FAILURE :
 							$page_id = pronamic_pay_get_page_id( 'error' );
+							break;
 						case Pronamic_WP_Pay_Statuses::OPEN :
 							$page_id = pronamic_pay_get_page_id( 'unknown' );
+							break;
 						case Pronamic_WP_Pay_Statuses::SUCCESS :
 							$page_id = pronamic_pay_get_page_id( 'completed' );
+							break;
 						default:
 							$page_id = pronamic_pay_get_page_id( 'unknown' );
+							break;
 					}
 
 					if ( ! empty( $page_id ) ) {
