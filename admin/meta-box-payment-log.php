@@ -1,8 +1,8 @@
 <?php
 
 $comments = get_comments( array(
-	'post_id'      => get_the_ID(),
-	'comment_type' => 'payment_note',
+	'post_id' => get_the_ID(),
+	'type'    => 'payment_note',
 ) );
 
 ?>

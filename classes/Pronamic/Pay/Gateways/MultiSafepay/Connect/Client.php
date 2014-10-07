@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Title: Ogone DirectLink
+ * Title: MultiSafepay Connect client
  * Description:
- * Copyright: Copyright (c) 2005 - 2013
+ * Copyright: Copyright (c) 2005 - 2014
  * Company: Pronamic
  * @author Remco Tolsma
  * @since 1.4.0
@@ -28,7 +28,7 @@ class Pronamic_Pay_Gateways_MultiSafepay_Connect_Client {
 	/////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an Ogone DirectLink client
+	 * Constructs and initializes an MultiSafepay Connect client
 	 */
 	public function __construct() {
 		$this->api_url = Pronamic_Pay_Gateways_MultiSafepay_MultiSafepay::API_PRODUCTION_URL;

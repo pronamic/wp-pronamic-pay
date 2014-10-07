@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Title: Ogone DirectLink gateway
+ * Title: MultiSafepay Connect gateay
  * Description:
  * Copyright: Copyright (c) 2005 - 2013
  * Company: Pronamic

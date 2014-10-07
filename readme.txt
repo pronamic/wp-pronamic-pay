@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 2.9.1
+Stable tag: 2.9.2
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -67,7 +67,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
-	*	**Tested up to:** 1.9.6
+	*	**Tested up to:** 1.12
 *	[Membership](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
@@ -259,6 +259,19 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 2.9.2 =
+*	Tweak - Payment note comments are always ignored in comment queries.
+*	Feature - Easy Digital Downloads - Added support for Bancontact/Mister Cash icon.
+*	Tweak - ICEPAY - Added support for http:// and https://.
+*	Tweak - Ogone - Moved Ogone gateway to it's own repository (https://github.com/wp-pay-gateways/ogone).
+*	Tweak - Ogone - Updated the Ogone calculations parameters for SHA-IN and SHA-OUT.
+*	Feature - Ogone - Add payment notes on Ogone payment status requests.
+*	Feature - Ogone - Added Ogone Direct HTTP server-to-server request URL fields.
+*	Tweak - Use the global payemnt status pages as backup.
+*	Fix - Jigoshop - Fixed support for Jigoshop version 1.12.
+*	Test - Jigoshop - Tested up to version 1.12.
+*	Tweak - Jigoshop - Moved Jigoshop extension to it's own repository (https://github.com/wp-pay-extensions/jigoshop).
 
 = 2.9.1 =
 *	Fix - OmniKassa - Fixed fatal error.

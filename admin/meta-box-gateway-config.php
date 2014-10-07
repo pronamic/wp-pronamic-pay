@@ -363,9 +363,9 @@ $sections = array(
 				'title'       => __( 'Hash algorithm', 'pronamic_ideal' ),
 				'type'        => 'optgroup',
 				'options'     => array(
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
-					Pronamic_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
 				),
 				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
@@ -398,6 +398,28 @@ $sections = array(
 				'type'        => 'password',
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'ogone_directlink' ),
+			),
+		),
+	),
+	array(
+		'title'   => __( 'Direct HTTP server-to-server request', 'pronamic_ideal' ),
+		'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
+		'fields'  => array(
+			array(
+				'title'       => __( 'URL accepted, on hold or uncertain', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'value'       => site_url( '/' ),
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( 'If the payment\'s status is "accepted", "on hold" or "uncertain".', 'pronamic_ideal' ),
+				'readonly'    => true,
+			),
+			array(
+				'title'       => __( 'URL cancel or deny', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'value'       => site_url( '/' ),
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => __( 'If the payment\'s status is "cancelled by the client" or "too many rejections by the acquirer".', 'pronamic_ideal' ),
+				'readonly'    => true,
 			),
 		),
 	),
