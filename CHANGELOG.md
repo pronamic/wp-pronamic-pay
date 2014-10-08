@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.9.3
+*	Feature - Added an Ogone configuration field for the ORDERID parameter.
+
 ## 2.9.2
 *	Tweak - Payment note comments are always ignored in comment queries.
 *	Feature - Easy Digital Downloads - Added support for Bancontact/Mister Cash icon.
