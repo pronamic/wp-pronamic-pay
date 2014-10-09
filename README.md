@@ -318,7 +318,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/s2member/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
 			<td>130816</td>
-			<td>140105</td>
+			<td>141007</td>
 		</tr>
 		<tr>
 			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>

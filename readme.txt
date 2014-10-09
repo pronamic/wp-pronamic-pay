@@ -83,7 +83,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
 	*	**GitHub:** [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
 	*	**Requires at least:** 130816
-	*	**Tested up to:** 140105
+	*	**Tested up to:** 141007
 *	[Shopp](https://shopplugin.net/)
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
