@@ -120,11 +120,6 @@ class Pronamic_GravityForms_IDeal_Processor {
 		 */
 		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'after_submission' ), 10, 2 );
 
-		// Delay
-		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_aweber_subscription' ), 1, 2 );
-		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_campaignmonitor_subscription' ), 1, 2 );
-		add_action( 'gform_after_submission_' . $this->form_id, array( $this, 'maybe_delay_mailchimp_subscription' ), 1, 2 );
-
 		add_action( 'gform_disable_registration', array( $this, 'maybe_delay_user_registration' ), 10, 4 );
 	}
 
@@ -155,7 +150,31 @@ class Pronamic_GravityForms_IDeal_Processor {
 	 */
 	public function pre_submission( $form ) {
 		if ( $this->is_processing( $form ) ) {
+			// Delay
 
+			// The Add-Ons mainly use the 'gform_after_submission' to export entries, to delay this we have to remove these
+			// actions before this filter executes.
+
+			// @see https://github.com/gravityforms/gravityforms/blob/1.8.16/form_display.php#L101-L103
+			// @see https://github.com/gravityforms/gravityforms/blob/1.8.16/form_display.php#L111-L113
+
+			// Maybe delay AWeber subscription
+			if ( $this->feed->delay_aweber_subscription ) {
+				// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L124-L125
+				remove_action( 'gform_post_submission', array( 'GFAWeber', 'export' ), 10, 2 );
+			}
+
+			// Maybe delay Campaign Monitor subscription
+			if ( $this->feed->delay_campaignmonitor_subscription ) {
+				// @see https://github.com/gravityforms/gravityformscampaignmonitor/blob/2.5.1/campaignmonitor.php#L124-L125
+				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2 );
+			}
+
+			// Maybe delay MailChimp subscription
+			if ( $this->feed->delay_mailchimp_subscription ) {
+				// @see https://github.com/gravityforms/gravityformsmailchimp/blob/2.4.1/mailchimp.php#L120-L121
+				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2 );
+			}
 		}
 	}
 
@@ -283,42 +302,6 @@ class Pronamic_GravityForms_IDeal_Processor {
 	}
 
 	//////////////////////////////////////////////////
-
-	/**
-	 * Maybe delay AWeber subscription
-	 */
-	public function maybe_delay_aweber_subscription( $lead, $form ) {
-		if ( $this->is_processing( $form ) ) {
-			if ( $this->feed->delay_aweber_subscription ) {
-				// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L124-L125
-				remove_action( 'gform_post_submission', array( 'GFAWeber', 'export' ), 10, 2 );
-			}
-		}
-	}
-
-	/**
-	 * Maybe delay Campaign Monitor subscription
-	 */
-	public function maybe_delay_campaignmonitor_subscription( $lead, $form ) {
-		if ( $this->is_processing( $form ) ) {
-			if ( $this->feed->delay_campaignmonitor_subscription ) {
-				// @see https://github.com/gravityforms/gravityformscampaignmonitor/blob/2.5.1/campaignmonitor.php#L124-L125
-				remove_action( 'gform_after_submission', array( 'GFCampaignMonitor', 'export' ), 10, 2 );
-			}
-		}
-	}
-
-	/**
-	 * Maybe delay MailChimp subscription
-	 */
-	public function maybe_delay_mailchimp_subscription( $lead, $form ) {
-		if ( $this->is_processing( $form ) ) {
-			if ( $this->feed->delay_mailchimp_subscription ) {
-				// @see https://github.com/gravityforms/gravityformsmailchimp/blob/2.4.1/mailchimp.php#L120-L121
-				remove_action( 'gform_after_submission', array( 'GFMailChimp', 'export' ), 10, 2 );
-			}
-		}
-	}
 
 	/**
 	 * Maybe delay user registration
