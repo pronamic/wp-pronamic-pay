@@ -2,7 +2,8 @@
 
 ## 2.9.4
 *	Feature - s2Member - Added support for 'button_text' attribute in the `[pronamic_ideal_s2member]` shortcode.
-*	Test - s2Member - Tested up to version 141007. 
+*	Test - s2Member - Tested up to version 141007.
+*	Tweak - Gravity Forms - Improved support for delay AWeber, Campaign Monitor and MailChimp subscription.
 
 ## 2.9.3
 *	Feature - Added an Ogone configuration field for the ORDERID parameter.
