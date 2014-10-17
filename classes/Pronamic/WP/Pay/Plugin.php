@@ -214,7 +214,11 @@ class Pronamic_WP_Pay_Plugin {
 					}
 
 					if ( ! empty( $page_id ) ) {
-						$url = get_permalink( $page_id );
+						$page_url = get_permalink( $page_id );
+
+						if ( false !== $page_url ) {
+							$url = $page_url;
+						}
 					}
 
 					wp_redirect( $url );
