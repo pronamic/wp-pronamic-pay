@@ -47,7 +47,7 @@
 
 							$select  = '';
 							$select .= '<select class="jPronamicIdealPeriodShortcode">';
-							foreach ( Pronamic_S2Member_Bridge_Order::$periods as $key => $period ) {
+							foreach ( Pronamic_WP_Pay_Extensions_S2Member_Order::$periods as $key => $period ) {
 								$select .= sprintf( '<option value="%s">%s</option>', $key, $period );
 							}
 							$select .= '</select>';

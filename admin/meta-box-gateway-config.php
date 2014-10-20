@@ -399,6 +399,22 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'methods'     => array( 'ogone_directlink' ),
 			),
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_order_id',
+				'title'       => __( 'Order ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					'%s<br />%s<br />%s',
+					sprintf(
+						__( 'This controls the Ogone %s parameter.', 'pronamic_ideal' ),
+						sprintf( '<code>%s</code>', 'ORDERID' )
+					),
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), '{payment_id}' ),
+					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' ) )
+				),
+				'methods'     => array( 'ogone_orderstandard_easy', 'ogone_orderstandard', 'ogone_directlink' ),
+			),
 		),
 	),
 	array(

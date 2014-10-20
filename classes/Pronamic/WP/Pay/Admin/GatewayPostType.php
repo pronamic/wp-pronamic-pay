@@ -261,6 +261,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_ogone_sha_out_pass_phrase' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_user_id'             => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_ogone_order_id'            => FILTER_SANITIZE_STRING,
 			// Ogone DirectLink
 			'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_3d_secure_enabled' => FILTER_VALIDATE_BOOLEAN,

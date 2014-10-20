@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_Plugin {
 			Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
 			Pronamic_EventEspresso_IDeal_AddOn::bootstrap();
 			Pronamic_AppThemes_IDeal_AddOn::bootstrap();
-			Pronamic_S2Member_IDeal_AddOn::bootstrap();
+			Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 			Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
 			// Pronamic_EShop_IDeal_AddOn::bootstrap();
 			Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
@@ -214,7 +214,11 @@ class Pronamic_WP_Pay_Plugin {
 					}
 
 					if ( ! empty( $page_id ) ) {
-						$url = get_permalink( $page_id );
+						$page_url = get_permalink( $page_id );
+
+						if ( false !== $page_url ) {
+							$url = $page_url;
+						}
 					}
 
 					wp_redirect( $url );
@@ -581,7 +585,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config' => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway',
 			'Pronamic_WP_Pay_Gateways_Mollie_Config'                  => 'Pronamic_WP_Pay_Gateways_Mollie_Gateway',
-			'Pronamic_Gateways_Mollie_IDeal_Config'                   => 'Pronamic_Gateways_Mollie_IDeal_Gateway',
+			'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Config'            => 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Gateway',
 			'Pronamic_Pay_Gateways_MultiSafepay_Config'               => 'Pronamic_Pay_Gateways_MultiSafepay_Connect_Gateway',
 			'Pronamic_WP_Pay_Gateways_OmniKassa_Config'               => 'Pronamic_WP_Pay_Gateways_OmniKassa_Gateway',
 			'Pronamic_WP_Pay_Gateways_PayDutch_Config'                => 'Pronamic_WP_Pay_Gateways_PayDutch_Gateway',
