@@ -249,6 +249,9 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			// ICEPAY
 			'_pronamic_gateway_icepay_merchant_id' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_icepay_secret_code' => FILTER_SANITIZE_STRING,
+			// Pay.nl
+			'_pronamic_gateway_pay_nl_token'      => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_pay_nl_service_id' => FILTER_SANITIZE_STRING,
 			// Sisow
 			'_pronamic_gateway_sisow_merchant_id'  => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_sisow_merchant_key' => FILTER_SANITIZE_STRING,

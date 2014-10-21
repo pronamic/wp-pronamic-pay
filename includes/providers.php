@@ -59,6 +59,10 @@ $pronamic_pay_providers = array(
 		'name'          => 'Ogone',
 		'url'           => 'http://ogone.com/',
 	),
+	'pay_nl'             => array(
+		'name'          => 'Pay.nl',
+		'url'           => 'https://www.pay.nl/',
+	),
 	'paytor'             => array(
 		'name'          => 'Paytor',
 		'url'           => 'http://www.paytor.com/',

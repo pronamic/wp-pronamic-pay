@@ -325,6 +325,34 @@ $sections = array(
 		),
 	),
 	array(
+		'title'   => __( 'Pay.nl', 'pronamic_ideal' ),
+		'methods' => array( 'pay_nl' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_pay_nl_token',
+				'title'       => __( 'Token', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					__( 'You can find your token on the <a href="%s" target="_blank">Pay.nl admin page</a> under <a href="%s" target="_blank">Merchant » Company data (Connection)</a>.', 'pronamic_ideal' ),
+					'https://admin.pay.nl/',
+					'https://admin.pay.nl/my_merchant'
+				),
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_pay_nl_service_id',
+				'title'       => __( 'Service ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					__( 'You can find your service ID on the <a href="%s" target="_blank">Pay.nl admin page</a> under <a href="%s" target="_blank">Manage » Services</a>.', 'pronamic_ideal' ),
+					'https://admin.pay.nl/',
+					'https://admin.pay.nl/programs/programs'
+				),
+			),
+		),
+	),
+	array(
 		'title'   => __( 'TargetPay', 'pronamic_ideal' ),
 		'methods' => array( 'targetpay' ),
 		'fields'  => array(

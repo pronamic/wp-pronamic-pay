@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.0.0
+*	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
+
 ## 2.9.4
 *	Feature - s2Member - Added support for 'button_text' attribute in the `[pronamic_ideal_s2member]` shortcode.
 *	Test - s2Member - Tested up to version 141007.

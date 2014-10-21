@@ -486,6 +486,13 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://secure.ogone.com/ncol/prod/admin_ogone.asp',
 		),
 	),
+	// Pay.nl
+	'pay_nl' => array(
+		'provider'      => 'pay_nl',
+		'gateway'       => 'pay_nl',
+		'name'          => 'Pay.nl',
+		'dashboard_url' => 'https://www.pay.nl/',
+	),
 	// Paytor
 	'paytor' => array(
 		'provider'      => 'paytor',

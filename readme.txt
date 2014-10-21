@@ -173,6 +173,8 @@ your WordPress website.
 	*	Ogone - Easy
 	*	Ogone - OrderStandard
 	*	Ogone - DirectLink
+*	[Pay.nl](https://www.pay.nl/)
+	*	Pay.nl
 *	[Paytor](http://www.paytor.com/)
 	*	Paytor
 *	[Rabobank](http://rabobank.nl/)
