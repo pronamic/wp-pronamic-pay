@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "25aad902c78dc4967871e448d66c0585",
+    "hash": "1d6afc51088378d4ea9d9df9d65c2443",
     "packages": [
         {
             "name": "composer/installers",
@@ -772,6 +772,64 @@
             "time": "2014-09-18 14:29:29"
         },
         {
+            "name": "wp-pay-gateways/pay-nl",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/pay-nl.git",
+                "reference": "a5fd71c17612dac58ae551d024c4d270087c11a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/pay-nl/zipball/a5fd71c17612dac58ae551d024c4d270087c11a9",
+                "reference": "a5fd71c17612dac58ae551d024c4d270087c11a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Pay.nl driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/pay-nl/",
+            "keywords": [
+                "gateway",
+                "ideal",
+                "pay",
+                "pay-nl",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-10-21 09:53:32"
+        },
+        {
             "name": "wp-pay-gateways/paydutch",
             "version": "dev-develop",
             "source": {
@@ -798,21 +856,22 @@
                     "src/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL"
             ],
             "authors": [
                 {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                },
-                {
                     "name": "Remco Tolsma",
                     "email": "info@remcotolsma.nl",
                     "homepage": "http://www.remcotolsma.nl/",
                     "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
                 }
             ],
             "description": "PayDutch driver for the WordPress payment processing library.",
@@ -825,11 +884,6 @@
                 "wordpress",
                 "wp"
             ],
-            "support": {
-                "email": "support@wp-pay.org",
-                "issues": "https://github.com/wp-pay-gateways/paydutch/issues",
-                "source": "https://github.com/wp-pay-gateways/paydutch"
-            },
             "time": "2014-08-21 11:58:31"
         },
         {
@@ -1701,6 +1755,7 @@
         "wp-pay-gateways/mollie-ideal": 20,
         "wp-pay-gateways/ogone": 20,
         "wp-pay-gateways/omnikassa": 20,
+        "wp-pay-gateways/pay-nl": 20,
         "wp-pay-gateways/paydutch": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
