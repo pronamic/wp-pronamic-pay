@@ -2,6 +2,7 @@
 
 ## 3.0.0
 *	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
+*	Tweak - Mollie - Added the 'locale' parameter in the create payment request.
 
 ## 2.9.4
 *	Feature - s2Member - Added support for 'button_text' attribute in the `[pronamic_ideal_s2member]` shortcode.
