@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "591ddc4af93869425cbb12b7847bdc4c",
+    "hash": "8094bd58e9171469c088cdafb0364551",
     "packages": [
         {
             "name": "composer/installers",
@@ -542,17 +542,102 @@
             "time": "2014-07-14 14:11:22"
         },
         {
+            "name": "wp-pay-gateways/ideal-advanced",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/ideal-advanced.git",
+                "reference": "83a8397e5ebf2f4d31134b2bf030391d045089f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced/zipball/83a8397e5ebf2f4d31134b2bf030391d045089f0",
+                "reference": "83a8397e5ebf2f4d31134b2bf030391d045089f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay-gateways/ideal": "dev-develop",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "iDEAL Advanced driver for the WordPress payment processing library.",
+            "homepage": "https://github.com/wp-pay-gateways/ideal-advanced",
+            "keywords": [
+                "advanced",
+                "gateway",
+                "ideal",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-11-04 18:47:48"
+        },
+        {
+            "name": "wp-pay-gateways/ideal-advanced-v3",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
+                "reference": "288c992132bde87cd5308680a2ec01882279d4c9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/288c992132bde87cd5308680a2ec01882279d4c9",
+                "reference": "288c992132bde87cd5308680a2ec01882279d4c9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay-gateways/ideal": "dev-develop",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "iDEAL Advanced v3 driver for the WordPress payment processing library.",
+            "homepage": "https://github.com/wp-pay-gateways/ideal-advanced-v3",
+            "keywords": [
+                "advanced",
+                "gateway",
+                "ideal",
+                "pay",
+                "pronamic",
+                "v3",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-11-04 18:48:04"
+        },
+        {
             "name": "wp-pay-gateways/ideal-basic",
             "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "eb9b4bb388eb2d95073cc29cab0c297bdcc975df"
+                "reference": "1997706b400610c88a5733b58be7e546c1784d6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/eb9b4bb388eb2d95073cc29cab0c297bdcc975df",
-                "reference": "eb9b4bb388eb2d95073cc29cab0c297bdcc975df",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/1997706b400610c88a5733b58be7e546c1784d6e",
+                "reference": "1997706b400610c88a5733b58be7e546c1784d6e",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +683,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-04 14:20:19"
+            "time": "2014-11-04 18:32:17"
         },
         {
             "name": "wp-pay-gateways/mollie",
@@ -779,12 +864,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/multisafepay-connect.git",
-                "reference": "12948e2f0ba4b324d796f6394daf1cc6dd9064cd"
+                "reference": "57e2216bdaef46cab763dbb1ec8370a999290b27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/12948e2f0ba4b324d796f6394daf1cc6dd9064cd",
-                "reference": "12948e2f0ba4b324d796f6394daf1cc6dd9064cd",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/57e2216bdaef46cab763dbb1ec8370a999290b27",
+                "reference": "57e2216bdaef46cab763dbb1ec8370a999290b27",
                 "shasum": ""
             },
             "require": {
@@ -831,7 +916,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-04 14:05:08"
+            "time": "2014-11-04 18:32:06"
         },
         {
             "name": "wp-pay-gateways/ogone",
@@ -1927,6 +2012,8 @@
         "wp-pay-gateways/buckaroo": 20,
         "wp-pay-gateways/icepay": 20,
         "wp-pay-gateways/ideal": 20,
+        "wp-pay-gateways/ideal-advanced": 20,
+        "wp-pay-gateways/ideal-advanced-v3": 20,
         "wp-pay-gateways/ideal-basic": 20,
         "wp-pay-gateways/mollie": 20,
         "wp-pay-gateways/mollie-ideal": 20,
