@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5bbe7e99ffbc206adc3f09e9ed8bfc3b",
+    "hash": "591ddc4af93869425cbb12b7847bdc4c",
     "packages": [
         {
             "name": "composer/installers",
@@ -450,12 +450,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/icepay.git",
-                "reference": "e5cbf8519f6412de29ab92bf190dda75e71f50d0"
+                "reference": "ae581bb8ed2bc61f0b1409dda0ecd199a6c81223"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/e5cbf8519f6412de29ab92bf190dda75e71f50d0",
-                "reference": "e5cbf8519f6412de29ab92bf190dda75e71f50d0",
+                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/ae581bb8ed2bc61f0b1409dda0ecd199a6c81223",
+                "reference": "ae581bb8ed2bc61f0b1409dda0ecd199a6c81223",
                 "shasum": ""
             },
             "require": {
@@ -500,7 +500,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-04 12:35:59"
+            "time": "2014-11-04 12:51:32"
         },
         {
             "name": "wp-pay-gateways/ideal",
@@ -547,12 +547,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "20a8c1eda746a4ec6d849d3d3b8f2111d8fe39a5"
+                "reference": "eb9b4bb388eb2d95073cc29cab0c297bdcc975df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/20a8c1eda746a4ec6d849d3d3b8f2111d8fe39a5",
-                "reference": "20a8c1eda746a4ec6d849d3d3b8f2111d8fe39a5",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/eb9b4bb388eb2d95073cc29cab0c297bdcc975df",
+                "reference": "eb9b4bb388eb2d95073cc29cab0c297bdcc975df",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +598,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-07-14 14:30:21"
+            "time": "2014-11-04 14:20:19"
         },
         {
             "name": "wp-pay-gateways/mollie",
@@ -714,6 +714,124 @@
                 "wp"
             ],
             "time": "2014-10-17 10:05:05"
+        },
+        {
+            "name": "wp-pay-gateways/multisafepay",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/multisafepay.git",
+                "reference": "cc13ee74bbf424213924625102c94490f3f88062"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/cc13ee74bbf424213924625102c94490f3f88062",
+                "reference": "cc13ee74bbf424213924625102c94490f3f88062",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "MultiSafepay driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/multisafepay/",
+            "keywords": [
+                "gateway",
+                "ideal",
+                "multisafepay",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-11-04 13:41:16"
+        },
+        {
+            "name": "wp-pay-gateways/multisafepay-connect",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/multisafepay-connect.git",
+                "reference": "12948e2f0ba4b324d796f6394daf1cc6dd9064cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/12948e2f0ba4b324d796f6394daf1cc6dd9064cd",
+                "reference": "12948e2f0ba4b324d796f6394daf1cc6dd9064cd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay-gateways/multisafepay": "dev-develop",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "MultiSafepay Connect driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/multisafepay-connect/",
+            "keywords": [
+                "connect",
+                "gateway",
+                "ideal",
+                "multisafepay",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-11-04 14:05:08"
         },
         {
             "name": "wp-pay-gateways/ogone",
@@ -1064,12 +1182,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "3411650a9467e97174756e8dc1ac909b20ded067"
+                "reference": "543a145a93ac70b92c4f401ede8aa291ecb759f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/3411650a9467e97174756e8dc1ac909b20ded067",
-                "reference": "3411650a9467e97174756e8dc1ac909b20ded067",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/543a145a93ac70b92c4f401ede8aa291ecb759f4",
+                "reference": "543a145a93ac70b92c4f401ede8aa291ecb759f4",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1231,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-09-11 11:58:31"
+            "time": "2014-11-04 12:58:59"
         },
         {
             "name": "wp-pay/core",
@@ -1812,6 +1930,8 @@
         "wp-pay-gateways/ideal-basic": 20,
         "wp-pay-gateways/mollie": 20,
         "wp-pay-gateways/mollie-ideal": 20,
+        "wp-pay-gateways/multisafepay": 20,
+        "wp-pay-gateways/multisafepay-connect": 20,
         "wp-pay-gateways/ogone": 20,
         "wp-pay-gateways/omnikassa": 20,
         "wp-pay-gateways/pay-nl": 20,
