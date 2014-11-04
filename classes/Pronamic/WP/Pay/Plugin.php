@@ -580,7 +580,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_WP_Pay_Buckaroo_Config'                         => 'Pronamic_WP_Pay_Buckaroo_Gateway',
 			'Pronamic_WP_Pay_Gateways_Icepay_Config'                  => 'Pronamic_WP_Pay_Gateways_Icepay_Gateway',
 			'Pronamic_WP_Pay_Gateways_IDealAdvanced_Config'           => 'Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway',
-			'Pronamic_Gateways_IDealAdvancedV3_Config'                => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
+			'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Config'         => 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway',
 			'Pronamic_WP_Pay_Gateways_IDealBasic_Config'              => 'Pronamic_WP_Pay_Gateways_IDealBasic_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config'        => 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway',
