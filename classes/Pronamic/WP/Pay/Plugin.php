@@ -593,7 +593,7 @@ class Pronamic_WP_Pay_Plugin {
 			'Pronamic_WP_Pay_Gateways_PayNL_Config'                   => 'Pronamic_WP_Pay_Gateways_PayNL_Gateway',
 			'Pronamic_WP_Pay_Gateways_Qantani_Config'                 => 'Pronamic_WP_Pay_Gateways_Qantani_Gateway',
 			'Pronamic_WP_Pay_Gateways_Sisow_Config'                   => 'Pronamic_WP_Pay_Gateways_Sisow_Gateway',
-			'Pronamic_WP_Pay_Gateways_TargetPay_Config'               => 'Pronamic_Gateways_TargetPay_Gateway',
+			'Pronamic_WP_Pay_Gateways_TargetPay_Config'               => 'Pronamic_WP_Pay_Gateways_TargetPay_Gateway',
 		);
 
 		$config_gateways = apply_filters( 'pronamic_pay_config_gateways', $config_gateways );
