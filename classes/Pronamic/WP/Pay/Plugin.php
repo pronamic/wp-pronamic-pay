@@ -125,10 +125,10 @@ class Pronamic_WP_Pay_Plugin {
 		if ( $payment !== null ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 			// - No status request after a final status has been received for a transaction;
-			if ( empty( $payment->status ) || $payment->status === Pronamic_Gateways_IDealAdvancedV3_Status::OPEN ) {
+			if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
 				self::update_payment( $payment );
 
-				if ( empty( $payment->status ) || $payment->status === Pronamic_Gateways_IDealAdvancedV3_Status::OPEN ) {
+				if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
 					$seconds = DAY_IN_SECONDS;
 
 					switch ( $number_tries ) {
