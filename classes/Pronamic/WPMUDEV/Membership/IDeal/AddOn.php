@@ -90,7 +90,7 @@ class Pronamic_WPMUDEV_Membership_IDeal_AddOn {
 		$url = M_get_returnurl_permalink();
 
 		switch ( $status ) {
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+			case Pronamic_WP_Pay_Statuses::SUCCESS:
 				$url = M_get_registrationcompleted_permalink();
 
 				break;
