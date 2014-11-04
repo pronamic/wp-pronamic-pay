@@ -266,7 +266,7 @@ class Pronamic_WP_Pay_Plugin {
 			self::update_payment( $payment, $should_redirect );
 		}
 
-		Pronamic_Gateways_IDealBasic_Listener::listen();
+		Pronamic_WP_Pay_Gateways_IDealBasic_Listener::listen();
 		Pronamic_WP_Pay_Gateways_OmniKassa_Listener::listen();
 		Pronamic_WP_Pay_Gateways_Icepay_Listener::listen();
 		Pronamic_WP_Pay_Gateways_Mollie_Listener::listen();
@@ -579,9 +579,9 @@ class Pronamic_WP_Pay_Plugin {
 		$config_gateways = array(
 			'Pronamic_WP_Pay_Buckaroo_Config'                         => 'Pronamic_WP_Pay_Buckaroo_Gateway',
 			'Pronamic_WP_Pay_Gateways_Icepay_Config'                  => 'Pronamic_WP_Pay_Gateways_Icepay_Gateway',
-			'Pronamic_Gateways_IDealAdvanced_Config'                  => 'Pronamic_Gateways_IDealAdvanced_Gateway',
+			'Pronamic_WP_Pay_Gateways_IDealAdvanced_Config'           => 'Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway',
 			'Pronamic_Gateways_IDealAdvancedV3_Config'                => 'Pronamic_Gateways_IDealAdvancedV3_Gateway',
-			'Pronamic_Pay_Gateways_IDealBasic_Config'                 => 'Pronamic_Gateways_IDealBasic_Gateway',
+			'Pronamic_WP_Pay_Gateways_IDealBasic_Config'              => 'Pronamic_WP_Pay_Gateways_IDealBasic_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Config'        => 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Config'     => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Gateway',
 			'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Config' => 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway',

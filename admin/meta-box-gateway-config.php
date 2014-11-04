@@ -617,7 +617,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	$certificate = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_certificate', true );
 
 	if ( ! empty( $certificate ) ) {
-		$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $certificate );
+		$fingerprint = Pronamic_WP_Pay_Gateways_IDealAdvanced_Security::getShaFingerprint( $certificate );
 		$fingerprint = str_split( $fingerprint, 2 );
 		$fingerprint = implode( ':', $fingerprint );
 
