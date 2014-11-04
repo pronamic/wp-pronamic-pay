@@ -328,19 +328,19 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 
 		switch ( $payment->get_status() ) {
 
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+			case Pronamic_WP_Pay_Statuses::CANCELLED:
 				$url = $empty_data->get_cancel_url();
 
 				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+			case Pronamic_WP_Pay_Statuses::EXPIRED:
 				$url = $empty_data->get_error_url();
 
 				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+			case Pronamic_WP_Pay_Statuses::FAILURE:
 				$url = $empty_data->get_error_url();
 
 				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+			case Pronamic_WP_Pay_Statuses::SUCCESS:
 
 				$transient_transaction = it_exchange_get_transient_transaction( self::$slug, $payment->get_source_id() );
 
@@ -367,7 +367,7 @@ class Pronamic_IThemesExchange_IDeal_AddOn {
 				it_exchange_empty_shopping_cart();
 
 				break;
-			case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+			case Pronamic_WP_Pay_Statuses::OPEN:
 
 			default:
 
