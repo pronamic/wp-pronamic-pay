@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-10-30 12:54:21+00:00\n"
+"POT-Creation-Date: 2014-11-05 13:52:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.7\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
 msgid "WordPress.org"
@@ -331,7 +331,7 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:57 admin/meta-box-gateway-config.php:205
 #: admin/meta-box-gateway-config.php:257
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:114
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:126
 msgid "Merchant ID"
 msgstr ""
 
@@ -442,7 +442,7 @@ msgid "Secret Key"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:217
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:118
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:130
 msgid "Key Version"
 msgstr ""
 
@@ -635,7 +635,7 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:432
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:125
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:115
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:127
 msgid "Order ID"
 msgstr ""
 
@@ -855,7 +855,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:127
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:110
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
 msgid "Amount"
 msgstr ""
 
@@ -1186,7 +1186,7 @@ msgstr ""
 
 #: admin/tab-extensions.php:146
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:151
 msgid "WooCommerce"
 msgstr ""
 
@@ -1321,10 +1321,12 @@ msgid "GiftCard"
 msgstr ""
 
 #: admin/tab-methods.php:58
+#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:26
 msgid "Credit Card"
 msgstr ""
 
 #: admin/tab-methods.php:65
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:26
 msgid "Direct Debit"
 msgstr ""
 
@@ -1337,6 +1339,7 @@ msgid "Giropay"
 msgstr ""
 
 #: admin/tab-methods.php:82
+#: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:26
 msgid "MiniTix"
 msgstr ""
 
@@ -1604,30 +1607,6 @@ msgstr ""
 msgid "Attendee #%s"
 msgstr ""
 
-#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:208
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:175
-msgid "The response code (<code>%s<code>) from the iDEAL provider was incorrect."
-msgstr ""
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Client.php:243
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Client.php:215
-msgid "Unknwon iDEAL message (%s)"
-msgstr ""
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:86
-msgid "&mdash; Other banks &mdash;"
-msgstr ""
-
-#: classes/Pronamic/Gateways/IDealAdvanced/Gateway.php:95
-#: classes/Pronamic/Gateways/IDealAdvancedV3/Gateway.php:75
-#: classes/Pronamic/Gateways/TargetPay/Gateway.php:64
-#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
-#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
-#: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
-#: vendor/wp-pay-gateways/sisow/src/Gateway.php:52
-msgid "Choose your bank"
-msgstr ""
-
 #: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
 msgid "Entry #%s"
 msgstr ""
@@ -1694,7 +1673,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:55
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:165
 msgid "Order %s"
 msgstr ""
 
@@ -1987,19 +1966,19 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:113
 msgid "iDEAL payment completed."
 msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:124
 msgid "iDEAL payment open."
 msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment unknown."
 msgstr ""
 
@@ -2017,12 +1996,12 @@ msgid "iDEAL payment cancelled."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:96
 msgid "iDEAL payment expired."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:104
 msgid "iDEAL payment failed."
 msgstr ""
 
@@ -2147,6 +2126,14 @@ msgstr ""
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
+#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:38
+msgid "Enable Credit Card"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
+msgid "Enable Direct Debit"
+msgstr ""
+
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
 msgstr ""
@@ -2187,6 +2174,10 @@ msgstr ""
 msgid ""
 "You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
 "checkout settings page</a>."
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:38
+msgid "Enable MiniTix"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:38
@@ -2255,6 +2246,30 @@ msgstr ""
 msgid "Buckaroo data:"
 msgstr ""
 
+#: vendor/wp-pay-gateways/ideal-advanced/src/Client.php:207
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:174
+msgid "The response code (<code>%s<code>) from the iDEAL provider was incorrect."
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced/src/Client.php:242
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:214
+msgid "Unknwon iDEAL message (%s)"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:86
+msgid "&mdash; Other banks &mdash;"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:95
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:75
+#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
+#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
+#: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:52
+#: vendor/wp-pay-gateways/targetpay/src/Gateway.php:64
+msgid "Choose your bank"
+msgstr ""
+
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:129
 msgid "Acceptance"
 msgstr ""
@@ -2299,35 +2314,35 @@ msgstr ""
 msgid "Ogone transaction data in response message:"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:113
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:125
 msgid "Currency Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:116
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:128
 msgid "Transaction Date Time"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:117
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:129
 msgid "Transaction Reference"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:119
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:131
 msgid "Authorisation ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:120
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:132
 msgid "Payment Mean Brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:121
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:133
 msgid "Payment Mean Type"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:134
 msgid "Response Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:128
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:140
 msgid "OmniKassa transaction data in response message:"
 msgstr ""
 
@@ -2482,12 +2497,12 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:111
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:123
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:112
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:124
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr ""
