@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.1.0
+*	Feature - WooCommerce - Added MiniTix gateway for OmniKassa.
+*	Feature - WooCommerce - Added Credit Card gateway for OmniKassa and Mollie.
+*	Tweak - WooCommerce - Adjusted default payment gateway icons.
+*	Tweak - Moved all gateway libraries to https://github.com/wp-pay-gateways.
+*	Tweak - Mollie - Improved support for the Mollie webhook feature.
+
 ## 3.0.0
 *	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
 *	Tweak - Mollie - Added the 'locale' parameter in the create payment request.
