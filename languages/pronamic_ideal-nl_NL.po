@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-11-05 13:52:15+00:00\n"
-"PO-Revision-Date: 2014-11-05 14:53+0100\n"
+"POT-Creation-Date: 2014-11-07 13:29:04+00:00\n"
+"PO-Revision-Date: 2014-11-07 14:29+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -244,7 +244,7 @@ msgid "Zip"
 msgstr "Postcode"
 
 #: admin/gravityforms/meta-box-config.php:401
-#: admin/meta-box-gateway-config.php:553
+#: admin/meta-box-gateway-config.php:568
 msgid "Country"
 msgstr "Land"
 
@@ -660,11 +660,11 @@ msgstr "SHA-256"
 msgid "SHA-512"
 msgstr "SHA-512"
 
-#: admin/meta-box-gateway-config.php:402 admin/meta-box-gateway-config.php:476
+#: admin/meta-box-gateway-config.php:402 admin/meta-box-gateway-config.php:491
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-IN versleuteling"
 
-#: admin/meta-box-gateway-config.php:405 admin/meta-box-gateway-config.php:479
+#: admin/meta-box-gateway-config.php:405 admin/meta-box-gateway-config.php:494
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -698,7 +698,7 @@ msgstr "Gebruiker ID"
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: admin/meta-box-gateway-config.php:438
+#: admin/meta-box-gateway-config.php:438 admin/meta-box-gateway-config.php:476
 msgid "This controls the Ogone %s parameter."
 msgstr "Hiermee beheer je de Ogone %s parameter."
 
@@ -708,7 +708,7 @@ msgstr "Hiermee beheer je de Ogone %s parameter."
 msgid "Default: <code>%s</code>."
 msgstr "Standaard: <code>%s</code>."
 
-#: admin/meta-box-gateway-config.php:442
+#: admin/meta-box-gateway-config.php:442 admin/meta-box-gateway-config.php:479
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:140
 msgid "Tags: %s"
 msgstr "Tags: %s"
@@ -737,98 +737,102 @@ msgstr ""
 "Bij betaalstatus \"Geannuleerd door klant\" of bij te veel weigeringen door "
 "de acquirer."
 
-#: admin/meta-box-gateway-config.php:471
+#: admin/meta-box-gateway-config.php:470
+msgid "Parameter Variable"
+msgstr "Parameter variabele"
+
+#: admin/meta-box-gateway-config.php:486
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: admin/meta-box-gateway-config.php:484
+#: admin/meta-box-gateway-config.php:499
 msgid "3-D Secure"
 msgstr "3-D Secure"
 
-#: admin/meta-box-gateway-config.php:486
+#: admin/meta-box-gateway-config.php:501
 msgid "Enable 3-D Secure protocol"
 msgstr "3-D Secure protocol inschakelen"
 
-#: admin/meta-box-gateway-config.php:492
+#: admin/meta-box-gateway-config.php:507
 msgid "Qantani"
 msgstr "Qantani"
 
-#: admin/meta-box-gateway-config.php:516
+#: admin/meta-box-gateway-config.php:531
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: admin/meta-box-gateway-config.php:521
+#: admin/meta-box-gateway-config.php:536
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: admin/meta-box-gateway-config.php:527 admin/meta-box-gateway-config.php:889
+#: admin/meta-box-gateway-config.php:542 admin/meta-box-gateway-config.php:904
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: admin/meta-box-gateway-config.php:534 admin/meta-box-gateway-config.php:913
+#: admin/meta-box-gateway-config.php:549 admin/meta-box-gateway-config.php:928
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: admin/meta-box-gateway-config.php:542
+#: admin/meta-box-gateway-config.php:557
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: admin/meta-box-gateway-config.php:547
+#: admin/meta-box-gateway-config.php:562
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: admin/meta-box-gateway-config.php:549
+#: admin/meta-box-gateway-config.php:564
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: admin/meta-box-gateway-config.php:555
+#: admin/meta-box-gateway-config.php:570
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: admin/meta-box-gateway-config.php:559
+#: admin/meta-box-gateway-config.php:574
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: admin/meta-box-gateway-config.php:561
+#: admin/meta-box-gateway-config.php:576
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: admin/meta-box-gateway-config.php:565
+#: admin/meta-box-gateway-config.php:580
 msgid "Locality"
 msgstr "Localiteit"
 
-#: admin/meta-box-gateway-config.php:567
+#: admin/meta-box-gateway-config.php:582
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: admin/meta-box-gateway-config.php:571
+#: admin/meta-box-gateway-config.php:586
 msgid "Organization"
 msgstr "Organisatie"
 
-#: admin/meta-box-gateway-config.php:573
+#: admin/meta-box-gateway-config.php:588
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: admin/meta-box-gateway-config.php:577
+#: admin/meta-box-gateway-config.php:592
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: admin/meta-box-gateway-config.php:579
+#: admin/meta-box-gateway-config.php:594
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: admin/meta-box-gateway-config.php:583
+#: admin/meta-box-gateway-config.php:598
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: admin/meta-box-gateway-config.php:586
+#: admin/meta-box-gateway-config.php:601
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: admin/meta-box-gateway-config.php:587
+#: admin/meta-box-gateway-config.php:602
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -836,7 +840,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: admin/meta-box-gateway-config.php:588
+#: admin/meta-box-gateway-config.php:603
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -847,44 +851,44 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: admin/meta-box-gateway-config.php:592
+#: admin/meta-box-gateway-config.php:607
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: admin/meta-box-gateway-config.php:604
+#: admin/meta-box-gateway-config.php:619
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: admin/meta-box-gateway-config.php:626
+#: admin/meta-box-gateway-config.php:641
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: admin/meta-box-gateway-config.php:632
+#: admin/meta-box-gateway-config.php:647
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: admin/meta-box-gateway-config.php:635
+#: admin/meta-box-gateway-config.php:650
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: admin/meta-box-gateway-config.php:640
+#: admin/meta-box-gateway-config.php:655
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: admin/meta-box-gateway-config.php:651
+#: admin/meta-box-gateway-config.php:666
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: admin/meta-box-gateway-config.php:671
+#: admin/meta-box-gateway-config.php:686
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
 msgid "Variant"
 msgstr "Variant"
 
-#: admin/meta-box-gateway-config.php:878
+#: admin/meta-box-gateway-config.php:893
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: admin/meta-box-gateway-config.php:882
+#: admin/meta-box-gateway-config.php:897
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -892,7 +896,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: admin/meta-box-gateway-config.php:898
+#: admin/meta-box-gateway-config.php:913
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -2584,17 +2588,17 @@ msgctxt "sisow"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: admin/meta-box-gateway-config.php:497
+#: admin/meta-box-gateway-config.php:512
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: admin/meta-box-gateway-config.php:503
+#: admin/meta-box-gateway-config.php:518
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: admin/meta-box-gateway-config.php:509
+#: admin/meta-box-gateway-config.php:524
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"

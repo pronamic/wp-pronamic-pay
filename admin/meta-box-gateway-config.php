@@ -465,6 +465,21 @@ $sections = array(
 				'description' => __( 'If the payment\'s status is "cancelled by the client" or "too many rejections by the acquirer".', 'pronamic_ideal' ),
 				'readonly'    => true,
 			),
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_param_var',
+				'title'       => __( 'Parameter Variable', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					'%s<br />%s',
+					sprintf(
+						__( 'This controls the Ogone %s parameter.', 'pronamic_ideal' ),
+						sprintf( '<code>%s</code>', 'PARAMVAR' )
+					),
+					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{site_url}', '{home_url}' ) )
+				),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			),
 		),
 	),
 	array(
