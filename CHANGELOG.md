@@ -6,6 +6,8 @@
 *	Tweak - WooCommerce - Adjusted default payment gateway icons.
 *	Tweak - Moved all gateway libraries to https://github.com/wp-pay-gateways.
 *	Tweak - Mollie - Improved support for the Mollie webhook feature.
+*	Tweak - For a lot of gateways we no longer disable SSL verify.
+*	Feature - Ogone - Added configuration field for the PARAMVAR field.
 
 ## 3.0.0
 *	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
