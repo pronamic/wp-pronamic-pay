@@ -86,6 +86,7 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [
 					'**',
+					'!composer.json',
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
