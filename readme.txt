@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 3.0.0
+Stable tag: 3.1.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -261,6 +261,15 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 3.1.0 =
+*	Feature - WooCommerce - Added MiniTix gateway for OmniKassa.
+*	Feature - WooCommerce - Added Credit Card gateway for OmniKassa and Mollie.
+*	Tweak - WooCommerce - Adjusted default payment gateway icons.
+*	Tweak - Moved all gateway libraries to https://github.com/wp-pay-gateways.
+*	Tweak - Mollie - Improved support for the Mollie webhook feature.
+*	Tweak - For a lot of gateways we no longer disable SSL verify.
+*	Feature - Ogone - Added configuration field for the PARAMVAR field.
 
 = 3.0.0 =
 *	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
