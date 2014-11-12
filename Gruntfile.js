@@ -19,7 +19,7 @@ module.exports = function( grunt ) {
 				dir: [ './' ],
 			},
 			options: {
-				standard: 'project.ruleset.xml',
+				standard: 'phpcs.ruleset.xml',
 				extensions: 'php',
 				ignore: 'wp-svn,wp-content,deploy,node_modules,vendor'
 			}
@@ -91,7 +91,7 @@ module.exports = function( grunt ) {
 					'!package.json',
 					'!phpunit.xml',
 					'!phpunit.xml.dist',
-					'!project.ruleset.xml',
+					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
 					'!build/**',
