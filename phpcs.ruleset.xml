@@ -12,11 +12,11 @@
 
 	<rule ref="WordPress">
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
+		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
 
 		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
-		<exclude name="WordPress.WhiteSpace.ScopeIndent" />
 		<exclude name="WordPress.Files.FileName" />
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
