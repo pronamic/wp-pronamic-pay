@@ -264,6 +264,8 @@ Here is a list of known plugin conflicts:
 
 = 3.1.2 =
 *	Fix - iDEAL Basic - Fixed issue with not loading iDEAL Basic gateway.
+*	Tweak - Added some missing text domains in translation functions.
+*	Tweak - Easy Digital Downloads - Fixed text domain 'edd' to 'pronamic_ideal'.
 
 = 3.1.1 =
 *	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Plugin::set_roles.
