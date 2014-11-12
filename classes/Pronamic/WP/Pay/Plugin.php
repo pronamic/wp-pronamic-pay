@@ -375,11 +375,9 @@ class Pronamic_WP_Pay_Plugin {
 	 * @param array $roles
 	 */
 	public static function set_roles( $roles ) {
+		// The global $wp_roles var is available since WordPress version 2.0.0
+		// @see https://github.com/WordPress/WordPress/blob/4.0/wp-settings.php#L288-L293
 		global $wp_roles;
-
-		if ( ! isset( $wp_roles ) ) {
-			$wp_roles = new WP_Roles();
-		}
 
 		foreach ( $roles as $role => $data ) {
 			if ( isset( $data['display_name'], $data['capabilities'] ) ) {
