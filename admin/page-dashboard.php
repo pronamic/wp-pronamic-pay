@@ -42,7 +42,7 @@
 
 													printf( '<abbr title="%s">%s</abbr>',
 														/* translators: comment date format. See http://php.net/date */
-														get_the_time( __( 'c' ), $payment ),
+														get_the_time( __( 'c', 'pronamic_ideal' ), $payment ),
 														get_the_time( get_option( 'date_format' ), $payment )
 													);
 

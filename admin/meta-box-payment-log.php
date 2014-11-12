@@ -31,9 +31,9 @@ $comments = get_comments( array(
 					<td>
 						<?php
 
-						printf( __( '%1$s at %2$s' ),
+						printf( __( '%1$s at %2$s', 'pronamic_ideal' ),
 							/* translators: comment date format. See http://php.net/date */
-							get_comment_date( __( 'Y/m/d' ), $comment->comment_ID ),
+							get_comment_date( __( 'Y/m/d', 'pronamic_ideal' ), $comment->comment_ID ),
 							get_comment_date( get_option( 'time_format' ), $comment->comment_ID )
 						);
 
