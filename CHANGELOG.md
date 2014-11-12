@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.1.1
+*	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Plugin::set_roles.
+
 ## 3.1.0
 *	Feature - WooCommerce - Added MiniTix gateway for OmniKassa.
 *	Feature - WooCommerce - Added Credit Card gateway for OmniKassa and Mollie.

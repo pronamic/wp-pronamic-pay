@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-11-12 10:09:49+00:00\n"
-"PO-Revision-Date: 2014-11-12 11:10+0100\n"
+"POT-Creation-Date: 2014-11-12 13:36:39+00:00\n"
+"PO-Revision-Date: 2014-11-12 14:37+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -253,12 +253,12 @@ msgid "Status Links"
 msgstr "Status koppelingen"
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:465
+#: classes/Pronamic/WP/Pay/Plugin.php:408
 msgid "Open"
 msgstr "Open"
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:467
+#: classes/Pronamic/WP/Pay/Plugin.php:410
 msgid "Success"
 msgstr "Succes"
 
@@ -273,7 +273,7 @@ msgstr "Fout"
 
 #: admin/gravityforms/meta-box-config.php:447
 #: classes/Pronamic/WP/Pay/Admin.php:104
-#: classes/Pronamic/WP/Pay/Plugin.php:461
+#: classes/Pronamic/WP/Pay/Plugin.php:404
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -1188,7 +1188,7 @@ msgid "Event Espresso Lite"
 msgstr "Event Espresso Lite"
 
 #: admin/tab-extensions.php:36
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:83
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:81
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -1334,7 +1334,7 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:463
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:406
 msgid "Failure"
 msgstr "Storing"
 
@@ -1691,19 +1691,9 @@ msgstr "Activeer Pronamic iDEAL?"
 msgid "Attendee #%s"
 msgstr "Deelnemer #%s"
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:88
+#: classes/Pronamic/GravityForms/IDeal/AddOn.php:86
 msgid "Entry #%s"
 msgstr "Inzending #%s"
-
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:109
-#: classes/Pronamic/WP/Pay/Plugin.php:430
-msgid "iDEAL Administrator"
-msgstr "iDEAL-beheerder"
-
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:113
-#: classes/Pronamic/WP/Pay/Plugin.php:434
-msgid "Administrator"
-msgstr "Beheerder"
 
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:76
 msgid "Payment Status"
@@ -1805,7 +1795,7 @@ msgid "Canceled"
 msgstr "Geannuleerd"
 
 #: classes/Pronamic/WP/Pay/Admin.php:103
-#: classes/Pronamic/WP/Pay/Plugin.php:469
+#: classes/Pronamic/WP/Pay/Plugin.php:412
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -1859,22 +1849,22 @@ msgstr "Deelnemer %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:459
+#: classes/Pronamic/WP/Pay/Plugin.php:402
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:481
+#: classes/Pronamic/WP/Pay/Plugin.php:424
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:516
+#: classes/Pronamic/WP/Pay/Plugin.php:459
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:638
+#: classes/Pronamic/WP/Pay/Plugin.php:581
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2612,6 +2602,12 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid "iDEAL Administrator"
+#~ msgstr "iDEAL-beheerder"
+
+#~ msgid "Administrator"
+#~ msgstr "Beheerder"
 
 #~ msgid "This setting requires the <a href=\"%s\">%s</a> plugin."
 #~ msgstr "Deze instelling vereist de <a href=”%s”>%s</a> plugin."
