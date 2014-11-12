@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.1.2
+*	Fix - iDEAL Basic - Fixed issue with not loading iDEAL Basic gateway.
+
 ## 3.1.1
 *	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Plugin::set_roles.
 
