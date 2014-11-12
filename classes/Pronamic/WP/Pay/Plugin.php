@@ -370,34 +370,6 @@ class Pronamic_WP_Pay_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Configure the specified roles
-	 *
-	 * @param array $roles
-	 */
-	public static function set_roles( $roles ) {
-		// The global $wp_roles var is available since WordPress version 2.0.0
-		// @see https://github.com/WordPress/WordPress/blob/4.0/wp-settings.php#L288-L293
-		global $wp_roles;
-
-		foreach ( $roles as $role => $data ) {
-			if ( isset( $data['display_name'], $data['capabilities'] ) ) {
-				$display_name = $data['display_name'];
-				$capabilities = $data['capabilities'];
-
-				if ( $wp_roles->is_role( $role ) ) {
-					foreach ( $capabilities as $cap => $grant ) {
-						$wp_roles->add_cap( $role, $cap, $grant );
-					}
-				} else {
-					$wp_roles->add_role( $role, $display_name, $capabilities );
-				}
-			}
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
 	public static function setup() {
@@ -409,33 +381,6 @@ class Pronamic_WP_Pay_Plugin {
 		global $pronamic_pay_version;
 
 		if ( get_option( 'pronamic_pay_version' ) != $pronamic_pay_version ) {
-			// Add some new capabilities
-			$capabilities = array(
-				'read'                           => true,
-				'pronamic_ideal'                 => true,
-				'pronamic_ideal_configurations'  => true,
-				'pronamic_ideal_payments'        => true,
-				'pronamic_ideal_settings'        => true,
-				'pronamic_ideal_pages_generator' => true,
-				'pronamic_ideal_status'          => true,
-				'pronamic_ideal_variants'        => true,
-				'pronamic_ideal_documentation'   => true,
-				'pronamic_ideal_branding'        => true,
-			);
-
-			$roles = array(
-				'pronamic_ideal_administrator' => array(
-					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities,
-				) ,
-				'administrator' => array(
-					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities,
-				)
-			);
-
-			self::set_roles( $roles );
-
 			// Update version
 			update_option( 'pronamic_pay_version', $pronamic_pay_version );
 		}

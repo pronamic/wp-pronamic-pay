@@ -425,7 +425,7 @@ class Pronamic_WP_Pay_Admin {
 		add_menu_page(
 			__( 'iDEAL', 'pronamic_ideal' ),
 			__( 'iDEAL', 'pronamic_ideal' ),
-			'pronamic_ideal',
+			'manage_options',
 			'pronamic_ideal',
 			array( __CLASS__, 'page_dashboard' ),
 			plugins_url( 'images/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file )
@@ -435,7 +435,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Payments', 'pronamic_ideal' ),
 			__( 'Payments', 'pronamic_ideal' ),
-			'pronamic_ideal_payments',
+			'manage_options',
 			'edit.php?post_type=pronamic_payment'
 		);
 
@@ -443,7 +443,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Configurations', 'pronamic_ideal' ),
 			__( 'Configurations', 'pronamic_ideal' ),
-			'pronamic_ideal',
+			'manage_options',
 			'edit.php?post_type=pronamic_gateway'
 		);
 
@@ -451,7 +451,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Settings', 'pronamic_ideal' ),
 			__( 'Settings', 'pronamic_ideal' ),
-			'pronamic_ideal_settings',
+			'manage_options',
 			'pronamic_pay_settings',
 			array( __CLASS__, 'page_settings' )
 		);
@@ -460,7 +460,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Tools', 'pronamic_ideal' ),
 			__( 'Tools', 'pronamic_ideal' ),
-			'pronamic_ideal',
+			'manage_options',
 			'pronamic_pay_tools',
 			array( __CLASS__, 'page_tools' )
 		);

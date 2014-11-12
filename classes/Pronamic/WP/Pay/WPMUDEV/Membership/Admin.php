@@ -66,7 +66,7 @@ class Pronamic_WP_Pay_WPMUDEV_Membership_Admin {
 			'membership',
 			__( 'Pronamic iDEAL Options', 'pronamic_ideal' ),
 			__( 'iDEAL Options', 'pronamic_ideal' ),
-			'pronamic_ideal',
+			'manage_options',
 			'pronamic_pay_membership_settings',
 			array( $this, 'page_settings' )
 		);
