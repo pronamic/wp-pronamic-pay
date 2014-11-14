@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.3
+*	Tweak - Pay.nl - Improved error handling.
+*	Fix - Ogone - Fixed fatal error with Ogone order standard easy gateway.
+
 ## 3.1.2
 *	Fix - iDEAL Basic - Fixed issue with not loading iDEAL Basic gateway.
 *	Tweak - Added some missing text domains in translation functions.
