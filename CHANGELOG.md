@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.1.4
+*	Fix - iDEAL Advanced v3 - Fixed fatal error with iDEAL Advanced v3 gateway.
+
 ## 3.1.3
 *	Tweak - Pay.nl - Improved error handling.
 *	Fix - Ogone - Fixed fatal error with Ogone order standard easy gateway.
