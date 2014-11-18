@@ -581,7 +581,7 @@ $pronamic_pay_gateways = array(
 	'sisow-ideal' => array(
 		'provider'      => 'sisow',
 		'gateway'       => 'sisow',
-		'name'          => 'Sisow - iDEAL',
+		'name'          => 'Sisow',
 		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
 	),
 	'sisow-ideal-basic' => array(

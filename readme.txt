@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 3.1.5
+Stable tag: 3.2.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -261,6 +261,14 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 3.2.0 =
+*	Feature - WooCommerce - Credit Card - Added support for Buckaroo.
+*	Feature - WooCommerce - Bancontact/Mister Cash - Added support for Sisow.
+*	Tweak - Sisow - Sanitize Sisow 'purchaseid' and 'entrancecode' parameters.
+*	Tweak - Buckaroo - Renamed Buckaroo gateway from "Buckaroo - iDEAL" to "Buckaroo - HTML".
+*	Tweak - Sisow - Renamed Sisow gateway from "Sisow - iDEAL" to "Sisow".
+*	Tweak - WooCommerce - Auto submit gateways HTML forms on WooCommerce receipt page.
 
 = 3.1.5 =
 *	Fix - iDEAL Basic - Fixed fatal error - Call to undefined function Pronamic_WP_Pay_Gateways_IDealBasic_Items(). 

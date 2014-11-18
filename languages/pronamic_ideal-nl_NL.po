@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-11-18 08:44:53+00:00\n"
-"PO-Revision-Date: 2014-11-18 09:45+0100\n"
+"POT-Creation-Date: 2014-11-18 14:55:06+00:00\n"
+"PO-Revision-Date: 2014-11-18 15:57+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -926,7 +926,7 @@ msgstr "Beschrijving"
 
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:125
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:143
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:134
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
 msgid "Amount"
@@ -1774,7 +1774,7 @@ msgid "Transaction"
 msgstr "Transactie"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:96 includes/post.php:35
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:119
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:137
 msgid "Payment"
 msgstr "Betaling"
 
@@ -1860,11 +1860,11 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:459
+#: classes/Pronamic/WP/Pay/Plugin.php:474
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:581
+#: classes/Pronamic/WP/Pay/Plugin.php:596
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2285,57 +2285,57 @@ msgstr "Bestelling {order_number}"
 msgid "WooCommerce order %s"
 msgstr "WooCommerce bestelling %s"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:120
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:138
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:135
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:121
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Status Code"
 msgstr "Statuscode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:122
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:140
 msgid "Status Code Detail"
 msgstr "Statuscode detail"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:123
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:141
 msgid "Status Message"
 msgstr "Statusbericht"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:124
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:142
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:126
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:144
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:133
 msgid "Currency"
 msgstr "Valuta"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:127
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:145
 msgid "Timestamp"
 msgstr "Timestamp"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:128
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:146
 msgid "Service iDEAL Consumer Issuer"
 msgstr "Service iDEAL gebruiker issuer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:129
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:147
 msgid "Service iDEAL Consumer Name"
 msgstr "Service iDEAL gebruiker naam"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:130
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:148
 msgid "Service iDEAL Consumer IBAN"
 msgstr "Service iDEAL gebruiker IBAN"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:131
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:149
 msgid "Service iDEAL Consumer BIC"
 msgstr "Service iDEAL gebruiker BIC"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:132
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:150
 msgid "Transactions"
 msgstr "Transacties"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:138
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:156
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
 
@@ -2440,11 +2440,11 @@ msgstr "Antwoord code"
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
-#: vendor/wp-pay-gateways/sisow/src/Client.php:136
+#: vendor/wp-pay-gateways/sisow/src/Client.php:135
 msgid "Unknwon Sisow message (%s)"
 msgstr "Onbekend Sisow-bericht (%s)"
 
-#: vendor/wp-pay-gateways/sisow/src/Client.php:152
+#: vendor/wp-pay-gateways/sisow/src/Client.php:151
 msgid "Sisow Bank (test)"
 msgstr "Sisow bank (test)"
 

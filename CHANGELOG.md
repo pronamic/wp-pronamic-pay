@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.2.0
+*	Feature - WooCommerce - Credit Card - Added support for Buckaroo.
+*	Feature - WooCommerce - Bancontact/Mister Cash - Added support for Sisow.
+*	Tweak - Sisow - Sanitize Sisow 'purchaseid' and 'entrancecode' parameters.
+*	Tweak - Buckaroo - Renamed Buckaroo gateway from "Buckaroo - iDEAL" to "Buckaroo - HTML".
+*	Tweak - Sisow - Renamed Sisow gateway from "Sisow - iDEAL" to "Sisow".
+*	Tweak - WooCommerce - Auto submit gateways HTML forms on WooCommerce receipt page.
+
 ## 3.1.5
 *	Fix - iDEAL Basic - Fixed fatal error - Call to undefined function Pronamic_WP_Pay_Gateways_IDealBasic_Items(). 
 *	Fix - iDEAL Basic - Fixed fatal error - Call to undefined method Pronamic_WP_Pay_Gateways_IDealBasic_Item::getNumber().

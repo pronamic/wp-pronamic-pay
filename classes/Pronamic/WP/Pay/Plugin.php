@@ -440,9 +440,24 @@ class Pronamic_WP_Pay_Plugin {
 		if ( isset( $payment_method ) ) {
 			$gateways = array();
 
-			if ( 'mister_cash' == $payment_method ) {
-				$gateways[] = 'mollie';
-				$gateways[] = 'rabobank-omnikassa';
+			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
+					$gateways[] = 'buckaroo';
+					$gateways[] = 'mollie';
+					$gateways[] = 'rabobank-omnikassa';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+					$gateways[] = 'buckaroo';
+					$gateways[] = 'mollie';
+					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'sisow-ideal';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::MINITIX :
+					$gateways[] = 'rabobank-omnikassa';
+
+					break;
 			}
 
 			$args['meta_query'] = array(
