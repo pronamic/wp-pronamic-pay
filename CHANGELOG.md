@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.5
+*	Fix - iDEAL Basic - Fixed fatal error - Call to undefined function Pronamic_WP_Pay_Gateways_IDealBasic_Items(). 
+*	Fix - iDEAL Basic - Fixed fatal error - Call to undefined method Pronamic_WP_Pay_Gateways_IDealBasic_Item::getNumber().
+
 ## 3.1.4
 *	Fix - iDEAL Advanced v3 - Fixed fatal error with iDEAL Advanced v3 gateway.
 
