@@ -269,6 +269,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - Buckaroo - Renamed Buckaroo gateway from "Buckaroo - iDEAL" to "Buckaroo - HTML".
 *	Tweak - Sisow - Renamed Sisow gateway from "Sisow - iDEAL" to "Sisow".
 *	Tweak - WooCommerce - Auto submit gateways HTML forms on WooCommerce receipt page.
+*	Fix - Fixed fatal error on the "WordPress admin » iDEAL » Extra » Extensions" tab.
 
 = 3.1.5 =
 *	Fix - iDEAL Basic - Fixed fatal error - Call to undefined function Pronamic_WP_Pay_Gateways_IDealBasic_Items(). 
