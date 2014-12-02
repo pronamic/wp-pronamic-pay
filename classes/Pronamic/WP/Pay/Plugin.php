@@ -65,6 +65,9 @@ class Pronamic_WP_Pay_Plugin {
 			Pronamic_WP_Pay_Admin::bootstrap();
 		}
 
+		// License
+		$license = new Pronamic_WP_Pay_License();
+
 		// Payment notes
 		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );
 
@@ -304,24 +307,6 @@ class Pronamic_WP_Pay_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Get the key
-	 *
-	 * @return string
-	 */
-	public static function get_key() {
-		return get_option( 'pronamic_pay_license_key' );
-	}
-
-	/**
-	 * Get the license info for the current installation on the blogin
-	 *
-	 * @return stdClass an onbject with license information or null
-	 */
-	public static function get_license_info() {
-		return null;
-	}
-
-	/**
 	 * Get number payments
 	 *
 	 * @return int
@@ -340,15 +325,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @return boolean
 	 */
 	public static function has_valid_key() {
-		$result = strlen( self::get_key() ) == 32;
-
-		$license_info = self::get_license_info();
-
-		if ( $license_info != null && isset( $license_info->isValid ) ) {
-			$result = $license_info->isValid;
-		}
-
-		return $result;
+		return 'valid' == get_option( 'pronamic_pay_license_status' );
 	}
 
 	/**

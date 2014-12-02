@@ -60,9 +60,7 @@ class Pronamic_WP_Pay_Admin {
 	//////////////////////////////////////////////////
 
 	public static function pre_update_option_license_key( $newvalue, $oldvalue ) {
-		if ( $newvalue != $oldvalue && ! empty( $newvalue ) ) {
-			$newvalue = md5( trim( $newvalue ) );
-		}
+		$newvalue = trim( $newvalue );
 
 		return $newvalue;
 	}
@@ -242,6 +240,12 @@ class Pronamic_WP_Pay_Admin {
 			esc_attr( get_option( $args['label_for'] ) ),
 			'regular-text'
 		);
+
+		$status = get_option( 'pronamic_pay_license_status' );
+
+		$icon = 'valid' == $status ? 'yes' : 'no';
+
+		printf( '<span class="dashicons dashicons-%s" style="vertical-align: text-bottom;"></span>', esc_attr( $icon ) );
 	}
 
 	/**
