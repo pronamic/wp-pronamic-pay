@@ -62,7 +62,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Admin
 		if ( is_admin() ) {
-			Pronamic_WP_Pay_Admin::bootstrap();
+			$admin = new Pronamic_WP_Pay_Admin();
 		}
 
 		// License

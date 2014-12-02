@@ -10,17 +10,18 @@
  */
 class Pronamic_WP_Pay_Admin {
 	/**
-	 * Bootstrap
+	 * Constructs and initalize an admin object
 	 */
-	public static function bootstrap() {
-		add_action( 'admin_init', array( __CLASS__, 'admin_init' ) );
-		add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
+	public function __construct() {
+		// Actions
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
-		add_action( 'load-post.php', array( __CLASS__, 'maybe_test_payment' ) );
+		add_action( 'load-post.php', array( $this, 'maybe_test_payment' ) );
 
-		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
+		add_action( 'pronamic_pay_upgrade', array( $this, 'upgrade' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -28,19 +29,19 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Admin initialize
 	 */
-	public static function admin_init() {
+	public function admin_init() {
 		global $pronamic_ideal_errors;
 
 		$pronamic_ideal_errors = array();
 
-		self::maybe_download_private_certificate();
-		self::maybe_download_private_key();
+		$this->maybe_download_private_certificate();
+		$this->maybe_download_private_key();
 
-		self::settings_init();
+		$this->settings_init();
 
 		// Actions
 		// Show license message if the license is not valid
-		add_action( 'admin_notices', array( __CLASS__, 'admin_notices' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Post types
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
@@ -59,14 +60,14 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function pre_update_option_license_key( $newvalue, $oldvalue ) {
+	public function pre_update_option_license_key( $newvalue, $oldvalue ) {
 		$newvalue = trim( $newvalue );
 
 		return $newvalue;
 	}
 
-	public static function settings_init() {
-		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( __CLASS__, 'pre_update_option_license_key' ), 10, 2 );
+	public function settings_init() {
+		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( $this, 'pre_update_option_license_key' ), 10, 2 );
 
 		// Settings - General
 		add_settings_section(
@@ -268,7 +269,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Upgrade
 	 */
-	public static function upgrade() {
+	public function upgrade() {
 		require_once Pronamic_WP_Pay_Plugin::$dirname . '/admin/includes/upgrade.php';
 
 		$db_version = get_option( 'pronamic_pay_db_version' );
@@ -289,7 +290,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Download private certificate
 	 */
-	public static function maybe_download_private_certificate() {
+	public function maybe_download_private_certificate() {
 		if ( filter_has_var( INPUT_POST, 'download_private_certificate' ) ) {
 			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
 
@@ -308,7 +309,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Download private key
 	 */
-	public static function maybe_download_private_key() {
+	public function maybe_download_private_key() {
 		if ( filter_has_var( INPUT_POST, 'download_private_key' ) ) {
 			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
 
@@ -329,7 +330,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Maybe show an license message
 	 */
-	public static function admin_notices() {
+	public function admin_notices() {
 		if ( ! Pronamic_WP_Pay_Plugin::can_be_used() ) {
 			echo '<div class="error">';
 			echo '<p>';
@@ -362,7 +363,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Enqueue admin scripts
 	 */
-	public static function enqueue_scripts( $hook ) {
+	public function enqueue_scripts( $hook ) {
 		$screen = get_current_screen();
 
 		$enqueue  = false;
@@ -394,7 +395,7 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Maybe test payment
 	 */
-	public static function maybe_test_payment() {
+	public function maybe_test_payment() {
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
 			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
@@ -425,13 +426,13 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Create the admin menu
 	 */
-	public static function admin_menu() {
+	public function admin_menu() {
 		add_menu_page(
 			__( 'iDEAL', 'pronamic_ideal' ),
 			__( 'iDEAL', 'pronamic_ideal' ),
 			'manage_options',
 			'pronamic_ideal',
-			array( __CLASS__, 'page_dashboard' ),
+			array( $this, 'page_dashboard' ),
 			plugins_url( 'images/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file )
 		);
 
@@ -457,7 +458,7 @@ class Pronamic_WP_Pay_Admin {
 			__( 'Settings', 'pronamic_ideal' ),
 			'manage_options',
 			'pronamic_pay_settings',
-			array( __CLASS__, 'page_settings' )
+			array( $this, 'page_settings' )
 		);
 
 		add_submenu_page(
@@ -466,7 +467,7 @@ class Pronamic_WP_Pay_Admin {
 			__( 'Tools', 'pronamic_ideal' ),
 			'manage_options',
 			'pronamic_pay_tools',
-			array( __CLASS__, 'page_tools' )
+			array( $this, 'page_tools' )
 		);
 
 		global $submenu;
@@ -478,16 +479,16 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public static function page_dashboard() { return self::render_page( 'dashboard' ); }
-	public static function page_settings() { return self::render_page( 'settings' ); }
-	public static function page_tools() { return self::render_page( 'tools' ); }
+	public function page_dashboard() { return $this->render_page( 'dashboard' ); }
+	public function page_settings() { return $this->render_page( 'settings' ); }
+	public function page_tools() { return $this->render_page( 'tools' ); }
 
 	//////////////////////////////////////////////////
 
 	/**
 	 * Render the specified page
 	 */
-	public static function render_page( $name ) {
+	public function render_page( $name ) {
 		$result = false;
 
 		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
