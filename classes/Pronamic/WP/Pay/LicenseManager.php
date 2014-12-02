@@ -34,8 +34,10 @@ class Pronamic_WP_Pay_LicenseManager {
 			delete_option( 'pronamic_pay_license_status' );
 
 			$this->deactivate_license( $oldvalue );
-			$this->activate_license( $newvalue );
 		}
+
+		// Always try to activate the new license, it could be deactived.
+		$this->activate_license( $newvalue );
 
 		return $newvalue;
 	}
