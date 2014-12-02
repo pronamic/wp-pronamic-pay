@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * Execute changes made in Pronamic Pay 3.2.0
+ *
+ * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
+ * @since 3.2.0
+ */
+function pronamic_pay_upgrade_320() {
+	$license_md5 = get_option( 'pronamic_pay_license_key' );
+
+	$url = add_query_arg( 'license', $license_md5, 'http://api.pronamic.eu/licenses/convert-md5/1.0/' );
+
+	$result = wp_remote_get( $url );
+
+	if ( 200 == wp_remote_retrieve_response_code( $result ) ) {
+		$body = wp_remote_retrieve_body( $result );
+
+		if ( 32 == strlen( $body ) ) {
+			update_option( 'pronamic_pay_license_key', $body );
+		}
+	}
+}
+
+/**
  * Execute changes made in Pronamic Pay 2.0.1
  *
  * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/upgrade.php#L413
