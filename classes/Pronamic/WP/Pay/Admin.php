@@ -60,15 +60,7 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public function pre_update_option_license_key( $newvalue, $oldvalue ) {
-		$newvalue = trim( $newvalue );
-
-		return $newvalue;
-	}
-
 	public function settings_init() {
-		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( $this, 'pre_update_option_license_key' ), 10, 2 );
-
 		// Settings - General
 		add_settings_section(
 			'pronamic_pay_general', // id
@@ -86,7 +78,7 @@ class Pronamic_WP_Pay_Admin {
 			array( 'type' => 'password', 'label_for' => 'pronamic_pay_license_key' ) // args
 		);
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_license_key' );
+		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', 'trim' );
 
 		// Settings - Pages
 		add_settings_section(
@@ -276,6 +268,9 @@ class Pronamic_WP_Pay_Admin {
 
 		if ( $db_version ) {
 			// The upgrade functions only have to run if an previous database version is set
+			if ( $db_version < 320 ) {
+				pronamic_pay_upgrade_320();
+			}
 
 			if ( $db_version < 201 ) {
 				pronamic_pay_upgrade_201();
