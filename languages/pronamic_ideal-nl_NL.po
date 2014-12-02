@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-11-18 14:55:06+00:00\n"
-"PO-Revision-Date: 2014-11-18 15:57+0100\n"
+"POT-Creation-Date: 2014-12-02 15:06:59+00:00\n"
+"PO-Revision-Date: 2014-12-02 16:07+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -253,12 +253,12 @@ msgid "Status Links"
 msgstr "Status koppelingen"
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:408
+#: classes/Pronamic/WP/Pay/Plugin.php:385
 msgid "Open"
 msgstr "Open"
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:410
+#: classes/Pronamic/WP/Pay/Plugin.php:387
 msgid "Success"
 msgstr "Succes"
 
@@ -267,13 +267,12 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: admin/gravityforms/meta-box-config.php:446
-#: classes/Pronamic/WP/Pay/Admin.php:101
+#: classes/Pronamic/WP/Pay/Admin.php:92
 msgid "Error"
 msgstr "Fout"
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:104
-#: classes/Pronamic/WP/Pay/Plugin.php:404
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:381
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -297,19 +296,19 @@ msgstr "Geavanceerd"
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
-#: admin/includes/upgrade.php:129
+#: admin/includes/upgrade.php:151
 msgid "Configuration %d"
 msgstr "Configuratie %d"
 
-#: admin/includes/upgrade.php:299
+#: admin/includes/upgrade.php:321
 msgid "Payment Form %d"
 msgstr "Betalingsformulier %d"
 
-#: admin/includes/upgrade.php:410
+#: admin/includes/upgrade.php:432
 msgid "Payment %d"
 msgstr "Betaling %d"
 
-#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Admin.php:76
+#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Admin.php:67
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:21
 msgid "General"
@@ -1334,7 +1333,7 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:406
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:383
 msgid "Failure"
 msgstr "Storing"
 
@@ -1342,22 +1341,29 @@ msgstr "Storing"
 msgid "License Information"
 msgstr "Licentie informatie"
 
-#: admin/tab-license.php:8
-msgid "No license information available."
-msgstr "Geen licentie informatie beschikbaar."
+#: admin/tab-license.php:6
+msgid "License Status"
+msgstr "Licentiestatus"
+
+#: admin/tab-license.php:15
+msgid "Valid"
+msgstr "Geldig"
 
 #: admin/tab-license.php:19
-msgid "Activation Date"
-msgstr "Activatie datum"
+msgid "Invalid"
+msgstr "Ongeldig"
 
-#: admin/tab-license.php:22 admin/tab-license.php:35
-#: admin/tab-system_status.php:142
-msgid "Y/m/d g:i:s A"
-msgstr "d-m-Y H:i"
+#: admin/tab-license.php:23
+msgid "Site Inactive"
+msgstr "Website inactief"
 
-#: admin/tab-license.php:32
-msgid "Expiration Date"
-msgstr "Verval datum"
+#: admin/tab-license.php:37
+msgid "Next License Check"
+msgstr "Volgende licentie controle"
+
+#: admin/tab-license.php:49
+msgid "Not scheduled"
+msgstr "Niet ingepland"
 
 #: admin/tab-methods.php:1
 msgid "Payment Methods"
@@ -1581,6 +1587,10 @@ msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
 msgid "Time"
 msgstr "Tijd"
 
+#: admin/tab-system_status.php:142
+msgid "Y/m/d g:i:s A"
+msgstr "d-m-Y H:i"
+
 #: admin/tab-system_status.php:151
 msgid "cURL"
 msgstr "cURL"
@@ -1782,28 +1792,27 @@ msgstr "Betaling"
 msgid "Log"
 msgstr "Log"
 
-#: classes/Pronamic/WP/Pay/Admin.php:83
+#: classes/Pronamic/WP/Pay/Admin.php:74
 msgid "Support License Key"
 msgstr "Support licentiecode"
 
-#: classes/Pronamic/WP/Pay/Admin.php:95
+#: classes/Pronamic/WP/Pay/Admin.php:86
 msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
-#: classes/Pronamic/WP/Pay/Admin.php:102
+#: classes/Pronamic/WP/Pay/Admin.php:93
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Admin.php:103
-#: classes/Pronamic/WP/Pay/Plugin.php:412
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:389
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Admin.php:105
+#: classes/Pronamic/WP/Pay/Admin.php:96
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Admin.php:258
+#: classes/Pronamic/WP/Pay/Admin.php:255
 msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
@@ -1849,22 +1858,22 @@ msgstr "Deelnemer %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:402
+#: classes/Pronamic/WP/Pay/Plugin.php:379
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:424
+#: classes/Pronamic/WP/Pay/Plugin.php:401
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:474
+#: classes/Pronamic/WP/Pay/Plugin.php:451
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:596
+#: classes/Pronamic/WP/Pay/Plugin.php:573
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2603,6 +2612,15 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
+#~ msgid "No license information available."
+#~ msgstr "Geen licentie informatie beschikbaar."
+
+#~ msgid "Activation Date"
+#~ msgstr "Activatie datum"
+
+#~ msgid "Expiration Date"
+#~ msgstr "Verval datum"
+
 #~ msgid "iDEAL Administrator"
 #~ msgstr "iDEAL-beheerder"
 
@@ -2858,9 +2876,6 @@ msgstr "Belast modus"
 
 #~ msgid "To get started, please configure your %s."
 #~ msgstr "Om te beginnen configureer je %s."
-
-#~ msgid "Inactive"
-#~ msgstr "Inactief"
 
 #~ msgid "Enabled"
 #~ msgstr "Ingeschakeld"

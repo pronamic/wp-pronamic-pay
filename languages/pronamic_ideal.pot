@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.2.0\n"
+"Project-Id-Version: Pronamic iDEAL 3.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-11-18 14:55:06+00:00\n"
+"POT-Creation-Date: 2014-12-02 15:06:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,12 +232,12 @@ msgid "Status Links"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:408
+#: classes/Pronamic/WP/Pay/Plugin.php:385
 msgid "Open"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:410
+#: classes/Pronamic/WP/Pay/Plugin.php:387
 msgid "Success"
 msgstr ""
 
@@ -246,12 +246,12 @@ msgid "Cancel"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:446
-#: classes/Pronamic/WP/Pay/Admin.php:101
+#: classes/Pronamic/WP/Pay/Admin.php:92
 msgid "Error"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:104 classes/Pronamic/WP/Pay/Plugin.php:404
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:381
 msgid "Expired"
 msgstr ""
 
@@ -275,19 +275,19 @@ msgstr ""
 msgid "Update user role"
 msgstr ""
 
-#: admin/includes/upgrade.php:129
+#: admin/includes/upgrade.php:151
 msgid "Configuration %d"
 msgstr ""
 
-#: admin/includes/upgrade.php:299
+#: admin/includes/upgrade.php:321
 msgid "Payment Form %d"
 msgstr ""
 
-#: admin/includes/upgrade.php:410
+#: admin/includes/upgrade.php:432
 msgid "Payment %d"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Admin.php:76
+#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Admin.php:67
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:21
 msgid "General"
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:406
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:383
 msgid "Failure"
 msgstr ""
 
@@ -1267,21 +1267,28 @@ msgstr ""
 msgid "License Information"
 msgstr ""
 
-#: admin/tab-license.php:8
-msgid "No license information available."
+#: admin/tab-license.php:6
+msgid "License Status"
+msgstr ""
+
+#: admin/tab-license.php:15
+msgid "Valid"
 msgstr ""
 
 #: admin/tab-license.php:19
-msgid "Activation Date"
+msgid "Invalid"
 msgstr ""
 
-#: admin/tab-license.php:22 admin/tab-license.php:35
-#: admin/tab-system_status.php:142
-msgid "Y/m/d g:i:s A"
+#: admin/tab-license.php:23
+msgid "Site Inactive"
 msgstr ""
 
-#: admin/tab-license.php:32
-msgid "Expiration Date"
+#: admin/tab-license.php:37
+msgid "Next License Check"
+msgstr ""
+
+#: admin/tab-license.php:49
+msgid "Not scheduled"
 msgstr ""
 
 #: admin/tab-methods.php:1
@@ -1501,6 +1508,10 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
+#: admin/tab-system_status.php:142
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
 #: admin/tab-system_status.php:151
 msgid "cURL"
 msgstr ""
@@ -1702,27 +1713,27 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:83
+#: classes/Pronamic/WP/Pay/Admin.php:74
 msgid "Support License Key"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:95
+#: classes/Pronamic/WP/Pay/Admin.php:86
 msgid "Payment Status Pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:102
+#: classes/Pronamic/WP/Pay/Admin.php:93
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:103 classes/Pronamic/WP/Pay/Plugin.php:412
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:389
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:105
+#: classes/Pronamic/WP/Pay/Admin.php:96
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:258
+#: classes/Pronamic/WP/Pay/Admin.php:255
 msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
@@ -1763,21 +1774,21 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:402
+#: classes/Pronamic/WP/Pay/Plugin.php:379
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:424
+#: classes/Pronamic/WP/Pay/Plugin.php:401
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:474
+#: classes/Pronamic/WP/Pay/Plugin.php:451
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:596
+#: classes/Pronamic/WP/Pay/Plugin.php:573
 msgid "Payment for %s"
 msgstr ""
 
