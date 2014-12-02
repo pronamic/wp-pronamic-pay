@@ -66,7 +66,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		// License
-		$license = new Pronamic_WP_Pay_License();
+		$license_manager = new Pronamic_WP_Pay_LicenseManager();
 
 		// Payment notes
 		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );

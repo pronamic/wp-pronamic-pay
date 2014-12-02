@@ -8,9 +8,9 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_License {
+class Pronamic_WP_Pay_LicenseManager {
 	/**
-	 * Constructs and initalize an license object
+	 * Constructs and initalize an license manager object
 	 */
 	public function __construct() {
 		// Actions
