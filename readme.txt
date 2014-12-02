@@ -262,6 +262,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 3.3.0 =
+*	
+
 = 3.2.0 =
 *	Feature - WooCommerce - Credit Card - Added support for Buckaroo.
 *	Feature - WooCommerce - Bancontact/Mister Cash - Added support for Sisow.
