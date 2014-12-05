@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'phpcs.ruleset.xml',
 				extensions: 'php',
-				ignore: 'wp-svn,wp-content,deploy,node_modules,vendor'
+				ignore: 'deploy,node_modules,vendor,wp-content'
 			}
 		},
 
@@ -69,7 +69,7 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-svn/.*', 'wp-content/.*' ],
+					exclude: [ 'deploy/.*', 'wp-content/.*' ],
 				}
 			}
 		},
@@ -101,7 +101,6 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
-					'!wp-svn/**',
 					'!wp-content/**'
 				],
 				expand: true
@@ -129,14 +128,12 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
-					'!build/**',
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
-					'!wp-svn/**',
 					'!wp-content/**',
 				],
-				dest: 'deploy',
+				dest: 'deploy/latest',
 				expand: true
 			},
 		},
@@ -144,22 +141,56 @@ module.exports = function( grunt ) {
 		// Clean
 		clean: {
 			deploy: {
-				src: [ 'deploy' ]
+				src: [ 'deploy/latest' ]
 			},
 		},
 
+		// Compress
+		compress: {
+			deploy: {
+				options: {
+					archive: 'deploy/archives/<%= pkg.name %>.<%= pkg.version %>.zip'
+				},
+				expand: true,
+				cwd: 'deploy/latest',
+				src: ['**/*'],
+				dest: '<%= pkg.name %>/'
+			}
+		},
+		
 		// WordPress deploy
 		rt_wp_deploy: {
 			app: {
 				options: {
 					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-ideal/',
-					svnDir: 'wp-svn',
+					svnDir: 'deploy/wp-svn',
 					svnUsername: 'pronamic',
-					deployDir: 'deploy',
+					deployDir: 'deploy/latest',
 					version: '<%= pkg.version %>',
 				}
 			}
 		},
+
+		// S3
+		aws_s3: {
+			options: {
+				region: 'eu-central-1'
+			},
+			deploy: {
+				options: {
+					bucket: 'downloads.pronamic.eu',
+					differential: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'deploy/archives/',
+						src: '<%= pkg.name %>.<%= pkg.version %>.zip',
+						dest: 'plugins/<%= pkg.name %>/'
+					}
+				]
+			}
+		}
 	} );
 
 	grunt.loadNpmTasks( 'grunt-phplint' );
@@ -168,11 +199,13 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-composer' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-shell' );
+	grunt.loadNpmTasks( 'grunt-aws-s3' );
 	grunt.loadNpmTasks( 'grunt-rt-wp-deploy' );
 
 	// Default task(s).
@@ -185,11 +218,17 @@ module.exports = function( grunt ) {
 		'composer:update',
 		'composer:dump-autoload:optimize',
 		'clean:deploy',
-		'copy:deploy'
+		'copy:deploy',
+		'compress:deploy'
 	] );
 
 	grunt.registerTask( 'wp-deploy', [
 		'deploy',
 		'rt_wp_deploy'
+	] );
+	
+	grunt.registerTask( 's3-deploy', [
+		'deploy',
+		'aws_s3:deploy'
 	] );
 };
