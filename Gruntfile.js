@@ -128,6 +128,7 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
+					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
