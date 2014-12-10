@@ -158,16 +158,17 @@ module.exports = function( grunt ) {
 				dest: '<%= pkg.name %>/'
 			}
 		},
-		
-		// WordPress deploy
-		rt_wp_deploy: {
-			app: {
+
+		// Git checkout
+		gitcheckout: {
+			tag: {
 				options: {
-					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-ideal/',
-					svnDir: 'deploy/wp-svn',
-					svnUsername: 'pronamic',
-					deployDir: 'deploy/latest',
-					version: '<%= pkg.version %>',
+					branch: 'tags/<%= pkg.version %>'
+				}
+			},
+			develop: {
+				options: {
+					branch: 'develop'
 				}
 			}
 		},
@@ -191,6 +192,19 @@ module.exports = function( grunt ) {
 					}
 				]
 			}
+		},
+		
+		// WordPress deploy
+		rt_wp_deploy: {
+			app: {
+				options: {
+					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-ideal/',
+					svnDir: 'deploy/wp-svn',
+					svnUsername: 'pronamic',
+					deployDir: 'deploy/latest',
+					version: '<%= pkg.version %>',
+				}
+			}
 		}
 	} );
 
@@ -206,6 +220,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-shell' );
+	grunt.loadNpmTasks( 'grunt-git' );
 	grunt.loadNpmTasks( 'grunt-aws-s3' );
 	grunt.loadNpmTasks( 'grunt-rt-wp-deploy' );
 
@@ -224,12 +239,16 @@ module.exports = function( grunt ) {
 	] );
 
 	grunt.registerTask( 'wp-deploy', [
+		'gitcheckout:tag',
 		'deploy',
-		'rt_wp_deploy'
+		'rt_wp_deploy',
+		'gitcheckout:develop'
 	] );
 	
 	grunt.registerTask( 's3-deploy', [
+		'gitcheckout:tag',
 		'deploy',
-		'aws_s3:deploy'
+		'aws_s3:deploy',
+		'gitcheckout:develop'
 	] );
 };
