@@ -7,16 +7,16 @@
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.18",
+            "version": "v1.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067"
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
-                "reference": "74fb0a7a1a23696d9c8cc2fba5903f6711cdd067",
+                "url": "https://api.github.com/repos/composer/installers/zipball/89d77bfbee79e16653f7162c86e602cc188471db",
+                "reference": "89d77bfbee79e16653f7162c86e602cc188471db",
                 "shasum": ""
             },
             "replace": {
@@ -58,6 +58,7 @@
                 "Hurad",
                 "MODX Evo",
                 "OXID",
+                "Thelia",
                 "WolfCMS",
                 "agl",
                 "annotatecms",
@@ -67,9 +68,11 @@
                 "codeigniter",
                 "concrete5",
                 "croogo",
+                "dokuwiki",
                 "drupal",
                 "elgg",
                 "fuelphp",
+                "grav",
                 "installer",
                 "joomla",
                 "kohana",
@@ -93,7 +96,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2014-08-18 20:00:12"
+            "time": "2014-11-29 01:29:17"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -925,12 +928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "3dd3d81899643bf9dd9e70db8a0c17da742403b9"
+                "reference": "fe6fdcd2e346a6f68ee44764d3c0cf49d7ca768b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/3dd3d81899643bf9dd9e70db8a0c17da742403b9",
-                "reference": "3dd3d81899643bf9dd9e70db8a0c17da742403b9",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/fe6fdcd2e346a6f68ee44764d3c0cf49d7ca768b",
+                "reference": "fe6fdcd2e346a6f68ee44764d3c0cf49d7ca768b",
                 "shasum": ""
             },
             "require": {
@@ -974,7 +977,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-14 10:34:00"
+            "time": "2014-12-10 13:04:08"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -1215,12 +1218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "5a2fb4df25722d7e113779b7eaee25a59b530d86"
+                "reference": "cdcb657ccfbf3f44880c91dd28a2f29275fc648d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/5a2fb4df25722d7e113779b7eaee25a59b530d86",
-                "reference": "5a2fb4df25722d7e113779b7eaee25a59b530d86",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/cdcb657ccfbf3f44880c91dd28a2f29275fc648d",
+                "reference": "cdcb657ccfbf3f44880c91dd28a2f29275fc648d",
                 "shasum": ""
             },
             "require": {
@@ -1264,7 +1267,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-18 18:50:07"
+            "time": "2014-12-10 12:32:36"
         },
         {
             "name": "wp-pay-gateways/targetpay",
@@ -1272,12 +1275,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "543a145a93ac70b92c4f401ede8aa291ecb759f4"
+                "reference": "fdf5f4dca10d902a860b0b19cc0e909799a2f107"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/543a145a93ac70b92c4f401ede8aa291ecb759f4",
-                "reference": "543a145a93ac70b92c4f401ede8aa291ecb759f4",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/fdf5f4dca10d902a860b0b19cc0e909799a2f107",
+                "reference": "fdf5f4dca10d902a860b0b19cc0e909799a2f107",
                 "shasum": ""
             },
             "require": {
@@ -1321,7 +1324,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2014-11-04 12:58:59"
+            "time": "2014-11-27 08:30:08"
         },
         {
             "name": "wp-pay/core",
@@ -1709,17 +1712,17 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "7b11dceebaaf877b75bc1aedfd831a2ddc326de9"
+                "reference": "84c0c150c1520995f09ea9e47e817068b353cb0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/7b11dceebaaf877b75bc1aedfd831a2ddc326de9",
-                "reference": "7b11dceebaaf877b75bc1aedfd831a2ddc326de9",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/84c0c150c1520995f09ea9e47e817068b353cb0f",
+                "reference": "84c0c150c1520995f09ea9e47e817068b353cb0f",
                 "shasum": ""
             },
             "require": {
@@ -1729,7 +1732,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1753,21 +1756,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "61b13c27c9258e97009249d4ef193c964bf346b7"
+                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/61b13c27c9258e97009249d4ef193c964bf346b7",
-                "reference": "61b13c27c9258e97009249d4ef193c964bf346b7",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ef825fd9f809d275926547c9e57cbf14968793e8",
+                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8",
                 "shasum": ""
             },
             "require": {
@@ -1775,16 +1778,18 @@
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1"
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/process": "~2.1"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": ""
+                "symfony/event-dispatcher": "",
+                "symfony/process": ""
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1808,21 +1813,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497"
+                "reference": "720fe9bca893df7ad1b4546649473b5afddf0216"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/bb6fc12085cd195dceaf48016087b12b632df497",
-                "reference": "bb6fc12085cd195dceaf48016087b12b632df497",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/720fe9bca893df7ad1b4546649473b5afddf0216",
+                "reference": "720fe9bca893df7ad1b4546649473b5afddf0216",
                 "shasum": ""
             },
             "require": {
@@ -1831,7 +1836,8 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/config": "~2.0",
-                "symfony/dependency-injection": "~2.0,<2.6.0",
+                "symfony/dependency-injection": "~2.6",
+                "symfony/expression-language": "~2.6",
                 "symfony/stopwatch": "~2.2"
             },
             "suggest": {
@@ -1841,7 +1847,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1865,21 +1871,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-30 20:17:55"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "3c3e382bd869b3ec10008a3d9ef455b1cc2868db"
+                "reference": "ff6efc95256cb33031933729e68b01d720b5436b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/3c3e382bd869b3ec10008a3d9ef455b1cc2868db",
-                "reference": "3c3e382bd869b3ec10008a3d9ef455b1cc2868db",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/ff6efc95256cb33031933729e68b01d720b5436b",
+                "reference": "ff6efc95256cb33031933729e68b01d720b5436b",
                 "shasum": ""
             },
             "require": {
@@ -1888,7 +1894,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1912,21 +1918,21 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-16 17:28:00"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/Stopwatch",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
-                "reference": "9f8a33a24f2378c0ec5f372a8d50b2d43069c050"
+                "reference": "261abd360cfb6ac65ea93ffd82073e2011d034fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/9f8a33a24f2378c0ec5f372a8d50b2d43069c050",
-                "reference": "9f8a33a24f2378c0ec5f372a8d50b2d43069c050",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/261abd360cfb6ac65ea93ffd82073e2011d034fc",
+                "reference": "261abd360cfb6ac65ea93ffd82073e2011d034fc",
                 "shasum": ""
             },
             "require": {
@@ -1935,7 +1941,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -1959,21 +1965,21 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "http://symfony.com",
-            "time": "2014-09-22 09:14:18"
+            "time": "2014-12-02 20:19:20"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.5.7",
+            "version": "v2.6.1",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "900d38bc8f74a50343ce65dd1c1e9819658ee56b"
+                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/900d38bc8f74a50343ce65dd1c1e9819658ee56b",
-                "reference": "900d38bc8f74a50343ce65dd1c1e9819658ee56b",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/3346fc090a3eb6b53d408db2903b241af51dcb20",
+                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20",
                 "shasum": ""
             },
             "require": {
@@ -1982,7 +1988,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -2006,7 +2012,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
+            "time": "2014-12-02 20:19:20"
         }
     ],
     "aliases": [],

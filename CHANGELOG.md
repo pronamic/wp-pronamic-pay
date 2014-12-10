@@ -1,7 +1,10 @@
 # Changelog
 
-## 3.3.0
-*
+## 3.2.1
+*	Tweak - Sisow - Improved status update handling.
+*	Tweak - TargetPay - No longer disable SSL verify.
+*	Tweak - Ogone - Improved retrieving request data.
+*	Refactor - Rewritten the admin class.
 
 ## 3.2.0
 *	Feature - WooCommerce - Credit Card - Added support for Buckaroo.
