@@ -310,11 +310,15 @@ class Pronamic_WP_Pay_Plugin {
 	 * @return int
 	 */
 	public static function get_number_payments() {
-		global $wpdb;
+		$number = false;
 
-		$count = $wpdb->get_var( "SELECT COUNT( ID ) FROM $wpdb->posts WHERE post_type = 'pronamic_payment' AND post_status = 'publish';" );
+		$count = wp_count_posts( 'pronamic_payment' );
 
-		return $count;
+		if ( isset( $count, $count->publish ) ) {
+			$number = intval( $count->publish );
+		}
+
+		return $number;
 	}
 
 	/**
