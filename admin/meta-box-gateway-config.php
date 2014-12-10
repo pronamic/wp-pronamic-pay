@@ -325,6 +325,34 @@ $sections = array(
 		),
 	),
 	array(
+		'title'   => __( 'Pay.nl', 'pronamic_ideal' ),
+		'methods' => array( 'pay_nl' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_pay_nl_token',
+				'title'       => __( 'Token', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					__( 'You can find your token on the <a href="%s" target="_blank">Pay.nl admin page</a> under <a href="%s" target="_blank">Merchant » Company data (Connection)</a>.', 'pronamic_ideal' ),
+					'https://admin.pay.nl/',
+					'https://admin.pay.nl/my_merchant'
+				),
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_pay_nl_service_id',
+				'title'       => __( 'Service ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					__( 'You can find your service ID on the <a href="%s" target="_blank">Pay.nl admin page</a> under <a href="%s" target="_blank">Manage » Services</a>.', 'pronamic_ideal' ),
+					'https://admin.pay.nl/',
+					'https://admin.pay.nl/programs/programs'
+				),
+			),
+		),
+	),
+	array(
 		'title'   => __( 'TargetPay', 'pronamic_ideal' ),
 		'methods' => array( 'targetpay' ),
 		'fields'  => array(
@@ -436,6 +464,21 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => __( 'If the payment\'s status is "cancelled by the client" or "too many rejections by the acquirer".', 'pronamic_ideal' ),
 				'readonly'    => true,
+			),
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_param_var',
+				'title'       => __( 'Parameter Variable', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					'%s<br />%s',
+					sprintf(
+						__( 'This controls the Ogone %s parameter.', 'pronamic_ideal' ),
+						sprintf( '<code>%s</code>', 'PARAMVAR' )
+					),
+					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{site_url}', '{home_url}' ) )
+				),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
 		),
 	),
@@ -589,7 +632,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 	$certificate = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_certificate', true );
 
 	if ( ! empty( $certificate ) ) {
-		$fingerprint = Pronamic_Gateways_IDealAdvanced_Security::getShaFingerprint( $certificate );
+		$fingerprint = Pronamic_WP_Pay_Gateways_IDealAdvanced_Security::getShaFingerprint( $certificate );
 		$fingerprint = str_split( $fingerprint, 2 );
 		$fingerprint = implode( ':', $fingerprint );
 

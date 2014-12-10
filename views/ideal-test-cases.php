@@ -51,7 +51,7 @@
 
 					printf(
 						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
-						Pronamic_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
+						Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
 					);
 
 					?>

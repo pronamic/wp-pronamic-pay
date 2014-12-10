@@ -1,5 +1,51 @@
 # Changelog
 
+## 3.2.1
+*	Tweak - Sisow - Improved status update handling.
+*	Tweak - TargetPay - No longer disable SSL verify.
+*	Tweak - Ogone - Improved retrieving request data.
+*	Refactor - Rewritten the admin class.
+
+## 3.2.0
+*	Feature - WooCommerce - Credit Card - Added support for Buckaroo.
+*	Feature - WooCommerce - Bancontact/Mister Cash - Added support for Sisow.
+*	Tweak - Sisow - Sanitize Sisow 'purchaseid' and 'entrancecode' parameters.
+*	Tweak - Buckaroo - Renamed Buckaroo gateway from "Buckaroo - iDEAL" to "Buckaroo - HTML".
+*	Tweak - Sisow - Renamed Sisow gateway from "Sisow - iDEAL" to "Sisow".
+*	Tweak - WooCommerce - Auto submit gateways HTML forms on WooCommerce receipt page.
+
+## 3.1.5
+*	Fix - iDEAL Basic - Fixed fatal error - Call to undefined function Pronamic_WP_Pay_Gateways_IDealBasic_Items(). 
+*	Fix - iDEAL Basic - Fixed fatal error - Call to undefined method Pronamic_WP_Pay_Gateways_IDealBasic_Item::getNumber().
+
+## 3.1.4
+*	Fix - iDEAL Advanced v3 - Fixed fatal error with iDEAL Advanced v3 gateway.
+
+## 3.1.3
+*	Tweak - Pay.nl - Improved error handling.
+*	Fix - Ogone - Fixed fatal error with Ogone order standard easy gateway.
+
+## 3.1.2
+*	Fix - iDEAL Basic - Fixed issue with not loading iDEAL Basic gateway.
+*	Tweak - Added some missing text domains in translation functions.
+*	Tweak - Easy Digital Downloads - Fixed text domain 'edd' to 'pronamic_ideal'.
+
+## 3.1.1
+*	Fix - Fatal error: Call to undefined method Pronamic_WP_Pay_Plugin::set_roles.
+
+## 3.1.0
+*	Feature - WooCommerce - Added MiniTix gateway for OmniKassa.
+*	Feature - WooCommerce - Added Credit Card gateway for OmniKassa and Mollie.
+*	Tweak - WooCommerce - Adjusted default payment gateway icons.
+*	Tweak - Moved all gateway libraries to https://github.com/wp-pay-gateways.
+*	Tweak - Mollie - Improved support for the Mollie webhook feature.
+*	Tweak - For a lot of gateways we no longer disable SSL verify.
+*	Feature - Ogone - Added configuration field for the PARAMVAR field.
+
+## 3.0.0
+*	Feature - Pay.nl - Added basic support for the Pay.nl payment provider.
+*	Tweak - Mollie - Added the 'locale' parameter in the create payment request.
+
 ## 2.9.4
 *	Feature - s2Member - Added support for 'button_text' attribute in the `[pronamic_ideal_s2member]` shortcode.
 *	Test - s2Member - Tested up to version 141007.

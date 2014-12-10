@@ -111,23 +111,23 @@ class Pronamic_Shopp_IDeal_AddOn {
 				$url = $data->get_normal_return_url();
 
 				switch ( $payment->status ) {
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_CANCELLED:
+					case Pronamic_WP_Pay_Statuses::CANCELLED:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CANCELLED );
 
 						$url = $data->get_cancel_url();
 
 						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_EXPIRED:
+					case Pronamic_WP_Pay_Statuses::EXPIRED:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_EXPIRED );
 
 						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_FAILURE:
+					case Pronamic_WP_Pay_Statuses::FAILURE:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_FAILURE );
 
 						$url = $data->get_error_url();
 
 						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_SUCCESS:
+					case Pronamic_WP_Pay_Statuses::SUCCESS:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_CAPTURED );
 
 						$url = $data->get_success_url();
@@ -135,7 +135,7 @@ class Pronamic_Shopp_IDeal_AddOn {
 						Pronamic_Shopp_Shopp::resession();
 
 						break;
-					case Pronamic_Gateways_IDealAdvanced_Transaction::STATUS_OPEN:
+					case Pronamic_WP_Pay_Statuses::OPEN:
 						Pronamic_Shopp_Shopp::update_purchase_status( $purchase, Pronamic_Shopp_Shopp::PAYMENT_STATUS_OPEN );
 
 						break;

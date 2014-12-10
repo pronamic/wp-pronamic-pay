@@ -31,8 +31,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 	public static function bootstrap() {
 		// Initialize hook, Gravity Forms uses the default priority (10)
 		add_action( 'init', array( __CLASS__, 'init' ), 20 );
-
-		add_action( 'pronamic_pay_upgrade', array( __CLASS__, 'upgrade' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -89,34 +87,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 		);
 
 		return $text;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Upgrade
-	 */
-	public static function upgrade() {
-		if ( self::is_gravityforms_supported() ) {
-			// Add some new capabilities
-			$capabilities = array(
-				'read'               => true,
-				'gravityforms_ideal' => true,
-			);
-
-			$roles = array(
-				'pronamic_ideal_administrator' => array(
-					'display_name' => __( 'iDEAL Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities,
-				) ,
-				'administrator' => array(
-					'display_name' => __( 'Administrator', 'pronamic_ideal' ),
-					'capabilities' => $capabilities,
-				)
-			);
-
-			Pronamic_WP_Pay_Plugin::set_roles( $roles );
-		}
 	}
 
 	//////////////////////////////////////////////////

@@ -123,7 +123,7 @@ $pronamic_pay_gateways = array(
 	'buckaroo' => array(
 		'provider'      => 'buckaroo',
 		'gateway'       => 'buckaroo',
-		'name'          => 'Buckaroo - iDEAL',
+		'name'          => 'Buckaroo - HTML',
 		'url'           => 'https://payment.buckaroo.nl/',
 		'dashboard_url' => 'https://payment.buckaroo.nl/',
 		'test'          => array(
@@ -486,6 +486,13 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://secure.ogone.com/ncol/prod/admin_ogone.asp',
 		),
 	),
+	// Pay.nl
+	'pay_nl' => array(
+		'provider'      => 'pay_nl',
+		'gateway'       => 'pay_nl',
+		'name'          => 'Pay.nl',
+		'dashboard_url' => 'https://www.pay.nl/',
+	),
 	// Paytor
 	'paytor' => array(
 		'provider'      => 'paytor',
@@ -574,7 +581,7 @@ $pronamic_pay_gateways = array(
 	'sisow-ideal' => array(
 		'provider'      => 'sisow',
 		'gateway'       => 'sisow',
-		'name'          => 'Sisow - iDEAL',
+		'name'          => 'Sisow',
 		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
 	),
 	'sisow-ideal-basic' => array(

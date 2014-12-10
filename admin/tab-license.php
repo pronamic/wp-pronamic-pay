@@ -1,43 +1,55 @@
 <h3><?php _e( 'License Information', 'pronamic_ideal' ); ?></h3>
 
-<?php $license_info = Pronamic_WP_Pay_Plugin::get_license_info(); ?>
+<table class="form-table">
+	<tr>
+		<th scope="row">
+			<?php _e( 'License Status', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
 
-<?php if ( empty( $license_info ) ) : ?>
+			$status = get_option( 'pronamic_pay_license_status' );
 
-	<p>
-		<?php _e( 'No license information available.', 'pronamic_ideal' ); ?>
-	</p>
+			switch ( $status ) {
+				case 'valid':
+					_e( 'Valid', 'pronamic_ideal' );
 
-<?php else : ?>
+					break;
+				case 'invalid':
+					_e( 'Invalid', 'pronamic_ideal' );
 
-	<table class="form-table">
+					break;
+				case 'site_inactive':
+					_e( 'Site Inactive', 'pronamic_ideal' );
 
-		<?php if ( isset( $license_info->activationDate ) ) : ?>
+					break;
+				default :
+					echo $status;
 
-			<tr>
-				<th scope="row">
-					<?php _e( 'Activation Date', 'pronamic_ideal' ); ?>
-				</th>
-				<td>
-					<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->activationDate ); ?>
-				</td>
-			</tr>
+					break;
+			}
 
-		<?php endif; ?>
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php _e( 'Next License Check', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
 
-		<?php if ( isset( $license_info->expirationDate ) ) : ?>
+			$timestamp = wp_next_scheduled( 'pronamic_pay_license_check_event' );
 
-			<tr>
-				<th scope="row">
-					<?php _e( 'Expiration Date', 'pronamic_ideal' ); ?>
-				</th>
-				<td>
-					<?php echo mysql2date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ), $license_info->expirationDate ); ?>
-				</td>
-			</tr>
+			if ( $timestamp ) {
+				$timestamp = get_date_from_gmt( date( 'Y-m-d H:i:s', $timestamp ), 'U' );
 
-		<?php endif; ?>
+				echo date_i18n( 'D j M Y H:i:s', $timestamp );
+			} else {
+				_e( 'Not scheduled', 'pronamic_ideal' );
+			}
 
-	</table>
-
-<?php endif; ?>
+			?>
+		</td>
+	</tr>
+</table>

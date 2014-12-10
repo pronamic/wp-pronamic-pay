@@ -249,6 +249,9 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			// ICEPAY
 			'_pronamic_gateway_icepay_merchant_id' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_icepay_secret_code' => FILTER_SANITIZE_STRING,
+			// Pay.nl
+			'_pronamic_gateway_pay_nl_token'      => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_pay_nl_service_id' => FILTER_SANITIZE_STRING,
 			// Sisow
 			'_pronamic_gateway_sisow_merchant_id'  => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_sisow_merchant_key' => FILTER_SANITIZE_STRING,
@@ -262,6 +265,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_ogone_user_id'             => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_order_id'            => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_ogone_param_var'           => FILTER_SANITIZE_STRING,
 			// Ogone DirectLink
 			'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_3d_secure_enabled' => FILTER_VALIDATE_BOOLEAN,

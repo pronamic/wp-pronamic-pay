@@ -33,9 +33,9 @@ if ( $gateway ) {
 	<?php
 
 	$is_ideal  = false;
-	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealBasic_Gateway;
-	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealAdvanced_Gateway;
-	$is_ideal |= $gateway instanceof Pronamic_Gateways_IDealAdvancedV3_Gateway;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealBasic_Gateway;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
 
 	if ( $is_ideal ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';

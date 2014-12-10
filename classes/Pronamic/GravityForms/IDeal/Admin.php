@@ -40,7 +40,7 @@ class Pronamic_GravityForms_IDeal_Admin {
 			'name'       => 'edit.php?post_type=pronamic_pay_gf',
 			'label'      => __( 'iDEAL', 'pronamic_ideal' ),
 			'callback'   => null,
-			'permission' => 'gravityforms_ideal',
+			'permission' => 'manage_options',
 		);
 
 		return $menus;
