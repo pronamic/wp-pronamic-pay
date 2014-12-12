@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.2
+*	Tweak - Updated WordPress pay Sisow library to version 1.0.1.
+
 ## 3.2.1
 *	Tweak - Sisow - Improved status update handling.
 *	Tweak - TargetPay - No longer disable SSL verify.
