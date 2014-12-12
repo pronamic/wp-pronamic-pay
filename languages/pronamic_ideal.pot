@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.2.1\n"
+"Project-Id-Version: Pronamic iDEAL 3.2.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-10 13:12:08+00:00\n"
+"POT-Creation-Date: 2014-12-12 10:21:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,12 +232,12 @@ msgid "Status Links"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:387
+#: classes/Pronamic/WP/Pay/Plugin.php:353
 msgid "Open"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:389
+#: classes/Pronamic/WP/Pay/Plugin.php:355
 msgid "Success"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgid "Error"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:383
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:349
 msgid "Expired"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
-#: classes/Pronamic/WP/Pay/Admin.php:426 classes/Pronamic/WP/Pay/Admin.php:427
+#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -931,8 +931,8 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:436
-#: classes/Pronamic/WP/Pay/Admin.php:437 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:422 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -1259,7 +1259,7 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:385
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
 msgid "Failure"
 msgstr ""
 
@@ -1684,7 +1684,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:471
+#: classes/Pronamic/WP/Pay/Admin.php:456
 msgid "Dashboard"
 msgstr ""
 
@@ -1725,7 +1725,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:391
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:357
 msgid "Unknown"
 msgstr ""
 
@@ -1739,27 +1739,20 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:334
 msgid ""
-"<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
-"payments of %d, you should enter an valid license key on the <a "
-"href=\"%s\">iDEAL settings page</a>."
+"<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
+"Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:346
-msgid ""
-"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
-"extensions, get support and more than %d payments."
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin.php:444 classes/Pronamic/WP/Pay/Admin.php:445
+#: classes/Pronamic/WP/Pay/Admin.php:429 classes/Pronamic/WP/Pay/Admin.php:430
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:452 classes/Pronamic/WP/Pay/Admin.php:453
+#: classes/Pronamic/WP/Pay/Admin.php:437 classes/Pronamic/WP/Pay/Admin.php:438
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:461 classes/Pronamic/WP/Pay/Admin.php:462
+#: classes/Pronamic/WP/Pay/Admin.php:446 classes/Pronamic/WP/Pay/Admin.php:447
 msgid "Tools"
 msgstr ""
 
@@ -1774,21 +1767,21 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:381
+#: classes/Pronamic/WP/Pay/Plugin.php:347
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:403
+#: classes/Pronamic/WP/Pay/Plugin.php:369
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:453
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:575
+#: classes/Pronamic/WP/Pay/Plugin.php:541
 msgid "Payment for %s"
 msgstr ""
 
