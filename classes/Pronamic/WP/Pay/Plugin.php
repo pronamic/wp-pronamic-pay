@@ -10,15 +10,6 @@
  */
 class Pronamic_WP_Pay_Plugin {
 	/**
-	 * The maximum number of payments that can be done without an license
-	 *
-	 * @var int
-	 */
-	const PAYMENTS_MAX_LICENSE_FREE = 20;
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * The root file of this WordPress plugin
 	 *
 	 * @var string
@@ -319,31 +310,6 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		return $number;
-	}
-
-	/**
-	 * Check if there is an valid license key
-	 *
-	 * @return boolean
-	 */
-	public static function has_valid_key() {
-		return 'valid' == get_option( 'pronamic_pay_license_status' );
-	}
-
-	/**
-	 * Checks if the plugin is installed
-	 */
-	public static function is_installed() {
-		return get_option( 'pronamic_pay_version', false ) !== false;
-	}
-
-	/**
-	 * Check if the plugin can be used
-	 *
-	 * @return boolean true if plugin can be used, false otherwise
-	 */
-	public static function can_be_used() {
-		return self::is_installed() && ( self::has_valid_key() || self::get_number_payments() <= self::PAYMENTS_MAX_LICENSE_FREE );
 	}
 
 	//////////////////////////////////////////////////
