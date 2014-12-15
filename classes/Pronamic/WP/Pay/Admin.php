@@ -326,30 +326,15 @@ class Pronamic_WP_Pay_Admin {
 	 * Maybe show an license message
 	 */
 	public function admin_notices() {
-		if ( ! Pronamic_WP_Pay_Plugin::can_be_used() ) {
-			echo '<div class="error">';
-			echo '<p>';
-
+		if ( 'valid' != get_option( 'pronamic_pay_license_status' ) ) {
 			printf(
-				__( '<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the <a href="%s">iDEAL settings page</a>.', 'pronamic_ideal' ),
-				Pronamic_WP_Pay_Plugin::PAYMENTS_MAX_LICENSE_FREE,
-				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
+				'<div class="%s"><p>%s</p></div>',
+				Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated',
+				sprintf(
+					__( '<strong>Pronamic iDEAL</strong> &mdash; You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get updates and support.', 'pronamic_ideal' ),
+					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
+				)
 			);
-
-			echo '</p>';
-			echo '</div>';
-		} elseif ( ! Pronamic_WP_Pay_Plugin::has_valid_key() ) {
-			echo '<div class="updated">';
-			echo '<p>';
-
-			printf(
-				__( 'You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get support and more than %d payments.', 'pronamic_ideal' ),
-				add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
-				Pronamic_WP_Pay_Plugin::PAYMENTS_MAX_LICENSE_FREE
-			);
-
-			echo '</p>';
-			echo '</div>';
 		}
 	}
 

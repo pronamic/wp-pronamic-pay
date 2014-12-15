@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-10 13:12:08+00:00\n"
-"PO-Revision-Date: 2014-12-10 14:13+0100\n"
+"POT-Creation-Date: 2014-12-15 10:31:51+00:00\n"
+"PO-Revision-Date: 2014-12-15 11:32+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -253,12 +253,12 @@ msgid "Status Links"
 msgstr "Status koppelingen"
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:387
+#: classes/Pronamic/WP/Pay/Plugin.php:353
 msgid "Open"
 msgstr "Open"
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:389
+#: classes/Pronamic/WP/Pay/Plugin.php:355
 msgid "Success"
 msgstr "Succes"
 
@@ -272,7 +272,7 @@ msgid "Error"
 msgstr "Fout"
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:383
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:349
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -338,7 +338,7 @@ msgstr "Test"
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
-#: classes/Pronamic/WP/Pay/Admin.php:426 classes/Pronamic/WP/Pay/Admin.php:427
+#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -999,8 +999,8 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:436
-#: classes/Pronamic/WP/Pay/Admin.php:437 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:422 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -1333,7 +1333,7 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:385
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
 msgid "Failure"
 msgstr "Storing"
 
@@ -1763,7 +1763,7 @@ msgstr "Bestelling %s"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:471
+#: classes/Pronamic/WP/Pay/Admin.php:456
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1804,7 +1804,7 @@ msgstr "Betalingsstatus pagina's"
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:391
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:357
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -1818,32 +1818,23 @@ msgstr "&mdash; Selecteer een pagina &mdash;"
 
 #: classes/Pronamic/WP/Pay/Admin.php:334
 msgid ""
-"<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
-"payments of %d, you should enter an valid license key on the <a href=\"%s"
-"\">iDEAL settings page</a>."
+"<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
+"Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
 msgstr ""
-"<strong>Pronamic iDEAL beperkt:</strong> Je hebt het maximaal aantal gratis "
-"betalingen van %d overschreden, je dient een geldige licentie sleutel in te "
-"voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
+"<strong>Pronamic iDEAL</strong> &mdash; Je kunt <a href=\"%s\">je Pronamic "
+"iDEAL API sleutel invoeren</a> om gebruik te maken van extra extensies, "
+"updates en support."
 
-#: classes/Pronamic/WP/Pay/Admin.php:346
-msgid ""
-"You can <a href=\"%s\">enter your Pronamic iDEAL API key</a> to use extra "
-"extensions, get support and more than %d payments."
-msgstr ""
-"Je kunt <a href=\"%s\">je Pronamic iDEAL API sleutel invoeren</a> om gebruik "
-"te maken van extra extensies, support en meer dan %d betalingen."
-
-#: classes/Pronamic/WP/Pay/Admin.php:444 classes/Pronamic/WP/Pay/Admin.php:445
+#: classes/Pronamic/WP/Pay/Admin.php:429 classes/Pronamic/WP/Pay/Admin.php:430
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:452 classes/Pronamic/WP/Pay/Admin.php:453
+#: classes/Pronamic/WP/Pay/Admin.php:437 classes/Pronamic/WP/Pay/Admin.php:438
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:461 classes/Pronamic/WP/Pay/Admin.php:462
+#: classes/Pronamic/WP/Pay/Admin.php:446 classes/Pronamic/WP/Pay/Admin.php:447
 msgid "Tools"
 msgstr "Extra"
 
@@ -1858,22 +1849,22 @@ msgstr "Deelnemer %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:381
+#: classes/Pronamic/WP/Pay/Plugin.php:347
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:403
+#: classes/Pronamic/WP/Pay/Plugin.php:369
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:453
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:575
+#: classes/Pronamic/WP/Pay/Plugin.php:541
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2611,6 +2602,15 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid ""
+#~ "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
+#~ "payments of %d, you should enter an valid license key on the <a href=\"%s"
+#~ "\">iDEAL settings page</a>."
+#~ msgstr ""
+#~ "<strong>Pronamic iDEAL beperkt:</strong> Je hebt het maximaal aantal "
+#~ "gratis betalingen van %d overschreden, je dient een geldige licentie "
+#~ "sleutel in te voeren op de <a href=\"%s\">iDEAL-instellingen pagina</a>."
 
 #~ msgid "No license information available."
 #~ msgstr "Geen licentie informatie beschikbaar."
