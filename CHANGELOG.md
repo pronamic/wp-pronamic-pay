@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.3
+*	Tweak - Updated WordPress pay Pay.nl library to version 1.0.2.
+
 ## 3.2.2
 *	Tweak - Updated WordPress pay Sisow library to version 1.0.1.
 *	Tweak - Updated WordPress pay Pay.nl library to version 1.0.1.
