@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.2.4
+*	Tweak - Updated WordPress pay WooCommerce library to version 1.0.1.
+*	Test - WordPress - Tested up to version 4.1.
+
 ## 3.2.3
 *	Tweak - Updated WordPress pay Pay.nl library to version 1.0.2.
 
