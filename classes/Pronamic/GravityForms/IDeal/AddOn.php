@@ -203,6 +203,38 @@ class Pronamic_GravityForms_IDeal_AddOn {
 
 			$form = RGFormsModel::get_form_meta( $entry['form_id'] );
 
+			// Delay post creation
+			// @see https://github.com/gravityforms/gravityforms/blob/1.8.20.5/forms_model.php#L2383
+			// @see https://github.com/gravityforms/gravityformspaypal/blob/1.10.3/paypal.php#L2411-L2415
+			if ( $feed->delay_post_creation ) {
+				RGFormsModel::create_post( $form, $entry );
+			}
+
+			// Delay Aweber
+			// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L1167-L1197
+			if ( $feed->delay_aweber_subscription && method_exists( 'GFAWeber', 'export' ) ) {
+				call_user_func( array( 'GFAWeber', 'export' ), $entry, $form, false );
+			}
+
+			// Delay Campaign Monitor
+			// @see https://github.com/gravityforms/gravityformscampaignmonitor/blob/2.5.1/campaignmonitor.php#L1184
+			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
+				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, false );
+			}
+
+			// Delay Mailchimp
+			// @see https://github.com/gravityforms/gravityformsmailchimp/blob/2.4.5/mailchimp.php#L1512
+			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
+				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, false );
+			}
+
+			// Delay user registration
+			// @see https://github.com/gravityforms/gravityformsuserregistration/blob/2.0/userregistration.php#L2133
+			if ( $feed->delay_user_registration && method_exists( 'GFUser', 'gf_create_user' ) ) {
+				call_user_func( array( 'GFUser', 'gf_create_user' ), $entry, $form, false );
+			}
+
+			// Delay notifications
 			// Determine if the feed has Gravity Form 1.7 Feed IDs
 			if ( $feed->has_delayed_notifications() ) {
 				// @see https://bitbucket.org/Pronamic/gravityforms/src/42773f75ad7ad9ac9c31ce149510ff825e4aa01f/common.php?at=1.7.8#cl-1512
@@ -217,27 +249,6 @@ class Pronamic_GravityForms_IDeal_AddOn {
 			if ( $feed->delay_user_notification && method_exists( 'GFCommon', 'send_user_notification' ) ) {
 				// https://github.com/gravityforms/gravityforms/blob/1.8.9/common.php#L1258-L1263
 				GFCommon::send_user_notification( $form, $entry );
-			}
-
-			if ( $feed->delay_post_creation ) {
-				RGFormsModel::create_post( $form, $entry );
-			}
-
-			// @see https://github.com/gravityforms/gravityformsaweber/blob/1.4.2/aweber.php#L1167-L1197
-			if ( $feed->delay_aweber_subscription && method_exists( 'GFAWeber', 'export' ) ) {
-				call_user_func( array( 'GFAWeber', 'export' ), $entry, $form, false );
-			}
-
-			if ( $feed->delay_campaignmonitor_subscription && method_exists( 'GFCampaignMonitor', 'export' ) ) {
-				call_user_func( array( 'GFCampaignMonitor', 'export' ), $entry, $form, false );
-			}
-
-			if ( $feed->delay_mailchimp_subscription && method_exists( 'GFMailChimp', 'export' ) ) {
-				call_user_func( array( 'GFMailChimp', 'export' ), $entry, $form, false );
-			}
-
-			if ( $feed->delay_user_registration && method_exists( 'GFUser', 'gf_create_user' ) ) {
-				call_user_func( array( 'GFUser', 'gf_create_user' ), $entry, $form, false );
 			}
 		}
 
