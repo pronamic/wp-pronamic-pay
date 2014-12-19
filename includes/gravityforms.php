@@ -29,7 +29,7 @@ function get_pronamic_gf_pay_feed_by_form_id( $form_id ) {
 	$post_id = $wpdb->get_var( $db_query );
 
 	if ( $post_id ) {
-		$pay_gf = new Pronamic_GravityForms_PayFeed( $post_id );
+		$pay_gf = new Pronamic_WP_Pay_Extensions_GravityForms_PayFeed( $post_id );
 	}
 
 	return $pay_gf;
