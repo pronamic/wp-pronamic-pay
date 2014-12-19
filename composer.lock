@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "2a6742e6be13cbb40da7d5f72991a80e",
+    "hash": "cf0509e26d660c28b093d01007f85bfa",
     "packages": [
         {
             "name": "composer/installers",
@@ -158,6 +158,63 @@
                 "wp"
             ],
             "time": "2014-11-19 13:02:24"
+        },
+        {
+            "name": "wp-pay-extensions/gravityforms",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/gravityforms.git",
+                "reference": "16f45928bbbe315c95f50581cedf2aeb8a43df7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/16f45928bbbe315c95f50581cedf2aeb8a43df7a",
+                "reference": "16f45928bbbe315c95f50581cedf2aeb8a43df7a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Gravity Forms driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/gravityforms/",
+            "keywords": [
+                "extension",
+                "gravityforms",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-12-19 13:39:46"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
@@ -2036,6 +2093,7 @@
         "wp-pay-gateways/targetpay": 20,
         "wp-pay-gateways/qantani": 20,
         "wp-pay-extensions/easy-digital-downloads": 20,
+        "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/jigoshop": 20,
         "wp-pay-extensions/s2member": 20,
         "satooshi/php-coveralls": 20
