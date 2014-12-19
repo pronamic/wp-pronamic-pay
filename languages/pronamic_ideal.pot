@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.2.4\n"
+"Project-Id-Version: Pronamic iDEAL 3.2.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-19 10:10:46+00:00\n"
+"POT-Creation-Date: 2014-12-19 14:07:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -315,7 +315,6 @@ msgstr ""
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
 #: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
@@ -324,6 +323,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:41
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
 msgid "iDEAL"
@@ -1115,7 +1115,8 @@ msgstr ""
 msgid "Event Espresso Lite"
 msgstr ""
 
-#: admin/tab-extensions.php:36 classes/Pronamic/GravityForms/IDeal/AddOn.php:81
+#: admin/tab-extensions.php:36
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:81
 msgid "Gravity Forms"
 msgstr ""
 
@@ -1190,7 +1191,7 @@ msgstr ""
 
 #: admin/tab-extensions.php:146
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:151
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
 msgid "WooCommerce"
 msgstr ""
 
@@ -1622,43 +1623,6 @@ msgstr ""
 msgid "Attendee #%s"
 msgstr ""
 
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:86
-msgid "Entry #%s"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:76
-msgid "Payment Status"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:81
-msgid "Payment Date"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:86
-msgid "Transaction Id"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:91
-msgid "Payment Amount"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:62
-msgid "Create iDEAL feed"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:68
-msgid "Edit iDEAL feed"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:127
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:151
-msgid "Issuer Drop Down"
-msgstr ""
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:134
-msgid "iDEAL Fields"
-msgstr ""
-
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr ""
@@ -1678,7 +1642,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:55
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:165
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
 msgid "Order %s"
 msgstr ""
 
@@ -1964,19 +1928,19 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
 msgid "iDEAL payment completed."
 msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:124
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
 msgid "iDEAL payment open."
 msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
 msgid "iDEAL payment unknown."
 msgstr ""
 
@@ -1989,17 +1953,54 @@ msgstr ""
 msgid "Easy Digital Downloads order %s"
 msgstr ""
 
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:76
+msgid "Payment Status"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:81
+msgid "Payment Date"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:86
+msgid "Transaction Id"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:91
+msgid "Payment Amount"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:86
+msgid "Entry #%s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:62
+msgid "Create iDEAL feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:68
+msgid "Edit iDEAL feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:127
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:151
+msgid "Issuer Drop Down"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:134
+msgid "iDEAL Fields"
+msgstr ""
+
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:83
 msgid "iDEAL payment cancelled."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:96
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
 msgid "iDEAL payment expired."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:104
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
 msgstr ""
 
@@ -2164,11 +2165,11 @@ msgstr ""
 msgid "This controls the payment description."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:199
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:197
 msgid "Awaiting iDEAL payment."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:225
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:223
 msgid ""
 "You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
 "checkout settings page</a>."

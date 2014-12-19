@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.5
+*	Tweak - Adeed WordPress pay Gravity Forms library version 1.0.0.
+
 ## 3.2.4
 *	Tweak - Updated WordPress pay WooCommerce library to version 1.0.1.
 *	Test - WordPress - Tested up to version 4.1.
