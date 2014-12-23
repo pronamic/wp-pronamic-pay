@@ -10,12 +10,33 @@
  */
 class Pronamic_WP_Pay_Extensions_EventEspresso_IDealGateway extends EE_Offsite_Gateway {
 	/**
+	 * Instance
+	 */
+	private static $_instance = null;
+
+	/**
+	 * 		@singleton method used to instantiate class object
+	 * 		@access public
+	 * 		@return class instance
+	 */
+	public static function instance(EEM_Gateways &$model) {
+		// check if class object is instantiated
+		if (self::$_instance === NULL or !is_object(self::$_instance) or ! ( self::$_instance instanceof self )) {
+			self::$_instance = new self($model);
+		}
+		return self::$_instance;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Constructs and initialize iDEAL gateway
 	 *
 	 * @param EEM_Gateways $model
 	 */
 	public function __construct( EEM_Gateways $model ) {
 		$this->_gateway_name = 'pronamic_pay_ideal';
+		$this->_btn_img      = plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file );
 
 		// @see https://github.com/eventespresso/event-espresso-core/blob/4.2.2.reg/core/db_classes/EE_Offsite_Gateway.class.php#L4
 		// @see https://github.com/eventespresso/event-espresso-core/blob/4.2.2.reg/core/db_classes/EE_Gateway.class.php#L26

@@ -42,7 +42,7 @@ class Pronamic_EventEspresso_EventEspresso {
 	 * @return boolean
 	 */
 	public static function is_active() {
-		return defined( 'EVENT_ESPRESSO_VERSION' );
+		return defined( 'EVENT_ESPRESSO_VERSION' ) && version_compare( EVENT_ESPRESSO_VERSION, '4', '<' );
 	}
 
 	//////////////////////////////////////////////////
