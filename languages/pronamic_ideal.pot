@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.2.5\n"
+"Project-Id-Version: Pronamic iDEAL 3.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-19 14:07:45+00:00\n"
+"POT-Creation-Date: 2014-12-24 10:03:04+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,12 +56,13 @@ msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:49
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:85
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:28
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
@@ -232,12 +233,12 @@ msgid "Status Links"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:353
+#: classes/Pronamic/WP/Pay/Plugin.php:354
 msgid "Open"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:355
+#: classes/Pronamic/WP/Pay/Plugin.php:356
 msgid "Success"
 msgstr ""
 
@@ -251,7 +252,7 @@ msgid "Error"
 msgstr ""
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:349
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:350
 msgid "Expired"
 msgstr ""
 
@@ -313,8 +314,6 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
@@ -323,6 +322,9 @@ msgstr ""
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:60
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:41
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
@@ -1107,138 +1109,145 @@ msgid "Pippin Williamson"
 msgstr ""
 
 #: admin/tab-extensions.php:19
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328
-msgid "Event Espresso"
+msgid "Event Espresso 3"
 msgstr ""
 
 #: admin/tab-extensions.php:27
-msgid "Event Espresso Lite"
+msgid "Event Espresso 3 Lite"
 msgstr ""
 
 #: admin/tab-extensions.php:36
+msgid "Event Espresso 4"
+msgstr ""
+
+#: admin/tab-extensions.php:44
+msgid "Event Espresso 4 Decaf"
+msgstr ""
+
+#: admin/tab-extensions.php:53
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:81
 msgid "Gravity Forms"
 msgstr ""
 
-#: admin/tab-extensions.php:42 admin/tab-extensions.php:51
-#: admin/tab-extensions.php:60 admin/tab-extensions.php:69
-#: admin/tab-extensions.php:78
+#: admin/tab-extensions.php:59 admin/tab-extensions.php:68
+#: admin/tab-extensions.php:77 admin/tab-extensions.php:86
+#: admin/tab-extensions.php:95
 msgid "Rocketgenius"
 msgstr ""
 
-#: admin/tab-extensions.php:46
+#: admin/tab-extensions.php:63
 msgid "Gravity Forms AWeber Add-On"
 msgstr ""
 
-#: admin/tab-extensions.php:55
+#: admin/tab-extensions.php:72
 msgid "Gravity Forms Campaign Monitor Add-On"
 msgstr ""
 
-#: admin/tab-extensions.php:64
+#: admin/tab-extensions.php:81
 msgid "Gravity Forms MailChimp Add-On"
 msgstr ""
 
-#: admin/tab-extensions.php:73
+#: admin/tab-extensions.php:90
 msgid "Gravity Forms User Registration Add-On"
 msgstr ""
 
-#: admin/tab-extensions.php:82
+#: admin/tab-extensions.php:99
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
 msgid "iThemes Exchange"
 msgstr ""
 
-#: admin/tab-extensions.php:89
+#: admin/tab-extensions.php:106
 msgid "iThemes"
 msgstr ""
 
-#: admin/tab-extensions.php:93
+#: admin/tab-extensions.php:110
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
 msgid "Jigoshop"
 msgstr ""
 
-#: admin/tab-extensions.php:100
+#: admin/tab-extensions.php:117
 msgid "Jigowatt"
 msgstr ""
 
-#: admin/tab-extensions.php:104
+#: admin/tab-extensions.php:121
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:118
 msgid "Membership"
 msgstr ""
 
-#: admin/tab-extensions.php:110 admin/tab-extensions.php:120
+#: admin/tab-extensions.php:127 admin/tab-extensions.php:137
 msgid "WPMUDEV.org"
 msgstr ""
 
-#: admin/tab-extensions.php:114
+#: admin/tab-extensions.php:131
 msgid "Membership Premium"
 msgstr ""
 
-#: admin/tab-extensions.php:124
+#: admin/tab-extensions.php:141
 msgid "s2Member®"
 msgstr ""
 
-#: admin/tab-extensions.php:131
+#: admin/tab-extensions.php:148
 msgid "WebSharks, Inc."
 msgstr ""
 
-#: admin/tab-extensions.php:135 classes/Pronamic/Shopp/IDeal/AddOn.php:161
+#: admin/tab-extensions.php:152 classes/Pronamic/Shopp/IDeal/AddOn.php:161
 msgid "Shopp"
 msgstr ""
 
-#: admin/tab-extensions.php:142
+#: admin/tab-extensions.php:159
 msgid "Ingenesis Limited"
 msgstr ""
 
-#: admin/tab-extensions.php:146
+#: admin/tab-extensions.php:163
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
 msgid "WooCommerce"
 msgstr ""
 
-#: admin/tab-extensions.php:153
+#: admin/tab-extensions.php:170
 msgid "WooThemes"
 msgstr ""
 
-#: admin/tab-extensions.php:157
+#: admin/tab-extensions.php:174
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
 msgid "WP e-Commerce"
 msgstr ""
 
-#: admin/tab-extensions.php:164
+#: admin/tab-extensions.php:181
 msgid "Instinct Entertainment"
 msgstr ""
 
-#: admin/tab-extensions.php:168
+#: admin/tab-extensions.php:185
 msgid "Crowdfunding by Astoundify"
 msgstr ""
 
-#: admin/tab-extensions.php:173 admin/tab-extensions.php:205
+#: admin/tab-extensions.php:190 admin/tab-extensions.php:222
 msgid "Astoundify"
 msgstr ""
 
-#: admin/tab-extensions.php:178
+#: admin/tab-extensions.php:195
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
 msgid "ClassiPress"
 msgstr ""
 
-#: admin/tab-extensions.php:183 admin/tab-extensions.php:191
-#: admin/tab-extensions.php:198 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
+#: admin/tab-extensions.php:200 admin/tab-extensions.php:208
+#: admin/tab-extensions.php:215 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
 msgid "AppThemes"
 msgstr ""
 
-#: admin/tab-extensions.php:187
+#: admin/tab-extensions.php:204
 msgid "JobRoller"
 msgstr ""
 
-#: admin/tab-extensions.php:195
+#: admin/tab-extensions.php:212
 msgid "Vantage"
 msgstr ""
 
-#: admin/tab-extensions.php:202
+#: admin/tab-extensions.php:219
 msgid "Campaignify"
 msgstr ""
 
-#: admin/tab-extensions.php:220 admin/tab-gateways.php:22
+#: admin/tab-extensions.php:237 admin/tab-gateways.php:22
 msgid "Markdown"
 msgstr ""
 
@@ -1260,7 +1269,7 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
 msgid "Failure"
 msgstr ""
 
@@ -1557,9 +1566,9 @@ msgstr ""
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:82
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:124
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:149
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:241
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:124
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:149
 msgid "Pay with iDEAL"
 msgstr ""
 
@@ -1597,30 +1606,6 @@ msgstr ""
 
 #: classes/Pronamic/EShop/IDeal/AddOn.php:134
 msgid "eShop"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
-msgid "Choose a different payment option"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:223
-msgid "Click to toggle"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:235
-msgid "Deactivate Pronamic iDEAL?"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:266
-msgid "Update Settings"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:272
-msgid "Activate Pronamic iDEAL?"
-msgstr ""
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:333
-msgid "Attendee #%s"
 msgstr ""
 
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
@@ -1689,7 +1674,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:357
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:358
 msgid "Unknown"
 msgstr ""
 
@@ -1720,32 +1705,27 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
-msgid "Attendee %s"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/PaymentInputData.php:79
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:59
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:85
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:348
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:370
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:419
+#: classes/Pronamic/WP/Pay/Plugin.php:420
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:541
+#: classes/Pronamic/WP/Pay/Plugin.php:542
 msgid "Payment for %s"
 msgstr ""
 
@@ -1951,6 +1931,53 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:65
 msgid "Easy Digital Downloads order %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:115
+msgid "You have selected \"iDEAL\" as your method of payment"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:116
+msgid ""
+"After finalizing your registration, you will be transferred to iDEAL where "
+"your payment will be securely processed."
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentData.php:65
+msgid "Event Espresso transaction %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:158
+msgid "Choose a different payment option"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:223
+msgid "Click to toggle"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:235
+msgid "Deactivate Pronamic iDEAL?"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:266
+msgid "Update Settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:272
+msgid "Activate Pronamic iDEAL?"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
+msgid "Event Espresso"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:333
+msgid "Attendee #%s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:56
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:83
+msgid "Attendee %s"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:76

@@ -1,6 +1,8 @@
 # Changelog
 
-## 3.2.5
+## 3.3.0
+*	Feature - Event Espresso 4 - Added expirmental support for Event Espresso 4.
+*	Tweak - Event Espresso 3 - Improved support for Event Espresso 3.
 *	Tweak - Adeed WordPress pay Gravity Forms library version 1.0.0.
 
 ## 3.2.4
