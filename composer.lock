@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cf0509e26d660c28b093d01007f85bfa",
+    "hash": "e6d06f6952499b21f74bbbdfa13f7758",
     "packages": [
         {
             "name": "composer/installers",
@@ -158,6 +158,127 @@
                 "wp"
             ],
             "time": "2014-11-19 13:02:24"
+        },
+        {
+            "name": "wp-pay-extensions/event-espresso",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/event-espresso.git",
+                "reference": "007fd440148a7dce71a861eb1ae8423e61731165"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/007fd440148a7dce71a861eb1ae8423e61731165",
+                "reference": "007fd440148a7dce71a861eb1ae8423e61731165",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Event Espresso driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/event-espresso/",
+            "keywords": [
+                "espresso",
+                "event",
+                "event-espresso",
+                "events",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-12-24 09:17:31"
+        },
+        {
+            "name": "wp-pay-extensions/event-espresso-legacy",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/event-espresso-legacy.git",
+                "reference": "2099f2b8640b4513a1a3ea45f3e2c47bdfd4312b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso-legacy/zipball/2099f2b8640b4513a1a3ea45f3e2c47bdfd4312b",
+                "reference": "2099f2b8640b4513a1a3ea45f3e2c47bdfd4312b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "dev-develop"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Event Espresso (legacy 3.1) driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/event-espresso-legacy/",
+            "keywords": [
+                "espresso",
+                "event",
+                "event-espresso",
+                "events",
+                "extension",
+                "legacy",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2014-12-24 09:43:13"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -2093,6 +2214,8 @@
         "wp-pay-gateways/targetpay": 20,
         "wp-pay-gateways/qantani": 20,
         "wp-pay-extensions/easy-digital-downloads": 20,
+        "wp-pay-extensions/event-espresso": 20,
+        "wp-pay-extensions/event-espresso-legacy": 20,
         "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/jigoshop": 20,
         "wp-pay-extensions/s2member": 20,
