@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-19 10:10:46+00:00\n"
-"PO-Revision-Date: 2014-12-19 11:11+0100\n"
+"POT-Creation-Date: 2014-12-24 10:03:04+00:00\n"
+"PO-Revision-Date: 2014-12-24 11:04+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -57,12 +57,13 @@ msgstr "&mdash; Selecteer een formulier &mdash;"
 
 #: admin/gravityforms/meta-box-config.php:49
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:31
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:245
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentFormPostType.php:79
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:85
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:28
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
@@ -250,12 +251,12 @@ msgid "Status Links"
 msgstr "Status koppelingen"
 
 #: admin/gravityforms/meta-box-config.php:443
-#: classes/Pronamic/WP/Pay/Plugin.php:353
+#: classes/Pronamic/WP/Pay/Plugin.php:354
 msgid "Open"
 msgstr "Open"
 
 #: admin/gravityforms/meta-box-config.php:444 admin/tab-ideal_status.php:49
-#: classes/Pronamic/WP/Pay/Plugin.php:355
+#: classes/Pronamic/WP/Pay/Plugin.php:356
 msgid "Success"
 msgstr "Succes"
 
@@ -269,7 +270,7 @@ msgid "Error"
 msgstr "Fout"
 
 #: admin/gravityforms/meta-box-config.php:447
-#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:349
+#: classes/Pronamic/WP/Pay/Admin.php:95 classes/Pronamic/WP/Pay/Plugin.php:350
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -331,9 +332,6 @@ msgstr "Test"
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:133
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:297
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:41
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
 #: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
@@ -342,6 +340,10 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:60
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:41
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
 msgid "iDEAL"
@@ -1175,138 +1177,145 @@ msgid "Pippin Williamson"
 msgstr "Pippin Williamson"
 
 #: admin/tab-extensions.php:19
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:328
-msgid "Event Espresso"
-msgstr "Event Espresso"
+msgid "Event Espresso 3"
+msgstr "Event Espresso 3"
 
 #: admin/tab-extensions.php:27
-msgid "Event Espresso Lite"
-msgstr "Event Espresso Lite"
+msgid "Event Espresso 3 Lite"
+msgstr "Event Espresso 3 Lite"
 
 #: admin/tab-extensions.php:36
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:81
+msgid "Event Espresso 4"
+msgstr "Event Espresso 4"
+
+#: admin/tab-extensions.php:44
+msgid "Event Espresso 4 Decaf"
+msgstr "Event Espresso 4 Decaf"
+
+#: admin/tab-extensions.php:53
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:81
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: admin/tab-extensions.php:42 admin/tab-extensions.php:51
-#: admin/tab-extensions.php:60 admin/tab-extensions.php:69
-#: admin/tab-extensions.php:78
+#: admin/tab-extensions.php:59 admin/tab-extensions.php:68
+#: admin/tab-extensions.php:77 admin/tab-extensions.php:86
+#: admin/tab-extensions.php:95
 msgid "Rocketgenius"
 msgstr "Rocketgenius"
 
-#: admin/tab-extensions.php:46
+#: admin/tab-extensions.php:63
 msgid "Gravity Forms AWeber Add-On"
 msgstr "Gravity Forms AWeber Add-On"
 
-#: admin/tab-extensions.php:55
+#: admin/tab-extensions.php:72
 msgid "Gravity Forms Campaign Monitor Add-On"
 msgstr "Gravity Forms Campaign Monitor Add-On"
 
-#: admin/tab-extensions.php:64
+#: admin/tab-extensions.php:81
 msgid "Gravity Forms MailChimp Add-On"
 msgstr "Gravity Forms MailChimp Add-On"
 
-#: admin/tab-extensions.php:73
+#: admin/tab-extensions.php:90
 msgid "Gravity Forms User Registration Add-On"
 msgstr "Gravity Forms User Registration Add-On"
 
-#: admin/tab-extensions.php:82
+#: admin/tab-extensions.php:99
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
 msgid "iThemes Exchange"
 msgstr "iThemes Exchange"
 
-#: admin/tab-extensions.php:89
+#: admin/tab-extensions.php:106
 msgid "iThemes"
 msgstr "iThemes"
 
-#: admin/tab-extensions.php:93
+#: admin/tab-extensions.php:110
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
 msgid "Jigoshop"
 msgstr "Jigoshop"
 
-#: admin/tab-extensions.php:100
+#: admin/tab-extensions.php:117
 msgid "Jigowatt"
 msgstr "Jigowatt"
 
-#: admin/tab-extensions.php:104
+#: admin/tab-extensions.php:121
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/AddOn.php:118
 msgid "Membership"
 msgstr "Membership"
 
-#: admin/tab-extensions.php:110 admin/tab-extensions.php:120
+#: admin/tab-extensions.php:127 admin/tab-extensions.php:137
 msgid "WPMUDEV.org"
 msgstr "WPMUDEV.org"
 
-#: admin/tab-extensions.php:114
+#: admin/tab-extensions.php:131
 msgid "Membership Premium"
 msgstr "Membership Premium"
 
-#: admin/tab-extensions.php:124
+#: admin/tab-extensions.php:141
 msgid "s2Member®"
 msgstr "s2Member®"
 
-#: admin/tab-extensions.php:131
+#: admin/tab-extensions.php:148
 msgid "WebSharks, Inc."
 msgstr "WebSharks, Inc."
 
-#: admin/tab-extensions.php:135 classes/Pronamic/Shopp/IDeal/AddOn.php:161
+#: admin/tab-extensions.php:152 classes/Pronamic/Shopp/IDeal/AddOn.php:161
 msgid "Shopp"
 msgstr "Shopp"
 
-#: admin/tab-extensions.php:142
+#: admin/tab-extensions.php:159
 msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
-#: admin/tab-extensions.php:146
+#: admin/tab-extensions.php:163
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:151
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
-#: admin/tab-extensions.php:153
+#: admin/tab-extensions.php:170
 msgid "WooThemes"
 msgstr "WooThemes"
 
-#: admin/tab-extensions.php:157
+#: admin/tab-extensions.php:174
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:161
 msgid "WP e-Commerce"
 msgstr "WP e-Commerce"
 
-#: admin/tab-extensions.php:164
+#: admin/tab-extensions.php:181
 msgid "Instinct Entertainment"
 msgstr "Instinct Entertainment"
 
-#: admin/tab-extensions.php:168
+#: admin/tab-extensions.php:185
 msgid "Crowdfunding by Astoundify"
 msgstr "Crowdfunding by Astoundify"
 
-#: admin/tab-extensions.php:173 admin/tab-extensions.php:205
+#: admin/tab-extensions.php:190 admin/tab-extensions.php:222
 msgid "Astoundify"
 msgstr "Astoundify"
 
-#: admin/tab-extensions.php:178
+#: admin/tab-extensions.php:195
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:296
 msgid "ClassiPress"
 msgstr "ClassiPress"
 
-#: admin/tab-extensions.php:183 admin/tab-extensions.php:191
-#: admin/tab-extensions.php:198 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
+#: admin/tab-extensions.php:200 admin/tab-extensions.php:208
+#: admin/tab-extensions.php:215 classes/Pronamic/AppThemes/IDeal/AddOn.php:121
 msgid "AppThemes"
 msgstr "AppThemes"
 
-#: admin/tab-extensions.php:187
+#: admin/tab-extensions.php:204
 msgid "JobRoller"
 msgstr "JobRoller"
 
-#: admin/tab-extensions.php:195
+#: admin/tab-extensions.php:212
 msgid "Vantage"
 msgstr "Vantage"
 
-#: admin/tab-extensions.php:202
+#: admin/tab-extensions.php:219
 msgid "Campaignify"
 msgstr "Campaignify"
 
-#: admin/tab-extensions.php:220 admin/tab-gateways.php:22
+#: admin/tab-extensions.php:237 admin/tab-gateways.php:22
 msgid "Markdown"
 msgstr "Markdown"
 
@@ -1330,7 +1339,7 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
 msgid "Failure"
 msgstr "Storing"
 
@@ -1632,9 +1641,9 @@ msgstr "Algemene informatie"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:82
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:124
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:149
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:241
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:124
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:149
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -1674,67 +1683,6 @@ msgstr "Advertentie %s"
 msgid "eShop"
 msgstr "eShop"
 
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:158
-msgid "Choose a different payment option"
-msgstr "Kies een andere betaalmethode"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:223
-msgid "Click to toggle"
-msgstr "Klik om te wisselen"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:235
-msgid "Deactivate Pronamic iDEAL?"
-msgstr "Deactiveer Pronamic iDEAL?"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:266
-msgid "Update Settings"
-msgstr "Instellingen bijwerken"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:272
-msgid "Activate Pronamic iDEAL?"
-msgstr "Activeer Pronamic iDEAL?"
-
-#: classes/Pronamic/EventEspresso/IDeal/AddOn.php:333
-msgid "Attendee #%s"
-msgstr "Deelnemer #%s"
-
-#: classes/Pronamic/GravityForms/IDeal/AddOn.php:86
-msgid "Entry #%s"
-msgstr "Inzending #%s"
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:76
-msgid "Payment Status"
-msgstr "Betalingsstatus"
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:81
-msgid "Payment Date"
-msgstr "Betalingsdatum"
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:86
-msgid "Transaction Id"
-msgstr "Transactie ID"
-
-#: classes/Pronamic/GravityForms/IDeal/Admin.php:91
-msgid "Payment Amount"
-msgstr "Te betalen bedrag"
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:62
-msgid "Create iDEAL feed"
-msgstr "Creëer iDEAL-feed"
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:68
-msgid "Edit iDEAL feed"
-msgstr "Bewerk iDEAL-feed"
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:127
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:151
-msgid "Issuer Drop Down"
-msgstr "Banken uitschuifkeuzelijst"
-
-#: classes/Pronamic/GravityForms/IDeal/Fields.php:134
-msgid "iDEAL Fields"
-msgstr "iDEAL-velden"
-
 #: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
@@ -1754,7 +1702,7 @@ msgstr "Selecteer configuratie"
 #: classes/Pronamic/WP/Pay/WPeCommerce/PaymentData.php:137
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:55
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:165
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -1801,7 +1749,7 @@ msgstr "Betalingsstatus pagina's"
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:357
+#: classes/Pronamic/WP/Pay/Admin.php:94 classes/Pronamic/WP/Pay/Plugin.php:358
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -1835,33 +1783,28 @@ msgstr "Instellingen"
 msgid "Tools"
 msgstr "Extra"
 
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:56
-#: classes/Pronamic/WP/Pay/EventEspresso/PaymentData.php:83
-msgid "Attendee %s"
-msgstr "Deelnemer %s"
-
 #: classes/Pronamic/WP/Pay/PaymentInputData.php:79
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:59
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:85
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:348
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:370
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:419
+#: classes/Pronamic/WP/Pay/Plugin.php:420
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:541
+#: classes/Pronamic/WP/Pay/Plugin.php:542
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2048,19 +1991,19 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:124
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -2073,17 +2016,103 @@ msgstr "Bancontact/Mister Cash"
 msgid "Easy Digital Downloads order %s"
 msgstr "Easy Digital Downloads bestelling %s"
 
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:115
+msgid "You have selected \"iDEAL\" as your method of payment"
+msgstr "Je hebt \"iDEAL\" geselecteerd als betaalmethode"
+
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:116
+msgid ""
+"After finalizing your registration, you will be transferred to iDEAL where "
+"your payment will be securely processed."
+msgstr ""
+"Na het afronden van je registratie wordt je doorgestuurd naar iDEAL waar jde "
+"betaling veilig kunt afronden."
+
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentData.php:65
+msgid "Event Espresso transaction %s"
+msgstr "Event Espresso transactie %s"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:158
+msgid "Choose a different payment option"
+msgstr "Kies een andere betaalmethode"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:223
+msgid "Click to toggle"
+msgstr "Klik om te wisselen"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:235
+msgid "Deactivate Pronamic iDEAL?"
+msgstr "Deactiveer Pronamic iDEAL?"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:266
+msgid "Update Settings"
+msgstr "Instellingen bijwerken"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:272
+msgid "Activate Pronamic iDEAL?"
+msgstr "Activeer Pronamic iDEAL?"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
+msgid "Event Espresso"
+msgstr "Event Espresso"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:333
+msgid "Attendee #%s"
+msgstr "Deelnemer #%s"
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:56
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:83
+msgid "Attendee %s"
+msgstr "Deelnemer %s"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:76
+msgid "Payment Status"
+msgstr "Betalingsstatus"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:81
+msgid "Payment Date"
+msgstr "Betalingsdatum"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:86
+msgid "Transaction Id"
+msgstr "Transactie ID"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:91
+msgid "Payment Amount"
+msgstr "Te betalen bedrag"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:86
+msgid "Entry #%s"
+msgstr "Inzending #%s"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:62
+msgid "Create iDEAL feed"
+msgstr "Creëer iDEAL-feed"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:68
+msgid "Edit iDEAL feed"
+msgstr "Bewerk iDEAL-feed"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:127
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:151
+msgid "Issuer Drop Down"
+msgstr "Banken uitschuifkeuzelijst"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:134
+msgid "iDEAL Fields"
+msgstr "iDEAL-velden"
+
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:83
 msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:96
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:104
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
@@ -2254,11 +2283,11 @@ msgstr "Betalingsomschrijving"
 msgid "This controls the payment description."
 msgstr "Hiermee beheer je de betalingsomschrijving."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:199
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:197
 msgid "Awaiting iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:225
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:223
 msgid ""
 "You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
 "checkout settings page</a>."

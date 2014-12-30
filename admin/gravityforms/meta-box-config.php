@@ -144,8 +144,8 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 
 					$operators = array(
 						'' => '',
-						Pronamic_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
-						Pronamic_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' ),
+						Pronamic_WP_Pay_Extensions_GravityForms_GravityForms::OPERATOR_IS     => __( 'is', 'pronamic_ideal' ),
+						Pronamic_WP_Pay_Extensions_GravityForms_GravityForms::OPERATOR_IS_NOT => __( 'is not', 'pronamic_ideal' ),
 					);
 
 					foreach ( $operators as $value => $label ) {
@@ -440,11 +440,11 @@ $feed->userRoleFieldId        = get_post_meta( $post_id, '_pronamic_pay_gf_user_
 		$links = is_array( $links ) ? $links : array();
 
 		$fields = array(
-			Pronamic_WP_Pay_GravityForms_Links::OPEN    => __( 'Open', 'pronamic_ideal' ),
-			Pronamic_WP_Pay_GravityForms_Links::SUCCESS => __( 'Success', 'pronamic_ideal' ),
-			Pronamic_WP_Pay_GravityForms_Links::CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
-			Pronamic_WP_Pay_GravityForms_Links::ERROR   => __( 'Error', 'pronamic_ideal' ),
-			Pronamic_WP_Pay_GravityForms_Links::EXPIRED => __( 'Expired', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_Extensions_GravityForms_Links::OPEN    => __( 'Open', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_Extensions_GravityForms_Links::SUCCESS => __( 'Success', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_Extensions_GravityForms_Links::CANCEL  => __( 'Cancel', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_Extensions_GravityForms_Links::ERROR   => __( 'Error', 'pronamic_ideal' ),
+			Pronamic_WP_Pay_Extensions_GravityForms_Links::EXPIRED => __( 'Expired', 'pronamic_ideal' ),
 		);
 
 		foreach ( $fields as $name => $label ) : ?>

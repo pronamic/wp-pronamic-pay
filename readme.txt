@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 3.2.4
+Stable tag: 3.3.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -261,6 +261,11 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 3.3.0 =
+*	Feature - Event Espresso 4 - Added expirmental support for Event Espresso 4.
+*	Tweak - Event Espresso 3 - Improved support for Event Espresso 3.
+*	Tweak - Adeed WordPress pay Gravity Forms library version 1.0.0.
 
 = 3.2.4 =
 *	Tweak - Updated WordPress pay WooCommerce library to version 1.0.1.

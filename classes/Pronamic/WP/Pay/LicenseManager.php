@@ -120,6 +120,9 @@ class Pronamic_WP_Pay_LicenseManager {
 	 * @return boolean
 	 */
 	public function activate_license( $license ) {
+		$status = null;
+
+		// Request
 		$args = array(
 			'license' => $license,
 			'name'    => 'Pronamic iDEAL',
@@ -131,13 +134,17 @@ class Pronamic_WP_Pay_LicenseManager {
 		$response = wp_remote_get( add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ) );
 
 		if ( is_wp_error( $response ) ) {
-			return false;
+			// On errors we give benefit of the doubt
+			$status = 'valid';
 		}
 
-		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+		$data = json_decode( wp_remote_retrieve_body( $response ) );
 
-		if ( $license_data ) {
-			update_option( 'pronamic_pay_license_status', $license_data->license );
+		if ( $data ) {
+			$status = $data->license;
 		}
+
+		// Update
+		update_option( 'pronamic_pay_license_status', $status );
 	}
 }
