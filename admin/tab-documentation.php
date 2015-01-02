@@ -618,7 +618,7 @@ $providers = array(
 
 <table class="pronamic-pay-table wp-list-table widefat" cellspacing="0">
 
-	<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
+	<?php foreach ( array( 'thead', 'tfoot' ) as $tag ) : ?>
 
 		<<?php echo $tag; ?>>
 			<tr>
@@ -632,7 +632,7 @@ $providers = array(
 
 	<tobdy>
 
-		<?php foreach ( $providers as $provider ): ?>
+		<?php foreach ( $providers as $provider ) : ?>
 
 			<tr>
 				<td colspan="4">
@@ -641,7 +641,7 @@ $providers = array(
 				</td>
 			</tr>
 
-			<?php foreach ( $provider['resources'] as $resource ): ?>
+			<?php foreach ( $provider['resources'] as $resource ) : ?>
 
 				<?php
 
@@ -669,12 +669,12 @@ $providers = array(
 						</a>
 					</td>
 					<td>
-						<?php if ( isset( $resource['date'] ) ): ?>
+						<?php if ( isset( $resource['date'] ) ) : ?>
 							<?php echo $resource['date']->format( 'd-m-Y' ); ?>
 						<?php endif; ?>
 					</td>
 					<td>
-						<?php if ( isset( $resource['version'] ) ): ?>
+						<?php if ( isset( $resource['version'] ) ) : ?>
 							<?php echo $resource['version']; ?>
 						<?php endif; ?>
 					</td>

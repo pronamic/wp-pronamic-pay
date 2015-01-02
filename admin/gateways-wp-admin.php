@@ -8,7 +8,7 @@
 
 	<tbody>
 
-		<?php foreach ( $gateways as $gateway ): ?>
+		<?php foreach ( $gateways as $gateway ) : ?>
 
 			<tr>
 				<td>

@@ -208,7 +208,7 @@ $sections = array(
 
 	<table cellspacing="0" class="widefat fixed">
 
-		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ): ?>
+		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ) : ?>
 
 			<<?php echo $tag; ?>>
 				<tr>
@@ -224,7 +224,7 @@ $sections = array(
 		<tbody>
 
 
-			<?php foreach ( $section['resources'] as $resource ): ?>
+			<?php foreach ( $section['resources'] as $resource ) : ?>
 
 				<tr>
 					<?php
