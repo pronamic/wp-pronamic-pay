@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2014-12-24 10:03:04+00:00\n"
-"PO-Revision-Date: 2014-12-24 11:04+0100\n"
+"POT-Creation-Date: 2015-01-02 09:50:21+00:00\n"
+"PO-Revision-Date: 2015-01-02 10:51+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -341,6 +341,7 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:60
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:188
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:41
@@ -2016,6 +2017,15 @@ msgstr "Bancontact/Mister Cash"
 msgid "Easy Digital Downloads order %s"
 msgstr "Easy Digital Downloads bestelling %s"
 
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:129
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
+msgid "Event Espresso"
+msgstr "Event Espresso"
+
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:134
+msgid "Transaction %s"
+msgstr "Transactie %s"
+
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:115
 msgid "You have selected \"iDEAL\" as your method of payment"
 msgstr "Je hebt \"iDEAL\" geselecteerd als betaalmethode"
@@ -2051,10 +2061,6 @@ msgstr "Instellingen bijwerken"
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:272
 msgid "Activate Pronamic iDEAL?"
 msgstr "Activeer Pronamic iDEAL?"
-
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
-msgid "Event Espresso"
-msgstr "Event Espresso"
 
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:333
 msgid "Attendee #%s"
