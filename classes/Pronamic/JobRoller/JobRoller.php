@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 /**
  * Title: JobRoller
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma

@@ -2,7 +2,7 @@
 
 /**
  * Title: iDEAL
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
@@ -12,14 +12,14 @@ class Pronamic_IDeal_IDeal {
 	/**
 	 * The date format (yyyy-MMddTHH:mm:ss.SSSZ)
 	 * The Z stands for the time zone (CET).
-	 * 
-	 * @var string 
+	 *
+	 * @var string
 	 */
 	const DATE_FORMAT = 'Y-m-d\TH:i:s.000\Z';
 
 	/**
 	 * The timezone
-	 * 
+	 *
 	 * @var string
 	 */
 	const TIMEZONE = 'UTC';
@@ -28,14 +28,14 @@ class Pronamic_IDeal_IDeal {
 
 	/**
 	 * Indicator for test mode
-	 * 
+	 *
 	 * @var int
 	 */
 	const MODE_TEST = 'test';
 
 	/**
 	 * Indicator for live mode
-	 * 
+	 *
 	 * @var int
 	 */
 	const MODE_LIVE = 'live';
@@ -44,35 +44,35 @@ class Pronamic_IDeal_IDeal {
 
 	/**
 	 * Easy
-	 * 
+	 *
 	 * @var string
 	 */
 	const METHOD_EASY = 'easy';
 
 	/**
 	 * Basic
-	 * 
+	 *
 	 * @var string
 	 */
 	const METHOD_BASIC = 'basic';
 
 	/**
 	 * Method kassa
-	 * 
+	 *
 	 * @var string
 	 */
 	const METHOD_INTERNETKASSA = 'internetkassa';
 
 	/**
 	 * Method OmniKassa
-	 * 
+	 *
 	 * @var string
 	 */
 	const METHOD_OMNIKASSA = 'omnikassa';
 
 	/**
 	 * Method advanced
-	 * 
+	 *
 	 * @var string
 	 */
 	const METHOD_ADVANCED = 'advanced';
@@ -93,13 +93,13 @@ class Pronamic_IDeal_IDeal {
 
 	/**
 	 * Sanitize iDEAL value
-	 * 
+	 *
 	 * @see page 30 http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf
-	 * 
-	 * The use of characters that are not listed above will not lead to a refusal of a batch or post, but the 
-	 * character will be changed by Equens (formerly Interpay) to a space, question mark or asterisk. The 
-	 * same goes for diacritical characters (à, ç, ô, ü, ý etcetera). 
-	 * 
+	 *
+	 * The use of characters that are not listed above will not lead to a refusal of a batch or post, but the
+	 * character will be changed by Equens (formerly Interpay) to a space, question mark or asterisk. The
+	 * same goes for diacritical characters (à, ç, ô, ü, ý etcetera).
+	 *
 	 * @param string $value
 	 * @return string
 	 */
