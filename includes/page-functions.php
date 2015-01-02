@@ -2,9 +2,9 @@
 
 /**
  * Pronamic Pay get page ID
- * 
+ *
  * @see https://github.com/woothemes/woocommerce/blob/v2.0.16/woocommerce-core-functions.php#L344
- * 
+ *
  * @param string $page
  * @return int
  */
