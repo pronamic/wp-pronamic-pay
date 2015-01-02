@@ -22,15 +22,24 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
 	*	**Tested up to:** 2.1.3
-*	[Event Espresso](http://eventespresso.com/)
-	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
+*	[Event Espresso 3](http://eventespresso.com/)
+	*	**GitHub:** [https://github.com/eventespresso/event-espresso-legacy](https://github.com/eventespresso/event-espresso-legacy)
 	*	**Requires at least:** 3.1.24
 	*	**Tested up to:** 3.1.35.P
-*	[Event Espresso Lite](http://eventespresso.com/)
+*	[Event Espresso 3 Lite](http://eventespresso.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/event-espresso-free/](http://wordpress.org/plugins/event-espresso-free/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 3.1.29.1.L
 	*	**Tested up to:** 3.1.35.L
+*	[Event Espresso 4](http://eventespresso.com/)
+	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
+	*	**Requires at least:** 4.4.7.p
+	*	**Tested up to:** 4.4.7.p
+*	[Event Espresso 4 Decaf](http://eventespresso.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/event-espresso-decaf/](https://wordpress.org/plugins/event-espresso-decaf/)
+	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
+	*	**Requires at least:** 4.4.4.decaf
+	*	**Tested up to:** 4.4.4.decaf
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
@@ -133,7 +142,7 @@ your WordPress website.
 	*	ABN AMRO - iDEAL Zelfbouw
 	*	ABN AMRO - iDEAL Zelfbouw - v3
 *	[Buckaroo](http://www.buckaroo.nl/)
-	*	Buckaroo - iDEAL
+	*	Buckaroo - HTML
 *	[Deutsche Bank](http://deutschebank.nl/)
 	*	Deutsche Bank - iDEAL via Ogone
 	*	Deutsche Bank - iDEAL Expert - v3
@@ -184,7 +193,7 @@ your WordPress website.
 	*	Rabobank - iDEAL Professional
 	*	Rabobank - iDEAL Professional - v3
 *	[Sisow](http://sisow.nl/)
-	*	Sisow - iDEAL
+	*	Sisow
 	*	Sisow - iDEAL Basic
 	*	Sisow - iDEAL Advanced
 *	[TargetPay](https://www.targetpay.com/)
