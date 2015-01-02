@@ -2,7 +2,7 @@
 
 /**
  * Title: Gateway listener interface
- * Description: 
+ * Description:
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma

@@ -43,7 +43,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
-			<td>Buckaroo - iDEAL</td>
+			<td>Buckaroo - HTML</td>
 		</tr>
 		<tr>
 			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
@@ -183,7 +183,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://sisow.nl/">Sisow</a></td>
-			<td>Sisow - iDEAL</td>
+			<td>Sisow</td>
 		</tr>
 		<tr>
 			<td><a href="http://sisow.nl/">Sisow</a></td>
@@ -229,20 +229,36 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>2.1.3</td>
 		</tr>
 		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso</a></td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3</a></td>
 			<td></td>
 			<td></td>
-			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-legacy" target="_blank">GitHub</a></td>
 			<td>3.1.24</td>
 			<td>3.1.35.P</td>
 		</tr>
 		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso Lite</a></td>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3 Lite</a></td>
 			<td></td>
 			<td><a href="http://wordpress.org/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>3.1.29.1.L</td>
 			<td>3.1.35.L</td>
+		</tr>
+		<tr>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4</a></td>
+			<td></td>
+			<td></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>4.4.7.p</td>
+			<td>4.4.7.p</td>
+		</tr>
+		<tr>
+			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4 Decaf</a></td>
+			<td></td>
+			<td><a href="https://wordpress.org/plugins/event-espresso-decaf/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
+			<td>4.4.4.decaf</td>
+			<td>4.4.4.decaf</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>

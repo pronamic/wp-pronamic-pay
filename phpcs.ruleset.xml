@@ -1,15 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="Pronamic iDEAL">
-	<description>A custom set of rules to check for the Pronamic iDEAL WordPress plugin.</description>
-
-	<exclude-pattern>/includes/icepay</exclude-pattern>
-	<exclude-pattern>/includes/xmlseclibs</exclude-pattern>
-
-	<exclude-pattern>/node_modules</exclude-pattern>
-	<exclude-pattern>/vendor</exclude-pattern>
-	<exclude-pattern>/deploy</exclude-pattern>
-	<exclude-pattern>/wp-svn</exclude-pattern>
-
 	<rule ref="WordPress">
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />

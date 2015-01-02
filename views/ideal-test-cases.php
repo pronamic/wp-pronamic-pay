@@ -43,7 +43,7 @@
 
 	<tbody>
 
-		<?php foreach ( $test_cases as $test_case => $data ): ?>
+		<?php foreach ( $test_cases as $test_case => $data ) : ?>
 
 			<tr>
 				<td>

@@ -31,7 +31,7 @@ if ( ! is_wp_error( $response ) ) {
 	}
 }
 
-if ( $status_data ): ?>
+if ( $status_data ) : ?>
 
 	<table class="wp-list-table widefat" style="width: auto;">
 		<thead>
@@ -55,7 +55,7 @@ if ( $status_data ): ?>
 		</thead>
 
 		<tbody>
-			<?php foreach ( $status_data as $status ): ?>
+			<?php foreach ( $status_data as $status ) : ?>
 
 				<tr>
 					<td>

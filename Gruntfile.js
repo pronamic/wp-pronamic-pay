@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'phpcs.ruleset.xml',
 				extensions: 'php',
-				ignore: 'deploy,node_modules,vendor,wp-content'
+				ignore: '/deploy/*,/node_modules/*,/vendor/*,/wp-content/*,/includes/icepay/*,/includes/xmlseclibs/*'
 			}
 		},
 
