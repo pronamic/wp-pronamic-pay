@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1227d45e4cdebb335911e2744aba1511",
+    "hash": "17f0bd1264a3bf5c732b2fb981c95d10",
     "packages": [
         {
             "name": "composer/installers",
@@ -454,6 +454,64 @@
                 "wp"
             ],
             "time": "2015-01-20 07:50:36"
+        },
+        {
+            "name": "wp-pay-extensions/shopp",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/shopp.git",
+                "reference": "08d24b1e566ab3b7ddb42ca8a58c14918efdc66a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/08d24b1e566ab3b7ddb42ca8a58c14918efdc66a",
+                "reference": "08d24b1e566ab3b7ddb42ca8a58c14918efdc66a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "~1.0.0",
+                "wpackagist-plugin/shopp": "1.3.5"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Shopp driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/shopp/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "shopp",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-01-20 11:24:21"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -1568,6 +1626,26 @@
             "homepage": "http://wordpress.org/plugins/s2member/"
         },
         {
+            "name": "wpackagist-plugin/shopp",
+            "version": "1.3.5",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/shopp/",
+                "reference": "tags/1.3.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://downloads.wordpress.org/plugin/shopp.1.3.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/shopp/"
+        },
+        {
             "name": "wpackagist-plugin/woocommerce",
             "version": "2.1.12",
             "source": {
@@ -2137,6 +2215,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-extensions/shopp": 20,
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
