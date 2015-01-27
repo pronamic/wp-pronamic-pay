@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1576d5e92ccb10c2315ca2b7982dabd1",
+    "hash": "910d255f6ec7346a34cb16fedd23b74d",
     "packages": [
         {
             "name": "composer/installers",
@@ -284,16 +284,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "23d27c6fde4106bbfd715034bbfc6a71fe5bb2d1"
+                "reference": "f43f037c9a35b8d5c998ea6a4f9dd3f5f0022d50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/23d27c6fde4106bbfd715034bbfc6a71fe5bb2d1",
-                "reference": "23d27c6fde4106bbfd715034bbfc6a71fe5bb2d1",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/f43f037c9a35b8d5c998ea6a4f9dd3f5f0022d50",
+                "reference": "f43f037c9a35b8d5c998ea6a4f9dd3f5f0022d50",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-01-20 08:56:54"
+            "time": "2015-01-27 15:27:47"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
@@ -2215,6 +2215,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/shopp": 20,
         "satooshi/php-coveralls": 20
     },
