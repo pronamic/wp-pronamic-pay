@@ -95,6 +95,15 @@ $extensions = array(
 		'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
 		'author_url'         => 'http://www.rocketgenius.com/',
 	),
+	'gravityformszapier'     => array(
+		'name'               => __( 'Gravity Forms Zapier Add-On', 'pronamic_ideal' ),
+		'url'                => 'http://www.gravityforms.com/add-ons/zapier/',
+		'github_url'         => 'https://github.com/gravityforms/gravityformszapier',
+		'requires_at_least'  => '1.4.2',
+		'tested_up_to'       => '1.4.2',
+		'author'             => __( 'Rocketgenius', 'pronamic_ideal' ),
+		'author_url'         => 'http://www.rocketgenius.com/',
+	),
 	'ithemes-exchange'       => array(
 		'name'               => __( 'iThemes Exchange', 'pronamic_ideal' ),
 		'url'                => 'http://ithemes.com/exchange/',
