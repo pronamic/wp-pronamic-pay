@@ -278,7 +278,7 @@ class Pronamic_WP_Pay_Admin {
 
 			if ( $gateway ) {
 				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
-					'flags' => FILTER_FLAG_ALLOW_THOUSAND,
+					'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
 					'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
 				) );
 
