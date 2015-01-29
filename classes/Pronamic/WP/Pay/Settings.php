@@ -139,6 +139,9 @@ class Pronamic_WP_Pay_Settings {
 
 	}
 
+	/**
+	 * Input license key
+	 */
 	public function input_license_key( $args ) {
 		$this->input_element( $args );
 
