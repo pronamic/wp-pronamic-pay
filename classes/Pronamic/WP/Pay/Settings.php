@@ -34,7 +34,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_field(
 			'pronamic_pay_license_key', // id
 			__( 'Support License Key', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
+			array( $this, 'input_license_key' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array( 'type' => 'password', 'label_for' => 'pronamic_pay_license_key' ) // args
@@ -133,6 +133,11 @@ class Pronamic_WP_Pay_Settings {
 			esc_attr( get_option( $args['label_for'] ) ),
 			'regular-text'
 		);
+
+	}
+
+	public function input_license_key( $args ) {
+		$this->input_element( $args );
 
 		$status = get_option( 'pronamic_pay_license_status' );
 
