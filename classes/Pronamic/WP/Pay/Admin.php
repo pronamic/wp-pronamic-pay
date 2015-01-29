@@ -109,6 +109,36 @@ class Pronamic_WP_Pay_Admin {
 
 			register_setting( 'pronamic_pay', $id );
 		}
+
+		// Settings - Currency
+		add_settings_section(
+			'pronamic_pay_currency', // id
+			__( 'Currency', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'settings_section' ), // callback
+			'pronamic_pay' // page
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
+
+		add_settings_field(
+			'pronamic_pay_thousands_sep', // id
+			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_currency', // section
+			array( 'type' => 'password', 'label_for' => 'pronamic_pay_thousands_sep' ) // args
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
+
+		add_settings_field(
+			'pronamic_pay_decimal_sep', // id
+			__( 'Decimal Seperator', 'pronamic_ideal' ), // title
+			array( __CLASS__, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_currency', // section
+			array( 'type' => 'password', 'label_for' => 'pronamic_pay_decimal_sep' ) // args
+		);
 	}
 
 	//////////////////////////////////////////////////
