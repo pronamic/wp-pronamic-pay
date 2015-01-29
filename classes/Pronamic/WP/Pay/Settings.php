@@ -89,7 +89,7 @@ class Pronamic_WP_Pay_Settings {
 			array( $this, 'input_element' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
-			array( 'type' => 'password', 'label_for' => 'pronamic_pay_thousands_sep' ) // args
+			array( 'label_for' => 'pronamic_pay_thousands_sep' ) // args
 		);
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
@@ -100,7 +100,7 @@ class Pronamic_WP_Pay_Settings {
 			array( $this, 'input_element' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
-			array( 'type' => 'password', 'label_for' => 'pronamic_pay_decimal_sep' ) // args
+			array( 'label_for' => 'pronamic_pay_decimal_sep' ) // args
 		);
 	}
 
