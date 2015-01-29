@@ -37,7 +37,10 @@ class Pronamic_WP_Pay_Settings {
 			array( $this, 'input_license_key' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
-			array( 'type' => 'password', 'label_for' => 'pronamic_pay_license_key' ) // args
+			array(
+				'type'      => 'password',
+				'label_for' => 'pronamic_pay_license_key',
+			) // args
 		);
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', 'trim' );
