@@ -27,14 +27,14 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_section(
 			'pronamic_pay_general', // id
 			__( 'General', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'settings_section' ), // callback
+			array( $this, 'settings_section' ), // callback
 			'pronamic_pay' // page
 		);
 
 		add_settings_field(
 			'pronamic_pay_license_key', // id
 			__( 'Support License Key', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'input_element' ), // callback
+			array( $this, 'input_element' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array( 'type' => 'password', 'label_for' => 'pronamic_pay_license_key' ) // args
@@ -46,7 +46,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_section(
 			'pronamic_pay_pages', // id
 			__( 'Payment Status Pages', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'settings_section' ), // callback
+			array( $this, 'settings_section' ), // callback
 			'pronamic_pay' // page
 		);
 
@@ -64,7 +64,7 @@ class Pronamic_WP_Pay_Settings {
 			add_settings_field(
 				$id, // id
 				$label, // title
-				array( __CLASS__, 'input_page' ), // callback
+				array( $this, 'input_page' ), // callback
 				'pronamic_pay', // page
 				'pronamic_pay_pages', // section
 				array( 'label_for' => $id ) // args
@@ -77,7 +77,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_section(
 			'pronamic_pay_currency', // id
 			__( 'Currency', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'settings_section' ), // callback
+			array( $this, 'settings_section' ), // callback
 			'pronamic_pay' // page
 		);
 
@@ -86,7 +86,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_field(
 			'pronamic_pay_thousands_sep', // id
 			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'input_element' ), // callback
+			array( $this, 'input_element' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
 			array( 'type' => 'password', 'label_for' => 'pronamic_pay_thousands_sep' ) // args
@@ -97,7 +97,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_field(
 			'pronamic_pay_decimal_sep', // id
 			__( 'Decimal Seperator', 'pronamic_ideal' ), // title
-			array( __CLASS__, 'input_element' ), // callback
+			array( $this, 'input_element' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
 			array( 'type' => 'password', 'label_for' => 'pronamic_pay_decimal_sep' ) // args
@@ -109,7 +109,7 @@ class Pronamic_WP_Pay_Settings {
 	/**
 	 * Settings section
 	 */
-	public static function settings_section() {
+	public function settings_section() {
 
 	}
 
@@ -118,7 +118,7 @@ class Pronamic_WP_Pay_Settings {
 	 *
 	 * @param array $args
 	 */
-	public static function input_element( $args ) {
+	public function input_element( $args ) {
 		$defaults = array(
 			'type' => 'text',
 		);
@@ -146,7 +146,7 @@ class Pronamic_WP_Pay_Settings {
 	 *
 	 * @param array $args
 	 */
-	public static function input_page( $args ) {
+	public function input_page( $args ) {
 		$name = $args['label_for'];
 
 		wp_dropdown_pages( array(
