@@ -277,7 +277,10 @@ class Pronamic_WP_Pay_Admin {
 			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $id );
 
 			if ( $gateway ) {
-				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT );
+				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
+					'flags' => FILTER_FLAG_ALLOW_THOUSAND,
+					'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
+				) );
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
