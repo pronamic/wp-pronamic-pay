@@ -271,6 +271,9 @@ Here is a list of known plugin conflicts:
 
 == Changelog ==
 
+= 3.3.3 =
+*	Tweak - Updated WordPress pay iThemes Exchange library to version 1.0.1.
+
 = 3.3.2 =
 *	Tweak - Updated WordPress pay WooCommerce library to version 1.0.2.
 *	Tweak - Updated WordPress pay Event Espresso library to version 1.0.1.
