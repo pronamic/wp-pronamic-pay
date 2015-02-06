@@ -1,6 +1,7 @@
 # Changelog
 
 ## 3.3.3
+*	Tweak - Updated WordPress pay iDEAL Basic library to version 1.0.1.
 *	Tweak - Updated WordPress pay iThemes Exchange library to version 1.0.1.
 
 ## 3.3.2
