@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-01-29 08:50:44+00:00\n"
-"PO-Revision-Date: 2015-01-29 09:51+0100\n"
+"POT-Creation-Date: 2015-02-06 13:49:23+00:00\n"
+"PO-Revision-Date: 2015-02-06 14:49+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -85,8 +85,7 @@ msgstr "Test"
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:59
-#: classes/Pronamic/WP/Pay/Admin.php:306 classes/Pronamic/WP/Pay/Admin.php:307
+#: classes/Pronamic/WP/Pay/Admin.php:309 classes/Pronamic/WP/Pay/Admin.php:310
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -98,6 +97,7 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:51
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:59
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:26
 msgid "iDEAL"
@@ -758,8 +758,8 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:316
-#: classes/Pronamic/WP/Pay/Admin.php:317 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:319
+#: classes/Pronamic/WP/Pay/Admin.php:320 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -890,10 +890,10 @@ msgstr "Mollie bage - Betaling groen"
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:118
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:106
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:25
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:106
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:102
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:96
 msgid "Title"
@@ -984,7 +984,7 @@ msgid "Gravity Forms Zapier Add-On"
 msgstr "Gravity Forms Zapier Add-On"
 
 #: admin/tab-extensions.php:108
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:398
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:407
 msgid "iThemes Exchange"
 msgstr "iThemes Exchange"
 
@@ -1102,12 +1102,12 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:356
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:466
 msgid "Success"
 msgstr "Succes"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
 msgid "Failure"
 msgstr "Storing"
 
@@ -1392,8 +1392,8 @@ msgstr "Travis CI build status"
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:399
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:294
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:408
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:139
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:171
 msgid "Order #%s"
@@ -1425,9 +1425,9 @@ msgstr "Algemene informatie"
 
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:82
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:222
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:241
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:124
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:149
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:241
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
@@ -1454,8 +1454,8 @@ msgid "No"
 msgstr "Nee"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:119
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:93
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:119
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
@@ -1467,17 +1467,9 @@ msgstr "Advertentie %s"
 msgid "eShop"
 msgstr "eShop"
 
-#: classes/Pronamic/IThemesExchange/IDeal/AddOn.php:60
-msgid "Adds the ability for users to checkout with iDEAL."
-msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
-
-#: classes/Pronamic/IThemesExchange/PaymentData.php:70
-msgid "iThemes Exchange order %s"
-msgstr "iThemes Exchange bestelling %s"
-
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:351
+#: classes/Pronamic/WP/Pay/Admin.php:354
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1511,16 +1503,16 @@ msgstr ""
 "iDEAL API sleutel invoeren</a> om gebruik te maken van extra extensies, "
 "updates en support."
 
-#: classes/Pronamic/WP/Pay/Admin.php:324 classes/Pronamic/WP/Pay/Admin.php:325
+#: classes/Pronamic/WP/Pay/Admin.php:327 classes/Pronamic/WP/Pay/Admin.php:328
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:332 classes/Pronamic/WP/Pay/Admin.php:333
+#: classes/Pronamic/WP/Pay/Admin.php:335 classes/Pronamic/WP/Pay/Admin.php:336
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:341 classes/Pronamic/WP/Pay/Admin.php:342
+#: classes/Pronamic/WP/Pay/Admin.php:344 classes/Pronamic/WP/Pay/Admin.php:345
 msgid "Tools"
 msgstr "Extra"
 
@@ -1530,38 +1522,38 @@ msgstr "Extra"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:348
+#: classes/Pronamic/WP/Pay/Plugin.php:347
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:350
+#: classes/Pronamic/WP/Pay/Plugin.php:349
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:469
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:354
+#: classes/Pronamic/WP/Pay/Plugin.php:353
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:358
+#: classes/Pronamic/WP/Pay/Plugin.php:357
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:370
+#: classes/Pronamic/WP/Pay/Plugin.php:369
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op "
 "een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:420
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:542
+#: classes/Pronamic/WP/Pay/Plugin.php:541
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2124,6 +2116,14 @@ msgstr "Geavanceerd"
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:529
 msgid "Update user role"
 msgstr "Update gebruikersrol"
+
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:60
+msgid "Adds the ability for users to checkout with iDEAL."
+msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
+
+#: vendor/wp-pay-extensions/ithemes-exchange/src/PaymentData.php:70
+msgid "iThemes Exchange order %s"
+msgstr "iThemes Exchange bestelling %s"
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:83
 msgid "iDEAL payment cancelled."
