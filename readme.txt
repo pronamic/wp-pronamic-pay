@@ -65,6 +65,11 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsmailchimp](https://github.com/gravityforms/gravityformsmailchimp)
 	*	**Requires at least:** 1.8
 	*	**Tested up to:** 1.8
+*	[Gravity Forms Zapier Add-On](http://www.gravityforms.com/add-ons/zapier/)
+	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
+	*	**GitHub:** [https://github.com/gravityforms/gravityformszapier](https://github.com/gravityforms/gravityformszapier)
+	*	**Requires at least:** 1.4.2
+	*	**Tested up to:** 1.4.2
 *	[iThemes Exchange](http://ithemes.com/exchange/)
 	*	**Author:** [iThemes](http://ithemes.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)

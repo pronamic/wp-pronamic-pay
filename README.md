@@ -301,6 +301,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.8</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.gravityforms.com/add-ons/zapier/" target="_blank">Gravity Forms Zapier Add-On</a></td>
+			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
+			<td></td>
+			<td><a href="https://github.com/gravityforms/gravityformszapier" target="_blank">GitHub</a></td>
+			<td>1.4.2</td>
+			<td>1.4.2</td>
+		</tr>
+		<tr>
 			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
 			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
 			<td><a href="http://wordpress.org/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
