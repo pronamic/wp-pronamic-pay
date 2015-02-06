@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.3.3
+*	Tweak - Updated WordPress pay iDEAL Basic library to version 1.0.1.
+*	Tweak - Updated WordPress pay iThemes Exchange library to version 1.0.1.
+
 ## 3.3.2
 *	Tweak - Updated WordPress pay WooCommerce library to version 1.0.2.
 *	Tweak - Updated WordPress pay Event Espresso library to version 1.0.1.
