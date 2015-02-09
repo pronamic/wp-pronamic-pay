@@ -36,8 +36,10 @@ class Pronamic_WP_Pay_Admin {
 
 		$pronamic_ideal_errors = array();
 
+		// Maybe
 		$this->maybe_download_private_certificate();
 		$this->maybe_download_private_key();
+		$this->maybe_create_pages();
 
 		// Actions
 		// Show license message if the license is not valid
@@ -176,6 +178,57 @@ class Pronamic_WP_Pay_Admin {
 			}
 		}
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Create pages
+	 */
+	private function create_pages( $pages, $parent = null ) {
+		foreach ( $pages as $page ) {
+			$post = array(
+				'post_title'     => $page['post_title'],
+				'post_name'      => $page['post_title'],
+				'post_content'   => $page['post_content'],
+				'post_status'    => 'publish',
+				'post_type'      => 'page',
+				'comment_status' => 'closed',
+			);
+
+			if ( isset( $parent ) ) {
+				$post['post_parent'] = $parent;
+			}
+
+			$result = wp_insert_post( $post, true );
+
+			if ( ! is_wp_error( $result ) ) {
+				if ( isset( $page['post_meta'] ) ) {
+					foreach ( $page['post_meta'] as $key => $value ) {
+						update_post_meta( $result, $key, $value );
+					}
+				}
+
+				if ( isset( $page['children'] ) ) {
+					$this->create_pages( $page['children'], $result );
+				}
+			}
+		}
+	}
+
+	/**
+	 * Maybe create pages
+	 */
+	public function maybe_create_pages() {
+		if ( filter_has_var( INPUT_POST, 'pronamic_pay_create_pages' ) && check_admin_referer( 'pronamic_pay_create_pages', 'pronamic_pay_nonce' ) ) {
+			$this->create_pages( $_POST['pronamic_pay_pages'] );
+
+			wp_redirect( add_query_arg( 'message', 1 ) );
+
+			exit;
+		}
+	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Download private certificate

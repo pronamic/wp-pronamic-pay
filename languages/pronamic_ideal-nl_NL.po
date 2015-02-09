@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-06 13:49:23+00:00\n"
-"PO-Revision-Date: 2015-02-06 14:49+0100\n"
+"POT-Creation-Date: 2015-02-09 12:55:28+00:00\n"
+"PO-Revision-Date: 2015-02-09 13:56+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -81,11 +81,11 @@ msgstr "Test"
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:52
+#: admin/tab-pages_generator.php:29
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/WP/Pay/Admin.php:309 classes/Pronamic/WP/Pay/Admin.php:310
+#: classes/Pronamic/WP/Pay/Admin.php:362 classes/Pronamic/WP/Pay/Admin.php:363
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -758,8 +758,8 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:319
-#: classes/Pronamic/WP/Pay/Admin.php:320 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:372
+#: classes/Pronamic/WP/Pay/Admin.php:373 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -785,7 +785,7 @@ msgstr "Systeemstatus"
 msgid "iDEAL Status"
 msgstr "iDEAL-status"
 
-#: admin/page-tools.php:6 admin/tab-pages_generator.php:39
+#: admin/page-tools.php:6 admin/tab-pages_generator.php:1
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
@@ -889,7 +889,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr "Mollie bage - Betaling groen"
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
-#: admin/tab-pages_generator.php:118
+#: admin/tab-pages_generator.php:95
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:25
@@ -1214,90 +1214,94 @@ msgstr "PayPal"
 msgid "Wallie"
 msgstr "Wallie"
 
-#: admin/tab-pages_generator.php:42
+#: admin/tab-pages_generator.php:11
+msgid "Pages created."
+msgstr "Pagina's aangemaakt."
+
+#: admin/tab-pages_generator.php:19
 msgid ""
 "This page allows you to easily create pages for each iDEAL payment status."
 msgstr ""
 "Via deze pagina kun je eenvoudig pagina's aanmaken voor de verschillende iDEAL-"
 "betalingsstatussen."
 
-#: admin/tab-pages_generator.php:53
+#: admin/tab-pages_generator.php:30
 msgid "ideal"
 msgstr "ideal"
 
-#: admin/tab-pages_generator.php:60
+#: admin/tab-pages_generator.php:37
 msgid "iDEAL payment error"
 msgstr "iDEAL-betalingsfout"
 
-#: admin/tab-pages_generator.php:61
+#: admin/tab-pages_generator.php:38
 msgid "error"
 msgstr "fout"
 
-#: admin/tab-pages_generator.php:62
+#: admin/tab-pages_generator.php:39
 msgid "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
 msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL-betaling.</p>"
 
-#: admin/tab-pages_generator.php:68
+#: admin/tab-pages_generator.php:45
 msgid "iDEAL payment canceled"
 msgstr "iDEAL-betaling geannuleerd"
 
-#: admin/tab-pages_generator.php:69
+#: admin/tab-pages_generator.php:46
 msgid "cancelled"
 msgstr "geannuleerd"
 
-#: admin/tab-pages_generator.php:70
+#: admin/tab-pages_generator.php:47
 msgid "<p>You canceled the iDEAL payment.</p>"
 msgstr "<p>U heeft de iDEAL-betaling geannuleerd.</p>"
 
-#: admin/tab-pages_generator.php:76
+#: admin/tab-pages_generator.php:53
 msgid "iDEAL payment unknown"
 msgstr "iDEAL-betaling onbekend"
 
-#: admin/tab-pages_generator.php:77
+#: admin/tab-pages_generator.php:54
 msgid "unknown"
 msgstr "onbekend"
 
-#: admin/tab-pages_generator.php:78
+#: admin/tab-pages_generator.php:55
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 
-#: admin/tab-pages_generator.php:84
+#: admin/tab-pages_generator.php:61
 msgid "iDEAL payment expired"
 msgstr "iDEAL-betaling verlopen"
 
-#: admin/tab-pages_generator.php:85
+#: admin/tab-pages_generator.php:62
 msgid "expired"
 msgstr "verlopen"
 
-#: admin/tab-pages_generator.php:86
+#: admin/tab-pages_generator.php:63
 msgid "<p>Unfortunately your iDEAL payment session has expired.</p>"
 msgstr "<p>Uw iDEAL-betalingssessie is helaas verlopen.</p>"
 
-#: admin/tab-pages_generator.php:92
+#: admin/tab-pages_generator.php:69
 msgid "iDEAL payment completed"
 msgstr "iDEAL-betaling voltooid"
 
-#: admin/tab-pages_generator.php:93
+#: admin/tab-pages_generator.php:70
 msgid "completed"
 msgstr "voltooid"
 
-#: admin/tab-pages_generator.php:94
+#: admin/tab-pages_generator.php:71
 msgid "<p>The payment process is successfully completed.</p>"
 msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
 
-#: admin/tab-pages_generator.php:128
+#: admin/tab-pages_generator.php:105
 msgid "Slug"
 msgstr "Slug"
 
-#: admin/tab-pages_generator.php:138
+#: admin/tab-pages_generator.php:115
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/tab-pages_generator.php:147
+#: admin/tab-pages_generator.php:124
 msgid "Meta"
 msgstr "Meta"
 
-#: admin/tab-pages_generator.php:188
+#: admin/tab-pages_generator.php:165
 msgid "Generate Pages"
 msgstr "Genereer pagina's"
 
@@ -1469,7 +1473,7 @@ msgstr "eShop"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:354
+#: classes/Pronamic/WP/Pay/Admin.php:407
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1494,7 +1498,7 @@ msgstr "Betaling"
 msgid "Log"
 msgstr "Log"
 
-#: classes/Pronamic/WP/Pay/Admin.php:229
+#: classes/Pronamic/WP/Pay/Admin.php:282
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
 "Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
@@ -1503,16 +1507,16 @@ msgstr ""
 "iDEAL API sleutel invoeren</a> om gebruik te maken van extra extensies, "
 "updates en support."
 
-#: classes/Pronamic/WP/Pay/Admin.php:327 classes/Pronamic/WP/Pay/Admin.php:328
+#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:335 classes/Pronamic/WP/Pay/Admin.php:336
+#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:344 classes/Pronamic/WP/Pay/Admin.php:345
+#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:398
 msgid "Tools"
 msgstr "Extra"
 
