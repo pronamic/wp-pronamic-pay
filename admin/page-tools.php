@@ -28,7 +28,10 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 				$classes[] = 'nav-tab-active';
 			}
 
-			$url = add_query_arg( 'tab', $tab );
+			$url = add_query_arg( array(
+				'page' => 'pronamic_pay_tools',
+				'tab'  => $tab,
+			), admin_url( 'admin.php' ) );
 
 			printf(
 				'<a class="nav-tab %s" href="%s">%s</a>',

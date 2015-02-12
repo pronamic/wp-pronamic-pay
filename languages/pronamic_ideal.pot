@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.3.3\n"
+"Project-Id-Version: Pronamic iDEAL 3.4.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-06 13:49:23+00:00\n"
+"POT-Creation-Date: 2015-02-12 13:11:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,7 +60,7 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:21
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:29
 msgid "General"
 msgstr ""
 
@@ -80,11 +80,11 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:52
+#: admin/tab-pages_generator.php:29
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/WP/Pay/Admin.php:309 classes/Pronamic/WP/Pay/Admin.php:310
+#: classes/Pronamic/WP/Pay/Admin.php:362 classes/Pronamic/WP/Pay/Admin.php:363
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -658,7 +658,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:89
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:417
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:98
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:111
 msgid "Email"
 msgstr ""
 
@@ -715,8 +715,8 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:319
-#: classes/Pronamic/WP/Pay/Admin.php:320 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:372
+#: classes/Pronamic/WP/Pay/Admin.php:373 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -742,7 +742,7 @@ msgstr ""
 msgid "iDEAL Status"
 msgstr ""
 
-#: admin/page-tools.php:6 admin/tab-pages_generator.php:39
+#: admin/page-tools.php:6 admin/tab-pages_generator.php:1
 msgid "Pages Generator"
 msgstr ""
 
@@ -846,7 +846,7 @@ msgid "Mollie bage - Betaling groen"
 msgstr ""
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
-#: admin/tab-pages_generator.php:118
+#: admin/tab-pages_generator.php:95
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:23
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:25
@@ -907,7 +907,7 @@ msgid "Event Espresso 4 Decaf"
 msgstr ""
 
 #: admin/tab-extensions.php:53
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:85
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:109
 msgid "Gravity Forms"
 msgstr ""
 
@@ -1168,87 +1168,91 @@ msgstr ""
 msgid "Wallie"
 msgstr ""
 
-#: admin/tab-pages_generator.php:42
+#: admin/tab-pages_generator.php:11
+msgid "Pages created."
+msgstr ""
+
+#: admin/tab-pages_generator.php:19
 msgid "This page allows you to easily create pages for each iDEAL payment status."
 msgstr ""
 
-#: admin/tab-pages_generator.php:53
+#: admin/tab-pages_generator.php:30
 msgid "ideal"
 msgstr ""
 
-#: admin/tab-pages_generator.php:60
+#: admin/tab-pages_generator.php:37
 msgid "iDEAL payment error"
 msgstr ""
 
-#: admin/tab-pages_generator.php:61
+#: admin/tab-pages_generator.php:38
 msgid "error"
 msgstr ""
 
-#: admin/tab-pages_generator.php:62
+#: admin/tab-pages_generator.php:39
 msgid "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
 msgstr ""
 
-#: admin/tab-pages_generator.php:68
+#: admin/tab-pages_generator.php:45
 msgid "iDEAL payment canceled"
 msgstr ""
 
-#: admin/tab-pages_generator.php:69
+#: admin/tab-pages_generator.php:46
 msgid "cancelled"
 msgstr ""
 
-#: admin/tab-pages_generator.php:70
+#: admin/tab-pages_generator.php:47
 msgid "<p>You canceled the iDEAL payment.</p>"
 msgstr ""
 
-#: admin/tab-pages_generator.php:76
+#: admin/tab-pages_generator.php:53
 msgid "iDEAL payment unknown"
 msgstr ""
 
-#: admin/tab-pages_generator.php:77
+#: admin/tab-pages_generator.php:54
 msgid "unknown"
 msgstr ""
 
-#: admin/tab-pages_generator.php:78
+#: admin/tab-pages_generator.php:55
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr ""
 
-#: admin/tab-pages_generator.php:84
+#: admin/tab-pages_generator.php:61
 msgid "iDEAL payment expired"
 msgstr ""
 
-#: admin/tab-pages_generator.php:85
+#: admin/tab-pages_generator.php:62
 msgid "expired"
 msgstr ""
 
-#: admin/tab-pages_generator.php:86
+#: admin/tab-pages_generator.php:63
 msgid "<p>Unfortunately your iDEAL payment session has expired.</p>"
 msgstr ""
 
-#: admin/tab-pages_generator.php:92
+#: admin/tab-pages_generator.php:69
 msgid "iDEAL payment completed"
 msgstr ""
 
-#: admin/tab-pages_generator.php:93
+#: admin/tab-pages_generator.php:70
 msgid "completed"
 msgstr ""
 
-#: admin/tab-pages_generator.php:94
+#: admin/tab-pages_generator.php:71
 msgid "<p>The payment process is successfully completed.</p>"
 msgstr ""
 
-#: admin/tab-pages_generator.php:128
+#: admin/tab-pages_generator.php:105
 msgid "Slug"
 msgstr ""
 
-#: admin/tab-pages_generator.php:138
+#: admin/tab-pages_generator.php:115
 msgid "Content"
 msgstr ""
 
-#: admin/tab-pages_generator.php:147
+#: admin/tab-pages_generator.php:124
 msgid "Meta"
 msgstr ""
 
-#: admin/tab-pages_generator.php:188
+#: admin/tab-pages_generator.php:165
 msgid "Generate Pages"
 msgstr ""
 
@@ -1362,7 +1366,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:79
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:28
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:36
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
@@ -1382,7 +1386,7 @@ msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:68
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:51
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:64
 msgid "iDEAL Options"
 msgstr ""
 
@@ -1418,7 +1422,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:354
+#: classes/Pronamic/WP/Pay/Admin.php:407
 msgid "Dashboard"
 msgstr ""
 
@@ -1443,22 +1447,22 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:229
+#: classes/Pronamic/WP/Pay/Admin.php:282
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
 "Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:327 classes/Pronamic/WP/Pay/Admin.php:328
+#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:335 classes/Pronamic/WP/Pay/Admin.php:336
+#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:344 classes/Pronamic/WP/Pay/Admin.php:345
+#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:398
 msgid "Tools"
 msgstr ""
 
@@ -1526,6 +1530,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:87
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:468
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:214
 msgid "Error"
 msgstr ""
 
@@ -1542,7 +1547,7 @@ msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:67
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:50
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:63
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -1576,7 +1581,7 @@ msgstr ""
 
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:210
 #: vendor/wp-pay/core/src/Gateway.php:405
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:62
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 msgid "Pay"
 msgstr ""
 
@@ -1793,7 +1798,7 @@ msgstr ""
 msgid "Transaction Description"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:90
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:114
 msgid "Entry #%s"
 msgstr ""
 
@@ -2173,15 +2178,15 @@ msgstr ""
 msgid "lifetime"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:59
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:72
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:60
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:73
 msgid "iDEAL Buttons"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:61
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:72
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
