@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-09 12:55:28+00:00\n"
-"PO-Revision-Date: 2015-02-09 13:56+0100\n"
+"POT-Creation-Date: 2015-02-12 13:11:13+00:00\n"
+"PO-Revision-Date: 2015-02-12 14:13+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -61,7 +61,7 @@ msgstr "Betaling %d"
 
 #: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:21
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:29
 msgid "General"
 msgstr "Algemeen"
 
@@ -701,7 +701,7 @@ msgstr "Status"
 
 #: admin/meta-box-payment-info.php:89
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:417
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:98
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:111
 msgid "Email"
 msgstr "E-mail"
 
@@ -953,7 +953,7 @@ msgid "Event Espresso 4 Decaf"
 msgstr "Event Espresso 4 Decaf"
 
 #: admin/tab-extensions.php:53
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:85
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:109
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -1417,7 +1417,7 @@ msgstr "Pronamic iDEAL"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:79
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:28
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:36
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
@@ -1437,7 +1437,7 @@ msgstr "Betaal met iDEAL"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:68
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:51
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:64
 msgid "iDEAL Options"
 msgstr "iDEAL-instellingen"
 
@@ -1585,6 +1585,7 @@ msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WP/Pay/Settings.php:87
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:468
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:214
 msgid "Error"
 msgstr "Fout"
 
@@ -1601,7 +1602,7 @@ msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:67
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:50
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:63
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
 
@@ -1637,7 +1638,7 @@ msgstr "iDEAL - Online betalen via uw eigen bank"
 
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:210
 #: vendor/wp-pay/core/src/Gateway.php:405
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:62
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 msgid "Pay"
 msgstr "Betalen"
 
@@ -1858,7 +1859,7 @@ msgstr "Formulier"
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:90
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:114
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -2254,15 +2255,15 @@ msgstr "1 jaar"
 msgid "lifetime"
 msgstr "lifetime"
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:59
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:72
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr "Pronamic iDEAL buttons generator"
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:60
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:73
 msgid "iDEAL Buttons"
 msgstr "iDEAL-buttons"
 
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:61
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:72
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr "iDEAL s2Member betaling || {{order_id}}"
 

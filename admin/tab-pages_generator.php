@@ -6,7 +6,7 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 	$message_id = filter_input( INPUT_GET, 'message', FILTER_SANITIZE_STRING );
 
 	if ( '1' == $message_id ) {
-		printf( 
+		printf(
 			'<div id="message" class="updated"><p>%s</p></div>',
 			__( 'Pages created.', 'pronamic_ideal' )
 		);

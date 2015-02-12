@@ -30,7 +30,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 
 			$url = add_query_arg( array(
 				'page' => 'pronamic_pay_tools',
-				'tab'  => $tab
+				'tab'  => $tab,
 			), admin_url( 'admin.php' ) );
 
 			printf(

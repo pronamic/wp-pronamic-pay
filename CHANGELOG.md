@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.0
+*	Tweak - Updated WordPress pay s2Member library to version 1.1.0.
+*	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.0.
+*	Tweak - Updated WordPress pay Shopp library to version 1.0.0.
+
 ## 3.3.3
 *	Tweak - Updated WordPress pay iDEAL Basic library to version 1.0.1.
 *	Tweak - Updated WordPress pay iThemes Exchange library to version 1.0.1.
