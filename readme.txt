@@ -1,10 +1,10 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
-Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
+Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 3.4.0
+Stable tag: 3.4.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -275,6 +275,9 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 3.4.1 =
+*	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.1.
 
 = 3.4.0 =
 *	Tweak - Updated WordPress pay s2Member library to version 1.1.0.
