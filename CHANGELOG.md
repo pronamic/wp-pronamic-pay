@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.4.1
+*	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.1.
+
 ## 3.4.0
 *	Tweak - Updated WordPress pay s2Member library to version 1.1.0.
 *	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.0.
