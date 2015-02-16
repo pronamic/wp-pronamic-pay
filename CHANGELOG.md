@@ -1,9 +1,12 @@
 # Changelog
 
-## 3.4.3
+## 3.5.0
 *	Tweak - Updated WordPress pay ICEPAY library to version 1.1.0.
 *	Tweak - Added context to the ICEPAY admin labels and inmproved Dutch translations.
 *	Tweak - Changed the ICEPAY login URL's to the new portal login URL's.
+*	Tweak - Updated WordPress pay core library to version 1.0.1.
+*	Tweak - Updated WordPress pay Mollie library to version 1.1.0.
+*	Tweak - Updated Wordpress pay WooCommerce library to version 1.1.0.
 
 ## 3.4.2
 *	Tweak - Updated WordPress pay Event Espresso library to version 1.0.2.

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-16 12:15:26+00:00\n"
-"PO-Revision-Date: 2015-02-16 13:18+0100\n"
+"POT-Creation-Date: 2015-02-16 13:53:05+00:00\n"
+"PO-Revision-Date: 2015-02-16 14:54+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1028,7 +1028,7 @@ msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:172
 #: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:150
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:152
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -1548,11 +1548,11 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op "
 "een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:419
+#: classes/Pronamic/WP/Pay/Plugin.php:423
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:541
+#: classes/Pronamic/WP/Pay/Plugin.php:545
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -1607,7 +1607,7 @@ msgstr "Pronamic iDEAL instellingen"
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:164
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:166
 msgid "Order %s"
 msgstr "Bestelling %s"
 
@@ -1750,19 +1750,19 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:112
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:123
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:131
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -2130,12 +2130,12 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:95
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:97
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:103
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:105
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
@@ -2311,15 +2311,15 @@ msgid "This controls the payment description."
 msgstr "Hiermee beheer je de betalingsomschrijving."
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:197
-msgid "Awaiting iDEAL payment."
-msgstr "In afwachting van iDEAL-betaling."
+msgid "Awaiting payment."
+msgstr "Wachten op betaling."
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:223
 msgid ""
-"You have to select an iDEAL configuration on the <a href=\"%s\">WooCommerce "
+"You have to select an gateway configuration on the <a href=\"%s\">WooCommerce "
 "checkout settings page</a>."
 msgstr ""
-"Je moet een iDEAL-configuratie selecteren op de <a href=\"%s\">WooCommerce "
+"Je moet een gateway configuratie selecteren op de <a href=\"%s\">WooCommerce "
 "afrekenen instellingen pagina</a>."
 
 #: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:38
@@ -2337,6 +2337,14 @@ msgstr "Bestelling {order_number}"
 #: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:83
 msgid "WooCommerce order %s"
 msgstr "WooCommerce bestelling %s"
+
+#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:26
+msgid "SOFORT Banking"
+msgstr "SOFORT Banking"
+
+#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:38
+msgid "Enable SOFORT Banking"
+msgstr "SOFORT Banking inschakelen"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:138
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:135
