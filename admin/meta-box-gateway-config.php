@@ -258,8 +258,8 @@ $sections = array(
 				'type'        => 'text',
 				'description' => sprintf(
 					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/EN/Login', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
+					__( 'https://portal.icepay.com/EN/Login', 'pronamic_ideal' ),
+					__( 'https://portal.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
 				),
 			),
 			array(
@@ -269,8 +269,8 @@ $sections = array(
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf(
 					__( 'You can find your Secret Code on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/EN/Login', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
+					__( 'https://portal.icepay.com/EN/Login', 'pronamic_ideal' ),
+					__( 'https://portal.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
 				),
 			),
 			array(
