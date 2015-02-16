@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f3182f8eb332eb90086ec8efc7c556e",
+    "hash": "5ad95525f645cad2eafa0ca033e62619",
     "packages": [
         {
             "name": "composer/installers",
@@ -102,16 +102,16 @@
         },
         {
             "name": "icepay/icepay",
-            "version": "dev-develop",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/icepay/icepay.git",
-                "reference": "d20153234896ebca244c795b48c2e107370fe373"
+                "reference": "53de4fb4db4e4916a4f7075ba92b04fe11ee1d6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/icepay/icepay/zipball/d20153234896ebca244c795b48c2e107370fe373",
-                "reference": "d20153234896ebca244c795b48c2e107370fe373",
+                "url": "https://api.github.com/repos/icepay/icepay/zipball/53de4fb4db4e4916a4f7075ba92b04fe11ee1d6a",
+                "reference": "53de4fb4db4e4916a4f7075ba92b04fe11ee1d6a",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "icepay",
                 "payment"
             ],
-            "time": "2015-02-16 10:52:40"
+            "time": "2015-02-16 11:12:49"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -725,20 +725,20 @@
         },
         {
             "name": "wp-pay-gateways/icepay",
-            "version": "dev-develop",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/icepay.git",
-                "reference": "ac696444afb7d918e0f3ed809b8b1791e96c66a3"
+                "reference": "c779024e83f0f31e47eeda57940f6918fbd958fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/ac696444afb7d918e0f3ed809b8b1791e96c66a3",
-                "reference": "ac696444afb7d918e0f3ed809b8b1791e96c66a3",
+                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/c779024e83f0f31e47eeda57940f6918fbd958fb",
+                "reference": "c779024e83f0f31e47eeda57940f6918fbd958fb",
                 "shasum": ""
             },
             "require": {
-                "icepay/icepay": "dev-develop",
+                "icepay/icepay": "~2.4.0",
                 "php": ">=5.2.4",
                 "wp-pay/core": "~1.0.0"
             },
@@ -780,7 +780,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-02-16 10:55:59"
+            "time": "2015-02-16 11:20:10"
         },
         {
             "name": "wp-pay-gateways/ideal",
@@ -2331,8 +2331,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "icepay/icepay": 20,
-        "wp-pay-gateways/icepay": 20,
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
