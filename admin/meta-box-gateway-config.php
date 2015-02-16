@@ -254,7 +254,7 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_merchant_id',
-				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+				'title'       => _x( 'Merchant ID', 'icepay', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => sprintf(
 					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
@@ -264,7 +264,7 @@ $sections = array(
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_secret_code',
-				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
+				'title'       => _x( 'Secret Code', 'icepay', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf(
