@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-16 09:49:40+00:00\n"
-"PO-Revision-Date: 2015-02-16 10:53+0100\n"
+"POT-Creation-Date: 2015-02-16 12:15:26+00:00\n"
+"PO-Revision-Date: 2015-02-16 13:18+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -104,7 +104,6 @@ msgid "iDEAL"
 msgstr "iDEAL"
 
 #: admin/meta-box-gateway-config.php:57 admin/meta-box-gateway-config.php:205
-#: admin/meta-box-gateway-config.php:257
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:126
 msgid "Merchant ID"
 msgstr "Winkelier ID"
@@ -280,16 +279,12 @@ msgstr ""
 "account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
 #: admin/meta-box-gateway-config.php:261 admin/meta-box-gateway-config.php:272
-msgid "https://www.icepay.com/EN/Login"
-msgstr "https://www.icepay.com/NL/Login"
+msgid "https://portal.icepay.com/EN/Login"
+msgstr "https://portal.icepay.com/NL/Login"
 
 #: admin/meta-box-gateway-config.php:262 admin/meta-box-gateway-config.php:273
-msgid "https://www.icepay.com/Merchant/EN/Websites"
-msgstr "https://www.icepay.com/Merchant/NL/Websites"
-
-#: admin/meta-box-gateway-config.php:267
-msgid "Secret Code"
-msgstr "Geheime code"
+msgid "https://portal.icepay.com/Merchant/EN/Websites"
+msgstr "https://portal.icepay.com/Merchant/NL/Websites"
 
 #: admin/meta-box-gateway-config.php:271
 msgid ""
@@ -2619,6 +2614,16 @@ msgstr "Provider"
 msgctxt "mollie"
 msgid "API Key"
 msgstr "API key"
+
+#: admin/meta-box-gateway-config.php:257
+msgctxt "icepay"
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#: admin/meta-box-gateway-config.php:267
+msgctxt "icepay"
+msgid "Secret Code"
+msgstr "Secret code"
 
 #: admin/meta-box-gateway-config.php:305
 msgctxt "sisow"
