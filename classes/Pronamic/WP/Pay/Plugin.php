@@ -388,14 +388,14 @@ class Pronamic_WP_Pay_Plugin {
 			switch ( $payment_method ) {
 				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
-					$gateways[] = 'icepay';
+					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'mollie';
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
-					$gateways[] = 'icepay';
+					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
