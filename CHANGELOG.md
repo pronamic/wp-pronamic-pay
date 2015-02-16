@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.4.2
+*	Tweak - Updated WordPress pay Event Espresso library to version 1.0.2.
+
 ## 3.4.1
 *	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.1.
 
