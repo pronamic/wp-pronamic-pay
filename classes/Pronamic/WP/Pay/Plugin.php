@@ -403,6 +403,10 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
+					$gateways[] = 'mollie';
+
+					break;
 			}
 
 			$args['meta_query'] = array(
