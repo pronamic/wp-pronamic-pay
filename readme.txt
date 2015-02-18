@@ -283,6 +283,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - Updated WordPress pay core library to version 1.0.1.
 *	Tweak - Updated WordPress pay Mollie library to version 1.1.0.
 *	Tweak - Updated Wordpress pay WooCommerce library to version 1.1.0.
+*	Tweak - Updated Wordpress pay Ogone library to version 1.1.0.
 
 = 3.4.2 =
 *	Tweak - Updated WordPress pay Event Espresso library to version 1.0.2.
