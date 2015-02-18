@@ -396,6 +396,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'icepay-ideal';
+					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
