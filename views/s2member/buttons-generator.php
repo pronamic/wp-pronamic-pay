@@ -80,7 +80,7 @@
 						</p>
 						<p>
 							<?php _e( 'Button text:', 'pronamic_ideal' ); ?>
-							<input type='text' size='60' class='jPronamicIdealButtonTextShortcode'/>
+							<input type='text' size='50' class='jPronamicIdealButtonTextShortcode'/>
 							<?php printf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), __( 'Pay', 'pronamic_ideal' ) ); ?>
 						</p>
 						<p>
