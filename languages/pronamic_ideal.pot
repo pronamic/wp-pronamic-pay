@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.5.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-19 08:32:52+00:00\n"
+"POT-Creation-Date: 2015-02-19 08:25:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -414,6 +414,7 @@ msgstr ""
 #: admin/meta-box-gateway-config.php:441
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
+#: views/s2member/buttons-generator.php:84
 msgid "Default: <code>%s</code>."
 msgstr ""
 
@@ -472,11 +473,11 @@ msgstr ""
 msgid "Private Key Password"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:542 admin/meta-box-gateway-config.php:925
+#: admin/meta-box-gateway-config.php:542 admin/meta-box-gateway-config.php:904
 msgid "Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:549 admin/meta-box-gateway-config.php:949
+#: admin/meta-box-gateway-config.php:549 admin/meta-box-gateway-config.php:928
 msgid "Private Certificate"
 msgstr ""
 
@@ -590,21 +591,17 @@ msgstr ""
 msgid "Variant"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:706
-msgid "%s (obsoleted)"
-msgstr ""
-
-#: admin/meta-box-gateway-config.php:914
+#: admin/meta-box-gateway-config.php:893
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:918
+#: admin/meta-box-gateway-config.php:897
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:934
+#: admin/meta-box-gateway-config.php:913
 msgid "filename"
 msgstr ""
 
@@ -1581,6 +1578,7 @@ msgstr ""
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:210
 #: vendor/wp-pay/core/src/Gateway.php:405
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
+#: views/s2member/buttons-generator.php:84
 msgid "Pay"
 msgstr ""
 
@@ -2468,27 +2466,31 @@ msgstr ""
 msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 
-#: views/s2member/buttons-generator.php:41
+#: views/s2member/buttons-generator.php:45
 msgid "Generator"
 msgstr ""
 
-#: views/s2member/buttons-generator.php:55
+#: views/s2member/buttons-generator.php:59
 msgid "I want to charge: %s / %s"
 msgstr ""
 
-#: views/s2member/buttons-generator.php:69
+#: views/s2member/buttons-generator.php:73
 msgid "for access to level %s content"
 msgstr ""
 
-#: views/s2member/buttons-generator.php:74
+#: views/s2member/buttons-generator.php:78
 msgid "Description:"
 msgstr ""
 
-#: views/s2member/buttons-generator.php:78
+#: views/s2member/buttons-generator.php:82
+msgid "Button text:"
+msgstr ""
+
+#: views/s2member/buttons-generator.php:87
 msgid "Generate Shortcode"
 msgstr ""
 
-#: views/s2member/buttons-generator.php:83
+#: views/s2member/buttons-generator.php:92
 msgid "Shortcode"
 msgstr ""
 
