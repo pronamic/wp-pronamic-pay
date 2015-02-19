@@ -254,23 +254,23 @@ $sections = array(
 		'fields'  => array(
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_merchant_id',
-				'title'       => __( 'Merchant ID', 'pronamic_ideal' ),
+				'title'       => _x( 'Merchant ID', 'icepay', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'description' => sprintf(
 					__( 'You can find your Merchant ID on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/EN/Login', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
+					__( 'https://portal.icepay.com/EN/Login', 'pronamic_ideal' ),
+					__( 'https://portal.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
 				),
 			),
 			array(
 				'meta_key'    => '_pronamic_gateway_icepay_secret_code',
-				'title'       => __( 'Secret Code', 'pronamic_ideal' ),
+				'title'       => _x( 'Secret Code', 'icepay', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
 				'description' => sprintf(
 					__( 'You can find your Secret Code on your <a href="%s" target="_blank">ICEPAY account page</a> under <a href="%s" target="_blank">My websites</a>.', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/EN/Login', 'pronamic_ideal' ),
-					__( 'https://www.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
+					__( 'https://portal.icepay.com/EN/Login', 'pronamic_ideal' ),
+					__( 'https://portal.icepay.com/Merchant/EN/Websites', 'pronamic_ideal' )
 				),
 			),
 			array(
@@ -687,19 +687,40 @@ function pronamic_ideal_private_certificate_field( $field ) {
 				</label>
 			</th>
 			<td>
-                <select id="pronamic_gateway_id" name="_pronamic_gateway_id">
-                	<option value=""></option>
+				<select id="pronamic_gateway_id" name="_pronamic_gateway_id">
+					<option value=""></option>
 
-                	<?php foreach ( $pronamic_pay_providers as $provider ) : ?>
-                		<?php if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) : ?>
-							<optgroup label="<?php echo $provider['name']; ?>">
-								<?php foreach ( $provider['gateways']  as $id => $gateway ) : ?>
-									<option data-ideal-method="<?php echo $gateway['gateway']; ?>" value="<?php echo $id; ?>" <?php selected( $variant_id, $id ); ?> class="<?php if ( isset( $gateway['deprecated'] ) && $gateway['deprecated'] ) : ?>deprecated<?php endif; ?>"><?php echo $gateway['name']; ?></option>
-								<?php endforeach; ?>
-							</optgroup>
-						<?php endif; ?>
-					<?php endforeach; ?>
+					<?php
 
+					foreach ( $pronamic_pay_providers as $provider ) {
+						if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) {
+							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
+
+							foreach ( $provider['gateways']  as $id => $gateway ) {
+								$classes = array();
+								$name    = $gateway['name'];
+
+								if ( isset( $gateway['deprecated'] ) && $gateway['deprecated'] ) {
+									$classes[] = 'deprecated';
+
+									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
+								}
+
+								printf(
+									'<option data-ideal-method="%s" value="%s" %s class="%s">%s</option>',
+									esc_attr( $gateway['gateway'] ),
+									esc_attr( $id ),
+									selected( $variant_id, $id, false ),
+									esc_attr( implode( ' ', $classes ) ),
+									esc_attr( $name )
+								);
+							}
+
+							printf( '</optgroup>' );
+						}
+					}
+
+					?>
                	</select>
 			</td>
 		</tr>

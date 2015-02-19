@@ -8,6 +8,7 @@
 					period = jQuery( '.jPronamicIdealPeriodShortcode' ),
 					level = jQuery( '.jPronamicIdealLevelShortcode' ),
 					description = jQuery( '.jPronamicIdealDescriptionShortcode' ),
+					button_text = jQuery( '.jPronamicIdealButtonTextShortcode' ),
 					generate_button = jQuery( '.jPronamicIdealGenerateShortcode' ),
 					output = jQuery( '.jPronamicIdealButtonShortcodeOutput' );
 
@@ -27,6 +28,9 @@
 
 					if ( description.val().length > 0 )
 						shortcode += 'description="' + description.val() + ' {{order_id}}" ';
+
+					if ( button_text.val().length > 0 )
+						shortcode += 'button_text="' + button_text.val() + '" ';
 
 					shortcode += ']';
 
@@ -73,6 +77,11 @@
 						<p>
 							<?php _e( 'Description:', 'pronamic_ideal' ); ?>
 							<input type='text' size='70' class='jPronamicIdealDescriptionShortcode'/>
+						</p>
+						<p>
+							<?php _e( 'Button text:', 'pronamic_ideal' ); ?>
+							<input type='text' size='50' class='jPronamicIdealButtonTextShortcode'/>
+							<?php printf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), __( 'Pay', 'pronamic_ideal' ) ); ?>
 						</p>
 						<p>
 							<a class="button-primary jPronamicIdealGenerateShortcode"><?php _e( 'Generate Shortcode', 'pronamic_ideal' ); ?></a>
