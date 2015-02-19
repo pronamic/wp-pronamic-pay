@@ -687,14 +687,14 @@ function pronamic_ideal_private_certificate_field( $field ) {
 				</label>
 			</th>
 			<td>
-                <select id="pronamic_gateway_id" name="_pronamic_gateway_id">
-                	<option value=""></option>
+				<select id="pronamic_gateway_id" name="_pronamic_gateway_id">
+					<option value=""></option>
 
-                	<?php
+					<?php
 
-                	foreach ( $pronamic_pay_providers as $provider ) {
-                		if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) {
-                			printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
+					foreach ( $pronamic_pay_providers as $provider ) {
+						if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) {
+							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
 
 							foreach ( $provider['gateways']  as $id => $gateway ) {
 								$classes = array();
