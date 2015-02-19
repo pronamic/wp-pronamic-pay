@@ -19,20 +19,6 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp',
 		),
 	),
-	'abnamro-ideal-hosted' => array(
-		'provider'   => 'abnamro',
-		'gateway'    => 'ideal_basic',
-		'name'       => 'ABN AMRO - iDEAL Hosted',
-		'test'       => array(
-			'payment_server_url' => 'https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do',
-			'dashboard_url'      => 'https://abnamro-test.ideal-payment.de/',
-		),
-		'live'       => array(
-			'payment_server_url' => 'https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do',
-			'dashboard_url'      => 'https://abnamro.ideal-payment.de/',
-		),
-		'deprecated' => true,
-	),
 	'abnamro-ideal-only-kassa' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ogone_orderstandard',
@@ -61,6 +47,37 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/backoffice',
 		),
 	),
+	'abnamro-ideal-zelfbouw-v3' => array(
+		'provider' => 'abnamro',
+		'gateway'  => 'ideal_advanced_v3',
+		'name'     => 'ABN AMRO - iDEAL Zelfbouw - v3',
+		'url'      => 'https://abnamro.ideal-payment.de/',
+		'test'     => array(
+			'payment_server_url'      => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
+			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/',
+		),
+		'live'     => array(
+			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
+			'dashboard_url'           => 'https://abnamro.ideal-payment.de/',
+		),
+		'certificates' => array(
+			'certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer'
+		),
+	),
+	'abnamro-ideal-hosted' => array(
+		'provider'   => 'abnamro',
+		'gateway'    => 'ideal_basic',
+		'name'       => 'ABN AMRO - iDEAL Hosted',
+		'test'       => array(
+			'payment_server_url' => 'https://abnamro-test.ideal-payment.de/ideal/mpiPayInitFortis.do',
+			'dashboard_url'      => 'https://abnamro-test.ideal-payment.de/',
+		),
+		'live'       => array(
+			'payment_server_url' => 'https://abnamro.ideal-payment.de/ideal/mpiPayInitFortis.do',
+			'dashboard_url'      => 'https://abnamro.ideal-payment.de/',
+		),
+		'deprecated' => true,
+	),
 	'abnamro-ideal-zelfbouw' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ideal_advanced',
@@ -84,23 +101,6 @@ $pronamic_pay_gateways = array(
 			'certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer'
 		),
 		'deprecated' => true,
-	),
-	'abnamro-ideal-zelfbouw-v3' => array(
-		'provider' => 'abnamro',
-		'gateway'  => 'ideal_advanced_v3',
-		'name'     => 'ABN AMRO - iDEAL Zelfbouw - v3',
-		'url'      => 'https://abnamro.ideal-payment.de/',
-		'test'     => array(
-			'payment_server_url'      => 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3',
-			'dashboard_url'           => 'https://abnamro-test.ideal-payment.de/',
-		),
-		'live'     => array(
-			'payment_server_url'      => 'https://abnamro.ideal-payment.de/ideal/iDEALv3',
-			'dashboard_url'           => 'https://abnamro.ideal-payment.de/',
-		),
-		'certificates' => array(
-			'certificates/abnamro-ideal-zelfbouw/abnamro.integrated.cer'
-		),
 	),
 	/*
 	// Adyen
@@ -235,6 +235,22 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://idealkassa.frieslandbank.nl/',
 		),
 	),
+	'frieslandbank-ideal-zakelijk-plus-v3' => array(
+		'provider' => 'frieslandbank',
+		'gateway'  => 'ideal_advanced_v3',
+		'name'     => 'Friesland Bank - iDEAL Zakelijk Plus - v3',
+		'test'     => array(
+			'payment_server_url' => 'https://testidealkassa.frieslandbank.nl/ideal/iDEALv3',
+			'dashboard_url'      => 'https://testidealkassa.frieslandbank.nl/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://idealkassa.frieslandbank.nl/ideal/iDEALv3',
+			'dashboard_url'      => 'https://idealkassa.frieslandbank.nl/',
+		),
+		'certificates' => array(
+			'certificates/frieslandbank-ideal-zakelijk-plus-v3/frieslandbank.cer',
+		),
+	),
 	'frieslandbank-ideal-zakelijk-plus' => array(
 		'provider' => 'frieslandbank',
 		'gateway'  => 'ideal_advanced',
@@ -251,22 +267,6 @@ $pronamic_pay_gateways = array(
 			'certificates/frieslandbank-ideal-zakelijke-plus/cert.cer',
 		),
 		'deprecated' => true,
-	),
-	'frieslandbank-ideal-zakelijk-plus-v3' => array(
-		'provider' => 'frieslandbank',
-		'gateway'  => 'ideal_advanced_v3',
-		'name'     => 'Friesland Bank - iDEAL Zakelijk Plus - v3',
-		'test'     => array(
-			'payment_server_url' => 'https://testidealkassa.frieslandbank.nl/ideal/iDEALv3',
-			'dashboard_url'      => 'https://testidealkassa.frieslandbank.nl/',
-		),
-		'live'     => array(
-			'payment_server_url' => 'https://idealkassa.frieslandbank.nl/ideal/iDEALv3',
-			'dashboard_url'      => 'https://idealkassa.frieslandbank.nl/',
-		),
-		'certificates' => array(
-			'certificates/frieslandbank-ideal-zakelijk-plus-v3/frieslandbank.cer',
-		),
 	),
 	// ICEPAY
 	'icepay-ideal' => array(
@@ -287,6 +287,20 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/lite/',
 		),
 	),
+	'ideal-simulator-ideal-advanced-v3' => array(
+		'provider' => 'ideal-simulator',
+		'gateway'  => 'ideal_advanced_v3',
+		'name'     => 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3',
+		'test'     => array(
+			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
+		),
+		'certificates' => array(
+			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',
+		),
+	),
 	'ideal-simulator-ideal-advanced' => array(
 		'provider' => 'ideal-simulator',
 		'gateway'  => 'ideal_advanced',
@@ -302,20 +316,6 @@ $pronamic_pay_gateways = array(
 			'certificates/ideal-simulator-ideal-advanced/simulator0.cer',
 		),
 		'deprecated' => true,
-	),
-	'ideal-simulator-ideal-advanced-v3' => array(
-		'provider' => 'ideal-simulator',
-		'gateway'  => 'ideal_advanced_v3',
-		'name'     => 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3',
-		'test'     => array(
-			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
-		),
-		'live'     => array(
-			'payment_server_url' => 'https://www.ideal-checkout.nl/simulator/',
-		),
-		'certificates' => array(
-			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',
-		),
 	),
 	// ING
 	'ing-ideal-basic' => array(
@@ -344,24 +344,6 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://twyp.secure-ing.com/ncol/prod/admin_TWYP.asp',
 		),
 	),
-	'ing-ideal-advanced' => array(
-		'provider' => 'ing',
-		'gateway'  => 'ideal_advanced',
-		'name'     => 'ING - iDEAL Advanced',
-		'test'     => array(
-			'payment_server_url' => 'https://idealtest.secure-ing.com/ideal/iDeal',
-			'dashboard_url'      => 'https://idealtest.secure-ing.com/',
-		),
-		'live'     => array(
-			'payment_server_url' => 'https://ideal.secure-ing.com/ideal/iDeal',
-			'dashboard_url'      => 'https://ideal.secure-ing.com/',
-		),
-		'certificates' => array(
-			'certificates/ing-ideal-advanced/ingbank.cer',
-			'certificates/ing-ideal-advanced/ingbank-0.cer',
-		),
-		'deprecated' => true,
-	),
 	'ing-ideal-advanced-v3' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ideal_advanced_v3',
@@ -378,6 +360,24 @@ $pronamic_pay_gateways = array(
 			'certificates/ing-ideal-advanced-v3/ingbank.cer',
 		),
 	),
+	'ing-ideal-advanced' => array(
+		'provider' => 'ing',
+		'gateway'  => 'ideal_advanced',
+		'name'     => 'ING - iDEAL Advanced',
+		'test'     => array(
+			'payment_server_url' => 'https://idealtest.secure-ing.com/ideal/iDeal',
+			'dashboard_url'      => 'https://idealtest.secure-ing.com/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://ideal.secure-ing.com/ideal/iDeal',
+			'dashboard_url'      => 'https://ideal.secure-ing.com/',
+		),
+		'certificates' => array(
+			'certificates/ing-ideal-advanced/ingbank.cer',
+			'certificates/ing-ideal-advanced/ingbank-0.cer',
+		),
+		'deprecated'   => true,
+	),
 	// Mollie
 	'mollie' => array(
 		'provider'      => 'mollie',
@@ -391,7 +391,7 @@ $pronamic_pay_gateways = array(
 		'gateway'       => 'mollie_ideal',
 		'name'          => 'Mollie - iDEAL',
 		'dashboard_url' => 'http://www.mollie.nl/',
-		'deprecated' => true,
+		'deprecated'    => true,
 	),
 	'mollie-ideal-basic' => array(
 		'provider'      => 'mollie',
@@ -404,7 +404,7 @@ $pronamic_pay_gateways = array(
 		'live'          => array(
 			'payment_server_url' => 'https://secure.mollie.nl/xml/idealAcquirer/lite/',
 		),
-		'deprecated' => true,
+		'deprecated'    => true,
 	),
 	'mollie-ideal-advanced' => array(
 		'provider'      => 'mollie',
@@ -501,6 +501,21 @@ $pronamic_pay_gateways = array(
 		'dashboard_url' => 'http://paytor.com/',
 	),
 	// Rabobank
+	'rabobank-omnikassa' => array(
+		'provider'      => 'rabobank',
+		'gateway'       => 'omnikassa',
+		'name'          => 'Rabobank - OmniKassa',
+		'dashboard_url' => 'https://dashboard.omnikassa.rabobank.nl/',
+		'test'     => array(
+			'payment_server_url' => 'https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet',
+			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet',
+			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
+		),
+		'methods'       => array( 'ideal', 'mister_cash' ),
+	),
 	'rabobank-ideal-lite' => array(
 		'provider' => 'rabobank',
 		'gateway'  => 'ideal_basic',
@@ -512,6 +527,22 @@ $pronamic_pay_gateways = array(
 		'live'     => array(
 			'payment_server_url' => 'https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do',
 			'dashboard_url'      => 'https://ideal.rabobank.nl/',
+		),
+	),
+	'rabobank-ideal-professional-v3' => array(
+		'provider' => 'rabobank',
+		'gateway'  => 'ideal_advanced_v3',
+		'name'     => 'Rabobank - iDEAL Professional - v3',
+		'test'     => array(
+			'payment_server_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
+			'dashboard_url'      => 'https://idealtest.rabobank.nl/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://ideal.rabobank.nl/ideal/iDEALv3',
+			'dashboard_url'      => 'https://ideal.rabobank.nl/',
+		),
+		'certificates'           => array(
+			'certificates/rabobank-ideal-professional-v3/rabobank.cer',
 		),
 	),
 	'rabobank-ideal-kassa' => array(
@@ -527,21 +558,6 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://i-kassa.rabobank.nl/rik/prod/orderstandard.asp',
 			'dashboard_url'      => 'https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp',
 		),
-	),
-	'rabobank-omnikassa' => array(
-		'provider'      => 'rabobank',
-		'gateway'       => 'omnikassa',
-		'name'          => 'Rabobank - OmniKassa',
-		'dashboard_url' => 'https://dashboard.omnikassa.rabobank.nl/',
-		'test'     => array(
-			'payment_server_url' => 'https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet',
-			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
-		),
-		'live'     => array(
-			'payment_server_url' => 'https://payment-webinit.omnikassa.rabobank.nl/paymentServlet',
-			'download_url'       => 'https://download.omnikassa.rabobank.nl/',
-		),
-		'methods'       => array( 'ideal', 'mister_cash' ),
 	),
 	'rabobank-ideal-professional' => array(
 		'provider' => 'rabobank',
@@ -560,22 +576,6 @@ $pronamic_pay_gateways = array(
 			'certificates/rabobank-ideal-professional/ideal_v2.cer',
 		),
 		'deprecated' => true,
-	),
-	'rabobank-ideal-professional-v3' => array(
-		'provider' => 'rabobank',
-		'gateway'  => 'ideal_advanced_v3',
-		'name'     => 'Rabobank - iDEAL Professional - v3',
-		'test'     => array(
-			'payment_server_url' => 'https://idealtest.rabobank.nl/ideal/iDEALv3',
-			'dashboard_url'      => 'https://idealtest.rabobank.nl/',
-		),
-		'live'     => array(
-			'payment_server_url' => 'https://ideal.rabobank.nl/ideal/iDEALv3',
-			'dashboard_url'      => 'https://ideal.rabobank.nl/',
-		),
-		'certificates'           => array(
-			'certificates/rabobank-ideal-professional-v3/rabobank.cer',
-		),
 	),
 	// Sisow
 	'sisow-ideal' => array(
