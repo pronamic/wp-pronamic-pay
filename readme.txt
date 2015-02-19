@@ -285,6 +285,7 @@ Here is a list of known plugin conflicts:
 *	Tweak - Updated Wordpress pay WooCommerce library to version 1.1.0.
 *	Tweak - Updated Wordpress pay Ogone library to version 1.1.0.
 *	Tweak - Updated Wordpress pay OmniKassa library to version 1.1.0.
+*	Tweak - Added obsoleted text to deprecated gateways.
 
 = 3.4.2 =
 *	Tweak - Updated WordPress pay Event Espresso library to version 1.0.2.
