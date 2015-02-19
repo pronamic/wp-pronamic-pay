@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.5.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-02-16 13:53:05+00:00\n"
+"POT-Creation-Date: 2015-02-19 08:32:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -103,7 +103,7 @@ msgid "iDEAL"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:57 admin/meta-box-gateway-config.php:205
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:126
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:177
 msgid "Merchant ID"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgid "Secret Key"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:217
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:130
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:181
 msgid "Key Version"
 msgstr ""
 
@@ -402,8 +402,8 @@ msgid "User ID"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:432
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:132
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:127
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:143
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:178
 msgid "Order ID"
 msgstr ""
 
@@ -472,11 +472,11 @@ msgstr ""
 msgid "Private Key Password"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:542 admin/meta-box-gateway-config.php:904
+#: admin/meta-box-gateway-config.php:542 admin/meta-box-gateway-config.php:925
 msgid "Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:549 admin/meta-box-gateway-config.php:928
+#: admin/meta-box-gateway-config.php:549 admin/meta-box-gateway-config.php:949
 msgid "Private Certificate"
 msgstr ""
 
@@ -590,17 +590,21 @@ msgstr ""
 msgid "Variant"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:893
+#: admin/meta-box-gateway-config.php:706
+msgid "%s (obsoleted)"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:914
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:897
+#: admin/meta-box-gateway-config.php:918
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:913
+#: admin/meta-box-gateway-config.php:934
 msgid "filename"
 msgstr ""
 
@@ -631,8 +635,8 @@ msgstr ""
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:143
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:134
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:122
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:173
 msgid "Amount"
 msgstr ""
 
@@ -646,8 +650,8 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:75
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:131
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:137
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:142
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:148
 msgid "Status"
 msgstr ""
 
@@ -1493,11 +1497,11 @@ msgid ""
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:423
+#: classes/Pronamic/WP/Pay/Plugin.php:426
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:545
+#: classes/Pronamic/WP/Pay/Plugin.php:548
 msgid "Payment for %s"
 msgstr ""
 
@@ -1507,7 +1511,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:51
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:144
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:133
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
 msgid "Currency"
 msgstr ""
 
@@ -2264,7 +2268,7 @@ msgid "Enable SOFORT Banking"
 msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:138
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:135
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
 msgid "Payment Method"
 msgstr ""
 
@@ -2336,79 +2340,79 @@ msgstr ""
 msgid "Choose your bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:136
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
 msgid "Acceptance"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:138
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:149
 msgid "Card Number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:139
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
 msgid "End Date"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:140
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
 msgid "Customer Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:141
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
 msgid "Transaction Date"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:142
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
 msgid "Pay ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:143
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
 msgid "NC Error"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
 msgid "Brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
 msgid "IP"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
 msgid "SHA Signature"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:163
 msgid "Ogone transaction data in response message:"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:125
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:176
 msgid "Currency Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:128
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Transaction Date Time"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:129
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:180
 msgid "Transaction Reference"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:131
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:182
 msgid "Authorisation ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:132
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:183
 msgid "Payment Mean Brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:133
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:184
 msgid "Payment Mean Type"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:134
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:185
 msgid "Response Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:140
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:191
 msgid "OmniKassa transaction data in response message:"
 msgstr ""
 
@@ -2573,12 +2577,12 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:123
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:124
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:175
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr ""
