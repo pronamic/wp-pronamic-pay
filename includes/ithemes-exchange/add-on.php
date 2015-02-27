@@ -1,6 +1,3 @@
 <?php
 
-if( ! class_exists( 'Pronamic_IThemesExchange_IDeal_AddOn' ) ) {
-	class Pronamic_IThemesExchange_IDeal_AddOn extends Pronamic_WP_Pay_Extensions_IThemesExchange_Extension {
-	}
-}
+// The iThemes Exchange plugin requires a callable file when loading an add-on. This satisfies.
