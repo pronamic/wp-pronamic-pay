@@ -7,6 +7,7 @@
 *	Tweak - Updated WordPress pay MultiSafepay Connect library to version 1.1.0.
 *	Tweak - Updated WordPress pay Ogone library to version 1.2.0.
 *	Tweak - Updated WordPress pay Pay.nl library to version 1.1.0.
+*	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.2.
 
 ## 3.5.0
 *	Tweak - Updated WordPress pay ICEPAY library to version 1.2.0.
