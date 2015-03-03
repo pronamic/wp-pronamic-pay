@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 3.5.0
+Stable tag: 3.5.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to 
 your WordPress website.
@@ -262,11 +262,20 @@ As conflicts are found we will update this list. If you discover a conflict with
 
 Here is a list of known plugin conflicts:
 
-*	**WordPress HTTPS**
-	The WordPress HTTPS can conflict with the OmniKassa payment method. It can 
-	cause invalid signature errors. The WordPress HTTPS plugin parses the complete 
-	output of an WordPress website and changes 'http' URLs to 'https' URLs, this 
-	results in OmniKassa data that no longer matches the signature.
+=== [WPML](https://wpml.org/) ===
+
+The WPML plugin(s) can conflict with multiple gateways. A lot of the gateways
+use `home_url( '/' )` to retrieve the WordPress home URL. The WPML plugins hooks
+in to this function to change the home URL to the correct language URL. This
+can result in incorrect checksums, signatures and hashes.
+
+=== [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) ===
+
+The WordPress HTTPS can conflict with the OmniKassa payment method. It can 
+cause invalid signature errors. The WordPress HTTPS plugin parses the complete 
+output of an WordPress website and changes 'http' URLs to 'https' URLs, this 
+results in OmniKassa data that no longer matches the signature.
+
 
 == To Do ==
 
@@ -275,6 +284,15 @@ Here is a list of known plugin conflicts:
 
 
 == Changelog ==
+
+= 3.5.1 =
+*	Tweak - Updated WordPress pay core library to version 1.1.0.
+*	Tweak - Updated WordPress pay Buckaroo library to version 1.1.0.
+*	Tweak - Updated WordPress pay MultiSafepay library to version 1.1.0.
+*	Tweak - Updated WordPress pay MultiSafepay Connect library to version 1.1.0.
+*	Tweak - Updated WordPress pay Ogone library to version 1.2.0.
+*	Tweak - Updated WordPress pay Pay.nl library to version 1.1.0.
+*	Tweak - Updated WordPress pay Gravity Forms library to version 1.2.2.
 
 = 3.5.0 =
 *	Tweak - Updated WordPress pay ICEPAY library to version 1.2.0.
