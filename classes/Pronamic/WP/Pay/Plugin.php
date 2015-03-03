@@ -174,14 +174,11 @@ class Pronamic_WP_Pay_Plugin {
 
 				$new_status = strtolower( $payment->status );
 
-				// Only fire pronamic_payment_status_update actions if the payment status has changed
-				if ( strcmp( $old_status, $new_status ) !== 0 ) {
-					pronamic_wp_pay_update_payment( $payment );
+				pronamic_wp_pay_update_payment( $payment );
 
-					do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
-					do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
-					do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-				}
+				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
+				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
 					$url     = home_url( '/' );
