@@ -184,6 +184,12 @@ $pronamic_pay_gateways = array(
 		'url'           => 'http://www.easy-ideal.com/',
 		'dashboard_url' => 'https://www.qantanipayments.com/backoffice/login/',
 	),
+	// Fibonacci ORANGE
+	'fibonacciorange' => array(
+		'provider'      => 'fibonacciorange',
+		'gateway'       => 'icepay',
+		'name'          => 'Fibonacci ORANGE',
+	),
 	// Fortis Bank
 	'fortis-bank-ideal-hosted' => array(
 		'disabled' => true,
