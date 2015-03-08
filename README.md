@@ -23,10 +23,6 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Hosted</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
 			<td>ABN AMRO - iDEAL Only Kassa</td>
 		</tr>
 		<tr>
@@ -35,11 +31,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Zelfbouw</td>
+			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
+			<td>ABN AMRO - iDEAL Hosted</td>
+		</tr>
+		<tr>
+			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
+			<td>ABN AMRO - iDEAL Zelfbouw</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
@@ -62,6 +62,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Easy iDeal - iDEAL</td>
 		</tr>
 		<tr>
+			<td><a href="http://www.fibonacciorange.com/">Fibonacci ORANGE</a></td>
+			<td>Fibonacci ORANGE</td>
+		</tr>
+		<tr>
 			<td>Fortis Bank</td>
 			<td>Fortis Bank - iDEAL Hosted</td>
 		</tr>
@@ -79,15 +83,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
-			<td>Friesland Bank - iDEAL Zakelijk Plus</td>
-		</tr>
-		<tr>
-			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
 			<td>Friesland Bank - iDEAL Zakelijk Plus - v3</td>
 		</tr>
 		<tr>
+			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
+			<td>Friesland Bank - iDEAL Zakelijk Plus</td>
+		</tr>
+		<tr>
 			<td><a href="http://www.icepay.nl/">ICEPAY</a></td>
-			<td>ICEPAY - iDEAL</td>
+			<td>ICEPAY</td>
 		</tr>
 		<tr>
 			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
@@ -95,11 +99,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
-			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
-			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
+			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</td>
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
@@ -111,11 +115,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Advanced</td>
+			<td>ING - iDEAL Advanced - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Advanced - v3</td>
+			<td>ING - iDEAL Advanced</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.mollie.nl/">Mollie</a></td>
@@ -142,16 +146,16 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>NEOS - Internet Kassa</td>
 		</tr>
 		<tr>
-			<td><a href="http://ogone.com/">Ogone</a></td>
-			<td>Ogone - Easy</td>
+			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
+			<td>Ingenico/Ogone - Easy</td>
 		</tr>
 		<tr>
-			<td><a href="http://ogone.com/">Ogone</a></td>
-			<td>Ogone - OrderStandard</td>
+			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
+			<td>Ingenico/Ogone - OrderStandard</td>
 		</tr>
 		<tr>
-			<td><a href="http://ogone.com/">Ogone</a></td>
-			<td>Ogone - DirectLink</td>
+			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
+			<td>Ingenico/Ogone - DirectLink</td>
 		</tr>
 		<tr>
 			<td><a href="https://www.pay.nl/">Pay.nl</a></td>
@@ -163,7 +167,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - OmniKassa</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
 			<td>Rabobank - iDEAL Lite</td>
+		</tr>
+		<tr>
+			<td><a href="http://rabobank.nl/">Rabobank</a></td>
+			<td>Rabobank - iDEAL Professional - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>
@@ -171,15 +183,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - OmniKassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
 			<td>Rabobank - iDEAL Professional</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - iDEAL Professional - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://sisow.nl/">Sisow</a></td>
@@ -373,7 +377,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>3.8.14</td>
 		</tr>
 		<tr>
-			<td><a href="" target="_blank">Crowdfunding by Astoundify</a></td>
+			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">Crowdfunding by Astoundify</a></td>
 			<td><a href="http://www.astoundify.com/" target="_blank">Astoundify</a></td>
 			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/astoundify/crowdfunding/" target="_blank">GitHub</a></td>
