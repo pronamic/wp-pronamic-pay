@@ -228,6 +228,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_ideal_merchant_id' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ideal_sub_id'      => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ideal_hash_key'    => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_ideal_purchase_id' => FILTER_SANITIZE_STRING,
 			// PayDutch
 			'_pronamic_gateway_paydutch_username' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_paydutch_password' => FILTER_SANITIZE_STRING,

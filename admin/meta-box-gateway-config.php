@@ -85,6 +85,22 @@ $sections = array(
 				'methods'     => array( 'ideal_basic' ),
 			),
 			array(
+				'meta_key'    => '_pronamic_gateway_ideal_purchase_id',
+				'title'       => __( 'Purchase ID', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					'%s<br />%s<br />%s',
+					sprintf(
+						__( 'This controls the iDEAL Basic %s parameter.', 'pronamic_ideal' ),
+						sprintf( '<code>%s</code>', 'purchaseID' )
+					),
+					sprintf( __( 'Default: <code>%s</code>.', 'pronamic_ideal' ), '{payment_id}' ),
+					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{order_id}', '{payment_id}' ) )
+				),
+				'methods'     => array( 'ideal_basic' ),
+			),
+			array(
 				'title'       => __( 'XML Notification URL', 'pronamic_ideal' ),
 				'type'        => 'text',
 				'classes'     => array( 'regular-text', 'code' ),
