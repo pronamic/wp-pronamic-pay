@@ -60,8 +60,8 @@ $pronamic_pay_providers = array(
 		'url'           => 'http://neossolution.com/',
 	),
 	'ogone'             => array(
-		'name'          => 'Ogone',
-		'url'           => 'http://ogone.com/',
+		'name'          => 'Ingenico/Ogone',
+		'url'           => 'http://payment-services.ingenico.com/',
 	),
 	'pay_nl'             => array(
 		'name'          => 'Pay.nl',
