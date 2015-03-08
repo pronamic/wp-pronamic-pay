@@ -15,6 +15,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		add_action( 'manage_pronamic_payment_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+
+		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 	}
 
 	public function edit_columns( $columns ) {
@@ -147,5 +149,16 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	public function meta_box_log( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
+	}
+
+	/**
+	 * Post row actions
+	 */
+	public function post_row_actions( $actions, $post ) {
+		if ( 'pronamic_payment' == $post->post_type ) {
+			return array();
+		}
+
+		return $actions;
 	}
 }
