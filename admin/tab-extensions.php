@@ -192,6 +192,7 @@ $extensions = array(
 	),
 	'appthemer-crowdfunding' => array(
 		'name'               => __( 'Crowdfunding by Astoundify', 'pronamic_ideal' ),
+		'url'                => 'http://wordpress.org/plugins/appthemer-crowdfunding/',
 		'wp_org_url'         => 'http://wordpress.org/plugins/appthemer-crowdfunding/',
 		'github_url'         => 'https://github.com/astoundify/crowdfunding/',
 		'requires_at_least'  => '1.8.2',

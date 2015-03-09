@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.5.2
+*	Tweak - Updated WordPress pay iDEAL library to version 1.1.0.
+	*	Added an utlity class wich can create purchase ID's.
+*	Tweak - Updated WordPress pay iDEAL Basic library to version 1.1.0.
+	*	Improved support for user defined purchase ID's.
+*	Tweak - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.0.
+	*	Improved support for user defined purchase ID's.
+*	Tweak - Updated WordPress pay iDEAL Advanced library to version 1.1.0.
+	*	Improved support for user defined purchase ID's.
+
 ## 3.5.1
 *	Tweak - Updated WordPress pay core library to version 1.1.0.
 *	Tweak - Updated WordPress pay Buckaroo library to version 1.1.0.

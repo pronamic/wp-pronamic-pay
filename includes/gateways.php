@@ -184,6 +184,12 @@ $pronamic_pay_gateways = array(
 		'url'           => 'http://www.easy-ideal.com/',
 		'dashboard_url' => 'https://www.qantanipayments.com/backoffice/login/',
 	),
+	// Fibonacci ORANGE
+	'fibonacciorange' => array(
+		'provider'      => 'fibonacciorange',
+		'gateway'       => 'icepay',
+		'name'          => 'Fibonacci ORANGE',
+	),
 	// Fortis Bank
 	'fortis-bank-ideal-hosted' => array(
 		'disabled' => true,
@@ -449,7 +455,7 @@ $pronamic_pay_gateways = array(
 	'ogone-easy' => array(
 		'provider' => 'ogone',
 		'gateway'  => 'ogone_orderstandard_easy',
-		'name'     => 'Ogone - Easy',
+		'name'     => 'Ingenico/Ogone - Easy',
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp',
@@ -461,7 +467,7 @@ $pronamic_pay_gateways = array(
 	'ogone-orderstandard' => array(
 		'provider' => 'ogone',
 		'gateway'  => 'ogone_orderstandard',
-		'name'     => 'Ogone - OrderStandard',
+		'name'     => 'Ingenico/Ogone - OrderStandard',
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderstandard.asp',
@@ -475,7 +481,7 @@ $pronamic_pay_gateways = array(
 	'ogone-directlink' => array(
 		'provider' => 'ogone',
 		'gateway'  => 'ogone_directlink',
-		'name'     => 'Ogone - DirectLink',
+		'name'     => 'Ingenico/Ogone - DirectLink',
 		'url'      => 'https://secure.ogone.com/',
 		'test'     => array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/test/orderdirect.asp',

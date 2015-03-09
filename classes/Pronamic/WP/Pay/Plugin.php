@@ -562,7 +562,6 @@ class Pronamic_WP_Pay_Plugin {
 
 			$meta = array(
 				$prefix . 'config_id'               => $config_id,
-				$prefix . 'purchase_id'             => $data->get_order_id(),
 				$prefix . 'currency'                => $data->get_currency(),
 				$prefix . 'amount'                  => $data->get_amount(),
 				$prefix . 'expiration_period'       => null,

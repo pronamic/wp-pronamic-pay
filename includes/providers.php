@@ -24,6 +24,10 @@ $pronamic_pay_providers = array(
 		'url'           => 'http://www.easy-ideal.com/',
 		'affiliate_url' => 'https://www.qantanipayments.com/backoffice/signup/easyideal/step1/pronamic/',
 	),
+	'fibonacciorange'   => array(
+		'name'          => 'Fibonacci ORANGE',
+		'url'           => 'http://www.fibonacciorange.com/',
+	),
 	'fortis-bank'       => array(
 		'name'          => 'Fortis Bank',
 	),
@@ -56,8 +60,8 @@ $pronamic_pay_providers = array(
 		'url'           => 'http://neossolution.com/',
 	),
 	'ogone'             => array(
-		'name'          => 'Ogone',
-		'url'           => 'http://ogone.com/',
+		'name'          => 'Ingenico/Ogone',
+		'url'           => 'http://payment-services.ingenico.com/',
 	),
 	'pay_nl'             => array(
 		'name'          => 'Pay.nl',
