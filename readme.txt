@@ -116,7 +116,7 @@ your WordPress website.
 	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
 	*	**Requires at least:** 3.8.12.1
 	*	**Tested up to:** 3.8.14
-*	[Crowdfunding by Astoundify]()
+*	[Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/)
 	*	**Author:** [Astoundify](http://www.astoundify.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/appthemer-crowdfunding/](http://wordpress.org/plugins/appthemer-crowdfunding/)
 	*	**GitHub:** [https://github.com/astoundify/crowdfunding/](https://github.com/astoundify/crowdfunding/)
@@ -141,11 +141,11 @@ your WordPress website.
 
 *	[ABN AMRO](http://abnamro.nl/)
 	*	ABN AMRO - iDEAL Easy
-	*	ABN AMRO - iDEAL Hosted
 	*	ABN AMRO - iDEAL Only Kassa
 	*	ABN AMRO - Internetkassa
-	*	ABN AMRO - iDEAL Zelfbouw
 	*	ABN AMRO - iDEAL Zelfbouw - v3
+	*	ABN AMRO - iDEAL Hosted
+	*	ABN AMRO - iDEAL Zelfbouw
 *	[Buckaroo](http://www.buckaroo.nl/)
 	*	Buckaroo - HTML
 *	[Deutsche Bank](http://deutschebank.nl/)
@@ -155,25 +155,27 @@ your WordPress website.
 	*	PayDutch
 *	[Easy iDeal](http://www.easy-ideal.com/)
 	*	Easy iDeal - iDEAL
+*	[Fibonacci ORANGE](http://www.fibonacciorange.com/)
+	*	Fibonacci ORANGE
 *	Fortis Bank
 	*	Fortis Bank - iDEAL Hosted
 	*	Fortis Bank - iDEAL Internet Kassa
 	*	Fortis Bank - iDEAL Integrated
 *	[Friesland Bank](http://frieslandbank.nl/)
 	*	Friesland Bank - iDEAL Zakelijk
-	*	Friesland Bank - iDEAL Zakelijk Plus
 	*	Friesland Bank - iDEAL Zakelijk Plus - v3
+	*	Friesland Bank - iDEAL Zakelijk Plus
 *	[ICEPAY](http://www.icepay.nl/)
-	*	ICEPAY - iDEAL
+	*	ICEPAY
 *	[iDEAL Simulator](http://ideal-simulator.nl/)
 	*	iDEAL Simulator - iDEAL Lite / Basic
-	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
 	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3
+	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
 *	[ING](http://ing.nl/)
 	*	ING - iDEAL Basic
 	*	ING - iDEAL Internet Kassa
-	*	ING - iDEAL Advanced
 	*	ING - iDEAL Advanced - v3
+	*	ING - iDEAL Advanced
 *	[Mollie](http://www.mollie.nl/)
 	*	Mollie
 	*	Mollie - iDEAL
@@ -183,20 +185,20 @@ your WordPress website.
 	*	MultiSafepay - Connect
 *	[NEOS](http://neossolution.com/)
 	*	NEOS - Internet Kassa
-*	[Ogone](http://ogone.com/)
-	*	Ogone - Easy
-	*	Ogone - OrderStandard
-	*	Ogone - DirectLink
+*	[Ingenico/Ogone](http://payment-services.ingenico.com/)
+	*	Ingenico/Ogone - Easy
+	*	Ingenico/Ogone - OrderStandard
+	*	Ingenico/Ogone - DirectLink
 *	[Pay.nl](https://www.pay.nl/)
 	*	Pay.nl
 *	[Paytor](http://www.paytor.com/)
 	*	Paytor
 *	[Rabobank](http://rabobank.nl/)
-	*	Rabobank - iDEAL Lite
-	*	Rabobank - Rabo iDEAL Kassa
 	*	Rabobank - OmniKassa
-	*	Rabobank - iDEAL Professional
+	*	Rabobank - iDEAL Lite
 	*	Rabobank - iDEAL Professional - v3
+	*	Rabobank - Rabo iDEAL Kassa
+	*	Rabobank - iDEAL Professional
 *	[Sisow](http://sisow.nl/)
 	*	Sisow
 	*	Sisow - iDEAL Basic
