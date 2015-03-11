@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "86bdc0d0e4c26bb7c60804f70ac9acc4",
+    "hash": "0fc1401cc6f05b6ea3b20d66a60960a2",
     "packages": [
         {
             "name": "composer/installers",
@@ -136,21 +136,21 @@
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
-            "version": "1.0.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "fb2e58dc2e6adfb2e577afaec88ff871a3b2f73f"
+                "reference": "a960a124e9cabbe8db09aebfaba3fad54d869a9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/fb2e58dc2e6adfb2e577afaec88ff871a3b2f73f",
-                "reference": "fb2e58dc2e6adfb2e577afaec88ff871a3b2f73f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/a960a124e9cabbe8db09aebfaba3fad54d869a9f",
+                "reference": "a960a124e9cabbe8db09aebfaba3fad54d869a9f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
-                "wp-pay/core": ">=1.0.0",
+                "wp-pay/core": ">=1.1.0",
                 "wpackagist-plugin/easy-digital-downloads": "2.1.3"
             },
             "require-dev": {
@@ -193,7 +193,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-03-03 12:14:03"
+            "time": "2015-03-11 15:39:15"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -2332,6 +2332,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-extensions/easy-digital-downloads": 20,
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
