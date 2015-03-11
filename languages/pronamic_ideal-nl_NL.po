@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-03-09 09:09:55+00:00\n"
-"PO-Revision-Date: 2015-03-09 10:10+0100\n"
+"POT-Creation-Date: 2015-03-11 14:19:49+00:00\n"
+"PO-Revision-Date: 2015-03-11 15:21+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -86,7 +86,7 @@ msgstr "Test"
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/WP/Pay/Admin.php:362 classes/Pronamic/WP/Pay/Admin.php:363
+#: classes/Pronamic/WP/Pay/Admin.php:363 classes/Pronamic/WP/Pay/Admin.php:364
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
@@ -769,8 +769,8 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:372
-#: classes/Pronamic/WP/Pay/Admin.php:373 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:373
+#: classes/Pronamic/WP/Pay/Admin.php:374 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -1115,12 +1115,12 @@ msgstr "Issuer naam"
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:356
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:466
 msgid "Success"
 msgstr "Succes"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
 msgid "Failure"
 msgstr "Storing"
 
@@ -1486,7 +1486,7 @@ msgstr "eShop"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:408
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1511,25 +1511,26 @@ msgstr "Betaling"
 msgid "Log"
 msgstr "Log"
 
-#: classes/Pronamic/WP/Pay/Admin.php:282
+#: classes/Pronamic/WP/Pay/Admin.php:283
 msgid ""
-"<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
-"Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
+"<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
+"a (valid) Pronamic iDEAL API key</a>, get your API key from <a href=\"http://"
+"www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
-"<strong>Pronamic iDEAL</strong> &mdash; Je kunt <a href=\"%s\">je Pronamic "
-"iDEAL API sleutel invoeren</a> om gebruik te maken van extra extensies, "
-"updates en support."
+"<strong>Pronamic iDEAL</strong> &mdash; Je hebt <a href=\"%s\">geen "
+"(geldige) Pronamic iDEAL API sleutel ingevoerd</a>, bestel je API sleutel op "
+"<a href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
+#: classes/Pronamic/WP/Pay/Admin.php:381 classes/Pronamic/WP/Pay/Admin.php:382
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: classes/Pronamic/WP/Pay/Admin.php:389 classes/Pronamic/WP/Pay/Admin.php:390
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:398
+#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
 msgid "Tools"
 msgstr "Extra"
 
@@ -1539,38 +1540,38 @@ msgstr "Extra"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:348
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:349
+#: classes/Pronamic/WP/Pay/Plugin.php:350
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:469
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:353
+#: classes/Pronamic/WP/Pay/Plugin.php:354
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:357
+#: classes/Pronamic/WP/Pay/Plugin.php:358
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:370
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:426
+#: classes/Pronamic/WP/Pay/Plugin.php:427
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:548
+#: classes/Pronamic/WP/Pay/Plugin.php:549
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
