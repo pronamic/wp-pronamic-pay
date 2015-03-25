@@ -230,7 +230,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
 			<td>1.8.6</td>
-			<td>2.1.3</td>
+			<td>2.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3</a></td>
@@ -254,7 +254,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>4.4.7.p</td>
-			<td>4.4.7.p</td>
+			<td>4.6.17.p</td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4 Decaf</a></td>

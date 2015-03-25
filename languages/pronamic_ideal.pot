@@ -2,16 +2,16 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.5.2\n"
+"Project-Id-Version: Pronamic iDEAL 3.6.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-03-09 09:09:55+00:00\n"
+"POT-Creation-Date: 2015-03-25 14:39:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n 0.5.0\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
 msgid "WordPress.org"
@@ -84,15 +84,16 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/IDealGateway.php:17
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:72
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:137
-#: classes/Pronamic/WP/Pay/Admin.php:362 classes/Pronamic/WP/Pay/Admin.php:363
+#: classes/Pronamic/WP/Pay/Admin.php:363 classes/Pronamic/WP/Pay/Admin.php:364
 #: classes/Pronamic/WPeCommerce/IDeal/AddOn.php:61
 #: includes/ithemes-exchange/settings.php:2
 #: includes/ithemes-exchange/wizard-settings.php:2
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:67
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:315
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:33
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:174
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:20
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:59
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:187
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:195
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:51
@@ -720,8 +721,8 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:372
-#: classes/Pronamic/WP/Pay/Admin.php:373 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:373
+#: classes/Pronamic/WP/Pay/Admin.php:374 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -887,7 +888,7 @@ msgid "Supported Extensions"
 msgstr ""
 
 #: admin/tab-extensions.php:8
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:289
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
 msgid "Easy Digital Downloads"
 msgstr ""
 
@@ -1061,12 +1062,12 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:356
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:466
 msgid "Success"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
 msgid "Failure"
 msgstr ""
 
@@ -1139,11 +1140,15 @@ msgid "GiftCard"
 msgstr ""
 
 #: admin/tab-methods.php:58
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:26
 msgid "Credit Card"
 msgstr ""
 
 #: admin/tab-methods.php:65
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:26
 msgid "Direct Debit"
 msgstr ""
@@ -1157,6 +1162,8 @@ msgid "Giropay"
 msgstr ""
 
 #: admin/tab-methods.php:82
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:26
 msgid "MiniTix"
 msgstr ""
@@ -1350,7 +1357,7 @@ msgstr ""
 #: classes/Pronamic/AppThemes/IDeal/AddOn.php:125
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:302
 #: classes/Pronamic/EShop/IDeal/AddOn.php:136
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:294
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:408
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:139
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:171
@@ -1366,6 +1373,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:66
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:79
@@ -1412,7 +1420,6 @@ msgid "No"
 msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:100
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:93
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:119
 msgid "iDEAL Configuration"
 msgstr ""
@@ -1427,7 +1434,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:408
 msgid "Dashboard"
 msgstr ""
 
@@ -1452,22 +1459,23 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:282
+#: classes/Pronamic/WP/Pay/Admin.php:283
 msgid ""
-"<strong>Pronamic iDEAL</strong> &mdash; You can <a href=\"%s\">enter your "
-"Pronamic iDEAL API key</a> to use extra extensions, get updates and support."
+"<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
+"a (valid) Pronamic iDEAL API key</a>, get your API key from <a "
+"href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
+#: classes/Pronamic/WP/Pay/Admin.php:381 classes/Pronamic/WP/Pay/Admin.php:382
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: classes/Pronamic/WP/Pay/Admin.php:389 classes/Pronamic/WP/Pay/Admin.php:390
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:398
+#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
 msgid "Tools"
 msgstr ""
 
@@ -1477,37 +1485,37 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:348
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:349
+#: classes/Pronamic/WP/Pay/Plugin.php:350
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:469
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:353
+#: classes/Pronamic/WP/Pay/Plugin.php:354
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Open"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:357
+#: classes/Pronamic/WP/Pay/Plugin.php:358
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:370
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:426
+#: classes/Pronamic/WP/Pay/Plugin.php:427
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:548
+#: classes/Pronamic/WP/Pay/Plugin.php:549
 msgid "Payment for %s"
 msgstr ""
 
@@ -1680,67 +1688,81 @@ msgstr ""
 msgid "No payments found in Trash"
 msgstr ""
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:86
-msgid "iDEAL Settings"
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:97
+msgid "Payment completed."
 msgstr ""
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:87
-msgid "Configure the iDEAL settings"
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
+msgid "Payment open."
 msgstr ""
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
-msgid "Payment Error"
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:122
+msgid "Payment unknown."
 msgstr ""
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:165
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:180
-msgid ""
-"Payment creation failed before sending buyer to the iDEAL provider. Payment "
-"data: %s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:245
-#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
-msgid "iDEAL payment completed."
-msgstr ""
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:257
-#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
-msgid "iDEAL payment open."
-msgstr ""
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:263
-#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:131
-msgid "iDEAL payment unknown."
-msgstr ""
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:320
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:26
 msgid "Bancontact/Mister Cash"
 msgstr ""
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:65
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:114
+msgid "%s Settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:115
+msgid "Configure the %s settings"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:121
+msgid "Gateway Configuration"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:128
+msgid "Checkout Label"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
+msgid "Payment Error"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
+msgid ""
+"Payment creation failed before sending buyer to the payment provider. "
+"Payment data: %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:238
+msgid "Payment %s pending."
+msgstr ""
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:66
 msgid "Easy Digital Downloads order %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:131
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:20
+#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:26
+msgid "SOFORT Banking"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:239
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
 msgid "Event Espresso"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:136
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:244
 msgid "Transaction %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:114
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:118
 msgid "You have selected \"iDEAL\" as your method of payment"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:115
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:119
 msgid ""
 "After finalizing your registration, you will be transferred to iDEAL where "
 "your payment will be securely processed."
@@ -2075,6 +2097,21 @@ msgstr ""
 msgid "iDEAL payment failed."
 msgstr ""
 
+#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
+msgid "iDEAL payment completed."
+msgstr ""
+
+#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
+msgid "iDEAL payment open."
+msgstr ""
+
+#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:131
+msgid "iDEAL payment unknown."
+msgstr ""
+
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:84
 msgid "Allow iDEAL payments."
 msgstr ""
@@ -2264,10 +2301,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:83
 msgid "WooCommerce order %s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:26
-msgid "SOFORT Banking"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:38

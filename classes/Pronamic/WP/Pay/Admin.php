@@ -3,10 +3,11 @@
 /**
  * Title: WordPress iDEAL admin
  * Description:
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2015
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @version 1.0.0
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_Admin {
 	/**
@@ -279,7 +280,7 @@ class Pronamic_WP_Pay_Admin {
 				'<div class="%s"><p>%s</p></div>',
 				Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated',
 				sprintf(
-					__( '<strong>Pronamic iDEAL</strong> &mdash; You can <a href="%s">enter your Pronamic iDEAL API key</a> to use extra extensions, get updates and support.', 'pronamic_ideal' ),
+					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL API key</a>, get your API key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
 				)
 			);
