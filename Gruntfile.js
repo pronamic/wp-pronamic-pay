@@ -16,12 +16,18 @@ module.exports = function( grunt ) {
 		// PHP Code Sniffer
 		phpcs: {
 			application: {
-				dir: [ './' ],
+				src: [
+					'**/*.php',
+					'!deploy/**',
+					'!includes/icepay/**',
+					'!includes/xmlseclibs/**',
+					'!node_modules/**',
+					'!vendor/**',
+					'!wp-content/**',
+				],
 			},
 			options: {
-				standard: 'phpcs.ruleset.xml',
-				extensions: 'php',
-				ignore: '/deploy/*,/node_modules/*,/vendor/*,/wp-content/*,/includes/icepay/*,/includes/xmlseclibs/*'
+				standard: 'phpcs.ruleset.xml'
 			}
 		},
 

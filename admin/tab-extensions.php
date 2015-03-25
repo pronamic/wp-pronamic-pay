@@ -38,7 +38,7 @@ $extensions = array(
 		'github_url'         => 'https://github.com/eventespresso/event-espresso-core',
 		'active'             => Pronamic_WP_Pay_Extensions_EventEspresso_Extension::is_active(),
 		'requires_at_least'  => '4.4.7.p',
-		'tested_up_to'       => '4.4.7.p',
+		'tested_up_to'       => '4.6.17.p',
 	),
 	'event-espresso-decaf'    => array(
 		'name'               => __( 'Event Espresso 4 Decaf', 'pronamic_ideal' ),

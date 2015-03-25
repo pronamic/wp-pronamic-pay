@@ -12,6 +12,8 @@
 	*	Only show transaction ID if set.
 	*	Added pending payment note with link to payment post.
 	*	Tested on Easy Digital Downloads version 2.3.
+*	Tweak - Updated WordPress pay Event Espresso library to version 1.1.0.
+	*	Added experimental support for Event Espresso 4.6 (or higher).
 
 ## 3.5.2
 *	Tweak - Updated WordPress pay iDEAL library to version 1.1.0.

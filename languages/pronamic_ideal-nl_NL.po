@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-03-12 08:47:34+00:00\n"
-"PO-Revision-Date: 2015-03-12 09:49+0100\n"
+"POT-Creation-Date: 2015-03-25 14:39:34+00:00\n"
+"PO-Revision-Date: 2015-03-25 15:40+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -95,7 +95,7 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:20
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:59
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:187
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:195
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:51
@@ -1432,6 +1432,7 @@ msgstr "Pronamic iDEAL"
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:46
 #: classes/Pronamic/WPeCommerce/IDeal/IDealMerchant.php:72
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:66
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:79
@@ -1787,13 +1788,13 @@ msgstr "Betalingsgateway configuratie"
 msgid "Checkout Label"
 msgstr "Afrekenen label"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:200
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:215
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:200
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:215
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
 msgid ""
 "Payment creation failed before sending buyer to the payment provider. "
 "Payment data: %s"
@@ -1801,7 +1802,7 @@ msgstr ""
 "Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
 "naar de betaalprovider. Betalingsinformatie: %s"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:236
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:238
 msgid "Payment %s pending."
 msgstr "Betaling %s in afwachting."
 
@@ -1815,20 +1816,20 @@ msgstr "Easy Digital Downloads bestelling %s"
 msgid "SOFORT Banking"
 msgstr "SOFORT Banking"
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:131
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:239
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
 msgid "Event Espresso"
 msgstr "Event Espresso"
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:136
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:244
 msgid "Transaction %s"
 msgstr "Transactie %s"
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:114
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:118
 msgid "You have selected \"iDEAL\" as your method of payment"
 msgstr "Je hebt \"iDEAL\" geselecteerd als betaalmethode"
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:115
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:119
 msgid ""
 "After finalizing your registration, you will be transferred to iDEAL where "
 "your payment will be securely processed."

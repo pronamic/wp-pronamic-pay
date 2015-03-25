@@ -21,7 +21,7 @@ your WordPress website.
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 2.1.3
+	*	**Tested up to:** 2.3
 *	[Event Espresso 3](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-legacy](https://github.com/eventespresso/event-espresso-legacy)
 	*	**Requires at least:** 3.1.24
@@ -34,7 +34,7 @@ your WordPress website.
 *	[Event Espresso 4](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.7.p
-	*	**Tested up to:** 4.4.7.p
+	*	**Tested up to:** 4.6.17.p
 *	[Event Espresso 4 Decaf](http://eventespresso.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/event-espresso-decaf/](https://wordpress.org/plugins/event-espresso-decaf/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
@@ -286,6 +286,21 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 3.6.0 =
+*	Tweak - Updated WordPress pay Easy Digital Downloads library to version 1.1.0.
+	*	Added Credit Card gateway.
+	*	Added Direct Debit gateway.
+	*	Added iDEAL gateway.
+	*	Added MiniTix gateway.
+	*	Added Bancontact/Mister Cash gateway.
+	*	Added SOFORT Banking gateway.
+	*	Added gateway setting for the checkout label.
+	*	Only show transaction ID if set.
+	*	Added pending payment note with link to payment post.
+	*	Tested on Easy Digital Downloads version 2.3.
+*	Tweak - Updated WordPress pay Event Espresso library to version 1.1.0.
+	*	Added experimental support for Event Espresso 4.6 (or higher).
 
 = 3.5.2 =
 *	Tweak - Updated WordPress pay iDEAL library to version 1.1.0.
