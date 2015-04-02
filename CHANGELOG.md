@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.6.1
+*	Updated WordPress pay Event Espresso library to version 1.1.1.
+	*	Updated WordPress pay core library to version 1.2.0.
+	*	No longer parse HTML input fields but use the new get_output_fields() function.
+	*	Added workaround for strange behaviour with 2 config select options.
+*	Updated WordPress pay Gravity Forms library to version 1.2.3.
+	*	Entry with payment status 'Paid' are now also seen as 'approved'.
+	*	Use entry ID as default transaction description.
+	*	WordPress Coding Standards optimizations.
+*	Updated WordPress pay Qantani library to version 1.0.2.
+	*	No longer disable SSL verify.
+
 ## 3.6.0
 *	Tweak - Updated WordPress pay Easy Digital Downloads library to version 1.1.0.
 	*	Added Credit Card gateway.
