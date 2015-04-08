@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.6.2
+*	Updated WordPress pay WooComemrce library to version 1.1.2.
+	*	Added general Pronamic gateway so the iDEAL gateway can be used for iDEAL only.
+
 ## 3.6.1
 *	Updated WordPress pay Event Espresso library to version 1.1.1.
 	*	Updated WordPress pay core library to version 1.2.0.
