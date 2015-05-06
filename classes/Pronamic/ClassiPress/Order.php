@@ -40,6 +40,6 @@ class Pronamic_ClassiPress_Order {
 	 * @return boolean
 	 */
 	public static function is_completed( array $order ) {
-		return isset( $order['payment_status'] ) && $order['payment_status'] == Pronamic_ClassiPress_PaymentStatuses::COMPLETED;
+		return isset( $order['payment_status'] ) && Pronamic_ClassiPress_PaymentStatuses::COMPLETED === $order['payment_status'];
 	}
 }

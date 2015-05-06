@@ -20,7 +20,7 @@ $response = wp_remote_get( $url );
 $status_data = null;
 
 if ( ! is_wp_error( $response ) ) {
-	if ( wp_remote_retrieve_response_code( $response ) == 200 ) {
+	if ( 200 === wp_remote_retrieve_response_code( $response ) ) {
 		$body = wp_remote_retrieve_body( $response );
 
 		$data = json_decode( $body );

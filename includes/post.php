@@ -84,7 +84,7 @@ function pronamic_pay_update_post_meta_data( $post_id, array $data ) {
 
 	// Meta
 	foreach ( $data as $key => $value ) {
-		if ( isset( $value ) && $value != '' ) {
+		if ( isset( $value ) && '' !== $value ) {
 			update_post_meta( $post_id, $key, $value );
 		} else {
 			delete_post_meta( $post_id, $key );

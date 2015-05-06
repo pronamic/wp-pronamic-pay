@@ -15,7 +15,7 @@
 
 			<?php
 
-			if ( 'ideal_advanced_error' == $code ) {
+			if ( 'ideal_advanced_error' === $code ) {
 				$ideal_error = $error->get_error_data( $code );
 
 				if ( $ideal_error instanceof Pronamic_Gateways_IDealAdvanced_Error ) : ?>
@@ -41,7 +41,7 @@
 
 			}
 
-			if ( 'ideal_advanced_v3_error' == $code ) {
+			if ( 'ideal_advanced_v3_error' === $code ) {
 				$ideal_error = $error->get_error_data( $code );
 
 				if ( $ideal_error instanceof Pronamic_Gateways_IDealAdvancedV3_Error ) : ?>

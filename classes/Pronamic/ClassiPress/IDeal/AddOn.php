@@ -41,7 +41,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	public static function appthemes_init() {
 		global $app_theme;
 
-		if ( 'ClassiPress' == $app_theme ) {
+		if ( 'ClassiPress' === $app_theme ) {
 			add_action( 'cp_action_payment_method',     array( __CLASS__, 'payment_method' ) );
 			add_action( 'cp_action_gateway',            array( __CLASS__, 'gateway_process' ) );
 
@@ -133,7 +133,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	public static function payment_method() {
 		global $app_abbr;
 
-		if ( 'yes' == get_option( $app_abbr . '_pronamic_ideal_enable' ) ) {
+		if ( 'yes' === get_option( $app_abbr . '_pronamic_ideal_enable' ) ) {
 			echo '<option value="pronamic_ideal">' . __( 'iDEAL', 'pronamic_ideal' ) . '</option>';
 		}
 	}
@@ -144,7 +144,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * Process gateway
 	 */
 	public static function process_gateway() {
-		if ( isset( $_POST['classipress_pronamic_ideal'] ) ) {
+		if ( filter_has_var( INPUT_POST, 'classipress_pronamic_ideal' ) ) {
 			global $app_abbr;
 
 			$config_id = get_option( $app_abbr . '_pronamic_ideal_config_id' );
@@ -174,7 +174,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 */
 	public static function gateway_process( $order_values ) {
 		// If gateway wasn't selected then immediately return
-		if ( 'pronamic_ideal' != $order_values['cp_payment_method'] ) {
+		if ( 'pronamic_ideal' !== $order_values['cp_payment_method'] ) {
 			return;
 		}
 
@@ -238,7 +238,7 @@ class Pronamic_ClassiPress_IDeal_AddOn {
 	 * @param string $payment
 	 */
 	public static function update_status( Pronamic_Pay_Payment $payment, $can_redirect = false ) {
-		if ( $payment->get_source() == self::SLUG ) {
+		if ( self::SLUG === $payment->get_source() ) {
 			$id = $payment->get_source_id();
 
 			$order = Pronamic_ClassiPress_ClassiPress::get_order_by_id( $id );

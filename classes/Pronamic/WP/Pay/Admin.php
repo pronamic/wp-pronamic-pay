@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_Admin {
 		// Maybe update
 		global $pronamic_pay_db_version;
 
-		if ( get_option( 'pronamic_pay_db_version' ) != $pronamic_pay_db_version ) {
+		if ( get_option( 'pronamic_pay_db_version' ) !== $pronamic_pay_db_version ) {
 			do_action( 'pronamic_pay_upgrade', $pronamic_pay_db_version );
 
 			update_option( 'pronamic_pay_db_version', $pronamic_pay_db_version );
@@ -275,7 +275,7 @@ class Pronamic_WP_Pay_Admin {
 	 * Maybe show an license message
 	 */
 	public function admin_notices() {
-		if ( 'valid' != get_option( 'pronamic_pay_license_status' ) ) {
+		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
 			printf(
 				'<div class="%s"><p>%s</p></div>',
 				Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated',
@@ -296,10 +296,12 @@ class Pronamic_WP_Pay_Admin {
 		$screen = get_current_screen();
 
 		$enqueue  = false;
-		$enqueue |= $screen->post_type == 'pronamic_gateway';
-		$enqueue |= $screen->post_type == 'pronamic_payment';
-		$enqueue |= $screen->post_type == 'pronamic_pay_gf';
-		$enqueue |= $screen->id == 'toplevel_page_gf_edit_forms';
+		$enqueue |= in_array( $screen->post_type, array(
+			'pronamic_gateway',
+			'pronamic_payment',
+			'pronamic_pay_gf',
+		) );
+		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 

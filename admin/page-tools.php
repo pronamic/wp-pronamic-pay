@@ -24,7 +24,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 		foreach ( $tabs as $tab => $title ) {
 			$classes = array( 'nav-tab' );
 
-			if ( $current_tab == $tab ) {
+			if ( $current_tab === $tab ) {
 				$classes[] = 'nav-tab-active';
 			}
 

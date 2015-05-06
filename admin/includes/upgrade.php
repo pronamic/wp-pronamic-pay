@@ -13,10 +13,10 @@ function pronamic_pay_upgrade_330() {
 
 	$result = wp_remote_get( $url );
 
-	if ( 200 == wp_remote_retrieve_response_code( $result ) ) {
+	if ( 200 === wp_remote_retrieve_response_code( $result ) ) {
 		$body = wp_remote_retrieve_body( $result );
 
-		if ( 32 == strlen( $body ) ) {
+		if ( 32 === strlen( $body ) ) {
 			update_option( 'pronamic_pay_license_key', $body );
 		}
 	}
@@ -189,7 +189,7 @@ function pronamic_pay_upgrade_200() {
 				$meta['ideal_private_certificate']  = $config->private_certificate;
 
 				// OmniKassa
-				if ( 'rabobank-omnikassa' == $config->variant_id ) {
+				if ( 'rabobank-omnikassa' === $config->variant_id ) {
 					$meta['omnikassa_merchant_id'] = $config->merchant_id;
 					$meta['omnikassa_secret_key']  = $config->hash_key;
 
@@ -517,7 +517,7 @@ function pronamic_pay_upgrade_200() {
 	$shopp_meta_table = $wpdb->prefix . 'shopp_meta';
 
 	// @see http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
-	if ( $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) == $shopp_meta_table ) {
+	if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) ) {
 		$query = "SELECT id, value FROM $shopp_meta_table WHERE type = 'setting' AND name = 'Pronamic_Shopp_IDeal_GatewayModule';";
 
 		$row = $wpdb->get_row( $query );

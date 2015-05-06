@@ -17,6 +17,6 @@ class Pronamic_JobRoller_JobRoller {
 	 * @return boolean
 	 */
 	public static function is_active() {
-		return defined( 'APP_TD' ) && APP_TD == 'jobroller';
+		return defined( 'APP_TD' ) && 'jobroller' === APP_TD;
 	}
 }

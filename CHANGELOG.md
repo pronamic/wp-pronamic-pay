@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.6.2
+*	Updated WordPress pay core library to version 1.2.1.
+	*	Added XML utility class.
+*	Updated WordPress pay WooCommerce library to version 1.1.2.
+	*	Added general Pronamic gateway so the iDEAL gateway can be used for iDEAL only.
+*	Updated WordPress pay s2Member library to version 1.2.0.
+	*	Added experimental support for `ccaps` in shortcode.
+	*	Added settings field for the signup confirmation email message.
+	*	Added HTML admin views from the Pronamic iDEAL plugin.
+*	Updated WordPress pay MultiSafepay Connect library to version 1.2.0.
+	*	Added support for direct transaction request for iDEAL.
+
 ## 3.6.1
 *	Updated WordPress pay Event Espresso library to version 1.1.1.
 	*	Updated WordPress pay core library to version 1.2.0.
