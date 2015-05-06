@@ -155,7 +155,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * Post row actions
 	 */
 	public function post_row_actions( $actions, $post ) {
-		if ( 'pronamic_payment' == $post->post_type ) {
+		if ( 'pronamic_payment' === $post->post_type ) {
 			return array();
 		}
 

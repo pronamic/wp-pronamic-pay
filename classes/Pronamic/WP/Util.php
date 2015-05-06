@@ -23,7 +23,7 @@ class Pronamic_WP_Util {
 		if ( is_wp_error( $result ) ) {
 			$return = $result;
 		} else {
-			if ( wp_remote_retrieve_response_code( $result ) == $required_response_code ) {
+			if ( wp_remote_retrieve_response_code( $result ) === $required_response_code ) {
 				$return = wp_remote_retrieve_body( $result );
 			} else {
 				$return = new WP_Error(
@@ -130,7 +130,7 @@ class Pronamic_WP_Util {
 	public static function format_date( $format, DateTime $date = null ) {
 		$result = null;
 
-		if ( $date !== null ) {
+		if ( null !== $date ) {
 			$result = $date->format( $format );
 		}
 

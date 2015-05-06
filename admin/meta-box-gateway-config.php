@@ -712,7 +712,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 						if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) {
 							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
 
-							foreach ( $provider['gateways']  as $id => $gateway ) {
+							foreach ( $provider['gateways'] as $id => $gateway ) {
 								$classes = array();
 								$name    = $gateway['name'];
 

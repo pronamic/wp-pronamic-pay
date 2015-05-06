@@ -98,7 +98,7 @@ class Pronamic_WP_Pay_Plugin {
 		$type = $query->query_vars['type'];
 
 		// Ignore payment notes comments if it's not specific requested
-		if ( 'payment_note' != $type ) {
+		if ( 'payment_note' !== $type ) {
 			$clauses['where'] .= " AND comment_type != 'payment_note'";
 		}
 
@@ -115,7 +115,7 @@ class Pronamic_WP_Pay_Plugin {
 	public static function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
 		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
 
-		if ( $payment !== null ) {
+		if ( null !== $payment ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 			// - No status request after a final status has been received for a transaction;
 			if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
@@ -326,7 +326,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		global $pronamic_pay_version;
 
-		if ( get_option( 'pronamic_pay_version' ) != $pronamic_pay_version ) {
+		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
 			// Update version
 			update_option( 'pronamic_pay_version', $pronamic_pay_version );
 		}

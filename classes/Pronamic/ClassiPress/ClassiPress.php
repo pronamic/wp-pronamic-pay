@@ -18,7 +18,7 @@ class Pronamic_ClassiPress_ClassiPress {
 	 * @return boolean
 	 */
 	public static function is_active() {
-		return defined( 'APP_TD' ) && APP_TD == 'classipress';
+		return defined( 'APP_TD' ) && 'classipress' === APP_TD;
 	}
 
 	//////////////////////////////////////////////////

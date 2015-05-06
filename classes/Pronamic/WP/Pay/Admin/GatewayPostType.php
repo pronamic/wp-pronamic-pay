@@ -138,7 +138,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		if ( $post ) {
-			if ( 'pronamic_gateway' == $post->post_type ) {
+			if ( 'pronamic_gateway' === $post->post_type ) {
 				echo ' enctype="multipart/form-data"';
 			}
 		}
@@ -209,7 +209,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		// Check the user's permissions.
-		if ( 'page' == $_POST['post_type'] ) {
+		if ( 'page' === get_post_type( $post_id ) ) {
 			if ( ! current_user_can( 'edit_page', $post_id ) ) {
 				return $post_id;
 			}
@@ -298,7 +298,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		);
 
 		foreach ( $files as $name => $meta_key ) {
-			if ( isset( $_FILES[ $name ] ) && $_FILES[ $name ]['error'] == UPLOAD_ERR_OK ) {
+			if ( isset( $_FILES[ $name ] ) && UPLOAD_ERR_OK === $_FILES[ $name ]['error'] ) {
 				$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
 
 				$data[ $meta_key ] = $value;

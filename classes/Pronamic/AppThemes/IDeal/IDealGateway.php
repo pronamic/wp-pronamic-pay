@@ -63,7 +63,7 @@ class Pronamic_AppThemes_IDeal_IDealGateway extends APP_Gateway {
 					$error = $gateway->get_error();
 
 					if ( is_wp_error( $error ) ) {
-						foreach ( $error->get_error_messages() As $message ) {
+						foreach ( $error->get_error_messages() as $message ) {
 							echo $message;
 						}
 					} else {

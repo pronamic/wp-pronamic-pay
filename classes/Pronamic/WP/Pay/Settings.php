@@ -147,7 +147,7 @@ class Pronamic_WP_Pay_Settings {
 
 		$status = get_option( 'pronamic_pay_license_status' );
 
-		$icon = 'valid' == $status ? 'yes' : 'no';
+		$icon = 'valid' === $status ? 'yes' : 'no';
 
 		printf( '<span class="dashicons dashicons-%s" style="vertical-align: text-bottom;"></span>', esc_attr( $icon ) );
 	}

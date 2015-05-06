@@ -7,7 +7,7 @@ foreach ( $pronamic_pay_providers as $provider ) {
 		printf( "*	%s\n", $provider['name'] );
 	}
 
-	foreach ( $provider['gateways']  as $id => $gateway ) {
+	foreach ( $provider['gateways'] as $id => $gateway ) {
 		printf( "	*	%s\n", $gateway['name'] );
 	}
 }

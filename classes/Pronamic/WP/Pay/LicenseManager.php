@@ -30,7 +30,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	 * @return string
 	 */
 	public function pre_update_option_license_key( $newvalue, $oldvalue ) {
-		if ( $newvalue != $oldvalue ) {
+		if ( $newvalue !== $oldvalue ) {
 			delete_option( 'pronamic_pay_license_status' );
 
 			$this->deactivate_license( $oldvalue );
