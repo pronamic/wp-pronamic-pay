@@ -10,7 +10,15 @@ module.exports = function( grunt ) {
 					'-lf': null
 				}
 			},
-			all: [ 'classes/**/*.php' ]
+			all: [
+				'**/*.php',
+				'!deploy/**',
+				'!includes/icepay/**',
+				'!includes/xmlseclibs/**',
+				'!node_modules/**',
+				'!vendor/**',
+				'!wp-content/**'
+			]
 		},
 
 		// PHP Code Sniffer
@@ -23,8 +31,8 @@ module.exports = function( grunt ) {
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
 					'!vendor/**',
-					'!wp-content/**',
-				],
+					'!wp-content/**'
+				]
 			},
 			options: {
 				standard: 'phpcs.ruleset.xml'
@@ -38,7 +46,10 @@ module.exports = function( grunt ) {
 
 		// JSHint
 		jshint: {
-			files: ['Gruntfile.js', 'admin/js/*.js' ],
+			files: [
+				'Gruntfile.js',
+				'admin/js/*.js'
+			],
 			options: {
 				// options here to override JSHint defaults
 				globals: {
@@ -65,18 +76,6 @@ module.exports = function( grunt ) {
 				version1: 'plugin',
 				version2: '<%= pkg.version %>',
 				compare: '=='
-			}
-		},
-
-		// Make POT
-		makepot: {
-			target: {
-				options: {
-					cwd: '',
-					domainPath: 'languages',
-					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-content/.*' ],
-				}
 			}
 		},
 		
@@ -113,6 +112,22 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// Make POT
+		makepot: {
+			target: {
+				options: {
+					cwd: '',
+					domainPath: 'languages',
+					type: 'wp-plugin',
+					exclude: [
+						'deploy/.*',
+						'node_modules/.*',
+						'wp-content/.*'
+					],
+				}
+			}
+		},
+
 		// Shell
 		shell: {
 			plantuml: {
@@ -138,6 +153,13 @@ module.exports = function( grunt ) {
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
+					'!vendor/*/*/test/**',
+					'!vendor/*/*/tests/**',
+					'!vendor/bin/**',
+					'!vendor/guzzle/**',
+					'!vendor/psr/**',
+					'!vendor/satooshi/**',
+					'!vendor/symfony/**',
 					'!wp-content/**',
 				],
 				dest: 'deploy/latest',
