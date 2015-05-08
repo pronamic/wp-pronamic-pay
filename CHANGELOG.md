@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.6.3
+*	No longer include all development Composer packages.
+*	Updated WordPress pay MultiSafepay Connect library to version 1.2.1.
+	*	Fix fatal error due to undefined var $result.
+
 ## 3.6.2
 *	Updated WordPress pay core library to version 1.2.1.
 	*	Added XML utility class.
