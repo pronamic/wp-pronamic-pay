@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.6.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-05-08 13:33:21+00:00\n"
+"POT-Creation-Date: 2015-05-13 08:24:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.2\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
 msgid "WordPress.org"
@@ -60,7 +60,7 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:30
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:29
 msgid "General"
 msgstr ""
 
@@ -130,15 +130,14 @@ msgstr ""
 msgid "This controls the iDEAL %s parameter."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:84 admin/meta-box-gateway-config.php:457
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
+#: admin/meta-box-gateway-config.php:84 admin/meta-box-gateway-config.php:469
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
 msgid "Default: <code>%s</code>."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:85 admin/meta-box-gateway-config.php:458
-#: admin/meta-box-gateway-config.php:495
+#: admin/meta-box-gateway-config.php:85 admin/meta-box-gateway-config.php:470
+#: admin/meta-box-gateway-config.php:507
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:140
 msgid "Tags: %s"
 msgstr ""
@@ -169,7 +168,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:128 admin/meta-box-gateway-config.php:441
+#: admin/meta-box-gateway-config.php:128 admin/meta-box-gateway-config.php:453
 msgid "Password"
 msgstr ""
 
@@ -328,239 +327,246 @@ msgid ""
 "target=\"_blank\">My profile</a>."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:344
+#: admin/meta-box-gateway-config.php:347
+msgid ""
+"You can find your Shop ID on your <a href=\"%s\" target=\"_blank\">Sisow "
+"account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>. The "
+"default is: %s."
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:356
 msgid "Pay.nl"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:349
+#: admin/meta-box-gateway-config.php:361
 msgid "Token"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:353
+#: admin/meta-box-gateway-config.php:365
 msgid ""
 "You can find your token on the <a href=\"%s\" target=\"_blank\">Pay.nl "
 "admin page</a> under <a href=\"%s\" target=\"_blank\">Merchant » Company "
 "data (Connection)</a>."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:360
+#: admin/meta-box-gateway-config.php:372
 msgid "Service ID"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:364
+#: admin/meta-box-gateway-config.php:376
 msgid ""
 "You can find your service ID on the <a href=\"%s\" target=\"_blank\">Pay.nl "
 "admin page</a> under <a href=\"%s\" target=\"_blank\">Manage » Services</a>."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:372
+#: admin/meta-box-gateway-config.php:384
 msgid "TargetPay"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:377
+#: admin/meta-box-gateway-config.php:389
 msgid "Layout Code"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:379
+#: admin/meta-box-gateway-config.php:391
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:384
+#: admin/meta-box-gateway-config.php:396
 msgid "Ogone"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:389
+#: admin/meta-box-gateway-config.php:401
 msgid "PSPID"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:393
+#: admin/meta-box-gateway-config.php:405
 msgid "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:399
+#: admin/meta-box-gateway-config.php:411
 msgid "Character encoding"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:407
+#: admin/meta-box-gateway-config.php:419
 msgid "Hash algorithm"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:410
+#: admin/meta-box-gateway-config.php:422
 msgid "SHA-1"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:411
+#: admin/meta-box-gateway-config.php:423
 msgid "SHA-256"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:412
+#: admin/meta-box-gateway-config.php:424
 msgid "SHA-512"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:418 admin/meta-box-gateway-config.php:507
+#: admin/meta-box-gateway-config.php:430 admin/meta-box-gateway-config.php:519
 msgid "SHA-IN Pass phrase"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:421 admin/meta-box-gateway-config.php:510
+#: admin/meta-box-gateway-config.php:433 admin/meta-box-gateway-config.php:522
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
 "iDEAL provider."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:426
+#: admin/meta-box-gateway-config.php:438
 msgid "SHA-OUT Pass phrase"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:429
+#: admin/meta-box-gateway-config.php:441
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
 "provider."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:434 admin/meta-box-payment-source.php:64
+#: admin/meta-box-gateway-config.php:446 admin/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:448
+#: admin/meta-box-gateway-config.php:460
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Order ID"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:454 admin/meta-box-gateway-config.php:492
+#: admin/meta-box-gateway-config.php:466 admin/meta-box-gateway-config.php:504
 msgid "This controls the Ogone %s parameter."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:465
+#: admin/meta-box-gateway-config.php:477
 msgid "Direct HTTP server-to-server request"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:469
+#: admin/meta-box-gateway-config.php:481
 msgid "URL accepted, on hold or uncertain"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:473
+#: admin/meta-box-gateway-config.php:485
 msgid "If the payment's status is \"accepted\", \"on hold\" or \"uncertain\"."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:477
+#: admin/meta-box-gateway-config.php:489
 msgid "URL cancel or deny"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:481
+#: admin/meta-box-gateway-config.php:493
 msgid ""
 "If the payment's status is \"cancelled by the client\" or \"too many "
 "rejections by the acquirer\"."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:486
+#: admin/meta-box-gateway-config.php:498
 msgid "Parameter Variable"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:502
+#: admin/meta-box-gateway-config.php:514
 msgid "Ogone DirectLink"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:515
+#: admin/meta-box-gateway-config.php:527
 msgid "3-D Secure"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:517
+#: admin/meta-box-gateway-config.php:529
 msgid "Enable 3-D Secure protocol"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:523
+#: admin/meta-box-gateway-config.php:535
 msgid "Qantani"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:547
+#: admin/meta-box-gateway-config.php:559
 msgid "iDEAL Advanced"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:552
+#: admin/meta-box-gateway-config.php:564
 msgid "Private Key Password"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:558 admin/meta-box-gateway-config.php:941
+#: admin/meta-box-gateway-config.php:570 admin/meta-box-gateway-config.php:953
 msgid "Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:565 admin/meta-box-gateway-config.php:965
+#: admin/meta-box-gateway-config.php:577 admin/meta-box-gateway-config.php:977
 msgid "Private Certificate"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:573
+#: admin/meta-box-gateway-config.php:585
 msgid "Private Key and Certificate"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:578
+#: admin/meta-box-gateway-config.php:590
 msgid "Number Days Valid"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:580
+#: admin/meta-box-gateway-config.php:592
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:584
+#: admin/meta-box-gateway-config.php:596
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:425
 msgid "Country"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:586
+#: admin/meta-box-gateway-config.php:598
 msgid "2 letter code [NL]"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:590
+#: admin/meta-box-gateway-config.php:602
 msgid "State or Province"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:592
+#: admin/meta-box-gateway-config.php:604
 msgid "full name [Friesland]"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:596
+#: admin/meta-box-gateway-config.php:608
 msgid "Locality"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:598
+#: admin/meta-box-gateway-config.php:610
 msgid "eg, city"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:602
+#: admin/meta-box-gateway-config.php:614
 msgid "Organization"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:604
+#: admin/meta-box-gateway-config.php:616
 msgid "eg, company [Pronamic]"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:608
+#: admin/meta-box-gateway-config.php:620
 msgid "Organization Unit"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:610
+#: admin/meta-box-gateway-config.php:622
 msgid "eg, section"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:614
+#: admin/meta-box-gateway-config.php:626
 msgid "Common Name"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:617
+#: admin/meta-box-gateway-config.php:629
 msgid "eg, YOUR name"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:618
+#: admin/meta-box-gateway-config.php:630
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:619
+#: admin/meta-box-gateway-config.php:631
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -568,54 +574,54 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:623
+#: admin/meta-box-gateway-config.php:635
 msgid "Email Address"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:635
+#: admin/meta-box-gateway-config.php:647
 msgid "Download Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:657
+#: admin/meta-box-gateway-config.php:669
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:663
+#: admin/meta-box-gateway-config.php:675
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:666
+#: admin/meta-box-gateway-config.php:678
 msgid "Valid From"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:671
+#: admin/meta-box-gateway-config.php:683
 msgid "Valid To"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:682
+#: admin/meta-box-gateway-config.php:694
 msgid "Download Private Certificate"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:702
+#: admin/meta-box-gateway-config.php:714
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
 msgid "Variant"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:722
+#: admin/meta-box-gateway-config.php:734
 msgid "%s (obsoleted)"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:930
+#: admin/meta-box-gateway-config.php:942
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:934
+#: admin/meta-box-gateway-config.php:946
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:950
+#: admin/meta-box-gateway-config.php:962
 msgid "filename"
 msgstr ""
 
@@ -668,7 +674,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:89
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:113
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:111
 msgid "Email"
 msgstr ""
 
@@ -1379,7 +1385,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:36
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
@@ -1399,7 +1405,7 @@ msgstr ""
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:68
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:92
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:64
 msgid "iDEAL Options"
 msgstr ""
 
@@ -1543,7 +1549,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:87
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:470
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:214
 msgid "Error"
 msgstr ""
 
@@ -1560,7 +1566,7 @@ msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:67
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:91
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:63
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -1595,7 +1601,6 @@ msgstr ""
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:210
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
 msgstr ""
 
@@ -2133,148 +2138,108 @@ msgstr ""
 msgid "Pending iDEAL payment."
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:48
-msgid ""
-"Thanks %s! Your membership has been approved.\n"
-"\n"
-"Your password is %s. Please change your password when you login.\n"
-"\n"
-"If you have any trouble, please feel free to contact us.\n"
-"\n"
-"Best Regards,\n"
-"%s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:87
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:61
 msgid "Account Confirmation"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:122
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:62
+msgid "Your password is %s . Please change your password when you login"
+msgstr ""
+
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:79
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:213
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:163
 msgid "s2Member"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:35
+#: vendor/wp-pay-extensions/s2member/src/Order.php:15
 msgid "One Time ( for %s access, non-recurring )"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:39
+#: vendor/wp-pay-extensions/s2member/src/Order.php:19
 msgid "1 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:40
+#: vendor/wp-pay-extensions/s2member/src/Order.php:20
 msgid "2 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:41
+#: vendor/wp-pay-extensions/s2member/src/Order.php:21
 msgid "3 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:42
+#: vendor/wp-pay-extensions/s2member/src/Order.php:22
 msgid "4 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:43
+#: vendor/wp-pay-extensions/s2member/src/Order.php:23
 msgid "5 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:44
+#: vendor/wp-pay-extensions/s2member/src/Order.php:24
 msgid "6 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:45
+#: vendor/wp-pay-extensions/s2member/src/Order.php:25
 msgid "1 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:46
+#: vendor/wp-pay-extensions/s2member/src/Order.php:26
 msgid "2 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:47
+#: vendor/wp-pay-extensions/s2member/src/Order.php:27
 msgid "3 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:48
+#: vendor/wp-pay-extensions/s2member/src/Order.php:28
 msgid "1 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:49
+#: vendor/wp-pay-extensions/s2member/src/Order.php:29
 msgid "2 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:50
+#: vendor/wp-pay-extensions/s2member/src/Order.php:30
 msgid "3 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:51
+#: vendor/wp-pay-extensions/s2member/src/Order.php:31
 msgid "4 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:52
+#: vendor/wp-pay-extensions/s2member/src/Order.php:32
 msgid "5 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:53
+#: vendor/wp-pay-extensions/s2member/src/Order.php:33
 msgid "6 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
+#: vendor/wp-pay-extensions/s2member/src/Order.php:34
+#: vendor/wp-pay-extensions/s2member/src/Order.php:35
+#: vendor/wp-pay-extensions/s2member/src/Order.php:36
+#: vendor/wp-pay-extensions/s2member/src/Order.php:37
+#: vendor/wp-pay-extensions/s2member/src/Order.php:38
 msgid "1 year"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
+#: vendor/wp-pay-extensions/s2member/src/Order.php:39
 msgid "lifetime"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:55
-msgid "Signup Confirmation Email Message"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:100
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:72
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:101
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:73
 msgid "iDEAL Buttons"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:72
 msgid "iDEAL s2Member Payment || {{order_id}}"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:45
-msgid "Generator"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:59
-msgid "I want to charge: %s / %s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:73
-msgid "for access to level %s content"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:78
-msgid "Description:"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:82
-msgid "Button text:"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:87
-msgid "Generate Shortcode"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
-msgid "Shortcode"
 msgstr ""
 
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:323
@@ -2421,7 +2386,6 @@ msgstr ""
 #: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:96
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:76
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:78
 #: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
 #: vendor/wp-pay-gateways/sisow/src/Gateway.php:57
@@ -2627,17 +2591,22 @@ msgctxt "sisow"
 msgid "Merchant Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:528
+#: admin/meta-box-gateway-config.php:343
+msgctxt "sisow"
+msgid "Shop ID"
+msgstr ""
+
+#: admin/meta-box-gateway-config.php:540
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:534
+#: admin/meta-box-gateway-config.php:546
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:540
+#: admin/meta-box-gateway-config.php:552
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""

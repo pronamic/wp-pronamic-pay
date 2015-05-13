@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-05-08 13:33:21+00:00\n"
-"PO-Revision-Date: 2015-05-08 15:37+0100\n"
+"POT-Creation-Date: 2015-05-13 08:24:49+00:00\n"
+"PO-Revision-Date: 2015-05-13 10:31+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -62,7 +62,7 @@ msgstr "Betaling %d"
 #: admin/meta-box-gateway-config.php:29
 #: classes/Pronamic/WP/Pay/Settings.php:29
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:39
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:30
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:29
 msgid "General"
 msgstr "Algemeen"
 
@@ -134,15 +134,14 @@ msgstr "Aankoop ID"
 msgid "This controls the iDEAL %s parameter."
 msgstr "Hiermee beheer je de iDEAL %s parameter."
 
-#: admin/meta-box-gateway-config.php:84 admin/meta-box-gateway-config.php:457
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
+#: admin/meta-box-gateway-config.php:84 admin/meta-box-gateway-config.php:469
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
 msgid "Default: <code>%s</code>."
 msgstr "Standaard: <code>%s</code>."
 
-#: admin/meta-box-gateway-config.php:85 admin/meta-box-gateway-config.php:458
-#: admin/meta-box-gateway-config.php:495
+#: admin/meta-box-gateway-config.php:85 admin/meta-box-gateway-config.php:470
+#: admin/meta-box-gateway-config.php:507
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:140
 msgid "Tags: %s"
 msgstr "Tags: %s"
@@ -175,7 +174,7 @@ msgstr "PayDutch"
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: admin/meta-box-gateway-config.php:128 admin/meta-box-gateway-config.php:441
+#: admin/meta-box-gateway-config.php:128 admin/meta-box-gateway-config.php:453
 msgid "Password"
 msgstr "Wachtwoord"
 
@@ -300,7 +299,7 @@ msgid ""
 "websites</a>."
 msgstr ""
 "Je kunt je winkelier ID vinden op je <a href=\"%s\" target=\"_blank\">ICEPAY "
-"account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
+"account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn websites</a>."
 
 #: admin/meta-box-gateway-config.php:277 admin/meta-box-gateway-config.php:288
 msgid "https://portal.icepay.com/EN/Login"
@@ -341,7 +340,7 @@ msgid ""
 "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>."
 msgstr ""
 "Je kunt je Merchant ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
-"account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
+"account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
 #: admin/meta-box-gateway-config.php:336
 msgid ""
@@ -350,17 +349,27 @@ msgid ""
 "a>."
 msgstr ""
 "Je kunt je Merchant Key vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
-"account patina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
+"account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>."
 
-#: admin/meta-box-gateway-config.php:344
+#: admin/meta-box-gateway-config.php:347
+msgid ""
+"You can find your Shop ID on your <a href=\"%s\" target=\"_blank\">Sisow "
+"account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>. The "
+"default is: %s."
+msgstr ""
+"Je kunt je Shop ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
+"account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</a>. "
+"Standaard is dit: %s."
+
+#: admin/meta-box-gateway-config.php:356
 msgid "Pay.nl"
 msgstr "Pay.nl"
 
-#: admin/meta-box-gateway-config.php:349
+#: admin/meta-box-gateway-config.php:361
 msgid "Token"
 msgstr "Token"
 
-#: admin/meta-box-gateway-config.php:353
+#: admin/meta-box-gateway-config.php:365
 msgid ""
 "You can find your token on the <a href=\"%s\" target=\"_blank\">Pay.nl admin "
 "page</a> under <a href=\"%s\" target=\"_blank\">Merchant » Company data "
@@ -370,11 +379,11 @@ msgstr ""
 "pagina</a> onder <a href=\"%s\" target=\"_blank\">Merchant » "
 "Bedrijfsgegevens (Aansluiting)</a>."
 
-#: admin/meta-box-gateway-config.php:360
+#: admin/meta-box-gateway-config.php:372
 msgid "Service ID"
 msgstr "Service ID"
 
-#: admin/meta-box-gateway-config.php:364
+#: admin/meta-box-gateway-config.php:376
 msgid ""
 "You can find your service ID on the <a href=\"%s\" target=\"_blank\">Pay.nl "
 "admin page</a> under <a href=\"%s\" target=\"_blank\">Manage » Services</a>."
@@ -383,58 +392,58 @@ msgstr ""
 "admin pagina</a> onder <a href=\"%s\" target=\"_blank\">Beheren » Diensten</"
 "a>."
 
-#: admin/meta-box-gateway-config.php:372
+#: admin/meta-box-gateway-config.php:384
 msgid "TargetPay"
 msgstr "TargetPay"
 
-#: admin/meta-box-gateway-config.php:377
+#: admin/meta-box-gateway-config.php:389
 msgid "Layout Code"
 msgstr "Layout code"
 
-#: admin/meta-box-gateway-config.php:379
+#: admin/meta-box-gateway-config.php:391
 msgid "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 msgstr "De layoutcode waarop de betaling geboekt moet worden. Zie subaccounts."
 
-#: admin/meta-box-gateway-config.php:384
+#: admin/meta-box-gateway-config.php:396
 msgid "Ogone"
 msgstr "Ogone"
 
-#: admin/meta-box-gateway-config.php:389
+#: admin/meta-box-gateway-config.php:401
 msgid "PSPID"
 msgstr "PSPID"
 
-#: admin/meta-box-gateway-config.php:393
+#: admin/meta-box-gateway-config.php:405
 msgid ""
 "If you use the ABN AMRO - IDEAL Easy variant you can use <code>%s</code>."
 msgstr ""
 "Als je gebruik maakt van de ABN AMRO - iDEAL Easy variant kunt u <code>%s</"
 "code> gebruiken."
 
-#: admin/meta-box-gateway-config.php:399
+#: admin/meta-box-gateway-config.php:411
 msgid "Character encoding"
 msgstr "Tekencodering"
 
-#: admin/meta-box-gateway-config.php:407
+#: admin/meta-box-gateway-config.php:419
 msgid "Hash algorithm"
 msgstr "Hash-algoritme"
 
-#: admin/meta-box-gateway-config.php:410
+#: admin/meta-box-gateway-config.php:422
 msgid "SHA-1"
 msgstr "SHA-1"
 
-#: admin/meta-box-gateway-config.php:411
+#: admin/meta-box-gateway-config.php:423
 msgid "SHA-256"
 msgstr "SHA-256"
 
-#: admin/meta-box-gateway-config.php:412
+#: admin/meta-box-gateway-config.php:424
 msgid "SHA-512"
 msgstr "SHA-512"
 
-#: admin/meta-box-gateway-config.php:418 admin/meta-box-gateway-config.php:507
+#: admin/meta-box-gateway-config.php:430 admin/meta-box-gateway-config.php:519
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-IN versleuteling"
 
-#: admin/meta-box-gateway-config.php:421 admin/meta-box-gateway-config.php:510
+#: admin/meta-box-gateway-config.php:433 admin/meta-box-gateway-config.php:522
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -444,11 +453,11 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Verificatie data en herkomst) van je "
 "iDEAL provider."
 
-#: admin/meta-box-gateway-config.php:426
+#: admin/meta-box-gateway-config.php:438
 msgid "SHA-OUT Pass phrase"
 msgstr "SHA-OUT versleuteling"
 
-#: admin/meta-box-gateway-config.php:429
+#: admin/meta-box-gateway-config.php:441
 msgid ""
 "You configure the SHA-OUT Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Transaction feedback) of your iDEAL "
@@ -458,37 +467,37 @@ msgstr ""
 "&raquo; Technische informatie &raquo; Transactiefeedback) van je iDEAL "
 "provider."
 
-#: admin/meta-box-gateway-config.php:434 admin/meta-box-payment-source.php:64
+#: admin/meta-box-gateway-config.php:446 admin/meta-box-payment-source.php:64
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-gateway-config.php:448
+#: admin/meta-box-gateway-config.php:460
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: admin/meta-box-gateway-config.php:454 admin/meta-box-gateway-config.php:492
+#: admin/meta-box-gateway-config.php:466 admin/meta-box-gateway-config.php:504
 msgid "This controls the Ogone %s parameter."
 msgstr "Hiermee beheer je de Ogone %s parameter."
 
-#: admin/meta-box-gateway-config.php:465
+#: admin/meta-box-gateway-config.php:477
 msgid "Direct HTTP server-to-server request"
 msgstr "Direct HTTP server-to-server request"
 
-#: admin/meta-box-gateway-config.php:469
+#: admin/meta-box-gateway-config.php:481
 msgid "URL accepted, on hold or uncertain"
 msgstr "URL geaccepteerd, opgeschort of onzeker"
 
-#: admin/meta-box-gateway-config.php:473
+#: admin/meta-box-gateway-config.php:485
 msgid "If the payment's status is \"accepted\", \"on hold\" or \"uncertain\"."
 msgstr "Bij betaalstatus \"geaccepteerd\", \"opgeschort\" of \"onzeker\""
 
-#: admin/meta-box-gateway-config.php:477
+#: admin/meta-box-gateway-config.php:489
 msgid "URL cancel or deny"
 msgstr "URL geannuleerd of geweigerd"
 
-#: admin/meta-box-gateway-config.php:481
+#: admin/meta-box-gateway-config.php:493
 msgid ""
 "If the payment's status is \"cancelled by the client\" or \"too many "
 "rejections by the acquirer\"."
@@ -496,107 +505,107 @@ msgstr ""
 "Bij betaalstatus \"Geannuleerd door klant\" of bij te veel weigeringen door "
 "de acquirer."
 
-#: admin/meta-box-gateway-config.php:486
+#: admin/meta-box-gateway-config.php:498
 msgid "Parameter Variable"
 msgstr "Parameter variabele"
 
-#: admin/meta-box-gateway-config.php:502
+#: admin/meta-box-gateway-config.php:514
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: admin/meta-box-gateway-config.php:515
+#: admin/meta-box-gateway-config.php:527
 msgid "3-D Secure"
 msgstr "3-D Secure"
 
-#: admin/meta-box-gateway-config.php:517
+#: admin/meta-box-gateway-config.php:529
 msgid "Enable 3-D Secure protocol"
 msgstr "3-D Secure protocol inschakelen"
 
-#: admin/meta-box-gateway-config.php:523
+#: admin/meta-box-gateway-config.php:535
 msgid "Qantani"
 msgstr "Qantani"
 
-#: admin/meta-box-gateway-config.php:547
+#: admin/meta-box-gateway-config.php:559
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: admin/meta-box-gateway-config.php:552
+#: admin/meta-box-gateway-config.php:564
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: admin/meta-box-gateway-config.php:558 admin/meta-box-gateway-config.php:941
+#: admin/meta-box-gateway-config.php:570 admin/meta-box-gateway-config.php:953
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: admin/meta-box-gateway-config.php:565 admin/meta-box-gateway-config.php:965
+#: admin/meta-box-gateway-config.php:577 admin/meta-box-gateway-config.php:977
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: admin/meta-box-gateway-config.php:573
+#: admin/meta-box-gateway-config.php:585
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: admin/meta-box-gateway-config.php:578
+#: admin/meta-box-gateway-config.php:590
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: admin/meta-box-gateway-config.php:580
+#: admin/meta-box-gateway-config.php:592
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: admin/meta-box-gateway-config.php:584
+#: admin/meta-box-gateway-config.php:596
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:425
 msgid "Country"
 msgstr "Land"
 
-#: admin/meta-box-gateway-config.php:586
+#: admin/meta-box-gateway-config.php:598
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: admin/meta-box-gateway-config.php:590
+#: admin/meta-box-gateway-config.php:602
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: admin/meta-box-gateway-config.php:592
+#: admin/meta-box-gateway-config.php:604
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: admin/meta-box-gateway-config.php:596
+#: admin/meta-box-gateway-config.php:608
 msgid "Locality"
 msgstr "Localiteit"
 
-#: admin/meta-box-gateway-config.php:598
+#: admin/meta-box-gateway-config.php:610
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: admin/meta-box-gateway-config.php:602
+#: admin/meta-box-gateway-config.php:614
 msgid "Organization"
 msgstr "Organisatie"
 
-#: admin/meta-box-gateway-config.php:604
+#: admin/meta-box-gateway-config.php:616
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: admin/meta-box-gateway-config.php:608
+#: admin/meta-box-gateway-config.php:620
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: admin/meta-box-gateway-config.php:610
+#: admin/meta-box-gateway-config.php:622
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: admin/meta-box-gateway-config.php:614
+#: admin/meta-box-gateway-config.php:626
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: admin/meta-box-gateway-config.php:617
+#: admin/meta-box-gateway-config.php:629
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: admin/meta-box-gateway-config.php:618
+#: admin/meta-box-gateway-config.php:630
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -604,7 +613,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: admin/meta-box-gateway-config.php:619
+#: admin/meta-box-gateway-config.php:631
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -615,48 +624,48 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: admin/meta-box-gateway-config.php:623
+#: admin/meta-box-gateway-config.php:635
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: admin/meta-box-gateway-config.php:635
+#: admin/meta-box-gateway-config.php:647
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: admin/meta-box-gateway-config.php:657
+#: admin/meta-box-gateway-config.php:669
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: admin/meta-box-gateway-config.php:663
+#: admin/meta-box-gateway-config.php:675
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: admin/meta-box-gateway-config.php:666
+#: admin/meta-box-gateway-config.php:678
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: admin/meta-box-gateway-config.php:671
+#: admin/meta-box-gateway-config.php:683
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: admin/meta-box-gateway-config.php:682
+#: admin/meta-box-gateway-config.php:694
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: admin/meta-box-gateway-config.php:702
+#: admin/meta-box-gateway-config.php:714
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
 msgid "Variant"
 msgstr "Variant"
 
-#: admin/meta-box-gateway-config.php:722
+#: admin/meta-box-gateway-config.php:734
 msgid "%s (obsoleted)"
 msgstr "%s (verouderd)"
 
-#: admin/meta-box-gateway-config.php:930
+#: admin/meta-box-gateway-config.php:942
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: admin/meta-box-gateway-config.php:934
+#: admin/meta-box-gateway-config.php:946
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -664,7 +673,7 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: admin/meta-box-gateway-config.php:950
+#: admin/meta-box-gateway-config.php:962
 msgid "filename"
 msgstr "bestandsnaam"
 
@@ -717,7 +726,7 @@ msgstr "Status"
 
 #: admin/meta-box-payment-info.php:89
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:113
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:111
 msgid "Email"
 msgstr "E-mail"
 
@@ -1438,7 +1447,7 @@ msgstr "Pronamic iDEAL"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:36
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: views/eshop/settings-meta-box.php:18
 msgid "Configuration"
@@ -1458,7 +1467,7 @@ msgstr "Betaal met iDEAL"
 
 #: classes/Pronamic/ClassiPress/IDeal/AddOn.php:78
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:68
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:92
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:64
 msgid "iDEAL Options"
 msgstr "iDEAL-instellingen"
 
@@ -1606,7 +1615,7 @@ msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WP/Pay/Settings.php:87
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:470
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:214
 msgid "Error"
 msgstr "Fout"
 
@@ -1623,7 +1632,7 @@ msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
 #: classes/Pronamic/WP/Pay/WPMUDEV/Membership/Admin.php:67
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:91
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:63
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
 
@@ -1660,7 +1669,6 @@ msgstr "iDEAL - Online betalen via uw eigen bank"
 #: classes/Pronamic/WPMUDEV/Membership/IDeal/IDealGateway.php:210
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
 msgstr "Betalen"
 
@@ -2219,159 +2227,111 @@ msgstr "Hiermee beheer je de titel die gebruikers zien tijdens het afrekenen."
 msgid "Pending iDEAL payment."
 msgstr "In afwachting van iDEAL-betaling."
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:48
-msgid ""
-"Thanks %s! Your membership has been approved.\n"
-"\n"
-"Your password is %s. Please change your password when you login.\n"
-"\n"
-"If you have any trouble, please feel free to contact us.\n"
-"\n"
-"Best Regards,\n"
-"%s"
-msgstr ""
-"Bedankt %s! Je lidmaatschap is goedgekeurd.\n"
-"\n"
-"Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt.\n"
-"\n"
-"Neem gerust contact met ons op als je problemen hebt.\n"
-"\n"
-"Met vriendelijke groet,\n"
-"%s"
-
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:87
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:61
 msgid "Account Confirmation"
 msgstr "Account bevestiging"
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:122
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:62
+msgid "Your password is %s . Please change your password when you login"
+msgstr "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt."
+
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:79
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 "Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
 "toegevoegd."
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:213
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:163
 msgid "s2Member"
 msgstr "s2Member"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:35
+#: vendor/wp-pay-extensions/s2member/src/Order.php:15
 msgid "One Time ( for %s access, non-recurring )"
 msgstr "Eenmalig ( voor %s toegang, niet terugkerend )"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:39
+#: vendor/wp-pay-extensions/s2member/src/Order.php:19
 msgid "1 day"
 msgstr "1 dag"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:40
+#: vendor/wp-pay-extensions/s2member/src/Order.php:20
 msgid "2 day"
 msgstr "2 dagen"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:41
+#: vendor/wp-pay-extensions/s2member/src/Order.php:21
 msgid "3 day"
 msgstr "3 dagen"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:42
+#: vendor/wp-pay-extensions/s2member/src/Order.php:22
 msgid "4 day"
 msgstr "4 dagen"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:43
+#: vendor/wp-pay-extensions/s2member/src/Order.php:23
 msgid "5 day"
 msgstr "5 dagen"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:44
+#: vendor/wp-pay-extensions/s2member/src/Order.php:24
 msgid "6 day"
 msgstr "6 dagen"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:45
+#: vendor/wp-pay-extensions/s2member/src/Order.php:25
 msgid "1 week"
 msgstr "1 week"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:46
+#: vendor/wp-pay-extensions/s2member/src/Order.php:26
 msgid "2 week"
 msgstr "2 weken"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:47
+#: vendor/wp-pay-extensions/s2member/src/Order.php:27
 msgid "3 week"
 msgstr "3 weken"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:48
+#: vendor/wp-pay-extensions/s2member/src/Order.php:28
 msgid "1 month"
 msgstr "1 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:49
+#: vendor/wp-pay-extensions/s2member/src/Order.php:29
 msgid "2 month"
 msgstr "2 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:50
+#: vendor/wp-pay-extensions/s2member/src/Order.php:30
 msgid "3 month"
 msgstr "3 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:51
+#: vendor/wp-pay-extensions/s2member/src/Order.php:31
 msgid "4 month"
 msgstr "4 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:52
+#: vendor/wp-pay-extensions/s2member/src/Order.php:32
 msgid "5 month"
 msgstr "5 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:53
+#: vendor/wp-pay-extensions/s2member/src/Order.php:33
 msgid "6 month"
 msgstr "6 maand"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
+#: vendor/wp-pay-extensions/s2member/src/Order.php:34
+#: vendor/wp-pay-extensions/s2member/src/Order.php:35
+#: vendor/wp-pay-extensions/s2member/src/Order.php:36
+#: vendor/wp-pay-extensions/s2member/src/Order.php:37
+#: vendor/wp-pay-extensions/s2member/src/Order.php:38
 msgid "1 year"
 msgstr "1 jaar"
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
+#: vendor/wp-pay-extensions/s2member/src/Order.php:39
 msgid "lifetime"
 msgstr "lifetime"
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:55
-msgid "Signup Confirmation Email Message"
-msgstr "Inschrijving bevestiging e-mail bericht"
-
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:100
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:72
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr "Pronamic iDEAL buttons generator"
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:101
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:73
 msgid "iDEAL Buttons"
 msgstr "iDEAL-buttons"
 
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:72
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr "iDEAL s2Member betaling || {{order_id}}"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:45
-msgid "Generator"
-msgstr "Generator"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:59
-msgid "I want to charge: %s / %s"
-msgstr "Ik wil %s in rekening brengen voor %s"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:73
-msgid "for access to level %s content"
-msgstr "voor toegang tot %s niveau content"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:78
-msgid "Description:"
-msgstr "Beschrijving:"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:82
-msgid "Button text:"
-msgstr "Knop tekst:"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:87
-msgid "Generate Shortcode"
-msgstr "Genereer shortcode"
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
-msgid "Shortcode"
-msgstr "Shortcode"
 
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:323
 msgid "Select configuration"
@@ -2524,7 +2484,6 @@ msgstr "&mdash; Andere banken &mdash;"
 #: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:96
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:76
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:78
 #: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
 #: vendor/wp-pay-gateways/sisow/src/Gateway.php:57
@@ -2732,17 +2691,22 @@ msgctxt "sisow"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: admin/meta-box-gateway-config.php:528
+#: admin/meta-box-gateway-config.php:343
+msgctxt "sisow"
+msgid "Shop ID"
+msgstr "Shop ID"
+
+#: admin/meta-box-gateway-config.php:540
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: admin/meta-box-gateway-config.php:534
+#: admin/meta-box-gateway-config.php:546
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: admin/meta-box-gateway-config.php:540
+#: admin/meta-box-gateway-config.php:552
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
@@ -2757,8 +2721,57 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
-#~ msgid "Your password is %s . Please change your password when you login"
-#~ msgstr "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt."
+#~ msgid ""
+#~ "You can find your Shop ID on your <a href=\"%s\" target=\"_blank\">Sisow "
+#~ "account page</a> under <a href=\"%s\" target=\"_blank\">My profile</a>. "
+#~ "The default is: %s"
+#~ msgstr ""
+#~ "Je kunt je Shop ID vinden op je <a href=\"%s\" target=\"_blank\">Sisow "
+#~ "account pagina</a> onder <a href=\"%s\" target=\"_blank\">Mijn profiel</"
+#~ "a>. Standaard is dit: %s"
+
+#~ msgid ""
+#~ "Thanks %s! Your membership has been approved.\n"
+#~ "\n"
+#~ "Your password is %s. Please change your password when you login.\n"
+#~ "\n"
+#~ "If you have any trouble, please feel free to contact us.\n"
+#~ "\n"
+#~ "Best Regards,\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Bedankt %s! Je lidmaatschap is goedgekeurd.\n"
+#~ "\n"
+#~ "Je wachtwoord is %s. Wijzig je wachtwoord wanneer je inlogt.\n"
+#~ "\n"
+#~ "Neem gerust contact met ons op als je problemen hebt.\n"
+#~ "\n"
+#~ "Met vriendelijke groet,\n"
+#~ "%s"
+
+#~ msgid "Signup Confirmation Email Message"
+#~ msgstr "Inschrijving bevestiging e-mail bericht"
+
+#~ msgid "Generator"
+#~ msgstr "Generator"
+
+#~ msgid "I want to charge: %s / %s"
+#~ msgstr "Ik wil %s in rekening brengen voor %s"
+
+#~ msgid "for access to level %s content"
+#~ msgstr "voor toegang tot %s niveau content"
+
+#~ msgid "Description:"
+#~ msgstr "Beschrijving:"
+
+#~ msgid "Button text:"
+#~ msgstr "Knop tekst:"
+
+#~ msgid "Generate Shortcode"
+#~ msgstr "Genereer shortcode"
+
+#~ msgid "Shortcode"
+#~ msgstr "Shortcode"
 
 #~ msgid "iDEAL Settings"
 #~ msgstr "iDEAL-instellingen"

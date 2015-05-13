@@ -257,6 +257,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			// Sisow
 			'_pronamic_gateway_sisow_merchant_id'  => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_sisow_merchant_key' => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_sisow_shop_id'      => FILTER_SANITIZE_STRING,
 			// TargetPay
 			'_pronamic_gateway_targetpay_layoutcode' => FILTER_SANITIZE_STRING,
 			// Ogone
