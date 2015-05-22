@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f9a31e72ace5e2d9ab43dc72a8a99cb3",
+    "hash": "f17c394325ee68c239b20791a7f3f8ca",
     "packages": [
         {
             "name": "composer/installers",
@@ -133,6 +133,63 @@
                 "payment"
             ],
             "time": "2015-02-16 11:12:49"
+        },
+        {
+            "name": "wp-pay-extensions/appthemes",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/appthemes.git",
+                "reference": "ea9dc94fa0b5708f9babcb0677181220623bb595"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/ea9dc94fa0b5708f9babcb0677181220623bb595",
+                "reference": "ea9dc94fa0b5708f9babcb0677181220623bb595",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "AppThemes driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/appthemes/",
+            "keywords": [
+                "appthemes",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-22 18:34:15"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -2424,6 +2481,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-extensions/appthemes": 20,
         "wp-pay-extensions/wp-e-commerce": 20,
         "satooshi/php-coveralls": 20
     },
