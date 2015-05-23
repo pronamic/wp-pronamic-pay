@@ -46,7 +46,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
-		Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
+		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
 		// Pronamic_WP_Pay_Extensions_EShop_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
