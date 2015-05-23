@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f17c394325ee68c239b20791a7f3f8ca",
+    "hash": "7931ca2781e4a126089e6aabb42d0e06",
     "packages": [
         {
             "name": "composer/installers",
@@ -190,6 +190,63 @@
                 "wp"
             ],
             "time": "2015-05-22 18:34:15"
+        },
+        {
+            "name": "wp-pay-extensions/classipress",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/classipress.git",
+                "reference": "a56c022226d898a0be248e2f87b9cd97c0fd6c5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/a56c022226d898a0be248e2f87b9cd97c0fd6c5b",
+                "reference": "a56c022226d898a0be248e2f87b9cd97c0fd6c5b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "ClassiPress driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/classipress/",
+            "keywords": [
+                "classipress",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-23 09:36:35"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -2482,6 +2539,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay-extensions/appthemes": 20,
+        "wp-pay-extensions/classipress": 20,
         "wp-pay-extensions/wp-e-commerce": 20,
         "satooshi/php-coveralls": 20
     },

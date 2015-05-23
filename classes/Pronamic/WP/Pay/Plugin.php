@@ -41,7 +41,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
-		Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
+		Pronamic_WP_Pay_Extensions_ClassiPress_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
