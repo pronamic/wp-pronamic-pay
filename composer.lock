@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7931ca2781e4a126089e6aabb42d0e06",
+    "hash": "6ef37377d9922a53331fb1565351200b",
     "packages": [
         {
             "name": "composer/installers",
@@ -197,12 +197,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "a56c022226d898a0be248e2f87b9cd97c0fd6c5b"
+                "reference": "cbf5e81c46717396a36fe2704619f7ca7d7cad96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/a56c022226d898a0be248e2f87b9cd97c0fd6c5b",
-                "reference": "a56c022226d898a0be248e2f87b9cd97c0fd6c5b",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/cbf5e81c46717396a36fe2704619f7ca7d7cad96",
+                "reference": "cbf5e81c46717396a36fe2704619f7ca7d7cad96",
                 "shasum": ""
             },
             "require": {
@@ -246,7 +246,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-05-23 09:36:35"
+            "time": "2015-05-23 09:56:48"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -308,6 +308,64 @@
                 "wp"
             ],
             "time": "2015-03-25 14:29:06"
+        },
+        {
+            "name": "wp-pay-extensions/eshop",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/eshop.git",
+                "reference": "3414a5f514ac0194bd90afaa3494b1bf3730ad40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/eshop/zipball/3414a5f514ac0194bd90afaa3494b1bf3730ad40",
+                "reference": "3414a5f514ac0194bd90afaa3494b1bf3730ad40",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1",
+                "wpackagist-plugin/eshop": "6.3.11"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "eShop driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/eshop/",
+            "keywords": [
+                "eshop",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-23 10:15:37"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -606,6 +664,63 @@
                 "wp"
             ],
             "time": "2015-03-03 12:34:22"
+        },
+        {
+            "name": "wp-pay-extensions/jobroller",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/jobroller.git",
+                "reference": "9482e79819d42d3228c84e91cc922e4327253207"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jobroller/zipball/9482e79819d42d3228c84e91cc922e4327253207",
+                "reference": "9482e79819d42d3228c84e91cc922e4327253207",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "JobRoller driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/jobroller/",
+            "keywords": [
+                "extension",
+                "jobroller",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-23 09:55:52"
         },
         {
             "name": "wp-pay-extensions/s2member",
@@ -1846,6 +1961,26 @@
             "homepage": "https://wordpress.org/plugins/easy-digital-downloads/"
         },
         {
+            "name": "wpackagist-plugin/eshop",
+            "version": "6.3.11",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/eshop/",
+                "reference": "tags/6.3.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/eshop.6.3.11.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/eshop/"
+        },
+        {
             "name": "wpackagist-plugin/ithemes-exchange",
             "version": "1.11.8",
             "source": {
@@ -2540,6 +2675,8 @@
     "stability-flags": {
         "wp-pay-extensions/appthemes": 20,
         "wp-pay-extensions/classipress": 20,
+        "wp-pay-extensions/eshop": 20,
+        "wp-pay-extensions/jobroller": 20,
         "wp-pay-extensions/wp-e-commerce": 20,
         "satooshi/php-coveralls": 20
     },
