@@ -75,7 +75,6 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
-		require_once self::$dirname . '/includes/wp-e-commerce.php';
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( __CLASS__, 'handle_returns' ) );
