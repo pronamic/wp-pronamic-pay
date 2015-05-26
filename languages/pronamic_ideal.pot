@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.6.3\n"
+"Project-Id-Version: Pronamic iDEAL 3.6.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-05-23 11:16:49+00:00\n"
+"POT-Creation-Date: 2015-05-26 14:26:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,7 +59,7 @@ msgid "Payment %d"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
-#: vendor/wp-pay-extensions/membership/src/Admin.php:39
+#: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
 msgid "General"
 msgstr ""
@@ -82,8 +82,6 @@ msgstr ""
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
 #: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:365
 #: classes/Pronamic/WP/Pay/Admin.php:366
-#: includes/ithemes-exchange/settings.php:2
-#: includes/ithemes-exchange/wizard-settings.php:2
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -97,6 +95,8 @@ msgstr ""
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:52
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:59
+#: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:2
+#: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-wizard-settings.php:2
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:27
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:61
@@ -951,7 +951,7 @@ msgid "Gravity Forms Zapier Add-On"
 msgstr ""
 
 #: admin/tab-extensions.php:108
-#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:407
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:405
 msgid "iThemes Exchange"
 msgstr ""
 
@@ -969,7 +969,7 @@ msgid "Jigowatt"
 msgstr ""
 
 #: admin/tab-extensions.php:130
-#: vendor/wp-pay-extensions/membership/src/Extension.php:118
+#: vendor/wp-pay-extensions/membership/src/Extension.php:120
 msgid "Membership"
 msgstr ""
 
@@ -999,7 +999,6 @@ msgid "Ingenesis Limited"
 msgstr ""
 
 #: admin/tab-extensions.php:172
-#: classes/Pronamic/Extensions/ExtensionWooCommerce.php:5
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
 msgid "WooCommerce"
 msgstr ""
@@ -1070,12 +1069,12 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:356
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:468
 msgid "Success"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:352
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
 msgid "Failure"
 msgstr ""
 
@@ -1381,7 +1380,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/membership/src/Admin.php:46
+#: vendor/wp-pay-extensions/membership/src/Admin.php:47
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:40
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
@@ -1432,37 +1431,37 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:348
+#: classes/Pronamic/WP/Pay/Plugin.php:347
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:350
+#: classes/Pronamic/WP/Pay/Plugin.php:349
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:471
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:354
+#: classes/Pronamic/WP/Pay/Plugin.php:353
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:467
 msgid "Open"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:358
+#: classes/Pronamic/WP/Pay/Plugin.php:357
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:370
+#: classes/Pronamic/WP/Pay/Plugin.php:369
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:427
+#: classes/Pronamic/WP/Pay/Plugin.php:426
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:549
+#: classes/Pronamic/WP/Pay/Plugin.php:548
 msgid "Payment for %s"
 msgstr ""
 
@@ -1518,10 +1517,6 @@ msgstr ""
 
 #: includes/gateways.php:282
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
-msgstr ""
-
-#: includes/ithemes-exchange/settings.php:6
-msgid "Back to Add-ons"
 msgstr ""
 
 #: includes/post.php:5 includes/post.php:7
@@ -1602,7 +1597,7 @@ msgid "No payments found in Trash"
 msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:406
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:210
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:211
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
@@ -1611,8 +1606,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/appthemes/src/Extension.php:125
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:302
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
-#: vendor/wp-pay-extensions/eshop/src/Extension.php:136
-#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:408
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:406
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:139
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:171
 msgid "Order #%s"
@@ -1630,12 +1624,12 @@ msgstr ""
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:222
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:124
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:149
-#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:241
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:239
 msgid "Pay with iDEAL"
 msgstr ""
 
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:78
-#: vendor/wp-pay-extensions/membership/src/Admin.php:68
+#: vendor/wp-pay-extensions/membership/src/Admin.php:69
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:92
 msgid "iDEAL Options"
 msgstr ""
@@ -1724,10 +1718,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:26
 msgid "SOFORT Banking"
-msgstr ""
-
-#: vendor/wp-pay-extensions/eshop/src/Extension.php:134
-msgid "eShop"
 msgstr ""
 
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:239
@@ -2068,6 +2058,10 @@ msgstr ""
 msgid "iThemes Exchange order %s"
 msgstr ""
 
+#: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:6
+msgid "Back to Add-ons"
+msgstr ""
+
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:83
 msgid "iDEAL payment cancelled."
 msgstr ""
@@ -2124,16 +2118,16 @@ msgstr ""
 msgid "Order %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/Admin.php:67
+#: vendor/wp-pay-extensions/membership/src/Admin.php:68
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:91
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:127
+#: vendor/wp-pay-extensions/membership/src/Extension.php:129
 msgid "Transaction #%s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:183
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:184
 msgid "iDEAL - Online payment through your own bank"
 msgstr ""
 
