@@ -1,21 +1,31 @@
-# Changelog
+# Change Log
 
-## 3.6.3
-*	No longer include all development Composer packages.
-*	Updated WordPress pay MultiSafepay Connect library to version 1.2.1.
-	*	Fix fatal error due to undefined var $result.
+All notable changes to this project will be documented in this file.
 
-## 3.6.2
-*	Updated WordPress pay core library to version 1.2.1.
-	*	Added XML utility class.
-*	Updated WordPress pay WooCommerce library to version 1.1.2.
-	*	Added general Pronamic gateway so the iDEAL gateway can be used for iDEAL only.
-*	Updated WordPress pay s2Member library to version 1.2.0.
-	*	Added experimental support for `ccaps` in shortcode.
-	*	Added settings field for the signup confirmation email message.
-	*	Added HTML admin views from the Pronamic iDEAL plugin.
-*	Updated WordPress pay MultiSafepay Connect library to version 1.2.0.
-	*	Added support for direct transaction request for iDEAL.
+This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a CHANGELOG](http://keepachangelog.com/).
+
+## [Unreleased][unreleased]
+- 
+
+## [3.6.3] - 2015-05-26
+- 
+
+## [3.6.3] - 2015-05-08
+- No longer include all development Composer packages.
+- Updated WordPress pay MultiSafepay Connect library to version 1.2.1.
+  - Fix fatal error due to undefined var $result.
+
+## [3.6.2] - 2015-05-06
+- Updated WordPress pay core library to version 1.2.1.
+  - Added XML utility class.
+- Updated WordPress pay WooCommerce library to version 1.1.2.
+  - Added general Pronamic gateway so the iDEAL gateway can be used for iDEAL only.
+- Updated WordPress pay s2Member library to version 1.2.0.
+  - Added experimental support for `ccaps` in shortcode.
+  - Added settings field for the signup confirmation email message.
+  - Added HTML admin views from the Pronamic iDEAL plugin.
+- Updated WordPress pay MultiSafepay Connect library to version 1.2.0.
+  - Added support for direct transaction request for iDEAL.
 
 ## 3.6.1
 *	Updated WordPress pay Event Espresso library to version 1.1.1.
@@ -901,3 +911,8 @@
 *	Added wp_nonce_field() and check_admin_referer() functions to the forms to avoid security exploits
 *	Improved the feeds repository and the feed model
 *	Initial release
+
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.4...HEAD
+[3.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.3...3.6.4
+[3.6.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.2...3.6.3
+[3.6.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.1...3.6.2
