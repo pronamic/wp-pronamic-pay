@@ -19,6 +19,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Only process payments if amount is higher than zero.
 - Updated WordPress pay Sisow library to version 1.1.0.
   - Added support for Shop ID.
+- Updated WordPress pay Shopp library to version 1.0.2.
+  - Added missing file GatewayModule.php for Shopp < 1.3 support.
 - Minified all images.
 
 ## [3.6.3] - 2015-05-08
