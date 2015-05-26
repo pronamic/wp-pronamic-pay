@@ -8,6 +8,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - 
 
 ## [3.6.4] - 2015-05-26
+### Changed
+- Updated WordPress pay AppThemes library to version 1.0.0.
+- Updated WordPress pay ClassiPress library to version 1.0.0.
+- Updated WordPress pay iThemes Exchange library to version 1.1.0.
+- Updated WordPress pay JobRoller library to version 1.0.0.
+- Updated WordPress pay Membership library to version 1.0.0.
+- Updated WordPress pay WP e-Commerce library to version 1.0.0.
 - Minified all images.
 
 ## [3.6.3] - 2015-05-08
