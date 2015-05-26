@@ -128,6 +128,20 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// Imagemin
+		imagemin: {
+			build: {
+				files: [
+					{ // Images
+						expand: true,
+						cwd: 'src/images/',
+						src: ['**/*.{png,jpg,gif,svg,ico}'],
+						dest: 'images/'
+					}
+				]
+			},
+		},
+
 		// Shell
 		shell: {
 			// PlantUML
@@ -249,6 +263,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
+	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
