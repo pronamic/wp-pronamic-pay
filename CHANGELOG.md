@@ -17,6 +17,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay WP e-Commerce library to version 1.0.0.
 - Updated WordPress pay Gravity Forms library to version 1.2.4.
   - Only process payments if amount is higher than zero.
+- Updated WordPress pay Sisow library to version 1.1.0.
+  - Added support for Shop ID.
 - Minified all images.
 
 ## [3.6.3] - 2015-05-08
