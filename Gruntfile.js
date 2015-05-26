@@ -172,6 +172,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!src/**',
 					'!tests/**',
 					'!vendor/*/*/test/**',
 					'!vendor/*/*/tests/**',
