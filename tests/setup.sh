@@ -41,6 +41,7 @@ wp plugin install shopp --activate=1
 wp plugin install gravityforms-nl --activate=1
 wp plugin install https://github.com/gravityforms/gravityforms/archive/1.9.5.12.zip --activate=1
 wp plugin install ithemes-exchange --activate=1
+wp plugin install membership --activate=1
 
 # Create gateway configration
 post_id=$(wp post create --post_type=pronamic_gateway --post_status=publish --post_title='MultiSafepay' --porcelain)
@@ -53,6 +54,9 @@ wp post meta set $post_id '_pronamic_gateway_multisafepay_site_code' $MULTISAFEP
 
 # iThemes Exchnage
 wp option update 'pronamic_ithemes_exchange_ideal_addon_configuration' $post_id
+
+# Membership
+wp option update 'pronamic_pay_membership_config_id' $post_id
 
 # WP e-Commerce
 wp option update 'pronamic_pay_ideal_wpsc_config_id' $post_id
