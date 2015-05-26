@@ -7,8 +7,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
-## [3.6.3] - 2015-05-26
-- 
+## [3.6.4] - 2015-05-26
+- Minified all images.
 
 ## [3.6.3] - 2015-05-08
 - No longer include all development Composer packages.
