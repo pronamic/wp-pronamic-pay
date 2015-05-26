@@ -128,10 +128,30 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// Imagemin
+		imagemin: {
+			build: {
+				files: [
+					{ // Images
+						expand: true,
+						cwd: 'src/images/',
+						src: ['**/*.{png,jpg,gif,svg,ico}'],
+						dest: 'images/'
+					}
+				]
+			},
+		},
+
 		// Shell
 		shell: {
+			// PlantUML
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
+			},
+
+			// WordPress test environment
+			test: {
+				command: 'bash tests/setup.sh'
 			}
 		},
 
@@ -152,6 +172,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!src/**',
 					'!tests/**',
 					'!vendor/*/*/test/**',
 					'!vendor/*/*/tests/**',
@@ -243,6 +264,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
+	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
@@ -253,7 +275,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-rt-wp-deploy' );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'checkwpversion' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 

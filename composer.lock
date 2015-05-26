@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f35a9e3d02a986caae16370f2425908d",
+    "hash": "190b3f97a5a101307865a88a479d61c5",
     "packages": [
         {
             "name": "composer/installers",
@@ -133,6 +133,120 @@
                 "payment"
             ],
             "time": "2015-02-16 11:12:49"
+        },
+        {
+            "name": "wp-pay-extensions/appthemes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/appthemes.git",
+                "reference": "b0a1f2590633a80a285cec4d38669db9bd2f4f7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/b0a1f2590633a80a285cec4d38669db9bd2f4f7a",
+                "reference": "b0a1f2590633a80a285cec4d38669db9bd2f4f7a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "AppThemes driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/appthemes/",
+            "keywords": [
+                "appthemes",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-26 14:19:12"
+        },
+        {
+            "name": "wp-pay-extensions/classipress",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/classipress.git",
+                "reference": "04c002e9f94f8d17fb92b18fa2fed34092a97e06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/04c002e9f94f8d17fb92b18fa2fed34092a97e06",
+                "reference": "04c002e9f94f8d17fb92b18fa2fed34092a97e06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "ClassiPress driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/classipress/",
+            "keywords": [
+                "classipress",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-26 14:21:24"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -318,16 +432,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "48e1fde5042c5c12020bcd7f68309a4ad07a4d0f"
+                "reference": "6fc68c1dc480794595b3c8cdcfbf9c3b7f0364b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/48e1fde5042c5c12020bcd7f68309a4ad07a4d0f",
-                "reference": "48e1fde5042c5c12020bcd7f68309a4ad07a4d0f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/6fc68c1dc480794595b3c8cdcfbf9c3b7f0364b0",
+                "reference": "6fc68c1dc480794595b3c8cdcfbf9c3b7f0364b0",
                 "shasum": ""
             },
             "require": {
@@ -374,20 +488,20 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-04-02 11:13:56"
+            "time": "2015-05-26 14:36:06"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ithemes-exchange.git",
-                "reference": "1ee8e3c0756e7665dc396ded71f012a156d735a5"
+                "reference": "3353f5a66da1676b42bb7eef6eab56b58374806c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/1ee8e3c0756e7665dc396ded71f012a156d735a5",
-                "reference": "1ee8e3c0756e7665dc396ded71f012a156d735a5",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/3353f5a66da1676b42bb7eef6eab56b58374806c",
+                "reference": "3353f5a66da1676b42bb7eef6eab56b58374806c",
                 "shasum": ""
             },
             "require": {
@@ -433,7 +547,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-03-03 13:22:48"
+            "time": "2015-05-26 14:01:35"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
@@ -492,6 +606,121 @@
                 "wp"
             ],
             "time": "2015-03-03 12:34:22"
+        },
+        {
+            "name": "wp-pay-extensions/jobroller",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/jobroller.git",
+                "reference": "5bd73f237093fdbde832093e0fbc67c70a735c78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jobroller/zipball/5bd73f237093fdbde832093e0fbc67c70a735c78",
+                "reference": "5bd73f237093fdbde832093e0fbc67c70a735c78",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "JobRoller driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/jobroller/",
+            "keywords": [
+                "extension",
+                "jobroller",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-26 14:05:42"
+        },
+        {
+            "name": "wp-pay-extensions/membership",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/membership.git",
+                "reference": "a3fb6e5be6802c7b3a71310fc79123037ee4f5d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/membership/zipball/a3fb6e5be6802c7b3a71310fc79123037ee4f5d3",
+                "reference": "a3fb6e5be6802c7b3a71310fc79123037ee4f5d3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1",
+                "wpackagist-plugin/membership": "3.4.4.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Membership driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/membership/",
+            "keywords": [
+                "extension",
+                "membership",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-05-26 14:09:35"
         },
         {
             "name": "wp-pay-extensions/s2member",
@@ -553,16 +782,16 @@
         },
         {
             "name": "wp-pay-extensions/shopp",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/shopp.git",
-                "reference": "c8766eb665a87447fbc82060f78da7364416dcf5"
+                "reference": "aceb3b3a958853a69cdbbc9765f3c921f09c8756"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/c8766eb665a87447fbc82060f78da7364416dcf5",
-                "reference": "c8766eb665a87447fbc82060f78da7364416dcf5",
+                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/aceb3b3a958853a69cdbbc9765f3c921f09c8756",
+                "reference": "aceb3b3a958853a69cdbbc9765f3c921f09c8756",
                 "shasum": ""
             },
             "require": {
@@ -607,7 +836,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-03-03 13:30:48"
+            "time": "2015-05-26 14:50:16"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -666,6 +895,67 @@
                 "wp"
             ],
             "time": "2015-04-08 08:27:48"
+        },
+        {
+            "name": "wp-pay-extensions/wp-e-commerce",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/wp-e-commerce.git",
+                "reference": "b0a469f1848514b2f7a36f4fa16023276be0438a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/wp-e-commerce/zipball/b0a469f1848514b2f7a36f4fa16023276be0438a",
+                "reference": "b0a469f1848514b2f7a36f4fa16023276be0438a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.0.1",
+                "wpackagist-plugin/wp-e-commerce": "3.9.3"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "WP eCommerce driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/wp-e-commerce/",
+            "keywords": [
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp",
+                "wp-e-commerce"
+            ],
+            "time": "2015-05-26 14:13:22"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -1488,16 +1778,16 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "7aaff4d4d14d6efb56bc40a38faff500cb5dd880"
+                "reference": "226578a5b2585a203bf5da56d6eafe0db0be1ee7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/7aaff4d4d14d6efb56bc40a38faff500cb5dd880",
-                "reference": "7aaff4d4d14d6efb56bc40a38faff500cb5dd880",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/226578a5b2585a203bf5da56d6eafe0db0be1ee7",
+                "reference": "226578a5b2585a203bf5da56d6eafe0db0be1ee7",
                 "shasum": ""
             },
             "require": {
@@ -1541,7 +1831,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-03-03 13:17:11"
+            "time": "2015-05-26 14:42:48"
         },
         {
             "name": "wp-pay-gateways/targetpay",
@@ -1717,6 +2007,26 @@
             "homepage": "http://wordpress.org/plugins/jigoshop/"
         },
         {
+            "name": "wpackagist-plugin/membership",
+            "version": "3.4.4.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/membership/",
+                "reference": "tags/3.4.4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/membership.3.4.4.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/membership/"
+        },
+        {
             "name": "wpackagist-plugin/s2member",
             "version": 141007,
             "source": {
@@ -1781,6 +2091,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "http://wordpress.org/plugins/woocommerce/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-e-commerce",
+            "version": "3.9.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/wp-e-commerce/",
+                "reference": "tags/3.9.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-e-commerce.3.9.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-e-commerce/"
         },
         {
             "name": "xrstf/composer-php52",
@@ -2026,17 +2356,17 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "d91be01336605db8da21b79bc771e46a7276d1bc"
+                "reference": "b6fddb4aa2daaa2b06f0040071ac131b4a1ecf25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/d91be01336605db8da21b79bc771e46a7276d1bc",
-                "reference": "d91be01336605db8da21b79bc771e46a7276d1bc",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/b6fddb4aa2daaa2b06f0040071ac131b4a1ecf25",
+                "reference": "b6fddb4aa2daaa2b06f0040071ac131b4a1ecf25",
                 "shasum": ""
             },
             "require": {
@@ -2063,31 +2393,31 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Config Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-30 15:54:10"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-02 15:18:45"
         },
         {
             "name": "symfony/console",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667"
+                "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/5b91dc4ed5eb08553f57f6df04c4730a73992667",
-                "reference": "5b91dc4ed5eb08553f57f6df04c4730a73992667",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/ebc5679854aa24ed7d65062e9e3ab0b18a917272",
+                "reference": "ebc5679854aa24ed7d65062e9e3ab0b18a917272",
                 "shasum": ""
             },
             "require": {
@@ -2121,31 +2451,31 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Console Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-30 15:54:10"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-02 15:18:45"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284"
+                "reference": "672593bc4b0043a0acf91903bb75a1c82d8f2e02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/70f7c8478739ad21e3deef0d977b38c77f1fb284",
-                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/672593bc4b0043a0acf91903bb75a1c82d8f2e02",
+                "reference": "672593bc4b0043a0acf91903bb75a1c82d8f2e02",
                 "shasum": ""
             },
             "require": {
@@ -2180,31 +2510,31 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony EventDispatcher Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-13 17:37:22"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-02 15:18:45"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4"
+                "reference": "f73904bd2dae525c42ea1f0340c7c98480ecacde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/4983964b3693e4f13449cb3800c64a9112c301b4",
-                "reference": "4983964b3693e4f13449cb3800c64a9112c301b4",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/f73904bd2dae525c42ea1f0340c7c98480ecacde",
+                "reference": "f73904bd2dae525c42ea1f0340c7c98480ecacde",
                 "shasum": ""
             },
             "require": {
@@ -2230,31 +2560,31 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Filesystem Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-22 16:55:57"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-08 00:09:07"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/Stopwatch",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
-                "reference": "5f196e84b5640424a166d2ce9cca161ce1e9d912"
+                "reference": "b470f87c69837cb71115f1fa720388bb19b63635"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/5f196e84b5640424a166d2ce9cca161ce1e9d912",
-                "reference": "5f196e84b5640424a166d2ce9cca161ce1e9d912",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/b470f87c69837cb71115f1fa720388bb19b63635",
+                "reference": "b470f87c69837cb71115f1fa720388bb19b63635",
                 "shasum": ""
             },
             "require": {
@@ -2280,31 +2610,31 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Stopwatch Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-22 16:55:57"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-02 15:18:45"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "174f009ed36379a801109955fc5a71a49fe62dd4"
+                "reference": "f157ab074e453ecd4c0fa775f721f6e67a99d9e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/174f009ed36379a801109955fc5a71a49fe62dd4",
-                "reference": "174f009ed36379a801109955fc5a71a49fe62dd4",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/f157ab074e453ecd4c0fa775f721f6e67a99d9e2",
+                "reference": "f157ab074e453ecd4c0fa775f721f6e67a99d9e2",
                 "shasum": ""
             },
             "require": {
@@ -2330,17 +2660,17 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-03-30 15:54:10"
+            "homepage": "https://symfony.com",
+            "time": "2015-05-02 15:18:45"
         }
     ],
     "aliases": [],

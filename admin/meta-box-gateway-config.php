@@ -338,6 +338,18 @@ $sections = array(
 					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx'
 				),
 			),
+			array(
+				'meta_key'    => '_pronamic_gateway_sisow_shop_id',
+				'title'       => _x( 'Shop ID', 'sisow', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'classes'     => array( 'regular-text', 'code' ),
+				'description' => sprintf(
+					__( 'You can find your Shop ID on your <a href="%s" target="_blank">Sisow account page</a> under <a href="%s" target="_blank">My profile</a>. The default is: %s.', 'pronamic_ideal' ),
+					'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
+					'https://www.sisow.nl/Sisow/Opdrachtgever/Profiel2.aspx',
+					0
+				),
+			),
 		),
 	),
 	array(

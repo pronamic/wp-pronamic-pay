@@ -40,14 +40,14 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
-		Pronamic_WPeCommerce_IDeal_AddOn::bootstrap();
-		Pronamic_ClassiPress_IDeal_AddOn::bootstrap();
+		Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
+		Pronamic_WP_Pay_Extensions_ClassiPress_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
-		Pronamic_AppThemes_IDeal_AddOn::bootstrap();
+		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
-		Pronamic_WPMUDEV_Membership_IDeal_AddOn::bootstrap();
-		// Pronamic_EShop_IDeal_AddOn::bootstrap();
+		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
+		// Pronamic_WP_Pay_Extensions_EShop_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 
@@ -75,7 +75,6 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
-		require_once self::$dirname . '/includes/wp-e-commerce.php';
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( __CLASS__, 'handle_returns' ) );

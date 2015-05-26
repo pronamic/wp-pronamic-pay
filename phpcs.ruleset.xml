@@ -3,14 +3,12 @@
 	<rule ref="WordPress">
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 
-		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
-
 		<exclude name="WordPress.XSS.EscapeOutput" />
 
 		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
 		<exclude name="WordPress.Files.FileName" />
 
-		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
+		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get" />
 		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
