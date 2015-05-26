@@ -130,8 +130,14 @@ module.exports = function( grunt ) {
 
 		// Shell
 		shell: {
+			// PlantUML
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
+			},
+
+			// WordPress test environment
+			test: {
+				command: 'bash tests/setup.sh'
 			}
 		},
 
