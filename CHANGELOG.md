@@ -15,6 +15,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay JobRoller library to version 1.0.0.
 - Updated WordPress pay Membership library to version 1.0.0.
 - Updated WordPress pay WP e-Commerce library to version 1.0.0.
+- Updated WordPress pay Gravity Forms library to version 1.2.4.
+  - Only process payments if amount is higher than zero.
 - Minified all images.
 
 ## [3.6.3] - 2015-05-08
