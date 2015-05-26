@@ -287,6 +287,21 @@ results in OmniKassa data that no longer matches the signature.
 
 == Changelog ==
 
+= 3.6.4 =
+*	Updated WordPress pay AppThemes library to version 1.0.0.
+*	Updated WordPress pay ClassiPress library to version 1.0.0.
+*	Updated WordPress pay iThemes Exchange library to version 1.1.0.
+*	Updated WordPress pay JobRoller library to version 1.0.0.
+*	Updated WordPress pay Membership library to version 1.0.0.
+*	Updated WordPress pay WP e-Commerce library to version 1.0.0.
+*	Updated WordPress pay Gravity Forms library to version 1.2.4.
+	*	Only process payments if amount is higher than zero.
+*	Updated WordPress pay Sisow library to version 1.1.0.
+	*	Added support for Shop ID.
+*	Updated WordPress pay Shopp library to version 1.0.2.
+	*	Added missing file GatewayModule.php for Shopp < 1.3 support.
+*	Minified all images.
+
 = 3.6.3 =
 *	No longer include all development Composer packages.
 *	Updated WordPress pay MultiSafepay Connect library to version 1.2.1.
