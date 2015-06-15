@@ -1,3 +1,4 @@
+/* jshint node:true */
 module.exports = function( grunt ) {
 	// Project configuration.
 	grunt.initConfig( {
@@ -35,37 +36,30 @@ module.exports = function( grunt ) {
 				]
 			},
 			options: {
-				standard: 'phpcs.ruleset.xml'
+				standard: 'phpcs.ruleset.xml',
+				showSniffCodes: true
 			}
 		},
 
 		// PHPUnit
 		phpunit: {
-			classes: {},
+			classes: {}
 		},
 
 		// JSHint
 		jshint: {
-			files: [
-				'Gruntfile.js',
+			options: grunt.file.readJSON( '.jshintrc' ),
+			grunt: [ 'Gruntfile.js' ],
+			plugin: [
 				'admin/js/*.js'
-			],
-			options: {
-				// options here to override JSHint defaults
-				globals: {
-					jQuery: true,
-					console: true,
-					module: true,
-					document: true
-				}
-			}
+			]
 		},
 
 		// Check WordPress version
 		checkwpversion: {
 			options: {
 				readme: 'readme.txt',
-				plugin: 'pronamic-ideal.php',
+				plugin: 'pronamic-ideal.php'
 			},
 			check: {
 				version1: 'plugin',
@@ -116,14 +110,14 @@ module.exports = function( grunt ) {
 		makepot: {
 			target: {
 				options: {
-					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
+					updatePoFiles: true,
 					exclude: [
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*'
-					],
+					]
 				}
 			}
 		},
@@ -139,7 +133,7 @@ module.exports = function( grunt ) {
 						dest: 'images/'
 					}
 				]
-			},
+			}
 		},
 
 		// Shell
@@ -181,18 +175,18 @@ module.exports = function( grunt ) {
 					'!vendor/psr/**',
 					'!vendor/satooshi/**',
 					'!vendor/symfony/**',
-					'!wp-content/**',
+					'!wp-content/**'
 				],
 				dest: 'deploy/latest',
 				expand: true
-			},
+			}
 		},
 
 		// Clean
 		clean: {
 			deploy: {
 				src: [ 'deploy/latest' ]
-			},
+			}
 		},
 
 		// Compress
@@ -251,7 +245,7 @@ module.exports = function( grunt ) {
 					svnDir: 'deploy/wp-svn',
 					svnUsername: 'pronamic',
 					deployDir: 'deploy/latest',
-					version: '<%= pkg.version %>',
+					version: '<%= pkg.version %>'
 				}
 			}
 		}
