@@ -557,26 +557,39 @@ class Pronamic_WP_Pay_Plugin {
 			// @todo temporary solution for WPMU DEV
 			$data->payment_post_id = $post_id;
 
+			// Payment
+			$payment = new Pronamic_WP_Pay_Payment( $post_id );
+			$payment->config_id     = $config_id;
+			$payment->currency      = $data->get_currency();
+			$payment->amount        = $data->get_amount();
+			$payment->language      = $data->get_language();
+			$payment->entrance_code = $data->get_entrance_code();
+			$payment->description   = $data->get_description();
+			$payment->source        = $data->get_source();
+			$payment->source_id     = $data->get_source_id();
+			$payment->email         = $data->get_email();
+			$payment->status        = null;
+
 			// Meta
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-				$prefix . 'config_id'               => $config_id,
-				$prefix . 'currency'                => $data->get_currency(),
-				$prefix . 'amount'                  => $data->get_amount(),
+				$prefix . 'config_id'               => $payment->config_id,
+				$prefix . 'currency'                => $payment->currency,
+				$prefix . 'amount'                  => $payment->amount,
 				$prefix . 'expiration_period'       => null,
-				$prefix . 'language'                => $data->get_language(),
-				$prefix . 'entrance_code'           => $data->get_entrance_code(),
-				$prefix . 'description'             => $data->get_description(),
+				$prefix . 'language'                => $payment->language,
+				$prefix . 'entrance_code'           => $payment->entrance_code,
+				$prefix . 'description'             => $payment->description,
 				$prefix . 'consumer_name'           => null,
 				$prefix . 'consumer_account_number' => null,
 				$prefix . 'consumer_iban'           => null,
 				$prefix . 'consumer_bic'            => null,
 				$prefix . 'consumer_city'           => null,
 				$prefix . 'status'                  => null,
-				$prefix . 'source'                  => $data->get_source(),
-				$prefix . 'source_id'               => $data->get_source_id(),
-				$prefix . 'email'                   => $data->get_email(),
+				$prefix . 'source'                  => $payment->source,
+				$prefix . 'source_id'               => $payment->source_id,
+				$prefix . 'email'                   => $payment->email,
 			);
 
 			foreach ( $meta as $key => $value ) {
@@ -584,8 +597,6 @@ class Pronamic_WP_Pay_Plugin {
 					update_post_meta( $post_id, $key, $value );
 				}
 			}
-
-			$payment = new Pronamic_WP_Pay_Payment( $post_id );
 		}
 
 		return $payment;
