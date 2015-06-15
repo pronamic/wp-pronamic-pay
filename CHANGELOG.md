@@ -7,6 +7,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [3.6.5] - 2015-06-15
+### Changed
+- Improved support for the W3 Total Cache plugin.
+
+### Fixed
+- Fix JobRoller class name on admin tab 'Extensions'.
+
 ## [3.6.4] - 2015-05-26
 ### Changed
 - Updated WordPress pay AppThemes library to version 1.0.0.

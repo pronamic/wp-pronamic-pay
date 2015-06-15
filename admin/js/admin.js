@@ -1,8 +1,10 @@
+/* global ajaxurl */
+/* global fieldSettings */
 ( function( $ ) {
 	/**
 	 * Gravity Forms iDEAL feed editor
 	 */
-	var GravityFormsIDealFeedEditor = function( element, options ) {
+	var GravityFormsIDealFeedEditor = function( element ) {
 		var obj = this;
 		var $element = $( element );
 
@@ -74,7 +76,7 @@
 						$( '<option>' )
 							.attr( 'value', field.id )
 							.text (label )
-							.prop( 'selected', feed.conditionFieldId == field.id )
+							.prop( 'selected', feed.conditionFieldId === field.id )
 							.appendTo( elements.conditionFieldId );
 					}
 				});
@@ -113,7 +115,7 @@
 		this.getFieldById = function( id ) {
 			if ( gravityForm ) {
 				for ( var i = 0; i < gravityForm.fields.length; i++ ) {
-					if ( gravityForm.fields[i].id == id ) {
+					if ( gravityForm.fields[i].id === id ) {
 						return gravityForm.fields[i];
 					}
 				}
@@ -193,7 +195,7 @@
 					$( '<option>' )
 						.attr( 'value', field.id )
 						.text( label )
-						.prop( 'selected', feed.userRoleFieldId == field.id )
+						.prop( 'selected', feed.userRoleFieldId === field.id )
 						.appendTo( elements.userRoleFieldId );
 				} );
 			}
@@ -256,7 +258,7 @@
 						$( '<option>' )
 							.attr( 'value', input.id )
 							.text( label )
-							.prop( 'selected', feed.fields[name] == input.id )
+							.prop( 'selected', feed.fields[name] === input.id )
 							.appendTo( $element );
 					} );
 				} );
@@ -294,13 +296,15 @@
 	/**
 	 * jQuery plugin - Gravity Forms iDEAL feed editor
 	 */
-	$.fn.gravityFormsIdealFeedEditor = function( options ) {
+	$.fn.gravityFormsIdealFeedEditor = function() {
 		return this.each( function() {
-			$this = $( this );
+			var $this = $( this );
 
-			if ( $this.data( 'gf-ideal-feed-editor' ) ) return;
+			if ( $this.data( 'gf-ideal-feed-editor' ) ) {
+				return;
+			}
 
-			var editor = new GravityFormsIDealFeedEditor( this, options );
+			var editor = new GravityFormsIDealFeedEditor( this );
 
 			$this.data( 'gf-ideal-feed-editor', editor );
 		} );
@@ -311,7 +315,7 @@
 	/**
 	 * Pronamic iDEAL config prototype
 	 */
-	var PronamicPayGatewayConfigEditor = function( element, options ) {
+	var PronamicPayGatewayConfigEditor = function( element ) {
 		var obj = this;
 		var $element = $( element );
 
@@ -345,23 +349,25 @@
 	/**
 	 * jQuery plugin - Pronamic iDEAL config editor
 	 */
-	$.fn.pronamicPayGatewayConfigEditor = function( options ) {
+	$.fn.pronamicPayGatewayConfigEditor = function() {
 		return this.each( function() {
 			var $this = $( this );
 
-			if ( $this.data( 'pronamic-pay-gateway-config-editor' ) ) return;
+			if ( $this.data( 'pronamic-pay-gateway-config-editor' ) ) {
+				return;
+			}
 
-			var editor = new PronamicPayGatewayConfigEditor( this, options );
+			var editor = new PronamicPayGatewayConfigEditor( this );
 
 			$this.data( 'pronamic-pay-gateway-config-editor', editor );
-		});
+		} );
 	};
 
 	/**
 	 * Ready
 	 */
 	$( document ).ready( function() {
-		if ( typeof fieldSettings == 'object' ) {
+		if ( typeof fieldSettings === 'object' ) {
 			fieldSettings.ideal_issuer_drop_down = '.label_setting, .admin_label_setting, .size_setting, .description_setting, .css_class_setting, .error_message_setting, .rules_setting, .conditional_logic_field_setting';
 		}
 
