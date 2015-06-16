@@ -7,6 +7,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
+## [3.6.6] - 2015-06-16
+### Changed
+- Updated WordPress pay Gravity Forms library to version 1.3.0.
+  - Added support for Gravity Forms AWeber Add-On version 2.2.1.
+  - Added support for Gravity Forms Campaign Monitor Add-On version 3.3.2.
+  - Added support for Gravity Forms MailChimp Add-On version 3.6.3.
+
 ## [3.6.5] - 2015-06-15
 ### Changed
 - Improved support for the W3 Total Cache plugin.
