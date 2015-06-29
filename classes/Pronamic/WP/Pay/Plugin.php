@@ -63,7 +63,7 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );
 
 		// Setup
-		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ) );
+		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ), 9 );
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';

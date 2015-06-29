@@ -76,7 +76,9 @@
 						$( '<option>' )
 							.attr( 'value', field.id )
 							.text (label )
-							.prop( 'selected', feed.conditionFieldId === field.id )
+							/* jshint eqeqeq: false */
+							.prop( 'selected', feed.conditionFieldId == field.id )
+							/* jshint eqeqeq: true */
 							.appendTo( elements.conditionFieldId );
 					}
 				});
@@ -115,9 +117,11 @@
 		this.getFieldById = function( id ) {
 			if ( gravityForm ) {
 				for ( var i = 0; i < gravityForm.fields.length; i++ ) {
-					if ( gravityForm.fields[i].id === id ) {
+					/* jshint eqeqeq: false */
+					if ( gravityForm.fields[i].id == id ) {
 						return gravityForm.fields[i];
 					}
+					/* jshint eqeqeq: true */
 				}
 			}
 			
@@ -195,7 +199,9 @@
 					$( '<option>' )
 						.attr( 'value', field.id )
 						.text( label )
-						.prop( 'selected', feed.userRoleFieldId === field.id )
+						/* jshint eqeqeq: false */
+						.prop( 'selected', feed.userRoleFieldId == field.id )
+						/* jshint eqeqeq: true */
 						.appendTo( elements.userRoleFieldId );
 				} );
 			}
@@ -258,7 +264,9 @@
 						$( '<option>' )
 							.attr( 'value', input.id )
 							.text( label )
-							.prop( 'selected', feed.fields[name] === input.id )
+							/* jshint eqeqeq: false */
+							.prop( 'selected', feed.fields[name] == input.id )
+							/* jshint eqeqeq: true */
 							.appendTo( $element );
 					} );
 				} );

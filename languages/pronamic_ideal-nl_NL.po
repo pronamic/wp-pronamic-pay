@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-06-15 10:04:31+00:00\n"
-"PO-Revision-Date: 2015-06-15 12:05+0100\n"
+"POT-Creation-Date: 2015-06-23 13:40:07+00:00\n"
+"PO-Revision-Date: 2015-06-23 15:42+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -558,7 +558,7 @@ msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
 #: admin/meta-box-gateway-config.php:596
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:425
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
 msgid "Country"
 msgstr "Land"
 
@@ -726,7 +726,7 @@ msgid "Status"
 msgstr "Status"
 
 #: admin/meta-box-payment-info.php:89
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:413
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:113
 msgid "Email"
 msgstr "E-mail"
@@ -975,7 +975,7 @@ msgid "Event Espresso 4 Decaf"
 msgstr "Event Espresso 4 Decaf"
 
 #: admin/tab-extensions.php:53
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:110
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:111
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -1127,7 +1127,7 @@ msgid "Issuer ID"
 msgstr "Issuer ID"
 
 #: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:468
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:462
 msgid "Success"
 msgstr "Succes"
 
@@ -1503,12 +1503,12 @@ msgstr "Geannuleerd"
 
 #: classes/Pronamic/WP/Pay/Plugin.php:349
 #: classes/Pronamic/WP/Pay/Settings.php:90
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:471
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Expired"
 msgstr "Verlopen"
 
 #: classes/Pronamic/WP/Pay/Plugin.php:353
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:467
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:461
 msgid "Open"
 msgstr "Open"
 
@@ -1555,7 +1555,7 @@ msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WP/Pay/Settings.php:87
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:470
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
 msgstr "Fout"
@@ -1666,7 +1666,8 @@ msgid "No payments found in Trash"
 msgstr "Geen betalingen gevonden in prullenbak."
 
 #: vendor/wp-pay/core/src/Gateway.php:406
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:211
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:212
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
@@ -1874,7 +1875,7 @@ msgstr "Formulier"
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:115
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:116
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -1894,6 +1895,22 @@ msgstr "Banken uitschuifkeuzelijst"
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:144
 msgid "iDEAL Fields"
 msgstr "iDEAL-velden"
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:37
+msgid "WordPress Pay Add-On"
+msgstr "WordPress betalen add-on"
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:58
+msgid "Pay Feeds"
+msgstr "Betalen feeds"
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:65
+msgid "You can find your pay feeds under %s."
+msgstr "Je kunt je betalen feeds vinden onder %s."
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:69
+msgid "Forms » iDEAL"
+msgstr "Formulieren » iDEAL"
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
@@ -1942,8 +1959,8 @@ msgid "Gravity Form"
 msgstr "Gravity Form"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:34
-msgid "&mdash; Select a form &mdash;"
-msgstr "&mdash; Selecteer een formulier &mdash;"
+msgid "— Select a form —"
+msgstr "— Selecteer een formulier —"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:68
 msgid "Entry ID Prefix"
@@ -1959,7 +1976,7 @@ msgstr ""
 "meerdere websites zorg er dan voor dat deze prefix uniek is, niet alle "
 "gateways staan betalingen toe met dezelfde ID."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:107
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:101
 msgid ""
 "Maximum number of charachters is 32, you should also consider the use of "
 "variables Gravity Forms. An generated description that is longer than 32 "
@@ -1969,7 +1986,7 @@ msgstr ""
 "Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 "
 "tekens zal automatisch worden afgekapt."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:109
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:103
 msgid ""
 "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
 "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
@@ -1978,27 +1995,27 @@ msgstr ""
 "Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</"
 "code>"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:116
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:110
 msgid "Condition"
 msgstr "Conditie"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:132
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:126
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:147
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:141
 msgid "is"
 msgstr "is"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:148
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:142
 msgid "is not"
 msgstr "is niet"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:168
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:162
 msgid "Send to gateway if %s %s %s"
 msgstr "Verstuur naar gateway als %s %s %s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:179
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:173
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
@@ -2006,137 +2023,137 @@ msgstr ""
 "Om een conditie in te stellen moet je formulier een selectieveld, "
 "selectievakje of meerkeuzeveld bevatten."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:185
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:179
 msgid "Delay"
 msgstr "Uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:190
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:184
 msgid "Send Notifications Delay"
 msgstr "Verstuur notificaties uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:210
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:204
 msgid "Send notifications only when payment is received."
 msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:261
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:255
 msgid "Send admin notification only when payment is received."
 msgstr ""
 "Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:268
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:262
 msgid "Send user notification only when payment is received."
 msgstr ""
 "Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:287
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:281
 msgid "Create Post Delay"
 msgstr "Bericht aanmaken uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:293
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:287
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:307
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:301
 msgid "AWeber Subscription Delay"
 msgstr "AWeber inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:313
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:307
 msgid "Subscribe user to AWeber only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijving bij AWeber wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:329
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:323
 msgid "Campaign Monitor Subscription Delay"
 msgstr "Campaign Monitor inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:335
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:329
 msgid "Subscribe user to Campaign Monitor only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij Campaign Monitor wanneer de betaling is "
 "ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:351
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:345
 msgid "MailChimp Subscription Delay"
 msgstr "MailChimp inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:357
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:351
 msgid "Subscribe user to MailChimp only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij MailChimp wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:373
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:367
 msgid "Zapier Delay"
 msgstr "Zapier uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:379
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:373
 msgid "Send data to Zapier only when payment is received."
 msgstr "Verstuur data alleen Zapier wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:395
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:389
 msgid "User Registration Delay"
 msgstr "Gebruikerregistratie uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:401
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:395
 msgid "Register user only when a payment is received."
 msgstr "Registreer gebruiker alleen wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:405
 msgid "Fields"
 msgstr "Velden"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:417
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
 msgid "First Name"
 msgstr "Voornaam"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:418
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:412
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:420
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:414
 msgid "Address"
 msgstr "Adres"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:421
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:415
 msgid "Address 2"
 msgstr "Adres 2"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:422
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:416
 msgid "City"
 msgstr "Plaats"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:423
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:417
 msgid "State"
 msgstr "Provincie"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:424
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:418
 msgid "Zip"
 msgstr "Postcode"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:457
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:451
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:469
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:463
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:505
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:499
 msgid "Page:"
 msgstr "Pagina:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:513
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:507
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Selecteren &mdash;"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:522
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:516
 msgid "URL:"
 msgstr "URL:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:532
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:526
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:539
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:533
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
@@ -2217,7 +2234,7 @@ msgstr "Pronamic iDEAL instellingen"
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:184
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:185
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
@@ -2769,6 +2786,9 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
+#~ msgid "&mdash; Select a form &mdash;"
+#~ msgstr "&mdash; Selecteer een formulier &mdash;"
+
 #~ msgid "eShop"
 #~ msgstr "eShop"
 
@@ -2928,10 +2948,6 @@ msgstr "Belast modus"
 
 #~ msgid "Select an config."
 #~ msgstr "Selecteer een configuratie."
-
-#, fuzzy
-#~ msgid "Feeds"
-#~ msgstr "iDEAL-feeds"
 
 #, fuzzy
 #~ msgid "&mdash; Select config &mdash; "
@@ -3259,9 +3275,6 @@ msgstr "Belast modus"
 #, fuzzy
 #~ msgid "iDEAL Setting"
 #~ msgstr "iDEAL instellingen"
-
-#~ msgid "Select a form"
-#~ msgstr "Selecteer een formulier"
 
 #~ msgid "Select settings"
 #~ msgstr "Selecteer conf"
