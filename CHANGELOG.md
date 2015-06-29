@@ -7,7 +7,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 - 
 
-## [3.6.6] - 2015-06-16
+## [3.6.6] - 2015-06-29
 ### Changed
 - Updated WordPress pay Gravity Forms library to version 1.3.0.
   - Added support for Gravity Forms AWeber Add-On version 2.2.1.
