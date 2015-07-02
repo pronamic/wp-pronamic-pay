@@ -324,6 +324,23 @@ class Pronamic_WP_Pay_Admin {
 				'3.6.6',
 				true
 			);
+
+			// Flot - http://www.flotcharts.org/
+			wp_register_script(
+				'flot',
+				plugins_url( 'assets/flot/jquery.flot.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'jquery' ),
+				'0.8.3',
+				true
+			);
+
+			wp_register_script(
+				'flot-time',
+				plugins_url( 'assets/flot/jquery.flot.time.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'flot' ),
+				'0.8.3',
+				true
+			);
 		}
 	}
 

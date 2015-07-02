@@ -171,6 +171,19 @@ module.exports = function( grunt ) {
 					},
 				]
 			},
+			assets: {
+				files: [
+					{ // Flot - http://www.flotcharts.org/
+						expand: true,
+						cwd: 'bower_components/flot/',
+						src: [
+							'jquery.flot.js',
+							'jquery.flot.time.js'
+						],
+						dest: 'assets/flot'
+					},
+				]
+			},
 			deploy: {
 				src: [
 					'**',
@@ -321,7 +334,7 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
-	grunt.registerTask( 'assets', [ 'copy:styles', 'copy:scripts' ] );
+	grunt.registerTask( 'assets', [ 'copy:styles', 'copy:scripts', 'copy:assets' ] );
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
