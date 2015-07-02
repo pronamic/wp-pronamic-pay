@@ -392,6 +392,15 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
+			__( 'Reports', 'pronamic_ideal' ),
+			__( 'Reports', 'pronamic_ideal' ),
+			'manage_options',
+			'pronamic_pay_reports',
+			array( $this, 'page_reports' )
+		);
+
+		add_submenu_page(
+			'pronamic_ideal',
 			__( 'Settings', 'pronamic_ideal' ),
 			__( 'Settings', 'pronamic_ideal' ),
 			'manage_options',
@@ -420,6 +429,7 @@ class Pronamic_WP_Pay_Admin {
 	public function page_dashboard() { return $this->render_page( 'dashboard' ); }
 	public function page_settings() { return $this->render_page( 'settings' ); }
 	public function page_tools() { return $this->render_page( 'tools' ); }
+	public function page_reports() { return $this->render_page( 'reports' ); }
 
 	//////////////////////////////////////////////////
 
