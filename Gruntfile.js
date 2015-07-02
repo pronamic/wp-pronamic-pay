@@ -202,6 +202,35 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// CSS min
+		cssmin: {
+			styles: {
+				files: {
+					'css/admin.min.css': 'src/css/admin.css',
+				}
+			},
+			assets: {
+				files: {
+					
+				}
+			}
+		},
+
+
+		// Uglify
+		uglify: {
+			scripts: {
+				files: {
+					'js/admin.min.js': 'src/js/admin.js',
+				}
+			},
+			assets: {
+				files: {
+					
+				}
+			}
+		},
+
 		// Clean
 		clean: {
 			deploy: {
@@ -275,11 +304,13 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
 	grunt.loadNpmTasks( 'grunt-composer' );
+	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
+	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
@@ -291,6 +322,7 @@ module.exports = function( grunt ) {
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
 	grunt.registerTask( 'assets', [ 'copy:styles', 'copy:scripts' ] );
+	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 

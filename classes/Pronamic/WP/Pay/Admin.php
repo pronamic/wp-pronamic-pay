@@ -306,10 +306,12 @@ class Pronamic_WP_Pay_Admin {
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
 		if ( $enqueue ) {
+			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 			// Styles
 			wp_enqueue_style(
 				'proanmic-pay-admin',
-				plugins_url( 'css/admin.css', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 				array(),
 				'3.6.6'
 			);
@@ -317,7 +319,7 @@ class Pronamic_WP_Pay_Admin {
 			// Scripts
 			wp_enqueue_script(
 				'proanmic-pay-admin',
-				plugins_url( 'js/admin.js', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery' ),
 				'3.6.6',
 				true
