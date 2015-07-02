@@ -23,8 +23,8 @@ class Pronamic_WP_Currency {
 		$xml = simplexml_load_file( $file );
 
 		foreach ( $xml->ISO_CURRENCY as $currency ) {
-			$alphabetic_code = Pronamic_XML_Util::filter( $currency->ALPHABETIC_CODE );
-			$numeric_code    = Pronamic_XML_Util::filter( $currency->NUMERIC_CODE );
+			$alphabetic_code = Pronamic_WP_Pay_XML_Security::filter( $currency->ALPHABETIC_CODE );
+			$numeric_code    = Pronamic_WP_Pay_XML_Security::filter( $currency->NUMERIC_CODE );
 
 			$currencies[ $alphabetic_code ] = $numeric_code;
 		}
