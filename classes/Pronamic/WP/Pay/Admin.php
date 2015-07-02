@@ -308,15 +308,19 @@ class Pronamic_WP_Pay_Admin {
 		if ( $enqueue ) {
 			// Styles
 			wp_enqueue_style(
-				'proanmic_ideal_admin',
-				plugins_url( 'admin/css/admin.css', Pronamic_WP_Pay_Plugin::$file )
+				'proanmic-pay-admin',
+				plugins_url( 'css/admin.css', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'3.6.6'
 			);
 
 			// Scripts
 			wp_enqueue_script(
-				'proanmic_ideal_admin',
-				plugins_url( 'admin/js/admin.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' )
+				'proanmic-pay-admin',
+				plugins_url( 'js/admin.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'jquery' ),
+				'3.6.6',
+				true
 			);
 		}
 	}

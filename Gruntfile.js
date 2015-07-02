@@ -51,7 +51,7 @@ module.exports = function( grunt ) {
 			options: grunt.file.readJSON( '.jshintrc' ),
 			grunt: [ 'Gruntfile.js' ],
 			plugin: [
-				'admin/js/*.js'
+				'src/js/*.js'
 			]
 		},
 
@@ -151,6 +151,26 @@ module.exports = function( grunt ) {
 
 		// Copy
 		copy: {
+			styles: {
+				files: [
+					{ // CSS
+						expand: true,
+						cwd: 'src/css/',
+						src: [ '**' ],
+						dest: 'css'
+					},
+				]
+			},
+			scripts: {
+				files: [
+					{ // JS
+						expand: true,
+						cwd: 'src/js/',
+						src: [ '**' ],
+						dest: 'js'
+					},
+				]
+			},
 			deploy: {
 				src: [
 					'**',
@@ -270,6 +290,7 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
+	grunt.registerTask( 'assets', [ 'copy:styles', 'copy:scripts' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 
