@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-02 14:51:24+00:00\n"
-"PO-Revision-Date: 2015-07-02 16:52+0100\n"
+"POT-Creation-Date: 2015-07-03 09:05:48+00:00\n"
+"PO-Revision-Date: 2015-07-03 11:08+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1054,7 +1054,7 @@ msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -2178,27 +2178,22 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:110
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:119
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -2223,7 +2218,7 @@ msgstr "In afwachting van iDEAL-betaling."
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:171
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:177
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:109
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:137
 msgid "Order %s"
@@ -2408,6 +2403,26 @@ msgstr "Creditcard inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
+msgid "payment expired"
+msgstr "betaling verlopen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
+msgid "payment failed"
+msgstr "betaling mislukt"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
+msgid "payment completed"
+msgstr "betaling voltooid"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
+msgid "payment open"
+msgstr "betaling open"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:142
+msgid "payment unknown"
+msgstr "betaling onbekend"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
