@@ -124,6 +124,28 @@ global $wp_locale;
 				}
 			]
 		} );
+
+		$( '<div id="flotr-tooltip"></div>' ).css( {
+			position: 'absolute',
+			display: 'none',
+			border: '1px solid #fdd',
+			padding: '2px',
+			'background-color': '#fee',
+			opacity: 0.9
+		} ).appendTo("body");
+
+		container.bind( 'plothover', function(event, pos, item) {
+			if (item) {
+				$( '#flotr-tooltip' ).html( item.datapoint[1].toFixed(2) )
+					.css( {
+						top: item.pageY + 10,
+						left: item.pageX + 10
+					} )
+					.fadeIn( 200 );
+			} else {
+				$( '#flotr-tooltip' ).fadeOut( 100 );
+			}
+		});
 	} );
 </script>
 
