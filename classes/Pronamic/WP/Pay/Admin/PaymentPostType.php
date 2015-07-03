@@ -30,6 +30,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
 			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
+			'author'                       => __( 'Author', 'pronamic_ideal' ),
 			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
 
