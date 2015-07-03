@@ -182,6 +182,14 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js
+						expand: true,
+						cwd: 'bower_components/accounting.js/',
+						src: [
+							'accounting.js'
+						],
+						dest: 'assets/accounting'
+					}
 				]
 			},
 			deploy: {

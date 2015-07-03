@@ -341,6 +341,15 @@ class Pronamic_WP_Pay_Admin {
 				'0.8.3',
 				true
 			);
+
+			// Accounting.js - http://openexchangerates.github.io/accounting.js
+			wp_register_script(
+				'accounting',
+				plugins_url( 'assets/accounting/accounting.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'jquery' ),
+				'0.4.1',
+				true
+			);
 		}
 	}
 

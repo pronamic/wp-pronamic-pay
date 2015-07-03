@@ -13,53 +13,80 @@
 
 wp_enqueue_script( 'flot' );
 wp_enqueue_script( 'flot-time' );
+wp_enqueue_script( 'accounting' );
 
 // @see https://github.com/woothemes/woocommerce/blob/master/includes/admin/reports/class-wc-report-sales-by-date.php
 
-global $wpdb;
+function pronamic_pay_get_report( $status, $start, $end ) {
+	global $wpdb;
+	
+	$interval = new DateInterval( 'P1M' );
+	$period   = new DatePeriod( $start, $interval, $end );
 
-$payments = $wpdb->get_results( "
-	SELECT
-		DATE_FORMAT( post.post_date, '%Y-%m' ),
-		SUM( meta.meta_value ) AS amount
-	FROM
-		$wpdb->posts AS post
-			LEFT JOIN
-		$wpdb->postmeta AS meta
-				ON post.ID = meta.post_id AND meta_key = '_pronamic_payment_amount'
-	WHERE
-		post.post_type = 'pronamic_payment'
-	GROUP BY
-		YEAR( post.post_date ), MONTH( post.post_date )
-	ORDER BY
-		post_date
-	;
-", OBJECT_K );
+	$date_format = '%Y-%m';
 
-$begin = new DateTime( 'first day of January' );
-$end   = new DateTime( 'last day of December' );
+	$query = $wpdb->prepare( "
+			SELECT
+				DATE_FORMAT( post.post_date, %s ) AS month,
+				SUM( meta_amount.meta_value ) AS amount
+			FROM
+				$wpdb->posts AS post
+					LEFT JOIN
+				$wpdb->postmeta AS meta_amount
+						ON post.ID = meta_amount.post_id AND meta_amount.meta_key = '_pronamic_payment_amount'
+					LEFT JOIN
+				$wpdb->postmeta AS meta_status
+						ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
+			WHERE
+				post.post_type = 'pronamic_payment'
+					AND
+				post.post_date BETWEEN %s AND %s
+					AND
+				meta_status.meta_value = %s
+			GROUP BY
+				YEAR( post.post_date ), MONTH( post.post_date )
+			ORDER BY
+				post_date
+			;
+		", 
+		$date_format,
+		$start->format( 'Y-m-d' ),
+		$end->format( 'Y-m-d' ),
+		$status 
+	);
 
-$interval = new DateInterval( 'P1M' );
+	$data = $wpdb->get_results( $query, OBJECT_K );
 
-$period = new DatePeriod( $begin, $interval, $end );
+	$report = array();
 
-$labels = array();
-$data   = array();
+	foreach ( $period as $date ) {
+		$key = $date->format( 'Y-m' );
 
-foreach ( $period as $date ) {
-	$key = $date->format( 'Y-m' );
+		$amount = 0;
+		if ( isset( $data[ $key ] ) ) {
+			$amount = (float) $data[ $key ]->amount;
+		}
 
-	$labels[ $key ]  = $date->format( 'M' );
-
-	$amount = 0;
-	if ( isset( $payments[ $key ] ) ) {
-		$amount = (float) $payments[ $key ]->amount;
+		$report[] = array(
+			// Flot requires milliseconds so multiply with 1000
+			$date->getTimestamp() * 1000,
+			$amount,
+		);
 	}
 
-	$data[] = array( $date->getTimestamp() * 1000, $amount );
+	return $report;
 }
 
-$labels  = array_values( $labels );
+$start = new DateTime( 'First day of January' );
+$end   = new DateTime( 'Last day of December' );
+ 
+$data = array(
+	'open'      => pronamic_pay_get_report( 'Open', $start, $end ),
+	'success'   => pronamic_pay_get_report( 'Success', $start, $end ),
+	'cancelled' => pronamic_pay_get_report( 'Cancelled', $start, $end ),
+	'expired'   => pronamic_pay_get_report( 'Expired', $start, $end ),
+	'failure'   => pronamic_pay_get_report( 'Failure', $start, $end ),
+);
 
 global $wp_locale;
 
@@ -69,14 +96,54 @@ global $wp_locale;
 
 	series = [
 		{
-			label: "Average sales amount",
-			data: data,
+			label: 'Open',
+			data: data.unknown,
 			yaxis: 2,
 			color: '#b1d4ea',
 			points: { show: true, radius: 5, lineWidth: 2, fillColor: '#fff', fill: true },
 			lines: { show: true, lineWidth: 2, fill: false },
 			shadowSize: 0,
 			prepend_tooltip: "&euro;&nbsp;"	
+		},
+		{
+			label: 'Success',
+			data: data.success,
+			yaxis: 2,
+			color: '#3498db',
+			points: { show: true, radius: 6, lineWidth: 4, fillColor: '#fff', fill: true },
+			lines: { show: true, lineWidth: 5, fill: false },
+			shadowSize: 0,
+			prepend_tooltip: "&euro;&nbsp;"
+		},
+		{
+			label: 'Cancelled',
+			data: data.cancelled,
+			yaxis: 2,
+			color: '#f1c40f',
+			points: { show: true, radius: 5, lineWidth: 2, fillColor: '#fff', fill: true },
+			lines: { show: true, lineWidth: 2, fill: false },
+			shadowSize: 0,
+			prepend_tooltip: "&euro;&nbsp;"
+		},
+		{
+			label: 'Failure',
+			data: data.failure,
+			yaxis: 2,
+			color: '#e74c3c',
+			points: { show: true, radius: 5, lineWidth: 2, fillColor: '#fff', fill: true },
+			lines: { show: true, lineWidth: 2, fill: false },
+			shadowSize: 0,
+			prepend_tooltip: "&euro;&nbsp;"
+		},
+		{
+			label: 'Expired',
+			data: data.expired,
+			yaxis: 2,
+			color: '#dbe1e3',
+			points: { show: true, radius: 5, lineWidth: 2, fillColor: '#fff', fill: true },
+			lines: { show: true, lineWidth: 2, fill: false },
+			shadowSize: 0,
+			prepend_tooltip: "&euro;&nbsp;"
 		},
 	];
 
@@ -88,22 +155,22 @@ global $wp_locale;
 				show: false
 			},
 			grid: {
-				color: '#aaa',
+				color: '#AAA',
 				borderColor: 'transparent',
 				borderWidth: 0,
 				hoverable: true
 			},
 			xaxes: [ {
-				color: '#aaa',
-				position: "bottom",
+				color: '#AAA',
+				position: 'bottom',
 				tickColor: 'transparent',
-				mode: "time",
-				timeformat: "%b",
+				mode: 'time',
+				timeformat: '%b',
 				monthNames: <?php echo json_encode( array_values( $wp_locale->month_abbrev ) ) ?>,
 				tickLength: 1,
-				minTickSize: [1, "month"],
+				minTickSize: [ 1, 'month' ],
 				font: {
-					color: "#aaa"
+					color: '#AAA'
 				}
 			} ],
 			yaxes: [
@@ -111,16 +178,19 @@ global $wp_locale;
 					min: 0,
 					minTickSize: 1,
 					tickDecimals: 0,
-					color: '#d4d9dc',
-					font: { color: "#aaa" }
+					color: '#D4D9DC',
+					font: { color: '#AAA' }
 				},
 				{
-					position: "right",
+					position: 'right',
 					min: 0,
 					tickDecimals: 2,
+					tickFormatter: function( val, axis ) {
+						return accounting.formatMoney( val, '€ ', 2, '.', ',' );
+					},
 					alignTicksWithAxis: 1,
 					color: 'transparent',
-					font: { color: "#aaa" }
+					font: { color: '#AAA' }
 				}
 			]
 		} );
