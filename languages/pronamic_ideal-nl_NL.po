@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-03 09:05:48+00:00\n"
-"PO-Revision-Date: 2015-07-03 11:08+0100\n"
+"POT-Creation-Date: 2015-07-06 12:49:10+00:00\n"
+"PO-Revision-Date: 2015-07-06 15:25+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -28,6 +28,7 @@ msgid "Name"
 msgstr "Naam"
 
 #: admin/extensions-wp-admin.php:8
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:33
 msgid "Author"
 msgstr "Auteur"
 
@@ -83,7 +84,7 @@ msgstr "Test"
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23
 #: admin/tab-methods.php:78 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:398
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -681,7 +682,7 @@ msgstr "bestandsnaam"
 #: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
 #: admin/tab-ideal_status.php:46
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:33
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:34
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
 msgid "Date"
 msgstr "Datum"
@@ -751,7 +752,7 @@ msgstr "d-m-Y"
 
 #: admin/meta-box-payment-source.php:11
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:107
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:108
 msgid "Source"
 msgstr "Bron"
 
@@ -780,8 +781,8 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:398
-#: classes/Pronamic/WP/Pay/Admin.php:399 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:408 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr "Betalingen"
@@ -798,6 +799,30 @@ msgstr "Pronamic nieuws"
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
+
+#: admin/page-reports.php:75
+msgid "Number succesfull payments"
+msgstr "Aantal succesvolle betalingen"
+
+#: admin/page-reports.php:90
+msgid "Open payments"
+msgstr "Open betalingen"
+
+#: admin/page-reports.php:110
+msgid "Succesfull payments"
+msgstr "Succesvolle betalingen"
+
+#: admin/page-reports.php:131
+msgid "Cancelled payments"
+msgstr "Geannuleerde betalingen"
+
+#: admin/page-reports.php:152
+msgid "Expired payments"
+msgstr "Verlopen betalingen"
+
+#: admin/page-reports.php:173
+msgid "Failed payments"
+msgstr "Mislukte betalingen"
 
 #: admin/page-tools.php:4
 msgid "System Status"
@@ -1054,7 +1079,7 @@ msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -1425,7 +1450,7 @@ msgstr "Travis CI build status"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:442
+#: classes/Pronamic/WP/Pay/Admin.php:451
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1458,12 +1483,12 @@ msgstr "Gateway"
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:98 includes/post.php:35
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:99 includes/post.php:35
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Payment"
 msgstr "Betaling"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:116
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:117
 msgid "Log"
 msgstr "Log"
 
@@ -1478,20 +1503,20 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:406 classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:415 classes/Pronamic/WP/Pay/Admin.php:416
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:414 classes/Pronamic/WP/Pay/Admin.php:415
+#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
 msgid "Reports"
 msgstr "Rapporten"
 
-#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
+#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
+#: classes/Pronamic/WP/Pay/Admin.php:441 classes/Pronamic/WP/Pay/Admin.php:442
 msgid "Tools"
 msgstr "Extra"
 
@@ -2178,22 +2203,27 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:110
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:119
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -2218,7 +2248,7 @@ msgstr "In afwachting van iDEAL-betaling."
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:177
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:171
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:109
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:137
 msgid "Order %s"
@@ -2403,26 +2433,6 @@ msgstr "Creditcard inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
-msgid "payment expired"
-msgstr "betaling verlopen"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
-msgid "payment failed"
-msgstr "betaling mislukt"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
-msgid "payment completed"
-msgstr "betaling voltooid"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
-msgid "payment open"
-msgstr "betaling open"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:142
-msgid "payment unknown"
-msgstr "betaling onbekend"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
@@ -2805,6 +2815,21 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
+#~ msgid "payment expired"
+#~ msgstr "betaling verlopen"
+
+#~ msgid "payment failed"
+#~ msgstr "betaling mislukt"
+
+#~ msgid "payment completed"
+#~ msgstr "betaling voltooid"
+
+#~ msgid "payment open"
+#~ msgstr "betaling open"
+
+#~ msgid "payment unknown"
+#~ msgstr "betaling onbekend"
+
 #~ msgid "&mdash; Select a form &mdash;"
 #~ msgstr "&mdash; Selecteer een formulier &mdash;"
 
@@ -3062,9 +3087,6 @@ msgstr "Belast modus"
 
 #~ msgid "Apply"
 #~ msgstr "Toepassen"
-
-#~ msgid "Number Payments"
-#~ msgstr "Aantal betalingen"
 
 #~ msgid "Edit"
 #~ msgstr "Bewerken"

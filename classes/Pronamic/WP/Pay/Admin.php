@@ -342,6 +342,14 @@ class Pronamic_WP_Pay_Admin {
 				true
 			);
 
+			wp_register_script(
+				'flot-resize',
+				plugins_url( 'assets/flot/jquery.flot.resize.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'flot' ),
+				'0.8.3',
+				true
+			);
+
 			// Accounting.js - http://openexchangerates.github.io/accounting.js
 			wp_register_script(
 				'accounting',

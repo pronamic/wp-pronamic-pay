@@ -178,7 +178,8 @@ module.exports = function( grunt ) {
 						cwd: 'bower_components/flot/',
 						src: [
 							'jquery.flot.js',
-							'jquery.flot.time.js'
+							'jquery.flot.time.js',
+							'jquery.flot.resize.js',
 						],
 						dest: 'assets/flot'
 					},
@@ -221,6 +222,26 @@ module.exports = function( grunt ) {
 				dest: 'deploy/latest',
 				expand: true
 			}
+		},
+
+		// Compass
+		compass: {
+			build: {
+				options: {
+					sassDir: 'src/sass',
+					cssDir: 'src/css'
+				}
+			}
+		},
+
+		// Autoprefixer
+		autoprefixer: {
+			options: {
+		 		browsers: [ 'last 2 version', 'ie 8', 'ie 9' ]
+			},
+			admin: {
+				src: 'src/css/admin.css'
+			},
 		},
 
 		// CSS min
@@ -321,10 +342,12 @@ module.exports = function( grunt ) {
 		}
 	} );
 
+	grunt.loadNpmTasks( 'grunt-autoprefixer' );
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-phpunit' );
 	grunt.loadNpmTasks( 'grunt-composer' );
+	grunt.loadNpmTasks( 'grunt-contrib-compass' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
@@ -342,7 +365,7 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
-	grunt.registerTask( 'assets', [ 'copy:styles', 'copy:scripts', 'copy:assets' ] );
+	grunt.registerTask( 'assets', [ 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets' ] );
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
