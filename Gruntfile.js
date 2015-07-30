@@ -160,7 +160,7 @@ module.exports = function( grunt ) {
 						cwd: 'src/css/',
 						src: [ '**' ],
 						dest: 'css'
-					},
+					}
 				]
 			},
 			scripts: {
@@ -170,7 +170,7 @@ module.exports = function( grunt ) {
 						cwd: 'src/js/',
 						src: [ '**' ],
 						dest: 'js'
-					},
+					}
 				]
 			},
 			assets: {
@@ -181,7 +181,7 @@ module.exports = function( grunt ) {
 						src: [
 							'jquery.flot.js',
 							'jquery.flot.time.js',
-							'jquery.flot.resize.js',
+							'jquery.flot.resize.js'
 						],
 						dest: 'assets/flot'
 					},
@@ -243,14 +243,14 @@ module.exports = function( grunt ) {
 			},
 			admin: {
 				src: 'src/css/admin.css'
-			},
+			}
 		},
 
 		// CSS min
 		cssmin: {
 			styles: {
 				files: {
-					'css/admin.min.css': 'src/css/admin.css',
+					'css/admin.min.css': 'src/css/admin.css'
 				}
 			},
 			assets: {
@@ -265,7 +265,7 @@ module.exports = function( grunt ) {
 		uglify: {
 			scripts: {
 				files: {
-					'js/admin.min.js': 'src/js/admin.js',
+					'js/admin.min.js': 'src/js/admin.js'
 				}
 			},
 			assets: {
