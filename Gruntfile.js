@@ -1,5 +1,7 @@
 /* jshint node:true */
 module.exports = function( grunt ) {
+	require( 'load-grunt-tasks' )( grunt );
+
 	// Project configuration.
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
@@ -341,27 +343,6 @@ module.exports = function( grunt ) {
 			}
 		}
 	} );
-
-	grunt.loadNpmTasks( 'grunt-autoprefixer' );
-	grunt.loadNpmTasks( 'grunt-phplint' );
-	grunt.loadNpmTasks( 'grunt-phpcs' );
-	grunt.loadNpmTasks( 'grunt-phpunit' );
-	grunt.loadNpmTasks( 'grunt-composer' );
-	grunt.loadNpmTasks( 'grunt-contrib-compass' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-compress' );
-	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-checktextdomain' );
-	grunt.loadNpmTasks( 'grunt-checkwpversion' );
-	grunt.loadNpmTasks( 'grunt-wp-i18n' );
-	grunt.loadNpmTasks( 'grunt-shell' );
-	grunt.loadNpmTasks( 'grunt-git' );
-	grunt.loadNpmTasks( 'grunt-aws-s3' );
-	grunt.loadNpmTasks( 'grunt-rt-wp-deploy' );
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
