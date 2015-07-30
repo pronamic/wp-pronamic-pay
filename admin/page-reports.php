@@ -248,10 +248,11 @@ global $wp_locale;
 			if ( typeof highlight !== 'undefined' && data[ highlight ] ) {
 				serie = data[ highlight ];
 
-				serie.color = '#F9461C';
+				serie.color = '#23282F';
 
-				if ( serie.bars )
-					serie.bars.fillColor = '#F9461C';
+				if ( serie.bars ) {
+					serie.bars.fillColor = '#23282F';
+				}
 
 				if ( serie.lines ) {
 					serie.lines.lineWidth = 5;
