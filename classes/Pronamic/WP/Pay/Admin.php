@@ -25,6 +25,11 @@ class Pronamic_WP_Pay_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		add_action( 'pronamic_pay_upgrade', array( $this, 'upgrade' ) );
+
+		// Reports
+		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -324,40 +329,6 @@ class Pronamic_WP_Pay_Admin {
 				'3.6.6',
 				true
 			);
-
-			// Flot - http://www.flotcharts.org/
-			wp_register_script(
-				'flot',
-				plugins_url( 'assets/flot/jquery.flot.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'0.8.3',
-				true
-			);
-
-			wp_register_script(
-				'flot-time',
-				plugins_url( 'assets/flot/jquery.flot.time.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'flot' ),
-				'0.8.3',
-				true
-			);
-
-			wp_register_script(
-				'flot-resize',
-				plugins_url( 'assets/flot/jquery.flot.resize.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'flot' ),
-				'0.8.3',
-				true
-			);
-
-			// Accounting.js - http://openexchangerates.github.io/accounting.js
-			wp_register_script(
-				'accounting',
-				plugins_url( 'assets/accounting/accounting.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'0.4.1',
-				true
-			);
 		}
 	}
 
@@ -428,15 +399,6 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
-			__( 'Reports', 'pronamic_ideal' ),
-			__( 'Reports', 'pronamic_ideal' ),
-			'manage_options',
-			'pronamic_pay_reports',
-			array( $this, 'page_reports' )
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
 			__( 'Settings', 'pronamic_ideal' ),
 			__( 'Settings', 'pronamic_ideal' ),
 			'manage_options',
@@ -465,7 +427,6 @@ class Pronamic_WP_Pay_Admin {
 	public function page_dashboard() { return $this->render_page( 'dashboard' ); }
 	public function page_settings() { return $this->render_page( 'settings' ); }
 	public function page_tools() { return $this->render_page( 'tools' ); }
-	public function page_reports() { return $this->render_page( 'reports' ); }
 
 	//////////////////////////////////////////////////
 

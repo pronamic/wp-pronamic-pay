@@ -260,12 +260,19 @@ module.exports = function( grunt ) {
 			}
 		},
 
-
 		// Uglify
 		uglify: {
 			scripts: {
 				files: {
-					'js/admin.min.js': 'src/js/admin.js'
+					// Accounting
+					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
+					// Flot
+					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
+					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
+					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
+					// Admin
+					'js/admin.min.js': 'src/js/admin.js',
+					'js/admin-reports.min.js': 'src/js/admin-reports.js'
 				}
 			},
 			assets: {
@@ -353,6 +360,8 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'deploy', [
 		'default',
+		'assets',
+		'min',
 		'composer:update',
 		'composer:dump-autoload:optimize',
 		'clean:deploy',
