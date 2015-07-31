@@ -54,6 +54,33 @@ function pronamic_pay_create_initial_post_types() {
 		'rewrite'            => false,
 		'query_var'          => false,
 	) );
+
+	register_post_type( 'pronamic_pay_form', array(
+		'label'              => __( 'Forms', 'pronamic_ideal' ),
+		'labels'             => array(
+			'name'               => __( 'Forms', 'pronamic_ideal' ),
+			'singular_name'      => __( 'Form', 'pronamic_ideal' ),
+			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
+			'add_new_item'       => __( 'Add New Form', 'pronamic_ideal' ),
+			'edit_item'          => __( 'Edit Form', 'pronamic_ideal' ),
+			'new_item'           => __( 'New Form', 'pronamic_ideal' ),
+			'all_items'          => __( 'All Forms', 'pronamic_ideal' ),
+			'view_item'          => __( 'View Form', 'pronamic_ideal' ),
+			'search_items'       => __( 'Search Forms', 'pronamic_ideal' ),
+			'not_found'          => __( 'No forms found', 'pronamic_ideal' ),
+			'not_found_in_trash' => __( 'No forms found in Trash', 'pronamic_ideal' ),
+			'menu_name'          => __( 'Forms', 'pronamic_ideal' )
+		),
+		'public'             => false,
+		'publicly_queryable' => false,
+		'show_ui'            => true,
+		'show_in_nav_menus'  => false,
+		'show_in_menu'       => false,
+		'show_in_admin_bar'  => false,
+		'supports'           => array( 'title', 'revisions' ),
+		'rewrite'            => false,
+		'query_var'          => false,
+	) );
 }
 
 /**
@@ -65,6 +92,31 @@ function pronamic_pay_create_initial_post_types() {
  * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
  */
 add_action( 'init', 'pronamic_pay_create_initial_post_types', 0 ); // highest priority
+
+/**
+ * Shortcode form
+ *
+ * @see https://github.com/WordImpress/Give/blob/1.1/includes/shortcodes.php#L39-L65
+ */
+function pronamic_pay_shortcode_form( $atts ) {
+	$atts = shortcode_atts( array(
+		'id' => null,
+	), $atts, 'pronamic_pay_form' );
+
+	$id = $atts['id'];
+
+	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
+
+	ob_start();
+
+	include $file;
+
+	$output = ob_get_clean();
+
+	return $output;
+}
+
+add_shortcode( 'pronamic_pay_form', 'pronamic_pay_shortcode_form' );
 
 /**
  * Helper function to update post meta data

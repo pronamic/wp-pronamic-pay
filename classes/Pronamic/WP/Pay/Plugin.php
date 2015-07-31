@@ -82,6 +82,24 @@ class Pronamic_WP_Pay_Plugin {
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
 		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'check_status' ) );
+
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Enqueue scripts
+	 */
+	public static function enqueue_scripts() {
+		wp_register_style(
+			'pronamic-pay-forms',
+			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+			array(),
+			'3.7.0'
+		);
+
+		wp_enqueue_style( 'pronamic-pay-forms' );
 	}
 
 	//////////////////////////////////////////////////

@@ -250,7 +250,8 @@ module.exports = function( grunt ) {
 		cssmin: {
 			styles: {
 				files: {
-					'css/admin.min.css': 'src/css/admin.css'
+					'css/admin.min.css': 'src/css/admin.css',
+					'css/forms.min.css': 'src/css/forms.css'
 				}
 			},
 			assets: {

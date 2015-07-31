@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-31 11:30:35+00:00\n"
+"POT-Creation-Date: 2015-07-31 13:37:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1364,7 +1364,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:429
 msgid "Dashboard"
 msgstr ""
 
@@ -1448,10 +1448,15 @@ msgid "Configurations"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:402 classes/Pronamic/WP/Pay/Admin.php:403
+#: includes/post.php:59 includes/post.php:61 includes/post.php:72
+msgid "Forms"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
+#: classes/Pronamic/WP/Pay/Admin.php:419 classes/Pronamic/WP/Pay/Admin.php:420
 msgid "Tools"
 msgstr ""
 
@@ -1557,7 +1562,7 @@ msgstr ""
 msgid "Payment Gateway Configuration"
 msgstr ""
 
-#: includes/post.php:9 includes/post.php:36
+#: includes/post.php:9 includes/post.php:36 includes/post.php:63
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
 msgid "Add New"
 msgstr ""
@@ -1624,6 +1629,43 @@ msgstr ""
 
 #: includes/post.php:44
 msgid "No payments found in Trash"
+msgstr ""
+
+#: includes/post.php:62
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
+msgid "Form"
+msgstr ""
+
+#: includes/post.php:64
+msgid "Add New Form"
+msgstr ""
+
+#: includes/post.php:65
+msgid "Edit Form"
+msgstr ""
+
+#: includes/post.php:66
+msgid "New Form"
+msgstr ""
+
+#: includes/post.php:67
+msgid "All Forms"
+msgstr ""
+
+#: includes/post.php:68
+msgid "View Form"
+msgstr ""
+
+#: includes/post.php:69
+msgid "Search Forms"
+msgstr ""
+
+#: includes/post.php:70
+msgid "No forms found"
+msgstr ""
+
+#: includes/post.php:71
+msgid "No forms found in Trash"
 msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:406
@@ -1821,10 +1863,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:102
 msgid "Payment Amount"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
-msgid "Form"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29

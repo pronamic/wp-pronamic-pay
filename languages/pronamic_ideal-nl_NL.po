@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-31 11:30:35+00:00\n"
-"PO-Revision-Date: 2015-07-06 15:25+0100\n"
+"POT-Creation-Date: 2015-07-31 13:37:37+00:00\n"
+"PO-Revision-Date: 2015-07-31 15:39+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1426,7 +1426,7 @@ msgstr "Travis CI build status"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:429
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1514,10 +1514,15 @@ msgid "Configurations"
 msgstr "Configuraties"
 
 #: classes/Pronamic/WP/Pay/Admin.php:402 classes/Pronamic/WP/Pay/Admin.php:403
+#: includes/post.php:59 includes/post.php:61 includes/post.php:72
+msgid "Forms"
+msgstr "Formulieren"
+
+#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
+#: classes/Pronamic/WP/Pay/Admin.php:419 classes/Pronamic/WP/Pay/Admin.php:420
 msgid "Tools"
 msgstr "Extra"
 
@@ -1626,7 +1631,7 @@ msgstr "Betalingsgateway configuraties"
 msgid "Payment Gateway Configuration"
 msgstr "Betalingsgateway configuratie"
 
-#: includes/post.php:9 includes/post.php:36
+#: includes/post.php:9 includes/post.php:36 includes/post.php:63
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
@@ -1694,6 +1699,43 @@ msgstr "Geen betalingen gevonden."
 #: includes/post.php:44
 msgid "No payments found in Trash"
 msgstr "Geen betalingen gevonden in prullenbak."
+
+#: includes/post.php:62
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
+msgid "Form"
+msgstr "Formulier"
+
+#: includes/post.php:64
+msgid "Add New Form"
+msgstr "Nieuwe formulier toevoegen"
+
+#: includes/post.php:65
+msgid "Edit Form"
+msgstr "Formulier bewerken"
+
+#: includes/post.php:66
+msgid "New Form"
+msgstr "Nieuwe formulier"
+
+#: includes/post.php:67
+msgid "All Forms"
+msgstr "Alle formulieren"
+
+#: includes/post.php:68
+msgid "View Form"
+msgstr "Bekijk formulier"
+
+#: includes/post.php:69
+msgid "Search Forms"
+msgstr "Formulieren zoeken"
+
+#: includes/post.php:70
+msgid "No forms found"
+msgstr "Geen formulieren gevonden"
+
+#: includes/post.php:71
+msgid "No forms found in Trash"
+msgstr "Geen formulieren gevonden in prullenbak"
 
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
@@ -1895,10 +1937,6 @@ msgstr "Transactie ID"
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:102
 msgid "Payment Amount"
 msgstr "Te betalen bedrag"
-
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
-msgid "Form"
-msgstr "Formulier"
 
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:88
