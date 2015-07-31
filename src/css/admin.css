@@ -1,15 +1,9 @@
 /* line 1, ../sass/admin.scss */
-#icon-pronamic_ideal,
-#icon-gf_edit_forms {
-  background: url("../../images/icon-32x32.png") no-repeat;
-}
-
-/* line 6, ../sass/admin.scss */
 td.column-version {
   width: 5em;
 }
 
-/* line 10, ../sass/admin.scss */
+/* line 5, ../sass/admin.scss */
 .pronamic-pay-status-table tbody th:first-child {
   width: 20%;
 }
@@ -17,7 +11,7 @@ td.column-version {
 /**
  * Gateway config postbox
  */
-/* line 17, ../sass/admin.scss */
+/* line 12, ../sass/admin.scss */
 #pronamic_gateway_config option.deprecated {
   color: #AAA;
 }
@@ -25,13 +19,13 @@ td.column-version {
 /**
  * Payment log postbox
  */
-/* line 24, ../sass/admin.scss */
+/* line 19, ../sass/admin.scss */
 #pronamic_payment_log.postbox .inside {
   margin: 0;
   padding: 0;
 }
 
-/* line 29, ../sass/admin.scss */
+/* line 24, ../sass/admin.scss */
 #pronamic_payment_log .comments-box {
   border: 0 none;
 }
@@ -39,7 +33,7 @@ td.column-version {
 /**
  * iDEAL
  */
-/* line 36, ../sass/admin.scss */
+/* line 31, ../sass/admin.scss */
 pre.security-data {
   background-color: #EEE;
   border-radius: 3px 3px 3px 3px;
@@ -52,7 +46,7 @@ pre.security-data {
 /**
  * Documentation
  */
-/* line 51, ../sass/admin.scss */
+/* line 46, ../sass/admin.scss */
 .pronamic-pay-table tr.deprecated td,
 .pronamic-pay-table tr.deprecated a {
   color: #AAAAAA;
@@ -61,19 +55,19 @@ pre.security-data {
 /**
  * Charts
  */
-/* line 59, ../sass/admin.scss */
+/* line 54, ../sass/admin.scss */
 .postbox .pronamic-pay-chart-with-sidebar {
   padding: 12px 12px 12px 249px;
 }
 
-/* line 65, ../sass/admin.scss */
+/* line 60, ../sass/admin.scss */
 .pronamic-pay-chart-sidebar {
   float: left;
   margin-left: -237px;
   width: 225px;
 }
 
-/* line 73, ../sass/admin.scss */
+/* line 68, ../sass/admin.scss */
 .pronamci-pay-chart-legend {
   list-style: none;
   margin: 0 0 1em;
@@ -84,7 +78,7 @@ pre.security-data {
   background: #FFF;
 }
 
-/* line 86, ../sass/admin.scss */
+/* line 81, ../sass/admin.scss */
 .pronamci-pay-chart-legend li {
   border-right: 5px solid #AAA;
   box-shadow: inset 0 -1px 0 0 #dfdfdf;
@@ -95,14 +89,14 @@ pre.security-data {
   transition: all ease .5s;
 }
 
-/* line 101, ../sass/admin.scss */
+/* line 96, ../sass/admin.scss */
 .pronamci-pay-chart-legend li:hover {
   box-shadow: inset 0 -1px 0 0 #DFDFDF, inset 300px 0 0 rgba(35, 40, 47, 0.1);
   border-right: 5px solid #23282F !important;
   padding-left: 1.5em;
 }
 
-/* line 109, ../sass/admin.scss */
+/* line 104, ../sass/admin.scss */
 .pronamci-pay-chart-legend strong {
   color: #464646;
   display: block;
@@ -111,7 +105,7 @@ pre.security-data {
   font-weight: 400;
 }
 
-/* line 121, ../sass/admin.scss */
+/* line 116, ../sass/admin.scss */
 .pronamic-pay-chart-tooltip {
   background: #333;
   border-radius: 3px;
@@ -127,17 +121,17 @@ pre.security-data {
 /**
  * Gravity Forms notifications
  */
-/* line 144, ../sass/admin.scss */
+/* line 139, ../sass/admin.scss */
 .pronamic-pay-gf-notifications {
   margin-left: 28px;
 }
 
-/* line 148, ../sass/admin.scss */
+/* line 143, ../sass/admin.scss */
 .pronamic-pay-gf-notifications ul {
   margin: 0;
 }
 
-/* line 152, ../sass/admin.scss */
+/* line 147, ../sass/admin.scss */
 .pronamic-pay-gf-notifications li {
   margin: 0;
 }
@@ -145,13 +139,13 @@ pre.security-data {
 /**
  * Gravity Forms editor
  */
-/* line 159, ../sass/admin.scss */
+/* line 154, ../sass/admin.scss */
 .gforms_edit_form .ginput_ideal {
   background: url("../../images/icon-16x16.png") no-repeat left center;
   padding-left: 20px;
 }
 
-/* line 165, ../sass/admin.scss */
+/* line 160, ../sass/admin.scss */
 .gforms_edit_form .ideal-edit-link {
   background: url("../../images/icon-16x16.png") no-repeat;
   display: none;
@@ -163,14 +157,14 @@ pre.security-data {
   text-decoration: none;
 }
 
-/* line 183, ../sass/admin.scss */
+/* line 178, ../sass/admin.scss */
 .gforms_edit_form .field_hover .ideal-edit-link,
 .gforms_edit_form .field_selected .ideal-edit-link {
   display: block;
 }
 
 /* Add iDEAL fields */
-/* line 189, ../sass/admin.scss */
+/* line 184, ../sass/admin.scss */
 #add_ideal_fields .button {
   /* The default Gravity Forms button width is to small */
   width: 10em;

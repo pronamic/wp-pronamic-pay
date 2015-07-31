@@ -2,16 +2,16 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.6.6\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-06 12:49:10+00:00\n"
+"Project-Id-Version: Pronamic iDEAL 3.7.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
+"POT-Creation-Date: 2015-07-31 11:30:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.2\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
 
 #: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
 msgid "WordPress.org"
@@ -81,8 +81,8 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:397
-#: classes/Pronamic/WP/Pay/Admin.php:398
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:376
+#: classes/Pronamic/WP/Pay/Admin.php:377
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -729,8 +729,8 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:407
-#: classes/Pronamic/WP/Pay/Admin.php:408 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:386
+#: classes/Pronamic/WP/Pay/Admin.php:387 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -746,30 +746,6 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
-msgstr ""
-
-#: admin/page-reports.php:75
-msgid "Number succesfull payments"
-msgstr ""
-
-#: admin/page-reports.php:90
-msgid "Open payments"
-msgstr ""
-
-#: admin/page-reports.php:110
-msgid "Succesfull payments"
-msgstr ""
-
-#: admin/page-reports.php:131
-msgid "Cancelled payments"
-msgstr ""
-
-#: admin/page-reports.php:152
-msgid "Expired payments"
-msgstr ""
-
-#: admin/page-reports.php:173
-msgid "Failed payments"
 msgstr ""
 
 #: admin/page-tools.php:4
@@ -1388,7 +1364,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:451
+#: classes/Pronamic/WP/Pay/Admin.php:421
 msgid "Dashboard"
 msgstr ""
 
@@ -1430,27 +1406,52 @@ msgstr ""
 msgid "Log"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:283
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:27
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:28
+msgid "Reports"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:121
+msgid "Number succesfull payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:136
+msgid "Open payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:156
+msgid "Succesfull payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:177
+msgid "Cancelled payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:198
+msgid "Expired payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:219
+msgid "Failed payments"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:288
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a "
 "href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:415 classes/Pronamic/WP/Pay/Admin.php:416
+#: classes/Pronamic/WP/Pay/Admin.php:394 classes/Pronamic/WP/Pay/Admin.php:395
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
-msgid "Reports"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin.php:432 classes/Pronamic/WP/Pay/Admin.php:433
+#: classes/Pronamic/WP/Pay/Admin.php:402 classes/Pronamic/WP/Pay/Admin.php:403
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:441 classes/Pronamic/WP/Pay/Admin.php:442
+#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 msgid "Tools"
 msgstr ""
 
