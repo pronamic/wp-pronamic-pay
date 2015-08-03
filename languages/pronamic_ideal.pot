@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-07-31 13:37:37+00:00\n"
+"POT-Creation-Date: 2015-08-03 12:05:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,6 +59,32 @@ msgstr ""
 msgid "Payment %d"
 msgstr ""
 
+#: admin/meta-box-form-options.php:7
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
+#: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:28
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
+#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
+#: vendor/wp-pay-extensions/membership/src/Admin.php:47
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
+#: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
+#: views/eshop/settings-meta-box.php:18
+msgid "Configuration"
+msgstr ""
+
+#: admin/meta-box-form-options.php:26
+msgid "Button Text"
+msgstr ""
+
+#: admin/meta-box-form-options.php:32 templates/form.php:8
+msgid "Pay Now"
+msgstr ""
+
 #: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
@@ -81,8 +107,8 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:376
-#: classes/Pronamic/WP/Pay/Admin.php:377
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:377
+#: classes/Pronamic/WP/Pay/Admin.php:378
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -576,7 +602,8 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:635
+#: admin/meta-box-gateway-config.php:635 templates/form.php:43
+#: templates/form.php:47 templates/form.php:62 templates/form.php:66
 msgid "Email Address"
 msgstr ""
 
@@ -729,8 +756,8 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:386
-#: classes/Pronamic/WP/Pay/Admin.php:387 includes/post.php:32
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:387
+#: classes/Pronamic/WP/Pay/Admin.php:388 includes/post.php:32
 #: includes/post.php:34 includes/post.php:45
 msgid "Payments"
 msgstr ""
@@ -1070,12 +1097,12 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:375
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:462
 msgid "Success"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:371
 msgid "Failure"
 msgstr ""
 
@@ -1362,31 +1389,22 @@ msgstr ""
 msgid "Travis CI build status"
 msgstr ""
 
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:27
+msgid "Form Options"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:103
+msgid "Shortcode:"
+msgstr ""
+
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:429
+#: classes/Pronamic/WP/Pay/Admin.php:430
 msgid "Dashboard"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
 msgid "Production"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
-#: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:28
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
-#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/membership/src/Admin.php:47
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
-#: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
-#: views/eshop/settings-meta-box.php:18
-msgid "Configuration"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
@@ -1435,29 +1453,50 @@ msgstr ""
 msgid "Failed payments"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:288
+#: classes/Pronamic/WP/Pay/Admin.php:289
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a "
 "href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:394 classes/Pronamic/WP/Pay/Admin.php:395
+#: classes/Pronamic/WP/Pay/Admin.php:395 classes/Pronamic/WP/Pay/Admin.php:396
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:402 classes/Pronamic/WP/Pay/Admin.php:403
-#: includes/post.php:59 includes/post.php:61 includes/post.php:72
+#: classes/Pronamic/WP/Pay/Admin.php:403 classes/Pronamic/WP/Pay/Admin.php:404
+#: includes/post.php:72
 msgid "Forms"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
+#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:419 classes/Pronamic/WP/Pay/Admin.php:420
+#: classes/Pronamic/WP/Pay/Admin.php:420 classes/Pronamic/WP/Pay/Admin.php:421
 msgid "Tools"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/FormProcessor.php:73
+msgid "Please enter your first name"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/FormProcessor.php:80
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/FormProcessor.php:94 includes/post.php:62
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
+msgid "Payment Form"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:54
+msgid "Payment Form %s"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:85
+msgid "Payment %s"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PaymentInputData.php:79
@@ -1466,37 +1505,37 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:367
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:349
+#: classes/Pronamic/WP/Pay/Plugin.php:369
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:353
+#: classes/Pronamic/WP/Pay/Plugin.php:373
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:461
 msgid "Open"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:357
+#: classes/Pronamic/WP/Pay/Plugin.php:377
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:389
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:426
+#: classes/Pronamic/WP/Pay/Plugin.php:446
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:548
+#: classes/Pronamic/WP/Pay/Plugin.php:568
 msgid "Payment for %s"
 msgstr ""
 
@@ -1522,7 +1561,7 @@ msgstr ""
 msgid "Payment Status Pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:87
+#: classes/Pronamic/WP/Pay/Settings.php:87 templates/form.php:82
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
@@ -1631,41 +1670,69 @@ msgstr ""
 msgid "No payments found in Trash"
 msgstr ""
 
-#: includes/post.php:62
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
-msgid "Form"
+#: includes/post.php:59 includes/post.php:61
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
+msgid "Payment Forms"
 msgstr ""
 
 #: includes/post.php:64
-msgid "Add New Form"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
+msgid "Add New Payment Form"
 msgstr ""
 
 #: includes/post.php:65
-msgid "Edit Form"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
+msgid "Edit Payment Form"
 msgstr ""
 
 #: includes/post.php:66
-msgid "New Form"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
+msgid "New Payment Form"
 msgstr ""
 
 #: includes/post.php:67
-msgid "All Forms"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
+msgid "All Payment Forms"
 msgstr ""
 
 #: includes/post.php:68
-msgid "View Form"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
+msgid "View Payment Form"
 msgstr ""
 
 #: includes/post.php:69
-msgid "Search Forms"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
+msgid "Search Payment Forms"
 msgstr ""
 
 #: includes/post.php:70
-msgid "No forms found"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
+msgid "No payment forms found"
 msgstr ""
 
 #: includes/post.php:71
-msgid "No forms found in Trash"
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
+msgid "No payment forms found in Trash"
+msgstr ""
+
+#: templates/form.php:23
+msgid "Personal Info"
+msgstr ""
+
+#: templates/form.php:27 templates/form.php:30
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
+msgid "First Name"
+msgstr ""
+
+#: templates/form.php:35 templates/form.php:38
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:412
+msgid "Last Name"
+msgstr ""
+
+#: templates/form.php:56
+msgid "Payment Info"
 msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:406
@@ -1865,6 +1932,10 @@ msgstr ""
 msgid "Payment Amount"
 msgstr ""
 
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
+msgid "Form"
+msgstr ""
+
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:88
 msgid "Transaction Description"
@@ -1905,48 +1976,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:69
 msgid "Forms » iDEAL"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
-msgid "Payment Forms"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
-msgid "Payment Form"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
-msgid "Add New Payment Form"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
-msgid "Edit Payment Form"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
-msgid "New Payment Form"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
-msgid "All Payment Forms"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
-msgid "View Payment Form"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
-msgid "Search Payment Forms"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
-msgid "No payment forms found"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
-msgid "No payment forms found in Trash"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:29
@@ -2077,14 +2106,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:405
 msgid "Fields"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
-msgid "First Name"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:412
-msgid "Last Name"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:414

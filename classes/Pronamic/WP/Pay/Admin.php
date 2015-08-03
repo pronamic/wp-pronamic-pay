@@ -52,6 +52,7 @@ class Pronamic_WP_Pay_Admin {
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Post types
+		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
 

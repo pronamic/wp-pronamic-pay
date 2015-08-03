@@ -27,5 +27,70 @@
 }
 
 /**
+ * Required indicator
+ */
+.pronamic-pay-required-indicator {
+	color: #A00;
+}
+
+/**
+ * Inputs
+ */
+.pronamic-pay-form .pronamic-pay-amount-input {
+	width: auto;
+}
+
+/**
  * Rows
  */
+.pronamic-pay-form-row {
+	margin: 0 0 15px;
+	
+	input,
+	textarea,
+	select {
+		border-radius: 0;
+
+		outline: none;
+
+		width: 100%;  
+	}
+}
+
+.pronamic-pay-form-row-wide {
+	clear: both;
+
+	margin: 0 0 15px;
+}
+
+.pronamic-pay-form-row-first,
+.pronamic-pay-form-row-last {
+	width: 48.5%;
+}
+
+.pronamic-pay-form-row-first {
+	float: left;
+}
+
+.pronamic-pay-form-row-last {
+	float: right;	
+}
+
+/**
+ * Error
+ */
+.pronamic-pay-error {
+	background: #F9F9F9;
+
+	box-shadow: 0 1px 1px rgba( #000, .125 );
+
+	border-left: 4px solid #a00;
+
+	clear: both;
+
+	margin: 15px 0;
+
+	position: relative;
+
+	padding: 1em 1em 1em 2em;
+}
