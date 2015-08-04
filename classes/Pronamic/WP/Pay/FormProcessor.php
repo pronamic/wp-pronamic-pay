@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_FormProcessor {
 			if ( wp_verify_nonce( $nonce, 'pronamic_pay' ) ) {
 				$id = filter_input( INPUT_POST, 'pronamic_pay_form_id', FILTER_VALIDATE_INT );
 
-				$config_id = get_post_meta( $id, '_pronamic_pay_form_config_id', true );
+				$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
 				$valid = $this->validate();
 

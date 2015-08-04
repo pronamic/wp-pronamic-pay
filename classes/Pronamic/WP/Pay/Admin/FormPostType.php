@@ -39,6 +39,8 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 			'cb'                              => '<input type="checkbox" />',
 			'title'                           => __( 'Title', 'pronamic_ideal' ),
 			'pronamic_payment_form_gateway'   => __( 'Gateway', 'pronamic_ideal' ),
+			'pronamic_payment_form_payments'  => __( 'Payments', 'pronamic_ideal' ),
+			'pronamic_payment_form_earnings'  => __( 'Earnings', 'pronamic_ideal' ),
 			'pronamic_payment_form_shortcode' => __( 'Shortcode', 'pronamic_ideal' ),
 			'date'                            => __( 'Date', 'pronamic_ideal' ),
 		);
@@ -50,8 +52,8 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		global $post;
 
 		switch ( $column ) {
-			case 'pronamic_payment_form_gateway':
-				$config_id = get_post_meta( $post_id, '_pronamic_pay_form_config_id', true );
+			case 'pronamic_payment_form_gateway' :
+				$config_id = get_post_meta( $post_id, '_pronamic_payment_form_config_id', true );
 
 				if ( ! empty( $config_id ) ) {
 					echo get_the_title( $config_id );
@@ -60,7 +62,85 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 				}
 
 				break;
-			case 'pronamic_payment_form_shortcode':
+			case 'pronamic_payment_form_payments' :
+				global $wpdb;
+
+				$query = $wpdb->prepare( "
+					SELECT
+						COUNT( post.ID ) AS value
+					FROM
+						$wpdb->posts AS post
+							LEFT JOIN
+						$wpdb->postmeta AS meta_amount
+								ON post.ID = meta_amount.post_id AND meta_amount.meta_key = '_pronamic_payment_amount'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_source
+								ON post.ID = meta_source.post_id AND meta_source.meta_key = '_pronamic_payment_source'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_source_id
+								ON post.ID = meta_source_id.post_id AND meta_source_id.meta_key = '_pronamic_payment_source_id'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_status
+								ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
+					WHERE
+						post.post_type = 'pronamic_payment'
+							AND
+						meta_source.meta_value = 'payment_form'
+							AND
+						meta_source_id.meta_value = %s
+							AND
+						meta_status.meta_value = 'Success'
+					GROUP BY
+						post.ID
+					;",
+					$post_id
+				);
+
+				$value = $wpdb->get_var( $query );
+
+				echo number_format_i18n( $value );
+
+				break;
+			case 'pronamic_payment_form_earnings' :
+				global $wpdb;
+
+				$query = $wpdb->prepare( "
+					SELECT
+						SUM( meta_amount.meta_value ) AS value
+					FROM
+						$wpdb->posts AS post
+							LEFT JOIN
+						$wpdb->postmeta AS meta_amount
+								ON post.ID = meta_amount.post_id AND meta_amount.meta_key = '_pronamic_payment_amount'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_source
+								ON post.ID = meta_source.post_id AND meta_source.meta_key = '_pronamic_payment_source'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_source_id
+								ON post.ID = meta_source_id.post_id AND meta_source_id.meta_key = '_pronamic_payment_source_id'
+							LEFT JOIN
+						$wpdb->postmeta AS meta_status
+								ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
+					WHERE
+						post.post_type = 'pronamic_payment'
+							AND
+						meta_source.meta_value = 'payment_form'
+							AND
+						meta_source_id.meta_value = %s
+							AND
+						meta_status.meta_value = 'Success'
+					GROUP BY
+						post.ID
+					;",
+					$post_id
+				);
+
+				$value = $wpdb->get_var( $query );
+
+				echo '€', '&nbsp;', number_format_i18n( $value, 2 );
+
+				break;
+			case 'pronamic_payment_form_shortcode' :
 				printf(
 					'<input onclick="this.setSelectionRange( 0, this.value.length )" type="text" class="pronamic-pay-shortcode-input" readonly="" value="%s" />',
 					esc_attr( $this->get_shortcode( $post_id ) )
@@ -135,7 +215,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 	private function get_shortcode( $post_id ) {
 		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-		$shortcode = sprintf( '[pronamic_pay_form id="%s"]', esc_attr( $post_id ) );
+		$shortcode = sprintf( '[pronamic_payment_form id="%s"]', esc_attr( $post_id ) );
 
 		return $shortcode;
 	}

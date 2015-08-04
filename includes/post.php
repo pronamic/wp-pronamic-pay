@@ -110,7 +110,7 @@ add_action( 'init', 'pronamic_pay_create_initial_post_types', 0 ); // highest pr
 function pronamic_pay_shortcode_form( $atts ) {
 	$atts = shortcode_atts( array(
 		'id' => null,
-	), $atts, 'pronamic_pay_form' );
+	), $atts, 'pronamic_payment_form' );
 
 	$id = $atts['id'];
 

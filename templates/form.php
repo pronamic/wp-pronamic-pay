@@ -2,9 +2,9 @@
 
 global $pronamic_pay_errors;
 
-$config_id = get_post_meta( $id, '_pronamic_pay_form_config_id', true );
+$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
-$button_text = get_post_meta( $id, '_pronamic_pay_button_text', true );
+$button_text = get_post_meta( $id, '_pronamic_payment_form_button_text', true );
 $button_text = empty( $button_text ) ? __( 'Pay Now', 'pronamic_ideal' ) : $button_text;
 
 $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );

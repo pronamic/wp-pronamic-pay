@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-04 11:55:28+00:00\n"
+"POT-Creation-Date: 2015-08-04 13:20:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,6 @@ msgid "Name"
 msgstr ""
 
 #: admin/extensions-wp-admin.php:8
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:33
 msgid "Author"
 msgstr ""
 
@@ -60,21 +59,9 @@ msgid "Payment %d"
 msgstr ""
 
 #: admin/meta-box-form-options.php:7
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
-#: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:28
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
-#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
-#: vendor/wp-pay-extensions/membership/src/Admin.php:47
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
-#: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
-#: views/eshop/settings-meta-box.php:18
-msgid "Configuration"
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:41
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:40
+msgid "Gateway"
 msgstr ""
 
 #: admin/meta-box-form-options.php:26
@@ -100,15 +87,15 @@ msgid "Live"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:46 admin/meta-box-gateway-test.php:26
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:100
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:162
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:112
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:179
 msgid "Test"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:377
-#: classes/Pronamic/WP/Pay/Admin.php:378
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:378
+#: classes/Pronamic/WP/Pay/Admin.php:379
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -602,8 +589,8 @@ msgid ""
 "exceed 25 characters."
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:635 templates/form.php:43
-#: templates/form.php:47
+#: admin/meta-box-gateway-config.php:635 templates/form.php:48
+#: templates/form.php:52
 msgid "Email Address"
 msgstr ""
 
@@ -632,7 +619,7 @@ msgid "Download Private Certificate"
 msgstr ""
 
 #: admin/meta-box-gateway-config.php:714
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:40
 msgid "Variant"
 msgstr ""
 
@@ -656,8 +643,9 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
 #: admin/tab-ideal_status.php:46
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:34
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:44
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:47
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
 msgid "Date"
 msgstr ""
@@ -667,19 +655,19 @@ msgid "l jS \\o\\f F Y, h:ia"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:19
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:41
 msgid "ID"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:42
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:111
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:102
 msgid "Description"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:35
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:43
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:145
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
@@ -695,7 +683,7 @@ msgid "Action URL"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:75
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:32
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:46
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
 msgid "Status"
@@ -708,7 +696,7 @@ msgid "Email"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:101
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:44
 msgid "Consumer"
 msgstr ""
 
@@ -726,8 +714,8 @@ msgid "Y/m/d"
 msgstr ""
 
 #: admin/meta-box-payment-source.php:11
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:108
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:45
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:124
 msgid "Source"
 msgstr ""
 
@@ -747,8 +735,8 @@ msgstr ""
 msgid "Subscription ID"
 msgstr ""
 
-#: admin/meta-box-payment-update.php:40
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:126
+#: admin/meta-box-payment-update.php:42
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
 msgid "Update"
 msgstr ""
 
@@ -761,9 +749,9 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:387
-#: classes/Pronamic/WP/Pay/Admin.php:388 includes/post.php:35
-#: includes/post.php:37 includes/post.php:48
+#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
+#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: includes/post.php:35 includes/post.php:37 includes/post.php:48
 msgid "Payments"
 msgstr ""
 
@@ -893,8 +881,9 @@ msgstr ""
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:95
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:25
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:40
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:39
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:39
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:26
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:106
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:102
@@ -1394,38 +1383,60 @@ msgstr ""
 msgid "Travis CI build status"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:27
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:43
+msgid "Earnings"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:44
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
+msgid "Shortcode"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:90
 msgid "Form Options"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:103
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:162
 msgid "Shortcode:"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:430
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
+#: classes/Pronamic/WP/Pay/Admin.php:431
 msgid "Dashboard"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:118
 msgid "Production"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-msgid "Gateway"
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:170
+#: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:28
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:80
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
+#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
+#: vendor/wp-pay-extensions/membership/src/Admin.php:47
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
+#: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
+#: views/eshop/settings-meta-box.php:18
+msgid "Configuration"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:41
 msgid "Transaction"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:99 includes/post.php:38
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:115 includes/post.php:38
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Payment"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:117
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:133
 msgid "Log"
 msgstr ""
 
@@ -1465,21 +1476,21 @@ msgid ""
 "href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:395 classes/Pronamic/WP/Pay/Admin.php:396
+#: classes/Pronamic/WP/Pay/Admin.php:396 classes/Pronamic/WP/Pay/Admin.php:397
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:403 classes/Pronamic/WP/Pay/Admin.php:404
+#: classes/Pronamic/WP/Pay/Admin.php:404 classes/Pronamic/WP/Pay/Admin.php:405
 #: includes/post.php:75
 msgid "Forms"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:411 classes/Pronamic/WP/Pay/Admin.php:412
+#: classes/Pronamic/WP/Pay/Admin.php:412 classes/Pronamic/WP/Pay/Admin.php:413
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:420 classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:421 classes/Pronamic/WP/Pay/Admin.php:422
 msgid "Tools"
 msgstr ""
 
@@ -1566,7 +1577,7 @@ msgstr ""
 msgid "Payment Status Pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:87 templates/form.php:88
+#: classes/Pronamic/WP/Pay/Settings.php:87 templates/form.php:93
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
@@ -1722,21 +1733,21 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
-#: templates/form.php:23
+#: templates/form.php:28
 msgid "Personal Info"
 msgstr ""
 
-#: templates/form.php:27 templates/form.php:30
+#: templates/form.php:32 templates/form.php:35
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
 msgid "First Name"
 msgstr ""
 
-#: templates/form.php:35 templates/form.php:38
+#: templates/form.php:40 templates/form.php:43
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:412
 msgid "Last Name"
 msgstr ""
 
-#: templates/form.php:56
+#: templates/form.php:61
 msgid "Payment Info"
 msgstr ""
 
@@ -2380,10 +2391,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:87
 msgid "Generate Shortcode"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
-msgid "Shortcode"
 msgstr ""
 
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:323

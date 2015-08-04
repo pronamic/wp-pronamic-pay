@@ -35,7 +35,7 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 	 * @return string
 	 */
 	public function get_source() {
-		return 'pay_form';
+		return 'payment_form';
 	}
 
 	public function get_source_id() {
