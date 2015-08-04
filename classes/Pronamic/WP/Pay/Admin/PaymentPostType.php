@@ -10,14 +10,20 @@
  */
 class Pronamic_WP_Pay_Admin_PaymentPostType {
 	public function __construct() {
-		add_filter( 'manage_edit-pronamic_payment_columns', array( $this, 'edit_columns' ) );
+		$post_type = 'pronamic_payment';
 
-		add_action( 'manage_pronamic_payment_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+		add_filter( 'manage_edit-' . $post_type . '_columns', array( $this, 'edit_columns' ) );
+
+		add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
+
+		add_action( 'save_post_' . $post_type, array( $this, 'save_post' ) );
 	}
+
+	//////////////////////////////////////////////////
 
 	public function edit_columns( $columns ) {
 		$columns = array(
@@ -90,6 +96,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		}
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Add meta boxes
 	 */
@@ -118,6 +126,15 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			array( $this, 'meta_box_log' ),
 			'pronamic_payment',
 			'normal',
+			'high'
+		);
+
+		add_meta_box(
+			'pronamic_payment_update',
+			__( 'Update', 'pronamic_ideal' ),
+			array( $this, 'meta_box_update' ),
+			'pronamic_payment',
+			'side',
 			'high'
 		);
 
@@ -153,6 +170,17 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	}
 
 	/**
+	 * Pronamic Pay gateway update meta box
+	 *
+	 * @param WP_Post $post The object for the current post/page.
+	 */
+	public function meta_box_update( $post ) {
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Post row actions
 	 */
 	public function post_row_actions( $actions, $post ) {
@@ -161,5 +189,35 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		}
 
 		return $actions;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Save post
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.2.3/wp-includes/post.php#L3518-L3530
+	 */
+	public function save_post( $post_id ) {
+		if ( filter_has_var( INPUT_POST, 'pronamic_payment_update' ) ) {
+			$nonce = filter_input( INPUT_POST, 'pronamic_payment_nonce', FILTER_SANITIZE_STRING );
+
+			if ( wp_verify_nonce( $nonce, 'pronamic_payment_update' ) ) {
+				$payment = get_pronamic_payment( $post_id );
+
+				$can_redirect = false;
+
+				$status_old = $payment->status;
+				$status_new = filter_input( INPUT_POST, 'pronamic_payment_status', FILTER_SANITIZE_STRING );
+
+				$payment->status = $status_new;
+
+				pronamic_wp_pay_update_payment( $payment );
+
+				do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $status_old . '_to_' . $status_new, $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+			}
+		}
 	}
 }
