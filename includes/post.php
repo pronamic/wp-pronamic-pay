@@ -117,7 +117,54 @@ function pronamic_pay_shortcode_form( $atts ) {
 	return pronamic_pay_get_form( $id );
 }
 
-add_shortcode( 'pronamic_pay_form', 'pronamic_pay_shortcode_form' );
+add_shortcode( 'pronamic_payment_form', 'pronamic_pay_shortcode_form' );
+
+
+add_action( 'init', function() {
+
+	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		add_action( 'admin_notices', function(){
+			if ( current_user_can( 'activate_plugins' ) ) {
+				echo '<div class="error message"><p>Shortcode UI plugin must be active for Shortcode UI Example plugin to function.</p></div>';
+			}
+		});
+		return;
+	}
+
+	/**
+	 * Register a UI for the Shortcode.
+	 * Pass the shortcode tag (string)
+	 * and an array or args.
+	 */
+	shortcode_ui_register_for_shortcode(
+		'pronamic_payment_form',
+		array(
+
+			// Display label. String. Required.
+			'label' => __( 'Payment Form', 'pronamic_ideal' ),
+
+			// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
+			'listItemImage' => 'dashicons-money',
+
+			// Available shortcode attributes and default values. Required. Array.
+			// Attribute model expects 'attr', 'type' and 'label'
+			// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
+			'attrs' => array(
+
+				array(
+					'label'    => __( 'Select Payment Form', 'pronamic_ideal' ),
+					'attr'     => 'id',
+					'type'     => 'post_select',
+					'query'    => array( 'post_type' => 'pronamic_pay_form' ),
+					'multiple' => false,
+				),
+
+			),
+
+		)
+	);
+
+} );
 
 function pronamic_pay_get_form( $id ) {
 	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
