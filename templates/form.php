@@ -11,7 +11,12 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 ?>
 <div class="pronamic-pay-form-wrap">
-	<h2 class="pronamic-pay-form-title"><?php echo esc_html( get_the_title( $id ) ); ?></h2>
+
+	<?php if ( ! is_singular( 'pronamic_pay_form' ) ) : ?>
+
+		<h2 class="pronamic-pay-form-title"><?php echo esc_html( get_the_title( $id ) ); ?></h2>
+
+	<?php endif; ?>
 
 	<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
 		<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
