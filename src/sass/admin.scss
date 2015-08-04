@@ -1,9 +1,63 @@
+@import "compass/css3";
+
 td.column-version {
 	width: 5em;
 }
 
 .pronamic-pay-status-table tbody th:first-child {
 	width: 20%;
+}
+
+/**
+ * Dashboard
+ *
+ * @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
+ */
+#pronamic_pay_dashboard_status .inside {
+	margin: 0;
+	padding: 0;
+}
+
+.pronamic-pay-status-list {
+	overflow: hidden;
+
+	margin: 0;
+
+	li {
+		border-top: 1px solid #ECECEC;
+
+		@include box-sizing( border-box );
+
+		color: #AAA;
+
+		float: left;
+
+		width: 50%;
+
+		padding: 0;
+		margin: 0;
+
+		a {
+			display: block;
+			color: #aaa;
+			padding: 9px 12px;
+			-webkit-transition: all ease .5s;
+			position: relative;
+			font-size: 12px;
+
+			strong {
+				font-size: 18px;
+				line-height: 1.2em;
+				font-weight: normal;
+				display: block;
+				color: #21759b;
+			}
+		}
+	}
+
+	li:nth-child(odd) {
+		border-right: 1px solid #ECECEC;
+	}
 }
 
 /**

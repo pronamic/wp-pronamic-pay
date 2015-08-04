@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-04 14:00:50+00:00\n"
-"PO-Revision-Date: 2015-08-04 16:01+0100\n"
+"POT-Creation-Date: 2015-08-04 15:12:53+00:00\n"
+"PO-Revision-Date: 2015-08-04 17:15+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -97,7 +97,7 @@ msgstr "Test"
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23
 #: admin/tab-methods.php:78 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
+#: classes/Pronamic/WP/Pay/Admin.php:384 classes/Pronamic/WP/Pay/Admin.php:385
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -803,7 +803,7 @@ msgstr "Website"
 
 #: admin/page-dashboard.php:9
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:390 classes/Pronamic/WP/Pay/Admin.php:391
+#: classes/Pronamic/WP/Pay/Admin.php:394 classes/Pronamic/WP/Pay/Admin.php:395
 #: includes/post.php:35 includes/post.php:37 includes/post.php:48
 msgid "Payments"
 msgstr "Betalingen"
@@ -1446,6 +1446,32 @@ msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:36
+msgid "Pronamic iDEAL Status"
+msgstr "Pronamic iDEAL status"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:76
+msgid "%s awaiting processing"
+msgstr "%s in afwachting"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:77
+msgid "%s cancelled"
+msgstr "%s geannuleerd"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:78
+msgid "%s failed"
+msgstr "%s mislukt"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:79
+msgid "%s expired"
+msgstr "%s verlopen"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:96
+msgid "%s payment"
+msgid_plural "%s payments"
+msgstr[0] "%s betaling"
+msgstr[1] "%s betalingen"
+
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:43
 msgid "Earnings"
 msgstr "Inkomsten"
@@ -1459,13 +1485,13 @@ msgstr "Shortcode"
 msgid "Form Options"
 msgstr "Formulier opties"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:232
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:233
 msgid "Shortcode:"
 msgstr "Shortcode:"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:433
+#: classes/Pronamic/WP/Pay/Admin.php:437
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1532,7 +1558,7 @@ msgstr "Verlopen betalingen"
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:291
+#: classes/Pronamic/WP/Pay/Admin.php:294
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1543,21 +1569,21 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
+#: classes/Pronamic/WP/Pay/Admin.php:402 classes/Pronamic/WP/Pay/Admin.php:403
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:406 classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
 #: includes/post.php:75
 msgid "Forms"
 msgstr "Formulieren"
 
-#: classes/Pronamic/WP/Pay/Admin.php:414 classes/Pronamic/WP/Pay/Admin.php:415
+#: classes/Pronamic/WP/Pay/Admin.php:418 classes/Pronamic/WP/Pay/Admin.php:419
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
+#: classes/Pronamic/WP/Pay/Admin.php:427 classes/Pronamic/WP/Pay/Admin.php:428
 msgid "Tools"
 msgstr "Extra"
 
@@ -2898,6 +2924,12 @@ msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
 
+#, fuzzy
+#~ msgid "<strong>%s payment</strong> expired"
+#~ msgid_plural "<strong>%s payments</strong> expired"
+#~ msgstr[0] "betaling verlopen"
+#~ msgstr[1] "betaling verlopen"
+
 #~ msgid "Add New Form"
 #~ msgstr "Nieuwe formulier toevoegen"
 
@@ -2927,12 +2959,6 @@ msgstr "Belast modus"
 
 #~ msgid "Donate Now"
 #~ msgstr "Doneer nu"
-
-#~ msgid "payment expired"
-#~ msgstr "betaling verlopen"
-
-#~ msgid "payment failed"
-#~ msgstr "betaling mislukt"
 
 #~ msgid "payment completed"
 #~ msgstr "betaling voltooid"

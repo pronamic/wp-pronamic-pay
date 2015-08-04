@@ -30,6 +30,9 @@ class Pronamic_WP_Pay_Admin {
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
 		}
+
+		// Dashboard
+		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -310,6 +313,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_pay_form',
 			'pronamic_pay_gf',
 		) );
+		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;

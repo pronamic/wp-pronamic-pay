@@ -17,7 +17,7 @@ class Pronamic_WP_Pay_FormProcessor {
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
 
-		add_filter( 'pronamic_payment_source_text_pay_form', array( $this, 'source_text' ), 10, 2 );
+		add_filter( 'pronamic_payment_source_text_payment_form', array( $this, 'source_text' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////

@@ -210,6 +210,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		// Update post meta data
 		pronamic_pay_update_post_meta_data( $post_id, $data );
 	}
+
 	//////////////////////////////////////////////////
 
 	private function get_shortcode( $post_id ) {
