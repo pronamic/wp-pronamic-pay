@@ -23,7 +23,10 @@ function pronamic_pay_create_initial_post_types() {
 		'show_in_nav_menus'  => false,
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
-		'supports'           => array( 'title', 'revisions' ),
+		'supports'           => array(
+			'title',
+			'revisions',
+		),
 		'rewrite'            => false,
 		'query_var'          => false,
 	) );
@@ -71,13 +74,16 @@ function pronamic_pay_create_initial_post_types() {
 			'not_found_in_trash' => __( 'No payment forms found in Trash', 'pronamic_ideal' ),
 			'menu_name'          => __( 'Forms', 'pronamic_ideal' )
 		),
-		'public'             => false,
-		'publicly_queryable' => false,
+		'public'             => true,
+		'publicly_queryable' => true,
 		'show_ui'            => true,
-		'show_in_nav_menus'  => false,
+		'show_in_nav_menus'  => true,
 		'show_in_menu'       => false,
 		'show_in_admin_bar'  => false,
-		'supports'           => array( 'title', 'revisions' ),
+		'supports'           => array(
+			'title',
+			'revisions',
+		),
 		'rewrite'            => false,
 		'query_var'          => false,
 	) );
