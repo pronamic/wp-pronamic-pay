@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-04 13:20:13+00:00\n"
-"PO-Revision-Date: 2015-08-04 15:20+0100\n"
+"POT-Creation-Date: 2015-08-04 14:00:50+00:00\n"
+"PO-Revision-Date: 2015-08-04 16:01+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -97,7 +97,7 @@ msgstr "Test"
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23
 #: admin/tab-methods.php:78 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:378 classes/Pronamic/WP/Pay/Admin.php:379
+#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -803,7 +803,7 @@ msgstr "Website"
 
 #: admin/page-dashboard.php:9
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: classes/Pronamic/WP/Pay/Admin.php:390 classes/Pronamic/WP/Pay/Admin.php:391
 #: includes/post.php:35 includes/post.php:37 includes/post.php:48
 msgid "Payments"
 msgstr "Betalingen"
@@ -1455,17 +1455,17 @@ msgstr "Inkomsten"
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:90
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:160
 msgid "Form Options"
 msgstr "Formulier opties"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:162
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:232
 msgid "Shortcode:"
 msgstr "Shortcode:"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:431
+#: classes/Pronamic/WP/Pay/Admin.php:433
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1532,7 +1532,7 @@ msgstr "Verlopen betalingen"
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:289
+#: classes/Pronamic/WP/Pay/Admin.php:291
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1543,21 +1543,21 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:396 classes/Pronamic/WP/Pay/Admin.php:397
+#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
 #: includes/post.php:18
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:404 classes/Pronamic/WP/Pay/Admin.php:405
+#: classes/Pronamic/WP/Pay/Admin.php:406 classes/Pronamic/WP/Pay/Admin.php:407
 #: includes/post.php:75
 msgid "Forms"
 msgstr "Formulieren"
 
-#: classes/Pronamic/WP/Pay/Admin.php:412 classes/Pronamic/WP/Pay/Admin.php:413
+#: classes/Pronamic/WP/Pay/Admin.php:414 classes/Pronamic/WP/Pay/Admin.php:415
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:421 classes/Pronamic/WP/Pay/Admin.php:422
+#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
 msgid "Tools"
 msgstr "Extra"
 
@@ -1570,6 +1570,7 @@ msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
 #: classes/Pronamic/WP/Pay/FormProcessor.php:94 includes/post.php:65
+#: includes/post.php:144
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
 msgid "Payment Form"
 msgstr "Betalingsformulier"
@@ -1802,6 +1803,10 @@ msgstr "Geen betalingsformulieren gevonden"
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
+
+#: includes/post.php:155
+msgid "Select Payment Form"
+msgstr "Selecteer betalingsformulier"
 
 #: templates/form.php:28
 msgid "Personal Info"

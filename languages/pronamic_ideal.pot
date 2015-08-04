@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-04 13:20:13+00:00\n"
+"POT-Creation-Date: 2015-08-04 14:00:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -94,8 +94,8 @@ msgstr ""
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:378
-#: classes/Pronamic/WP/Pay/Admin.php:379
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:380
+#: classes/Pronamic/WP/Pay/Admin.php:381
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -750,7 +750,7 @@ msgid "Website"
 msgstr ""
 
 #: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:388 classes/Pronamic/WP/Pay/Admin.php:389
+#: classes/Pronamic/WP/Pay/Admin.php:390 classes/Pronamic/WP/Pay/Admin.php:391
 #: includes/post.php:35 includes/post.php:37 includes/post.php:48
 msgid "Payments"
 msgstr ""
@@ -1392,17 +1392,17 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:90
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:160
 msgid "Form Options"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:162
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:232
 msgid "Shortcode:"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:431
+#: classes/Pronamic/WP/Pay/Admin.php:433
 msgid "Dashboard"
 msgstr ""
 
@@ -1469,28 +1469,28 @@ msgstr ""
 msgid "Failed payments"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:289
+#: classes/Pronamic/WP/Pay/Admin.php:291
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a "
 "href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:396 classes/Pronamic/WP/Pay/Admin.php:397
+#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
 #: includes/post.php:18
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:404 classes/Pronamic/WP/Pay/Admin.php:405
+#: classes/Pronamic/WP/Pay/Admin.php:406 classes/Pronamic/WP/Pay/Admin.php:407
 #: includes/post.php:75
 msgid "Forms"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:412 classes/Pronamic/WP/Pay/Admin.php:413
+#: classes/Pronamic/WP/Pay/Admin.php:414 classes/Pronamic/WP/Pay/Admin.php:415
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:421 classes/Pronamic/WP/Pay/Admin.php:422
+#: classes/Pronamic/WP/Pay/Admin.php:423 classes/Pronamic/WP/Pay/Admin.php:424
 msgid "Tools"
 msgstr ""
 
@@ -1503,6 +1503,7 @@ msgid "Please enter a valid email address"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/FormProcessor.php:94 includes/post.php:65
+#: includes/post.php:144
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
 msgid "Payment Form"
 msgstr ""
@@ -1731,6 +1732,10 @@ msgstr ""
 #: includes/post.php:74
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
 msgid "No payment forms found in Trash"
+msgstr ""
+
+#: includes/post.php:155
+msgid "Select Payment Form"
 msgstr ""
 
 #: templates/form.php:28
