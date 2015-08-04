@@ -305,6 +305,7 @@ class Pronamic_WP_Pay_Admin {
 		$enqueue |= in_array( $screen->post_type, array(
 			'pronamic_gateway',
 			'pronamic_payment',
+			'pronamic_pay_form',
 			'pronamic_pay_gf',
 		) );
 		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
