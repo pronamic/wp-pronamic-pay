@@ -114,6 +114,12 @@ function pronamic_pay_shortcode_form( $atts ) {
 
 	$id = $atts['id'];
 
+	return pronamic_pay_get_form( $id );
+}
+
+add_shortcode( 'pronamic_pay_form', 'pronamic_pay_shortcode_form' );
+
+function pronamic_pay_get_form( $id ) {
 	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
 
 	ob_start();
@@ -125,7 +131,18 @@ function pronamic_pay_shortcode_form( $atts ) {
 	return $output;
 }
 
-add_shortcode( 'pronamic_pay_form', 'pronamic_pay_shortcode_form' );
+/**
+ * Pay form content
+ */
+function pronamic_pay_form_the_content( $content ) {
+	if ( is_singular( 'pronamic_pay_form' ) && 'pronamic_pay_form' == get_post_type() ) {
+		$content .= pronamic_pay_get_form( get_the_ID() );
+	}
+
+	return $content;
+}
+
+add_filter( 'the_content', 'pronamic_pay_form_the_content' );
 
 /**
  * Helper function to update post meta data
