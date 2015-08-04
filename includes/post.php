@@ -84,7 +84,9 @@ function pronamic_pay_create_initial_post_types() {
 			'title',
 			'revisions',
 		),
-		'rewrite'            => false,
+		'rewrite'            => array(
+			'slug' => _x( 'payment-forms', 'slug', 'pronamic-ideal' ),
+		),
 		'query_var'          => false,
 	) );
 }
