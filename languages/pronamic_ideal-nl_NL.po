@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-03 12:05:44+00:00\n"
-"PO-Revision-Date: 2015-08-03 14:06+0100\n"
+"POT-Creation-Date: 2015-08-04 08:16:06+00:00\n"
+"PO-Revision-Date: 2015-08-04 10:23+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -653,7 +653,7 @@ msgstr ""
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
 #: admin/meta-box-gateway-config.php:635 templates/form.php:43
-#: templates/form.php:47 templates/form.php:62 templates/form.php:66
+#: templates/form.php:47
 msgid "Email Address"
 msgstr "E-mailadres"
 
@@ -809,8 +809,8 @@ msgid "Website"
 msgstr "Website"
 
 #: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:387
-#: classes/Pronamic/WP/Pay/Admin.php:388 includes/post.php:32
-#: includes/post.php:34 includes/post.php:45
+#: classes/Pronamic/WP/Pay/Admin.php:388 includes/post.php:35
+#: includes/post.php:37 includes/post.php:48
 msgid "Payments"
 msgstr "Betalingen"
 
@@ -1477,7 +1477,7 @@ msgstr "Gateway"
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:99 includes/post.php:35
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:99 includes/post.php:38
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Payment"
 msgstr "Betaling"
@@ -1532,7 +1532,7 @@ msgid "Configurations"
 msgstr "Configuraties"
 
 #: classes/Pronamic/WP/Pay/Admin.php:403 classes/Pronamic/WP/Pay/Admin.php:404
-#: includes/post.php:72
+#: includes/post.php:75
 msgid "Forms"
 msgstr "Formulieren"
 
@@ -1552,7 +1552,7 @@ msgstr "Voer een geldige voornaam in"
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
-#: classes/Pronamic/WP/Pay/FormProcessor.php:94 includes/post.php:62
+#: classes/Pronamic/WP/Pay/FormProcessor.php:94 includes/post.php:65
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
 msgid "Payment Form"
 msgstr "Betalingsformulier"
@@ -1628,7 +1628,7 @@ msgstr "Decimaal scheidingsteken"
 msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
-#: classes/Pronamic/WP/Pay/Settings.php:87 templates/form.php:82
+#: classes/Pronamic/WP/Pay/Settings.php:87 templates/form.php:88
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
@@ -1670,7 +1670,7 @@ msgstr "Betalingsgateway configuraties"
 msgid "Payment Gateway Configuration"
 msgstr "Betalingsgateway configuratie"
 
-#: includes/post.php:9 includes/post.php:36 includes/post.php:63
+#: includes/post.php:9 includes/post.php:39 includes/post.php:66
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
@@ -1707,81 +1707,81 @@ msgstr "Geen betalingsgateway configuraties gevonden"
 msgid "No payment gateway configurations found in Trash"
 msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
 
-#: includes/post.php:37
+#: includes/post.php:40
 msgid "Add New Payment"
 msgstr "Nieuwe betaling toevoegen"
 
-#: includes/post.php:38
+#: includes/post.php:41
 msgid "Edit Payment"
 msgstr "Betaling bewerken"
 
-#: includes/post.php:39
+#: includes/post.php:42
 msgid "New Payment"
 msgstr "Nieuwe betaling"
 
-#: includes/post.php:40
+#: includes/post.php:43
 msgid "All Payments"
 msgstr "Alle betalingen"
 
-#: includes/post.php:41
+#: includes/post.php:44
 msgid "View Payment"
 msgstr "Bekijk betaling"
 
-#: includes/post.php:42
+#: includes/post.php:45
 msgid "Search Payments"
 msgstr "Betalingen zoeken"
 
-#: includes/post.php:43
+#: includes/post.php:46
 msgid "No payments found"
 msgstr "Geen betalingen gevonden."
 
-#: includes/post.php:44
+#: includes/post.php:47
 msgid "No payments found in Trash"
 msgstr "Geen betalingen gevonden in prullenbak."
 
-#: includes/post.php:59 includes/post.php:61
+#: includes/post.php:62 includes/post.php:64
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
 msgid "Payment Forms"
 msgstr "Betalingsformulieren"
 
-#: includes/post.php:64
+#: includes/post.php:67
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
 msgid "Add New Payment Form"
 msgstr "Nieuwe betalingsformulier toevoegen"
 
-#: includes/post.php:65
+#: includes/post.php:68
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
 msgid "Edit Payment Form"
 msgstr "Betalingsformulier bewerken"
 
-#: includes/post.php:66
+#: includes/post.php:69
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
 msgid "New Payment Form"
 msgstr "Nieuwe betalingsformulier"
 
-#: includes/post.php:67
+#: includes/post.php:70
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
 msgid "All Payment Forms"
 msgstr "Alle betalingsformulieren"
 
-#: includes/post.php:68
+#: includes/post.php:71
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
 msgid "View Payment Form"
 msgstr "Bekijk betalingsformulier"
 
-#: includes/post.php:69
+#: includes/post.php:72
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
 msgid "Search Payment Forms"
 msgstr "Betalingsformulieren zoeken"
 
-#: includes/post.php:70
+#: includes/post.php:73
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
 msgid "No payment forms found"
 msgstr "Geen betalingsformulieren gevonden"
 
-#: includes/post.php:71
+#: includes/post.php:74
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
@@ -2864,6 +2864,11 @@ msgstr "Merchant Key"
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
+
+#: includes/post.php:88
+msgctxt "slug"
+msgid "payment-forms"
+msgstr "betalingsformulieren"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:175
 msgctxt "creditcard"
