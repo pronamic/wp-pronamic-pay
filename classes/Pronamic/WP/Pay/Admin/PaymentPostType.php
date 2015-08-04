@@ -9,18 +9,26 @@
  * @version 1.0
  */
 class Pronamic_WP_Pay_Admin_PaymentPostType {
+	/**
+	 * Post type
+	 */
+	const POST_TYPE = 'pronamic_payment';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an admin payment post type object
+	 */
 	public function __construct() {
-		$post_type = 'pronamic_payment';
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
 
-		add_filter( 'manage_edit-' . $post_type . '_columns', array( $this, 'edit_columns' ) );
-
-		add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		add_action( 'save_post_' . $post_type, array( $this, 'save_post' ) );
+		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -36,7 +44,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
 			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
-			'author'                       => __( 'Author', 'pronamic_ideal' ),
 			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
 
@@ -101,45 +108,47 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes() {
-		add_meta_box(
-			'pronamic_payment',
-			__( 'Payment', 'pronamic_ideal' ),
-			array( $this, 'meta_box_info' ),
-			'pronamic_payment',
-			'normal',
-			'high'
-		);
+	public function add_meta_boxes( $post_type ) {
+		if ( self::POST_TYPE === $post_type ) {
+			add_meta_box(
+				'pronamic_payment',
+				__( 'Payment', 'pronamic_ideal' ),
+				array( $this, 'meta_box_info' ),
+				$post_type,
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_payment_source',
-			__( 'Source', 'pronamic_ideal' ),
-			array( $this, 'meta_box_source' ),
-			'pronamic_payment',
-			'normal',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_payment_source',
+				__( 'Source', 'pronamic_ideal' ),
+				array( $this, 'meta_box_source' ),
+				$post_type,
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_payment_log',
-			__( 'Log', 'pronamic_ideal' ),
-			array( $this, 'meta_box_log' ),
-			'pronamic_payment',
-			'normal',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_payment_log',
+				__( 'Log', 'pronamic_ideal' ),
+				array( $this, 'meta_box_log' ),
+				$post_type,
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_payment_update',
-			__( 'Update', 'pronamic_ideal' ),
-			array( $this, 'meta_box_update' ),
-			'pronamic_payment',
-			'side',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_payment_update',
+				__( 'Update', 'pronamic_ideal' ),
+				array( $this, 'meta_box_update' ),
+				$post_type,
+				'side',
+				'high'
+			);
 
-		// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
-		remove_meta_box( 'submitdiv', 'pronamic_payment', 'side' );
+			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
+			remove_meta_box( 'submitdiv', $post_type, 'side' );
+		}
 	}
 
 	/**
@@ -184,7 +193,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * Post row actions
 	 */
 	public function post_row_actions( $actions, $post ) {
-		if ( 'pronamic_payment' === $post->post_type ) {
+		if ( self::POST_TYPE === $post->post_type ) {
 			return array();
 		}
 

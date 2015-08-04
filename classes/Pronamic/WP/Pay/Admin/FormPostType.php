@@ -10,26 +10,80 @@
  * @since 3.7.0
  */
 class Pronamic_WP_Pay_Admin_FormPostType {
+	/**
+	 * Post type
+	 */
+	const POST_TYPE = 'pronamic_pay_form';
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an admin form post type object
+	 */
 	public function __construct() {
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+
+		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
-		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 
 		add_action( 'post_submitbox_misc_actions', array( $this, 'post_submitbox_misc_actions' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function edit_columns( $columns ) {
+		$columns = array(
+			'cb'                              => '<input type="checkbox" />',
+			'title'                           => __( 'Title', 'pronamic_ideal' ),
+			'pronamic_payment_form_gateway'   => __( 'Gateway', 'pronamic_ideal' ),
+			'pronamic_payment_form_shortcode' => __( 'Shortcode', 'pronamic_ideal' ),
+			'date'                            => __( 'Date', 'pronamic_ideal' ),
+		);
+
+		return $columns;
+	}
+
+	public function custom_columns( $column, $post_id ) {
+		global $post;
+
+		switch ( $column ) {
+			case 'pronamic_payment_form_gateway':
+				$config_id = get_post_meta( $post_id, '_pronamic_pay_form_config_id', true );
+
+				if ( ! empty( $config_id ) ) {
+					echo get_the_title( $config_id );
+				} else {
+					echo '—';
+				}
+
+				break;
+			case 'pronamic_payment_form_shortcode':
+				printf(
+					'<input onclick="this.setSelectionRange( 0, this.value.length )" type="text" class="pronamic-pay-shortcode-input" readonly="" value="%s" />',
+					esc_attr( $this->get_shortcode( $post_id ) )
+				);
+
+				break;
+		}
 	}
 
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes() {
-		add_meta_box(
-			'pronamic_payment_form_options',
-			__( 'Form Options', 'pronamic_ideal' ),
-			array( $this, 'meta_box_form_options' ),
-			'pronamic_pay_form',
-			'normal',
-			'high'
-		);
+	public function add_meta_boxes( $post_type ) {
+		if ( self::POST_TYPE === $post_type ) {
+			add_meta_box(
+				'pronamic_payment_form_options',
+				__( 'Form Options', 'pronamic_ideal' ),
+				array( $this, 'meta_box_form_options' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+		}
 	}
 
 	/**
@@ -64,22 +118,11 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 			return $post_id;
 		}
 
-		// Check the user's permissions.
-		if ( 'page' === get_post_type( $post_id ) ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return $post_id;
-			}
-		} else {
-			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return $post_id;
-			}
-		}
-
 		/* OK, its safe for us to save the data now. */
 		$definition = array(
 			// General
-			'_pronamic_pay_form_config_id' => FILTER_SANITIZE_STRING,
-			'_pronamic_pay_button_text'    => FILTER_SANITIZE_STRING,
+			'_pronamic_payment_form_config_id'   => FILTER_SANITIZE_STRING,
+			'_pronamic_payment_form_button_text' => FILTER_SANITIZE_STRING,
 		);
 
 		$data = filter_input_array( INPUT_POST, $definition );
@@ -87,22 +130,28 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		// Update post meta data
 		pronamic_pay_update_post_meta_data( $post_id, $data );
 	}
+	//////////////////////////////////////////////////
+
+	private function get_shortcode( $post_id ) {
+		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+
+		$shortcode = sprintf( '[pronamic_pay_form id="%s"]', esc_attr( $post_id ) );
+
+		return $shortcode;
+	}
 
 	//////////////////////////////////////////////////
 
 	public function post_submitbox_misc_actions() {
-		if ( 'pronamic_pay_form' !== get_post_type() ) {
+		if ( self::POST_TYPE !== get_post_type() ) {
 			return false;
 		}
-
-		// Shortcode column with select all input
-		$shortcode = sprintf( '[pronamic_pay_form id="%s"]', esc_attr( get_the_ID() ) );
 
 		?>
 <div class="shortcode-wrap box-sizing">
 	<label><?php esc_html_e( 'Shortcode:', 'pronamic_ideal' ); ?></label>
 
-	<input onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $shortcode ); ?>">
+	<input onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $this->get_shortcode() ); ?>">
 </div><?php
 	}
 }

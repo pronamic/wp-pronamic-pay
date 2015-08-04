@@ -9,17 +9,29 @@
  * @version 1.0
  */
 class Pronamic_WP_Pay_Admin_GatewayPostType {
-	public function __construct() {
-		add_filter( 'manage_edit-pronamic_gateway_columns', array( $this, 'edit_columns' ) );
+	/**
+	 * Post type
+	 */
+	const POST_TYPE = 'pronamic_gateway';
 
-		add_action( 'manage_pronamic_gateway_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an admin gateway post type object
+	 */
+	public function __construct() {
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+
+		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'post_edit_form_tag', array( $this, 'post_edit_form_tag' ) );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
-		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 	}
+
+	//////////////////////////////////////////////////
 
 	public function edit_columns( $columns ) {
 		$columns = array(
@@ -124,6 +136,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Post edit form tag
 	 *
@@ -138,33 +152,37 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		if ( $post ) {
-			if ( 'pronamic_gateway' === $post->post_type ) {
+			if ( self::POST_TYPE === $post->post_type ) {
 				echo ' enctype="multipart/form-data"';
 			}
 		}
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes() {
-		add_meta_box(
-			'pronamic_gateway_config',
-			__( 'Configuration', 'pronamic_ideal' ),
-			array( $this, 'meta_box_config' ),
-			'pronamic_gateway',
-			'normal',
-			'high'
-		);
+	public function add_meta_boxes( $post_type ) {
+		if ( self::POST_TYPE === $post_type ) {
+			add_meta_box(
+				'pronamic_gateway_config',
+				__( 'Configuration', 'pronamic_ideal' ),
+				array( $this, 'meta_box_config' ),
+				$post_type,
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_gateway_test',
-			__( 'Test', 'pronamic_ideal' ),
-			array( $this, 'meta_box_test' ),
-			'pronamic_gateway',
-			'normal',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_gateway_test',
+				__( 'Test', 'pronamic_ideal' ),
+				array( $this, 'meta_box_test' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+		}
 	}
 
 	/**
@@ -184,6 +202,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	public function meta_box_test( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * When the post is saved, saves our custom data.
@@ -206,17 +226,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
-		}
-
-		// Check the user's permissions.
-		if ( 'page' === get_post_type( $post_id ) ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return $post_id;
-			}
-		} else {
-			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return $post_id;
-			}
 		}
 
 		/* OK, its safe for us to save the data now. */
