@@ -732,6 +732,10 @@ function pronamic_ideal_private_certificate_field( $field ) {
 									$classes[] = 'deprecated';
 
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
+
+									if ( $variant_id !== $id ) {
+										break;
+									}
 								}
 
 								printf(
