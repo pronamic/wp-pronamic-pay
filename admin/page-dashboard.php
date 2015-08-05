@@ -6,13 +6,14 @@
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Payments', 'pronamic_ideal' ); ?></span></h3>
+						<h3 class="hndle"><span><?php _e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h3>
 
 						<div class="inside">
 							<?php
 
 							$payments = get_posts( array(
 								'post_type'      => 'pronamic_payment',
+								'post_status'    => 'payment_pending',
 								'posts_per_page' => 5,
 							) );
 

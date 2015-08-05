@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-05 08:37:11+00:00\n"
-"PO-Revision-Date: 2015-08-05 10:39+0100\n"
+"POT-Creation-Date: 2015-08-05 11:44:57+00:00\n"
+"PO-Revision-Date: 2015-08-05 13:45+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -49,7 +49,7 @@ msgstr "Provider"
 
 #: admin/meta-box-form-options.php:7
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:41
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:40
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:64
 msgid "Gateway"
 msgstr "Gateway"
 
@@ -685,7 +685,7 @@ msgstr "bestandsnaam"
 #: admin/tab-ideal_status.php:46
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:44
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:47
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
 msgid "Date"
 msgstr "Datum"
@@ -700,14 +700,14 @@ msgid "ID"
 msgstr "ID"
 
 #: admin/meta-box-payment-info.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:42
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:66
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:111
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:102
 msgid "Description"
 msgstr "Beschrijving"
 
 #: admin/meta-box-payment-info.php:35
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:43
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:67
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:145
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
@@ -723,7 +723,7 @@ msgid "Action URL"
 msgstr "Actie URL"
 
 #: admin/meta-box-payment-info.php:75
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:46
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
 msgid "Status"
@@ -736,7 +736,7 @@ msgid "Email"
 msgstr "E-mail"
 
 #: admin/meta-box-payment-info.php:101
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:44
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:68
 msgid "Consumer"
 msgstr "Consument"
 
@@ -754,8 +754,8 @@ msgid "Y/m/d"
 msgstr "d-m-Y"
 
 #: admin/meta-box-payment-source.php:11
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:45
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:124
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:69
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:148
 msgid "Source"
 msgstr "Bron"
 
@@ -775,8 +775,8 @@ msgstr "Sessie ID"
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
-#: admin/meta-box-payment-update.php:42
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
+#: admin/meta-box-payment-update.php:33
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:166
 msgid "Update"
 msgstr "Bijwerken"
 
@@ -790,20 +790,15 @@ msgid "Website"
 msgstr "Website"
 
 #: admin/page-dashboard.php:9
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:398 classes/Pronamic/WP/Pay/Admin.php:399
-#: classes/Pronamic/WP/Pay/PostTypes.php:66
-#: classes/Pronamic/WP/Pay/PostTypes.php:68
-#: classes/Pronamic/WP/Pay/PostTypes.php:79
-msgid "Payments"
-msgstr "Betalingen"
+msgid "Pending Payments"
+msgstr "Betalingen in afwachting"
 
 #. translators: comment date format. See http:php.net/date
-#: admin/page-dashboard.php:45
+#: admin/page-dashboard.php:46
 msgid "c"
 msgstr "c"
 
-#: admin/page-dashboard.php:67 admin/page-dashboard.php:75
+#: admin/page-dashboard.php:68 admin/page-dashboard.php:76
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
@@ -926,7 +921,7 @@ msgstr "Mollie bage - Betaling groen"
 #: admin/tab-pages_generator.php:95
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:40
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:39
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:39
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:63
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:26
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:106
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:102
@@ -1440,27 +1435,39 @@ msgstr "Travis CI build status"
 msgid "Pronamic iDEAL Status"
 msgstr "Pronamic iDEAL status"
 
-#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:76
-msgid "%s awaiting processing"
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:45
+msgid "%s completed"
+msgstr "%s voltooid"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:46
+msgid "%s pending"
 msgstr "%s in afwachting"
 
-#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:77
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:47
 msgid "%s cancelled"
 msgstr "%s geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:78
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:48
 msgid "%s failed"
 msgstr "%s mislukt"
 
-#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:79
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:49
 msgid "%s expired"
 msgstr "%s verlopen"
 
-#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:96
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:70
 msgid "%s payment"
 msgid_plural "%s payments"
 msgstr[0] "%s betaling"
 msgstr[1] "%s betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
+#: classes/Pronamic/WP/Pay/Admin.php:397 classes/Pronamic/WP/Pay/Admin.php:414
+#: classes/Pronamic/WP/Pay/PostTypes.php:66
+#: classes/Pronamic/WP/Pay/PostTypes.php:68
+#: classes/Pronamic/WP/Pay/PostTypes.php:79
+msgid "Payments"
+msgstr "Betalingen"
 
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:43
 msgid "Earnings"
@@ -1481,7 +1488,7 @@ msgstr "Shortcode:"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
-#: classes/Pronamic/WP/Pay/Admin.php:441
+#: classes/Pronamic/WP/Pay/Admin.php:457
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1506,17 +1513,17 @@ msgstr "Productie"
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:41
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:65
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:115
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:139
 #: classes/Pronamic/WP/Pay/PostTypes.php:69
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Payment"
 msgstr "Betaling"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:133
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:157
 msgid "Log"
 msgstr "Log"
 
@@ -1560,21 +1567,25 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:406 classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:403
+msgid "Payments %s"
+msgstr "Betalingen %s"
+
+#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
 #: classes/Pronamic/WP/Pay/PostTypes.php:49
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:414 classes/Pronamic/WP/Pay/Admin.php:415
+#: classes/Pronamic/WP/Pay/Admin.php:430 classes/Pronamic/WP/Pay/Admin.php:431
 #: classes/Pronamic/WP/Pay/PostTypes.php:106
 msgid "Forms"
 msgstr "Formulieren"
 
-#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
+#: classes/Pronamic/WP/Pay/Admin.php:438 classes/Pronamic/WP/Pay/Admin.php:439
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:431 classes/Pronamic/WP/Pay/Admin.php:432
+#: classes/Pronamic/WP/Pay/Admin.php:447 classes/Pronamic/WP/Pay/Admin.php:448
 msgid "Tools"
 msgstr "Extra"
 
@@ -1626,18 +1637,18 @@ msgstr "Open"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:385
+#: classes/Pronamic/WP/Pay/Plugin.php:398
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:442
+#: classes/Pronamic/WP/Pay/Plugin.php:455
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:564
+#: classes/Pronamic/WP/Pay/Plugin.php:577
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -1769,47 +1780,53 @@ msgstr "Geen betalingsformulieren gevonden"
 msgid "No payment forms found in Trash"
 msgstr "Geen betalingsformulieren gevonden in prullenbak"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:136
+#: classes/Pronamic/WP/Pay/PostTypes.php:135
 msgid "Pending <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
 msgstr[0] "In afwachting <span class=\"count\">(%s)</span>"
 msgstr[1] "In afwachting <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:146
+#: classes/Pronamic/WP/Pay/PostTypes.php:144
 msgid "Processing <span class=\"count\">(%s)</span>"
 msgid_plural "Processing <span class=\"count\">(%s)</span>"
 msgstr[0] "In verwerking <span class=\"count\">(%s)</span>"
 msgstr[1] "In verwerking <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:156
+#: classes/Pronamic/WP/Pay/PostTypes.php:153
 msgid "On Hold <span class=\"count\">(%s)</span>"
 msgid_plural "On Hold <span class=\"count\">(%s)</span>"
 msgstr[0] "In de wacht <span class=\"count\">(%s)</span>"
 msgstr[1] "In de wacht <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:166
+#: classes/Pronamic/WP/Pay/PostTypes.php:162
 msgid "Completed <span class=\"count\">(%s)</span>"
 msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] "Voltooid <span class=\"count\">(%s)</span>"
 msgstr[1] "Voltooid <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:176
+#: classes/Pronamic/WP/Pay/PostTypes.php:171
 msgid "Cancelled <span class=\"count\">(%s)</span>"
 msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
 msgstr[0] "Geannuleerd <span class=\"count\">(%s)</span>"
 msgstr[1] "Geannuleerd <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:186
+#: classes/Pronamic/WP/Pay/PostTypes.php:180
 msgid "Refunded <span class=\"count\">(%s)</span>"
 msgid_plural "Refunded <span class=\"count\">(%s)</span>"
 msgstr[0] "Terugbetaald <span class=\"count\">(%s)</span>"
 msgstr[1] "Terugbetaald <span class=\"count\">(%s)</span>"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:196
+#: classes/Pronamic/WP/Pay/PostTypes.php:189
 msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] "Mislukt <span class=\"count\">(%s)</span>"
 msgstr[1] "Mislukt <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:198
+msgid "Expired <span class=\"count\">(%s)</span>"
+msgid_plural "Expired <span class=\"count\">(%s)</span>"
+msgstr[0] "Verlopen <span class=\"count\">(%s)</span>"
+msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 
 #: classes/Pronamic/WP/Pay/Settings.php:36
 msgid "Support License Key"
@@ -2958,45 +2975,58 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:119
-msgctxt "slug"
-msgid "payment-forms"
-msgstr "betalingsformulieren"
-
+#: classes/Pronamic/WP/Pay/Plugin.php:379
 #: classes/Pronamic/WP/Pay/PostTypes.php:130
 msgctxt "Payment status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:140
+#: classes/Pronamic/WP/Pay/Plugin.php:380
+#: classes/Pronamic/WP/Pay/PostTypes.php:139
 msgctxt "Payment status"
 msgid "Processing"
 msgstr "In verwerking"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:150
+#: classes/Pronamic/WP/Pay/Plugin.php:381
+#: classes/Pronamic/WP/Pay/PostTypes.php:148
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr "In de wacht"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:160
+#: classes/Pronamic/WP/Pay/Plugin.php:382
+#: classes/Pronamic/WP/Pay/PostTypes.php:157
 msgctxt "Payment status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:170
+#: classes/Pronamic/WP/Pay/Plugin.php:383
+#: classes/Pronamic/WP/Pay/PostTypes.php:166
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:180
+#: classes/Pronamic/WP/Pay/Plugin.php:384
+#: classes/Pronamic/WP/Pay/PostTypes.php:175
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr "Terugbetaald"
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:190
+#: classes/Pronamic/WP/Pay/Plugin.php:385
+#: classes/Pronamic/WP/Pay/PostTypes.php:184
 msgctxt "Payment status"
 msgid "Failed"
 msgstr "Mislukt"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:386
+#: classes/Pronamic/WP/Pay/PostTypes.php:193
+msgctxt "Payment status"
+msgid "Expired"
+msgstr "Verlopen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:119
+msgctxt "slug"
+msgid "payment-forms"
+msgstr "betalingsformulieren"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:175
 msgctxt "creditcard"
@@ -3007,6 +3037,9 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid "%s awaiting processing"
+#~ msgstr "%s in afwachting"
 
 #, fuzzy
 #~ msgid "<strong>%s payment</strong> expired"

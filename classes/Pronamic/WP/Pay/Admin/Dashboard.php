@@ -42,6 +42,7 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 		$counts = wp_count_posts( 'pronamic_payment' );
 
 		$states = array(
+			'payment_completed' => __( '%s completed', 'pronamic_ideal' ),
 			'payment_pending'   => __( '%s pending', 'pronamic_ideal' ),
 			'payment_cancelled' => __( '%s cancelled', 'pronamic_ideal' ),
 			'payment_failed'    => __( '%s failed', 'pronamic_ideal' ),
@@ -57,7 +58,7 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 
 			<?php foreach ( $states as $status => $label ) : ?>
 
-				<li>
+				<li class="<?php echo esc_attr( 'payment_status-' . $status ); ?>">
 					<a href="<?php echo esc_attr( add_query_arg( 'post_status', $status, $url ) ); ?>">
 						<?php
 

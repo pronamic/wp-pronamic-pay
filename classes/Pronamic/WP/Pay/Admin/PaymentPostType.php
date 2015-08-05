@@ -30,7 +30,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
+		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -48,16 +48,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array(
-					'payment_pending',
-					'payment_processing',
-					'payment_on_hold',
-					'payment_completed',
-					'payment_cancelled',
-					'payment_refunded',
-					'payment_failed',
-					'payment_expired',
-				);
+				$vars['post_status'] = array_keys( Pronamic_WP_Pay_Plugin::get_payment_states() );
 			}
 		}
 
@@ -240,7 +231,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.3/wp-includes/post.php#L3518-L3530
 	 */
-	public function save_post( $post_id ) {
+	public function save_post( $post_id, $post ) {
 		if ( filter_has_var( INPUT_POST, 'pronamic_payment_update' ) ) {
 			$nonce = filter_input( INPUT_POST, 'pronamic_payment_nonce', FILTER_SANITIZE_STRING );
 
@@ -249,16 +240,16 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				$can_redirect = false;
 
-				$status_old = $payment->status;
+				$status_old = get_post_status( $post_id );
 				$status_new = filter_input( INPUT_POST, 'pronamic_payment_status', FILTER_SANITIZE_STRING );
 
-				$payment->status = $status_new;
+				$post->post_status = $status_new;
 
-				pronamic_wp_pay_update_payment( $payment );
-
+				/*
 				do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $status_old . '_to_' . $status_new, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+				*/
 			}
 		}
 	}

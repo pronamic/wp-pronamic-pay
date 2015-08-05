@@ -21,7 +21,7 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 	<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
 		<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
 			<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-			<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" value="<?php echo esc_attr( number_format_i18n( 0 ) ); ?>" required="required" autocomplete="off" />
+			<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" required="required" autocomplete="off" value="" />
 		</div>
 
 		<fieldset>
@@ -32,7 +32,7 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 					<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?> <span class="pronamic-pay-required-indicator">*</span>
 				</label>
 
-				<input class="pronamic-pay-input pronamic-pay-required" type="text" name="pronamic_pay_first_name" placeholder="<?php esc_attr_e( 'First Name', 'pronamic_ideal' ); ?>" id="pronamic-pay-first-name" value="" />
+				<input class="pronamic-pay-input pronamic-pay-required" type="text" name="pronamic_pay_first_name" placeholder="<?php esc_attr_e( 'First Name', 'pronamic_ideal' ); ?>" id="pronamic-pay-first-name" required="required" value="" />
 			</p>
 
 			<p class="pronamic-pay-form-row pronamic-pay-form-row-last">
@@ -49,7 +49,7 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 					<span class="pronamic-pay-required-indicator">*</span>
 				</label>
 
-				<input class="pronamic-pay-input required" type="email" name="pronamic_pay_email" placeholder="<?php esc_attr_e( 'Email Address', 'pronamic_ideal' ); ?>" id="pronamic-pay-email" value="" />
+				<input class="pronamic-pay-input required" type="email" name="pronamic_pay_email" placeholder="<?php esc_attr_e( 'Email Address', 'pronamic_ideal' ); ?>" id="pronamic-pay-email" required="required" value="" />
 			</p>
 		</fieldset>
 

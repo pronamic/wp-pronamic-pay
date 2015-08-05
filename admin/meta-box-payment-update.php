@@ -1,13 +1,6 @@
 <?php
 
-$statuses = array(
-	null,
-	Pronamic_WP_Pay_Gateways_IDeal_Statuses::SUCCESS,
-	Pronamic_WP_Pay_Gateways_IDeal_Statuses::CANCELLED,
-	Pronamic_WP_Pay_Gateways_IDeal_Statuses::EXPIRED,
-	Pronamic_WP_Pay_Gateways_IDeal_Statuses::FAILURE,
-	Pronamic_WP_Pay_Gateways_IDeal_Statuses::OPEN,
-);
+$states = Pronamic_WP_Pay_Plugin::get_payment_states();
 
 ?>
 <div class="pronamic-pay-inner">
@@ -16,14 +9,12 @@ $statuses = array(
 		<select id="pronamic-payment-status" name="pronamic_payment_status" class="medium-text">
 			<?php
 
-			$current = get_post_meta( $post->ID, '_pronamic_payment_status', true );
-
-			foreach ( $statuses as $status ) {
+			foreach ( $states as $status => $label ) {
 				printf(
 					'<option value="%s" %s>%s</option>',
 					esc_attr( $status ),
-					selected( $status, $current, false ),
-					esc_html( Pronamic_WP_Pay_Plugin::translate_status( $status ) )
+					selected( $status, $post->post_status, false ),
+					esc_html( $label )
 				);
 			}
 

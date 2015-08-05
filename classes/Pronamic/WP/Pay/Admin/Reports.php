@@ -119,7 +119,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 		$data = array(
 			(object) array(
 				'label'      => __( 'Number succesfull payments', 'pronamic_ideal' ),
-				'data'       => $this->get_report( 'Success', 'COUNT', $start, $end ),
+				'data'       => $this->get_report( 'payment_completed', 'COUNT', $start, $end ),
 				'color'      => '#dbe1e3',
 				'bars'       => (object) array(
 					'fillColor' => '#dbe1e3',
@@ -134,7 +134,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			),
 			(object) array(
 				'label'            => __( 'Open payments', 'pronamic_ideal' ),
-				'data'             => $this->get_report( 'Open', 'SUM', $start, $end ),
+				'data'             => $this->get_report( 'payment_pending', 'SUM', $start, $end ),
 				'yaxis'            => 2,
 				'color'            => '#b1d4ea',
 				'points'           => (object) array(
@@ -154,7 +154,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			),
 			(object) array(
 				'label'            => __( 'Succesfull payments', 'pronamic_ideal' ),
-				'data'             => $this->get_report( 'Success', 'SUM', $start, $end ),
+				'data'             => $this->get_report( 'payment_completed', 'SUM', $start, $end ),
 				'yaxis'            => 2,
 				'color'            => '#3498db',
 				'points'           => (object) array(
@@ -175,7 +175,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			),
 			(object) array(
 				'label'            => __( 'Cancelled payments', 'pronamic_ideal' ),
-				'data'             => $this->get_report( 'Cancelled', 'SUM', $start, $end ),
+				'data'             => $this->get_report( 'payment_cancelled', 'SUM', $start, $end ),
 				'yaxis'            => 2,
 				'color'            => '#F1C40F',
 				'points'           => (object) array(
@@ -196,7 +196,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			),
 			(object) array(
 				'label'            => __( 'Expired payments', 'pronamic_ideal' ),
-				'data'             => $this->get_report( 'Expired', 'SUM', $start, $end ),
+				'data'             => $this->get_report( 'payment_expired', 'SUM', $start, $end ),
 				'yaxis'            => 2,
 				'color'            => '#DBE1E3',
 				'points'           => (object) array(
@@ -217,7 +217,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			),
 			(object) array(
 				'label'            => __( 'Failed payments', 'pronamic_ideal' ),
-				'data'             => $this->get_report( 'Failure', 'SUM', $start, $end ),
+				'data'             => $this->get_report( 'payment_failed', 'SUM', $start, $end ),
 				'yaxis'            => 2,
 				'color'            => '#E74C3C',
 				'points'           => (object) array(
@@ -270,15 +270,12 @@ class Pronamic_WP_Pay_Admin_Reports {
 						LEFT JOIN
 					$wpdb->postmeta AS meta_amount
 							ON post.ID = meta_amount.post_id AND meta_amount.meta_key = '_pronamic_payment_amount'
-						LEFT JOIN
-					$wpdb->postmeta AS meta_status
-							ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
 				WHERE
 					post.post_type = 'pronamic_payment'
 						AND
 					post.post_date BETWEEN %s AND %s
 						AND
-					meta_status.meta_value = %s
+					post.post_status = %s
 				GROUP BY
 					YEAR( post.post_date ), MONTH( post.post_date )
 				ORDER BY

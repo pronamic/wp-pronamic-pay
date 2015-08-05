@@ -79,17 +79,14 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 							LEFT JOIN
 						$wpdb->postmeta AS meta_source_id
 								ON post.ID = meta_source_id.post_id AND meta_source_id.meta_key = '_pronamic_payment_source_id'
-							LEFT JOIN
-						$wpdb->postmeta AS meta_status
-								ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
 					WHERE
 						post.post_type = 'pronamic_payment'
+							AND
+						post.post_status = 'payment_completed'
 							AND
 						meta_source.meta_value = 'payment_form'
 							AND
 						meta_source_id.meta_value = %s
-							AND
-						meta_status.meta_value = 'Success'
 					GROUP BY
 						post.ID
 					;",
@@ -118,17 +115,14 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 							LEFT JOIN
 						$wpdb->postmeta AS meta_source_id
 								ON post.ID = meta_source_id.post_id AND meta_source_id.meta_key = '_pronamic_payment_source_id'
-							LEFT JOIN
-						$wpdb->postmeta AS meta_status
-								ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
 					WHERE
 						post.post_type = 'pronamic_payment'
+							AND
+						post.post_status = 'payment_completed'
 							AND
 						meta_source.meta_value = 'payment_form'
 							AND
 						meta_source_id.meta_value = %s
-							AND
-						meta_status.meta_value = 'Success'
 					GROUP BY
 						post.ID
 					;",
@@ -213,7 +207,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 	//////////////////////////////////////////////////
 
-	private function get_shortcode( $post_id ) {
+	private function get_shortcode( $post_id = null ) {
 		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
 		$shortcode = sprintf( '[pronamic_payment_form id="%s"]', esc_attr( $post_id ) );
@@ -229,10 +223,10 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		}
 
 		?>
-<div class="shortcode-wrap box-sizing">
-	<label><?php esc_html_e( 'Shortcode:', 'pronamic_ideal' ); ?></label>
+<div class="misc-pub-section">
+	<label for="pronamic-pay-shortcode"><?php esc_html_e( 'Shortcode:', 'pronamic_ideal' ); ?></label>
 
-	<input onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $this->get_shortcode() ); ?>">
+	<input id="pronamic-pay-shortcode" class="pronamic-pay-shortcode-input" onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $this->get_shortcode() ); ?>" />
 </div><?php
 	}
 }

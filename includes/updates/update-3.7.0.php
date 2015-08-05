@@ -10,42 +10,37 @@
 
 global $wpdb;
 
-// Payments pending
-$query = "
-	UPDATE
-		$wpdb->posts AS post
-			LEFT JOIN
-		$wpdb->postmeta AS meta_status
-				ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
-	SET
-		post.post_status = 'payment_pending'
-	WHERE
-		post.post_type = 'pronamic_payment'
-			AND
-		post.post_status = 'publish'
-			AND
-		meta_status.meta_value IS NULL
-	;
-";
+// States
+$states = array(
+	''          => 'payment_pending',
+	'Success'   => 'payment_completed',
+	'Cancelled' => 'payment_cancelled',
+	'Expired'   => 'payment_expired',
+	'Failure'   => 'payment_failed',
+	'Open'      => 'payment_pending',
+);
 
-$wpdb->query( $query );
+foreach ( $states as $meta_value => $post_status ) {
+	$condition = empty( $meta_value ) ? 'IS NULL' : '= %s';
 
-// Payments success
-$query = "
-	UPDATE
-		$wpdb->posts AS post
-			LEFT JOIN
-		$wpdb->postmeta AS meta_status
-				ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
-	SET
-		post.post_status = 'payment_completed'
-	WHERE
-		post.post_type = 'pronamic_payment'
-			AND
-		post.post_status = 'publish'
-			AND
-		meta_status.meta_value = 'Success'
-	;
-";
+	$query = "
+		UPDATE
+			$wpdb->posts AS post
+				LEFT JOIN
+			$wpdb->postmeta AS meta_status
+					ON post.ID = meta_status.post_id AND meta_status.meta_key = '_pronamic_payment_status'
+		SET
+			post.post_status = %s
+		WHERE
+			post.post_type = 'pronamic_payment'
+				AND
+			post.post_status = 'publish'
+				AND
+			meta_status.meta_value $condition
+		;
+	";
 
-$wpdb->query( $query );
+	$query = $wpdb->prepare( $query, $post_status, $meta_value );
+
+	$wpdb->query( $query );
+}

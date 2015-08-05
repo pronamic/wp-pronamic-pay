@@ -46,16 +46,34 @@ td.column-version {
 			font-size: 12px;
 
 			strong {
-				font-size: 18px;
-				line-height: 1.2em;
-				font-weight: normal;
-				display: block;
 				color: #21759b;
+
+				display: block;
+
+				font-size: 18px;
+				font-weight: normal;
+
+				line-height: 1.2em;				
+			}
+
+			&:hover {
+				color: #2ea2cc;
+
+				&:before,
+				strong {
+					color: #2ea2cc;
+				}
 			}
 		}
 	}
 
-	li:nth-child(odd) {
+	li:first-child {
+		border-top: none;
+	
+		width: 100%;
+	}
+
+	li:nth-child(even) {
 		border-right: 1px solid #ECECEC;
 	}
 }
