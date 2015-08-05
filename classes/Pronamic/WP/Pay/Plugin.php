@@ -562,7 +562,7 @@ class Pronamic_WP_Pay_Plugin {
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
 			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
-			'post_status' => 'publish',
+			'post_status' => 'payment_pending',
 		), true );
 
 		if ( is_wp_error( $result ) ) {
