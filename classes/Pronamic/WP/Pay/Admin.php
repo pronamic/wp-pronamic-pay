@@ -24,8 +24,6 @@ class Pronamic_WP_Pay_Admin {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'pronamic_pay_upgrade', array( $this, 'upgrade' ) );
-
 		// Reports
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
@@ -62,12 +60,10 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
 
 		// Maybe update
-		global $pronamic_pay_db_version;
+		global $pronamic_pay_version;
 
-		if ( get_option( 'pronamic_pay_db_version' ) !== $pronamic_pay_db_version ) {
-			do_action( 'pronamic_pay_upgrade', $pronamic_pay_db_version );
-
-			update_option( 'pronamic_pay_db_version', $pronamic_pay_db_version );
+		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
+			$this->upgrade();
 		}
 	}
 
@@ -171,24 +167,32 @@ class Pronamic_WP_Pay_Admin {
 	 * Upgrade
 	 */
 	public function upgrade() {
-		require_once Pronamic_WP_Pay_Plugin::$dirname . '/admin/includes/upgrade.php';
+		global $pronamic_pay_version;
 
-		$db_version = get_option( 'pronamic_pay_db_version' );
+		$updates = array(
+			'2.0.0',
+			'2.0.1',
+			'3.3.0',
+			'3.7.0',
+		);
 
-		if ( $db_version ) {
-			// The upgrade functions only have to run if an previous database version is set
-			if ( $db_version < 330 ) {
-				pronamic_pay_upgrade_330();
-			}
+		$version_current = get_option( 'pronamic_pay_version' );
 
-			if ( $db_version < 201 ) {
-				pronamic_pay_upgrade_201();
-			}
+		if ( $version_current ) {
+			foreach ( $updates as $version ) {
+				if ( version_compare( $version_current, $version, '<' ) ) {
+					$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
 
-			if ( $db_version < 200 ) {
-				pronamic_pay_upgrade_200();
+					if ( is_readable( $file ) ) {
+						include $file;
+
+						update_option( 'pronamic_pay_db_version', $version );
+					}
+				}
 			}
 		}
+
+		update_option( 'pronamic_pay_version', $pronamic_pay_version );
 	}
 
 	//////////////////////////////////////////////////

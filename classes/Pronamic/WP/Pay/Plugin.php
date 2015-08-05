@@ -56,6 +56,9 @@ class Pronamic_WP_Pay_Plugin {
 			$admin = new Pronamic_WP_Pay_Admin();
 		}
 
+		// Post Types
+		$post_types = new Pronamic_WP_Pay_PostTypes();
+
 		// License
 		$license_manager = new Pronamic_WP_Pay_LicenseManager();
 
@@ -342,13 +345,6 @@ class Pronamic_WP_Pay_Plugin {
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
-
-		global $pronamic_pay_version;
-
-		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
-			// Update version
-			update_option( 'pronamic_pay_version', $pronamic_pay_version );
-		}
 	}
 
 	//////////////////////////////////////////////////
