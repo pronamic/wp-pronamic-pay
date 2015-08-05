@@ -42,43 +42,6 @@ class Pronamic_IDeal_IDeal {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Easy
-	 *
-	 * @var string
-	 */
-	const METHOD_EASY = 'easy';
-
-	/**
-	 * Basic
-	 *
-	 * @var string
-	 */
-	const METHOD_BASIC = 'basic';
-
-	/**
-	 * Method kassa
-	 *
-	 * @var string
-	 */
-	const METHOD_INTERNETKASSA = 'internetkassa';
-
-	/**
-	 * Method OmniKassa
-	 *
-	 * @var string
-	 */
-	const METHOD_OMNIKASSA = 'omnikassa';
-
-	/**
-	 * Method advanced
-	 *
-	 * @var string
-	 */
-	const METHOD_ADVANCED = 'advanced';
-
-	//////////////////////////////////////////////////
-
 	public static function htmlHiddenFields( $data ) {
 		$html = '';
 
