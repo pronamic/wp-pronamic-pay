@@ -27,4 +27,38 @@ function pronamic_wp_pay_update_payment( Pronamic_WP_Pay_Payment $payment ) {
 			update_post_meta( $post_id, $meta_key, $value );
 		}
 	}
+
+	$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+
+	$post_status = null;
+
+	switch ( $status ) {
+		case Pronamic_WP_Pay_Statuses::CANCELLED :
+			$post_status = 'payment_cancelled';
+
+			break;
+		case Pronamic_WP_Pay_Statuses::EXPIRED :
+			$post_status = 'payment_expired';
+
+			break;
+		case Pronamic_WP_Pay_Statuses::FAILURE :
+			$post_status = 'payment_failed';
+
+			break;
+		case Pronamic_WP_Pay_Statuses::OPEN :
+			$post_status = 'payment_pending';
+
+			break;
+		case Pronamic_WP_Pay_Statuses::SUCCESS :
+			$post_status = 'payment_completed';
+
+			break;
+	}
+
+	if ( null !== $post_status ) {
+		wp_update_post( array(
+			'ID'          => $payment->post->ID,
+			'post_status' => $post_status,
+		) );
+	}
 }

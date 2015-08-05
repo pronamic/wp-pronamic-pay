@@ -328,8 +328,8 @@ class Pronamic_WP_Pay_Plugin {
 
 		$count = wp_count_posts( 'pronamic_payment' );
 
-		if ( isset( $count, $count->publish ) ) {
-			$number = intval( $count->publish );
+		if ( isset( $count, $count->payment_completed ) ) {
+			$number = intval( $count->payment_completed );
 		}
 
 		return $number;

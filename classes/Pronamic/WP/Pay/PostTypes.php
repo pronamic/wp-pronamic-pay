@@ -129,7 +129,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_pending', array(
 			'label'                     => _x( 'Pending', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -139,7 +138,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_processing', array(
 			'label'                     => _x( 'Processing', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -149,7 +147,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_on_hold', array(
 			'label'                     => _x( 'On Hold', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -159,7 +156,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_completed', array(
 			'label'                     => _x( 'Completed', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -169,7 +165,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_cancelled', array(
 			'label'                     => _x( 'Cancelled', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -179,7 +174,6 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_refunded', array(
 			'label'                     => _x( 'Refunded', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
@@ -189,11 +183,19 @@ class Pronamic_WP_Pay_PostTypes {
 		register_post_status( 'payment_failed', array(
 			'label'                     => _x( 'Failed', 'Payment status', 'pronamic_ideal' ),
 			'public'                    => false,
-			'protected'                 => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
 			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'pronamic_ideal' )
+		) );
+
+		register_post_status( 'payment_expired', array(
+			'label'                     => _x( 'Expired', 'Payment status', 'pronamic_ideal' ),
+			'public'                    => false,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>', 'pronamic_ideal' )
 		) );
 	}
 }

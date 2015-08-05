@@ -20,6 +20,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * Constructs and initializes an admin payment post type object
 	 */
 	public function __construct() {
+		add_filter( 'request', array( $this, 'request' ) );
+
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
@@ -29,6 +31,37 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Filters and sorting handler
+	 *
+	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-post-types.php#L1585-L1596
+	 *
+	 * @param  array $vars
+	 * @return array
+	 */
+	public function request( $vars ) {
+		$screen = get_current_screen();
+
+		if ( self::POST_TYPE === $screen->post_type ) {
+			if ( ! isset( $vars['post_status'] ) ) {
+				$vars['post_status'] = array(
+					'payment_pending',
+					'payment_processing',
+					'payment_on_hold',
+					'payment_completed',
+					'payment_cancelled',
+					'payment_refunded',
+					'payment_failed',
+					'payment_expired',
+				);
+			}
+		}
+
+		return $vars;
 	}
 
 	//////////////////////////////////////////////////
