@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-05 11:44:57+00:00\n"
+"POT-Creation-Date: 2015-08-06 06:47:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -492,11 +492,11 @@ msgstr ""
 msgid "Private Key Password"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:570 admin/meta-box-gateway-config.php:953
+#: admin/meta-box-gateway-config.php:570 admin/meta-box-gateway-config.php:957
 msgid "Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:577 admin/meta-box-gateway-config.php:977
+#: admin/meta-box-gateway-config.php:577 admin/meta-box-gateway-config.php:981
 msgid "Private Certificate"
 msgstr ""
 
@@ -615,17 +615,17 @@ msgstr ""
 msgid "%s (obsoleted)"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:942
+#: admin/meta-box-gateway-config.php:946
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:946
+#: admin/meta-box-gateway-config.php:950
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:962
+#: admin/meta-box-gateway-config.php:966
 msgid "filename"
 msgstr ""
 
@@ -1077,12 +1077,12 @@ msgstr ""
 msgid "Issuer ID"
 msgstr ""
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:371
+#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:374
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:462
 msgid "Success"
 msgstr ""
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:367
+#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:370
 msgid "Failure"
 msgstr ""
 
@@ -1416,11 +1416,11 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:160
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:154
 msgid "Form Options"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:233
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:227
 msgid "Shortcode:"
 msgstr ""
 
@@ -1511,7 +1511,6 @@ msgid "Configurations"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:430 classes/Pronamic/WP/Pay/Admin.php:431
-#: classes/Pronamic/WP/Pay/PostTypes.php:106
 msgid "Forms"
 msgstr ""
 
@@ -1532,7 +1531,8 @@ msgid "Please enter a valid email address"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/FormProcessor.php:94
-#: classes/Pronamic/WP/Pay/PostTypes.php:96 includes/post.php:44
+#: classes/Pronamic/WP/Pay/PostTypes.php:96
+#: classes/Pronamic/WP/Pay/Shortcodes.php:58
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
 msgid "Payment Form"
 msgstr ""
@@ -1551,37 +1551,37 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:363
+#: classes/Pronamic/WP/Pay/Plugin.php:366
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:365
+#: classes/Pronamic/WP/Pay/Plugin.php:368
 #: classes/Pronamic/WP/Pay/Settings.php:90
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:372
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:461
 msgid "Open"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:373
+#: classes/Pronamic/WP/Pay/Plugin.php:376
 #: classes/Pronamic/WP/Pay/Settings.php:89
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:398
+#: classes/Pronamic/WP/Pay/Plugin.php:401
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:455
+#: classes/Pronamic/WP/Pay/Plugin.php:458
 msgid "&mdash; Select Configuration &mdash;"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:577
+#: classes/Pronamic/WP/Pay/Plugin.php:580
 msgid "Payment for %s"
 msgstr ""
 
@@ -1597,6 +1597,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/PostTypes.php:40
 #: classes/Pronamic/WP/Pay/PostTypes.php:70
 #: classes/Pronamic/WP/Pay/PostTypes.php:97
+#: classes/Pronamic/WP/Pay/PostTypes.php:129
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
 msgid "Add New"
 msgstr ""
@@ -1667,6 +1668,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:93
 #: classes/Pronamic/WP/Pay/PostTypes.php:95
+#: classes/Pronamic/WP/Pay/PostTypes.php:106
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
@@ -1713,49 +1715,91 @@ msgstr ""
 msgid "No payment forms found in Trash"
 msgstr ""
 
+#: classes/Pronamic/WP/Pay/PostTypes.php:125
+#: classes/Pronamic/WP/Pay/PostTypes.php:127
+#: classes/Pronamic/WP/Pay/PostTypes.php:138
+msgid "Payment Links"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:128
+msgid "Payment Link"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:130
+msgid "Add New Payment Link"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:131
+msgid "Edit Payment Link"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:132
+msgid "New Payment Link"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:133
+msgid "All Payment Links"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:134
+msgid "View Payment Link"
+msgstr ""
+
 #: classes/Pronamic/WP/Pay/PostTypes.php:135
+msgid "Search Payment Links"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:136
+msgid "No payment links found"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:137
+msgid "No payment links found in Trash"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:167
 msgid "Pending <span class=\"count\">(%s)</span>"
 msgid_plural "Pending <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:144
+#: classes/Pronamic/WP/Pay/PostTypes.php:176
 msgid "Processing <span class=\"count\">(%s)</span>"
 msgid_plural "Processing <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:153
+#: classes/Pronamic/WP/Pay/PostTypes.php:185
 msgid "On Hold <span class=\"count\">(%s)</span>"
 msgid_plural "On Hold <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:162
+#: classes/Pronamic/WP/Pay/PostTypes.php:194
 msgid "Completed <span class=\"count\">(%s)</span>"
 msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:171
+#: classes/Pronamic/WP/Pay/PostTypes.php:203
 msgid "Cancelled <span class=\"count\">(%s)</span>"
 msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:180
+#: classes/Pronamic/WP/Pay/PostTypes.php:212
 msgid "Refunded <span class=\"count\">(%s)</span>"
 msgid_plural "Refunded <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:189
+#: classes/Pronamic/WP/Pay/PostTypes.php:221
 msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/PostTypes.php:198
+#: classes/Pronamic/WP/Pay/PostTypes.php:230
 msgid "Expired <span class=\"count\">(%s)</span>"
 msgid_plural "Expired <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -1801,6 +1845,10 @@ msgstr ""
 msgid "&mdash; Select a page &mdash;"
 msgstr ""
 
+#: classes/Pronamic/WP/Pay/Shortcodes.php:69
+msgid "Select Payment Form"
+msgstr ""
+
 #: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:32
 msgid ""
 "The response code (<code>%s<code>) was incorrect, required response code "
@@ -1813,10 +1861,6 @@ msgstr ""
 
 #: includes/gateways.php:282
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
-msgstr ""
-
-#: includes/post.php:55
-msgid "Select Payment Form"
 msgstr ""
 
 #: includes/updates/update-2.0.0.php:95
@@ -2866,50 +2910,50 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:379
-#: classes/Pronamic/WP/Pay/PostTypes.php:130
+#: classes/Pronamic/WP/Pay/Plugin.php:382
+#: classes/Pronamic/WP/Pay/PostTypes.php:162
 msgctxt "Payment status"
 msgid "Pending"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:380
-#: classes/Pronamic/WP/Pay/PostTypes.php:139
+#: classes/Pronamic/WP/Pay/Plugin.php:383
+#: classes/Pronamic/WP/Pay/PostTypes.php:171
 msgctxt "Payment status"
 msgid "Processing"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:381
-#: classes/Pronamic/WP/Pay/PostTypes.php:148
+#: classes/Pronamic/WP/Pay/Plugin.php:384
+#: classes/Pronamic/WP/Pay/PostTypes.php:180
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:382
-#: classes/Pronamic/WP/Pay/PostTypes.php:157
+#: classes/Pronamic/WP/Pay/Plugin.php:385
+#: classes/Pronamic/WP/Pay/PostTypes.php:189
 msgctxt "Payment status"
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:383
-#: classes/Pronamic/WP/Pay/PostTypes.php:166
+#: classes/Pronamic/WP/Pay/Plugin.php:386
+#: classes/Pronamic/WP/Pay/PostTypes.php:198
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:384
-#: classes/Pronamic/WP/Pay/PostTypes.php:175
+#: classes/Pronamic/WP/Pay/Plugin.php:387
+#: classes/Pronamic/WP/Pay/PostTypes.php:207
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:385
-#: classes/Pronamic/WP/Pay/PostTypes.php:184
+#: classes/Pronamic/WP/Pay/Plugin.php:388
+#: classes/Pronamic/WP/Pay/PostTypes.php:216
 msgctxt "Payment status"
 msgid "Failed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:386
-#: classes/Pronamic/WP/Pay/PostTypes.php:193
+#: classes/Pronamic/WP/Pay/Plugin.php:389
+#: classes/Pronamic/WP/Pay/PostTypes.php:225
 msgctxt "Payment status"
 msgid "Expired"
 msgstr ""
@@ -2917,6 +2961,11 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/PostTypes.php:119
 msgctxt "slug"
 msgid "payment-forms"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:151
+msgctxt "slug"
+msgid "payment-links"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:175
