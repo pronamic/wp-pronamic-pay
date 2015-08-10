@@ -120,38 +120,6 @@ class Pronamic_WP_Pay_PostTypes {
 			),
 			'query_var'          => false,
 		) );
-
-		register_post_type( 'pronamic_pay_link', array(
-			'label'              => __( 'Payment Links', 'pronamic_ideal' ),
-			'labels'             => array(
-				'name'               => __( 'Payment Links', 'pronamic_ideal' ),
-				'singular_name'      => __( 'Payment Link', 'pronamic_ideal' ),
-				'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-				'add_new_item'       => __( 'Add New Payment Link', 'pronamic_ideal' ),
-				'edit_item'          => __( 'Edit Payment Link', 'pronamic_ideal' ),
-				'new_item'           => __( 'New Payment Link', 'pronamic_ideal' ),
-				'all_items'          => __( 'All Payment Links', 'pronamic_ideal' ),
-				'view_item'          => __( 'View Payment Link', 'pronamic_ideal' ),
-				'search_items'       => __( 'Search Payment Links', 'pronamic_ideal' ),
-				'not_found'          => __( 'No payment links found', 'pronamic_ideal' ),
-				'not_found_in_trash' => __( 'No payment links found in Trash', 'pronamic_ideal' ),
-				'menu_name'          => __( 'Payment Links', 'pronamic_ideal' ),
-			),
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_nav_menus'  => true,
-			'show_in_menu'       => false,
-			'show_in_admin_bar'  => false,
-			'supports'           => array(
-				'title',
-				'revisions',
-			),
-			'rewrite'            => array(
-				'slug' => _x( 'payment-links', 'slug', 'pronamic_ideal' ),
-			),
-			'query_var'          => false,
-		) );
 	}
 
 	/**
