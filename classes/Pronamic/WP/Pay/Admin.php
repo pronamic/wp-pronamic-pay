@@ -29,6 +29,11 @@ class Pronamic_WP_Pay_Admin {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
 		}
 
+		// Pointers
+		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
+			$this->pointers = new Pronamic_WP_Pay_Admin_Pointers( $this );
+		}
+
 		// Dashboard
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 	}
@@ -428,7 +433,7 @@ class Pronamic_WP_Pay_Admin {
 		add_submenu_page(
 			'pronamic_ideal',
 			__( 'Payment Forms', 'pronamic_ideal' ),
-			__( 'Payment Forms', 'pronamic_ideal' ),
+			__( 'Forms', 'pronamic_ideal' ),
 			'manage_options',
 			'edit.php?post_type=pronamic_pay_form'
 		);
