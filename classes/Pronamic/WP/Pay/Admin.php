@@ -435,14 +435,6 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
-			__( 'Payment Links', 'pronamic_ideal' ),
-			__( 'Payment Links', 'pronamic_ideal' ),
-			'manage_options',
-			'edit.php?post_type=pronamic_pay_link'
-		);
-
-		add_submenu_page(
-			'pronamic_ideal',
 			__( 'Settings', 'pronamic_ideal' ),
 			__( 'Settings', 'pronamic_ideal' ),
 			'manage_options',
