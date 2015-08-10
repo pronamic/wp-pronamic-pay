@@ -100,6 +100,8 @@ class Pronamic_WP_Pay_Plugin {
 	 * Enqueue scripts
 	 */
 	public static function enqueue_scripts() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 		wp_register_style(
 			'pronamic-pay-forms',
 			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
