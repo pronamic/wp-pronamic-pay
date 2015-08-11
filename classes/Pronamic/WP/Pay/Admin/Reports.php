@@ -255,7 +255,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 	 */
 	private function get_report( $status, $function, $start, $end ) {
 		global $wpdb;
-		
+
 		$interval = new DateInterval( 'P1M' );
 		$period   = new DatePeriod( $start, $interval, $end );
 
@@ -281,11 +281,11 @@ class Pronamic_WP_Pay_Admin_Reports {
 				ORDER BY
 					post_date
 				;
-			", 
+			",
 			$date_format,
 			$start->format( 'Y-m-d' ),
 			$end->format( 'Y-m-d' ),
-			$status 
+			$status
 		);
 
 		$data = $wpdb->get_results( $query, OBJECT_K );

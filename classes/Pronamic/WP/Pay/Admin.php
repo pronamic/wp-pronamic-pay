@@ -470,9 +470,17 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public function page_dashboard() { return $this->render_page( 'dashboard' ); }
-	public function page_settings() { return $this->render_page( 'settings' ); }
-	public function page_tools() { return $this->render_page( 'tools' ); }
+	public function page_dashboard() {
+		return $this->render_page( 'dashboard' );
+	}
+
+	public function page_settings() {
+		return $this->render_page( 'settings' );
+	}
+
+	public function page_tools() {
+		return $this->render_page( 'tools' );
+	}
 
 	//////////////////////////////////////////////////
 

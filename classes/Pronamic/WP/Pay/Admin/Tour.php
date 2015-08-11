@@ -112,7 +112,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 				);
 
 				break;
-			case 'edit-pronamic_payment' : 
+			case 'edit-pronamic_payment' :
 				$pointers = array(
 					array(
 						'selector' => '.wrap h2',

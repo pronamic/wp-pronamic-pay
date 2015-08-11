@@ -45,7 +45,7 @@ class Pronamic_WP_Pay_Admin_About {
 				$page,
 				array( $this, 'page_about' )
 			);
-			
+
 			add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
 		}
 	}
@@ -64,7 +64,7 @@ class Pronamic_WP_Pay_Admin_About {
 	}
 
 	/**
-	 * admin_css function.
+	 * Page about
 	 */
 	public function page_about() {
 		$this->admin->render_page( 'about' );

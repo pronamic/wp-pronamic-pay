@@ -29,6 +29,7 @@ module.exports = function( grunt ) {
 			application: {
 				src: [
 					'**/*.php',
+					'!bower_components/**',
 					'!deploy/**',
 					'!includes/icepay/**',
 					'!includes/xmlseclibs/**',
