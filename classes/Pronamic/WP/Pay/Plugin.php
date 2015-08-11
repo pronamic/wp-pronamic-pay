@@ -182,9 +182,7 @@ class Pronamic_WP_Pay_Plugin {
 					}
 				}
 			}
-		} else {
-			// Payment with the specified ID could not be found, can't check the status
-		}
+		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
 	public static function update_payment( $payment = null, $can_redirect = true ) {
@@ -583,9 +581,8 @@ class Pronamic_WP_Pay_Plugin {
 			'post_status' => 'payment_pending',
 		), true );
 
-		if ( is_wp_error( $result ) ) {
-			// @todo what todo?
-		} else {
+		if ( ! is_wp_error( $result ) ) {
+			// @todo what if result is error
 			$post_id = $result;
 
 			// @todo temporary solution for WPMU DEV

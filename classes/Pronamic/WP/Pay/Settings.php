@@ -180,7 +180,7 @@ class Pronamic_WP_Pay_Settings {
 			'name'             => $name,
 			'post_type'        => isset( $args['post_type'] ) ? $args['post_type'] : 'page',
 			'selected'         => get_option( $name, '' ),
-			'show_option_none' => isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '&mdash; Select a page &mdash;', 'pronamic_ideal' )
+			'show_option_none' => isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '&mdash; Select a page &mdash;', 'pronamic_ideal' ),
 		) );
 	}
 }

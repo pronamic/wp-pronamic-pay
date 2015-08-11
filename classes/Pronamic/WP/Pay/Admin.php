@@ -441,6 +441,8 @@ class Pronamic_WP_Pay_Admin {
 			'edit.php?post_type=pronamic_pay_form'
 		);
 
+		do_action( 'pronamic_pay_admin_menu' );
+
 		add_submenu_page(
 			'pronamic_ideal',
 			__( 'Settings', 'pronamic_ideal' ),

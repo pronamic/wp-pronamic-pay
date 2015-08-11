@@ -16,13 +16,13 @@ class Pronamic_WP_Pay_Admin_Reports {
 		$this->admin = $admin;
 
 		// Actions
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'pronamic_pay_admin_menu', array( $this, 'admin_menu' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	public function admin_menu() {
-		add_submenu_page(
+		$hook_suffix = add_submenu_page(
 			'pronamic_ideal',
 			__( 'Reports', 'pronamic_ideal' ),
 			__( 'Reports', 'pronamic_ideal' ),

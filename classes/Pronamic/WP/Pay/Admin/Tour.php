@@ -104,7 +104,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-dashboard' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -120,7 +120,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-payments' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -136,7 +136,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-gateways' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -152,7 +152,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-forms' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -171,7 +171,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-settings' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -187,7 +187,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-tools' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -203,7 +203,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 							'content'   => $this->get_content( 'pointer-reports' ),
 							'position'  => (object) array(
 								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',	
+								'align'     => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
