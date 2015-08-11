@@ -92,6 +92,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 	public function get_pointers() {
 		$pointers = array();
 
+		$page   = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
 		$screen = get_current_screen();
 
 		switch ( $screen->id ) {
@@ -159,7 +160,10 @@ class Pronamic_WP_Pay_Admin_Tour {
 				);
 
 				break;
-			case 'ideal_page_pronamic_pay_settings' :
+		}
+
+		switch ( $page ) {
+			case 'pronamic_pay_settings' :
 				$pointers = array(
 					array(
 						'selector' => '.wrap h2',
@@ -175,7 +179,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 				);
 
 				break;
-			case 'ideal_page_pronamic_pay_tools' :
+			case 'pronamic_pay_tools' :
 				$pointers = array(
 					array(
 						'selector' => '.wrap h2',
@@ -191,7 +195,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 				);
 
 				break;
-			case 'ideal_page_pronamic_pay_reports' :
+			case 'pronamic_pay_reports' :
 				$pointers = array(
 					array(
 						'selector' => '.wrap h2',
@@ -207,22 +211,21 @@ class Pronamic_WP_Pay_Admin_Tour {
 				);
 
 				break;
-			default :
-				$pointers = array(
-					array(
-						'selector'  => 'li.toplevel_page_pronamic_ideal',
-						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-start' ),
-							'position'  => (object) array(
-								'edge'      => 'bottom',
-								'align'     => 'center',
-							),
+		}
+
+		if ( empty( $pointers ) ) {
+			$pointers = array(
+				array(
+					'selector'  => 'li.toplevel_page_pronamic_ideal',
+					'options'  => (object) array(
+						'content'   => $this->get_content( 'pointer-start' ),
+						'position'  => (object) array(
+							'edge'      => 'bottom',
+							'align'     => 'center',
 						),
 					),
-				);
-
-				break;
-
+				),
+			);
 		}
 
 		return $pointers;
