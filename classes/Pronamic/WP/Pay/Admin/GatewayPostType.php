@@ -29,6 +29,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
+
+		add_action( 'display_post_states', array( $this, 'display_post_states' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -134,6 +136,26 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 				break;
 		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Display post states
+	 *
+	 * @param $post_stated array
+	 * @param $post WP_Post
+	 */
+	public function display_post_states( $post_states, $post ) {
+		if ( self::POST_TYPE !== get_post_type( $post ) ) {
+			return $post_states;
+		}
+
+		if ( intval( get_option( 'pronamic_pay_config_id' ) ) === $post->ID ) {
+			$post_states['pronamic_pay_config_default'] = __( 'Default', 'pronamic_ideal' );
+		}
+
+		return $post_states;
 	}
 
 	//////////////////////////////////////////////////
