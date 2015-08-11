@@ -36,6 +36,7 @@ class Pronamic_WP_Pay_Admin {
 
 		// Dashboard
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
+		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -198,6 +199,12 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		update_option( 'pronamic_pay_version', $pronamic_pay_version );
+
+		if ( ! is_network_admin() && current_user_can( 'manage_options' ) ) {
+			wp_safe_redirect( admin_url( 'index.php?page=pronamic-pay-about' ) );
+
+			exit;
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -389,35 +396,31 @@ class Pronamic_WP_Pay_Admin {
 	 * Create the admin menu
 	 */
 	public function admin_menu() {
+		// @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-menus.php#L145
+		$counts = wp_count_posts( 'pronamic_payment' );
+
+		$badge = '';
+		if ( isset( $counts, $counts->payment_pending ) && $counts->payment_pending > 0 ) {
+			$badge = sprintf(
+				' <span class="awaiting-mod update-plugins count-%s"><span class="processing-count">%s</span></span>',
+				$counts->payment_pending,
+				$counts->payment_pending
+			);
+		}
+
 		add_menu_page(
 			__( 'iDEAL', 'pronamic_ideal' ),
-			__( 'iDEAL', 'pronamic_ideal' ),
+			__( 'iDEAL', 'pronamic_ideal' ) . $badge,
 			'manage_options',
 			'pronamic_ideal',
 			array( $this, 'page_dashboard' ),
 			plugins_url( 'images/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file )
 		);
 
-		// @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-menus.php#L145
-		$menu_title = __( 'Payments', 'pronamic_ideal' );
-
-		$counts = wp_count_posts( 'pronamic_payment' );
-
-		if ( isset( $counts, $counts->payment_pending ) && $counts->payment_pending > 0 ) {
-			$menu_title = sprintf(
-				__( 'Payments %s', 'pronamic_ideal' ),
-				sprintf(
-					'<span class="awaiting-mod update-plugins count-%s"><span class="processing-count">%s</span></span>',
-					$counts->payment_pending,
-					$counts->payment_pending
-				)
-			);
-		}
-
 		add_submenu_page(
 			'pronamic_ideal',
 			__( 'Payments', 'pronamic_ideal' ),
-			$menu_title,
+			__( 'Payments', 'pronamic_ideal' ) . $badge,
 			'manage_options',
 			'edit.php?post_type=pronamic_payment'
 		);
