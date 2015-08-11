@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Admin {
 
 		// Pointers
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
-			$this->pointers = new Pronamic_WP_Pay_Admin_Pointers( $this );
+			$this->tour = new Pronamic_WP_Pay_Admin_Tour( $this );
 		}
 
 		// Dashboard

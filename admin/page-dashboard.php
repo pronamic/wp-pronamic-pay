@@ -6,6 +6,31 @@
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
+						<h3 class="hndle"><span><?php _e( 'Tour', 'pronamic_ideal' ); ?></span></h3>
+
+						<div class="inside">
+							<p>
+								<?php esc_html_e( 'Neem deze rondleiding om snel wegwijs te worden in het gebruik van deze plugin', 'pronamic_ideal' ); ?>
+							</p>
+
+							<?php
+
+							printf(
+								'<a href="%s" class="button-secondary">%s</a>',
+								esc_attr(
+									wp_nonce_url( add_query_arg( array(
+										'page'                     => 'pronamic_ideal',
+										'pronamic_pay_ignore_tour'  => '0',
+									) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' )
+								),
+								esc_html__( 'Start Tour', 'pronamic_ideal' )
+							);
+
+							?>
+						</div>
+					</div>
+
+					<div class="postbox">
 						<h3 class="hndle"><span><?php _e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h3>
 
 						<div class="inside">
