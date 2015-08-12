@@ -64,6 +64,17 @@ class Pronamic_WP_Pay_LicenseManager {
 	public function check_license( $license ) {
 		$status = null;
 
+		$current_page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
+
+		if ( filter_has_var( INPUT_GET, 'transfer' ) && 'pronamic_pay_settings' === $current_page ) {
+			$license_home_url = get_option( 'pronamic_pay_license_home_url', home_url() );
+
+			if ( $license ) {
+				$this->deactivate_license( $license, $license_home_url );
+				$this->activate_license( $license );
+			}
+		}
+
 		// Request
 		$args = array(
 			'license' => $license,
@@ -97,11 +108,15 @@ class Pronamic_WP_Pay_LicenseManager {
 	 *
 	 * @param string $license
 	 */
-	public function deactivate_license( $license ) {
+	public function deactivate_license( $license, $license_home_url = null ) {
+		if ( is_null( $license_home_url ) ) {
+			$license_home_url = home_url();
+		}
+
 		$args = array(
 			'license' => $license,
 			'name'    => 'Pronamic iDEAL',
-			'url'     => home_url(),
+			'url'     => $license_home_url,
 		);
 
 		$args = urlencode_deep( $args );
@@ -109,6 +124,8 @@ class Pronamic_WP_Pay_LicenseManager {
 		$url = add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' );
 
 		$response = wp_remote_get( $url );
+
+		delete_option( 'pronamic_pay_license_home_url' );
 	}
 
 	//////////////////////////////////////////////////
@@ -146,5 +163,9 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		// Update
 		update_option( 'pronamic_pay_license_status', $status );
+
+		if ( $status === 'valid' ) {
+			update_option( 'pronamic_pay_license_home_url', home_url() );
+		}
 	}
 }

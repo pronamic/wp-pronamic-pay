@@ -159,6 +159,8 @@ class Pronamic_WP_Pay_Settings {
 	 * Input license key
 	 */
 	public function input_license_key( $args ) {
+		do_action( 'pronamic_pay_license_check' );
+
 		$this->input_element( $args );
 
 		$status = get_option( 'pronamic_pay_license_status' );
@@ -166,6 +168,18 @@ class Pronamic_WP_Pay_Settings {
 		$icon = 'valid' === $status ? 'yes' : 'no';
 
 		printf( '<span class="dashicons dashicons-%s" style="vertical-align: text-bottom;"></span>', esc_attr( $icon ) );
+
+		$license_home_url = get_option( 'pronamic_pay_license_home_url', home_url() );
+
+		if ( home_url() != $license_home_url ) {
+			printf( '</p><p>%s <code>%s</code>.</p><p><a class="button button-primary" href="%s">%s %s</a>',
+				__( 'License key was activated for', 'pronamic_ideal' ),
+				$license_home_url,
+				add_query_arg( 'transfer', 1 ),
+				__( 'Transfer license to', 'pronamic_ideal' ),
+				home_url()
+			);
+		}
 	}
 
 	/**
