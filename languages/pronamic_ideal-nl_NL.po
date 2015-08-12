@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-12 12:06:36+00:00\n"
-"PO-Revision-Date: 2015-08-12 14:08+0100\n"
+"POT-Creation-Date: 2015-08-12 14:31:23+00:00\n"
+"PO-Revision-Date: 2015-08-12 16:34+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -102,7 +102,6 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:2
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-wizard-settings.php:2
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:90
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:27
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:61
 msgid "iDEAL"
@@ -809,39 +808,45 @@ msgid "Getting started"
 msgstr "Om te beginnen"
 
 #: admin/page-dashboard.php:9
-msgid "Tour"
-msgstr "Rondleiding"
+msgid "Help"
+msgstr "Hulp"
 
 #: admin/page-dashboard.php:13
 msgid ""
-"Neem deze rondleiding om snel wegwijs te worden in het gebruik van deze "
-"plugin"
+"Before asking for help we recommend to check the tour, getting started and "
+"status page."
 msgstr ""
+"Voordat je om hulp vraagt raden we het aan om de rondleiding, om te beginnen "
+"en status pagina te bekijken."
 
 #: admin/page-dashboard.php:26 admin/pointer-start.php:9
 msgid "Start Tour"
 msgstr "Rondleiding starten"
 
-#: admin/page-dashboard.php:34
+#: admin/page-dashboard.php:39
+msgid "Getting Started"
+msgstr "Om te beginnen"
+
+#: admin/page-dashboard.php:51 admin/page-tools.php:4
+msgid "System Status"
+msgstr "Systeemstatus"
+
+#: admin/page-dashboard.php:59
 msgid "Pending Payments"
 msgstr "Betalingen in afwachting"
 
 #. translators: comment date format. See http:php.net/date
-#: admin/page-dashboard.php:71
+#: admin/page-dashboard.php:96
 msgid "c"
 msgstr "c"
 
-#: admin/page-dashboard.php:93 admin/page-dashboard.php:101
+#: admin/page-dashboard.php:118 admin/page-dashboard.php:126
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
-
-#: admin/page-tools.php:4
-msgid "System Status"
-msgstr "Systeemstatus"
 
 #: admin/page-tools.php:5 admin/tab-ideal_status.php:1
 msgid "iDEAL Status"
@@ -1166,7 +1171,7 @@ msgid "Jigowatt"
 msgstr "Jigowatt"
 
 #: admin/tab-extensions.php:130
-#: vendor/wp-pay-extensions/membership/src/Extension.php:136
+#: vendor/wp-pay-extensions/membership/src/Extension.php:120
 msgid "Membership"
 msgstr "Membership"
 
@@ -1196,7 +1201,7 @@ msgid "Ingenesis Limited"
 msgstr "Ingenesis Limited"
 
 #: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -1638,7 +1643,6 @@ msgstr "Standaard"
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
 #: vendor/wp-pay-extensions/membership/src/Admin.php:47
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:58
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:40
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
@@ -2044,8 +2048,7 @@ msgstr "Betalingsinformatie"
 
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:256
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:72
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:212
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
@@ -2502,22 +2505,27 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:110
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:119
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
@@ -2542,7 +2550,7 @@ msgstr "In afwachting van iDEAL-betaling."
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:177
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:171
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:109
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:137
 msgid "Order %s"
@@ -2553,33 +2561,13 @@ msgstr "Bestelling %s"
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:145
+#: vendor/wp-pay-extensions/membership/src/Extension.php:129
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:229
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:45
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:185
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:253
-msgid "PayPal - The safer, easier way to pay online"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:16
-msgid ""
-"In order for Membership2 to function correctly you must setup an IPN "
-"listening URL with PayPal. Make sure to complete this step, otherwise we are "
-"not notified when a member cancels their subscription."
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:17
-msgid "Your IPN listening URL is:"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:20
-msgid "Instructions &raquo;"
-msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/Extension.php:48
 msgid ""
@@ -2743,26 +2731,6 @@ msgstr "Creditcard inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
-msgid "payment expired"
-msgstr "iDEAL-betaling verlopen"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
-msgid "payment failed"
-msgstr "iDEAL-betaling mislukt"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
-msgid "payment completed"
-msgstr "betaling voltooid"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
-msgid "payment open"
-msgstr "betaling open"
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:142
-msgid "payment unknown"
-msgstr "betaling onbekend"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
@@ -3197,6 +3165,24 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid "Tour"
+#~ msgstr "Rondleiding"
+
+#~ msgid "payment expired"
+#~ msgstr "iDEAL-betaling verlopen"
+
+#~ msgid "payment failed"
+#~ msgstr "iDEAL-betaling mislukt"
+
+#~ msgid "payment completed"
+#~ msgstr "betaling voltooid"
+
+#~ msgid "payment open"
+#~ msgstr "betaling open"
+
+#~ msgid "payment unknown"
+#~ msgstr "betaling onbekend"
 
 #~ msgid ""
 #~ "License is activated for <code>%s</code>, transfer to <code>%s</code>?"

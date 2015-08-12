@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL 3.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-12 12:06:36+00:00\n"
+"POT-Creation-Date: 2015-08-12 14:31:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -100,7 +100,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:2
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-wizard-settings.php:2
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:90
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:27
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:61
 msgid "iDEAL"
@@ -757,38 +756,42 @@ msgid "Getting started"
 msgstr ""
 
 #: admin/page-dashboard.php:9
-msgid "Tour"
+msgid "Help"
 msgstr ""
 
 #: admin/page-dashboard.php:13
 msgid ""
-"Neem deze rondleiding om snel wegwijs te worden in het gebruik van deze "
-"plugin"
+"Before asking for help we recommend to check the tour, getting started and "
+"status page."
 msgstr ""
 
 #: admin/page-dashboard.php:26 admin/pointer-start.php:9
 msgid "Start Tour"
 msgstr ""
 
-#: admin/page-dashboard.php:34
+#: admin/page-dashboard.php:39
+msgid "Getting Started"
+msgstr ""
+
+#: admin/page-dashboard.php:51 admin/page-tools.php:4
+msgid "System Status"
+msgstr ""
+
+#: admin/page-dashboard.php:59
 msgid "Pending Payments"
 msgstr ""
 
-#: admin/page-dashboard.php:71
+#: admin/page-dashboard.php:96
 #. translators: comment date format. See http:php.net/date
 msgid "c"
 msgstr ""
 
-#: admin/page-dashboard.php:93 admin/page-dashboard.php:101
+#: admin/page-dashboard.php:118 admin/page-dashboard.php:126
 msgid "Pronamic News"
 msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
-msgstr ""
-
-#: admin/page-tools.php:4
-msgid "System Status"
 msgstr ""
 
 #: admin/page-tools.php:5 admin/tab-ideal_status.php:1
@@ -1112,7 +1115,7 @@ msgid "Jigowatt"
 msgstr ""
 
 #: admin/tab-extensions.php:130
-#: vendor/wp-pay-extensions/membership/src/Extension.php:136
+#: vendor/wp-pay-extensions/membership/src/Extension.php:120
 msgid "Membership"
 msgstr ""
 
@@ -1142,7 +1145,7 @@ msgid "Ingenesis Limited"
 msgstr ""
 
 #: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
 msgid "WooCommerce"
 msgstr ""
 
@@ -1577,7 +1580,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:120
 #: vendor/wp-pay-extensions/membership/src/Admin.php:47
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:58
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:40
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
@@ -1976,8 +1978,7 @@ msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:256
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:72
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:212
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
@@ -2413,22 +2414,27 @@ msgid "iDEAL payment cancelled."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
 msgid "iDEAL payment expired."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:110
 msgid "iDEAL payment failed."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:119
 msgid "iDEAL payment completed."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment open."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
 msgid "iDEAL payment unknown."
 msgstr ""
 
@@ -2453,7 +2459,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:177
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:171
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:109
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:137
 msgid "Order %s"
@@ -2464,32 +2470,12 @@ msgstr ""
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:145
+#: vendor/wp-pay-extensions/membership/src/Extension.php:129
 msgid "Transaction #%s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:229
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:45
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:185
 msgid "iDEAL - Online payment through your own bank"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewButton.php:253
-msgid "PayPal - The safer, easier way to pay online"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:16
-msgid ""
-"In order for Membership2 to function correctly you must setup an IPN "
-"listening URL with PayPal. Make sure to complete this step, otherwise we "
-"are not notified when a member cancels their subscription."
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:17
-msgid "Your IPN listening URL is:"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/MembershipViewSettings.php:20
-msgid "Instructions &raquo;"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/Extension.php:48
@@ -2643,26 +2629,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
-msgid "payment expired"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:114
-msgid "payment failed"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:125
-msgid "payment completed"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
-msgid "payment open"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:142
-msgid "payment unknown"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
