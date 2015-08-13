@@ -5,10 +5,6 @@
  * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/views/html-notice-update.php
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 $update_link = wp_nonce_url( add_query_arg(
 	array(
 		'page'                   => 'pronamic_ideal',
@@ -18,8 +14,11 @@ $update_link = wp_nonce_url( add_query_arg(
 ), 'pronamic_pay_update_db', 'pronamic_pay_nonce' );
 
 ?>
-<div id="message" class="updated">
-	<p><?php _e( '<strong>Pronamic iDEAL Data Update Required</strong> &#8211; We just need to update your install to the latest version', 'pronamic_ideal' ); ?></p>
+<div class="updated">
+	<p>
+		<strong><?php esc_html_e( 'Pronamic iDEAL Data Update Required', 'pronamic_ideal' ); ?></strong> – 
+		<?php esc_html_e( 'We just need to update your install to the latest version', 'pronamic_ideal' ); ?>
+	</p>
 
 	<p class="submit">
 		<a href="<?php echo esc_attr( $update_link ); ?>" class="pp-update-now button-primary"><?php _e( 'Run the updater', 'pronamic_ideal' ); ?></a>
