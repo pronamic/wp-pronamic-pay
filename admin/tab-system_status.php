@@ -3,7 +3,7 @@
 <table class="pronamic-pay-status-table widefat">
 	<tr>
 		<th scope="row">
-			<?php _e( 'Site URL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Site URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php echo site_url(); ?>
@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Home URL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Home URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php echo home_url(); ?>
@@ -25,7 +25,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'PHP Version', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'PHP Version', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php echo phpversion(); ?>
@@ -36,7 +36,7 @@
 			if ( version_compare( phpversion(), '5.2', '>' ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL requires PHP 5.2 or above.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL requires PHP 5.2 or above.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -44,7 +44,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'MySQL Version', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'MySQL Version', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -61,7 +61,7 @@
 			if ( version_compare( $wpdb->db_version(), '5', '>' ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL requires MySQL 5 or above.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL requires MySQL 5 or above.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -69,7 +69,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'WordPress Version', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'WordPress Version', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php echo get_bloginfo( 'version' ); ?>
@@ -80,7 +80,7 @@
 			if ( version_compare( get_bloginfo( 'version' ), '3.2', '>' ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL requires WordPress 3.2 or above.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL requires WordPress 3.2 or above.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -88,7 +88,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'WP Memory Limit', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'WP Memory Limit', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -116,7 +116,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Character Set', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Character Set', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php bloginfo( 'charset' ); ?>
@@ -128,7 +128,7 @@
 			if ( 0 === strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL advices to set the character encoding to UTF-8.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL advices to set the character encoding to UTF-8.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -136,11 +136,11 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Time', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Time', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ); ?><br />
-			<?php echo date( Pronamic_IDeal_IDeal::DATE_FORMAT ); ?>
+			<?php echo esc_html( date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ) ); ?><br />
+			<?php echo esc_html( date( Pronamic_IDeal_IDeal::DATE_FORMAT ) ); ?>
 		</td>
 		<td>
 			&#10003;
@@ -148,7 +148,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'cURL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'cURL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -173,7 +173,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'OpenSSL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'OpenSSL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -193,7 +193,7 @@
 			if ( version_compare( OPENSSL_VERSION_NUMBER, 0x000908000, '>' ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL requires OpenSSL 0.9.8 or above.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL requires OpenSSL 0.9.8 or above.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -201,7 +201,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Registered Hashing Algorithms', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Registered Hashing Algorithms', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -218,7 +218,7 @@
 			if ( in_array( 'sha1', $algorithms ) ) {
 				echo '&#10003;';
 			} else {
-				_e( 'Pronamic iDEAL requires the "sha1" hashing algorithm.', 'pronamic_ideal' );
+				esc_html_e( 'Pronamic iDEAL requires the "sha1" hashing algorithm.', 'pronamic_ideal' );
 			}
 
 			?>
@@ -226,7 +226,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Travis CI build status', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Travis CI build status', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php

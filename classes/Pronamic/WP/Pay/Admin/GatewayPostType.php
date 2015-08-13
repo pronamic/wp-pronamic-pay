@@ -58,9 +58,9 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
 				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
-					echo $pronamic_pay_gateways[ $id ]['name'];
+					echo esc_html( $pronamic_pay_gateways[ $id ]['name'] );
 				} else {
-					echo $id;
+					echo esc_html( $id );
 				}
 
 				break;
@@ -79,7 +79,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true ),
 				) );
 
-				echo implode( ' ', $data );
+				echo esc_html( implode( ' ', $data ) );
 
 				break;
 			case 'pronamic_gateway_secret':
@@ -93,7 +93,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true ),
 				) );
 
-				echo implode( ' ', $data );
+				echo esc_html( implode( ' ', $data ) );
 
 				break;
 			case 'pronamic_gateway_dashboard':
