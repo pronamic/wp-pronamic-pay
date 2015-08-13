@@ -24,8 +24,11 @@ class Pronamic_WP_Pay_Admin_Tour {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
+	/**
+	 * Admin initialize
+	 */
 	public function admin_init() {
-		if ( filter_has_var( INPUT_GET, 'pronamic_pay_ignore_tour' ) && wp_verify_nonce( filter_input( INPUT_GET, 'pronamic_pay_nonce' ), 'pronamic_pay_ignore_tour' ) ) {
+		if ( filter_has_var( INPUT_GET, 'pronamic_pay_ignore_tour' ) && wp_verify_nonce( filter_input( INPUT_GET, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING ), 'pronamic_pay_ignore_tour' ) ) {
 			$ignore = filter_input( INPUT_GET, 'pronamic_pay_ignore_tour', FILTER_VALIDATE_BOOLEAN );
 
 			update_user_meta( get_current_user_id(), 'pronamic_pay_ignore_tour', $ignore );
@@ -36,6 +39,9 @@ class Pronamic_WP_Pay_Admin_Tour {
 		}
 	}
 
+	/**
+	 * Admin enqueue scripts
+	 */
 	public function admin_enqueue_scripts() {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
@@ -73,7 +79,10 @@ class Pronamic_WP_Pay_Admin_Tour {
 		wp_enqueue_script( 'proanmic-pay-admin-tour' );
 	}
 
-	public function get_content( $file ) {
+	/**
+	 * Get pointer content
+	 */
+	private function get_content( $file ) {
 		$path = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/' . $file . '.php';
 
 		if ( is_readable( $path ) ) {
@@ -89,7 +98,10 @@ class Pronamic_WP_Pay_Admin_Tour {
 		return $content;
 	}
 
-	public function get_pointers() {
+	/**
+	 * Get pointers
+	 */
+	private function get_pointers() {
 		$pointers = array();
 
 		$page   = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
@@ -231,6 +243,9 @@ class Pronamic_WP_Pay_Admin_Tour {
 		return $pointers;
 	}
 
+	/**
+	 * Get tour close URL
+	 */
 	public function get_close_url() {
 		return wp_nonce_url( add_query_arg( array(
 			'pronamic_pay_ignore_tour'  => true,
