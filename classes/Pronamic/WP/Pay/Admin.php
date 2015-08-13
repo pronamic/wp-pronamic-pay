@@ -57,9 +57,7 @@ class Pronamic_WP_Pay_Admin {
 
 		// Actions
 		// Show license message if the license is not valid
-		if ( ! ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-		}
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Post types
 		new Pronamic_WP_Pay_Admin_FormPostType();
