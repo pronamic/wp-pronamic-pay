@@ -15,9 +15,24 @@ class Pronamic_WP_Pay_LicenseManager {
 	public function __construct() {
 		// Actions
 		add_action( 'pronamic_pay_license_check', array( $this, 'license_check_event' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Filters
 		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( $this, 'pre_update_option_license_key' ), 10, 2 );
+	}
+
+	/**
+	 * Admin notices
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/options.php#L205-L218
+	 * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/2.4.2/includes/class-edd-license-handler.php#L309-L369
+	 */
+	public function admin_notices() {
+		$data = get_transient( 'pronamic_pay_license_data' );
+
+		if ( $data ) {
+			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-license.php';
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -64,17 +79,6 @@ class Pronamic_WP_Pay_LicenseManager {
 	public function check_license( $license ) {
 		$status = null;
 
-		$current_page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
-
-		if ( filter_has_var( INPUT_GET, 'transfer' ) && 'pronamic_pay_settings' === $current_page ) {
-			$license_home_url = get_option( 'pronamic_pay_license_home_url', home_url() );
-
-			if ( $license ) {
-				$this->deactivate_license( $license, $license_home_url );
-				$this->activate_license( $license );
-			}
-		}
-
 		// Request
 		$args = array(
 			'license' => $license,
@@ -108,15 +112,11 @@ class Pronamic_WP_Pay_LicenseManager {
 	 *
 	 * @param string $license
 	 */
-	public function deactivate_license( $license, $license_home_url = null ) {
-		if ( is_null( $license_home_url ) ) {
-			$license_home_url = home_url();
-		}
-
+	public function deactivate_license( $license ) {
 		$args = array(
 			'license' => $license,
 			'name'    => 'Pronamic iDEAL',
-			'url'     => $license_home_url,
+			'url'     => home_url(),
 		);
 
 		$args = urlencode_deep( $args );
@@ -124,8 +124,6 @@ class Pronamic_WP_Pay_LicenseManager {
 		$url = add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' );
 
 		$response = wp_remote_get( $url );
-
-		delete_option( 'pronamic_pay_license_home_url' );
 	}
 
 	//////////////////////////////////////////////////
@@ -158,14 +156,12 @@ class Pronamic_WP_Pay_LicenseManager {
 		$data = json_decode( wp_remote_retrieve_body( $response ) );
 
 		if ( $data ) {
-			$status = $data->license;
+			set_transient( 'pronamic_pay_license_data', $data, 30 );
+
+			$status = $this->response->license;
 		}
 
 		// Update
 		update_option( 'pronamic_pay_license_status', $status );
-
-		if ( $status === 'valid' ) {
-			update_option( 'pronamic_pay_license_home_url', home_url() );
-		}
 	}
 }

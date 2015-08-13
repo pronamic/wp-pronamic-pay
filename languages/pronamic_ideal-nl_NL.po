@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-13 11:38:25+00:00\n"
-"PO-Revision-Date: 2015-08-13 10:26+0100\n"
+"POT-Creation-Date: 2015-08-13 14:02:27+00:00\n"
+"PO-Revision-Date: 2015-08-13 16:05+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -61,7 +61,8 @@ msgstr "Button tekst"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
+#: admin/meta-box-gateway-config.php:29
+#: classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
 msgid "General"
@@ -82,9 +83,9 @@ msgid "Test"
 msgstr "Test"
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
-#: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:366
-#: classes/Pronamic/WP/Pay/Admin.php:367
+#: admin/tab-branding.php:17 admin/tab-branding.php:23
+#: admin/tab-methods.php:89 admin/tab-pages_generator.php:29
+#: classes/Pronamic/WP/Pay/Admin.php:364 classes/Pronamic/WP/Pay/Admin.php:365
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -788,37 +789,69 @@ msgstr "Icoon"
 msgid "Website"
 msgstr "Website"
 
-#: admin/notice-update_db.php:22
+#. Plugin Name of the plugin/theme
+msgid "Pronamic iDEAL"
+msgstr "Pronamic iDEAL"
+
+#: admin/notice-license.php:19
+msgid "You succesfully activated your website."
+msgstr "Je hebt je website succesvol geactiveerd."
+
+#: admin/notice-license.php:22
 msgid ""
-"<strong>Pronamic iDEAL Data Update Required</strong> &#8211; We just need to "
-"update your install to the latest version"
+"This license does not have any activations left. Maybe you have to "
+"deactivate your license on a local/staging server. This can be done on your "
+"<a href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu account</"
+"a>."
 msgstr ""
+"Deze licentie heeft geen activaties meer beschikbaar. Misschien moet je je "
+"licentie deactiveren op een lokale/staging server. Dit kan worden gedaan via "
+"je <a href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu "
+"account</a>."
 
-#: admin/notice-update_db.php:25
+#: admin/notice-license.php:31
+msgid ""
+"There was a problem activating your license key, please try again or contact "
+"support."
+msgstr ""
+"Er was een probleem met het activeren van je licentiesleutel, probeer het "
+"opnieuw of neem contact op met support."
+
+#: admin/notice-update_db.php:19
+msgid "Pronamic iDEAL Data Update Required"
+msgstr "Pronamic iDEAL data update vereist"
+
+#: admin/notice-update_db.php:20
+msgid "We just need to update your install to the latest version"
+msgstr "We moeten je installatie updaten naar de laatste versie"
+
+#: admin/notice-update_db.php:24
 msgid "Run the updater"
-msgstr ""
+msgstr "Voer de updater uit"
 
-#: admin/notice-update_db.php:31
+#: admin/notice-update_db.php:30
 msgid ""
 "It is strongly recommended that you backup your database before proceeding. "
 "Are you sure you wish to run the updater now?"
 msgstr ""
+"Het wordt sterk geadviseerd om een backup te maken van je database voordat "
+"je verder gaat. Weet je zeker dat je de updater nu wilt uitvoeren?"
 
-#: admin/page-about.php:2
+#: admin/page-about.php:13
 msgid "Welcome at Pronamic iDEAL"
 msgstr "Welkom bij Pronamic iDEAL"
 
-#: admin/page-about.php:5
+#: admin/page-about.php:16
 msgid ""
 "Thanks for installing Pronamic iDEAL. Version 3.7.0 is more powerful, stable "
 "and secure than ever before. We hope you enjoy using it."
 msgstr ""
 
-#: admin/page-about.php:14
+#: admin/page-about.php:25
 msgid "What is new"
 msgstr "Wat is nieuw"
 
-#: admin/page-about.php:15
+#: admin/page-about.php:26
 msgid "Getting started"
 msgstr "Om te beginnen"
 
@@ -898,7 +931,7 @@ msgstr "Licentie"
 #: admin/pointer-dashboard.php:1
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:108
-#: classes/Pronamic/WP/Pay/Admin.php:421
+#: classes/Pronamic/WP/Pay/Admin.php:419
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -919,7 +952,7 @@ msgstr "Volgende"
 msgid "Close"
 msgstr "Sluiten"
 
-#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:392
+#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:390
 #: classes/Pronamic/WP/Pay/PostTypes.php:94
 #: classes/Pronamic/WP/Pay/PostTypes.php:96
 #: classes/Pronamic/WP/Pay/PostTypes.php:107
@@ -948,7 +981,7 @@ msgstr ""
 
 #: admin/pointer-payments.php:1
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:376 classes/Pronamic/WP/Pay/Admin.php:377
+#: classes/Pronamic/WP/Pay/Admin.php:374 classes/Pronamic/WP/Pay/Admin.php:375
 #: classes/Pronamic/WP/Pay/PostTypes.php:67
 #: classes/Pronamic/WP/Pay/PostTypes.php:69
 #: classes/Pronamic/WP/Pay/PostTypes.php:80
@@ -970,8 +1003,8 @@ msgstr "Rapporten"
 msgid "Here you can find the Pronamic iDEAL reports."
 msgstr ""
 
-#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:402
-#: classes/Pronamic/WP/Pay/Admin.php:403
+#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:400
+#: classes/Pronamic/WP/Pay/Admin.php:401
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -987,8 +1020,8 @@ msgstr "Gefeliciteerd"
 msgid "You just installed the Pronamic iDEAL plugin."
 msgstr ""
 
-#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:411
-#: classes/Pronamic/WP/Pay/Admin.php:412
+#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:409
+#: classes/Pronamic/WP/Pay/Admin.php:410
 msgid "Tools"
 msgstr "Extra"
 
@@ -1053,7 +1086,7 @@ msgid "Banner 100&times;100 (without campaign statements)"
 msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
-#: admin/tab-branding.php:113 admin/tab-methods.php:88
+#: admin/tab-branding.php:113 admin/tab-methods.php:99
 msgid "Mister Cash"
 msgstr "Mister Cash"
 
@@ -1325,84 +1358,84 @@ msgstr "Volgende licentie controle"
 msgid "Not scheduled"
 msgstr "Niet ingepland"
 
-#: admin/tab-methods.php:1
+#: admin/tab-methods.php:12
 msgid "Payment Methods"
 msgstr "Betaalmethoden"
 
-#: admin/tab-methods.php:10
+#: admin/tab-methods.php:21
 msgid "DigiAccept"
 msgstr "DigiAccept"
 
-#: admin/tab-methods.php:14 admin/tab-methods.php:32
+#: admin/tab-methods.php:25 admin/tab-methods.php:43
 msgid "Acceptgiro"
 msgstr "Acceptgiro"
 
-#: admin/tab-methods.php:17
+#: admin/tab-methods.php:28
 msgid "YourGift"
 msgstr "YourGift"
 
-#: admin/tab-methods.php:21
+#: admin/tab-methods.php:32
 msgid "American Express"
 msgstr "American Express"
 
-#: admin/tab-methods.php:25
+#: admin/tab-methods.php:36
 msgid "MasterCard"
 msgstr "MasterCard"
 
-#: admin/tab-methods.php:36
+#: admin/tab-methods.php:47
 msgid "AfterPay"
 msgstr "AfterPay"
 
-#: admin/tab-methods.php:44
+#: admin/tab-methods.php:55
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: admin/tab-methods.php:48
+#: admin/tab-methods.php:59
 msgid "Cash on Delivery"
 msgstr "Rembours"
 
-#: admin/tab-methods.php:52
+#: admin/tab-methods.php:63
 msgid "GiftCard"
 msgstr "GiftCard"
 
-#: admin/tab-methods.php:58
+#: admin/tab-methods.php:69
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:26
 msgid "Credit Card"
 msgstr "Creditcard"
 
-#: admin/tab-methods.php:65
+#: admin/tab-methods.php:76
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:26
 msgid "Direct Debit"
 msgstr "Incasso"
 
-#: admin/tab-methods.php:69
+#: admin/tab-methods.php:80
 msgid "Direct eBanking"
 msgstr "Direct eBanking"
 
-#: admin/tab-methods.php:73
+#: admin/tab-methods.php:84
 msgid "Giropay"
 msgstr "Giropay"
 
-#: admin/tab-methods.php:82
+#: admin/tab-methods.php:93
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:26
 msgid "MiniTix"
 msgstr "MiniTix"
 
-#: admin/tab-methods.php:92
+#: admin/tab-methods.php:103
 msgid "paysafecard"
 msgstr "paysafecard"
 
-#: admin/tab-methods.php:96
+#: admin/tab-methods.php:107
 msgid "PayPal"
 msgstr "PayPal"
 
-#: admin/tab-methods.php:100
+#: admin/tab-methods.php:111
 msgid "Wallie"
 msgstr "Wallie"
 
@@ -1674,9 +1707,8 @@ msgid "Transaction"
 msgstr "Transactie"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
-#, fuzzy
 msgid "User"
-msgstr "Gebruiker ID"
+msgstr "Gebruiker"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:140
 #: classes/Pronamic/WP/Pay/PostTypes.php:70
@@ -1712,7 +1744,7 @@ msgstr "Verlopen betalingen"
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:264
+#: classes/Pronamic/WP/Pay/Admin.php:262
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1723,12 +1755,12 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:384 classes/Pronamic/WP/Pay/Admin.php:385
+#: classes/Pronamic/WP/Pay/Admin.php:382 classes/Pronamic/WP/Pay/Admin.php:383
 #: classes/Pronamic/WP/Pay/PostTypes.php:49
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:393
+#: classes/Pronamic/WP/Pay/Admin.php:391
 msgid "Forms"
 msgstr "Formulieren"
 
@@ -1747,11 +1779,11 @@ msgstr "Voer een geldig e-mailadres in"
 msgid "Payment Form"
 msgstr "Betalingsformulier"
 
-#: classes/Pronamic/WP/Pay/PaymentFormData.php:54
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:45
 msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
-#: classes/Pronamic/WP/Pay/PaymentFormData.php:85
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:76
 msgid "Payment %s"
 msgstr "Betaling %s"
 
@@ -1766,7 +1798,7 @@ msgid "Cancelled"
 msgstr "Geannuleerd"
 
 #: classes/Pronamic/WP/Pay/Plugin.php:368
-#: classes/Pronamic/WP/Pay/Settings.php:106
+#: classes/Pronamic/WP/Pay/Settings.php:105
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Expired"
 msgstr "Verlopen"
@@ -1777,7 +1809,7 @@ msgid "Open"
 msgstr "Open"
 
 #: classes/Pronamic/WP/Pay/Plugin.php:376
-#: classes/Pronamic/WP/Pay/Settings.php:105
+#: classes/Pronamic/WP/Pay/Settings.php:104
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -1968,55 +2000,47 @@ msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 msgid "Support License Key"
 msgstr "Support licentiecode"
 
-#: classes/Pronamic/WP/Pay/Settings.php:51
+#: classes/Pronamic/WP/Pay/Settings.php:50
 msgid "Default Gateway"
 msgstr "Standaard gateway"
 
-#: classes/Pronamic/WP/Pay/Settings.php:57
+#: classes/Pronamic/WP/Pay/Settings.php:56
 msgid "&mdash; Select a gateway &mdash;"
 msgstr "&mdash; Selecteer een gateway &mdash;"
 
-#: classes/Pronamic/WP/Pay/Settings.php:67
+#: classes/Pronamic/WP/Pay/Settings.php:66
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:146
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
 msgid "Currency"
 msgstr "Valuta"
 
-#: classes/Pronamic/WP/Pay/Settings.php:76
+#: classes/Pronamic/WP/Pay/Settings.php:75
 msgid "Thousands Seperator"
 msgstr "Duizendtal scheidingsteken"
 
-#: classes/Pronamic/WP/Pay/Settings.php:87
+#: classes/Pronamic/WP/Pay/Settings.php:86
 msgid "Decimal Seperator"
 msgstr "Decimaal scheidingsteken"
 
-#: classes/Pronamic/WP/Pay/Settings.php:97
+#: classes/Pronamic/WP/Pay/Settings.php:96
 msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
-#: classes/Pronamic/WP/Pay/Settings.php:103 templates/form.php:93
+#: classes/Pronamic/WP/Pay/Settings.php:102 templates/form.php:93
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
 msgstr "Fout"
 
-#: classes/Pronamic/WP/Pay/Settings.php:104
+#: classes/Pronamic/WP/Pay/Settings.php:103
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Settings.php:107
+#: classes/Pronamic/WP/Pay/Settings.php:106
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Settings.php:176
-msgid "License key was activated for"
-msgstr "Licentiesleutel is geactiveerd voor"
-
-#: classes/Pronamic/WP/Pay/Settings.php:179
-msgid "Transfer license to"
-msgstr "Verhuis licentie naar"
-
-#: classes/Pronamic/WP/Pay/Settings.php:197
+#: classes/Pronamic/WP/Pay/Settings.php:184
 msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
@@ -2086,10 +2110,6 @@ msgstr "Betalen"
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:171
 msgid "Order #%s"
 msgstr "Bestelling #%s"
-
-#. Plugin Name of the plugin/theme
-msgid "Pronamic iDEAL"
-msgstr "Pronamic iDEAL"
 
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:39
 msgid "General Information"
@@ -3024,8 +3044,8 @@ msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
-msgid "Redirecting&hellip;"
-msgstr "Doorverwijzen&hellip;"
+msgid "Redirecting…"
+msgstr "Doorverwijzen…"
 
 #: views/redirect-via-html.php:123
 msgid "You will be automatically redirected to the online payment environment."
@@ -3189,6 +3209,12 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid "License key was activated for"
+#~ msgstr "Licentiesleutel is geactiveerd voor"
+
+#~ msgid "Transfer license to"
+#~ msgstr "Verhuis licentie naar"
 
 #~ msgid "Tour"
 #~ msgstr "Rondleiding"
