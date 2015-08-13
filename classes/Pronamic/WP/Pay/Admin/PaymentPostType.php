@@ -90,27 +90,27 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_transaction':
-				echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ) );
 
 				break;
 			case 'pronamic_payment_description':
-				echo get_post_meta( $post_id, '_pronamic_payment_description', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_description', true ) );
 
 				break;
 			case 'pronamic_payment_amount':
-				echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
 				echo ' ';
-				echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
 
 				break;
 			case 'pronamic_payment_consumer':
-				echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
 				echo '<br />';
-				echo get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
-				echo get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
-				echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true ) );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true ) );
 				echo '<br />';
-				echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
 
 				break;
 			case 'pronamic_payment_source':
@@ -122,7 +122,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			case 'pronamic_payment_status':
 				$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
 
-				echo Pronamic_WP_Pay_Plugin::translate_status( $status );
+				echo esc_html( Pronamic_WP_Pay_Plugin::translate_status( $status ) );
 
 				break;
 		}

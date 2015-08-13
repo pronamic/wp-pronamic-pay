@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-		<title><?php _e( 'Redirecting&hellip;', 'pronamic_ideal' ); ?></title>
+		<title><?php esc_html_e( 'Redirecting…', 'pronamic_ideal' ); ?></title>
 
 		<style type="text/css">
 			body {
@@ -117,14 +117,14 @@
 	<body onload="<?php esc_attr( $onload ); ?>">
 		<div id="page">
 			<div id="primary">
-				<h1><?php _e( 'Redirecting&hellip;', 'pronamic_ideal' ); ?></h1>
+				<h1><?php esc_html_e( 'Redirecting…', 'pronamic_ideal' ); ?></h1>
 
 				<p>
-					<?php _e( 'You will be automatically redirected to the online payment environment.', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'You will be automatically redirected to the online payment environment.', 'pronamic_ideal' ); ?>
 				</p>
 
 				<p>
-					<?php _e( 'Please click the button below if you are not automatically redirected.', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Please click the button below if you are not automatically redirected.', 'pronamic_ideal' ); ?>
 				</p>
 
 				<?php echo $this->get_form_html( $payment, $auto_submit ); ?>

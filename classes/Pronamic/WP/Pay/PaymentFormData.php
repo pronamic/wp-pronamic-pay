@@ -20,15 +20,6 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes an iDEAL test data proxy
-	 */
-	public function __construct() {
-		parent::__construct();
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Get source indicator
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()

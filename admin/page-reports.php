@@ -16,7 +16,7 @@
 							<li style="border-right-color: <?php echo esc_attr( $serie->color ); ?>;" data-pronamic-pay-highlight-serie="<?php echo esc_attr( $i ); ?>">
 								<strong><?php
 
-								if ( isset( $serie->tooltipFormatter ) && 'money' == $serie->tooltipFormatter ) {
+								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
 									echo '&euro;&nbsp;' . number_format_i18n( $serie->legendValue, 2 );
 								} else {
 									echo $serie->legendValue;

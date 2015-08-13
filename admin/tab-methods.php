@@ -1,4 +1,15 @@
-<h3><?php _e( 'Payment Methods', 'pronamic_ideal' ); ?></h3>
+<?php
+/**
+ * Tab methods
+ */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+?>
+<h3><?php esc_html_e( 'Payment Methods', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -38,7 +49,7 @@ $methods = array(
 		'issuers' => array(
 			'digiaccept',
 			'acceptgiro',
-		)
+		),
 	),
 	'bitcoin' => array(
 		'name'    => __( 'Bitcoin', 'pronamic_ideal' ),

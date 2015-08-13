@@ -2,10 +2,10 @@
 	<thead>
 		<tr>
 			<th scope="col">
-				<?php _e( 'Order', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Order', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
 			</th>
 		</tr>
 	</thead>
@@ -57,7 +57,7 @@
 					?>
 				</td>
 				<td>
-					<?php echo $data['result']; ?>
+					<?php echo esc_html( $data['result'] ); ?>
 				</td>
 			</tr>
 

@@ -1,3 +1,14 @@
+<?php
+/**
+ * Tab getting started
+ */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+?>
 <div class="feature-section two-col">
 	<div class="col">
 		<h3>Stap 1 - Gateway configuratie aanmaken</h3>

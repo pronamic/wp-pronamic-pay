@@ -1,3 +1,13 @@
+<?php
+/**
+ * Tab new
+ */
+
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+?>
 <div class="feature-section two-col">
 	<div class="col">
 		<h3>Lorem Ipsum</h3>

@@ -10,12 +10,12 @@ global $eshop_metabox_plugin, $eshopoptions;
 		<input id="eshop_method_pronamic_ideal" name="eshop_method[]" type="checkbox" value="pronamic_ideal" <?php checked( in_array( 'pronamic_ideal', (array) $eshopoptions['method'] ) ); ?> />
 
 		<label for="eshop_method_pronamic_ideal" class="eshopmethod">
-			<?php _e( 'Accept payment by iDEAL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Accept payment by iDEAL', 'pronamic_ideal' ); ?>
 		</label>
 	</p>
 
 	<label for="eshop_pronamic_ideal_config_id">
-		<?php _e( 'Configuration', 'pronamic_ideal' ); ?>
+		<?php esc_html_e( 'Configuration', 'pronamic_ideal' ); ?>
 	</label>
 
 	<?php

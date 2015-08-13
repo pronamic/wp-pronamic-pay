@@ -1,3 +1,14 @@
+<?php
+/**
+ * Page about
+ */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+?>
 <div class="wrap about-wrap">
 	<h1><?php esc_html_e( 'Welcome at Pronamic iDEAL', 'pronamic_ideal' ); ?></h1>
 
@@ -20,11 +31,11 @@
 
 		foreach ( $tabs as $tab => $title ) {
 			$classes = array( 'nav-tab' );
-					
-			if ( $current_tab == $tab ) {
+
+			if ( $current_tab === $tab ) {
 				$classes[] = 'nav-tab-active';
 			}
-					
+
 			$url = add_query_arg( 'tab', $tab );
 
 			printf(
