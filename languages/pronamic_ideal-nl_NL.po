@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-12 14:31:23+00:00\n"
-"PO-Revision-Date: 2015-08-12 16:34+0100\n"
+"POT-Creation-Date: 2015-08-13 11:38:25+00:00\n"
+"PO-Revision-Date: 2015-08-13 10:26+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -61,8 +61,7 @@ msgstr "Button tekst"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: admin/meta-box-gateway-config.php:29
-#: classes/Pronamic/WP/Pay/Settings.php:29
+#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
 msgid "General"
@@ -83,9 +82,9 @@ msgid "Test"
 msgstr "Test"
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
-#: admin/tab-branding.php:17 admin/tab-branding.php:23
-#: admin/tab-methods.php:78 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:412 classes/Pronamic/WP/Pay/Admin.php:413
+#: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:78
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:366
+#: classes/Pronamic/WP/Pay/Admin.php:367
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -685,7 +684,7 @@ msgstr "bestandsnaam"
 #: admin/tab-ideal_status.php:46
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:46
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:72
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
 msgid "Date"
 msgstr "Datum"
@@ -755,7 +754,7 @@ msgstr "d-m-Y"
 
 #: admin/meta-box-payment-source.php:11
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:69
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:148
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 msgid "Source"
 msgstr "Bron"
 
@@ -776,7 +775,7 @@ msgid "Subscription ID"
 msgstr "Abonnement ID"
 
 #: admin/meta-box-payment-update.php:33
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:166
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:167
 msgid "Update"
 msgstr "Bijwerken"
 
@@ -788,6 +787,22 @@ msgstr "Icoon"
 #: admin/methods-wp-admin.php:8
 msgid "Website"
 msgstr "Website"
+
+#: admin/notice-update_db.php:22
+msgid ""
+"<strong>Pronamic iDEAL Data Update Required</strong> &#8211; We just need to "
+"update your install to the latest version"
+msgstr ""
+
+#: admin/notice-update_db.php:25
+msgid "Run the updater"
+msgstr ""
+
+#: admin/notice-update_db.php:31
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
+msgstr ""
 
 #: admin/page-about.php:2
 msgid "Welcome at Pronamic iDEAL"
@@ -883,7 +898,7 @@ msgstr "Licentie"
 #: admin/pointer-dashboard.php:1
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:108
-#: classes/Pronamic/WP/Pay/Admin.php:467
+#: classes/Pronamic/WP/Pay/Admin.php:421
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -904,7 +919,7 @@ msgstr "Volgende"
 msgid "Close"
 msgstr "Sluiten"
 
-#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:438
+#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:392
 #: classes/Pronamic/WP/Pay/PostTypes.php:94
 #: classes/Pronamic/WP/Pay/PostTypes.php:96
 #: classes/Pronamic/WP/Pay/PostTypes.php:107
@@ -933,7 +948,7 @@ msgstr ""
 
 #: admin/pointer-payments.php:1
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:422 classes/Pronamic/WP/Pay/Admin.php:423
+#: classes/Pronamic/WP/Pay/Admin.php:376 classes/Pronamic/WP/Pay/Admin.php:377
 #: classes/Pronamic/WP/Pay/PostTypes.php:67
 #: classes/Pronamic/WP/Pay/PostTypes.php:69
 #: classes/Pronamic/WP/Pay/PostTypes.php:80
@@ -955,8 +970,8 @@ msgstr "Rapporten"
 msgid "Here you can find the Pronamic iDEAL reports."
 msgstr ""
 
-#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:448
-#: classes/Pronamic/WP/Pay/Admin.php:449
+#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:402
+#: classes/Pronamic/WP/Pay/Admin.php:403
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -972,8 +987,8 @@ msgstr "Gefeliciteerd"
 msgid "You just installed the Pronamic iDEAL plugin."
 msgstr ""
 
-#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:457
-#: classes/Pronamic/WP/Pay/Admin.php:458
+#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:411
+#: classes/Pronamic/WP/Pay/Admin.php:412
 msgid "Tools"
 msgstr "Extra"
 
@@ -1650,17 +1665,26 @@ msgstr "Standaard"
 msgid "Configuration"
 msgstr "Configuratie"
 
+#: classes/Pronamic/WP/Pay/Admin/Install.php:87
+msgid "Payer"
+msgstr "Betaler"
+
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:65
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:139
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
+#, fuzzy
+msgid "User"
+msgstr "Gebruiker ID"
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:140
 #: classes/Pronamic/WP/Pay/PostTypes.php:70
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
 msgid "Payment"
 msgstr "Betaling"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:157
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:158
 msgid "Log"
 msgstr "Log"
 
@@ -1688,7 +1712,7 @@ msgstr "Verlopen betalingen"
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:310
+#: classes/Pronamic/WP/Pay/Admin.php:264
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1699,24 +1723,24 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:430 classes/Pronamic/WP/Pay/Admin.php:431
+#: classes/Pronamic/WP/Pay/Admin.php:384 classes/Pronamic/WP/Pay/Admin.php:385
 #: classes/Pronamic/WP/Pay/PostTypes.php:49
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:439
+#: classes/Pronamic/WP/Pay/Admin.php:393
 msgid "Forms"
 msgstr "Formulieren"
 
-#: classes/Pronamic/WP/Pay/FormProcessor.php:73
+#: classes/Pronamic/WP/Pay/FormProcessor.php:104
 msgid "Please enter your first name"
 msgstr "Voer een geldige voornaam in"
 
-#: classes/Pronamic/WP/Pay/FormProcessor.php:80
+#: classes/Pronamic/WP/Pay/FormProcessor.php:111
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
-#: classes/Pronamic/WP/Pay/FormProcessor.php:94
+#: classes/Pronamic/WP/Pay/FormProcessor.php:125
 #: classes/Pronamic/WP/Pay/PostTypes.php:97
 #: classes/Pronamic/WP/Pay/Shortcodes.php:58
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
