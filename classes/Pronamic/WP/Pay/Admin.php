@@ -29,12 +29,13 @@ class Pronamic_WP_Pay_Admin {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
 		}
 
-		// Pointers
+		// Tour
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
 			$this->tour = new Pronamic_WP_Pay_Admin_Tour( $this );
 		}
 
-		// Dashboard
+		$this->install   = new Pronamic_WP_Pay_Admin_Install( $this );
+		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
 	}
@@ -64,13 +65,6 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
-
-		// Maybe update
-		global $pronamic_pay_version;
-
-		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
-			$this->upgrade();
-		}
 	}
 
 	//////////////////////////////////////////////////
@@ -164,46 +158,6 @@ class Pronamic_WP_Pay_Admin {
 			echo $output;
 		} else {
 			return $output;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Upgrade
-	 */
-	public function upgrade() {
-		global $pronamic_pay_version;
-
-		$updates = array(
-			'2.0.0',
-			'2.0.1',
-			'3.3.0',
-			'3.7.0',
-		);
-
-		$version_current = get_option( 'pronamic_pay_version' );
-
-		if ( $version_current ) {
-			foreach ( $updates as $version ) {
-				if ( version_compare( $version_current, $version, '<' ) ) {
-					$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
-
-					if ( is_readable( $file ) ) {
-						include $file;
-
-						update_option( 'pronamic_pay_db_version', $version );
-					}
-				}
-			}
-		}
-
-		update_option( 'pronamic_pay_version', $pronamic_pay_version );
-
-		if ( ! is_network_admin() && current_user_can( 'manage_options' ) ) {
-			wp_safe_redirect( admin_url( 'index.php?page=pronamic-pay-about' ) );
-
-			exit;
 		}
 	}
 
