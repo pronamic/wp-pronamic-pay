@@ -17,7 +17,7 @@ $class = ( 'valid' === $data->license ) ? 'updated' : 'error';
 
 		if ( 'valid' == $data->license ) {
 			esc_html_e( 'You succesfully activated your website.', 'pronamic_ideal' );
-		} elseif ( 'invalid' == $data->license && 0 == $data->activations_left ) {
+		} elseif ( 'invalid' == $data->license && 0 === $data->activations_left ) {
 			echo wp_kses(
 				__( 'This license does not have any activations left. Maybe you have to deactivate your license on a local/staging server. This can be done on your <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu account</a>.', 'pronamic_ideal' ),
 				array(
