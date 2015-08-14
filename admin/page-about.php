@@ -23,7 +23,16 @@ if ( ! defined( 'WPINC' ) ) {
 		?>
 	</div>
 
-	<div class="wp-badge pronamic-pay-badge">Versie: 3.7.0</div>
+	<div class="wp-badge pronamic-pay-badge">
+		<?php
+
+		printf(
+			esc_html__( 'Version: %s', 'pronamic_ideal' ),
+			esc_html( $this->plugin->get_version() )
+		);
+
+		?>
+	</div>
 
 	<h2 class="nav-tab-wrapper">
 		<?php

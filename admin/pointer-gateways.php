@@ -2,6 +2,8 @@
 
 <p>
 	<?php esc_html_e( 'Here you can find an overview of all the gateway configurations on your WordPres site.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'To use the Pronamic iDEAL plugin you have to add an payment gateway configuration.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'Normally you get the required configuration information from your payment provider.', 'pronamic_ideal' ); ?>
 </p>
 
 <div class="wp-pointer-buttons pp-pointer-buttons">

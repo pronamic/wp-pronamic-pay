@@ -53,13 +53,13 @@
 						<dt><?php esc_html_e( 'Message', 'pronamic_ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_message() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Detail', 'pronamic_ideal' ) ); ?></dt>
+						<dt><?php esc_html_e( 'Detail', 'pronamic_ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_detail() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Suggested Action', 'pronamic_ideal' ) ); ?></dt>
+						<dt><?php esc_html_e( 'Suggested Action', 'pronamic_ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_suggested_action() ); ?></dd>
 
-						<dt><?php esc_html_e( 'Consumer Message', 'pronamic_ideal' ) ); ?></dt>
+						<dt><?php esc_html_e( 'Consumer Message', 'pronamic_ideal' ); ?></dt>
 						<dd><?php echo esc_html( $ideal_error->get_consumer_message() ); ?></dd>
 					</dl>
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-13 14:02:27+00:00\n"
-"PO-Revision-Date: 2015-08-13 16:05+0100\n"
+"POT-Creation-Date: 2015-08-14 12:55:24+00:00\n"
+"PO-Revision-Date: 2015-08-14 14:55+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -48,7 +48,7 @@ msgid "Provider"
 msgstr "Provider"
 
 #: admin/meta-box-form-options.php:7
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:41
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:64
 msgid "Gateway"
 msgstr "Gateway"
@@ -85,7 +85,7 @@ msgstr "Test"
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
 #: admin/tab-branding.php:17 admin/tab-branding.php:23
 #: admin/tab-methods.php:89 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:364 classes/Pronamic/WP/Pay/Admin.php:365
+#: classes/Pronamic/WP/Pay/Admin.php:400 classes/Pronamic/WP/Pay/Admin.php:401
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -682,8 +682,8 @@ msgid "filename"
 msgstr "bestandsnaam"
 
 #: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
-#: admin/tab-ideal_status.php:46
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
+#: admin/tab-ideal_status.php:54
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:49
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:46
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:72
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
@@ -841,17 +841,24 @@ msgstr ""
 msgid "Welcome at Pronamic iDEAL"
 msgstr "Welkom bij Pronamic iDEAL"
 
-#: admin/page-about.php:16
+#: admin/page-about.php:19
 msgid ""
-"Thanks for installing Pronamic iDEAL. Version 3.7.0 is more powerful, stable "
+"Thanks for installing Pronamic iDEAL. Version %s is more powerful, stable "
 "and secure than ever before. We hope you enjoy using it."
 msgstr ""
+"Bedankt voor het installeren van Pronamic iDEAL. Versie %s is krachtiger, "
+"stabieler en veiliger dan ooit tevoeren. We hopen dat je het met plezier "
+"gebruikt."
 
-#: admin/page-about.php:25
+#: admin/page-about.php:30
+msgid "Version: %s"
+msgstr "Versie: %s"
+
+#: admin/page-about.php:41
 msgid "What is new"
 msgstr "Wat is nieuw"
 
-#: admin/page-about.php:26
+#: admin/page-about.php:42
 msgid "Getting started"
 msgstr "Om te beginnen"
 
@@ -876,6 +883,7 @@ msgid "Getting Started"
 msgstr "Om te beginnen"
 
 #: admin/page-dashboard.php:51 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -896,27 +904,31 @@ msgstr "Pronamic nieuws"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: admin/page-tools.php:5 admin/tab-ideal_status.php:1
+#: admin/page-tools.php:5 admin/pointer-tools.php:13
+#: admin/tab-ideal_status.php:1
 msgid "iDEAL Status"
 msgstr "iDEAL-status"
 
-#: admin/page-tools.php:6 admin/tab-pages_generator.php:1
+#: admin/page-tools.php:6 admin/pointer-tools.php:18
+#: admin/tab-pages_generator.php:1
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
 #: admin/page-tools.php:7 admin/pointer-gateways.php:1
+#: admin/pointer-tools.php:23
 msgid "Gateways"
 msgstr "Gateways"
 
-#: admin/page-tools.php:8
+#: admin/page-tools.php:8 admin/pointer-tools.php:28
 msgid "Extensions"
 msgstr "Extensies"
 
-#: admin/page-tools.php:9
+#: admin/page-tools.php:9 admin/pointer-tools.php:33
 msgid "Methods"
 msgstr "Methoden"
 
-#: admin/page-tools.php:10 admin/tab-documentation.php:1
+#: admin/page-tools.php:10 admin/pointer-tools.php:38
+#: admin/tab-documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -924,35 +936,51 @@ msgstr "Documentatie"
 msgid "Branding"
 msgstr "Huisstijl"
 
-#: admin/page-tools.php:12
+#: admin/page-tools.php:12 admin/pointer-tools.php:48
 msgid "License"
 msgstr "Licentie"
 
 #: admin/pointer-dashboard.php:1
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:108
-#: classes/Pronamic/WP/Pay/Admin.php:419
+#: classes/Pronamic/WP/Pay/Admin.php:455
 msgid "Dashboard"
 msgstr "Dashboard"
 
 #: admin/pointer-dashboard.php:4
-msgid "The Pronamic iDEAL dashboard."
-msgstr "Het Pronamic iDEAL dashboard."
+msgid ""
+"On the Pronamic iDEAL dashboard you can restart this tour and see an "
+"overview of the latest pending payments."
+msgstr ""
+"Op het Pronamic iDEAL dashboard kun je deze rondleiding opnieuw starten en "
+"een overzicht van de laatste in afwachting betalingen zien."
 
-#: admin/pointer-dashboard.php:9 admin/pointer-forms.php:11
-#: admin/pointer-gateways.php:11 admin/pointer-payments.php:11
-#: admin/pointer-settings.php:11 admin/pointer-tools.php:11
+#: admin/pointer-dashboard.php:5
+msgid ""
+"It also gives you access to the “Getting Started” and “System Status” pages "
+"in case you have issues."
+msgstr ""
+"Het geeft je ook toegang tot de “Om te beginnen” en “Systeemstatus” pagina’s "
+"als je problemen hebt."
+
+#: admin/pointer-dashboard.php:6
+msgid "And you can follow the latest news from the Pronamic.eu weblog."
+msgstr "En je kunt het laatste nieuws volgen van de Pronamic.nl weblog."
+
+#: admin/pointer-dashboard.php:11 admin/pointer-forms.php:29
+#: admin/pointer-gateways.php:13 admin/pointer-payments.php:13
+#: admin/pointer-reports.php:12 admin/pointer-settings.php:12
 msgid "Next"
 msgstr "Volgende"
 
-#: admin/pointer-dashboard.php:11 admin/pointer-forms.php:13
-#: admin/pointer-gateways.php:13 admin/pointer-payments.php:13
-#: admin/pointer-reports.php:11 admin/pointer-settings.php:13
-#: admin/pointer-start.php:11 admin/pointer-tools.php:13
+#: admin/pointer-dashboard.php:13 admin/pointer-forms.php:31
+#: admin/pointer-gateways.php:15 admin/pointer-payments.php:15
+#: admin/pointer-reports.php:14 admin/pointer-settings.php:14
+#: admin/pointer-start.php:11 admin/pointer-tools.php:56
 msgid "Close"
 msgstr "Sluiten"
 
-#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:390
+#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:426
 #: classes/Pronamic/WP/Pay/PostTypes.php:94
 #: classes/Pronamic/WP/Pay/PostTypes.php:96
 #: classes/Pronamic/WP/Pay/PostTypes.php:107
@@ -964,12 +992,30 @@ msgstr "Betalingsformulieren"
 
 #: admin/pointer-forms.php:4
 msgid ""
-"Here you can find an overview of all the payment forms on your WordPres site."
+"On the payment forms page you can add, edit or delete simple payment forms."
 msgstr ""
+"Op de betalingsformulieren pagina kun je eenvoudige betalingsformulieren "
+"toevoegen, bewerken of verwijderen."
 
-#: admin/pointer-forms.php:8 admin/pointer-gateways.php:8
-#: admin/pointer-payments.php:8 admin/pointer-reports.php:8
-#: admin/pointer-settings.php:8 admin/pointer-tools.php:8
+#: admin/pointer-forms.php:5
+msgid ""
+"Currently it’s not possible to adjust the form fields or styling of these "
+"forms."
+msgstr ""
+"Momenteel is het niet mogelijk om de formuliervelden of opmaak van deze "
+"formulieren te wijzigen."
+
+#: admin/pointer-forms.php:10
+msgid ""
+"For more advanced payment forms we advice you to use the <a href=\"%s\" "
+"target=\"%s\">“Gravity Forms” plugin</a>."
+msgstr ""
+"Voor meer geavanceerde betalingsformulieren adviseren we je om gebruik te "
+"maken van de <a href=\"%s\" target=\"%s\">“Gravity Forms” plugin</a>."
+
+#: admin/pointer-forms.php:26 admin/pointer-gateways.php:10
+#: admin/pointer-payments.php:10 admin/pointer-reports.php:9
+#: admin/pointer-settings.php:9 admin/pointer-tools.php:53
 msgid "Previous"
 msgstr "Vorige"
 
@@ -978,10 +1024,28 @@ msgid ""
 "Here you can find an overview of all the gateway configurations on your "
 "WordPres site."
 msgstr ""
+"Hier vind je een overzicht van al de betalingsconfiguraties op je WordPress "
+"website."
+
+#: admin/pointer-gateways.php:5
+msgid ""
+"To use the Pronamic iDEAL plugin you have to add an payment gateway "
+"configuration."
+msgstr ""
+"Om de Pronamic iDEAL plugin te gebruiken moet je een betalingsgateway "
+"configuratie toevoegen."
+
+#: admin/pointer-gateways.php:6
+msgid ""
+"Normally you get the required configuration information from your payment "
+"provider."
+msgstr ""
+"Normaliter krijgen je benodigde configuratie informatie van je "
+"betalingsprovider."
 
 #: admin/pointer-payments.php:1
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:42
-#: classes/Pronamic/WP/Pay/Admin.php:374 classes/Pronamic/WP/Pay/Admin.php:375
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:46
+#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
 #: classes/Pronamic/WP/Pay/PostTypes.php:67
 #: classes/Pronamic/WP/Pay/PostTypes.php:69
 #: classes/Pronamic/WP/Pay/PostTypes.php:80
@@ -990,44 +1054,166 @@ msgstr "Betalingen"
 
 #: admin/pointer-payments.php:4
 msgid ""
-"Here you can find an overview of all the payment initiated on your WordPres "
-"site."
+"On the payments page you can find an overview off all the payments initiated "
+"on your WordPres site."
 msgstr ""
+"Op de betalingen pagina vind je een overzicht van alle betalingen die "
+"gestart zijn op je WordPress website."
 
-#: admin/pointer-reports.php:1 classes/Pronamic/WP/Pay/Admin/Reports.php:27
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:28
+#: admin/pointer-payments.php:5
+msgid ""
+"You can easily filter the payments by status or use the search field to "
+"search for specific payments."
+msgstr ""
+"Je kunt de betalingen eenvoudig filteren op status of het zoekveld gebruiken "
+"om te zoeken naar specifieke betalingen."
+
+#: admin/pointer-payments.php:6
+msgid ""
+"We advice you to regular check the pending payments on this overview and "
+"adjust the status of these payments manual if needed."
+msgstr ""
+"We adviseren je om regelmatig de in afwachting betalingen te controleren in "
+"dit overzicht en wanneer nodig de status van deze betalingen handmatig bij "
+"te werken."
+
+#: admin/pointer-reports.php:1 classes/Pronamic/WP/Pay/Admin/Reports.php:25
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:26
 msgid "Reports"
 msgstr "Rapporten"
 
 #: admin/pointer-reports.php:4
-msgid "Here you can find the Pronamic iDEAL reports."
+msgid ""
+"The Pronamic iDEAL reports page shows you an graph of all the payments of "
+"this year."
 msgstr ""
+"De Pronamic iDEAL rapporten pagina toont een grafiek van alle betalingen van "
+"dit jaar."
 
-#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:400
-#: classes/Pronamic/WP/Pay/Admin.php:401
+#: admin/pointer-reports.php:5
+msgid ""
+"You can see the number of succesfull payments and the total amount of "
+"pending, succesfull, cancelled and failed payments."
+msgstr ""
+"Je kunt het aantal succesvolle betalingen en het totale bedrag aan in "
+"afwachting, succesvolle, geannuleerde en mislukte betalingen zien."
+
+#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:436
+#: classes/Pronamic/WP/Pay/Admin.php:437
 msgid "Settings"
 msgstr "Instellingen"
 
 #: admin/pointer-settings.php:4
-msgid "Here you can find the Pronamic iDEAL settings."
+msgid "These are the General settings for the Pronamic iDEAL plugin."
+msgstr "Dit zijn de algemene instellingen voor de Pronamic iDEAL plugin."
+
+#: admin/pointer-settings.php:5
+msgid ""
+"Here you can enter your license key and configure some default settings."
 msgstr ""
+"Hier kun je je licentiesleutel invoeren en enkele standaard instellingen "
+"configureren."
 
 #: admin/pointer-start.php:1
 msgid "Congratulations"
 msgstr "Gefeliciteerd"
 
 #: admin/pointer-start.php:4
-msgid "You just installed the Pronamic iDEAL plugin."
+msgid ""
+"You’ve just installed the Pronamic iDEAL plugin. Click “Start Tour” to view "
+"a quick introduction of this plugin’s core functionality."
 msgstr ""
+"Zojuist is Pronamic iDEAL geïnstalleerd. Klik op “Rondleiding starten” om "
+"een snelle introductie van de kernfunctionaliteit van deze plugin te zien."
 
-#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:409
-#: classes/Pronamic/WP/Pay/Admin.php:410
+#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:445
+#: classes/Pronamic/WP/Pay/Admin.php:446
 msgid "Tools"
 msgstr "Extra"
 
 #: admin/pointer-tools.php:4
-msgid "Here you can find the Pronamic iDEAL tools."
+msgid ""
+"On the tools page you can find some additional features and information."
 msgstr ""
+"Op de extra pagina vind je een aantal aanvullende functionaliteiten en "
+"informatie."
+
+#: admin/pointer-tools.php:9
+msgid ""
+"The system status page gives you some basic information about your WordPress "
+"installation which come in handy if you are having issues."
+msgstr ""
+"De systeemstatus pagina geeft je basis informatie over de WordPress "
+"installatie welke van pas komen als je problemen hebt."
+
+#: admin/pointer-tools.php:14
+msgid ""
+"The iDEAL status page gives you information about the iDEAL status of the "
+"various banks who offer iDEAL."
+msgstr ""
+"De iDEAL status pagina geeft je informatie over de iDEAL status van de "
+"verschillende banken die iDEAL aanbieden."
+
+#: admin/pointer-tools.php:19
+msgid ""
+"With the pages generator tool you can easily generate some optional payment "
+"status pages."
+msgstr ""
+"Met de pagina's generator kun je eenvoudig een aantal optionele "
+"betalingstatus pagina's genereren."
+
+#: admin/pointer-tools.php:24
+msgid ""
+"The gateways page gives you an overview of all the gateways that er "
+"supported by the Pronamic iDEAL plugin."
+msgstr ""
+"De gateways pagina geeft je een overzicht van alle gateways die ondersteund "
+"worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:29
+msgid ""
+"The extensions page gives you an overview of all the extensions that er "
+"supported by the Pronamic iDEAL plugin."
+msgstr ""
+"De extensies pagina geeft je een overzicht van alle extensies die "
+"ondersteund worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:34
+msgid ""
+"The methods page gives you an overview of all the methods that er supported "
+"by the Pronamic iDEAL plugin."
+msgstr ""
+"De methoden pagina geeft je een overzicht van alle methodes die ondersteund "
+"worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:39
+msgid ""
+"The documentation page has an overview of all kind of documentation files "
+"from different payment providers."
+msgstr ""
+"De documentatie pagina heeft een overzicht van allerlei documentatie "
+"bestanden van verschillende betalingsproviders."
+
+#: admin/pointer-tools.php:43
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
+msgid "Brand"
+msgstr "Merk"
+
+#: admin/pointer-tools.php:44
+msgid ""
+"The brand page has some additional images and banners which you could add to "
+"your WordPress website."
+msgstr ""
+"De huisstilj pagina geeft je aanvullende afbeeldingen en banners welke je "
+"kunt toevoegen aan je WordPress website."
+
+#: admin/pointer-tools.php:49
+msgid ""
+"The license page gives you additional information about your license and "
+"license key."
+msgstr ""
+"De licentie pagina geeft je aanvullende informatie over je licentie en "
+"licentiesleutel."
 
 #. Author of the plugin/theme
 msgid "Pronamic"
@@ -1106,7 +1292,7 @@ msgstr "Mollie bage - Betaling groen"
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:95
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:40
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:44
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:41
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:63
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:26
@@ -1128,13 +1314,6 @@ msgstr "Afbeelding"
 #: views/error.php:50
 msgid "Code"
 msgstr "Code"
-
-#: admin/tab-branding.php:279
-msgid ""
-"PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
-msgstr ""
-"PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
-"\">TinyPNG</a>."
 
 #: admin/tab-documentation.php:627
 msgid "Version"
@@ -1305,7 +1484,7 @@ msgstr "Markdown"
 msgid "Payment Gateways"
 msgstr "Betalingsgateways"
 
-#: admin/tab-ideal_status.php:7
+#: admin/tab-ideal_status.php:8
 msgid ""
 "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
 "the following status of the various iDEAL banks:"
@@ -1313,20 +1492,20 @@ msgstr ""
 "De <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitort "
 "de volgende status van de verscheidene iDEAL-banken:"
 
-#: admin/tab-ideal_status.php:40
+#: admin/tab-ideal_status.php:48
 msgid "Issuer Name"
 msgstr "Issuer naam"
 
-#: admin/tab-ideal_status.php:43
+#: admin/tab-ideal_status.php:51
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:374
+#: admin/tab-ideal_status.php:57 classes/Pronamic/WP/Pay/Plugin.php:392
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:462
 msgid "Success"
 msgstr "Succes"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:370
+#: admin/tab-ideal_status.php:60 classes/Pronamic/WP/Pay/Plugin.php:388
 msgid "Failure"
 msgstr "Storing"
 
@@ -1570,51 +1749,51 @@ msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 msgid "WP Memory Limit"
 msgstr "WP geheugenlimiet"
 
-#: admin/tab-system_status.php:109
+#: admin/tab-system_status.php:110
 msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
-"memory allocated to PHP</a>"
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\" target="
+"\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
 "We adviseren om het geheugen minimaal in te stellen op 64MB. Zie: <a href="
 "\"%s\">Verhoog toegewezen geheugen aan PHP</a>."
 
-#: admin/tab-system_status.php:119
+#: admin/tab-system_status.php:127
 msgid "Character Set"
 msgstr "Tekencodering"
 
-#: admin/tab-system_status.php:131
+#: admin/tab-system_status.php:139
 msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
 msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
 
-#: admin/tab-system_status.php:139
+#: admin/tab-system_status.php:147
 msgid "Time"
 msgstr "Tijd"
 
-#: admin/tab-system_status.php:142
+#: admin/tab-system_status.php:150
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
-#: admin/tab-system_status.php:151
+#: admin/tab-system_status.php:159
 msgid "cURL"
 msgstr "cURL"
 
-#: admin/tab-system_status.php:176
+#: admin/tab-system_status.php:184
 msgid "OpenSSL"
 msgstr "OpenSSL"
 
-#: admin/tab-system_status.php:196
+#: admin/tab-system_status.php:204
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
 
-#: admin/tab-system_status.php:204
+#: admin/tab-system_status.php:212
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: admin/tab-system_status.php:221
+#: admin/tab-system_status.php:229
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: admin/tab-system_status.php:229
+#: admin/tab-system_status.php:237
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
@@ -1656,20 +1835,20 @@ msgid_plural "%s payments"
 msgstr[0] "%s betaling"
 msgstr[1] "%s betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:43
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:47
 msgid "Earnings"
 msgstr "Inkomsten"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:44
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:48
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:154
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:158
 msgid "Form Options"
 msgstr "Formulier opties"
 
-#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:227
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:231
 msgid "Shortcode:"
 msgstr "Shortcode:"
 
@@ -1698,7 +1877,7 @@ msgstr "Standaard"
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: classes/Pronamic/WP/Pay/Admin/Install.php:87
+#: classes/Pronamic/WP/Pay/Admin/Install.php:119
 msgid "Payer"
 msgstr "Betaler"
 
@@ -1720,31 +1899,31 @@ msgstr "Betaling"
 msgid "Log"
 msgstr "Log"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:121
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:120
 msgid "Number succesfull payments"
 msgstr "Aantal succesvolle betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:136
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:135
 msgid "Open payments"
 msgstr "Open betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:156
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:155
 msgid "Succesfull payments"
 msgstr "Succesvolle betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:177
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:176
 msgid "Cancelled payments"
 msgstr "Geannuleerde betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:198
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:197
 msgid "Expired payments"
 msgstr "Verlopen betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin/Reports.php:219
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:218
 msgid "Failed payments"
 msgstr "Mislukte betalingen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:262
+#: classes/Pronamic/WP/Pay/Admin.php:298
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1755,12 +1934,12 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:382 classes/Pronamic/WP/Pay/Admin.php:383
+#: classes/Pronamic/WP/Pay/Admin.php:418 classes/Pronamic/WP/Pay/Admin.php:419
 #: classes/Pronamic/WP/Pay/PostTypes.php:49
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:391
+#: classes/Pronamic/WP/Pay/Admin.php:427
 msgid "Forms"
 msgstr "Formulieren"
 
@@ -1793,38 +1972,38 @@ msgstr "Betaling %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:366
+#: classes/Pronamic/WP/Pay/Plugin.php:384
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:368
+#: classes/Pronamic/WP/Pay/Plugin.php:386
 #: classes/Pronamic/WP/Pay/Settings.php:105
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:372
+#: classes/Pronamic/WP/Pay/Plugin.php:390
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:461
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:376
+#: classes/Pronamic/WP/Pay/Plugin.php:394
 #: classes/Pronamic/WP/Pay/Settings.php:104
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:401
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:458
+#: classes/Pronamic/WP/Pay/Plugin.php:476
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:580
+#: classes/Pronamic/WP/Pay/Plugin.php:598
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -2955,10 +3134,6 @@ msgstr "Betaal ID"
 msgid "NC Error"
 msgstr "NC Fout"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
-msgid "Brand"
-msgstr "Merk"
-
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
 msgid "IP"
 msgstr "IP"
@@ -3039,7 +3214,7 @@ msgstr "Bestelling"
 msgid "Expected result if integration is correct"
 msgstr "Verwacht resultaat als de integratie juist is"
 
-#: views/ideal-test-cases.php:53
+#: views/ideal-test-cases.php:54
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
@@ -3147,49 +3322,49 @@ msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:382
+#: classes/Pronamic/WP/Pay/Plugin.php:400
 #: classes/Pronamic/WP/Pay/PostTypes.php:131
 msgctxt "Payment status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:383
+#: classes/Pronamic/WP/Pay/Plugin.php:401
 #: classes/Pronamic/WP/Pay/PostTypes.php:140
 msgctxt "Payment status"
 msgid "Processing"
 msgstr "In verwerking"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:384
+#: classes/Pronamic/WP/Pay/Plugin.php:402
 #: classes/Pronamic/WP/Pay/PostTypes.php:149
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr "In de wacht"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:385
+#: classes/Pronamic/WP/Pay/Plugin.php:403
 #: classes/Pronamic/WP/Pay/PostTypes.php:158
 msgctxt "Payment status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:386
+#: classes/Pronamic/WP/Pay/Plugin.php:404
 #: classes/Pronamic/WP/Pay/PostTypes.php:167
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:387
+#: classes/Pronamic/WP/Pay/Plugin.php:405
 #: classes/Pronamic/WP/Pay/PostTypes.php:176
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr "Terugbetaald"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:388
+#: classes/Pronamic/WP/Pay/Plugin.php:406
 #: classes/Pronamic/WP/Pay/PostTypes.php:185
 msgctxt "Payment status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:389
+#: classes/Pronamic/WP/Pay/Plugin.php:407
 #: classes/Pronamic/WP/Pay/PostTypes.php:194
 msgctxt "Payment status"
 msgid "Expired"
@@ -3209,6 +3384,49 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#, fuzzy
+#~ msgid "Tab: System Status"
+#~ msgstr "Systeemstatus"
+
+#, fuzzy
+#~ msgid "Tab: iDEAL Status"
+#~ msgstr "iDEAL-status"
+
+#, fuzzy
+#~ msgid "Tab: Pages Generator"
+#~ msgstr "Pagina's generator"
+
+#, fuzzy
+#~ msgid "Tab: Gateways"
+#~ msgstr "Gateways"
+
+#, fuzzy
+#~ msgid "Tab: Extensions"
+#~ msgstr "Extensies"
+
+#, fuzzy
+#~ msgid "Tab: Methods"
+#~ msgstr "Methoden"
+
+#~ msgid "Tab: Documentation"
+#~ msgstr "Tab: Documentatie"
+
+#~ msgid "Tab: Brand"
+#~ msgstr "Tab: Merk"
+
+#~ msgid "Tab: License"
+#~ msgstr "Tab: Licentie"
+
+#~ msgid "The Pronamic iDEAL dashboard."
+#~ msgstr "Het Pronamic iDEAL dashboard."
+
+#~ msgid ""
+#~ "PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</"
+#~ "a>."
+#~ msgstr ""
+#~ "PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
+#~ "\">TinyPNG</a>."
 
 #~ msgid "License key was activated for"
 #~ msgstr "Licentiesleutel is geactiveerd voor"

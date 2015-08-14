@@ -25,7 +25,11 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+		/*
+		 * Add meta box, we use priority 9 to make sure it loads before Yoast SEO meta box
+		 * @see https://github.com/Yoast/wordpress-seo/blob/2.3.4/admin/class-metabox.php#L20
+		 */
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 9 );
 
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 
