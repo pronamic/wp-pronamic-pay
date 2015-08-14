@@ -17,8 +17,6 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		// Actions
 		add_action( 'pronamic_pay_admin_menu', array( $this, 'admin_menu' ) );
-
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	public function admin_menu() {
@@ -30,6 +28,9 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'pronamic_pay_reports',
 			array( $this, 'page_reports' )
 		);
+
+		// @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/admin-header.php#L82-L87
+		add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
 	}
 
 	public function page_reports() {
@@ -41,73 +42,71 @@ class Pronamic_WP_Pay_Admin_Reports {
 	/**
 	 * Enqueue admin scripts
 	 */
-	public function enqueue_scripts( $hook ) {
-		if ( 'ideal_page_pronamic_pay_reports' === $hook ) {
-			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	public function admin_css() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// Flot - http://www.flotcharts.org/
-			wp_register_script(
+		// Flot - http://www.flotcharts.org/
+		wp_register_script(
+			'flot',
+			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			array( 'jquery' ),
+			'0.8.3',
+			true
+		);
+
+		wp_register_script(
+			'flot-time',
+			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			array( 'flot' ),
+			'0.8.3',
+			true
+		);
+
+		wp_register_script(
+			'flot-resize',
+			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			array( 'flot' ),
+			'0.8.3',
+			true
+		);
+
+		// Accounting.js - http://openexchangerates.github.io/accounting.js
+		wp_register_script(
+			'accounting',
+			plugins_url( 'assets/accounting/accounting' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			array( 'jquery' ),
+			'0.4.1',
+			true
+		);
+
+		// Reports
+		wp_register_script(
+			'proanmic-pay-admin-reports',
+			plugins_url( 'js/admin-reports' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			array(
+				'jquery',
 				'flot',
-				plugins_url( 'assets/flot/jquery.flot' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'0.8.3',
-				true
-			);
-
-			wp_register_script(
 				'flot-time',
-				plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'flot' ),
-				'0.8.3',
-				true
-			);
-
-			wp_register_script(
 				'flot-resize',
-				plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'flot' ),
-				'0.8.3',
-				true
-			);
-
-			// Accounting.js - http://openexchangerates.github.io/accounting.js
-			wp_register_script(
 				'accounting',
-				plugins_url( 'assets/accounting/accounting' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'0.4.1',
-				true
-			);
+			),
+			'3.7.0',
+			true
+		);
 
-			// Reports
-			wp_register_script(
-				'proanmic-pay-admin-reports',
-				plugins_url( 'js/admin-reports' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array(
-					'jquery',
-					'flot',
-					'flot-time',
-					'flot-resize',
-					'accounting',
-				),
-				'3.7.0',
-				true
-			);
+		global $wp_locale;
 
-			global $wp_locale;
+		wp_localize_script(
+			'proanmic-pay-admin-reports',
+			'pronamicPayAdminReports',
+			array(
+				'data'       => $this->get_reports(),
+				'monthNames' => array_values( $wp_locale->month_abbrev ),
+			)
+		);
 
-			wp_localize_script(
-				'proanmic-pay-admin-reports',
-				'pronamicPayAdminReports',
-				array(
-					'data'       => $this->get_reports(),
-					'monthNames' => array_values( $wp_locale->month_abbrev ),
-				)
-			);
-
-			// Enqueue
-			wp_enqueue_script( 'proanmic-pay-admin-reports' );
-		}
+		// Enqueue
+		wp_enqueue_script( 'proanmic-pay-admin-reports' );
 	}
 
 	//////////////////////////////////////////////////
