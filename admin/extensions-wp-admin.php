@@ -2,25 +2,25 @@
 	<thead>
 		<tr>
 			<th scope="col">
-				<?php _e( 'Name', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Name', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Author', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Author', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'WordPress.org', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'WordPress.org', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'GitHub', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'GitHub', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Requires at least', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Requires at least', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Tested up to', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Tested up to', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Active', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Active', 'pronamic_ideal' ); ?>
 			</th>
 		</tr>
 	</thead>
@@ -78,7 +78,7 @@
 					<?php
 
 					if ( isset( $extension['requires_at_least'] ) ) {
-						echo $extension['requires_at_least'];
+						echo esc_html( $extension['requires_at_least'] );
 					}
 
 					?>

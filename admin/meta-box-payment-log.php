@@ -13,7 +13,7 @@ $comments = get_comments( array(
 
 			<tr class="no-items">
 				<td>
-					<?php _e( 'No logs found.', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'No logs found.', 'pronamic_ideal' ); ?>
 				</td>
 			</tr>
 
@@ -31,16 +31,16 @@ $comments = get_comments( array(
 					<td>
 						<?php
 
-						printf( __( '%1$s at %2$s', 'pronamic_ideal' ),
+						printf( esc_html__( '%1$s at %2$s', 'pronamic_ideal' ),
 							/* translators: comment date format. See http://php.net/date */
-							get_comment_date( __( 'Y/m/d', 'pronamic_ideal' ), $comment->comment_ID ),
-							get_comment_date( get_option( 'time_format' ), $comment->comment_ID )
+							esc_html( get_comment_date( __( 'Y/m/d', 'pronamic_ideal' ), $comment->comment_ID ) ),
+							esc_html( get_comment_date( get_option( 'time_format' ), $comment->comment_ID ) )
 						);
 
 						?>
 					</td>
 					<td>
-						<?php echo $comment->comment_content; ?>
+						<?php comment_text( $comment ); ?>
 					</td>
 				</tr>
 

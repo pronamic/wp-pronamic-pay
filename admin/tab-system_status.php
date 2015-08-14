@@ -1,4 +1,4 @@
-<h3><?php _e( 'Installation Status', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Installation Status', 'pronamic_ideal' ); ?></h3>
 
 <table class="pronamic-pay-status-table widefat">
 	<tr>
@@ -6,7 +6,7 @@
 			<?php esc_html_e( 'Site URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo site_url(); ?>
+			<?php echo esc_html( site_url() ); ?>
 		</td>
 		<td>
 			&#10003;
@@ -17,7 +17,7 @@
 			<?php esc_html_e( 'Home URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo home_url(); ?>
+			<?php echo esc_html( home_url() ); ?>
 		</td>
 		<td>
 			&#10003;
@@ -28,7 +28,7 @@
 			<?php esc_html_e( 'PHP Version', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo phpversion(); ?>
+			<?php echo esc_html( phpversion() ); ?>
 		</td>
 		<td>
 			<?php
@@ -51,7 +51,7 @@
 
 			global $wpdb;
 
-			echo $wpdb->db_version();
+			echo esc_html( $wpdb->db_version() );
 
 			?>
 		</td>
@@ -72,7 +72,7 @@
 			<?php esc_html_e( 'WordPress Version', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo get_bloginfo( 'version' ); ?>
+			<?php echo esc_html( get_bloginfo( 'version' ) ); ?>
 		</td>
 		<td>
 			<?php
@@ -95,7 +95,7 @@
 
 			$memory = pronamic_pay_let_to_num( WP_MEMORY_LIMIT );
 
-			echo size_format( $memory );
+			echo esc_html( size_format( $memory ) );
 
 			?>
 		</td>
@@ -105,9 +105,17 @@
 			if ( $memory > 67108864 ) { // 64 MB
 				echo '&#10003;';
 			} else {
-				printf(
-					__( 'We recommend setting memory to at least 64MB. See: <a href="%s">Increasing memory allocated to PHP</a>', 'pronamic_ideal' ),
-					'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP'
+				echo wp_kses(
+					sprintf(
+						__( 'We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'pronamic_ideal' ),
+						esc_attr( 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' )
+					),
+					array(
+						'a' => array(
+							'href'   => true,
+							'target' => true,
+						),
+					)
 				);
 			}
 
@@ -161,7 +169,7 @@
 				// @codingStandardsIgnoreEnd
 
 				if ( isset( $version['version'] ) ) {
-					echo $version['version'];
+					echo esc_html( $version['version'] );
 				}
 			}
 
@@ -179,7 +187,7 @@
 			<?php
 
 			if ( defined( 'OPENSSL_VERSION_TEXT' ) ) {
-				echo OPENSSL_VERSION_TEXT;
+				echo esc_html( OPENSSL_VERSION_TEXT );
 			}
 
 			// @see https://www.openssl.org/docs/crypto/OPENSSL_VERSION_NUMBER.html
@@ -208,7 +216,7 @@
 
 			$algorithms = hash_algos();
 
-			echo implode( ', ', $algorithms );
+			echo esc_html( implode( ', ', $algorithms ) );
 
 			?>
 		</td>

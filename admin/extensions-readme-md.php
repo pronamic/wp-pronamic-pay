@@ -1,12 +1,12 @@
 <table>
 	<thead>
 		<tr>
-			<th scope="col"><?php _ex( 'Name', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'Author', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'WordPress.org', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'GitHub', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'Requires at least', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'Tested up to', 'readme.md', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Name', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Author', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'WordPress.org', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'GitHub', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Requires at least', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Tested up to', 'readme.md', 'pronamic_ideal' ) ); ?></th>
 		</tr>
 	</thead>
 
@@ -58,7 +58,7 @@
 			<td><?php
 
 			if ( isset( $extension['requires_at_least'] ) ) {
-				echo $extension['requires_at_least'];
+				echo esc_html( $extension['requires_at_least'] );
 			}
 
 			?></td>

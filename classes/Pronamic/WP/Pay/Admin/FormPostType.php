@@ -95,7 +95,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 				$value = $wpdb->get_var( $query );
 
-				echo number_format_i18n( $value );
+				echo esc_html( number_format_i18n( $value ) );
 
 				break;
 			case 'pronamic_payment_form_earnings' :
@@ -131,7 +131,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 				$value = $wpdb->get_var( $query );
 
-				echo '€', '&nbsp;', number_format_i18n( $value, 2 );
+				echo '€', '&nbsp;', esc_html( number_format_i18n( $value, 2 ) );
 
 				break;
 			case 'pronamic_payment_form_shortcode' :

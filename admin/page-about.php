@@ -13,7 +13,14 @@ if ( ! defined( 'WPINC' ) ) {
 	<h1><?php esc_html_e( 'Welcome at Pronamic iDEAL', 'pronamic_ideal' ); ?></h1>
 
 	<div class="about-text">
-		<?php esc_html_e( 'Thanks for installing Pronamic iDEAL. Version 3.7.0 is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ); ?>
+		<?php
+
+		printf(
+			esc_html__( 'Thanks for installing Pronamic iDEAL. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ),
+			esc_html( $this->plugin->get_version() )
+		);
+
+		?>
 	</div>
 
 	<div class="wp-badge pronamic-pay-badge">Versie: 3.7.0</div>
@@ -42,7 +49,7 @@ if ( ! defined( 'WPINC' ) ) {
 				'<a class="nav-tab %s" href="%s">%s</a>',
 				esc_attr( implode( ' ', $classes ) ),
 				esc_attr( $url ),
-				$title
+				esc_html( $title )
 			);
 		}
 
@@ -58,8 +65,4 @@ if ( ! defined( 'WPINC' ) ) {
 	}
 
 	?>
-
-	<div class="return-to-dashboard">
-		<a href="http://wp-pay.dev/wp-admin/">Ga naar Dashboard → Home</a>
-	</div>
 </div>

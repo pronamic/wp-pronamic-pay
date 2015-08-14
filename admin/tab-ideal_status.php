@@ -1,11 +1,19 @@
-<h3><?php _e( 'iDEAL Status', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'iDEAL Status', 'pronamic_ideal' ); ?></h3>
 
 <p>
 	<?php
 
-	printf(
-		__( 'The <a href="%s" target="_blank">iDEAL-status.nl</a> webservice monitors the following status of the various iDEAL banks:', 'pronamic_ideal' ),
-		'http://www.ideal-status.nl/'
+	echo wp_kses(
+		sprintf(
+			__( 'The <a href="%s" target="_blank">iDEAL-status.nl</a> webservice monitors the following status of the various iDEAL banks:', 'pronamic_ideal' ),
+			'http://www.ideal-status.nl/'
+		),
+		array(
+			'a' => array(
+				'href'   => true,
+				'target' => true,
+			),
+		)
 	);
 
 	?>
@@ -37,19 +45,19 @@ if ( $status_data ) : ?>
 		<thead>
 			<tr>
 				<th scope="col">
-					<?php _e( 'Issuer Name', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Issuer Name', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
-					<?php _e( 'Issuer ID', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Issuer ID', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
-					<?php _e( 'Date', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
-					<?php _e( 'Success', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Success', 'pronamic_ideal' ); ?>
 				</th>
 				<th scope="col">
-					<?php _e( 'Failure', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Failure', 'pronamic_ideal' ); ?>
 				</th>
 			</tr>
 		</thead>
@@ -59,19 +67,19 @@ if ( $status_data ) : ?>
 
 				<tr>
 					<td>
-						<?php echo $status->issuer_name; ?>
+						<?php echo esc_html( $status->issuer_name ); ?>
 					</td>
 					<td>
-						<?php echo $status->issuer_id; ?>
+						<?php echo esc_html( $status->issuer_id ); ?>
 					</td>
 					<td>
-						<?php echo $status->datetime; ?>
+						<?php echo esc_html( $status->datetime ); ?>
 					</td>
 					<td>
-						<?php echo number_format( $status->rate_success * 100, 1, ',', '.' ); ?>%
+						<?php echo esc_html( number_format( $status->rate_success * 100, 1, ',', '.' ) ); ?>%
 					</td>
 					<td>
-						<?php echo number_format( $status->rate_failure * 100, 1, ',', '.' ); ?>%
+						<?php echo esc_html( number_format( $status->rate_failure * 100, 1, ',', '.' ) ); ?>%
 					</td>
 				</tr>
 

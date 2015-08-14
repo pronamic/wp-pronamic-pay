@@ -3,9 +3,9 @@
 
 	<thead>
 		<tr>
-			<th scope="col"><?php _e( 'Icon', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _e( 'Website', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Icon', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Website', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
 

@@ -17,9 +17,9 @@
 								<strong><?php
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
-									echo '&euro;&nbsp;' . number_format_i18n( $serie->legendValue, 2 );
+									echo '&euro;&nbsp;' . esc_html( number_format_i18n( $serie->legendValue, 2 ) );
 								} else {
-									echo $serie->legendValue;
+									echo esc_html( $serie->legendValue );
 								}
 
 								?></strong>

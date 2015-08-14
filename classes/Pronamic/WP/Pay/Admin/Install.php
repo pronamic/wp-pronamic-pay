@@ -31,7 +31,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		$this->admin = $admin;
 
 		// Actions
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_init', array( $this, 'admin_init' ), 5 );
 	}
 
 	//////////////////////////////////////////////////
@@ -63,6 +63,8 @@ class Pronamic_WP_Pay_Admin_Install {
 	 * Install
 	 */
 	private function install() {
+		global $pronamic_pay_version;
+
 		// Roles
 		$this->create_roles();
 
@@ -70,11 +72,41 @@ class Pronamic_WP_Pay_Admin_Install {
 		flush_rewrite_rules();
 
 		// Database update
-		$current_db_version = get_option( 'pronamic_pay_db_version' );
+		$version = $pronamic_pay_version;
+
+		$parts = explode( '.', $version );
+
+		$major_version = implode( '.', array_slice( $parts, 0, 1 ) );
+		$minor_version = implode( '.', array_slice( $parts, 0, 2 ) );
+
+		$current_version    = get_option( 'pronamic_pay_version', null );
+		$current_db_version = get_option( 'pronamic_pay_db_version', null );
 
 		if ( $current_db_version && version_compare( $current_db_version, max( $this->db_updates ), '<' ) ) {
 			$this->admin->notices->add_notice( 'update_db' );
 		}
+
+		// Redirect
+		if ( null === $current_version ) {
+			// No version? This is a new install :)
+			$url = add_query_arg( array(
+				'page' => 'pronamic-pay-about',
+				'tab'  => 'getting-started',
+			), admin_url( 'index.php' ) );
+
+			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
+		} elseif ( version_compare( $current_version, $minor_version, '<' ) ) {
+			// Show welcome screen for minor updates only
+			$url = add_query_arg( array(
+				'page' => 'pronamic-pay-about',
+				'tab'  => 'new',
+			), admin_url( 'index.php' ) );
+
+			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
+		}
+
+		// Update version
+		update_option( 'pronamic_pay_version', $version );
 	}
 
 	//////////////////////////////////////////////////

@@ -64,11 +64,11 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 
 						$count = isset( $counts->$status ) ? $counts->$status : 0;
 
-						printf(
+						printf( //xss ok
 							$label,
 							'<strong>' . sprintf(
-								_n( '%s payment', '%s payments', $count, 'pronamic_ideal' ),
-								number_format_i18n( $count )
+								esc_html( _n( '%s payment', '%s payments', $count, 'pronamic_ideal' ) ),
+								esc_html( number_format_i18n( $count ) )
 							) . '</strong>'
 						);
 

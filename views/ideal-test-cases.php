@@ -49,9 +49,14 @@
 				<td>
 					<?php
 
-					printf(
-						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
-						Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
+					echo wp_kses(
+						sprintf(
+							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
+							esc_html( Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] ) )
+						),
+						array(
+							'code' => array(),
+						)
 					);
 
 					?>

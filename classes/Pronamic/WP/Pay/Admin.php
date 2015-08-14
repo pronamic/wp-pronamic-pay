@@ -13,7 +13,9 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Constructs and initalize an admin object
 	 */
-	public function __construct() {
+	public function __construct( $plugin ) {
+		$this->plugin   = $plugin;
+
 		$this->settings = new Pronamic_WP_Pay_Settings();
 
 		// Actions
@@ -54,6 +56,7 @@ class Pronamic_WP_Pay_Admin {
 		$this->maybe_download_private_certificate();
 		$this->maybe_download_private_key();
 		$this->maybe_create_pages();
+		$this->maybe_redirect();
 
 		// Actions
 		// Show license message if the license is not valid
@@ -63,6 +66,37 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+	}
+
+	/**
+	 * Maybe redirect
+	 *
+	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L29
+	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L96-L122
+	 */
+	public function maybe_redirect() {
+		$redirect = get_transient( 'pronamic_pay_admin_redirect' );
+
+		// Check
+		if (
+			false === $redirect
+				||
+			is_network_admin()
+				||
+			filter_has_var( INPUT_GET, 'activate-multi' )
+				||
+			! current_user_can( 'manage_options' )
+		) {
+			return;
+		}
+
+		// Delete
+		delete_transient( 'pronamic_pay_admin_redirect' );
+
+		// Redirect
+		wp_safe_redirect( $redirect );
+
+		exit;
 	}
 
 	//////////////////////////////////////////////////
@@ -100,7 +134,7 @@ class Pronamic_WP_Pay_Admin {
 			esc_html( $args['label'] )
 		);
 
-		printf(
+		printf( //xss ok
 			'<fieldset>%s %s</fieldset>',
 			$legend,
 			$label
@@ -153,7 +187,7 @@ class Pronamic_WP_Pay_Admin {
 
 		// Return or echo
 		if ( $args['echo'] ) {
-			echo $output;
+			echo $output; //xss ok
 		} else {
 			return $output;
 		}
@@ -223,7 +257,7 @@ class Pronamic_WP_Pay_Admin {
 			header( 'Content-Disposition: attachment; filename=' . $filename );
 			header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
 
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true ); //xss ok
 
 			exit;
 		}
@@ -242,7 +276,7 @@ class Pronamic_WP_Pay_Admin {
 			header( 'Content-Disposition: attachment; filename=' . $filename );
 			header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
 
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true ); //xss ok
 
 			exit;
 		}
@@ -255,9 +289,11 @@ class Pronamic_WP_Pay_Admin {
 	 */
 	public function admin_notices() {
 		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
-			printf(
+			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
+
+			printf( //xss ok
 				'<div class="%s"><p>%s</p></div>',
-				Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated',
+				esc_attr( $class ),
 				sprintf(
 					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )

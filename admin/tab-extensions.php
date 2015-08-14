@@ -1,4 +1,4 @@
-<h3><?php _e( 'Supported Extensions', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Supported Extensions', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -244,7 +244,7 @@ $output = array(
 foreach ( $output as $name => $file ) {
 	if ( filter_has_var( INPUT_GET, $name ) ) : ?>
 
-		<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
+		<h4><?php esc_html_e( 'Markdown', 'pronamic_ideal' ); ?></h4>
 
 		<?php
 

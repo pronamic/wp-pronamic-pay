@@ -127,7 +127,7 @@
 					<?php esc_html_e( 'Please click the button below if you are not automatically redirected.', 'pronamic_ideal' ); ?>
 				</p>
 
-				<?php echo $this->get_form_html( $payment, $auto_submit ); ?>
+				<?php echo $this->get_form_html( $payment, $auto_submit ); //xss ok ?>
 			</div>
 		</div>
 	</body>

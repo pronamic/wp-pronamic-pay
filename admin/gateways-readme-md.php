@@ -1,8 +1,8 @@
 <table>
 	<thead>
 		<tr>
-			<th scope="col"><?php _ex( 'Provider', 'readme.md', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _ex( 'Name', 'readme.md', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Provider', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col"><?php esc_html( _x( 'Name', 'readme.md', 'pronamic_ideal' ) ); ?></th>
 		</tr>
 	</thead>
 
@@ -26,7 +26,7 @@
 			}
 
 			?></td>
-			<td><?php echo $gateway['name']; ?></td>
+			<td><?php echo esc_html( $gateway['name'] ); ?></td>
 		</tr>
 <?php endforeach; ?>
 	</tbody>

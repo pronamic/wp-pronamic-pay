@@ -131,7 +131,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 						);
 					}
 
-					echo implode( ' | ', $content );
+					echo implode( ' | ', $content ); //xss ok
 				}
 
 				break;

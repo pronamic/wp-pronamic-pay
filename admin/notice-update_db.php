@@ -21,7 +21,7 @@ $update_link = wp_nonce_url( add_query_arg(
 	</p>
 
 	<p class="submit">
-		<a href="<?php echo esc_attr( $update_link ); ?>" class="pp-update-now button-primary"><?php _e( 'Run the updater', 'pronamic_ideal' ); ?></a>
+		<a href="<?php echo esc_attr( $update_link ); ?>" class="pp-update-now button-primary"><?php esc_html_e( 'Run the updater', 'pronamic_ideal' ); ?></a>
 	</p>
 </div>
 

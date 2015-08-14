@@ -1,8 +1,8 @@
 <table class="wp-list-table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th scope="col"><?php _e( 'Provider', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php _e( 'Name', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Provider', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
 
@@ -18,8 +18,8 @@
 
 						<?php if ( isset( $provider['url'] ) ) : ?>
 
-							<a href="<?php echo $provider['url']; ?>">
-								<?php echo $provider['name']; ?>
+							<a href="<?php echo esc_attr( $provider['url'] ); ?>">
+								<?php echo esc_html( $provider['name'] ); ?>
 							</a>
 
 						<?php endif; ?>
@@ -27,7 +27,7 @@
 					<?php endif; ?>
 				</td>
 				<td>
-					<?php echo $gateway['name']; ?>
+					<?php echo esc_html( $gateway['name'] ); ?>
 				</td>
 			</tr>
 

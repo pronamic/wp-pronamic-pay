@@ -1,4 +1,4 @@
-<h3><?php _e( 'Branding', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Branding', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -204,20 +204,20 @@ $sections = array(
 
 <?php foreach ( $sections as $section ) : ?>
 
-	<h4><?php echo $section['name']; ?></h4>
+	<h4><?php echo esc_html( $section['name'] ); ?></h4>
 
 	<table cellspacing="0" class="widefat fixed">
 
 		<?php foreach ( array( 'thead', 'tfoot' ) as $tag ) : ?>
 
-			<<?php echo $tag; ?>>
+			<<?php echo esc_html( $tag ); ?>>
 				<tr>
-					<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ) ?></th>
-					<th scope="col" class="manage-column"><?php _e( 'Size', 'pronamic_ideal' ) ?></th>
-					<th scope="col" class="manage-column"><?php _e( 'Image', 'pronamic_ideal' ) ?></th>
-					<th scope="col" class="manage-column"><?php _e( 'Code', 'pronamic_ideal' ) ?></th>
+					<th scope="col" class="manage-column"><?php esc_html_e( 'Title', 'pronamic_ideal' ) ?></th>
+					<th scope="col" class="manage-column"><?php esc_html_e( 'Size', 'pronamic_ideal' ) ?></th>
+					<th scope="col" class="manage-column"><?php esc_html_e( 'Image', 'pronamic_ideal' ) ?></th>
+					<th scope="col" class="manage-column"><?php esc_html_e( 'Code', 'pronamic_ideal' ) ?></th>
 				</tr>
-			</<?php echo $tag; ?>>
+			</<?php echo esc_html( $tag ); ?>>
 
 		<?php endforeach; ?>
 
@@ -251,17 +251,17 @@ $sections = array(
 
 					?>
 					<td>
-						<?php echo $resource['title']; ?>
+						<?php echo esc_html( $resource['title'] ); ?>
 					</td>
 					<td>
 						<?php
 
-						echo $resource['width'], '&times;', $resource['height'];
+						echo esc_html( $resource['width'] ), '&times;', esc_html( $resource['height'] );
 
 						?>
 					</td>
 					<td>
-						<?php echo $object; ?>
+						<?php echo $object; //xss ok ?>
 					</td>
 					<td>
 						<textarea class="regular-text code" cols="30" rows="3"><?php echo esc_textarea( $code ); ?></textarea>
@@ -274,7 +274,3 @@ $sections = array(
 	</table>
 
 <?php endforeach; ?>
-
-<p>
-	<?php _e( 'PNG files are shrinked by <a href="https://www.tinypng.com/">TinyPNG</a>.', 'pronamic_ideal' ); ?>
-</p>

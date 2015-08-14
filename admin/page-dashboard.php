@@ -1,12 +1,12 @@
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Help', 'pronamic_ideal' ); ?></span></h3>
+						<h3 class="hndle"><span><?php esc_html_e( 'Help', 'pronamic_ideal' ); ?></span></h3>
 
 						<div class="inside">
 							<p>
@@ -56,7 +56,7 @@
 					</div>
 
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h3>
+						<h3 class="hndle"><span><?php esc_html_e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h3>
 
 						<div class="inside">
 							<?php
@@ -84,8 +84,8 @@
 
 													printf(
 														'<a href="%s">%s</a>',
-														get_edit_post_link( $payment ),
-														get_the_title( $payment )
+														esc_attr( get_edit_post_link( $payment ) ),
+														esc_html( get_the_title( $payment ) )
 													);
 
 													?>
@@ -93,8 +93,8 @@
 
 													printf( '<abbr title="%s">%s</abbr>',
 														/* translators: comment date format. See http://php.net/date */
-														get_the_time( __( 'c', 'pronamic_ideal' ), $payment ),
-														get_the_time( get_option( 'date_format' ), $payment )
+														esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $payment ) ),
+														esc_html( get_the_time( get_option( 'date_format' ), $payment ) )
 													);
 
 													?>
@@ -115,7 +115,7 @@
 			<div id="postbox-container-2" class="postbox-container">
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php _e( 'Pronamic News', 'pronamic_ideal' ); ?></span></h3>
+						<h3 class="hndle"><span><?php esc_html_e( 'Pronamic News', 'pronamic_ideal' ); ?></span></h3>
 
 						<div class="inside">
 							<?php

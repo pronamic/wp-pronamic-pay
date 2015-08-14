@@ -116,7 +116,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			case 'pronamic_payment_source':
 				$payment = get_pronamic_payment( $post_id );
 
-				echo $payment->get_source_text();
+				echo $payment->get_source_text(); //xss ok
 
 				break;
 			case 'pronamic_payment_status':
