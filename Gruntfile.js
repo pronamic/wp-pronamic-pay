@@ -350,6 +350,31 @@ module.exports = function( grunt ) {
 					version: '<%= pkg.version %>'
 				}
 			}
+		},
+
+		// Mustache
+		mustache_render: {
+			options: {
+				// Task global options go here
+			},
+			readme_txt: {
+				options: {
+					directory: 'internal/readme.txt',
+					escape: false
+				},
+				files : [
+					{
+						data: {
+							plugin: grunt.file.readJSON( 'internal/plugin.json' ),
+							gateways: grunt.file.readJSON( 'internal/gateways.json' ),
+							extensions: grunt.file.readJSON( 'internal/extensions.json' ),
+							changelog: grunt.file.readJSON( 'internal/changelog.json' )
+						},
+						template: 'internal/readme.txt/readme.txt.mustache',
+						dest: 'internal/readme.txt/readme.txt'
+					}
+				]
+			}
 		}
 	} );
 
