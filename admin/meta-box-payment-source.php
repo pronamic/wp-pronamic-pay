@@ -11,7 +11,7 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo esc_html( $payment->get_source_text() ); ?>
+			<?php echo $payment->get_source_text(); //xss ok ?>
 		</td>
 	</tr>
 
