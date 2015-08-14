@@ -357,9 +357,10 @@ module.exports = function( grunt ) {
 			options: {
 				// Task global options go here
 			},
+			// Read me text file
 			readme_txt: {
 				options: {
-					directory: 'internal/readme.txt',
+					directory: 'internal/readme-txt',
 					escape: false
 				},
 				files : [
@@ -370,11 +371,30 @@ module.exports = function( grunt ) {
 							extensions: grunt.file.readJSON( 'internal/extensions.json' ),
 							changelog: grunt.file.readJSON( 'internal/changelog.json' )
 						},
-						template: 'internal/readme.txt/readme.txt.mustache',
-						dest: 'internal/readme.txt/readme.txt'
+						template: 'internal/readme-txt/readme.txt.mustache',
+						dest: 'internal/readme-txt/readme.txt'
 					}
 				]
-			}
+			},
+			// Read me Markdown file
+			readme_md: {
+				options: {
+					directory: 'internal/readme-md',
+					escape: false
+				},
+				files : [
+					{
+						data: {
+							plugin: grunt.file.readJSON( 'internal/plugin.json' ),
+							gateways: grunt.file.readJSON( 'internal/gateways.json' ),
+							extensions: grunt.file.readJSON( 'internal/extensions.json' ),
+							changelog: grunt.file.readJSON( 'internal/changelog.json' )
+						},
+						template: 'internal/readme-md/README.md.mustache',
+						dest: 'internal/readme-md/README.md'
+					}
+				]
+			},
 		}
 	} );
 
