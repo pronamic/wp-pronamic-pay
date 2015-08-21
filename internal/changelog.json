@@ -1,5 +1,12 @@
 [
 	{
+		"version": "Unreleased",
+		"date": "2015-08-21",
+		"changes": [
+
+		]
+	},
+	{
 		"version": "3.6.6",
 		"date": "2015-06-29",
 		"changes": [
@@ -89,6 +96,259 @@
 					"Fix fatal error due to undefined var $result."
 				]
 			}
+		]
+	},
+	{
+		"version": "3.6.2",
+		"date": "2015-05-06",
+		"changes": [
+			{
+				"description": "Updated WordPress pay core library to version 1.2.1.",
+				"changes": [
+					"Added XML utility class."
+				]
+			},
+			{
+				"description": "Updated WordPress pay WooCommerce library to version 1.1.2.",
+				"changes": [
+					"Added general Pronamic gateway so the iDEAL gateway can be used for iDEAL only."
+				]
+			},
+			{
+				"description": "Updated WordPress pay s2Member library to version 1.2.0.",
+				"changes": [
+					"Added experimental support for `ccaps` in shortcode.",
+					"Added settings field for the signup confirmation email message.",
+					"Added HTML admin views from the Pronamic iDEAL plugin."
+				]
+			},
+			{
+				"description": "Updated WordPress pay MultiSafepay Connect library to version 1.2.0.",
+				"changes": [
+					"Added support for direct transaction request for iDEAL."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.6.1",
+		"date": "2015-04-02",
+		"changes": [
+			{
+				"description": "Updated WordPress pay Event Espresso library to version 1.1.1.",
+				"changes": [
+					"Updated WordPress pay core library to version 1.2.0.",
+					"No longer parse HTML input fields but use the new get_output_fields() function.",
+					"Added workaround for strange behaviour with 2 config select options."
+				]
+			},
+			{
+				"description": "Updated WordPress pay Gravity Forms library to version 1.2.3.",
+				"changes": [
+					"Entry with payment status 'Paid' are now also seen as 'approved'.",
+					"Use entry ID as default transaction description.",
+					"WordPress Coding Standards optimizations."
+				]
+			},
+			{
+				"description": "Updated WordPress pay Qantani library to version 1.0.2.",
+				"changes": [
+					"No longer disable SSL verify."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.6.1",
+		"date": "2015-04-02",
+		"changes": [
+			{
+				"description": "Tweak - Updated WordPress pay Easy Digital Downloads library to version 1.1.0.",
+				"changes": [
+					"Added Credit Card gateway.",
+					"Added Direct Debit gateway.",
+					"Added iDEAL gateway.",
+					"Added MiniTix gateway.",
+					"Added Bancontact/Mister Cash gateway.",
+					"Added SOFORT Banking gateway.",
+					"Added gateway setting for the checkout label.",
+					"Only show transaction ID if set.",
+					"Added pending payment note with link to payment post.",
+					"Tested on Easy Digital Downloads version 2.3."
+				]
+			},
+			{
+				"description": "Tweak - Updated WordPress pay Event Espresso library to version 1.1.0.",
+				"changes": [
+					"Added experimental support for Event Espresso 4.6 (or higher)."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.5.2",
+		"date": "2015-03-09",
+		"changes": [
+			{
+				"description": "Tweak - Updated WordPress pay iDEAL library to version 1.1.0.",
+				"changes": [
+					"Added an utlity class wich can create purchase ID's."
+				]
+			},
+			{
+				"description": "Tweak - Updated WordPress pay iDEAL Basic library to version 1.1.0.",
+				"changes": [
+					"Improved support for user defined purchase ID's."
+				]
+			},
+			{
+				"description": "Tweak - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.0.",
+				"changes": [
+					"Improved support for user defined purchase ID's."
+				]
+			},
+			{
+				"description": "Tweak - Updated WordPress pay iDEAL Advanced library to version 1.1.0.",
+				"changes": [
+					"Improved support for user defined purchase ID's."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.5.1",
+		"date": "2015-03-03",
+		"changes": [
+			"Tweak - Updated WordPress pay core library to version 1.1.0.",
+			"Tweak - Updated WordPress pay Buckaroo library to version 1.1.0.",
+			"Tweak - Updated WordPress pay MultiSafepay library to version 1.1.0.",
+			"Tweak - Updated WordPress pay MultiSafepay Connect library to version 1.1.0.",
+			"Tweak - Updated WordPress pay Ogone library to version 1.2.0.",
+			"Tweak - Updated WordPress pay Pay.nl library to version 1.1.0.",
+			"Tweak - Updated WordPress pay Gravity Forms library to version 1.2.2."
+		]
+	},
+	{
+		"version": "3.5.0",
+		"date": "2015-02-19",
+		"changes": [
+			"Tweak - Updated WordPress pay ICEPAY library to version 1.2.0.",
+			"Tweak - Added context to the ICEPAY admin labels and inmproved Dutch translations.",
+			"Tweak - Changed the ICEPAY login URL's to the new portal login URL's.",
+			"Tweak - Updated WordPress pay core library to version 1.0.1.",
+			"Tweak - Updated WordPress pay Mollie library to version 1.1.0.",
+			"Tweak - Updated Wordpress pay WooCommerce library to version 1.1.0.",
+			"Tweak - Updated Wordpress pay Ogone library to version 1.1.0.",
+			"Tweak - Updated Wordpress pay OmniKassa library to version 1.1.0.",
+			"Tweak - Added obsoleted text to deprecated gateways."
+		]
+	},
+	{
+		"version": "3.4.2",
+		"date": "2015-02-16",
+		"changes": [
+			"Tweak - Updated WordPress pay Event Espresso library to version 1.0.2."
+		]
+	},
+	{
+		"version": "3.4.1",
+		"date": "2015-02-13",
+		"changes": [
+			"Tweak - Updated WordPress pay Gravity Forms library to version 1.2.1."
+		]
+	},
+	{
+		"version": "3.4.0",
+		"date": "2015-02-12",
+		"changes": [
+			"Tweak - Updated WordPress pay s2Member library to version 1.1.0.",
+			"Tweak - Updated WordPress pay Gravity Forms library to version 1.2.0.",
+			"Tweak - Updated WordPress pay Shopp library to version 1.0.0."
+		]
+	},
+	{
+		"version": "3.3.3",
+		"date": "2015-02-12",
+		"changes": [
+			"Tweak - Updated WordPress pay iDEAL Basic library to version 1.0.1.",
+			"Tweak - Updated WordPress pay iThemes Exchange library to version 1.0.1."
+		]
+	},
+	{
+		"version": "3.3.2",
+		"date": "2015-01-27",
+		"changes": [
+			"Tweak - Updated WordPress pay WooCommerce library to version 1.0.2.",
+			"Tweak - Updated WordPress pay Event Espresso library to version 1.0.1."
+		]
+	},
+	{
+		"version": "3.3.1",
+		"date": "2015-01-02",
+		"changes": [
+			"Tweak - Updated WordPress pay Gravity Forms library to version 1.0.1."
+		]
+	},
+	{
+		"version": "3.3.0",
+		"date": "2014-12-30",
+		"changes": [
+			"Feature - Event Espresso 4 - Added expirmental support for Event Espresso 4.",
+			"Tweak - Event Espresso 3 - Improved support for Event Espresso 3.",
+			"Tweak - Adeed WordPress pay Gravity Forms library version 1.0.0."
+		]
+	},
+	{
+		"version": "3.2.4",
+		"date": "2014-12-19",
+		"changes": [
+			"Tweak - Updated WordPress pay WooCommerce library to version 1.0.1.",
+			"Test - WordPress - Tested up to version 4.1."
+		]
+	},
+	{
+		"version": "3.2.3",
+		"date": "2014-12-16",
+		"changes": [
+			"Tweak - Updated WordPress pay Pay.nl library to version 1.0.2."
+		]
+	},
+	{
+		"version": "3.2.2",
+		"date": "2014-12-15",
+		"changes": [
+			"Tweak - Updated WordPress pay Sisow library to version 1.0.1.",
+			"Tweak - Updated WordPress pay Pay.nl library to version 1.0.1."
+		]
+	},
+	{
+		"version": "3.2.1",
+		"date": "2014-12-10",
+		"changes": [
+			"Tweak - Sisow - Improved status update handling.",
+			"Tweak - TargetPay - No longer disable SSL verify.",
+			"Tweak - Ogone - Improved retrieving request data.",
+			"Refactor - Rewritten the admin class."
+		]
+	},
+	{
+		"version": "3.2.0",
+		"date": "2014-12-10",
+		"changes": [
+			"Feature - WooCommerce - Credit Card - Added support for Buckaroo.",
+			"Feature - WooCommerce - Bancontact/Mister Cash - Added support for Sisow.",
+			"Tweak - Sisow - Sanitize Sisow 'purchaseid' and 'entrancecode' parameters.",
+			"Tweak - Buckaroo - Renamed Buckaroo gateway from \"Buckaroo - iDEAL\" to \"Buckaroo - HTML\".",
+			"Tweak - Sisow - Renamed Sisow gateway from \"Sisow - iDEAL\" to \"Sisow\".",
+			"Tweak - WooCommerce - Auto submit gateways HTML forms on WooCommerce receipt page."
+		]
+	},
+	{
+		"version": "test",
+		"date": "2015-02-12",
+		"changes": [
+			"",
+			""
 		]
 	}
 ]

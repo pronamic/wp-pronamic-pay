@@ -6,27 +6,29 @@ $changelog = json_decode( $data );
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 2;
 
-	if ( is_array( $changes ) ) {
+	if ( is_string( $changes ) ) {
+		echo str_repeat( ' ', $indent ), '- ', $changes, "\r\n";
+	} elseif ( is_array( $changes ) ) {
 		foreach ( $changes as $change ) {
-			if ( is_object( $change ) ) {
-				if ( isset( $change->name ) ) {
-					// Changes are grouped
-					echo '### ', $change->name, "\r\n";
-				}
+			render_changes( $change, $level );
+		}
+	} elseif ( is_object( $changes ) ) {
+		if ( isset( $changes->name ) ) {
+			// Changes group
+			echo '### ', $changes->name, "\r\n";
 
-				if ( isset( $change->description ) ) {
-					render_changes( $change->description );
-				}
+			if ( isset( $changes->changes ) ) {
+				render_changes( $changes->changes, $level );
+			}
+		} else {
+			if ( isset( $changes->description ) ) {
+				render_changes( $changes->description, $level );
+			}
 
-				if ( isset( $change->changes ) && is_array( $change->changes ) ) {
-					render_changes( $change->changes, $level + 1 );
-				}
-			} else {
-				render_changes( $change );
+			if ( isset( $changes->changes ) ) {
+				render_changes( $changes->changes, $level + 1 );
 			}
 		}
-	} elseif ( is_string( $changes ) ) {
-		echo str_repeat( ' ', $indent ), '- ', $changes, "\r\n";
 	}
 }
 
