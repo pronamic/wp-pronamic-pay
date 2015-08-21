@@ -48,3 +48,13 @@ foreach ( $changelog as $log ) {
 
 	echo "\r\n";
 }
+
+$collection = new CachingIterator( new ArrayIterator( $changelog ), CachingIterator::TOSTRING_USE_CURRENT );
+
+foreach ( $collection as $log ) {
+	if ( $collection->hasNext() ) {
+		$prev = $collection->getInnerIterator()->current();
+
+    	echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
+     }
+}
