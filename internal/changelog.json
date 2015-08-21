@@ -1,8 +1,94 @@
 [
 	{
-		"version": "1.0.1"
+		"version": "3.6.6",
+		"date": "2015-06-29",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.3.0.",
+						"changes": [
+							"Added support for Gravity Forms AWeber Add-On version 2.2.1.",
+							"Added support for Gravity Forms Campaign Monitor Add-On version 3.3.2.",
+							"Added support for Gravity Forms MailChimp Add-On version 3.6.3."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Membership library to version 1.0.1.",
+						"changes": [
+							"Fixed WordPress callback for the admin settings section."
+						]
+					}
+				]
+			}
+		]
 	},
 	{
-		"version": "1.0.0"
+		"version": "3.6.5",
+		"date": "2015-06-15",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					"Improved support for the W3 Total Cache plugin."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					"Fix JobRoller class name on admin tab 'Extensions'."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.6.4",
+		"date": "2015-05-26",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					"Updated WordPress pay AppThemes library to version 1.0.0.",
+					"Updated WordPress pay ClassiPress library to version 1.0.0.",
+					"Updated WordPress pay iThemes Exchange library to version 1.1.0.",
+					"Updated WordPress pay JobRoller library to version 1.0.0.",
+					"Updated WordPress pay Membership library to version 1.0.0.",
+					"Updated WordPress pay WP e-Commerce library to version 1.0.0.",
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.2.4.",
+						"changes": [
+							"Only process payments if amount is higher than zero."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Sisow library to version 1.1.0.",
+						"changes": [
+							"Added support for Shop ID."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Shopp library to version 1.0.2.",
+						"changes": [
+							"Added missing file GatewayModule.php for Shopp < 1.3 support."
+						]
+					},
+					"Minified all images."
+				]
+			}
+		]
+	},
+	{
+		"version": "3.6.3",
+		"date": "2015-05-08",
+		"changes": [
+			"No longer include all development Composer packages.",
+			{
+				"description": "Updated WordPress pay MultiSafepay Connect library to version 1.2.1.",
+				"changes": [
+					"Fix fatal error due to undefined var $result."
+				]
+			}
+		]
 	}
 ]

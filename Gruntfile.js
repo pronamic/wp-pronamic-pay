@@ -149,6 +149,11 @@ module.exports = function( grunt ) {
 			// WordPress test environment
 			test: {
 				command: 'bash tests/setup.sh'
+			},
+
+			// Readme.txt
+			readme_txt: {
+				command: 'php internal/readme-txt/readme.php >  internal/readme-txt/readme.txt'	
 			}
 		},
 

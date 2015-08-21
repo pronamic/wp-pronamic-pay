@@ -3,8 +3,8 @@
 
 = Extensions =
 
-{{> extensions}}
+<?php include 'extensions.php'; ?>
 
 = Gateways =
 
-{{> gateways}}
+<?php include 'gateways.php'; ?>

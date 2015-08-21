@@ -5,7 +5,6 @@ Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=
 Requires at least: 3.6
 Tested up to: 4.2.2
 Stable tag: 3.7.0
-
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
 == Description ==
@@ -15,14 +14,25 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 
 = Extensions =
 
-*	[Easy Digital Downloads](https://easydigitaldownloads.com/)
+{{#extensions}}
+*	[{{name}}]({{url}})
 	*	**Author:** 
 	*	**WordPress.org:** 
 	*	**GitHub:** 
 	*	**Requires at least:** 
 	*	**Tested up to:** 
+{{/extensions}}
 
 = Gateways =
+
+{{#gateways}}
+*	[{{name}}]({{url}})
+	*	**Author:** 
+	*	**WordPress.org:** 
+	*	**GitHub:** 
+	*	**Requires at least:** 
+	*	**Tested up to:** 
+{{/gateways}}
 
 
 == Installation ==
@@ -57,13 +67,24 @@ The WordPress codex contains [instructions on how to do this here](http://codex.
 Automatic updates should work like a charm; as always though, ensure you 
 backup your site just in case.
 
+
 == Changelog ==
 
-= 1.0.1 =
-*	
+= 3.6.6 - 2015-06-29 =
+*	Updated WordPress pay Gravity Forms library to version 1.3.0.
+	*	Added support for Gravity Forms AWeber Add-On version 2.2.1.
+	*	Added support for Gravity Forms Campaign Monitor Add-On version 3.3.2.
+	*	Added support for Gravity Forms MailChimp Add-On version 3.6.3.
+*	Updated WordPress pay Membership library to version 1.0.1.
+	*	Fixed WordPress callback for the admin settings section.
 
-= 1.0.0 =
-*	
+= 3.6.5 - 2015-06-15 =
+*	Improved support for the W3 Total Cache plugin.
+
+= 1.0.1 - 2015-06-29 =
+
+= 1.0.0 - 2015-06-29 =
+
 
 
 == Links ==
@@ -77,6 +98,7 @@ backup your site just in case.
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 		"Markdown is what the parser uses to process much of the readme file"
+
 
 == Pronamic plugins ==
 
