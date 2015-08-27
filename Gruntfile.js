@@ -279,7 +279,8 @@ module.exports = function( grunt ) {
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
 					// Admin
 					'js/admin.min.js': 'src/js/admin.js',
-					'js/admin-reports.min.js': 'src/js/admin-reports.js'
+					'js/admin-reports.min.js': 'src/js/admin-reports.js',
+					'js/admin-tour.min.js': 'src/js/admin-tour.js'
 				}
 			},
 			assets: {
