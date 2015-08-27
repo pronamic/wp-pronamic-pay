@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-08-14 12:55:24+00:00\n"
-"PO-Revision-Date: 2015-08-14 14:55+0100\n"
+"POT-Creation-Date: 2015-08-27 12:19:50+00:00\n"
+"PO-Revision-Date: 2015-08-27 14:20+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,39 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-
-#: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
-msgid "WordPress.org"
-msgstr "WordPress.org"
-
-#: admin/extensions-readme-md.php:53 admin/extensions-wp-admin.php:14
-msgid "GitHub"
-msgstr "GitHub"
-
-#: admin/extensions-wp-admin.php:5 admin/gateways-wp-admin.php:5
-#: admin/methods-wp-admin.php:7
-msgid "Name"
-msgstr "Naam"
-
-#: admin/extensions-wp-admin.php:8
-msgid "Author"
-msgstr "Auteur"
-
-#: admin/extensions-wp-admin.php:17
-msgid "Requires at least"
-msgstr "Vereist minimaal"
-
-#: admin/extensions-wp-admin.php:20
-msgid "Tested up to"
-msgstr "Getest tot"
-
-#: admin/extensions-wp-admin.php:23
-msgid "Active"
-msgstr "Actief"
-
-#: admin/gateways-wp-admin.php:4
-msgid "Provider"
-msgstr "Provider"
 
 #: admin/meta-box-form-options.php:7
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
@@ -785,6 +752,11 @@ msgstr "Bijwerken"
 msgid "Icon"
 msgstr "Icoon"
 
+#: admin/methods-wp-admin.php:7 admin/tab-extensions.php:15
+#: admin/tab-gateways.php:18
+msgid "Name"
+msgstr "Naam"
+
 #: admin/methods-wp-admin.php:8
 msgid "Website"
 msgstr "Website"
@@ -1323,166 +1295,57 @@ msgstr "Versie"
 msgid "Supported Extensions"
 msgstr "Ondersteunde extensies"
 
-#: admin/tab-extensions.php:8
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
-msgid "Easy Digital Downloads"
-msgstr "Easy Digital Downloads"
+#: admin/tab-extensions.php:18
+msgid "Author"
+msgstr "Auteur"
 
-#: admin/tab-extensions.php:15
-msgid "Pippin Williamson"
-msgstr "Pippin Williamson"
+#: admin/tab-extensions.php:21
+msgid "WordPress.org"
+msgstr "WordPress.org"
 
-#: admin/tab-extensions.php:19
-msgid "Event Espresso 3"
-msgstr "Event Espresso 3"
+#: admin/tab-extensions.php:24
+msgid "GitHub"
+msgstr "GitHub"
 
 #: admin/tab-extensions.php:27
-msgid "Event Espresso 3 Lite"
-msgstr "Event Espresso 3 Lite"
+msgid "Requires at least"
+msgstr "Vereist minimaal"
 
-#: admin/tab-extensions.php:36
-msgid "Event Espresso 4"
-msgstr "Event Espresso 4"
+#: admin/tab-extensions.php:30
+msgid "Tested up to"
+msgstr "Getest tot"
 
-#: admin/tab-extensions.php:44
-msgid "Event Espresso 4 Decaf"
-msgstr "Event Espresso 4 Decaf"
-
-#: admin/tab-extensions.php:53
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:111
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
-#: admin/tab-extensions.php:59 admin/tab-extensions.php:68
-#: admin/tab-extensions.php:77 admin/tab-extensions.php:86
-#: admin/tab-extensions.php:95 admin/tab-extensions.php:104
-msgid "Rocketgenius"
-msgstr "Rocketgenius"
-
-#: admin/tab-extensions.php:63
-msgid "Gravity Forms AWeber Add-On"
-msgstr "Gravity Forms AWeber Add-On"
-
-#: admin/tab-extensions.php:72
-msgid "Gravity Forms Campaign Monitor Add-On"
-msgstr "Gravity Forms Campaign Monitor Add-On"
-
-#: admin/tab-extensions.php:81
-msgid "Gravity Forms MailChimp Add-On"
-msgstr "Gravity Forms MailChimp Add-On"
-
-#: admin/tab-extensions.php:90
-msgid "Gravity Forms User Registration Add-On"
-msgstr "Gravity Forms User Registration Add-On"
-
-#: admin/tab-extensions.php:99
-msgid "Gravity Forms Zapier Add-On"
-msgstr "Gravity Forms Zapier Add-On"
-
-#: admin/tab-extensions.php:108
-#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:405
-msgid "iThemes Exchange"
-msgstr "iThemes Exchange"
-
-#: admin/tab-extensions.php:115
-msgid "iThemes"
-msgstr "iThemes"
-
-#: admin/tab-extensions.php:119
-#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
-msgid "Jigoshop"
-msgstr "Jigoshop"
-
-#: admin/tab-extensions.php:126
-msgid "Jigowatt"
-msgstr "Jigowatt"
-
-#: admin/tab-extensions.php:130
-#: vendor/wp-pay-extensions/membership/src/Extension.php:120
-msgid "Membership"
-msgstr "Membership"
-
-#: admin/tab-extensions.php:136 admin/tab-extensions.php:146
-msgid "WPMUDEV.org"
-msgstr "WPMUDEV.org"
-
-#: admin/tab-extensions.php:140
-msgid "Membership Premium"
-msgstr "Membership Premium"
-
-#: admin/tab-extensions.php:150
-msgid "s2Member®"
-msgstr "s2Member®"
-
-#: admin/tab-extensions.php:157
-msgid "WebSharks, Inc."
-msgstr "WebSharks, Inc."
-
-#: admin/tab-extensions.php:161
-#: vendor/wp-pay-extensions/shopp/src/Extension.php:166
-msgid "Shopp"
-msgstr "Shopp"
-
-#: admin/tab-extensions.php:168
-msgid "Ingenesis Limited"
-msgstr "Ingenesis Limited"
-
-#: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
-msgid "WooCommerce"
-msgstr "WooCommerce"
-
-#: admin/tab-extensions.php:179
-msgid "WooThemes"
-msgstr "WooThemes"
-
-#: admin/tab-extensions.php:183
-#: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:161
-msgid "WP e-Commerce"
-msgstr "WP e-Commerce"
-
-#: admin/tab-extensions.php:190
-msgid "Instinct Entertainment"
-msgstr "Instinct Entertainment"
-
-#: admin/tab-extensions.php:194
-msgid "Crowdfunding by Astoundify"
-msgstr "Crowdfunding by Astoundify"
-
-#: admin/tab-extensions.php:200 admin/tab-extensions.php:232
-msgid "Astoundify"
-msgstr "Astoundify"
-
-#: admin/tab-extensions.php:205
-#: vendor/wp-pay-extensions/classipress/src/Extension.php:296
-msgid "ClassiPress"
-msgstr "ClassiPress"
-
-#: admin/tab-extensions.php:210 admin/tab-extensions.php:218
-#: admin/tab-extensions.php:225
-#: vendor/wp-pay-extensions/appthemes/src/Extension.php:121
-msgid "AppThemes"
-msgstr "AppThemes"
-
-#: admin/tab-extensions.php:214
-msgid "JobRoller"
-msgstr "JobRoller"
-
-#: admin/tab-extensions.php:222
-msgid "Vantage"
-msgstr "Vantage"
-
-#: admin/tab-extensions.php:229
-msgid "Campaignify"
-msgstr "Campaignify"
-
-#: admin/tab-extensions.php:247 admin/tab-gateways.php:22
-msgid "Markdown"
-msgstr "Markdown"
+#: admin/tab-extensions.php:33
+msgid "Active"
+msgstr "Actief"
 
 #: admin/tab-gateways.php:1
 msgid "Payment Gateways"
 msgstr "Betalingsgateways"
+
+#: admin/tab-gateways.php:17
+msgid "Provider"
+msgstr "Provider"
+
+#: admin/tab-getting-started.php:14
+msgid "Step 1 - Account Payment Provider"
+msgstr "Stap 1- Account payment provider"
+
+#: admin/tab-getting-started.php:19
+msgid ""
+"A payment provider is responsible for the actual processing of payment "
+"transactions.\n"
+"We are not a payment provider, you will need to close an account with a "
+"payment provider or bank.\n"
+"We support most popular payment providers and banks. \n"
+"The Pronamic iDEAL plugin makes the link between the selected payment "
+"provider and the e-commerce plugin."
+msgstr ""
+"Een payment provider verzorgt de daadwerkelijke verwerking van "
+"betalingstransacties. Wij zijn geen payment provider, je dient dus een "
+"account bij een payment provider of bank af te sluiten. We ondersteunen de "
+"meest populaire payment providers en banken. De Pronamic iDEAL plugin maakt "
+"de koppeling tussen de gekozen payment provider en de e-commerce plugin."
 
 #: admin/tab-ideal_status.php:8
 msgid ""
@@ -2281,6 +2144,10 @@ msgstr "Betalingsinformatie"
 msgid "Pay"
 msgstr "Betalen"
 
+#: vendor/wp-pay-extensions/appthemes/src/Extension.php:121
+msgid "AppThemes"
+msgstr "AppThemes"
+
 #: vendor/wp-pay-extensions/appthemes/src/Extension.php:125
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:302
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
@@ -2329,6 +2196,10 @@ msgstr "Nee"
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
+#: vendor/wp-pay-extensions/classipress/src/Extension.php:296
+msgid "ClassiPress"
+msgstr "ClassiPress"
+
 #: vendor/wp-pay-extensions/classipress/src/PaymentData.php:53
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
@@ -2344,6 +2215,10 @@ msgstr "Betaling open."
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:122
 msgid "Payment unknown."
 msgstr "Betaling onbekend."
+
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:19
@@ -2478,6 +2353,10 @@ msgstr "Formulier"
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:88
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
+
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:111
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:116
 msgid "Entry #%s"
@@ -2715,6 +2594,10 @@ msgstr "Update gebruikersrol"
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
 
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:405
+msgid "iThemes Exchange"
+msgstr "iThemes Exchange"
+
 #: vendor/wp-pay-extensions/ithemes-exchange/src/PaymentData.php:70
 msgid "iThemes Exchange order %s"
 msgstr "iThemes Exchange bestelling %s"
@@ -2752,6 +2635,10 @@ msgstr "iDEAL-betaling open."
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
 
+#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
+msgid "Jigoshop"
+msgstr "Jigoshop"
+
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:84
 msgid "Allow iDEAL payments."
 msgstr "iDEAL-betalingen toestaan."
@@ -2783,6 +2670,10 @@ msgstr "Bestelling %s"
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:91
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
+
+#: vendor/wp-pay-extensions/membership/src/Extension.php:120
+msgid "Membership"
+msgstr "Membership"
 
 #: vendor/wp-pay-extensions/membership/src/Extension.php:129
 msgid "Transaction #%s"
@@ -2942,6 +2833,10 @@ msgstr "Knop tekst:"
 msgid "Generate Shortcode"
 msgstr "Genereer shortcode"
 
+#: vendor/wp-pay-extensions/shopp/src/Extension.php:166
+msgid "Shopp"
+msgstr "Shopp"
+
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:323
 #: vendor/wp-pay-extensions/shopp/src/GatewayModule.php:323
 msgid "Select configuration"
@@ -2954,6 +2849,10 @@ msgstr "Creditcard inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
+msgid "WooCommerce"
+msgstr "WooCommerce"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
@@ -3026,6 +2925,10 @@ msgstr "Pronamic inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:38
 msgid "Enable SOFORT Banking"
 msgstr "SOFORT Banking inschakelen"
+
+#: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:161
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
 
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:169
 msgid "Purchase #%s"
@@ -3242,41 +3145,6 @@ msgstr ""
 "De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
 "betaalmethode toe te voegen aan je WordPress website."
 
-#: admin/extensions-readme-md.php:4 admin/gateways-readme-md.php:5
-msgctxt "readme.md"
-msgid "Name"
-msgstr "Name"
-
-#: admin/extensions-readme-md.php:5
-msgctxt "readme.md"
-msgid "Author"
-msgstr "Author"
-
-#: admin/extensions-readme-md.php:6
-msgctxt "readme.md"
-msgid "WordPress.org"
-msgstr "WordPress.org"
-
-#: admin/extensions-readme-md.php:7
-msgctxt "readme.md"
-msgid "GitHub"
-msgstr "GitHub"
-
-#: admin/extensions-readme-md.php:8
-msgctxt "readme.md"
-msgid "Requires at least"
-msgstr "Requires at least"
-
-#: admin/extensions-readme-md.php:9
-msgctxt "readme.md"
-msgid "Tested up to"
-msgstr "Tested up to"
-
-#: admin/gateways-readme-md.php:4
-msgctxt "readme.md"
-msgid "Provider"
-msgstr "Provider"
-
 #: admin/meta-box-gateway-config.php:173
 msgctxt "mollie"
 msgid "API Key"
@@ -3384,6 +3252,112 @@ msgstr "Belast dag"
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
+
+#~ msgid "Pippin Williamson"
+#~ msgstr "Pippin Williamson"
+
+#~ msgid "Event Espresso 3"
+#~ msgstr "Event Espresso 3"
+
+#~ msgid "Event Espresso 3 Lite"
+#~ msgstr "Event Espresso 3 Lite"
+
+#~ msgid "Event Espresso 4"
+#~ msgstr "Event Espresso 4"
+
+#~ msgid "Event Espresso 4 Decaf"
+#~ msgstr "Event Espresso 4 Decaf"
+
+#~ msgid "Rocketgenius"
+#~ msgstr "Rocketgenius"
+
+#~ msgid "Gravity Forms AWeber Add-On"
+#~ msgstr "Gravity Forms AWeber Add-On"
+
+#~ msgid "Gravity Forms Campaign Monitor Add-On"
+#~ msgstr "Gravity Forms Campaign Monitor Add-On"
+
+#~ msgid "Gravity Forms MailChimp Add-On"
+#~ msgstr "Gravity Forms MailChimp Add-On"
+
+#~ msgid "Gravity Forms User Registration Add-On"
+#~ msgstr "Gravity Forms User Registration Add-On"
+
+#~ msgid "Gravity Forms Zapier Add-On"
+#~ msgstr "Gravity Forms Zapier Add-On"
+
+#~ msgid "iThemes"
+#~ msgstr "iThemes"
+
+#~ msgid "Jigowatt"
+#~ msgstr "Jigowatt"
+
+#~ msgid "WPMUDEV.org"
+#~ msgstr "WPMUDEV.org"
+
+#~ msgid "Membership Premium"
+#~ msgstr "Membership Premium"
+
+#~ msgid "s2Member®"
+#~ msgstr "s2Member®"
+
+#~ msgid "WebSharks, Inc."
+#~ msgstr "WebSharks, Inc."
+
+#~ msgid "Ingenesis Limited"
+#~ msgstr "Ingenesis Limited"
+
+#~ msgid "WooThemes"
+#~ msgstr "WooThemes"
+
+#~ msgid "Instinct Entertainment"
+#~ msgstr "Instinct Entertainment"
+
+#~ msgid "Crowdfunding by Astoundify"
+#~ msgstr "Crowdfunding by Astoundify"
+
+#~ msgid "Astoundify"
+#~ msgstr "Astoundify"
+
+#~ msgid "JobRoller"
+#~ msgstr "JobRoller"
+
+#~ msgid "Vantage"
+#~ msgstr "Vantage"
+
+#~ msgid "Campaignify"
+#~ msgstr "Campaignify"
+
+#~ msgid "Markdown"
+#~ msgstr "Markdown"
+
+#~ msgctxt "readme.md"
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgctxt "readme.md"
+#~ msgid "Author"
+#~ msgstr "Author"
+
+#~ msgctxt "readme.md"
+#~ msgid "WordPress.org"
+#~ msgstr "WordPress.org"
+
+#~ msgctxt "readme.md"
+#~ msgid "GitHub"
+#~ msgstr "GitHub"
+
+#~ msgctxt "readme.md"
+#~ msgid "Requires at least"
+#~ msgstr "Requires at least"
+
+#~ msgctxt "readme.md"
+#~ msgid "Tested up to"
+#~ msgstr "Tested up to"
+
+#~ msgctxt "readme.md"
+#~ msgid "Provider"
+#~ msgstr "Provider"
 
 #, fuzzy
 #~ msgid "Tab: System Status"
