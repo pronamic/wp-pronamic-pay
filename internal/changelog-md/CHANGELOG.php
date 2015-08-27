@@ -64,7 +64,7 @@ foreach ( $collection as $log ) {
 		if ( 'Unreleased' === $log->version ) {
 			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";     
 		} else {
-    		echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
-    	}
-     }
+			echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
+		}
+	}
 }
