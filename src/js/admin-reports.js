@@ -21,6 +21,12 @@ jQuery( document ).ready( function( $ ) {
 			}
 		}
 
+		// @see https://github.com/flot/flot/blob/master/API.md
+		var font = {
+			color: '#AAA',
+			size: 13
+		};
+
 		$.plot( container, data, {
 			legend: {
 				show: false
@@ -40,9 +46,7 @@ jQuery( document ).ready( function( $ ) {
 				monthNames: pronamicPayAdminReports.monthNames,
 				tickLength: 1,
 				minTickSize: [ 1, 'month' ],
-				font: {
-					color: '#AAA'
-				}
+				font: font
 			} ],
 			yaxes: [
 				{
@@ -50,18 +54,18 @@ jQuery( document ).ready( function( $ ) {
 					minTickSize: 1,
 					tickDecimals: 0,
 					color: '#D4D9DC',
-					font: { color: '#AAA' }
+					font: font
 				},
 				{
 					position: 'right',
 					min: 0,
 					tickDecimals: 2,
 					tickFormatter: function( val ) {
-						return accounting.formatMoney( val, '€ ', 2, '.', ',' );
+						return accounting.formatMoney( val, '€' + ' ', 2, '.', ',' );
 					},
 					alignTicksWithAxis: 1,
 					color: 'transparent',
-					font: { color: '#AAA' }
+					font: font
 				}
 			]
 		} );
