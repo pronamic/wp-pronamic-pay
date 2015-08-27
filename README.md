@@ -6,6 +6,7 @@
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
+
 ## Gateways
 
 <table>
@@ -40,6 +41,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
 			<td>ABN AMRO - iDEAL Zelfbouw</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Adyen</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
@@ -164,6 +169,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		<tr>
 			<td><a href="http://www.paytor.com/">Paytor</a></td>
 			<td>Paytor</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.postcode.nl/">Postcode.nl</a></td>
+			<td>Postcode iDEAL</td>
 		</tr>
 		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>

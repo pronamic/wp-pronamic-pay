@@ -151,14 +151,19 @@ module.exports = function( grunt ) {
 				command: 'bash tests/setup.sh'
 			},
 
-			// Generate CHANGELOG.md
-			changelog_md: {
-				command: 'php internal/changelog-md/CHANGELOG.php > CHANGELOG.md'	
-			},
-
 			// Generate readme.txt
 			readme_txt: {
 				command: 'php internal/readme-txt/readme.php > readme.txt'
+			},
+
+			// Generate README.md
+			readme_md: {
+				command: 'php internal/readme-md/README.php > README.md'	
+			},
+
+			// Generate CHANGELOG.md
+			changelog_md: {
+				command: 'php internal/changelog-md/CHANGELOG.php > CHANGELOG.md'	
 			}
 		},
 
@@ -415,7 +420,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
-	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:changelog_md' ] );
+	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
 
 	grunt.registerTask( 'deploy', [
 		'default',

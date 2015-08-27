@@ -15,7 +15,7 @@ Tested up to: 4.2.2
 Stable tag: <?php echo $plugin->version; ?>
 
 
-<?php include 'description-short.php'; ?>
+<?php include __DIR__ . '/../general/description-short.php'; ?>
 
 
 == Description ==
@@ -43,10 +43,10 @@ Stable tag: <?php echo $plugin->version; ?>
 
 == Links ==
 
-<?php include 'links.php'; ?>
+<?php include __DIR__ . '/../general/links.php'; ?>
 
 
 == Pronamic plugins ==
 
-<?php include 'plugins.php'; ?>
+<?php include __DIR__ . '/../general/plugins.php'; ?>
 

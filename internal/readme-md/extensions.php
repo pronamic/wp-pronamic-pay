@@ -1,12 +1,18 @@
+<?php
+
+$data       = file_get_contents( __DIR__ . '/../extensions.json' );
+$extensions = json_decode( $data );
+
+?>
 <table>
 	<thead>
 		<tr>
-			<th scope="col"><?php esc_html( _x( 'Name', 'readme.md', 'pronamic_ideal' ) ); ?></th>
-			<th scope="col"><?php esc_html( _x( 'Author', 'readme.md', 'pronamic_ideal' ) ); ?></th>
-			<th scope="col"><?php esc_html( _x( 'WordPress.org', 'readme.md', 'pronamic_ideal' ) ); ?></th>
-			<th scope="col"><?php esc_html( _x( 'GitHub', 'readme.md', 'pronamic_ideal' ) ); ?></th>
-			<th scope="col"><?php esc_html( _x( 'Requires at least', 'readme.md', 'pronamic_ideal' ) ); ?></th>
-			<th scope="col"><?php esc_html( _x( 'Tested up to', 'readme.md', 'pronamic_ideal' ) ); ?></th>
+			<th scope="col">Name</th>
+			<th scope="col">Author</th>
+			<th scope="col">WordPress.org</th>
+			<th scope="col">GitHub</th>
+			<th scope="col">Requires at least</th>
+			<th scope="col">Tested up to</th>
 		</tr>
 	</thead>
 
@@ -17,52 +23,52 @@
 
 			printf(
 				'<a href="%s" target="_blank">%s</a>',
-				esc_attr( $extension['url'] ),
-				esc_html( $extension['name'] )
+				$extension->url,
+				$extension->name
 			);
 
 			?></td>
 			<td><?php
 
-			if ( isset( $extension['author'], $extension['author_url'] ) ) {
+			if ( isset( $extension->author, $extension->author_url ) ) {
 				printf(
 					'<a href="%s" target="_blank">%s</a>',
-					esc_attr( $extension['author_url'] ),
-					esc_html( $extension['author'] )
+					$extension->author_url,
+					$extension->author
 				);
 			}
 
 			?></td>
 			<td><?php
 
-			if ( isset( $extension['wp_org_url'] ) ) {
+			if ( isset( $extension->wp_org_url ) ) {
 				printf(
 					'<a href="%s" target="_blank">%s</a>',
-					esc_attr( $extension['wp_org_url'] ),
-					esc_html__( 'WordPress.org', 'pronamic_ideal' )
+					$extension->wp_org_url,
+					'WordPress.org'
 				);
 			}
 
 			?></td>
 			<td><?php
 
-			if ( isset( $extension['github_url'] ) ) {
+			if ( isset( $extension->github_url ) ) {
 				printf(
 					'<a href="%s" target="_blank">%s</a>',
-					esc_attr( $extension['github_url'] ),
-					esc_html__( 'GitHub', 'pronamic_ideal' )
+					$extension->github_url,
+					'GitHub'
 				);
 			}
 
 			?></td>
 			<td><?php
 
-			if ( isset( $extension['requires_at_least'] ) ) {
-				echo esc_html( $extension['requires_at_least'] );
+			if ( isset( $extension->requires_at_least ) ) {
+				echo $extension->requires_at_least;
 			}
 
 			?></td>
-			<td><?php echo esc_html( $extension['tested_up_to'] ); ?></td>
+			<td><?php echo $extension->tested_up_to; ?></td>
 		</tr>
 <?php endforeach; ?>
 	</tbody>
