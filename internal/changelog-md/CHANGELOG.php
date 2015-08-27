@@ -1,5 +1,7 @@
 <?php
 
+header( 'Content-Type: text/plain' );
+
 $data      = file_get_contents( __DIR__ . '/../changelog.json' );
 $changelog = json_decode( $data );
 
@@ -42,7 +44,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 <?php
 
 foreach ( $changelog as $log ) {
-	echo '## [', $log->version, '] - ', $log->date, "\r\n";
+	if ( 'Unreleased' === $log->version ) {
+		echo '## [', $log->version, '][unreleased]', "\r\n";
+	} else {
+		echo '## [', $log->version, '] - ', $log->date, "\r\n";
+	}
 
 	render_changes( $log->changes );
 
@@ -55,6 +61,10 @@ foreach ( $collection as $log ) {
 	if ( $collection->hasNext() ) {
 		$prev = $collection->getInnerIterator()->current();
 
-    	echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
+		if ( 'Unreleased' === $log->version ) {
+			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";     
+		} else {
+    		echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
+    	}
      }
 }

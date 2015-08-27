@@ -14,7 +14,9 @@ Requires at least: 3.6
 Tested up to: 4.2.2
 Stable tag: <?php echo $plugin->version; ?>
 
+
 <?php include 'description-short.php'; ?>
+
 
 == Description ==
 

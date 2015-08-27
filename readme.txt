@@ -5,7 +5,9 @@ Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=
 Requires at least: 3.6
 Tested up to: 4.2.2
 Stable tag: 3.7.0
+
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
+
 
 == Description ==
 
@@ -1165,3 +1167,4 @@ results in OmniKassa data that no longer matches the signature.
 *	[Maildit](http://wordpress.org/extend/plugins/maildit/)
 *	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
 *	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
+
