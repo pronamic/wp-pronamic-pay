@@ -1,5 +1,7 @@
 <?php
 
+header( 'Content-Type: text/plain' );
+
 $data   = file_get_contents( __DIR__ . '/../plugin.json' );
 $plugin = json_decode( $data );
 
@@ -22,6 +24,14 @@ Stable tag: <?php echo $plugin->version; ?>
 == Installation ==
 
 <?php include 'installation.php'; ?>
+
+
+== Screenshots ==
+
+<?php include 'screenshots.php'; ?>
+
+
+<?php include 'other-notes.php'; ?>
 
 
 == Changelog ==

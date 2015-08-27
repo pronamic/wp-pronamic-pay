@@ -151,7 +151,12 @@ module.exports = function( grunt ) {
 				command: 'bash tests/setup.sh'
 			},
 
-			// Readme.txt
+			// Generate CHANGELOG.md
+			changelog_md: {
+				command: 'php internal/changelog-md/CHANGELOG.php >  internal/changelog-md/CHANGELOG.md'	
+			},
+
+			// Generate readme.txt
 			readme_txt: {
 				command: 'php internal/readme-txt/readme.php >  internal/readme-txt/readme.txt'	
 			}
