@@ -61,7 +61,7 @@ jQuery( document ).ready( function( $ ) {
 					min: 0,
 					tickDecimals: 2,
 					tickFormatter: function( val ) {
-						return accounting.formatMoney( val, '€' + ' ', 2, '.', ',' );
+						return accounting.formatMoney( val, '€' + '&nbsp;', 2, '.', ',' );
 					},
 					alignTicksWithAxis: 1,
 					color: 'transparent',
