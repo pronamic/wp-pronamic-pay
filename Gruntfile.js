@@ -153,17 +153,17 @@ module.exports = function( grunt ) {
 
 			// Generate readme.txt
 			readme_txt: {
-				command: 'php internal/readme-txt/readme.php > readme.txt'
+				command: 'php src/readme-txt/readme.php > readme.txt'
 			},
 
 			// Generate README.md
 			readme_md: {
-				command: 'php internal/readme-md/README.php > README.md'	
+				command: 'php src/readme-md/README.php > README.md'	
 			},
 
 			// Generate CHANGELOG.md
 			changelog_md: {
-				command: 'php internal/changelog-md/CHANGELOG.php > CHANGELOG.md'	
+				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'	
 			}
 		},
 
