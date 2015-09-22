@@ -98,7 +98,7 @@ class Pronamic_WP_Pay_Plugin {
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ) );
+		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
@@ -167,8 +167,6 @@ class Pronamic_WP_Pay_Plugin {
 				self::update_payment( $payment );
 
 				if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
-					$seconds = DAY_IN_SECONDS;
-
 					switch ( $number_tries ) {
 						case 0 :
 							// 30 seconds after a transaction request is sent
@@ -195,7 +193,7 @@ class Pronamic_WP_Pay_Plugin {
 						wp_schedule_single_event( $time + $seconds, 'pronamic_ideal_check_transaction_status', array(
 							'payment_id'   => $payment->get_id(),
 							'seconds'      => $seconds,
-							'number_tries' => $number_tries++,
+							'number_tries' => ++$number_tries,
 						) );
 					}
 				}
@@ -224,7 +222,7 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
-				if ( $can_redirect ) {
+				if ( $can_redirect && ! defined( 'DOING_CRON' ) ) {
 					$url     = home_url( '/' );
 					$page_id = null;
 
