@@ -218,11 +218,15 @@ class Pronamic_WP_Pay_Plugin {
 
 				pronamic_wp_pay_update_payment( $payment );
 
+				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) ) {
+					$can_redirect = false;
+				}
+
 				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
 				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
-				if ( $can_redirect && ! defined( 'DOING_CRON' ) ) {
+				if ( $can_redirect ) {
 					$url     = home_url( '/' );
 					$page_id = null;
 
