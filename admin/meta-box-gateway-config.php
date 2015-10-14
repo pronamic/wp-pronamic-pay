@@ -511,6 +511,22 @@ $sections = array(
 		),
 	),
 	array(
+		'title'   => __( 'Payment page look and feel', 'pronamic_ideal' ),
+		'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_template_page',
+				'title'       => __( 'Template Page', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => sprintf(
+					__( 'This controls the Ogone %s parameter.', 'pronamic_ideal' ),
+					sprintf( '<code>%s</code>', 'TP' )
+				),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			),
+		),
+	),
+	array(
 		'title'   => __( 'Ogone DirectLink', 'pronamic_ideal' ),
 		'methods' => array( 'ogone_directlink' ),
 		'fields'  => array(
