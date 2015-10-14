@@ -55,6 +55,8 @@ class Pronamic_WP_Pay_Admin_About {
 	}
 
 	public function admin_css() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 		wp_enqueue_style(
 			'proanmic-pay-admin-about',
 			plugins_url( 'css/admin-about' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
