@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2015-10-14 20:15+0200\n"
+"POT-Creation-Date: 2015-10-14 20:46+0200\n"
+"PO-Revision-Date: 2015-10-14 20:46+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -441,7 +441,7 @@ msgid "User ID"
 msgstr "Gebruiker ID"
 
 #: admin/meta-box-gateway-config.php:460
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Order ID"
 msgstr "Bestelling ID"
@@ -684,7 +684,7 @@ msgstr "Beschrijving"
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:67
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:147
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
 msgid "Amount"
 msgstr "Bedrag"
@@ -699,8 +699,8 @@ msgstr "Actie URL"
 
 #: admin/meta-box-payment-info.php:75
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
 msgid "Status"
 msgstr "Status"
 
@@ -1174,7 +1174,7 @@ msgstr ""
 "bestanden van verschillende betalingsproviders."
 
 #: admin/pointer-tools.php:43
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:164
 msgid "Brand"
 msgstr "Merk"
 
@@ -1386,6 +1386,14 @@ msgid ""
 "Once you are correctly redirected to your payment provider you know that "
 "your configuration works."
 msgstr ""
+"Zodra de gateway instellingen correct zijn ingevoerd en de configuratie is "
+"opgeslagen kan deze getest worden.\n"
+"Onder de configuratie velden staat een speciaal blok waarmee de configuratie "
+"getest kan worden.\n"
+"Hier kun je een test bedrag invoeren en zo controleren of de configuratie "
+"correct werkt.\n"
+"Zodra je correct wordt doorgestuurd naar je betalingsprovider weet je dat je "
+"configuratie werkt."
 
 #: admin/tab-getting-started.php:83
 msgid "Step 4 - Configure E-commerce Plugin"
@@ -1400,6 +1408,13 @@ msgid ""
 "activate iDEAL\n"
 " Here you can then also select the previously created gateway configuration."
 msgstr ""
+"Na het configureren en testen van de gateway kun je je e-commerce plugin "
+"configureren.\n"
+"De Pronamic iDEAL plugin ondersteund een groot aantal populaire WordPress "
+"plugins.\n"
+"Deze plugins hebben vaak hun eigen configuratie pagina's waarop je iDEAL "
+"kunt activeren.\n"
+"Hier selecteer je vervolgens ook de eerder aangemaakte gateway configuratie."
 
 #: admin/tab-ideal_status.php:8
 msgid ""
@@ -1546,6 +1561,12 @@ msgid ""
 "Each form has a payment amount, name and e-mail address field.\n"
 "That way, users can easily make available payment forms."
 msgstr ""
+"Vanaf versie 3.7 is het mogelijk om eenvoudige betalingsformulieren aan te "
+"maken.\n"
+"Deze formulieren hebben een vaste opmaak en vaste velden.\n"
+"Elk betalingsformulier heeft een bedrag, naam en e-mailadres veld.\n"
+"Op die manier kunnen gebruikers eenvoudig betalingsformulieren beschikbaar "
+"stellen. "
 
 #: admin/tab-new.php:39
 msgid "Payments Reports"
@@ -1558,6 +1579,12 @@ msgid ""
 "grouped.\n"
 "That way you get a good idea of the number of payments and their status."
 msgstr ""
+"Onder iDEAL » Rapporten is een grafiek te vinden van alle betalingen van dit "
+"jaar.\n"
+"Het aantal open, succesvolle, geannuleerde, verlopen en mislukte betalingen "
+"staan gegroupeerd.\n"
+"Op die manier krijg je een goed beeld van het aantal betalingen en de "
+"bijbehorende status."
 
 #: admin/tab-new.php:56
 msgid "Badge Pending Payments"
@@ -1573,6 +1600,13 @@ msgid ""
 "pending status.\n"
 "We advise users to monitor these payments periodically."
 msgstr ""
+"We merken dat veel iDEAL gebruikers problemen hebben met de terugkoppeling "
+"van de betalingsstatus.\n"
+"Om gebruikers meer inzicht te geven in de betalingen waarvan de status nog "
+"in afwachting is hebben we een badge toegevoegd.\n"
+"Door deze badge zie je direct hoeveel betalingen nog de status in afwachting "
+"hebben.\n"
+"We adviseren gebruikers om deze betalingen periodiek te controleren."
 
 #: admin/tab-new.php:82
 msgid "Payment Status Filter"
@@ -1585,6 +1619,11 @@ msgid ""
 "So you can now easily see a list of payments with the status pending.\n"
 "That way you have a better understanding of your payments and their status."
 msgstr ""
+"Het is nu ook mogelijk om alleen de betalingen met een specifieke "
+"betalingsstatus te bekijken.\n"
+"Zo kun je nu bijvoorbeeld eenvoudig een lijst met betalingen met de status "
+"in afwachting opvragen.\n"
+"Op die manier heb je meer inzicht in je betalingen en de bijbehorende status."
 
 #: admin/tab-new.php:99
 msgid "Edit Payment Status"
@@ -1597,6 +1636,12 @@ msgid ""
 "or the Pronamic iDEAL this plugin could not retrieve the status.\n"
 "That way you can always keep empty the list of payments pending."
 msgstr ""
+"De betalingstatus van betalingen kan nu ook ook handmatig bijgewerkt "
+"worden.\n"
+"Handig in het geval je betalingsprovider de betalingsstatus niet goed heeft "
+"doorgegeven of de Pronamic iDEAL plugin deze niet kon opvragen.\n"
+"Op die manier kun je de lijst met betalingen in afwachting altijd leeg "
+"houden."
 
 #: admin/tab-new.php:124
 msgid "Tour"
@@ -1609,6 +1654,11 @@ msgid ""
 "This tour shows the main pages of the Pronamic iDEAL plugin.\n"
 "That way you can quickly find your way around the Pronamic iDEAL plugin."
 msgstr ""
+"Voor nieuwe gebruikers hebben we de Pronamic iDEAL plugin uitgerust met een "
+"eenvoudige rondleiding functionaliteit.\n"
+"Deze rondleiding laat de belangrijkste pagina's van de Pronamic iDEAL plugin "
+"zien.\n"
+"Op die manier kun je snel wegwijs worden in de Pronamic iDEAL plugin."
 
 #: admin/tab-pages_generator.php:11
 msgid "Pages created."
@@ -2182,7 +2232,7 @@ msgstr "&mdash; Selecteer een gateway &mdash;"
 
 #: classes/Pronamic/WP/Pay/Settings.php:66
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:148
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
 msgid "Currency"
 msgstr "Valuta"
 
@@ -3096,7 +3146,7 @@ msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:142
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:148
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
@@ -3171,43 +3221,43 @@ msgstr "Onbekend iDEAL-bericht (%s)"
 msgid "&mdash; Other banks &mdash;"
 msgstr "&mdash; Andere banken &mdash;"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:149
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
 msgid "Acceptance"
 msgstr "Acceptance"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
 msgid "Card Number"
 msgstr "Kaartnummer"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:159
 msgid "End Date"
 msgstr "Einddatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:160
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:161
 msgid "Transaction Date"
 msgstr "Transactiedatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:162
 msgid "Pay ID"
 msgstr "Betaal ID"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:163
 msgid "NC Error"
 msgstr "NC Fout"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
 msgid "IP"
 msgstr "IP"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:159
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:166
 msgid "SHA Signature"
 msgstr "SHA-handtekening"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:172
 msgid "Ogone transaction data in response message:"
 msgstr "Ogone transactiedata in antwoordbericht:"
 
