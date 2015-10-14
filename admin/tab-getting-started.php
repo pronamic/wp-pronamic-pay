@@ -57,7 +57,15 @@ Follow the instructions of the most popular payment providers to use the correct
 		<h3><?php esc_html_e( 'Step 3 - Test Gateway Configuration', 'pronamic_ideal' ); ?></h3>
 		
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan lacus sed ante rhoncus maximus. Aliquam pulvinar arcu et felis viverra mollis posuere.
+			<?php
+
+esc_html_e( 'Once the gateway settings are entered correctly and the configuration is saved it can be tested.
+Under the configuration fields there is a special block which can be used to test the configuration.
+Here you can enter a test amount and confirm that the configuration works properly.
+Once you are correctly redirected to your payment provider you know that your configuration works.'
+, 'pronamic_ideal' );
+
+			?>
 		</p>
 	</div>
 
@@ -75,7 +83,15 @@ Follow the instructions of the most popular payment providers to use the correct
 		<h3><?php esc_html_e( 'Step 4 - Configure E-commerce Plugin', 'pronamic_ideal' ); ?></h3>
 		
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer accumsan lacus sed ante rhoncus maximus. Aliquam pulvinar arcu et felis viverra mollis posuere.
+			<?php
+
+esc_html_e( 'After configuring and testing the gateway, you can configure your e-commerce plugin.
+The Pronamic iDEAL plugin supports many popular WordPress plugins.
+These plug-ins often have their own configuration pages where you can activate iDEAL
+ Here you can then also select the previously created gateway configuration.'
+, 'pronamic_ideal' );
+
+			?>
 		</p>
 	</div>
 </div>

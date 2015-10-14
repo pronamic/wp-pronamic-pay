@@ -7,6 +7,84 @@
 		]
 	},
 	{
+		"version": "3.7.0",
+		"date": "2015-10-14",
+		"changes": [
+			"Fix transaction status checking event not 'renewed'.",
+			"Prevent redirects from within extensions if doing cron, so that events get sheduled in check_status.",
+			{
+				"name": "Changed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Buckaroo library to version 1.1.2.",
+						"changes": [
+							"Fix incorrect signature due to slashes in data."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ICEPAY library to version 1.2.2.",
+						"changes": [
+							"Make sure to use language and country values from payment data object."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 1.1.2.",
+						"changes": [
+							"Add support for direct iDEAL payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MultiSafepay Connect library to version 1.2.3.",
+						"changes": [
+							"Add support for bank transfer as payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay OmniKassa library to version 1.1.3.",
+						"changes": [
+							"Add locale helper to prevent sending unsupported language codes.",
+							"Add filter pronamic_pay_omnikassa_payment_mean_brand_list.",
+							"Handle response NUMBER_ATTEMPT_EXCEEDED as failure status."
+						]
+					},
+					{
+						"description": "Updated WordPress pay TargetPay library to version 1.0.3.",
+						"changes": [
+							"Add scheduled transaction status request."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Event Espresso library to version 1.1.2.",
+						"changes": [
+							"Fix sending multiple notifcations."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.3.1.",
+						"changes": [
+							"Add support for multiple payment feeds with conditions per form.",
+							"Only use visible issuer dropdowns (allows conditional logic on issuer dropdown field."
+						]
+					},
+					{
+						"description": "Updated WordPress pay s2Member library to version 1.2.1.",
+						"changes": [
+							"Fix incorrect period naming."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 1.1.3.",
+						"changes": [
+							"Order note \"iDEAL payment [status]\" now includes the gateway title, instead of \"iDEAL\".",
+							"Add DirectDebitGateway.",
+							"Add bank transfer gateway."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "3.6.6",
 		"date": "2015-06-29",
 		"changes": [

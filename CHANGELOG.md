@@ -6,6 +6,36 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.7.0] - 2015-10-14
+- Fix transaction status checking event not 'renewed'.
+- Prevent redirects from within extensions if doing cron, so that events get sheduled in check_status.
+### Changed
+- Updated WordPress pay Buckaroo library to version 1.1.2.
+  - Fix incorrect signature due to slashes in data.
+- Updated WordPress pay ICEPAY library to version 1.2.2.
+  - Make sure to use language and country values from payment data object.
+- Updated WordPress pay Mollie library to version 1.1.2.
+  - Add support for direct iDEAL payment method.
+- Updated WordPress pay MultiSafepay Connect library to version 1.2.3.
+  - Add support for bank transfer as payment method.
+- Updated WordPress pay OmniKassa library to version 1.1.3.
+  - Add locale helper to prevent sending unsupported language codes.
+  - Add filter pronamic_pay_omnikassa_payment_mean_brand_list.
+  - Handle response NUMBER_ATTEMPT_EXCEEDED as failure status.
+- Updated WordPress pay TargetPay library to version 1.0.3.
+  - Add scheduled transaction status request.
+- Updated WordPress pay Event Espresso library to version 1.1.2.
+  - Fix sending multiple notifcations.
+- Updated WordPress pay Gravity Forms library to version 1.3.1.
+  - Add support for multiple payment feeds with conditions per form.
+  - Only use visible issuer dropdowns (allows conditional logic on issuer dropdown field.
+- Updated WordPress pay s2Member library to version 1.2.1.
+  - Fix incorrect period naming.
+- Updated WordPress pay WooCommerce library to version 1.1.3.
+  - Order note "iDEAL payment [status]" now includes the gateway title, instead of "iDEAL".
+  - Add DirectDebitGateway.
+  - Add bank transfer gateway.
+
 ## [3.6.6] - 2015-06-29
 ### Changed
 - Updated WordPress pay Gravity Forms library to version 1.3.0.
@@ -863,7 +893,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.6...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...HEAD
+[3.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.6...3.7.0
 [3.6.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.5...3.6.6
 [3.6.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.4...3.6.5
 [3.6.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.3...3.6.4

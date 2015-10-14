@@ -116,6 +116,7 @@ module.exports = function( grunt ) {
 					domainPath: 'languages',
 					type: 'wp-plugin',
 					updatePoFiles: true,
+					updateTimestamp: false,
 					exclude: [
 						'deploy/.*',
 						'node_modules/.*',
@@ -359,7 +360,7 @@ module.exports = function( grunt ) {
 		rt_wp_deploy: {
 			app: {
 				options: {
-					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-ideal/',
+					svnUrl: 'http://plugins.svn.wordpress.org/<%= pkg.name %>/',
 					svnDir: 'deploy/wp-svn',
 					svnUsername: 'pronamic',
 					deployDir: 'deploy/latest',
@@ -381,6 +382,8 @@ module.exports = function( grunt ) {
 		'default',
 		'assets',
 		'min',
+		'pot',
+		'doc',
 		'composer:update',
 		'composer:dump-autoload:optimize',
 		'clean:deploy',
