@@ -26,13 +26,13 @@ That way, users can easily make available payment forms.'
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/forms.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/forms.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/reports.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/reports.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 
 	<div class="col">
@@ -69,13 +69,13 @@ We advise users to monitor these payments periodically.'
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/badge.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/badge.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/filter.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/filter.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 
 	<div class="col">
@@ -111,13 +111,13 @@ That way you can always keep empty the list of payments pending.'
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/edit-payment-status.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/edit-payment-status.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/tour.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/tour.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 
 	<div class="col">

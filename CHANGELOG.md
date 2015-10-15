@@ -6,7 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [3.7.0] - 2015-10-14
+## [3.7.1] - 2015-10-15
+### Changed
+- Updated WordPress pay core library to version 1.2.2.
+  - Add payment method 'Bank transfer'.
+
+## [3.7.0] - 2015-10-15
 - Fix transaction status checking event not 'renewed'.
 - Prevent redirects from within extensions if doing cron, so that events get sheduled in check_status.
 ### Changed
@@ -898,7 +903,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.1...HEAD
+[3.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...3.7.1
 [3.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.6...3.7.0
 [3.6.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.5...3.6.6
 [3.6.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.4...3.6.5
