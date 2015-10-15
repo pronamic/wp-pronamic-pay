@@ -100,6 +100,7 @@ module.exports = function( grunt ) {
 			files: {
 				src:  [
 					'**/*.php',
+					'!bower_components/**',
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
@@ -118,6 +119,7 @@ module.exports = function( grunt ) {
 					updatePoFiles: true,
 					updateTimestamp: false,
 					exclude: [
+						'bower_components/.*',
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*'
@@ -224,6 +226,7 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
+					'!bower_components/**',
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
@@ -384,7 +387,6 @@ module.exports = function( grunt ) {
 		'default',
 		'assets',
 		'min',
-		'pot',
 		'doc',
 		'composer:update',
 		'composer:dump-autoload:optimize',
