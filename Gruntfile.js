@@ -15,8 +15,9 @@ module.exports = function( grunt ) {
 			},
 			all: [
 				'**/*.php',
+				'!bower_components/**',
+				'!build/**',
 				'!deploy/**',
-				'!includes/icepay/**',
 				'!includes/xmlseclibs/**',
 				'!node_modules/**',
 				'!vendor/**',
@@ -30,8 +31,8 @@ module.exports = function( grunt ) {
 				src: [
 					'**/*.php',
 					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
-					'!includes/icepay/**',
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
 					'!vendor/**',
@@ -101,6 +102,7 @@ module.exports = function( grunt ) {
 				src:  [
 					'**/*.php',
 					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
@@ -120,6 +122,7 @@ module.exports = function( grunt ) {
 					updateTimestamp: false,
 					exclude: [
 						'bower_components/.*',
+						'build/.*',
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*'
@@ -227,6 +230,7 @@ module.exports = function( grunt ) {
 					'!CHANGELOG.md',
 					'!README.md',
 					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
