@@ -1,70 +1,29 @@
 <?php
 
-function pronamic_pay_create_initial_post_types() {
-	register_post_type( 'pronamic_gateway', array(
-		'label'              => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
-		'labels'             => array(
-			'name'               => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
-			'singular_name'      => __( 'Payment Gateway Configuration', 'pronamic_ideal' ),
-			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-			'add_new_item'       => __( 'Add New Payment Gateway Configuration', 'pronamic_ideal' ),
-			'edit_item'          => __( 'Edit Payment Gateway Configuration', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Payment Gateway Configuration', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Payment Gateway Configurations', 'pronamic_ideal' ),
-			'view_item'          => __( 'View Payment Gateway Configuration', 'pronamic_ideal' ),
-			'search_items'       => __( 'Search Payment Gateway Configurations', 'pronamic_ideal' ),
-			'not_found'          => __( 'No payment gateway configurations found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No payment gateway configurations found in Trash', 'pronamic_ideal' ),
-			'menu_name'          => __( 'Configurations', 'pronamic_ideal' )
-		),
-		'public'             => false,
-		'publicly_queryable' => false,
-		'show_ui'            => true,
-		'show_in_nav_menus'  => false,
-		'show_in_menu'       => false,
-		'show_in_admin_bar'  => false,
-		'supports'           => array( 'title', 'revisions' ),
-		'rewrite'            => false,
-		'query_var'          => false,
-	) );
+function pronamic_pay_get_form( $id ) {
+	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
 
-	register_post_type( 'pronamic_payment', array(
-		'label'              => __( 'Payments', 'pronamic_ideal' ),
-		'labels'             => array(
-			'name'               => __( 'Payments', 'pronamic_ideal' ),
-			'singular_name'      => __( 'Payment', 'pronamic_ideal' ),
-			'add_new'            => __( 'Add New', 'pronamic_ideal' ),
-			'add_new_item'       => __( 'Add New Payment', 'pronamic_ideal' ),
-			'edit_item'          => __( 'Edit Payment', 'pronamic_ideal' ),
-			'new_item'           => __( 'New Payment', 'pronamic_ideal' ),
-			'all_items'          => __( 'All Payments', 'pronamic_ideal' ),
-			'view_item'          => __( 'View Payment', 'pronamic_ideal' ),
-			'search_items'       => __( 'Search Payments', 'pronamic_ideal' ),
-			'not_found'          => __( 'No payments found', 'pronamic_ideal' ),
-			'not_found_in_trash' => __( 'No payments found in Trash', 'pronamic_ideal' ),
-			'menu_name'          => __( 'Payments', 'pronamic_ideal' )
-		),
-		'public'             => false,
-		'publicly_queryable' => false,
-		'show_ui'            => true,
-		'show_in_nav_menus'  => false,
-		'show_in_menu'       => false,
-		'show_in_admin_bar'  => false,
-		'supports'           => false,
-		'rewrite'            => false,
-		'query_var'          => false,
-	) );
+	ob_start();
+
+	include $file;
+
+	$output = ob_get_clean();
+
+	return $output;
 }
 
 /**
- * Priotiry of the initial post types function should be set to < 10
- *
- * @see https://core.trac.wordpress.org/ticket/28488
- * @see https://core.trac.wordpress.org/changeset/29318
- *
- * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
+ * Pay form content
  */
-add_action( 'init', 'pronamic_pay_create_initial_post_types', 0 ); // highest priority
+function pronamic_pay_form_the_content( $content ) {
+	if ( is_singular( 'pronamic_pay_form' ) && 'pronamic_pay_form' === get_post_type() ) {
+		$content .= pronamic_pay_get_form( get_the_ID() );
+	}
+
+	return $content;
+}
+
+add_filter( 'the_content', 'pronamic_pay_form_the_content' );
 
 /**
  * Helper function to update post meta data

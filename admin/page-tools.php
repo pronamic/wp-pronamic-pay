@@ -37,7 +37,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 				'<a class="nav-tab %s" href="%s">%s</a>',
 				esc_attr( implode( ' ', $classes ) ),
 				esc_attr( $url ),
-				$title
+				esc_html( $title )
 			);
 		}
 

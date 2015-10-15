@@ -38,12 +38,27 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array(
-				'type'      => 'password',
 				'label_for' => 'pronamic_pay_license_key',
 			) // args
 		);
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', 'trim' );
+
+		// Default Config
+		add_settings_field(
+			'pronamic_pay_config_id', // id
+			__( 'Default Gateway', 'pronamic_ideal' ), // title
+			array( $this, 'input_page' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_general', // section
+			array(
+				'post_type'        => 'pronamic_gateway',
+				'show_option_none' => __( '&mdash; Select a gateway &mdash;', 'pronamic_ideal' ),
+				'label_for'        => 'pronamic_pay_config_id',
+			) // args
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_config_id' );
 
 		// Settings - Currency
 		add_settings_section(
@@ -143,6 +158,8 @@ class Pronamic_WP_Pay_Settings {
 	 * Input license key
 	 */
 	public function input_license_key( $args ) {
+		do_action( 'pronamic_pay_license_check' );
+
 		$this->input_element( $args );
 
 		$status = get_option( 'pronamic_pay_license_status' );
@@ -161,9 +178,10 @@ class Pronamic_WP_Pay_Settings {
 		$name = $args['label_for'];
 
 		wp_dropdown_pages( array(
-			'name' => $name,
-			'selected' => get_option( $name, '' ),
-			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_ideal' )
+			'name'             => $name,
+			'post_type'        => isset( $args['post_type'] ) ? $args['post_type'] : 'page',
+			'selected'         => get_option( $name, '' ),
+			'show_option_none' => isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '&mdash; Select a page &mdash;', 'pronamic_ideal' ),
 		) );
 	}
 }

@@ -1,4 +1,4 @@
-<h3><?php _e( 'Documentation', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Documentation', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -620,13 +620,13 @@ $providers = array(
 
 	<?php foreach ( array( 'thead', 'tfoot' ) as $tag ) : ?>
 
-		<<?php echo $tag; ?>>
+		<<?php echo esc_html( $tag ); ?>>
 			<tr>
-				<th scope="col" class="manage-column"><?php _e( 'Title', 'pronamic_ideal' ); ?></th>
-				<th scope="col" class="manage-column"><?php _e( 'Date', 'pronamic_ideal' );  ?></th>
-				<th scope="col" class="manage-column"><?php _e( 'Version', 'pronamic_ideal' );  ?></th>
+				<th scope="col" class="manage-column"><?php esc_html_e( 'Title', 'pronamic_ideal' ); ?></th>
+				<th scope="col" class="manage-column"><?php esc_html_e( 'Date', 'pronamic_ideal' );  ?></th>
+				<th scope="col" class="manage-column"><?php esc_html_e( 'Version', 'pronamic_ideal' );  ?></th>
 			</tr>
-		</<?php echo $tag; ?>>
+		</<?php echo esc_html( $tag ); ?>>
 
 	<?php endforeach; ?>
 
@@ -636,8 +636,8 @@ $providers = array(
 
 			<tr>
 				<td colspan="4">
-					<strong><?php echo $provider['name']; ?></strong>
-					<small><a href="<?php echo $provider['url']; ?>"><?php echo $provider['url']; ?></a></small>
+					<strong><?php echo esc_html( $provider['name'] ); ?></strong>
+					<small><a href="<?php echo esc_attr( $provider['url'] ); ?>"><?php echo esc_html( $provider['url'] ); ?></a></small>
 				</td>
 			</tr>
 
@@ -662,21 +662,29 @@ $providers = array(
 				}
 
 				?>
-				<tr class="<?php echo implode( ' ', $classes ); ?>">
+				<tr class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 					<td>
-						<a href="<?php echo $href; ?>">
-							<?php echo $resource['name']; ?>
+						<a href="<?php echo esc_attr( $href ); ?>">
+							<?php echo esc_html( $resource['name'] ); ?>
 						</a>
 					</td>
 					<td>
-						<?php if ( isset( $resource['date'] ) ) : ?>
-							<?php echo $resource['date']->format( 'd-m-Y' ); ?>
-						<?php endif; ?>
+						<?php
+
+						if ( isset( $resource['date'] ) ) {
+							echo esc_html( $resource['date']->format( 'd-m-Y' ) );
+						}
+
+						?>
 					</td>
 					<td>
-						<?php if ( isset( $resource['version'] ) ) : ?>
-							<?php echo $resource['version']; ?>
-						<?php endif; ?>
+						<?php
+
+						if ( isset( $resource['version'] ) ) {
+							echo esc_html( $resource['version'] );
+						}
+
+						?>
 					</td>
 				</tr>
 

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2015-06-23 13:40:07+00:00\n"
-"PO-Revision-Date: 2015-06-23 15:42+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
+"POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
+"PO-Revision-Date: 2015-10-15 10:54+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -14,53 +14,21 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/extensions-readme-md.php:42 admin/extensions-wp-admin.php:11
-msgid "WordPress.org"
-msgstr "WordPress.org"
+#: admin/meta-box-form-options.php:7
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:45
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:64
+msgid "Gateway"
+msgstr "Gateway"
 
-#: admin/extensions-readme-md.php:53 admin/extensions-wp-admin.php:14
-msgid "GitHub"
-msgstr "GitHub"
+#: admin/meta-box-form-options.php:26
+msgid "Button Text"
+msgstr "Button tekst"
 
-#: admin/extensions-wp-admin.php:5 admin/gateways-wp-admin.php:5
-#: admin/methods-wp-admin.php:7
-msgid "Name"
-msgstr "Naam"
+#: admin/meta-box-form-options.php:32 templates/form.php:8
+msgid "Pay Now"
+msgstr "Betaal nu"
 
-#: admin/extensions-wp-admin.php:8
-msgid "Author"
-msgstr "Auteur"
-
-#: admin/extensions-wp-admin.php:17
-msgid "Requires at least"
-msgstr "Vereist minimaal"
-
-#: admin/extensions-wp-admin.php:20
-msgid "Tested up to"
-msgstr "Getest tot"
-
-#: admin/extensions-wp-admin.php:23
-msgid "Active"
-msgstr "Actief"
-
-#: admin/gateways-wp-admin.php:4
-msgid "Provider"
-msgstr "Provider"
-
-#: admin/includes/upgrade.php:151
-msgid "Configuration %d"
-msgstr "Configuratie %d"
-
-#: admin/includes/upgrade.php:321
-msgid "Payment Form %d"
-msgstr "Betalingsformulier %d"
-
-#: admin/includes/upgrade.php:432
-msgid "Payment %d"
-msgstr "Betaling %d"
-
-#: admin/meta-box-gateway-config.php:29
-#: classes/Pronamic/WP/Pay/Settings.php:29
+#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
 msgid "General"
@@ -75,15 +43,15 @@ msgid "Live"
 msgstr "Live"
 
 #: admin/meta-box-gateway-config.php:46 admin/meta-box-gateway-test.php:26
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:100
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:162
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:114
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:201
 msgid "Test"
 msgstr "Test"
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
-#: admin/tab-branding.php:17 admin/tab-branding.php:23
-#: admin/tab-methods.php:78 admin/tab-pages_generator.php:29
-#: classes/Pronamic/WP/Pay/Admin.php:365 classes/Pronamic/WP/Pay/Admin.php:366
+#: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:89
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:400
+#: classes/Pronamic/WP/Pay/Admin.php:401
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -92,7 +60,7 @@ msgstr "Test"
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:20
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:59
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:195
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:193
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:52
@@ -440,11 +408,11 @@ msgstr "SHA-256"
 msgid "SHA-512"
 msgstr "SHA-512"
 
-#: admin/meta-box-gateway-config.php:430 admin/meta-box-gateway-config.php:519
+#: admin/meta-box-gateway-config.php:430 admin/meta-box-gateway-config.php:535
 msgid "SHA-IN Pass phrase"
 msgstr "SHA-IN versleuteling"
 
-#: admin/meta-box-gateway-config.php:433 admin/meta-box-gateway-config.php:522
+#: admin/meta-box-gateway-config.php:433 admin/meta-box-gateway-config.php:538
 msgid ""
 "You configure the SHA-IN Pass phrase in the iDEAL dashboard (Configuration "
 "&raquo; Technical information &raquo; Data and origin verification) of your "
@@ -473,12 +441,13 @@ msgid "User ID"
 msgstr "Gebruiker ID"
 
 #: admin/meta-box-gateway-config.php:460
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Order ID"
 msgstr "Bestelling ID"
 
 #: admin/meta-box-gateway-config.php:466 admin/meta-box-gateway-config.php:504
+#: admin/meta-box-gateway-config.php:522
 msgid "This controls the Ogone %s parameter."
 msgstr "Hiermee beheer je de Ogone %s parameter."
 
@@ -511,102 +480,110 @@ msgid "Parameter Variable"
 msgstr "Parameter variabele"
 
 #: admin/meta-box-gateway-config.php:514
+msgid "Payment page look and feel"
+msgstr "Look en feel van de betaalpagina"
+
+#: admin/meta-box-gateway-config.php:519
+msgid "Template Page"
+msgstr "Templatepagina"
+
+#: admin/meta-box-gateway-config.php:530
 msgid "Ogone DirectLink"
 msgstr "Ogone DirectLink"
 
-#: admin/meta-box-gateway-config.php:527
+#: admin/meta-box-gateway-config.php:543
 msgid "3-D Secure"
 msgstr "3-D Secure"
 
-#: admin/meta-box-gateway-config.php:529
+#: admin/meta-box-gateway-config.php:545
 msgid "Enable 3-D Secure protocol"
 msgstr "3-D Secure protocol inschakelen"
 
-#: admin/meta-box-gateway-config.php:535
+#: admin/meta-box-gateway-config.php:551
 msgid "Qantani"
 msgstr "Qantani"
 
-#: admin/meta-box-gateway-config.php:559
+#: admin/meta-box-gateway-config.php:575
 msgid "iDEAL Advanced"
 msgstr "iDEAL geavanceerd"
 
-#: admin/meta-box-gateway-config.php:564
+#: admin/meta-box-gateway-config.php:580
 msgid "Private Key Password"
 msgstr "Privé sleutel wachtwoord"
 
-#: admin/meta-box-gateway-config.php:570 admin/meta-box-gateway-config.php:953
+#: admin/meta-box-gateway-config.php:586 admin/meta-box-gateway-config.php:973
 msgid "Private Key"
 msgstr "Privé sleutel"
 
-#: admin/meta-box-gateway-config.php:577 admin/meta-box-gateway-config.php:977
+#: admin/meta-box-gateway-config.php:593 admin/meta-box-gateway-config.php:997
 msgid "Private Certificate"
 msgstr "Privé certificaat"
 
-#: admin/meta-box-gateway-config.php:585
+#: admin/meta-box-gateway-config.php:601
 msgid "Private Key and Certificate"
 msgstr "Privé sleutel en certificaat"
 
-#: admin/meta-box-gateway-config.php:590
+#: admin/meta-box-gateway-config.php:606
 msgid "Number Days Valid"
 msgstr "Aantal dagen geldig"
 
-#: admin/meta-box-gateway-config.php:592
+#: admin/meta-box-gateway-config.php:608
 msgid ""
 "specify the length of time for which the generated certificate will be "
 "valid, in days."
 msgstr ""
 "specificeer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
 
-#: admin/meta-box-gateway-config.php:596
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
+#: admin/meta-box-gateway-config.php:612
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:433
 msgid "Country"
 msgstr "Land"
 
-#: admin/meta-box-gateway-config.php:598
+#: admin/meta-box-gateway-config.php:614
 msgid "2 letter code [NL]"
 msgstr "2 letters code [NL]"
 
-#: admin/meta-box-gateway-config.php:602
+#: admin/meta-box-gateway-config.php:618
 msgid "State or Province"
 msgstr "Staat of provincie"
 
-#: admin/meta-box-gateway-config.php:604
+#: admin/meta-box-gateway-config.php:620
 msgid "full name [Friesland]"
 msgstr "volledige naam [Friesland]"
 
-#: admin/meta-box-gateway-config.php:608
+#: admin/meta-box-gateway-config.php:624
 msgid "Locality"
 msgstr "Localiteit"
 
-#: admin/meta-box-gateway-config.php:610
+#: admin/meta-box-gateway-config.php:626
 msgid "eg, city"
 msgstr "bijvoorbeeld, stad"
 
-#: admin/meta-box-gateway-config.php:614
+#: admin/meta-box-gateway-config.php:630
 msgid "Organization"
 msgstr "Organisatie"
 
-#: admin/meta-box-gateway-config.php:616
+#: admin/meta-box-gateway-config.php:632
 msgid "eg, company [Pronamic]"
 msgstr "bijvoorbeeld, bedrijf [Pronamic]"
 
-#: admin/meta-box-gateway-config.php:620
+#: admin/meta-box-gateway-config.php:636
 msgid "Organization Unit"
 msgstr "Organisatie unit"
 
-#: admin/meta-box-gateway-config.php:622
+#: admin/meta-box-gateway-config.php:638
 msgid "eg, section"
 msgstr "bijvoorbeeld, sectie"
 
-#: admin/meta-box-gateway-config.php:626
+#: admin/meta-box-gateway-config.php:642
 msgid "Common Name"
 msgstr "Algemene naam"
 
-#: admin/meta-box-gateway-config.php:629
+#: admin/meta-box-gateway-config.php:645
 msgid "eg, YOUR name"
 msgstr "bijvoorbeeld, uw naam"
 
-#: admin/meta-box-gateway-config.php:630
+#: admin/meta-box-gateway-config.php:646
 msgid ""
 "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in "
 "the domainname of your website."
@@ -614,7 +591,7 @@ msgstr ""
 "Heb je een iDEAL-abonnement bij de Rabobank of ING bank, vul dan de "
 "domeinnaam van deze website in."
 
-#: admin/meta-box-gateway-config.php:631
+#: admin/meta-box-gateway-config.php:647
 msgid ""
 "Do you have an iDEAL subscription with ABN AMRO, please fill in "
 "\"ideal_<strong>company</strong>\", where \"company\" is your company name "
@@ -625,48 +602,49 @@ msgstr ""
 "strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de "
 "aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
 
-#: admin/meta-box-gateway-config.php:635
+#: admin/meta-box-gateway-config.php:651 templates/form.php:48
+#: templates/form.php:52
 msgid "Email Address"
 msgstr "E-mailadres"
 
-#: admin/meta-box-gateway-config.php:647
+#: admin/meta-box-gateway-config.php:663
 msgid "Download Private Key"
 msgstr "Download privé sleutel"
 
-#: admin/meta-box-gateway-config.php:669
+#: admin/meta-box-gateway-config.php:685
 msgid "SHA Fingerprint"
 msgstr "SHA vingerafdruk"
 
-#: admin/meta-box-gateway-config.php:675
+#: admin/meta-box-gateway-config.php:691
 msgid "M j, Y @ G:i"
 msgstr "j M Y @ G:i"
 
-#: admin/meta-box-gateway-config.php:678
+#: admin/meta-box-gateway-config.php:694
 msgid "Valid From"
 msgstr "Geldig van"
 
-#: admin/meta-box-gateway-config.php:683
+#: admin/meta-box-gateway-config.php:699
 msgid "Valid To"
 msgstr "Geldig tot"
 
-#: admin/meta-box-gateway-config.php:694
+#: admin/meta-box-gateway-config.php:710
 msgid "Download Private Certificate"
 msgstr "Download privé certificaat"
 
-#: admin/meta-box-gateway-config.php:714
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:28
+#: admin/meta-box-gateway-config.php:730
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:42
 msgid "Variant"
 msgstr "Variant"
 
-#: admin/meta-box-gateway-config.php:734
+#: admin/meta-box-gateway-config.php:750
 msgid "%s (obsoleted)"
 msgstr "%s (verouderd)"
 
-#: admin/meta-box-gateway-config.php:942
+#: admin/meta-box-gateway-config.php:962
 msgid "Private Key and Certificate Generator"
 msgstr "Privé sleutel en certificaat generator"
 
-#: admin/meta-box-gateway-config.php:946
+#: admin/meta-box-gateway-config.php:966
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
@@ -674,14 +652,15 @@ msgstr ""
 "Je moet de volgende commando's gebruiken om een privé sleulel en certificaat "
 "voor iDEAL v3 te genereren:"
 
-#: admin/meta-box-gateway-config.php:962
+#: admin/meta-box-gateway-config.php:982
 msgid "filename"
 msgstr "bestandsnaam"
 
 #: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
-#: admin/tab-ideal_status.php:46
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:32
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:33
+#: admin/tab-ideal_status.php:54
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:49
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:46
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:72
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
 msgid "Date"
 msgstr "Datum"
@@ -691,21 +670,21 @@ msgid "l jS \\o\\f F Y, h:ia"
 msgstr "j F Y H:i:s"
 
 #: admin/meta-box-payment-info.php:19
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:29
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:43
 msgid "ID"
 msgstr "ID"
 
 #: admin/meta-box-payment-info.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:28
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:66
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:111
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:102
 msgid "Description"
 msgstr "Beschrijving"
 
 #: admin/meta-box-payment-info.php:35
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:29
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:145
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:67
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:147
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:167
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
 msgid "Amount"
 msgstr "Bedrag"
@@ -719,20 +698,20 @@ msgid "Action URL"
 msgstr "Actie URL"
 
 #: admin/meta-box-payment-info.php:75
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:32
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:164
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:170
 msgid "Status"
 msgstr "Status"
 
 #: admin/meta-box-payment-info.php:89
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:413
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:427
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:113
 msgid "Email"
 msgstr "E-mail"
 
 #: admin/meta-box-payment-info.php:101
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:30
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:68
 msgid "Consumer"
 msgstr "Consument"
 
@@ -750,8 +729,8 @@ msgid "Y/m/d"
 msgstr "d-m-Y"
 
 #: admin/meta-box-payment-source.php:11
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:31
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:107
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:69
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 msgid "Source"
 msgstr "Bron"
 
@@ -771,27 +750,132 @@ msgstr "Sessie ID"
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
+#: admin/meta-box-payment-update.php:33
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:167
+msgid "Update"
+msgstr "Bijwerken"
+
 #: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:111
 msgid "Icon"
 msgstr "Icoon"
 
+#: admin/methods-wp-admin.php:7 admin/tab-extensions.php:15
+#: admin/tab-gateways.php:18
+msgid "Name"
+msgstr "Naam"
+
 #: admin/methods-wp-admin.php:8
 msgid "Website"
 msgstr "Website"
 
-#: admin/page-dashboard.php:9 classes/Pronamic/WP/Pay/Admin.php:375
-#: classes/Pronamic/WP/Pay/Admin.php:376 includes/post.php:32
-#: includes/post.php:34 includes/post.php:45
-msgid "Payments"
-msgstr "Betalingen"
+#. Plugin Name of the plugin/theme
+msgid "Pronamic iDEAL"
+msgstr "Pronamic iDEAL"
+
+#: admin/notice-license.php:19
+msgid "You succesfully activated your website."
+msgstr "Je hebt je website succesvol geactiveerd."
+
+#: admin/notice-license.php:22
+msgid ""
+"This license does not have any activations left. Maybe you have to "
+"deactivate your license on a local/staging server. This can be done on your "
+"<a href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu account</"
+"a>."
+msgstr ""
+"Deze licentie heeft geen activaties meer beschikbaar. Misschien moet je je "
+"licentie deactiveren op een lokale/staging server. Dit kan worden gedaan via "
+"je <a href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu "
+"account</a>."
+
+#: admin/notice-license.php:31
+msgid ""
+"There was a problem activating your license key, please try again or contact "
+"support."
+msgstr ""
+"Er was een probleem met het activeren van je licentiesleutel, probeer het "
+"opnieuw of neem contact op met support."
+
+#: admin/notice-update_db.php:19
+msgid "Pronamic iDEAL Data Update Required"
+msgstr "Pronamic iDEAL data update vereist"
+
+#: admin/notice-update_db.php:20
+msgid "We just need to update your install to the latest version"
+msgstr "We moeten je installatie updaten naar de laatste versie"
+
+#: admin/notice-update_db.php:24
+msgid "Run the updater"
+msgstr "Voer de updater uit"
+
+#: admin/notice-update_db.php:30
+msgid ""
+"It is strongly recommended that you backup your database before proceeding. "
+"Are you sure you wish to run the updater now?"
+msgstr ""
+"Het wordt sterk geadviseerd om een backup te maken van je database voordat "
+"je verder gaat. Weet je zeker dat je de updater nu wilt uitvoeren?"
+
+#: admin/page-about.php:13
+msgid "Welcome at Pronamic iDEAL"
+msgstr "Welkom bij Pronamic iDEAL"
+
+#: admin/page-about.php:19
+msgid ""
+"Thanks for installing Pronamic iDEAL. Version %s is more powerful, stable "
+"and secure than ever before. We hope you enjoy using it."
+msgstr ""
+"Bedankt voor het installeren van Pronamic iDEAL. Versie %s is krachtiger, "
+"stabieler en veiliger dan ooit tevoeren. We hopen dat je het met plezier "
+"gebruikt."
+
+#: admin/page-about.php:30
+msgid "Version: %s"
+msgstr "Versie: %s"
+
+#: admin/page-about.php:41
+msgid "What is new"
+msgstr "Wat is nieuw"
+
+#: admin/page-about.php:42
+msgid "Getting started"
+msgstr "Om te beginnen"
+
+#: admin/page-dashboard.php:9
+msgid "Help"
+msgstr "Hulp"
+
+#: admin/page-dashboard.php:13
+msgid ""
+"Before asking for help we recommend to check the tour, getting started and "
+"status page."
+msgstr ""
+"Voordat je om hulp vraagt raden we het aan om de rondleiding, om te beginnen "
+"en status pagina te bekijken."
+
+#: admin/page-dashboard.php:26 admin/pointer-start.php:9
+msgid "Start Tour"
+msgstr "Rondleiding starten"
+
+#: admin/page-dashboard.php:39
+msgid "Getting Started"
+msgstr "Om te beginnen"
+
+#: admin/page-dashboard.php:51 admin/page-tools.php:4 admin/pointer-tools.php:8
+msgid "System Status"
+msgstr "Systeemstatus"
+
+#: admin/page-dashboard.php:59
+msgid "Pending Payments"
+msgstr "Betalingen in afwachting"
 
 #. translators: comment date format. See http:php.net/date
-#: admin/page-dashboard.php:45
+#: admin/page-dashboard.php:96
 msgid "c"
 msgstr "c"
 
-#: admin/page-dashboard.php:67 admin/page-dashboard.php:75
+#: admin/page-dashboard.php:118 admin/page-dashboard.php:126
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
@@ -799,31 +883,31 @@ msgstr "Pronamic nieuws"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: admin/page-tools.php:4
-msgid "System Status"
-msgstr "Systeemstatus"
-
-#: admin/page-tools.php:5 admin/tab-ideal_status.php:1
+#: admin/page-tools.php:5 admin/pointer-tools.php:13
+#: admin/tab-ideal_status.php:1
 msgid "iDEAL Status"
 msgstr "iDEAL-status"
 
-#: admin/page-tools.php:6 admin/tab-pages_generator.php:1
+#: admin/page-tools.php:6 admin/pointer-tools.php:18
+#: admin/tab-pages_generator.php:1
 msgid "Pages Generator"
 msgstr "Pagina's generator"
 
-#: admin/page-tools.php:7
+#: admin/page-tools.php:7 admin/pointer-gateways.php:1
+#: admin/pointer-tools.php:23
 msgid "Gateways"
 msgstr "Gateways"
 
-#: admin/page-tools.php:8
+#: admin/page-tools.php:8 admin/pointer-tools.php:28
 msgid "Extensions"
 msgstr "Extensies"
 
-#: admin/page-tools.php:9
+#: admin/page-tools.php:9 admin/pointer-tools.php:33
 msgid "Methods"
 msgstr "Methoden"
 
-#: admin/page-tools.php:10 admin/tab-documentation.php:1
+#: admin/page-tools.php:10 admin/pointer-tools.php:38
+#: admin/tab-documentation.php:1
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -831,9 +915,284 @@ msgstr "Documentatie"
 msgid "Branding"
 msgstr "Huisstijl"
 
-#: admin/page-tools.php:12
+#: admin/page-tools.php:12 admin/pointer-tools.php:48
 msgid "License"
 msgstr "Licentie"
+
+#: admin/pointer-dashboard.php:1
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:108
+#: classes/Pronamic/WP/Pay/Admin.php:455
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: admin/pointer-dashboard.php:4
+msgid ""
+"On the Pronamic iDEAL dashboard you can restart this tour and see an "
+"overview of the latest pending payments."
+msgstr ""
+"Op het Pronamic iDEAL dashboard kun je deze rondleiding opnieuw starten en "
+"een overzicht van de laatste in afwachting betalingen zien."
+
+#: admin/pointer-dashboard.php:5
+msgid ""
+"It also gives you access to the “Getting Started” and “System Status” pages "
+"in case you have issues."
+msgstr ""
+"Het geeft je ook toegang tot de “Om te beginnen” en “Systeemstatus” pagina’s "
+"als je problemen hebt."
+
+#: admin/pointer-dashboard.php:6
+msgid "And you can follow the latest news from the Pronamic.eu weblog."
+msgstr "En je kunt het laatste nieuws volgen van de Pronamic.nl weblog."
+
+#: admin/pointer-dashboard.php:11 admin/pointer-forms.php:29
+#: admin/pointer-gateways.php:13 admin/pointer-payments.php:13
+#: admin/pointer-reports.php:12 admin/pointer-settings.php:12
+msgid "Next"
+msgstr "Volgende"
+
+#: admin/pointer-dashboard.php:13 admin/pointer-forms.php:31
+#: admin/pointer-gateways.php:15 admin/pointer-payments.php:15
+#: admin/pointer-reports.php:14 admin/pointer-settings.php:14
+#: admin/pointer-start.php:11 admin/pointer-tools.php:56
+msgid "Close"
+msgstr "Sluiten"
+
+#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:426
+#: classes/Pronamic/WP/Pay/PostTypes.php:94
+#: classes/Pronamic/WP/Pay/PostTypes.php:96
+#: classes/Pronamic/WP/Pay/PostTypes.php:107
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
+msgid "Payment Forms"
+msgstr "Betalingsformulieren"
+
+#: admin/pointer-forms.php:4
+msgid ""
+"On the payment forms page you can add, edit or delete simple payment forms."
+msgstr ""
+"Op de betalingsformulieren pagina kun je eenvoudige betalingsformulieren "
+"toevoegen, bewerken of verwijderen."
+
+#: admin/pointer-forms.php:5
+msgid ""
+"Currently it’s not possible to adjust the form fields or styling of these "
+"forms."
+msgstr ""
+"Momenteel is het niet mogelijk om de formuliervelden of opmaak van deze "
+"formulieren te wijzigen."
+
+#: admin/pointer-forms.php:10
+msgid ""
+"For more advanced payment forms we advice you to use the <a href=\"%s\" "
+"target=\"%s\">“Gravity Forms” plugin</a>."
+msgstr ""
+"Voor meer geavanceerde betalingsformulieren adviseren we je om gebruik te "
+"maken van de <a href=\"%s\" target=\"%s\">“Gravity Forms” plugin</a>."
+
+#: admin/pointer-forms.php:26 admin/pointer-gateways.php:10
+#: admin/pointer-payments.php:10 admin/pointer-reports.php:9
+#: admin/pointer-settings.php:9 admin/pointer-tools.php:53
+msgid "Previous"
+msgstr "Vorige"
+
+#: admin/pointer-gateways.php:4
+msgid ""
+"Here you can find an overview of all the gateway configurations on your "
+"WordPres site."
+msgstr ""
+"Hier vind je een overzicht van al de betalingsconfiguraties op je WordPress "
+"website."
+
+#: admin/pointer-gateways.php:5
+msgid ""
+"To use the Pronamic iDEAL plugin you have to add an payment gateway "
+"configuration."
+msgstr ""
+"Om de Pronamic iDEAL plugin te gebruiken moet je een betalingsgateway "
+"configuratie toevoegen."
+
+#: admin/pointer-gateways.php:6
+msgid ""
+"Normally you get the required configuration information from your payment "
+"provider."
+msgstr ""
+"Normaliter krijgen je benodigde configuratie informatie van je "
+"betalingsprovider."
+
+#: admin/pointer-payments.php:1
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:46
+#: classes/Pronamic/WP/Pay/Admin.php:410 classes/Pronamic/WP/Pay/Admin.php:411
+#: classes/Pronamic/WP/Pay/PostTypes.php:67
+#: classes/Pronamic/WP/Pay/PostTypes.php:69
+#: classes/Pronamic/WP/Pay/PostTypes.php:80
+msgid "Payments"
+msgstr "Betalingen"
+
+#: admin/pointer-payments.php:4
+msgid ""
+"On the payments page you can find an overview off all the payments initiated "
+"on your WordPres site."
+msgstr ""
+"Op de betalingen pagina vind je een overzicht van alle betalingen die "
+"gestart zijn op je WordPress website."
+
+#: admin/pointer-payments.php:5
+msgid ""
+"You can easily filter the payments by status or use the search field to "
+"search for specific payments."
+msgstr ""
+"Je kunt de betalingen eenvoudig filteren op status of het zoekveld gebruiken "
+"om te zoeken naar specifieke betalingen."
+
+#: admin/pointer-payments.php:6
+msgid ""
+"We advice you to regular check the pending payments on this overview and "
+"adjust the status of these payments manual if needed."
+msgstr ""
+"We adviseren je om regelmatig de in afwachting betalingen te controleren in "
+"dit overzicht en wanneer nodig de status van deze betalingen handmatig bij "
+"te werken."
+
+#: admin/pointer-reports.php:1 classes/Pronamic/WP/Pay/Admin/Reports.php:25
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:26
+msgid "Reports"
+msgstr "Rapporten"
+
+#: admin/pointer-reports.php:4
+msgid ""
+"The Pronamic iDEAL reports page shows you an graph of all the payments of "
+"this year."
+msgstr ""
+"De Pronamic iDEAL rapporten pagina toont een grafiek van alle betalingen van "
+"dit jaar."
+
+#: admin/pointer-reports.php:5
+msgid ""
+"You can see the number of succesfull payments and the total amount of "
+"pending, succesfull, cancelled and failed payments."
+msgstr ""
+"Je kunt het aantal succesvolle betalingen en het totale bedrag aan in "
+"afwachting, succesvolle, geannuleerde en mislukte betalingen zien."
+
+#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:436
+#: classes/Pronamic/WP/Pay/Admin.php:437
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin/pointer-settings.php:4
+msgid "These are the General settings for the Pronamic iDEAL plugin."
+msgstr "Dit zijn de algemene instellingen voor de Pronamic iDEAL plugin."
+
+#: admin/pointer-settings.php:5
+msgid ""
+"Here you can enter your license key and configure some default settings."
+msgstr ""
+"Hier kun je je licentiesleutel invoeren en enkele standaard instellingen "
+"configureren."
+
+#: admin/pointer-start.php:1
+msgid "Congratulations"
+msgstr "Gefeliciteerd"
+
+#: admin/pointer-start.php:4
+msgid ""
+"You’ve just installed the Pronamic iDEAL plugin. Click “Start Tour” to view "
+"a quick introduction of this plugin’s core functionality."
+msgstr ""
+"Zojuist is Pronamic iDEAL geïnstalleerd. Klik op “Rondleiding starten” om "
+"een snelle introductie van de kernfunctionaliteit van deze plugin te zien."
+
+#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:445
+#: classes/Pronamic/WP/Pay/Admin.php:446
+msgid "Tools"
+msgstr "Extra"
+
+#: admin/pointer-tools.php:4
+msgid ""
+"On the tools page you can find some additional features and information."
+msgstr ""
+"Op de extra pagina vind je een aantal aanvullende functionaliteiten en "
+"informatie."
+
+#: admin/pointer-tools.php:9
+msgid ""
+"The system status page gives you some basic information about your WordPress "
+"installation which come in handy if you are having issues."
+msgstr ""
+"De systeemstatus pagina geeft je basis informatie over de WordPress "
+"installatie welke van pas komen als je problemen hebt."
+
+#: admin/pointer-tools.php:14
+msgid ""
+"The iDEAL status page gives you information about the iDEAL status of the "
+"various banks who offer iDEAL."
+msgstr ""
+"De iDEAL status pagina geeft je informatie over de iDEAL status van de "
+"verschillende banken die iDEAL aanbieden."
+
+#: admin/pointer-tools.php:19
+msgid ""
+"With the pages generator tool you can easily generate some optional payment "
+"status pages."
+msgstr ""
+"Met de pagina's generator kun je eenvoudig een aantal optionele "
+"betalingstatus pagina's genereren."
+
+#: admin/pointer-tools.php:24
+msgid ""
+"The gateways page gives you an overview of all the gateways that er "
+"supported by the Pronamic iDEAL plugin."
+msgstr ""
+"De gateways pagina geeft je een overzicht van alle gateways die ondersteund "
+"worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:29
+msgid ""
+"The extensions page gives you an overview of all the extensions that er "
+"supported by the Pronamic iDEAL plugin."
+msgstr ""
+"De extensies pagina geeft je een overzicht van alle extensies die "
+"ondersteund worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:34
+msgid ""
+"The methods page gives you an overview of all the methods that er supported "
+"by the Pronamic iDEAL plugin."
+msgstr ""
+"De methoden pagina geeft je een overzicht van alle methodes die ondersteund "
+"worden door de Pronamic iDEAL plugin."
+
+#: admin/pointer-tools.php:39
+msgid ""
+"The documentation page has an overview of all kind of documentation files "
+"from different payment providers."
+msgstr ""
+"De documentatie pagina heeft een overzicht van allerlei documentatie "
+"bestanden van verschillende betalingsproviders."
+
+#: admin/pointer-tools.php:43
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:177
+msgid "Brand"
+msgstr "Merk"
+
+#: admin/pointer-tools.php:44
+msgid ""
+"The brand page has some additional images and banners which you could add to "
+"your WordPress website."
+msgstr ""
+"De huisstilj pagina geeft je aanvullende afbeeldingen en banners welke je "
+"kunt toevoegen aan je WordPress website."
+
+#: admin/pointer-tools.php:49
+msgid ""
+"The license page gives you additional information about your license and "
+"license key."
+msgstr ""
+"De licentie pagina geeft je aanvullende informatie over je licentie en "
+"licentiesleutel."
 
 #. Author of the plugin/theme
 msgid "Pronamic"
@@ -892,7 +1251,7 @@ msgid "Banner 100&times;100 (without campaign statements)"
 msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
-#: admin/tab-branding.php:113 admin/tab-methods.php:88
+#: admin/tab-branding.php:113 admin/tab-methods.php:99
 msgid "Mister Cash"
 msgstr "Mister Cash"
 
@@ -912,8 +1271,9 @@ msgstr "Mollie bage - Betaling groen"
 
 #: admin/tab-branding.php:215 admin/tab-documentation.php:625
 #: admin/tab-pages_generator.php:95
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:25
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:44
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:41
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:63
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:26
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:106
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:102
@@ -934,13 +1294,6 @@ msgstr "Afbeelding"
 msgid "Code"
 msgstr "Code"
 
-#: admin/tab-branding.php:279
-msgid ""
-"PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</a>."
-msgstr ""
-"PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
-"\">TinyPNG</a>."
-
 #: admin/tab-documentation.php:627
 msgid "Version"
 msgstr "Versie"
@@ -949,168 +1302,121 @@ msgstr "Versie"
 msgid "Supported Extensions"
 msgstr "Ondersteunde extensies"
 
-#: admin/tab-extensions.php:8
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
-msgid "Easy Digital Downloads"
-msgstr "Easy Digital Downloads"
+#: admin/tab-extensions.php:18
+msgid "Author"
+msgstr "Auteur"
 
-#: admin/tab-extensions.php:15
-msgid "Pippin Williamson"
-msgstr "Pippin Williamson"
+#: admin/tab-extensions.php:21
+msgid "WordPress.org"
+msgstr "WordPress.org"
 
-#: admin/tab-extensions.php:19
-msgid "Event Espresso 3"
-msgstr "Event Espresso 3"
+#: admin/tab-extensions.php:24
+msgid "GitHub"
+msgstr "GitHub"
 
 #: admin/tab-extensions.php:27
-msgid "Event Espresso 3 Lite"
-msgstr "Event Espresso 3 Lite"
+msgid "Requires at least"
+msgstr "Vereist minimaal"
 
-#: admin/tab-extensions.php:36
-msgid "Event Espresso 4"
-msgstr "Event Espresso 4"
+#: admin/tab-extensions.php:30
+msgid "Tested up to"
+msgstr "Getest tot"
 
-#: admin/tab-extensions.php:44
-msgid "Event Espresso 4 Decaf"
-msgstr "Event Espresso 4 Decaf"
-
-#: admin/tab-extensions.php:53
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:111
-msgid "Gravity Forms"
-msgstr "Gravity Forms"
-
-#: admin/tab-extensions.php:59 admin/tab-extensions.php:68
-#: admin/tab-extensions.php:77 admin/tab-extensions.php:86
-#: admin/tab-extensions.php:95 admin/tab-extensions.php:104
-msgid "Rocketgenius"
-msgstr "Rocketgenius"
-
-#: admin/tab-extensions.php:63
-msgid "Gravity Forms AWeber Add-On"
-msgstr "Gravity Forms AWeber Add-On"
-
-#: admin/tab-extensions.php:72
-msgid "Gravity Forms Campaign Monitor Add-On"
-msgstr "Gravity Forms Campaign Monitor Add-On"
-
-#: admin/tab-extensions.php:81
-msgid "Gravity Forms MailChimp Add-On"
-msgstr "Gravity Forms MailChimp Add-On"
-
-#: admin/tab-extensions.php:90
-msgid "Gravity Forms User Registration Add-On"
-msgstr "Gravity Forms User Registration Add-On"
-
-#: admin/tab-extensions.php:99
-msgid "Gravity Forms Zapier Add-On"
-msgstr "Gravity Forms Zapier Add-On"
-
-#: admin/tab-extensions.php:108
-#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:405
-msgid "iThemes Exchange"
-msgstr "iThemes Exchange"
-
-#: admin/tab-extensions.php:115
-msgid "iThemes"
-msgstr "iThemes"
-
-#: admin/tab-extensions.php:119
-#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
-msgid "Jigoshop"
-msgstr "Jigoshop"
-
-#: admin/tab-extensions.php:126
-msgid "Jigowatt"
-msgstr "Jigowatt"
-
-#: admin/tab-extensions.php:130
-#: vendor/wp-pay-extensions/membership/src/Extension.php:120
-msgid "Membership"
-msgstr "Membership"
-
-#: admin/tab-extensions.php:136 admin/tab-extensions.php:146
-msgid "WPMUDEV.org"
-msgstr "WPMUDEV.org"
-
-#: admin/tab-extensions.php:140
-msgid "Membership Premium"
-msgstr "Membership Premium"
-
-#: admin/tab-extensions.php:150
-msgid "s2Member®"
-msgstr "s2Member®"
-
-#: admin/tab-extensions.php:157
-msgid "WebSharks, Inc."
-msgstr "WebSharks, Inc."
-
-#: admin/tab-extensions.php:161
-#: vendor/wp-pay-extensions/shopp/src/Extension.php:166
-msgid "Shopp"
-msgstr "Shopp"
-
-#: admin/tab-extensions.php:168
-msgid "Ingenesis Limited"
-msgstr "Ingenesis Limited"
-
-#: admin/tab-extensions.php:172
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:157
-msgid "WooCommerce"
-msgstr "WooCommerce"
-
-#: admin/tab-extensions.php:179
-msgid "WooThemes"
-msgstr "WooThemes"
-
-#: admin/tab-extensions.php:183
-#: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:161
-msgid "WP e-Commerce"
-msgstr "WP e-Commerce"
-
-#: admin/tab-extensions.php:190
-msgid "Instinct Entertainment"
-msgstr "Instinct Entertainment"
-
-#: admin/tab-extensions.php:194
-msgid "Crowdfunding by Astoundify"
-msgstr "Crowdfunding by Astoundify"
-
-#: admin/tab-extensions.php:200 admin/tab-extensions.php:232
-msgid "Astoundify"
-msgstr "Astoundify"
-
-#: admin/tab-extensions.php:205
-#: vendor/wp-pay-extensions/classipress/src/Extension.php:296
-msgid "ClassiPress"
-msgstr "ClassiPress"
-
-#: admin/tab-extensions.php:210 admin/tab-extensions.php:218
-#: admin/tab-extensions.php:225
-#: vendor/wp-pay-extensions/appthemes/src/Extension.php:121
-msgid "AppThemes"
-msgstr "AppThemes"
-
-#: admin/tab-extensions.php:214
-msgid "JobRoller"
-msgstr "JobRoller"
-
-#: admin/tab-extensions.php:222
-msgid "Vantage"
-msgstr "Vantage"
-
-#: admin/tab-extensions.php:229
-msgid "Campaignify"
-msgstr "Campaignify"
-
-#: admin/tab-extensions.php:247 admin/tab-gateways.php:22
-msgid "Markdown"
-msgstr "Markdown"
+#: admin/tab-extensions.php:33
+msgid "Active"
+msgstr "Actief"
 
 #: admin/tab-gateways.php:1
 msgid "Payment Gateways"
 msgstr "Betalingsgateways"
 
-#: admin/tab-ideal_status.php:7
+#: admin/tab-gateways.php:17
+msgid "Provider"
+msgstr "Provider"
+
+#: admin/tab-getting-started.php:14
+msgid "Step 1 - Account Payment Provider"
+msgstr "Stap 1 - Account payment provider"
+
+#: admin/tab-getting-started.php:19
+msgid ""
+"A payment provider is responsible for the actual processing of payment "
+"transactions.\n"
+"We are not a payment provider, you will need to close an account with a "
+"payment provider or bank.\n"
+"We support most popular payment providers and banks. \n"
+"The Pronamic iDEAL plugin makes the link between the selected payment "
+"provider and the e-commerce plugin."
+msgstr ""
+"Een payment provider verzorgt de daadwerkelijke verwerking van "
+"betalingstransacties. Wij zijn geen payment provider, je dient dus een "
+"account bij een payment provider of bank af te sluiten. We ondersteunen de "
+"meest populaire payment providers en banken. De Pronamic iDEAL plugin maakt "
+"de koppeling tussen de gekozen payment provider en de e-commerce plugin."
+
+#: admin/tab-getting-started.php:40
+msgid "Step 2 - Add Gateway Configuration"
+msgstr "Stap 2 - Gateway configuratie toevoegen"
+
+#: admin/tab-getting-started.php:45
+msgid ""
+"Create a new configuration via iDEAL » Configurations » Add new.\n"
+"The settings depend on the chosen payment provider.\n"
+"Follow the instructions of the most popular payment providers to use the "
+"correct settings."
+msgstr ""
+"Maak een nieuwe configuratie aan via iDEAL » Configuraties » Nieuwe "
+"toevoegen.\n"
+"De instellingen zijn afhankelijk van de gekozen betalingsprovider.\n"
+"Volg de instructies van de meest populaire betalingsproviders om de juiste "
+"instellingen te gebruiken."
+
+#: admin/tab-getting-started.php:57
+msgid "Step 3 - Test Gateway Configuration"
+msgstr "Stap 3 - Gateway configuratie testen"
+
+#: admin/tab-getting-started.php:62
+msgid ""
+"Once the gateway settings are entered correctly and the configuration is "
+"saved it can be tested.\n"
+"Under the configuration fields there is a special block which can be used to "
+"test the configuration.\n"
+"Here you can enter a test amount and confirm that the configuration works "
+"properly.\n"
+"Once you are correctly redirected to your payment provider you know that "
+"your configuration works."
+msgstr ""
+"Zodra de gateway instellingen correct zijn ingevoerd en de configuratie is "
+"opgeslagen kan deze getest worden.\n"
+"Onder de configuratie velden staat een speciaal blok waarmee de configuratie "
+"getest kan worden.\n"
+"Hier kun je een test bedrag invoeren en zo controleren of de configuratie "
+"correct werkt.\n"
+"Zodra je correct wordt doorgestuurd naar je betalingsprovider weet je dat je "
+"configuratie werkt."
+
+#: admin/tab-getting-started.php:83
+msgid "Step 4 - Configure E-commerce Plugin"
+msgstr "Stap 4 - Configureer e-commerce plugin"
+
+#: admin/tab-getting-started.php:88
+msgid ""
+"After configuring and testing the gateway, you can configure your e-commerce "
+"plugin.\n"
+"The Pronamic iDEAL plugin supports many popular WordPress plugins.\n"
+"These plug-ins often have their own configuration pages where you can "
+"activate iDEAL\n"
+" Here you can then also select the previously created gateway configuration."
+msgstr ""
+"Na het configureren en testen van de gateway kun je je e-commerce plugin "
+"configureren.\n"
+"De Pronamic iDEAL plugin ondersteund een groot aantal populaire WordPress "
+"plugins.\n"
+"Deze plugins hebben vaak hun eigen configuratie pagina's waarop je iDEAL "
+"kunt activeren.\n"
+"Hier selecteer je vervolgens ook de eerder aangemaakte gateway configuratie."
+
+#: admin/tab-ideal_status.php:8
 msgid ""
 "The <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitors "
 "the following status of the various iDEAL banks:"
@@ -1118,20 +1424,20 @@ msgstr ""
 "De <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a> webservice monitort "
 "de volgende status van de verscheidene iDEAL-banken:"
 
-#: admin/tab-ideal_status.php:40
+#: admin/tab-ideal_status.php:48
 msgid "Issuer Name"
 msgstr "Issuer naam"
 
-#: admin/tab-ideal_status.php:43
+#: admin/tab-ideal_status.php:51
 msgid "Issuer ID"
 msgstr "Issuer ID"
 
-#: admin/tab-ideal_status.php:49 classes/Pronamic/WP/Pay/Plugin.php:355
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:462
+#: admin/tab-ideal_status.php:57 classes/Pronamic/WP/Pay/Plugin.php:396
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:476
 msgid "Success"
 msgstr "Succes"
 
-#: admin/tab-ideal_status.php:52 classes/Pronamic/WP/Pay/Plugin.php:351
+#: admin/tab-ideal_status.php:60 classes/Pronamic/WP/Pay/Plugin.php:392
 msgid "Failure"
 msgstr "Storing"
 
@@ -1163,86 +1469,196 @@ msgstr "Volgende licentie controle"
 msgid "Not scheduled"
 msgstr "Niet ingepland"
 
-#: admin/tab-methods.php:1
+#: admin/tab-methods.php:12
 msgid "Payment Methods"
 msgstr "Betaalmethoden"
 
-#: admin/tab-methods.php:10
+#: admin/tab-methods.php:21
 msgid "DigiAccept"
 msgstr "DigiAccept"
 
-#: admin/tab-methods.php:14 admin/tab-methods.php:32
+#: admin/tab-methods.php:25 admin/tab-methods.php:43
 msgid "Acceptgiro"
 msgstr "Acceptgiro"
 
-#: admin/tab-methods.php:17
+#: admin/tab-methods.php:28
 msgid "YourGift"
 msgstr "YourGift"
 
-#: admin/tab-methods.php:21
+#: admin/tab-methods.php:32
 msgid "American Express"
 msgstr "American Express"
 
-#: admin/tab-methods.php:25
+#: admin/tab-methods.php:36
 msgid "MasterCard"
 msgstr "MasterCard"
 
-#: admin/tab-methods.php:36
+#: admin/tab-methods.php:47
 msgid "AfterPay"
 msgstr "AfterPay"
 
-#: admin/tab-methods.php:44
+#: admin/tab-methods.php:55
 msgid "Bitcoin"
 msgstr "Bitcoin"
 
-#: admin/tab-methods.php:48
+#: admin/tab-methods.php:59
 msgid "Cash on Delivery"
 msgstr "Rembours"
 
-#: admin/tab-methods.php:52
+#: admin/tab-methods.php:63
 msgid "GiftCard"
 msgstr "GiftCard"
 
-#: admin/tab-methods.php:58
+#: admin/tab-methods.php:69
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:26
 msgid "Credit Card"
 msgstr "Creditcard"
 
-#: admin/tab-methods.php:65
+#: admin/tab-methods.php:76
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:26
 msgid "Direct Debit"
 msgstr "Incasso"
 
-#: admin/tab-methods.php:69
+#: admin/tab-methods.php:80
 msgid "Direct eBanking"
 msgstr "Direct eBanking"
 
-#: admin/tab-methods.php:73
+#: admin/tab-methods.php:84
 msgid "Giropay"
 msgstr "Giropay"
 
-#: admin/tab-methods.php:82
+#: admin/tab-methods.php:93
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:20
 #: vendor/wp-pay-extensions/woocommerce/src/MiniTixGateway.php:26
 msgid "MiniTix"
 msgstr "MiniTix"
 
-#: admin/tab-methods.php:92
+#: admin/tab-methods.php:103
 msgid "paysafecard"
 msgstr "paysafecard"
 
-#: admin/tab-methods.php:96
+#: admin/tab-methods.php:107
 msgid "PayPal"
 msgstr "PayPal"
 
-#: admin/tab-methods.php:100
+#: admin/tab-methods.php:111
 msgid "Wallie"
 msgstr "Wallie"
+
+#: admin/tab-new.php:13
+msgid "Simple Payment Forms"
+msgstr "Eenvoudige betalingsformulieren"
+
+#: admin/tab-new.php:18
+msgid ""
+"From version 3.7, it is possible to create simple payment forms.\n"
+"These forms have a fixed design and fixed fields.\n"
+"Each form has a payment amount, name and e-mail address field.\n"
+"That way, users can easily make available payment forms."
+msgstr ""
+"Vanaf versie 3.7 is het mogelijk om eenvoudige betalingsformulieren aan te "
+"maken.\n"
+"Deze formulieren hebben een vaste opmaak en vaste velden.\n"
+"Elk betalingsformulier heeft een bedrag, naam en e-mailadres veld.\n"
+"Op die manier kunnen gebruikers eenvoudig betalingsformulieren beschikbaar "
+"stellen. "
+
+#: admin/tab-new.php:39
+msgid "Payments Reports"
+msgstr "Betalingsrapporten"
+
+#: admin/tab-new.php:44
+msgid ""
+"Under iDEAL » Reports you can find a graph with all payments of this year.\n"
+"The number of open, successful, canceled, expired and failed payments are "
+"grouped.\n"
+"That way you get a good idea of the number of payments and their status."
+msgstr ""
+"Onder iDEAL » Rapporten is een grafiek te vinden van alle betalingen van dit "
+"jaar.\n"
+"Het aantal open, succesvolle, geannuleerde, verlopen en mislukte betalingen "
+"staan gegroupeerd.\n"
+"Op die manier krijg je een goed beeld van het aantal betalingen en de "
+"bijbehorende status."
+
+#: admin/tab-new.php:56
+msgid "Badge Pending Payments"
+msgstr "Badge in afwachting betalingen"
+
+#: admin/tab-new.php:61
+msgid ""
+"We noticed that many iDEAL users have problems with the feedback of the "
+"payment status.\n"
+"We have added an badge to give users more insight in payments with the "
+"pending status.\n"
+"Through this badge you can immediately see how many payments have the "
+"pending status.\n"
+"We advise users to monitor these payments periodically."
+msgstr ""
+"We merken dat veel iDEAL gebruikers problemen hebben met de terugkoppeling "
+"van de betalingsstatus.\n"
+"Om gebruikers meer inzicht te geven in de betalingen waarvan de status nog "
+"in afwachting is hebben we een badge toegevoegd.\n"
+"Door deze badge zie je direct hoeveel betalingen nog de status in afwachting "
+"hebben.\n"
+"We adviseren gebruikers om deze betalingen periodiek te controleren."
+
+#: admin/tab-new.php:82
+msgid "Payment Status Filter"
+msgstr "Betalingsstatus filter"
+
+#: admin/tab-new.php:87
+msgid ""
+"It is now also possible to view only the payments to a specific payment "
+"status.\n"
+"So you can now easily see a list of payments with the status pending.\n"
+"That way you have a better understanding of your payments and their status."
+msgstr ""
+"Het is nu ook mogelijk om alleen de betalingen met een specifieke "
+"betalingsstatus te bekijken.\n"
+"Zo kun je nu bijvoorbeeld eenvoudig een lijst met betalingen met de status "
+"in afwachting opvragen.\n"
+"Op die manier heb je meer inzicht in je betalingen en de bijbehorende status."
+
+#: admin/tab-new.php:99
+msgid "Edit Payment Status"
+msgstr "Betalingsstatus bewerken"
+
+#: admin/tab-new.php:104
+msgid ""
+"The payment status of payments can also be updated manually.\n"
+"Handy in case your payment provider payment status has not communicated well "
+"or the Pronamic iDEAL this plugin could not retrieve the status.\n"
+"That way you can always keep empty the list of payments pending."
+msgstr ""
+"De betalingstatus van betalingen kan nu ook ook handmatig bijgewerkt "
+"worden.\n"
+"Handig in het geval je betalingsprovider de betalingsstatus niet goed heeft "
+"doorgegeven of de Pronamic iDEAL plugin deze niet kon opvragen.\n"
+"Op die manier kun je de lijst met betalingen in afwachting altijd leeg "
+"houden."
+
+#: admin/tab-new.php:124
+msgid "Tour"
+msgstr "Rondleiding"
+
+#: admin/tab-new.php:129
+msgid ""
+"For new users, we have added a simle tour functionality to the Pronamic "
+"iDEAL plugin.\n"
+"This tour shows the main pages of the Pronamic iDEAL plugin.\n"
+"That way you can quickly find your way around the Pronamic iDEAL plugin."
+msgstr ""
+"Voor nieuwe gebruikers hebben we de Pronamic iDEAL plugin uitgerust met een "
+"eenvoudige rondleiding functionaliteit.\n"
+"Deze rondleiding laat de belangrijkste pagina's van de Pronamic iDEAL plugin "
+"zien.\n"
+"Op die manier kun je snel wegwijs worden in de Pronamic iDEAL plugin."
 
 #: admin/tab-pages_generator.php:11
 msgid "Pages created."
@@ -1375,65 +1791,118 @@ msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
 msgid "WP Memory Limit"
 msgstr "WP geheugenlimiet"
 
-#: admin/tab-system_status.php:109
+#: admin/tab-system_status.php:110
 msgid ""
-"We recommend setting memory to at least 64MB. See: <a href=\"%s\">Increasing "
-"memory allocated to PHP</a>"
+"We recommend setting memory to at least 64MB. See: <a href=\"%s\" target="
+"\"_blank\">Increasing memory allocated to PHP</a>"
 msgstr ""
 "We adviseren om het geheugen minimaal in te stellen op 64MB. Zie: <a href="
 "\"%s\">Verhoog toegewezen geheugen aan PHP</a>."
 
-#: admin/tab-system_status.php:119
+#: admin/tab-system_status.php:127
 msgid "Character Set"
 msgstr "Tekencodering"
 
-#: admin/tab-system_status.php:131
+#: admin/tab-system_status.php:139
 msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
 msgstr "Pronamic iDEAL adviseert om de tekencodering in te stellen op UTF-8."
 
-#: admin/tab-system_status.php:139
+#: admin/tab-system_status.php:147
 msgid "Time"
 msgstr "Tijd"
 
-#: admin/tab-system_status.php:142
+#: admin/tab-system_status.php:150
 msgid "Y/m/d g:i:s A"
 msgstr "d-m-Y H:i"
 
-#: admin/tab-system_status.php:151
+#: admin/tab-system_status.php:159
 msgid "cURL"
 msgstr "cURL"
 
-#: admin/tab-system_status.php:176
+#: admin/tab-system_status.php:184
 msgid "OpenSSL"
 msgstr "OpenSSL"
 
-#: admin/tab-system_status.php:196
+#: admin/tab-system_status.php:204
 msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
 msgstr "Pronamic iDEAL vereist OpenSSL 0.9.8 of hoger."
 
-#: admin/tab-system_status.php:204
+#: admin/tab-system_status.php:212
 msgid "Registered Hashing Algorithms"
 msgstr "Geregistreerde hashing algoritmen"
 
-#: admin/tab-system_status.php:221
+#: admin/tab-system_status.php:229
 msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
 msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
 
-#: admin/tab-system_status.php:229
+#: admin/tab-system_status.php:237
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:31
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:94
-#: classes/Pronamic/WP/Pay/Admin.php:410
-msgid "Dashboard"
-msgstr "Dashboard"
+#: classes/Pronamic/WP/Pay/Admin/About.php:42
+msgid "About Pronamic Pay"
+msgstr "Over Pronamic betalen"
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:106
+#: classes/Pronamic/WP/Pay/Admin/About.php:43
+msgid "Welcome to Pronamic Pay"
+msgstr "Welkom bij Pronamic Betalen"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:36
+msgid "Pronamic iDEAL Status"
+msgstr "Pronamic iDEAL status"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:45
+msgid "%s completed"
+msgstr "%s voltooid"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:46
+msgid "%s pending"
+msgstr "%s in afwachting"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:47
+msgid "%s cancelled"
+msgstr "%s geannuleerd"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:48
+msgid "%s failed"
+msgstr "%s mislukt"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:49
+msgid "%s expired"
+msgstr "%s verlopen"
+
+#: classes/Pronamic/WP/Pay/Admin/Dashboard.php:70
+msgid "%s payment"
+msgid_plural "%s payments"
+msgstr[0] "%s betaling"
+msgstr[1] "%s betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:47
+msgid "Earnings"
+msgstr "Inkomsten"
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:48
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:158
+msgid "Form Options"
+msgstr "Formulier opties"
+
+#: classes/Pronamic/WP/Pay/Admin/FormPostType.php:231
+msgid "Shortcode:"
+msgstr "Shortcode:"
+
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:120
 msgid "Production"
 msgstr "Productie"
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:153
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:155
+msgid "Default"
+msgstr "Standaard"
+
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:192
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
@@ -1450,24 +1919,53 @@ msgstr "Productie"
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:26
-msgid "Gateway"
-msgstr "Gateway"
+#: classes/Pronamic/WP/Pay/Admin/Install.php:119
+msgid "Payer"
+msgstr "Betaler"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:27
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:65
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:98 includes/post.php:35
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:139
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
+msgid "User"
+msgstr "Gebruiker"
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:140
+#: classes/Pronamic/WP/Pay/PostTypes.php:70
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:141
 msgid "Payment"
 msgstr "Betaling"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:116
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:158
 msgid "Log"
 msgstr "Log"
 
-#: classes/Pronamic/WP/Pay/Admin.php:283
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:120
+msgid "Number succesfull payments"
+msgstr "Aantal succesvolle betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:135
+msgid "Open payments"
+msgstr "Open betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:155
+msgid "Succesfull payments"
+msgstr "Succesvolle betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:176
+msgid "Cancelled payments"
+msgstr "Geannuleerde betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:197
+msgid "Expired payments"
+msgstr "Verlopen betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin/Reports.php:218
+msgid "Failed payments"
+msgstr "Mislukte betalingen"
+
+#: classes/Pronamic/WP/Pay/Admin.php:298
 msgid ""
 "<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
 "a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
@@ -1478,18 +1976,38 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin.php:383 classes/Pronamic/WP/Pay/Admin.php:384
-#: includes/post.php:18
+#: classes/Pronamic/WP/Pay/Admin.php:418 classes/Pronamic/WP/Pay/Admin.php:419
+#: classes/Pronamic/WP/Pay/PostTypes.php:49
 msgid "Configurations"
 msgstr "Configuraties"
 
-#: classes/Pronamic/WP/Pay/Admin.php:391 classes/Pronamic/WP/Pay/Admin.php:392
-msgid "Settings"
-msgstr "Instellingen"
+#: classes/Pronamic/WP/Pay/Admin.php:427
+msgid "Forms"
+msgstr "Formulieren"
 
-#: classes/Pronamic/WP/Pay/Admin.php:400 classes/Pronamic/WP/Pay/Admin.php:401
-msgid "Tools"
-msgstr "Extra"
+#: classes/Pronamic/WP/Pay/FormProcessor.php:104
+msgid "Please enter your first name"
+msgstr "Voer een geldige voornaam in"
+
+#: classes/Pronamic/WP/Pay/FormProcessor.php:111
+msgid "Please enter a valid email address"
+msgstr "Voer een geldig e-mailadres in"
+
+#: classes/Pronamic/WP/Pay/FormProcessor.php:125
+#: classes/Pronamic/WP/Pay/PostTypes.php:97
+#: classes/Pronamic/WP/Pay/Shortcodes.php:58
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
+msgid "Payment Form"
+msgstr "Betalingsformulier"
+
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:45
+msgid "Payment Form %s"
+msgstr "Betalingsformulier %s"
+
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:76
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
+msgid "Payment %s"
+msgstr "Betaling %s"
 
 #: classes/Pronamic/WP/Pay/PaymentInputData.php:79
 #: classes/Pronamic/WP/Pay/PaymentTestData.php:59
@@ -1497,80 +2015,260 @@ msgstr "Extra"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:347
+#: classes/Pronamic/WP/Pay/Plugin.php:388
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:349
-#: classes/Pronamic/WP/Pay/Settings.php:90
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
+#: classes/Pronamic/WP/Pay/Plugin.php:390
+#: classes/Pronamic/WP/Pay/Settings.php:105
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:479
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:353
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:461
+#: classes/Pronamic/WP/Pay/Plugin.php:394
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:475
 msgid "Open"
 msgstr "Open"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:357
-#: classes/Pronamic/WP/Pay/Settings.php:89
+#: classes/Pronamic/WP/Pay/Plugin.php:398
+#: classes/Pronamic/WP/Pay/Settings.php:104
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:369
+#: classes/Pronamic/WP/Pay/Plugin.php:423
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:426
+#: classes/Pronamic/WP/Pay/Plugin.php:480
 msgid "&mdash; Select Configuration &mdash;"
 msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:548
+#: classes/Pronamic/WP/Pay/Plugin.php:602
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:36
+#: classes/Pronamic/WP/Pay/PostTypes.php:38
+msgid "Payment Gateway Configurations"
+msgstr "Betalingsgateway configuraties"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:39
+msgid "Payment Gateway Configuration"
+msgstr "Betalingsgateway configuratie"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:40
+#: classes/Pronamic/WP/Pay/PostTypes.php:71
+#: classes/Pronamic/WP/Pay/PostTypes.php:98
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:41
+msgid "Add New Payment Gateway Configuration"
+msgstr "Nieuwe betalingsgateway configuratie toevoegen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:42
+msgid "Edit Payment Gateway Configuration"
+msgstr "Betalingsgateway configuratie bewerken"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:43
+msgid "New Payment Gateway Configuration"
+msgstr "Nieuwe betalingsgateway configuratie"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:44
+msgid "All Payment Gateway Configurations"
+msgstr "Alle betalingsgateway configuraties"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:45
+msgid "View Payment Gateway Configuration"
+msgstr "Bekijk betalingsgateway configuratie"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:46
+msgid "Search Payment Gateway Configurations"
+msgstr "Zoek betalingsgateway configuraties"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:47
+msgid "No payment gateway configurations found"
+msgstr "Geen betalingsgateway configuraties gevonden"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:48
+msgid "No payment gateway configurations found in Trash"
+msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:72
+msgid "Add New Payment"
+msgstr "Nieuwe betaling toevoegen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:73
+msgid "Edit Payment"
+msgstr "Betaling bewerken"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:74
+msgid "New Payment"
+msgstr "Nieuwe betaling"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:75
+msgid "All Payments"
+msgstr "Alle betalingen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:76
+msgid "View Payment"
+msgstr "Bekijk betaling"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:77
+msgid "Search Payments"
+msgstr "Betalingen zoeken"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:78
+msgid "No payments found"
+msgstr "Geen betalingen gevonden."
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:79
+msgid "No payments found in Trash"
+msgstr "Geen betalingen gevonden in prullenbak."
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:99
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
+msgid "Add New Payment Form"
+msgstr "Nieuwe betalingsformulier toevoegen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:100
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
+msgid "Edit Payment Form"
+msgstr "Betalingsformulier bewerken"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:101
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
+msgid "New Payment Form"
+msgstr "Nieuwe betalingsformulier"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:102
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
+msgid "All Payment Forms"
+msgstr "Alle betalingsformulieren"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:103
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
+msgid "View Payment Form"
+msgstr "Bekijk betalingsformulier"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:104
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
+msgid "Search Payment Forms"
+msgstr "Betalingsformulieren zoeken"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:105
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
+msgid "No payment forms found"
+msgstr "Geen betalingsformulieren gevonden"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:106
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
+msgid "No payment forms found in Trash"
+msgstr "Geen betalingsformulieren gevonden in prullenbak"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:136
+msgid "Pending <span class=\"count\">(%s)</span>"
+msgid_plural "Pending <span class=\"count\">(%s)</span>"
+msgstr[0] "In afwachting <span class=\"count\">(%s)</span>"
+msgstr[1] "In afwachting <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:145
+msgid "Processing <span class=\"count\">(%s)</span>"
+msgid_plural "Processing <span class=\"count\">(%s)</span>"
+msgstr[0] "In verwerking <span class=\"count\">(%s)</span>"
+msgstr[1] "In verwerking <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:154
+msgid "On Hold <span class=\"count\">(%s)</span>"
+msgid_plural "On Hold <span class=\"count\">(%s)</span>"
+msgstr[0] "In de wacht <span class=\"count\">(%s)</span>"
+msgstr[1] "In de wacht <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:163
+msgid "Completed <span class=\"count\">(%s)</span>"
+msgid_plural "Completed <span class=\"count\">(%s)</span>"
+msgstr[0] "Voltooid <span class=\"count\">(%s)</span>"
+msgstr[1] "Voltooid <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:172
+msgid "Cancelled <span class=\"count\">(%s)</span>"
+msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
+msgstr[0] "Geannuleerd <span class=\"count\">(%s)</span>"
+msgstr[1] "Geannuleerd <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:181
+msgid "Refunded <span class=\"count\">(%s)</span>"
+msgid_plural "Refunded <span class=\"count\">(%s)</span>"
+msgstr[0] "Terugbetaald <span class=\"count\">(%s)</span>"
+msgstr[1] "Terugbetaald <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:190
+msgid "Failed <span class=\"count\">(%s)</span>"
+msgid_plural "Failed <span class=\"count\">(%s)</span>"
+msgstr[0] "Mislukt <span class=\"count\">(%s)</span>"
+msgstr[1] "Mislukt <span class=\"count\">(%s)</span>"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:199
+msgid "Expired <span class=\"count\">(%s)</span>"
+msgid_plural "Expired <span class=\"count\">(%s)</span>"
+msgstr[0] "Verlopen <span class=\"count\">(%s)</span>"
+msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 
 #: classes/Pronamic/WP/Pay/Settings.php:36
 msgid "Support License Key"
 msgstr "Support licentiecode"
 
-#: classes/Pronamic/WP/Pay/Settings.php:51
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:146
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
+#: classes/Pronamic/WP/Pay/Settings.php:50
+msgid "Default Gateway"
+msgstr "Standaard gateway"
+
+#: classes/Pronamic/WP/Pay/Settings.php:56
+msgid "&mdash; Select a gateway &mdash;"
+msgstr "&mdash; Selecteer een gateway &mdash;"
+
+#: classes/Pronamic/WP/Pay/Settings.php:66
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:148
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:166
 msgid "Currency"
 msgstr "Valuta"
 
-#: classes/Pronamic/WP/Pay/Settings.php:60
+#: classes/Pronamic/WP/Pay/Settings.php:75
 msgid "Thousands Seperator"
 msgstr "Duizendtal scheidingsteken"
 
-#: classes/Pronamic/WP/Pay/Settings.php:71
+#: classes/Pronamic/WP/Pay/Settings.php:86
 msgid "Decimal Seperator"
 msgstr "Decimaal scheidingsteken"
 
-#: classes/Pronamic/WP/Pay/Settings.php:81
+#: classes/Pronamic/WP/Pay/Settings.php:96
 msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
-#: classes/Pronamic/WP/Pay/Settings.php:87
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:464
+#: classes/Pronamic/WP/Pay/Settings.php:102 templates/form.php:93
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:478
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
 msgid "Error"
 msgstr "Fout"
 
-#: classes/Pronamic/WP/Pay/Settings.php:88
+#: classes/Pronamic/WP/Pay/Settings.php:103
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Settings.php:91
+#: classes/Pronamic/WP/Pay/Settings.php:106
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Settings.php:166
+#: classes/Pronamic/WP/Pay/Settings.php:184
 msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
+
+#: classes/Pronamic/WP/Pay/Shortcodes.php:69
+msgid "Select Payment Form"
+msgstr "Selecteer betalingsformulier"
 
 #: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:32
 msgid ""
@@ -1588,82 +2286,35 @@ msgstr "Kon de XML tekst niet inladen."
 msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
 msgstr "https://www.icepay.com/Merchant/NL/Reports/Transactions"
 
-#: includes/post.php:5 includes/post.php:7
-msgid "Payment Gateway Configurations"
-msgstr "Betalingsgateway configuraties"
+#: includes/updates/update-2.0.0.php:95
+msgid "Configuration %d"
+msgstr "Configuratie %d"
 
-#: includes/post.php:8
-msgid "Payment Gateway Configuration"
-msgstr "Betalingsgateway configuratie"
+#: includes/updates/update-2.0.0.php:265
+msgid "Payment Form %d"
+msgstr "Betalingsformulier %d"
 
-#: includes/post.php:9 includes/post.php:36
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
-msgid "Add New"
-msgstr "Nieuwe toevoegen"
+#: includes/updates/update-2.0.0.php:376
+msgid "Payment %d"
+msgstr "Betaling %d"
 
-#: includes/post.php:10
-msgid "Add New Payment Gateway Configuration"
-msgstr "Nieuwe betalingsgateway configuratie toevoegen"
+#: templates/form.php:28
+msgid "Personal Info"
+msgstr "Persoonlijke informatie"
 
-#: includes/post.php:11
-msgid "Edit Payment Gateway Configuration"
-msgstr "Betalingsgateway configuratie bewerken"
+#: templates/form.php:32 templates/form.php:35
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:425
+msgid "First Name"
+msgstr "Voornaam"
 
-#: includes/post.php:12
-msgid "New Payment Gateway Configuration"
-msgstr "Nieuwe betalingsgateway configuratie"
+#: templates/form.php:40 templates/form.php:43
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:426
+msgid "Last Name"
+msgstr "Achternaam"
 
-#: includes/post.php:13
-msgid "All Payment Gateway Configurations"
-msgstr "Alle betalingsgateway configuraties"
-
-#: includes/post.php:14
-msgid "View Payment Gateway Configuration"
-msgstr "Bekijk betalingsgateway configuratie"
-
-#: includes/post.php:15
-msgid "Search Payment Gateway Configurations"
-msgstr "Zoek betalingsgateway configuraties"
-
-#: includes/post.php:16
-msgid "No payment gateway configurations found"
-msgstr "Geen betalingsgateway configuraties gevonden"
-
-#: includes/post.php:17
-msgid "No payment gateway configurations found in Trash"
-msgstr "Geen betalingsgateway configuraties gevonden in prullenbak"
-
-#: includes/post.php:37
-msgid "Add New Payment"
-msgstr "Nieuwe betaling toevoegen"
-
-#: includes/post.php:38
-msgid "Edit Payment"
-msgstr "Betaling bewerken"
-
-#: includes/post.php:39
-msgid "New Payment"
-msgstr "Nieuwe betaling"
-
-#: includes/post.php:40
-msgid "All Payments"
-msgstr "Alle betalingen"
-
-#: includes/post.php:41
-msgid "View Payment"
-msgstr "Bekijk betaling"
-
-#: includes/post.php:42
-msgid "Search Payments"
-msgstr "Betalingen zoeken"
-
-#: includes/post.php:43
-msgid "No payments found"
-msgstr "Geen betalingen gevonden."
-
-#: includes/post.php:44
-msgid "No payments found in Trash"
-msgstr "Geen betalingen gevonden in prullenbak."
+#: templates/form.php:61
+msgid "Payment Info"
+msgstr "Betalingsinformatie"
 
 #: vendor/wp-pay/core/src/Gateway.php:406
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
@@ -1673,18 +2324,17 @@ msgstr "Geen betalingen gevonden in prullenbak."
 msgid "Pay"
 msgstr "Betalen"
 
+#: vendor/wp-pay-extensions/appthemes/src/Extension.php:121
+msgid "AppThemes"
+msgstr "AppThemes"
+
 #: vendor/wp-pay-extensions/appthemes/src/Extension.php:125
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:302
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:406
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:139
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:171
 msgid "Order #%s"
 msgstr "Bestelling #%s"
-
-#. Plugin Name of the plugin/theme
-msgid "Pronamic iDEAL"
-msgstr "Pronamic iDEAL"
 
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:39
 msgid "General Information"
@@ -1725,6 +2375,10 @@ msgstr "Nee"
 msgid "iDEAL Configuration"
 msgstr "iDEAL-configuratie"
 
+#: vendor/wp-pay-extensions/classipress/src/Extension.php:296
+msgid "ClassiPress"
+msgstr "ClassiPress"
+
 #: vendor/wp-pay-extensions/classipress/src/PaymentData.php:53
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
@@ -1741,6 +2395,10 @@ msgstr "Betaling open."
 msgid "Payment unknown."
 msgstr "Betaling onbekend."
 
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
+msgid "Easy Digital Downloads"
+msgstr "Easy Digital Downloads"
+
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:19
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
@@ -1748,29 +2406,29 @@ msgstr "Betaling onbekend."
 msgid "Bancontact/Mister Cash"
 msgstr "Bancontact/Mister Cash"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:114
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:115
 msgid "%s Settings"
 msgstr "%s instellingen"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:115
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:116
 msgid "Configure the %s settings"
 msgstr "Configureer de %s instellingen"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:121
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:122
 msgid "Gateway Configuration"
 msgstr "Betalingsgateway configuratie"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:128
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:129
 msgid "Checkout Label"
 msgstr "Afrekenen label"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:203
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:218
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:202
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:217
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:203
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:218
 msgid ""
 "Payment creation failed before sending buyer to the payment provider. "
 "Payment data: %s"
@@ -1778,7 +2436,7 @@ msgstr ""
 "Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
 "naar de betaalprovider. Betalingsinformatie: %s"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:238
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:239
 msgid "Payment %s pending."
 msgstr "Betaling %s in afwachting."
 
@@ -1792,12 +2450,12 @@ msgstr "Easy Digital Downloads bestelling %s"
 msgid "SOFORT Banking"
 msgstr "SOFORT Banking"
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:239
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:255
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
 msgid "Event Espresso"
 msgstr "Event Espresso"
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:244
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:260
 msgid "Transaction %s"
 msgstr "Transactie %s"
 
@@ -1875,6 +2533,10 @@ msgstr "Formulier"
 msgid "Transaction Description"
 msgstr "Transactie beschrijving"
 
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:111
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:116
 msgid "Entry #%s"
 msgstr "Inzending #%s"
@@ -1912,48 +2574,6 @@ msgstr "Je kunt je betalen feeds vinden onder %s."
 msgid "Forms » iDEAL"
 msgstr "Formulieren » iDEAL"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:34
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
-msgid "Payment Forms"
-msgstr "Betalingsformulieren"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
-msgid "Payment Form"
-msgstr "Betalingsformulier"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
-msgid "Add New Payment Form"
-msgstr "Nieuwe betalingsformulier toevoegen"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
-msgid "Edit Payment Form"
-msgstr "Betalingsformulier bewerken"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
-msgid "New Payment Form"
-msgstr "Nieuwe betalingsformulier"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
-msgid "All Payment Forms"
-msgstr "Alle betalingsformulieren"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
-msgid "View Payment Form"
-msgstr "Bekijk betalingsformulier"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
-msgid "Search Payment Forms"
-msgstr "Betalingsformulieren zoeken"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
-msgid "No payment forms found"
-msgstr "Geen betalingsformulieren gevonden"
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
-msgid "No payment forms found in Trash"
-msgstr "Geen betalingsformulieren gevonden in prullenbak"
-
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:29
 msgid "Gravity Form"
 msgstr "Gravity Form"
@@ -1986,36 +2606,33 @@ msgstr ""
 "Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 "
 "tekens zal automatisch worden afgekapt."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:103
-msgid ""
-"Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
-"<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:107
+msgid "Merge Tag Examples: Entry Id = %s, Form Id = %s, Form Title = %s"
 msgstr ""
-"Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
-"Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</"
-"code>"
+"Samenvoegen tag voorbeelden: Inzending ID = %s, Formulier ID = %s, Formulier "
+"titel = %s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:110
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:124
 msgid "Condition"
 msgstr "Conditie"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:126
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:140
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:141
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:155
 msgid "is"
 msgstr "is"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:142
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:156
 msgid "is not"
 msgstr "is niet"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:162
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:176
 msgid "Send to gateway if %s %s %s"
 msgstr "Verstuur naar gateway als %s %s %s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:173
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:187
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
@@ -2023,143 +2640,139 @@ msgstr ""
 "Om een conditie in te stellen moet je formulier een selectieveld, "
 "selectievakje of meerkeuzeveld bevatten."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:179
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:193
 msgid "Delay"
 msgstr "Uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:184
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:198
 msgid "Send Notifications Delay"
 msgstr "Verstuur notificaties uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:204
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:218
 msgid "Send notifications only when payment is received."
 msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:255
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:269
 msgid "Send admin notification only when payment is received."
 msgstr ""
 "Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:262
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:276
 msgid "Send user notification only when payment is received."
 msgstr ""
 "Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:281
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:295
 msgid "Create Post Delay"
 msgstr "Bericht aanmaken uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:287
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:301
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:301
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:315
 msgid "AWeber Subscription Delay"
 msgstr "AWeber inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:307
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:321
 msgid "Subscribe user to AWeber only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijving bij AWeber wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:323
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:337
 msgid "Campaign Monitor Subscription Delay"
 msgstr "Campaign Monitor inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:329
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:343
 msgid "Subscribe user to Campaign Monitor only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij Campaign Monitor wanneer de betaling is "
 "ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:345
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:359
 msgid "MailChimp Subscription Delay"
 msgstr "MailChimp inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:351
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:365
 msgid "Subscribe user to MailChimp only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij MailChimp wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:367
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:381
 msgid "Zapier Delay"
 msgstr "Zapier uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:373
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:387
 msgid "Send data to Zapier only when payment is received."
 msgstr "Verstuur data alleen Zapier wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:389
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:403
 msgid "User Registration Delay"
 msgstr "Gebruikerregistratie uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:395
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:409
 msgid "Register user only when a payment is received."
 msgstr "Registreer gebruiker alleen wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:405
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
 msgid "Fields"
 msgstr "Velden"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:411
-msgid "First Name"
-msgstr "Voornaam"
-
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:412
-msgid "Last Name"
-msgstr "Achternaam"
-
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:414
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:428
 msgid "Address"
 msgstr "Adres"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:415
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:429
 msgid "Address 2"
 msgstr "Adres 2"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:416
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:430
 msgid "City"
 msgstr "Plaats"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:417
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:431
 msgid "State"
 msgstr "Provincie"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:418
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:432
 msgid "Zip"
 msgstr "Postcode"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:451
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:465
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:463
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:477
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:499
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:513
 msgid "Page:"
 msgstr "Pagina:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:507
-msgid "&mdash; Select &mdash;"
-msgstr "&mdash; Selecteren &mdash;"
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:521
+msgid "— Select —"
+msgstr "— Selecteer —"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:516
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:530
 msgid "URL:"
 msgstr "URL:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:526
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:540
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:533
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:547
 msgid "Update user role"
 msgstr "Update gebruikersrol"
 
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:60
 msgid "Adds the ability for users to checkout with iDEAL."
 msgstr "Maakt het mogelijk betalingen uit te voeren via iDEAL."
+
+#: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:405
+msgid "iThemes Exchange"
+msgstr "iThemes Exchange"
 
 #: vendor/wp-pay-extensions/ithemes-exchange/src/PaymentData.php:70
 msgid "iThemes Exchange order %s"
@@ -2174,29 +2787,28 @@ msgid "iDEAL payment cancelled."
 msgstr "iDEAL-betaling geannuleerd."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:102
 msgid "iDEAL payment expired."
 msgstr "iDEAL-betaling verlopen."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:97
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:110
 msgid "iDEAL payment failed."
 msgstr "iDEAL-betaling mislukt."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:102
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:119
 msgid "iDEAL payment completed."
 msgstr "iDEAL-betaling voltooid."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:109
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:130
 msgid "iDEAL payment open."
 msgstr "iDEAL-betaling open."
 
 #: vendor/wp-pay-extensions/jigoshop/src/Extension.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:136
 msgid "iDEAL payment unknown."
 msgstr "iDEAL-betaling onbekend."
+
+#: vendor/wp-pay-extensions/jigoshop/src/Extension.php:134
+msgid "Jigoshop"
+msgstr "Jigoshop"
 
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:84
 msgid "Allow iDEAL payments."
@@ -2219,7 +2831,7 @@ msgstr "In afwachting van iDEAL-betaling."
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:64
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:90
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:171
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:181
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:109
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:137
 msgid "Order %s"
@@ -2230,6 +2842,10 @@ msgstr "Bestelling %s"
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
 
+#: vendor/wp-pay-extensions/membership/src/Extension.php:120
+msgid "Membership"
+msgstr "Membership"
+
 #: vendor/wp-pay-extensions/membership/src/Extension.php:129
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
@@ -2238,7 +2854,7 @@ msgstr "Transactie #%s"
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:48
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:49
 msgid ""
 "Thanks %s! Your membership has been approved.\n"
 "\n"
@@ -2258,17 +2874,17 @@ msgstr ""
 "Met vriendelijke groet,\n"
 "%s"
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:87
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:88
 msgid "Account Confirmation"
 msgstr "Account bevestiging"
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:122
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:123
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 "Gebruiker \"%s\" bijgewerkt naar rol \"%s\" en maatwerk capability \"%s\" "
 "toegevoegd."
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:213
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:214
 msgid "s2Member"
 msgstr "s2Member"
 
@@ -2337,12 +2953,24 @@ msgid "6 month"
 msgstr "6 maand"
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
 msgid "1 year"
 msgstr "1 jaar"
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
+msgid "2 years"
+msgstr "2 jaren"
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
+msgid "3 years"
+msgstr "3 jaren"
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
+msgid "4 years"
+msgstr "4 jaren"
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
+msgid "5 years"
+msgstr "5 jaren"
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
 msgid "lifetime"
@@ -2388,14 +3016,22 @@ msgstr "Knop tekst:"
 msgid "Generate Shortcode"
 msgstr "Genereer shortcode"
 
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
-msgid "Shortcode"
-msgstr "Shortcode"
+#: vendor/wp-pay-extensions/shopp/src/Extension.php:166
+msgid "Shopp"
+msgstr "Shopp"
 
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:323
 #: vendor/wp-pay-extensions/shopp/src/GatewayModule.php:323
 msgid "Select configuration"
 msgstr "Selecteer configuratie"
+
+#: vendor/wp-pay-extensions/woocommerce/src/BankTransferGateway.php:27
+msgid "Bank Transfer"
+msgstr "Bankoverschrijving"
+
+#: vendor/wp-pay-extensions/woocommerce/src/BankTransferGateway.php:44
+msgid "Enable Bank Transfer"
+msgstr "Bankoverschrijving inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:38
 msgid "Enable Credit Card"
@@ -2404,6 +3040,30 @@ msgstr "Creditcard inschakelen"
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:38
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:106
+msgid "payment expired"
+msgstr "iDEAL-betaling verlopen"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:118
+msgid "payment failed"
+msgstr "iDEAL-betaling mislukt"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+msgid "payment completed"
+msgstr "betaling voltooid"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:140
+msgid "payment open"
+msgstr "betaling open"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:146
+msgid "payment unknown"
+msgstr "betaling onbekend"
+
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:167
+msgid "WooCommerce"
+msgstr "WooCommerce"
 
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
@@ -2477,58 +3137,74 @@ msgstr "Pronamic inschakelen"
 msgid "Enable SOFORT Banking"
 msgstr "SOFORT Banking inschakelen"
 
+#: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:161
+msgid "WP e-Commerce"
+msgstr "WP e-Commerce"
+
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:169
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:140
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:148
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:142
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:168
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:141
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:143
 msgid "Status Code"
 msgstr "Statuscode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:142
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:144
 msgid "Status Code Detail"
 msgstr "Statuscode detail"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:143
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:145
 msgid "Status Message"
 msgstr "Statusbericht"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:144
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:146
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:147
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:149
 msgid "Timestamp"
 msgstr "Timestamp"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:148
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:150
 msgid "Service iDEAL Consumer Issuer"
 msgstr "Service iDEAL gebruiker issuer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:149
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:151
 msgid "Service iDEAL Consumer Name"
 msgstr "Service iDEAL gebruiker naam"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:150
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:152
 msgid "Service iDEAL Consumer IBAN"
 msgstr "Service iDEAL gebruiker IBAN"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:151
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:153
 msgid "Service iDEAL Consumer BIC"
 msgstr "Service iDEAL gebruiker BIC"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:152
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:154
 msgid "Transactions"
 msgstr "Transacties"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:158
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:160
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
+
+#: vendor/wp-pay-gateways/icepay/src/Gateway.php:70
+#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:96
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:76
+#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
+#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:78
+#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
+#: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:57
+#: vendor/wp-pay-gateways/targetpay/src/Gateway.php:64
+msgid "Choose your bank"
+msgstr "Kies uw bank"
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Client.php:207
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:174
@@ -2545,58 +3221,43 @@ msgstr "Onbekend iDEAL-bericht (%s)"
 msgid "&mdash; Other banks &mdash;"
 msgstr "&mdash; Andere banken &mdash;"
 
-#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:96
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:76
-#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:67
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:78
-#: vendor/wp-pay-gateways/paydutch/src/Gateway.php:68
-#: vendor/wp-pay-gateways/qantani/src/Gateway.php:69
-#: vendor/wp-pay-gateways/sisow/src/Gateway.php:57
-#: vendor/wp-pay-gateways/targetpay/src/Gateway.php:64
-msgid "Choose your bank"
-msgstr "Kies uw bank"
-
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:149
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:169
 msgid "Acceptance"
 msgstr "Acceptance"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:171
 msgid "Card Number"
 msgstr "Kaartnummer"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:172
 msgid "End Date"
 msgstr "Einddatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:173
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:174
 msgid "Transaction Date"
 msgstr "Transactiedatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:175
 msgid "Pay ID"
 msgstr "Betaal ID"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:176
 msgid "NC Error"
 msgstr "NC Fout"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
-msgid "Brand"
-msgstr "Merk"
-
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:178
 msgid "IP"
 msgstr "IP"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:159
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:179
 msgid "SHA Signature"
 msgstr "SHA-handtekening"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:185
 msgid "Ogone transaction data in response message:"
 msgstr "Ogone transactiedata in antwoordbericht:"
 
@@ -2668,13 +3329,13 @@ msgstr "Bestelling"
 msgid "Expected result if integration is correct"
 msgstr "Verwacht resultaat als de integratie juist is"
 
-#: views/ideal-test-cases.php:53
+#: views/ideal-test-cases.php:54
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
 #: views/redirect-via-html.php:7 views/redirect-via-html.php:120
-msgid "Redirecting&hellip;"
-msgstr "Doorverwijzen&hellip;"
+msgid "Redirecting…"
+msgstr "Doorverwijzen…"
 
 #: views/redirect-via-html.php:123
 msgid "You will be automatically redirected to the online payment environment."
@@ -2695,41 +3356,6 @@ msgid ""
 msgstr ""
 "De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
 "betaalmethode toe te voegen aan je WordPress website."
-
-#: admin/extensions-readme-md.php:4 admin/gateways-readme-md.php:5
-msgctxt "readme.md"
-msgid "Name"
-msgstr "Name"
-
-#: admin/extensions-readme-md.php:5
-msgctxt "readme.md"
-msgid "Author"
-msgstr "Author"
-
-#: admin/extensions-readme-md.php:6
-msgctxt "readme.md"
-msgid "WordPress.org"
-msgstr "WordPress.org"
-
-#: admin/extensions-readme-md.php:7
-msgctxt "readme.md"
-msgid "GitHub"
-msgstr "GitHub"
-
-#: admin/extensions-readme-md.php:8
-msgctxt "readme.md"
-msgid "Requires at least"
-msgstr "Requires at least"
-
-#: admin/extensions-readme-md.php:9
-msgctxt "readme.md"
-msgid "Tested up to"
-msgstr "Tested up to"
-
-#: admin/gateways-readme-md.php:4
-msgctxt "readme.md"
-msgid "Provider"
-msgstr "Provider"
 
 #: admin/meta-box-gateway-config.php:173
 msgctxt "mollie"
@@ -2761,20 +3387,73 @@ msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
 
-#: admin/meta-box-gateway-config.php:540
+#: admin/meta-box-gateway-config.php:556
 msgctxt "qantani"
 msgid "Merchant ID"
 msgstr "Merchant ID"
 
-#: admin/meta-box-gateway-config.php:546
+#: admin/meta-box-gateway-config.php:562
 msgctxt "qantani"
 msgid "Merchant Key"
 msgstr "Merchant Key"
 
-#: admin/meta-box-gateway-config.php:552
+#: admin/meta-box-gateway-config.php:568
 msgctxt "qantani"
 msgid "Merchant Secret"
 msgstr "Merchant Secret"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:404
+#: classes/Pronamic/WP/Pay/PostTypes.php:131
+msgctxt "Payment status"
+msgid "Pending"
+msgstr "In afwachting"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:405
+#: classes/Pronamic/WP/Pay/PostTypes.php:140
+msgctxt "Payment status"
+msgid "Processing"
+msgstr "In verwerking"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:406
+#: classes/Pronamic/WP/Pay/PostTypes.php:149
+msgctxt "Payment status"
+msgid "On Hold"
+msgstr "In de wacht"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:407
+#: classes/Pronamic/WP/Pay/PostTypes.php:158
+msgctxt "Payment status"
+msgid "Completed"
+msgstr "Voltooid"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:408
+#: classes/Pronamic/WP/Pay/PostTypes.php:167
+msgctxt "Payment status"
+msgid "Cancelled"
+msgstr "Geannuleerd"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:409
+#: classes/Pronamic/WP/Pay/PostTypes.php:176
+msgctxt "Payment status"
+msgid "Refunded"
+msgstr "Terugbetaald"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:410
+#: classes/Pronamic/WP/Pay/PostTypes.php:185
+msgctxt "Payment status"
+msgid "Failed"
+msgstr "Mislukt"
+
+#: classes/Pronamic/WP/Pay/Plugin.php:411
+#: classes/Pronamic/WP/Pay/PostTypes.php:194
+msgctxt "Payment status"
+msgid "Expired"
+msgstr "Verlopen"
+
+#: classes/Pronamic/WP/Pay/PostTypes.php:120
+msgctxt "slug"
+msgid "payment-forms"
+msgstr "betalingsformulieren"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:175
 msgctxt "creditcard"
@@ -2788,6 +3467,246 @@ msgstr "Belast modus"
 
 #~ msgid "&mdash; Select a form &mdash;"
 #~ msgstr "&mdash; Selecteer een formulier &mdash;"
+
+#~ msgid "&mdash; Select &mdash;"
+#~ msgstr "&mdash; Selecteren &mdash;"
+
+#~ msgid "Pippin Williamson"
+#~ msgstr "Pippin Williamson"
+
+#~ msgid "Event Espresso 3"
+#~ msgstr "Event Espresso 3"
+
+#~ msgid "Event Espresso 3 Lite"
+#~ msgstr "Event Espresso 3 Lite"
+
+#~ msgid "Event Espresso 4"
+#~ msgstr "Event Espresso 4"
+
+#~ msgid "Event Espresso 4 Decaf"
+#~ msgstr "Event Espresso 4 Decaf"
+
+#~ msgid "Rocketgenius"
+#~ msgstr "Rocketgenius"
+
+#~ msgid "Gravity Forms AWeber Add-On"
+#~ msgstr "Gravity Forms AWeber Add-On"
+
+#~ msgid "Gravity Forms Campaign Monitor Add-On"
+#~ msgstr "Gravity Forms Campaign Monitor Add-On"
+
+#~ msgid "Gravity Forms MailChimp Add-On"
+#~ msgstr "Gravity Forms MailChimp Add-On"
+
+#~ msgid "Gravity Forms User Registration Add-On"
+#~ msgstr "Gravity Forms User Registration Add-On"
+
+#~ msgid "Gravity Forms Zapier Add-On"
+#~ msgstr "Gravity Forms Zapier Add-On"
+
+#~ msgid "iThemes"
+#~ msgstr "iThemes"
+
+#~ msgid "Jigowatt"
+#~ msgstr "Jigowatt"
+
+#~ msgid "WPMUDEV.org"
+#~ msgstr "WPMUDEV.org"
+
+#~ msgid "Membership Premium"
+#~ msgstr "Membership Premium"
+
+#~ msgid "s2Member®"
+#~ msgstr "s2Member®"
+
+#~ msgid "WebSharks, Inc."
+#~ msgstr "WebSharks, Inc."
+
+#~ msgid "Ingenesis Limited"
+#~ msgstr "Ingenesis Limited"
+
+#~ msgid "WooThemes"
+#~ msgstr "WooThemes"
+
+#~ msgid "Instinct Entertainment"
+#~ msgstr "Instinct Entertainment"
+
+#~ msgid "Crowdfunding by Astoundify"
+#~ msgstr "Crowdfunding by Astoundify"
+
+#~ msgid "Astoundify"
+#~ msgstr "Astoundify"
+
+#~ msgid "JobRoller"
+#~ msgstr "JobRoller"
+
+#~ msgid "Vantage"
+#~ msgstr "Vantage"
+
+#~ msgid "Campaignify"
+#~ msgstr "Campaignify"
+
+#~ msgid "Markdown"
+#~ msgstr "Markdown"
+
+#~ msgctxt "readme.md"
+#~ msgid "Name"
+#~ msgstr "Name"
+
+#~ msgctxt "readme.md"
+#~ msgid "Author"
+#~ msgstr "Author"
+
+#~ msgctxt "readme.md"
+#~ msgid "WordPress.org"
+#~ msgstr "WordPress.org"
+
+#~ msgctxt "readme.md"
+#~ msgid "GitHub"
+#~ msgstr "GitHub"
+
+#~ msgctxt "readme.md"
+#~ msgid "Requires at least"
+#~ msgstr "Requires at least"
+
+#~ msgctxt "readme.md"
+#~ msgid "Tested up to"
+#~ msgstr "Tested up to"
+
+#~ msgctxt "readme.md"
+#~ msgid "Provider"
+#~ msgstr "Provider"
+
+#, fuzzy
+#~ msgid "Tab: System Status"
+#~ msgstr "Systeemstatus"
+
+#, fuzzy
+#~ msgid "Tab: iDEAL Status"
+#~ msgstr "iDEAL-status"
+
+#, fuzzy
+#~ msgid "Tab: Pages Generator"
+#~ msgstr "Pagina's generator"
+
+#, fuzzy
+#~ msgid "Tab: Gateways"
+#~ msgstr "Gateways"
+
+#, fuzzy
+#~ msgid "Tab: Extensions"
+#~ msgstr "Extensies"
+
+#, fuzzy
+#~ msgid "Tab: Methods"
+#~ msgstr "Methoden"
+
+#~ msgid "Tab: Documentation"
+#~ msgstr "Tab: Documentatie"
+
+#~ msgid "Tab: Brand"
+#~ msgstr "Tab: Merk"
+
+#~ msgid "Tab: License"
+#~ msgstr "Tab: Licentie"
+
+#~ msgid "The Pronamic iDEAL dashboard."
+#~ msgstr "Het Pronamic iDEAL dashboard."
+
+#~ msgid ""
+#~ "PNG files are shrinked by <a href=\"https://www.tinypng.com/\">TinyPNG</"
+#~ "a>."
+#~ msgstr ""
+#~ "PNG bestanden zijn verkleind door <a href=\"https://www.tinypng.com/"
+#~ "\">TinyPNG</a>."
+
+#~ msgid "License key was activated for"
+#~ msgstr "Licentiesleutel is geactiveerd voor"
+
+#~ msgid "Transfer license to"
+#~ msgstr "Verhuis licentie naar"
+
+#~ msgid ""
+#~ "License is activated for <code>%s</code>, transfer to <code>%s</code>?"
+#~ msgstr ""
+#~ "Licentie is geactiveerd voor <code>%s</code>, activatie verhuizen naar "
+#~ "<code>%s</code>?"
+
+#~ msgid "Payments %s"
+#~ msgstr "Betalingen %s"
+
+#~ msgid "Payment Links"
+#~ msgstr "Betalingslinks"
+
+#~ msgid "Payment Link"
+#~ msgstr "Betalingslink"
+
+#~ msgid "Add New Payment Link"
+#~ msgstr "Nieuwe betalingslink toevoegen"
+
+#~ msgid "Edit Payment Link"
+#~ msgstr "Betalingslink bewerken"
+
+#~ msgid "New Payment Link"
+#~ msgstr "Nieuwe betalingslink"
+
+#~ msgid "All Payment Links"
+#~ msgstr "Alle betalingslinks"
+
+#~ msgid "View Payment Link"
+#~ msgstr "Bekijk betalingslink"
+
+#~ msgid "Search Payment Links"
+#~ msgstr "Betalingslinks zoeken"
+
+#~ msgid "No payment links found"
+#~ msgstr "Geen betalingslinks gevonden."
+
+#~ msgid "No payment links found in Trash"
+#~ msgstr "Geen betalingslinks gevonden in prullenbak."
+
+#~ msgctxt "slug"
+#~ msgid "payment-links"
+#~ msgstr "betalingslinks"
+
+#~ msgid "%s awaiting processing"
+#~ msgstr "%s in afwachting"
+
+#, fuzzy
+#~ msgid "<strong>%s payment</strong> expired"
+#~ msgid_plural "<strong>%s payments</strong> expired"
+#~ msgstr[0] "betaling verlopen"
+#~ msgstr[1] "betaling verlopen"
+
+#~ msgid "Add New Form"
+#~ msgstr "Nieuwe formulier toevoegen"
+
+#~ msgid "Edit Form"
+#~ msgstr "Formulier bewerken"
+
+#~ msgid "New Form"
+#~ msgstr "Nieuwe formulier"
+
+#~ msgid "All Forms"
+#~ msgstr "Alle formulieren"
+
+#~ msgid "View Form"
+#~ msgstr "Bekijk formulier"
+
+#~ msgid "Search Forms"
+#~ msgstr "Formulieren zoeken"
+
+#~ msgid "No forms found"
+#~ msgstr "Geen formulieren gevonden"
+
+#~ msgid "No forms found in Trash"
+#~ msgstr "Geen formulieren gevonden in prullenbak"
+
+#~ msgid "Email address"
+#~ msgstr "E-mailadres"
+
+#~ msgid "Donate Now"
+#~ msgstr "Doneer nu"
 
 #~ msgid "eShop"
 #~ msgstr "eShop"
@@ -3015,9 +3934,6 @@ msgstr "Belast modus"
 #~ msgid "<a href=\"%s\">back to overview</a>"
 #~ msgstr "<a href=\"%s\">terug naar overzicht</a>"
 
-#~ msgid "Update"
-#~ msgstr "Update"
-
 #~ msgid "Generate"
 #~ msgstr "Genereer"
 
@@ -3044,9 +3960,6 @@ msgstr "Belast modus"
 #~ msgid "Apply"
 #~ msgstr "Toepassen"
 
-#~ msgid "Number Payments"
-#~ msgstr "Aantal betalingen"
-
 #~ msgid "Edit"
 #~ msgstr "Bewerken"
 
@@ -3064,9 +3977,6 @@ msgstr "Belast modus"
 
 #~ msgid "back to list"
 #~ msgstr "terug naar lijst"
-
-#~ msgid "Options"
-#~ msgstr "Opties"
 
 #~ msgid "iDEAL Condition"
 #~ msgstr "iDEAL-conditie"

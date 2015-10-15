@@ -506,6 +506,23 @@ $pronamic_pay_gateways = array(
 		'name'          => 'Paytor',
 		'dashboard_url' => 'http://paytor.com/',
 	),
+	// Postcode iDEAL
+	'postcode-ideal' => array(
+		'provider' => 'postcode.nl',
+		'gateway'  => 'ideal_advanced_v3',
+		'name'     => 'Postcode iDEAL',
+		'test'     => array(
+			'payment_server_url' => 'https://ideal-test.postcode.nl/ideal',
+			'dashboard_url'      => 'https://ideal-test.postcode.nl/',
+		),
+		'live'     => array(
+			'payment_server_url' => 'https://ideal.postcode.nl/ideal',
+			'dashboard_url'      => 'https://ideal.postcode.nl/',
+		),
+		'certificates'           => array(
+			'certificates/postcode-ideal/postcode.cer',
+		),
+	),
 	// Rabobank
 	'rabobank-omnikassa' => array(
 		'provider'      => 'rabobank',

@@ -1,4 +1,4 @@
-<h3><?php _e( 'Payment Gateways', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Payment Gateways', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -9,29 +9,42 @@ bind_providers_and_gateways();
 
 $gateways = $pronamic_pay_gateways;
 
-include 'gateways-wp-admin.php';
+?>
 
-$output = array(
-	'readme-md'  => 'gateways-readme-md.php',
-	'readme-txt' => 'gateways-readme-txt.php',
-);
+<table class="wp-list-table widefat" cellspacing="0">
+	<thead>
+		<tr>
+			<th scope="col"><?php esc_html_e( 'Provider', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
+		</tr>
+	</thead>
 
-foreach ( $output as $name => $file ) {
-	if ( filter_has_var( INPUT_GET, $name ) ) : ?>
+	<tbody>
 
-		<h4><?php _e( 'Markdown', 'pronamic_ideal' ); ?></h4>
+		<?php foreach ( $gateways as $gateway ) : ?>
 
-		<?php
+			<tr>
+				<td>
+					<?php if ( isset( $gateway['provider'], $pronamic_pay_providers[ $gateway['provider'] ] ) ) : ?>
 
-		ob_start();
+						<?php $provider = $pronamic_pay_providers[ $gateway['provider'] ]; ?>
 
-		include $file;
+						<?php if ( isset( $provider['url'] ) ) : ?>
 
-		$markdown = ob_get_clean();
+							<a href="<?php echo esc_attr( $provider['url'] ); ?>">
+								<?php echo esc_html( $provider['name'] ); ?>
+							</a>
 
-		?>
+						<?php endif; ?>
 
-		<textarea cols="60" rows="25"><?php echo esc_textarea( $markdown ); ?></textarea>
+					<?php endif; ?>
+				</td>
+				<td>
+					<?php echo esc_html( $gateway['name'] ); ?>
+				</td>
+			</tr>
 
-	<?php endif;
-}
+		<?php endforeach; ?>
+
+	</tbody>
+</table>

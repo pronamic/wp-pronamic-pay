@@ -1,4 +1,4 @@
-<h3><?php _e( 'Pages Generator', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Pages Generator', 'pronamic_ideal' ); ?></h3>
 
 <?php
 
@@ -8,7 +8,7 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 	if ( '1' === $message_id ) {
 		printf(
 			'<div id="message" class="updated"><p>%s</p></div>',
-			__( 'Pages created.', 'pronamic_ideal' )
+			esc_html__( 'Pages created.', 'pronamic_ideal' )
 		);
 	}
 }
@@ -16,7 +16,7 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 ?>
 
 <p>
-	<?php _e( 'This page allows you to easily create pages for each iDEAL payment status.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'This page allows you to easily create pages for each iDEAL payment status.', 'pronamic_ideal' ); ?>
 </p>
 
 <form action="" method="post">
@@ -79,49 +79,49 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 
 	function pronamic_pay_pages( $posts, $name_prefix, $level = 0 ) {
 		?>
-		<ul style="padding-left: <?php echo $level * 25; ?>px">
+		<ul style="padding-left: <?php echo esc_attr( $level * 25 ); ?>px">
 
 			<?php foreach ( $posts as $i => $post ) : ?>
 
 				<li>
 					<?php $name = $name_prefix . '[' . $i . ']'; ?>
 
-					<h4><?php echo $post['post_title']; ?></h4>
+					<h4><?php echo esc_html( $post['post_title'] ); ?></h4>
 
 					<table class="form-table">
 						<tr>
 							<th scope="row">
-								<label for="pronamic_pay_page_<?php echo $i; ?>_post_title">
-									<?php _e( 'Title', 'pronamic_ideal' ); ?>
+								<label for="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_title">
+									<?php esc_html_e( 'Title', 'pronamic_ideal' ); ?>
 								</label>
 							</th>
 							<td>
-				                <input id="pronamic_pay_page_<?php echo $i; ?>_post_title" name="<?php echo $name; ?>[post_title]" value="<?php echo $post['post_title']; ?>" type="text" class="regular-text" />
+				                <input id="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_title" name="<?php echo esc_attr( $name ); ?>[post_title]" value="<?php echo esc_attr( $post['post_title'] ); ?>" type="text" class="regular-text" />
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="pronamic_pay_page_<?php echo $i; ?>_post_name">
-									<?php _e( 'Slug', 'pronamic_ideal' ); ?>
+								<label for="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_name">
+									<?php esc_html_e( 'Slug', 'pronamic_ideal' ); ?>
 								</label>
 							</th>
 							<td>
-				                <input id="pronamic_pay_page_<?php echo $i; ?>_post_name" name="<?php echo $name; ?>[post_name]" value="<?php echo $post['post_name']; ?>" type="text" class="regular-text" />
+				                <input id="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_name" name="<?php echo esc_attr( $name ); ?>[post_name]" value="<?php echo esc_attr( $post['post_name'] ); ?>" type="text" class="regular-text" />
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<label for="pronamic_pay_page_<?php echo $i; ?>_post_content">
-									<?php _e( 'Content', 'pronamic_ideal' ); ?>
+								<label for="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_content">
+									<?php esc_html_e( 'Content', 'pronamic_ideal' ); ?>
 								</label>
 							</th>
 							<td>
-				                <textarea id="pronamic_pay_page_<?php echo $i; ?>_post_content" name="<?php echo $name; ?>[post_content]" rows="2" cols="60"><?php echo $post['post_content']; ?></textarea>
+				                <textarea id="pronamic_pay_page_<?php echo esc_attr( $i ); ?>_post_content" name="<?php echo esc_attr( $name ); ?>[post_content]" rows="2" cols="60"><?php echo esc_textarea( $post['post_content'] ); ?></textarea>
 							</td>
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php _e( 'Meta', 'pronamic_ideal' ); ?>
+								<?php esc_html_e( 'Meta', 'pronamic_ideal' ); ?>
 							</th>
 							<td>
 				                <?php if ( isset( $post['post_meta'] ) ) : ?>
@@ -130,10 +130,10 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 				                		<?php foreach ( $post['post_meta'] as $key => $value ) : ?>
 
 				                			<dt>
-				                				<?php echo $key; ?>
+				                				<?php echo esc_html( $key ); ?>
 				                			</dt>
 				                			<dd>
-				                				<input name="<?php echo $name; ?>[post_meta][<?php echo $key; ?>]" value="<?php echo $value; ?>" type="text" class="regular-text" />
+				                				<input name="<?php echo esc_attr( $name ); ?>[post_meta][<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( $value ); ?>" type="text" class="regular-text" />
 				                			</dd>
 
 				                		<?php endforeach; ?>

@@ -421,7 +421,7 @@ $sections = array(
 				'options'     => array(
 					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_1   => __( 'SHA-1', 'pronamic_ideal' ),
 					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_256 => __( 'SHA-256', 'pronamic_ideal' ),
-					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' )
+					Pronamic_WP_Pay_Gateways_Ogone_HashAlgorithms::SHA_512 => __( 'SHA-512', 'pronamic_ideal' ),
 				),
 				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
@@ -505,6 +505,22 @@ $sections = array(
 						sprintf( '<code>%s</code>', 'PARAMVAR' )
 					),
 					sprintf( __( 'Tags: %s', 'pronamic_ideal' ), sprintf( '<code>%s</code> <code>%s</code>', '{site_url}', '{home_url}' ) )
+				),
+				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
+			),
+		),
+	),
+	array(
+		'title'   => __( 'Payment page look and feel', 'pronamic_ideal' ),
+		'methods' => array( 'ogone_orderstandard', 'ogone_directlink' ),
+		'fields'  => array(
+			array(
+				'meta_key'    => '_pronamic_gateway_ogone_template_page',
+				'title'       => __( 'Template Page', 'pronamic_ideal' ),
+				'type'        => 'text',
+				'description' => sprintf(
+					__( 'This controls the Ogone %s parameter.', 'pronamic_ideal' ),
+					sprintf( '<code>%s</code>', 'TP' )
 				),
 				'methods'     => array( 'ogone_orderstandard', 'ogone_directlink' ),
 			),
@@ -666,8 +682,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 		echo '<dl>';
 
-		echo '<dt>', __( 'SHA Fingerprint', 'pronamic_ideal' ), '</dt>';
-		echo '<dd>', $fingerprint, '</dd>';
+		echo '<dt>', esc_html__( 'SHA Fingerprint', 'pronamic_ideal' ), '</dt>';
+		echo '<dd>', esc_html( $fingerprint ), '</dd>';
 
 		$info = openssl_x509_parse( $certificate );
 
@@ -675,13 +691,13 @@ function pronamic_ideal_private_certificate_field( $field ) {
 			$date_format = __( 'M j, Y @ G:i', 'pronamic_ideal' );
 
 			if ( isset( $info['validFrom_time_t'] ) ) {
-				echo '<dt>', __( 'Valid From', 'pronamic_ideal' ), '</dt>';
-				echo '<dd>', date_i18n( $date_format, $info['validFrom_time_t'] ), '</dd>';
+				echo '<dt>', esc_html__( 'Valid From', 'pronamic_ideal' ), '</dt>';
+				echo '<dd>', esc_html( date_i18n( $date_format, $info['validFrom_time_t'] ) ), '</dd>';
 			}
 
 			if ( isset( $info['validTo_time_t'] ) ) {
-				echo '<dt>', __( 'Valid To', 'pronamic_ideal' ), '</dt>';
-				echo '<dd>', date_i18n( $date_format, $info['validTo_time_t'] ), '</dd>';
+				echo '<dt>', esc_html__( 'Valid To', 'pronamic_ideal' ), '</dt>';
+				echo '<dd>', esc_html( date_i18n( $date_format, $info['validTo_time_t'] ) ), '</dd>';
 			}
 		}
 
@@ -711,7 +727,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 		<tr>
 			<th scope="row">
 				<label for="pronamic_gateway_id">
-					<?php _e( 'Variant', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Variant', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
@@ -732,6 +748,10 @@ function pronamic_ideal_private_certificate_field( $field ) {
 									$classes[] = 'deprecated';
 
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
+
+									if ( $variant_id !== $id ) {
+										break;
+									}
 								}
 
 								printf(
@@ -769,8 +789,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 		?>
 
-		<div class="<?php echo implode( ' ', $classes ); ?>">
-			<h4><?php echo $section['title']; ?></h4>
+		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+			<h4><?php echo esc_html( $section['title'] ); ?></h4>
 
 			<table class="form-table">
 
@@ -796,10 +816,10 @@ function pronamic_ideal_private_certificate_field( $field ) {
 					}
 
 					?>
-					<tr class="<?php echo implode( ' ', $classes ); ?>">
+					<tr class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 						<th scope="col">
 							<label for="<?php echo esc_attr( $id ); ?>">
-								<?php echo $field['title']; ?>
+								<?php echo esc_html( $field['title'] ); ?>
 							</label>
 						</th>
 						<td>
@@ -859,8 +879,8 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 									printf(
 										'<label for="%s">%s</label>',
-										$attributes['id'],
-										$field['label']
+										esc_attr( $attributes['id'] ),
+										esc_html( $field['label'] )
 									);
 
 									break;
@@ -894,18 +914,18 @@ function pronamic_ideal_private_certificate_field( $field ) {
 									break;
 								case 'optgroup' :
 									printf( '<fieldset>' );
-									printf( '<legend class="screen-reader-text">%s</legend>', $field['title'] );
+									printf( '<legend class="screen-reader-text">%s</legend>', esc_html( $field['title'] ) );
 
 									foreach ( $field['options'] as $key => $label ) {
 										printf(
 											'<label>%s %s</label><br />',
 											sprintf(
 												'<input type="radio" value="%s" name="%s" %s />',
-												$key,
-												$attributes['name'],
+												esc_attr( $key ),
+												esc_attr( $attributes['name'] ),
 												checked( $value, $key, false )
 											),
-											$label
+											esc_html( $label )
 										);
 									}
 
@@ -913,7 +933,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 							}
 
 							if ( isset( $field['description'] ) ) {
-								printf(
+								printf( //xss ok
 									'<span class="description"><br />%s</span>',
 									$field['description']
 								);
@@ -939,18 +959,18 @@ function pronamic_ideal_private_certificate_field( $field ) {
 
 	<div class="extra-settings method-ideal_advanced_v3">
 		<h4>
-			<?php _e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
 		</h4>
 
 		<p>
-			<?php _e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>
 		</p>
 
 		<table class="form-table">
 			<tr>
 				<th scope="col">
 					<label for="pronamic_ideal_openssl_command_key">
-						<?php _e( 'Private Key', 'pronamic_ideal' ); ?>
+						<?php esc_html_e( 'Private Key', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>
@@ -974,7 +994,7 @@ function pronamic_ideal_private_certificate_field( $field ) {
 			<tr>
 				<th scope="col">
 					<label for="pronamic_ideal_openssl_command_certificate">
-						<?php _e( 'Private Certificate', 'pronamic_ideal' ); ?>
+						<?php esc_html_e( 'Private Certificate', 'pronamic_ideal' ); ?>
 					</label>
 				</th>
 				<td>

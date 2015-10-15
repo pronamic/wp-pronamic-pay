@@ -1,5 +1,7 @@
 /* jshint node:true */
 module.exports = function( grunt ) {
+	require( 'load-grunt-tasks' )( grunt );
+
 	// Project configuration.
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
@@ -13,8 +15,9 @@ module.exports = function( grunt ) {
 			},
 			all: [
 				'**/*.php',
+				'!bower_components/**',
+				'!build/**',
 				'!deploy/**',
-				'!includes/icepay/**',
 				'!includes/xmlseclibs/**',
 				'!node_modules/**',
 				'!vendor/**',
@@ -27,8 +30,9 @@ module.exports = function( grunt ) {
 			application: {
 				src: [
 					'**/*.php',
+					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
-					'!includes/icepay/**',
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
 					'!vendor/**',
@@ -51,7 +55,7 @@ module.exports = function( grunt ) {
 			options: grunt.file.readJSON( '.jshintrc' ),
 			grunt: [ 'Gruntfile.js' ],
 			plugin: [
-				'admin/js/*.js'
+				'src/js/*.js'
 			]
 		},
 
@@ -97,6 +101,8 @@ module.exports = function( grunt ) {
 			files: {
 				src:  [
 					'**/*.php',
+					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
@@ -113,7 +119,10 @@ module.exports = function( grunt ) {
 					domainPath: 'languages',
 					type: 'wp-plugin',
 					updatePoFiles: true,
+					updateTimestamp: false,
 					exclude: [
+						'bower_components/.*',
+						'build/.*',
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*'
@@ -146,11 +155,68 @@ module.exports = function( grunt ) {
 			// WordPress test environment
 			test: {
 				command: 'bash tests/setup.sh'
+			},
+
+			// Generate readme.txt
+			readme_txt: {
+				command: 'php src/readme-txt/readme.php > readme.txt'
+			},
+
+			// Generate README.md
+			readme_md: {
+				command: 'php src/readme-md/README.php > README.md'	
+			},
+
+			// Generate CHANGELOG.md
+			changelog_md: {
+				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'	
 			}
 		},
 
 		// Copy
 		copy: {
+			styles: {
+				files: [
+					{ // CSS
+						expand: true,
+						cwd: 'src/css/',
+						src: [ '**' ],
+						dest: 'css'
+					}
+				]
+			},
+			scripts: {
+				files: [
+					{ // JS
+						expand: true,
+						cwd: 'src/js/',
+						src: [ '**' ],
+						dest: 'js'
+					}
+				]
+			},
+			assets: {
+				files: [
+					{ // Flot - http://www.flotcharts.org/
+						expand: true,
+						cwd: 'bower_components/flot/',
+						src: [
+							'jquery.flot.js',
+							'jquery.flot.time.js',
+							'jquery.flot.resize.js'
+						],
+						dest: 'assets/flot'
+					},
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js
+						expand: true,
+						cwd: 'bower_components/accounting.js/',
+						src: [
+							'accounting.js'
+						],
+						dest: 'assets/accounting'
+					}
+				]
+			},
 			deploy: {
 				src: [
 					'**',
@@ -163,6 +229,8 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
+					'!bower_components/**',
+					'!build/**',
 					'!deploy/**',
 					'!documentation/**',
 					'!node_modules/**',
@@ -179,6 +247,66 @@ module.exports = function( grunt ) {
 				],
 				dest: 'deploy/latest',
 				expand: true
+			}
+		},
+
+		// Compass
+		compass: {
+			build: {
+				options: {
+					sassDir: 'src/sass',
+					cssDir: 'src/css'
+				}
+			}
+		},
+
+		// Autoprefixer
+		autoprefixer: {
+			options: {
+		 		browsers: [ 'last 2 version', 'ie 8', 'ie 9' ]
+			},
+			admin: {
+				src: 'src/css/admin.css'
+			}
+		},
+
+		// CSS min
+		cssmin: {
+			styles: {
+				files: {
+					'css/admin.min.css': 'src/css/admin.css',
+					'css/admin-about.min.css': 'src/css/admin-about.css',
+					'css/admin-tour.min.css': 'src/css/admin-tour.css',
+					'css/forms.min.css': 'src/css/forms.css'
+				}
+			},
+			assets: {
+				files: {
+					
+				}
+			}
+		},
+
+		// Uglify
+		uglify: {
+			scripts: {
+				files: {
+					// Accounting
+					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
+					// Flot
+					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
+					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
+					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
+					// Admin
+					'js/admin.min.js': 'src/js/admin.js',
+					'js/admin-reports.min.js': 'src/js/admin-reports.js',
+					'js/admin-tour.min.js': 'src/js/admin-tour.js'
+				}
+			},
+			assets: {
+				files: {
+					
+				}
 			}
 		},
 
@@ -241,7 +369,7 @@ module.exports = function( grunt ) {
 		rt_wp_deploy: {
 			app: {
 				options: {
-					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-ideal/',
+					svnUrl: 'http://plugins.svn.wordpress.org/<%= pkg.name %>/',
 					svnDir: 'deploy/wp-svn',
 					svnUsername: 'pronamic',
 					deployDir: 'deploy/latest',
@@ -251,30 +379,19 @@ module.exports = function( grunt ) {
 		}
 	} );
 
-	grunt.loadNpmTasks( 'grunt-phplint' );
-	grunt.loadNpmTasks( 'grunt-phpcs' );
-	grunt.loadNpmTasks( 'grunt-phpunit' );
-	grunt.loadNpmTasks( 'grunt-composer' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-compress' );
-	grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-checktextdomain' );
-	grunt.loadNpmTasks( 'grunt-checkwpversion' );
-	grunt.loadNpmTasks( 'grunt-wp-i18n' );
-	grunt.loadNpmTasks( 'grunt-shell' );
-	grunt.loadNpmTasks( 'grunt-git' );
-	grunt.loadNpmTasks( 'grunt-aws-s3' );
-	grunt.loadNpmTasks( 'grunt-rt-wp-deploy' );
-
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
+	grunt.registerTask( 'assets', [ 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets' ] );
+	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
+	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
 
 	grunt.registerTask( 'deploy', [
 		'default',
+		'assets',
+		'min',
+		'doc',
 		'composer:update',
 		'composer:dump-autoload:optimize',
 		'clean:deploy',

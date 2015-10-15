@@ -8,7 +8,7 @@ $payment = get_pronamic_payment( $post_id );
 <table class="form-table">
 	<tr>
 		<th scope="row">
-			<?php _e( 'Date', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ); ?>
@@ -16,45 +16,45 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'ID', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'ID', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo $post_id; ?>
+			<?php echo esc_html( $post_id ); ?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Description', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo get_post_meta( $post_id, '_pronamic_payment_description', true ); ?>
+			<?php echo esc_html( get_post_meta( $post_id, '_pronamic_payment_description', true ) ); ?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Amount', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			echo get_post_meta( $post_id, '_pronamic_payment_currency', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
 			echo ' ';
-			echo get_post_meta( $post_id, '_pronamic_payment_amount', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
 
 			?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Transaction ID', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Transaction ID', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ); ?>
+			<?php echo esc_html( get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ) ); ?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Action URL', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Action URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -63,8 +63,8 @@ $payment = get_pronamic_payment( $post_id );
 
 			printf(
 				'<a href="%s" target="_blank">%s</a>',
-				$url,
-				$url
+				esc_attr( $url ),
+				esc_html( $url )
 			);
 
 			?>
@@ -72,44 +72,44 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Status', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
 			$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
 
-			echo Pronamic_WP_Pay_Plugin::translate_status( $status );
+			echo esc_html( Pronamic_WP_Pay_Plugin::translate_status( $status ) );
 
 			?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Email', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Email', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			echo get_post_meta( $post_id, '_pronamic_payment_email', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_email', true ) );
 
 			?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Consumer', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			echo get_post_meta( $post_id, '_pronamic_payment_consumer_name', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
 			echo '<br />';
-			echo get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true );
-			echo get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true );
-			echo get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_iban', true ) );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true ) );
 			echo '<br />';
-			echo get_post_meta( $post_id, '_pronamic_payment_consumer_city', true );
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
 
 			?>
 		</td>

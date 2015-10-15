@@ -15,9 +15,24 @@ class Pronamic_WP_Pay_LicenseManager {
 	public function __construct() {
 		// Actions
 		add_action( 'pronamic_pay_license_check', array( $this, 'license_check_event' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Filters
 		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( $this, 'pre_update_option_license_key' ), 10, 2 );
+	}
+
+	/**
+	 * Admin notices
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/options.php#L205-L218
+	 * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/2.4.2/includes/class-edd-license-handler.php#L309-L369
+	 */
+	public function admin_notices() {
+		$data = get_transient( 'pronamic_pay_license_data' );
+
+		if ( $data ) {
+			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-license.php';
+		}
 	}
 
 	//////////////////////////////////////////////////
@@ -141,7 +156,9 @@ class Pronamic_WP_Pay_LicenseManager {
 		$data = json_decode( wp_remote_retrieve_body( $response ) );
 
 		if ( $data ) {
-			$status = $data->license;
+			set_transient( 'pronamic_pay_license_data', $data, 30 );
+
+			$status = $this->response->license;
 		}
 
 		// Update

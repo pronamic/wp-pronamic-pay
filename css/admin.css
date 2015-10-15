@@ -1,0 +1,277 @@
+/* line 3, ../sass/admin.scss */
+td.column-version {
+  width: 5em;
+}
+
+/* line 7, ../sass/admin.scss */
+.pronamic-pay-status-table tbody th:first-child {
+  width: 20%;
+}
+
+/**
+ * Dashboard
+ *
+ * @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
+ */
+/* line 16, ../sass/admin.scss */
+#pronamic_pay_dashboard_status .inside {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 21, ../sass/admin.scss */
+.pronamic-pay-status-list {
+  overflow: hidden;
+  margin: 0;
+}
+/* line 26, ../sass/admin.scss */
+.pronamic-pay-status-list li {
+  border-top: 1px solid #ECECEC;
+  box-sizing: border-box;
+  color: #AAA;
+  float: left;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+/* line 40, ../sass/admin.scss */
+.pronamic-pay-status-list li a {
+  display: block;
+  color: #aaa;
+  padding: 9px 12px;
+  -webkit-transition: all ease .5s;
+  position: relative;
+  font-size: 12px;
+}
+/* line 48, ../sass/admin.scss */
+.pronamic-pay-status-list li a strong {
+  color: #21759b;
+  display: block;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.2em;
+}
+/* line 59, ../sass/admin.scss */
+.pronamic-pay-status-list li a:hover {
+  color: #2ea2cc;
+}
+/* line 62, ../sass/admin.scss */
+.pronamic-pay-status-list li a:hover:before,
+.pronamic-pay-status-list li a:hover strong {
+  color: #2ea2cc;
+}
+/* line 70, ../sass/admin.scss */
+.pronamic-pay-status-list li:first-child {
+  border-top: none;
+  width: 100%;
+}
+/* line 76, ../sass/admin.scss */
+.pronamic-pay-status-list li:nth-child(even) {
+  border-right: 1px solid #ECECEC;
+}
+
+/**
+ * Gateway config postbox
+ */
+/* line 84, ../sass/admin.scss */
+#pronamic_gateway_config option.deprecated {
+  color: #AAA;
+}
+
+/**
+ * Payment log postbox
+ */
+/* line 91, ../sass/admin.scss */
+#pronamic_payment_log.postbox .inside {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 96, ../sass/admin.scss */
+#pronamic_payment_log .comments-box {
+  border: 0 none;
+}
+
+/**
+ * Post type payment
+ */
+/* line 104, ../sass/admin.scss */
+body.post-type-pronamic_payment #post-body-content {
+  display: none;
+}
+
+/**
+ * Input shortcode
+ */
+/* line 112, ../sass/admin.scss */
+.pronamic-pay-shortcode-input {
+  width: 100%;
+}
+
+/**
+ * Meta box payment update
+ */
+/* line 119, ../sass/admin.scss */
+#pronamic_payment_update .inside {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 124, ../sass/admin.scss */
+.pronamic-pay-inner {
+  margin: 6px 0 0 0;
+  padding: 0 12px 12px;
+}
+
+/* line 129, ../sass/admin.scss */
+.pronamic-pay-major-actions {
+  background: #F5F5F5;
+  border-top: 1px solid #DDD;
+  padding: 10px;
+}
+
+/* line 137, ../sass/admin.scss */
+.pronamic-pay-action {
+  float: right;
+  text-align: right;
+}
+
+/**
+ * iDEAL
+ */
+/* line 146, ../sass/admin.scss */
+pre.security-data {
+  background-color: #EEE;
+  border-radius: 3px 3px 3px 3px;
+  border: 1px solid #DFDFDF;
+  height: 10em;
+  width: 40em;
+  overflow: auto;
+}
+
+/**
+ * Documentation
+ */
+/* line 161, ../sass/admin.scss */
+.pronamic-pay-table tr.deprecated td,
+.pronamic-pay-table tr.deprecated a {
+  color: #AAAAAA;
+}
+
+/**
+ * Charts
+ */
+/* line 169, ../sass/admin.scss */
+.postbox .pronamic-pay-chart-with-sidebar {
+  padding: 12px 12px 12px 249px;
+}
+
+/* line 175, ../sass/admin.scss */
+.pronamic-pay-chart-sidebar {
+  float: left;
+  margin-left: -237px;
+  width: 225px;
+}
+
+/* line 183, ../sass/admin.scss */
+.pronamci-pay-chart-legend {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+  border: 1px solid #dfdfdf;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  background: #FFF;
+}
+
+/* line 196, ../sass/admin.scss */
+.pronamci-pay-chart-legend li {
+  border-right: 5px solid #AAA;
+  box-shadow: inset 0 -1px 0 0 #dfdfdf;
+  color: #AAA;
+  display: block;
+  padding: 1em;
+  margin: 0;
+  transition: all ease .5s;
+}
+
+/* line 211, ../sass/admin.scss */
+.pronamci-pay-chart-legend li:hover {
+  box-shadow: inset 0 -1px 0 0 #DFDFDF, inset 300px 0 0 rgba(35, 40, 47, 0.1);
+  border-right: 5px solid #23282F !important;
+  padding-left: 1.5em;
+}
+
+/* line 219, ../sass/admin.scss */
+.pronamci-pay-chart-legend strong {
+  color: #464646;
+  display: block;
+  font-size: 1.618em;
+  line-height: 1.2em;
+  font-weight: 400;
+}
+
+/* line 231, ../sass/admin.scss */
+.pronamic-pay-chart-tooltip {
+  background: #333;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: .8em;
+  max-width: 150px;
+  padding: .618em 1em;
+  position: absolute;
+  text-align: center;
+}
+
+/**
+ * Gravity Forms notifications
+ */
+/* line 254, ../sass/admin.scss */
+.pronamic-pay-gf-notifications {
+  margin-left: 28px;
+}
+
+/* line 258, ../sass/admin.scss */
+.pronamic-pay-gf-notifications ul {
+  margin: 0;
+}
+
+/* line 262, ../sass/admin.scss */
+.pronamic-pay-gf-notifications li {
+  margin: 0;
+}
+
+/**
+ * Gravity Forms editor
+ */
+/* line 269, ../sass/admin.scss */
+.gforms_edit_form .ginput_ideal {
+  background: url("../../images/icon-16x16.png") no-repeat left center;
+  padding-left: 20px;
+}
+
+/* line 275, ../sass/admin.scss */
+.gforms_edit_form .ideal-edit-link {
+  background: url("../../images/icon-16x16.png") no-repeat;
+  display: none;
+  float: right;
+  font-size: 10px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 0 0 18px;
+  text-decoration: none;
+}
+
+/* line 293, ../sass/admin.scss */
+.gforms_edit_form .field_hover .ideal-edit-link,
+.gforms_edit_form .field_selected .ideal-edit-link {
+  display: block;
+}
+
+/* Add iDEAL fields */
+/* line 299, ../sass/admin.scss */
+#add_ideal_fields .button {
+  /* The default Gravity Forms button width is to small */
+  width: 10em;
+}

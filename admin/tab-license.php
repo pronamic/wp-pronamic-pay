@@ -1,9 +1,9 @@
-<h3><?php _e( 'License Information', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'License Information', 'pronamic_ideal' ); ?></h3>
 
 <table class="form-table">
 	<tr>
 		<th scope="row">
-			<?php _e( 'License Status', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'License Status', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -12,19 +12,19 @@
 
 			switch ( $status ) {
 				case 'valid':
-					_e( 'Valid', 'pronamic_ideal' );
+					esc_html_e( 'Valid', 'pronamic_ideal' );
 
 					break;
 				case 'invalid':
-					_e( 'Invalid', 'pronamic_ideal' );
+					esc_html_e( 'Invalid', 'pronamic_ideal' );
 
 					break;
 				case 'site_inactive':
-					_e( 'Site Inactive', 'pronamic_ideal' );
+					esc_html_e( 'Site Inactive', 'pronamic_ideal' );
 
 					break;
 				default :
-					echo $status;
+					echo esc_html( $status );
 
 					break;
 			}
@@ -34,7 +34,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php _e( 'Next License Check', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Next License Check', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -44,9 +44,9 @@
 			if ( $timestamp ) {
 				$timestamp = get_date_from_gmt( date( 'Y-m-d H:i:s', $timestamp ), 'U' );
 
-				echo date_i18n( 'D j M Y H:i:s', $timestamp );
+				echo esc_html( date_i18n( 'D j M Y H:i:s', $timestamp ) );
 			} else {
-				_e( 'Not scheduled', 'pronamic_ideal' );
+				esc_html_e( 'Not scheduled', 'pronamic_ideal' );
 			}
 
 			?>

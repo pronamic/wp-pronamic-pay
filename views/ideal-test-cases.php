@@ -2,10 +2,10 @@
 	<thead>
 		<tr>
 			<th scope="col">
-				<?php _e( 'Order', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Order', 'pronamic_ideal' ); ?>
 			</th>
 			<th scope="col">
-				<?php _e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
+				<?php esc_html_e( 'Expected result if integration is correct', 'pronamic_ideal' ); ?>
 			</th>
 		</tr>
 	</thead>
@@ -49,15 +49,20 @@
 				<td>
 					<?php
 
-					printf(
-						__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
-						Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] )
+					echo wp_kses(
+						sprintf(
+							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
+							esc_html( Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] ) )
+						),
+						array(
+							'code' => array(),
+						)
 					);
 
 					?>
 				</td>
 				<td>
-					<?php echo $data['result']; ?>
+					<?php echo esc_html( $data['result'] ); ?>
 				</td>
 			</tr>
 

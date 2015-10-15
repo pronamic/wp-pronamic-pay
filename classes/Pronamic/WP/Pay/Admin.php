@@ -13,7 +13,9 @@ class Pronamic_WP_Pay_Admin {
 	/**
 	 * Constructs and initalize an admin object
 	 */
-	public function __construct() {
+	public function __construct( $plugin ) {
+		$this->plugin   = $plugin;
+
 		$this->settings = new Pronamic_WP_Pay_Settings();
 
 		// Actions
@@ -24,7 +26,20 @@ class Pronamic_WP_Pay_Admin {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		add_action( 'pronamic_pay_upgrade', array( $this, 'upgrade' ) );
+		// Reports
+		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
+		}
+
+		// Tour
+		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
+			$this->tour = new Pronamic_WP_Pay_Admin_Tour( $this );
+		}
+
+		$this->install   = new Pronamic_WP_Pay_Admin_Install( $this );
+		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
+		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
+		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -41,23 +56,47 @@ class Pronamic_WP_Pay_Admin {
 		$this->maybe_download_private_certificate();
 		$this->maybe_download_private_key();
 		$this->maybe_create_pages();
+		$this->maybe_redirect();
 
 		// Actions
 		// Show license message if the license is not valid
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		// Post types
+		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+	}
 
-		// Maybe update
-		global $pronamic_pay_db_version;
+	/**
+	 * Maybe redirect
+	 *
+	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L29
+	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L96-L122
+	 */
+	public function maybe_redirect() {
+		$redirect = get_transient( 'pronamic_pay_admin_redirect' );
 
-		if ( get_option( 'pronamic_pay_db_version' ) !== $pronamic_pay_db_version ) {
-			do_action( 'pronamic_pay_upgrade', $pronamic_pay_db_version );
-
-			update_option( 'pronamic_pay_db_version', $pronamic_pay_db_version );
+		// Check
+		if (
+			false === $redirect
+				||
+			is_network_admin()
+				||
+			filter_has_var( INPUT_GET, 'activate-multi' )
+				||
+			! current_user_can( 'manage_options' )
+		) {
+			return;
 		}
+
+		// Delete
+		delete_transient( 'pronamic_pay_admin_redirect' );
+
+		// Redirect
+		wp_safe_redirect( $redirect );
+
+		exit;
 	}
 
 	//////////////////////////////////////////////////
@@ -95,7 +134,7 @@ class Pronamic_WP_Pay_Admin {
 			esc_html( $args['label'] )
 		);
 
-		printf(
+		printf( //xss ok
 			'<fieldset>%s %s</fieldset>',
 			$legend,
 			$label
@@ -148,35 +187,9 @@ class Pronamic_WP_Pay_Admin {
 
 		// Return or echo
 		if ( $args['echo'] ) {
-			echo $output;
+			echo $output; //xss ok
 		} else {
 			return $output;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Upgrade
-	 */
-	public function upgrade() {
-		require_once Pronamic_WP_Pay_Plugin::$dirname . '/admin/includes/upgrade.php';
-
-		$db_version = get_option( 'pronamic_pay_db_version' );
-
-		if ( $db_version ) {
-			// The upgrade functions only have to run if an previous database version is set
-			if ( $db_version < 330 ) {
-				pronamic_pay_upgrade_330();
-			}
-
-			if ( $db_version < 201 ) {
-				pronamic_pay_upgrade_201();
-			}
-
-			if ( $db_version < 200 ) {
-				pronamic_pay_upgrade_200();
-			}
 		}
 	}
 
@@ -244,7 +257,7 @@ class Pronamic_WP_Pay_Admin {
 			header( 'Content-Disposition: attachment; filename=' . $filename );
 			header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
 
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true ); //xss ok
 
 			exit;
 		}
@@ -263,7 +276,7 @@ class Pronamic_WP_Pay_Admin {
 			header( 'Content-Disposition: attachment; filename=' . $filename );
 			header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
 
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true );
+			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true ); //xss ok
 
 			exit;
 		}
@@ -276,9 +289,11 @@ class Pronamic_WP_Pay_Admin {
 	 */
 	public function admin_notices() {
 		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
-			printf(
+			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
+
+			printf( //xss ok
 				'<div class="%s"><p>%s</p></div>',
-				Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated',
+				esc_attr( $class ),
 				sprintf(
 					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
@@ -299,24 +314,32 @@ class Pronamic_WP_Pay_Admin {
 		$enqueue |= in_array( $screen->post_type, array(
 			'pronamic_gateway',
 			'pronamic_payment',
+			'pronamic_pay_form',
 			'pronamic_pay_gf',
 		) );
+		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
 		if ( $enqueue ) {
+			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 			// Styles
 			wp_enqueue_style(
-				'proanmic_ideal_admin',
-				plugins_url( 'admin/css/admin.css', Pronamic_WP_Pay_Plugin::$file )
+				'proanmic-pay-admin',
+				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'3.6.6'
 			);
 
 			// Scripts
 			wp_enqueue_script(
-				'proanmic_ideal_admin',
-				plugins_url( 'admin/js/admin.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' )
+				'proanmic-pay-admin',
+				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'jquery' ),
+				'3.6.6',
+				true
 			);
 		}
 	}
@@ -361,9 +384,21 @@ class Pronamic_WP_Pay_Admin {
 	 * Create the admin menu
 	 */
 	public function admin_menu() {
+		// @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-menus.php#L145
+		$counts = wp_count_posts( 'pronamic_payment' );
+
+		$badge = '';
+		if ( isset( $counts, $counts->payment_pending ) && $counts->payment_pending > 0 ) {
+			$badge = sprintf(
+				' <span class="awaiting-mod update-plugins count-%s"><span class="processing-count">%s</span></span>',
+				$counts->payment_pending,
+				$counts->payment_pending
+			);
+		}
+
 		add_menu_page(
 			__( 'iDEAL', 'pronamic_ideal' ),
-			__( 'iDEAL', 'pronamic_ideal' ),
+			__( 'iDEAL', 'pronamic_ideal' ) . $badge,
 			'manage_options',
 			'pronamic_ideal',
 			array( $this, 'page_dashboard' ),
@@ -373,7 +408,7 @@ class Pronamic_WP_Pay_Admin {
 		add_submenu_page(
 			'pronamic_ideal',
 			__( 'Payments', 'pronamic_ideal' ),
-			__( 'Payments', 'pronamic_ideal' ),
+			__( 'Payments', 'pronamic_ideal' ) . $badge,
 			'manage_options',
 			'edit.php?post_type=pronamic_payment'
 		);
@@ -385,6 +420,16 @@ class Pronamic_WP_Pay_Admin {
 			'manage_options',
 			'edit.php?post_type=pronamic_gateway'
 		);
+
+		add_submenu_page(
+			'pronamic_ideal',
+			__( 'Payment Forms', 'pronamic_ideal' ),
+			__( 'Forms', 'pronamic_ideal' ),
+			'manage_options',
+			'edit.php?post_type=pronamic_pay_form'
+		);
+
+		do_action( 'pronamic_pay_admin_menu' );
 
 		add_submenu_page(
 			'pronamic_ideal',
@@ -413,9 +458,17 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	public function page_dashboard() { return $this->render_page( 'dashboard' ); }
-	public function page_settings() { return $this->render_page( 'settings' ); }
-	public function page_tools() { return $this->render_page( 'tools' ); }
+	public function page_dashboard() {
+		return $this->render_page( 'dashboard' );
+	}
+
+	public function page_settings() {
+		return $this->render_page( 'settings' );
+	}
+
+	public function page_tools() {
+		return $this->render_page( 'tools' );
+	}
 
 	//////////////////////////////////////////////////
 

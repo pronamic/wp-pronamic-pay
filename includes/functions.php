@@ -66,11 +66,11 @@ function bind_providers_and_gateways() {
 }
 
 /**
- * let_to_num function.
- * @see https://github.com/woothemes/woocommerce/blob/v2.0.20/woocommerce-core-functions.php#L1779
+ * Let to num function
  *
  * This function transforms the php.ini notation for numbers (like '2M') to an integer.
  *
+ * @see https://github.com/woothemes/woocommerce/blob/v2.0.20/woocommerce-core-functions.php#L1779
  * @access public
  * @param $size
  * @return int

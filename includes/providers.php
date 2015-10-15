@@ -71,6 +71,10 @@ $pronamic_pay_providers = array(
 		'name'          => 'Paytor',
 		'url'           => 'http://www.paytor.com/',
 	),
+	'postcode.nl'       => array(
+		'name'          => 'Postcode.nl',
+		'url'           => 'https://www.postcode.nl/',
+	),
 	'rabobank'          => array(
 		'name'          => 'Rabobank',
 		'url'           => 'http://rabobank.nl/',

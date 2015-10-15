@@ -7,7 +7,7 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( get_the_ID() );
 if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
 
-	echo $gateway->get_input_html();
+	echo $gateway->get_input_html(); //xss ok
 
 	if ( $gateway->has_error() ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
@@ -23,9 +23,7 @@ if ( $gateway ) {
 
 		<?php
 
-		$name = sprintf( __( 'Test', 'pronamic_ideal' ) );
-
-		submit_button( $name, 'secondary', 'test_pay_gateway', false );
+		submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false );
 
 		?>
 	</p>

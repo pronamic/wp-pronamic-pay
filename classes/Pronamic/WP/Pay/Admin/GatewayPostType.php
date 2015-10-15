@@ -9,17 +9,31 @@
  * @version 1.0
  */
 class Pronamic_WP_Pay_Admin_GatewayPostType {
-	public function __construct() {
-		add_filter( 'manage_edit-pronamic_gateway_columns', array( $this, 'edit_columns' ) );
+	/**
+	 * Post type
+	 */
+	const POST_TYPE = 'pronamic_gateway';
 
-		add_action( 'manage_pronamic_gateway_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+	//////////////////////////////////////////////////
+
+	/**
+	 * Constructs and initializes an admin gateway post type object
+	 */
+	public function __construct() {
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+
+		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'post_edit_form_tag', array( $this, 'post_edit_form_tag' ) );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
-		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
+
+		add_action( 'display_post_states', array( $this, 'display_post_states' ), 10, 2 );
 	}
+
+	//////////////////////////////////////////////////
 
 	public function edit_columns( $columns ) {
 		$columns = array(
@@ -44,9 +58,9 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
 				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
-					echo $pronamic_pay_gateways[ $id ]['name'];
+					echo esc_html( $pronamic_pay_gateways[ $id ]['name'] );
 				} else {
-					echo $id;
+					echo esc_html( $id );
 				}
 
 				break;
@@ -65,7 +79,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true ),
 				) );
 
-				echo implode( ' ', $data );
+				echo esc_html( implode( ' ', $data ) );
 
 				break;
 			case 'pronamic_gateway_secret':
@@ -79,7 +93,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true ),
 				) );
 
-				echo implode( ' ', $data );
+				echo esc_html( implode( ' ', $data ) );
 
 				break;
 			case 'pronamic_gateway_dashboard':
@@ -117,12 +131,34 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 						);
 					}
 
-					echo implode( ' | ', $content );
+					echo implode( ' | ', $content ); //xss ok
 				}
 
 				break;
 		}
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Display post states
+	 *
+	 * @param $post_stated array
+	 * @param $post WP_Post
+	 */
+	public function display_post_states( $post_states, $post ) {
+		if ( self::POST_TYPE !== get_post_type( $post ) ) {
+			return $post_states;
+		}
+
+		if ( intval( get_option( 'pronamic_pay_config_id' ) ) === $post->ID ) {
+			$post_states['pronamic_pay_config_default'] = __( 'Default', 'pronamic_ideal' );
+		}
+
+		return $post_states;
+	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * Post edit form tag
@@ -138,33 +174,37 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		if ( $post ) {
-			if ( 'pronamic_gateway' === $post->post_type ) {
+			if ( self::POST_TYPE === $post->post_type ) {
 				echo ' enctype="multipart/form-data"';
 			}
 		}
 	}
 
+	//////////////////////////////////////////////////
+
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes() {
-		add_meta_box(
-			'pronamic_gateway_config',
-			__( 'Configuration', 'pronamic_ideal' ),
-			array( $this, 'meta_box_config' ),
-			'pronamic_gateway',
-			'normal',
-			'high'
-		);
+	public function add_meta_boxes( $post_type ) {
+		if ( self::POST_TYPE === $post_type ) {
+			add_meta_box(
+				'pronamic_gateway_config',
+				__( 'Configuration', 'pronamic_ideal' ),
+				array( $this, 'meta_box_config' ),
+				$post_type,
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_gateway_test',
-			__( 'Test', 'pronamic_ideal' ),
-			array( $this, 'meta_box_test' ),
-			'pronamic_gateway',
-			'normal',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_gateway_test',
+				__( 'Test', 'pronamic_ideal' ),
+				array( $this, 'meta_box_test' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+		}
 	}
 
 	/**
@@ -184,6 +224,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	public function meta_box_test( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
+
+	//////////////////////////////////////////////////
 
 	/**
 	 * When the post is saved, saves our custom data.
@@ -206,17 +248,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
-		}
-
-		// Check the user's permissions.
-		if ( 'page' === get_post_type( $post_id ) ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return $post_id;
-			}
-		} else {
-			if ( ! current_user_can( 'edit_post', $post_id ) ) {
-				return $post_id;
-			}
 		}
 
 		/* OK, its safe for us to save the data now. */
@@ -269,6 +300,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'_pronamic_gateway_ogone_password'            => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_order_id'            => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_param_var'           => FILTER_SANITIZE_STRING,
+			'_pronamic_gateway_ogone_template_page'       => FILTER_SANITIZE_STRING,
 			// Ogone DirectLink
 			'_pronamic_gateway_ogone_directlink_sha_in_pass_phrase' => FILTER_SANITIZE_STRING,
 			'_pronamic_gateway_ogone_3d_secure_enabled' => FILTER_VALIDATE_BOOLEAN,

@@ -35,6 +35,16 @@ class Pronamic_WP_Pay_Plugin {
 		self::$file	= $file;
 		self::$dirname = dirname( $file );
 
+		// Plugin
+		$plugin = new Pronamic_WP_Pay_Plugin( $file );
+	}
+
+	/**
+	 * Construct and initialize an Pronamic Pay plugin object
+	 */
+	public function __construct( $file ) {
+		$this->file = $file;
+
 		// Bootstrap the add-ons
 		Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
@@ -53,17 +63,26 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Admin
 		if ( is_admin() ) {
-			$admin = new Pronamic_WP_Pay_Admin();
+			$this->admin = new Pronamic_WP_Pay_Admin( $this );
 		}
 
-		// License
-		$license_manager = new Pronamic_WP_Pay_LicenseManager();
+		// Post Types
+		$this->post_types = new Pronamic_WP_Pay_PostTypes();
 
-		// Payment notes
-		add_filter( 'comments_clauses', array( __CLASS__, 'exclude_comment_payment_notes' ), 10, 2 );
+		// Shortcodes
+		$this->shortcodes = new Pronamic_WP_Pay_Shortcodes();
+
+		// License
+		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
+
+		// Form Processor
+		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
 
 		// Setup
-		add_action( 'plugins_loaded', array( __CLASS__, 'setup' ), 9 );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
+
+		// Payment notes
+		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
@@ -77,11 +96,40 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
 
 		// If WordPress is loaded check on returns and maybe redirect requests
-		add_action( 'wp_loaded', array( __CLASS__, 'handle_returns' ) );
-		add_action( 'wp_loaded', array( __CLASS__, 'maybe_redirect' ) );
+		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
+		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action( 'pronamic_ideal_check_transaction_status', array( __CLASS__, 'check_status' ) );
+		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Get version
+	 */
+	public function get_version() {
+		global $pronamic_pay_version;
+
+		return $pronamic_pay_version;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Enqueue scripts
+	 */
+	public function enqueue_scripts() {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_register_style(
+			'pronamic-pay-forms',
+			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+			array(),
+			'3.7.0'
+		);
+
+		wp_enqueue_style( 'pronamic-pay-forms' );
 	}
 
 	//////////////////////////////////////////////////
@@ -93,7 +141,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @param WP_Comment_Query $query
 	 * @return array
 	 */
-	public static function exclude_comment_payment_notes( $clauses, $query ) {
+	public function exclude_comment_payment_notes( $clauses, $query ) {
 		$type = $query->query_vars['type'];
 
 		// Ignore payment notes comments if it's not specific requested
@@ -111,7 +159,7 @@ class Pronamic_WP_Pay_Plugin {
 	 *
 	 * @param string $paymentId
 	 */
-	public static function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
+	public function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
 		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
 
 		if ( null !== $payment ) {
@@ -121,8 +169,6 @@ class Pronamic_WP_Pay_Plugin {
 				self::update_payment( $payment );
 
 				if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
-					$seconds = DAY_IN_SECONDS;
-
 					switch ( $number_tries ) {
 						case 0 :
 							// 30 seconds after a transaction request is sent
@@ -149,14 +195,12 @@ class Pronamic_WP_Pay_Plugin {
 						wp_schedule_single_event( $time + $seconds, 'pronamic_ideal_check_transaction_status', array(
 							'payment_id'   => $payment->get_id(),
 							'seconds'      => $seconds,
-							'number_tries' => $number_tries++,
+							'number_tries' => ++$number_tries,
 						) );
 					}
 				}
 			}
-		} else {
-			// Payment with the specified ID could not be found, can't check the status
-		}
+		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
 	public static function update_payment( $payment = null, $can_redirect = true ) {
@@ -175,6 +219,10 @@ class Pronamic_WP_Pay_Plugin {
 				$new_status = strtolower( $payment->status );
 
 				pronamic_wp_pay_update_payment( $payment );
+
+				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) ) {
+					$can_redirect = false;
+				}
 
 				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
 				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
@@ -226,7 +274,7 @@ class Pronamic_WP_Pay_Plugin {
 	/**
 	 * Handle returns
 	 */
-	public static function handle_returns() {
+	public function handle_returns() {
 		if ( filter_has_var( INPUT_GET, 'payment' ) ) {
 			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
 
@@ -269,7 +317,7 @@ class Pronamic_WP_Pay_Plugin {
 	/**
 	 * Maybe redirect
 	 */
-	public static function maybe_redirect() {
+	public function maybe_redirect() {
 		if ( filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
 			$payment_id = filter_input( INPUT_GET, 'payment_redirect', FILTER_SANITIZE_NUMBER_INT );
 
@@ -279,7 +327,7 @@ class Pronamic_WP_Pay_Plugin {
 			$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
 
 			if ( ! empty( $html_answer ) ) {
-				echo $html_answer;
+				echo $html_answer; //xss ok
 
 				exit;
 			}
@@ -305,8 +353,8 @@ class Pronamic_WP_Pay_Plugin {
 
 		$count = wp_count_posts( 'pronamic_payment' );
 
-		if ( isset( $count, $count->publish ) ) {
-			$number = intval( $count->publish );
+		if ( isset( $count, $count->payment_completed ) ) {
+			$number = intval( $count->payment_completed );
 		}
 
 		return $number;
@@ -317,18 +365,11 @@ class Pronamic_WP_Pay_Plugin {
 	/**
 	 * Setup, creates or updates database tables. Will only run when version changes
 	 */
-	public static function setup() {
+	public function plugins_loaded() {
 		// Load plugin text domain
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
-
-		global $pronamic_pay_version;
-
-		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
-			// Update version
-			update_option( 'pronamic_pay_version', $pronamic_pay_version );
-		}
 	}
 
 	//////////////////////////////////////////////////
@@ -356,6 +397,19 @@ class Pronamic_WP_Pay_Plugin {
 			default:
 				return __( 'Unknown', 'pronamic_ideal' );
 		}
+	}
+
+	public static function get_payment_states() {
+		return array(
+			'payment_pending'    => _x( 'Pending', 'Payment status', 'pronamic_ideal' ),
+			'payment_processing' => _x( 'Processing', 'Payment status', 'pronamic_ideal' ),
+			'payment_on_hold'    => _x( 'On Hold', 'Payment status', 'pronamic_ideal' ),
+			'payment_completed'  => _x( 'Completed', 'Payment status', 'pronamic_ideal' ),
+			'payment_cancelled'  => _x( 'Cancelled', 'Payment status', 'pronamic_ideal' ),
+			'payment_refunded'   => _x( 'Refunded', 'Payment status', 'pronamic_ideal' ),
+			'payment_failed'     => _x( 'Failed', 'Payment status', 'pronamic_ideal' ),
+			'payment_expired'    => _x( 'Expired', 'Payment status', 'pronamic_ideal' ),
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -546,12 +600,11 @@ class Pronamic_WP_Pay_Plugin {
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
 			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
-			'post_status' => 'publish',
+			'post_status' => 'payment_pending',
 		), true );
 
-		if ( is_wp_error( $result ) ) {
-			// @todo what todo?
-		} else {
+		if ( ! is_wp_error( $result ) ) {
+			// @todo what if result is error
 			$post_id = $result;
 
 			// @todo temporary solution for WPMU DEV
