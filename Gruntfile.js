@@ -268,6 +268,8 @@ module.exports = function( grunt ) {
 			styles: {
 				files: {
 					'css/admin.min.css': 'src/css/admin.css',
+					'css/admin-about.min.css': 'src/css/admin-about.css',
+					'css/admin-tour.min.css': 'src/css/admin-tour.css',
 					'css/forms.min.css': 'src/css/forms.css'
 				}
 			},
