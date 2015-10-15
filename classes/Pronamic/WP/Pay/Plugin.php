@@ -36,15 +36,13 @@ class Pronamic_WP_Pay_Plugin {
 		self::$dirname = dirname( $file );
 
 		// Plugin
-		$plugin = new Pronamic_WP_Pay_Plugin( $file );
+		$plugin = new Pronamic_WP_Pay_Plugin();
 	}
 
 	/**
 	 * Construct and initialize an Pronamic Pay plugin object
 	 */
-	public function __construct( $file ) {
-		$this->file = $file;
-
+	public function __construct() {
 		// Bootstrap the add-ons
 		Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
@@ -444,6 +442,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'mollie';
+					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
@@ -477,7 +476,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		$gateways = get_posts( $args );
 
-		$options = array( __( '&mdash; Select Configuration &mdash;', 'pronamic_ideal' ) );
+		$options = array( __( '— Select Configuration —', 'pronamic_ideal' ) );
 
 		foreach ( $gateways as $gateway ) {
 			$options[ $gateway->ID ] = sprintf(

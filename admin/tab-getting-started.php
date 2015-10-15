@@ -27,13 +27,13 @@ The Pronamic iDEAL plugin makes the link between the selected payment provider a
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/payment-providers.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/payment-providers.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/new-gateway-configuration.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/new-gateway-configuration.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 
 	<div class="col">
@@ -70,13 +70,13 @@ Once you are correctly redirected to your payment provider you know that your co
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/meta-box-test.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/meta-box-test.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/extensions.png', $this->plugin->file ) ); ?>" />
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/extensions.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
 	</div>
 
 	<div class="col">
