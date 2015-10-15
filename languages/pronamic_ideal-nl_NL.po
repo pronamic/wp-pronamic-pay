@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2015-10-14 20:46+0200\n"
+"PO-Revision-Date: 2015-10-15 10:54+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box-form-options.php:7
@@ -28,7 +28,8 @@ msgstr "Button tekst"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: admin/meta-box-gateway-config.php:29 classes/Pronamic/WP/Pay/Settings.php:29
+#: admin/meta-box-gateway-config.php:29
+#: classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:40
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:30
 msgid "General"
@@ -49,9 +50,9 @@ msgid "Test"
 msgstr "Test"
 
 #: admin/meta-box-gateway-config.php:52 admin/tab-branding.php:11
-#: admin/tab-branding.php:17 admin/tab-branding.php:23 admin/tab-methods.php:89
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:400
-#: classes/Pronamic/WP/Pay/Admin.php:401
+#: admin/tab-branding.php:17 admin/tab-branding.php:23
+#: admin/tab-methods.php:89 admin/tab-pages_generator.php:29
+#: classes/Pronamic/WP/Pay/Admin.php:400 classes/Pronamic/WP/Pay/Admin.php:401
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
@@ -441,7 +442,7 @@ msgid "User ID"
 msgstr "Gebruiker ID"
 
 #: admin/meta-box-gateway-config.php:460
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:145
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:179
 msgid "Order ID"
 msgstr "Bestelling ID"
@@ -684,7 +685,7 @@ msgstr "Beschrijving"
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:67
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:147
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:147
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:174
 msgid "Amount"
 msgstr "Bedrag"
@@ -699,8 +700,8 @@ msgstr "Actie URL"
 
 #: admin/meta-box-payment-info.php:75
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:144
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:150
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
 msgid "Status"
 msgstr "Status"
 
@@ -862,7 +863,8 @@ msgstr "Rondleiding starten"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:51 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:51 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -1174,7 +1176,7 @@ msgstr ""
 "bestanden van verschillende betalingsproviders."
 
 #: admin/pointer-tools.php:43
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:157
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:164
 msgid "Brand"
 msgstr "Merk"
 
@@ -2232,7 +2234,7 @@ msgstr "&mdash; Selecteer een gateway &mdash;"
 
 #: classes/Pronamic/WP/Pay/Settings.php:66
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:148
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:146
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
 msgid "Currency"
 msgstr "Valuta"
 
@@ -3146,7 +3148,7 @@ msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:142
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:148
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
@@ -3221,43 +3223,43 @@ msgstr "Onbekend iDEAL-bericht (%s)"
 msgid "&mdash; Other banks &mdash;"
 msgstr "&mdash; Andere banken &mdash;"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:149
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
 msgid "Acceptance"
 msgstr "Acceptance"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:151
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
 msgid "Card Number"
 msgstr "Kaartnummer"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:152
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:159
 msgid "End Date"
 msgstr "Einddatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:153
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:160
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:154
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:161
 msgid "Transaction Date"
 msgstr "Transactiedatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:155
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:162
 msgid "Pay ID"
 msgstr "Betaal ID"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:156
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:163
 msgid "NC Error"
 msgstr "NC Fout"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:158
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
 msgid "IP"
 msgstr "IP"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:159
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:166
 msgid "SHA Signature"
 msgstr "SHA-handtekening"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:165
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:172
 msgid "Ogone transaction data in response message:"
 msgstr "Ogone transactiedata in antwoordbericht:"
 

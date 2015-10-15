@@ -320,6 +320,9 @@ results in OmniKassa data that no longer matches the signature.
 	*	Add bank transfer gateway.
 *	Updated WordPress pay Ogone library to version 1.2.2.
 	*	Added support for the Ogone TP parameter.
+*	Updated WordPress pay Ogone library to version 1.2.3.
+	*	Added support for the direct payment method credit card.
+	*	Added support for the direct payment method iDEAL.
 
 = 3.6.6 - 2015-06-29 =
 *	Updated WordPress pay Gravity Forms library to version 1.3.0.
