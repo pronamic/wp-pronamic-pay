@@ -117,7 +117,7 @@ That way you can always keep empty the list of payments pending.'
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="//s.w.org/images/core/4.2/press-this.jpg">
+		<img src="<?php echo esc_attr( plugins_url( 'images/new/tour.png', $this->plugin->file ) ); ?>" />
 	</div>
 
 	<div class="col">
