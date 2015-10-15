@@ -36,13 +36,15 @@ class Pronamic_WP_Pay_Plugin {
 		self::$dirname = dirname( $file );
 
 		// Plugin
-		$plugin = new Pronamic_WP_Pay_Plugin();
+		$plugin = new Pronamic_WP_Pay_Plugin( $file );
 	}
 
 	/**
 	 * Construct and initialize an Pronamic Pay plugin object
 	 */
-	public function __construct() {
+	public function __construct( $file ) {
+		$this->file = $file;
+
 		// Bootstrap the add-ons
 		Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();

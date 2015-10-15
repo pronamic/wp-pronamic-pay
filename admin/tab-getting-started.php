@@ -27,13 +27,13 @@ The Pronamic iDEAL plugin makes the link between the selected payment provider a
 	</div>
 
 	<div class="col">
-		<img src="//s.w.org/images/core/4.2/press-this.jpg">
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/payment-providers.png', $this->plugin->file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="//s.w.org/images/core/4.2/press-this.jpg">
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/new-gateway-configuration.png', $this->plugin->file ) ); ?>" />
 	</div>
 
 	<div class="col">
@@ -70,13 +70,13 @@ Once you are correctly redirected to your payment provider you know that your co
 	</div>
 
 	<div class="col">
-		<img src="//s.w.org/images/core/4.2/press-this.jpg">
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/meta-box-test.png', $this->plugin->file ) ); ?>" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="//s.w.org/images/core/4.2/press-this.jpg">
+		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/extensions.png', $this->plugin->file ) ); ?>" />
 	</div>
 
 	<div class="col">
