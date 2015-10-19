@@ -6,6 +6,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.7.3] - 2015-10-19
+
 ## [3.7.2] - 2015-10-19
 ### Changed
 - Also show payments post with the post status 'publish' on the WordPress admin payments page.
@@ -915,7 +917,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.3...HEAD
+[3.7.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.2...3.7.3
 [3.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.1...3.7.2
 [3.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...3.7.1
 [3.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.6...3.7.0
