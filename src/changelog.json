@@ -7,6 +7,42 @@
 		]
 	},
 	{
+		"version": "3.7.2",
+		"date": "2015-10-19",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					"Also show payments post with the post status 'publish' on the WordPress admin payments page.",
+					{
+						"description": "Updated WordPress pay ICEPAY library to version 1.2.4.",
+						"changes": [
+							"Fixed fatal error with wrong constant usage."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Qantani library to version 1.0.5.",
+						"changes": [
+							"Fixed strict comparison issue on XML status element."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 1.2.1.",
+						"changes": [
+							"Set the payment method to use before getting the gateway inputs."
+						]
+					}
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					"Fixed NOTICE: Undefined property: Pronamic_WP_Pay_LicenseManager::$response."
+				]
+			}
+		]
+	},
+	{
 		"version": "3.7.1",
 		"date": "2015-10-15",
 		"changes": [

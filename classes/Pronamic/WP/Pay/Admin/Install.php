@@ -18,6 +18,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		'2.0.1',
 		'3.3.0',
 		'3.7.0',
+		'3.7.2',
 	);
 
 	//////////////////////////////////////////////////
@@ -82,7 +83,16 @@ class Pronamic_WP_Pay_Admin_Install {
 		$current_version    = get_option( 'pronamic_pay_version', null );
 		$current_db_version = get_option( 'pronamic_pay_db_version', null );
 
-		if ( $current_db_version && version_compare( $current_db_version, max( $this->db_updates ), '<' ) ) {
+		if (
+			$current_db_version
+				&&
+			(
+				// Check for old database version notation without dots, for example `366`.
+				false === strpos( $current_db_version, '.' )
+					||
+				version_compare( $current_db_version, max( $this->db_updates ), '<' )
+			)
+		) {
 			$this->admin->notices->add_notice( 'update_db' );
 		}
 

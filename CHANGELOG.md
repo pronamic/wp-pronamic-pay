@@ -6,6 +6,18 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.7.2] - 2015-10-19
+### Changed
+- Also show payments post with the post status 'publish' on the WordPress admin payments page.
+- Updated WordPress pay ICEPAY library to version 1.2.4.
+  - Fixed fatal error with wrong constant usage.
+- Updated WordPress pay Qantani library to version 1.0.5.
+  - Fixed strict comparison issue on XML status element.
+- Updated WordPress pay Easy Digital Downloads library to version 1.2.1.
+  - Set the payment method to use before getting the gateway inputs.
+### Fixed
+- Fixed NOTICE: Undefined property: Pronamic_WP_Pay_LicenseManager::$response.
+
 ## [3.7.1] - 2015-10-15
 ### Changed
 - Updated WordPress pay core library to version 1.2.2.
@@ -903,7 +915,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.2...HEAD
+[3.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.1...3.7.2
 [3.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...3.7.1
 [3.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.6...3.7.0
 [3.6.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.6.5...3.6.6

@@ -10,7 +10,7 @@
  */
 class Pronamic_WP_Pay_LicenseManager {
 	/**
-	 * Constructs and initalize an license manager object
+	 * Constructs and initalize an license manager object.
 	 */
 	public function __construct() {
 		// Actions
@@ -22,7 +22,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	}
 
 	/**
-	 * Admin notices
+	 * Admin notices.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/options.php#L205-L218
 	 * @see https://github.com/easydigitaldownloads/Easy-Digital-Downloads/blob/2.4.2/includes/class-edd-license-handler.php#L309-L369
@@ -38,7 +38,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Pre update option 'pronamic_pay_license_key'
+	 * Pre update option 'pronamic_pay_license_key'.
 	 *
 	 * @param string $newvalue
 	 * @param string $oldvalue
@@ -60,7 +60,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	//////////////////////////////////////////////////
 
 	/**
-	 * License check event
+	 * License check event.
 	 */
 	public function license_check_event() {
 		$license = get_option( 'pronamic_pay_license_key' );
@@ -71,7 +71,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Activate license
+	 * Check license.
 	 *
 	 * @param string $license
 	 * @return boolean
@@ -108,7 +108,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Deactivate license
+	 * Deactivate license.
 	 *
 	 * @param string $license
 	 */
@@ -129,7 +129,7 @@ class Pronamic_WP_Pay_LicenseManager {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Activate license
+	 * Activate license.
 	 *
 	 * @param string $license
 	 * @return boolean
@@ -149,7 +149,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$response = wp_remote_get( add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ) );
 
 		if ( is_wp_error( $response ) ) {
-			// On errors we give benefit of the doubt
+			// On errors we give benefit of the doubt.
 			$status = 'valid';
 		}
 
@@ -158,7 +158,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		if ( $data ) {
 			set_transient( 'pronamic_pay_license_data', $data, 30 );
 
-			$status = $this->response->license;
+			$status = $data->license;
 		}
 
 		// Update
