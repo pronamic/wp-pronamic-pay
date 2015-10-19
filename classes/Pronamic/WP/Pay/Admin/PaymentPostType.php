@@ -49,6 +49,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
 				$vars['post_status'] = array_keys( Pronamic_WP_Pay_Plugin::get_payment_states() );
+
+				$vars['post_status'][] = 'publish';
 			}
 		}
 
