@@ -158,7 +158,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		if ( $data ) {
 			set_transient( 'pronamic_pay_license_data', $data, 30 );
 
-			$status = $this->response->license;
+			$status = $data->license;
 		}
 
 		// Update
