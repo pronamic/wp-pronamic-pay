@@ -291,6 +291,7 @@ results in OmniKassa data that no longer matches the signature.
 = Unreleased - 2015-08-21 =
 
 = 3.7.3 - 2015-10-19 =
+*	Fixed Fatal error: Call to a member function get_input_fields() on null on payment form without an valid gateway configuration.
 
 = 3.7.2 - 2015-10-19 =
 *	Also show payments post with the post status 'publish' on the WordPress admin payments page.
