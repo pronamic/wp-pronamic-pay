@@ -7,8 +7,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 
 ## [3.7.3] - 2015-10-19
+
 ### Fixed
 - Fixed Fatal error: Call to a member function get_input_fields() on null on payment form without an valid gateway configuration.
+
 ### Changed
 - Updated WordPress pay Ogone library to version 1.2.4.
   - Fixed Strict standards: Declaration of Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway should be compatible with Pronamic_WP_Pay_Gateway::start().
@@ -24,6 +26,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Removed status code 303 from redirect.
 
 ## [3.7.2] - 2015-10-19
+
 ### Changed
 - Also show payments post with the post status 'publish' on the WordPress admin payments page.
 - Updated WordPress pay ICEPAY library to version 1.2.4.
@@ -32,10 +35,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Fixed strict comparison issue on XML status element.
 - Updated WordPress pay Easy Digital Downloads library to version 1.2.1.
   - Set the payment method to use before getting the gateway inputs.
+
 ### Fixed
 - Fixed NOTICE: Undefined property: Pronamic_WP_Pay_LicenseManager::$response.
 
 ## [3.7.1] - 2015-10-15
+
 ### Changed
 - Updated WordPress pay core library to version 1.2.2.
   - Add payment method 'Bank transfer'.
@@ -43,6 +48,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [3.7.0] - 2015-10-15
 - Fix transaction status checking event not 'renewed'.
 - Prevent redirects from within extensions if doing cron, so that events get sheduled in check_status.
+
 ### Changed
 - Updated WordPress pay Buckaroo library to version 1.1.2.
   - Fix incorrect signature due to slashes in data.
@@ -76,6 +82,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added support for the direct payment method iDEAL.
 
 ## [3.6.6] - 2015-06-29
+
 ### Changed
 - Updated WordPress pay Gravity Forms library to version 1.3.0.
   - Added support for Gravity Forms AWeber Add-On version 2.2.1.
@@ -85,12 +92,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Fixed WordPress callback for the admin settings section.
 
 ## [3.6.5] - 2015-06-15
+
 ### Changed
 - Improved support for the W3 Total Cache plugin.
+
 ### Fixed
 - Fix JobRoller class name on admin tab 'Extensions'.
 
 ## [3.6.4] - 2015-05-26
+
 ### Changed
 - Updated WordPress pay AppThemes library to version 1.0.0.
 - Updated WordPress pay ClassiPress library to version 1.0.0.
