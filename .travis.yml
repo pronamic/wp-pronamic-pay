@@ -19,6 +19,7 @@ env:
   - WP_VERSION=4.0 WP_MULTISITE=1
 
 before_script:
+  - composer self-update
   - composer install
   - wget https://raw.githubusercontent.com/wp-cli/sample-plugin/master/bin/install-wp-tests.sh
   - bash install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
