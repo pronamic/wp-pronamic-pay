@@ -292,6 +292,18 @@ results in OmniKassa data that no longer matches the signature.
 
 = 3.7.3 - 2015-10-19 =
 *	Fixed Fatal error: Call to a member function get_input_fields() on null on payment form without an valid gateway configuration.
+*	Updated WordPress pay Ogone library to version 1.2.4.
+	*	Fixed Strict standards: Declaration of Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Gateway should be compatible with Pronamic_WP_Pay_Gateway::start().
+*	Updated WordPress pay TargetPay library to version 1.0.4.
+	*	Fixed some issues on the TargetPay library.
+	*	Fixed Strict standards: Declaration of Pronamic_WP_Pay_Gateways_TargetPay_Gateway::start().
+*	Updated WordPress pay Gravity Forms library to version 1.3.2.
+	*	Fix missing issuer dropdown in form editor and front end for feeds with condition enabled.
+	*	No longer use an custom query to get the pay Gravity Forms posts.
+	*	Added an extra parameter to retrieve payments feed with an gateway with iDEAL issuers.
+	*	No longer redirect with 303 status code.
+*	Updated WordPress pay WooCommerce library to version 1.1.5.
+	*	Removed status code 303 from redirect.
 
 = 3.7.2 - 2015-10-19 =
 *	Also show payments post with the post status 'publish' on the WordPress admin payments page.
