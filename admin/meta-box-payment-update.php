@@ -6,7 +6,7 @@ $states = Pronamic_WP_Pay_Plugin::get_payment_states();
 <div class="pronamic-pay-inner">
 	<p>
 		<label for="pronamic-payment-status">Status:</span>&nbsp;
-		<select id="pronamic-payment-status" name="pronamic_payment_status" class="medium-text">
+		<select id="pronamic-payment-status" name="post_status" class="medium-text">
 			<?php
 
 			foreach ( $states as $status => $label ) {
