@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8c4c138d7e64eb48a26ef8c71f069ee",
-    "content-hash": "ec61b58a56f944a02997019eb97bdb72",
+    "hash": "551e89aa393113506eaaed4b2f46c791",
+    "content-hash": "fda32f639c23630ff19aaf157671d051",
     "packages": [
         {
             "name": "composer/installers",
@@ -191,6 +191,64 @@
                 "wp"
             ],
             "time": "2015-05-26 14:19:12"
+        },
+        {
+            "name": "wp-pay-extensions/charitable",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/charitable.git",
+                "reference": "5c77908b3c42448974d174d6740acebd21c93425"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/5c77908b3c42448974d174d6740acebd21c93425",
+                "reference": "5c77908b3c42448974d174d6740acebd21c93425",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": ">=1.2.2",
+                "wpackagist-plugin/charitable": "1.1.5"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Charitable driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/charitable/",
+            "keywords": [
+                "charitable",
+                "extension",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2015-10-26 14:18:43"
         },
         {
             "name": "wp-pay-extensions/classipress",
@@ -1945,6 +2003,26 @@
             "time": "2015-10-19 10:18:32"
         },
         {
+            "name": "wpackagist-plugin/charitable",
+            "version": "1.1.5",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/charitable/",
+                "reference": "tags/1.1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/charitable.1.1.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/charitable/"
+        },
+        {
             "name": "wpackagist-plugin/easy-digital-downloads",
             "version": "2.3",
             "source": {
@@ -2671,6 +2749,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-extensions/charitable": 20,
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
