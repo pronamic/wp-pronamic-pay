@@ -289,7 +289,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			check_admin_referer( 'pronamic_payment_update', 'pronamic_pay_nonce' )
 				&&
 			 'pronamic_payment' === get_post_type( $post )
-			) {
+		) {
 			$can_redirect = false;
 
 			$old_status_meta = strtolower( $this->translate_post_status_to_meta_status( $new_status ) );
