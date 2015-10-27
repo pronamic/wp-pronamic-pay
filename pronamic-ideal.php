@@ -34,23 +34,6 @@ if ( isset( $autoload_file ) && is_readable( $autoload_file ) ) {
 }
 
 /**
- * Plugin autoload
+ * Bootstrap
  */
-if ( function_exists( 'spl_autoload_register' ) ) {
-
-	function pronamic_ideal_autoload( $name ) {
-		$name = str_replace( '\\', '/', $name );
-		$name = str_replace( '_', '/', $name );
-
-		$file = plugin_dir_path( __FILE__ ) . 'classes/' . $name . '.php';
-
-		if ( is_file( $file ) ) {
-			require_once $file;
-		}
-	}
-
-	spl_autoload_register( 'pronamic_ideal_autoload' );
-
-	Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
-
-}
+Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
