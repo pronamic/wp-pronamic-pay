@@ -122,9 +122,13 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_status':
-				$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+				$status_object = get_post_status_object( get_post_status( $post_id ) );
 
-				echo esc_html( Pronamic_WP_Pay_Plugin::translate_status( $status ) );
+				if ( isset( $status_object, $status_object->label ) ) {
+					echo esc_html( $status_object->label );
+				} else {
+					echo '—';
+				}
 
 				break;
 		}
