@@ -375,29 +375,6 @@ class Pronamic_WP_Pay_Plugin {
 	// Functions from Pronamic_WordPress_IDeal_IDeal
 	//////////////////////////////////////////////////
 
-	/**
-	 * Get the translaction of the specified status notifier
-	 *
-	 * @param string $status
-	 * @return string
-	 */
-	public static function translate_status( $status ) {
-		switch ( $status ) {
-			case Pronamic_WP_Pay_Statuses::CANCELLED :
-				return __( 'Cancelled', 'pronamic_ideal' );
-			case Pronamic_WP_Pay_Statuses::EXPIRED :
-				return __( 'Expired', 'pronamic_ideal' );
-			case Pronamic_WP_Pay_Statuses::FAILURE :
-				return __( 'Failure', 'pronamic_ideal' );
-			case Pronamic_WP_Pay_Statuses::OPEN :
-				return __( 'Open', 'pronamic_ideal' );
-			case Pronamic_WP_Pay_Statuses::SUCCESS :
-				return __( 'Success', 'pronamic_ideal' );
-			default:
-				return __( 'Unknown', 'pronamic_ideal' );
-		}
-	}
-
 	public static function get_payment_states() {
 		return array(
 			'payment_pending'    => _x( 'Pending', 'Payment status', 'pronamic_ideal' ),
