@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'Branding', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Branding', 'pronamic_ideal' ); ?></h2>
 
 <?php
 
@@ -204,7 +204,7 @@ $sections = array(
 
 <?php foreach ( $sections as $section ) : ?>
 
-	<h4><?php echo esc_html( $section['name'] ); ?></h4>
+	<h3><?php echo esc_html( $section['name'] ); ?></h3>
 
 	<table cellspacing="0" class="widefat fixed">
 

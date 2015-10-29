@@ -9,7 +9,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 ?>
-<h3><?php esc_html_e( 'Payment Methods', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Payment Methods', 'pronamic_ideal' ); ?></h2>
 
 <?php
 

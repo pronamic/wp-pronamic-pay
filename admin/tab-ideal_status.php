@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'iDEAL Status', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'iDEAL Status', 'pronamic_ideal' ); ?></h2>
 
 <p>
 	<?php

@@ -18,7 +18,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 ?>
 
 <div class="wrap">
-	<h2 class="nav-tab-wrapper">
+	<h1 class="nav-tab-wrapper">
 		<?php
 
 		foreach ( $tabs as $tab => $title ) {
@@ -42,7 +42,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 		}
 
 		?>
-	</h2>
+	</h1>
 
 	<?php
 

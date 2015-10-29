@@ -1,12 +1,12 @@
 <div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php esc_html_e( 'Help', 'pronamic_ideal' ); ?></span></h3>
+						<h2 class="hndle"><span><?php esc_html_e( 'Help', 'pronamic_ideal' ); ?></span></h2>
 
 						<div class="inside">
 							<p>
@@ -56,7 +56,7 @@
 					</div>
 
 					<div class="postbox">
-						<h3 class="hndle"><span><?php esc_html_e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h3>
+						<h2 class="hndle"><span><?php esc_html_e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h2>
 
 						<div class="inside">
 							<?php
@@ -115,7 +115,7 @@
 			<div id="postbox-container-2" class="postbox-container">
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 					<div class="postbox">
-						<h3 class="hndle"><span><?php esc_html_e( 'Pronamic News', 'pronamic_ideal' ); ?></span></h3>
+						<h2 class="hndle"><span><?php esc_html_e( 'Pronamic News', 'pronamic_ideal' ); ?></span></h2>
 
 						<div class="inside">
 							<?php

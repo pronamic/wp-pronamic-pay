@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'Pages Generator', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Pages Generator', 'pronamic_ideal' ); ?></h2>
 
 <?php
 

@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'Installation Status', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Installation Status', 'pronamic_ideal' ); ?></h2>
 
 <table class="pronamic-pay-status-table widefat">
 	<tr>
