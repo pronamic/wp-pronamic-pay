@@ -219,7 +219,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_update( $post ) {
-		wp_nonce_field( 'pronamic_payment_update', 'pronamic_pay_nonce' );
+		wp_nonce_field( 'pronamic_payment_update', 'pronamic_payment_update_nonce' );
 
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
 	}
@@ -284,9 +284,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
 		if ( 
-			filter_has_var( INPUT_POST, 'pronamic_pay_nonce' )
+			filter_has_var( INPUT_POST, 'pronamic_payment_update_nonce' )
 				&&
-			check_admin_referer( 'pronamic_payment_update', 'pronamic_pay_nonce' )
+			check_admin_referer( 'pronamic_payment_update', 'pronamic_payment_update_nonce' )
 				&&
 			 'pronamic_payment' === get_post_type( $post )
 		) {
