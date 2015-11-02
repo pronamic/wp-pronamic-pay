@@ -36,8 +36,32 @@ class Pronamic_WP_Pay_Admin_Notices {
 
 	/**
 	 * Admin notices
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.3.1/wp-admin/admin-header.php#L245-L250
 	 */
 	public function admin_notices() {
+		$screen = get_current_screen();
+
+		// Jetpack
+		if ( 'jetpack' === $screen->parent_base ) {
+			return;
+		}
+
+		// License notice
+		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
+			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
+
+			printf( //xss ok
+				'<div class="%s"><p>%s</p></div>',
+				esc_attr( $class ),
+				sprintf(
+					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
+					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
+				)
+			);
+		}
+
+		// Stored notices
 		$notices = get_option( 'pronamic_pay_admin_notices', array() );
 
 		foreach ( $notices as $name ) {

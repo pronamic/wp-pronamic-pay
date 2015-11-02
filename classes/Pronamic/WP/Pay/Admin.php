@@ -58,10 +58,6 @@ class Pronamic_WP_Pay_Admin {
 		$this->maybe_create_pages();
 		$this->maybe_redirect();
 
-		// Actions
-		// Show license message if the license is not valid
-		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
 		// Post types
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType();
@@ -279,26 +275,6 @@ class Pronamic_WP_Pay_Admin {
 			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true ); //xss ok
 
 			exit;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Maybe show an license message
-	 */
-	public function admin_notices() {
-		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
-			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
-
-			printf( //xss ok
-				'<div class="%s"><p>%s</p></div>',
-				esc_attr( $class ),
-				sprintf(
-					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
-					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
-				)
-			);
 		}
 	}
 
