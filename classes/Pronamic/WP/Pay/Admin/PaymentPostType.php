@@ -19,9 +19,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	/**
 	 * Constructs and initializes an admin payment post type object
 	 */
-	public function __construct( $admin ) {
-		$this->admin = $admin;
-
+	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
 
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );

@@ -6,7 +6,8 @@
  * Copyright: Copyright (c) 2005 - 2011
  * Company: Pronamic
  * @author Remco Tolsma
- * @version 1.0
+ * @version 3.8.0
+ * @since ?
  */
 class Pronamic_WP_Pay_Admin_GatewayPostType {
 	/**
@@ -19,7 +20,9 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	/**
 	 * Constructs and initializes an admin gateway post type object
 	 */
-	public function __construct() {
+	public function __construct( $admin ) {
+		$this->admin = $admin;
+
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
