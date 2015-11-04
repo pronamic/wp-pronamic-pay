@@ -32,9 +32,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		// Save Post
-		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ), 10, 2 );
-
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 	}
@@ -266,15 +263,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			case 'payment_expired' :
 				return Pronamic_WP_Pay_Statuses::EXPIRED;
 		}
-	}
-
-	/**
-	 * Save post
-	 *
-	 * @see https://github.com/WordPress/WordPress/blob/4.2.3/wp-includes/post.php#L3518-L3530
-	 */
-	public function save_post( $post_id, $post ) {
-		
 	}
 
 	/**
