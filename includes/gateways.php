@@ -366,6 +366,17 @@ $pronamic_pay_gateways = array(
 			'certificates/ing-ideal-advanced-v3/ingbank.cer',
 		),
 	),
+	'ing-kassa-compleet' => array(
+		'provider' => 'ing',
+		'gateway'  => 'ing_kassa_compleet',
+		'name'     => 'ING Kassa Compleet',
+		'test'     => array(
+			'dashboard_url'      => 'https://portal.kassacompleet.nl/',
+		),
+		'live'     => array(
+			'dashboard_url'      => 'https://portal.kassacompleet.nl/',
+		),
+	),
 	'ing-ideal-advanced' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ideal_advanced',
