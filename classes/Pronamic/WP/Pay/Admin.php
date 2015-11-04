@@ -55,8 +55,6 @@ class Pronamic_WP_Pay_Admin {
 		$pronamic_ideal_errors = array();
 
 		// Maybe
-		$this->maybe_download_private_certificate();
-		$this->maybe_download_private_key();
 		$this->maybe_create_pages();
 		$this->maybe_redirect();
 
@@ -238,46 +236,6 @@ class Pronamic_WP_Pay_Admin {
 			$this->create_pages( $_POST['pronamic_pay_pages'] );
 
 			wp_redirect( add_query_arg( 'message', 1 ) );
-
-			exit;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Download private certificate
-	 */
-	public function maybe_download_private_certificate() {
-		if ( filter_has_var( INPUT_POST, 'download_private_certificate' ) ) {
-			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
-
-			$filename = sprintf( 'ideal-private-certificate-%s.cer', $post_id );
-
-			header( 'Content-Description: File Transfer' );
-			header( 'Content-Disposition: attachment; filename=' . $filename );
-			header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
-
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true ); //xss ok
-
-			exit;
-		}
-	}
-
-	/**
-	 * Download private key
-	 */
-	public function maybe_download_private_key() {
-		if ( filter_has_var( INPUT_POST, 'download_private_key' ) ) {
-			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
-
-			$filename = sprintf( 'ideal-private-key-%s.key', $post_id );
-
-			header( 'Content-Description: File Transfer' );
-			header( 'Content-Disposition: attachment; filename=' . $filename );
-			header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
-
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true ); //xss ok
 
 			exit;
 		}
