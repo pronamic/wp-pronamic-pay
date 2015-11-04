@@ -472,23 +472,6 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Render the specified view
-	 */
-	public static function render_view( $name ) {
-		$result = false;
-
-		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'views/' . $name . '.php';
-
-		if ( is_readable( $file ) ) {
-			include $file;
-
-			$result = true;
-		}
-
-		return $result;
-	}
-
 	public function gateway_settings( $classes ) {
 		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Admin_IDealGatewaySettings';
