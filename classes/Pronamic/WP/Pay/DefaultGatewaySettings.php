@@ -25,6 +25,7 @@ class Pronamic_WP_Pay_DefaultGatewaySettings extends Pronamic_WP_Pay_GatewaySett
 
 	public function fields( array $fields ) {
 		$fields[] = array(
+			'filter'      => FILTER_SANITIZE_STRING,
 			'section'     => 'general',
 			'meta_key'    => '_pronamic_gateway_mode',
 			'name'        => 'mode',
