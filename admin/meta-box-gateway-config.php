@@ -1,35 +1,7 @@
 <?php
 
-add_filter( 'pronamic_pay_gateway_settings', function( $gateway_settings ) {
-	$gateway_settings[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_IDealGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_IDealBasicGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_PayDutchGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_MollieGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_MultiSafepayGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_OmniKassaGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_BuckarooGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_IcepayGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_SisowGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_PayNLGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_TargetPayGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_OgoneGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_QantaniGatewaySettings';
-	$gateway_settings[] = 'Pronamic_WP_Pay_Admin_IDealAdvancedGatewaySettings';
-
-	return $gateway_settings;
-} );
-
-$gateway_settings = array();
-
-$load_gateway_settings = apply_filters( 'pronamic_pay_gateway_settings', array() );
-
-foreach ( $load_gateway_settings as $class ) {
-	$gateway_settings[] = new $class();
-}
-
-$sections = apply_filters( 'pronamic_pay_gateway_sections', array() );
-$fields   = apply_filters( 'pronamic_pay_gateway_fields', array() );
+$sections = $this->admin->gateway_settings->get_sections();
+$fields   = $this->admin->gateway_settings->get_fields();
 
 $sections_fields = array();
 

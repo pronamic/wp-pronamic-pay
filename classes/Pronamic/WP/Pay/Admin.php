@@ -26,6 +26,8 @@ class Pronamic_WP_Pay_Admin {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
+
 		// Reports
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
@@ -60,8 +62,11 @@ class Pronamic_WP_Pay_Admin {
 
 		// Post types
 		new Pronamic_WP_Pay_Admin_FormPostType();
-		new Pronamic_WP_Pay_Admin_GatewayPostType();
+		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+
+		// Gateway settings
+		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	/**
@@ -482,5 +487,25 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		return $result;
+	}
+
+	public function gateway_settings( $classes ) {
+		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_IDealGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_IDealBasicGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_PayDutchGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_MollieGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_MultiSafepayGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_OmniKassaGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_BuckarooGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_IcepayGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_SisowGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_PayNLGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_TargetPayGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_OgoneGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_QantaniGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Admin_IDealAdvancedGatewaySettings';
+
+		return $classes;
 	}
 }
