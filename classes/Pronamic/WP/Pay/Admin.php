@@ -480,6 +480,7 @@ class Pronamic_WP_Pay_Admin {
 		$classes[] = 'Pronamic_WP_Pay_Gateways_IDeal_GatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_GatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Gateways_IDealBasic_GatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_GatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Gateways_Mollie_GatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_GatewaySettings';
 		$classes[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_GatewaySettings';
