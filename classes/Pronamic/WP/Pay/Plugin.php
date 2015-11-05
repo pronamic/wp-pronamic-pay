@@ -279,6 +279,23 @@ class Pronamic_WP_Pay_Plugin {
 
 			$payment = get_pronamic_payment( $payment_id );
 
+			// Check if payment key is valid
+			$valid_key = false;
+
+			if ( empty( $payment->key ) ) {
+				$valid_key = true;
+			} elseif ( filter_has_var( INPUT_GET, 'key' ) ) {
+				$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+
+				$valid_key = ( $key === $payment->key );
+			}
+
+			if( ! $valid_key ) {
+				wp_redirect( home_url() );
+
+				exit;
+			}
+
 			// Check if we should redirect
 			$should_redirect = true;
 
@@ -590,6 +607,7 @@ class Pronamic_WP_Pay_Plugin {
 			// Payment
 			$payment = new Pronamic_WP_Pay_Payment( $post_id );
 			$payment->config_id     = $config_id;
+			$payment->key           = uniqid( 'pay_' );
 			$payment->currency      = $data->get_currency();
 			$payment->amount        = $data->get_amount();
 			$payment->language      = $data->get_language();
@@ -605,6 +623,7 @@ class Pronamic_WP_Pay_Plugin {
 
 			$meta = array(
 				$prefix . 'config_id'               => $payment->config_id,
+				$prefix . 'key'                     => $payment->key,
 				$prefix . 'currency'                => $payment->currency,
 				$prefix . 'amount'                  => $payment->amount,
 				$prefix . 'expiration_period'       => null,
