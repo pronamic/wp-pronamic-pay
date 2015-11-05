@@ -160,6 +160,10 @@ foreach ( $pronamic_pay_providers as $provider ) {
 								$classes[] = 'readonly';
 							}
 
+							if ( isset( $field['size'] ) ) {
+								$attributes['size'] = $field['size'];
+							}
+
 							if ( ! empty( $classes ) ) {
 								$attributes['class'] = implode( ' ', $classes );
 							}
