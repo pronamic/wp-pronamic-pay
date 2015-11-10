@@ -249,6 +249,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://idealkassa.frieslandbank.nl/',
 		),
 	),
+	// https://github.com/wp-pay-gateways/frieslandbank-ideal-zakelijk-plus-v3
 	'frieslandbank-ideal-zakelijk-plus-v3' => array(
 		'provider' => 'frieslandbank',
 		'gateway'  => 'ideal_advanced_v3',
