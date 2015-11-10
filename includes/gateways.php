@@ -35,6 +35,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/backoffice',
 		),
 	),
+	// https://github.com/wp-pay-gateways/abnamro-internetkassa
 	'abnamro-internetkassa' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ogone_orderstandard',
