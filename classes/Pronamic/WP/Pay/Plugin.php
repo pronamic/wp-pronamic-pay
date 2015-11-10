@@ -77,6 +77,11 @@ class Pronamic_WP_Pay_Plugin {
 		// Form Processor
 		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
 
+		// Gateway Integrations
+		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
+
+		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+
 		// Setup
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
 
@@ -502,6 +507,35 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	//////////////////////////////////////////////////
+
+	public function gateway_integrations( $integrations ) {
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvanced_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealAdvanced_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayDutch_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealLite_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvanced_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_RaboIDealKassa_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealAdvanced_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_TargetPay_GatewayIntegration';
+
+		return $integrations;
+	}
 
 	public static function get_gateway( $config_id ) {
 		$config = new Pronamic_WP_Pay_Config( $config_id );

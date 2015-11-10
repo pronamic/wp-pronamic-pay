@@ -7,6 +7,7 @@ global $pronamic_pay_gateways;
 
 $pronamic_pay_gateways = array(
 	// ABN AMRO
+	// https://github.com/wp-pay-gateways/abnamro-ideal-easy
 	'abnamro-ideal-easy' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ogone_orderstandard_easy',
@@ -19,6 +20,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://internetkassa.abnamro.nl/ncol/prod/orderstandard.asp',
 		),
 	),
+	// https://github.com/wp-pay-gateways/abnamro-ideal-only-kassa
 	'abnamro-ideal-only-kassa' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ogone_orderstandard',
@@ -47,6 +49,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://internetkassa.abnamro.nl/ncol/prod/backoffice',
 		),
 	),
+	// https://github.com/wp-pay-gateways/abnamro-ideal-zelfbouw-v3
 	'abnamro-ideal-zelfbouw-v3' => array(
 		'provider' => 'abnamro',
 		'gateway'  => 'ideal_advanced_v3',
@@ -120,6 +123,7 @@ $pronamic_pay_gateways = array(
 	),
 	*/
 	// Buckaroo
+	// https://github.com/wp-pay-gateways/buckaroo
 	'buckaroo' => array(
 		'provider'      => 'buckaroo',
 		'gateway'       => 'buckaroo',
@@ -133,7 +137,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://checkout.buckaroo.nl/html/',
 		),
 	),
-	// Deutsche Bank - iDEAL Expert - v3
+	// Deutsche Bank - iDEAL via Ogone
 	'deutschebank-ideal-via-ogone' => array(
 		'provider' => 'deutschebank',
 		'gateway'  => 'ogone_orderstandard_easy',
@@ -145,6 +149,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://secure.ogone.com/ncol/prod/orderstandard.asp',
 		),
 	),
+	// https://github.com/wp-pay-gateways/deutschebank-ideal-expert-v3
 	'deutschebank-ideal-expert-v3' => array(
 		'provider' => 'deutschebank',
 		'gateway'  => 'ideal_advanced_v3',
@@ -163,6 +168,7 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// Dutch Payment Group
+	// https://github.com/wp-pay-gateways/paydutch
 	'paydutch' => array(
 		'provider'      => 'dutchpaymentgroup',
 		'gateway'       => 'paydutch',
@@ -177,6 +183,7 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// Easy iDeal
+	// https://github.com/wp-pay-gateways/easy-ideal
 	'easy-ideal' => array(
 		'provider'      => 'easy-ideal',
 		'gateway'       => 'qantani',
@@ -282,6 +289,7 @@ $pronamic_pay_gateways = array(
 		'dashboard_url' => __( 'https://www.icepay.com/Merchant/EN/Reports/Transactions', 'pronamic_ideal' ),
 	),
 	// iDEAL Simulator
+	// https://github.com/wp-pay-gateways/ideal-simulator-ideal-basic
 	'ideal-simulator-ideal-basic' => array(
 		'provider' => 'ideal-simulator',
 		'gateway'  => 'ideal_basic',
@@ -293,6 +301,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://www.ideal-simulator.nl/lite/',
 		),
 	),
+	// https://github.com/wp-pay-gateways/ideal-simulator-ideal-advanced-v3
 	'ideal-simulator-ideal-advanced-v3' => array(
 		'provider' => 'ideal-simulator',
 		'gateway'  => 'ideal_advanced_v3',
@@ -307,6 +316,7 @@ $pronamic_pay_gateways = array(
 			'certificates/ideal-simulator-ideal-advanced-v3/simulator-2048.cer',
 		),
 	),
+	// https://github.com/wp-pay-gateways/ideal-simulator-ideal-advanced
 	'ideal-simulator-ideal-advanced' => array(
 		'provider' => 'ideal-simulator',
 		'gateway'  => 'ideal_advanced',
@@ -324,6 +334,7 @@ $pronamic_pay_gateways = array(
 		'deprecated' => true,
 	),
 	// ING
+	// https://github.com/wp-pay-gateways/ing-ideal-basic
 	'ing-ideal-basic' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ideal_basic',
@@ -350,6 +361,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://twyp.secure-ing.com/ncol/prod/admin_TWYP.asp',
 		),
 	),
+	// https://github.com/wp-pay-gateways/ing-ideal-advanced-v3
 	'ing-ideal-advanced-v3' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ideal_advanced_v3',
@@ -366,6 +378,7 @@ $pronamic_pay_gateways = array(
 			'certificates/ing-ideal-advanced-v3/ingbank.cer',
 		),
 	),
+	// https://github.com/wp-pay-gateways/ing-kassa-compleet
 	'ing-kassa-compleet' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ing_kassa_compleet',
@@ -377,6 +390,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://portal.kassacompleet.nl/',
 		),
 	),
+	// https://github.com/wp-pay-gateways/ing-ideal-advanced
 	'ing-ideal-advanced' => array(
 		'provider' => 'ing',
 		'gateway'  => 'ideal_advanced',
@@ -396,6 +410,7 @@ $pronamic_pay_gateways = array(
 		'deprecated'   => true,
 	),
 	// Mollie
+	// https://github.com/wp-pay-gateways/mollie
 	'mollie' => array(
 		'provider'      => 'mollie',
 		'gateway'       => 'mollie',
@@ -403,6 +418,7 @@ $pronamic_pay_gateways = array(
 		'dashboard_url' => 'http://www.mollie.nl/',
 		'methods'       => array( 'ideal', 'mister_cash' ),
 	),
+	// https://github.com/wp-pay-gateways/mollie-ideal
 	'mollie-ideal' => array(
 		'provider'      => 'mollie',
 		'gateway'       => 'mollie_ideal',
@@ -410,6 +426,7 @@ $pronamic_pay_gateways = array(
 		'dashboard_url' => 'http://www.mollie.nl/',
 		'deprecated'    => true,
 	),
+	// https://github.com/wp-pay-gateways/mollie-ideal-basic
 	'mollie-ideal-basic' => array(
 		'provider'      => 'mollie',
 		'gateway'       => 'ideal_basic',
@@ -423,6 +440,7 @@ $pronamic_pay_gateways = array(
 		),
 		'deprecated'    => true,
 	),
+	// https://github.com/wp-pay-gateways/mollie-ideal-advanced
 	'mollie-ideal-advanced' => array(
 		'provider'      => 'mollie',
 		'gateway'       => 'ideal_advanced',
@@ -535,6 +553,7 @@ $pronamic_pay_gateways = array(
 		),
 	),
 	// Rabobank
+	// https://github.com/wp-pay-gateways/omnikassa
 	'rabobank-omnikassa' => array(
 		'provider'      => 'rabobank',
 		'gateway'       => 'omnikassa',
@@ -550,6 +569,7 @@ $pronamic_pay_gateways = array(
 		),
 		'methods'       => array( 'ideal', 'mister_cash' ),
 	),
+	// https://github.com/wp-pay-gateways/rabobank-ideal-lite
 	'rabobank-ideal-lite' => array(
 		'provider' => 'rabobank',
 		'gateway'  => 'ideal_basic',
@@ -563,6 +583,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://ideal.rabobank.nl/',
 		),
 	),
+	// https://github.com/wp-pay-gateways/rabobank-ideal-professional-v3
 	'rabobank-ideal-professional-v3' => array(
 		'provider' => 'rabobank',
 		'gateway'  => 'ideal_advanced_v3',
@@ -579,6 +600,7 @@ $pronamic_pay_gateways = array(
 			'certificates/rabobank-ideal-professional-v3/rabobank.cer',
 		),
 	),
+	// https://github.com/wp-pay-gateways/rabobank-ideal-kassa
 	'rabobank-ideal-kassa' => array(
 		'provider' => 'rabobank',
 		'gateway'  => 'ogone_orderstandard',
@@ -593,6 +615,7 @@ $pronamic_pay_gateways = array(
 			'dashboard_url'      => 'https://i-kassa.rabobank.nl/rik/prod/admin_RIK.asp',
 		),
 	),
+	// https://github.com/wp-pay-gateways/rabobank-ideal-professional
 	'rabobank-ideal-professional' => array(
 		'provider' => 'rabobank',
 		'gateway'  => 'ideal_advanced',
@@ -612,12 +635,14 @@ $pronamic_pay_gateways = array(
 		'deprecated' => true,
 	),
 	// Sisow
+	// https://github.com/wp-pay-gateways/sisow
 	'sisow-ideal' => array(
 		'provider'      => 'sisow',
 		'gateway'       => 'sisow',
 		'name'          => 'Sisow',
 		'dashboard_url' => 'https://www.sisow.nl/Sisow/iDeal/Login.aspx',
 	),
+	// https://github.com/wp-pay-gateways/sisow-ideal-basic
 	'sisow-ideal-basic' => array(
 		'provider'      => 'sisow',
 		'gateway'       => 'ideal_basic',
@@ -631,6 +656,7 @@ $pronamic_pay_gateways = array(
 		),
 		'deprecated' => true,
 	),
+	// https://github.com/wp-pay-gateways/sisow-ideal-advanced
 	'sisow-ideal-advanced' => array(
 		'provider'      => 'sisow',
 		'gateway'       => 'ideal_advanced',
@@ -648,6 +674,7 @@ $pronamic_pay_gateways = array(
 		'deprecated' => true,
 	),
 	// TargetPay
+	// https://github.com/wp-pay-gateways/targetpay
 	'targetpay-ideal' => array(
 		'provider'      => 'targetpay',
 		'gateway'       => 'targetpay',
@@ -655,6 +682,7 @@ $pronamic_pay_gateways = array(
 		'dashboard_url' => 'https://www.targetpay.com/login',
 	),
 	// Qantani
+	// https://github.com/wp-pay-gateways/qantani
 	'qantani' => array(
 		'provider'      => 'qantani',
 		'gateway'       => 'qantani',
