@@ -504,7 +504,7 @@ class Pronamic_WP_Pay_Plugin {
 	//////////////////////////////////////////////////
 
 	public static function get_gateway( $config_id ) {
-		$config = get_pronamic_pay_gateway_config( $config_id );
+		$config = new Pronamic_WP_Pay_Config( $config_id );
 
 		$gateway_id = $config->gateway_id;
 
