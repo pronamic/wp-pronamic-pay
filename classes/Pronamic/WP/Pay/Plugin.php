@@ -512,9 +512,11 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_GatewayIntegration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijkPlusV3_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvanced_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_GatewayIntegration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_GatewayIntegration';
