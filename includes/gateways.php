@@ -77,21 +77,4 @@ $pronamic_pay_gateways = array(
 		),
 		'deprecated' => true,
 	),
-	// TargetPay
-	// https://github.com/wp-pay-gateways/targetpay
-	'targetpay-ideal' => array(
-		'provider'      => 'targetpay',
-		'gateway'       => 'targetpay',
-		'name'          => 'TargetPay - iDEAL',
-		'dashboard_url' => 'https://www.targetpay.com/login',
-	),
-	// Qantani
-	// https://github.com/wp-pay-gateways/qantani
-	'qantani' => array(
-		'provider'      => 'qantani',
-		'gateway'       => 'qantani',
-		'name'          => 'Qantani - iDEAL',
-		'url'           => 'https://www.qantani.com/',
-		'dashboard_url' => 'https://www.qantanipayments.com/backoffice/login/',
-	),
 );
