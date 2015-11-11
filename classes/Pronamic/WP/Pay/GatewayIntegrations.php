@@ -31,5 +31,8 @@ class Pronamic_WP_Pay_GatewayIntegrations {
 
 			$this->integrations[ $object->id ] = $object;
 		}
+
+		var_dump( $this->integrations );
+		exit;
 	}
 }
