@@ -377,6 +377,7 @@
 	$( document ).ready( function() {
 		if ( typeof fieldSettings === 'object' ) {
 			fieldSettings.ideal_issuer_drop_down = '.label_setting, .admin_label_setting, .size_setting, .description_setting, .css_class_setting, .error_message_setting, .rules_setting, .conditional_logic_field_setting';
+			fieldSettings.pronamic_pay_payment_method_selector = '.label_setting, .admin_label_setting, .size_setting, .description_setting, .css_class_setting, .error_message_setting, .rules_setting, .conditional_logic_field_setting';
 		}
 
 		$( '.gforms_edit_form .ideal-edit-link' ).click( function( event ) {
