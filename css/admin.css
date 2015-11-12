@@ -269,9 +269,16 @@ pre.security-data {
   display: block;
 }
 
-/* Add iDEAL fields */
-/* line 299, ../sass/admin.scss */
-#add_ideal_fields .button {
-  /* The default Gravity Forms button width is to small */
-  width: 10em;
+/**
+ * Error
+ */
+/* line 301, ../sass/admin.scss */
+.pronamic-pay-error {
+  background: #F9F9F9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
+  border-left: 4px solid #a00;
+  clear: both;
+  margin: 15px 0;
+  position: relative;
+  padding: 1em 1em 1em 2em;
 }
