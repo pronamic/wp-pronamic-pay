@@ -433,22 +433,13 @@ class Pronamic_WP_Pay_Admin {
 	public function gateway_settings( $classes ) {
 		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
 
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Icepay_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_IDeal_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_IDealAdvancedV3_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_IDealBasic_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Mollie_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Ogone_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_PayNL_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_PayDutch_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Qantani_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_Sisow_GatewaySettings';
-		$classes[] = 'Pronamic_WP_Pay_Gateways_TargetPay_GatewaySettings';
+		foreach ( $this->plugin->gateway_integrations as $integration ) {
+			$class = $integration->get_settings_class();
+
+			if ( null !== $class ) {
+				$classes[ $class ] = $class;
+			}
+		}
 
 		return $classes;
 	}

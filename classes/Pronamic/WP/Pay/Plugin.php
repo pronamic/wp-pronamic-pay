@@ -60,11 +60,6 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 
-		// Admin
-		if ( is_admin() ) {
-			$this->admin = new Pronamic_WP_Pay_Admin( $this );
-		}
-
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
 
@@ -81,6 +76,11 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+
+		// Admin
+		if ( is_admin() ) {
+			$this->admin = new Pronamic_WP_Pay_Admin( $this );
+		}
 
 		// Setup
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
@@ -544,6 +544,7 @@ class Pronamic_WP_Pay_Plugin {
 		// ING
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealInternetKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration';
 		// Mollie
@@ -569,8 +570,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
 		// Postcode.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
-		// Qantani
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Qantani
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Rabobank

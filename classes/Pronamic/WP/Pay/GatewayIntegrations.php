@@ -9,7 +9,7 @@
  * @version 3.8.0
  * @since 3.8.0
  */
-class Pronamic_WP_Pay_GatewayIntegrations {
+class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 	/**
 	 * Integrations
 	 */
@@ -32,4 +32,13 @@ class Pronamic_WP_Pay_GatewayIntegrations {
 			$this->integrations[ $object->id ] = $object;
 		}
 	}
+
+	/**
+	 * Get iterator
+	 *
+	 * @return ArrayIterator
+	 */
+    public function getIterator() {
+        return new ArrayIterator( $this->integrations );
+    }
 }
