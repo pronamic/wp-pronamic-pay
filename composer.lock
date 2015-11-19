@@ -1466,16 +1466,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/buckaroo.git",
-                "reference": "27e0976bd8d2488fe5b7f830a2faf818a709d527"
+                "reference": "47490232bd9d4d78fe6c521882df6784013493c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/27e0976bd8d2488fe5b7f830a2faf818a709d527",
-                "reference": "27e0976bd8d2488fe5b7f830a2faf818a709d527",
+                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/47490232bd9d4d78fe6c521882df6784013493c4",
+                "reference": "47490232bd9d4d78fe6c521882df6784013493c4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
+                "wp-pay-gateways/common": "dev-develop",
                 "wp-pay/core": "dev-develop"
             },
             "require-dev": {
@@ -1515,7 +1516,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-11-19 13:46:54"
+            "time": "2015-11-19 14:06:54"
         },
         {
             "name": "wp-pay-gateways/common",
@@ -2422,12 +2423,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "fc488d459f6b8631e9cf2e5d486c54fe6a1532c2"
+                "reference": "e216c327b311accb4363b968163fa0e0d4070f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/fc488d459f6b8631e9cf2e5d486c54fe6a1532c2",
-                "reference": "fc488d459f6b8631e9cf2e5d486c54fe6a1532c2",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/e216c327b311accb4363b968163fa0e0d4070f57",
+                "reference": "e216c327b311accb4363b968163fa0e0d4070f57",
                 "shasum": ""
             },
             "require": {
@@ -2474,7 +2475,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-11-19 13:45:56"
+            "time": "2015-11-19 13:54:21"
         },
         {
             "name": "wp-pay-gateways/ideal-simulator-ideal-advanced",
@@ -2924,17 +2925,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ing-kassa-compleet.git",
-                "reference": "22843e3abefee68d5b39f82440979f2e9e3c66c2"
+                "reference": "9b6f1f76bdec4b69709b7589770af6fc590e8806"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ing-kassa-compleet/zipball/22843e3abefee68d5b39f82440979f2e9e3c66c2",
-                "reference": "22843e3abefee68d5b39f82440979f2e9e3c66c2",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ing-kassa-compleet/zipball/9b6f1f76bdec4b69709b7589770af6fc590e8806",
+                "reference": "9b6f1f76bdec4b69709b7589770af6fc590e8806",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
-                "wp-pay/core": ">=1.0.0"
+                "wp-pay-gateways/common": "dev-develop",
+                "wp-pay/core": "dev-develop"
             },
             "require-dev": {
                 "satooshi/php-coveralls": "dev-master"
@@ -2975,7 +2977,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-11-12 10:41:03"
+            "time": "2015-11-19 14:11:56"
         },
         {
             "name": "wp-pay-gateways/mollie",
@@ -4082,16 +4084,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "e5015192dee3131ee5931d57f40384a517b35bd2"
+                "reference": "9a30ef98f3eef172177e27b68cf78899602155e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/e5015192dee3131ee5931d57f40384a517b35bd2",
-                "reference": "e5015192dee3131ee5931d57f40384a517b35bd2",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/9a30ef98f3eef172177e27b68cf78899602155e0",
+                "reference": "9a30ef98f3eef172177e27b68cf78899602155e0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
+                "wp-pay-gateways/common": "dev-develop",
                 "wp-pay/core": "dev-develop"
             },
             "require-dev": {
@@ -4131,7 +4134,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-11-12 15:40:56"
+            "time": "2015-11-19 14:19:37"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-advanced",
@@ -4266,16 +4269,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "918d4cfcd9594d085b922b8ffb259108b2b2aba8"
+                "reference": "76faa2e19efde48e8a360adbdb57baf928b5e663"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/918d4cfcd9594d085b922b8ffb259108b2b2aba8",
-                "reference": "918d4cfcd9594d085b922b8ffb259108b2b2aba8",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/76faa2e19efde48e8a360adbdb57baf928b5e663",
+                "reference": "76faa2e19efde48e8a360adbdb57baf928b5e663",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
+                "wp-pay-gateways/common": "dev-develop",
                 "wp-pay/core": "dev-develop"
             },
             "require-dev": {
@@ -4315,7 +4319,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2015-11-12 13:53:54"
+            "time": "2015-11-19 14:23:42"
         },
         {
             "name": "wp-pay/core",
