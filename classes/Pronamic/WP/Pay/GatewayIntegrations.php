@@ -29,7 +29,17 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 		foreach ( $classes as $class ) {
 			$object = new $class();
 
-			$this->integrations[ $object->id ] = $object;
+			$id = null;
+
+			if ( method_exists( $object, 'get_id' ) ) {
+				$id = $object->get_id();
+			} elseif ( isset( $object->id ) ) {
+				$id = $object->id;
+			}
+
+			if ( null !== $id ) {
+				$this->integrations[ $id ] = $object;
+			}
 		}
 	}
 

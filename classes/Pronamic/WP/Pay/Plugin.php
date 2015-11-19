@@ -326,13 +326,6 @@ class Pronamic_WP_Pay_Plugin {
 
 			self::update_payment( $payment, $should_redirect );
 		}
-
-		Pronamic_WP_Pay_Gateways_IDealBasic_Listener::listen();
-		Pronamic_WP_Pay_Gateways_OmniKassa_Listener::listen();
-		Pronamic_WP_Pay_Gateways_Icepay_Listener::listen();
-		Pronamic_WP_Pay_Gateways_Mollie_Listener::listen();
-		Pronamic_WP_Pay_Gateways_Ogone_Listener::listen();
-		Pronamic_WP_Pay_Gateways_Buckaroo_Listener::listen();
 	}
 
 	/**
