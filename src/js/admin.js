@@ -386,5 +386,11 @@
 		
 		$( '#gf-ideal-feed-editor' ).gravityFormsIdealFeedEditor();
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
+
+		if ( 'undefined' != typeof gform ) {
+			gform.addFilter( 'gform_is_conditional_logic_field', function( isConditionalLogicField, field ) {
+				return 'pronamic_pay_payment_method_selector' == field.type || isConditionalLogicField;
+			} );
+		}
 	} );
 } )( jQuery );
