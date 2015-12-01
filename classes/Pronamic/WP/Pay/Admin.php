@@ -432,6 +432,7 @@ class Pronamic_WP_Pay_Admin {
 
 	public function gateway_settings( $classes ) {
 		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
+		$classes[] = 'Pronamic_WP_Pay_Gateways_IDeal_GatewaySettings';
 
 		foreach ( $this->plugin->gateway_integrations as $integration ) {
 			$class = $integration->get_settings_class();
