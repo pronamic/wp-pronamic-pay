@@ -438,7 +438,13 @@ class Pronamic_WP_Pay_Admin {
 			$class = $integration->get_settings_class();
 
 			if ( null !== $class ) {
-				$classes[ $class ] = $class;
+				if ( is_array( $class ) ) {
+					foreach ( $class as $c ) {
+						$classes[ $c ] = $c;
+					}
+				} else {
+					$classes[ $class ] = $class;
+				}				
 			}
 		}
 
