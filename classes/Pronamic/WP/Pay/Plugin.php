@@ -434,6 +434,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'icepay-ideal';
+					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
