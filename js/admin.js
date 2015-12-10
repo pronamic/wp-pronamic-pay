@@ -371,6 +371,80 @@
 		} );
 	};
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Pronamic iDEAL pay form options
+	 */
+	var PronamicPayFormOptions = function( element ) {
+		var obj = this;
+		var $element = $( element );
+
+		// Elements
+		var elements = {};
+		elements.amountMethod = $element.find( 'select[name="_pronamic_payment_form_amount_method"]' );
+
+		/**
+		 * Update amounts visibility
+		 */
+		this.updateAmountsVisibility = function() {
+			var method = elements.amountMethod.val();
+
+			console.log( method );
+
+			if ( method == 'choices_only' || method == 'choices_and_input' ) {
+				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').show();
+			} else {
+				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').hide();
+			}
+		};
+
+		/**
+		 * Maybe add an empty amount field
+		 */
+		this.maybeAddAmountChoice = function() {
+			elements.amountChoices = $element.find( 'input[name="_pronamic_payment_form_amount_choices\[\]"]' );
+			var emptyChoices       = elements.amountChoices.filter( function() { return this.value == ''; } );
+
+			if ( emptyChoices.length == 0 ) {
+				var lastChoice = elements.amountChoices.last().closest( 'div' );
+				var newChoice  = lastChoice.clone();
+				var choiceId   = '_pronamic_payment_form_amount_choice_' + elements.amountChoices.length;
+
+				newChoice.find( 'input' ).attr( 'id', choiceId ).val( '' );
+				newChoice.find( 'label' ).attr( 'for', choiceId );
+
+				lastChoice.after( newChoice );
+			}
+		};
+
+		// Function calls
+		obj.updateAmountsVisibility();
+
+		elements.amountMethod.change( obj.updateAmountsVisibility );
+
+		$element.on( 'keyup', 'input[name="_pronamic_payment_form_amount_choices\[\]"]', function() {
+			obj.maybeAddAmountChoice();
+		});
+	};
+
+	/**
+	 * jQuery plugin - Pronamic iDEAL form options
+	 */
+	$.fn.pronamicPayFormOptions = function() {
+		return this.each( function() {
+			var $this = $( this );
+
+			if ( $this.data( 'pronamic-pay-forms-options' ) ) {
+				return;
+			}
+
+			var formOptions = new PronamicPayFormOptions( this );
+
+			$this.data( 'pronamic-pay-form-options', formOptions );
+		} );
+	};
+
 	/**
 	 * Ready
 	 */
@@ -386,5 +460,53 @@
 		
 		$( '#gf-ideal-feed-editor' ).gravityFormsIdealFeedEditor();
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
+		$( '#pronamic_payment_form_options').pronamicPayFormOptions();
+
+		if ( 'undefined' != typeof gform ) {
+			// Allow payment method selector to be used in conditional logic
+			gform.addFilter( 'gform_is_conditional_logic_field', function( isConditionalLogicField, field ) {
+				return 'pronamic_pay_payment_method_selector' == field.type || isConditionalLogicField;
+			} );
+
+			// Detect supported payment methods for this form
+			var supported_methods = [];
+
+			$.each( form.fields, function( index, formField ) {
+				if ( 'pronamic_pay_payment_method_selector' == formField.type ) {
+					$.each( formField.choices, function( choiceIndex, choice ) {
+						if ( choice.pronamic_supported_pm ) {
+							supported_methods.push( choice.pronamic_supported_pm );
+						}
+					} );
+				}
+			} );
+
+			// Action on load field choices
+			gform.addAction( 'gform_load_field_choices', function( field ) {
+				if ( 'pronamic_pay_payment_method_selector' == field[0].type ) {
+					// Hide checkbox to show/hide field values
+					$( '#field_choice_values_enabled' ).parent('div').hide();
+
+					// Prevent custom choice values from using gateway payment method values
+					$( '.field-choice-input.field-choice-value').keyup( function() {
+						if ( -1 < $.inArray( this.value, supported_methods ) ) {
+							// Append '_2' if the value is the same as one of the supported payment methods
+							this.value = this.value + '_2';
+						}
+					} );
+
+					// Special treatment for supported payment methods choices
+					$.each( supported_methods, function( index, value) {
+						choiceValueInput = $( '.field-choice-input.field-choice-value[value="' + value + '"]');
+
+						// Values for payment methods provided by the gateway should not be edited
+						choiceValueInput.attr( 'disabled', 'disabled' );
+
+						// Payment methods provided by the gateway should not be removed
+						choiceValueInput.parent( 'li' ).find( '.gf_delete_field_choice').remove();
+					} );
+				}
+			} );
+		}
 	} );
 } )( jQuery );

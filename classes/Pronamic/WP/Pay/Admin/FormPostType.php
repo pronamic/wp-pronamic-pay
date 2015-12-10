@@ -15,6 +15,13 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 	 */
 	const POST_TYPE = 'pronamic_pay_form';
 
+	/**
+	 * Amount methods
+	 */
+	const AMOUNT_METHOD_INPUT_ONLY        = 'input_only';
+	const AMOUNT_METHOD_CHOICES_ONLY      = 'choices_only';
+	const AMOUNT_METHOD_CHOICES_AND_INPUT = 'choices_and_input';
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -199,11 +206,27 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		/* OK, its safe for us to save the data now. */
 		$definition = array(
 			// General
-			'_pronamic_payment_form_config_id'   => FILTER_SANITIZE_STRING,
-			'_pronamic_payment_form_button_text' => FILTER_SANITIZE_STRING,
+			'_pronamic_payment_form_config_id'      => FILTER_SANITIZE_NUMBER_INT,
+			'_pronamic_payment_form_button_text'    => FILTER_SANITIZE_STRING,
+			'_pronamic_payment_form_amount_method'  => FILTER_SANITIZE_STRING,
+			'_pronamic_payment_form_amount_choices' => array(
+				'flags' => FILTER_REQUIRE_ARRAY,
+			),
 		);
 
 		$data = filter_input_array( INPUT_POST, $definition );
+
+		// Convert amount choices to cents
+		if ( isset( $data['_pronamic_payment_form_amount_choices'] ) ) {
+			foreach ( $data['_pronamic_payment_form_amount_choices'] as $i => $amount ) {
+				$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
+
+				$data['_pronamic_payment_form_amount_choices'][$i] = Pronamic_WP_Pay_Util::amount_to_cents( $amount );
+			}
+
+			// Remove empty choices
+			$data['_pronamic_payment_form_amount_choices'] = array_filter( $data['_pronamic_payment_form_amount_choices'] );
+		}
 
 		// Update post meta data
 		pronamic_pay_update_post_meta_data( $post_id, $data );

@@ -371,6 +371,80 @@
 		} );
 	};
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Pronamic iDEAL pay form options
+	 */
+	var PronamicPayFormOptions = function( element ) {
+		var obj = this;
+		var $element = $( element );
+
+		// Elements
+		var elements = {};
+		elements.amountMethod = $element.find( 'select[name="_pronamic_payment_form_amount_method"]' );
+
+		/**
+		 * Update amounts visibility
+		 */
+		this.updateAmountsVisibility = function() {
+			var method = elements.amountMethod.val();
+
+			console.log( method );
+
+			if ( method == 'choices_only' || method == 'choices_and_input' ) {
+				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').show();
+			} else {
+				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').hide();
+			}
+		};
+
+		/**
+		 * Maybe add an empty amount field
+		 */
+		this.maybeAddAmountChoice = function() {
+			elements.amountChoices = $element.find( 'input[name="_pronamic_payment_form_amount_choices\[\]"]' );
+			var emptyChoices       = elements.amountChoices.filter( function() { return this.value == ''; } );
+
+			if ( emptyChoices.length == 0 ) {
+				var lastChoice = elements.amountChoices.last().closest( 'div' );
+				var newChoice  = lastChoice.clone();
+				var choiceId   = '_pronamic_payment_form_amount_choice_' + elements.amountChoices.length;
+
+				newChoice.find( 'input' ).attr( 'id', choiceId ).val( '' );
+				newChoice.find( 'label' ).attr( 'for', choiceId );
+
+				lastChoice.after( newChoice );
+			}
+		};
+
+		// Function calls
+		obj.updateAmountsVisibility();
+
+		elements.amountMethod.change( obj.updateAmountsVisibility );
+
+		$element.on( 'keyup', 'input[name="_pronamic_payment_form_amount_choices\[\]"]', function() {
+			obj.maybeAddAmountChoice();
+		});
+	};
+
+	/**
+	 * jQuery plugin - Pronamic iDEAL form options
+	 */
+	$.fn.pronamicPayFormOptions = function() {
+		return this.each( function() {
+			var $this = $( this );
+
+			if ( $this.data( 'pronamic-pay-forms-options' ) ) {
+				return;
+			}
+
+			var formOptions = new PronamicPayFormOptions( this );
+
+			$this.data( 'pronamic-pay-form-options', formOptions );
+		} );
+	};
+
 	/**
 	 * Ready
 	 */
@@ -386,6 +460,7 @@
 		
 		$( '#gf-ideal-feed-editor' ).gravityFormsIdealFeedEditor();
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
+		$( '#pronamic_payment_form_options').pronamicPayFormOptions();
 
 		if ( 'undefined' != typeof gform ) {
 			// Allow payment method selector to be used in conditional logic
