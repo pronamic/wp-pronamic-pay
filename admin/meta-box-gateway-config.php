@@ -110,9 +110,21 @@ foreach ( $pronamic_pay_providers as $provider ) {
 		?>
 
 		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-			<?php if ( ! empty( $section['title'] ) ) : ?>
+			<?php if ( ! empty( $section['title'] ) || ! empty( $section['description'] ) ) : ?>
 
-				<h4><?php echo esc_html( $section['title'] ); ?></h4>
+				<div class="gateway-config-section-header">
+					<?php if ( ! empty( $section['title'] ) ) : ?>
+
+						<h4><?php echo esc_html( $section['title'] ); ?></h4>
+
+					<?php endif; ?>
+
+					<?php if ( ! empty( $section['description'] ) ) : ?>
+
+						<p><?php echo esc_html( $section['description'] ); ?></p>
+
+					<?php endif; ?>
+				</div>
 
 			<?php endif; ?>
 
