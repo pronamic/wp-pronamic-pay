@@ -38,4 +38,9 @@ if ( $gateway ) {
 	if ( $is_ideal ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';
 	}
+} else {
+	printf(
+		'<em>%s</em>',
+		__( 'Please save the entered account details of your payment provider, to make a test payment.', 'pronamic_ideal' )
+	);
 }
