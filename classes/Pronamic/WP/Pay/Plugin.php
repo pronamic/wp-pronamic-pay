@@ -447,6 +447,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
+					$gateways[] = 'pay_nl';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MINITIX :
