@@ -110,7 +110,11 @@ foreach ( $pronamic_pay_providers as $provider ) {
 		?>
 
 		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-			<h4><?php echo esc_html( $section['title'] ); ?></h4>
+			<?php if ( ! empty( $section['title'] ) ) : ?>
+
+				<h4><?php echo esc_html( $section['title'] ); ?></h4>
+
+			<?php endif; ?>
 
 			<table class="form-table">
 

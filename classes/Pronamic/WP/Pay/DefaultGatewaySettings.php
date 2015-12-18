@@ -16,9 +16,7 @@ class Pronamic_WP_Pay_DefaultGatewaySettings extends Pronamic_WP_Pay_GatewaySett
 	}
 
 	public function sections( array $sections ) {
-		$sections['general'] = array(
-			'title' => __( 'General', 'pronamic_ideal' ),
-		);
+		$sections['general'] = array();
 
 		return $sections;
 	}
@@ -31,10 +29,14 @@ class Pronamic_WP_Pay_DefaultGatewaySettings extends Pronamic_WP_Pay_GatewaySett
 			'name'        => 'mode',
 			'id'          => 'pronamic_ideal_mode',
 			'title'       => __( 'Mode', 'pronamic_ideal' ),
-			'type'        => 'optgroup',
+			'type'        => 'select',
 			'options'     => array(
-				Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
-				Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
+				array( 'options' =>
+					array(
+						Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
+						Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
+					)
+				)
 			),
 		);
 
