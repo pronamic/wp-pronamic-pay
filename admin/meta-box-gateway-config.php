@@ -70,7 +70,7 @@ foreach ( $pronamic_pay_providers as $provider ) {
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 
 									if ( $variant_id !== $id ) {
-										break;
+										continue;
 									}
 								}
 
