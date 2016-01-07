@@ -32,6 +32,8 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		if ( $data ) {
 			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-license.php';
+
+			delete_transient( 'pronamic_pay_license_data' );
 		}
 	}
 
