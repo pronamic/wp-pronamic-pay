@@ -102,7 +102,7 @@
 		<td>
 			<?php
 
-			if ( $memory > 67108864 ) { // 64 MB
+			if ( $memory >= 67108864 ) { // 64 MB
 				echo '&#10003;';
 			} else {
 				echo wp_kses(
