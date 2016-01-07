@@ -20,7 +20,7 @@ class Pronamic_WP_Pay_Admin_Notices {
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 11 );
 	}
 
 	//////////////////////////////////////////////////
@@ -55,8 +55,9 @@ class Pronamic_WP_Pay_Admin_Notices {
 				'<div class="%s"><p>%s</p></div>',
 				esc_attr( $class ),
 				sprintf(
-					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
-					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
+					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL support license key</a>, please get your license key at <a href="%s" target="_blank">pronamic.eu</a>.', 'pronamic_ideal' ),
+					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
+					'http://www.pronamic.eu/plugins/pronamic-ideal/'
 				)
 			);
 		}
