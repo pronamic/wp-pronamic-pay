@@ -248,7 +248,6 @@ module.exports = function( grunt ) {
 					'!vendor/guzzle/**',
 					'!vendor/psr/**',
 					'!vendor/satooshi/**',
-					'!vendor/symfony/**',
 					'!wp-content/**'
 				],
 				dest: 'deploy/latest',
