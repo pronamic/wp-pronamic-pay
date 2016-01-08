@@ -86,11 +86,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**Author:** [Caseproof, LLC](http://www.caseproof.com/)
 	*	**Requires at least:** 1.2.4
 	*	**Tested up to:** 1.2.4
-*	[Membership](http://wordpress.org/plugins/membership/)
+*	[Membership 2](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
 	*	**Requires at least:** 3.4.4.1
-	*	**Tested up to:** 3.4.4.1
+	*	**Tested up to:** 4.0.0.7
 *	[Membership Premium](https://premium.wpmudev.org/project/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
