@@ -1,5 +1,7 @@
 /* global ajaxurl */
 /* global fieldSettings */
+/* global gform */
+/* global form */
 ( function( $ ) {
 	/**
 	 * Gravity Forms iDEAL feed editor
@@ -390,9 +392,7 @@
 		this.updateAmountsVisibility = function() {
 			var method = elements.amountMethod.val();
 
-			console.log( method );
-
-			if ( method == 'choices_only' || method == 'choices_and_input' ) {
+			if ( method === 'choices_only' || method === 'choices_and_input' ) {
 				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').show();
 			} else {
 				$element.find('input[name="_pronamic_payment_form_amount_choices\[\]"]').closest('div').hide();
@@ -404,9 +404,9 @@
 		 */
 		this.maybeAddAmountChoice = function() {
 			elements.amountChoices = $element.find( 'input[name="_pronamic_payment_form_amount_choices\[\]"]' );
-			var emptyChoices       = elements.amountChoices.filter( function() { return this.value == ''; } );
+			var emptyChoices       = elements.amountChoices.filter( function() { return this.value === ''; } );
 
-			if ( emptyChoices.length == 0 ) {
+			if ( emptyChoices.length === 0 ) {
 				var lastChoice = elements.amountChoices.last().closest( 'div' );
 				var newChoice  = lastChoice.clone();
 				var choiceId   = '_pronamic_payment_form_amount_choice_' + elements.amountChoices.length;
@@ -462,17 +462,17 @@
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
 		$( '#pronamic_payment_form_options').pronamicPayFormOptions();
 
-		if ( 'undefined' != typeof gform ) {
+		if ( 'undefined' !== typeof gform && 'undefined' !== typeof form ) {
 			// Allow payment method selector to be used in conditional logic
 			gform.addFilter( 'gform_is_conditional_logic_field', function( isConditionalLogicField, field ) {
-				return 'pronamic_pay_payment_method_selector' == field.type || isConditionalLogicField;
+				return 'pronamic_pay_payment_method_selector' === field.type || isConditionalLogicField;
 			} );
 
 			// Detect supported payment methods for this form
 			var supported_methods = [];
 
 			$.each( form.fields, function( index, formField ) {
-				if ( 'pronamic_pay_payment_method_selector' == formField.type ) {
+				if ( 'pronamic_pay_payment_method_selector' === formField.type ) {
 					$.each( formField.choices, function( choiceIndex, choice ) {
 						if ( choice.pronamic_supported_pm ) {
 							supported_methods.push( choice.pronamic_supported_pm );
@@ -483,7 +483,7 @@
 
 			// Action on load field choices
 			gform.addAction( 'gform_load_field_choices', function( field ) {
-				if ( 'pronamic_pay_payment_method_selector' == field[0].type ) {
+				if ( 'pronamic_pay_payment_method_selector' === field[0].type ) {
 					// Hide checkbox to show/hide field values
 					$( '#field_choice_values_enabled' ).parent('div').hide();
 
@@ -497,7 +497,7 @@
 
 					// Special treatment for supported payment methods choices
 					$.each( supported_methods, function( index, value) {
-						choiceValueInput = $( '.field-choice-input.field-choice-value[value="' + value + '"]');
+						var choiceValueInput = $( '.field-choice-input.field-choice-value[value="' + value + '"]');
 
 						// Values for payment methods provided by the gateway should not be edited
 						choiceValueInput.attr( 'disabled', 'disabled' );
