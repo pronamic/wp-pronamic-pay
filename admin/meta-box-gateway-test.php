@@ -19,7 +19,7 @@ if ( $gateway ) {
 
 	<p>
 		<label for="test_amount">&euro;</label>
-		<input name="test_amount" id="test_amount" value="" class="small-text" type="text" />
+		<input name="test_amount" id="test_amount" value="" type="text" size="6" />
 
 		<?php
 
