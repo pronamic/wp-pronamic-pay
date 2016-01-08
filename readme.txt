@@ -82,6 +82,10 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.12
+*	[MemberPress](https://www.memberpress.com/)
+	*	**Author:** [Caseproof, LLC](http://www.caseproof.com/)
+	*	**Requires at least:** 1.2.4
+	*	**Tested up to:** 1.2.4
 *	[Membership](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
