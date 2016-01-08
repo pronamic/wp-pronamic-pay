@@ -104,7 +104,11 @@
 		"wp-pay-extensions/wp-e-commerce": "1.0.0"
 	},
 	"require-dev": {
-		"satooshi/php-coveralls": "dev-master"
+		"phpmd/phpmd": "^2.2.3",
+		"satooshi/php-coveralls": "^0.7.1",
+		"squizlabs/php_codesniffer": "^2.2.0",
+		"wp-coding-standards/wpcs": "0.8.0",
+		"wp-cli/wp-cli": "^0.21.1"
 	},
     "scripts": {
         "post-install-cmd": [
@@ -114,7 +118,8 @@
             "xrstf\\Composer52\\Generator::onPostInstallCmd"
         ],
         "post-autoload-dump": [
-            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+            "xrstf\\Composer52\\Generator::onPostInstallCmd",
+			"bin/install-wpcs"
         ]
     }
 }

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# WordPress Coding Standards
+if [[ -d vendor/wp-coding-standards/wpcs ]]; then
+	vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs
+fi
