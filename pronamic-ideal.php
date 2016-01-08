@@ -19,18 +19,12 @@ GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
 */
 
 /**
- * Composer autoload
+ * Autoload
  */
-$autoload_file = null;
-
 if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-	$autoload_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 } elseif ( version_compare( PHP_VERSION, '5.2', '>=' ) ) {
-	$autoload_file = plugin_dir_path( __FILE__ ) . 'vendor/autoload_52.php';
-}
-
-if ( isset( $autoload_file ) && is_readable( $autoload_file ) ) {
-	require_once $autoload_file;
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload_52.php';
 }
 
 /**
