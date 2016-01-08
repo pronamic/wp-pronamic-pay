@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-01-06 16:58+0100\n"
+"PO-Revision-Date: 2016-01-08 13:40+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -38,15 +38,15 @@ msgstr "Bedrag"
 
 #: admin/meta-box-form-options.php:48
 msgid "Show as input field"
-msgstr ""
+msgstr "Toon als tekstveld"
 
 #: admin/meta-box-form-options.php:49
 msgid "Show as choices"
-msgstr ""
+msgstr "Toon als keuzes"
 
 #: admin/meta-box-form-options.php:50
 msgid "Show as choices with input field"
-msgstr ""
+msgstr "Toon als keuzes met tekstveld"
 
 #: admin/meta-box-gateway-config.php:50
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
@@ -95,6 +95,7 @@ msgid ""
 "Please save the entered account details of your payment provider, to make a "
 "test payment."
 msgstr ""
+"Sla de ingevoerde betalingsgateway gegevens op om een test betaling te maken."
 
 #: admin/meta-box-payment-info.php:11 admin/tab-documentation.php:626
 #: admin/tab-ideal_status.php:54
@@ -657,8 +658,8 @@ msgstr "Google+"
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:339
 #: classes/Pronamic/WP/Pay/Admin.php:340
-#: vendor/wp-pay/core/src/Gateway.php:360
-#: vendor/wp-pay/core/src/PaymentMethods.php:72
+#: vendor/wp-pay/core/src/Gateway.php:370
+#: vendor/wp-pay/core/src/PaymentMethods.php:74
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:31
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:28
@@ -991,7 +992,7 @@ msgstr "Rembours"
 msgid "GiftCard"
 msgstr "GiftCard"
 
-#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:71
+#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:73
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
@@ -1001,7 +1002,7 @@ msgstr "GiftCard"
 msgid "Credit Card"
 msgstr "Creditcard"
 
-#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:70
+#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:72
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
@@ -1019,7 +1020,7 @@ msgstr "Direct eBanking"
 msgid "Giropay"
 msgstr "Giropay"
 
-#: admin/tab-methods.php:93 vendor/wp-pay/core/src/PaymentMethods.php:73
+#: admin/tab-methods.php:93 vendor/wp-pay/core/src/PaymentMethods.php:75
 #: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
@@ -1419,12 +1420,12 @@ msgstr "Betaler"
 
 #: classes/Pronamic/WP/Pay/Admin/Notices.php:58
 msgid ""
-"<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
-"a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="
-"\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
+"<strong>Pronamic iDEAL</strong> — You have not <a href=\"%s\">entered a "
+"(valid) Pronamic iDEAL support license key</a>, please get your license key "
+"at <a href=\"%s\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
-"<strong>Pronamic iDEAL</strong> &mdash; Je hebt <a href=\"%s\">geen "
-"(geldige) Pronamic iDEAL licentiesleutel ingevoerd</a>, bestel je "
+"<strong>Pronamic iDEAL</strong> — Je hebt <a href=\"%s\">geen (geldige) "
+"Pronamic iDEAL support licentiesleutel ingevoerd</a>, bestel je "
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
@@ -1803,7 +1804,7 @@ msgstr "&mdash; Selecteer een pagina &mdash;"
 msgid "Select Payment Form"
 msgstr "Selecteer betalingsformulier"
 
-#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:39
+#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:40
 msgid ""
 "The response code (<code>%s<code>) was incorrect, required response code "
 "<code>%s</code>."
@@ -1811,7 +1812,7 @@ msgstr ""
 "De antwoord code (<code>%s<code>) was onjuist, veriste antwoorde code <code>"
 "%s</code>."
 
-#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:70
+#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:71
 msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
@@ -1854,13 +1855,12 @@ msgstr "E-mailadres"
 msgid "Payment Info"
 msgstr "Betalingsinformatie"
 
-#: vendor/wp-pay/core/src/Gateway.php:373
+#: vendor/wp-pay/core/src/Gateway.php:383
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:353
-#, fuzzy
 msgid "Choose a payment method"
-msgstr "Kies een andere betaalmethode"
+msgstr "Kies een betaalmethode"
 
-#: vendor/wp-pay/core/src/Gateway.php:578
+#: vendor/wp-pay/core/src/Gateway.php:588
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:264
 #: vendor/wp-pay-extensions/membership/src/IDealGateway.php:252
@@ -1870,14 +1870,14 @@ msgstr "Kies een andere betaalmethode"
 msgid "Pay"
 msgstr "Betalen"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:69
+#: vendor/wp-pay/core/src/PaymentMethods.php:71
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:28
 #: vendor/wp-pay-extensions/memberpress/src/BankTransferGateway.php:21
 #: vendor/wp-pay-extensions/woocommerce/src/BankTransferGateway.php:27
 msgid "Bank Transfer"
 msgstr "Bankoverschrijving"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:74
+#: vendor/wp-pay/core/src/PaymentMethods.php:76
 #: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
@@ -1888,7 +1888,7 @@ msgstr "Bankoverschrijving"
 msgid "Bancontact/Mister Cash"
 msgstr "Bancontact/Mister Cash"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:75
+#: vendor/wp-pay/core/src/PaymentMethods.php:77
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:19
@@ -2123,11 +2123,13 @@ msgstr "Creëer iDEAL-feed"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:76
 msgid "This field is not supported by your payment gateway."
-msgstr ""
+msgstr "Dit veld wordt niet ondersteund door je betalingsgateway."
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:78
 msgid "Please remove it from this form or %sadd a supported payment gateway%s."
 msgstr ""
+"Verwijder het van dit formulier of %svoeg een ondersteunde betalingsgateway "
+"toe%s."
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:88
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:189
@@ -2153,14 +2155,12 @@ msgid "Issuer Drop Down"
 msgstr "Banken uitschuifkeuzelijst"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:340
-#, fuzzy
 msgid "Payment Method Selector"
-msgstr "Betaalmethode"
+msgstr "Betaalmethode keuze"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:352
-#, fuzzy
 msgid "Choose a bank for iDEAL payment"
-msgstr "Controleer iDEAL-betaling"
+msgstr "Kies een bank voor iDEAL-betaling"
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:37
 msgid "WordPress Pay Add-On"
@@ -2474,19 +2474,16 @@ msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:66
-#, fuzzy
 msgid "Button image URL"
-msgstr "Foutmeldingspagina URL"
+msgstr "Button afbeelding URL"
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:75
-#, fuzzy
 msgid "Default: <code>%s</code>"
-msgstr "Standaard: <code>%s</code>."
+msgstr "Standaard: <code>%s</code>"
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:82
-#, fuzzy
 msgid "Button description"
-msgstr "Beschrijving"
+msgstr "Button beschrijving"
 
 #: vendor/wp-pay-extensions/s2member/src/Extension.php:49
 msgid ""
@@ -3104,13 +3101,12 @@ msgid "ING Kassa Compleet"
 msgstr "ING Kassa Compleet"
 
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:39
-#, fuzzy
 msgid ""
 "You can find the API key in the <a href=\"%s\" target=\"_blank\">ING Kassa "
 "Compleet dashboard</a>."
 msgstr ""
-"Je kunt de sleutel versie vinden in het <a href=\"%s\" target=\"_blank"
-"\">OmniKassa Download Dashboard</a>."
+"Je kunt de API-sleutel vinden in het <a href=\"%s\" target=\"_blank\"> ING "
+"Kassa Compleet dashboard</a>."
 
 #: vendor/wp-pay-gateways/mollie/src/Settings.php:21
 msgid "Mollie"
@@ -3592,15 +3588,15 @@ msgctxt "slug"
 msgid "payment-forms"
 msgstr "betalingsformulieren"
 
-#: vendor/wp-pay/core/src/Gateway.php:357
+#: vendor/wp-pay/core/src/Gateway.php:367
 msgctxt "Payment method field"
 msgid "Other"
-msgstr ""
+msgstr "Anders"
 
-#: vendor/wp-pay/core/src/Gateway.php:366
+#: vendor/wp-pay/core/src/Gateway.php:376
 msgctxt "Payment method field"
 msgid "All available methods"
-msgstr ""
+msgstr "Alle beschikbare methoden"
 
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:35
 msgctxt "icepay"

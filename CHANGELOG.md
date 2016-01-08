@@ -6,6 +6,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+### Changed
+- Updated WordPress pay Buckaroo library to version 1.2.0.
+  - Renamed namespace prefix from 'class Pronamic_WP_Pay_Buckaroo_' to 'Pronamic_WP_Pay_Gateways_Buckaroo_'.
+
 ## [3.7.3] - 2015-10-19
 
 ### Fixed

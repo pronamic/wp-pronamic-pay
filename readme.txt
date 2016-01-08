@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 4.3.1
-Stable tag: 3.7.3
+Tested up to: 4.4
+Stable tag: 3.8.0-RC1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -289,6 +289,8 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = Unreleased - 2015-08-21 =
+*	Updated WordPress pay Buckaroo library to version 1.2.0.
+	*	Renamed namespace prefix from 'class Pronamic_WP_Pay_Buckaroo_' to 'Pronamic_WP_Pay_Gateways_Buckaroo_'.
 
 = 3.7.3 - 2015-10-19 =
 *	Fixed Fatal error: Call to a member function get_input_fields() on null on payment form without an valid gateway configuration.

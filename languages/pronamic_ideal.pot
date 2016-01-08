@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.7.3\n"
+"Project-Id-Version: Pronamic iDEAL 3.8.0-RC1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -585,8 +585,8 @@ msgstr ""
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:339
-#: classes/Pronamic/WP/Pay/Admin.php:340 vendor/wp-pay/core/src/Gateway.php:360
-#: vendor/wp-pay/core/src/PaymentMethods.php:72
+#: classes/Pronamic/WP/Pay/Admin.php:340 vendor/wp-pay/core/src/Gateway.php:370
+#: vendor/wp-pay/core/src/PaymentMethods.php:74
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:31
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:28
@@ -892,7 +892,7 @@ msgstr ""
 msgid "GiftCard"
 msgstr ""
 
-#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:71
+#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:73
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
@@ -902,7 +902,7 @@ msgstr ""
 msgid "Credit Card"
 msgstr ""
 
-#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:70
+#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:72
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
@@ -920,7 +920,7 @@ msgstr ""
 msgid "Giropay"
 msgstr ""
 
-#: admin/tab-methods.php:93 vendor/wp-pay/core/src/PaymentMethods.php:73
+#: admin/tab-methods.php:93 vendor/wp-pay/core/src/PaymentMethods.php:75
 #: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
@@ -1280,9 +1280,9 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/Notices.php:58
 msgid ""
-"<strong>Pronamic iDEAL</strong> &mdash; You have not <a href=\"%s\">entered "
-"a (valid) Pronamic iDEAL license key</a>, get your license key from <a "
-"href=\"http://www.pronamic.eu/\" target=\"_blank\">Pronamic.eu</a>."
+"<strong>Pronamic iDEAL</strong> — You have not <a href=\"%s\">entered a "
+"(valid) Pronamic iDEAL support license key</a>, please get your license key "
+"at <a href=\"%s\" target=\"_blank\">Pronamic.eu</a>."
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:68
@@ -1659,13 +1659,13 @@ msgstr ""
 msgid "Select Payment Form"
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:39
+#: classes/Pronamic/WP/Util.php:32 vendor/wp-pay/core/src/Util.php:40
 msgid ""
 "The response code (<code>%s<code>) was incorrect, required response code "
 "<code>%s</code>."
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:70
+#: classes/Pronamic/WP/Util.php:63 vendor/wp-pay/core/src/Util.php:71
 msgid "Could not load the XML string."
 msgstr ""
 
@@ -1708,12 +1708,12 @@ msgstr ""
 msgid "Payment Info"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Gateway.php:373
+#: vendor/wp-pay/core/src/Gateway.php:383
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:353
 msgid "Choose a payment method"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Gateway.php:578
+#: vendor/wp-pay/core/src/Gateway.php:588
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:45
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:264
 #: vendor/wp-pay-extensions/membership/src/IDealGateway.php:252
@@ -1723,14 +1723,14 @@ msgstr ""
 msgid "Pay"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:69
+#: vendor/wp-pay/core/src/PaymentMethods.php:71
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:28
 #: vendor/wp-pay-extensions/memberpress/src/BankTransferGateway.php:21
 #: vendor/wp-pay-extensions/woocommerce/src/BankTransferGateway.php:27
 msgid "Bank Transfer"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:74
+#: vendor/wp-pay/core/src/PaymentMethods.php:76
 #: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
@@ -1741,7 +1741,7 @@ msgstr ""
 msgid "Bancontact/Mister Cash"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:75
+#: vendor/wp-pay/core/src/PaymentMethods.php:77
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:28
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:31
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:19
@@ -3350,12 +3350,12 @@ msgctxt "slug"
 msgid "payment-forms"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Gateway.php:357
+#: vendor/wp-pay/core/src/Gateway.php:367
 msgctxt "Payment method field"
 msgid "Other"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Gateway.php:366
+#: vendor/wp-pay/core/src/Gateway.php:376
 msgctxt "Payment method field"
 msgid "All available methods"
 msgstr ""
