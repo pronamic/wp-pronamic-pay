@@ -89,11 +89,6 @@ $methods = array(
 		'name'    => __( 'iDEAL', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
-	'minitix' => array(
-		'name'    => __( 'MiniTix', 'pronamic_ideal' ),
-		'url'     => 'http://www.minitix.nl/',
-		'issuers' => array(),
-	),
 	'mister_cash' => array(
 		'icon'    => plugins_url( 'images/mister-cash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 		'name'    => __( 'Mister Cash', 'pronamic_ideal' ),
