@@ -557,6 +557,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do',
 			'dashboard_url'      => 'https://ideal.rabobank.nl/',
 		),
+		'deprecated' => true,
 	),
 	'rabobank-ideal-professional-v3' => array(
 		'provider' => 'rabobank',
