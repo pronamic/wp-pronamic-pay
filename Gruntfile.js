@@ -126,7 +126,8 @@ module.exports = function( grunt ) {
 						'build/.*',
 						'deploy/.*',
 						'node_modules/.*',
-						'wp-content/.*'
+						'wp-content/.*',
+						'vendor/wp-cli/.*'
 					]
 				}
 			}
