@@ -294,7 +294,7 @@ results in OmniKassa data that no longer matches the signature.
 
 = Unreleased - 2015-08-21 =
 
-= 3.8.0 - 2015-08-21 =
+= 3.8.0 - 2016-02-02 =
 *	Removed discontinued MiniTix gateway.
 *	Updated WordPress pay Buckaroo library to version 1.2.0.
 	*	Renamed namespace prefix from 'class Pronamic_WP_Pay_Buckaroo_' to 'Pronamic_WP_Pay_Gateways_Buckaroo_'.

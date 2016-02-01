@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [3.8.0] - 2015-08-21
+## [3.8.0] - 2016-02-02
 
 ### Changed
 - Removed discontinued MiniTix gateway.
