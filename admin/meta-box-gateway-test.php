@@ -7,6 +7,15 @@ $gateway = Pronamic_WP_Pay_Plugin::get_gateway( get_the_ID() );
 if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
 
+	$is_ideal  = false;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealBasic_Gateway;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
+	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
+
+	if ( $is_ideal ) {
+		$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
+	}
+
 	echo $gateway->get_input_html(); //xss ok
 
 	if ( $gateway->has_error() ) {
@@ -29,11 +38,6 @@ if ( $gateway ) {
 	</p>
 
 	<?php
-
-	$is_ideal  = false;
-	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealBasic_Gateway;
-	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
-	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
 
 	if ( $is_ideal ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';
