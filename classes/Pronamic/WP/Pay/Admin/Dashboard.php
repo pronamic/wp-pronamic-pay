@@ -31,11 +31,13 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 	//////////////////////////////////////////////////
 
 	public function setup() {
-		wp_add_dashboard_widget(
-			'pronamic_pay_dashboard_status',
-			__( 'Pronamic iDEAL Status', 'pronamic_ideal' ),
-			array( $this, 'status_widget' )
-		);
+		if ( current_user_can( 'manage_options' ) ) {
+			wp_add_dashboard_widget(
+				'pronamic_pay_dashboard_status',
+				__( 'Pronamic iDEAL Status', 'pronamic_ideal' ),
+				array ( $this, 'status_widget' )
+			);
+		}
 	}
 
 	public function status_widget() {

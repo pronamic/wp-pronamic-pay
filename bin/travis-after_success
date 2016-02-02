@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Coveralls
+if [[ '1' == $COVERAGE ]]; then
+	php vendor/bin/coveralls
+fi

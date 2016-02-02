@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'License Information', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'License Information', 'pronamic_ideal' ); ?></h2>
 
 <table class="form-table">
 	<tr>
@@ -39,7 +39,7 @@
 		<td>
 			<?php
 
-			$timestamp = wp_next_scheduled( 'pronamic_pay_license_check_event' );
+			$timestamp = wp_next_scheduled( 'pronamic_pay_license_check' );
 
 			if ( $timestamp ) {
 				$timestamp = get_date_from_gmt( date( 'Y-m-d H:i:s', $timestamp ), 'U' );

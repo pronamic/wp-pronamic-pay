@@ -6,14 +6,6 @@ function get_pronamic_payment( $post_id ) {
 	return $payment;
 }
 
-function get_pronamic_pay_gateway_config( $post_id ) {
-	$config = new Pronamic_WP_Pay_Config( $post_id );
-
-	return $config;
-}
-
-
-
 function get_pronamic_payment_by_meta( $meta_key, $meta_value ) {
 	global $wpdb;
 

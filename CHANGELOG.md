@@ -6,6 +6,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.0] - 2016-02-02
+
+### Changed
+- Removed discontinued MiniTix gateway.
+- Updated WordPress pay Buckaroo library to version 1.2.0.
+  - Renamed namespace prefix from 'class Pronamic_WP_Pay_Buckaroo_' to 'Pronamic_WP_Pay_Gateways_Buckaroo_'.
+
 ## [3.7.3] - 2015-10-19
 
 ### Fixed
@@ -942,7 +949,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.0...HEAD
+[3.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.3...3.8.0
 [3.7.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.2...3.7.3
 [3.7.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.1...3.7.2
 [3.7.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.0...3.7.1

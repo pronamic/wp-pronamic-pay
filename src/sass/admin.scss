@@ -85,6 +85,24 @@ td.column-version {
 	color: #AAA;
 }
 
+#pronamic_gateway_config .gateway-config-section-header {
+	background: #f0f0f0;
+	border-bottom: 1px solid #ccc;
+
+	margin: 1.33em 0;
+	padding: 5px;
+}
+
+#pronamic_gateway_config .gateway-config-section-header h4,
+#pronamic_gateway_config .gateway-config-section-header p {
+	margin: 0;
+}
+
+#pronamic_gateway_config .gateway-config-section-header p {
+	font-style: italic;
+	color: #757575;
+}
+
 /**
  * Payment log postbox
  */
@@ -295,8 +313,21 @@ pre.security-data {
 	display: block;
 }
 
-/* Add iDEAL fields */
-#add_ideal_fields .button {
-	/* The default Gravity Forms button width is to small */
-	width: 10em;
+/**
+ * Error
+ */
+.pronamic-pay-error {
+  background: #F9F9F9;
+
+  box-shadow: 0 1px 1px rgba( #000, .125 );
+
+  border-left: 4px solid #a00;
+
+  clear: both;
+
+  margin: 15px 0;
+
+  position: relative;
+
+  padding: 1em 1em 1em 2em;
 }

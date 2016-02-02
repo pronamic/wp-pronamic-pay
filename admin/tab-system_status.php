@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'Installation Status', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Installation Status', 'pronamic_ideal' ); ?></h2>
 
 <table class="pronamic-pay-status-table widefat">
 	<tr>
@@ -102,7 +102,7 @@
 		<td>
 			<?php
 
-			if ( $memory > 67108864 ) { // 64 MB
+			if ( $memory >= 67108864 ) { // 64 MB
 				echo '&#10003;';
 			} else {
 				echo wp_kses(

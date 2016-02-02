@@ -384,6 +384,12 @@ $pronamic_pay_gateways = array(
 		),
 		'deprecated'   => true,
 	),
+	'ing-kassa-compleet' => array(
+		'provider'      => 'ing',
+		'gateway'       => 'ing_kassa_compleet',
+		'name'          => 'ING - Kassa Compleet',
+		'dashboard_url' => 'https://portal.kassacompleet.nl/',
+	),
 	// Mollie
 	'mollie' => array(
 		'provider'      => 'mollie',
@@ -551,6 +557,7 @@ $pronamic_pay_gateways = array(
 			'payment_server_url' => 'https://ideal.rabobank.nl/ideal/mpiPayInitRabo.do',
 			'dashboard_url'      => 'https://ideal.rabobank.nl/',
 		),
+		'deprecated' => true,
 	),
 	'rabobank-ideal-professional-v3' => array(
 		'provider' => 'rabobank',

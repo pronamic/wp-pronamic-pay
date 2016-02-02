@@ -26,6 +26,8 @@ class Pronamic_WP_Pay_Admin {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
+		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
+
 		// Reports
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
@@ -40,6 +42,9 @@ class Pronamic_WP_Pay_Admin {
 		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
+
+		// Gateway settings
+		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	//////////////////////////////////////////////////
@@ -53,18 +58,12 @@ class Pronamic_WP_Pay_Admin {
 		$pronamic_ideal_errors = array();
 
 		// Maybe
-		$this->maybe_download_private_certificate();
-		$this->maybe_download_private_key();
 		$this->maybe_create_pages();
 		$this->maybe_redirect();
 
-		// Actions
-		// Show license message if the license is not valid
-		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
 		// Post types
 		new Pronamic_WP_Pay_Admin_FormPostType();
-		new Pronamic_WP_Pay_Admin_GatewayPostType();
+		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
 	}
 
@@ -239,66 +238,6 @@ class Pronamic_WP_Pay_Admin {
 			wp_redirect( add_query_arg( 'message', 1 ) );
 
 			exit;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Download private certificate
-	 */
-	public function maybe_download_private_certificate() {
-		if ( filter_has_var( INPUT_POST, 'download_private_certificate' ) ) {
-			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
-
-			$filename = sprintf( 'ideal-private-certificate-%s.cer', $post_id );
-
-			header( 'Content-Description: File Transfer' );
-			header( 'Content-Disposition: attachment; filename=' . $filename );
-			header( 'Content-Type: application/x-x509-ca-cert; charset=' . get_option( 'blog_charset' ), true );
-
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_certificate', true ); //xss ok
-
-			exit;
-		}
-	}
-
-	/**
-	 * Download private key
-	 */
-	public function maybe_download_private_key() {
-		if ( filter_has_var( INPUT_POST, 'download_private_key' ) ) {
-			$post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_STRING );
-
-			$filename = sprintf( 'ideal-private-key-%s.key', $post_id );
-
-			header( 'Content-Description: File Transfer' );
-			header( 'Content-Disposition: attachment; filename=' . $filename );
-			header( 'Content-Type: application/pgp-keys; charset=' . get_option( 'blog_charset' ), true );
-
-			echo get_post_meta( $post_id, '_pronamic_gateway_ideal_private_key', true ); //xss ok
-
-			exit;
-		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Maybe show an license message
-	 */
-	public function admin_notices() {
-		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
-			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
-
-			printf( //xss ok
-				'<div class="%s"><p>%s</p></div>',
-				esc_attr( $class ),
-				sprintf(
-					__( '<strong>Pronamic iDEAL</strong> &mdash; You have not <a href="%s">entered a (valid) Pronamic iDEAL license key</a>, get your license key from <a href="http://www.pronamic.eu/" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
-					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) )
-				)
-			);
 		}
 	}
 
@@ -491,20 +430,23 @@ class Pronamic_WP_Pay_Admin {
 
 	//////////////////////////////////////////////////
 
-	/**
-	 * Render the specified view
-	 */
-	public static function render_view( $name ) {
-		$result = false;
+	public function gateway_settings( $classes ) {
+		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
 
-		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'views/' . $name . '.php';
+		foreach ( $this->plugin->gateway_integrations as $integration ) {
+			$class = $integration->get_settings_class();
 
-		if ( is_readable( $file ) ) {
-			include $file;
-
-			$result = true;
+			if ( null !== $class ) {
+				if ( is_array( $class ) ) {
+					foreach ( $class as $c ) {
+						$classes[ $c ] = $c;
+					}
+				} else {
+					$classes[ $class ] = $class;
+				}				
+			}
 		}
 
-		return $result;
+		return $classes;
 	}
 }

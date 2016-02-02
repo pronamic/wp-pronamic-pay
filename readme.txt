@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 4.3.1
-Stable tag: 3.7.3
+Tested up to: 4.4.2
+Stable tag: 3.8.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -82,11 +82,15 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.12
-*	[Membership](http://wordpress.org/plugins/membership/)
+*	[MemberPress](https://www.memberpress.com/)
+	*	**Author:** [Caseproof, LLC](http://www.caseproof.com/)
+	*	**Requires at least:** 1.2.4
+	*	**Tested up to:** 1.2.4
+*	[Membership 2](http://wordpress.org/plugins/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/membership/](http://wordpress.org/plugins/membership/)
 	*	**Requires at least:** 3.4.4.1
-	*	**Tested up to:** 3.4.4.1
+	*	**Tested up to:** 4.0.0.7
 *	[Membership Premium](https://premium.wpmudev.org/project/membership/)
 	*	**Author:** [WPMUDEV.org](http://www.wpmudev.org/)
 	*	**GitHub:** [https://github.com/pronamic-wpmudev/membership-premium](https://github.com/pronamic-wpmudev/membership-premium)
@@ -289,6 +293,11 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = Unreleased - 2015-08-21 =
+
+= 3.8.0 - 2016-02-02 =
+*	Removed discontinued MiniTix gateway.
+*	Updated WordPress pay Buckaroo library to version 1.2.0.
+	*	Renamed namespace prefix from 'class Pronamic_WP_Pay_Buckaroo_' to 'Pronamic_WP_Pay_Gateways_Buckaroo_'.
 
 = 3.7.3 - 2015-10-19 =
 *	Fixed Fatal error: Call to a member function get_input_fields() on null on payment form without an valid gateway configuration.

@@ -1,11 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <phpunit
-	bootstrap="tests/bootstrap.php"
-	colors="true"
+    bootstrap="tests/bootstrap.php"
+    colors="true"
 >
-	<testsuites>
-		<testsuite>
-			<directory prefix="test-" suffix=".php">./tests/</directory>
-			<directory suffix=".php">./tests/classes/</directory>
-		</testsuite>
-	</testsuites>
+    <testsuites>
+        <testsuite name="Pronamic iDEAL Test Suite">
+            <directory>./tests/</directory>
+            <directory>./vendor/wp-pay*/*/tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./classes</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+    </logging>
 </phpunit>

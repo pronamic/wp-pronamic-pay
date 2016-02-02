@@ -30,7 +30,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ), 10, 2 );
+		// Transition Post Status
+		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 	}
 
 	//////////////////////////////////////////////////
@@ -122,9 +123,13 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_status':
-				$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
+				$status_object = get_post_status_object( get_post_status( $post_id ) );
 
-				echo esc_html( Pronamic_WP_Pay_Plugin::translate_status( $status ) );
+				if ( isset( $status_object, $status_object->label ) ) {
+					echo esc_html( $status_object->label );
+				} else {
+					echo '—';
+				}
 
 				break;
 		}
@@ -211,6 +216,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_update( $post ) {
+		wp_nonce_field( 'pronamic_payment_update', 'pronamic_payment_update_nonce' );
+
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
 	}
 
@@ -230,30 +237,57 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Save post
+	 * Translate post status to meta status
 	 *
-	 * @see https://github.com/WordPress/WordPress/blob/4.2.3/wp-includes/post.php#L3518-L3530
+	 * @param string $post_status
+	 * @return string
 	 */
-	public function save_post( $post_id, $post ) {
-		if ( filter_has_var( INPUT_POST, 'pronamic_payment_update' ) ) {
-			$nonce = filter_input( INPUT_POST, 'pronamic_payment_nonce', FILTER_SANITIZE_STRING );
+	private function translate_post_status_to_meta_status( $post_status ) {
+		switch ( $post_status ) {
+			case 'payment_pending' :
+				return Pronamic_WP_Pay_Statuses::OPEN;
+			case 'payment_processing' :
+				return Pronamic_WP_Pay_Statuses::OPEN;
+			case 'payment_on_hold' :
+				return null;
+			case 'payment_completed' :
+				return Pronamic_WP_Pay_Statuses::SUCCESS;
+			case 'payment_cancelled' :
+				return Pronamic_WP_Pay_Statuses::CANCELLED;
+			case 'payment_refunded' :
+				return null;
+			case 'payment_failed' :
+				return Pronamic_WP_Pay_Statuses::FAILURE;
+			case 'payment_expired' :
+				return Pronamic_WP_Pay_Statuses::EXPIRED;
+		}
+	}
 
-			if ( wp_verify_nonce( $nonce, 'pronamic_payment_update' ) ) {
-				$payment = get_pronamic_payment( $post_id );
+	/**
+	 * Transition post status
+	 *
+	 * @param string $new_status
+	 * @param string $old_status
+	 * @param \WP_Post $post
+	 */
+	public function transition_post_status( $new_status, $old_status, $post ) {
+		if ( 
+			filter_has_var( INPUT_POST, 'pronamic_payment_update_nonce' )
+				&&
+			check_admin_referer( 'pronamic_payment_update', 'pronamic_payment_update_nonce' )
+				&&
+			 'pronamic_payment' === get_post_type( $post )
+		) {
+			$can_redirect = false;
 
-				$can_redirect = false;
+			$old_status_meta = strtolower( $this->translate_post_status_to_meta_status( $new_status ) );
+			$new_status_meta = strtolower( $this->translate_post_status_to_meta_status( $old_status ) );
 
-				$status_old = get_post_status( $post_id );
-				$status_new = filter_input( INPUT_POST, 'pronamic_payment_status', FILTER_SANITIZE_STRING );
+			$payment = get_pronamic_payment( $post->ID );
 
-				$post->post_status = $status_new;
-
-				/*
-				do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $status_old . '_to_' . $status_new, $payment, $can_redirect );
-				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-				*/
-			}
+			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status_meta . '_to_' . $new_status_meta, $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
 }

@@ -65,10 +65,29 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 		// Items
 		$items = new Pronamic_IDeal_Items();
 
-		$amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_VALIDATE_FLOAT, array(
+		// Amount
+		$amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING, array (
 			'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
 			'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
 		) );
+
+		// Get correct amount if pronamic_pay_amount is an array
+		if ( ! $amount && $amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY ) ) {
+			// Array filter will remove values NULL, FALSE and empty strings ('')
+			$amount = array_filter( $amount );
+
+			// Make sure the amount has the correct floating value
+			foreach( $amount as $key => $value ) {
+				if ( 'other' !== $key ) {
+					$amount[$key] = $value / 100;
+				}
+			}
+
+			// Get first element of the array
+			$amount = array_shift( $amount );
+		}
+
+		$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
 
 		// Item
 		$item = new Pronamic_IDeal_Item();

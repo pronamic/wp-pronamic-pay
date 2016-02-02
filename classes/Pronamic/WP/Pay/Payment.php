@@ -21,6 +21,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 		// Load
 		$this->config_id      = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
+		$this->key            = get_post_meta( $post_id, '_pronamic_payment_key', true );
 
 		$this->amount         = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 		$this->currency       = get_post_meta( $post_id, '_pronamic_payment_currency', true );
@@ -78,5 +79,19 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$key = '_pronamic_payment_' . $key;
 
 		return get_post_meta( $this->id, $key, true );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_return_url() {
+		$url = add_query_arg(
+			array(
+				'payment' => $this->id,
+				'key'     => $this->key,
+			),
+			home_url( '/' )
+		);
+
+		return $url;
 	}
 }

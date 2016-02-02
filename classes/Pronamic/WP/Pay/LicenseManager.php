@@ -32,6 +32,8 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		if ( $data ) {
 			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-license.php';
+
+			delete_transient( 'pronamic_pay_license_data' );
 		}
 	}
 
@@ -45,14 +47,32 @@ class Pronamic_WP_Pay_LicenseManager {
 	 * @return string
 	 */
 	public function pre_update_option_license_key( $newvalue, $oldvalue ) {
+		$newvalue = trim( $newvalue );
+
 		if ( $newvalue !== $oldvalue ) {
 			delete_option( 'pronamic_pay_license_status' );
 
-			$this->deactivate_license( $oldvalue );
+			if ( ! empty( $oldvalue ) ) {
+				$this->deactivate_license( $oldvalue );
+			}
 		}
 
-		// Always try to activate the new license, it could be deactived.
-		$this->activate_license( $newvalue );
+		delete_transient( 'pronamic_pay_license_data' );
+
+		if ( ! empty( $newvalue ) ) {
+			// Always try to activate the new license, it could be deactivated.
+			$this->activate_license( $newvalue );
+		}
+
+		// Shedule weekly license check
+		$time = time() + DAY_IN_SECONDS;
+
+		wp_clear_scheduled_hook( 'pronamic_pay_license_check' );
+
+		wp_schedule_event( $time, 'daily', 'pronamic_pay_license_check' );
+
+		// Get and update license status
+		$this->check_license( $newvalue );
 
 		return $newvalue;
 	}
@@ -79,26 +99,35 @@ class Pronamic_WP_Pay_LicenseManager {
 	public function check_license( $license ) {
 		$status = null;
 
-		// Request
-		$args = array(
-			'license' => $license,
-			'name'    => 'Pronamic iDEAL',
-			'url'     => home_url(),
-		);
+		if ( empty( $license ) ) {
+			$status = 'invalid';
+		} else {
+			// Request
+			$args = array (
+				'license' => $license,
+				'name'    => 'Pronamic iDEAL',
+				'url'     => home_url(),
+			);
 
-		$args = urlencode_deep( $args );
+			$args = urlencode_deep( $args );
 
-		$response = wp_remote_get( add_query_arg( $args, 'http://api.pronamic.eu/licenses/check/1.0/' ) );
+			$response = wp_remote_get(
+				add_query_arg( $args, 'http://api.pronamic.eu/licenses/check/1.0/' ),
+				array(
+					'timeout' => 20
+				)
+			);
 
-		if ( is_wp_error( $response ) ) {
-			// On errors we give benefit of the doubt
-			$status = 'valid';
-		}
+			if ( is_wp_error( $response ) ) {
+				// On errors we give benefit of the doubt
+				$status = 'valid';
+			}
 
-		$data = json_decode( wp_remote_retrieve_body( $response ) );
+			$data = json_decode( wp_remote_retrieve_body( $response ) );
 
-		if ( $data ) {
-			$status = $data->license;
+			if ( $data ) {
+				$status = $data->license;
+			}
 		}
 
 		// Update
@@ -121,9 +150,12 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		$args = urlencode_deep( $args );
 
-		$url = add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' );
-
-		$response = wp_remote_get( $url );
+		$response = wp_remote_get(
+			add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' ),
+			array(
+				'timeout' => 20
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -135,8 +167,6 @@ class Pronamic_WP_Pay_LicenseManager {
 	 * @return boolean
 	 */
 	public function activate_license( $license ) {
-		$status = null;
-
 		// Request
 		$args = array(
 			'license' => $license,
@@ -146,7 +176,12 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		$args = urlencode_deep( $args );
 
-		$response = wp_remote_get( add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ) );
+		$response = wp_remote_get(
+			add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ),
+			array(
+				'timeout' => 20
+			)
+		);
 
 		if ( is_wp_error( $response ) ) {
 			// On errors we give benefit of the doubt.
@@ -157,11 +192,6 @@ class Pronamic_WP_Pay_LicenseManager {
 
 		if ( $data ) {
 			set_transient( 'pronamic_pay_license_data', $data, 30 );
-
-			$status = $data->license;
 		}
-
-		// Update
-		update_option( 'pronamic_pay_license_status', $status );
 	}
 }

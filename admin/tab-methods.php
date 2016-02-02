@@ -9,7 +9,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 ?>
-<h3><?php esc_html_e( 'Payment Methods', 'pronamic_ideal' ); ?></h3>
+<h2><?php esc_html_e( 'Payment Methods', 'pronamic_ideal' ); ?></h2>
 
 <?php
 
@@ -87,11 +87,6 @@ $methods = array(
 	'ideal' => array(
 		'icon'    => plugins_url( 'images/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 		'name'    => __( 'iDEAL', 'pronamic_ideal' ),
-		'issuers' => array(),
-	),
-	'minitix' => array(
-		'name'    => __( 'MiniTix', 'pronamic_ideal' ),
-		'url'     => 'http://www.minitix.nl/',
 		'issuers' => array(),
 	),
 	'mister_cash' => array(

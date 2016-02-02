@@ -40,6 +40,7 @@ module.exports = function( grunt ) {
 				]
 			},
 			options: {
+				bin: 'vendor/bin/phpcs',
 				standard: 'phpcs.ruleset.xml',
 				showSniffCodes: true
 			}
@@ -125,7 +126,8 @@ module.exports = function( grunt ) {
 						'build/.*',
 						'deploy/.*',
 						'node_modules/.*',
-						'wp-content/.*'
+						'wp-content/.*',
+						'vendor/wp-cli/.*'
 					]
 				}
 			}
@@ -170,6 +172,14 @@ module.exports = function( grunt ) {
 			// Generate CHANGELOG.md
 			changelog_md: {
 				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'	
+			},
+
+			// Composer
+			deploy: {
+				command: [
+					'cd deploy/latest',
+					'composer install --no-dev'
+				].join( '&&' )
 			}
 		},
 
@@ -220,7 +230,7 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [
 					'**',
-					'!composer.json',
+					'!bower.json',
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
@@ -229,28 +239,32 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
+					'!bin/**',
 					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
+					'!etc/**',
 					'!documentation/**',
 					'!node_modules/**',
 					'!src/**',
 					'!tests/**',
-					'!vendor/*/*/test/**',
-					'!vendor/*/*/tests/**',
-					'!vendor/*/*/package.json',
-					'!vendor/*/*/phpcs.ruleset.xml',
-					'!vendor/*/*/phpmd.ruleset.xml',
-					'!vendor/*/*/phpunit.xml.dist',
-					'!vendor/bin/**',
-					'!vendor/guzzle/**',
-					'!vendor/psr/**',
-					'!vendor/satooshi/**',
-					'!vendor/symfony/**',
+					'!vendor/**',
 					'!wp-content/**'
 				],
 				dest: 'deploy/latest',
 				expand: true
+			}
+		},
+
+		// Composer
+		composer : {
+			options : {
+
+			},
+			some_target: {
+            	options : {
+                	cwd: 'deploy/latest'
+				}
 			}
 		},
 
@@ -318,6 +332,25 @@ module.exports = function( grunt ) {
 		clean: {
 			deploy: {
 				src: [ 'deploy/latest' ]
+			},
+			deploy_composer: {
+				src: [
+					'deploy/latest/vendor/wp-pay*/*/bin/**',
+					'deploy/latest/vendor/wp-pay*/*/test/**',
+					'deploy/latest/vendor/wp-pay*/*/tests/**',
+					'deploy/latest/vendor/wp-pay*/*/.gitignore',
+					'deploy/latest/vendor/wp-pay*/*/.travis.yml',
+					'deploy/latest/vendor/wp-pay*/*/Gruntfile.js',
+					'deploy/latest/vendor/wp-pay*/*/package.json',
+					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
+					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
+					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
+				]
+			},
+			deploy_wp_content: {
+				src: [
+					'deploy/latest/wp-content'
+				]
 			}
 		},
 
@@ -396,10 +429,11 @@ module.exports = function( grunt ) {
 		'assets',
 		'min',
 		'doc',
-		'composer:update',
-		'composer:dump-autoload:optimize',
 		'clean:deploy',
 		'copy:deploy',
+		'shell:deploy',
+		'clean:deploy_composer',
+		'clean:deploy_wp_content',
 		'compress:deploy'
 	] );
 
