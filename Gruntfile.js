@@ -334,18 +334,17 @@ module.exports = function( grunt ) {
 				src: [ 'deploy/latest' ]
 			},
 			deploy_composer: {
-				cwd: 'deploy/latest/vendor',
 				src: [
-					'*/*/bin/**',
-					'*/*/test/**',
-					'*/*/tests/**',
-					'*/*/.gitignore',
-					'*/*/.travis.yml',
-					'*/*/Gruntfile.js',
-					'*/*/package.json',
-					'*/*/phpcs.ruleset.xml',
-					'*/*/phpmd.ruleset.xml',
-					'*/*/phpunit.xml.dist'
+					'deploy/latest/vendor/wp-pay*/*/bin/**',
+					'deploy/latest/vendor/wp-pay*/*/test/**',
+					'deploy/latest/vendor/wp-pay*/*/tests/**',
+					'deploy/latest/vendor/wp-pay*/*/.gitignore',
+					'deploy/latest/vendor/wp-pay*/*/.travis.yml',
+					'deploy/latest/vendor/wp-pay*/*/Gruntfile.js',
+					'deploy/latest/vendor/wp-pay*/*/package.json',
+					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
+					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
+					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
 				]
 			},
 			deploy_wp_content: {
