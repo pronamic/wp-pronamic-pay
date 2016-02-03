@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.4.2
-Stable tag: 3.8.1
+Stable tag: 3.8.2
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -293,6 +293,10 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = Unreleased - 2015-08-21 =
+
+= 3.8.2 - 2016-02-03 =
+*	Updated WordPress pay ING Kassa Compleet library to version 1.0.1.
+	*	Fixed fatal eror 'Can't use function return value in write context'.
 
 = 3.8.1 - 2016-02-02 =
 *	Updated WordPress pay Membership library to version 1.0.3.
