@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.2] - 2016-02-03
+
+### Fixed
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.1.
+  - Fixed fatal eror 'Can't use function return value in write context'.
+
 ## [3.8.1] - 2016-02-02
 
 ### Fixed
@@ -959,7 +965,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.2...HEAD
+[3.8.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.1...3.8.2
 [3.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.0...3.8.1
 [3.8.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.3...3.8.0
 [3.7.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.7.2...3.7.3
