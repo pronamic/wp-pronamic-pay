@@ -503,7 +503,6 @@ class Pronamic_WP_Pay_Plugin {
 	public function gateway_integrations( $integrations ) {
 		// ABN AMRO
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealHosted_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
