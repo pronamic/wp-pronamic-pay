@@ -546,8 +546,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
 		// MultiSafepay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
-		// NEOS
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_NEOS_InternetKassa_Integration';
 		// Ingenico/Ogone
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
