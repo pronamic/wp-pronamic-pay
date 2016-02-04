@@ -6,6 +6,22 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+### Removed
+- Removed the deprecated Rabobank - iDEAL Lite library.
+- Removed the deprecated Rabobank - Rabo iDEAL Kassa library.
+- Removed the deprecated Rabobank - iDEAL Professional library.
+- Removed the deprecated PayDutch library.
+- Removed the deprecated NEOS - Internet Kassa library.
+- Removed the deprecated ING - iDEAL Advanced library.
+- Removed the deprecated Friesland Bank - iDEAL Zakelijk library.
+- Removed the deprecated Friesland Bank - iDEAL Zakelijk Plus library.
+- Removed the deprecated Friesland Bank - iDEAL Zakelijk Plus - v3 library.
+- Removed the deprecated Fortis Bank - iDEAL Integrated library.
+- Removed the deprecated Fortis Bank - iDEAL Internet Kassa library.
+- Removed the deprecated Fortis Bank - iDEAL Hosted library.
+- Removed the deprecated ABN AMRO - iDEAL Zelfbouw library.
+- Removed the deprecated ABN AMRO - iDEAL Hosted library.
+
 ## [3.8.3] - 2016-02-04
 
 ### Fixed
