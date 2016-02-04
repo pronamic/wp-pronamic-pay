@@ -556,8 +556,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
 		// Pay.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayNL_Integration';
-		// PayDutch
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayDutch_Integration';
 		// Paytor
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
 		// Postcode.nl
