@@ -523,10 +523,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealHosted_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealIntegrated_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealInternetKassa_Integration';
-		// Friesland Bank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijk_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijkPlus_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijkPlusV3_Integration';
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
