@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-02-03 14:01+0100\n"
+"PO-Revision-Date: 2016-02-04 10:08+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -659,17 +659,17 @@ msgstr "Google+"
 #: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:339
 #: classes/Pronamic/WP/Pay/Admin.php:340
 #: vendor/wp-pay/core/src/Gateway.php:370
-#: vendor/wp-pay/core/src/PaymentMethods.php:67
+#: vendor/wp-pay/core/src/PaymentMethods.php:75
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
-#: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:31
-#: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:31
+#: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:32
+#: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:32
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:72
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:137
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:33
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:174
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:19
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:36
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:176
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:21
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:59
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:193
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
@@ -992,21 +992,21 @@ msgstr "Rembours"
 msgid "GiftCard"
 msgstr "GiftCard"
 
-#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:66
-#: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:31
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:19
+#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:74
+#: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:32
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/CreditCardGateway.php:21
 #: vendor/wp-pay-extensions/memberpress/src/CreditCardGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:27
 msgid "Credit Card"
 msgstr "Creditcard"
 
-#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:65
-#: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:31
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:19
+#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:73
+#: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:32
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitGateway.php:21
 #: vendor/wp-pay-extensions/memberpress/src/DirectDebitGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:27
 msgid "Direct Debit"
@@ -1386,7 +1386,7 @@ msgstr "Standaard"
 
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:195
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
-#: vendor/wp-pay-extensions/charitable/src/Gateway.php:50
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:51
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
@@ -1499,7 +1499,7 @@ msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
 #: classes/Pronamic/WP/Pay/PaymentFormData.php:95
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:153
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:155
 msgid "Payment %s"
 msgstr "Betaling %s"
 
@@ -1861,29 +1861,29 @@ msgstr "Kies een betaalmethode"
 msgid "Pay"
 msgstr "Betalen"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:64
-#: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:28
+#: vendor/wp-pay/core/src/PaymentMethods.php:72
+#: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/memberpress/src/BankTransferGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/BankTransferGateway.php:28
 msgid "Bank Transfer"
 msgstr "Bankoverschrijving"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:68
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:31
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:179
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:19
+#: vendor/wp-pay/core/src/PaymentMethods.php:76
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:181
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
 #: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 msgid "Bancontact/Mister Cash"
 msgstr "Bancontact/Mister Cash"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:69
-#: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:31
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:19
+#: vendor/wp-pay/core/src/PaymentMethods.php:77
+#: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:32
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/SofortGateway.php:21
 #: vendor/wp-pay-extensions/memberpress/src/SofortGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:27
 msgid "SOFORT Banking"
@@ -1921,15 +1921,8 @@ msgstr "Charitable"
 msgid "Donation %s"
 msgstr "Donatie %s"
 
-#: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:28
-#: vendor/wp-pay-extensions/charitable/src/MiniTixGateway.php:31
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:19
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MiniTixGateway.php:20
-msgid "MiniTix"
-msgstr "MiniTix"
-
-#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:58
-#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:68
+#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:59
+#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:69
 msgid "Charitable donation %s"
 msgstr "Charitable donatie %s"
 
@@ -1968,45 +1961,45 @@ msgstr "ClassiPress"
 msgid "Advertisement %s"
 msgstr "Advertentie %s"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:97
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:99
 msgid "Payment completed."
 msgstr "Betaling voltooid."
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:116
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:118
 msgid "Payment open."
 msgstr "Betaling open."
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:122
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:124
 msgid "Payment unknown."
 msgstr "Betaling onbekend."
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:148
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:150
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:115
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:116
 msgid "%s Settings"
 msgstr "%s instellingen"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:116
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:117
 msgid "Configure the %s settings"
 msgstr "Configureer de %s instellingen"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:122
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:123
 msgid "Gateway Configuration"
 msgstr "Betalingsgateway configuratie"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:129
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:130
 msgid "Checkout Label"
 msgstr "Afrekenen label"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:208
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:223
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:211
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:226
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:208
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:223
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:211
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:226
 msgid ""
 "Payment creation failed before sending buyer to the payment provider. "
 "Payment data: %s"
@@ -2014,11 +2007,11 @@ msgstr ""
 "Het aanmaken van een betaling mislukte voordat de koper doorgestuurd werd "
 "naar de betaalprovider. Betalingsinformatie: %s"
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:244
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:247
 msgid "Payment %s pending."
 msgstr "Betaling %s in afwachting."
 
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:66
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/PaymentData.php:67
 msgid "Easy Digital Downloads order %s"
 msgstr "Easy Digital Downloads bestelling %s"
 
@@ -3651,6 +3644,9 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid "MiniTix"
+#~ msgstr "MiniTix"
 
 #, fuzzy
 #~ msgid "Invalid Taxonomy"
