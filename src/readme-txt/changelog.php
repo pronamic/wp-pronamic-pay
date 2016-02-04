@@ -33,6 +33,10 @@ function render_changes( $changes, $level = 0 ) {
 }
 
 foreach ( $changelog as $log ) {
+	if ( 'Unreleased' === $log->version ) {
+		continue;
+	}
+
 	echo '= ', $log->version, ' - ', $log->date, ' =', "\r\n";
 
 	render_changes( $log->changes );
