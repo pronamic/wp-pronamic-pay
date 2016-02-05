@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0673b42d818587aff174d682a247f68d",
-    "content-hash": "b38dce24a80650595828b8520bf4ff0b",
+    "hash": "4fc0b98e68ad4869cd6db8770d262638",
+    "content-hash": "bc77d3d629873f4fa3a1d36cb2e1f34c",
     "packages": [
         {
             "name": "composer/installers",
@@ -2885,26 +2885,31 @@
         },
         {
             "name": "wp-pay-gateways/multisafepay-connect",
-            "version": "1.2.4",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/multisafepay-connect.git",
-                "reference": "ff955e8e65d467f9603f005d06302c9809775e3b"
+                "reference": "3a41c0be7d14168959fd1eac8fd917361cd1aa9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/ff955e8e65d467f9603f005d06302c9809775e3b",
-                "reference": "ff955e8e65d467f9603f005d06302c9809775e3b",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/3a41c0be7d14168959fd1eac8fd917361cd1aa9c",
+                "reference": "3a41c0be7d14168959fd1eac8fd917361cd1aa9c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
                 "wp-pay-gateways/multisafepay": "^1.1.2",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -2942,7 +2947,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-01 13:50:26"
+            "time": "2016-02-05 09:44:16"
         },
         {
             "name": "wp-pay-gateways/ogone",
@@ -3582,25 +3587,31 @@
         },
         {
             "name": "wp-pay-gateways/targetpay",
-            "version": "1.0.5",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "d6a0397ade2451fbdb5251b95759d66447906f47"
+                "reference": "639b3b7dada0cf0b2f5f0a021102e57be309484f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/d6a0397ade2451fbdb5251b95759d66447906f47",
-                "reference": "d6a0397ade2451fbdb5251b95759d66447906f47",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/639b3b7dada0cf0b2f5f0a021102e57be309484f",
+                "reference": "639b3b7dada0cf0b2f5f0a021102e57be309484f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "sebastian/phpcpd": "^2.0",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -3636,7 +3647,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-01 15:01:26"
+            "time": "2016-02-05 09:54:51"
         },
         {
             "name": "wp-pay/core",
@@ -5832,7 +5843,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/multisafepay-connect": 20,
+        "wp-pay-gateways/targetpay": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
