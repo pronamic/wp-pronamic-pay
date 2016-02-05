@@ -6,6 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.6] - 2016-02-05
+
+### Fixed
+- Updated WordPress pay ABN AMRO - iDEAL Zelfbouw - v3 library to version 1.0.2.
+  - Switched test and production URL's in config classes.
+
 ## [3.8.5] - 2016-02-05
 
 ### Fixed
@@ -1009,7 +1015,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.5...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...HEAD
+[3.8.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.5...3.8.6
 [3.8.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.4...3.8.5
 [3.8.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.3...3.8.4
 [3.8.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.2...3.8.3
