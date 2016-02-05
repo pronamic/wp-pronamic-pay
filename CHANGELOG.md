@@ -27,6 +27,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Fixed
 - Updated WordPress pay Sisow library to version 1.1.3.
   - Fixed 'Fatal error: Call to a member function set_payment_method() on null'.
+- Updated WordPress pay Gravity Forms library to version 1.4.1.
+  - Fixed 'Warning: Invalid argument supplied for foreach() on line 200'.
 - Fixed 'Fatal error: Function name must be a string in admin/meta-box-gateway-config.php on line 285.'
 
 ## [3.8.3] - 2016-02-04
