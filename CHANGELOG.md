@@ -6,6 +6,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.4] - 2016-02-05
+
 ### Removed
 - Removed the deprecated Rabobank - iDEAL Lite library.
 - Removed the deprecated Rabobank - Rabo iDEAL Kassa library.
@@ -21,6 +23,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Removed the deprecated Fortis Bank - iDEAL Hosted library.
 - Removed the deprecated ABN AMRO - iDEAL Zelfbouw library.
 - Removed the deprecated ABN AMRO - iDEAL Hosted library.
+
+### Fixed
+- Updated WordPress pay Sisow library to version 1.1.3.
+  - Fixed 'Fatal error: Call to a member function set_payment_method() on null'.
+- Fixed 'Fatal error: Function name must be a string in admin/meta-box-gateway-config.php on line 285.'
 
 ## [3.8.3] - 2016-02-04
 
@@ -992,7 +999,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.4...HEAD
+[3.8.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.3...3.8.4
 [3.8.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.2...3.8.3
 [3.8.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.1...3.8.2
 [3.8.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.0...3.8.1

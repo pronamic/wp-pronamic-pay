@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.4.2
-Stable tag: 3.8.3
+Stable tag: 3.8.4
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -291,6 +291,25 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 3.8.4 - 2016-02-05 =
+*	Removed the deprecated Rabobank - iDEAL Lite library.
+*	Removed the deprecated Rabobank - Rabo iDEAL Kassa library.
+*	Removed the deprecated Rabobank - iDEAL Professional library.
+*	Removed the deprecated PayDutch library.
+*	Removed the deprecated NEOS - Internet Kassa library.
+*	Removed the deprecated ING - iDEAL Advanced library.
+*	Removed the deprecated Friesland Bank - iDEAL Zakelijk library.
+*	Removed the deprecated Friesland Bank - iDEAL Zakelijk Plus library.
+*	Removed the deprecated Friesland Bank - iDEAL Zakelijk Plus - v3 library.
+*	Removed the deprecated Fortis Bank - iDEAL Integrated library.
+*	Removed the deprecated Fortis Bank - iDEAL Internet Kassa library.
+*	Removed the deprecated Fortis Bank - iDEAL Hosted library.
+*	Removed the deprecated ABN AMRO - iDEAL Zelfbouw library.
+*	Removed the deprecated ABN AMRO - iDEAL Hosted library.
+*	Updated WordPress pay Sisow library to version 1.1.3.
+	*	Fixed 'Fatal error: Call to a member function set_payment_method() on null'.
+*	Fixed 'Fatal error: Function name must be a string in admin/meta-box-gateway-config.php on line 285.'
 
 = 3.8.3 - 2016-02-04 =
 *	Updated WordPress pay core library to version 1.3.3.

@@ -2,6 +2,13 @@
 	{
 		"version": "Unreleased",
 		"changes": [
+
+		]
+	},
+	{
+		"version": "3.8.4",
+		"date": "2016-02-05",
+		"changes": [
 			{
 				"name": "Removed",
 				"changes": [
@@ -19,6 +26,18 @@
 					"Removed the deprecated Fortis Bank - iDEAL Hosted library.",
 					"Removed the deprecated ABN AMRO - iDEAL Zelfbouw library.",
 					"Removed the deprecated ABN AMRO - iDEAL Hosted library."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Sisow library to version 1.1.3.",
+						"changes": [
+							"Fixed 'Fatal error: Call to a member function set_payment_method() on null'."
+						]
+					},
+					"Fixed 'Fatal error: Function name must be a string in admin/meta-box-gateway-config.php on line 285.'"
 				]
 			}
 		]
