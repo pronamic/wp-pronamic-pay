@@ -12,7 +12,7 @@ if ( $gateway ) {
 	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
 	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
 
-	if ( $is_ideal ) {
+	if ( $is_ideal || $gateway->payment_method_is_required() ) {
 		$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
 	}
 
