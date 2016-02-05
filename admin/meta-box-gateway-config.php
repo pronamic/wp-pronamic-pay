@@ -282,7 +282,7 @@ foreach ( $pronamic_pay_providers as $provider ) {
 							if ( isset( $field['callback'] ) ) {
 								$callback = $field['callback'];
 
-								$callback( $field );
+								call_user_func( $callback, $field );
 							}
 
 							?>

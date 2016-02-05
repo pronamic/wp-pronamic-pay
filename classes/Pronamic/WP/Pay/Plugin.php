@@ -503,9 +503,7 @@ class Pronamic_WP_Pay_Plugin {
 	public function gateway_integrations( $integrations ) {
 		// ABN AMRO
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealHosted_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouw_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
 		// Adyen
@@ -519,14 +517,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_Integration';
 		// Fibonacci ORANGE
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_FibonacciOrange_Integration';
-		// Fortis Bank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealHosted_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealIntegrated_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FortisBank_IDealInternetKassa_Integration';
-		// Friesland Bank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijk_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijkPlus_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FrieslandBank_IDealZakelijkPlusV3_Integration';
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
@@ -534,7 +524,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_Integration';
 		// ING
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealInternetKassa_Integration';
@@ -546,8 +535,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
 		// MultiSafepay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
-		// NEOS
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_NEOS_InternetKassa_Integration';
 		// Ingenico/Ogone
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
@@ -556,8 +543,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
 		// Pay.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayNL_Integration';
-		// PayDutch
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayDutch_Integration';
 		// Paytor
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
 		// Postcode.nl
@@ -565,9 +550,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Qantani
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Rabobank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_RaboIDealKassa_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealLite_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_Integration';
