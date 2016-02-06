@@ -234,6 +234,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 
 	<tbody>
 		<tr>
+			<td><a href="https://www.wpcharitable.com/" target="_blank">Charitable</a></td>
+			<td><a href="http://164a.com/" target="_blank">Studio 164a</a></td>
+			<td><a href="https://wordpress.org/plugins/charitable/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/Charitable/Charitable" target="_blank">GitHub</a></td>
+			<td>1.3</td>
+			<td>1.3</td>
+		</tr>
+		<tr>
 			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
 			<td><a href="http://pippinsplugins.com/" target="_blank">Pippin Williamson</a></td>
 			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>

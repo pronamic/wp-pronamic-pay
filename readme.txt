@@ -16,6 +16,12 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 
 = Extensions =
 
+*	[Charitable](https://www.wpcharitable.com/)
+	*	**Author:** [Studio 164a](http://164a.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/charitable/](https://wordpress.org/plugins/charitable/)
+	*	**GitHub:** [https://github.com/Charitable/Charitable](https://github.com/Charitable/Charitable)
+	*	**Requires at least:** 1.3
+	*	**Tested up to:** 1.3
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 	*	**Author:** [Pippin Williamson](http://pippinsplugins.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
