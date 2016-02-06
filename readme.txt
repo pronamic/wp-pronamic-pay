@@ -139,6 +139,9 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 *	[Campaignify](http://www.astoundify.com/)
 	*	**Author:** [Astoundify](http://www.astoundify.com/)
 	*	**Tested up to:** 1.5
+*	[Charitable](https://www.wpcharitable.com/)
+	*	**Author:** [Studio 164a](http://164a.com/)
+	*	**Tested up to:** 1.3
 
 = Gateways =
 
