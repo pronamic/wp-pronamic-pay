@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d67b21781ac792dbd84bf466d63ed33e",
-    "content-hash": "cdb45f32151e9dcb75cdb5265ffd7db1",
+    "hash": "ad64884971e54f0f763e7fd1b3e4c3d1",
+    "content-hash": "c05bcbc8cebc49acc16af08d4252f2a8",
     "packages": [
         {
             "name": "composer/installers",
@@ -491,6 +491,65 @@
                 "wp"
             ],
             "time": "2015-03-03 12:29:47"
+        },
+        {
+            "name": "wp-pay-extensions/formidable-forms",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/formidable-forms.git",
+                "reference": "73eb2cd219ba09f21d18580232e94e5f69378d06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/73eb2cd219ba09f21d18580232e94e5f69378d06",
+                "reference": "73eb2cd219ba09f21d18580232e94e5f69378d06",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "^1.3.3",
+                "wpackagist-plugin/formidable": "2.0.21"
+            },
+            "require-dev": {
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Formidable Forms driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/formidable-forms/",
+            "keywords": [
+                "Forms",
+                "extension",
+                "formidable",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2016-02-09 14:49:55"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -3751,6 +3810,26 @@
             "homepage": "https://wordpress.org/plugins/easy-digital-downloads/"
         },
         {
+            "name": "wpackagist-plugin/formidable",
+            "version": "2.0.21",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/formidable/",
+                "reference": "tags/2.0.21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/formidable.2.0.21.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/formidable/"
+        },
+        {
             "name": "wpackagist-plugin/ithemes-exchange",
             "version": "1.11.8",
             "source": {
@@ -4579,16 +4658,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.2.0",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d5a3df263ea4fda53d15d5dd7446d2d5f86543e4"
+                "reference": "6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d5a3df263ea4fda53d15d5dd7446d2d5f86543e4",
-                "reference": "d5a3df263ea4fda53d15d5dd7446d2d5f86543e4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59",
+                "reference": "6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59",
                 "shasum": ""
             },
             "require": {
@@ -4600,7 +4679,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": ">=5.6",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "~3.1",
+                "phpunit/php-code-coverage": "~3.0",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": ">=1.0.6",
@@ -4611,7 +4690,7 @@
                 "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
                 "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "~2.0",
+                "sebastian/version": "~1.0|~2.0",
                 "symfony/yaml": "~2.1|~3.0"
             },
             "suggest": {
@@ -4649,7 +4728,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-04 13:12:44"
+            "time": "2016-02-08 12:15:53"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5843,7 +5922,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/formidable-forms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
