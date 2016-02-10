@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ad64884971e54f0f763e7fd1b3e4c3d1",
-    "content-hash": "c05bcbc8cebc49acc16af08d4252f2a8",
+    "hash": "b2d470dc26032295fd46e1fc524fb164",
+    "content-hash": "da141ca5d7d5be25d228ea29e7440890",
     "packages": [
         {
             "name": "composer/installers",
@@ -491,65 +491,6 @@
                 "wp"
             ],
             "time": "2015-03-03 12:29:47"
-        },
-        {
-            "name": "wp-pay-extensions/formidable-forms",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-extensions/formidable-forms.git",
-                "reference": "27af7f07689382a6978b89a84b488ecfd8629b54"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/27af7f07689382a6978b89a84b488ecfd8629b54",
-                "reference": "27af7f07689382a6978b89a84b488ecfd8629b54",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4",
-                "wp-pay/core": "^1.3.3",
-                "wpackagist-plugin/formidable": "2.0.21"
-            },
-            "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "Formidable Forms driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/extensions/formidable-forms/",
-            "keywords": [
-                "Forms",
-                "extension",
-                "formidable",
-                "pay",
-                "pronamic",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2016-02-09 15:30:53"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -3010,25 +2951,30 @@
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "e627dac9f077931253bb59fc6818c1e3f416a12d"
+                "reference": "f9c4867077039bc3843c66416839791b2e2b844a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/e627dac9f077931253bb59fc6818c1e3f416a12d",
-                "reference": "e627dac9f077931253bb59fc6818c1e3f416a12d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/f9c4867077039bc3843c66416839791b2e2b844a",
+                "reference": "f9c4867077039bc3843c66416839791b2e2b844a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -3065,7 +3011,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-01-29 14:38:45"
+            "time": "2016-02-10 09:11:18"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -3451,25 +3397,30 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "8f019fde3dc3ff53d99cc9d46c091e96d1bbd828"
+                "reference": "ba874d53e29d1b3d6938c24f25cce5fce3f730ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/8f019fde3dc3ff53d99cc9d46c091e96d1bbd828",
-                "reference": "8f019fde3dc3ff53d99cc9d46c091e96d1bbd828",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/ba874d53e29d1b3d6938c24f25cce5fce3f730ce",
+                "reference": "ba874d53e29d1b3d6938c24f25cce5fce3f730ce",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -3505,7 +3456,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-05 08:17:02"
+            "time": "2016-02-10 09:13:34"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-advanced",
@@ -3808,26 +3759,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/easy-digital-downloads/"
-        },
-        {
-            "name": "wpackagist-plugin/formidable",
-            "version": "2.0.21",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/formidable/",
-                "reference": "tags/2.0.21"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/formidable.2.0.21.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/formidable/"
         },
         {
             "name": "wpackagist-plugin/ithemes-exchange",
@@ -5922,9 +5853,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-pay-extensions/formidable-forms": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

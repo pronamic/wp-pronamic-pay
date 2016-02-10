@@ -6,6 +6,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.7] - 2016-02-10
+
+### Changed
+- Updated WordPress pay Ogone library to version 1.2.6.
+  - Use PARAMPLUS for the payment ID.
+- Updated WordPress pay Sisow library to version 1.1.4.
+  - Set default payment method to iDEAL if none set.
+
 ## [3.8.6] - 2016-02-05
 
 ### Fixed
@@ -1015,7 +1023,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...HEAD
+[3.8.7]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...3.8.7
 [3.8.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.5...3.8.6
 [3.8.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.4...3.8.5
 [3.8.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.3...3.8.4

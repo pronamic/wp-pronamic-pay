@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-02-05 09:22+0100\n"
+"PO-Revision-Date: 2016-02-10 10:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -31,7 +31,7 @@ msgstr "Betaal nu"
 #: admin/meta-box-form-options.php:38 admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70 templates/form.php:34
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:160
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:180
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:181
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:186
 msgid "Amount"
 msgstr "Bedrag"
@@ -132,8 +132,8 @@ msgstr "Actie URL"
 
 #: admin/meta-box-payment-info.php:75
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:177
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:183
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:178
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:184
 msgid "Status"
 msgstr "Status"
 
@@ -305,7 +305,8 @@ msgstr "Rondleiding starten"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:51 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:51 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -617,7 +618,7 @@ msgstr ""
 "bestanden van verschillende betalingsproviders."
 
 #: admin/pointer-tools.php:43
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:190
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:191
 msgid "Brand"
 msgstr "Merk"
 
@@ -656,7 +657,8 @@ msgstr "Google+"
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:339
-#: classes/Pronamic/WP/Pay/Admin.php:340 vendor/wp-pay/core/src/Gateway.php:370
+#: classes/Pronamic/WP/Pay/Admin.php:340
+#: vendor/wp-pay/core/src/Gateway.php:370
 #: vendor/wp-pay/core/src/PaymentMethods.php:75
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:17
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:32
@@ -1746,7 +1748,7 @@ msgstr "&mdash; Selecteer een gateway &mdash;"
 
 #: classes/Pronamic/WP/Pay/Settings.php:66
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:161
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:179
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:180
 msgid "Currency"
 msgstr "Valuta"
 
@@ -2131,7 +2133,7 @@ msgstr "Bankenlijst"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:305
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:155
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:181
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:182
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
@@ -3146,49 +3148,49 @@ msgstr "Site ID"
 msgid "Site Security Code"
 msgstr "Site Security Code"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:178
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:179
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:144
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:191
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:182
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:183
 msgid "Acceptance"
 msgstr "Acceptance"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:184
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:185
 msgid "Card Number"
 msgstr "Kaartnummer"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:185
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:186
 msgid "End Date"
 msgstr "Einddatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:186
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:187
 msgid "Customer Name"
 msgstr "Klant  naam"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:187
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:188
 msgid "Transaction Date"
 msgstr "Transactiedatum"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:188
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:189
 msgid "Pay ID"
 msgstr "Betaal ID"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:189
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:190
 msgid "NC Error"
 msgstr "NC Fout"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:191
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:192
 msgid "IP"
 msgstr "IP"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:192
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:193
 msgid "SHA Signature"
 msgstr "SHA-handtekening"
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:198
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:199
 msgid "Ogone transaction data in response message:"
 msgstr "Ogone transactiedata in antwoordbericht:"
 
