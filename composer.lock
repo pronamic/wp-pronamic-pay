@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d67b21781ac792dbd84bf466d63ed33e",
-    "content-hash": "cdb45f32151e9dcb75cdb5265ffd7db1",
+    "hash": "b2d470dc26032295fd46e1fc524fb164",
+    "content-hash": "da141ca5d7d5be25d228ea29e7440890",
     "packages": [
         {
             "name": "composer/installers",
@@ -2951,25 +2951,30 @@
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "e627dac9f077931253bb59fc6818c1e3f416a12d"
+                "reference": "f9c4867077039bc3843c66416839791b2e2b844a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/e627dac9f077931253bb59fc6818c1e3f416a12d",
-                "reference": "e627dac9f077931253bb59fc6818c1e3f416a12d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/f9c4867077039bc3843c66416839791b2e2b844a",
+                "reference": "f9c4867077039bc3843c66416839791b2e2b844a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -3006,7 +3011,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-01-29 14:38:45"
+            "time": "2016-02-10 09:11:18"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -3392,25 +3397,30 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "8f019fde3dc3ff53d99cc9d46c091e96d1bbd828"
+                "reference": "ba874d53e29d1b3d6938c24f25cce5fce3f730ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/8f019fde3dc3ff53d99cc9d46c091e96d1bbd828",
-                "reference": "8f019fde3dc3ff53d99cc9d46c091e96d1bbd828",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/ba874d53e29d1b3d6938c24f25cce5fce3f730ce",
+                "reference": "ba874d53e29d1b3d6938c24f25cce5fce3f730ce",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.0",
-                "wp-pay/core": "^1.3.1"
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
             },
             "type": "library",
             "autoload": {
@@ -3446,7 +3456,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-05 08:17:02"
+            "time": "2016-02-10 09:13:34"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-advanced",
@@ -4579,16 +4589,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.2.0",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d5a3df263ea4fda53d15d5dd7446d2d5f86543e4"
+                "reference": "6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d5a3df263ea4fda53d15d5dd7446d2d5f86543e4",
-                "reference": "d5a3df263ea4fda53d15d5dd7446d2d5f86543e4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59",
+                "reference": "6fdb1d3004ebc7071c4ac62f2881d67c5c11fb59",
                 "shasum": ""
             },
             "require": {
@@ -4600,7 +4610,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": ">=5.6",
                 "phpspec/prophecy": "^1.3.1",
-                "phpunit/php-code-coverage": "~3.1",
+                "phpunit/php-code-coverage": "~3.0",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": ">=1.0.6",
@@ -4611,7 +4621,7 @@
                 "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
                 "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "~2.0",
+                "sebastian/version": "~1.0|~2.0",
                 "symfony/yaml": "~2.1|~3.0"
             },
             "suggest": {
@@ -4649,7 +4659,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-04 13:12:44"
+            "time": "2016-02-08 12:15:53"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
