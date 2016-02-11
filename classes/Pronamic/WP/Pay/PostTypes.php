@@ -96,6 +96,10 @@ class Pronamic_WP_Pay_PostTypes {
 			'supports'           => false,
 			'rewrite'            => false,
 			'query_var'          => false,
+			'capabilities'       => array(
+				'create_posts'   => 'do_not_allow',
+			),
+			'map_meta_cap'       => true,
 		) );
 
 		register_post_type( 'pronamic_pay_form', array(
