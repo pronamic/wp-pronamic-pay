@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.4.2
-Stable tag: 3.8.7
+Stable tag: 3.8.8
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -297,6 +297,22 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 3.8.8 - 2016-02-11 =
+*	Updated WordPress pay Sisow library to version 1.1.5.
+	*	Use iDEAL payment method also if none set in issuer field.
+*	Updated WordPress pay s2Member library to version 1.2.2.
+	*	Fixed 'Notice: Undefined index: orderID'.
+	*	Fixed password not included in registration confirmation.
+	*	Added support for payment method in shortcode.
+	*	Removed status code from redirect in status_update.
+*	Updated WordPress pay Event Espresso library to version 1.1.5.
+	*	Fix only first payment updates EE transaction.
+	*	Set default payment method to iDEAL if required.
+	*	Added iDEAL gateway and payment method.
+	*	Removed status code from redirect in status_update.
+*	Updated WordPress pay Event Espresso (legacy 3.1) library to version 1.0.2.
+	*	Removed status code from redirect.
 
 = 3.8.7 - 2016-02-10 =
 *	Updated WordPress pay Ogone library to version 1.2.6.
