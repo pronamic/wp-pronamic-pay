@@ -6,6 +6,47 @@
 		]
 	},
 	{
+		"version": "3.8.8",
+		"date": "2016-02-11",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Sisow library to version 1.1.5.",
+						"changes": [
+							"Use iDEAL payment method also if none set in issuer field."
+						]
+					},
+					{
+						"description": "Updated WordPress pay s2Member library to version 1.2.2.",
+						"changes": [
+							"Fixed 'Notice: Undefined index: orderID'.",
+							"Fixed password not included in registration confirmation.",
+							"Added support for payment method in shortcode.",
+							"Removed status code from redirect in status_update."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Event Espresso library to version 1.1.5.",
+						"changes": [
+							"Fix only first payment updates EE transaction.",
+							"Set default payment method to iDEAL if required.",
+							"Added iDEAL gateway and payment method.",
+							"Removed status code from redirect in status_update."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Event Espresso (legacy 3.1) library to version 1.0.2.",
+						"changes": [
+							"Removed status code from redirect."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "3.8.7",
 		"date": "2016-02-10",
 		"changes": [

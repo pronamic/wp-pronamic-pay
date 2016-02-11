@@ -6,6 +6,24 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.8] - 2016-02-11
+
+### Fixed
+- Updated WordPress pay Sisow library to version 1.1.5.
+  - Use iDEAL payment method also if none set in issuer field.
+- Updated WordPress pay s2Member library to version 1.2.2.
+  - Fixed 'Notice: Undefined index: orderID'.
+  - Fixed password not included in registration confirmation.
+  - Added support for payment method in shortcode.
+  - Removed status code from redirect in status_update.
+- Updated WordPress pay Event Espresso library to version 1.1.5.
+  - Fix only first payment updates EE transaction.
+  - Set default payment method to iDEAL if required.
+  - Added iDEAL gateway and payment method.
+  - Removed status code from redirect in status_update.
+- Updated WordPress pay Event Espresso (legacy 3.1) library to version 1.0.2.
+  - Removed status code from redirect.
+
 ## [3.8.7] - 2016-02-10
 
 ### Changed
@@ -1023,7 +1041,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.8...HEAD
+[3.8.8]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...3.8.8
 [3.8.7]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...3.8.7
 [3.8.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.5...3.8.6
 [3.8.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.4...3.8.5

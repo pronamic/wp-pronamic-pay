@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 3.8.7\n"
+"Project-Id-Version: Pronamic iDEAL 3.8.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:93
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:427
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:113
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr ""
 
@@ -597,10 +597,11 @@ msgstr ""
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:176
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:20
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/IDealGateway.php:21
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:59
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:193
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:133
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:297
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:61
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:197
+#: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:21
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:135
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:299
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:53
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:59
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:2
@@ -1247,9 +1248,10 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:195
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:51
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:84
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:80
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:245
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:86
+#: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:83
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:85
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:247
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:81
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
@@ -1258,7 +1260,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/membership/src/Admin.php:48
 #: vendor/wp-pay-extensions/membership/src/IDealViewSettings.php:9
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:57
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:40
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:41
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:124
 #: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:72
 #: views/eshop/settings-meta-box.php:18
@@ -1585,7 +1587,7 @@ msgstr[1] ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:29
 #: vendor/wp-pay-extensions/membership/src/Admin.php:41
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:30
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:31
 msgid "General"
 msgstr ""
 
@@ -1621,7 +1623,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:102 templates/form.php:157
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:478
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:218
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
 msgstr ""
 
@@ -1709,7 +1711,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:263
 #: vendor/wp-pay-extensions/membership/src/IDealGateway.php:251
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:88
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:73
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:75
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
 msgstr ""
@@ -1760,8 +1762,8 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:82
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:222
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:124
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:149
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:126
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:151
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:239
 msgid "Pay with iDEAL"
 msgstr ""
@@ -1781,7 +1783,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:78
 #: vendor/wp-pay-extensions/membership/src/Admin.php:70
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:92
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:93
 msgid "iDEAL Options"
 msgstr ""
 
@@ -1866,60 +1868,61 @@ msgstr ""
 msgid "Easy Digital Downloads order %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:255
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:328
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:253
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:330
 msgid "Event Espresso"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:260
+#: vendor/wp-pay-extensions/event-espresso/src/Extension.php:258
 #: vendor/wp-pay-extensions/memberpress/src/Extension.php:122
 msgid "Transaction %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/Gateway.php:66
+#: vendor/wp-pay-extensions/event-espresso/src/Gateway.php:67
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway_46.php:67
 msgid "Errors communicating with gateway: %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:118
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:122
 msgid "You have selected \"iDEAL\" as your method of payment"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:119
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:123
 msgid ""
 "After finalizing your registration, you will be transferred to iDEAL where "
 "your payment will be securely processed."
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentData.php:66
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentData.php:67
 msgid "Event Espresso transaction %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:158
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:160
 msgid "Choose a different payment option"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:223
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:225
 msgid "Click to toggle"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:235
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:237
 msgid "Deactivate Pronamic iDEAL?"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:266
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:268
 msgid "Update Settings"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:272
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:274
 msgid "Activate Pronamic iDEAL?"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:333
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:335
 msgid "Attendee #%s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:56
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:83
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:58
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/PaymentData.php:85
 msgid "Attendee %s"
 msgstr ""
 
@@ -2277,7 +2280,7 @@ msgid "MemberPress"
 msgstr ""
 
 #: vendor/wp-pay-extensions/membership/src/Admin.php:69
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:91
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:92
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
@@ -2307,7 +2310,7 @@ msgstr ""
 msgid "Button description"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:49
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:50
 msgid ""
 "Thanks %s! Your membership has been approved.\n"
 "\n"
@@ -2319,119 +2322,119 @@ msgid ""
 "%s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:88
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:89
 msgid "Account Confirmation"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:123
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:124
 msgid "Update user \"%s\" to role \"%s\" and added custom capability \"%s\"."
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Extension.php:214
+#: vendor/wp-pay-extensions/s2member/src/Extension.php:215
 msgid "s2Member"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:35
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:36
 msgid "One Time ( for %s access, non-recurring )"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:39
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:40
 msgid "1 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:40
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:41
 msgid "2 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:41
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:42
 msgid "3 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:42
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:43
 msgid "4 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:43
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:44
 msgid "5 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:44
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:45
 msgid "6 day"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:45
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:46
 msgid "1 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:46
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:47
 msgid "2 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:47
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:48
 msgid "3 week"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:48
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:49
 msgid "1 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:49
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:50
 msgid "2 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:50
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:51
 msgid "3 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:51
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:52
 msgid "4 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:52
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:53
 msgid "5 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:53
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
 msgid "6 month"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
 msgid "1 year"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
 msgid "2 years"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
 msgid "3 years"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
 msgid "4 years"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
 msgid "5 years"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:60
 msgid "lifetime"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:55
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:56
 msgid "Signup Confirmation Email Message"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:100
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:101
 msgid "Pronamic iDEAL Buttons Generator"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:101
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:102
 msgid "iDEAL Buttons"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:72
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:74
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
@@ -2673,7 +2676,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:80
 #: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:66
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:71
-#: vendor/wp-pay-gateways/sisow/src/Gateway.php:60
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:62
 #: vendor/wp-pay-gateways/targetpay/src/Gateway.php:66
 msgid "Choose your bank"
 msgstr ""
