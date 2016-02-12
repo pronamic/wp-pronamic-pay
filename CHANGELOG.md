@@ -6,6 +6,36 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.8.9] - 2016-02-12
+
+### Changed
+- Do not show 'Add New' button in admin for pronamic_payment post type.
+
+### Fixed
+- Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.1.
+  - Extend from the Ingenico/Ogone Easy config class.
+- Updated WordPress pay Gravity Forms library to version 1.4.2.
+  - Renamed 'iDEAL Fields' to 'Payment Fields' since it's more then iDEAL.
+  - Fixed typo `sprint` to `sprintf`.
+- Updated WordPress pay ClassiPress library to version 1.0.1.
+  - Removed status code from redirect in update_status.
+- Updated WordPress pay iThemes Exchange library to version 1.1.1.
+  - WordPress Coding Standards optimizations.
+  - Added escaping functions to improve security.
+  - Changed h2 element to h1 element on admin settings page.
+  - Add support for payment methods, improve error reporting.
+  - Added order ID to payment description.
+  - Removed status code from redirect in status_update.
+- Updated WordPress pay Shopp library to version 1.0.3.
+  - WordPress Coding Standards optimizations.
+  - Added support for payment methods, improved error reporting.
+  - Removed status code from redirect in status_update.
+- Updated WordPress pay WP eCommerce library to version 1.0.2.
+  - WordPress Coding Standards optimizations.
+  - Removed status code from redirect in status_update.
+  - Added Pronamic gateway, whith payment method selector in plugin settings.
+  - iDEAL gateway now uses the iDEAL payment method.
+
 ## [3.8.8] - 2016-02-11
 
 ### Fixed
@@ -1041,7 +1071,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.8...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.9...HEAD
+[3.8.9]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.8...3.8.9
 [3.8.8]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...3.8.8
 [3.8.7]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...3.8.7
 [3.8.6]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.5...3.8.6

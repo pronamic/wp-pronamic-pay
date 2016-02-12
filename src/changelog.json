@@ -6,6 +6,70 @@
 		]
 	},
 	{
+		"version": "3.8.9",
+		"date": "2016-02-12",
+		"changes": [
+			{
+				"name": "Changed",
+				"changes": [
+					"Do not show 'Add New' button in admin for pronamic_payment post type."
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.1.",
+						"changes": [
+							"Extend from the Ingenico/Ogone Easy config class."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.4.2.",
+						"changes": [
+							"Renamed 'iDEAL Fields' to 'Payment Fields' since it's more then iDEAL.",
+							"Fixed typo `sprint` to `sprintf`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ClassiPress library to version 1.0.1.",
+						"changes": [
+							"Removed status code from redirect in update_status."
+						]
+					},
+					{
+						"description": "Updated WordPress pay iThemes Exchange library to version 1.1.1.",
+						"changes": [
+							"WordPress Coding Standards optimizations.",
+							"Added escaping functions to improve security.",
+							"Changed h2 element to h1 element on admin settings page.",
+							"Add support for payment methods, improve error reporting.",
+							"Added order ID to payment description.",
+							"Removed status code from redirect in status_update."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Shopp library to version 1.0.3.",
+						"changes": [
+							"WordPress Coding Standards optimizations.",
+							"Added support for payment methods, improved error reporting.",
+							"Removed status code from redirect in status_update."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WP eCommerce library to version 1.0.2.",
+						"changes": [
+							"WordPress Coding Standards optimizations.",
+							"Removed status code from redirect in status_update.",
+							"Added Pronamic gateway, whith payment method selector in plugin settings.",
+							"iDEAL gateway now uses the iDEAL payment method."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "3.8.8",
 		"date": "2016-02-11",
 		"changes": [
