@@ -60,6 +60,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
+		Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
 
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
