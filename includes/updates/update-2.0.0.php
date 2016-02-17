@@ -50,7 +50,7 @@ DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 // Configs
 //////////////////////////////////////////////////
 
-global $pronamic_pay_gateways;
+global $pronamic_ideal;
 
 $config_table = $wpdb->prefix . 'pronamic_ideal_configurations';
 
@@ -94,8 +94,10 @@ while ( $have_configs ) {
 	foreach ( $configs as $config ) {
 		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
-		if ( isset( $pronamic_pay_gateways[ $config->variant_id ] ) ) {
-			$title = @$pronamic_pay_gateways[ $config->variant_id ]['name'];
+		$integration = $pronamic_ideal->get_integration( $config->variant_id );
+
+		if ( $integration ) {
+			$title = $integration->get_name();
 		}
 
 		// Post

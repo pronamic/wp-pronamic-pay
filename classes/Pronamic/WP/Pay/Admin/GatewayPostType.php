@@ -53,15 +53,14 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	}
 
 	function custom_columns( $column, $post_id ) {
-		global $post;
-		global $pronamic_pay_gateways;
+		$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
+
+		$integration = $this->admin->plugin->gateway_integrations->get_integration( $id );
 
 		switch ( $column ) {
 			case 'pronamic_gateway_variant':
-				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-
-				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
-					echo esc_html( $pronamic_pay_gateways[ $id ]['name'] );
+				if ( $integration ) {
+					echo esc_html( $integration->get_name() );
 				} else {
 					echo esc_html( $id );
 				}
@@ -102,25 +101,13 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			case 'pronamic_gateway_dashboard':
 				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
-				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
+				if ( $integration ) {
 					$urls = array();
 
-					if ( isset( $pronamic_pay_gateways[ $id ]['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['dashboard_url'];
+					if ( isset( $integration->dashboard_url ) ) {
+						$url = $integration->dashboard_url;
 
 						$urls[ $url ] = __( 'Dashboard', 'pronamic_ideal' );
-					}
-
-					if ( isset( $pronamic_pay_gateways[ $id ]['test'], $pronamic_pay_gateways[ $id ]['test']['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['test']['dashboard_url'];
-
-						$urls[ $url ] = __( 'Test', 'pronamic_ideal' );
-					}
-
-					if ( isset( $pronamic_pay_gateways[ $id ]['live'], $pronamic_pay_gateways[ $id ]['live']['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['live']['dashboard_url'];
-
-						$urls[ $url ] = __( 'Production', 'pronamic_ideal' );
 					}
 
 					// Output

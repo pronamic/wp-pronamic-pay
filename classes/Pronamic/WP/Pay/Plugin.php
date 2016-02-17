@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_Plugin {
 		self::$dirname = dirname( $file );
 
 		// Plugin
-		$plugin = new Pronamic_WP_Pay_Plugin();
+		return new Pronamic_WP_Pay_Plugin();
 	}
 
 	/**
@@ -96,7 +96,6 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/formatting.php';
 		require_once self::$dirname . '/includes/page-functions.php';
 		require_once self::$dirname . '/includes/providers.php';
-		require_once self::$dirname . '/includes/gateways.php';
 		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
@@ -550,6 +549,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
 		// Rabobank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow

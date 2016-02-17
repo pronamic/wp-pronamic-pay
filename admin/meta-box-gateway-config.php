@@ -24,21 +24,6 @@ global $pronamic_pay_providers;
 
 bind_providers_and_gateways();
 
-foreach ( $pronamic_pay_providers as $provider ) {
-	$group = array(
-		'name'    => $provider['name'],
-		'options' => array(),
-	);
-
-	if ( isset( $provider['gateways'] ) ) {
-		foreach ( $provider['gateways'] as $id => $gateway ) {
-			$group['options'][ $id ] = $gateway['name'];
-		}
-	}
-
-	$options[] = $group;
-}
-
 ?>
 <div id="pronamic-pay-gateway-config-editor">
 	<?php wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' ); ?>
@@ -57,14 +42,15 @@ foreach ( $pronamic_pay_providers as $provider ) {
 					<?php
 
 					foreach ( $pronamic_pay_providers as $provider ) {
-						if ( isset( $provider['gateways'] ) && is_array( $provider['gateways'] ) ) {
+						if ( isset( $provider['integrations'] ) && is_array( $provider['integrations'] ) ) {
 							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
 
-							foreach ( $provider['gateways'] as $id => $gateway ) {
+							foreach ( $provider['integrations'] as $integration ) {
+								$id      = $integration->get_id();
+								$name    = $integration->get_name();
 								$classes = array();
-								$name    = $gateway['name'];
 
-								if ( isset( $gateway['deprecated'] ) && $gateway['deprecated'] ) {
+								if ( isset( $integration->deprecated ) && $integration->deprecated  ) {
 									$classes[] = 'deprecated';
 
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );

@@ -30,4 +30,6 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 /**
  * Bootstrap
  */
-Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
+global $pronamic_ideal;
+
+$pronamic_ideal = Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );

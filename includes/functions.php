@@ -42,17 +42,18 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
 
 function bind_providers_and_gateways() {
 	global $pronamic_pay_providers;
-	global $pronamic_pay_gateways;
 
-	foreach ( $pronamic_pay_gateways as $id => $gateway ) {
-		if ( isset( $pronamic_pay_providers[ $gateway['provider'] ] ) ) {
-			$provider =& $pronamic_pay_providers[ $gateway['provider'] ];
+	global $pronamic_ideal;
 
-			if ( ! isset( $provider['gateways'] ) ) {
-				$provider['gateways'] = array();
+	foreach ( $pronamic_ideal->gateway_integrations as $integration ) {
+		if ( isset( $pronamic_pay_providers[ $integration->provider ] ) ) {
+			$provider =& $pronamic_pay_providers[ $integration->provider ];
+
+			if ( ! isset( $provider['integrations'] ) ) {
+				$provider['integrations'] = array();
 			}
 
-			$provider['gateways'][ $id ] = $gateway;
+			$provider['integrations'][] = $integration;
 		}
 	}
 }

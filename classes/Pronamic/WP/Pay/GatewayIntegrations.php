@@ -38,6 +38,18 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 	}
 
 	/**
+	 * Get an integration by the specified ID.
+	 *
+	 * @param string $id
+	 * @return mixed
+	 */
+	public function get_integration( $id ) {
+		if ( isset( $this->integrations[ $id ] ) ) {
+			return $this->integrations[ $id ];
+		}
+	}
+
+	/**
 	 * Get iterator
 	 *
 	 * @return ArrayIterator

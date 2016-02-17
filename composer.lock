@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ace3c6e6c0e29e07bb4e81bae3e4798d",
-    "content-hash": "b80b4ee324b9580a5a6010e0dd6f58a8",
+    "hash": "419d033fdb1b2c266c0b966b485e8011",
+    "content-hash": "15bad39d01005d2b9cb4b9cef482a1ee",
     "packages": [
         {
             "name": "composer/installers",
@@ -498,12 +498,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/formidable-forms.git",
-                "reference": "bd0286f4b74f96980f1e02342e8722d70df7eb04"
+                "reference": "2cef85b1778959ab922bc6ab6b581d5f9642ff61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/bd0286f4b74f96980f1e02342e8722d70df7eb04",
-                "reference": "bd0286f4b74f96980f1e02342e8722d70df7eb04",
+                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/2cef85b1778959ab922bc6ab6b581d5f9642ff61",
+                "reference": "2cef85b1778959ab922bc6ab6b581d5f9642ff61",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +549,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-17 10:35:51"
+            "time": "2016-02-17 10:54:09"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -1735,16 +1735,16 @@
         },
         {
             "name": "wp-pay-gateways/easy-ideal",
-            "version": "1.0.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/easy-ideal.git",
-                "reference": "59a9eb927534970a904cc50f7d192581ca3c29bd"
+                "reference": "0f40cab1322352d5e9ee203b4b0b2fdfbe4461cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/easy-ideal/zipball/59a9eb927534970a904cc50f7d192581ca3c29bd",
-                "reference": "59a9eb927534970a904cc50f7d192581ca3c29bd",
+                "url": "https://api.github.com/repos/wp-pay-gateways/easy-ideal/zipball/0f40cab1322352d5e9ee203b4b0b2fdfbe4461cd",
+                "reference": "0f40cab1322352d5e9ee203b4b0b2fdfbe4461cd",
                 "shasum": ""
             },
             "require": {
@@ -1785,9 +1785,10 @@
                     "role": "Company"
                 }
             ],
-            "description": "ABN AMRO - iDEAL Only Kassa driver for the WordPress payment processing library.",
+            "description": "Easy iDeal driver for the WordPress payment processing library.",
             "homepage": "http://www.wp-pay.org/gateways/easy-ideal/",
             "keywords": [
+                "deprecated",
                 "easy",
                 "gateway",
                 "ideal",
@@ -1797,7 +1798,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-01 10:51:36"
+            "time": "2016-02-17 13:56:22"
         },
         {
             "name": "wp-pay-gateways/fibonacciorange",
@@ -3328,16 +3329,16 @@
         },
         {
             "name": "wp-pay-gateways/qantani",
-            "version": "1.0.6",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/qantani.git",
-                "reference": "2ba05da92091855827c56c6ee4cc78105d0928c3"
+                "reference": "557c6acf4cf2eea4d019ecf37338a1796fe5a25e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/qantani/zipball/2ba05da92091855827c56c6ee4cc78105d0928c3",
-                "reference": "2ba05da92091855827c56c6ee4cc78105d0928c3",
+                "url": "https://api.github.com/repos/wp-pay-gateways/qantani/zipball/557c6acf4cf2eea4d019ecf37338a1796fe5a25e",
+                "reference": "557c6acf4cf2eea4d019ecf37338a1796fe5a25e",
                 "shasum": ""
             },
             "require": {
@@ -3375,6 +3376,7 @@
             "description": "Qantani driver for the WordPress payment processing library.",
             "homepage": "http://www.wp-pay.org/gateways/qantani/",
             "keywords": [
+                "deprecated",
                 "gateway",
                 "pay",
                 "pronamic",
@@ -3382,7 +3384,72 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-01 10:48:39"
+            "time": "2016-02-17 13:57:57"
+        },
+        {
+            "name": "wp-pay-gateways/qantani-mollie",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/qantani-mollie.git",
+                "reference": "8673c72deb0f3c94a62ff1482866a331d3dc0913"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/qantani-mollie/zipball/8673c72deb0f3c94a62ff1482866a331d3dc0913",
+                "reference": "8673c72deb0f3c94a62ff1482866a331d3dc0913",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay-gateways/common": "^1.0.0",
+                "wp-pay-gateways/mollie": "^1.1.3",
+                "wp-pay/core": "^1.3.1",
+                "xrstf/composer-php52": "1.*"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Qantani Mollie driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/qantani-mollie/",
+            "keywords": [
+                "gateway",
+                "mollie",
+                "pay",
+                "pronamic",
+                "qantani",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2016-02-17 14:13:58"
         },
         {
             "name": "wp-pay-gateways/rabobank-ideal-professional-v3",
@@ -5978,9 +6045,19 @@
             "time": "2015-10-02 22:20:22"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.7",
+            "alias_normalized": "1.0.7.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/qantani"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-gateways/easy-ideal": 20,
+        "wp-pay-gateways/qantani": 20,
+        "wp-pay-gateways/qantani-mollie": 20,
         "wp-pay-extensions/formidable-forms": 20
     },
     "prefer-stable": false,
