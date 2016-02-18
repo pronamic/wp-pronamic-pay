@@ -29,6 +29,7 @@ msgstr ""
 
 #: admin/meta-box-form-options.php:38 admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70 templates/form.php:34
+#: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:160
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:181
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:186
@@ -47,42 +48,41 @@ msgstr ""
 msgid "Show as choices with input field"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:50
+#: admin/meta-box-gateway-config.php:35
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:45
 msgid "Variant"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:70
+#: admin/meta-box-gateway-config.php:56
 msgid "%s (obsoleted)"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:302
+#: admin/meta-box-gateway-config.php:288
 msgid "Private Key and Certificate Generator"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:306
+#: admin/meta-box-gateway-config.php:292
 msgid ""
 "You have to use the following commands to generate an private key and "
 "certificate for iDEAL v3:"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:313
+#: admin/meta-box-gateway-config.php:299
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:61
 msgid "Private Key"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:322
+#: admin/meta-box-gateway-config.php:308
 msgid "filename"
 msgstr ""
 
-#: admin/meta-box-gateway-config.php:337
+#: admin/meta-box-gateway-config.php:323
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:72
 msgid "Private Certificate"
 msgstr ""
 
 #: admin/meta-box-gateway-test.php:35
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:117
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:204
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:191
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:36
 msgid "Test"
 msgstr ""
@@ -347,7 +347,7 @@ msgstr ""
 
 #: admin/pointer-dashboard.php:1
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:48
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:111
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:110
 #: classes/Pronamic/WP/Pay/Admin.php:394
 msgid "Dashboard"
 msgstr ""
@@ -854,6 +854,9 @@ msgid "Not scheduled"
 msgstr ""
 
 #: admin/tab-methods.php:12
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:46
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:61
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:86
 msgid "Payment Methods"
 msgstr ""
 
@@ -1237,15 +1240,11 @@ msgstr ""
 msgid "Shortcode:"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:123
-msgid "Production"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:158
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:145
 msgid "Default"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:195
+#: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:182
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:31
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:51
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:86
@@ -1378,7 +1377,7 @@ msgstr ""
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:593
+#: classes/Pronamic/WP/Pay/Plugin.php:594
 msgid "Payment for %s"
 msgstr ""
 
@@ -1663,19 +1662,15 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr ""
 
-#: includes/gateways.php:282
-msgid "https://www.icepay.com/Merchant/EN/Reports/Transactions"
-msgstr ""
-
 #: includes/updates/update-2.0.0.php:95
 msgid "Configuration %d"
 msgstr ""
 
-#: includes/updates/update-2.0.0.php:265
+#: includes/updates/update-2.0.0.php:267
 msgid "Payment Form %d"
 msgstr ""
 
-#: includes/updates/update-2.0.0.php:376
+#: includes/updates/update-2.0.0.php:378
 msgid "Payment %d"
 msgstr ""
 
@@ -1928,6 +1923,33 @@ msgstr ""
 msgid "Attendee %s"
 msgstr ""
 
+#: vendor/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:49
+#: vendor/wp-pay-extensions/formidable-forms/src/BankSelectFieldType.php:64
+msgid "Banks"
+msgstr ""
+
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:88
+msgid "Formidable"
+msgstr ""
+
+#: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:96
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:117
+msgid "Entry #%s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentAction.php:21
+msgid "Pronamic Pay"
+msgstr ""
+
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentData.php:74
+#: vendor/wp-pay-extensions/formidable-forms/src/PaymentData.php:84
+msgid "Formidable entry %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:33
+msgid "— Select Field —"
+msgstr ""
+
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:88
 msgid "Payment Status"
 msgstr ""
@@ -1955,10 +1977,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:112
 msgid "Gravity Forms"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:117
-msgid "Entry #%s"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:70
@@ -3174,8 +3192,16 @@ msgid ""
 "admin page</a> under <a href=\"%s\" target=\"_blank\">Manage » Services</a>."
 msgstr ""
 
+#: vendor/wp-pay-gateways/qantani/src/Integration.php:6
+msgid "Qantani (old platform)"
+msgstr ""
+
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:22
 msgid "Qantani"
+msgstr ""
+
+#: vendor/wp-pay-gateways/qantani-mollie/src/Integration.php:15
+msgid "Qantani (new platform)"
 msgstr ""
 
 #: vendor/wp-pay-gateways/sisow/src/Client.php:136

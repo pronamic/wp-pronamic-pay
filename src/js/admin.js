@@ -337,12 +337,15 @@
 		 * Update config
 		 */
 		this.updateConfigFields = function() {
-			var method = elements.variantId.find( 'option:selected' ).attr( 'data-ideal-method' );
+			var settings = elements.variantId.find( 'option:selected' ).data( 'pronamic-pay-settings' );
 
 			$element.find( '.extra-settings' ).hide();
-			$element.find( '.method-' + method ).show();
+
+			$.each( settings, function( index, value ) {
+				$element.find( '.setting-' + value ).show();
+			} );
 		};
-		
+
 		/**
 		 * Update fields
 		 */

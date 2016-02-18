@@ -61,8 +61,8 @@ bind_providers_and_gateways();
 								}
 
 								printf(
-									'<option data-ideal-method="%s" value="%s" %s class="%s">%s</option>',
-									esc_attr( $gateway['gateway'] ),
+									'<option data-pronamic-pay-settings="%s" value="%s" %s class="%s">%s</option>',
+									esc_attr( wp_json_encode( $integration->get_settings() ) ),
 									esc_attr( $id ),
 									selected( $variant_id, $id, false ),
 									esc_attr( implode( ' ', $classes ) ),
@@ -89,7 +89,7 @@ bind_providers_and_gateways();
 			$classes[] = 'extra-settings';
 
 			foreach ( $section['methods'] as $method ) {
-				$classes[] = 'method-' . $method;
+				$classes[] = 'setting-' . $method;
 			}
 		}
 
@@ -125,7 +125,7 @@ bind_providers_and_gateways();
 						$classes[] = 'extra-settings';
 
 						foreach ( $field['methods'] as $method ) {
-							$classes[] = 'method-' . $method;
+							$classes[] = 'setting-' . $method;
 						}
 					}
 
