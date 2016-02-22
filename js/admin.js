@@ -341,9 +341,11 @@
 
 			$element.find( '.extra-settings' ).hide();
 
-			$.each( settings, function( index, value ) {
-				$element.find( '.setting-' + value ).show();
-			} );
+			if ( $.isArray( settings ) ) {
+				$.each( settings, function( index, value ) {
+					$element.find( '.setting-' + value ).show();
+				} );
+			}
 		};
 
 		/**
