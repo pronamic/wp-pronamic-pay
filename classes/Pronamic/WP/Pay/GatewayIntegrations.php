@@ -32,8 +32,6 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 			$this->integrations[ $object->get_id() ] = $object;
 
 			Pronamic_WP_Pay_ConfigProvider::register( $object->get_id(), $object->get_config_factory_class() );
-
-			Pronamic_WP_Pay_GatewayFactory::register( $object->get_config_class(), $object->get_gateway_class() );
 		}
 	}
 
