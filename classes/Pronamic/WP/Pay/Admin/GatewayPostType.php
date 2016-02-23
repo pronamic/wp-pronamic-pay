@@ -220,6 +220,25 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Maybe set the default gateway.
+	 *
+	 * @param int $post_id
+	 */
+	private function maybe_set_default_gateway( $post_id ) {
+		// Don't set the default gateway if the post is not published.
+		if ( 'publish' !== get_post_status ( $post_id ) ) {
+			return;
+		}
+
+		// Don't set the default gateway if there is already a published gateway set.
+		if ( 'publish' === get_post_status( get_option( 'pronamic_pay_config_id' ) ) ) {
+			return;
+		}
+
+		update_option( 'pronamic_pay_config_id', $post_id );
+	}
+
+	/**
 	 * When the post is saved, saves our custom data.
 	 *
 	 * @param int $post_id The ID of the post being saved.
@@ -238,6 +257,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		/* OK, its safe for us to save the data now. */
+		$this->maybe_set_default_gateway( $post_id );
+
 		$fields = $this->admin->gateway_settings->get_fields();
 
 		$definition = array(
