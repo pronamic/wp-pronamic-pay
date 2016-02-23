@@ -203,6 +203,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_config( $post ) {
+		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
+
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
@@ -223,17 +225,12 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	public function save_post( $post_id ) {
-		// Check if our nonce is set.
+		// Nonce
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return $post_id;
 		}
 
-		$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
-
-		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_gateway' ) ) {
-			return $post_id;
-		}
+		check_admin_referer( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {

@@ -26,8 +26,6 @@ bind_providers_and_gateways();
 
 ?>
 <div id="pronamic-pay-gateway-config-editor">
-	<?php wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' ); ?>
-
 	<table class="form-table">
 		<tr>
 			<th scope="row">
