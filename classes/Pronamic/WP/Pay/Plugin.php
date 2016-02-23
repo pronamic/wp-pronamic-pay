@@ -520,7 +520,6 @@ class Pronamic_WP_Pay_Plugin {
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_Integration';
 		// ING
@@ -531,7 +530,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Mollie
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
 		// MultiSafepay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
@@ -554,7 +552,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_Integration';
 		// TargetPay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_TargetPay_Integration';
