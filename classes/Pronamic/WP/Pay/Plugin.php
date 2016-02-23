@@ -536,7 +536,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Ingenico/Ogone
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration';
 		// OmniKassa
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
 		// Pay.nl
