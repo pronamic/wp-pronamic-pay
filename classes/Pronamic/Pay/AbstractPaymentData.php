@@ -71,6 +71,14 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 		return $this->getOwnerZip();
 	}
 
+	public function get_country() {
+		return null;
+	}
+
+	public function get_telephone_number() {
+		return null;
+	}
+
 	//////////////////////////////////////////////////
 	// Currency
 	//////////////////////////////////////////////////
