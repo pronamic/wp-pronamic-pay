@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5de315ab76a4a17f37fa6119677fbfc2",
-    "content-hash": "1fc0e8bb9cc81170ad3d78f072f55329",
+    "hash": "119aba9052745931b176fac0bb462f07",
+    "content-hash": "580bb2bce4c2bfec54627a0aa1576cda",
     "packages": [
         {
             "name": "composer/installers",
@@ -553,16 +553,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.4.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "54a68486cdb196fd90ef7e0bad7c841f519d6148"
+                "reference": "20c2affe8e0056dd1189214964747c4eeea109e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/54a68486cdb196fd90ef7e0bad7c841f519d6148",
-                "reference": "54a68486cdb196fd90ef7e0bad7c841f519d6148",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/20c2affe8e0056dd1189214964747c4eeea109e8",
+                "reference": "20c2affe8e0056dd1189214964747c4eeea109e8",
                 "shasum": ""
             },
             "require": {
@@ -609,7 +609,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-12 08:35:18"
+            "time": "2016-02-24 09:10:25"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2879,12 +2879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "abd98f764b9252fd7d8d7b1075fb45606ab219d7"
+                "reference": "a05995083bca5efe424bd1d5b41eb96fee5656b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/abd98f764b9252fd7d8d7b1075fb45606ab219d7",
-                "reference": "abd98f764b9252fd7d8d7b1075fb45606ab219d7",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/a05995083bca5efe424bd1d5b41eb96fee5656b1",
+                "reference": "a05995083bca5efe424bd1d5b41eb96fee5656b1",
                 "shasum": ""
             },
             "require": {
@@ -2935,7 +2935,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-23 14:38:13"
+            "time": "2016-02-23 15:59:56"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -2943,12 +2943,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa.git",
-                "reference": "bfcd8562ecdff73a83b68f293103128e27f0fe89"
+                "reference": "5b7aa06a8f4e52fe1ecea14ee49c563771bb4b8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa/zipball/bfcd8562ecdff73a83b68f293103128e27f0fe89",
-                "reference": "bfcd8562ecdff73a83b68f293103128e27f0fe89",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa/zipball/5b7aa06a8f4e52fe1ecea14ee49c563771bb4b8a",
+                "reference": "5b7aa06a8f4e52fe1ecea14ee49c563771bb4b8a",
                 "shasum": ""
             },
             "require": {
@@ -2993,7 +2993,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-23 14:40:08"
+            "time": "2016-02-23 14:56:02"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -5950,6 +5950,12 @@
             "alias_normalized": "1.0.7.0",
             "version": "dev-develop",
             "package": "wp-pay-gateways/targetpay"
+        },
+        {
+            "alias": "1.4.2",
+            "alias_normalized": "1.4.2.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
         }
     ],
     "minimum-stability": "stable",
@@ -5974,7 +5980,8 @@
         "wp-pay-gateways/qantani-mollie": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
-        "wp-pay-extensions/formidable-forms": 20
+        "wp-pay-extensions/formidable-forms": 20,
+        "wp-pay-extensions/gravityforms": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

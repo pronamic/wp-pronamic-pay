@@ -254,10 +254,8 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_gateway',
 			'pronamic_payment',
 			'pronamic_pay_form',
-			'pronamic_pay_gf',
 		) );
 		$enqueue |= 'dashboard' === $screen->id;
-		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 
