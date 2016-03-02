@@ -1,7 +1,3 @@
-/* global ajaxurl */
-/* global fieldSettings */
-/* global gform */
-/* global form */
 ( function( $ ) {
 	/**
 	 * Pronamic iDEAL config prototype
