@@ -74,11 +74,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Form Processor
 		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
 
-		// Gateway Integrations
-		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
-
-		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
-
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
@@ -385,6 +380,11 @@ class Pronamic_WP_Pay_Plugin {
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
+
+		// Gateway Integrations
+		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
+
+		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 	}
 
 	//////////////////////////////////////////////////

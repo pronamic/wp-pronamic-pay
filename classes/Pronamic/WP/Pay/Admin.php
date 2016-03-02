@@ -42,9 +42,6 @@ class Pronamic_WP_Pay_Admin {
 		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
-
-		// Gateway settings
-		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	//////////////////////////////////////////////////
@@ -65,6 +62,9 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+
+		// Gateway settings
+		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	/**
