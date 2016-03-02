@@ -42,9 +42,6 @@ class Pronamic_WP_Pay_Admin {
 		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
 		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
 		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
-
-		// Gateway settings
-		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	//////////////////////////////////////////////////
@@ -65,6 +62,9 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+
+		// Gateway settings
+		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 	}
 
 	/**
@@ -254,10 +254,8 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_gateway',
 			'pronamic_payment',
 			'pronamic_pay_form',
-			'pronamic_pay_gf',
 		) );
 		$enqueue |= 'dashboard' === $screen->id;
-		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
 

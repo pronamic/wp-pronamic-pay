@@ -282,6 +282,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>4.4.4.decaf</td>
 		</tr>
 		<tr>
+			<td><a href="https://formidablepro.com/" target="_blank">Formidable Forms</a></td>
+			<td></td>
+			<td><a href="https://wordpress.org/plugins/formidable/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/Strategy11/formidable-forms" target="_blank">GitHub</a></td>
+			<td>2.0.22</td>
+			<td>2.0.22</td>
+		</tr>
+		<tr>
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
 			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
 			<td></td>

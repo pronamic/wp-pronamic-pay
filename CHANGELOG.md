@@ -6,6 +6,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [3.9.0] - 2016-03-02
+
+### Added
+- Added experimental support for Formidable Forms.
+- Added support for new Qantani platform via Mollie.
+
+### Removed
+- Removed support for deprecated 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw' integration.
+- Removed support for deprecated 'Mollie - iDEAL Advanced' integration.
+- Removed support for deprecated 'Sisow - iDEAL Advanced' integration.
+
 ## [3.8.9] - 2016-02-12
 
 ### Changed
@@ -1071,7 +1082,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.9...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.9.0...HEAD
+[3.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.9...3.9.0
 [3.8.9]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.8...3.8.9
 [3.8.8]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...3.8.8
 [3.8.7]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.6...3.8.7

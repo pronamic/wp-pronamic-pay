@@ -53,15 +53,14 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	}
 
 	function custom_columns( $column, $post_id ) {
-		global $post;
-		global $pronamic_pay_gateways;
+		$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
+
+		$integration = $this->admin->plugin->gateway_integrations->get_integration( $id );
 
 		switch ( $column ) {
 			case 'pronamic_gateway_variant':
-				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-
-				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
-					echo esc_html( $pronamic_pay_gateways[ $id ]['name'] );
+				if ( $integration ) {
+					echo esc_html( $integration->get_name() );
 				} else {
 					echo esc_html( $id );
 				}
@@ -102,25 +101,13 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			case 'pronamic_gateway_dashboard':
 				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
-				if ( isset( $pronamic_pay_gateways[ $id ] ) ) {
+				if ( $integration ) {
 					$urls = array();
 
-					if ( isset( $pronamic_pay_gateways[ $id ]['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['dashboard_url'];
+					if ( isset( $integration->dashboard_url ) ) {
+						$url = $integration->dashboard_url;
 
 						$urls[ $url ] = __( 'Dashboard', 'pronamic_ideal' );
-					}
-
-					if ( isset( $pronamic_pay_gateways[ $id ]['test'], $pronamic_pay_gateways[ $id ]['test']['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['test']['dashboard_url'];
-
-						$urls[ $url ] = __( 'Test', 'pronamic_ideal' );
-					}
-
-					if ( isset( $pronamic_pay_gateways[ $id ]['live'], $pronamic_pay_gateways[ $id ]['live']['dashboard_url'] ) ) {
-						$url = $pronamic_pay_gateways[ $id ]['live']['dashboard_url'];
-
-						$urls[ $url ] = __( 'Production', 'pronamic_ideal' );
 					}
 
 					// Output
@@ -216,6 +203,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_config( $post ) {
+		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
+
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
@@ -231,22 +220,36 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Maybe set the default gateway.
+	 *
+	 * @param int $post_id
+	 */
+	private function maybe_set_default_gateway( $post_id ) {
+		// Don't set the default gateway if the post is not published.
+		if ( 'publish' !== get_post_status ( $post_id ) ) {
+			return;
+		}
+
+		// Don't set the default gateway if there is already a published gateway set.
+		if ( 'publish' === get_post_status( get_option( 'pronamic_pay_config_id' ) ) ) {
+			return;
+		}
+
+		update_option( 'pronamic_pay_config_id', $post_id );
+	}
+
+	/**
 	 * When the post is saved, saves our custom data.
 	 *
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	public function save_post( $post_id ) {
-		// Check if our nonce is set.
+		// Nonce
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return $post_id;
 		}
 
-		$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
-
-		// Verify that the nonce is valid.
-		if ( ! wp_verify_nonce( $nonce, 'pronamic_pay_save_gateway' ) ) {
-			return $post_id;
-		}
+		check_admin_referer( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -254,6 +257,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		}
 
 		/* OK, its safe for us to save the data now. */
+		$this->maybe_set_default_gateway( $post_id );
+
 		$fields = $this->admin->gateway_settings->get_fields();
 
 		$definition = array(

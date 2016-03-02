@@ -45,15 +45,49 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	// Customer
 	//////////////////////////////////////////////////
 
-	public abstract function get_email();
+	public function get_email() {
+		return null;
+	}
 
-	public abstract function getCustomerName();
+	public function getCustomerName() {
+		return $this->get_customer_name();
+	}
 
-	public abstract function getOwnerAddress();
+	public function get_customer_name() {
+		return null;
+	}
 
-	public abstract function getOwnerCity();
+	public function getOwnerAddress() {
+		return $this->get_address();
+	}
 
-	public abstract function getOwnerZip();
+	public function get_address() {
+		return null;
+	}
+
+	public function getOwnerCity() {
+		return $this->get_city();
+	}
+
+	public function get_city() {
+		return null;
+	}
+
+	public function getOwnerZip() {
+		return $this->get_zip();
+	}
+
+	public function get_zip() {
+		return null;
+	}
+
+	public function get_country() {
+		return null;
+	}
+
+	public function get_telephone_number() {
+		return null;
+	}
 
 	//////////////////////////////////////////////////
 	// Currency

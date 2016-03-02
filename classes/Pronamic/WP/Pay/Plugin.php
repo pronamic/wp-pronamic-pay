@@ -36,7 +36,7 @@ class Pronamic_WP_Pay_Plugin {
 		self::$dirname = dirname( $file );
 
 		// Plugin
-		$plugin = new Pronamic_WP_Pay_Plugin();
+		return new Pronamic_WP_Pay_Plugin();
 	}
 
 	/**
@@ -60,6 +60,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
+		Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
 
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
@@ -72,11 +73,6 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Form Processor
 		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
-
-		// Gateway Integrations
-		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
-
-		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
 		// Admin
 		if ( is_admin() ) {
@@ -95,7 +91,6 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/formatting.php';
 		require_once self::$dirname . '/includes/page-functions.php';
 		require_once self::$dirname . '/includes/providers.php';
-		require_once self::$dirname . '/includes/gateways.php';
 		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
@@ -385,6 +380,11 @@ class Pronamic_WP_Pay_Plugin {
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
+
+		// Gateway Integrations
+		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
+
+		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 	}
 
 	//////////////////////////////////////////////////
@@ -520,7 +520,6 @@ class Pronamic_WP_Pay_Plugin {
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_Integration';
 		// ING
@@ -531,14 +530,12 @@ class Pronamic_WP_Pay_Plugin {
 		// Mollie
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
 		// MultiSafepay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
 		// Ingenico/Ogone
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration';
 		// OmniKassa
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
 		// Pay.nl
@@ -549,11 +546,11 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
 		// Rabobank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealAdvanced_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_Integration';
 		// TargetPay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_TargetPay_Integration';
