@@ -46,6 +46,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.4.decaf
 	*	**Tested up to:** 4.4.4.decaf
+*	[Formidable Forms](https://formidablepro.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
+	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
+	*	**Requires at least:** 2.0.22
+	*	**Tested up to:** 2.0.22
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
