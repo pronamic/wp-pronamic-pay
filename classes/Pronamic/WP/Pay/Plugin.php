@@ -521,7 +521,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_Integration';
 		// ING
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
