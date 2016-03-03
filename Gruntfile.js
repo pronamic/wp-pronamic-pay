@@ -424,6 +424,12 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
 
+	grunt.registerTask( 'build', [
+		'assets',
+		'min',
+		'pot'
+	] );
+
 	grunt.registerTask( 'deploy', [
 		'default',
 		'assets',
