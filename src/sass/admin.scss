@@ -81,26 +81,30 @@ td.column-version {
 /**
  * Gateway config postbox
  */
-#pronamic_gateway_config option.deprecated {
-	color: #AAA;
-}
+#pronamic_gateway_config {
+	option.deprecated {
+		color: #AAA;
+	}
 
-#pronamic_gateway_config .gateway-config-section-header {
-	background: #f0f0f0;
-	border-bottom: 1px solid #ccc;
+	.gateway-config-section-header {
+		h4 {
+			margin: 0;
+		}
 
-	margin: 1.33em 0;
-	padding: 5px;
-}
+		p {
+			display: block;
 
-#pronamic_gateway_config .gateway-config-section-header h4,
-#pronamic_gateway_config .gateway-config-section-header p {
-	margin: 0;
-}
+			background: #dedede;
+			font-weight: bold;
 
-#pronamic_gateway_config .gateway-config-section-header p {
-	font-style: italic;
-	color: #757575;
+			margin: 40px 0 0 0;
+			padding: 10px 15px;
+
+			a {
+			  color: #ffffff;
+			}
+		}
+	}
 }
 
 /**
@@ -149,7 +153,7 @@ body.post-type-pronamic_payment {
 
 	border-top: 1px solid #DDD;
 
-    padding: 10px;
+	padding: 10px;
 }
 
 .pronamic-pay-action {
@@ -214,7 +218,7 @@ pre.security-data {
 .pronamci-pay-chart-legend li {
 	border-right: 5px solid #AAA;
 
-  	box-shadow: inset 0 -1px 0 0 #dfdfdf;
+	box-shadow: inset 0 -1px 0 0 #dfdfdf;
 
 	color: #AAA;
 
@@ -270,17 +274,199 @@ pre.security-data {
  * Error
  */
 .pronamic-pay-error {
-  background: #F9F9F9;
+	background: #F9F9F9;
 
-  box-shadow: 0 1px 1px rgba( #000, .125 );
+	box-shadow: 0 1px 1px rgba( #000, .125 );
 
-  border-left: 4px solid #a00;
+	border-left: 4px solid #a00;
 
-  clear: both;
+	clear: both;
 
-  margin: 15px 0;
+	margin: 15px 0;
 
-  position: relative;
+	position: relative;
 
-  padding: 1em 1em 1em 2em;
+	padding: 1em 1em 1em 2em;
+}
+
+#_pronamic_gateway_ideal_private_key,
+#_pronamic_gateway_ideal_private_certificate {
+	width: 100%;
+}
+
+/* Tabs */
+.pronamic-pay-tabs-items {
+	display: block;
+
+	margin: 0;
+
+	li {
+		float: left;
+		display: inline-block;
+
+		margin: 8px 5px 0 0;
+		padding: 7px 15px;
+
+		color: #555555;
+		font-weight: bold;
+
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+
+		background: #cacaca;
+
+		cursor: pointer;
+
+		&.active {
+			margin-top: 0;
+			padding-top: 11px;
+			padding-bottom: 11px;
+
+			color: #ffffff;
+
+			background: #cc0066;
+		}
+	}
+}
+
+div.extra-settings {
+	display: none;
+
+	.gateway-config-section-header h4,
+	.show-provider {
+		display: none;
+	}
+
+	.form-table {
+		margin-top: 0;
+
+		border: 1px solid #efefef;
+
+		tr.even {
+			background: #fafafa;
+		}
+
+		th {
+			padding-left: 10px;
+		}
+	}
+
+	.input-file-wrapper {
+		position: relative;
+
+		overflow: hidden;
+
+		input[type="file"] {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+
+			font-size: 50px;
+
+			cursor: pointer;
+		}
+	}
+
+	p + input.button,
+	.pk-cert-ok input.button,
+	input.large-text.code + input.button {
+		margin-top: 10px;
+
+		& + div.button {
+			margin-top: 10px;
+		}
+	}
+
+	input + span.description {
+		display: block;
+		line-height: 1.9;
+		margin-top: 10px;
+	}
+}
+
+#pk-cert-fields-toggle {
+	display: inline-block;
+	margin: 1em;
+}
+
+#_pronamic_gateway_country + span.description {
+	display: inline;
+	margin-left: 10px;
+}
+
+/* Hide download buttons for new configuration */
+body.post-new-php div.extra-settings {
+	input[name="download_private_key"],
+	input[name="download_private_certificate"] {
+		display: none;
+	}
+
+	.pk-cert-error > span {
+		display: none;
+	}
+}
+
+.pronamic-pay-tip {
+	float: right;
+	display: block;
+	width: 20px;
+	height: 20px;
+
+	color: #777777;
+	font-weight: bold;
+	text-align: center;
+
+	padding-top: 2px;
+	padding-left: 1px;
+	padding-right: 1px;
+
+	cursor: help;
+
+	background: #cccccc;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#pronamic-pay-gateway-description {
+	margin-top: 10px;
+	font-size: .9em;
+}
+
+#debug-selected-method {
+	float: none;
+}
+
+.dashicons {
+	&.pronamic-pay-yes {
+		color: green;
+	}
+
+	&.pronamic-pay-no {
+		color: red;
+	}
+
+	&.pronamic-pay-maybe {
+		color: orange;
+	}
+}
+
+@media only screen and ( max-width: 960px ) {
+	.pronamic-pay-tabs-items {
+		display: none;
+	}
+
+	div.extra-settings .form-table {
+		border: none;
+	}
+}
+
+@media only screen and ( max-width: 782px ) {
+	div.extra-settings .form-table {
+		th, td {
+			padding: 11px;
+		}
+	}
 }
