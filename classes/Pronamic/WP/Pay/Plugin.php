@@ -544,8 +544,8 @@ class Pronamic_WP_Pay_Plugin {
 		// Postcode.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Rabobank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
