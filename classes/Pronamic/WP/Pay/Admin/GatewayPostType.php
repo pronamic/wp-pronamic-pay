@@ -309,12 +309,14 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 			if ( array_search( $cipher_method, $cipher_methods ) ) {
 				$args = array (
-					'digest_alg'         => 'SHA256',
-					'private_key_bits'   => 2048,
-					'private_key_type'   => OPENSSL_KEYTYPE_RSA,
-					'encrypt_key'        => true,
-					'encrypt_key_cipher' => OPENSSL_CIPHER_AES_128_CBC,
-					'x509_extensions'    => 'v3_ca',
+					'digest_alg'             => 'SHA256',
+					'private_key_bits'       => 2048,
+					'private_key_type'       => OPENSSL_KEYTYPE_RSA,
+					'encrypt_key'            => true,
+					'encrypt_key_cipher'     => OPENSSL_CIPHER_AES_128_CBC,
+					'subjectKeyIdentifier'   => 'hash',
+					'authorityKeyIdentifier' => 'keyid:always,issuer:always',
+					'basicConstraints'       => 'CA:true',
 				);
 
 				// Private key
