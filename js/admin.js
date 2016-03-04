@@ -151,8 +151,6 @@
 		elements.pkCertFieldsToggle.click( obj.togglePkCertFields );
 
 		$( window ).resize( function() {
-			console.log( obj.settingElements );
-
 			if ( $.isArray( obj.settingElements ) ) {
 				if ( $(window).width() >= 960 ) {
 					$.each( obj.settingElements, function( index, element ) {
