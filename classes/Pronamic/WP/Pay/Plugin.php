@@ -506,8 +506,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
-		// Adyen
-		//$integrations[] = 'Pronamic_WP_Pay_Gateways_Adyen_Integration';
 		// Buckaroo
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_Integration';
 		// Deutsche Bank
