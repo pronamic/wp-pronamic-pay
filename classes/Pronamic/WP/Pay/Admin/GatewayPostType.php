@@ -101,25 +101,21 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 				break;
 			case 'pronamic_gateway_dashboard':
-				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-
 				if ( $integration ) {
-					$urls = array();
-
-					if ( isset( $integration->dashboard_url ) ) {
-						$url = $integration->dashboard_url;
-
-						$urls[ $url ] = __( 'Dashboard', 'pronamic_ideal' );
-					}
+					$urls = $integration->get_dashboard_url();
 
 					// Output
 					$content = array();
 
-					foreach ( $urls as $url => $name ) {
+					foreach ( $urls as $name => $url ) {
+						if ( empty( $name ) ) {
+							$name = __( 'Dashboard', 'pronamic_ideal' );
+						}
+
 						$content[] = sprintf(
 							'<a href="%s" target="_blank">%s</a>',
 							esc_attr( $url ),
-							esc_html( $name )
+							esc_html( ucfirst( $name ) )
 						);
 					}
 
