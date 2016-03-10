@@ -290,9 +290,14 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 							$clean_default = array_intersect( $settings, $field[ 'methods' ] );
 
 							if ( empty( $clean_default ) ) {
-								$data[ $field[ 'meta_key' ] ] = null;
+								$meta_value = get_post_meta( $post_id, $field['meta_key'], true );
 
-								continue;
+								// Only remove value if not saved before
+								if ( empty( $meta_value ) ) {
+									$data[ $field[ 'meta_key' ] ] = null;
+
+									continue;
+								}
 							}
 						}
 
