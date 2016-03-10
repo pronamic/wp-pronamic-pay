@@ -13,27 +13,27 @@ if ( $gateway ) {
 	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
 
 	// Payment method selector
-	$payment_methods = $gateway->get_supported_payment_methods();
+	$payment_methods = $gateway->get_payment_method_field( true );
 
 	$input_html = array();
 
 	?>
 
 		<label for="pronamic-pay-test-payment-methods">
-			<?php esc_html_e( 'Choose a payment method', 'pronamic_ideal' ); ?>
+			<?php echo esc_html( $payment_methods['label'] ); ?>
 		</label>
 
 		<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
 
 		<?php
 
-		foreach ( $payment_methods as $payment_method => $gateway_method_id ) {
+		foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
 			$gateway->set_payment_method( $payment_method );
 
 			printf(
 				'<option value="%s">%s</option>',
 				esc_attr( $payment_method ),
-				esc_html( Pronamic_WP_Pay_PaymentMethods::get_name( $payment_method ) )
+				esc_html( $method_name )
 			);
 
 			// Payment method input HTML
