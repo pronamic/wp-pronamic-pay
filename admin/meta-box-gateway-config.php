@@ -268,9 +268,7 @@ bind_providers_and_gateways();
 							}
 
 							// Set default
-							$screen = get_current_screen();
-
-							if ( empty( $value ) && isset( $field['default'] ) && 'add' === $screen->action ) {
+							if ( empty( $value ) && isset( $field['default'] ) ) {
 								$value = $field['default'];
 							}
 
