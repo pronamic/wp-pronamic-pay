@@ -275,84 +275,51 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 		$data = filter_input_array( INPUT_POST, $definition );
 
-		// Files
-		$files = array(
-			'_pronamic_gateway_ideal_private_key_file'         => '_pronamic_gateway_ideal_private_key',
-			'_pronamic_gateway_ideal_private_certificate_file' => '_pronamic_gateway_ideal_private_certificate',
-		);
+		if ( ! empty( $data[ '_pronamic_gateway_id' ] ) ) {
+			$integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
-		foreach ( $files as $name => $meta_key ) {
-			if ( isset( $_FILES[ $name ] ) && UPLOAD_ERR_OK === $_FILES[ $name ]['error'] ) {
-				$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
+			$integration = $integrations->get_integration( $data[ '_pronamic_gateway_id' ] );
 
-				$data[ $meta_key ] = $value;
-			}
-		}
+			if ( $integration ) {
+				$settings = $integration->get_settings();
 
-		foreach( $fields as $field ) {
-			if ( isset( $field['meta_key'], $field['default'], $data[$field['meta_key']] ) && empty( $data[$field['meta_key']] ) ) {
-				$default = $field['default'];
+				foreach ( $fields as $field ) {
+					if ( isset( $field[ 'default' ], $field[ 'meta_key' ], $data[ $field[ 'meta_key' ] ] ) ) {
+						// Remove default value if not applicable to the selected gateway
+						if ( isset( $field[ 'methods' ] ) ) {
+							$clean_default = array_intersect( $settings, $field[ 'methods' ] );
 
-				$data[$field['meta_key']] = $default;
+							if ( empty( $clean_default ) ) {
+								$data[ $field[ 'meta_key' ] ] = null;
 
-				if ( is_array( $default ) ) {
-					$data[$field['meta_key']] = $default( $field );
-				}
-			}
-		}
+								continue;
+							}
+						}
 
-		// Generate private key and certificate
-		if ( isset( $data['_pronamic_gateway_ideal_private_key_password'] ) && ! empty( $data['_pronamic_gateway_ideal_private_key_password'] ) ) {
-			$cipher_methods = openssl_get_cipher_methods();
+						// Set the default value if empty
+						if ( empty( $data[ $field[ 'meta_key' ] ] ) ) {
+							$default = $field[ 'default' ];
 
-			$cipher_method = 'aes-128-cbc';
-
-			if ( array_search( $cipher_method, $cipher_methods ) ) {
-				$args = array (
-					'digest_alg'             => 'SHA256',
-					'private_key_bits'       => 2048,
-					'private_key_type'       => OPENSSL_KEYTYPE_RSA,
-					'encrypt_key'            => true,
-					'encrypt_key_cipher'     => OPENSSL_CIPHER_AES_128_CBC,
-					'subjectKeyIdentifier'   => 'hash',
-					'authorityKeyIdentifier' => 'keyid:always,issuer:always',
-					'basicConstraints'       => 'CA:true',
-				);
-
-				// Private key
-				if ( empty( $data['_pronamic_gateway_ideal_private_key'] ) ) {
-					$pkey = openssl_pkey_new( $args );
-
-					openssl_pkey_export( $pkey, $private_key, $data[ '_pronamic_gateway_ideal_private_key_password' ], $args );
-
-					$data[ '_pronamic_gateway_ideal_private_key' ] = $private_key;
-				} else {
-					$pkey = $data['_pronamic_gateway_ideal_private_key'];
-				}
-
-				// Certificate
-				if ( empty( $data['_pronamic_gateway_ideal_private_certificate'] ) && ! empty( $pkey ) ) {
-					$distinguished_name = array(
-						'countryName'            => $data['_pronamic_gateway_country'],
-						'stateOrProvinceName'    => $data['_pronamic_gateway_state_or_province'],
-						'localityName'           => $data['_pronamic_gateway_locality'],
-						'organizationName'       => $data['_pronamic_gateway_organization'],
-						'organizationalUnitName' => $data['_pronamic_gateway_organization_unit'],
-						'commonName'             => $data['_pronamic_gateway_organization'],
-						'emailAddress'           => $data['_pronamic_gateway_email'],
-					);
-
-					// If distinguished_name does not contain empty elements, create the certificate
-					if ( ! in_array( '', $distinguished_name, true ) ) {
-						$csr = openssl_csr_new( $distinguished_name, $pkey );
-
-						$eargs = array( 'authorityKeyIdentifier' => 'authorityKeyIdentifier=keyid:always,issuer:always' );
-						$cert = openssl_csr_sign( $csr, null, $pkey, $data['_pronamic_gateway_number_days_valid'], $args, time() );
-
-						openssl_x509_export( $cert, $certificate );
-
-						$data['_pronamic_gateway_ideal_private_certificate'] = $certificate;
+							if ( is_array( $default ) && 2 === count( $default ) && Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
+								$data[ $field[ 'meta_key' ] ] = $default( $field );
+							} else {
+								$data[ $field[ 'meta_key' ] ] = $default;
+							}
+						}
 					}
+				}
+
+				// Filter data through gateway integration settings
+				$settings_classes = $integration->get_settings_class();
+
+				if ( ! is_array( $settings_classes ) ) {
+					$settings_classes = array( $settings_classes );
+				}
+
+				foreach ( $settings_classes as $settings_class ) {
+					$gateway_settings = new $settings_class;
+
+					$data = $gateway_settings->save_post( $data );
 				}
 			}
 		}
