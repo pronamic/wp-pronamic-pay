@@ -321,7 +321,9 @@ class Pronamic_WP_Pay_Admin {
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
-				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data );
+				$payment_method = filter_input( INPUT_POST, 'pronamic_pay_test_payment_method', FILTER_SANITIZE_STRING );
+
+				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
 
 				$error = $gateway->get_error();
 

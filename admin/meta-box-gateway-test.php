@@ -12,11 +12,45 @@ if ( $gateway ) {
 	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
 	$is_ideal |= $gateway instanceof Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Gateway;
 
-	if ( $is_ideal || $gateway->payment_method_is_required() ) {
-		$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
-	}
+	// Payment method selector
+	$payment_methods = $gateway->get_supported_payment_methods();
 
-	echo $gateway->get_input_html(); //xss ok
+	$input_html = array();
+
+	?>
+
+		<label for="pronamic-pay-test-payment-methods">
+			<?php esc_html_e( 'Choose a payment method', 'pronamic_ideal' ); ?>
+		</label>
+
+		<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
+
+		<?php
+
+		foreach ( $payment_methods as $payment_method => $gateway_method_id ) {
+			$gateway->set_payment_method( $payment_method );
+
+			printf(
+				'<option value="%s">%s</option>',
+				esc_attr( $payment_method ),
+				esc_html( Pronamic_WP_Pay_PaymentMethods::get_name( $payment_method ) )
+			);
+
+			// Payment method input HTML
+			$input_html[] = sprintf(
+				'<div class="pronamic-pay-test-payment-method %s">%s</div>',
+				esc_attr( $payment_method ),
+				$gateway->get_input_html()
+			);
+		}
+
+		?>
+
+		</select>
+
+	<?php
+
+	echo implode( '', $input_html ); //xss ok
 
 	if ( $gateway->has_error() ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
@@ -45,6 +79,6 @@ if ( $gateway ) {
 } else {
 	printf(
 		'<em>%s</em>',
-		__( 'Please save the entered account details of your payment provider, to make a test payment.', 'pronamic_ideal' )
+		esc_html( __( 'Please save the entered account details of your payment provider, to make a test payment.', 'pronamic_ideal' ) )
 	);
 }
