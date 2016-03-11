@@ -187,6 +187,57 @@
 	//////////////////////////////////////////////////
 
 	/**
+	 * Pronamic pay gateway test
+	 */
+	var PronamicPayGatewayTest = function( element ) {
+		var obj = this;
+		var $element = $( element );
+
+		// Elements
+		var elements = {};
+		elements.paymentMethods = $element.find( 'select[name="pronamic_pay_test_payment_method"]' );
+
+		/**
+		 * Update input visibility
+		 */
+		this.updateInputVisibility = function() {
+			var method = elements.paymentMethods.val();
+
+			$element.find('.pronamic-pay-test-payment-method').hide().filter( '.' + method).show();
+		};
+
+		// Function calls
+		obj.updateInputVisibility();
+
+		elements.paymentMethods.change( obj.updateInputVisibility );
+
+		$element.on( 'keydown', 'input[name="test_amount"]', function( e ) {
+			if ( 13 === e.keyCode) {
+				$element.find('input[name="test_pay_gateway"]').click();
+			}
+		});
+	};
+
+	/**
+	 * jQuery plugin - Pronamic pay gateway test
+	 */
+	$.fn.pronamicPayGatewayTest = function() {
+		return this.each( function() {
+			var $this = $( this );
+
+			if ( $this.data( 'pronamic-pay-gateway-test' ) ) {
+				return;
+			}
+
+			var gatewayTest = new PronamicPayGatewayTest( this );
+
+			$this.data( 'pronamic-pay-gateway-test', gatewayTest );
+		} );
+	};
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Pronamic iDEAL pay form options
 	 */
 	var PronamicPayFormOptions = function( element ) {
@@ -262,6 +313,7 @@
 	$( document ).ready( function() {
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
 		$( '#pronamic_payment_form_options').pronamicPayFormOptions();
+		$( '#pronamic_gateway_test').pronamicPayGatewayTest();
 
 		// Tooltips
 		var tiptip_args = {
