@@ -280,14 +280,14 @@ class Pronamic_WP_Pay_Admin {
 
 			// Pronamic
 			wp_register_style(
-				'proanmic-pay-admin',
+				'pronamic-pay-admin',
 				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 				array(),
 				'3.9.0'
 			);
 
 			wp_register_script(
-				'proanmic-pay-admin',
+				'pronamic-pay-admin',
 				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery', 'jquery-tiptip' ),
 				'3.9.0',
@@ -297,8 +297,8 @@ class Pronamic_WP_Pay_Admin {
 			// Enqueue
 			wp_enqueue_style( 'jquery-tiptip' );
 
-			wp_enqueue_style( 'proanmic-pay-admin' );
-			wp_enqueue_script( 'proanmic-pay-admin' );
+			wp_enqueue_style( 'pronamic-pay-admin' );
+			wp_enqueue_script( 'pronamic-pay-admin' );
 		}
 	}
 
