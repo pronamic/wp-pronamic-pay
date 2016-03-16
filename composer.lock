@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f95478f49bcf0e79170147d48bf44eb",
-    "content-hash": "4a94d9d22c4774316efd10bdddc28933",
+    "hash": "5d2d5989fa752602bdf21ace03170ce4",
+    "content-hash": "cb68ef32ac669b038847a1a8b4afd165",
     "packages": [
         {
             "name": "composer/installers",
@@ -560,6 +560,69 @@
                 "wp"
             ],
             "time": "2016-03-02 10:31:25"
+        },
+        {
+            "name": "wp-pay-extensions/give",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/give.git",
+                "reference": "19451e47c37abcb679a1b5a0274c0de39f13c7ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/19451e47c37abcb679a1b5a0274c0de39f13c7ee",
+                "reference": "19451e47c37abcb679a1b5a0274c0de39f13c7ee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay/core": "^1.3.4",
+                "wpackagist-plugin/give": "1.3.6",
+                "xrstf/composer-php52": "1.*"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Give driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/give/",
+            "keywords": [
+                "extension",
+                "give",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2016-03-16 09:53:39"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -2520,12 +2583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "cafb8ce55053bc6054ce5d720413df905fa23a22"
+                "reference": "3a5ef76daf0b5f7352ae44095c3f3c44e6f41be6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/cafb8ce55053bc6054ce5d720413df905fa23a22",
-                "reference": "cafb8ce55053bc6054ce5d720413df905fa23a22",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/3a5ef76daf0b5f7352ae44095c3f3c44e6f41be6",
+                "reference": "3a5ef76daf0b5f7352ae44095c3f3c44e6f41be6",
                 "shasum": ""
             },
             "require": {
@@ -2575,7 +2638,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-03 20:16:28"
+            "time": "2016-03-16 09:13:59"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -3679,6 +3742,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/formidable/"
+        },
+        {
+            "name": "wpackagist-plugin/give",
+            "version": "1.3.6",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/give/",
+                "reference": "tags/1.3.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/give.1.3.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/give/"
         },
         {
             "name": "wpackagist-plugin/ithemes-exchange",
@@ -6045,6 +6128,12 @@
             "alias_normalized": "1.0.7.0",
             "version": "dev-develop",
             "package": "wp-pay-gateways/targetpay"
+        },
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/give"
         }
     ],
     "minimum-stability": "stable",
@@ -6085,7 +6174,8 @@
         "wp-pay-gateways/rabobank-ideal-professional-v3": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/sisow-ideal-basic": 20,
-        "wp-pay-gateways/targetpay": 20
+        "wp-pay-gateways/targetpay": 20,
+        "wp-pay-extensions/give": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
