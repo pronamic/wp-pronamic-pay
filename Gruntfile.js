@@ -127,7 +127,8 @@ module.exports = function( grunt ) {
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*',
-						'vendor/wp-cli/.*'
+						'vendor/wp-cli/.*',
+						'vendor/wp-pay.*/.*/vendor/wp-cli/.*'
 					]
 				}
 			}
