@@ -203,7 +203,9 @@
 		this.updateInputVisibility = function() {
 			var method = elements.paymentMethods.val();
 
-			$element.find('.pronamic-pay-test-payment-method').hide().filter( '.' + method).show();
+			if ( '' !== method ) {
+				$element.find( '.pronamic-pay-test-payment-method' ).hide().filter( '.' + method ).show();
+			}
 		};
 
 		// Function calls
