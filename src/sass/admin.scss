@@ -457,17 +457,21 @@ body.post-new-php div.extra-settings {
 	float: none;
 }
 
-.dashicons {
-	&.pronamic-pay-yes {
-		color: green;
-	}
+#pronamic-pay-gateway-config-editor {
+	.dashicons {
+		vertical-align: text-bottom;
 
-	&.pronamic-pay-no {
-		color: red;
-	}
+		&.dashicons-yes {
+			color: green;
+		}
 
-	&.pronamic-pay-maybe {
-		color: orange;
+		&.dashicons-no {
+			color: red;
+		}
+
+		&.dashicons-maybe {
+			color: orange;
+		}
 	}
 }
 

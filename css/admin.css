@@ -412,31 +412,35 @@ body.post-new-php div.extra-settings .pk-cert-error > span {
 }
 
 /* line 461, ../sass/admin.scss */
-.dashicons.pronamic-pay-yes {
+#pronamic-pay-gateway-config-editor .dashicons {
+  vertical-align: text-bottom;
+}
+/* line 464, ../sass/admin.scss */
+#pronamic-pay-gateway-config-editor .dashicons.dashicons-yes {
   color: green;
 }
-/* line 465, ../sass/admin.scss */
-.dashicons.pronamic-pay-no {
+/* line 468, ../sass/admin.scss */
+#pronamic-pay-gateway-config-editor .dashicons.dashicons-no {
   color: red;
 }
-/* line 469, ../sass/admin.scss */
-.dashicons.pronamic-pay-maybe {
+/* line 472, ../sass/admin.scss */
+#pronamic-pay-gateway-config-editor .dashicons.dashicons-maybe {
   color: orange;
 }
 
 @media only screen and (max-width: 960px) {
-  /* line 475, ../sass/admin.scss */
+  /* line 479, ../sass/admin.scss */
   .pronamic-pay-tabs-items {
     display: none;
   }
 
-  /* line 479, ../sass/admin.scss */
+  /* line 483, ../sass/admin.scss */
   div.extra-settings .form-table {
     border: none;
   }
 }
 @media only screen and (max-width: 782px) {
-  /* line 486, ../sass/admin.scss */
+  /* line 490, ../sass/admin.scss */
   div.extra-settings .form-table th, div.extra-settings .form-table td {
     padding: 11px;
   }
