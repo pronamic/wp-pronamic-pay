@@ -224,7 +224,10 @@ bind_providers_and_gateways();
 							<?php
 
 							if ( isset( $field['tooltip'] ) && ! empty( $field['tooltip'] ) ) {
-								printf( '<span class="pronamic-pay-tip" data-tip="%s">?</span>', esc_attr( $field['tooltip'] ) );
+								printf(
+									'<span class="dashicons dashicons-editor-help pronamic-pay-tip" data-tip="%s"></span>',
+									esc_attr( $field['tooltip'] )
+								);
 							}
 
 							?>

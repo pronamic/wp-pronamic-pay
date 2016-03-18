@@ -1,5 +1,18 @@
 @import "compass/css3";
 
+/**
+ * Colors
+ */
+
+// WordPress .postbox border-color
+// WordPress table.widefat border-color
+$pronamic-border-color: #e5e5e5;
+// WordPress .striped background-color
+$pronamic-striped-background-color: #f9f9f9;
+
+/**
+ * Column
+ */
 td.column-version {
 	width: 5em;
 }
@@ -87,21 +100,19 @@ td.column-version {
 	}
 
 	.gateway-config-section-header {
+		font-style: italic;
+
+		padding: 20px 10px;
+
 		h4 {
 			margin: 0;
 		}
 
 		p {
-			display: block;
+			margin: 0 0 1em 0;
 
-			background: #dedede;
-			font-weight: bold;
-
-			margin: 40px 0 0 0;
-			padding: 10px 15px;
-
-			a {
-			  color: #ffffff;
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -314,40 +325,50 @@ pre.security-data {
 
 /* Tabs */
 .pronamic-pay-tabs-items {
+	border-bottom: 1px solid $pronamic-border-color;
+
 	display: block;
 
-	margin: 0;
+	float: left;
+
+	margin: 3px 0 0 0;
+
+	width: 100%;
 
 	li {
-		float: left;
-		display: inline-block;
+		background: $pronamic-border-color;
 
-		margin: 8px 5px 0 0;
-		padding: 7px 15px;
+		border-left: 1px solid $pronamic-border-color;
+		border-right: 1px solid $pronamic-border-color;
 
-		color: #555555;
-		font-weight: bold;
-
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-
-		background: #cacaca;
+		color: #444;
 
 		cursor: pointer;
 
+		display: block;
+
+		float: left;
+
+		margin: 0 -1px -1px 0;
+		padding: 8px 15px;
+
 		&.active {
-			margin-top: 0;
-			padding-top: 11px;
-			padding-bottom: 11px;
+			background: #FFF;
 
-			color: #ffffff;
+			border-top: 3px solid #C06;
+			margin-top: -3px;
 
-			background: #cc0066;
+			font-weight: bold;
 		}
 	}
 }
 
 div.extra-settings {
+	border: 1px solid $pronamic-border-color;
+	border-top: none;
+
+	clear: both;
+
 	display: none;
 
 	.gateway-config-section-header h4,
@@ -358,10 +379,8 @@ div.extra-settings {
 	.form-table {
 		margin-top: 0;
 
-		border: 1px solid #efefef;
-
 		tr.even {
-			background: #fafafa;
+			background: $pronamic-striped-background-color;
 		}
 
 		th {
@@ -427,25 +446,18 @@ body.post-new-php div.extra-settings {
 
 .pronamic-pay-tip {
 	float: right;
-	display: block;
-	width: 20px;
-	height: 20px;
 
-	color: #777777;
-	font-weight: bold;
-	text-align: center;
-
-	padding-top: 2px;
-	padding-left: 1px;
-	padding-right: 1px;
+	color: #777;
 
 	cursor: help;
+}
 
-	background: #cccccc;
+// @see https://github.com/woothemes/woocommerce/blob/2.5.5/assets/css/admin.scss#L3522-L3548
+#tiptip_content {
+	background: #333;
 
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	border: none;
+	box-shadow: none;
 }
 
 #pronamic-pay-gateway-description {
