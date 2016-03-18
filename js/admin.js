@@ -102,6 +102,8 @@
 
 			// Show tab
 			elements.extraSettings.hide().eq( tabItem.index() ).show();
+
+			obj.updateRowBackgroundColor();
 		};
 
 		/**
