@@ -40,7 +40,7 @@ foreach ( $states as $meta_value => $post_status ) {
 		;
 	";
 
-	$query = $wpdb->prepare( $query, $post_status, $meta_value );
+	$query = $wpdb->prepare( $query, $post_status, $meta_value ); // WPCS: unprepared SQL ok.
 
-	$wpdb->query( $query );
+	$wpdb->query( $query ); // WPCS: unprepared SQL ok.
 }

@@ -65,7 +65,7 @@ bind_providers_and_gateways();
 
 								if ( 1 === count( $dashboards ) ) {
 									$links[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
-										esc_attr( $dashboards[ 0 ] ),
+										esc_attr( $dashboards[0] ),
 										__( 'Dashboard', 'pronamic_ideal' )
 									);
 								} elseif ( count( $dashboards ) > 1 ) {

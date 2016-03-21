@@ -2,9 +2,7 @@
 
 <?php
 
-$extensions = array(
-
-);
+$extensions = array();
 
 ?>
 

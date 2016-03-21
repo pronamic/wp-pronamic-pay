@@ -273,7 +273,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param \WP_Post $post
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
-		if ( 
+		if (
 			filter_has_var( INPUT_POST, 'pronamic_payment_update_nonce' )
 				&&
 			check_admin_referer( 'pronamic_payment_update', 'pronamic_payment_update_nonce' )

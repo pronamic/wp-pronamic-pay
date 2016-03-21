@@ -28,6 +28,7 @@ add_filter( 'the_content', 'pronamic_pay_form_the_content' );
 /**
  * Helper function to update post meta data
  *
+ * @see http://codex.wordpress.org/Function_Reference/update_post_meta
  * @param int $post_id
  * @param array $data
  */
@@ -35,9 +36,7 @@ function pronamic_pay_update_post_meta_data( $post_id, array $data ) {
 	/*
 	 * Post meta values are passed through the stripslashes() function
 	 * upon being stored, so you will need to be careful when passing
-	 * in values (such as JSON) that might include \ escaped characters.
-	 *
-	 * @see http://codex.wordpress.org/Function_Reference/update_post_meta
+	 * in values such as JSON that might include \ escaped characters.
 	 */
 	$data = wp_slash( $data );
 

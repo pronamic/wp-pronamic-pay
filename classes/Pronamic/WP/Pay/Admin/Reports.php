@@ -261,6 +261,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		$date_format = '%Y-%m';
 
+		// @codingStandardsIgnoreStart
 		$query = $wpdb->prepare( "
 				SELECT
 					DATE_FORMAT( post.post_date, %s ) AS month,
@@ -287,8 +288,9 @@ class Pronamic_WP_Pay_Admin_Reports {
 			$end->format( 'Y-m-d' ),
 			$status
 		);
+		// @codingStandardsIgnoreEnd
 
-		$data = $wpdb->get_results( $query, OBJECT_K );
+		$data = $wpdb->get_results( $query, OBJECT_K ); // WPCS: unprepared SQL ok.
 
 		$report = array();
 

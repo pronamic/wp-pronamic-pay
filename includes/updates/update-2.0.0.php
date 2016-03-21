@@ -87,7 +87,7 @@ $query = "
 $have_configs = true;
 
 while ( $have_configs ) {
-	$configs = $wpdb->get_results( $query );
+	$configs = $wpdb->get_results( $query ); // WPCS: unprepared SQL ok.
 
 	$have_configs = ! empty( $configs );
 
@@ -215,7 +215,7 @@ $query = "
 
 $config_ids_map = array();
 
-$config_ids = $wpdb->get_results( $query );
+$config_ids = $wpdb->get_results( $query ); // WPCS: unprepared SQL ok.
 
 foreach ( $config_ids as $config_id ) {
 	$config_ids_map[ $config_id->id ] = $config_id->post_id;
@@ -257,7 +257,7 @@ $query = "
 $have_feeds = true;
 
 while ( $have_feeds ) {
-	$feeds = $wpdb->get_results( $query );
+	$feeds = $wpdb->get_results( $query ); // WPCS: unprepared SQL ok.
 
 	$have_feeds = ! empty( $feeds );
 
@@ -368,7 +368,7 @@ $query = "
 $have_payments = true;
 
 while ( $have_payments ) {
-	$payments = $wpdb->get_results( $query );
+	$payments = $wpdb->get_results( $query ); // WPCS: unprepared SQL ok.
 
 	$have_payments = ! empty( $payments );
 
@@ -463,10 +463,10 @@ foreach ( $options as $key_old => $key_new ) {
 $shopp_meta_table = $wpdb->prefix . 'shopp_meta';
 
 // @see http://cube3x.com/2013/04/how-to-check-if-table-exists-in-wordpress-database/
-if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) ) {
+if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table';" ) ) { // WPCS: unprepared SQL ok.
 	$query = "SELECT id, value FROM $shopp_meta_table WHERE type = 'setting' AND name = 'Pronamic_Shopp_IDeal_GatewayModule';";
 
-	$row = $wpdb->get_row( $query );
+	$row = $wpdb->get_row( $query ); // WPCS: unprepared SQL ok.
 
 	if ( $row ) {
 		$settings = maybe_unserialize( $row->value );

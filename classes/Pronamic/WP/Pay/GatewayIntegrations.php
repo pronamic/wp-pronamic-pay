@@ -53,7 +53,7 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 	 *
 	 * @return ArrayIterator
 	 */
-    public function getIterator() {
-        return new ArrayIterator( $this->integrations );
-    }
+	public function getIterator() {
+		return new ArrayIterator( $this->integrations );
+	}
 }

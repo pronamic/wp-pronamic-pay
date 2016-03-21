@@ -54,7 +54,7 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay_general', // section
 			array(
 				'post_type'        => 'pronamic_gateway',
-				'show_option_none' => __( '&mdash; Select a gateway &mdash;', 'pronamic_ideal' ),
+				'show_option_none' => __( '— Select a gateway —', 'pronamic_ideal' ),
 				'label_for'        => 'pronamic_pay_config_id',
 			) // args
 		);
@@ -179,10 +179,10 @@ class Pronamic_WP_Pay_Settings {
 		$name = $args['label_for'];
 
 		wp_dropdown_pages( array(
-			'name'             => $name,
-			'post_type'        => isset( $args['post_type'] ) ? $args['post_type'] : 'page',
-			'selected'         => get_option( $name, '' ),
-			'show_option_none' => isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '&mdash; Select a page &mdash;', 'pronamic_ideal' ),
+			'name'             => esc_attr( $name ),
+			'post_type'        => esc_attr( isset( $args['post_type'] ) ? $args['post_type'] : 'page' ),
+			'selected'         => esc_attr( get_option( $name, '' ) ),
+			'show_option_none' => esc_attr( isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '— Select a page —', 'pronamic_ideal' ) ),
 		) );
 	}
 }

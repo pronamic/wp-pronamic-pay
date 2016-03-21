@@ -32,12 +32,12 @@ class Pronamic_WP_Pay_DefaultGatewaySettings extends Pronamic_WP_Pay_GatewaySett
 			'title'       => __( 'Mode', 'pronamic_ideal' ),
 			'type'        => 'select',
 			'options'     => array(
-				array( 'options' =>
-					array(
+				array(
+					'options' => array(
 						Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
 						Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
-					)
-				)
+					),
+				),
 			),
 		);
 

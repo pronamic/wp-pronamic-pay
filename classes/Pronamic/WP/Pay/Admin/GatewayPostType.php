@@ -47,7 +47,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'title'                        => __( 'Title', 'pronamic_ideal' ),
 			'pronamic_gateway_variant'     => __( 'Variant', 'pronamic_ideal' ),
 			'pronamic_gateway_id'          => __( 'ID', 'pronamic_ideal' ),
-			// 'pronamic_gateway_secret'      => __( 'Secret', 'pronamic_ideal' ),
 			'pronamic_gateway_dashboard'   => __( 'Dashboard', 'pronamic_ideal' ),
 			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
@@ -227,7 +226,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 */
 	private function maybe_set_default_gateway( $post_id ) {
 		// Don't set the default gateway if the post is not published.
-		if ( 'publish' !== get_post_status ( $post_id ) ) {
+		if ( 'publish' !== get_post_status( $post_id ) ) {
 			return;
 		}
 
@@ -278,26 +277,26 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 		$data = filter_input_array( INPUT_POST, $definition );
 
-		if ( ! empty( $data[ '_pronamic_gateway_id' ] ) ) {
+		if ( ! empty( $data['_pronamic_gateway_id'] ) ) {
 			$integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
-			$integration = $integrations->get_integration( $data[ '_pronamic_gateway_id' ] );
+			$integration = $integrations->get_integration( $data['_pronamic_gateway_id'] );
 
 			if ( $integration ) {
 				$settings = $integration->get_settings();
 
 				foreach ( $fields as $field ) {
-					if ( isset( $field[ 'default' ], $field[ 'meta_key' ], $data[ $field[ 'meta_key' ] ] ) ) {
+					if ( isset( $field['default'], $field['meta_key'], $data[ $field['meta_key'] ] ) ) {
 						// Remove default value if not applicable to the selected gateway
-						if ( isset( $field[ 'methods' ] ) ) {
-							$clean_default = array_intersect( $settings, $field[ 'methods' ] );
+						if ( isset( $field['methods'] ) ) {
+							$clean_default = array_intersect( $settings, $field['methods'] );
 
 							if ( empty( $clean_default ) ) {
 								$meta_value = get_post_meta( $post_id, $field['meta_key'], true );
 
 								// Only remove value if not saved before
 								if ( empty( $meta_value ) ) {
-									$data[ $field[ 'meta_key' ] ] = null;
+									$data[ $field['meta_key'] ] = null;
 
 									continue;
 								}
@@ -305,13 +304,13 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 						}
 
 						// Set the default value if empty
-						if ( empty( $data[ $field[ 'meta_key' ] ] ) ) {
-							$default = $field[ 'default' ];
+						if ( empty( $data[ $field['meta_key'] ] ) ) {
+							$default = $field['default'];
 
 							if ( is_array( $default ) && 2 === count( $default ) && Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
-								$data[ $field[ 'meta_key' ] ] = $default( $field );
+								$data[ $field['meta_key'] ] = $default( $field );
 							} else {
-								$data[ $field[ 'meta_key' ] ] = $default;
+								$data[ $field['meta_key'] ] = $default;
 							}
 						}
 					}
@@ -349,7 +348,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @return string
 	 */
 	public function post_updated_messages( $messages ) {
-		$post = get_post();
+		global $post;
 
 		// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352797&filters[translation_id]=37948900
 		$scheduled_date = date_i18n( __( 'M j, Y @ H:i', 'pronamic_ideal' ), strtotime( $post->post_date ) );

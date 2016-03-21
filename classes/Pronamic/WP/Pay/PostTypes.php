@@ -51,8 +51,6 @@ class Pronamic_WP_Pay_PostTypes {
 				'filter_items_list'     => __( 'Filter payment gateway configurations list', 'pronamic_ideal' ),
 				'items_list_navigation' => __( 'Payment gateway configurations list navigation', 'pronamic_ideal' ),
 				'items_list'            => __( 'Payment gateway configurations list', 'pronamic_ideal' ),
-
-
 			),
 			'public'             => false,
 			'publicly_queryable' => false,

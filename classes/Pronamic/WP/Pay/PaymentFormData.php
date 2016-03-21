@@ -67,7 +67,7 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 		$items = new Pronamic_IDeal_Items();
 
 		// Amount
-		$amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING, array (
+		$amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING, array(
 			'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
 			'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
 		) );
@@ -78,9 +78,9 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 			$amount = array_filter( $amount );
 
 			// Make sure the amount has the correct floating value
-			foreach( $amount as $key => $value ) {
+			foreach ( $amount as $key => $value ) {
 				if ( 'other' !== $key ) {
-					$amount[$key] = $value / 100;
+					$amount[ $key ] = $value / 100;
 				}
 			}
 

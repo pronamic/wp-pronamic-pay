@@ -7,8 +7,11 @@
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 
 		<exclude name="Squiz.Commenting" />
+		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
 
 		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar" />
+
 		<exclude name="WordPress.Files.FileName" />
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
@@ -19,6 +22,7 @@
 		<exclude name="WordPress.VIP.SlowDBQuery.slow_db_query" />
 
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
+		<exclude name="WordPress.VIP.RestrictedFunctions.get_posts" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.custom_role" />
@@ -28,5 +32,9 @@
 		<properties>
 			<property name="customEscapingFunctions" type="array" value="Pronamic_WP_HTML_Helper" />
 		</properties>
+	</rule>
+
+	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
+		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
 	</rule>
 </ruleset>

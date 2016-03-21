@@ -58,7 +58,6 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
-		// Pronamic_WP_Pay_Extensions_EShop_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
@@ -167,10 +166,10 @@ class Pronamic_WP_Pay_Plugin {
 		if ( null !== $payment ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 			// - No status request after a final status has been received for a transaction;
-			if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
+			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
 				self::update_payment( $payment );
 
-				if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
+				if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
 					switch ( $number_tries ) {
 						case 0 :
 							// 30 seconds after a transaction request is sent
@@ -222,7 +221,7 @@ class Pronamic_WP_Pay_Plugin {
 
 				pronamic_wp_pay_update_payment( $payment );
 
-				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) ) {
+				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
 					$can_redirect = false;
 				}
 
@@ -293,7 +292,7 @@ class Pronamic_WP_Pay_Plugin {
 				$valid_key = ( $key === $payment->key );
 			}
 
-			if( ! $valid_key ) {
+			if ( ! $valid_key ) {
 				wp_redirect( home_url() );
 
 				exit;

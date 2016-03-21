@@ -7,7 +7,7 @@ global $eshop_metabox_plugin, $eshopoptions;
 	<?php $eshop_metabox_plugin->show_img( 'pronamic_ideal' ); ?>
 
 	<p class="cbox">
-		<input id="eshop_method_pronamic_ideal" name="eshop_method[]" type="checkbox" value="pronamic_ideal" <?php checked( in_array( 'pronamic_ideal', (array) $eshopoptions['method'] ) ); ?> />
+		<input id="eshop_method_pronamic_ideal" name="eshop_method[]" type="checkbox" value="pronamic_ideal" <?php checked( in_array( 'pronamic_ideal', (array) $eshopoptions['method'], true ) ); ?> />
 
 		<label for="eshop_method_pronamic_ideal" class="eshopmethod">
 			<?php esc_html_e( 'Accept payment by iDEAL', 'pronamic_ideal' ); ?>
