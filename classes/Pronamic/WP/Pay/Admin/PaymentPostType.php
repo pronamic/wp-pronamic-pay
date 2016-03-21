@@ -3,10 +3,12 @@
 /**
  * Title: WordPress admin payment post type
  * Description:
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
- * @version 1.0
+ * @version 3.7.0
+ * @since 3.7.0
  */
 class Pronamic_WP_Pay_Admin_PaymentPostType {
 	/**
