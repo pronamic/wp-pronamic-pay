@@ -15,42 +15,7 @@ if ( $gateway ) {
 	// Payment method selector
 	$payment_methods = $gateway->get_payment_method_field( true );
 
-	$input_html = array();
-
-	?>
-
-		<label for="pronamic-pay-test-payment-methods">
-			<?php echo esc_html( $payment_methods['label'] ); ?>
-		</label>
-
-		<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
-
-		<?php
-
-		foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
-			$gateway->set_payment_method( $payment_method );
-
-			printf(
-				'<option value="%s">%s</option>',
-				esc_attr( $payment_method ),
-				esc_html( $method_name )
-			);
-
-			// Payment method input HTML
-			$input_html[] = sprintf(
-				'<div class="pronamic-pay-test-payment-method %s">%s</div>',
-				esc_attr( $payment_method ),
-				$gateway->get_input_html()
-			);
-		}
-
-		?>
-
-		</select>
-
-	<?php
-
-	echo implode( '', $input_html ); //xss ok
+	$inputs = array();
 
 	if ( $gateway->has_error() ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
@@ -59,17 +24,74 @@ if ( $gateway ) {
 	include Pronamic_WP_Pay_Plugin::$dirname . '/views/errors.php';
 
 	?>
+	<table class="form-table">
+		<tr>
+			<th scope="row">
+				<label for="pronamic-pay-test-payment-methods">
+					<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+				</label>
+			</th>
+			<td>
+				<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
+					<?php
 
-	<p>
-		<label for="test_amount">&euro;</label>
-		<input name="test_amount" id="test_amount" value="" type="text" size="6" />
+					foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
+						$gateway->set_payment_method( $payment_method );
 
-		<?php
+						printf(
+							'<option value="%s">%s</option>',
+							esc_attr( $payment_method ),
+							esc_html( $method_name )
+						);
 
-		submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false );
+						// Payment method input HTML
+						$html = $gateway->get_input_html();
 
-		?>
-	</p>
+						if ( ! empty( $html ) ) {
+							$inputs[ $payment_method ] = array(
+								'label' => $method_name,
+								'html'  => $html,
+							);
+						}
+					}
+
+					?>
+				</select>
+			</td>
+		</tr>
+
+		<?php foreach ( $inputs as $method => $input ) : ?>
+
+			<tr class="pronamic-pay-test-payment-method <?php echo esc_attr( $method ); ?>">
+				<th scope="row">
+					<?php echo esc_html( $input['label'] ); ?>
+				</th>
+				<td>
+					<?php echo $input['html']; // WPCS: XSS ok. ?>
+				</td>
+			</tr>
+
+		<?php endforeach; ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<label for="test_amount">€</label>
+
+				<input name="test_amount" id="test_amount" value="" type="text" size="6" />		
+			</td>
+		</tr>
+		<tr>
+			<td>
+
+			</td>
+			<td>
+				<?php submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false ); ?>
+			</td>
+		</tr>
+	</table>
 
 	<?php
 
