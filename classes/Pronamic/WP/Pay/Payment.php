@@ -83,6 +83,11 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get the return URL for this payment.
+	 *
+	 * @return string
+	 */
 	public function get_return_url() {
 		$url = add_query_arg(
 			array(
