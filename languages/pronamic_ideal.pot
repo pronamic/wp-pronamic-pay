@@ -126,20 +126,28 @@ msgstr ""
 msgid "Action URL"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:75
+#: admin/meta-box-payment-info.php:78
+msgid "Return URL"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:96
+msgid "Redirect URL"
+msgstr ""
+
+#: admin/meta-box-payment-info.php:117
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:188
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:194
 msgid "Status"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:93
+#: admin/meta-box-payment-info.php:135
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:427
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:105
+#: admin/meta-box-payment-info.php:147
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
 msgid "Consumer"
 msgstr ""
@@ -1403,17 +1411,17 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:416
+#: classes/Pronamic/WP/Pay/Plugin.php:437
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:472
+#: classes/Pronamic/WP/Pay/Plugin.php:493
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:588
+#: classes/Pronamic/WP/Pay/Plugin.php:609
 msgid "Payment for %s"
 msgstr ""
 
@@ -1658,7 +1666,7 @@ msgid "Payment Status Pages"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:103 templates/form.php:157
-#: vendor/wp-pay-extensions/give/src/Gateway.php:96
+#: vendor/wp-pay-extensions/give/src/Gateway.php:97
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:479
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
@@ -1806,12 +1814,12 @@ msgstr ""
 msgid "Pay with iDEAL"
 msgstr ""
 
-#: vendor/wp-pay-extensions/charitable/src/Extension.php:163
+#: vendor/wp-pay-extensions/charitable/src/Extension.php:179
 msgid "Charitable"
 msgstr ""
 
-#: vendor/wp-pay-extensions/charitable/src/Extension.php:168
-#: vendor/wp-pay-extensions/give/src/Extension.php:139
+#: vendor/wp-pay-extensions/charitable/src/Extension.php:184
+#: vendor/wp-pay-extensions/give/src/Extension.php:150
 msgid "Donation %s"
 msgstr ""
 
@@ -1889,7 +1897,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:211
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:226
-#: vendor/wp-pay-extensions/give/src/Gateway.php:120
+#: vendor/wp-pay-extensions/give/src/Gateway.php:121
 msgid "Payment Error"
 msgstr ""
 
@@ -2002,15 +2010,15 @@ msgstr ""
 msgid "Enter a transactaction description, you can use Formidable Forms shortcodes."
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/Extension.php:134
+#: vendor/wp-pay-extensions/give/src/Extension.php:145
 msgid "Give"
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:96
+#: vendor/wp-pay-extensions/give/src/Gateway.php:97
 msgid "Nonce verification has failed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:120
+#: vendor/wp-pay-extensions/give/src/Gateway.php:121
 msgid ""
 "Payment creation failed before sending buyer to payment provider. Payment "
 "data: %s"
@@ -2365,7 +2373,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:66
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:92
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:181
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:196
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:111
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:139
 msgid "Order %s"
@@ -2595,27 +2603,27 @@ msgstr ""
 msgid "Enable Direct Debit"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:106
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:141
 msgid "payment expired"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:118
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:149
 msgid "payment failed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:156
 msgid "payment completed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:140
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
 msgid "payment open"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:146
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:167
 msgid "payment unknown"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:167
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:182
 msgid "WooCommerce"
 msgstr ""
 
@@ -3713,49 +3721,49 @@ msgid ""
 "to your WordPress website."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:397
+#: classes/Pronamic/WP/Pay/Plugin.php:418
 #: classes/Pronamic/WP/Pay/PostTypes.php:145
 msgctxt "Payment status"
 msgid "Pending"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:398
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 #: classes/Pronamic/WP/Pay/PostTypes.php:154
 msgctxt "Payment status"
 msgid "Processing"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:399
+#: classes/Pronamic/WP/Pay/Plugin.php:420
 #: classes/Pronamic/WP/Pay/PostTypes.php:163
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:400
+#: classes/Pronamic/WP/Pay/Plugin.php:421
 #: classes/Pronamic/WP/Pay/PostTypes.php:172
 msgctxt "Payment status"
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:401
+#: classes/Pronamic/WP/Pay/Plugin.php:422
 #: classes/Pronamic/WP/Pay/PostTypes.php:181
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:402
+#: classes/Pronamic/WP/Pay/Plugin.php:423
 #: classes/Pronamic/WP/Pay/PostTypes.php:190
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:403
+#: classes/Pronamic/WP/Pay/Plugin.php:424
 #: classes/Pronamic/WP/Pay/PostTypes.php:199
 msgctxt "Payment status"
 msgid "Failed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:404
+#: classes/Pronamic/WP/Pay/Plugin.php:425
 #: classes/Pronamic/WP/Pay/PostTypes.php:208
 msgctxt "Payment status"
 msgid "Expired"

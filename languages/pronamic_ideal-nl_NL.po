@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-03-21 15:26+0100\n"
+"PO-Revision-Date: 2016-03-22 12:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -128,20 +128,28 @@ msgstr "Transactie ID"
 msgid "Action URL"
 msgstr "Actie URL"
 
-#: admin/meta-box-payment-info.php:75
+#: admin/meta-box-payment-info.php:78
+msgid "Return URL"
+msgstr "Return URL"
+
+#: admin/meta-box-payment-info.php:96
+msgid "Redirect URL"
+msgstr "Redirect URL"
+
+#: admin/meta-box-payment-info.php:117
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:188
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:194
 msgid "Status"
 msgstr "Status"
 
-#: admin/meta-box-payment-info.php:93
+#: admin/meta-box-payment-info.php:135
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:427
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:105
+#: admin/meta-box-payment-info.php:147
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
 msgid "Consumer"
 msgstr "Consument"
@@ -1545,18 +1553,18 @@ msgstr "Betaling %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:416
+#: classes/Pronamic/WP/Pay/Plugin.php:437
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:472
+#: classes/Pronamic/WP/Pay/Plugin.php:493
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:588
+#: classes/Pronamic/WP/Pay/Plugin.php:609
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -1801,7 +1809,7 @@ msgid "Payment Status Pages"
 msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WP/Pay/Settings.php:103 templates/form.php:157
-#: vendor/wp-pay-extensions/give/src/Gateway.php:96
+#: vendor/wp-pay-extensions/give/src/Gateway.php:97
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:479
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
@@ -1951,12 +1959,12 @@ msgstr "Algemene informatie"
 msgid "Pay with iDEAL"
 msgstr "Betaal met iDEAL"
 
-#: vendor/wp-pay-extensions/charitable/src/Extension.php:163
+#: vendor/wp-pay-extensions/charitable/src/Extension.php:179
 msgid "Charitable"
 msgstr "Charitable"
 
-#: vendor/wp-pay-extensions/charitable/src/Extension.php:168
-#: vendor/wp-pay-extensions/give/src/Extension.php:139
+#: vendor/wp-pay-extensions/charitable/src/Extension.php:184
+#: vendor/wp-pay-extensions/give/src/Extension.php:150
 msgid "Donation %s"
 msgstr "Donatie %s"
 
@@ -2034,7 +2042,7 @@ msgstr "Afrekenen label"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:211
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:226
-#: vendor/wp-pay-extensions/give/src/Gateway.php:120
+#: vendor/wp-pay-extensions/give/src/Gateway.php:121
 msgid "Payment Error"
 msgstr "Betalingsfout"
 
@@ -2154,15 +2162,15 @@ msgstr ""
 "Vul een transactiebeschrijving in, je kunt Formidable Forms shortcodes "
 "gebruiken."
 
-#: vendor/wp-pay-extensions/give/src/Extension.php:134
+#: vendor/wp-pay-extensions/give/src/Extension.php:145
 msgid "Give"
 msgstr "Give"
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:96
+#: vendor/wp-pay-extensions/give/src/Gateway.php:97
 msgid "Nonce verification has failed"
 msgstr "Nonce verificatie is mislukt"
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:120
+#: vendor/wp-pay-extensions/give/src/Gateway.php:121
 msgid ""
 "Payment creation failed before sending buyer to payment provider. Payment "
 "data: %s"
@@ -2537,7 +2545,7 @@ msgstr "In afwachting van iDEAL-betaling."
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:83
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:66
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:92
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:181
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:196
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:111
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:139
 msgid "Order %s"
@@ -2777,27 +2785,27 @@ msgstr "Creditcard inschakelen"
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:106
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:141
 msgid "payment expired"
 msgstr "iDEAL-betaling verlopen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:118
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:149
 msgid "payment failed"
 msgstr "iDEAL-betaling mislukt"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:129
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:156
 msgid "payment completed"
 msgstr "betaling voltooid"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:140
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:163
 msgid "payment open"
 msgstr "betaling open"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:146
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:167
 msgid "payment unknown"
 msgstr "betaling onbekend"
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:167
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:182
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -3998,49 +4006,49 @@ msgstr ""
 "De Pronamic iDEAL plugin maakt het mogelijk om eenvoudig de iDEAL "
 "betaalmethode toe te voegen aan je WordPress website."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:397
+#: classes/Pronamic/WP/Pay/Plugin.php:418
 #: classes/Pronamic/WP/Pay/PostTypes.php:145
 msgctxt "Payment status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:398
+#: classes/Pronamic/WP/Pay/Plugin.php:419
 #: classes/Pronamic/WP/Pay/PostTypes.php:154
 msgctxt "Payment status"
 msgid "Processing"
 msgstr "In verwerking"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:399
+#: classes/Pronamic/WP/Pay/Plugin.php:420
 #: classes/Pronamic/WP/Pay/PostTypes.php:163
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr "In de wacht"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:400
+#: classes/Pronamic/WP/Pay/Plugin.php:421
 #: classes/Pronamic/WP/Pay/PostTypes.php:172
 msgctxt "Payment status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:401
+#: classes/Pronamic/WP/Pay/Plugin.php:422
 #: classes/Pronamic/WP/Pay/PostTypes.php:181
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:402
+#: classes/Pronamic/WP/Pay/Plugin.php:423
 #: classes/Pronamic/WP/Pay/PostTypes.php:190
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr "Terugbetaald"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:403
+#: classes/Pronamic/WP/Pay/Plugin.php:424
 #: classes/Pronamic/WP/Pay/PostTypes.php:199
 msgctxt "Payment status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:404
+#: classes/Pronamic/WP/Pay/Plugin.php:425
 #: classes/Pronamic/WP/Pay/PostTypes.php:208
 msgctxt "Payment status"
 msgid "Expired"
@@ -4910,9 +4918,6 @@ msgstr "Shop ID"
 
 #~ msgid "HTML Form"
 #~ msgstr "HTML formulier"
-
-#~ msgid "HTTP Redirect"
-#~ msgstr "HTTP redirect"
 
 #~ msgid "Unkown"
 #~ msgstr "Onbekend"
