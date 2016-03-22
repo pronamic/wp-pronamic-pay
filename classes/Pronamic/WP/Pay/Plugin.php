@@ -86,6 +86,9 @@ class Pronamic_WP_Pay_Plugin {
 		// Payment notes
 		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
 
+		// Payment redirect URL
+		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
+
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/functions.php';
@@ -204,6 +207,54 @@ class Pronamic_WP_Pay_Plugin {
 		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
+	/**
+	 * Payment redirect URL filter.
+	 *
+	 * @param string                  $url
+	 * @param Pronamic_WP_Pay_Payment $payment
+	 * @return string
+	 */
+	public function payment_redirect_url( $url, $payment ) {
+		$page_id = null;
+
+		switch ( $payment->status ) {
+			case Pronamic_WP_Pay_Statuses::CANCELLED :
+				$page_id = pronamic_pay_get_page_id( 'cancel' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::EXPIRED :
+				$page_id = pronamic_pay_get_page_id( 'expired' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::FAILURE :
+				$page_id = pronamic_pay_get_page_id( 'error' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::OPEN :
+				$page_id = pronamic_pay_get_page_id( 'unknown' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::SUCCESS :
+				$page_id = pronamic_pay_get_page_id( 'completed' );
+
+				break;
+			default:
+				$page_id = pronamic_pay_get_page_id( 'unknown' );
+
+				break;
+		}
+
+		if ( ! empty( $page_id ) ) {
+			$page_url = get_permalink( $page_id );
+
+			if ( false !== $page_url ) {
+				$url = $page_url;
+			}
+		}
+
+		return $url;
+	}
+
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( $payment ) {
 			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
@@ -230,37 +281,7 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
-					$url     = home_url( '/' );
-					$page_id = null;
-
-					switch ( $payment->status ) {
-						case Pronamic_WP_Pay_Statuses::CANCELLED :
-							$page_id = pronamic_pay_get_page_id( 'cancel' );
-							break;
-						case Pronamic_WP_Pay_Statuses::EXPIRED :
-							$page_id = pronamic_pay_get_page_id( 'expired' );
-							break;
-						case Pronamic_WP_Pay_Statuses::FAILURE :
-							$page_id = pronamic_pay_get_page_id( 'error' );
-							break;
-						case Pronamic_WP_Pay_Statuses::OPEN :
-							$page_id = pronamic_pay_get_page_id( 'unknown' );
-							break;
-						case Pronamic_WP_Pay_Statuses::SUCCESS :
-							$page_id = pronamic_pay_get_page_id( 'completed' );
-							break;
-						default:
-							$page_id = pronamic_pay_get_page_id( 'unknown' );
-							break;
-					}
-
-					if ( ! empty( $page_id ) ) {
-						$page_url = get_permalink( $page_id );
-
-						if ( false !== $page_url ) {
-							$url = $page_url;
-						}
-					}
+					$url = $payment->get_redirect_url();
 
 					wp_redirect( $url );
 
