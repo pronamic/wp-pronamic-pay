@@ -28,13 +28,13 @@
 		<exclude name="WordPress.VIP.RestrictedFunctions.custom_role" />
 	</rule>
 
+	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
+		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.XSS.EscapeOutput">
 		<properties>
 			<property name="customEscapingFunctions" type="array" value="Pronamic_WP_HTML_Helper" />
 		</properties>
-	</rule>
-
-	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
-		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
 	</rule>
 </ruleset>
