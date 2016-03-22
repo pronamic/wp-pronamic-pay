@@ -70,6 +70,48 @@ $payment = get_pronamic_payment( $post_id );
 			?>
 		</td>
 	</tr>
+
+	<?php if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Return URL', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$url = $payment->get_return_url();
+
+				printf(
+					'<a href="%s">%s</a>',
+					esc_attr( $url ),
+					esc_html( $url )
+				);
+
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Redirect URL', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$url = $payment->get_redirect_url();
+
+				printf(
+					'<a href="%s">%s</a>',
+					esc_attr( $url ),
+					esc_html( $url )
+				);
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
