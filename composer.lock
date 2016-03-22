@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d2d5989fa752602bdf21ace03170ce4",
-    "content-hash": "cb68ef32ac669b038847a1a8b4afd165",
+    "hash": "058e7e277db3e30ed6d272d5809fc371",
+    "content-hash": "f5b99c89eaceb9ae51105e35e3457d47",
     "packages": [
         {
             "name": "composer/installers",
@@ -197,16 +197,16 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "1.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/charitable.git",
-                "reference": "c4f152fe0e764d494c054317782ab54a3e2c68c9"
+                "reference": "dfe9bcfb6a33a0dd78db1ed873c2eac2181d4a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/c4f152fe0e764d494c054317782ab54a3e2c68c9",
-                "reference": "c4f152fe0e764d494c054317782ab54a3e2c68c9",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/dfe9bcfb6a33a0dd78db1ed873c2eac2181d4a9e",
+                "reference": "dfe9bcfb6a33a0dd78db1ed873c2eac2181d4a9e",
                 "shasum": ""
             },
             "require": {
@@ -256,7 +256,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-02 10:07:17"
+            "time": "2016-03-22 10:55:45"
         },
         {
             "name": "wp-pay-extensions/classipress",
@@ -567,12 +567,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/give.git",
-                "reference": "904de6a63e17c75bdbf47ee823c074dbead9fa7c"
+                "reference": "f796318152b289a01bf40686ed319f3615cbc882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/904de6a63e17c75bdbf47ee823c074dbead9fa7c",
-                "reference": "904de6a63e17c75bdbf47ee823c074dbead9fa7c",
+                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/f796318152b289a01bf40686ed319f3615cbc882",
+                "reference": "f796318152b289a01bf40686ed319f3615cbc882",
                 "shasum": ""
             },
             "require": {
@@ -622,7 +622,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-16 15:50:22"
+            "time": "2016-03-22 10:38:47"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -1096,16 +1096,16 @@
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "1.1.6",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "dc3eea023e80197480df7f7dc8e221ea01a3a6ac"
+                "reference": "9c65b0184ed585ed6eb569728eae1bc75f63894a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/dc3eea023e80197480df7f7dc8e221ea01a3a6ac",
-                "reference": "dc3eea023e80197480df7f7dc8e221ea01a3a6ac",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/9c65b0184ed585ed6eb569728eae1bc75f63894a",
+                "reference": "9c65b0184ed585ed6eb569728eae1bc75f63894a",
                 "shasum": ""
             },
             "require": {
@@ -1151,7 +1151,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-02-02 15:22:11"
+            "time": "2016-03-22 11:09:10"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -2910,12 +2910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "e006d65da441b41af4cb5b32381a6c765094121e"
+                "reference": "adf064e61bbd43b23e6ce532d422273fc047c4ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/e006d65da441b41af4cb5b32381a6c765094121e",
-                "reference": "e006d65da441b41af4cb5b32381a6c765094121e",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/adf064e61bbd43b23e6ce532d422273fc047c4ea",
+                "reference": "adf064e61bbd43b23e6ce532d422273fc047c4ea",
                 "shasum": ""
             },
             "require": {
@@ -2966,7 +2966,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-18 15:18:40"
+            "time": "2016-03-21 14:47:30"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -6130,10 +6130,22 @@
             "package": "wp-pay-gateways/targetpay"
         },
         {
+            "alias": "1.0.2",
+            "alias_normalized": "1.0.2.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/charitable"
+        },
+        {
             "alias": "1.0.0",
             "alias_normalized": "1.0.0.0",
             "version": "dev-develop",
             "package": "wp-pay-extensions/give"
+        },
+        {
+            "alias": "1.1.6",
+            "alias_normalized": "1.1.6.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/woocommerce"
         }
     ],
     "minimum-stability": "stable",
@@ -6175,7 +6187,9 @@
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/sisow-ideal-basic": 20,
         "wp-pay-gateways/targetpay": 20,
-        "wp-pay-extensions/give": 20
+        "wp-pay-extensions/charitable": 20,
+        "wp-pay-extensions/give": 20,
+        "wp-pay-extensions/woocommerce": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
