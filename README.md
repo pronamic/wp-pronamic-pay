@@ -290,6 +290,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>2.0.22</td>
 		</tr>
 		<tr>
+			<td><a href="https://givewp.com/" target="_blank">Give</a></td>
+			<td></td>
+			<td><a href="https://wordpress.org/plugins/give/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://github.com/WordImpress/Give" target="_blank">GitHub</a></td>
+			<td>1.3.6</td>
+			<td>1.3.6</td>
+		</tr>
+		<tr>
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
 			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
 			<td></td>

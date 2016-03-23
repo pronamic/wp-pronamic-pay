@@ -6,7 +6,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [3.9.1-RC1] - 2016-03-21
+## [4.0.0] - 2016-03-24
+
+### Added
+- Added experimental support for Give.
 
 ## [3.9.0] - 2016-03-02
 
@@ -1084,8 +1087,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.9.1-RC1...HEAD
-[3.9.1-RC1]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.9.0...3.9.1-RC1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.0.0...HEAD
+[4.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.9.0...4.0.0
 [3.9.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.9...3.9.0
 [3.8.9]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.8...3.8.9
 [3.8.8]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.8.7...3.8.8

@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.4.2
-Stable tag: 3.9.1-RC1
+Stable tag: 4.0.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -51,6 +51,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
 	*	**Requires at least:** 2.0.22
 	*	**Tested up to:** 2.0.22
+*	[Give](https://givewp.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/give/](https://wordpress.org/plugins/give/)
+	*	**GitHub:** [https://github.com/WordImpress/Give](https://github.com/WordImpress/Give)
+	*	**Requires at least:** 1.3.6
+	*	**Tested up to:** 1.3.6
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
@@ -303,7 +308,8 @@ results in OmniKassa data that no longer matches the signature.
 
 == Changelog ==
 
-= 3.9.1-RC1 - 2016-03-21 =
+= 4.0.0 - 2016-03-24 =
+*	Added experimental support for Give.
 
 = 3.9.0 - 2016-03-02 =
 *	Added experimental support for Formidable Forms.
