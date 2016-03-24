@@ -310,6 +310,54 @@ results in OmniKassa data that no longer matches the signature.
 
 = 4.0.0 - 2016-03-24 =
 *	Added experimental support for Give.
+*	Added tabs to the gateway configration edit page.
+*	Added return URL to admin payment detail page.
+*	Added redirect URL to admin payment detail page.
+*	Updated WordPress pay Gravity Forms library to version 1.4.5.
+	*	Added support for merge tag 'pronamic_payment_id'.
+	*	Added ability to use Gravity Forms confirmations (with merge tag support) as payment status page.
+*	Updated WordPress pay Membership library to version 1.0.4.
+	*	Always use Membership gateway live mode.
+	*	Display gateway error messages.
+	*	Added support for issuer input field.
+	*	Added support for button image URL and description to iDEAL gateway.
+*	Updated WordPress pay Jigoshop library to version 1.0.2.
+	*	Removed status code from redirect in update_status.
+*	Updated WordPress pay Jigoshop library to version 1.0.1.
+	*	Removed status code from redirect in status_update.
+*	Updated WordPress pay WooCommerce library to version 1.1.7.
+	*	Redirect to payment options instead of 'Order received' if payment is not yet completed.
+	*	Implemented new payment redirect URL filter.
+	*	Use the global default config as the WooCommerce default config.
+*	Updated WordPress pay Formidable Forms library to version 1.0.1.
+	*	Added support for transaction description.
+*	Updated WordPress pay Easy Digital Downloads library to version 1.2.3.
+	*	Tested Easy Digital Downloads version 2.5.9.
+	*	Set global WordPress gateway config as default config in gateways.
+	*	Use new redirect URL filter.
+	*	Return to checkout if there is no gateway found.
+*	Updated WordPress pay Charitable library to version 1.0.3.
+	*	Changed the default return URL to the campaign URL.
+	*	Use new redirect URL filter.
+*	Updated WordPress pay OmniKassa library to version 1.1.7.
+	*	Added advanced 'Order ID' setting.
+*	Updated WordPress pay ING Kassa Compleet library to version 1.0.3.
+	*	Added webhook listener.
+	*	Added scheduled events to check transaction status.
+*	Updated WordPress pay Buckaroo library to version 1.2.3.
+	*	Updated gateway settings and add support for 'brq_excludedservices' parameter.
+	*	Added advanced setting for 'brq_invoicenumber' parameter.
+*	Updated WordPress pay Pay.nl library to version 1.1.4.
+	*	Added scheduled transaction status request.
+*	Updated WordPress pay Ogone library to version 1.2.8.
+	*	Use UTF-8 URL when blog charset is UTF-8.
+*	Updated WordPress pay Mollie library to version 1.1.5.
+	*	Added support for bank transfer and direct debit payment methods.
+*	Updated WordPress pay iDEAL Basic library to version 1.1.4.
+	*	Fixed typo 'xml_notifaction' in listener parameter.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.4.
+	*	Updated gateway settings, including private key and certificate generation.
+	*	Added error details to error message.
 
 = 3.9.0 - 2016-03-02 =
 *	Added experimental support for Formidable Forms.
