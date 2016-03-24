@@ -165,26 +165,6 @@ $providers = array(
 			),
 		),
 	),
-	'frieslandbank.nl' => array(
-		'name'      => 'Friesland Bank',
-		'url'       => 'http://frieslandbank.nl/',
-		'resources' => array(
-			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/FRIESLAND_BANK_iDEAL_Manual_php.pdf',
-				'name'    => 'iDEAL Shop Integration Guide – PHP Merchant Plug-in',
-				'version' => '0.6',
-			),
-			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/FRIESLAND_BANK_iDEAL_Manual_dotnet.pdf',
-				'name'    => 'iDEAL Shop Integration Guide – ASP .Net (C#) Merchant Plug-in',
-				'version' => '1.0',
-			),
-			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/friesland-bank-ideal-dashboard-08-10.pdf',
-				'name'    => 'iDEAL Dashboard',
-			),
-		),
-	),
 	'icepay.com' => array(
 		'name'      => 'ICEPAY',
 		'url'       => 'http://www.icepay.com/',

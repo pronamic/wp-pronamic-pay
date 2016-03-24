@@ -83,6 +83,11 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get the return URL for this payment.
+	 *
+	 * @return string
+	 */
 	public function get_return_url() {
 		$url = add_query_arg(
 			array(
@@ -91,6 +96,20 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 			),
 			home_url( '/' )
 		);
+
+		return $url;
+	}
+
+	/**
+	 * Get the redirect URL for this payment.
+	 *
+	 * @return string
+	 */
+	public function get_redirect_url() {
+		$url = home_url( '/' );
+
+		$url = apply_filters( 'pronamic_payment_redirect_url', $url, $this );
+		$url = apply_filters( 'pronamic_payment_redirect_url_' . $this->source, $url, $this );
 
 		return $url;
 	}

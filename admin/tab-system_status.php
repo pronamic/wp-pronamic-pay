@@ -9,7 +9,7 @@
 			<?php echo esc_html( site_url() ); ?>
 		</td>
 		<td>
-			&#10003;
+			✓
 		</td>
 	</tr>
 	<tr>
@@ -20,7 +20,7 @@
 			<?php echo esc_html( home_url() ); ?>
 		</td>
 		<td>
-			&#10003;
+			✓
 		</td>
 	</tr>
 	<tr>
@@ -34,7 +34,7 @@
 			<?php
 
 			if ( version_compare( phpversion(), '5.2', '>' ) ) {
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL requires PHP 5.2 or above.', 'pronamic_ideal' );
 			}
@@ -59,7 +59,7 @@
 			<?php
 
 			if ( version_compare( $wpdb->db_version(), '5', '>' ) ) {
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL requires MySQL 5 or above.', 'pronamic_ideal' );
 			}
@@ -78,7 +78,7 @@
 			<?php
 
 			if ( version_compare( get_bloginfo( 'version' ), '3.2', '>' ) ) {
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL requires WordPress 3.2 or above.', 'pronamic_ideal' );
 			}
@@ -103,7 +103,7 @@
 			<?php
 
 			if ( $memory >= 67108864 ) { // 64 MB
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				echo wp_kses(
 					sprintf(
@@ -134,7 +134,7 @@
 
 			// @see http://codex.wordpress.org/Function_Reference/bloginfo#Show_Character_Set
 			if ( 0 === strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) ) {
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL advices to set the character encoding to UTF-8.', 'pronamic_ideal' );
 			}
@@ -151,7 +151,7 @@
 			<?php echo esc_html( date( Pronamic_IDeal_IDeal::DATE_FORMAT ) ); ?>
 		</td>
 		<td>
-			&#10003;
+			✓
 		</td>
 	</tr>
 	<tr>
@@ -176,7 +176,7 @@
 			?>
 		</td>
 		<td>
-			&#10003;
+			✓
 		</td>
 	</tr>
 	<tr>
@@ -199,7 +199,7 @@
 			<?php
 
 			if ( version_compare( OPENSSL_VERSION_NUMBER, 0x000908000, '>' ) ) {
-				echo '&#10003;';
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL requires OpenSSL 0.9.8 or above.', 'pronamic_ideal' );
 			}
@@ -223,8 +223,8 @@
 		<td>
 			<?php
 
-			if ( in_array( 'sha1', $algorithms ) ) {
-				echo '&#10003;';
+			if ( in_array( 'sha1', $algorithms, true ) ) {
+				echo '✓';
 			} else {
 				esc_html_e( 'Pronamic iDEAL requires the "sha1" hashing algorithm.', 'pronamic_ideal' );
 			}

@@ -3,8 +3,9 @@
 /**
  * Title: WordPress admin dashboard
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 3.7.0
  * @since 3.7.0
@@ -35,7 +36,7 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 			wp_add_dashboard_widget(
 				'pronamic_pay_dashboard_status',
 				__( 'Pronamic iDEAL Status', 'pronamic_ideal' ),
-				array ( $this, 'status_widget' )
+				array( $this, 'status_widget' )
 			);
 		}
 	}

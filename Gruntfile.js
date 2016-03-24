@@ -35,6 +35,10 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
+					'!src/changelog-md/**',
+					'!src/general/**',
+					'!src/readme-md/**',
+					'!src/readme-txt/**',
 					'!vendor/**',
 					'!wp-content/**'
 				]
@@ -127,7 +131,8 @@ module.exports = function( grunt ) {
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*',
-						'vendor/wp-cli/.*'
+						'vendor/wp-cli/.*',
+						'vendor/wp-pay.*/.*/vendor/wp-cli/.*'
 					]
 				}
 			}
@@ -224,6 +229,15 @@ module.exports = function( grunt ) {
 							'accounting.js'
 						],
 						dest: 'assets/accounting'
+					},
+					{ // TipTip - https://github.com/drewwilson/TipTip
+						expand: true,
+						cwd: 'bower_components/TipTip/',
+						src: [
+							'jquery.tipTip.js',
+							'tipTip.css'
+						],
+						dest: 'assets/tiptip'
 					}
 				]
 			},
@@ -292,10 +306,13 @@ module.exports = function( grunt ) {
 		cssmin: {
 			styles: {
 				files: {
+					// Pronamic iDEAL
 					'css/admin.min.css': 'src/css/admin.css',
 					'css/admin-about.min.css': 'src/css/admin-about.css',
 					'css/admin-tour.min.css': 'src/css/admin-tour.css',
-					'css/forms.min.css': 'src/css/forms.css'
+					'css/forms.min.css': 'src/css/forms.css',
+					// TipTIp
+					'assets/tiptip/tipTip.min.css': 'assets/tiptip/tipTip.css'
 				}
 			},
 			assets: {
@@ -309,16 +326,18 @@ module.exports = function( grunt ) {
 		uglify: {
 			scripts: {
 				files: {
+					// Pronamic iDEAL
+					'js/admin.min.js': 'src/js/admin.js',
+					'js/admin-reports.min.js': 'src/js/admin-reports.js',
+					'js/admin-tour.min.js': 'src/js/admin-tour.js',
 					// Accounting
 					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
 					// Flot
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// Admin
-					'js/admin.min.js': 'src/js/admin.js',
-					'js/admin-reports.min.js': 'src/js/admin-reports.js',
-					'js/admin-tour.min.js': 'src/js/admin-tour.js'
+					// TipTIp
+					'assets/tiptip/jquery.tipTip.min.js': 'assets/tiptip/jquery.tipTip.js'
 				}
 			},
 			assets: {
@@ -423,6 +442,12 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
+
+	grunt.registerTask( 'build', [
+		'assets',
+		'min',
+		'pot'
+	] );
 
 	grunt.registerTask( 'deploy', [
 		'default',

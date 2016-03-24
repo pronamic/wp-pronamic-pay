@@ -3,8 +3,9 @@
 /**
  * Title: WordPress admin gateway post type
  * Description:
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 3.8.0
  * @since ?
@@ -34,6 +35,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 
 		add_action( 'display_post_states', array( $this, 'display_post_states' ), 10, 2 );
+
+		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -44,7 +47,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			'title'                        => __( 'Title', 'pronamic_ideal' ),
 			'pronamic_gateway_variant'     => __( 'Variant', 'pronamic_ideal' ),
 			'pronamic_gateway_id'          => __( 'ID', 'pronamic_ideal' ),
-			// 'pronamic_gateway_secret'      => __( 'Secret', 'pronamic_ideal' ),
 			'pronamic_gateway_dashboard'   => __( 'Dashboard', 'pronamic_ideal' ),
 			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
@@ -73,10 +75,12 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_buckaroo_website_key', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_icepay_merchant_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_mollie_partner_id', true ),
+					get_post_meta( $post_id, '_pronamic_gateway_multisafepay_account_id', true ),
+					get_post_meta( $post_id, '_pronamic_gateway_pay_nl_service_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_paydutch_username', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_qantani_merchant_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true ),
-					get_post_meta( $post_id, '_pronamic_gateway_targetpay_layout_code', true ),
+					get_post_meta( $post_id, '_pronamic_gateway_targetpay_layoutcode', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_user_id', true ),
 				) );
@@ -99,25 +103,21 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 				break;
 			case 'pronamic_gateway_dashboard':
-				$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
-
 				if ( $integration ) {
-					$urls = array();
-
-					if ( isset( $integration->dashboard_url ) ) {
-						$url = $integration->dashboard_url;
-
-						$urls[ $url ] = __( 'Dashboard', 'pronamic_ideal' );
-					}
+					$urls = $integration->get_dashboard_url();
 
 					// Output
 					$content = array();
 
-					foreach ( $urls as $url => $name ) {
+					foreach ( $urls as $name => $url ) {
+						if ( empty( $name ) ) {
+							$name = __( 'Dashboard', 'pronamic_ideal' );
+						}
+
 						$content[] = sprintf(
 							'<a href="%s" target="_blank">%s</a>',
 							esc_attr( $url ),
-							esc_html( $name )
+							esc_html( ucfirst( $name ) )
 						);
 					}
 
@@ -226,7 +226,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 */
 	private function maybe_set_default_gateway( $post_id ) {
 		// Don't set the default gateway if the post is not published.
-		if ( 'publish' !== get_post_status ( $post_id ) ) {
+		if ( 'publish' !== get_post_status( $post_id ) ) {
 			return;
 		}
 
@@ -277,17 +277,57 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 		$data = filter_input_array( INPUT_POST, $definition );
 
-		// Files
-		$files = array(
-			'_pronamic_gateway_ideal_private_key_file'         => '_pronamic_gateway_ideal_private_key',
-			'_pronamic_gateway_ideal_private_certificate_file' => '_pronamic_gateway_ideal_private_certificate',
-		);
+		if ( ! empty( $data['_pronamic_gateway_id'] ) ) {
+			$integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
-		foreach ( $files as $name => $meta_key ) {
-			if ( isset( $_FILES[ $name ] ) && UPLOAD_ERR_OK === $_FILES[ $name ]['error'] ) {
-				$value = file_get_contents( $_FILES[ $name ]['tmp_name'] );
+			$integration = $integrations->get_integration( $data['_pronamic_gateway_id'] );
 
-				$data[ $meta_key ] = $value;
+			if ( $integration ) {
+				$settings = $integration->get_settings();
+
+				foreach ( $fields as $field ) {
+					if ( isset( $field['default'], $field['meta_key'], $data[ $field['meta_key'] ] ) ) {
+						// Remove default value if not applicable to the selected gateway
+						if ( isset( $field['methods'] ) ) {
+							$clean_default = array_intersect( $settings, $field['methods'] );
+
+							if ( empty( $clean_default ) ) {
+								$meta_value = get_post_meta( $post_id, $field['meta_key'], true );
+
+								// Only remove value if not saved before
+								if ( empty( $meta_value ) ) {
+									$data[ $field['meta_key'] ] = null;
+
+									continue;
+								}
+							}
+						}
+
+						// Set the default value if empty
+						if ( empty( $data[ $field['meta_key'] ] ) ) {
+							$default = $field['default'];
+
+							if ( is_array( $default ) && 2 === count( $default ) && Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
+								$data[ $field['meta_key'] ] = $default( $field );
+							} else {
+								$data[ $field['meta_key'] ] = $default;
+							}
+						}
+					}
+				}
+
+				// Filter data through gateway integration settings
+				$settings_classes = $integration->get_settings_class();
+
+				if ( ! is_array( $settings_classes ) ) {
+					$settings_classes = array( $settings_classes );
+				}
+
+				foreach ( $settings_classes as $settings_class ) {
+					$gateway_settings = new $settings_class;
+
+					$data = $gateway_settings->save_post( $data );
+				}
 			}
 		}
 
@@ -296,5 +336,47 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 		// Transient
 		delete_transient( 'pronamic_pay_issuers_' . $post_id );
+	}
+
+	/**
+	 * Post updated messages.
+	 *
+	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
+	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/edit-form-advanced.php#L134-L173
+	 * @see https://github.com/woothemes/woocommerce/blob/2.5.5/includes/admin/class-wc-admin-post-types.php#L111-L168
+	 * @param string $message
+	 * @return string
+	 */
+	public function post_updated_messages( $messages ) {
+		global $post;
+
+		// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352797&filters[translation_id]=37948900
+		$scheduled_date = date_i18n( __( 'M j, Y @ H:i', 'pronamic_ideal' ), strtotime( $post->post_date ) );
+
+		$messages[ self::POST_TYPE ] = array(
+			 0 => '', // Unused. Messages start at index 1.
+			 1 => __( 'Configuration updated.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352799&filters[translation_id]=37947229
+			 2 => $messages['post'][2],
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352800&filters[translation_id]=37947870
+			 3 => $messages['post'][3],
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230
+			 4 => __( 'Configuration updated.', 'pronamic_ideal' ),
+			/* translators: %s: date and time of the revision */
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
+			 5 => isset( $_GET['revision'] ) ? sprintf( __( 'Configuration restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
+			 6 => __( 'Configuration published.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232
+			 7 => __( 'Configuration saved.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303
+			 8 => __( 'Configuration submitted.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302
+			 9 => sprintf( __( 'Configuration scheduled for: %s.' ), '<strong>' . $scheduled_date . '</strong>' ),
+			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301
+			10 => __( 'Configuration draft updated.', 'pronamic_ideal' ),
+		);
+
+		return $messages;
 	}
 }

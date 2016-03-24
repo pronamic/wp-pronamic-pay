@@ -3,8 +3,9 @@
 /**
  * Title: WordPress admin gateway post type
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 3.7.0
  * @since 3.7.0
@@ -104,7 +105,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 					$post_id
 				);
 
-				$value = $wpdb->get_var( $query );
+				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
 				echo esc_html( number_format_i18n( $value ) );
 
@@ -140,7 +141,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 					$post_id
 				);
 
-				$value = $wpdb->get_var( $query );
+				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
 				echo '€', '&nbsp;', esc_html( number_format_i18n( $value, 2 ) );
 
@@ -221,7 +222,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 			foreach ( $data['_pronamic_payment_form_amount_choices'] as $i => $amount ) {
 				$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
 
-				$data['_pronamic_payment_form_amount_choices'][$i] = Pronamic_WP_Pay_Util::amount_to_cents( $amount );
+				$data['_pronamic_payment_form_amount_choices'][ $i ] = Pronamic_WP_Pay_Util::amount_to_cents( $amount );
 			}
 
 			// Remove empty choices

@@ -3,8 +3,9 @@
 /**
  * Title: WordPress iDEAL plugin
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0.0
  * @since 1.0.0
@@ -45,6 +46,7 @@ class Pronamic_WP_Pay_Plugin {
 	public function __construct() {
 		// Bootstrap the add-ons
 		Pronamic_WP_Pay_Extensions_Charitable_Extension::bootstrap();
+		Pronamic_WP_Pay_Extensions_Give_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
@@ -56,7 +58,6 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
-		// Pronamic_WP_Pay_Extensions_EShop_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
@@ -84,6 +85,9 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Payment notes
 		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
+
+		// Payment redirect URL
+		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
@@ -165,10 +169,10 @@ class Pronamic_WP_Pay_Plugin {
 		if ( null !== $payment ) {
 			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 			// - No status request after a final status has been received for a transaction;
-			if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
+			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
 				self::update_payment( $payment );
 
-				if ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) {
+				if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
 					switch ( $number_tries ) {
 						case 0 :
 							// 30 seconds after a transaction request is sent
@@ -203,6 +207,54 @@ class Pronamic_WP_Pay_Plugin {
 		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
+	/**
+	 * Payment redirect URL filter.
+	 *
+	 * @param string                  $url
+	 * @param Pronamic_WP_Pay_Payment $payment
+	 * @return string
+	 */
+	public function payment_redirect_url( $url, $payment ) {
+		$page_id = null;
+
+		switch ( $payment->status ) {
+			case Pronamic_WP_Pay_Statuses::CANCELLED :
+				$page_id = pronamic_pay_get_page_id( 'cancel' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::EXPIRED :
+				$page_id = pronamic_pay_get_page_id( 'expired' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::FAILURE :
+				$page_id = pronamic_pay_get_page_id( 'error' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::OPEN :
+				$page_id = pronamic_pay_get_page_id( 'unknown' );
+
+				break;
+			case Pronamic_WP_Pay_Statuses::SUCCESS :
+				$page_id = pronamic_pay_get_page_id( 'completed' );
+
+				break;
+			default:
+				$page_id = pronamic_pay_get_page_id( 'unknown' );
+
+				break;
+		}
+
+		if ( ! empty( $page_id ) ) {
+			$page_url = get_permalink( $page_id );
+
+			if ( false !== $page_url ) {
+				$url = $page_url;
+			}
+		}
+
+		return $url;
+	}
+
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( $payment ) {
 			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
@@ -220,7 +272,7 @@ class Pronamic_WP_Pay_Plugin {
 
 				pronamic_wp_pay_update_payment( $payment );
 
-				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || $payment->status === Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN ) ) {
+				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
 					$can_redirect = false;
 				}
 
@@ -229,37 +281,7 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
-					$url     = home_url( '/' );
-					$page_id = null;
-
-					switch ( $payment->status ) {
-						case Pronamic_WP_Pay_Statuses::CANCELLED :
-							$page_id = pronamic_pay_get_page_id( 'cancel' );
-							break;
-						case Pronamic_WP_Pay_Statuses::EXPIRED :
-							$page_id = pronamic_pay_get_page_id( 'expired' );
-							break;
-						case Pronamic_WP_Pay_Statuses::FAILURE :
-							$page_id = pronamic_pay_get_page_id( 'error' );
-							break;
-						case Pronamic_WP_Pay_Statuses::OPEN :
-							$page_id = pronamic_pay_get_page_id( 'unknown' );
-							break;
-						case Pronamic_WP_Pay_Statuses::SUCCESS :
-							$page_id = pronamic_pay_get_page_id( 'completed' );
-							break;
-						default:
-							$page_id = pronamic_pay_get_page_id( 'unknown' );
-							break;
-					}
-
-					if ( ! empty( $page_id ) ) {
-						$page_url = get_permalink( $page_id );
-
-						if ( false !== $page_url ) {
-							$url = $page_url;
-						}
-					}
+					$url = $payment->get_redirect_url();
 
 					wp_redirect( $url );
 
@@ -291,7 +313,7 @@ class Pronamic_WP_Pay_Plugin {
 				$valid_key = ( $key === $payment->key );
 			}
 
-			if( ! $valid_key ) {
+			if ( ! $valid_key ) {
 				wp_redirect( home_url() );
 
 				exit;
@@ -506,8 +528,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
-		// Adyen
-		//$integrations[] = 'Pronamic_WP_Pay_Gateways_Adyen_Integration';
 		// Buckaroo
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_Integration';
 		// Deutsche Bank
@@ -521,7 +541,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealBasic_Integration';
 		// ING
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
@@ -545,8 +564,8 @@ class Pronamic_WP_Pay_Plugin {
 		// Postcode.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Rabobank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow

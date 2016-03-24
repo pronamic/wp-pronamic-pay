@@ -23,7 +23,7 @@ function get_pronamic_payment_by_meta( $meta_key, $meta_value ) {
 			;
 	", $meta_key, $meta_value );
 
-	$post_id = $wpdb->get_var( $db_query );
+	$post_id = $wpdb->get_var( $db_query ); // WPCS: unprepared SQL ok.
 
 	if ( $post_id ) {
 		$payment = new Pronamic_WP_Pay_Payment( $post_id );

@@ -3,8 +3,9 @@
 /**
  * Title: WordPress iDEAL admin
  * Description:
- * Copyright: Copyright (c) 2005 - 2011
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0
  */
@@ -103,7 +104,7 @@ class Pronamic_WP_Pay_LicenseManager {
 			$status = 'invalid';
 		} else {
 			// Request
-			$args = array (
+			$args = array(
 				'license' => $license,
 				'name'    => 'Pronamic iDEAL',
 				'url'     => home_url(),
@@ -114,7 +115,7 @@ class Pronamic_WP_Pay_LicenseManager {
 			$response = wp_remote_get(
 				add_query_arg( $args, 'http://api.pronamic.eu/licenses/check/1.0/' ),
 				array(
-					'timeout' => 20
+					'timeout' => 20,
 				)
 			);
 
@@ -153,7 +154,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$response = wp_remote_get(
 			add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' ),
 			array(
-				'timeout' => 20
+				'timeout' => 20,
 			)
 		);
 	}
@@ -179,7 +180,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$response = wp_remote_get(
 			add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ),
 			array(
-				'timeout' => 20
+				'timeout' => 20,
 			)
 		);
 

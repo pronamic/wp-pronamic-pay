@@ -3,8 +3,9 @@
 /**
  * Title: WordPress gateway integrations
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 3.8.0
  * @since 3.8.0
@@ -52,7 +53,7 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 	 *
 	 * @return ArrayIterator
 	 */
-    public function getIterator() {
-        return new ArrayIterator( $this->integrations );
-    }
+	public function getIterator() {
+		return new ArrayIterator( $this->integrations );
+	}
 }

@@ -28,13 +28,6 @@ $pronamic_pay_providers = array(
 		'name'          => 'Fibonacci ORANGE',
 		'url'           => 'http://www.fibonacciorange.com/',
 	),
-	'fortis-bank'       => array(
-		'name'          => 'Fortis Bank',
-	),
-	'frieslandbank'     => array(
-		'name'          => 'Friesland Bank',
-		'url'           => 'http://frieslandbank.nl/',
-	),
 	'icepay'            => array(
 		'name'          => 'ICEPAY',
 		'url'           => 'http://www.icepay.nl/',
@@ -54,10 +47,6 @@ $pronamic_pay_providers = array(
 	'multisafepay'      => array(
 		'name'          => 'MultiSafepay',
 		'url'           => 'http://www.multisafepay.com/',
-	),
-	'neos'              => array(
-		'name'          => 'NEOS',
-		'url'           => 'http://neossolution.com/',
 	),
 	'ogone'             => array(
 		'name'          => 'Ingenico/Ogone',

@@ -30,7 +30,7 @@ bind_providers_and_gateways();
 		<tr>
 			<th scope="row">
 				<label for="pronamic_gateway_id">
-					<?php esc_html_e( 'Variant', 'pronamic_ideal' ); ?>
+					<?php esc_html_e( 'Payment provider', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
@@ -47,6 +47,8 @@ bind_providers_and_gateways();
 								$id      = $integration->get_id();
 								$name    = $integration->get_name();
 								$classes = array();
+								$description = '';
+								$links   = array();
 
 								if ( isset( $integration->deprecated ) && $integration->deprecated  ) {
 									$classes[] = 'deprecated';
@@ -58,8 +60,43 @@ bind_providers_and_gateways();
 									}
 								}
 
+								// Dashboard links
+								$dashboards = $integration->get_dashboard_url();
+
+								if ( 1 === count( $dashboards ) ) {
+									$links[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+										esc_attr( $dashboards[0] ),
+										__( 'Dashboard', 'pronamic_ideal' )
+									);
+								} elseif ( count( $dashboards ) > 1 ) {
+									$dashboard_urls = array();
+
+									foreach ( $dashboards as $dashboard_name => $dashboard_url ) {
+										$dashboard_urls[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+											esc_attr( $dashboard_url ),
+											esc_html( ucfirst( $dashboard_name ) )
+										);
+									}
+
+									$links[] = sprintf( '%s: %s',
+										__( 'Dashboards', 'pronamic_ideal' ),
+										strtolower( implode( ', ', $dashboard_urls ) )
+									);
+								}
+
+								// Product link
+								if ( $integration->get_product_url() ) {
+									$links[] = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+										$integration->get_product_url(),
+										__( 'Product information', 'pronamic_ideal' )
+									);
+								}
+
+								$description = implode( ' | ', $links );
+
 								printf(
-									'<option data-pronamic-pay-settings="%s" value="%s" %s class="%s">%s</option>',
+									'<option data-gateway-description="%s" data-pronamic-pay-settings="%s" value="%s" %s class="%s">%s</option>',
+									esc_attr( $description ),
 									esc_attr( wp_json_encode( $integration->get_settings() ) ),
 									esc_attr( $id ),
 									selected( $variant_id, $id, false ),
@@ -74,9 +111,15 @@ bind_providers_and_gateways();
 
 					?>
                	</select>
+
+				<div id="pronamic-pay-gateway-description"></div>
 			</td>
 		</tr>
 	</table>
+
+	<div class="pronamic-pay-tabs">
+
+		<ul class="pronamic-pay-tabs-items"></ul>
 
 	<?php foreach ( $sections as $id => $section ) : ?>
 
@@ -105,7 +148,7 @@ bind_providers_and_gateways();
 
 					<?php if ( ! empty( $section['description'] ) ) : ?>
 
-						<p><?php echo esc_html( $section['description'] ); ?></p>
+						<p><?php echo $section['description']; //xss ok ?></p>
 
 					<?php endif; ?>
 				</div>
@@ -127,6 +170,39 @@ bind_providers_and_gateways();
 						}
 					}
 
+					if ( isset( $field['group'] ) ) {
+						$classes[] = $field['group'];
+					}
+
+					if ( isset( $field['show_provider'] ) ) {
+						$providers = $field['show_provider'];
+						$classes[] = 'show-provider';
+
+						if ( is_string( $providers ) ) {
+							$providers = array( $providers );
+						}
+
+						if ( is_array( $providers ) ) {
+							foreach ( $providers as $provider ) {
+								$classes[] = sprintf( 'show-%s', $provider );
+							}
+						}
+					}
+
+					if ( isset( $field['hide_provider'] ) ) {
+						$providers = $field['hide_provider'];
+
+						if ( is_string( $providers ) ) {
+							$providers = array( $providers );
+						}
+
+						if ( is_array( $providers ) ) {
+							foreach ( $providers as $provider ) {
+								$classes[] = sprintf( 'hide-%s', $provider );
+							}
+						}
+					}
+
 					if ( isset( $field['id'] ) ) {
 						$id = $field['id'];
 					} elseif ( isset( $field['meta_key'] ) ) {
@@ -137,12 +213,29 @@ bind_providers_and_gateways();
 
 					?>
 					<tr class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+
+						<?php if ( 'html' !== $field['type'] ) { ?>
+
 						<th scope="col">
 							<label for="<?php echo esc_attr( $id ); ?>">
 								<?php echo esc_html( $field['title'] ); ?>
 							</label>
+
+							<?php
+
+							if ( isset( $field['tooltip'] ) && ! empty( $field['tooltip'] ) ) {
+								printf(
+									'<span class="dashicons dashicons-editor-help pronamic-pay-tip" data-tip="%s"></span>',
+									esc_attr( $field['tooltip'] )
+								);
+							}
+
+							?>
 						</th>
-						<td>
+
+						<?php } ?>
+
+						<td <?php echo ( 'html' === $field['type'] ? 'colspan="2"' : null ); ?>>
 							<?php
 
 							$attributes = array();
@@ -175,6 +268,11 @@ bind_providers_and_gateways();
 								$value = get_post_meta( get_the_ID(), $field['meta_key'], true );
 							} elseif ( isset( $field['value'] ) ) {
 								$value = $field['value'];
+							}
+
+							// Set default
+							if ( empty( $value ) && isset( $field['default'] ) ) {
+								$value = $field['default'];
 							}
 
 							switch ( $field['type'] ) {
@@ -256,9 +354,20 @@ bind_providers_and_gateways();
 									break;
 							}
 
+							if ( isset( $field['html'] ) ) {
+								if ( 'description' !== $field['type'] && isset( $field['title'] ) && ! empty( $field['title'] ) ) {
+									printf(
+										'<strong>%s</strong><br>',
+										esc_html( $field['title'] )
+									);
+								}
+
+								echo $field['html']; //xss ok
+							}
+
 							if ( isset( $field['description'] ) ) {
 								printf( //xss ok
-									'<span class="description"><br />%s</span>',
+									'<span class="description">%s</span>',
 									$field['description']
 								);
 							}
@@ -281,80 +390,7 @@ bind_providers_and_gateways();
 
 	<?php endforeach; ?>
 
-	<div class="extra-settings method-ideal_advanced_v3">
-		<h4>
-			<?php esc_html_e( 'Private Key and Certificate Generator', 'pronamic_ideal' ); ?>
-		</h4>
-
-		<p>
-			<?php esc_html_e( 'You have to use the following commands to generate an private key and certificate for iDEAL v3:', 'pronamic_ideal' ); ?>
-		</p>
-
-		<table class="form-table">
-			<tr>
-				<th scope="col">
-					<label for="pronamic_ideal_openssl_command_key">
-						<?php esc_html_e( 'Private Key', 'pronamic_ideal' ); ?>
-					</label>
-				</th>
-				<td>
-					<?php
-
-					$private_key_password = get_post_meta( get_the_ID(), '_pronamic_gateway_ideal_private_key_password', true );
-					$number_days_valid    = get_post_meta( get_the_ID(), '_pronamic_gateway_number_days_valid', true );
-
-					$filename = __( 'filename', 'pronamic_ideal' );
-
-					$command = sprintf(
-						'openssl genrsa -aes128 -out %s.key -passout pass:%s 2048',
-						$filename,
-						$private_key_password
-					);
-
-					?>
-					<input id="pronamic_ideal_openssl_command_key" name="pronamic_ideal_openssl_command_key" value="<?php echo esc_attr( $command ); ?>" type="text" class="large-text code" readonly="readonly" />
-				</td>
-			</tr>
-			<tr>
-				<th scope="col">
-					<label for="pronamic_ideal_openssl_command_certificate">
-						<?php esc_html_e( 'Private Certificate', 'pronamic_ideal' ); ?>
-					</label>
-				</th>
-				<td>
-					<?php
-
-					// @see http://www.openssl.org/docs/apps/req.html
-					$subj_args = array(
-						'C'            => get_post_meta( get_the_ID(), '_pronamic_gateway_country', true ),
-						'ST'           => get_post_meta( get_the_ID(), '_pronamic_gateway_state_or_province', true ),
-						'L'            => get_post_meta( get_the_ID(), '_pronamic_gateway_locality', true ),
-						'O'            => get_post_meta( get_the_ID(), '_pronamic_gateway_organization', true ),
-						'OU'           => get_post_meta( get_the_ID(), '_pronamic_gateway_organization_unit', true ),
-						'CN'           => get_post_meta( get_the_ID(), '_pronamic_gateway_common_name', true ),
-						'emailAddress' => get_post_meta( get_the_ID(), '_pronamic_gateway_email', true ),
-					);
-
-					$subj_args = array_filter( $subj_args );
-
-					$subj = '';
-					foreach ( $subj_args as $type => $value ) {
-						$subj .= '/' . $type . '=' . addslashes( $value );
-					}
-
-					$command = trim( sprintf(
-						'openssl req -x509 -sha256 -new -key %s.key -passin pass:%s -days %d -out %s.cer %s',
-						$filename,
-						$private_key_password,
-						$number_days_valid,
-						$filename,
-						empty( $subj ) ? '' : sprintf( "-subj '%s'", $subj )
-					) );
-
-					?>
-					<input id="pronamic_ideal_openssl_command_certificate" name="pronamic_ideal_openssl_command_certificate" value="<?php echo esc_attr( $command ); ?>" type="text" class="large-text code" readonly="readonly" />
-				</td>
-			</tr>
-		</table>
 	</div>
+
+	<div style="clear:both;"></div>
 </div>

@@ -3,8 +3,9 @@
 /**
  * Title: WordPress iDEAL admin
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 1.0.0
  * @since 1.0.0
@@ -254,7 +255,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_gateway',
 			'pronamic_payment',
 			'pronamic_pay_form',
-		) );
+		), true );
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
@@ -262,22 +263,43 @@ class Pronamic_WP_Pay_Admin {
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// Styles
-			wp_enqueue_style(
-				'proanmic-pay-admin',
-				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+			// TipTip - https://github.com/drewwilson/TipTip
+			wp_register_style(
+				'jquery-tiptip',
+				plugins_url( 'assets/tiptip/tipTip' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 				array(),
-				'3.6.6'
+				'1.3.0'
 			);
 
-			// Scripts
-			wp_enqueue_script(
-				'proanmic-pay-admin',
-				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			wp_register_script(
+				'jquery-tiptip',
+				plugins_url( 'assets/tiptip/jquery.tipTip' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery' ),
-				'3.6.6',
+				'1.3.0',
 				true
 			);
+
+			// Pronamic
+			wp_register_style(
+				'pronamic-pay-admin',
+				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'3.9.0'
+			);
+
+			wp_register_script(
+				'pronamic-pay-admin',
+				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				array( 'jquery', 'jquery-tiptip' ),
+				'3.9.0',
+				true
+			);
+
+			// Enqueue
+			wp_enqueue_style( 'jquery-tiptip' );
+
+			wp_enqueue_style( 'pronamic-pay-admin' );
+			wp_enqueue_script( 'pronamic-pay-admin' );
 		}
 	}
 
@@ -300,7 +322,9 @@ class Pronamic_WP_Pay_Admin {
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
-				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data );
+				$payment_method = filter_input( INPUT_POST, 'pronamic_pay_test_payment_method', FILTER_SANITIZE_STRING );
+
+				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
 
 				$error = $gateway->get_error();
 
@@ -441,7 +465,7 @@ class Pronamic_WP_Pay_Admin {
 					}
 				} else {
 					$classes[ $class ] = $class;
-				}				
+				}
 			}
 		}
 

@@ -3,8 +3,9 @@
 /**
  * Title: Default gateway settings
  * Description:
- * Copyright: Copyright (c) 2005 - 2015
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @version 3.8.0
  * @since 3.8.0
@@ -31,12 +32,12 @@ class Pronamic_WP_Pay_DefaultGatewaySettings extends Pronamic_WP_Pay_GatewaySett
 			'title'       => __( 'Mode', 'pronamic_ideal' ),
 			'type'        => 'select',
 			'options'     => array(
-				array( 'options' =>
-					array(
+				array(
+					'options' => array(
 						Pronamic_IDeal_IDeal::MODE_TEST => __( 'Test', 'pronamic_ideal' ),
 						Pronamic_IDeal_IDeal::MODE_LIVE => __( 'Live', 'pronamic_ideal' ),
-					)
-				)
+					),
+				),
 			),
 		);
 

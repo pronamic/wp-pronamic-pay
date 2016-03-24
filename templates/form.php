@@ -28,7 +28,7 @@ if ( $gateway ) : ?>
 		<?php endif; ?>
 
 		<form id="pronamic-pay-form-<?php echo esc_attr( $id ); ?>" class="pronamic-pay-form" method="post">
-			<?php if ( in_array( $amount_method, $methods_with_choices ) ) : ?>
+			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
 			<fieldset>
 				<legend><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></legend>
@@ -36,9 +36,9 @@ if ( $gateway ) : ?>
 			<?php endif; ?>
 
 				<div class="pronamic-pay-amount pronamic-pay-form-row-wide">
-					<?php if ( in_array( $amount_method, $methods_with_choices ) ) : ?>
+					<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
-							<?php foreach( $amount_choices as $amount ) : ?>
+							<?php foreach ( $amount_choices as $amount ) : ?>
 
 								<?php
 
@@ -52,7 +52,7 @@ if ( $gateway ) : ?>
 
 								<div>
 									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php esc_attr_e( $input_id ); ?>" name="pronamic_pay_amount[]" type="radio" required="required" value="<?php esc_attr_e( $amount ); ?>" />
-									<label for="<?php echo $input_id; ?>">
+									<label for="<?php echo esc_attr( $input_id ); ?>">
 										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
 										<span class="pronamic-pay-amount-value"><?php esc_html_e( $amount_formatted ); ?></span>
 									</label>
@@ -82,7 +82,7 @@ if ( $gateway ) : ?>
 	                <?php endif; ?>
 				</div>
 
-			<?php if ( in_array( $amount_method, $methods_with_choices ) ) : ?>
+			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>
 
 			</fieldset>
 

@@ -3,8 +3,9 @@
 /**
  * Title: Payment data interface
  * Description:
- * Copyright: Copyright (c) 2005 - 2013
+ * Copyright: Copyright (c) 2005 - 2016
  * Company: Pronamic
+ *
  * @author Remco Tolsma
  * @since 1.4.0
  */
