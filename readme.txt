@@ -309,6 +309,7 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = 4.1.0-RC1 - 2016-03-24 =
+*	Removed support for deprecated 'ING - iDEAL Internet Kassa' integration.
 
 = 4.0.0 - 2016-03-24 =
 *	Added experimental support for Give.

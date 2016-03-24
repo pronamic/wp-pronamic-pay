@@ -10,6 +10,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Added
 
+### Removed
+- Removed support for deprecated 'ING - iDEAL Internet Kassa' integration.
+
 ## [4.0.0] - 2016-03-24
 
 ### Added
