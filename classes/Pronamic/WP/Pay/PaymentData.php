@@ -66,7 +66,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 		return $email;
 	}
 
-	public function getCustomerName() {
+	public function get_customer_name() {
 		$name = null;
 
 		if ( is_user_logged_in() ) {
