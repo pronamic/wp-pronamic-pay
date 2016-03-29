@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-03-24 10:15+0100\n"
+"PO-Revision-Date: 2016-03-29 13:45+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: admin/meta-box-form-options.php:7
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:53
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:69
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:72
 msgid "Gateway"
 msgstr "Gateway"
 
@@ -30,7 +30,7 @@ msgstr "Betaal nu"
 
 #: admin/meta-box-form-options.php:38 admin/meta-box-gateway-test.php:78
 #: admin/meta-box-payment-info.php:35
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:72 templates/form.php:34
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75 templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:162
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:191
@@ -99,7 +99,7 @@ msgstr ""
 #: admin/tab-ideal_status.php:54
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:57
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:51
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:77
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:80
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:31
 msgid "Date"
 msgstr "Datum"
@@ -114,7 +114,7 @@ msgid "ID"
 msgstr "ID"
 
 #: admin/meta-box-payment-info.php:27
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:74
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:113
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:104
 msgid "Description"
@@ -137,7 +137,7 @@ msgid "Redirect URL"
 msgstr "Redirect URL"
 
 #: admin/meta-box-payment-info.php:111
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:188
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:194
 msgid "Status"
@@ -150,7 +150,7 @@ msgid "Email"
 msgstr "E-mail"
 
 #: admin/meta-box-payment-info.php:141
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:76
 msgid "Consumer"
 msgstr "Consument"
 
@@ -168,8 +168,8 @@ msgid "Y/m/d"
 msgstr "d-m-Y"
 
 #: admin/meta-box-payment-source.php:11
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:74
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:158
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:77
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:161
 msgid "Source"
 msgstr "Bron"
 
@@ -200,7 +200,7 @@ msgid "Subscription ID"
 msgstr "Abonnement ID"
 
 #: admin/meta-box-payment-update.php:33
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:176
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:179
 msgid "Update"
 msgstr "Bijwerken"
 
@@ -756,7 +756,7 @@ msgstr "OmniKassa"
 #: admin/tab-pages_generator.php:95
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:52
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:47
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:68
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:71
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:115
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:104
@@ -1463,21 +1463,31 @@ msgstr ""
 "licentiesleutel op <a href=\"http://www.pronamic.eu/\" target=\"_blank"
 "\">Pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:70
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:96
+msgid "Payment updated."
+msgid_plural "%s payments updated."
+msgstr[0] "Betaling bijgewerkt."
+msgstr[1] "%s betalingen bijgewerkt."
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:113
+msgid "Check Payment Status"
+msgstr "Controleer betalingsstatus"
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
 msgid "Transaction"
 msgstr "Transactie"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:76
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:79
 msgid "User"
 msgstr "Gebruiker"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:152
 #: classes/Pronamic/WP/Pay/PostTypes.php:74
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:156
 msgid "Payment"
 msgstr "Betaling"
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:167
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:170
 msgid "Log"
 msgstr "Log"
 
@@ -1563,7 +1573,7 @@ msgstr ""
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:609
+#: classes/Pronamic/WP/Pay/Plugin.php:608
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -4147,6 +4157,9 @@ msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
 
+#~ msgid "Check Status"
+#~ msgstr "Controleer status"
+
 #~ msgid "&mdash; Select a gateway &mdash;"
 #~ msgstr "&mdash; Selecteer een gateway &mdash;"
 
@@ -4914,9 +4927,6 @@ msgstr "Shop ID"
 
 #~ msgid "Test &euro; %s"
 #~ msgstr "Test &euro; %s"
-
-#~ msgid "Feedback Payment Status"
-#~ msgstr "Feedback betaling status"
 
 #~ msgid "HTML Form"
 #~ msgstr "HTML formulier"

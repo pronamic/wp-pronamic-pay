@@ -34,6 +34,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
+
+		// Bulk Actions
+		$this->bulk_actions = new Pronamic_WP_Pay_Admin_PaymentBulkActions();
 	}
 
 	//////////////////////////////////////////////////
