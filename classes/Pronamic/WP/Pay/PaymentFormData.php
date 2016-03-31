@@ -124,22 +124,22 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_VALIDATE_EMAIL );
 	}
 
-	public function getCustomerName() {
+	public function get_customer_name() {
 		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_VALIDATE_EMAIL );
 		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_VALIDATE_EMAIL );
 
 		return $first_name . ' ' . $last_name;
 	}
 
-	public function getOwnerAddress() {
+	public function get_address() {
 		return '';
 	}
 
-	public function getOwnerCity() {
+	public function get_city() {
 		return '';
 	}
 
-	public function getOwnerZip() {
+	public function get_zip() {
 		return '';
 	}
 }
