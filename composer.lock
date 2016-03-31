@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "574e24595bf01df2667fea49d1ad08a2",
-    "content-hash": "0343dfb40cf262cc4ba3a750de568fe0",
+    "hash": "0a8f2f29b8ce1aaf869ba3fad63ce196",
+    "content-hash": "8bb19e9040472374085c94e71aa22d7b",
     "packages": [
         {
             "name": "composer/installers",
@@ -1216,16 +1216,16 @@
         },
         {
             "name": "wp-pay-gateways/abnamro-ideal-easy",
-            "version": "1.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/abnamro-ideal-easy.git",
-                "reference": "0c5c6d5391d05fad59591fc33c946ec46120ba7d"
+                "reference": "411db7f6626de9f4cd0bc17bfa0ddd766ecccd86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/abnamro-ideal-easy/zipball/0c5c6d5391d05fad59591fc33c946ec46120ba7d",
-                "reference": "0c5c6d5391d05fad59591fc33c946ec46120ba7d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/abnamro-ideal-easy/zipball/411db7f6626de9f4cd0bc17bfa0ddd766ecccd86",
+                "reference": "411db7f6626de9f4cd0bc17bfa0ddd766ecccd86",
                 "shasum": ""
             },
             "require": {
@@ -1280,7 +1280,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-22 12:38:44"
+            "time": "2016-03-31 12:40:39"
         },
         {
             "name": "wp-pay-gateways/abnamro-ideal-only-kassa",
@@ -2843,12 +2843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "10c3490711e131acf88734767e9ecce013fb69b7"
+                "reference": "0809452b221150817ed55a56d0557060fff166f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/10c3490711e131acf88734767e9ecce013fb69b7",
-                "reference": "10c3490711e131acf88734767e9ecce013fb69b7",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/0809452b221150817ed55a56d0557060fff166f9",
+                "reference": "0809452b221150817ed55a56d0557060fff166f9",
                 "shasum": ""
             },
             "require": {
@@ -2899,7 +2899,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-31 12:21:25"
+            "time": "2016-03-31 12:41:52"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -5833,6 +5833,12 @@
     ],
     "aliases": [
         {
+            "alias": "1.0.3",
+            "alias_normalized": "1.0.3.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/abnamro-ideal-easy"
+        },
+        {
             "alias": "1.2.9",
             "alias_normalized": "1.2.9.0",
             "version": "dev-develop",
@@ -5841,6 +5847,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "wp-pay-gateways/abnamro-ideal-easy": 20,
         "wp-pay-gateways/ogone": 20
     },
     "prefer-stable": false,
