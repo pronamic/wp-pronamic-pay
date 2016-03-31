@@ -54,7 +54,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 * Get customer name.
 	 *
 	 * @deprecated deprecated since version 4.0.1, use get_customer_name() instead.
-	 **/
+	 */
 	public function getCustomerName() {
 		return $this->get_customer_name();
 	}
@@ -67,7 +67,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 * Get owner address.
 	 *
 	 * @deprecated deprecated since version 4.0.1, use get_address() instead.
-	 **/
+	 */
 	public function getOwnerAddress() {
 		return $this->get_address();
 	}
@@ -80,7 +80,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 * Get owner city.
 	 *
 	 * @deprecated deprecated since version 4.0.1, use get_city() instead.
-	 **/
+	 */
 	public function getOwnerCity() {
 		return $this->get_city();
 	}
@@ -93,7 +93,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 * Get owner zip.
 	 *
 	 * @deprecated deprecated since version 4.0.1, use get_zip() instead.
-	 **/
+	 */
 	public function getOwnerZip() {
 		return $this->get_zip();
 	}
