@@ -3,7 +3,7 @@
 <h3><?php esc_html_e( 'Facebook', 'pronamic_ideal' ); ?></h3>
 
 <div style="margin: 1em 0;">
-	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FPronamic&amp;send=false&amp;layout=standard&amp;width=600&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=208724019165734" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:600px; height:35px;" allowTransparency="true"></iframe>
+	<iframe src="https://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FPronamic&amp;send=false&amp;layout=standard&amp;width=600&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35&amp;appId=208724019165734" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:600px; height:35px;" allowTransparency="true"></iframe>
 </div>
 
 <h3><?php esc_html_e( 'Twitter', 'pronamic_ideal' ); ?></h3>
