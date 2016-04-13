@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-04-12 11:57+0100\n"
+"PO-Revision-Date: 2016-04-13 14:02+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -32,7 +32,7 @@ msgstr "Betaal nu"
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75 templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:162
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:207
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:198
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:186
 msgid "Amount"
@@ -77,7 +77,7 @@ msgstr "Productinformatie"
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:305
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:140
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:157
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:202
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:199
 msgid "Payment Method"
 msgstr "Betaalmethode"
@@ -144,7 +144,7 @@ msgid "Status"
 msgstr "Status"
 
 #: admin/meta-box-payment-info.php:129
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:427
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:431
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr "E-mail"
@@ -680,7 +680,7 @@ msgstr "Google+"
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-wizard-settings.php:2
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:108
 #: vendor/wp-pay-extensions/memberpress/src/IDealGateway.php:22
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:103
+#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:50
 #: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:28
 #: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:94
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:22
@@ -916,7 +916,7 @@ msgid "Issuer ID"
 msgstr "Issuer ID"
 
 #: admin/tab-ideal_status.php:57
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:477
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:481
 msgid "Success"
 msgstr "Succes"
 
@@ -1395,15 +1395,15 @@ msgstr "Standaard"
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:33
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:51
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:86
-#: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:83
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:85
+#: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:84
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:86
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:247
 #: vendor/wp-pay-extensions/give/src/Gateway.php:61
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:81
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:122
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:396
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:421
 #: vendor/wp-pay-extensions/membership/src/Admin.php:48
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:57
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
@@ -1483,7 +1483,7 @@ msgstr "Gebruiker"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:152
 #: classes/Pronamic/WP/Pay/PostTypes.php:74
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:156
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:201
 msgid "Payment"
 msgstr "Betaling"
 
@@ -1799,7 +1799,7 @@ msgid "— Select a gateway —"
 msgstr "— Selecteer een gateway —"
 
 #: classes/Pronamic/WP/Pay/Settings.php:67
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:163
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:208
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:197
 msgid "Currency"
 msgstr "Valuta"
@@ -1818,7 +1818,7 @@ msgstr "Betalingsstatus pagina's"
 
 #: classes/Pronamic/WP/Pay/Settings.php:103 templates/form.php:157
 #: vendor/wp-pay-extensions/give/src/Gateway.php:108
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:479
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:483
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
 msgstr "Fout"
@@ -1832,7 +1832,7 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #: classes/Pronamic/WP/Pay/Settings.php:106
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:480
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:484
 msgid "Expired"
 msgstr "Verlopen"
 
@@ -1877,12 +1877,12 @@ msgid "Personal Info"
 msgstr "Persoonlijke informatie"
 
 #: templates/form.php:96 templates/form.php:99
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:425
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:429
 msgid "First Name"
 msgstr "Voornaam"
 
 #: templates/form.php:104 templates/form.php:107
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:426
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:430
 msgid "Last Name"
 msgstr "Achternaam"
 
@@ -1902,8 +1902,7 @@ msgstr "Kies een betaalmethode"
 
 #: vendor/wp-pay/core/src/Gateway.php:593
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:46
-#: vendor/wp-pay-extensions/membership/src/Gateway.php:286
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:288
+#: vendor/wp-pay-extensions/membership/src/Gateway.php:298
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:79
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:75
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
@@ -2078,12 +2077,12 @@ msgid "Event Espresso"
 msgstr "Event Espresso"
 
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:258
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:122
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:163
 msgid "Transaction %s"
 msgstr "Transactie %s"
 
 #: vendor/wp-pay-extensions/event-espresso/src/Gateway.php:67
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway_46.php:67
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway46.php:67
 msgid "Errors communicating with gateway: %s"
 msgstr "Fouten communiceren met gateway: %s"
 
@@ -2160,7 +2159,7 @@ msgstr "— Selecteer veld —"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:56
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:30
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:88
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:92
 msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
 
@@ -2221,6 +2220,7 @@ msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:70
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:185
 msgid "Create pay feed"
 msgstr "Creëer betalen feed"
 
@@ -2235,16 +2235,9 @@ msgstr ""
 "toe%s."
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:90
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:191
 msgid "Edit pay feed"
 msgstr "Bewerk betalen feed"
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:185
-msgid "Create iDEAL feed"
-msgstr "Creëer iDEAL-feed"
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:191
-msgid "Edit iDEAL feed"
-msgstr "Bewerk iDEAL-feed"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:300
 msgid "Issuer"
@@ -2290,11 +2283,11 @@ msgstr "Gravity Form"
 msgid "— Select a form —"
 msgstr "— Selecteer een formulier —"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:68
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:72
 msgid "Entry ID Prefix"
 msgstr "Prefix inzending ID"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:81
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:85
 msgid ""
 "Please enter a prefix for your entry ID's. If you use an gateway for "
 "multiple websites ensure this prefix is unique as not all gateways will "
@@ -2304,7 +2297,7 @@ msgstr ""
 "meerdere websites zorg er dan voor dat deze prefix uniek is, niet alle "
 "gateways staan betalingen toe met dezelfde ID."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:101
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:105
 msgid ""
 "Maximum number of charachters is 32, you should also consider the use of "
 "variables Gravity Forms. An generated description that is longer than 32 "
@@ -2314,33 +2307,33 @@ msgstr ""
 "Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 "
 "tekens zal automatisch worden afgekapt."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:107
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:111
 msgid "Merge Tag Examples: Entry Id = %s, Form Id = %s, Form Title = %s"
 msgstr ""
 "Samenvoegen tag voorbeelden: Inzending ID = %s, Formulier ID = %s, Formulier "
 "titel = %s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:124
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:128
 msgid "Condition"
 msgstr "Voorwaarde"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:140
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:144
 msgid "Enable"
 msgstr "Inschakelen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:155
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:159
 msgid "is"
 msgstr "is"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:156
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:160
 msgid "is not"
 msgstr "is niet"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:176
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:180
 msgid "Send to gateway if %s %s %s"
 msgstr "Verstuur naar gateway als %s %s %s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:187
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:191
 msgid ""
 "To create a condition, your form must have a drop down, checkbox or multiple "
 "choice field."
@@ -2348,145 +2341,145 @@ msgstr ""
 "Het formulier dient een selectievakje, uitschuifkeuzelijst of "
 "mulitkeuzelijst te bevatten om een voorwaarde te kunnen inschakelen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:193
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:197
 msgid "Delay"
 msgstr "Uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:198
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:202
 msgid "Send Notifications Delay"
 msgstr "Uitgestelde notificaties"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:218
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:222
 msgid "Send notifications only when payment is received."
 msgstr "Verstuur notificaties alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:269
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:273
 msgid "Send admin notification only when payment is received."
 msgstr ""
 "Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:276
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:280
 msgid "Send user notification only when payment is received."
 msgstr ""
 "Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:295
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:299
 msgid "Create Post Delay"
 msgstr "Bericht aanmaken uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:301
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:305
 msgid "Create post only when payment is received."
 msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:315
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:319
 msgid "AWeber Subscription Delay"
 msgstr "AWeber inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:321
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:325
 msgid "Subscribe user to AWeber only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijving bij AWeber wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:337
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:341
 msgid "Campaign Monitor Subscription Delay"
 msgstr "Campaign Monitor inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:343
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:347
 msgid "Subscribe user to Campaign Monitor only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij Campaign Monitor wanneer de betaling is "
 "ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:359
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:363
 msgid "MailChimp Subscription Delay"
 msgstr "MailChimp inschrijving uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:365
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:369
 msgid "Subscribe user to MailChimp only when payment is received."
 msgstr ""
 "Gebruiker alleen inschrijven bij MailChimp wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:381
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:385
 msgid "Zapier Delay"
 msgstr "Zapier uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:387
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:391
 msgid "Send data to Zapier only when payment is received."
 msgstr "Verstuur data alleen Zapier wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:403
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:407
 msgid "User Registration Delay"
 msgstr "Gebruikerregistratie uitstellen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:409
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:413
 msgid "Register user only when a payment is received."
 msgstr "Registreer gebruiker alleen wanneer de betaling is ontvangen."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:419
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:423
 msgid "Fields"
 msgstr "Velden"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:428
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:432
 msgid "Address"
 msgstr "Adres"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:429
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:433
 msgid "Address 2"
 msgstr "Adres 2"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:430
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:434
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:75
 msgid "City"
 msgstr "Plaats"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:431
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:435
 msgid "State"
 msgstr "Provincie"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:432
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:436
 msgid "Zip"
 msgstr "Postcode"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:433
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:437
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:97
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:103
 msgid "Country"
 msgstr "Land"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:434
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:438
 msgid "Telephone Nnumber"
 msgstr "Telefoonnummer"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:466
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:470
 msgid "Status Links"
 msgstr "Status koppelingen"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:476
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:480
 msgid "Open"
 msgstr "Open"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:478
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:482
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:515
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:519
 msgid "Confirmation:"
 msgstr "Bevestiging:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:519
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:550
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:523
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:554
 msgid "— Select —"
 msgstr "— Selecteer —"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:542
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:546
 msgid "Page:"
 msgstr "Pagina:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:559
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:563
 msgid "URL:"
 msgstr "URL:"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:569
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:573
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:31
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:29
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:29
@@ -2494,7 +2487,7 @@ msgstr "URL:"
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:576
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:580
 msgid "Update user role"
 msgstr "Gebruikersrol bijwerken"
 
@@ -2569,7 +2562,7 @@ msgstr "In afwachting van iDEAL-betaling."
 msgid "Order %s"
 msgstr "Bestelling %s"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:113
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:154
 msgid "MemberPress"
 msgstr "MemberPress"
 
@@ -2578,16 +2571,15 @@ msgstr "MemberPress"
 msgid "Pronamic iDEAL Options"
 msgstr "Pronamic iDEAL instellingen"
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:206
+#: vendor/wp-pay-extensions/membership/src/Extension.php:259
 msgid "Membership"
 msgstr "Membership"
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:215
+#: vendor/wp-pay-extensions/membership/src/Extension.php:268
 msgid "Transaction #%s"
 msgstr "Transactie #%s"
 
-#: vendor/wp-pay-extensions/membership/src/Gateway.php:258
-#: vendor/wp-pay-extensions/membership/src/IDealGateway.php:260
+#: vendor/wp-pay-extensions/membership/src/Gateway.php:270
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:50
 msgid "iDEAL - Online payment through your own bank"
 msgstr "iDEAL - Online betalen via uw eigen bank"
@@ -2895,6 +2887,22 @@ msgstr "WooCommerce bestelling %s"
 msgid "Enable Pronamic"
 msgstr "Pronamic inschakelen"
 
+#: vendor/wp-pay-extensions/woocommerce/src/PronamicGateway.php:40
+msgid ""
+"This gateway sends customers to the payment provider without specifying a "
+"payment method. Some payment providers will list all for your account "
+"available payment methods and let customers select the desired payment "
+"method. Use the payment method specific gateways (such as 'iDEAL' and "
+"'Credit card') for customers to choose the payment method at the WooCommerce "
+"checkout page."
+msgstr ""
+"Deze gateway stuurt klanten naar de betalingsprovider zonder een "
+"betaalmethode te specificeren. Sommige betalingsproviders tonen een scherm "
+"met alle voor jouw account geactiveerde betaalmethoden, waaruit gekozen kan "
+"worden. Gebruik de gateways voor specifieke betaalmethoden (zoals 'iDEAL' en "
+"'Creditcard') om al op de WooCommerce afrekenpagina de betaalmethode te "
+"kiezen."
+
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:39
 msgid "Enable SOFORT Banking"
 msgstr "SOFORT Banking inschakelen"
@@ -2907,47 +2915,62 @@ msgstr "WP e-Commerce"
 msgid "Purchase #%s"
 msgstr "Aankoop #%s"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:158
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:83
+#: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
+#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:98
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:78
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:69
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:69
+#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:69
+#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:80
+#: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:67
+#: vendor/wp-pay-gateways/qantani/src/Gateway.php:74
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:62
+#: vendor/wp-pay-gateways/targetpay/src/Gateway.php:68
+msgid "Choose your bank"
+msgstr "Kies uw bank"
+
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:203
 msgid "Status Code"
 msgstr "Statuscode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:159
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:204
 msgid "Status Code Detail"
 msgstr "Statuscode detail"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:160
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:205
 msgid "Status Message"
 msgstr "Statusbericht"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:161
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:206
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:164
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:209
 msgid "Timestamp"
 msgstr "Timestamp"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:165
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:210
 msgid "Service iDEAL Consumer Issuer"
 msgstr "Service iDEAL gebruiker issuer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:166
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
 msgid "Service iDEAL Consumer Name"
 msgstr "Service iDEAL gebruiker naam"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:167
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
 msgid "Service iDEAL Consumer IBAN"
 msgstr "Service iDEAL gebruiker IBAN"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:168
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
 msgid "Service iDEAL Consumer BIC"
 msgstr "Service iDEAL gebruiker BIC"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:169
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
 msgid "Transactions"
 msgstr "Transacties"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:175
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
 
@@ -3078,20 +3101,6 @@ msgid ""
 msgstr ""
 "Het ontvangen van transactie status updates vereist aanvullende "
 "configuratie, indien nog niet uitgevoerd."
-
-#: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
-#: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:98
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:78
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:69
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:69
-#: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:69
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:80
-#: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:67
-#: vendor/wp-pay-gateways/qantani/src/Gateway.php:74
-#: vendor/wp-pay-gateways/sisow/src/Gateway.php:62
-#: vendor/wp-pay-gateways/targetpay/src/Gateway.php:68
-msgid "Choose your bank"
-msgstr "Kies uw bank"
 
 #: vendor/wp-pay-gateways/icepay/src/Integration.php:18
 msgid "https://icepay.com/nl/en/pricing-and-accounts/"
@@ -4169,26 +4178,17 @@ msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
 
+#~ msgid "Create iDEAL feed"
+#~ msgstr "Creëer iDEAL-feed"
+
+#~ msgid "Edit iDEAL feed"
+#~ msgstr "Bewerk iDEAL-feed"
+
 #~ msgid "eShop"
 #~ msgstr "eShop"
 
 #~ msgid "Status pages"
 #~ msgstr "Statuspagina's"
-
-#~ msgid ""
-#~ "This gateway sends customers to the payment provider without specifying a "
-#~ "payment method. Some payment providers will list all for your account "
-#~ "available payment methods and let customers select the desired payment "
-#~ "method. Use the payment method specific gateways (such as 'iDEAL' and "
-#~ "'Credit card') for customers to choose the payment method at the "
-#~ "WooCommerce checkout page."
-#~ msgstr ""
-#~ "Deze gateway stuurt klanten naar de betalingsprovider zonder een "
-#~ "betaalmethode te specificeren. Sommige betalingsproviders tonen een "
-#~ "scherm met alle voor jouw account geactiveerde betaalmethoden, waaruit "
-#~ "gekozen kan worden. Gebruik de gateways voor specifieke betaalmethoden "
-#~ "(zoals 'iDEAL' en 'Creditcard') om al op de WooCommerce afrekenpagina de "
-#~ "betaalmethode te kiezen."
 
 #~ msgid "Live API key beginning with <code>live_</code>"
 #~ msgstr "Live API-sleutel beginnend met <code>live_</code>"
