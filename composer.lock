@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f93f39a93d2d3be596b09720f2717a59",
-    "content-hash": "00d58f526566b3bc1d2ff10ef72d3302",
+    "hash": "3ba6bc01a7eea0028d17b763db4d5a66",
+    "content-hash": "b11dcbf7280eb9f2d3571ffbf12a873a",
     "packages": [
         {
             "name": "composer/installers",
@@ -628,16 +628,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "dev-develop",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "bdf3a620146d0885f8922c142dbae4b123df1c60"
+                "reference": "c02894dc96bdd7dfaa34209af8a07c17bbfa9e47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/bdf3a620146d0885f8922c142dbae4b123df1c60",
-                "reference": "bdf3a620146d0885f8922c142dbae4b123df1c60",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/c02894dc96bdd7dfaa34209af8a07c17bbfa9e47",
+                "reference": "c02894dc96bdd7dfaa34209af8a07c17bbfa9e47",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-04-07 09:13:44"
+            "time": "2016-04-13 07:53:23"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -867,16 +867,16 @@
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "dev-develop",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/memberpress.git",
-                "reference": "5eb4030caa8c485e882a8e723d66697fcc66a92b"
+                "reference": "725aa9781c4b180c2043a3e93e652e6b3f7e396d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/5eb4030caa8c485e882a8e723d66697fcc66a92b",
-                "reference": "5eb4030caa8c485e882a8e723d66697fcc66a92b",
+                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/725aa9781c4b180c2043a3e93e652e6b3f7e396d",
+                "reference": "725aa9781c4b180c2043a3e93e652e6b3f7e396d",
                 "shasum": ""
             },
             "require": {
@@ -920,7 +920,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-04-08 11:04:36"
+            "time": "2016-04-13 08:24:14"
         },
         {
             "name": "wp-pay-extensions/membership",
@@ -4523,16 +4523,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.3.1",
+            "version": "5.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c"
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
-                "reference": "34a3acb401ae79deb37bc6e5f5ec3d325b369b4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2c6da3536035617bae3fe3db37283c9e0eb63ab3",
+                "reference": "2c6da3536035617bae3fe3db37283c9e0eb63ab3",
                 "shasum": ""
             },
             "require": {
@@ -4594,7 +4594,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-04-07 07:04:34"
+            "time": "2016-04-12 16:20:08"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5881,25 +5881,9 @@
             "time": "2016-02-01 16:14:59"
         }
     ],
-    "aliases": [
-        {
-            "alias": "1.4.6",
-            "alias_normalized": "1.4.6.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/gravityforms"
-        },
-        {
-            "alias": "1.0.1",
-            "alias_normalized": "1.0.1.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/memberpress"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-pay-extensions/gravityforms": 20,
-        "wp-pay-extensions/memberpress": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
