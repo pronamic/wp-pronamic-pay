@@ -21,6 +21,12 @@
 	"autoload": {
 		"classmap": ["classes/"]
 	},
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org/"
+		}
+	],
 	"require": {
 		"php": ">=5.2.0",
 		"xrstf/composer-php52": "1.*",
