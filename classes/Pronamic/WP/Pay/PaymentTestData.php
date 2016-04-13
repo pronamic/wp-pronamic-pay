@@ -110,15 +110,15 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	// Customer
 	//////////////////////////////////////////////////
 
-	public function getOwnerAddress() {
+	public function get_address() {
 		return '';
 	}
 
-	public function getOwnerCity() {
+	public function get_city() {
 		return '';
 	}
 
-	public function getOwnerZip() {
+	public function get_zip() {
 		return '';
 	}
 

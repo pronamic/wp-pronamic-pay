@@ -34,6 +34,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
+
+		// Bulk Actions
+		$this->bulk_actions = new Pronamic_WP_Pay_Admin_PaymentBulkActions();
 	}
 
 	//////////////////////////////////////////////////
@@ -282,12 +285,14 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		) {
 			$can_redirect = false;
 
-			$old_status_meta = strtolower( $this->translate_post_status_to_meta_status( $new_status ) );
-			$new_status_meta = strtolower( $this->translate_post_status_to_meta_status( $old_status ) );
+			$old_status_meta = $this->translate_post_status_to_meta_status( $old_status );
+			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
+
+			update_post_meta( $post->ID, '_pronamic_payment_status', $new_status_meta );
 
 			$payment = get_pronamic_payment( $post->ID );
 
-			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status_meta . '_to_' . $new_status_meta, $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $payment, $can_redirect );
 			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}

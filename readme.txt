@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
-Tested up to: 4.4.2
-Stable tag: 4.0.0
+Tested up to: 4.5
+Stable tag: 4.1.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -307,6 +307,53 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.1.0 - 2016-04-13 =
+*	Added support for bulk action check payment status.
+*	Use HTTPS in Facebook iframe source URL
+*	Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.3.
+*	Updated WordPress pay Buckaroo library to version 1.2.4.
+	*	Added support for iDEAL issuer.
+*	Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.1.
+*	Updated WordPress pay MultiSafepay Connect library to version 1.2.8.
+*	Updated WordPress pay Ogone library to version 1.2.8.
+	*	Added support for custom Ogone e-Commerce form action URL.
+	*	Renamed OrderStandard to 'e-Commerce'.
+*	Updated WordPress pay AppThemes library to version 1.0.2.
+*	Updated WordPress pay Charitable library to version 1.0.4.
+*	Updated WordPress pay ClassiPress library to version 1.0.2.
+*	Updated WordPress pay Easy Digital Downloads library to version 1.2.4.
+*	Updated WordPress pay Event Espresso library to version 1.1.4.
+*	Updated WordPress pay Event Espresso (legacy) library to version 1.0.3.
+*	Updated WordPress pay Give library to version 1.1.4.
+	*	Improved error handling.
+	*	Refactored class construct gateways.
+	*	Empty unused get URL functions.
+*	Updated WordPress pay Gravity Forms library to version 1.4.6.
+*	Updated WordPress pay iThemes Exchange library to version 1.1.2.
+*	Updated WordPress pay Jigoshop library to version 1.0.3.
+*	Updated WordPress pay JobRoller library to version 1.0.1.
+*	Updated WordPress pay MemberPress library to version 1.0.1.
+	*	Implemented new redirect system.
+	*	No longer use camelCase for payment data.
+	*	Redirect to payment form action if payment was unsuccessful.
+	*	Fixed number of arguments passed to send_product_welcome_notices().
+*	Updated WordPress pay Membership library to version 1.0.5.
+	*	Update URLs in payment data.
+	*	Extend iDEAL gateway from Pronamic gateway and only use status_update() in Extension.php
+	*	No longer use camelCase for payment data.
+*	Updated WordPress pay s2Member library to version 1.2.3.
+*	Updated WordPress pay Shopp library to version 1.0.4.
+*	Updated WordPress pay WooCommerce library to version 1.1.8.
+	*	Check existence of WC_Order::has_status() to support older versions of WooCommerce.
+	*	No longer use camelCase for payment data.
+	*	Add clarification to Pronamic gateway with difference compared to regular payment method specific gateways.
+	*	Fix adding 'Awaiting payment' order note if order status is already pending.
+*	Updated WordPress pay WP eCommerce library to version 1.0.3.
+*	Removed support for deprecated 'ING - iDEAL Internet Kassa' integration.
+*	Removed 'bold' font weight from active tab item.
+*	Removed unused class Pronamic_WP_Pay_PaymentInputData.
+*	Removed border on div.extra-settings for smaller displays.
 
 = 4.0.0 - 2016-03-24 =
 *	Added experimental support for Give.

@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0.0
+ * @version 4.1.0
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Plugin {
@@ -544,7 +544,6 @@ class Pronamic_WP_Pay_Plugin {
 		// ING
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealInternetKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration';
 		// Mollie
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_Integration';

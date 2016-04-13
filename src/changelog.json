@@ -6,6 +6,96 @@
 		]
 	},
 	{
+		"version": "4.1.0",
+		"date": "2016-04-13",
+		"changes": [
+			{
+				"name": "Added",
+				"changes": [
+					"Added support for bulk action check payment status."
+				]
+			},
+			{
+				"name": "Changed",
+				"changes": [
+					"Use HTTPS in Facebook iframe source URL",
+					"Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.3.",
+					{
+						"description": "Updated WordPress pay Buckaroo library to version 1.2.4.",
+						"changes": [
+							"Added support for iDEAL issuer."
+						]
+					},
+					"Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.1.",
+					"Updated WordPress pay MultiSafepay Connect library to version 1.2.8.",
+					{
+						"description": "Updated WordPress pay Ogone library to version 1.2.8.",
+						"changes": [
+							"Added support for custom Ogone e-Commerce form action URL.",
+							"Renamed OrderStandard to 'e-Commerce'."
+						]
+					},
+					"Updated WordPress pay AppThemes library to version 1.0.2.",
+					"Updated WordPress pay Charitable library to version 1.0.4.",
+					"Updated WordPress pay ClassiPress library to version 1.0.2.",
+					"Updated WordPress pay Easy Digital Downloads library to version 1.2.4.",
+					"Updated WordPress pay Event Espresso library to version 1.1.4.",
+					"Updated WordPress pay Event Espresso (legacy) library to version 1.0.3.",
+					{
+						"description": "Updated WordPress pay Give library to version 1.1.4.",
+						"changes": [
+							"Improved error handling.",
+							"Refactored class construct gateways.",
+							"Empty unused get URL functions."
+						]
+					},
+					"Updated WordPress pay Gravity Forms library to version 1.4.6.",
+					"Updated WordPress pay iThemes Exchange library to version 1.1.2.",
+					"Updated WordPress pay Jigoshop library to version 1.0.3.",
+					"Updated WordPress pay JobRoller library to version 1.0.1.",
+					{
+						"description": "Updated WordPress pay MemberPress library to version 1.0.1.",
+						"changes": [
+							"Implemented new redirect system.",
+							"No longer use camelCase for payment data.",
+							"Redirect to payment form action if payment was unsuccessful.",
+							"Fixed number of arguments passed to send_product_welcome_notices()."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Membership library to version 1.0.5.",
+						"changes": [
+							"Update URLs in payment data.",
+							"Extend iDEAL gateway from Pronamic gateway and only use status_update() in Extension.php",
+							"No longer use camelCase for payment data."
+						]
+					},
+					"Updated WordPress pay s2Member library to version 1.2.3.",
+					"Updated WordPress pay Shopp library to version 1.0.4.",
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 1.1.8.",
+						"changes": [
+							"Check existence of WC_Order::has_status() to support older versions of WooCommerce.",
+							"No longer use camelCase for payment data.",
+							"Add clarification to Pronamic gateway with difference compared to regular payment method specific gateways.",
+							"Fix adding 'Awaiting payment' order note if order status is already pending."
+						]
+					},
+					"Updated WordPress pay WP eCommerce library to version 1.0.3."
+				]
+			},
+			{
+				"name": "Removed",
+				"changes": [
+					"Removed support for deprecated 'ING - iDEAL Internet Kassa' integration.",
+					"Removed 'bold' font weight from active tab item.",
+					"Removed unused class Pronamic_WP_Pay_PaymentInputData.",
+					"Removed border on div.extra-settings for smaller displays."
+				]
+			}
+		]
+	},
+	{
 		"version": "4.0.0",
 		"date": "2016-03-24",
 		"changes": [
