@@ -332,6 +332,7 @@ results in OmniKassa data that no longer matches the signature.
 *	Updated WordPress pay Gravity Forms library to version 1.4.6.
 *	Updated WordPress pay iThemes Exchange library to version 1.1.2.
 *	Updated WordPress pay Jigoshop library to version 1.0.3.
+*	Updated WordPress pay JobRoller library to version 1.0.1.
 *	Updated WordPress pay MemberPress library to version 1.0.1.
 	*	Implemented new redirect system.
 	*	No longer use camelCase for payment data.

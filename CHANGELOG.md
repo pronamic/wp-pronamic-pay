@@ -34,6 +34,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay Gravity Forms library to version 1.4.6.
 - Updated WordPress pay iThemes Exchange library to version 1.1.2.
 - Updated WordPress pay Jigoshop library to version 1.0.3.
+- Updated WordPress pay JobRoller library to version 1.0.1.
 - Updated WordPress pay MemberPress library to version 1.0.1.
   - Implemented new redirect system.
   - No longer use camelCase for payment data.
