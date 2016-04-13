@@ -1,7 +1,7 @@
 {
 	"name": "pronamic/wp-pronamic-ideal",
 	"description": "The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.",
-    "keywords": ["pronamic", "ideal", "wordpress", "pay"],
+	"keywords": ["pronamic", "ideal", "wordpress", "pay"],
 	"homepage": "https://github.com/pronamic/wp-pronamic-ideal",
 	"license": "GPL",
 	"authors": [
@@ -9,25 +9,18 @@
 			"name": "Remco Tolsma",
 			"email": "info@remcotolsma.nl",
 			"homepage": "http://www.remcotolsma.nl/",
-            "role": "Developer"
+			"role": "Developer"
 		},
 		{
 			"name": "Karel-Jan Tolsma",
 			"email": "info@kareljantolsma.nl",
 			"homepage": "http://www.kareljantolsma.nl/",
-            "role": "Designer"
+			"role": "Designer"
 		}
 	],
 	"autoload": {
 		"classmap": ["classes/"]
 	},
-	"secure-http": false,
-    "repositories": [
-		{
-			"type": "composer",
-			"url": "https://wpackagist.org/"
-		}
-    ],
 	"require": {
 		"php": ">=5.2.0",
 		"xrstf/composer-php52": "1.*",
@@ -99,10 +92,10 @@
 		"phpunit/phpunit": "^5.1",
 		"phpunit/phpunit-selenium": "^2.0"
 	},
-    "scripts": {
+	"scripts": {
 		"post-autoload-dump": [
 			"xrstf\\Composer52\\Generator::onPostInstallCmd",
-            "if [[ -d vendor/wp-coding-standards/wpcs ]]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
-        ]
-    }
+			"if [[ -d vendor/wp-coding-standards/wpcs ]]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
+		]
+	}
 }
