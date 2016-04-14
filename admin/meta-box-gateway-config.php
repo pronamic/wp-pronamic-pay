@@ -127,6 +127,7 @@ bind_providers_and_gateways();
 
 		$classes = array();
 		if ( isset( $section['methods'] ) ) {
+			$classes[] = 'pronamic-pay-tab';
 			$classes[] = 'extra-settings';
 
 			foreach ( $section['methods'] as $method ) {

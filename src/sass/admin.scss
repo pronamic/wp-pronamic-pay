@@ -100,10 +100,6 @@ td.column-version {
 	}
 
 	.gateway-config-section-header {
-		font-style: italic;
-
-		padding: 20px 10px;
-
 		h4 {
 			margin: 0;
 		}
@@ -323,7 +319,9 @@ pre.security-data {
 	width: 100%;
 }
 
-/* Tabs */
+/**
+ * Tabs
+ */
 .pronamic-pay-tabs-items {
 	border-bottom: 1px solid $pronamic-border-color;
 
@@ -361,6 +359,10 @@ pre.security-data {
 	}
 }
 
+div.extra-settings {
+	display: none;
+}
+
 div.pronamic-pay-tab,
 div.extra-settings {
 	border: 1px solid $pronamic-border-color;
@@ -368,7 +370,11 @@ div.extra-settings {
 
 	clear: both;
 
-	display: none;
+	> div {
+		font-style: italic;
+
+		padding: 20px 10px;
+	}
 
 	.gateway-config-section-header h4,
 	.show-provider {
@@ -384,6 +390,16 @@ div.extra-settings {
 
 		th {
 			padding-left: 10px;
+		}
+
+		td {
+			p {
+				line-height: inherit;
+			}
+
+			p:first-child {
+				margin-top: 5px;
+			}
 		}
 	}
 
@@ -414,7 +430,8 @@ div.extra-settings {
 		}
 	}
 
-	input + span.description {
+	div + span.description,
+	input:not( [type="hidden"] ) + span.description {
 		display: block;
 		line-height: 1.9;
 		margin-top: 10px;
@@ -491,14 +508,14 @@ body.post-new-php div.extra-settings {
 		display: none;
 	}
 
-	div.extra-settings,
-	div.extra-settings .form-table {
+	div.pronamic-pay-tab,
+	div.pronamic-pay-tab .form-table {
 		border: none;
 	}
 }
 
 @media only screen and ( max-width: 782px ) {
-	div.extra-settings .form-table {
+	div.pronamic-pay-tab .form-table {
 		th, td {
 			padding: 11px;
 		}
