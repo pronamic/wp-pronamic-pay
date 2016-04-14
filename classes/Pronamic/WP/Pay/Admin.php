@@ -255,6 +255,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_gateway',
 			'pronamic_payment',
 			'pronamic_pay_form',
+			'pronamic_pay_gf',
 		), true );
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
