@@ -113,7 +113,7 @@ class Pronamic_WP_Pay_LicenseManager {
 			$args = urlencode_deep( $args );
 
 			$response = wp_remote_get(
-				add_query_arg( $args, 'http://api.pronamic.eu/licenses/check/1.0/' ),
+				add_query_arg( $args, 'https://api.pronamic.eu/licenses/check/1.0/' ),
 				array(
 					'timeout' => 20,
 				)
@@ -152,7 +152,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$args = urlencode_deep( $args );
 
 		$response = wp_remote_get(
-			add_query_arg( $args, 'http://api.pronamic.eu/licenses/deactivate/1.0/' ),
+			add_query_arg( $args, 'https://api.pronamic.eu/licenses/deactivate/1.0/' ),
 			array(
 				'timeout' => 20,
 			)
@@ -178,7 +178,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$args = urlencode_deep( $args );
 
 		$response = wp_remote_get(
-			add_query_arg( $args, 'http://api.pronamic.eu/licenses/activate/1.0/' ),
+			add_query_arg( $args, 'https://api.pronamic.eu/licenses/activate/1.0/' ),
 			array(
 				'timeout' => 20,
 			)
