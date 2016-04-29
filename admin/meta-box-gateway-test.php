@@ -15,6 +15,8 @@ if ( $gateway ) {
 	// Payment method selector
 	$payment_methods = $gateway->get_payment_method_field( true );
 
+	$inputs = array();
+
 	foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
 		$gateway->set_payment_method( $payment_method );
 
@@ -28,8 +30,6 @@ if ( $gateway ) {
 			);
 		}
 	}
-
-	$inputs = array();
 
 	if ( $gateway->has_error() ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
