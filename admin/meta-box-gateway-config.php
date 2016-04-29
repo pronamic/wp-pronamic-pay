@@ -110,7 +110,7 @@ bind_providers_and_gateways();
 					}
 
 					?>
-               	</select>
+				</select>
 
 				<div id="pronamic-pay-gateway-description"></div>
 			</td>
