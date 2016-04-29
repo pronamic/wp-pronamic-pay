@@ -183,7 +183,7 @@ module.exports = function( grunt ) {
 			deploy: {
 				command: [
 					'cd deploy/latest',
-					'composer install --no-dev'
+					'composer install --no-dev --prefer-dist'
 				].join( '&&' )
 			}
 		},
