@@ -6,11 +6,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [4.1.1] - 2016-04-29
+## [4.1.1] - 2016-05-06
 
 ### Changed
 - Show gateway errors on the edit gateway configuration admin page.
 - Updated WordPress pay core library to version 1.3.6.
+- Updated WordPress pay Pay.nl library to version 1.1.5.
 
 ## [4.1.0] - 2016-04-13
 
