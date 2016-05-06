@@ -81,7 +81,7 @@
 				color: #ffffff;
 				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 				background-color: #006dcc;
-  				*background-color: #0044cc;
+				*background-color: #0044cc;
 				background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
 				background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
 				background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);

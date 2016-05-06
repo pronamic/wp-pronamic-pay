@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 4.1.0\n"
+"Project-Id-Version: Pronamic iDEAL 4.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Pay Now"
 msgstr ""
 
-#: admin/meta-box-form-options.php:38 admin/meta-box-gateway-test.php:78
+#: admin/meta-box-form-options.php:38 admin/meta-box-gateway-test.php:80
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75 templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
@@ -60,7 +60,7 @@ msgstr ""
 #: admin/meta-box-gateway-config.php:69 admin/pointer-dashboard.php:1
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:50
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:114
-#: classes/Pronamic/WP/Pay/Admin.php:416
+#: classes/Pronamic/WP/Pay/Admin.php:417
 msgid "Dashboard"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Product information"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:31
+#: admin/meta-box-gateway-test.php:45
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:305
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:140
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
@@ -81,13 +81,13 @@ msgstr ""
 msgid "Payment Method"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:91
+#: admin/meta-box-gateway-test.php:93
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:191
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:37
 msgid "Test"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:104
+#: admin/meta-box-gateway-test.php:106
 msgid ""
 "Please save the entered account details of your payment provider, to make a "
 "test payment."
@@ -382,7 +382,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:387
+#: admin/pointer-forms.php:1 classes/Pronamic/WP/Pay/Admin.php:388
 #: classes/Pronamic/WP/Pay/PostTypes.php:105
 #: classes/Pronamic/WP/Pay/PostTypes.php:107
 #: classes/Pronamic/WP/Pay/PostTypes.php:118
@@ -434,7 +434,7 @@ msgstr ""
 
 #: admin/pointer-payments.php:1
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:54
-#: classes/Pronamic/WP/Pay/Admin.php:371 classes/Pronamic/WP/Pay/Admin.php:372
+#: classes/Pronamic/WP/Pay/Admin.php:372 classes/Pronamic/WP/Pay/Admin.php:373
 #: classes/Pronamic/WP/Pay/PostTypes.php:71
 #: classes/Pronamic/WP/Pay/PostTypes.php:73
 #: classes/Pronamic/WP/Pay/PostTypes.php:84
@@ -476,8 +476,8 @@ msgid ""
 "pending, succesfull, cancelled and failed payments."
 msgstr ""
 
-#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:397
-#: classes/Pronamic/WP/Pay/Admin.php:398
+#: admin/pointer-settings.php:1 classes/Pronamic/WP/Pay/Admin.php:398
+#: classes/Pronamic/WP/Pay/Admin.php:399
 msgid "Settings"
 msgstr ""
 
@@ -499,8 +499,8 @@ msgid ""
 "a quick introduction of this plugin’s core functionality."
 msgstr ""
 
-#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:406
-#: classes/Pronamic/WP/Pay/Admin.php:407
+#: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:407
+#: classes/Pronamic/WP/Pay/Admin.php:408
 msgid "Tools"
 msgstr ""
 
@@ -585,8 +585,8 @@ msgstr ""
 
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
-#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:361
-#: classes/Pronamic/WP/Pay/Admin.php:362 vendor/wp-pay/core/src/Gateway.php:375
+#: admin/tab-pages_generator.php:29 classes/Pronamic/WP/Pay/Admin.php:362
+#: classes/Pronamic/WP/Pay/Admin.php:363 vendor/wp-pay/core/src/Gateway.php:375
 #: vendor/wp-pay/core/src/PaymentMethods.php:76
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:19
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:29
@@ -1265,7 +1265,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:81
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:49
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:122
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:421
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:435
 #: vendor/wp-pay-extensions/membership/src/Admin.php:48
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:57
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
@@ -1373,12 +1373,12 @@ msgstr ""
 msgid "Failed payments"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:379 classes/Pronamic/WP/Pay/Admin.php:380
+#: classes/Pronamic/WP/Pay/Admin.php:380 classes/Pronamic/WP/Pay/Admin.php:381
 #: classes/Pronamic/WP/Pay/PostTypes.php:50
 msgid "Configurations"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:388
+#: classes/Pronamic/WP/Pay/Admin.php:389
 msgid "Forms"
 msgstr ""
 
@@ -3608,6 +3608,15 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:77
 msgid "The OmniKassa %s parameter."
+msgstr ""
+
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:101
+msgid "Unknown response from Pay.nl error."
+msgstr ""
+
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:136
+#: vendor/wp-pay-gateways/pay-nl/src/Client.php:219
+msgid "Unknown Pay.nl error."
 msgstr ""
 
 #: vendor/wp-pay-gateways/pay-nl/src/Settings.php:21

@@ -110,7 +110,7 @@ bind_providers_and_gateways();
 					}
 
 					?>
-               	</select>
+				</select>
 
 				<div id="pronamic-pay-gateway-description"></div>
 			</td>
@@ -127,6 +127,7 @@ bind_providers_and_gateways();
 
 		$classes = array();
 		if ( isset( $section['methods'] ) ) {
+			$classes[] = 'pronamic-pay-tab';
 			$classes[] = 'extra-settings';
 
 			foreach ( $section['methods'] as $method ) {

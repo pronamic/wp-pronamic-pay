@@ -17,6 +17,20 @@ if ( $gateway ) {
 
 	$inputs = array();
 
+	foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
+		$gateway->set_payment_method( $payment_method );
+
+		// Payment method input HTML
+		$html = $gateway->get_input_html();
+
+		if ( ! empty( $html ) ) {
+			$inputs[ $payment_method ] = array(
+				'label' => $method_name,
+				'html'  => $html,
+			);
+		}
+	}
+
 	if ( $gateway->has_error() ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
 	}
@@ -36,23 +50,11 @@ if ( $gateway ) {
 					<?php
 
 					foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
-						$gateway->set_payment_method( $payment_method );
-
 						printf(
 							'<option value="%s">%s</option>',
 							esc_attr( $payment_method ),
 							esc_html( $method_name )
 						);
-
-						// Payment method input HTML
-						$html = $gateway->get_input_html();
-
-						if ( ! empty( $html ) ) {
-							$inputs[ $payment_method ] = array(
-								'label' => $method_name,
-								'html'  => $html,
-							);
-						}
 					}
 
 					?>

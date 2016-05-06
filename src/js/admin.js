@@ -31,8 +31,6 @@
 
 			obj.settings = obj.selectedVariant.data( 'pronamic-pay-settings' );
 
-			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
-
 			// Hide all settings
 			$element.find( '.extra-settings' ).hide();
 
@@ -40,13 +38,8 @@
 			obj.settingElements = [];
 
 			if ( $.isArray( obj.settings ) ) {
-				var settingElement;
-
 				$.each( obj.settings, function( index, value ) {
-					settingElement = $element.find( '.setting-' + value);
-					settingElement.show();
-
-					obj.settingElements.push( settingElement );
+					$element.find( '.setting-' + value ).show();
 				} );
 			}
 
@@ -54,14 +47,14 @@
 			elements.extraSettings.find( '.show-' + obj.selectedVariant.val() ).show();
 			elements.extraSettings.find( '.hide-' + obj.selectedVariant.val() ).hide();
 
-			// Make first tab active
-			elements.tabItems.find(':visible').first().text( providerName ).click();
+			// Set name of first tab item to name of selected provider
+			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
 
-			obj.initPkCertFields();
-
-			obj.updateRowBackgroundColor();
+			elements.tabItems.find(':visible').first().text( providerName );
 
 			$( '#pronamic-pay-gateway-description').html( obj.selectedVariant.attr( 'data-gateway-description' ) );
+
+			obj.initPkCertFields();
 		};
 
 		// Update row background color
@@ -77,33 +70,27 @@
 		 * Tabs
 		 */
 		this.initTabs = function() {
-			$.each(elements.sectionHeaders, function (i, elm) {
-				var item = $(elm);
-				var title = item.find('h4').text();
-				var settingsClasses = item.parents('div')[0].className;
+			$.each(elements.sectionHeaders, function ( i, elm ) {
+				var item = $( elm );
+				var title = item.find( 'h4' ).text();
+				var settingsClasses = item.parents( 'div' )[0].className;
 
 				elements.tabItems.append(
-					$('<li>' + title + '</li>').addClass( settingsClasses )
+					$( '<li>' + title + '</li>' ).addClass( settingsClasses ).removeClass( 'pronamic-pay-tab' )
 				);
-			});
+			} );
 
 			// Move tab items list after 'Mode' setting
-			elements.tabItems.next().after(elements.tabItems);
+			elements.tabItems.next().after( elements.tabItems );
 
-			elements.tabItems.find('li').click( obj.showTab );
+			elements.tabItems.find( 'li' ).click( obj.showTabSettings );
 		};
 
-		this.showTab = function( ) {
+		this.showTabSettings = function() {
 			var tabItem = $( this );
-
-			elements.tabItems.find( 'li' ).removeClass( 'active' );
-
-			tabItem.addClass( 'active' );
 
 			// Show tab
 			elements.extraSettings.hide().eq( tabItem.index() ).show();
-
-			obj.updateRowBackgroundColor();
 		};
 
 		/**
@@ -151,22 +138,6 @@
 		elements.variantId.change( obj.updateFields );
 
 		elements.pkCertFieldsToggle.click( obj.togglePkCertFields );
-
-		$( window ).resize( function() {
-			if ( $.isArray( obj.settingElements ) ) {
-				if ( $(window).width() >= 960 ) {
-					$.each( obj.settingElements, function( index, element ) {
-						element.hide();
-					} );
-
-					obj.updateFields();
-				} else {
-					$.each( obj.settingElements, function( index, element ) {
-						element.show();
-					} );
-				}
-			}
-		} );
 	};
 
 	/**
@@ -183,6 +154,102 @@
 			var editor = new PronamicPayGatewayConfigEditor( this );
 
 			$this.data( 'pronamic-pay-gateway-config-editor', editor );
+		} );
+	};
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Pronamic Pay Tabs
+	 */
+	var PronamicPayTabs = function( element ) {
+		var obj = this;
+		var $element = $( element );
+
+		// Elements
+		var elements = {};
+		elements.tabItems = $element.find( 'ul.pronamic-pay-tabs-items' );
+		elements.tabs     = $element.find( '.pronamic-pay-tab' );
+		elements.tabItems = $element.find( 'ul.pronamic-pay-tabs-items' );
+
+		// Update row background color
+		this.updateRowBackgroundColor = function() {
+			// Set background color of visible even rows
+			var rows = elements.tabs.find( '.form-table tr' );
+
+			rows.removeClass( 'even' );
+			rows.filter( ':visible:even' ).addClass( 'even' );
+		};
+
+		/**
+		 * Tabs
+		 */
+		this.showTab = function( ) {
+			var tabItem = $( this );
+
+			elements.tabItems.find( 'li' ).removeClass( 'active' );
+
+			tabItem.addClass( 'active' );
+
+			// Show tab
+			elements.tabs.hide().eq( tabItem.index() ).show();
+
+			obj.updateRowBackgroundColor();
+
+			obj.visibleTabItems = elements.tabItems.find( 'li:visible' );
+
+			obj.activeTabItem = tabItem;
+		};
+
+		this.responsiveTabs = function() {
+			if ( $( window ).width() > 960 ) {
+				elements.tabs.hide();
+
+				if ( obj.activeTabItem ) {
+					// Activate last active tab
+					obj.activeTabItem.click();
+				} else {
+					// Make first tab active
+					elements.tabItems.find( 'li:visible' ).first().click();
+				}
+			} else {
+				if ( ! obj.visibleTabItems ) {
+					return;
+				}
+
+				elements.tabs.hide();
+
+				$.each( obj.visibleTabItems, function( index, tabItem ) {
+					elements.tabs.eq( $( tabItem ).index() ).show();
+				} );
+			}
+		};
+
+		/**
+		 * Function calls
+		 */
+		elements.tabItems.find( 'li' ).click( obj.showTab );
+
+		// Make first tab active
+		elements.tabItems.find( 'li:visible' ).first().click();
+
+		$( window ).resize( obj.responsiveTabs );
+	};
+
+	/**
+	 * jQuery plugin - Pronamic Pay Tabs
+	 */
+	$.fn.pronamicPayTabs = function() {
+		return this.each( function() {
+			var $this = $( this );
+
+			if ( $this.data( 'pronamic-pay-tabs' ) ) {
+				return;
+			}
+
+			var tabs = new PronamicPayTabs( this );
+
+			$this.data( 'pronamic-pay-tabs', tabs );
 		} );
 	};
 
@@ -318,6 +385,7 @@
 		$( '#pronamic-pay-gateway-config-editor' ).pronamicPayGatewayConfigEditor();
 		$( '#pronamic_payment_form_options').pronamicPayFormOptions();
 		$( '#pronamic_gateway_test').pronamicPayGatewayTest();
+		$( '.pronamic-pay-tabs' ).pronamicPayTabs();
 
 		// Tooltips
 		var tiptip_args = {
