@@ -80,8 +80,22 @@ class Pronamic_WP_Pay_Plugin {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
 		}
 
-		// Setup
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
+		/*
+		 * Plugins loaded.
+		 *
+		 * Priority should be at least lower then 8 to support the "WP eCommerce" plugin.
+		 *
+		 * new WP_eCommerce()
+		 * add_action( 'plugins_loaded' , array( $this, 'init' ), 8 );
+		 * $this->load();
+		 * wpsc_core_load_gateways();
+		 *
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L342-L343
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L26-L35
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L54
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L296-L297
+		 */
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
 		// Payment notes
 		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
