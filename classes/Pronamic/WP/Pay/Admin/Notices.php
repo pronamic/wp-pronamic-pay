@@ -65,7 +65,7 @@ class Pronamic_WP_Pay_Admin_Notices {
 					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%s">support license key</a>. Please <a href="%s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 					'https://www.pronamic.eu/plugins/pronamic-ideal/',
-					'https://www.pronamic.eu/login/'
+					'https://www.pronamic.eu/account/'
 				);
 			}
 
