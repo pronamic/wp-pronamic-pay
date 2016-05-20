@@ -89,6 +89,9 @@ class Pronamic_WP_Pay_Plugin {
 		// Payment redirect URL
 		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
 
+		// Plugin locale
+		add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
+
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/functions.php';
@@ -407,6 +410,21 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+	}
+
+	/**
+	 * Filter plugin locale.
+	 */
+	public function plugin_locale( $locale, $domain ) {
+		if ( 'pronamic_ideal' !== $domain ) {
+			return $locale;
+		}
+
+		if ( 'nl_NL_formal' === $locale ) {
+			return 'nl_NL';
+		}
+
+		return $locale;
 	}
 
 	//////////////////////////////////////////////////
