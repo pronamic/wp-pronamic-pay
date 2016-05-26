@@ -67,16 +67,16 @@ bind_providers_and_gateways();
 						);
 					}
 
-					printf(
+					printf( //xss ok
 						'<tr%s>
 							<td>%s</td>
 							<td>%s</td>
 							<td>%s</td>
 						</tr>',
-						( $alternate ? ' class="alternate"' : null ), //xss ok
+						( $alternate ? ' class="alternate"' : null ),
 						esc_html( $provider ),
 						esc_html( $name ),
-						$site //xss ok
+						$site
 					);
 
 				endforeach;
