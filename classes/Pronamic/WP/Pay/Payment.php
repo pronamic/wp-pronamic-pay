@@ -27,11 +27,14 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->currency       = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 
 		$this->transaction_id = get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
+		$this->entrance_code  = get_post_meta( $post_id, '_pronamic_payment_entrance_code', true );
 		$this->action_url     = get_post_meta( $post_id, '_pronamic_payment_action_url', true );
 
 		$this->source         = get_post_meta( $post_id, '_pronamic_payment_source', true );
 		$this->source_id      = get_post_meta( $post_id, '_pronamic_payment_source_id', true );
+		$this->description    = get_post_meta( $post_id, '_pronamic_payment_description', true );
 
+		$this->language       = get_post_meta( $post_id, '_pronamic_payment_language', true );
 		$this->email          = get_post_meta( $post_id, '_pronamic_payment_email', true );
 
 		$this->status         = get_post_meta( $post_id, '_pronamic_payment_status', true );
@@ -82,6 +85,15 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Get the payment redirect URL.
+	 *
+	 * @return string
+	 */
+	public function get_payment_redirect_url() {
+		return add_query_arg( 'payment_redirect', $this->id, home_url( '/' ) );
+	}
 
 	/**
 	 * Get the return URL for this payment.

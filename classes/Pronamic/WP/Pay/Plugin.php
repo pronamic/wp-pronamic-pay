@@ -381,9 +381,17 @@ class Pronamic_WP_Pay_Plugin {
 				exit;
 			}
 
-			// Action URL
-			if ( ! empty( $payment->action_url ) ) {
-				wp_redirect( $payment->action_url );
+			if ( '' !== $payment->config_id ) {
+				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+
+				$auto_submit = true;
+
+
+				if ( $gateway->is_html_form() ) {
+					echo $gateway->get_form_html( $payment, $auto_submit );
+				} else {
+					wp_redirect( $payment->action_url );
+				}
 
 				exit;
 			}
@@ -623,6 +631,12 @@ class Pronamic_WP_Pay_Plugin {
 
 		if ( $payment ) {
 			$gateway->start( $data, $payment, $payment_method );
+
+			if ( $gateway->is_html_form() ) {
+				$output_fields = $gateway->get_output_fields();
+
+				$payment->set_meta( 'output_fields', $output_fields );
+			}
 
 			pronamic_wp_pay_update_payment( $payment );
 
