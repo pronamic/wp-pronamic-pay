@@ -29,6 +29,9 @@ class Pronamic_WP_Pay_Admin {
 
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
+		add_action( 'show_user_profile', array( $this, 'user_profile_fields' ) );
+		add_action( 'edit_user_profile', array( $this, 'user_profile_fields' ) );
+
 		// Reports
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
@@ -471,5 +474,23 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		return $classes;
+	}
+
+	//////////////////////////////////////////////////
+
+	function user_profile_fields( $user )
+	{
+
+	?>
+		<h3><?php _e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?></h3>
+
+		<table class="form-table">
+			<tr>
+				<th><label for="pronamic_pay_customer_id"><?php _e( 'Mollie Customer ID', 'pronamic_ideal' ); ?></label></th>
+				<td><input type="text" name="pronamic_pay_customer_id" value="<?php echo esc_attr( get_user_meta( $user->ID, '_pronamic_pay_mollie_customer_id', true ) ); ?>" class="regular-text" readonly /></td>
+			</tr>
+		</table>
+
+	<?php
 	}
 }
