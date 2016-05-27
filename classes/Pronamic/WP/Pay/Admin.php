@@ -29,9 +29,6 @@ class Pronamic_WP_Pay_Admin {
 
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
-		add_action( 'show_user_profile', array( $this, 'user_profile_fields' ) );
-		add_action( 'edit_user_profile', array( $this, 'user_profile_fields' ) );
-
 		// Reports
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
@@ -474,33 +471,5 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		return $classes;
-	}
-
-	//////////////////////////////////////////////////
-
-	function user_profile_fields( $user ) {
-
-	?>
-		<h3><?php esc_html_e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?></h3>
-
-		<?php
-
-		$meta_fields = apply_filters( 'pronamic_pay_user_profile_fields', array() );
-
-		foreach ( $meta_fields as $field ) :
-
-			printf( '
-				<table class="form-table">
-					<tr>
-						<th><label for="%s">%s</label></th>
-						<td><input type="text" name="%1$s" value="%s" class="regular-text" readonly /></td>
-					</tr>
-				</table>',
-				esc_attr( $field['key'] ),
-				esc_html( $field['name'] ),
-				esc_attr( get_user_meta( $user->ID, $field['key'], true ) )
-			);
-
-		endforeach;
 	}
 }
