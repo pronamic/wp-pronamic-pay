@@ -107,7 +107,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	/**
 	 * Get the return URL for this payment. This URL is passed to the payment providers / gateways 
-	 so they know where they should return users to.
+	 * so they know where they should return users to.
 	 *
 	 * @return string
 	 */
