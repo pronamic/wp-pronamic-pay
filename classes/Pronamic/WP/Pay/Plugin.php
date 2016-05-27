@@ -298,7 +298,7 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
-					$url = $payment->get_redirect_url();
+					$url = $payment->get_return_redirect_url();
 
 					wp_redirect( $url );
 
