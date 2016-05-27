@@ -96,7 +96,8 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	}
 
 	/**
-	 * Get the return URL for this payment.
+	 * Get the return URL for this payment. This URL is passed to the payment providers / gateways 
+	 so they know where they should return users to.
 	 *
 	 * @return string
 	 */
@@ -113,16 +114,30 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	}
 
 	/**
-	 * Get the redirect URL for this payment.
+	 * Get the return redirect URL for this payment. This URL is used after a user is returned
+	 * from a payment provider / gateway to WordPress. It allows WordPress payment extensions 
+	 * to redirect users to the correct URL.
 	 *
 	 * @return string
 	 */
-	public function get_redirect_url() {
+	public function get_return_redirect_url() {
 		$url = home_url( '/' );
 
 		$url = apply_filters( 'pronamic_payment_redirect_url', $url, $this );
 		$url = apply_filters( 'pronamic_payment_redirect_url_' . $this->source, $url, $this );
 
 		return $url;
+	}
+
+	/**
+	 * Get the redirect URL for this payment.
+	 *
+	 * @deprecated 4.1.2 Use get_return_redirect_url()
+	 * @return string
+	 */
+	public function get_redirect_url() {
+		_deprecated_function( __FUNCTION__, '4.1.2', 'get_return_redirect_url()' );
+
+		return $this->get_return_redirect_url();
 	}
 }
