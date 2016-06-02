@@ -2,7 +2,8 @@
 
 <?php
 
-$extensions = array();
+$data       = file_get_contents( __DIR__ . '/../src/extensions.json' );
+$extensions = json_decode( $data );
 
 ?>
 
@@ -27,30 +28,35 @@ $extensions = array();
 			<th scope="col">
 				<?php esc_html_e( 'Tested up to', 'pronamic_ideal' ); ?>
 			</th>
-			<th scope="col">
-				<?php esc_html_e( 'Active', 'pronamic_ideal' ); ?>
-			</th>
 		</tr>
 	</thead>
 
 	<tbody>
 
-		<?php foreach ( $extensions as $extension ) : ?>
+		<?php
 
-			<tr>
+		$alternate = false;
+
+		foreach ( $extensions as $extension ) :
+
+		?>
+
+			<?php $alternate = ! $alternate; ?>
+
+			<tr<?php if ( $alternate ) : ?> class="alternate"<?php endif; ?>>
 				<td>
-					<a href="<?php echo esc_attr( $extension['url'] ); ?>" target="_blank">
-						<?php echo esc_html( $extension['name'] ); ?>
+					<a href="<?php echo esc_attr( $extension->url ); ?>" target="_blank">
+						<?php echo esc_html( $extension->name ); ?>
 					</a>
 				</td>
 				<td>
 					<?php
 
-					if ( isset( $extension['author'], $extension['author_url'] ) ) {
+					if ( isset( $extension->author, $extension->author_url ) ) {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_attr( $extension['author_url'] ),
-							esc_html( $extension['author'] )
+							esc_attr( $extension->author_url ),
+							esc_html( $extension->author )
 						);
 					}
 
@@ -59,11 +65,11 @@ $extensions = array();
 				<td>
 					<?php
 
-					if ( isset( $extension['wp_org_url'] ) ) {
+					if ( isset( $extension->wp_org_url ) ) {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_attr( $extension['wp_org_url'] ),
-							esc_html( $extension['wp_org_url'] )
+							esc_attr( $extension->wp_org_url ),
+							esc_html( $extension->wp_org_url )
 						);
 					}
 
@@ -72,11 +78,11 @@ $extensions = array();
 				<td>
 					<?php
 
-					if ( isset( $extension['github_url'] ) ) {
+					if ( isset( $extension->github_url ) ) {
 						printf(
 							'<a href="%s" target="_blank">%s</a>',
-							esc_attr( $extension['github_url'] ),
-							esc_html( $extension['github_url'] )
+							esc_attr( $extension->github_url ),
+							esc_html( $extension->github_url )
 						);
 					}
 
@@ -85,19 +91,14 @@ $extensions = array();
 				<td>
 					<?php
 
-					if ( isset( $extension['requires_at_least'] ) ) {
-						echo esc_html( $extension['requires_at_least'] );
+					if ( isset( $extension->requires_at_least ) ) {
+						echo esc_html( $extension->requires_at_least );
 					}
 
 					?>
 				</td>
 				<td>
-					<?php echo esc_html( $extension['tested_up_to'] ); ?>
-				</td>
-				<td>
-					<?php if ( isset( $extension['active'] ) && $extension['active'] ) : ?>
-						&#10003;
-					<?php endif; ?>
+					<?php echo esc_html( $extension->tested_up_to ); ?>
 				</td>
 			</tr>
 
