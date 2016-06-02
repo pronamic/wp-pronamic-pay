@@ -2,7 +2,6 @@
 
 $tabs = array(
 	'system_status'   => __( 'System Status', 'pronamic_ideal' ),
-	'pages_generator' => __( 'Pages Generator', 'pronamic_ideal' ),
 	'gateways'        => __( 'Payment Gateways', 'pronamic_ideal' ),
 	'extensions'      => __( 'Extensions', 'pronamic_ideal' ),
 	'methods'         => __( 'Methods', 'pronamic_ideal' ),

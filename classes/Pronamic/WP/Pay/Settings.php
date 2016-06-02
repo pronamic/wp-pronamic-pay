@@ -128,8 +128,38 @@ class Pronamic_WP_Pay_Settings {
 	/**
 	 * Settings section
 	 */
-	public function settings_section() {
+	public function settings_section( $args ) {
+		switch( $args['id'] ) {
+			case 'pronamic_pay_pages':
+				?>
 
+				<p class="description"><?php _e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' ); ?></p>
+
+				<?php
+
+				$pages = array( 'completed', 'cancel', 'expired', 'error', 'unknown' );
+
+				foreach ( $pages as $status ) {
+					$option_name = sprintf( 'pronamic_pay_%s_page_id', $status );
+
+					$option = get_option( $option_name );
+
+					if ( false !== $option && '' !== $option ) {
+						$hide_button = true;
+					}
+				}
+
+				if ( ! isset( $hide_button ) ) {
+					submit_button(
+						__( 'Set default pages', 'pronamic_ideal' ),
+						'',
+						'pronamic_pay_create_pages',
+						false
+					);
+				}
+
+				break;
+		}
 	}
 
 	/**
