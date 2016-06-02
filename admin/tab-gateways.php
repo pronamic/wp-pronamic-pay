@@ -1,4 +1,4 @@
-<h2><?php esc_html_e( 'Payment Gateways', 'pronamic_ideal' ); ?></h2>
+<h2><?php esc_html_e( 'Supported Payment Gateways', 'pronamic_ideal' ); ?></h2>
 
 <?php
 
@@ -13,7 +13,6 @@ bind_providers_and_gateways();
 		<tr>
 			<th scope="col"><?php esc_html_e( 'Payment provider', 'pronamic_ideal' ); ?></th>
 			<th scope="col"><?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?></th>
-<!--			<th scope="col">--><?php //esc_html_e( 'Debug', 'pronamic_ideal' ); ?><!--</th>-->
 			<th scope="col"><?php esc_html_e( 'Site', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
