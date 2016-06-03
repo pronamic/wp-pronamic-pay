@@ -499,6 +499,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 
@@ -508,6 +509,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
 					$gateways[] = 'pay_nl';
@@ -515,6 +517,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 
 					break;
 			}
