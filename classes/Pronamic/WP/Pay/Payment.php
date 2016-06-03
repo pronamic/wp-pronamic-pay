@@ -103,16 +103,6 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	 * @return string
 	 */
 	public function get_pay_redirect_url() {
-		$fields = $this->get_meta( 'output_fields' );
-
-		/*
-		 * If the fields are empty we can redirect directly to the action URL, otherwise we have
-		 * to redirect to payment redirect URL so a HTML form can be rendered.
-		 */
-		if ( empty( $fields ) ) {
-			return $this->get_action_url();
-		}
-
 		return add_query_arg( 'payment_redirect', $this->id, home_url( '/' ) );
 	}
 
