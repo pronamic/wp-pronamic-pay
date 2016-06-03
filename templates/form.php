@@ -117,7 +117,17 @@ if ( $gateway ) : ?>
 				</p>
 			</fieldset>
 
-			<?php $fields = $gateway->get_input_fields(); ?>
+			<?php
+
+			if ( $gateway->payment_method_is_required() ) {
+
+				$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
+
+			}
+
+			$fields = $gateway->get_input_fields();
+
+			?>
 
 			<?php if ( ! empty( $fields ) ) : ?>
 
