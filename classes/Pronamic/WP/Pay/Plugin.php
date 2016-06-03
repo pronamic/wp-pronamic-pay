@@ -633,12 +633,6 @@ class Pronamic_WP_Pay_Plugin {
 		if ( $payment ) {
 			$gateway->start( $payment );
 
-			if ( $gateway->is_html_form() ) {
-				$output_fields = $gateway->get_output_fields();
-
-				$payment->set_meta( 'output_fields', $output_fields );
-			}
-
 			pronamic_wp_pay_update_payment( $payment );
 
 			$gateway->payment( $payment );
