@@ -18,6 +18,8 @@ class Pronamic_Pay_Payment {
 
 	public $transaction_id;
 
+	public $order_id;
+
 	public $amount;
 
 	public $currency;
@@ -25,6 +27,8 @@ class Pronamic_Pay_Payment {
 	public $expiration_period;
 
 	public $language;
+
+	public $locale;
 
 	public $entrance_code;
 
@@ -47,6 +51,10 @@ class Pronamic_Pay_Payment {
 	public $email;
 
 	public $action_url;
+
+	public $method;
+
+	public $issuer;
 
 	//////////////////////////////////////////////////
 
@@ -88,6 +96,12 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function get_order_id() {
+		return $this->order_id;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function get_amount() {
 		return $this->amount;
 	}
@@ -96,6 +110,45 @@ class Pronamic_Pay_Payment {
 
 	public function get_currency() {
 		return $this->currency;
+	}
+
+	/**
+	 * Get currency numeric code
+	 *
+	 * @return Ambigous <string, NULL>
+	 */
+	public function get_currency_numeric_code() {
+		return Pronamic_WP_Currency::transform_code_to_number( $this->get_currency() );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_method() {
+		return $this->method;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_issuer() {
+		return $this->issuer;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_language() {
+		return $this->language;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_locale() {
+		return $this->locale;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_description() {
+		return $this->description;
 	}
 
 	//////////////////////////////////////////////////
@@ -168,6 +221,36 @@ class Pronamic_Pay_Payment {
 
 	public function add_note( $note ) {
 
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_customer_name() {
+		return $this->customer_name;
+	}
+
+	public function get_address() {
+		return $this->address;
+	}
+
+	public function get_city() {
+		return $this->city;
+	}
+
+	public function get_zip() {
+		return $this->zip;
+	}
+
+	public function get_country() {
+		return $this->country;
+	}
+
+	public function get_telephone_number() {
+		return $this->telephone_number;
+	}
+
+	public function get_entrance_code() {
+		return $this->entrance_code;
 	}
 
 	//////////////////////////////////////////////////

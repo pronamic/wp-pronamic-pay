@@ -25,7 +25,10 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 		$this->amount         = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 		$this->currency       = get_post_meta( $post_id, '_pronamic_payment_currency', true );
+		$this->method         = get_post_meta( $post_id, '_pronamic_payment_method', true );
+		$this->issuer         = get_post_meta( $post_id, '_pronamic_payment_issuer', true );
 
+		$this->order_id       = get_post_meta( $post_id, '_pronamic_payment_order_id', true );
 		$this->transaction_id = get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
 		$this->entrance_code  = get_post_meta( $post_id, '_pronamic_payment_entrance_code', true );
 		$this->action_url     = get_post_meta( $post_id, '_pronamic_payment_action_url', true );
@@ -35,9 +38,17 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->description    = get_post_meta( $post_id, '_pronamic_payment_description', true );
 
 		$this->language       = get_post_meta( $post_id, '_pronamic_payment_language', true );
+		$this->locale         = get_post_meta( $post_id, '_pronamic_payment_locale', true );
 		$this->email          = get_post_meta( $post_id, '_pronamic_payment_email', true );
 
 		$this->status         = get_post_meta( $post_id, '_pronamic_payment_status', true );
+
+		$this->customer_name    = $this->get_meta( 'customer_name' );
+		$this->address          = $this->get_meta( 'address' );
+		$this->zip              = $this->get_meta( 'zip' );
+		$this->city             = $this->get_meta( 'city' );
+		$this->country          = $this->get_meta( 'country' );
+		$this->telephone_number = $this->get_meta( 'telephone_number' );
 	}
 
 	//////////////////////////////////////////////////
