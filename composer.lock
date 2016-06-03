@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0d33e209adbf87793f1ae214eb61c918",
-    "content-hash": "982b73a8cf87e04b641efdaf67b4a79f",
+    "hash": "08f2e1e2d2dbc01590b688d0cbdb4dd9",
+    "content-hash": "d6a2b30b4bd31ed5c292ad946ab82478",
     "packages": [
         {
             "name": "composer/installers",
@@ -565,16 +565,16 @@
         },
         {
             "name": "wp-pay-extensions/give",
-            "version": "1.0.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/give.git",
-                "reference": "cb765defab5731741b1eaac6d886fa8170af788e"
+                "reference": "e8894480da78e138247fdeb2ca8876d52a795904"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/cb765defab5731741b1eaac6d886fa8170af788e",
-                "reference": "cb765defab5731741b1eaac6d886fa8170af788e",
+                "url": "https://api.github.com/repos/wp-pay-extensions/give/zipball/e8894480da78e138247fdeb2ca8876d52a795904",
+                "reference": "e8894480da78e138247fdeb2ca8876d52a795904",
                 "shasum": ""
             },
             "require": {
@@ -624,7 +624,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-04-12 12:44:44"
+            "time": "2016-06-03 14:11:23"
         },
         {
             "name": "wp-pay-extensions/gravityforms",
@@ -632,12 +632,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "3a1fd2f9637d4a039d184132d52a368422196c8f"
+                "reference": "2359aa094493c44651122140536ffed211689607"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/3a1fd2f9637d4a039d184132d52a368422196c8f",
-                "reference": "3a1fd2f9637d4a039d184132d52a368422196c8f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/2359aa094493c44651122140536ffed211689607",
+                "reference": "2359aa094493c44651122140536ffed211689607",
                 "shasum": ""
             },
             "require": {
@@ -689,7 +689,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-03 09:07:31"
+            "time": "2016-06-03 14:12:20"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -3562,12 +3562,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "29b8faa8a1d3d95958fb6cbc2e28e6f3f5ecf64a"
+                "reference": "c0fb6aebbf9ca5a5d944a3b7c73785e5264e54a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/29b8faa8a1d3d95958fb6cbc2e28e6f3f5ecf64a",
-                "reference": "29b8faa8a1d3d95958fb6cbc2e28e6f3f5ecf64a",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/c0fb6aebbf9ca5a5d944a3b7c73785e5264e54a9",
+                "reference": "c0fb6aebbf9ca5a5d944a3b7c73785e5264e54a9",
                 "shasum": ""
             },
             "require": {
@@ -3614,7 +3614,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-03 13:32:43"
+            "time": "2016-06-03 14:13:25"
         },
         {
             "name": "wpackagist-plugin/charitable",
@@ -5949,6 +5949,12 @@
             "package": "wp-pay-gateways/targetpay"
         },
         {
+            "alias": "1.0.2",
+            "alias_normalized": "1.0.2.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/give"
+        },
+        {
             "alias": "1.4.7",
             "alias_normalized": "1.4.7.0",
             "version": "dev-develop",
@@ -5978,6 +5984,7 @@
         "wp-pay-gateways/qantani": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-gateways/targetpay": 20,
+        "wp-pay-extensions/give": 20,
         "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/woocommerce": 20
     },
