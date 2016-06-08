@@ -11,7 +11,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Changed
 - Updated WordPress pay core library to version 1.0.3.
   - Added PayPal payment method constant.
-  - Simplified the gateay payment start function.
+  - Simplified the gateway payment start function.
   - Added new constant for Bancontact payment method.
   - Fixed text domain for translations.
 - Updated WordPress pay ICEPAY library to version 1.2.8.
@@ -25,7 +25,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Reduced the use of else expressions.
   - Added WordPress payment method to Mollie method transform function.
   - Added readonly Mollie user profile fields.
-  - Simplified the gateay payment start function.
+  - Simplified the gateway payment start function.
 - Updated WordPress pay MultiSafepay Connect library to version 1.2.9.
 - Updated WordPress pay Ogone library to version 1.3.0.
 - Updated WordPress pay OmniKassa library to version 1.1.8.
