@@ -147,7 +147,7 @@ class Pronamic_WP_Pay_Plugin {
 			'pronamic-pay-forms',
 			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 			array(),
-			'3.7.0'
+			'4.2.0'
 		);
 
 		wp_enqueue_style( 'pronamic-pay-forms' );

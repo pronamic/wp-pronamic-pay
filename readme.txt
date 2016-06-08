@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 3.6
 Tested up to: 4.5
-Stable tag: 4.1.1
+Stable tag: 4.2.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -307,6 +307,8 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.2.0 - 2016-06-08 =
 
 = 4.1.1 - 2016-05-06 =
 *	Show gateway errors on the edit gateway configuration admin page.
