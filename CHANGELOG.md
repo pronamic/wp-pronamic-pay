@@ -6,6 +6,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.2.1] - 2016-06-08
+
+### Fixed
+- Updated WordPress pay AppThemes library to version 1.0.4.
+
 ## [4.2.0] - 2016-06-08
 
 ### Changed
@@ -1245,7 +1250,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...HEAD
+[4.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.1...4.2.0
 [4.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.0...4.1.1
 [4.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.0.0...4.1.0
