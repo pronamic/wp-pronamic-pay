@@ -111,7 +111,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	}
 
 	//////////////////////////////////////////////////
-	// WordPres
+	// WordPress
 	//////////////////////////////////////////////////
 
 	public function get_blogname() {

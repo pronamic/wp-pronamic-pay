@@ -6,6 +6,54 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.2.0] - 2016-06-08
+
+### Changed
+- Updated WordPress pay core library to version 1.0.3.
+  - Added PayPal payment method constant.
+  - Simplified the gateway payment start function.
+  - Added new constant for Bancontact payment method.
+  - Fixed text domain for translations.
+- Updated WordPress pay ICEPAY library to version 1.2.8.
+- Updated WordPress pay iDEAL library to version 1.1.4.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.5.
+- Updated WordPress pay iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3 library to version 1.0.2.
+  - Changed payment URL from `https://www.ideal-simulator.nl/professional/` to `https://www.ideal-checkout.nl/simulator/`.
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.4.
+- Updated WordPress pay Mollie library to version 1.1.6.
+  - Added support for Mollie Checkout.
+  - Reduced the use of else expressions.
+  - Added WordPress payment method to Mollie method transform function.
+  - Added readonly Mollie user profile fields.
+  - Simplified the gateway payment start function.
+- Updated WordPress pay MultiSafepay Connect library to version 1.2.9.
+- Updated WordPress pay Ogone library to version 1.3.0.
+- Updated WordPress pay OmniKassa library to version 1.1.8.
+- Updated WordPress pay Pay.nl library to version 1.1.6.
+- Updated WordPress pay Qantani library to version 1.0.9.
+- Updated WordPress pay Sisow library to version 1.1.8.
+- Updated WordPress pay TargetPay library to version 1.0.9.
+- Updated WordPress pay AppThemes library to version 1.0.3.
+  - Added Bancontact gateway.
+  - Added Bank Transfer gateway.
+  - Added Credit Card gateway.
+  - Added Direct Debit gateway.
+  - Added SOFORT Banking gateway.
+- Updated WordPress pay Give library to version 1.0.2.
+- Updated WordPress pay Gravity Forms library to version 1.4.7.
+  - Set link type to confirmation if set and no URL or page have been set.
+  - Cleaned up feed config (tabs, descriptions, tooltips, update confirmations if form changes).
+  - Added icon and 'Add new' link to payment addon settings page.
+  - Added Merge Tag button to transaction description field (without AJAX form change support).
+  - Switched to use of `GF_Field` class.
+  - Fixed text domain, `pronamic-ideal` is `pronamic_ideal`.
+- Updated WordPress pay MemberPress library to version 1.0.2.
+  - Added support for gateway input fields.
+  - Added a iDEAL icon to the iDEAL gateway.
+  - Only use MeprTransaction object in payment data constructor, remove unused variable `$product`.
+- Updated WordPress pay WooCommerce library to version 1.2.0.
+  - Added PayPal gateway.
+
 ## [4.1.1] - 2016-05-06
 
 ### Changed
@@ -1197,7 +1245,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...HEAD
+[4.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.1...4.2.0
 [4.1.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.0...4.1.1
 [4.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.0.0...4.1.0
 [4.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/3.9.0...4.0.0

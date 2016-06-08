@@ -61,36 +61,6 @@ class Pronamic_WP_Pay_Settings {
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_config_id' );
 
-		// Settings - Currency
-		add_settings_section(
-			'pronamic_pay_currency', // id
-			__( 'Currency', 'pronamic_ideal' ), // title
-			array( $this, 'settings_section' ), // callback
-			'pronamic_pay' // page
-		);
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
-
-		add_settings_field(
-			'pronamic_pay_thousands_sep', // id
-			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_currency', // section
-			array( 'label_for' => 'pronamic_pay_thousands_sep' ) // args
-		);
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
-
-		add_settings_field(
-			'pronamic_pay_decimal_sep', // id
-			__( 'Decimal Seperator', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_currency', // section
-			array( 'label_for' => 'pronamic_pay_decimal_sep' ) // args
-		);
-
 		// Settings - Pages
 		add_settings_section(
 			'pronamic_pay_pages', // id
@@ -100,11 +70,11 @@ class Pronamic_WP_Pay_Settings {
 		);
 
 		$pages = array(
-			'error'     => __( 'Error', 'pronamic_ideal' ),
-			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
-			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
-			'expired'   => __( 'Expired', 'pronamic_ideal' ),
 			'completed' => __( 'Completed', 'pronamic_ideal' ),
+			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
+			'expired'   => __( 'Expired', 'pronamic_ideal' ),
+			'error'     => __( 'Error', 'pronamic_ideal' ),
+			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
 		);
 
 		foreach ( $pages as $key => $label ) {
@@ -121,6 +91,42 @@ class Pronamic_WP_Pay_Settings {
 
 			register_setting( 'pronamic_pay', $id );
 		}
+
+		// Settings - Currency
+		add_settings_section(
+			'pronamic_pay_currency', // id
+			__( 'Currency', 'pronamic_ideal' ), // title
+			array( $this, 'settings_section' ), // callback
+			'pronamic_pay' // page
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
+
+		add_settings_field(
+			'pronamic_pay_thousands_sep', // id
+			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
+			array( $this, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_currency', // section
+			array( // args
+			       'label_for' => 'pronamic_pay_thousands_sep',
+			       'classes'   => 'tiny-text',
+			)
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
+
+		add_settings_field(
+			'pronamic_pay_decimal_sep', // id
+			__( 'Decimal Seperator', 'pronamic_ideal' ), // title
+			array( $this, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_currency', // section
+			array(  // args
+			        'label_for' => 'pronamic_pay_decimal_sep',
+			        'classes'   => 'tiny-text',
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -128,8 +134,38 @@ class Pronamic_WP_Pay_Settings {
 	/**
 	 * Settings section
 	 */
-	public function settings_section() {
+	public function settings_section( $args ) {
+		switch( $args['id'] ) {
+			case 'pronamic_pay_pages':
+				?>
 
+				<p class="description"><?php _e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' ); ?></p>
+
+				<?php
+
+				$pages = array( 'completed', 'cancel', 'expired', 'error', 'unknown' );
+
+				foreach ( $pages as $status ) {
+					$option_name = sprintf( 'pronamic_pay_%s_page_id', $status );
+
+					$option = get_option( $option_name );
+
+					if ( false !== $option && '' !== $option ) {
+						$hide_button = true;
+					}
+				}
+
+				if ( ! isset( $hide_button ) ) {
+					submit_button(
+						__( 'Set default pages', 'pronamic_ideal' ),
+						'',
+						'pronamic_pay_create_pages',
+						false
+					);
+				}
+
+				break;
+		}
 	}
 
 	/**
@@ -139,7 +175,8 @@ class Pronamic_WP_Pay_Settings {
 	 */
 	public function input_element( $args ) {
 		$defaults = array(
-			'type' => 'text',
+			'type'    => 'text',
+			'classes' => 'regular-text',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -150,7 +187,7 @@ class Pronamic_WP_Pay_Settings {
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			'regular-text'
+			$args['classes']
 		);
 
 	}
@@ -183,6 +220,7 @@ class Pronamic_WP_Pay_Settings {
 			'post_type'        => esc_attr( isset( $args['post_type'] ) ? $args['post_type'] : 'page' ),
 			'selected'         => esc_attr( get_option( $name, '' ) ),
 			'show_option_none' => esc_attr( isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '— Select a page —', 'pronamic_ideal' ) ),
+			'class'            => 'regular-text'
 		) );
 	}
 }

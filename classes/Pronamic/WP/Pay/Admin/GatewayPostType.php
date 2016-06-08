@@ -372,7 +372,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303
 			 8 => __( 'Configuration submitted.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302
-			 9 => sprintf( __( 'Configuration scheduled for: %s.' ), '<strong>' . $scheduled_date . '</strong>' ),
+			 9 => sprintf( __( 'Configuration scheduled for: %s.', 'pronamic_ideal' ), '<strong>' . $scheduled_date . '</strong>' ),
 			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301
 			10 => __( 'Configuration draft updated.', 'pronamic_ideal' ),
 		);

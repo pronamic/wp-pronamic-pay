@@ -52,14 +52,27 @@ class Pronamic_WP_Pay_Admin_Notices {
 		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
 			$class = Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
 
+			$license = get_option( 'pronamic_pay_license_key' );
+
+			if ( '' === $license ) {
+				$notice = sprintf(
+					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%s">support license key</a>, please <a href="%s" target="_blank">get your key at pronamic.eu</a>.', 'pronamic_ideal' ),
+					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
+					'https://www.pronamic.eu/plugins/pronamic-ideal/'
+				);
+			} else {
+				$notice = sprintf(
+					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%s">support license key</a>. Please <a href="%s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
+					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
+					'https://www.pronamic.eu/plugins/pronamic-ideal/',
+					'https://www.pronamic.eu/account/'
+				);
+			}
+
 			printf( //xss ok
 				'<div class="%s"><p>%s</p></div>',
 				esc_attr( $class ),
-				sprintf(
-					__( '<strong>Pronamic iDEAL</strong> — You have not <a href="%s">entered a (valid) Pronamic iDEAL support license key</a>, please get your license key at <a href="%s" target="_blank">Pronamic.eu</a>.', 'pronamic_ideal' ),
-					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
-					'http://www.pronamic.eu/plugins/pronamic-ideal/'
-				)
+				$notice
 			);
 		}
 

@@ -1,50 +1,90 @@
-<h2><?php esc_html_e( 'Payment Gateways', 'pronamic_ideal' ); ?></h2>
+<h2><?php esc_html_e( 'Supported Payment Gateways', 'pronamic_ideal' ); ?></h2>
 
 <?php
 
 global $pronamic_pay_providers;
-global $pronamic_pay_gateways;
 
 bind_providers_and_gateways();
-
-$gateways = $pronamic_pay_gateways;
 
 ?>
 
 <table class="wp-list-table widefat" cellspacing="0">
 	<thead>
 		<tr>
-			<th scope="col"><?php esc_html_e( 'Provider', 'pronamic_ideal' ); ?></th>
-			<th scope="col"><?php esc_html_e( 'Name', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Payment provider', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?></th>
+			<th scope="col"><?php esc_html_e( 'Site', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
 
 	<tbody>
 
-		<?php foreach ( $gateways as $gateway ) : ?>
+		<?php
 
-			<tr>
-				<td>
-					<?php if ( isset( $gateway['provider'], $pronamic_pay_providers[ $gateway['provider'] ] ) ) : ?>
+		$current_provider = '';
+		$alternate        = false;
 
-						<?php $provider = $pronamic_pay_providers[ $gateway['provider'] ]; ?>
+		foreach ( $pronamic_pay_providers as $provider ) :
 
-						<?php if ( isset( $provider['url'] ) ) : ?>
+			if ( isset( $provider['integrations'] ) && is_array( $provider['integrations'] ) ) :
 
-							<a href="<?php echo esc_attr( $provider['url'] ); ?>">
-								<?php echo esc_html( $provider['name'] ); ?>
-							</a>
+				foreach ( $provider['integrations'] as $integration ) :
+					$name    = $integration->get_name();
 
-						<?php endif; ?>
+					$name = explode( ' - ', $name );
 
-					<?php endif; ?>
-				</td>
-				<td>
-					<?php echo esc_html( $gateway['name'] ); ?>
-				</td>
-			</tr>
+					// Provider
+					if ( count( $name ) > 1 ) :
+						$provider = array_shift( $name );
+					else :
+						$provider_name = explode( '(', $name[0] );
 
-		<?php endforeach; ?>
+						$provider = array_shift( $provider_name );
+					endif;
+
+					if ( $current_provider === $integration->provider ) :
+						$provider = '';
+					else :
+						$current_provider = $integration->provider;
+						$alternate = ! $alternate;
+					endif;
+
+					$name = implode( '', $name );
+
+					// Deprecated notice
+					if ( isset( $integration->deprecated ) && $integration->deprecated  ) {
+						$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
+					}
+
+					// Product link
+					$site = '';
+
+					if ( $integration->get_product_url() ) {
+						$site = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+							$integration->get_product_url(),
+							__( 'Site', 'pronamic_ideal' )
+						);
+					}
+
+					printf( //xss ok
+						'<tr%s>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+						</tr>',
+						( $alternate ? ' class="alternate"' : null ),
+						esc_html( $provider ),
+						esc_html( $name ),
+						$site
+					);
+
+				endforeach;
+
+			endif;
+
+		endforeach;
+
+		?>
 
 	</tbody>
 </table>

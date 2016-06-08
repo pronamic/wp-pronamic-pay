@@ -51,10 +51,10 @@ if ( $gateway ) : ?>
 								?>
 
 								<div>
-									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php esc_attr_e( $input_id ); ?>" name="pronamic_pay_amount[]" type="radio" required="required" value="<?php esc_attr_e( $amount ); ?>" />
+									<input class="pronamic-pay-amount-input pronamic-pay-input" id="<?php echo esc_attr( $input_id ); ?>" name="pronamic_pay_amount[]" type="radio" required="required" value="<?php echo esc_attr( $amount ); ?>" />
 									<label for="<?php echo esc_attr( $input_id ); ?>">
 										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-										<span class="pronamic-pay-amount-value"><?php esc_html_e( $amount_formatted ); ?></span>
+										<span class="pronamic-pay-amount-value"><?php echo esc_html( $amount_formatted ); ?></span>
 									</label>
 								</div>
 
@@ -117,7 +117,17 @@ if ( $gateway ) : ?>
 				</p>
 			</fieldset>
 
-			<?php $fields = $gateway->get_input_fields(); ?>
+			<?php
+
+			if ( $gateway->payment_method_is_required() ) {
+
+				$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
+
+			}
+
+			$fields = $gateway->get_input_fields();
+
+			?>
 
 			<?php if ( ! empty( $fields ) ) : ?>
 

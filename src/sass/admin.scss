@@ -17,8 +17,16 @@ td.column-version {
 	width: 5em;
 }
 
-.pronamic-pay-status-table tbody th:first-child {
-	width: 20%;
+.pronamic-pay-status-table {
+	margin-top: 2em;
+
+	thead th {
+		font-weight: bold;
+	}
+
+	tbody th:first-child {
+		width: 20%;
+	}
 }
 
 /**
@@ -89,6 +97,17 @@ td.column-version {
 	li:nth-child(even) {
 		border-right: 1px solid #ECECEC;
 	}
+}
+
+/**
+ * Settings
+ */
+.pronamic-pay-settings select {
+	width: 25em;
+}
+
+#pronamic_pay_create_pages {
+	margin-top: 1em;
 }
 
 /**

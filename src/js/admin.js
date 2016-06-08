@@ -50,7 +50,7 @@
 			// Set name of first tab item to name of selected provider
 			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
 
-			elements.tabItems.find(':visible').first().text( providerName );
+			elements.tabItems.find(':visible').first().text( providerName ).click();
 
 			$( '#pronamic-pay-gateway-description').html( obj.selectedVariant.attr( 'data-gateway-description' ) );
 

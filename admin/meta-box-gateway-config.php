@@ -236,7 +236,7 @@ bind_providers_and_gateways();
 
 						<?php } ?>
 
-						<td <?php echo ( 'html' === $field['type'] ? 'colspan="2"' : null ); ?>>
+						<td <?php if ( 'html' === $field['type'] ) : ?>colspan="2"<?php endif; ?>>
 							<?php
 
 							$attributes = array();

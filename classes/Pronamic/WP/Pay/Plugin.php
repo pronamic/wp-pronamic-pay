@@ -80,14 +80,31 @@ class Pronamic_WP_Pay_Plugin {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
 		}
 
-		// Setup
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 9 );
+		/*
+		 * Plugins loaded.
+		 *
+		 * Priority should be at least lower then 8 to support the "WP eCommerce" plugin.
+		 *
+		 * new WP_eCommerce()
+		 * add_action( 'plugins_loaded' , array( $this, 'init' ), 8 );
+		 * $this->load();
+		 * wpsc_core_load_gateways();
+		 *
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L342-L343
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L26-L35
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L54
+		 * @see https://github.com/wp-e-commerce/WP-e-Commerce/blob/branch-3.11.2/wp-shopping-cart.php#L296-L297
+		 */
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
 		// Payment notes
 		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
 
 		// Payment redirect URL
 		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
+
+		// Plugin locale
+		add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
 
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
@@ -130,7 +147,7 @@ class Pronamic_WP_Pay_Plugin {
 			'pronamic-pay-forms',
 			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 			array(),
-			'3.7.0'
+			'4.2.0'
 		);
 
 		wp_enqueue_style( 'pronamic-pay-forms' );
@@ -281,7 +298,7 @@ class Pronamic_WP_Pay_Plugin {
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
-					$url = $payment->get_redirect_url();
+					$url = $payment->get_return_redirect_url();
 
 					wp_redirect( $url );
 
@@ -364,8 +381,14 @@ class Pronamic_WP_Pay_Plugin {
 				exit;
 			}
 
-			// Action URL
-			if ( ! empty( $payment->action_url ) ) {
+			if ( '' !== $payment->config_id ) {
+				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+
+				if ( null !== $gateway && $gateway->is_html_form() ) {
+					$gateway->start( $payment );
+					$gateway->redirect( $payment );
+				}
+
 				wp_redirect( $payment->action_url );
 
 				exit;
@@ -407,6 +430,21 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+	}
+
+	/**
+	 * Filter plugin locale.
+	 */
+	public function plugin_locale( $locale, $domain ) {
+		if ( 'pronamic_ideal' !== $domain ) {
+			return $locale;
+		}
+
+		if ( 'nl_NL_formal' === $locale ) {
+			return 'nl_NL';
+		}
+
+		return $locale;
 	}
 
 	//////////////////////////////////////////////////
@@ -459,6 +497,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 
@@ -468,6 +507,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
 					$gateways[] = 'pay_nl';
@@ -475,6 +515,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
 					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 
 					break;
 			}
@@ -587,10 +628,10 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
-		$payment = self::create_payment( $config_id, $gateway, $data );
+		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
 
 		if ( $payment ) {
-			$gateway->start( $data, $payment, $payment_method );
+			$gateway->start( $payment );
 
 			pronamic_wp_pay_update_payment( $payment );
 
@@ -600,7 +641,7 @@ class Pronamic_WP_Pay_Plugin {
 		return $payment;
 	}
 
-	public static function create_payment( $config_id, $gateway, $data ) {
+	public static function create_payment( $config_id, $gateway, $data, $payment_method = null ) {
 		$payment = null;
 
 		$result = wp_insert_post( array(
@@ -620,15 +661,25 @@ class Pronamic_WP_Pay_Plugin {
 			$payment = new Pronamic_WP_Pay_Payment( $post_id );
 			$payment->config_id     = $config_id;
 			$payment->key           = uniqid( 'pay_' );
+			$payment->order_id      = $data->get_order_id();
 			$payment->currency      = $data->get_currency();
 			$payment->amount        = $data->get_amount();
 			$payment->language      = $data->get_language();
+			$payment->locale        = $data->get_language_and_country();
 			$payment->entrance_code = $data->get_entrance_code();
 			$payment->description   = $data->get_description();
 			$payment->source        = $data->get_source();
 			$payment->source_id     = $data->get_source_id();
 			$payment->email         = $data->get_email();
 			$payment->status        = null;
+			$payment->method        = $payment_method;
+			$payment->issuer        = $data->get_issuer_id();
+			$payment->customer_name = $data->get_customer_name();
+			$payment->address       = $data->get_address();
+			$payment->zip           = $data->get_zip();
+			$payment->city          = $data->get_city();
+			$payment->country       = $data->get_country();
+			$payment->telephone_number = $data->get_telephone_number();
 
 			// Meta
 			$prefix = '_pronamic_payment_';
@@ -636,10 +687,14 @@ class Pronamic_WP_Pay_Plugin {
 			$meta = array(
 				$prefix . 'config_id'               => $payment->config_id,
 				$prefix . 'key'                     => $payment->key,
+				$prefix . 'order_id'                => $payment->order_id,
 				$prefix . 'currency'                => $payment->currency,
 				$prefix . 'amount'                  => $payment->amount,
+				$prefix . 'method'                  => $payment->method,
+				$prefix . 'issuer'                  => $payment->issuer,
 				$prefix . 'expiration_period'       => null,
 				$prefix . 'language'                => $payment->language,
+				$prefix . 'locale'                  => $payment->locale,
 				$prefix . 'entrance_code'           => $payment->entrance_code,
 				$prefix . 'description'             => $payment->description,
 				$prefix . 'consumer_name'           => null,
@@ -651,6 +706,12 @@ class Pronamic_WP_Pay_Plugin {
 				$prefix . 'source'                  => $payment->source,
 				$prefix . 'source_id'               => $payment->source_id,
 				$prefix . 'email'                   => $payment->email,
+				$prefix . 'customer_name'           => $payment->customer_name,
+				$prefix . 'address'                 => $payment->address,
+				$prefix . 'zip'                     => $payment->zip,
+				$prefix . 'city'                    => $payment->city,
+				$prefix . 'country'                 => $payment->country,
+				$prefix . 'telephone_number'        => $payment->telephone_number,
 			);
 
 			foreach ( $meta as $key => $value ) {
