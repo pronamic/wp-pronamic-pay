@@ -308,7 +308,7 @@ results in OmniKassa data that no longer matches the signature.
 
 == Changelog ==
 
-= 4.2.1 - 2016-06-08 =
+= 4.2.1 - 2016-06-09 =
 *	Updated WordPress pay AppThemes library to version 1.0.4.
 
 = 4.2.0 - 2016-06-08 =

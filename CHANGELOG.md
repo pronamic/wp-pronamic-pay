@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [4.2.1] - 2016-06-08
+## [4.2.1] - 2016-06-09
 
 ### Fixed
 - Updated WordPress pay AppThemes library to version 1.0.4.
