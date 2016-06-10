@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "932309ae576fd2fe07fc8a5b574d64c2",
-    "content-hash": "eca62cdc49a44e32351763485791427d",
+    "hash": "3bace5ebaf22fc7b254471f6da9fcaae",
+    "content-hash": "439b0024e67446642c32e7d4edc30ab7",
     "packages": [
         {
             "name": "composer/installers",
@@ -3365,16 +3365,16 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "a0a650a9c0ab1d4777d0fc29efd4b614ccdf6d55"
+                "reference": "70331b9091d3ec0730f79ddf48cbddc15b287c96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/a0a650a9c0ab1d4777d0fc29efd4b614ccdf6d55",
-                "reference": "a0a650a9c0ab1d4777d0fc29efd4b614ccdf6d55",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/70331b9091d3ec0730f79ddf48cbddc15b287c96",
+                "reference": "70331b9091d3ec0730f79ddf48cbddc15b287c96",
                 "shasum": ""
             },
             "require": {
@@ -3424,7 +3424,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 09:21:43"
+            "time": "2016-06-10 07:02:25"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-basic",
@@ -4099,16 +4099,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "45ada3e3fd09789fbfbd6d65b3f0901f0030dc61"
+                "reference": "ea48fd2c79b68fba8693ae67a21cae5b5ee4cfb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/45ada3e3fd09789fbfbd6d65b3f0901f0030dc61",
-                "reference": "45ada3e3fd09789fbfbd6d65b3f0901f0030dc61",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/ea48fd2c79b68fba8693ae67a21cae5b5ee4cfb8",
+                "reference": "ea48fd2c79b68fba8693ae67a21cae5b5ee4cfb8",
                 "shasum": ""
             },
             "require": {
@@ -4140,7 +4140,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-06 06:44:13"
+            "time": "2016-06-10 07:04:47"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -4562,16 +4562,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.4.2",
+            "version": "5.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f5726a0262e5f74f8e9cf03128798b64160c441d"
+                "reference": "02d5b64aa0837a038a5a4faeeefa5ef44bdcb928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f5726a0262e5f74f8e9cf03128798b64160c441d",
-                "reference": "f5726a0262e5f74f8e9cf03128798b64160c441d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/02d5b64aa0837a038a5a4faeeefa5ef44bdcb928",
+                "reference": "02d5b64aa0837a038a5a4faeeefa5ef44bdcb928",
                 "shasum": ""
             },
             "require": {
@@ -4597,6 +4597,9 @@
                 "sebastian/resource-operations": "~1.0",
                 "sebastian/version": "~1.0|~2.0",
                 "symfony/yaml": "~2.1|~3.0"
+            },
+            "conflict": {
+                "phpdocumentor/reflection-docblock": "3.0.2"
             },
             "suggest": {
                 "phpunit/php-invoker": "~1.1"
@@ -4633,7 +4636,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-03 09:59:50"
+            "time": "2016-06-09 09:09:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
