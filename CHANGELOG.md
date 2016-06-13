@@ -6,6 +6,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.2.3] - 2016-06-14
+
+### Added
+- Updated WordPress pay Sisow library to version 1.2.0.
+  - Add support for bank transfer payment method
+
+### Fixed
+- Updated WordPress pay Buckaroo library to version 1.0.4.
+
 ## [4.2.2] - 2016-06-10
 
 ### Fixed
@@ -1255,7 +1264,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...HEAD
+[4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
 [4.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...4.2.1
 [4.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.1.1...4.2.0
