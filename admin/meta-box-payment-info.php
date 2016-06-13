@@ -95,7 +95,7 @@ $payment = get_pronamic_payment( $post_id );
 		<td>
 			<?php
 
-			$url = $payment->get_redirect_url();
+			$url = $payment->get_return_redirect_url();
 
 			printf(
 				'<a href="%s">%s</a>',
