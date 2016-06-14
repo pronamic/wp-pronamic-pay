@@ -13,6 +13,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Add support for bank transfer payment method
 
 ### Fixed
+- Updated WordPress pay OmniKassa library to version 1.1.9.
 - Updated WordPress pay Buckaroo library to version 1.0.4.
 
 ## [4.2.2] - 2016-06-10

@@ -311,6 +311,7 @@ results in OmniKassa data that no longer matches the signature.
 = 4.2.3 - 2016-06-14 =
 *	Updated WordPress pay Sisow library to version 1.2.0.
 	*	Add support for bank transfer payment method
+*	Updated WordPress pay OmniKassa library to version 1.1.9.
 *	Updated WordPress pay Buckaroo library to version 1.0.4.
 
 = 4.2.2 - 2016-06-10 =
