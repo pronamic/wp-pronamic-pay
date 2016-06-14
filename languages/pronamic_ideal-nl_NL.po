@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-06-08 14:47+0100\n"
+"PO-Revision-Date: 2016-06-14 15:53+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -34,7 +34,7 @@ msgstr "Betaal nu"
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:207
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:221
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:186
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:193
 msgid "Amount"
 msgstr "Bedrag"
 
@@ -310,7 +310,8 @@ msgstr "Rondleiding starten"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:51 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:51 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -647,7 +648,8 @@ msgstr "Volg Pronamic"
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: classes/Pronamic/WP/Pay/Admin.php:244 classes/Pronamic/WP/Pay/Admin.php:430
-#: classes/Pronamic/WP/Pay/Admin.php:431 vendor/wp-pay/core/src/Gateway.php:375
+#: classes/Pronamic/WP/Pay/Admin.php:431
+#: vendor/wp-pay/core/src/Gateway.php:375
 #: vendor/wp-pay/core/src/PaymentMethods.php:93
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:30
@@ -1536,11 +1538,11 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:534
+#: classes/Pronamic/WP/Pay/Plugin.php:541
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:649
+#: classes/Pronamic/WP/Pay/Plugin.php:656
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -3184,7 +3186,7 @@ msgid "Postback URL"
 msgstr "Postback URL"
 
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:44
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:190
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:197
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:41
 msgid "Merchant ID"
 msgstr "Winkelier ID"
@@ -3668,7 +3670,7 @@ msgstr "https://payment-services.ingenico.com/nl/nl"
 
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:191
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
 msgid "Order ID"
 msgstr "Bestelling ID"
@@ -3862,40 +3864,40 @@ msgstr ""
 "Direct HTTP server-to-server request URL voor de betaalstatussen "
 "\"geannuleerd door klant\" of \"te veel weigeringen door de acquirer\"."
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:189
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
 msgid "Currency Code"
 msgstr "Valuta"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:192
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 msgid "Transaction Date Time"
 msgstr "Transactie tijdstip"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:193
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
 msgid "Transaction Reference"
 msgstr "Transactiereferentie"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:194
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:61
 msgid "Key Version"
 msgstr "Sleutelversie"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
 msgid "Authorisation ID"
 msgstr "Autorisatie ID"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
 msgid "Payment Mean Brand"
 msgstr "Betaalmethode merknaam"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:197
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
 msgid "Payment Mean Type"
 msgstr "Type betaalmethode"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
 msgid "Response Code"
 msgstr "Antwoordcode"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:211
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
@@ -4172,12 +4174,12 @@ msgctxt "mollie"
 msgid "API Key"
 msgstr "API-key"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:187
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:194
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:188
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"

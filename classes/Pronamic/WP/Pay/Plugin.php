@@ -492,6 +492,13 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
+					$gateways[] = 'ing-kassa-compleet';
+					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
+					$gateways[] = 'sisow-ideal';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'icepay-ideal';
