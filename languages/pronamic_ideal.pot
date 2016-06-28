@@ -136,6 +136,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "Status"
@@ -1280,8 +1281,6 @@ msgid "Failed payments"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:245
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:207
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:253
 msgid "ideal"
 msgstr ""
 
@@ -1401,7 +1400,7 @@ msgstr ""
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:656
+#: classes/Pronamic/WP/Pay/Plugin.php:658
 msgid "Payment for %s"
 msgstr ""
 
@@ -2121,6 +2120,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:40
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:31
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:29
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:29
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:29
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:28
@@ -2160,6 +2160,7 @@ msgid ""
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:167
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:72
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:89
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:82
 msgid "Available tags:"
@@ -2300,6 +2301,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:513
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:33
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:31
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:31
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:31
 msgid "Optional settings for advanced usage only."
@@ -2437,6 +2439,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:75
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:101
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:79
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:66
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:96
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:208
@@ -2913,14 +2916,80 @@ msgid ""
 "completed."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Integration.php:18
-msgid "https://icepay.com/nl/en/pricing-and-accounts/"
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+msgid "Approval code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:22
-msgid "ICEPAY"
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
+#: vendor/wp-pay-gateways/ogone/src/Settings.php:198
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
+#: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
+msgid "Order ID"
 msgstr ""
 
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+msgid "Reference number"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+msgid "Time of transaction processing"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+msgid "Identification for transaction"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+msgid "Fail reason"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+msgid "Response hash"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
+msgid "Processor response code"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
+msgid "Fail code"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
+msgid "Terminal ID"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:179
+msgid "Creditcard issuing bank"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:180
+msgid "Creditcard country"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
+msgid "Creditcard brand"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:187
+msgid "EMS e-Commerce transaction data in response message:"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:19
+msgid "test"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Integration.php:20
+msgid "live"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:22
+msgid "EMS e-Commerce"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:24
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:24
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:24
 #: vendor/wp-pay-gateways/mollie/src/Settings.php:24
@@ -2929,6 +2998,26 @@ msgstr ""
 msgid ""
 "Account details are provided by the payment provider after registration. "
 "These settings need to match with the payment provider dashboard."
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
+msgid "Storename"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:53
+msgid "Shared secret"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:67
+msgid "The EMS e-Commerce %s parameter."
+msgstr ""
+
+#: vendor/wp-pay-gateways/icepay/src/Integration.php:18
+msgid "https://icepay.com/nl/en/pricing-and-accounts/"
+msgstr ""
+
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:22
+msgid "ICEPAY"
 msgstr ""
 
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:31
@@ -3098,22 +3187,22 @@ msgid "Download Private Key"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:194
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:303
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:304
 msgid "SHA Fingerprint"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:200
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:309
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:310
 msgid "M j, Y @ G:i"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:203
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:312
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:313
 msgid "Valid From"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:208
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:317
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:318
 msgid "Valid To"
 msgstr ""
 
@@ -3214,8 +3303,13 @@ msgid ""
 "configuration."
 msgstr ""
 
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:207
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:253
+msgid "ideal.key"
+msgstr ""
+
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:218
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:285
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:286
 msgid "OpenSSL command"
 msgstr ""
 
@@ -3226,16 +3320,20 @@ msgid ""
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:233
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:326
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:327
 msgid "Download"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:241
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:334
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:335
 msgid "Upload"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:292
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:254
+msgid "ideal.cer"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:293
 msgid ""
 "Leave empty and save the configuration to generate the certificate or view "
 "the OpenSSL command."
@@ -3393,13 +3491,6 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/ogone/src/AbstractIntegration.php:6
 msgid "https://payment-services.ingenico.com/nl/en"
-msgstr ""
-
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
-#: vendor/wp-pay-gateways/ogone/src/Settings.php:198
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
-#: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
-msgid "Order ID"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:223
