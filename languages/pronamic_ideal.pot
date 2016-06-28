@@ -136,7 +136,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "Status"
@@ -2916,11 +2916,11 @@ msgid ""
 "completed."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:162
 msgid "Approval code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:163
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
@@ -2929,51 +2929,51 @@ msgstr ""
 msgid "Order ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:164
 msgid "Reference number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
 msgid "Time of transaction processing"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 msgid "Identification for transaction"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
 msgid "Fail reason"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
 msgid "Response hash"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
 msgid "Processor response code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
 msgid "Fail code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
 msgid "Terminal ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:179
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
 msgid "Creditcard issuing bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:180
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 msgid "Creditcard country"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
 msgid "Creditcard brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:187
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr ""
 
@@ -2998,14 +2998,6 @@ msgstr ""
 msgid ""
 "Account details are provided by the payment provider after registration. "
 "These settings need to match with the payment provider dashboard."
-msgstr ""
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
-msgid "Storename"
-msgstr ""
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:53
-msgid "Shared secret"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:67
@@ -3939,6 +3931,16 @@ msgstr ""
 #: vendor/wp-pay-extensions/shopp/src/Gateway.php:343
 msgctxt "Payment method field"
 msgid "All"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
+msgctxt "ems"
+msgid "Storename"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:53
+msgctxt "ems"
+msgid "Shared Secret"
 msgstr ""
 
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:43

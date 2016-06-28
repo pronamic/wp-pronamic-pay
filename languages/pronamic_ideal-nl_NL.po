@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-06-28 14:39+0100\n"
+"PO-Revision-Date: 2016-06-28 15:38+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -138,7 +138,7 @@ msgstr "Redirect URL"
 
 #: admin/meta-box-payment-info.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "Status"
@@ -3133,11 +3133,11 @@ msgstr ""
 "Het ontvangen van transactie status updates vereist aanvullende "
 "configuratie, indien nog niet uitgevoerd."
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:162
 msgid "Approval code"
 msgstr "Goedkeuringscode"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:163
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
@@ -3146,51 +3146,51 @@ msgstr "Goedkeuringscode"
 msgid "Order ID"
 msgstr "Bestelling ID"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:164
 msgid "Reference number"
 msgstr "Referentienummer"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
 msgid "Time of transaction processing"
 msgstr "Tijdstip van verwerking transactie"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 msgid "Identification for transaction"
 msgstr "Identificatie voor transactie"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
 msgid "Fail reason"
 msgstr "Mislukt reden"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
 msgid "Response hash"
 msgstr "Antwoordhash"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
 msgid "Processor response code"
 msgstr "Processor antwoordcode"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
 msgid "Fail code"
 msgstr "Mislukt code"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
 msgid "Terminal ID"
 msgstr "Terminal ID"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:179
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
 msgid "Creditcard issuing bank"
 msgstr "Creditcard uitgevende bank"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:180
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 msgid "Creditcard country"
 msgstr "Creditcard land"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
 msgid "Creditcard brand"
 msgstr "Creditcard merk"
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:187
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr "EMS e-Commerce transactiedata in antwoordbericht:"
 
@@ -3219,14 +3219,6 @@ msgstr ""
 "Accountgegevens worden verstrekt door de betalingsprovider na registratie. "
 "Deze instellingen dienen overeen te komen met het dashboard van de "
 "betalingsprovider."
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
-msgid "Storename"
-msgstr "Storename"
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:53
-msgid "Shared secret"
-msgstr "Shared Secret"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:67
 msgid "The EMS e-Commerce %s parameter."
@@ -4244,6 +4236,16 @@ msgstr "Anders"
 msgctxt "Payment method field"
 msgid "All"
 msgstr "Alle"
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
+msgctxt "ems"
+msgid "Storename"
+msgstr "Storename"
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:53
+msgctxt "ems"
+msgid "Shared Secret"
+msgstr "Shared Secret"
 
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:43
 msgctxt "icepay"
