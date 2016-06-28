@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 4.2.3\n"
+"Project-Id-Version: Pronamic iDEAL 4.3.0-RC1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "Status"
@@ -580,7 +580,7 @@ msgstr ""
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: classes/Pronamic/WP/Pay/Admin.php:244 classes/Pronamic/WP/Pay/Admin.php:430
 #: classes/Pronamic/WP/Pay/Admin.php:431 vendor/wp-pay/core/src/Gateway.php:375
-#: vendor/wp-pay/core/src/PaymentMethods.php:93
+#: vendor/wp-pay/core/src/PaymentMethods.php:94
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:29
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Credit Card"
 msgstr ""
 
-#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:91
+#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:93
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:29
@@ -873,7 +873,7 @@ msgstr ""
 msgid "paysafecard"
 msgstr ""
 
-#: admin/tab-methods.php:102
+#: admin/tab-methods.php:102 vendor/wp-pay/core/src/PaymentMethods.php:96
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:28
 msgid "PayPal"
 msgstr ""
@@ -1751,6 +1751,13 @@ msgid "Pay"
 msgstr ""
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:90
+#: vendor/wp-pay/core/src/PaymentMethods.php:95
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
+msgid "Bancontact"
+msgstr ""
+
+#: vendor/wp-pay/core/src/PaymentMethods.php:91
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:29
@@ -1761,19 +1768,7 @@ msgstr ""
 msgid "Bank Transfer"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:94
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
-#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
-msgid "Bancontact/Mister Cash"
-msgstr ""
-
-#: vendor/wp-pay/core/src/PaymentMethods.php:95
+#: vendor/wp-pay/core/src/PaymentMethods.php:97
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:29
@@ -1784,11 +1779,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/memberpress/src/SofortGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:28
 msgid "SOFORT Banking"
-msgstr ""
-
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
-msgid "Bancontact"
 msgstr ""
 
 #: vendor/wp-pay-extensions/appthemes/src/Extension.php:143
@@ -1819,6 +1809,17 @@ msgstr ""
 #: vendor/wp-pay-extensions/charitable/src/Extension.php:184
 #: vendor/wp-pay-extensions/give/src/Extension.php:148
 msgid "Donation %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
+#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
+msgid "Bancontact/Mister Cash"
 msgstr ""
 
 #: vendor/wp-pay-extensions/charitable/src/PaymentData.php:59
@@ -2916,11 +2917,11 @@ msgid ""
 "completed."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:162
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:164
 msgid "Approval code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:163
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
@@ -2929,51 +2930,51 @@ msgstr ""
 msgid "Order ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:164
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
 msgid "Reference number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
 msgid "Time of transaction processing"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
 msgid "Identification for transaction"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
 msgid "Fail reason"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
 msgid "Response hash"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
 msgid "Processor response code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
 msgid "Fail code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 msgid "Terminal ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
 msgid "Creditcard issuing bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
 msgid "Creditcard country"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
 msgid "Creditcard brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:183
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr ""
 

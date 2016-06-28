@@ -6,6 +6,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.3.0-RC1] - 2016-06-28
+
+### Added
+- Added WordPress pay EMS e-Commerce Gateway library version 1.0.0.
+
 ## [4.2.3] - 2016-06-14
 
 ### Added
@@ -1265,7 +1270,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0-RC1...HEAD
+[4.3.0-RC1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0-RC1
 [4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
 [4.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...4.2.1
