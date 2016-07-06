@@ -583,6 +583,8 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealViaOgone_Integration';
 		// Easy iDEAL
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_Integration';
+		// EMS e-Commerce Gateway
+		$integrations[] = 'Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration';
 		// Fibonacci ORANGE
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_FibonacciOrange_Integration';
 		// ICEPAY

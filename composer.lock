@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "323ca92bf7428cd0ae78fe52ffd8e34c",
-    "content-hash": "7d35117c3d7b307103628e0c0989edf5",
+    "hash": "f5be775d926133c9d93b165973204456",
+    "content-hash": "1336de99d3afe3f3ce2e77794f18afe1",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.25",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+                "reference": "a3595c5272a6f247228abb20076ed27321e4aae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/a3595c5272a6f247228abb20076ed27321e4aae9",
+                "reference": "a3595c5272a6f247228abb20076ed27321e4aae9",
                 "shasum": ""
             },
             "require": {
@@ -65,6 +65,7 @@
                 "MODX Evo",
                 "Mautic",
                 "OXID",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
@@ -80,6 +81,7 @@
                 "dokuwiki",
                 "drupal",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
@@ -105,7 +107,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2016-07-05 06:18:20"
         },
         {
             "name": "icepay/icepay",
@@ -630,16 +632,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.4.7",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "ca2cdb4918c659c7bdf4ce36c4babb35a178ef96"
+                "reference": "ef0162321a6f44f847c925045425383e6117cfa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ca2cdb4918c659c7bdf4ce36c4babb35a178ef96",
-                "reference": "ca2cdb4918c659c7bdf4ce36c4babb35a178ef96",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ef0162321a6f44f847c925045425383e6117cfa9",
+                "reference": "ef0162321a6f44f847c925045425383e6117cfa9",
                 "shasum": ""
             },
             "require": {
@@ -691,20 +693,20 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 12:10:27"
+            "time": "2016-07-06 13:24:40"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ithemes-exchange.git",
-                "reference": "296a6701c034c165575d2369183f06f8c2349887"
+                "reference": "b678aea8260c0ea10b6ff394d50b3a0977d6ea87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/296a6701c034c165575d2369183f06f8c2349887",
-                "reference": "296a6701c034c165575d2369183f06f8c2349887",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/b678aea8260c0ea10b6ff394d50b3a0977d6ea87",
+                "reference": "b678aea8260c0ea10b6ff394d50b3a0977d6ea87",
                 "shasum": ""
             },
             "require": {
@@ -713,7 +715,10 @@
                 "wpackagist-plugin/ithemes-exchange": "1.11.8"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "phpmd/phpmd": "^2.4",
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "^2.6",
+                "wp-coding-standards/wpcs": "0.9.0"
             },
             "type": "library",
             "autoload": {
@@ -750,20 +755,20 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-04-12 12:52:00"
+            "time": "2016-07-06 12:22:24"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/jigoshop.git",
-                "reference": "2c5f3982e2b4d0dab72530696ab5b93156fd8b5b"
+                "reference": "aeabf5fc2ba1f02de4143ee455cdc5a915d13b51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/2c5f3982e2b4d0dab72530696ab5b93156fd8b5b",
-                "reference": "2c5f3982e2b4d0dab72530696ab5b93156fd8b5b",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/aeabf5fc2ba1f02de4143ee455cdc5a915d13b51",
+                "reference": "aeabf5fc2ba1f02de4143ee455cdc5a915d13b51",
                 "shasum": ""
             },
             "require": {
@@ -808,7 +813,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-04-12 12:55:36"
+            "time": "2016-07-06 12:09:58"
         },
         {
             "name": "wp-pay-extensions/jobroller",
@@ -1829,6 +1834,69 @@
             "time": "2016-03-22 13:07:15"
         },
         {
+            "name": "wp-pay-gateways/ems-e-commerce",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/ems-e-commerce.git",
+                "reference": "70266550b844134c09c572ea349ba3ea4964ff1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/70266550b844134c09c572ea349ba3ea4964ff1c",
+                "reference": "70266550b844134c09c572ea349ba3ea4964ff1c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4",
+                "wp-pay-gateways/common": "^1.0.2",
+                "wp-pay/core": "^1.3.7",
+                "xrstf/composer-php52": "1.*"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.2.3",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.2.0",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "0.9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "EMS e-Commerce Gateway driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/ems-e-commerce/",
+            "keywords": [
+                "EMS",
+                "gateway",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2016-07-06 09:05:30"
+        },
+        {
             "name": "wp-pay-gateways/fibonacciorange",
             "version": "1.0.1",
             "source": {
@@ -2049,16 +2117,16 @@
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "6cedc18cfbf50de4fe5d3d0d5c9e1ffbcccecb86"
+                "reference": "51f7e3ccaad98d42a28d96c4158e093aadd739eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/6cedc18cfbf50de4fe5d3d0d5c9e1ffbcccecb86",
-                "reference": "6cedc18cfbf50de4fe5d3d0d5c9e1ffbcccecb86",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/51f7e3ccaad98d42a28d96c4158e093aadd739eb",
+                "reference": "51f7e3ccaad98d42a28d96c4158e093aadd739eb",
                 "shasum": ""
             },
             "require": {
@@ -2111,7 +2179,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 08:09:46"
+            "time": "2016-07-06 09:11:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -2518,16 +2586,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "1.1.6",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "b4fcb8ecbf488540748a1da8befc44efe7da23fb"
+                "reference": "d7a992633196959d5e26d60d2fe40436cef25e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/b4fcb8ecbf488540748a1da8befc44efe7da23fb",
-                "reference": "b4fcb8ecbf488540748a1da8befc44efe7da23fb",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/d7a992633196959d5e26d60d2fe40436cef25e73",
+                "reference": "d7a992633196959d5e26d60d2fe40436cef25e73",
                 "shasum": ""
             },
             "require": {
@@ -2577,20 +2645,20 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 08:45:49"
+            "time": "2016-07-06 12:55:57"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie-ideal.git",
-                "reference": "561e7b744b557e5ef1c977e351e2ac3d244d9618"
+                "reference": "e2f736a4f90663d076628d8460f5a4cd3b2f2b87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie-ideal/zipball/561e7b744b557e5ef1c977e351e2ac3d244d9618",
-                "reference": "561e7b744b557e5ef1c977e351e2ac3d244d9618",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie-ideal/zipball/e2f736a4f90663d076628d8460f5a4cd3b2f2b87",
+                "reference": "e2f736a4f90663d076628d8460f5a4cd3b2f2b87",
                 "shasum": ""
             },
             "require": {
@@ -2642,7 +2710,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-22 14:54:05"
+            "time": "2016-06-16 12:42:21"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal-basic",
@@ -2845,16 +2913,16 @@
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "58b1815476f111e0e9fd3b8d7f38e11fa3397a42"
+                "reference": "4b03dac422c5a7078ccf0ba469d0f71d4f1cb407"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/58b1815476f111e0e9fd3b8d7f38e11fa3397a42",
-                "reference": "58b1815476f111e0e9fd3b8d7f38e11fa3397a42",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/4b03dac422c5a7078ccf0ba469d0f71d4f1cb407",
+                "reference": "4b03dac422c5a7078ccf0ba469d0f71d4f1cb407",
                 "shasum": ""
             },
             "require": {
@@ -2905,7 +2973,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 08:58:28"
+            "time": "2016-07-06 12:17:44"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -3561,16 +3629,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "e811cbad1a81d45bb7d69dfddf1a8053bd309e85"
+                "reference": "a4a9b9e07da0a5d68b75f01748fc9de1928723da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/e811cbad1a81d45bb7d69dfddf1a8053bd309e85",
-                "reference": "e811cbad1a81d45bb7d69dfddf1a8053bd309e85",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/a4a9b9e07da0a5d68b75f01748fc9de1928723da",
+                "reference": "a4a9b9e07da0a5d68b75f01748fc9de1928723da",
                 "shasum": ""
             },
             "require": {
@@ -3617,7 +3685,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 07:53:02"
+            "time": "2016-07-06 12:32:50"
         },
         {
             "name": "wpackagist-plugin/charitable",
@@ -4562,16 +4630,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.4.4",
+            "version": "5.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "02d5b64aa0837a038a5a4faeeefa5ef44bdcb928"
+                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/02d5b64aa0837a038a5a4faeeefa5ef44bdcb928",
-                "reference": "02d5b64aa0837a038a5a4faeeefa5ef44bdcb928",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
+                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
                 "shasum": ""
             },
             "require": {
@@ -4590,7 +4658,7 @@
                 "phpunit/phpunit-mock-objects": "^3.2",
                 "sebastian/comparator": "~1.1",
                 "sebastian/diff": "~1.2",
-                "sebastian/environment": "~1.3",
+                "sebastian/environment": "^1.3 || ^2.0",
                 "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
                 "sebastian/object-enumerator": "~1.0",
@@ -4636,7 +4704,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-09 09:09:27"
+            "time": "2016-06-16 06:01:15"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -5070,16 +5138,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "7ae5513327cb536431847bcc0c10edba2701064e"
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/7ae5513327cb536431847bcc0c10edba2701064e",
-                "reference": "7ae5513327cb536431847bcc0c10edba2701064e",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/42c4c2eec485ee3e159ec9884f95b431287edde4",
+                "reference": "42c4c2eec485ee3e159ec9884f95b431287edde4",
                 "shasum": ""
             },
             "require": {
@@ -5087,12 +5155,13 @@
                 "sebastian/recursion-context": "~1.0"
             },
             "require-dev": {
+                "ext-mbstring": "*",
                 "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -5132,7 +5201,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-06-21 07:55:53"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/global-state",
@@ -5449,16 +5518,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "048dc47e07f92333203c3b7045868bbc864fc40e"
+                "reference": "bcf5aebabc95b56e370e13d78565f74c7d8726dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/048dc47e07f92333203c3b7045868bbc864fc40e",
-                "reference": "048dc47e07f92333203c3b7045868bbc864fc40e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/bcf5aebabc95b56e370e13d78565f74c7d8726dc",
+                "reference": "bcf5aebabc95b56e370e13d78565f74c7d8726dc",
                 "shasum": ""
             },
             "require": {
@@ -5498,20 +5567,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-20 11:48:17"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/console",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "f62db5b8afec27073a4609b8c84b1f9936652259"
+                "reference": "747154aa69b0f83cd02fc9aa554836dee417631a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/f62db5b8afec27073a4609b8c84b1f9936652259",
-                "reference": "f62db5b8afec27073a4609b8c84b1f9936652259",
+                "url": "https://api.github.com/repos/symfony/console/zipball/747154aa69b0f83cd02fc9aa554836dee417631a",
+                "reference": "747154aa69b0f83cd02fc9aa554836dee417631a",
                 "shasum": ""
             },
             "require": {
@@ -5558,20 +5627,20 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-30 06:58:39"
+            "time": "2016-06-29 07:02:31"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "383110341e8f47ae972da3a29503b099831549e1"
+                "reference": "b7272b65f2f46cbe77def7d33916f2613669c508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/383110341e8f47ae972da3a29503b099831549e1",
-                "reference": "383110341e8f47ae972da3a29503b099831549e1",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b7272b65f2f46cbe77def7d33916f2613669c508",
+                "reference": "b7272b65f2f46cbe77def7d33916f2613669c508",
                 "shasum": ""
             },
             "require": {
@@ -5618,20 +5687,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-24 10:06:56"
+            "time": "2016-06-29 05:42:25"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.7",
+            "version": "v2.8.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "2a6b8713f8bdb582058cfda463527f195b066110"
+                "reference": "b180b70439dca70049b6b9b7e21d75e6e5d7aca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/2a6b8713f8bdb582058cfda463527f195b066110",
-                "reference": "2a6b8713f8bdb582058cfda463527f195b066110",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b180b70439dca70049b6b9b7e21d75e6e5d7aca9",
+                "reference": "b180b70439dca70049b6b9b7e21d75e6e5d7aca9",
                 "shasum": ""
             },
             "require": {
@@ -5678,20 +5747,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-06 11:11:27"
+            "time": "2016-06-29 05:29:29"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "5751e80d6f94b7c018f338a4a7be0b700d6f3058"
+                "reference": "322da5f0910d8aa0b25fa65ffccaba68dbddb890"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5751e80d6f94b7c018f338a4a7be0b700d6f3058",
-                "reference": "5751e80d6f94b7c018f338a4a7be0b700d6f3058",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/322da5f0910d8aa0b25fa65ffccaba68dbddb890",
+                "reference": "322da5f0910d8aa0b25fa65ffccaba68dbddb890",
                 "shasum": ""
             },
             "require": {
@@ -5727,7 +5796,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-12 18:27:47"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -5790,16 +5859,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "4670f122fa32a4900003a6802f6b8575f3f0b17e"
+                "reference": "bb42806b12c5f89db4ebf64af6741afe6d8457e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/4670f122fa32a4900003a6802f6b8575f3f0b17e",
-                "reference": "4670f122fa32a4900003a6802f6b8575f3f0b17e",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/bb42806b12c5f89db4ebf64af6741afe6d8457e1",
+                "reference": "bb42806b12c5f89db4ebf64af6741afe6d8457e1",
                 "shasum": ""
             },
             "require": {
@@ -5835,20 +5904,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:56:56"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.0",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "eca51b7b65eb9be6af88ad7cc91685f1556f5c9a"
+                "reference": "2884c26ce4c1d61aebf423a8b912950fe7c764de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/eca51b7b65eb9be6af88ad7cc91685f1556f5c9a",
-                "reference": "eca51b7b65eb9be6af88ad7cc91685f1556f5c9a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/2884c26ce4c1d61aebf423a8b912950fe7c764de",
+                "reference": "2884c26ce4c1d61aebf423a8b912950fe7c764de",
                 "shasum": ""
             },
             "require": {
@@ -5884,7 +5953,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-26 21:46:24"
+            "time": "2016-06-29 05:41:56"
         },
         {
             "name": "webmozart/assert",
@@ -5972,9 +6041,18 @@
             "time": "2016-02-01 16:14:59"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.4.8",
+            "alias_normalized": "1.4.8.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/gravityforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

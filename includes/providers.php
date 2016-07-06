@@ -24,6 +24,10 @@ $pronamic_pay_providers = array(
 		'url'           => 'http://www.easy-ideal.com/',
 		'affiliate_url' => 'https://www.qantanipayments.com/backoffice/signup/easyideal/step1/pronamic/',
 	),
+	'ems'        => array(
+		'name'          => 'European Merchant Services',
+		'url'           => 'https://emscard.nl/',
+	),
 	'fibonacciorange'   => array(
 		'name'          => 'Fibonacci ORANGE',
 		'url'           => 'http://www.fibonacciorange.com/',
