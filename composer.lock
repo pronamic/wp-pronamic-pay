@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9db7815ee34eee1f23a9df529253ad8",
-    "content-hash": "e21c583d70037cf5e9cb4c553dcaf1ab",
+    "hash": "f5be775d926133c9d93b165973204456",
+    "content-hash": "1336de99d3afe3f3ce2e77794f18afe1",
     "packages": [
         {
             "name": "composer/installers",
@@ -632,16 +632,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.4.7",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "ca2cdb4918c659c7bdf4ce36c4babb35a178ef96"
+                "reference": "ef0162321a6f44f847c925045425383e6117cfa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ca2cdb4918c659c7bdf4ce36c4babb35a178ef96",
-                "reference": "ca2cdb4918c659c7bdf4ce36c4babb35a178ef96",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ef0162321a6f44f847c925045425383e6117cfa9",
+                "reference": "ef0162321a6f44f847c925045425383e6117cfa9",
                 "shasum": ""
             },
             "require": {
@@ -693,7 +693,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 12:10:27"
+            "time": "2016-07-06 13:24:40"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2586,16 +2586,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "172142df48e8afdf1cf9377d6d0368e56fc81cf0"
+                "reference": "d7a992633196959d5e26d60d2fe40436cef25e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/172142df48e8afdf1cf9377d6d0368e56fc81cf0",
-                "reference": "172142df48e8afdf1cf9377d6d0368e56fc81cf0",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/d7a992633196959d5e26d60d2fe40436cef25e73",
+                "reference": "d7a992633196959d5e26d60d2fe40436cef25e73",
                 "shasum": ""
             },
             "require": {
@@ -2645,7 +2645,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-07-06 09:47:47"
+            "time": "2016-07-06 12:55:57"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -6041,9 +6041,18 @@
             "time": "2016-02-01 16:14:59"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.4.8",
+            "alias_normalized": "1.4.8.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/gravityforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

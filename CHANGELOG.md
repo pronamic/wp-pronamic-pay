@@ -6,10 +6,26 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [4.3.0-RC1] - 2016-06-28
+## [4.3.0] - 2016-07-06
 
 ### Added
 - Added WordPress pay EMS e-Commerce Gateway library version 1.0.0.
+
+### Changed
+- Updated WordPress pay iDEAL Advanced library to version 1.1.6.
+  - Adjusted check on required distinguished name keys/values.
+  - Added some early returns + escapeshellarg calls.
+- Updated WordPress pay Mollie library to version 1.1.8.
+  - Added PayPal to gateway methods transformations.
+  - Fixed undefined variable `$user_id`.
+- Updated WordPress pay Ogone library to version 1.3.1.
+  - Get payment ID from request data.
+- Updated WordPress pay iThemes Exchange library to version 1.1.3.
+  - Fixed Membership add-on support.
+- Updated WordPress pay Jigoshop library to version 1.0.4.
+  - Use iDEAL payment method when payment method is required, but not set.
+- Updated WordPress pay Gravity Forms library to version 1.4.8.
+  - Added support for filtering payment data with `gform_post_save`.
 
 ## [4.2.3] - 2016-06-14
 
@@ -1270,8 +1286,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0-RC1...HEAD
-[4.3.0-RC1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0-RC1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...HEAD
+[4.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0
 [4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
 [4.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...4.2.2
 [4.2.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.0...4.2.1
