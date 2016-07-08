@@ -4,6 +4,10 @@ class Pronamic_Pay_Payment {
 
 	protected $id;
 
+	public $config_id;
+
+	public $key;
+
 	//////////////////////////////////////////////////
 	// Source
 	//////////////////////////////////////////////////
@@ -44,6 +48,18 @@ class Pronamic_Pay_Payment {
 
 	public $consumer_city;
 
+	public $customer_name;
+
+	public $address;
+
+	public $city;
+
+	public $zip;
+
+	public $country;
+
+	public $telephone_number;
+
 	public $status;
 
 	public $status_requests;
@@ -55,6 +71,18 @@ class Pronamic_Pay_Payment {
 	public $method;
 
 	public $issuer;
+
+	public $recurring;
+
+	public $recurring_interval;
+
+	public $recurring_interval_period;
+
+	public $recurring_frequency;
+
+	public $recurring_description;
+
+	public $recurring_amount;
 
 	//////////////////////////////////////////////////
 
@@ -251,6 +279,32 @@ class Pronamic_Pay_Payment {
 
 	public function get_entrance_code() {
 		return $this->entrance_code;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_recurring() {
+		return $this->recurring;
+	}
+
+	public function get_recurring_frequency() {
+		return $this->recurring_frequency;
+	}
+
+	public function get_recurring_interval() {
+		return $this->recurring_interval;
+	}
+
+	public function get_recurring_interval_period() {
+		return $this->recurring_interval_period;
+	}
+
+	public function get_recurring_description() {
+		return $this->recurring_description;
+	}
+
+	public function get_recurring_amount() {
+		return $this->recurring_amount;
 	}
 
 	//////////////////////////////////////////////////

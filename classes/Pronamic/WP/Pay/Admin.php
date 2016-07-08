@@ -395,13 +395,15 @@ class Pronamic_WP_Pay_Admin {
 
 				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
 
-				$error = $gateway->get_error();
+				wp_redirect( $payment->get_pay_redirect_url() );
 
-				if ( is_wp_error( $error ) ) {
-					Pronamic_WP_Pay_Plugin::render_errors( $error );
-				} else {
-					$gateway->redirect( $payment );
-				}
+//				$error = $gateway->get_error();
+//
+//				if ( is_wp_error( $error ) ) {
+//					Pronamic_WP_Pay_Plugin::render_errors( $error );
+//				} else {
+//					$gateway->redirect( $payment );
+//				}
 
 				exit;
 			}

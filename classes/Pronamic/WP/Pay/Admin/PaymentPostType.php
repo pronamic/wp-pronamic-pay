@@ -73,6 +73,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
 			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
+			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
 			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
 			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
@@ -109,6 +110,16 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
 				echo ' ';
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
+
+				break;
+			case 'pronamic_payment_recurring':
+				if ( get_post_meta( $post_id, '_pronamic_payment_recurring', true ) ) {
+					printf(
+						'%s %s',
+						esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) ),
+						esc_html( get_post_meta( $post_id, '_pronamic_payment_recurring_amount', true ) )
+					);
+				}
 
 				break;
 			case 'pronamic_payment_consumer':
@@ -166,6 +177,15 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			);
 
 			add_meta_box(
+				'pronamic_payment_recurring',
+				__( 'Recurring', 'pronamic_ideal' ),
+				array( $this, 'meta_box_recurring' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+
+			add_meta_box(
 				'pronamic_payment_log',
 				__( 'Log', 'pronamic_ideal' ),
 				array( $this, 'meta_box_log' ),
@@ -213,6 +233,15 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	public function meta_box_log( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
+	}
+
+	/**
+	 * Pronamic Pay payment recurring meta box
+	 *
+	 * @param WP_Post $post The object for the current post/page.
+	 */
+	public function meta_box_recurring( $post ) {
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-recurring.php';
 	}
 
 	/**

@@ -49,6 +49,13 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->city             = $this->get_meta( 'city' );
 		$this->country          = $this->get_meta( 'country' );
 		$this->telephone_number = $this->get_meta( 'telephone_number' );
+
+		$this->recurring                 = $this->get_meta( 'recurring' );
+		$this->recurring_frequency       = $this->get_meta( 'recurring_frequency' );
+		$this->recurring_interval        = $this->get_meta( 'recurring_interval' );
+		$this->recurring_interval_period = $this->get_meta( 'recurring_interval_period' );
+		$this->recurring_description     = $this->get_meta( 'recurring_description' );
+		$this->recurring_amount          = $this->get_meta( 'recurring_amount' );
 	}
 
 	//////////////////////////////////////////////////
