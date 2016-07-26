@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "41ff4e776c964f0e4cb93ea8c06655ba",
-    "content-hash": "a324b69011a6834e8ff20887225f3b32",
+    "hash": "6a590572ee7ecfa216ad03dd83c9b9e0",
+    "content-hash": "3855656ee15b8018692e4b58d9bcba6c",
     "packages": [
         {
             "name": "composer/installers",
@@ -632,16 +632,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.4.8",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "2a1d7406d2fbe86b9e1b64dbfea6aef5faeb07d9"
+                "reference": "b1051c20482d4cada27c7551ac582926b287b6ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/2a1d7406d2fbe86b9e1b64dbfea6aef5faeb07d9",
-                "reference": "2a1d7406d2fbe86b9e1b64dbfea6aef5faeb07d9",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/b1051c20482d4cada27c7551ac582926b287b6ec",
+                "reference": "b1051c20482d4cada27c7551ac582926b287b6ec",
                 "shasum": ""
             },
             "require": {
@@ -693,7 +693,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-07-06 13:47:54"
+            "time": "2016-07-26 13:54:01"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -3757,8 +3757,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ithemes-exchange.1.11.8.zip",
-                "reference": null,
+                "url": "http://downloads.wordpress.org/plugin/ithemes-exchange.1.11.8.zip",
+                "reference": "tags/1.11.8",
                 "shasum": null
             },
             "require": {
@@ -3778,7 +3778,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/jigoshop.1.17.11.zip",
-                "reference": null,
+                "reference": "tags/1.17.11",
                 "shasum": null
             },
             "require": {
@@ -3798,7 +3798,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/membership.4.0.0.7.zip",
-                "reference": null,
+                "reference": "tags/4.0.0.7",
                 "shasum": null
             },
             "require": {
@@ -3817,8 +3817,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/shopp.1.3.5.zip",
-                "reference": null,
+                "url": "http://downloads.wordpress.org/plugin/shopp.1.3.5.zip",
+                "reference": "tags/1.3.5",
                 "shasum": null
             },
             "require": {
@@ -3838,7 +3838,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-e-commerce.3.9.3.zip",
-                "reference": null,
+                "reference": "tags/3.9.3",
                 "shasum": null
             },
             "require": {
@@ -4630,16 +4630,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.4.6",
+            "version": "5.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59"
+                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
-                "reference": "2f1fc94b77ea6418bd6a06c64a1dac0645fbce59",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6c8a756c17a1a92a066c99860eb57922e8b723da",
+                "reference": "6c8a756c17a1a92a066c99860eb57922e8b723da",
                 "shasum": ""
             },
             "require": {
@@ -4704,7 +4704,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-06-16 06:01:15"
+            "time": "2016-07-21 06:55:27"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6041,9 +6041,18 @@
             "time": "2016-02-01 16:14:59"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.4.9",
+            "alias_normalized": "1.4.9.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/gravityforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
