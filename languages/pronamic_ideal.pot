@@ -73,7 +73,8 @@ msgid "Product information"
 msgstr ""
 
 #: admin/meta-box-gateway-test.php:45
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:69
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:236
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:248
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:142
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:202
@@ -1076,7 +1077,8 @@ msgid "monitored by <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a>"
 msgstr ""
 
 #: admin/tab-system_status.php:379
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:60
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:179
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:191
 msgid "Issuer"
 msgstr ""
 
@@ -1410,6 +1412,7 @@ msgid "Payment Gateway Configurations"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:40
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:72
 msgid "Payment Gateway Configuration"
 msgstr ""
 
@@ -1734,7 +1737,7 @@ msgid "Payment Info"
 msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:388
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:93
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:276
 msgid "Choose a payment method"
 msgstr ""
 
@@ -1991,7 +1994,7 @@ msgid "Formidable"
 msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:96
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:193
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:195
 msgid "Entry #%s"
 msgstr ""
 
@@ -2061,37 +2064,24 @@ msgstr ""
 msgid "Form"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:188
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:190
 msgid "Gravity Forms"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:72
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:187
-msgid "Create pay feed"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:80
-msgid "This field is not supported by your payment gateway."
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:82
-msgid "Please remove it from this form or %sadd a supported payment gateway%s."
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:92
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:193
-msgid "Edit pay feed"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:304
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:43
 msgid "Payment Fields"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:48
-msgid "Issuer Drop Down"
+#: vendor/wp-pay-extensions/gravityforms/src/Fields.php:78
+msgid "— Use Payment Form Setting —"
 msgstr ""
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:84
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:157
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:214
+msgid "Create pay feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:215
 msgid "Choose a bank for iDEAL payment"
 msgstr ""
 
@@ -2105,10 +2095,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:77
 msgid "Forms » iDEAL"
-msgstr ""
-
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:57
-msgid "Payment Method Selector"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:38
