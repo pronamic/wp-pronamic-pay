@@ -653,7 +653,18 @@ msgstr ""
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
 #: admin/tab-branding.php:113 admin/tab-methods.php:94
-msgid "Mister Cash"
+#: vendor/wp-pay/core/src/PaymentMethods.php:90
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
+#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
+msgid "Bancontact"
 msgstr ""
 
 #: admin/tab-branding.php:132
@@ -1398,11 +1409,11 @@ msgid ""
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:541
+#: classes/Pronamic/WP/Pay/Plugin.php:542
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:658
+#: classes/Pronamic/WP/Pay/Plugin.php:659
 msgid "Payment for %s"
 msgstr ""
 
@@ -1753,19 +1764,6 @@ msgstr ""
 msgid "Pay"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:90
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
-#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
-msgid "Bancontact"
-msgstr ""
-
 #: vendor/wp-pay/core/src/PaymentMethods.php:91
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:30
@@ -1881,10 +1879,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:160
 msgid "Easy Digital Downloads"
-msgstr ""
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
-msgid "Bancontact/Mister Cash"
 msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:116

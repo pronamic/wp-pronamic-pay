@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-07-27 15:20+0100\n"
+"PO-Revision-Date: 2016-07-28 09:08+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -724,8 +724,19 @@ msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
 #: admin/tab-branding.php:113 admin/tab-methods.php:94
-msgid "Mister Cash"
-msgstr "Mister Cash"
+#: vendor/wp-pay/core/src/PaymentMethods.php:90
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
+#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
+#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
+msgid "Bancontact"
+msgstr "Bancontact"
 
 #: admin/tab-branding.php:132
 msgid "Logo Extra Small"
@@ -1539,11 +1550,11 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:541
+#: classes/Pronamic/WP/Pay/Plugin.php:542
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:658
+#: classes/Pronamic/WP/Pay/Plugin.php:659
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
@@ -1898,19 +1909,6 @@ msgstr "Kies een betaalmethode"
 msgid "Pay"
 msgstr "Betalen"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:90
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
-#: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
-#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
-msgid "Bancontact"
-msgstr "Bancontact"
-
 #: vendor/wp-pay/core/src/PaymentMethods.php:91
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:30
@@ -2027,10 +2025,6 @@ msgstr "Betaling onbekend."
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:160
 msgid "Easy Digital Downloads"
 msgstr "Easy Digital Downloads"
-
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
-msgid "Bancontact/Mister Cash"
-msgstr "Bancontact/Mister Cash"
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:116
 msgid "%s Settings"
@@ -4301,6 +4295,12 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid "Mister Cash"
+#~ msgstr "Mister Cash"
+
+#~ msgid "Bancontact/Mister Cash"
+#~ msgstr "Bancontact/Mister Cash"
 
 #~ msgid "Enable Bancontact/Mister Cash"
 #~ msgstr "Bancontact/Mister Cash inschakelen"
