@@ -512,5 +512,3 @@ results in OmniKassa data that no longer matches the signature.
 *	[Maildit](http://wordpress.org/extend/plugins/maildit/)
 *	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
 *	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pronamic/wp-pronamic-ideal/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

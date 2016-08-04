@@ -38,5 +38,3 @@ header( 'Content-Type: text/plain' );
 ## Pronamic plugins
 
 <?php include __DIR__ . '/../general/plugins.php'; ?>
-
-<?php include 'bitdeli-badge.php'; ?>
