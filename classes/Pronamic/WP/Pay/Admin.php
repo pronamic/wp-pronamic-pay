@@ -63,6 +63,7 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+		new Pronamic_WP_Pay_Admin_SubscriptionPostType();
 
 		// Gateway settings
 		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
@@ -324,6 +325,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_payment',
 			'pronamic_pay_form',
 			'pronamic_pay_gf',
+			'pronamic_pay_sub',
 		), true );
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
@@ -441,6 +443,14 @@ class Pronamic_WP_Pay_Admin {
 			__( 'Payments', 'pronamic_ideal' ) . $badge,
 			'manage_options',
 			'edit.php?post_type=pronamic_payment'
+		);
+
+		add_submenu_page(
+			'pronamic_ideal',
+			__( 'Subscriptions', 'pronamic_ideal' ),
+			__( 'Subscriptions', 'pronamic_ideal' ),
+			'manage_options',
+			'edit.php?post_type=pronamic_pay_sub'
 		);
 
 		do_action( 'pronamic_pay_admin_menu' );

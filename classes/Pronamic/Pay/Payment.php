@@ -72,17 +72,9 @@ class Pronamic_Pay_Payment {
 
 	public $issuer;
 
+	public $subscription_id;
+
 	public $recurring;
-
-	public $recurring_interval;
-
-	public $recurring_interval_period;
-
-	public $recurring_frequency;
-
-	public $recurring_description;
-
-	public $recurring_amount;
 
 	//////////////////////////////////////////////////
 
@@ -283,28 +275,12 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function get_subscription_id() {
+		return $this->subscription_id;
+	}
+
 	public function get_recurring() {
 		return $this->recurring;
-	}
-
-	public function get_recurring_frequency() {
-		return $this->recurring_frequency;
-	}
-
-	public function get_recurring_interval() {
-		return $this->recurring_interval;
-	}
-
-	public function get_recurring_interval_period() {
-		return $this->recurring_interval_period;
-	}
-
-	public function get_recurring_description() {
-		return $this->recurring_description;
-	}
-
-	public function get_recurring_amount() {
-		return $this->recurring_amount;
 	}
 
 	//////////////////////////////////////////////////

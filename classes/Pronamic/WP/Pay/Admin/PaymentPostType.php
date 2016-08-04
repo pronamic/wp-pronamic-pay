@@ -113,11 +113,21 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_recurring':
-				if ( get_post_meta( $post_id, '_pronamic_payment_recurring', true ) ) {
+				$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
+
+				if ( $recurring ) {
+					echo esc_html_e( 'Yes', 'pronamic_ideal' );
+
+					return;
+				}
+
+				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
+
+				if ( $subscription_id ) {
 					printf(
 						'%s %s',
-						esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) ),
-						esc_html( get_post_meta( $post_id, '_pronamic_payment_recurring_amount', true ) )
+						esc_html( get_post_meta( $subscription_id, '_pronamic_subscription_currency', true ) ),
+						esc_html( get_post_meta( $subscription_id, '_pronamic_subscription_amount', true ) )
 					);
 				}
 
@@ -177,9 +187,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			);
 
 			add_meta_box(
-				'pronamic_payment_recurring',
-				__( 'Recurring', 'pronamic_ideal' ),
-				array( $this, 'meta_box_recurring' ),
+				'pronamic_payment_subscription',
+				__( 'Subscription', 'pronamic_ideal' ),
+				array( $this, 'meta_box_subscription' ),
 				$post_type,
 				'normal',
 				'high'
@@ -236,12 +246,12 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	}
 
 	/**
-	 * Pronamic Pay payment recurring meta box
+	 * Pronamic Pay payment subscription meta box
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
-	public function meta_box_recurring( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-recurring.php';
+	public function meta_box_subscription( $post ) {
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
 	}
 
 	/**

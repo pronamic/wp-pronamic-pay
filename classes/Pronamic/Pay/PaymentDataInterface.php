@@ -35,4 +35,12 @@ interface Pronamic_Pay_PaymentDataInterface {
 	public function get_success_url();
 
 	public function get_error_url();
+
+	//////////////////////////////////////////////////
+	// Subscription
+	//////////////////////////////////////////////////
+
+	public function get_subscription();
+
+	public function get_subscription_id();
 }

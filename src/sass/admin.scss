@@ -166,7 +166,8 @@ td.column-version {
 /**
  * Post type payment
  */
-body.post-type-pronamic_payment {
+body.post-type-pronamic_payment,
+body.post-type-pronamic_pay_sub {
 	#post-body-content {
 		display: none;
 	}
@@ -180,9 +181,10 @@ body.post-type-pronamic_payment {
 }
 
 /**
- * Meta box payment update
+ * Meta box update
  */
-#pronamic_payment_update .inside {
+#pronamic_payment_update .inside,
+#pronamic_subscription_update .inside {
 	margin: 0;
 	padding: 0;
 }

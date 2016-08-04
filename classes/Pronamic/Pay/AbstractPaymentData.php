@@ -12,6 +12,8 @@
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
 	private $entrance_code;
 
+	protected $recurring;
+
 	//////////////////////////////////////////////////
 
 	public function __construct() {
@@ -140,7 +142,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	}
 
 	//////////////////////////////////////////////////
-	// Langauge
+	// Language
 	//////////////////////////////////////////////////
 
 	/**
@@ -188,62 +190,31 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	}
 
 	//////////////////////////////////////////////////
-	// Recurring
+	// Subscription
 	//////////////////////////////////////////////////
 
 	/**
-	 * Is this a recurring payment?
+	 * Subscription
 	 *
-	 * @return bool
+	 * @return false|Pronamic_Pay_Subscription
 	 */
-	public function get_recurring() {
+	public function get_subscription() {
 		return false;
 	}
 
 	/**
-	 * Number of recurring payments that should be made.
-	 * null for infinite.
-	 *
-	 * @return null|int
-	 */
-	public function get_recurring_frequency() {
-		return null;
-	}
-
-	/**
-	 * The interval between payments.
+	 * Subscription ID
 	 *
 	 * @return int
 	 */
-	public function get_recurring_interval() {
-		return null;
-	}
+	public abstract function get_subscription_id();
 
 	/**
-	 * The interval period between payments.
-	 * E.g. 'month', 'day', 'year'.
+	 * Is this a recurring (not first) payment?
 	 *
-	 * @return string
+	 * @return bool
 	 */
-	public function get_recurring_interval_period() {
-		return null;
-	}
-
-	/**
-	 * The recurring description.
-	 *
-	 * @return int
-	 */
-	public function get_recurring_description() {
-		return null;
-	}
-
-	/**
-	 * The recurring amount.
-	 *
-	 * @return int
-	 */
-	public function get_recurring_amount() {
-		return null;
+	public function get_recurring() {
+		return $this->recurring;
 	}
 }
