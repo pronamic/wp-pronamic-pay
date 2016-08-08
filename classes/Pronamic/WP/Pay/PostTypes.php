@@ -96,7 +96,11 @@ class Pronamic_WP_Pay_PostTypes {
 			'rewrite'            => false,
 			'query_var'          => false,
 			'capabilities'       => array(
-				'create_posts'   => 'do_not_allow',
+				'create_posts'        => 'do_not_allow',
+				'edit_posts'          => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
+				'edit_others_posts'   => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
+				'delete_posts'        => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
+				'delete_others_posts' => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
 			),
 			'map_meta_cap'       => true,
 		) );
