@@ -89,9 +89,9 @@ $methods = array(
 		'name'    => __( 'iDEAL', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
-	'mister_cash' => array(
-		'icon'    => plugins_url( 'images/mister-cash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
-		'name'    => __( 'Mister Cash', 'pronamic_ideal' ),
+	'bancontact' => array(
+		'icon'    => plugins_url( 'images/bancontact/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
+		'name'    => __( 'Bancontact', 'pronamic_ideal' ),
 		'issuers' => array(),
 	),
 	'paysafecard' => array(

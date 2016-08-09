@@ -431,7 +431,7 @@ class Pronamic_WP_Pay_Admin {
 		add_menu_page(
 			__( 'iDEAL', 'pronamic_ideal' ),
 			__( 'iDEAL', 'pronamic_ideal' ) . $badge,
-			'manage_options',
+			Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
 			'pronamic_ideal',
 			array( $this, 'page_dashboard' ),
 			plugins_url( 'images/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file )
@@ -441,7 +441,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Payments', 'pronamic_ideal' ),
 			__( 'Payments', 'pronamic_ideal' ) . $badge,
-			'manage_options',
+			Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
 			'edit.php?post_type=pronamic_payment'
 		);
 

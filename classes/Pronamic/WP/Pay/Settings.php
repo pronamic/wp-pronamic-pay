@@ -40,6 +40,7 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay_general', // section
 			array(
 				'label_for' => 'pronamic_pay_license_key',
+				'classes'   => 'regular-text code',
 			) // args
 		);
 
@@ -127,6 +128,29 @@ class Pronamic_WP_Pay_Settings {
 			        'classes'   => 'tiny-text',
 			)
 		);
+
+		// Settings - Advanced
+		add_settings_section(
+			'pronamic_pay_advanced', // id
+			__( 'Advanced', 'pronamic_ideal' ), // title
+			array( $this, 'settings_section' ), // callback
+			'pronamic_pay' // page
+		);
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_capability_manage_payments' );
+
+		add_settings_field(
+			'pronamic_pay_capability_manage_payments', // id
+			__( 'Manage payments capability', 'pronamic_ideal' ), // title
+			array( $this, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_advanced', // section
+			array(  // args
+			        'label_for' => 'pronamic_pay_capability_manage_payments',
+			        'classes'   => 'code',
+			        'description' => sprintf( __( 'Default: <code>%s</code>', 'pronamic_ideal' ), esc_html( 'manage_options' ) ),
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -175,19 +199,27 @@ class Pronamic_WP_Pay_Settings {
 	 */
 	public function input_element( $args ) {
 		$defaults = array(
-			'type'    => 'text',
-			'classes' => 'regular-text',
+			'type'        => 'text',
+			'classes'     => 'regular-text',
+			'description' => '',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
+		$description = '';
+
+		if ( '' !== $args['description'] ) {
+			$description = sprintf( ' <span class="description">%s</span>', $args['description'] );
+		}
+
 		printf(
-			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />',
+			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />%s',
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			$args['classes']
+			$args['classes'],
+			$description
 		);
 
 	}
