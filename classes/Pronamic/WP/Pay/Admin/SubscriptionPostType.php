@@ -69,8 +69,6 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			'pronamic_subscription_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 			'pronamic_subscription_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_subscription_amount'      => __( 'Amount', 'pronamic_ideal' ),
-//			'pronamic_subscription_interval'    => __( 'Interval', 'pronamic_ideal' ),
-//			'pronamic_subscription_frequency'   => __( 'Frequency', 'pronamic_ideal' ),
 			'pronamic_subscription_recurring'   => __( 'Recurrence', 'pronamic_ideal' ),
 			'pronamic_subscription_status'      => __( 'Status', 'pronamic_ideal' ),
 			'pronamic_subscription_source'      => __( 'Source', 'pronamic_ideal' ),
@@ -135,7 +133,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				$interval = get_post_meta( $post_id, '_pronamic_subscription_interval', true );
 				$period   = get_post_meta( $post_id, '_pronamic_subscription_interval_period', true );
 
-				switch( $period ) {
+				switch ( $period ) {
 					case 'D' :
 						$period = _n( 'day', 'days', $interval, 'pronamic_ideal' );
 
@@ -198,8 +196,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 					printf(
 						'%s<br />%s', //xss ok
-						$source,
-						$source_id
+						esc_html( $source ),
+						esc_html( $source_id )
 					);
 				}
 

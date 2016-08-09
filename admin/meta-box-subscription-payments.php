@@ -22,7 +22,7 @@ $payments = $subscription->get_payments();
 						<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
 					</td>
 					<td>
-						<?php echo get_the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), $payment_id ); ?>
+						<?php echo esc_html( get_the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), $payment_id ) ); ?>
 					</td>
 				</tr>
 				<tr>

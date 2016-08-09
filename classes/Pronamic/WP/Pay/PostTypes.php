@@ -291,7 +291,6 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-
 		register_post_status( 'sub_active', array(
 			'label'                     => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,

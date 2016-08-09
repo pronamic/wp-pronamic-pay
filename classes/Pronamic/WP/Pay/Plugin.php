@@ -882,7 +882,7 @@ class Pronamic_WP_Pay_Plugin {
 					'compare' => '<=',
 					'type'    => 'DATETIME',
 				),
-			)
+			),
 		);
 
 		$subscriptions = get_posts( $args );

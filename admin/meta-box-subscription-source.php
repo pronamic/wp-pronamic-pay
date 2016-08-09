@@ -20,8 +20,8 @@ $payment = $subscription->get_first_payment();
 			} else {
 				printf(
 					'%s<br />%s', //xss ok
-					$subscription->get_source(),
-					$subscription->get_source_id()
+					esc_html( $subscription->get_source() ),
+					esc_html( $subscription->get_source_id() )
 				);
 			}
 

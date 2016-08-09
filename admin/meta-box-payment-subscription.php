@@ -6,9 +6,8 @@ $payment = get_pronamic_payment( $post_id );
 
 $subscription = $payment->get_subscription();
 
-if ( $subscription ) :
+if ( $subscription ) : ?>
 
-?>
 	<table class="form-table">
 		<tr>
 			<th scope="row">
@@ -81,12 +80,9 @@ if ( $subscription ) :
 			</td>
 		</tr>
 	</table>
-<?php
 
-else :
+<?php else :
 
 	esc_html_e( 'This payment is not related to a subscription.', 'pronamic_ideal' );
 
 endif;
-
-?>
