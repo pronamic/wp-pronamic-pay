@@ -325,7 +325,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_payment',
 			'pronamic_pay_form',
 			'pronamic_pay_gf',
-			'pronamic_pay_sub',
+			'pronamic_pay_subscr',
 		), true );
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
@@ -450,7 +450,7 @@ class Pronamic_WP_Pay_Admin {
 			__( 'Subscriptions', 'pronamic_ideal' ),
 			__( 'Subscriptions', 'pronamic_ideal' ),
 			'manage_options',
-			'edit.php?post_type=pronamic_pay_sub'
+			'edit.php?post_type=pronamic_pay_subscr'
 		);
 
 		do_action( 'pronamic_pay_admin_menu' );

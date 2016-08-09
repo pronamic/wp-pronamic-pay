@@ -101,7 +101,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'map_meta_cap'       => true,
 		) );
 
-		register_post_type( 'pronamic_pay_sub', array(
+		register_post_type( 'pronamic_pay_subscr', array(
 			'label'              => __( 'Subscriptions', 'pronamic_ideal' ),
 			'labels'             => array(
 				'name'                  => __( 'Subscriptions', 'pronamic_ideal' ),

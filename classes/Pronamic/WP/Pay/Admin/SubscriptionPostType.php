@@ -14,7 +14,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	/**
 	 * Post type
 	 */
-	const POST_TYPE = 'pronamic_pay_sub';
+	const POST_TYPE = 'pronamic_pay_subscr';
 
 	//////////////////////////////////////////////////
 
@@ -362,7 +362,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			&&
 			check_admin_referer( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' )
 			&&
-			'pronamic_pay_sub' === get_post_type( $post )
+			'pronamic_pay_subscr' === get_post_type( $post )
 		) {
 			$can_redirect = false;
 

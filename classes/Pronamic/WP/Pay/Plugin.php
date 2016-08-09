@@ -719,7 +719,7 @@ class Pronamic_WP_Pay_Plugin {
 
 				if ( ! $subscription_id ) {
 					$subscription_id = wp_insert_post( array(
-						'post_type'   => 'pronamic_pay_sub',
+						'post_type'   => 'pronamic_pay_subscr',
 						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
 						'post_status' => 'sub_pending',
 					), true );
@@ -860,7 +860,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		$args = array(
 			'fields'      => 'ids',
-			'post_type'   => 'pronamic_pay_sub',
+			'post_type'   => 'pronamic_pay_subscr',
 			'nopaging'    => true,
 			'orderby'     => 'post_date',
 			'order'       => 'ASC',
