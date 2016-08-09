@@ -303,7 +303,7 @@ class Pronamic_WP_Pay_Admin {
 			$url = add_query_arg( array(
 				'page'    => 'pronamic_pay_settings',
 				'message' => 'pages-generated',
-			), admin_url('admin.php') );
+			), admin_url( 'admin.php' ) );
 
 			wp_redirect( $url );
 

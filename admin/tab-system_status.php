@@ -392,7 +392,7 @@ if ( ! $data ) {
 
 	<tbody>
 
-		<?php if ( is_object( $data ) ): ?>
+		<?php if ( is_object( $data ) ) : ?>
 
 			<?php $alternate = true; ?>
 
