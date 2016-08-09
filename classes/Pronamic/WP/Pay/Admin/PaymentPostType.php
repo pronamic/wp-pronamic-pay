@@ -314,11 +314,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'read_private_posts'     => 'read_private_payments',
 			'read'                   => 'read',
 			'delete_posts'           => 'delete_payments',
-			'delete_private_posts'   => 'delete_private_posts',
-			'delete_published_posts' => 'delete_published_posts',
-			'delete_others_posts'    => 'delete_others_posts',
-			'edit_private_posts'     => 'edit_private_posts',
-			'edit_published_posts'   => 'edit_published_posts',
+			'delete_private_posts'   => 'delete_private_payments',
+			'delete_published_posts' => 'delete_published_payments',
+			'delete_others_posts'    => 'delete_others_payments',
+			'edit_private_posts'     => 'edit_private_payments',
+			'edit_published_posts'   => 'edit_published_payments',
 			'create_posts'           => 'create_payments',
 		);
 	}
