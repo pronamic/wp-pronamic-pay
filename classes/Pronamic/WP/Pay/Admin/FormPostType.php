@@ -257,4 +257,29 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 	<input id="pronamic-pay-shortcode" class="pronamic-pay-shortcode-input" onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $this->get_shortcode() ); ?>" />
 </div><?php
 	}
+
+	/**
+	 * Get capabilities for this post type.
+	 *
+	 * @return array
+	 */
+	public static function get_capabilities() {
+		return array(
+			'edit_post'              => 'edit_form',
+			'read_post'              => 'read_form',
+			'delete_post'            => 'delete_form',
+			'edit_posts'             => 'edit_forms',
+			'edit_others_posts'      => 'edit_other_forms',
+			'publish_posts'          => 'publish_forms',
+			'read_private_posts'     => 'read_private_forms',
+			'read'                   => 'read',
+			'delete_posts'           => 'delete_forms',
+			'delete_private_posts'   => 'delete_private_forms',
+			'delete_published_posts' => 'delete_published_forms',
+			'delete_others_posts'    => 'delete_others_forms',
+			'edit_private_posts'     => 'edit_private_forms',
+			'edit_published_posts'   => 'edit_published_forms',
+			'create_posts'           => 'create_forms',
+		);
+	}
 }

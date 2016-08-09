@@ -65,6 +65,8 @@ class Pronamic_WP_Pay_PostTypes {
 			),
 			'rewrite'            => false,
 			'query_var'          => false,
+			'capabilities'       => Pronamic_WP_Pay_Admin_GatewayPostType::get_capabilities(),
+			'map_meta_cap'       => false,
 		) );
 
 		register_post_type( 'pronamic_payment', array(
@@ -95,14 +97,8 @@ class Pronamic_WP_Pay_PostTypes {
 			'supports'           => false,
 			'rewrite'            => false,
 			'query_var'          => false,
-			'capabilities'       => array(
-				'create_posts'        => 'do_not_allow',
-				'edit_posts'          => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
-				'edit_others_posts'   => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
-				'delete_posts'        => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
-				'delete_others_posts' => Pronamic_WP_Pay_Plugin::get_capability( 'manage_payments' ),
-			),
-			'map_meta_cap'       => true,
+			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
+			'map_meta_cap'       => false,
 		) );
 
 		register_post_type( 'pronamic_pay_form', array(
@@ -138,6 +134,8 @@ class Pronamic_WP_Pay_PostTypes {
 				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
 			),
 			'query_var'          => false,
+			'capabilities'       => Pronamic_WP_Pay_Admin_FormPostType::get_capabilities(),
+			'map_meta_cap'       => false,
 		) );
 	}
 

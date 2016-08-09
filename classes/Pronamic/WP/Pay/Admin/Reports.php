@@ -25,7 +25,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'pronamic_ideal',
 			__( 'Reports', 'pronamic_ideal' ),
 			__( 'Reports', 'pronamic_ideal' ),
-			'view_payment_reports',
+			'edit_payments',
 			'pronamic_pay_reports',
 			array( $this, 'page_reports' )
 		);

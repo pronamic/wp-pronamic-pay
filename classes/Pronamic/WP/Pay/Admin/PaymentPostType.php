@@ -297,4 +297,29 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
+
+	/**
+	 * Get capabilities for this post type.
+	 *
+	 * @return array
+	 */
+	public static function get_capabilities() {
+		return array(
+			'edit_post'              => 'edit_payment',
+			'read_post'              => 'read_payment',
+			'delete_post'            => 'delete_payment',
+			'edit_posts'             => 'edit_payments',
+			'edit_others_posts'      => 'edit_other_payments',
+			'publish_posts'          => 'publish_payments',
+			'read_private_posts'     => 'read_private_payments',
+			'read'                   => 'read',
+			'delete_posts'           => 'delete_payments',
+			'delete_private_posts'   => 'delete_private_posts',
+			'delete_published_posts' => 'delete_published_posts',
+			'delete_others_posts'    => 'delete_others_posts',
+			'edit_private_posts'     => 'edit_private_posts',
+			'edit_published_posts'   => 'edit_published_posts',
+			'create_posts'           => 'create_payments',
+		);
+	}
 }
