@@ -1,6 +1,15 @@
 <?php
 
-function pronamic_wp_pay_update_subscription( Pronamic_WP_Pay_Subscription $subscription ) {
+/**
+ * Update subscription post.
+ *
+ * @param Pronamic_WP_Pay_Subscription $subscription
+ */
+function pronamic_wp_pay_update_subscription( $subscription ) {
+	if ( ! $subscription ) {
+		return;
+	}
+
 	$post_id = $subscription->get_id();
 
 	// Meta
