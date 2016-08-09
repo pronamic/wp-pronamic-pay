@@ -733,21 +733,4 @@ class Pronamic_WP_Pay_Plugin {
 
 		return $payment;
 	}
-
-	/**
-	 * Get capability.
-	 */
-	static function get_capability( $capability ) {
-		if ( current_user_can( 'manage_options' ) ) {
-			return 'manage_options';
-		}
-
-		$return = get_option( 'pronamic_pay_capability_' . $capability, 'manage_options' );
-
-		if ( '' === $return ) {
-			$return = 'manage_options';
-		}
-
-		return $return;
-	}
 }

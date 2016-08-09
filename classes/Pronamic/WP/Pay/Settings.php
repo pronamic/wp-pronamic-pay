@@ -128,29 +128,6 @@ class Pronamic_WP_Pay_Settings {
 			        'classes'   => 'tiny-text',
 			)
 		);
-
-		// Settings - Advanced
-		add_settings_section(
-			'pronamic_pay_advanced', // id
-			__( 'Advanced', 'pronamic_ideal' ), // title
-			array( $this, 'settings_section' ), // callback
-			'pronamic_pay' // page
-		);
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_capability_manage_payments' );
-
-		add_settings_field(
-			'pronamic_pay_capability_manage_payments', // id
-			__( 'Manage payments capability', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_advanced', // section
-			array(  // args
-			        'label_for' => 'pronamic_pay_capability_manage_payments',
-			        'classes'   => 'code',
-			        'description' => sprintf( __( 'Default: <code>%s</code>', 'pronamic_ideal' ), esc_html( 'manage_options' ) ),
-			)
-		);
 	}
 
 	//////////////////////////////////////////////////
