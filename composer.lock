@@ -1111,12 +1111,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "435aa85c15647168b85e6c099ce96e9e80b1ab3c"
+                "reference": "54bfa0c83ea540ff387e2a2eff83f434f7440d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/435aa85c15647168b85e6c099ce96e9e80b1ab3c",
-                "reference": "435aa85c15647168b85e6c099ce96e9e80b1ab3c",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/54bfa0c83ea540ff387e2a2eff83f434f7440d1e",
+                "reference": "54bfa0c83ea540ff387e2a2eff83f434f7440d1e",
                 "shasum": ""
             },
             "require": {
@@ -1163,7 +1163,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-08-09 08:02:49"
+            "time": "2016-08-10 07:58:00"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -2590,12 +2590,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "d135959d1a9366fa71d7408d9638ac25e489cd3c"
+                "reference": "0d77fb2d7a361ca75e6a190af24c6a89f19084bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/d135959d1a9366fa71d7408d9638ac25e489cd3c",
-                "reference": "d135959d1a9366fa71d7408d9638ac25e489cd3c",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/0d77fb2d7a361ca75e6a190af24c6a89f19084bd",
+                "reference": "0d77fb2d7a361ca75e6a190af24c6a89f19084bd",
                 "shasum": ""
             },
             "require": {
@@ -2645,7 +2645,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-08-09 08:04:04"
+            "time": "2016-08-09 10:20:08"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -5958,28 +5958,29 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde"
+                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde",
-                "reference": "30eed06dd6bc88410a4ff7f77b6d22f3ce13dbde",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/bb2d123231c095735130cc8f6d31385a44c7b308",
+                "reference": "bb2d123231c095735130cc8f6d31385a44c7b308",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3|^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "^4.6",
+                "sebastian/version": "^1.0.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -6003,7 +6004,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2015-08-24 13:29:44"
+            "time": "2016-08-09 15:02:57"
         },
         {
             "name": "wp-coding-standards/wpcs",
