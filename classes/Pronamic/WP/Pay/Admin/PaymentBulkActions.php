@@ -28,18 +28,21 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 			return;
 		}
 
+		// Screen
 		$screen = get_current_screen();
 
-		if ( 'edit' === $screen->base && 'pronamic_payment' === $screen->post_type ) {
-			// Bulk actions
-			$this->maybe_do_bulk_actions();
-
-			// Admin notices
-			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
-			// Admin footer
-			add_action( 'admin_footer', array( $this, 'admin_footer' ) );
+		if ( ! ( 'edit' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
+			return;
 		}
+
+		// Bulk actions
+		$this->maybe_do_bulk_actions();
+
+		// Admin notices
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+
+		// Admin footer
+		add_action( 'admin_footer', array( $this, 'admin_footer' ) );
 	}
 
 	/**
