@@ -713,7 +713,7 @@ class Pronamic_WP_Pay_Plugin {
 				if ( $subscription_id ) {
 					wp_update_post( array(
 						'ID' => $post_id,
-						'post_author' => $subscription->post->post_author,
+						'post_author' => get_post_field( 'post_author', $subscription_id ),
 					) );
 				}
 
