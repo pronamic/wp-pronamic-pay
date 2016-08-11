@@ -141,12 +141,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		// Payments
 		$payment_capabilities = Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities();
 
-		unset( $payment_capabilities['delete_post'] );
 		unset( $payment_capabilities['publish_posts'] );
-		unset( $payment_capabilities['delete_posts'] );
-		unset( $payment_capabilities['delete_private_posts'] );
-		unset( $payment_capabilities['delete_published_posts'] );
-		unset( $payment_capabilities['delete_others_posts'] );
 		unset( $payment_capabilities['create_posts'] );
 
 		foreach ( $payment_capabilities as $capability ) {
