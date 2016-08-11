@@ -2,7 +2,7 @@
 
 <?php
 
-$data       = file_get_contents( __DIR__ . '/../src/extensions.json' );
+$data       = file_get_contents( __DIR__ . '/../other/extensions.json' );
 $extensions = json_decode( $data );
 
 ?>
