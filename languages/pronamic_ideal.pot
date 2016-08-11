@@ -31,10 +31,9 @@ msgstr ""
 #: admin/meta-box-payment-info.php:35
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:75 templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:207
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:463
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:221
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:193
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:222
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:194
 msgid "Amount"
 msgstr ""
 
@@ -77,10 +76,9 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:236
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:248
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:142
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:115
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:202
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:222
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:210
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:223
 msgid "Payment Method"
 msgstr ""
 
@@ -117,8 +115,7 @@ msgstr ""
 #: admin/meta-box-payment-info.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:74
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:113
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:116
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:466
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:102
 msgid "Description"
 msgstr ""
 
@@ -141,15 +138,14 @@ msgstr ""
 #: admin/meta-box-payment-info.php:111
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:462
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:218
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:225
 msgid "Status"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:129
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:479
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:131
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr ""
 
@@ -200,7 +196,6 @@ msgid "User ID"
 msgstr ""
 
 #: admin/meta-box-payment-source.php:72
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:458
 msgid "Subscription ID"
 msgstr ""
 
@@ -210,7 +205,7 @@ msgid "Update"
 msgstr ""
 
 #: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:125
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:111
 msgid "Icon"
 msgstr ""
 
@@ -558,7 +553,7 @@ msgid ""
 msgstr ""
 
 #: admin/pointer-tools.php:43
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:231
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:232
 msgid "Brand"
 msgstr ""
 
@@ -586,7 +581,7 @@ msgstr ""
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: classes/Pronamic/WP/Pay/Admin.php:244 classes/Pronamic/WP/Pay/Admin.php:430
 #: classes/Pronamic/WP/Pay/Admin.php:431 vendor/wp-pay/core/src/Gateway.php:375
-#: vendor/wp-pay/core/src/PaymentMethods.php:103
+#: vendor/wp-pay/core/src/PaymentMethods.php:102
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:29
@@ -658,10 +653,17 @@ msgstr ""
 
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
 #: admin/tab-branding.php:113 admin/tab-methods.php:94
-#: vendor/wp-pay/core/src/PaymentMethods.php:99
-#: vendor/wp-pay/core/src/PaymentMethods.php:105
+#: vendor/wp-pay/core/src/PaymentMethods.php:97
 #: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
+#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
+#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
+#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 msgid "Bancontact"
 msgstr ""
 
@@ -692,7 +694,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:27
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:117
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:104
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:110
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:96
 msgid "Title"
 msgstr ""
 
@@ -833,7 +835,8 @@ msgstr ""
 msgid "AfterPay"
 msgstr ""
 
-#: admin/tab-methods.php:55
+#: admin/tab-methods.php:55 vendor/wp-pay/core/src/PaymentMethods.php:99
+#: vendor/wp-pay-extensions/woocommerce/src/BitcoinGateway.php:28
 msgid "Bitcoin"
 msgstr ""
 
@@ -845,7 +848,7 @@ msgstr ""
 msgid "GiftCard"
 msgstr ""
 
-#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:101
+#: admin/tab-methods.php:69 vendor/wp-pay/core/src/PaymentMethods.php:100
 #: vendor/wp-pay-extensions/appthemes/src/CreditCardGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/CreditCardGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:29
@@ -858,7 +861,7 @@ msgstr ""
 msgid "Credit Card"
 msgstr ""
 
-#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:102
+#: admin/tab-methods.php:76 vendor/wp-pay/core/src/PaymentMethods.php:101
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:29
@@ -883,7 +886,7 @@ msgstr ""
 msgid "paysafecard"
 msgstr ""
 
-#: admin/tab-methods.php:102 vendor/wp-pay/core/src/PaymentMethods.php:106
+#: admin/tab-methods.php:102 vendor/wp-pay/core/src/PaymentMethods.php:103
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:28
 msgid "PayPal"
 msgstr ""
@@ -1143,7 +1146,7 @@ msgid "Earnings"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:56
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:137
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
 msgid "Shortcode"
 msgstr ""
 
@@ -1170,17 +1173,16 @@ msgstr ""
 #: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:84
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:86
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:247
-#: vendor/wp-pay-extensions/give/src/Gateway.php:61
+#: vendor/wp-pay-extensions/give/src/Gateway.php:67
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:29
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:79
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:102
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:122
 #: vendor/wp-pay-extensions/memberpress/src/Gateway.php:519
 #: vendor/wp-pay-extensions/membership/src/Admin.php:48
-#: vendor/wp-pay-extensions/membership/src/IDealViewSettings.php:9
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:57
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:136
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
 #: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:78
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:78
 #: views/eshop/settings-meta-box.php:18
@@ -1240,13 +1242,13 @@ msgid ""
 "href=\"%s\" target=\"_blank\">check your license status</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:96
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:104
 msgid "Payment updated."
 msgid_plural "%s payments updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:113
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:121
 msgid "Check Payment Status"
 msgstr ""
 
@@ -1260,7 +1262,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:152
 #: classes/Pronamic/WP/Pay/PostTypes.php:76
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:201
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:209
 msgid "Payment"
 msgstr ""
 
@@ -1366,7 +1368,6 @@ msgid "Forms"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:32
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:460
 msgid "Mode"
 msgstr ""
 
@@ -1660,9 +1661,9 @@ msgid "Expired"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:77 templates/form.php:167
-#: vendor/wp-pay-extensions/give/src/Gateway.php:108
+#: vendor/wp-pay-extensions/give/src/Gateway.php:122
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:383
-#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:239
+#: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
 msgstr ""
 
@@ -1671,8 +1672,8 @@ msgid "Unknown"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:99
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:208
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:220
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:221
 msgid "Currency"
 msgstr ""
 
@@ -1752,7 +1753,7 @@ msgstr ""
 msgid "Choose a payment method"
 msgstr ""
 
-#: vendor/wp-pay/core/src/Gateway.php:616
+#: vendor/wp-pay/core/src/Gateway.php:593
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:46
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:64
@@ -1760,11 +1761,11 @@ msgstr ""
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:298
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:79
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:75
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:112
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
 msgid "Pay"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:100
+#: vendor/wp-pay/core/src/PaymentMethods.php:98
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:29
@@ -1776,11 +1777,6 @@ msgid "Bank Transfer"
 msgstr ""
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:104
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
-msgid "Direct Debit mandate via iDEAL"
-msgstr ""
-
-#: vendor/wp-pay/core/src/PaymentMethods.php:107
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/SofortGateway.php:29
@@ -1823,19 +1819,33 @@ msgstr ""
 msgid "Donation %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
-#: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:32
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:191
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
-#: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
-#: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
-msgid "Bancontact/Mister Cash"
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:59
+#: vendor/wp-pay-extensions/give/src/Gateway.php:76
+msgid "Transaction description"
 msgstr ""
 
-#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:59
-#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:69
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:61
+msgid "Charitable donation {donation_id}"
+msgstr ""
+
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:62
+#: vendor/wp-pay-extensions/give/src/Gateway.php:77
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:100
+#: vendor/wp-pay-gateways/ogone/src/Settings.php:207
+#: vendor/wp-pay-gateways/ogone/src/Settings.php:226
+msgid "Available tags: %s"
+msgstr ""
+
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:70
+#: vendor/wp-pay-extensions/give/src/Gateway.php:56
+msgid ""
+"This payment method does not use a predefined payment method for the "
+"payment. Some payment providers list all activated payment methods for your "
+"account to choose from. Use payment method specific gateways (such as "
+"'iDEAL') to let customers choose their desired payment method at checkout."
+msgstr ""
+
+#: vendor/wp-pay-extensions/charitable/src/PaymentData.php:72
 msgid "Charitable donation %s"
 msgstr ""
 
@@ -1847,7 +1857,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:92
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:91
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:106
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:92
 msgid "Enable iDEAL"
 msgstr ""
 
@@ -1915,8 +1925,8 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:214
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:229
-#: vendor/wp-pay-extensions/give/src/Gateway.php:135
-#: vendor/wp-pay-extensions/give/src/Gateway.php:169
+#: vendor/wp-pay-extensions/give/src/Gateway.php:149
+#: vendor/wp-pay-extensions/give/src/Gateway.php:183
 msgid "Payment Error"
 msgstr ""
 
@@ -2033,18 +2043,21 @@ msgstr ""
 msgid "Give"
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:108
+#: vendor/wp-pay-extensions/give/src/Gateway.php:80
+msgid "Give donation {donation_id}"
+msgstr ""
+
+#: vendor/wp-pay-extensions/give/src/Gateway.php:122
 msgid "Nonce verification has failed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/Gateway.php:137
+#: vendor/wp-pay-extensions/give/src/Gateway.php:151
 msgid ""
 "Payment creation failed before sending buyer to payment provider. Payment "
 "data: %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/give/src/PaymentData.php:51
-#: vendor/wp-pay-extensions/give/src/PaymentData.php:61
+#: vendor/wp-pay-extensions/give/src/PaymentData.php:57
 msgid "Give donation %s"
 msgstr ""
 
@@ -2378,7 +2391,7 @@ msgid "Allow iDEAL payments."
 msgstr ""
 
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:106
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:112
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:98
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
@@ -2394,7 +2407,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:85
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:66
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:92
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:199
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:201
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:111
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:139
 msgid "Order %s"
@@ -2416,21 +2429,17 @@ msgstr ""
 msgid "Pronamic iDEAL Options"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:265
+#: vendor/wp-pay-extensions/membership/src/Extension.php:259
 msgid "Membership"
 msgstr ""
 
-#: vendor/wp-pay-extensions/membership/src/Extension.php:274
+#: vendor/wp-pay-extensions/membership/src/Extension.php:268
 msgid "Transaction #%s"
 msgstr ""
 
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:270
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:50
 msgid "iDEAL - Online payment through your own bank"
-msgstr ""
-
-#: vendor/wp-pay-extensions/membership/src/IDealDirectDebitGateway.php:50
-msgid "iDEAL + Direct Debit"
 msgstr ""
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:66
@@ -2476,107 +2485,91 @@ msgstr ""
 msgid "s2Member"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:38
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
-msgid "1 day"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:39
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:60
-msgid "2 day"
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:36
+msgid "One Time ( for %s access, non-recurring )"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:40
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:61
-msgid "3 day"
+msgid "1 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:41
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:62
-msgid "4 day"
+msgid "2 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:42
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:63
-msgid "5 day"
+msgid "3 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:43
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:64
-msgid "6 day"
+msgid "4 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:44
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:65
-msgid "1 week"
+msgid "5 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:45
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:66
-msgid "2 week"
+msgid "6 day"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:46
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:67
-msgid "3 week"
+msgid "1 week"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:47
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:68
-msgid "1 month"
+msgid "2 week"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:48
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:69
-msgid "2 month"
+msgid "3 week"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:49
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:70
-msgid "3 month"
+msgid "1 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:50
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:71
-msgid "4 month"
+msgid "2 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:51
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:72
-msgid "5 month"
+msgid "3 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:52
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:73
-msgid "6 month"
+msgid "4 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:53
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:74
-msgid "1 year"
+msgid "5 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:54
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:75
-msgid "2 years"
+msgid "6 month"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:55
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:76
-msgid "3 years"
+msgid "1 year"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:56
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:77
-msgid "4 years"
+msgid "2 years"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:57
-#: vendor/wp-pay-extensions/s2member/src/S2Member.php:78
-msgid "5 years"
+msgid "3 years"
 msgstr ""
 
 #: vendor/wp-pay-extensions/s2member/src/S2Member.php:58
+msgid "4 years"
+msgstr ""
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:59
+msgid "5 years"
+msgstr ""
+
+#: vendor/wp-pay-extensions/s2member/src/S2Member.php:60
 msgid "lifetime"
 msgstr ""
 
@@ -2596,38 +2589,34 @@ msgstr ""
 msgid "iDEAL s2Member Payment || {{order_id}}"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:54
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:45
 msgid "Generator"
 msgstr ""
 
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:59
+msgid "I want to charge: %s / %s"
+msgstr ""
+
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:73
-msgid "Single payment"
+msgid "for access to level %s content"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:76
-msgid "Recurring payment"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:89
-msgid "I want to charge %s for %s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:101
-msgid "access to level %s content."
-msgstr ""
-
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:106
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:78
 msgid "Description:"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:110
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:82
 msgid "Button text:"
 msgstr ""
 
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:112
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:131
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:153
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:84
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:117
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:139
 msgid "Default: <code>%s</code>."
+msgstr ""
+
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:87
+msgid "Generate Shortcode"
 msgstr ""
 
 #: vendor/wp-pay-extensions/shopp/src/Extension.php:169
@@ -2647,6 +2636,10 @@ msgstr ""
 msgid "Enable Bank Transfer"
 msgstr ""
 
+#: vendor/wp-pay-extensions/woocommerce/src/BitcoinGateway.php:45
+msgid "Enable Bitcoin"
+msgstr ""
+
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:39
 msgid "Enable Credit Card"
 msgstr ""
@@ -2655,100 +2648,89 @@ msgstr ""
 msgid "Enable Direct Debit"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:84
-msgid "Enable iDEAL + Direct Debit"
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:85
-msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank. By using this payment method you allow us to withdraw subsequent "
-"payments for subscriptions from your bank account through direct debit."
-msgstr ""
-
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:144
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:146
 msgid "payment expired"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:152
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:154
 msgid "payment failed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:159
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:161
 msgid "payment completed"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:166
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:168
 msgid "payment open"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:170
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:172
 msgid "payment unknown"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:185
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:187
 msgid "WooCommerce"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:104
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:90
 msgid "Enable/Disable"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:119
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:105
 msgid ""
 "Give the customer instructions for paying via %s, and let them know that "
 "their order won't be shipping until the money is received."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:122
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:108
 msgid ""
 "With iDEAL you can easily pay online in the secure environment of your own "
 "bank."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:130
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:116
 msgid "This controls the icon which the user sees during checkout."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:142
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:128
 msgid "Payment Options"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:147
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:133
 msgid "Payment Description"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:152
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:138
 msgid "This controls the payment description."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:154
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:140
 msgid "Tags: %s"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:192
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:178
 msgid "Awaiting payment."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:239
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:231
 msgid ""
 "You have to select an gateway configuration on the <a "
 "href=\"%s\">WooCommerce checkout settings page</a>."
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:39
-msgid "Enable Bancontact/Mister Cash"
+msgid "Enable Bancontact"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:42
 msgid "Enable PayPal"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:64
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:63
 msgid "Order {order_number}"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:86
+#: vendor/wp-pay-extensions/woocommerce/src/PaymentData.php:85
 msgid "WooCommerce order %s"
 msgstr ""
 
@@ -2778,12 +2760,16 @@ msgstr ""
 msgid "Purchase #%s"
 msgstr ""
 
+#: vendor/wp-pay-gateways/buckaroo/src/Client.php:487
+msgid "Unable to retrieve issuers from Buckaroo."
+msgstr ""
+
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:83
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
 #: vendor/wp-pay-gateways/ideal-advanced/src/Gateway.php:98
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:78
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:69
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:108
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:72
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:69
 #: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:80
 #: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:67
@@ -2793,47 +2779,47 @@ msgstr ""
 msgid "Choose your bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:203
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
 msgid "Status Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:204
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
 msgid "Status Code Detail"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:205
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
 msgid "Status Message"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:206
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
 msgid "Invoice Number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:209
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
 msgid "Timestamp"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:210
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 msgid "Service iDEAL Consumer Issuer"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 msgid "Service iDEAL Consumer Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
 msgid "Service iDEAL Consumer IBAN"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
 msgid "Service iDEAL Consumer BIC"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
 msgid "Transactions"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:228
 msgid "Buckaroo data:"
 msgstr ""
 
@@ -2921,12 +2907,6 @@ msgstr ""
 msgid "Invoice number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:100
-#: vendor/wp-pay-gateways/ogone/src/Settings.php:207
-#: vendor/wp-pay-gateways/ogone/src/Settings.php:226
-msgid "Available tags: %s"
-msgstr ""
-
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:108
 msgid "Push URL"
 msgstr ""
@@ -2953,9 +2933,9 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:220
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
 msgid "Order ID"
 msgstr ""
@@ -3074,7 +3054,7 @@ msgid "Postback URL"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:44
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:197
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:41
 msgid "Merchant ID"
 msgstr ""
@@ -3430,39 +3410,6 @@ msgid ""
 "status updates."
 msgstr ""
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:457
-msgid "Resource"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:459
-#: vendor/wp-pay-gateways/mollie/views/html-admin-user-profile.php:20
-msgid "Customer ID"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:461
-msgid "Created date"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:464
-msgid "Times"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:465
-msgid "Interval"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:467
-msgid "Method"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:468
-msgid "Cancelled date"
-msgstr ""
-
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:471
-msgid "Mollie subscription data in response message:"
-msgstr ""
-
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:25
 msgid "https://www.mollie.com/en/pricing"
 msgstr ""
@@ -3487,6 +3434,10 @@ msgstr ""
 msgid ""
 "The Webhook URL as sent with each transaction to receive automatic payment "
 "status updates on."
+msgstr ""
+
+#: vendor/wp-pay-gateways/mollie/views/html-admin-user-profile.php:20
+msgid "Customer ID"
 msgstr ""
 
 #: vendor/wp-pay-gateways/mollie/views/html-admin-user-profile.php:30
@@ -3549,43 +3500,43 @@ msgstr ""
 msgid "https://payment-services.ingenico.com/nl/en"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:223
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "Acceptance"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:225
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:226
 msgid "Card Number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:226
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:227
 msgid "End Date"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:227
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:228
 msgid "Customer Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:228
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:229
 msgid "Transaction Date"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:229
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:230
 msgid "Pay ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:230
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:231
 msgid "NC Error"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:232
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:233
 msgid "IP"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:233
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:234
 msgid "SHA Signature"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:240
 msgid "Ogone transaction data in response message:"
 msgstr ""
 
@@ -3721,40 +3672,40 @@ msgid ""
 "by the client\" or \"too many rejections by the acquirer\"."
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:197
 msgid "Currency Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
 msgid "Transaction Date Time"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
 msgid "Transaction Reference"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:61
 msgid "Key Version"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
 msgid "Authorisation ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
 msgid "Payment Mean Brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
 msgid "Payment Mean Type"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:206
 msgid "Response Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:211
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:212
 msgid "OmniKassa transaction data in response message:"
 msgstr ""
 
@@ -3982,7 +3933,6 @@ msgstr ""
 
 #: vendor/wp-pay/core/src/Gateway.php:369
 #: vendor/wp-pay/core/src/Gateway.php:381
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:117
 msgctxt "Payment method field"
 msgid "All available methods"
 msgstr ""
@@ -4028,12 +3978,12 @@ msgctxt "mollie"
 msgid "API Key"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:194
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr ""
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr ""
