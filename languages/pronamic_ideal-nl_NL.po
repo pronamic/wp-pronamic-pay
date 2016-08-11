@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-08-11 13:11+0100\n"
+"PO-Revision-Date: 2016-08-11 15:21+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -74,8 +74,8 @@ msgid "Product information"
 msgstr "Productinformatie"
 
 #: admin/meta-box-gateway-test.php:45
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:236
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:248
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:239
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:251
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:142
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:210
@@ -1222,8 +1222,8 @@ msgid "monitored by <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a>"
 msgstr "gemonitord door <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a>"
 
 #: admin/tab-system_status.php:379
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:179
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:191
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:197
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:209
 msgid "Issuer"
 msgstr "Bankenlijst"
 
@@ -1894,7 +1894,7 @@ msgid "Payment Info"
 msgstr "Betalingsinformatie"
 
 #: vendor/wp-pay/core/src/Gateway.php:388
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:276
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:279
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
 
@@ -2169,7 +2169,7 @@ msgid "Formidable"
 msgstr "Formidable"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:96
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:195
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:196
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -2247,7 +2247,7 @@ msgstr "Pronamic betaling ID"
 msgid "Form"
 msgstr "Formulier"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:190
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:191
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
@@ -2259,12 +2259,23 @@ msgstr "Betaalvelden"
 msgid "— Use Payment Form Setting —"
 msgstr "— Gebruik betalingsformulier instelling —"
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:157
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:214
-msgid "Create pay feed"
-msgstr "Creëer betalen feed"
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:165
+msgid "New Payment Feed"
+msgstr "Nieuwe betalingsfeed"
 
-#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:215
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:175
+msgid "This field is not supported by your payment gateway."
+msgstr "Dit veld wordt niet ondersteund door je betalingsgateway."
+
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:177
+msgid ""
+"Please remove it from this form or <a href=\"%s\" target=\"_blank\">add a "
+"supported payment gateway</a>."
+msgstr ""
+"Verwijder het van dit formulier of <a href=\"%s\" target=\"_blank\">voeg een "
+"ondersteunde betalingsgateway toe</a>."
+
+#: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:233
 msgid "Choose a bank for iDEAL payment"
 msgstr "Kies een bank voor iDEAL-betaling"
 
@@ -2279,6 +2290,10 @@ msgstr "Je kunt je betalen feeds vinden onder %s."
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:77
 msgid "Forms » iDEAL"
 msgstr "Formulieren » iDEAL"
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:221
+msgid "Create pay feed"
+msgstr "Creëer betalen feed"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:38
 msgid "Status pages"
@@ -4398,15 +4413,6 @@ msgstr "Shop ID"
 
 #~ msgid "Mister Cash"
 #~ msgstr "Mister Cash"
-
-#~ msgid "This field is not supported by your payment gateway."
-#~ msgstr "Dit veld wordt niet ondersteund door je betalingsgateway."
-
-#~ msgid ""
-#~ "Please remove it from this form or %sadd a supported payment gateway%s."
-#~ msgstr ""
-#~ "Verwijder het van dit formulier of %svoeg een ondersteunde "
-#~ "betalingsgateway toe%s."
 
 #~ msgid "Edit pay feed"
 #~ msgstr "Bewerk betalen feed"
