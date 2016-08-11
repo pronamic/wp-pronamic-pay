@@ -247,7 +247,7 @@ module.exports = function( grunt ) {
 						expand: true,
 						cwd: 'src/',
 						src: [
-							'extensions.json',
+							'extensions.json'
 						],
 						dest: 'other/'
 					}

@@ -14,13 +14,6 @@
 		"url"        : "https://internetkassa.abnamro.nl/"
 	},
 	{
-		"slug"       : "abnamro-internetkassa",
-		"provider"   : "abnamro",
-		"gateway"    : "ogone_orderstandard",
-		"name"       : "ABN AMRO - Internetkassa",
-		"url"        : "https://internetkassa.abnamro.nl/"
-	},
-	{
 		"slug"       : "abnamro-ideal-zelfbouw-v3",
 		"provider"   : "abnamro",
 		"gateway"    : "ideal_advanced_v3",
@@ -28,26 +21,11 @@
 		"url"        : "https://abnamro.ideal-payment.de/"
 	},
 	{
-		"slug"       : "abnamro-ideal-hosted",
+		"slug"       : "abnamro-internetkassa",
 		"provider"   : "abnamro",
-		"gateway"    : "ideal_basic",
-		"name"       : "ABN AMRO - iDEAL Hosted",
-		"deprecated" : true
-	},
-	{
-		"slug"       : "abnamro-ideal-zelfbouw",
-		"provider"   : "abnamro",
-		"gateway"    : "ideal_advanced",
-		"name"       : "ABN AMRO - iDEAL Zelfbouw",
-		"url"        : "https://abnamro.ideal-payment.de/",
-		"deprecated" : true
-	},
-	{
-		"slug"       : "adyen",
-		"provider"   : "adyen",
-		"gateway"    : "adyen",
-		"name"       : "Adyen",
-		"url"        : "http://www.adyen.com/"
+		"gateway"    : "ogone_orderstandard",
+		"name"       : "ABN AMRO - Internetkassa",
+		"url"        : "https://internetkassa.abnamro.nl/"
 	},
 	{
 		"slug"          : "buckaroo",
@@ -71,14 +49,6 @@
 		"url"      : "https://ideal.db.com/"
 	},
 	{
-		"slug"          : "paydutch",
-		"provider"      : "dutchpaymentgroup",
-		"gateway"       : "paydutch",
-		"name"          : "PayDutch",
-		"url"           : "http://www.paydutch.nl/",
-		"dashboard_url" : "https://www.paydutch.nl/paydutchmanager/"
-	},
-	{
 		"slug"          : "easy-ideal",
 		"provider"      : "easy-ideal",
 		"gateway"       : "qantani",
@@ -87,53 +57,16 @@
 		"dashboard_url" : "https://www.qantanipayments.com/backoffice/login/"
 	},
 	{
+		"slug"          : "ems-ecommerce",
+		"provider"      : "ems",
+		"gateway"       : "ems_ecommerce",
+		"name"          : "EMS - e-Commerce"
+	},
+	{
 		"slug"          : "fibonacciorange",
 		"provider"      : "fibonacciorange",
 		"gateway"       : "icepay",
 		"name"          : "Fibonacci ORANGE"
-	},
-	{
-		"slug"       : "fortis-bank-ideal-hosted",
-		"disabled"   : true,
-		"provider"   : "fortis-bank",
-		"gateway"    : "ideal_basic",
-		"name"       : "Fortis Bank - iDEAL Hosted",
-		"deprecated" : true
-	},
-	{
-		"slug"       : "fortis-bank-internetkassa",
-		"provider"   : "fortis-bank",
-		"gateway"    : "ogone_orderstandard",
-		"name"       : "Fortis Bank - iDEAL Internet Kassa",
-		"deprecated" : true
-	},
-	{
-		"slug"       : "fortis-bank-ideal-integrated",
-		"provider"   : "fortis-bank",
-		"gateway"    : "ideal_advanced",
-		"name"       : "Fortis Bank - iDEAL Integrated",
-		"deprecated" : true
-	},
-	{
-		"slug"     : "frieslandbank-ideal-zakelijk",
-		"provider" : "frieslandbank",
-		"gateway"  : "ideal_basic",
-		"name"     : "Friesland Bank - iDEAL Zakelijk"
-	},
-
-	{
-		"slug"     : "frieslandbank-ideal-zakelijk-plus-v3",
-		"provider" : "frieslandbank",
-		"gateway"  : "ideal_advanced_v3",
-		"name"     : "Friesland Bank - iDEAL Zakelijk Plus - v3"
-	},
-
-	{
-		"slug"       : "frieslandbank-ideal-zakelijk-plus",
-		"provider"   : "frieslandbank",
-		"gateway"    : "ideal_advanced",
-		"name"       : "Friesland Bank - iDEAL Zakelijk Plus",
-		"deprecated" : true
 	},
 	{
 		"slug"          : "icepay-ideal",
@@ -142,23 +75,10 @@
 		"name"          : "ICEPAY"
 	},
 	{
-		"slug"     : "ideal-simulator-ideal-basic",
-		"provider" : "ideal-simulator",
-		"gateway"  : "ideal_basic",
-		"name"     : "iDEAL Simulator - iDEAL Lite / Basic"
-	},
-	{
 		"slug"     : "ideal-simulator-ideal-advanced-v3",
 		"provider" : "ideal-simulator",
 		"gateway"  : "ideal_advanced_v3",
 		"name"     : "iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3"
-	},
-	{
-		"slug"     : "ideal-simulator-ideal-advanced",
-		"provider" : "ideal-simulator",
-		"gateway"  : "ideal_advanced",
-		"name"     : "iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw",
-		"deprecated" : true
 	},
 	{
 		"slug"     : "ing-ideal-basic",
@@ -167,23 +87,16 @@
 		"name"     : "ING - iDEAL Basic"
 	},
 	{
-		"slug"     : "ing-ideal-internetkassa",
-		"provider" : "ing",
-		"gateway"  : "ogone_orderstandard",
-		"name"     : "ING - iDEAL Internet Kassa"
-	},
-	{
 		"slug"     : "ing-ideal-advanced-v3",
 		"provider" : "ing",
 		"gateway"  : "ideal_advanced_v3",
 		"name"     : "ING - iDEAL Advanced - v3"
 	},
 	{
-		"slug"       : "ing-ideal-advanced",
+		"slug"       : "ing-kassa-compleet",
 		"provider"   : "ing",
-		"gateway"    : "ideal_advanced",
-		"name"       : "ING - iDEAL Advanced",
-		"deprecated" : true
+		"gateway"    : "ing_kassa_compleet",
+		"name"       : "ING - Kassa Compleet"
 	},
 	{
 		"slug"          : "mollie",
@@ -194,43 +107,11 @@
 		"methods"       : [ "ideal", "mister_cash" ]
 	},
 	{
-		"slug"          : "mollie-ideal",
-		"provider"      : "mollie",
-		"gateway"       : "mollie_ideal",
-		"name"          : "Mollie - iDEAL",
-		"dashboard_url" : "http://www.mollie.nl/",
-		"deprecated"    : true
-	},
-	{
-		"slug"          : "mollie-ideal-basic",
-		"provider"      : "mollie",
-		"gateway"       : "ideal_basic",
-		"name"          : "Mollie - iDEAL Basic",
-		"dashboard_url" : "http://www.mollie.nl/",
-		"deprecated"    : true
-	},
-	{
-		"slug"          : "mollie-ideal-advanced",
-		"provider"      : "mollie",
-		"gateway"       : "ideal_advanced",
-		"name"          : "Mollie - iDEAL Advanced",
-		"dashboard_url" : "http://www.mollie.nl/",
-		"deprecated"    : true
-	},
-	{
 		"slug"     : "multisafepay-connect",
 		"provider" : "multisafepay",
 		"gateway"  : "multisafepay_connect",
 		"name"     : "MultiSafepay - Connect",
 		"url"      : "http://www.multisafepay.com/"
-	},
-	{
-		"slug"       : "neos-internetkassa",
-		"provider"   : "neos",
-		"gateway"    : "ogone_orderstandard",
-		"name"       : "NEOS - Internet Kassa",
-		"url"        : "http://www.multisafepay.com/",
-		"deprecated" : true
 	},
 	{
 		"slug"     : "ogone-easy",
@@ -240,17 +121,17 @@
 		"url"      : "https://secure.ogone.com/"
 	},
 	{
-		"slug"     : "ogone-orderstandard",
-		"provider" : "ogone",
-		"gateway"  : "ogone_orderstandard",
-		"name"     : "Ingenico/Ogone - OrderStandard",
-		"url"      : "https://secure.ogone.com/"
-	},
-	{
 		"slug"     : "ogone-directlink",
 		"provider" : "ogone",
 		"gateway"  : "ogone_directlink",
 		"name"     : "Ingenico/Ogone - DirectLink",
+		"url"      : "https://secure.ogone.com/"
+	},
+	{
+		"slug"     : "ogone-orderstandard",
+		"provider" : "ogone",
+		"gateway"  : "ogone_orderstandard",
+		"name"     : "Ingenico/Ogone - OrderStandard",
 		"url"      : "https://secure.ogone.com/"
 	},
 	{
@@ -282,31 +163,10 @@
 		"methods"       : [ "ideal", "mister_cash" ]
 	},
 	{
-		"slug"     : "rabobank-ideal-lite",
-		"provider" : "rabobank",
-		"gateway"  : "ideal_basic",
-		"name"     : "Rabobank - iDEAL Lite"
-	},
-
-	{
 		"slug"     : "rabobank-ideal-professional-v3",
 		"provider" : "rabobank",
 		"gateway"  : "ideal_advanced_v3",
 		"name"     : "Rabobank - iDEAL Professional - v3"
-	},
-	{
-		"slug"     : "rabobank-ideal-kassa",
-		"provider" : "rabobank",
-		"gateway"  : "ogone_orderstandard",
-		"name"     : "Rabobank - Rabo iDEAL Kassa",
-		"url"      : "http://i-kassa.rabobank.nl/"
-	},
-	{
-		"slug"       : "rabobank-ideal-professional",
-		"provider"   : "rabobank",
-		"gateway"    : "ideal_advanced",
-		"name"       : "Rabobank - iDEAL Professional",
-		"deprecated" : true
 	},
 	{
 		"slug"          : "sisow-ideal",
@@ -316,22 +176,6 @@
 		"dashboard_url" : "https://www.sisow.nl/Sisow/iDeal/Login.aspx"
 	},
 	{
-		"slug"          : "sisow-ideal-basic",
-		"provider"      : "sisow",
-		"gateway"       : "ideal_basic",
-		"name"          : "Sisow - iDEAL Basic",
-		"dashboard_url" : "https://www.sisow.nl/Sisow/iDeal/Login.aspx",
-		"deprecated"    : true
-	},
-	{
-		"slug"          : "sisow-ideal-advanced",
-		"provider"      : "sisow",
-		"gateway"       : "ideal_advanced",
-		"name"          : "Sisow - iDEAL Advanced",
-		"dashboard_url" : "https://www.sisow.nl/Sisow/iDeal/Login.aspx",
-		"deprecated"    : true
-	},
-	{
 		"slug"          : "targetpay-ideal",
 		"provider"      : "targetpay",
 		"gateway"       : "targetpay",
@@ -339,10 +183,18 @@
 		"dashboard_url" : "https://www.targetpay.com/login"
 	},
 	{
+		"slug"          : "qantani-mollie",
+		"provider"      : "qantani",
+		"gateway"       : "mollie",
+		"name"          : "Qantani (new platform)",
+		"url"           : "https://www.qantani.com/",
+		"dashboard_url" : "https://www.qantani.eu/"
+	},
+	{
 		"slug"          : "qantani",
 		"provider"      : "qantani",
 		"gateway"       : "qantani",
-		"name"          : "Qantani - iDEAL",
+		"name"          : "Qantani (old platform)",
 		"url"           : "https://www.qantani.com/",
 		"dashboard_url" : "https://www.qantanipayments.com/backoffice/login/"
 	}
