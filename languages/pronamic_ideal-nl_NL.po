@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-08-11 11:01+0100\n"
+"PO-Revision-Date: 2016-08-11 11:34+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -791,6 +791,7 @@ msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
 #: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
 #: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 msgid "Bancontact"
 msgstr "Bancontact"
 
@@ -2124,7 +2125,6 @@ msgid "Bank Transfer"
 msgstr "Bankoverschrijving"
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:104
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
 msgid "Direct Debit mandate via iDEAL"
 msgstr "Incasso (machtiging via iDEAL)"
 
@@ -2499,7 +2499,6 @@ msgid "Forms » iDEAL"
 msgstr "Formulieren » iDEAL"
 
 #: vendor/wp-pay-extensions/gravityforms/vendor/wp-pay/core/src/PaymentMethods.php:76
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 #: vendor/wp-pay-gateways/buckaroo/vendor/wp-pay/core/src/PaymentMethods.php:76
 #: vendor/wp-pay-gateways/omnikassa/vendor/wp-pay/core/src/PaymentMethods.php:76
 msgid "Bancontact/Mister Cash"
@@ -3088,19 +3087,21 @@ msgstr "Creditcard inschakelen"
 msgid "Enable Direct Debit"
 msgstr "Incasso inschakelen"
 
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
+msgid "Direct Debit (mandate via iDEAL)"
+msgstr "Incasso (machtiging via iDEAL)"
+
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:84
-msgid "Enable Direct Debit mandate via iDEAL"
+msgid "Enable Direct Debit (mandate via iDEAL)"
 msgstr "Incasso (machtiging via iDEAL) inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:85
 msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank. By using this payment method you allow us to withdraw subsequent "
-"payments for subscriptions from your bank account through direct debit."
+"By using this payment method you authorize us via iDEAL to debit payments "
+"from your bank account."
 msgstr ""
-"Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
-"veilige omgeving van je eigen bank. Met deze betaalmethode machtig je ons om "
-"vervolgbetalingen van je bankrekening af te schrijven."
+"Met deze betaalmethode machtig je ons via iDEAL om betalingen van je "
+"bankrekening af te schrijven."
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:144
 msgid "payment expired"
@@ -3170,7 +3171,7 @@ msgstr "Tags: %s"
 msgid "Awaiting payment."
 msgstr "Wachten op betaling."
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:239
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:245
 msgid ""
 "You have to select an gateway configuration on the <a href=\"%s"
 "\">WooCommerce checkout settings page</a>."
@@ -3179,8 +3180,8 @@ msgstr ""
 "afrekenen instellingen pagina</a>."
 
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:39
-msgid "Enable Bancontact/Mister Cash"
-msgstr "Bancontact/Mister Cash inschakelen"
+msgid "Enable Bancontact"
+msgstr "Bancontact"
 
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:42
 msgid "Enable PayPal"
@@ -4633,14 +4634,21 @@ msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
 
+#~ msgid ""
+#~ "With iDEAL you can easily pay online in the secure environment of your "
+#~ "own bank. By using this payment method you allow us to withdraw "
+#~ "subsequent payments for subscriptions from your bank account through "
+#~ "direct debit."
+#~ msgstr ""
+#~ "Via iDEAL kun je vertrouwd, veilig en gemakkelijk online betalen via de "
+#~ "veilige omgeving van je eigen bank. Met deze betaalmethode machtig je ons "
+#~ "om vervolgbetalingen van je bankrekening af te schrijven."
+
+#~ msgid "Enable Bancontact/Mister Cash"
+#~ msgstr "Bancontact/Mister Cash inschakelen"
+
 #~ msgid "iDEAL + Direct Debit"
 #~ msgstr "iDEAL + incasso"
-
-#~ msgid "Direct Debit (mandate via iDEAL)"
-#~ msgstr "Incasso (machtiging via iDEAL)"
-
-#~ msgid "Enable Bancontact"
-#~ msgstr "Bancontact"
 
 #~ msgid "iDEAL Advanced"
 #~ msgstr "iDEAL geavanceerd"

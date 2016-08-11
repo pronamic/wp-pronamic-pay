@@ -720,6 +720,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/MisterCashGateway.php:21
 #: vendor/wp-pay-extensions/give/src/MisterCashGateway.php:20
 #: vendor/wp-pay-extensions/memberpress/src/MisterCashGateway.php:22
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 msgid "Bancontact"
 msgstr ""
 
@@ -1979,7 +1980,6 @@ msgid "Bank Transfer"
 msgstr ""
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:104
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
 msgid "Direct Debit mandate via iDEAL"
 msgstr ""
 
@@ -2340,7 +2340,6 @@ msgid "Forms » iDEAL"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/vendor/wp-pay/core/src/PaymentMethods.php:76
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:27
 #: vendor/wp-pay-gateways/buckaroo/vendor/wp-pay/core/src/PaymentMethods.php:76
 #: vendor/wp-pay-gateways/omnikassa/vendor/wp-pay/core/src/PaymentMethods.php:76
 msgid "Bancontact/Mister Cash"
@@ -2892,15 +2891,18 @@ msgstr ""
 msgid "Enable Direct Debit"
 msgstr ""
 
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
+msgid "Direct Debit (mandate via iDEAL)"
+msgstr ""
+
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:84
-msgid "Enable Direct Debit mandate via iDEAL"
+msgid "Enable Direct Debit (mandate via iDEAL)"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:85
 msgid ""
-"With iDEAL you can easily pay online in the secure environment of your own "
-"bank. By using this payment method you allow us to withdraw subsequent "
-"payments for subscriptions from your bank account through direct debit."
+"By using this payment method you authorize us via iDEAL to debit payments "
+"from your bank account."
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:144
@@ -2967,14 +2969,14 @@ msgstr ""
 msgid "Awaiting payment."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:239
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:245
 msgid ""
 "You have to select an gateway configuration on the <a "
 "href=\"%s\">WooCommerce checkout settings page</a>."
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:39
-msgid "Enable Bancontact/Mister Cash"
+msgid "Enable Bancontact"
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:42
