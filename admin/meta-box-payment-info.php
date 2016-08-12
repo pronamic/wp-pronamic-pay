@@ -54,6 +54,22 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$method = get_post_meta( $post_id, '_pronamic_payment_method', true );
+
+			$name = Pronamic_WP_Pay_PaymentMethods::get_name( $method );
+
+			echo esc_html( $name );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Action URL', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
