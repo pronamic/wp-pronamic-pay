@@ -35,7 +35,7 @@ namespace Pronamic_Pay {
 }
 
 namespace Pronamic_Pay_Gateways_Mollie {
-	class Gateway {
+	class Gateway extends Pronamic_Pay.Gateway {
 		get_payment_methods() : array
 	}
 
