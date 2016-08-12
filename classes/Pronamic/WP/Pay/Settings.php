@@ -183,7 +183,7 @@ class Pronamic_WP_Pay_Settings {
 		$args = wp_parse_args( $args, $defaults );
 
 		printf(
-			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />%s',
+			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />',
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
