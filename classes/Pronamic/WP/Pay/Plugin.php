@@ -486,12 +486,12 @@ class Pronamic_WP_Pay_Plugin {
 
 	public static function get_subscription_states() {
 		return array(
-			'sub_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
-			'sub_cancelled' => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
-			'sub_expired'   => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
-			'sub_failed'    => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
-			'sub_active'    => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
-			'sub_completed' => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_cancelled' => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_expired'   => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_failed'    => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_active'    => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_completed' => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
 		);
 	}
 
