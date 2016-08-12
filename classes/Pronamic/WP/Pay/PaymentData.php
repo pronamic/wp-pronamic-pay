@@ -130,6 +130,15 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 	//////////////////////////////////////////////////
 
 	/**
+	 * Get subscription source ID.
+	 *
+	 * @return string
+	 */
+	public function get_subscription_source_id() {
+		return $this->get_source_id();
+	}
+
+	/**
 	 * Get subscription ID.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php#L52
@@ -140,7 +149,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 			return;
 		}
 
-		$payment = get_pronamic_payment_by_meta( '_pronamic_payment_source_id', $this->get_source_id() );
+		$payment = get_pronamic_payment_by_meta( '_pronamic_payment_source_id', $this->get_subscription_source_id() );
 
 		if ( ! $payment ) {
 			return;
