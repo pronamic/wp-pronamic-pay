@@ -1,0 +1,48 @@
+@startuml
+
+namespace Pronamic_Pay {
+	class Gateway {
+		get_payment_methods() : array
+	}
+	
+	class PaymentMethod {
+		get_id() : string
+		get_name() : string
+		is_active() : boolean
+		get_input_fields() : array
+	}
+
+	Gateway o-- "0..*" PaymentMethod
+
+	class IDealPaymentMethod extends PaymentMethod {
+		get_input_fields() : array
+		get_issuers() : array
+	}
+
+	note bottom of IDealPaymentMethod
+		""$this->id   = Pronamic_WP_Pay_PaymentMethods::IDEAL;""
+		""$this->name = __( 'iDEAL', 'pronamic_ideal' );""
+	end note
+
+	class CreditCardPaymentMethod extends PaymentMethod {
+		get_input_fields() : array
+	}
+
+	note bottom of CreditCardPaymentMethod
+		""$this->id   = Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD;""
+		""$this->name = __( 'Credit Card', 'pronamic_ideal' );""
+	end note
+}
+
+namespace Pronamic_Pay_Gateways_Mollie {
+	class Gateway {
+		get_payment_methods() : array
+	}
+
+	class IDealPaymentMethod extends Pronamic_Pay.IDealPaymentMethod {
+		get_issuers() : array
+		is_active() : boolean
+	}
+}
+
+@enduml
