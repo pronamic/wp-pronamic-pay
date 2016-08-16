@@ -255,7 +255,7 @@ class Pronamic_WP_Pay_PostTypes {
 		/**
 		 * Subscription post statuses
 		 */
-		register_post_status( 'sub_pending', array(
+		register_post_status( 'subscr_pending', array(
 			'label'                     => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
@@ -264,7 +264,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Pending <span class="count">(%s)</span>', 'Pending <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-		register_post_status( 'sub_cancelled', array(
+		register_post_status( 'subscr_cancelled', array(
 			'label'                     => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
@@ -273,7 +273,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Cancelled <span class="count">(%s)</span>', 'Cancelled <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-		register_post_status( 'sub_expired', array(
+		register_post_status( 'subscr_expired', array(
 			'label'                     => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
@@ -282,7 +282,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Expired <span class="count">(%s)</span>', 'Expired <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-		register_post_status( 'sub_failed', array(
+		register_post_status( 'subscr_failed', array(
 			'label'                     => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
@@ -291,7 +291,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-		register_post_status( 'sub_active', array(
+		register_post_status( 'subscr_active', array(
 			'label'                     => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
@@ -300,7 +300,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'label_count'               => _n_noop( 'Active <span class="count">(%s)</span>', 'Active <span class="count">(%s)</span>', 'pronamic_ideal' ),
 		) );
 
-		register_post_status( 'sub_completed', array(
+		register_post_status( 'subscr_completed', array(
 			'label'                     => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,

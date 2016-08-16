@@ -721,7 +721,7 @@ class Pronamic_WP_Pay_Plugin {
 					$subscription_id = wp_insert_post( array(
 						'post_type'   => 'pronamic_pay_subscr',
 						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
-						'post_status' => 'sub_pending',
+						'post_status' => 'subscr_pending',
 					), true );
 
 					if ( is_wp_error( $subscription_id ) ) {
@@ -865,10 +865,10 @@ class Pronamic_WP_Pay_Plugin {
 			'orderby'     => 'post_date',
 			'order'       => 'ASC',
 			'post_status' => array(
-				'sub_pending',
-				'sub_expired',
-				'sub_failed',
-				'sub_active',
+				'subscr_pending',
+				'subscr_expired',
+				'subscr_failed',
+				'subscr_active',
 			),
 			'meta_query'  => array(
 				array(

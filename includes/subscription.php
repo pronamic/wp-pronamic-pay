@@ -37,27 +37,27 @@ function pronamic_wp_pay_update_subscription( $subscription ) {
 
 	switch ( $status ) {
 		case Pronamic_WP_Pay_Statuses::OPEN :
-			$post_status = 'sub_pending';
+			$post_status = 'subscr_pending';
 
 			break;
 		case Pronamic_WP_Pay_Statuses::CANCELLED :
-			$post_status = 'sub_cancelled';
+			$post_status = 'subscr_cancelled';
 
 			break;
 		case Pronamic_WP_Pay_Statuses::EXPIRED :
-			$post_status = 'sub_expired';
+			$post_status = 'subscr_expired';
 
 			break;
 		case Pronamic_WP_Pay_Statuses::FAILURE :
-			$post_status = 'sub_failed';
+			$post_status = 'subscr_failed';
 
 			break;
 		case Pronamic_WP_Pay_Statuses::SUCCESS :
-			$post_status = 'sub_active';
+			$post_status = 'subscr_active';
 
 			break;
 		case Pronamic_WP_Pay_Statuses::COMPLETED :
-			$post_status = 'sub_completed';
+			$post_status = 'subscr_completed';
 
 			break;
 	}
