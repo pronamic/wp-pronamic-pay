@@ -690,7 +690,10 @@ class Pronamic_WP_Pay_Plugin {
 		$title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
 
 		if ( $subscription && $subscription_id ) {
-			$title = sprintf( __( 'Payment for subscription %s', 'pronamic_ideal' ), $data->get_title() );
+			$subscription_title    = get_the_title( $subscription_id );
+			$subscription_title[0] = strtolower( $subscription_title[0] );
+
+			$title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
 		}
 
 		$result = wp_insert_post( array(
