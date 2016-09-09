@@ -79,6 +79,28 @@ if ( $subscription ) : ?>
 				<?php echo esc_html( $subscription->get_transaction_id() ); ?>
 			</td>
 		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$payment = $subscription->get_first_payment();
+
+				if ( $payment ) {
+					echo $payment->get_source_text(); //xss ok
+				} else {
+					printf(
+						'%s<br />%s', //xss ok
+						esc_html( $subscription->get_source() ),
+						esc_html( $subscription->get_source_id() )
+					);
+				}
+
+				?>
+			</td>
+		</tr>
 	</table>
 
 <?php else :
