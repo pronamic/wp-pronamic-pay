@@ -12,6 +12,8 @@
 abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
 	private $entrance_code;
 
+	protected $recurring;
+
 	//////////////////////////////////////////////////
 
 	public function __construct() {
@@ -140,7 +142,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	}
 
 	//////////////////////////////////////////////////
-	// Langauge
+	// Language
 	//////////////////////////////////////////////////
 
 	/**
@@ -185,5 +187,34 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 */
 	public function get_credit_card() {
 		return null;
+	}
+
+	//////////////////////////////////////////////////
+	// Subscription
+	//////////////////////////////////////////////////
+
+	/**
+	 * Subscription
+	 *
+	 * @return false|Pronamic_Pay_Subscription
+	 */
+	public function get_subscription() {
+		return false;
+	}
+
+	/**
+	 * Subscription ID
+	 *
+	 * @return int
+	 */
+	public abstract function get_subscription_id();
+
+	/**
+	 * Is this a recurring (not first) payment?
+	 *
+	 * @return bool
+	 */
+	public function get_recurring() {
+		return $this->recurring;
 	}
 }

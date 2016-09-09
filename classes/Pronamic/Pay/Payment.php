@@ -4,6 +4,10 @@ class Pronamic_Pay_Payment {
 
 	protected $id;
 
+	public $config_id;
+
+	public $key;
+
 	//////////////////////////////////////////////////
 	// Source
 	//////////////////////////////////////////////////
@@ -44,6 +48,18 @@ class Pronamic_Pay_Payment {
 
 	public $consumer_city;
 
+	public $customer_name;
+
+	public $address;
+
+	public $city;
+
+	public $zip;
+
+	public $country;
+
+	public $telephone_number;
+
 	public $status;
 
 	public $status_requests;
@@ -55,6 +71,10 @@ class Pronamic_Pay_Payment {
 	public $method;
 
 	public $issuer;
+
+	public $subscription_id;
+
+	public $recurring;
 
 	//////////////////////////////////////////////////
 
@@ -251,6 +271,16 @@ class Pronamic_Pay_Payment {
 
 	public function get_entrance_code() {
 		return $this->entrance_code;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_subscription_id() {
+		return $this->subscription_id;
+	}
+
+	public function get_recurring() {
+		return $this->recurring;
 	}
 
 	//////////////////////////////////////////////////

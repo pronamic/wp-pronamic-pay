@@ -63,6 +63,7 @@ class Pronamic_WP_Pay_Admin {
 		new Pronamic_WP_Pay_Admin_FormPostType();
 		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
 		new Pronamic_WP_Pay_Admin_PaymentPostType();
+		new Pronamic_WP_Pay_Admin_SubscriptionPostType();
 
 		// Gateway settings
 		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
@@ -324,6 +325,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_payment',
 			'pronamic_pay_form',
 			'pronamic_pay_gf',
+			'pronamic_pay_subscr',
 		), true );
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
@@ -399,11 +401,11 @@ class Pronamic_WP_Pay_Admin {
 
 				if ( is_wp_error( $error ) ) {
 					Pronamic_WP_Pay_Plugin::render_errors( $error );
-				} else {
-					$gateway->redirect( $payment );
+
+					exit;
 				}
 
-				exit;
+				$gateway->redirect( $payment );
 			}
 		}
 	}
@@ -445,11 +447,13 @@ class Pronamic_WP_Pay_Admin {
 
 		add_submenu_page(
 			'pronamic_ideal',
-			__( 'Configurations', 'pronamic_ideal' ),
-			__( 'Configurations', 'pronamic_ideal' ),
+			__( 'Subscriptions', 'pronamic_ideal' ),
+			__( 'Subscriptions', 'pronamic_ideal' ),
 			'manage_options',
-			'edit.php?post_type=pronamic_gateway'
+			'edit.php?post_type=pronamic_pay_subscr'
 		);
+
+		do_action( 'pronamic_pay_admin_menu' );
 
 		add_submenu_page(
 			'pronamic_ideal',
@@ -459,7 +463,13 @@ class Pronamic_WP_Pay_Admin {
 			'edit.php?post_type=pronamic_pay_form'
 		);
 
-		do_action( 'pronamic_pay_admin_menu' );
+		add_submenu_page(
+			'pronamic_ideal',
+			__( 'Configurations', 'pronamic_ideal' ),
+			__( 'Configurations', 'pronamic_ideal' ),
+			'manage_options',
+			'edit.php?post_type=pronamic_gateway'
+		);
 
 		add_submenu_page(
 			'pronamic_ideal',

@@ -6,6 +6,13 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	 */
 	public $post;
 
+	/**
+	 * The subscription
+	 *
+	 * @var Pronamic_Pay_WP_Subscription
+	 */
+	public $subscription;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -49,6 +56,8 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->city             = $this->get_meta( 'city' );
 		$this->country          = $this->get_meta( 'country' );
 		$this->telephone_number = $this->get_meta( 'telephone_number' );
+
+		$this->subscription_id  = $this->get_meta( 'subscription_id' );
 	}
 
 	//////////////////////////////////////////////////
@@ -150,5 +159,26 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		_deprecated_function( __FUNCTION__, '4.1.2', 'get_return_redirect_url()' );
 
 		return $this->get_return_redirect_url();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get subscription.
+	 *
+	 * @return Pronamic_WP_Pay_Subscription
+	 */
+	public function get_subscription() {
+		if ( is_object( $this->subscription ) ) {
+			return $this->subscription;
+		}
+
+		if ( '' === $this->subscription_id ) {
+			return false;
+		}
+
+		$this->subscription = new Pronamic_WP_Pay_Subscription( $this->subscription_id );
+
+		return $this->subscription;
 	}
 }
