@@ -332,17 +332,17 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	 */
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
-			case 'sub_pending' :
+			case 'subscr_pending' :
 				return Pronamic_WP_Pay_Statuses::OPEN;
-			case 'sub_cancelled' :
+			case 'subscr_cancelled' :
 				return Pronamic_WP_Pay_Statuses::CANCELLED;
-			case 'sub_expired' :
+			case 'subscr_expired' :
 				return Pronamic_WP_Pay_Statuses::EXPIRED;
-			case 'sub_failed' :
+			case 'subscr_failed' :
 				return Pronamic_WP_Pay_Statuses::FAILURE;
-			case 'sub_active' :
+			case 'subscr_active' :
 				return Pronamic_WP_Pay_Statuses::ACTIVE;
-			case 'sub_completed' :
+			case 'subscr_completed' :
 				return Pronamic_WP_Pay_Statuses::COMPLETED;
 		}
 	}
