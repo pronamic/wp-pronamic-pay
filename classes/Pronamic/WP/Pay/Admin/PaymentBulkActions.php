@@ -101,7 +101,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 		if ( filter_has_var( INPUT_GET, 'status_updated' ) ) {
 			$updated = filter_input( INPUT_GET, 'status_updated', FILTER_VALIDATE_INT );
 
-			$message = sprintf( _n( 'Payment updated.', '%s payments updated.', $updated, 'pronamic_ideal' ), number_format_i18n( $updated ) );
+			$message = sprintf( _n( '%s payment updated.', '%s payments updated.', $updated, 'pronamic_ideal' ), number_format_i18n( $updated ) );
 
 			printf(
 				'<div class="updated"><p>%s</p></div>',
