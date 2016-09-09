@@ -7,7 +7,7 @@
 
 	echo wp_kses(
 		sprintf(
-			__( 'For more advanced payment forms we advice you to use the <a href="%s" target="%s">“Gravity Forms” plugin</a>.', 'pronamic_ideal' ),
+			__( 'For more advanced payment forms we advice you to use the <a href="%1$s" target="%2$s">“Gravity Forms” plugin</a>.', 'pronamic_ideal' ),
 			esc_attr( 'https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=226579' ),
 			esc_attr( '_blank' )
 		),
