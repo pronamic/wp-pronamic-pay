@@ -352,9 +352,16 @@ class Pronamic_WP_Pay_Admin {
 
 			// Pronamic
 			wp_register_style(
+				'pronamic-pay-icons',
+				plugins_url( 'fonts/pronamic-pay-icons.css', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'3.9.0'
+			);
+
+			wp_register_style(
 				'pronamic-pay-admin',
 				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
-				array(),
+				array( 'pronamic-pay-icons' ),
 				'3.9.0'
 			);
 

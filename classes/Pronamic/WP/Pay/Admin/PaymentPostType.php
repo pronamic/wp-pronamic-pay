@@ -68,16 +68,20 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	public function edit_columns( $columns ) {
 		$columns = array(
 			'cb'                           => '<input type="checkbox" />',
+			'pronamic_payment_status'      => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status" data-tip="%s">%s</span>',
+				esc_html__( 'Status', 'pronamic_ideal' ),
+				esc_html__( 'Status', 'pronamic_ideal' )
+			),
 			'title'                        => __( 'Title', 'pronamic_ideal' ),
 			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
 			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
-			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
-			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
-			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
-			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
-			'author'                       => __( 'User', 'pronamic_ideal' ),
+//			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
+//			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
+//			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
+//			'author'                       => __( 'User', 'pronamic_ideal' ),
 			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
 
@@ -88,6 +92,23 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		global $post;
 
 		switch ( $column ) {
+			case 'pronamic_payment_status':
+				$post_status = get_post_status( $post_id );
+
+				$status_object = get_post_status_object( $post_status );
+
+				if ( isset( $status_object, $status_object->label ) ) {
+					printf(
+						'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
+						esc_attr( $post_status ),
+						esc_attr( $status_object->label ),
+						esc_html( $status_object->label )
+					);
+				} else {
+					echo '—';
+				}
+
+				break;
 			case 'pronamic_payment_gateway':
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
 
@@ -146,16 +167,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				$payment = get_pronamic_payment( $post_id );
 
 				echo $payment->get_source_text(); //xss ok
-
-				break;
-			case 'pronamic_payment_status':
-				$status_object = get_post_status_object( get_post_status( $post_id ) );
-
-				if ( isset( $status_object, $status_object->label ) ) {
-					echo esc_html( $status_object->label );
-				} else {
-					echo '—';
-				}
 
 				break;
 		}

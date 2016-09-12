@@ -444,6 +444,25 @@ module.exports = function( grunt ) {
 					version: '<%= pkg.version %>'
 				}
 			}
+		},
+
+		webfont: {
+			icons: {
+				src: 'src/fonts/*.svg',
+				dest: 'fonts',
+				options: {
+					font: 'pronamic-pay-icons',
+					fontFamilyName: 'Pronamic Pay Icons',
+					normalize: true,
+					stylesheets: [ 'css' ],
+					templateOptions: {
+						baseClass: 'pronamic-pay-icon',
+						classPrefix: 'pronamic-pay-icon-'
+					},
+					types: [ 'eot', 'woff2', 'woff', 'ttf', 'svg' ],
+					fontHeight: 768
+				}
+			}
 		}
 	} );
 

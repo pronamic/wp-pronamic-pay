@@ -30,6 +30,72 @@ td.column-version {
 }
 
 /**
+ * Status
+ */
+.widefat .column-pronamic_payment_status {
+	width: 1em;
+}
+
+.pronamic-pay-status {
+	display: block;
+
+    text-indent: -9999px;
+
+    position: relative;
+
+    height: 1em;
+    width: 1em;
+}
+
+.pronamic-pay-status:after {
+	display: block;
+
+	font-family: "Pronamic Pay Icons";
+	
+	speak: none;
+
+	text-indent: 0;
+
+	position: absolute;
+    top: 0;
+    left: 0;
+
+	width: 100%;
+    height: 100%;
+
+	content: "\f107";
+}
+
+.pronamic-pay-status-publish:after {
+	content: "\f107";
+}
+
+.pronamic-pay-status-payment_processing:after {
+    content: "\f107";
+    color: #73a724;
+}
+
+.pronamic-pay-status-payment_completed:after {
+	content: "\f104";
+    color: #2ea2cc;
+}
+
+.pronamic-pay-status-payment_pending:after {
+	content: "\f106";
+    color: #ffba00;
+}
+
+.pronamic-pay-status-payment_refunded:after {
+	content: "\f108";
+	color: #999;
+}
+
+.pronamic-pay-status-payment_failed:after {
+	content: "\f105";
+	color: #d0c21f;
+}
+
+/**
  * Dashboard
  *
  * @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
