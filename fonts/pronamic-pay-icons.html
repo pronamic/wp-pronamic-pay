@@ -60,12 +60,12 @@
 
 @font-face {
 	font-family:"Pronamic Pay Icons";
-	src:url("pronamic-pay-icons.eot?c46d8472091067f1f23b127972147d3f");
+	src:url("pronamic-pay-icons.eot?bcba7c6bcb320a588120be90a6994211");
 	src:url("pronamic-pay-icons.eot?#iefix") format("embedded-opentype"),
-		url("pronamic-pay-icons.woff2?c46d8472091067f1f23b127972147d3f") format("woff2"),
-		url("pronamic-pay-icons.woff?c46d8472091067f1f23b127972147d3f") format("woff"),
-		url("pronamic-pay-icons.ttf?c46d8472091067f1f23b127972147d3f") format("truetype"),
-		url("pronamic-pay-icons.svg?c46d8472091067f1f23b127972147d3f#pronamic-pay-icons") format("svg");
+		url("pronamic-pay-icons.woff2?bcba7c6bcb320a588120be90a6994211") format("woff2"),
+		url("pronamic-pay-icons.woff?bcba7c6bcb320a588120be90a6994211") format("woff"),
+		url("pronamic-pay-icons.ttf?bcba7c6bcb320a588120be90a6994211") format("truetype"),
+		url("pronamic-pay-icons.svg?bcba7c6bcb320a588120be90a6994211#pronamic-pay-icons") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -101,33 +101,43 @@
 }
 
 
-.pronamic-pay-icon-status-cancelled:before {
+.pronamic-pay-icon-recurring:before {
 	content:"\f103";
 }
 
 
-.pronamic-pay-icon-status-completed:before {
+.pronamic-pay-icon-status-cancelled:before {
 	content:"\f104";
 }
 
 
-.pronamic-pay-icon-status-failed:before {
+.pronamic-pay-icon-status-completed:before {
 	content:"\f105";
 }
 
 
-.pronamic-pay-icon-status-pending:before {
+.pronamic-pay-icon-status-failed:before {
 	content:"\f106";
 }
 
 
-.pronamic-pay-icon-status-processing:before {
+.pronamic-pay-icon-status-on-hold:before {
 	content:"\f107";
 }
 
 
-.pronamic-pay-icon-status-refunded:before {
+.pronamic-pay-icon-status-pending:before {
 	content:"\f108";
+}
+
+
+.pronamic-pay-icon-status-processing:before {
+	content:"\f109";
+}
+
+
+.pronamic-pay-icon-status-refunded:before {
+	content:"\f10a";
 }
 
 		</style>
@@ -141,11 +151,15 @@
 			
 				<div class="icons__item" data-name="pronamic"><i class="pronamic-pay-icon pronamic-pay-icon-pronamic"></i> pronamic-pay-icon-pronamic</div>
 			
+				<div class="icons__item" data-name="recurring"><i class="pronamic-pay-icon pronamic-pay-icon-recurring"></i> pronamic-pay-icon-recurring</div>
+			
 				<div class="icons__item" data-name="status-cancelled"><i class="pronamic-pay-icon pronamic-pay-icon-status-cancelled"></i> pronamic-pay-icon-status-cancelled</div>
 			
 				<div class="icons__item" data-name="status-completed"><i class="pronamic-pay-icon pronamic-pay-icon-status-completed"></i> pronamic-pay-icon-status-completed</div>
 			
 				<div class="icons__item" data-name="status-failed"><i class="pronamic-pay-icon pronamic-pay-icon-status-failed"></i> pronamic-pay-icon-status-failed</div>
+			
+				<div class="icons__item" data-name="status-on-hold"><i class="pronamic-pay-icon pronamic-pay-icon-status-on-hold"></i> pronamic-pay-icon-status-on-hold</div>
 			
 				<div class="icons__item" data-name="status-pending"><i class="pronamic-pay-icon pronamic-pay-icon-status-pending"></i> pronamic-pay-icon-status-pending</div>
 			

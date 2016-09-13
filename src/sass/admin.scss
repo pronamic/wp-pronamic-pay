@@ -1,5 +1,7 @@
 @import "compass/css3";
 
+@import "../fonts/variables";
+
 /**
  * Colors
  */
@@ -31,6 +33,8 @@ td.column-version {
 
 /**
  * Status
+ *
+ * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
  */
 .widefat .column-pronamic_payment_status {
 	width: 1em;
@@ -63,35 +67,40 @@ td.column-version {
 	width: 100%;
     height: 100%;
 
-	content: "\f107";
+	content: $ppi-status-processing;
 }
 
 .pronamic-pay-status-publish:after {
-	content: "\f107";
+	content: $ppi-status-processing;
+}
+
+.pronamic-pay-status-payment_cancelled:after {
+    content: $ppi-status-cancelled;
+    color: #a00;
 }
 
 .pronamic-pay-status-payment_processing:after {
-    content: "\f107";
+    content: $ppi-status-processing;
     color: #73a724;
 }
 
 .pronamic-pay-status-payment_completed:after {
-	content: "\f104";
+	content: $ppi-status-completed;
     color: #2ea2cc;
 }
 
 .pronamic-pay-status-payment_pending:after {
-	content: "\f106";
+	content: $ppi-status-pending;
     color: #ffba00;
 }
 
 .pronamic-pay-status-payment_refunded:after {
-	content: "\f108";
+	content: $ppi-status-refunded;
 	color: #999;
 }
 
 .pronamic-pay-status-payment_failed:after {
-	content: "\f105";
+	content: $ppi-status-failed;
 	color: #d0c21f;
 }
 

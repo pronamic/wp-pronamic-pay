@@ -448,7 +448,7 @@ module.exports = function( grunt ) {
 
 		webfont: {
 			icons: {
-				src: 'src/fonts/*.svg',
+				src: 'src/fonts/images/*.svg',
 				dest: 'fonts',
 				options: {
 					font: 'pronamic-pay-icons',
@@ -460,7 +460,11 @@ module.exports = function( grunt ) {
 						classPrefix: 'pronamic-pay-icon-'
 					},
 					types: [ 'eot', 'woff2', 'woff', 'ttf', 'svg' ],
-					fontHeight: 768
+					fontHeight: 768,
+					customOutputs: [ {
+						template: 'src/fonts/templates/variables.scss',
+						dest: 'src/fonts/_variables.scss'
+					} ]
 				}
 			}
 		}
