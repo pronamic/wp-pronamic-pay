@@ -30,7 +30,9 @@ class Pronamic_WP_Pay_PostTypes {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Register post types
+	 * Register post types.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.6.1/wp-includes/post.php#L1277-L1300
 	 */
 	public function register_post_types() {
 		register_post_type( 'pronamic_gateway', array(
@@ -45,8 +47,8 @@ class Pronamic_WP_Pay_PostTypes {
 				'all_items'             => __( 'All Payment Gateway Configurations', 'pronamic_ideal' ),
 				'view_item'             => __( 'View Payment Gateway Configuration', 'pronamic_ideal' ),
 				'search_items'          => __( 'Search Payment Gateway Configurations', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payment gateway configurations found', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payment gateway configurations found in Trash', 'pronamic_ideal' ),
+				'not_found'             => __( 'No payment gateway configurations found.', 'pronamic_ideal' ),
+				'not_found_in_trash'    => __( 'No payment gateway configurations found in Trash.', 'pronamic_ideal' ),
 				'menu_name'             => __( 'Configurations', 'pronamic_ideal' ),
 				'filter_items_list'     => __( 'Filter payment gateway configurations list', 'pronamic_ideal' ),
 				'items_list_navigation' => __( 'Payment gateway configurations list navigation', 'pronamic_ideal' ),
@@ -81,8 +83,8 @@ class Pronamic_WP_Pay_PostTypes {
 				'all_items'             => __( 'All Payments', 'pronamic_ideal' ),
 				'view_item'             => __( 'View Payment', 'pronamic_ideal' ),
 				'search_items'          => __( 'Search Payments', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payments found', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payments found in Trash', 'pronamic_ideal' ),
+				'not_found'             => __( 'No payments found.', 'pronamic_ideal' ),
+				'not_found_in_trash'    => __( 'No payments found in Trash.', 'pronamic_ideal' ),
 				'menu_name'             => __( 'Payments', 'pronamic_ideal' ),
 				'filter_items_list'     => __( 'Filter payments list', 'pronamic_ideal' ),
 				'items_list_navigation' => __( 'Payments list navigation', 'pronamic_ideal' ),
@@ -113,8 +115,8 @@ class Pronamic_WP_Pay_PostTypes {
 				'all_items'             => __( 'All Subscriptions', 'pronamic_ideal' ),
 				'view_item'             => __( 'View Subscription', 'pronamic_ideal' ),
 				'search_items'          => __( 'Search Subscriptions', 'pronamic_ideal' ),
-				'not_found'             => __( 'No subscriptions found', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No subscriptions found in Trash', 'pronamic_ideal' ),
+				'not_found'             => __( 'No subscriptions found.', 'pronamic_ideal' ),
+				'not_found_in_trash'    => __( 'No subscriptions found in Trash.', 'pronamic_ideal' ),
 				'menu_name'             => __( 'Subscriptions', 'pronamic_ideal' ),
 				'filter_items_list'     => __( 'Filter subscriptions list', 'pronamic_ideal' ),
 				'items_list_navigation' => __( 'Subscriptions list navigation', 'pronamic_ideal' ),
@@ -147,8 +149,8 @@ class Pronamic_WP_Pay_PostTypes {
 				'all_items'             => __( 'All Payment Forms', 'pronamic_ideal' ),
 				'view_item'             => __( 'View Payment Form', 'pronamic_ideal' ),
 				'search_items'          => __( 'Search Payment Forms', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payment forms found', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payment forms found in Trash', 'pronamic_ideal' ),
+				'not_found'             => __( 'No payment forms found.', 'pronamic_ideal' ),
+				'not_found_in_trash'    => __( 'No payment forms found in Trash.', 'pronamic_ideal' ),
 				'menu_name'             => __( 'Payment Forms', 'pronamic_ideal' ),
 				'filter_items_list'     => __( 'Filter payment forms list', 'pronamic_ideal' ),
 				'items_list_navigation' => __( 'Payment forms list navigation', 'pronamic_ideal' ),
