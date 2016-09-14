@@ -159,6 +159,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 						break;
 					case 'gravityforms' :
+					case 'gravityformsideal' :
 						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
 
 						break;
@@ -169,7 +170,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				}
 
 				printf(
-					__( '%s for %s #%s', 'pronamic_ideal' ),
+					__( '%s for %s %s', 'pronamic_ideal' ),
 					sprintf(
 						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
 						get_edit_post_link( $post_id ),
@@ -177,7 +178,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					),
 					$text,
 					sprintf(
-						'<a href="%s">%s</a>',
+						'<a href="%s">#%s</a>',
 						get_edit_post_link( $source_id ),
 						$source_id
 					)
