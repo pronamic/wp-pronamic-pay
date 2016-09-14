@@ -33,7 +33,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );  
+		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
+
+		add_filter( 'default_hidden_columns', array( $this, 'default_hidden_columns' ) );
 
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
@@ -90,10 +92,10 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			),
 			'pronamic_payment_title'       => __( 'Payment', 'pronamic_ideal' ),
 			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
+			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 			'pronamic_payment_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_payment_date'        => __( 'Date', 'pronamic_ideal' ),
-//			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 
 //			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 //			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
@@ -103,6 +105,12 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		);
 
 		return $columns;
+	}
+
+	public function default_hidden_columns( $hidden ) {
+		$hidden[] = 'pronamic_payment_gateway';
+
+		return $hidden;
 	}
 
 	public function sortable_columns( $sortable_columns ) {
