@@ -93,11 +93,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_title'       => __( 'Payment', 'pronamic_ideal' ),
 			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
 			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
+			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_payment_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_payment_date'        => __( 'Date', 'pronamic_ideal' ),
 
-//			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 //			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
 //			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 //			'author'                       => __( 'User', 'pronamic_ideal' ),
@@ -109,6 +109,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 	public function default_hidden_columns( $hidden ) {
 		$hidden[] = 'pronamic_payment_gateway';
+		$hidden[] = 'pronamic_payment_description';
 
 		return $hidden;
 	}
