@@ -24,13 +24,16 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
 
-		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_sortable_columns', array( $this, 'sortable_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
+
+		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );  
 
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
@@ -63,9 +66,21 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		return $vars;
 	}
 
+	/**
+	 * Pre get posts.
+	 *
+	 * @param WP_Query $query
+	 */
+	public function pre_get_posts( $query ) {
+		if ( 'pronamic_payment_amount' == $query->get( 'orderby' ) ) {  
+			$query->set( 'meta_key', '_pronamic_payment_amount' );
+			$query->set( 'orderby', 'meta_value_num' );  
+		}
+	}
+
 	//////////////////////////////////////////////////
 
-	public function edit_columns( $columns ) {
+	public function columns( $columns ) {
 		$columns = array(
 			'cb'                           => '<input type="checkbox" />',
 			'pronamic_payment_status'      => sprintf(
@@ -73,19 +88,28 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
-			'title'                        => __( 'Title', 'pronamic_ideal' ),
-			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
-			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
+			'pronamic_payment_title'       => __( 'Payment', 'pronamic_ideal' ),
+			'pronamic_payment_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
+			'pronamic_payment_date'        => __( 'Date', 'pronamic_ideal' ),
+//			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
+//			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
+//			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 //			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
-//			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
 //			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
 //			'author'                       => __( 'User', 'pronamic_ideal' ),
-			'date'                         => __( 'Date', 'pronamic_ideal' ),
+//			'date'                         => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
+	}
+
+	public function sortable_columns( $sortable_columns ) {
+		$sortable_columns['pronamic_payment_title']  = 'title';
+		$sortable_columns['pronamic_payment_amount'] = 'pronamic_payment_amount';
+		$sortable_columns['pronamic_payment_date']   = 'date';
+
+		return $sortable_columns;
 	}
 
 	public function custom_columns( $column, $post_id ) {
@@ -95,18 +119,59 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			case 'pronamic_payment_status':
 				$post_status = get_post_status( $post_id );
 
+				$label = __( 'Unknown', 'pronamic_ideal' );
+
 				$status_object = get_post_status_object( $post_status );
 
 				if ( isset( $status_object, $status_object->label ) ) {
-					printf(
-						'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
-						esc_attr( $post_status ),
-						esc_attr( $status_object->label ),
-						esc_html( $status_object->label )
-					);
-				} else {
-					echo '—';
+					$label = $status_object->label;
 				}
+
+				printf(
+					'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
+					esc_attr( $post_status ),
+					esc_attr( $label ),
+					esc_html( $label )
+				);
+
+				break;
+			case 'pronamic_payment_title':
+				$payment = get_pronamic_payment( $post_id );
+
+				$source    = $payment->get_source();
+				$source_id = $payment->get_source_id();
+
+				$text = $source;
+
+				switch ( $source ) {
+					case 'woocommerce' :
+						$text = __( 'WooCommerce Order', 'pronamic_ideal' );
+
+						break;
+					case 'gravityforms' :
+						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
+
+						break;
+					case 'test' :
+						$text = __( 'Test', 'pronamic_ideal' );
+
+						break;
+				}
+
+				printf(
+					__( '%s for %s #%s', 'pronamic_ideal' ),
+					sprintf(
+						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
+						get_edit_post_link( $post_id ),
+						$post_id
+					),
+					$text,
+					sprintf(
+						'<a href="%s">%s</a>',
+						get_edit_post_link( $source_id ),
+						$source_id
+					)
+				);
 
 				break;
 			case 'pronamic_payment_gateway':
@@ -128,9 +193,18 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_amount':
-				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
-				echo ' ';
-				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
+				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
+				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
+				if ( 'EUR' === $currency ) {
+					echo '&euro;&nbsp;' . esc_html( number_format_i18n( $amount, 2 ) );
+				} else {
+					echo esc_html( $currency . ' ' . $amount );
+				}
+
+				break;
+			case 'pronamic_payment_date':
+				the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ) );
 
 				break;
 			case 'pronamic_payment_recurring':
@@ -161,6 +235,10 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_bic', true ) );
 				echo '<br />';
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
+
+				break;
+			case 'pronamic_payment_customer':
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_customer_name', true ) );
 
 				break;
 			case 'pronamic_payment_source':
