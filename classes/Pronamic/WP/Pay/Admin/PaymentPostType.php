@@ -89,11 +89,12 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
 			'pronamic_payment_title'       => __( 'Payment', 'pronamic_ideal' ),
+			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
 			'pronamic_payment_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_payment_date'        => __( 'Date', 'pronamic_ideal' ),
 //			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-//			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
+
 //			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
 //			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
 //			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),

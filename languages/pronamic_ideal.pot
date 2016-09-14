@@ -32,7 +32,7 @@ msgstr ""
 #: admin/meta-box-payment-subscription.php:30
 #: admin/meta-box-subscription-info.php:43
 #: admin/meta-box-subscription-payments.php:38
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:78
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:94
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:71
 #: templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
@@ -91,7 +91,7 @@ msgstr ""
 
 #: admin/meta-box-gateway-test.php:93
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:191
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:133
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:157
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:37
 msgid "Test"
 msgstr ""
@@ -107,7 +107,7 @@ msgstr ""
 #: admin/tab-system_status.php:388
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:57
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:51
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:79
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:95
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:76
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:31
 msgid "Date"
@@ -155,8 +155,8 @@ msgstr ""
 
 #: admin/meta-box-payment-info.php:127
 #: admin/meta-box-subscription-payments.php:60
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:73
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:74
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:88
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:89
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:73
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:487
@@ -191,7 +191,7 @@ msgstr ""
 #: admin/meta-box-payment-source.php:11
 #: admin/meta-box-payment-subscription.php:84
 #: admin/meta-box-subscription-source.php:13
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:248
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:272
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:74
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:233
 msgid "Source"
@@ -231,7 +231,7 @@ msgid "Subscription ID"
 msgstr ""
 
 #: admin/meta-box-payment-subscription.php:14
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:257
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:281
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:224
 #: classes/Pronamic/WP/Pay/PostTypes.php:108
 msgid "Subscription"
@@ -243,7 +243,7 @@ msgstr ""
 
 #: admin/meta-box-payment-update.php:33
 #: admin/meta-box-subscription-update.php:33
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:275
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:299
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:260
 msgid "Update"
 msgstr ""
@@ -1315,45 +1315,49 @@ msgstr[1] ""
 msgid "Check Payment Status"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:76
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:239
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:91
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:263
 #: classes/Pronamic/WP/Pay/PostTypes.php:76
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
 msgid "Payment"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:77
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:92
+msgid "Transaction"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:93
 msgid "Customer"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:99
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:123
 #: classes/Pronamic/WP/Pay/Settings.php:78
 msgid "Unknown"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:125
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 msgid "WooCommerce Order"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:129
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:153
 msgid "Gravity Forms Entry"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:139
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:163
 msgid "%s for %s #%s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:184
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:208
 msgid "D j M Y \\a\\t H:i"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:191
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:215
 #: vendor/wp-pay-extensions/classipress/src/Extension.php:94
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:99
 msgid "Yes"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:266
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:290
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:242
 msgid "Log"
 msgstr ""
