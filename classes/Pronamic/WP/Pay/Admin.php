@@ -436,7 +436,7 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		add_menu_page(
-			__( 'Pay', 'pronamic_ideal' ),
+			__( 'Pronamic Pay', 'pronamic_ideal' ),
 			__( 'Pay', 'pronamic_ideal' ) . $badge,
 			'edit_payments',
 			'pronamic_ideal',
