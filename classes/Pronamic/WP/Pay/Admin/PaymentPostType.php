@@ -274,15 +274,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			);
 
 			add_meta_box(
-				'pronamic_payment_source',
-				__( 'Source', 'pronamic_ideal' ),
-				array( $this, 'meta_box_source' ),
-				$post_type,
-				'normal',
-				'high'
-			);
-
-			add_meta_box(
 				'pronamic_payment_subscription',
 				__( 'Subscription', 'pronamic_ideal' ),
 				array( $this, 'meta_box_subscription' ),
@@ -321,15 +312,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	public function meta_box_info( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-info.php';
-	}
-
-	/**
-	 * Pronamic Pay gateway config meta box
-	 *
-	 * @param WP_Post $post The object for the current post/page.
-	 */
-	public function meta_box_source( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-source.php';
 	}
 
 	/**
