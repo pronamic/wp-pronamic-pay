@@ -228,15 +228,6 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			);
 
 			add_meta_box(
-				'pronamic_subscription_source',
-				__( 'Source', 'pronamic_ideal' ),
-				array( $this, 'meta_box_source' ),
-				$post_type,
-				'normal',
-				'high'
-			);
-
-			add_meta_box(
 				'pronamic_subscription_log',
 				__( 'Log', 'pronamic_ideal' ),
 				array( $this, 'meta_box_log' ),
@@ -275,15 +266,6 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	 */
 	public function meta_box_info( $post ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-info.php';
-	}
-
-	/**
-	 * Pronamic Pay subscription source meta box
-	 *
-	 * @param WP_Post $post The object for the current post/page.
-	 */
-	public function meta_box_source( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-source.php';
 	}
 
 	/**
