@@ -115,7 +115,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	}
 
 	public function sortable_columns( $sortable_columns ) {
-		$sortable_columns['pronamic_payment_title']  = 'title';
+		$sortable_columns['pronamic_payment_title']  = 'ID';
 		$sortable_columns['pronamic_payment_amount'] = 'pronamic_payment_amount';
 		$sortable_columns['pronamic_payment_date']   = 'date';
 
