@@ -102,11 +102,10 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_amount':
-				printf(
-					'%s %s',
-					esc_html( get_post_meta( $post_id, '_pronamic_subscription_currency', true ) ),
-					esc_html( get_post_meta( $post_id, '_pronamic_subscription_amount', true ) )
-				);
+				$currency = get_post_meta( $post_id, '_pronamic_subscription_currency', true );
+				$amount   = get_post_meta( $post_id, '_pronamic_subscription_amount', true );
+
+				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_subscription_interval':

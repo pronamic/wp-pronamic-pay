@@ -45,9 +45,10 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			echo esc_html( $subscription->get_currency() );
-			echo ' ';
-			echo esc_html( $subscription->get_amount() );
+			$currency = $subscription->get_currency();
+			$amount   = $subscription->get_amount();
+
+			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 			?>
 		</td>

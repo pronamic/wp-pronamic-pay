@@ -207,11 +207,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
-				if ( 'EUR' === $currency ) {
-					echo '&euro;&nbsp;' . esc_html( number_format_i18n( $amount, 2 ) );
-				} else {
-					echo esc_html( $currency . ' ' . $amount );
-				}
+				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_payment_date':

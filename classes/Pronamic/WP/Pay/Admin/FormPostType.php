@@ -143,7 +143,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				echo '€', '&nbsp;', esc_html( number_format_i18n( $value, 2 ) );
+				echo esc_html( Pronamic_WP_Util::format_price( $value ) );
 
 				break;
 			case 'pronamic_payment_form_shortcode' :

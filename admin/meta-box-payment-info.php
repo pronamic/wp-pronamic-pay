@@ -37,9 +37,10 @@ $payment = get_pronamic_payment( $post_id );
 		<td>
 			<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
-			echo ' ';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
+			$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
+			$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
+			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 			?>
 		</td>

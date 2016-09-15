@@ -138,6 +138,32 @@ class Pronamic_WP_Util {
 		return $result;
 	}
 
+	/**
+	 * Format price.
+	 *
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-formatting-functions.php#L306-L347
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-core-functions.php#L299-L376
+	 */
+	public static function format_price( $amount, $currency = null ) {
+		$currency = ( null === $currency ) ? 'EUR' : $currency;
+
+		$currency_symbol = $currency;
+
+		switch ( $currency ) {
+			case 'EUR' :
+				$currency_symbol = '€';
+				break;
+			case 'USD' :
+				$currency_symbol = '$';
+				break;
+		}
+
+		// @see https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods
+		$non_breaking_space = ' ';
+
+		return '' . $currency_symbol . $non_breaking_space . number_format_i18n( $amount, 2 );
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

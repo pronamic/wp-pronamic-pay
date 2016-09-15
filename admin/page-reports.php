@@ -17,7 +17,7 @@
 								<strong><?php
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
-									echo '&euro;&nbsp;' . esc_html( number_format_i18n( $serie->legendValue, 2 ) );
+									echo esc_html( Pronamic_WP_Util::format_price( $serie->legendValue ) );
 								} else {
 									echo esc_html( $serie->legendValue );
 								}
