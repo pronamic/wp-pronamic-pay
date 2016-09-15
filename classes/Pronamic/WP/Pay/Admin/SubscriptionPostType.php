@@ -24,7 +24,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
 
-		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_sortable_columns', array( $this, 'sortable_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
 
@@ -62,27 +63,66 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 	//////////////////////////////////////////////////
 
-	public function edit_columns( $columns ) {
+	public function columns( $columns ) {
 		$columns = array(
 			'cb'                                => '<input type="checkbox" />',
-			'title'                             => __( 'Title', 'pronamic_ideal' ),
-			'pronamic_subscription_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-			'pronamic_subscription_description' => __( 'Description', 'pronamic_ideal' ),
+			'pronamic_subscription_status'      => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status" data-tip="%s">%s</span>',
+				esc_html__( 'Status', 'pronamic_ideal' ),
+				esc_html__( 'Status', 'pronamic_ideal' )
+			),
+			'pronamic_subscription_title'       => __( 'Subscription', 'pronamic_ideal' ),
+//			'pronamic_subscription_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
+//			'pronamic_subscription_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_subscription_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_subscription_recurring'   => __( 'Recurrence', 'pronamic_ideal' ),
-			'pronamic_subscription_status'      => __( 'Status', 'pronamic_ideal' ),
-			'pronamic_subscription_source'      => __( 'Source', 'pronamic_ideal' ),
-			'author'                            => __( 'User', 'pronamic_ideal' ),
-			'date'                              => __( 'Date', 'pronamic_ideal' ),
+			'pronamic_subscription_date'        => __( 'Date', 'pronamic_ideal' ),
+//			'pronamic_subscription_source'      => __( 'Source', 'pronamic_ideal' ),
+//			'author'                            => __( 'User', 'pronamic_ideal' ),
+//			'date'                              => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
+	}
+
+	public function sortable_columns( $sortable_columns ) {
+		$sortable_columns['pronamic_subscription_title'] = 'ID';
+		$sortable_columns['pronamic_subscription_date']  = 'date';
+
+		return $sortable_columns;
 	}
 
 	public function custom_columns( $column, $post_id ) {
 		global $post;
 
 		switch ( $column ) {
+			case 'pronamic_subscription_status':
+				$post_status = get_post_status( $post_id );
+
+				$label = __( 'Unknown', 'pronamic_ideal' );
+
+				$status_object = get_post_status_object( $post_status );
+
+				if ( isset( $status_object, $status_object->label ) ) {
+					$label = $status_object->label;
+				}
+
+				printf(
+					'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
+					esc_attr( $post_status ),
+					esc_attr( $label ),
+					esc_html( $label )
+				);
+
+				break;
+			case 'pronamic_subscription_title':
+				printf(
+					'<a href="%s" class="row-title"><strong>#%s</strong></a>',
+					get_edit_post_link( $post_id ),
+					$post_id
+				);
+
+				break;
 			case 'pronamic_subscription_gateway':
 				$payment = get_pronamic_payment_by_meta( '_pronamic_payment_subscription_id', $post_id );
 
@@ -181,14 +221,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				);
 
 				break;
-			case 'pronamic_subscription_status':
-				$status_object = get_post_status_object( get_post_status( $post_id ) );
-
-				if ( isset( $status_object, $status_object->label ) ) {
-					echo esc_html( $status_object->label );
-				} else {
-					echo '—';
-				}
+			case 'pronamic_subscription_date':
+				the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ) );
 
 				break;
 			case 'pronamic_subscription_source':

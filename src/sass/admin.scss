@@ -36,7 +36,8 @@ td.column-version {
  *
  * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
  */
-.widefat .column-pronamic_payment_status {
+.widefat .column-pronamic_payment_status,
+.widefat .column-pronamic_subscription_status {
 	width: 1em;
 }
 
@@ -74,7 +75,14 @@ td.column-version {
 	content: $ppi-status-processing;
 }
 
-.pronamic-pay-status-payment_cancelled:after {
+.pronamic-pay-status-payment_pending:after,
+.pronamic-pay-status-subscr_pending:after {
+	content: $ppi-status-pending;
+	color: #ffba00;
+}
+
+.pronamic-pay-status-payment_cancelled:after,
+.pronamic-pay-status-subscr_cancelled:after {
     content: $ppi-status-cancelled;
     color: #a00;
 }
@@ -84,14 +92,11 @@ td.column-version {
     color: #73a724;
 }
 
-.pronamic-pay-status-payment_completed:after {
+.pronamic-pay-status-payment_completed:after,
+.pronamic-pay-status-subscr_active:after,
+.pronamic-pay-status-subscr_completed:after {
 	content: $ppi-status-completed;
     color: #2ea2cc;
-}
-
-.pronamic-pay-status-payment_pending:after {
-	content: $ppi-status-pending;
-    color: #ffba00;
 }
 
 .pronamic-pay-status-payment_refunded:after {
@@ -99,7 +104,8 @@ td.column-version {
 	color: #999;
 }
 
-.pronamic-pay-status-payment_failed:after {
+.pronamic-pay-status-payment_failed:after,
+.pronamic-pay-status-subscr_failed:after {
 	content: $ppi-status-failed;
 	color: #d0c21f;
 }
@@ -109,7 +115,8 @@ td.column-version {
 	color: #999;
 }
 
-.pronamic-pay-status-payment_expired:after {
+.pronamic-pay-status-payment_expired:after,
+.pronamic-pay-status-subscr_expired:after {
 	content: $ppi-status-on-hold;
 	color: #999;
 }
