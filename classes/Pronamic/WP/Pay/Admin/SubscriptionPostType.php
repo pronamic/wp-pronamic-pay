@@ -292,18 +292,18 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			);
 
 			add_meta_box(
-				'pronamic_subscription_log',
-				__( 'Log', 'pronamic_ideal' ),
-				array( $this, 'meta_box_log' ),
+				'pronamic_subscription_payments',
+				__( 'Payments', 'pronamic_ideal' ),
+				array( $this, 'meta_box_payments' ),
 				$post_type,
 				'normal',
 				'high'
 			);
 
 			add_meta_box(
-				'pronamic_subscription_payments',
-				__( 'Payments', 'pronamic_ideal' ),
-				array( $this, 'meta_box_payments' ),
+				'pronamic_subscription_log',
+				__( 'Log', 'pronamic_ideal' ),
+				array( $this, 'meta_box_log' ),
 				$post_type,
 				'normal',
 				'high'
