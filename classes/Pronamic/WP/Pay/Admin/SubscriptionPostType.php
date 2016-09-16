@@ -204,26 +204,18 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				switch ( $period ) {
 					case 'D' :
-					case 'day':
-					case 'days':
 						$period = _n( 'day', 'days', $interval, 'pronamic_ideal' );
 						break;
 
 					case 'W' :
-					case 'week':
-					case 'weeks':
 						$period = _n( 'week', 'weeks', $interval, 'pronamic_ideal' );
 						break;
 
 					case 'M' :
-					case 'month':
-					case 'months':
 						$period = _n( 'month', 'months', $interval, 'pronamic_ideal' );
 						break;
 
 					case 'Y' :
-					case 'year':
-					case 'years':
 						$period = _n( 'year', 'years', $interval, 'pronamic_ideal' );
 						break;
 				}
