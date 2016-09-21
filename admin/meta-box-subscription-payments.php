@@ -1,6 +1,10 @@
 <?php
 
-$subscription = get_pronamic_subscription( get_the_ID() );
+$post_id = get_the_ID();
+
+$post_type = get_post_type( $post_id );
+
+$subscription = get_pronamic_subscription( $post_id );
 
 $payments = $subscription->get_payments();
 
@@ -12,71 +16,51 @@ $payments = $subscription->get_payments();
 
 <?php else : ?>
 
-	<?php foreach ( $payments as $payment ) : ?>
+	<table class="pronamic-pay-subscriptions-table">
+		<thead>
+			<tr>
+				<th scope="col">
+					<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status" data-tip="<?php esc_attr_e( 'Status', 'pronamic_ideal' ); ?>"><?php esc_html_e( 'Status', 'pronamic_ideal' ); ?></span>
+				</th>
+				<th scope="col"><?php esc_html_e( 'Payment', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Transaction', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Date', 'pronamic_ideal' ); ?></th>
+			</tr>
+		</thead>
 
-		<?php $payment_id = $payment->get_id(); ?>
+		<tbody>
 
-			<table class="widefat fixed" cellspacing="0">
+			<?php foreach ( $payments as $payment ) : ?>
+
+				<?php
+
+				$payment_id = $payment->get_id();
+				$post_type  = get_post_type( $payment_id );
+
+				?>
+
 				<tr>
 					<td>
-						<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
+						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_status', $payment_id ); ?>
 					</td>
 					<td>
-						<?php echo esc_html( get_the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), $payment_id ) ); ?>
+						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_title', $payment_id ); ?>
+					</td>
+					<td>
+						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_transaction', $payment_id ); ?>
+					</td>
+					<td>
+						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_amount', $payment_id ); ?>
+					</td>
+					<td>
+						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_date', $payment_id ); ?>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						<?php esc_html_e( 'ID', 'pronamic_ideal' ); ?>
-					</td>
-					<td>
-						<?php echo esc_html( $payment_id ); ?>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
-					</th>
-					<td>
-						<?php
 
-						echo esc_html( get_post_meta( $payment_id, '_pronamic_payment_currency', true ) );
-						echo ' ';
-						echo esc_html( get_post_meta( $payment_id, '_pronamic_payment_amount', true ) );
+			<?php endforeach; ?>
 
-						?>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<?php esc_html_e( 'Transaction ID', 'pronamic_ideal' ); ?>
-					</th>
-					<td>
-						<?php echo esc_html( get_post_meta( $payment_id, '_pronamic_payment_transaction_id', true ) ); ?>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<?php esc_html_e( 'Status', 'pronamic_ideal' ); ?>
-					</th>
-					<td>
-						<?php
-
-						$status_object = get_post_status_object( get_post_status( $payment_id ) );
-
-						if ( isset( $status_object, $status_object->label ) ) {
-							echo esc_html( $status_object->label );
-						} else {
-							echo '—';
-						}
-
-						?>
-					</td>
-				</tr>
-			</table>
-
-			<br>
-
-	<?php endforeach; ?>
+		</tbody>
+	</table>
 
 <?php endif; ?>

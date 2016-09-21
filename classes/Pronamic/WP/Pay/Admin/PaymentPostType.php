@@ -211,7 +211,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_date':
-				the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ) );
+				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
 
 				break;
 			case 'pronamic_payment_recurring':

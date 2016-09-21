@@ -32,6 +32,31 @@ td.column-version {
 }
 
 /**
+ * Subscriptions table
+ *
+ * @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
+ */
+.pronamic-pay-subscriptions-table {
+	border-spacing: 0;
+	width: 100%;
+	clear: both;
+	margin: 0;
+}
+
+.pronamic-pay-subscriptions-table thead th {
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.pronamic-pay-subscriptions-table td,
+.pronamic-pay-subscriptions-table th {
+	padding: 8px 10px;
+}
+
+.pronamic-pay-subscriptions-table th {
+	text-align: left;
+}
+
+/**
  * Status
  *
  * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
