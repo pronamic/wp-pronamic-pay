@@ -164,6 +164,41 @@ class Pronamic_WP_Util {
 		return '' . $currency_symbol . $non_breaking_space . number_format_i18n( $amount, 2 );
 	}
 
+	/**
+	 * Format interval.
+	 */
+	public static function format_interval( $interval, $period ) {
+		switch ( $period ) {
+			case 'D' :
+			case 'day' :
+			case 'days' :
+				return sprintf( _n( 'Every %s day', 'Every %s days', $interval, 'pronamic_ideal' ), $interval );
+			case 'W' :
+			case 'week' :
+			case 'weeks' :
+				return sprintf( _n( 'Every %s week', 'Every %s weeks', $interval, 'pronamic_ideal' ), $interval );
+			case 'M' :
+			case 'month' :
+			case 'months' :
+				return sprintf( _n( 'Every %s month', 'Every %s months', $interval, 'pronamic_ideal' ), $interval );
+			case 'Y' :
+			case 'year' :
+			case 'years' :
+				return sprintf( _n( 'Every %s year', 'Every %s years', $interval, 'pronamic_ideal' ), $interval );
+		}
+	}
+
+	/**
+	 * Format frequency.
+	 */
+	public static function format_frequency( $frequency ) {
+		if ( '' === $frequency ) {
+			return _x( 'Unlimited', 'Recurring payment', 'pronamic_ideal' );
+		}
+
+		return sprintf( _n( '%s time', '%s times', $frequency, 'pronamic_ideal' ), $frequency );
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

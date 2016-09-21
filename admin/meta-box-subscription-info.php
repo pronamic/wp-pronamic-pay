@@ -60,15 +60,7 @@ $payment = $subscription->get_first_payment();
 			<?php echo esc_html_x( 'Interval', 'Recurring payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php
-
-			printf(
-				'%s %s',
-				esc_html( $subscription->get_interval() ),
-				esc_html( $subscription->get_interval_period() )
-			);
-
-			?>
+			<?php echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) ); ?>
 		</td>
 	</tr>
 	<tr>
@@ -76,15 +68,7 @@ $payment = $subscription->get_first_payment();
 			<?php echo esc_html_x( 'Frequency', 'Recurring payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php
-
-			if ( '' === $subscription->get_frequency() ) {
-				echo esc_html_x( 'Unlimited', 'Recurring payment', 'pronamic_ideal' );
-			} else {
-				echo esc_html( $subscription->get_frequency() );
-			}
-
-			?>
+			<?php echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) ); ?>
 		</td>
 	</tr>
 	<tr>

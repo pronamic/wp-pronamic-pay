@@ -93,7 +93,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	}
 
 	public function custom_columns( $column, $post_id ) {
-		global $post;
+		$subscription = get_pronamic_subscription( $post_id );
 
 		switch ( $column ) {
 			case 'pronamic_subscription_status':
@@ -179,68 +179,17 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_interval':
-				printf(
-					'%s %s %s',
-					esc_html_e( 'Every', 'pronamic_ideal' ),
-					esc_html( get_post_meta( $post_id, '_pronamic_subscription_interval', true ) ),
-					esc_html( get_post_meta( $post_id, '_pronamic_subscription_interval_period', true ) )
-				);
+				echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
 
 				break;
 			case 'pronamic_subscription_frequency':
-				$frequency = get_post_meta( $post_id, '_pronamic_subscription_frequency', true );
-
-				if ( '' === $frequency ) {
-					echo esc_html_x( 'Unlimited', 'Recurring payment', 'pronamic_ideal' );
-				} else {
-					echo esc_html( sprintf( _n( '%s time', '%s times', $frequency, 'pronamic_ideal' ), $frequency ) );
-				}
+				echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_recurring':
-				// Interval
-				$interval = get_post_meta( $post_id, '_pronamic_subscription_interval', true );
-				$period   = get_post_meta( $post_id, '_pronamic_subscription_interval_period', true );
-
-				switch ( $period ) {
-					case 'D' :
-						$period = _n( 'day', 'days', $interval, 'pronamic_ideal' );
-						break;
-
-					case 'W' :
-						$period = _n( 'week', 'weeks', $interval, 'pronamic_ideal' );
-						break;
-
-					case 'M' :
-						$period = _n( 'month', 'months', $interval, 'pronamic_ideal' );
-						break;
-
-					case 'Y' :
-						$period = _n( 'year', 'years', $interval, 'pronamic_ideal' );
-						break;
-				}
-
-				if ( '1' === $interval ) {
-					$interval = $period;
-				} else {
-					$interval = sprintf( '%s %s', $interval, $period );
-				}
-
-				// Frequency
-				$frequency = get_post_meta( $post_id, '_pronamic_subscription_frequency', true );
-
-				if ( '' === $frequency ) {
-					$frequency = _x( 'Forever', 'Recurring payment', 'pronamic_ideal' );
-				} else {
-					$frequency = sprintf( _n( '%s time', '%s times', $frequency, 'pronamic_ideal' ), $frequency );
-				}
-
-				printf( //xss ok
-					'%s %s<br>%s',
-					esc_html__( 'Every', 'pronamic_ideal' ),
-					esc_html( $interval ),
-					esc_html( $frequency )
-				);
+				echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
+				echo '<br />';
+				echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_date':
