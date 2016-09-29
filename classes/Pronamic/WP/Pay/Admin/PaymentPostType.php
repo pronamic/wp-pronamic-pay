@@ -436,7 +436,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'delete_others_posts'    => 'delete_others_payments',
 			'edit_private_posts'     => 'edit_private_payments',
 			'edit_published_posts'   => 'edit_published_payments',
-			'create_posts'           => 'create_payments',
+			'create_posts'           => 'do_not_allow',
 		);
 	}
 }
