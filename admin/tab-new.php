@@ -15,7 +15,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<p>
 			<?php
 
-esc_html_e( 'From version 3.7, it is possible to create simple payment forms.
+esc_html_e( 'It is now possible to create simple payment forms.
 These forms have a fixed design and fixed fields.
 Each form has a payment amount, name and e-mail address field.
 That way, users can easily make available payment forms.'
