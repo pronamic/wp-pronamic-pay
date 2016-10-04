@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-09-21 15:20+0100\n"
+"PO-Revision-Date: 2016-10-04 14:19+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box-form-options.php:7 admin/tab-gateways.php:15
@@ -32,13 +32,13 @@ msgstr "Betaal nu"
 #: admin/meta-box-payment-info.php:35
 #: admin/meta-box-payment-subscription.php:30
 #: admin/meta-box-subscription-info.php:45
-#: admin/meta-box-subscription-payments.php:20
+#: admin/meta-box-subscription-payments.php:27
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:98
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:77
 #: templates/form.php:34
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:512
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:511
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:222
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:194
 msgid "Amount"
@@ -106,7 +106,7 @@ msgstr ""
 "Sla de ingevoerde betalingsgateway gegevens op om een test betaling te maken."
 
 #: admin/meta-box-payment-info.php:11 admin/meta-box-subscription-info.php:13
-#: admin/meta-box-subscription-payments.php:18 admin/tab-documentation.php:606
+#: admin/meta-box-subscription-payments.php:28 admin/tab-documentation.php:606
 #: admin/tab-system_status.php:388
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:57
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:51
@@ -117,12 +117,10 @@ msgid "Date"
 msgstr "Datum"
 
 #: admin/meta-box-payment-info.php:14 admin/meta-box-subscription-info.php:16
-#: admin/meta-box-subscription-payments.php:34
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr "j F Y H:i:s"
 
 #: admin/meta-box-payment-info.php:19 admin/meta-box-subscription-info.php:21
-#: admin/meta-box-subscription-payments.php:19
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:49
 msgid "ID"
 msgstr "ID"
@@ -133,14 +131,13 @@ msgstr "ID"
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:96
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:113
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:116
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:515
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:514
 msgid "Description"
 msgstr "Beschrijving"
 
 #: admin/meta-box-payment-info.php:50
 #: admin/meta-box-payment-subscription.php:76
 #: admin/meta-box-subscription-info.php:29
-#: admin/meta-box-subscription-payments.php:21
 msgid "Transaction ID"
 msgstr "Transactie ID"
 
@@ -157,13 +154,14 @@ msgid "Redirect URL"
 msgstr "Redirect URL"
 
 #: admin/meta-box-payment-info.php:128
-#: admin/meta-box-subscription-payments.php:22
+#: admin/meta-box-subscription-payments.php:23
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:90
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:91
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:71
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:72
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:511
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:510
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:521
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:225
 msgid "Status"
@@ -208,7 +206,7 @@ msgid "User ID"
 msgstr "Gebruiker ID"
 
 #: admin/meta-box-payment-info.php:237 admin/meta-box-subscription-info.php:149
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:507
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:506
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -217,7 +215,7 @@ msgid "No logs found."
 msgstr "Geen logs gevonden."
 
 #: admin/meta-box-payment-log.php:34 admin/meta-box-subscription-log.php:34
-#: vendor/wp-pay-gateways/mollie/src/Client.php:391
+#: vendor/wp-pay-gateways/mollie/src/Client.php:408
 msgid "%1$s at %2$s"
 msgstr "%1$s om %2$s"
 
@@ -245,10 +243,23 @@ msgstr "Deze betaling is niet gerelateerd aan een abonnement."
 msgid "Update"
 msgstr "Bijwerken"
 
-#: admin/meta-box-subscription-payments.php:11
+#: admin/meta-box-subscription-payments.php:15
 #: classes/Pronamic/WP/Pay/PostTypes.php:86
 msgid "No payments found."
 msgstr "Geen betalingen gevonden."
+
+#: admin/meta-box-subscription-payments.php:25
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:93
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:269
+#: classes/Pronamic/WP/Pay/PostTypes.php:78
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
+msgid "Payment"
+msgstr "Betaling"
+
+#: admin/meta-box-subscription-payments.php:26
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:94
+msgid "Transaction"
+msgstr "Transactie"
 
 #: admin/methods-wp-admin.php:6 admin/tab-branding.php:125
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:125
@@ -292,6 +303,7 @@ msgstr ""
 "opnieuw of neem contact op met support."
 
 #: admin/notice-update-php.php:8
+#, fuzzy
 msgid ""
 "Unfortunately the Pronamic iDEAL plugin will no longer work correctly in PHP "
 "versions older than 5.3. Read more information about <a href=\"%1$s\" target="
@@ -300,6 +312,10 @@ msgstr ""
 "Helaas zal de Pronamic iDEAL plugin niet langer goed functioneren op PHP "
 "versies lager dan 5.3. Lees meer over <a href=\"%1$s\" target=\"%2$s\">hoe "
 "je kunt bijwerken</a>."
+
+#: admin/notice-update-php.php:9
+msgid "http://www.wpupdatephp.com/update/"
+msgstr "https://www.pronamic.nl/?p=20290"
 
 #: admin/notice-update_db.php:19
 msgid "Pronamic iDEAL Data Update Required"
@@ -1055,8 +1071,9 @@ msgid "Simple Payment Forms"
 msgstr "Eenvoudige betalingsformulieren"
 
 #: admin/tab-new.php:18
+#, fuzzy
 msgid ""
-"From version 3.7, it is possible to create simple payment forms.\n"
+"It is now possible to create simple payment forms.\n"
 "These forms have a fixed design and fixed fields.\n"
 "Each form has a payment amount, name and e-mail address field.\n"
 "That way, users can easily make available payment forms."
@@ -1419,7 +1436,7 @@ msgstr "Concept configuratie bijgewerkt."
 msgid "Payer"
 msgstr "Betaler"
 
-#: classes/Pronamic/WP/Pay/Admin/Notices.php:59
+#: classes/Pronamic/WP/Pay/Admin/Notices.php:64
 msgid ""
 "<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href=\"%1$s"
 "\">support license key</a>, please <a href=\"%2$s\" target=\"_blank\">get "
@@ -1429,7 +1446,7 @@ msgstr ""
 "\">support licentiesleutel</a> ingevuld, bestel je licentiesleutel op <a "
 "href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
 
-#: classes/Pronamic/WP/Pay/Admin/Notices.php:65
+#: classes/Pronamic/WP/Pay/Admin/Notices.php:70
 msgid ""
 "<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href=\"%1$s"
 "\">support license key</a>. Please <a href=\"%2$s\" target=\"_blank\">get "
@@ -1450,17 +1467,6 @@ msgstr[1] "%s betalingen bijgewerkt."
 #: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:121
 msgid "Check Payment Status"
 msgstr "Controleer betalingsstatus"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:93
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:269
-#: classes/Pronamic/WP/Pay/PostTypes.php:78
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
-msgid "Payment"
-msgstr "Betaling"
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:94
-msgid "Transaction"
-msgstr "Transactie"
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:97
 msgid "Customer"
@@ -1629,7 +1635,7 @@ msgid "Configurations"
 msgstr "Configuraties"
 
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:32
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:509
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:508
 msgid "Mode"
 msgstr "Modus"
 
@@ -2295,7 +2301,7 @@ msgid "Event Espresso"
 msgstr "Event Espresso"
 
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:258
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:163
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:166
 msgid "Transaction %s"
 msgstr "Transactie %s"
 
@@ -2806,7 +2812,7 @@ msgstr "In afwachting van iDEAL-betaling."
 msgid "Order %s"
 msgstr "Bestelling %s"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:154
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:157
 msgid "MemberPress"
 msgstr "MemberPress"
 
@@ -3830,35 +3836,45 @@ msgstr ""
 "Kopieer de Webhook URL naar het %s dashboard om automatische transactie "
 "status updates te ontvangen."
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:506
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:428
+#, fuzzy
+msgid "Created Mollie subscription."
+msgstr "Nieuw abonnement toevoegen"
+
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:474
+#, fuzzy
+msgid "Cancelled Mollie subscription."
+msgstr "Nieuw abonnement toevoegen"
+
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:505
 msgid "Resource"
 msgstr "Bron"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:508
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:507
 msgid "Customer ID"
 msgstr "Customer ID"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:510
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:509
 msgid "Created date"
 msgstr "Aanmaaktdatum"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:513
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:512
 msgid "Times"
 msgstr "Aantal keer"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:514
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:513
 msgid "Interval"
 msgstr "Interval"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:516
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:515
 msgid "Method"
 msgstr "Methode"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:517
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:516
 msgid "Cancelled date"
 msgstr "Annuleringsdatum"
 
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:520
+#: vendor/wp-pay-gateways/mollie/src/Gateway.php:525
 msgid "Mollie subscription data in response message:"
 msgstr "Mollie abonnement data in antwoordbericht:"
 
