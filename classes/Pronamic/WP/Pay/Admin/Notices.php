@@ -43,6 +43,11 @@ class Pronamic_WP_Pay_Admin_Notices {
 	public function admin_notices() {
 		$screen = get_current_screen();
 
+		// Show notices only to options managers (administrators)
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		// Jetpack
 		if ( 'jetpack' === $screen->parent_base ) {
 			return;
