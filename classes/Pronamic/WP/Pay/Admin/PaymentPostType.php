@@ -84,24 +84,28 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 	public function columns( $columns ) {
 		$columns = array(
-			'cb'                           => '<input type="checkbox" />',
-			'pronamic_payment_status'      => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status" data-tip="%s">%s</span>',
+			'cb'                            => '<input type="checkbox" />',
+			'pronamic_payment_status'       => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-status" data-tip="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
-			'pronamic_payment_title'       => __( 'Payment', 'pronamic_ideal' ),
-			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
-			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
-			'pronamic_payment_customer'    => __( 'Customer', 'pronamic_ideal' ),
-			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
-			'pronamic_payment_date'        => __( 'Date', 'pronamic_ideal' ),
+			'pronamic_payment_subscription' => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-recurring" data-tip="%s">%s</span>',
+				esc_html__( 'Subscription', 'pronamic_ideal' ),
+				esc_html__( 'Subscription', 'pronamic_ideal' )
+			),
+			'pronamic_payment_title'        => __( 'Payment', 'pronamic_ideal' ),
+			'pronamic_payment_transaction'  => __( 'Transaction', 'pronamic_ideal' ),
+			'pronamic_payment_gateway'      => __( 'Gateway', 'pronamic_ideal' ),
+			'pronamic_payment_description'  => __( 'Description', 'pronamic_ideal' ),
+			'pronamic_payment_customer'     => __( 'Customer', 'pronamic_ideal' ),
+			'pronamic_payment_amount'       => __( 'Amount', 'pronamic_ideal' ),
+			'pronamic_payment_date'         => __( 'Date', 'pronamic_ideal' ),
 
-//			'pronamic_payment_recurring'   => __( 'Recurring', 'pronamic_ideal' ),
-//			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
-//			'author'                       => __( 'User', 'pronamic_ideal' ),
-//			'date'                         => __( 'Date', 'pronamic_ideal' ),
+//			'pronamic_payment_source'       => __( 'Source', 'pronamic_ideal' ),
+//			'author'                        => __( 'User', 'pronamic_ideal' ),
+//			'date'                          => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
@@ -143,6 +147,30 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					esc_attr( $label ),
 					esc_html( $label )
 				);
+
+				break;
+			case 'pronamic_payment_subscription':
+				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
+
+				if ( $subscription_id ) {
+					$label = __( 'Recurring payment', 'pronamic_ideal' );
+					$class = 'pronamic-pay-recurring';
+
+					$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
+
+					if ( ! $recurring ) {
+						$label  = __( 'First of recurring payment', 'pronamic_ideal' );
+						$class .= ' pronamic-pay-recurring-first';
+					}
+
+					printf(
+						'<span class="pronamic-pay-tip pronamic-pay-recurring pronamic-pay-recurring-%s" data-tip="%s">%s</span>',
+						esc_attr( $class ),
+						esc_attr( $label ),
+						esc_attr( $label )
+					);
+				}
+
 
 				break;
 			case 'pronamic_payment_title':
@@ -212,26 +240,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				break;
 			case 'pronamic_payment_date':
 				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
-
-				break;
-			case 'pronamic_payment_recurring':
-				$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
-
-				if ( $recurring ) {
-					echo esc_html_e( 'Yes', 'pronamic_ideal' );
-
-					return;
-				}
-
-				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
-
-				if ( $subscription_id ) {
-					printf(
-						'%s %s',
-						esc_html( get_post_meta( $subscription_id, '_pronamic_subscription_currency', true ) ),
-						esc_html( get_post_meta( $subscription_id, '_pronamic_subscription_amount', true ) )
-					);
-				}
 
 				break;
 			case 'pronamic_payment_consumer':

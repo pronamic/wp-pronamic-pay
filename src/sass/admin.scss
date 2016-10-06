@@ -69,29 +69,29 @@ td.column-version {
 .pronamic-pay-status {
 	display: block;
 
-    text-indent: -9999px;
+	text-indent: -9999px;
 
-    position: relative;
+	position: relative;
 
-    height: 1em;
-    width: 1em;
+	height: 1em;
+	width: 1em;
 }
 
 .pronamic-pay-status:after {
 	display: block;
 
 	font-family: "Pronamic Pay Icons";
-	
+
 	speak: none;
 
 	text-indent: 0;
 
 	position: absolute;
-    top: 0;
-    left: 0;
+	top: 0;
+	left: 0;
 
 	width: 100%;
-    height: 100%;
+	height: 100%;
 
 	content: $ppi-status-processing;
 }
@@ -108,20 +108,20 @@ td.column-version {
 
 .pronamic-pay-status-payment_cancelled:after,
 .pronamic-pay-status-subscr_cancelled:after {
-    content: $ppi-status-cancelled;
-    color: #a00;
+	content: $ppi-status-cancelled;
+	color: #a00;
 }
 
 .pronamic-pay-status-payment_processing:after {
-    content: $ppi-status-processing;
-    color: #73a724;
+	content: $ppi-status-processing;
+	color: #73a724;
 }
 
 .pronamic-pay-status-payment_completed:after,
 .pronamic-pay-status-subscr_active:after,
 .pronamic-pay-status-subscr_completed:after {
 	content: $ppi-status-completed;
-    color: #2ea2cc;
+	color: #2ea2cc;
 }
 
 .pronamic-pay-status-payment_refunded:after {
@@ -144,6 +144,52 @@ td.column-version {
 .pronamic-pay-status-subscr_expired:after {
 	content: $ppi-status-on-hold;
 	color: #999;
+}
+
+/**
+ * Recurring status
+ */
+.widefat .column-pronamic_payment_subscription {
+	width: 1em;
+}
+
+.pronamic-pay-recurring {
+	display: block;
+
+	text-indent: -9999px;
+
+	position: relative;
+
+	height: 1em;
+	width: 1em;
+
+	&.pronamic-pay-tip {
+		float: left;
+	}
+}
+
+.pronamic-pay-recurring:after {
+	display: block;
+
+	font-family: "Pronamic Pay Icons";
+
+	speak: none;
+
+	text-indent: 0;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	content: $ppi-recurring;
+	color: #999;
+}
+
+.pronamic-pay-recurring-first:after {
+	color: #2ea2cc;
 }
 
 /**
