@@ -718,6 +718,7 @@ class Pronamic_WP_Pay_Plugin {
 
 			// Subscription
 			if ( $subscription ) {
+
 				if ( $subscription_id ) {
 					wp_update_post( array(
 						'ID' => $post_id,
@@ -757,6 +758,11 @@ class Pronamic_WP_Pay_Plugin {
 							$prefix . 'currency'        => $subscription->get_currency(),
 							$prefix . 'amount'          => $subscription->get_amount(),
 							$prefix . 'next_payment'    => $next_payment->format( 'Y-m-d H:i:s' ),
+							$prefix . 'email'           => $data->get_email(),
+							$prefix . 'customer_name'   => $data->get_customer_name(),
+							$prefix . 'consumer_name'   => null,
+							$prefix . 'consumer_iban'   => null,
+							$prefix . 'consumer_bic'    => null,
 						);
 
 						foreach ( $meta as $key => $value ) {

@@ -26,6 +26,12 @@ class Pronamic_Pay_Subscription {
 
 	public $source_id;
 
+	public $consumer_name;
+
+	public $consumer_iban;
+
+	public $consumer_bic;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -119,6 +125,20 @@ class Pronamic_Pay_Subscription {
 
 	public function set_status( $status ) {
 		$this->status = $status;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_consumer_name( $name ) {
+		$this->consumer_name = $name;
+	}
+
+	public function set_consumer_iban( $iban ) {
+		$this->consumer_iban = $iban;
+	}
+
+	public function set_consumer_bic( $bic ) {
+		$this->consumer_bic = $bic;
 	}
 
 	//////////////////////////////////////////////////

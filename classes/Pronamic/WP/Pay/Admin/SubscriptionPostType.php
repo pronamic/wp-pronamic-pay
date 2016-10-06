@@ -74,6 +74,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			'pronamic_subscription_title'       => __( 'Subscription', 'pronamic_ideal' ),
 //			'pronamic_subscription_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
 //			'pronamic_subscription_description' => __( 'Description', 'pronamic_ideal' ),
+			'pronamic_subscription_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_subscription_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_subscription_recurring'   => __( 'Recurrence', 'pronamic_ideal' ),
 			'pronamic_subscription_date'        => __( 'Date', 'pronamic_ideal' ),
@@ -211,6 +212,18 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 						esc_html( $source_id )
 					);
 				}
+
+				break;
+			case 'pronamic_subscription_consumer':
+				echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_name', true ) );
+				echo '<br />';
+				echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_iban', true ) );
+				echo '<br />';
+				echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_bic', true ) );
+
+				break;
+			case 'pronamic_subscription_customer':
+				echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_customer_name', true ) );
 
 				break;
 		}

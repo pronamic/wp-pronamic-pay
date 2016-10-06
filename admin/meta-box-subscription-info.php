@@ -73,6 +73,22 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_name', true ) );
+			echo '<br />';
+			echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_iban', true ) );
+			echo '<br />';
+			echo esc_html( get_post_meta( $post_id, '_pronamic_subscription_consumer_bic', true ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
