@@ -28,11 +28,9 @@ function pronamic_wp_pay_update_payment( Pronamic_WP_Pay_Payment $payment ) {
 		}
 	}
 
-	$status = get_post_meta( $post_id, '_pronamic_payment_status', true );
-
 	$post_status = null;
 
-	switch ( $status ) {
+	switch ( $payment->status ) {
 		case Pronamic_WP_Pay_Statuses::CANCELLED :
 			$post_status = 'payment_cancelled';
 
