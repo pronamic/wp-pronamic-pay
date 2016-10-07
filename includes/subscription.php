@@ -17,8 +17,8 @@ function pronamic_wp_pay_update_subscription( $subscription ) {
 
 	$meta = array_merge(
 		array(
-			'transaction_id'          => $subscription->get_transaction_id(),
-			'status'                  => $subscription->get_status(),
+			'transaction_id' => $subscription->get_transaction_id(),
+			'status'         => $subscription->get_status(),
 		),
 		$subscription->meta
 	);
