@@ -181,4 +181,37 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 		return $this->subscription;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Format string
+	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/v2.2.3/includes/abstracts/abstract-wc-email.php#L187-L195
+	 * @param string $string
+	 * @return string
+	 */
+	public function format_string( $string ) {
+		// Find and replace
+		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
+		$find    = array();
+		$replace = array();
+
+		$find[]    = '{order_id}';
+		$replace[] = $this->get_order_id();
+
+		$find[]    = '{payment_id}';
+		$replace[] = $this->get_id();
+
+		// Order ID
+		$string = str_replace( $find, $replace, $string, $count );
+
+		// Make sure there is an dynamic part in the order ID
+		// @see https://secure.ogone.com/ncol/param_cookbook.asp
+		if ( 0 === $count ) {
+			$string .= $this->get_id();
+		}
+
+		return $string;
+	}
 }
