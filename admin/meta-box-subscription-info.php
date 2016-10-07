@@ -26,14 +26,6 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'Transaction ID', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php echo esc_html( $subscription->get_transaction_id() ); ?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
 			<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 		</th>
 		<td>

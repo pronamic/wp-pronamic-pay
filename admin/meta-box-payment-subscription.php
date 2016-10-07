@@ -58,14 +58,6 @@ if ( $subscription ) : ?>
 		</tr>
 		<tr>
 			<th scope="row">
-				<?php esc_html_e( 'Transaction ID', 'pronamic_ideal' ); ?>
-			</th>
-			<td>
-				<?php echo esc_html( $subscription->get_transaction_id() ); ?>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
 				<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
