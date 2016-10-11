@@ -75,6 +75,9 @@ class Pronamic_WP_Pay_Plugin {
 		// Form Processor
 		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
 
+		// Payment Status Checker
+		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
@@ -120,9 +123,6 @@ class Pronamic_WP_Pay_Plugin {
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
-
-		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
 
 		// The 'pronamic_pay_update_subscription_payments' hook is scheduled to add subscription payments
 		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
@@ -183,57 +183,6 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		return $clauses;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Check status of the specified payment
-	 *
-	 * @param string $paymentId
-	 */
-	public function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
-		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
-
-		if ( null !== $payment ) {
-			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
-			// - No status request after a final status has been received for a transaction;
-			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
-				self::update_payment( $payment );
-
-				if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
-					switch ( $number_tries ) {
-						case 0 :
-							// 30 seconds after a transaction request is sent
-							$seconds = 30;
-							break;
-						case 1 :
-							// Half-way through an expirationPeriod
-							$seconds = 30 * MINUTE_IN_SECONDS;
-							break;
-							// Half-way through an expirationPeriod
-						case 2 :
-							// Just after an expirationPeriod
-							$seconds = HOUR_IN_SECONDS;
-							break;
-						case 3 :
-						default :
-							$seconds = DAY_IN_SECONDS;
-							break;
-					}
-
-					if ( $number_tries < 4 ) {
-						$time = time();
-
-						wp_schedule_single_event( $time + $seconds, 'pronamic_ideal_check_transaction_status', array(
-							'payment_id'   => $payment->get_id(),
-							'seconds'      => $seconds,
-							'number_tries' => ++$number_tries,
-						) );
-					}
-				}
-			}
-		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
 	/**
@@ -682,6 +631,8 @@ class Pronamic_WP_Pay_Plugin {
 			pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
 			$gateway->payment( $payment );
+
+			$this->payment_status_checker->schedule_event( $payment );
 		}
 
 		return $payment;
