@@ -1116,12 +1116,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "156be5f84ba8cdb35e527792fff76fc7ee51892e"
+                "reference": "c67a192b0778e6b16e9dce7e1c4002f961351bd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/156be5f84ba8cdb35e527792fff76fc7ee51892e",
-                "reference": "156be5f84ba8cdb35e527792fff76fc7ee51892e",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/c67a192b0778e6b16e9dce7e1c4002f961351bd8",
+                "reference": "c67a192b0778e6b16e9dce7e1c4002f961351bd8",
                 "shasum": ""
             },
             "require": {
@@ -1168,7 +1168,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-07 12:15:28"
+            "time": "2016-10-11 13:05:14"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -2036,12 +2036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal.git",
-                "reference": "1f31cbd96dadc41d5a51bbc5e7645fd41d85e9d0"
+                "reference": "30a4eccca2a64c94f5d2c495ad0fa508ed600062"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal/zipball/1f31cbd96dadc41d5a51bbc5e7645fd41d85e9d0",
-                "reference": "1f31cbd96dadc41d5a51bbc5e7645fd41d85e9d0",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal/zipball/30a4eccca2a64c94f5d2c495ad0fa508ed600062",
+                "reference": "30a4eccca2a64c94f5d2c495ad0fa508ed600062",
                 "shasum": ""
             },
             "require": {
@@ -2049,7 +2049,9 @@
                 "wp-pay/core": "^1.3.7"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master"
+                "satooshi/php-coveralls": "dev-master",
+                "squizlabs/php_codesniffer": "^2.7",
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2068,7 +2070,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-06-08 08:03:28"
+            "time": "2016-10-11 13:23:32"
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
@@ -2076,12 +2078,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "47c97da23f070ac45c7afe34f53e46d4adc4d3e8"
+                "reference": "c75b49316e9a0991c2a8e65fdf3b0ebd47b39212"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/47c97da23f070ac45c7afe34f53e46d4adc4d3e8",
-                "reference": "47c97da23f070ac45c7afe34f53e46d4adc4d3e8",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/c75b49316e9a0991c2a8e65fdf3b0ebd47b39212",
+                "reference": "c75b49316e9a0991c2a8e65fdf3b0ebd47b39212",
                 "shasum": ""
             },
             "require": {
@@ -2094,9 +2096,9 @@
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2134,7 +2136,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-08-12 09:22:59"
+            "time": "2016-10-11 13:19:53"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -2142,12 +2144,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "d48efad52c3e43120043de30f220c48b529a4d35"
+                "reference": "2b7958b4ec6da75df4f8f85fcaae061bfa4080a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/d48efad52c3e43120043de30f220c48b529a4d35",
-                "reference": "d48efad52c3e43120043de30f220c48b529a4d35",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/2b7958b4ec6da75df4f8f85fcaae061bfa4080a1",
+                "reference": "2b7958b4ec6da75df4f8f85fcaae061bfa4080a1",
                 "shasum": ""
             },
             "require": {
@@ -2160,9 +2162,9 @@
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2199,7 +2201,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-08-12 09:56:27"
+            "time": "2016-10-11 13:12:14"
         },
         {
             "name": "wp-pay-gateways/ideal-simulator-ideal-advanced-v3",
@@ -2544,12 +2546,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "9e8acf0af1e1a246923f8c50fcc8312785d9022d"
+                "reference": "c231e0433c707cf83525d10598eac08c8a4605ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/9e8acf0af1e1a246923f8c50fcc8312785d9022d",
-                "reference": "9e8acf0af1e1a246923f8c50fcc8312785d9022d",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/c231e0433c707cf83525d10598eac08c8a4605ec",
+                "reference": "c231e0433c707cf83525d10598eac08c8a4605ec",
                 "shasum": ""
             },
             "require": {
@@ -2599,7 +2601,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-07 10:13:07"
+            "time": "2016-10-11 12:58:35"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -2871,12 +2873,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "fbaa540f24ebea2ea8b437447256ffeff0cd1abe"
+                "reference": "e27384e09c1b9291d17fc6ba75d95fc18ea6f724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/fbaa540f24ebea2ea8b437447256ffeff0cd1abe",
-                "reference": "fbaa540f24ebea2ea8b437447256ffeff0cd1abe",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/e27384e09c1b9291d17fc6ba75d95fc18ea6f724",
+                "reference": "e27384e09c1b9291d17fc6ba75d95fc18ea6f724",
                 "shasum": ""
             },
             "require": {
@@ -2927,7 +2929,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-07 13:07:55"
+            "time": "2016-10-10 11:58:51"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -3587,12 +3589,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "c29ec09078fd66a5cc27714cfcab313a23fe12d9"
+                "reference": "664e0e9f8cba1a21f56e072203c4cba25b4a6fff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/c29ec09078fd66a5cc27714cfcab313a23fe12d9",
-                "reference": "c29ec09078fd66a5cc27714cfcab313a23fe12d9",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/664e0e9f8cba1a21f56e072203c4cba25b4a6fff",
+                "reference": "664e0e9f8cba1a21f56e072203c4cba25b4a6fff",
                 "shasum": ""
             },
             "require": {
@@ -3639,7 +3641,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-09-16 12:24:23"
+            "time": "2016-10-11 12:59:52"
         },
         {
             "name": "wpackagist-plugin/charitable",
@@ -4667,16 +4669,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902"
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/03500345483e1e17b52e2e4d34a89c9408ab2902",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
                 "shasum": ""
             },
             "require": {
@@ -4722,7 +4724,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-10-04 11:03:26"
+            "time": "2016-10-09 07:01:45"
         },
         {
             "name": "phpunit/phpunit-selenium",
@@ -4790,16 +4792,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -4833,7 +4835,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "satooshi/php-coveralls",
