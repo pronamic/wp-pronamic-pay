@@ -3,3 +3,10 @@ rules:
     - 1
     -
       size: 'tab'
+  class-name-format:
+    - 1
+    -
+      ignore:
+        - .pronamic-pay-status-payment_pending
+        - .column-pronamic_subscription_status
+        - .column-pronamic_payment_status

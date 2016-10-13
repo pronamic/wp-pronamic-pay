@@ -7,12 +7,18 @@
 .pronamic-pay-status-table {
 	margin-top: 2em;
 
-	thead th {
-		font-weight: bold;
+	thead {
+		th {
+			font-weight: bold;
+		}
 	}
 
-	tbody th:first-child {
-		width: 20%;
+	tbody {
+		th {
+			&:first-child {
+				width: 20%;
+			}
+		}
 	}
 }
 
@@ -20,59 +26,67 @@
 // @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
 .pronamic-pay-subscriptions-table {
 	border-spacing: 0;
-	width: 100%;
+
 	clear: both;
+
 	margin: 0;
-}
 
-.pronamic-pay-subscriptions-table thead th {
-	border-bottom: 1px solid #e1e1e1;
-}
+	width: 100%;
 
-.pronamic-pay-subscriptions-table td,
-.pronamic-pay-subscriptions-table th {
-	padding: 8px 10px;
-}
+	thead {
+		th {
+			border-bottom: 1px solid #e1e1e1;
+		}
+	}
 
-.pronamic-pay-subscriptions-table th {
-	text-align: left;
+	th,
+	td {
+		padding: 8px 10px;
+	}
+
+	th {
+		text-align: left;
+	}
 }
 
 // Status
 // @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
-.widefat .column-pronamic_payment_status,
-.widefat .column-pronamic_subscription_status {
-	width: 1em;
+.widefat {
+	.column-pronamic_payment_status,
+	.column-pronamic_subscription_status {
+		width: 1em;
+	}
 }
 
 .pronamic-pay-status {
 	display: block;
 
-	text-indent: -9999px;
+	height: 1em;
 
 	position: relative;
 
-	height: 1em;
+	text-indent: -9999px;
+
 	width: 1em;
-}
 
-.pronamic-pay-status:after {
-	display: block;
+	&::after {
+		display: block;
 
-	font-family: "Pronamic Pay Icons";
+		font-family: "Pronamic Pay Icons";
 
-	speak: none;
+		speak: none;
 
-	text-indent: 0;
+		text-indent: 0;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
 
-	width: 100%;
-	height: 100%;
+		width: 100%;
+		height: 100%;
 
-	content: $ppi-status-processing;
+		content: $ppi-status-processing;
+	}
 }
 
 .pronamic-pay-status-publish:after {
@@ -148,7 +162,7 @@
 .pronamic-pay-recurring:after {
 	display: block;
 
-	font-family: "Pronamic Pay Icons";
+	font-family: 'Pronamic Pay Icons';
 
 	speak: none;
 
@@ -182,9 +196,9 @@
 	margin: 0;
 
 	li {
-		border-top: 1px solid #ECECEC;
+		@include box-sizing(border-box);
 
-		@include box-sizing( border-box );
+		border-top: 1px solid #ECECEC;
 
 		color: #AAA;
 
