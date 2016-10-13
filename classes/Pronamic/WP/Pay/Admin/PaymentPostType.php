@@ -16,6 +16,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	const POST_TYPE = 'pronamic_payment';
 
+	/**
+	 * Admin notices.
+	 */
+	private $admin_notices = array();
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -28,6 +33,10 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_sortable_columns', array( $this, 'sortable_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+
+		add_action( 'load-post.php', array( $this, 'maybe_check_status' ) );
+
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
@@ -66,6 +75,42 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		}
 
 		return $vars;
+	}
+
+	/**
+	 * Maybe check status.
+	 */
+	public function maybe_check_status() {
+		// Current user
+		if ( ! current_user_can( 'edit_payment' ) ) {
+			return;
+		}
+
+		// Screen
+		$screen = get_current_screen();
+
+		if ( ! ( 'post' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
+			return;
+		}
+
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+
+		if ( filter_has_var( INPUT_GET, 'pronamic_pay_check_status' ) && check_admin_referer( 'pronamic_payment_check_status_' . $post_id ) ) {
+			$payment = get_pronamic_payment( $post_id );
+
+			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+
+			$this->admin_notices[] = array(
+				'type' => 'info',
+				'message' => __( 'Payment status updated.', 'pronamic_ideal' ),
+			);
+		}
+	}
+
+	public function admin_notices() {
+		foreach ( $this->admin_notices as $notice ) {
+			printf( '<div class="notice notice-%1$s"><p>%2$s</p></div>', $notice['type'], $notice['message'] );
+		}
 	}
 
 	/**
