@@ -60,11 +60,19 @@ $payment = get_pronamic_payment( $post_id );
 		<td>
 			<?php
 
-			$method = get_post_meta( $post_id, '_pronamic_payment_method', true );
+			$method = $payment->get_meta( 'method' );
 
 			$name = Pronamic_WP_Pay_PaymentMethods::get_name( $method );
 
 			echo esc_html( $name );
+
+			if ( Pronamic_WP_Pay_PaymentMethods::IDEAL === $method ) {
+				$issuer = $payment->get_meta( 'issuer' );
+
+				if ( $issuer ) {
+					echo esc_html( sprintf( ' (`%s`)', $issuer ) );
+				}
+			}
 
 			?>
 		</td>
