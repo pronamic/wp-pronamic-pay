@@ -14,14 +14,13 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 	 * Constructs and initializes a payment status checker.
 	 */
 	public function __construct() {
-		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
+		// The 'pronamic_ideal_check_transaction_status' hook is scheduled to request the payment status.
 		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
 	}
 
 	/**
 	 * Schedule event.
 	 *
-	 * @param $gateay
 	 * @param $payment
 	 */
 	public function schedule_event( $payment ) {
@@ -41,12 +40,10 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 		/*
 		 * The function `wp_schedule_single_event` uses the arguments array as an key for the event,
 		 * that's why we also add the time to this array, besides that it's also much clearer on
-		 * the Cron View (http://wordpress.org/extend/plugins/cron-view/) page
+		 * the Cron View (http://wordpress.org/extend/plugins/cron-view/) page.
 		 */
 
 		$time = time();
-
-		// Examples of possible times when a status request can be executed:
 
 		// 30 seconds after a transaction request is sent
 		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
