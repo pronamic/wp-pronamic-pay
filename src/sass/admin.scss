@@ -4,9 +4,7 @@
 
 @import 'variables';
 
-/**
- * Column
- */
+// Column
 td.column-version {
 	width: 5em;
 }
@@ -23,11 +21,8 @@ td.column-version {
 	}
 }
 
-/**
- * Subscriptions table
- *
- * @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
- */
+// Subscriptions table
+// @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
 .pronamic-pay-subscriptions-table {
 	border-spacing: 0;
 	width: 100%;
@@ -48,11 +43,8 @@ td.column-version {
 	text-align: left;
 }
 
-/**
- * Status
- *
- * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
- */
+// Status
+// @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
 .widefat .column-pronamic_payment_status,
 .widefat .column-pronamic_subscription_status {
 	width: 1em;
@@ -138,9 +130,7 @@ td.column-version {
 	color: #999;
 }
 
-/**
- * Recurring status
- */
+// Recurring status
 .widefat .column-pronamic_payment_subscription {
 	width: 1em;
 }
@@ -184,11 +174,8 @@ td.column-version {
 	color: #2ea2cc;
 }
 
-/**
- * Dashboard
- *
- * @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
- */
+// Dashboard
+// @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
 #pronamic_pay_dashboard_status .inside {
 	margin: 0;
 	padding: 0;
@@ -254,9 +241,7 @@ td.column-version {
 	}
 }
 
-/**
- * Settings
- */
+// Settings
 .pronamic-pay-settings select {
 	width: 25em;
 }
@@ -265,9 +250,7 @@ td.column-version {
 	margin-top: 1em;
 }
 
-/**
- * Gateway config postbox
- */
+// Gateway config postbox
 #pronamic_gateway_config {
 	option.deprecated {
 		color: #AAA;
@@ -288,9 +271,7 @@ td.column-version {
 	}
 }
 
-/**
- * Gateway test postbox
- */
+// Gateway test postbox
 #pronamic_gateway_test {
 	.inside > label,
 	.inside div label {
@@ -306,9 +287,7 @@ td.column-version {
 	}
 }
 
-/**
- * Payment log postbox
- */
+// Payment log postbox
 #pronamic_payment_log.postbox .inside {
 	margin: 0;
 	padding: 0;
@@ -318,9 +297,7 @@ td.column-version {
 	border: 0 none;
 }
 
-/**
- * Post type payment
- */
+// Post type payment
 body.post-type-pronamic_payment,
 body.post-type-pronamic_pay_subscr {
 	#post-body-content {
@@ -328,16 +305,12 @@ body.post-type-pronamic_pay_subscr {
 	}
 }
 
-/**
- * Input shortcode
- */
+// Input shortcode
 .pronamic-pay-shortcode-input {
 	width: 100%;
 }
 
-/**
- * Meta box update
- */
+// Meta box update
 #pronamic_payment_update .inside,
 #pronamic_subscription_update .inside {
 	margin: 0;
@@ -363,9 +336,7 @@ body.post-type-pronamic_pay_subscr {
 	text-align: right;
 }
 
-/**
- * iDEAL
- */
+// iDEAL
 pre.security-data {
 	background-color: #EEE;
 
@@ -378,17 +349,13 @@ pre.security-data {
 	overflow: auto;
 }
 
-/**
- * Documentation
- */
+// Documentation
 .pronamic-pay-table tr.deprecated td,
 .pronamic-pay-table tr.deprecated a {
 	color: #AAAAAA;
 }
 
-/**
- * Charts
- */
+// Charts
 .postbox .pronamic-pay-chart-with-sidebar {
 	padding: 12px 12px 12px 249px;
 
@@ -505,7 +472,7 @@ pre.security-data {
 
 	float: left;
 
-	margin: 3px 0 0 0;
+	margin: 3px 0 0;
 
 	width: 100%;
 
@@ -542,7 +509,7 @@ div.extra-settings {
 div.pronamic-pay-tab,
 div.extra-settings {
 	border: 1px solid $pronamic-border-color;
-	border-top: none;
+	border-top: 0;
 
 	clear: both;
 
@@ -691,13 +658,14 @@ body.post-new-php div.extra-settings {
 
 	div.pronamic-pay-tab,
 	div.pronamic-pay-tab .form-table {
-		border: none;
+		border: 0;
 	}
 }
 
 @media only screen and ( max-width: 782px ) {
 	div.pronamic-pay-tab .form-table {
-		th, td {
+		th,
+		td {
 			padding: 11px;
 		}
 	}
