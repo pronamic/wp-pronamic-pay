@@ -64,6 +64,16 @@ module.exports = function( grunt ) {
 			]
 		},
 
+		// Sass Lint
+		sasslint: {
+			options: {
+				configFile: '.sass-lint.yml'
+			},
+			target: [
+				'src/sass/**/*.scss'
+			]
+		},
+
 		// Check WordPress version
 		checkwpversion: {
 			options: {

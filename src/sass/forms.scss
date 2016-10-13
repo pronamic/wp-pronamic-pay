@@ -1,51 +1,38 @@
-/**
- * Wrap
- */
-.pronamic-pay-form-wrap {
+@import 'variables';
 
+.pronamic-pay-form {
+	// Fieldset
+	fieldset {
+		border: 0;
+	}
+
+	// Legend
+	legend {
+		border-bottom: 1px solid $gray-very-light;
+
+		font-weight: 700;
+
+		margin: 10px 0 15px;
+		padding: 0 0 10px;
+
+		width: 100%;
+	}
+
+	// Input
+	.pronamic-pay-amount-input {
+		width: auto;
+	}
 }
 
-/**
- * Fieldset
- */
-.pronamic-pay-form fieldset {
-	border: none;
-}
-
-/**
- * Legend
- */
-.pronamic-pay-form legend {
-	border-bottom: 1px solid #EDEDED;
-
-	font-weight: 700;
-
-	margin: 10px 0 15px;
-	padding: 0 0 10px;
-	
-	width: 100%;
-}
-
-/**
- * Required indicator
- */
+// Required indicator
 .pronamic-pay-required-indicator {
-	color: #A00;
+	color: $dark-red;
 }
 
-/**
- * Inputs
- */
-.pronamic-pay-form .pronamic-pay-amount-input {
-	width: auto;
-}
-
-/**
- * Rows
- */
+// Rows
 .pronamic-pay-form-row {
 	margin: 0 0 15px;
-	
+
 	input,
 	textarea,
 	select {
@@ -53,7 +40,7 @@
 
 		outline: none;
 
-		width: 100%;  
+		width: 100%;
 	}
 }
 
@@ -73,24 +60,22 @@
 }
 
 .pronamic-pay-form-row-last {
-	float: right;	
+	float: right;
 }
 
-/**
- * Error
- */
+// Error
 .pronamic-pay-error {
-	background: #F9F9F9;
+	background: $gray-very-light-white;
 
-	box-shadow: 0 1px 1px rgba( #000, .125 );
+	border-left: 4px solid $dark-red;
 
-	border-left: 4px solid #a00;
+	box-shadow: 0 1px 1px $gray-very-light-2;
 
 	clear: both;
 
 	margin: 15px 0;
 
-	position: relative;
-
 	padding: 1em 1em 1em 2em;
+
+	position: relative;
 }
