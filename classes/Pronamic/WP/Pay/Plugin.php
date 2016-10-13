@@ -632,7 +632,9 @@ class Pronamic_WP_Pay_Plugin {
 
 			$gateway->payment( $payment );
 
-			$this->payment_status_checker->schedule_event( $payment );
+			if ( $gateway->supports( 'payment_status_request' ) ) {
+				Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
+			}
 		}
 
 		return $payment;

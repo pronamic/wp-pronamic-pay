@@ -23,7 +23,7 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 	 *
 	 * @param $payment
 	 */
-	public function schedule_event( $payment ) {
+	public static function schedule_event( $payment ) {
 		/*
 		 * Schedule status requests
 		 * http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
