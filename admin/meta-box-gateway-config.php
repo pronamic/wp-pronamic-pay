@@ -258,6 +258,10 @@ bind_providers_and_gateways();
 								$attributes['size'] = $field['size'];
 							}
 
+							if ( in_array( $field['type'], array( 'text', 'password', 'textarea', 'select' ) ) ) {
+								$classes[] = 'pronamic-pay-form-control';
+							}
+
 							if ( ! empty( $classes ) ) {
 								$attributes['class'] = implode( ' ', $classes );
 							}
@@ -368,7 +372,7 @@ bind_providers_and_gateways();
 
 							if ( isset( $field['description'] ) ) {
 								printf( //xss ok
-									'<span class="description">%s</span>',
+									'<span class="pronamic-pay-form-text description">%s</span>',
 									$field['description']
 								);
 							}
