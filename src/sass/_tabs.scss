@@ -1,0 +1,38 @@
+// Tabs
+.pronamic-pay-tabs-items {
+	border-bottom: 1px solid $pronamic-border-color;
+
+	display: block;
+
+	float: left;
+
+	margin: 3px 0 0;
+
+	width: 100%;
+
+	li {
+		background: $pronamic-border-color;
+
+		border-right: 1px solid $pronamic-border-color;
+		border-left: 1px solid $pronamic-border-color;
+
+		color: #444;
+
+		cursor: pointer;
+
+		display: block;
+
+		float: left;
+
+		margin: 0 5px -1px 0;
+		padding: 8px 15px;
+
+		&.active {
+			background: #fff;
+
+			border-top: 3px solid #c06;
+
+			margin-top: -3px;
+		}
+	}
+}
