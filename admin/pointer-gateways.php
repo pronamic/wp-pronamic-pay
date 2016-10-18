@@ -1,4 +1,4 @@
-<h3><?php esc_html_e( 'Gateways', 'pronamic_ideal' ); ?></h3>
+<h3><?php esc_html_e( 'Configurations', 'pronamic_ideal' ); ?></h3>
 
 <p>
 	<?php esc_html_e( 'Here you can find an overview of all the gateway configurations on your WordPres site.', 'pronamic_ideal' ); ?>
