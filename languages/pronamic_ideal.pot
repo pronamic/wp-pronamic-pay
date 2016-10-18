@@ -205,7 +205,7 @@ msgid "No logs found."
 msgstr ""
 
 #: admin/meta-box-payment-log.php:34 admin/meta-box-subscription-log.php:34
-#: vendor/wp-pay-gateways/mollie/src/Client.php:362
+#: vendor/wp-pay-gateways/mollie/src/Client.php:374
 msgid "%1$s at %2$s"
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "Version: %s"
 msgstr ""
 
-#: admin/page-about.php:41
+#: admin/page-about.php:41 admin/page-dashboard.php:42
 msgid "What is new"
 msgstr ""
 
@@ -344,37 +344,37 @@ msgid "Getting started"
 msgstr ""
 
 #: admin/page-dashboard.php:12
-msgid "Help"
+msgid "Support"
 msgstr ""
 
 #: admin/page-dashboard.php:16
 msgid ""
-"Before asking for help we recommend to check the tour, getting started and "
-"status page."
+"Please follow the tour, read the 'What is new' and 'Getting Started' pages "
+"before contacting us. Also, check the system status page for any issues."
 msgstr ""
 
 #: admin/page-dashboard.php:29 admin/pointer-start.php:9
-msgid "Start Tour"
+msgid "Start tour"
 msgstr ""
 
-#: admin/page-dashboard.php:42
+#: admin/page-dashboard.php:55
 msgid "Getting Started"
 msgstr ""
 
-#: admin/page-dashboard.php:54 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
 msgid "System Status"
 msgstr ""
 
-#: admin/page-dashboard.php:64
+#: admin/page-dashboard.php:77
 msgid "Pending Payments"
 msgstr ""
 
-#: admin/page-dashboard.php:101
+#: admin/page-dashboard.php:114
 #. translators: comment date format. See http:php.net/date
 msgid "c"
 msgstr ""
 
-#: admin/page-dashboard.php:123 admin/page-dashboard.php:131
+#: admin/page-dashboard.php:136 admin/page-dashboard.php:144
 msgid "Pronamic News"
 msgstr ""
 
@@ -468,8 +468,10 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: admin/pointer-gateways.php:1 admin/pointer-tools.php:23
-msgid "Gateways"
+#: admin/pointer-gateways.php:1 classes/Pronamic/WP/Pay/Admin.php:475
+#: classes/Pronamic/WP/Pay/Admin.php:476
+#: classes/Pronamic/WP/Pay/PostTypes.php:52
+msgid "Configurations"
 msgstr ""
 
 #: admin/pointer-gateways.php:4
@@ -591,6 +593,10 @@ msgstr ""
 msgid ""
 "With the pages generator tool you can easily generate some optional payment "
 "status pages."
+msgstr ""
+
+#: admin/pointer-tools.php:23
+msgid "Gateways"
 msgstr ""
 
 #: admin/pointer-tools.php:24
@@ -819,60 +825,82 @@ msgid "Site"
 msgstr ""
 
 #: admin/tab-getting-started.php:14
-msgid "Step 1 - Account Payment Provider"
+msgid "Step 1: open an account with a payment provider"
 msgstr ""
 
 #: admin/tab-getting-started.php:19
 msgid ""
-"A payment provider is responsible for the actual processing of payment "
-"transactions.\n"
-"We are not a payment provider, you will need to close an account with a "
-"payment provider or bank.\n"
-"We support most popular payment providers and banks. \n"
-"The Pronamic iDEAL plugin makes the link between the selected payment "
-"provider and the e-commerce plugin."
+"To start accepting online payments, you'll first need to register with a "
+"payment provider. Payment\n"
+"providers are responsible for the actual processing of transactions. We "
+"support most popular Dutch payment\n"
+"providers and banks, but are not a payment provider ourselves. The Pronamic "
+"iDEAL plugin is the glue between\n"
+"the chosen payment provider and a wide variety of supported e-commerce "
+"plugins."
 msgstr ""
 
-#: admin/tab-getting-started.php:40
-msgid "Step 2 - Add Gateway Configuration"
+#: admin/tab-getting-started.php:37
+msgid "View supported payment providers"
 msgstr ""
 
-#: admin/tab-getting-started.php:45
+#: admin/tab-getting-started.php:55
+msgid "Step 2: add payment provider configuration"
+msgstr ""
+
+#: admin/tab-getting-started.php:60
 msgid ""
-"Create a new configuration via iDEAL » Configurations » Add new.\n"
-"The settings depend on the chosen payment provider.\n"
-"Follow the instructions of the most popular payment providers to use the "
-"correct settings."
+"Create a new configuration via Pay » Configurations » Add new. The account "
+"details to use\n"
+"are provided by the payment provider via e-mail or through a dashboard."
 msgstr ""
 
-#: admin/tab-getting-started.php:57
-msgid "Step 3 - Test Gateway Configuration"
-msgstr ""
-
-#: admin/tab-getting-started.php:62
+#: admin/tab-getting-started.php:69
 msgid ""
-"Once the gateway settings are entered correctly and the configuration is "
-"saved it can be tested.\n"
-"Under the configuration fields there is a special block which can be used "
-"to test the configuration.\n"
-"Here you can enter a test amount and confirm that the configuration works "
-"properly.\n"
-"Once you are correctly redirected to your payment provider you know that "
-"your configuration works."
+"Some payment providers need additional setup to receive automatic payment "
+"status updates in WordPress. Please\n"
+"see the \"Transaction Feedback\" tab of the configuration for details."
 msgstr ""
 
 #: admin/tab-getting-started.php:83
-msgid "Step 4 - Configure E-commerce Plugin"
+msgid "Add new payment provider configuration"
 msgstr ""
 
-#: admin/tab-getting-started.php:88
+#: admin/tab-getting-started.php:93
+msgid "Step 3: test configuration"
+msgstr ""
+
+#: admin/tab-getting-started.php:98
 msgid ""
-"After configuring and testing the gateway, you can configure your "
-"e-commerce plugin.\n"
-"The Pronamic iDEAL plugin supports many popular WordPress plugins.\n"
-"These plug-ins often have their own configuration pages where you can "
-"activate iDEAL\n"
-" Here you can then also select the previously created gateway configuration."
+"After the payment provider configuration has been added, the \"Test\" "
+"section below the\n"
+"settings box can be used to test the configuration. You can choose from "
+"various payment methods (depending on the\n"
+"payment provider) and enter an amount for the payment. The configuration is "
+"working properly if you are redirected to a\n"
+"screen that mentions the same amount."
+msgstr ""
+
+#: admin/tab-getting-started.php:109
+msgid ""
+"Testing different amounts might be mandatory for your payment provider. If "
+"so, an additional box with\n"
+"amounts will be shown. You need to test all these amounts before your live "
+"account will be activated by the payment provider."
+msgstr ""
+
+#: admin/tab-getting-started.php:127
+msgid "Step 4: configure e-commerce plugin"
+msgstr ""
+
+#: admin/tab-getting-started.php:132
+msgid ""
+"To actually use the configuration to receive payments, you need to "
+"configure your e-commerce\n"
+"plugin. Many popular e-commerce plugins are supported. These plugins "
+"usually have their own payment settings\n"
+"page, where you choose which configuration to use in the payment methods "
+"that are provided by the Pronamic iDEAL plugin."
 msgstr ""
 
 #: admin/tab-methods.php:12
@@ -979,78 +1007,94 @@ msgid "Wallie"
 msgstr ""
 
 #: admin/tab-new.php:13
-msgid "Simple Payment Forms"
+msgid "Menu name and icon"
 msgstr ""
 
 #: admin/tab-new.php:18
 msgid ""
-"It is now possible to create simple payment forms.\n"
-"These forms have a fixed design and fixed fields.\n"
-"Each form has a payment amount, name and e-mail address field.\n"
-"That way, users can easily make available payment forms."
+"Most of our users already know that Pronamic iDEAL supports other payment "
+"methods besides iDEAL. With this\n"
+"release we therefore changed the name of the menu item from \"iDEAL\" to "
+"\"Pay\". The icon has been changed to the WordPress\n"
+"pay icon instead of the iDEAL logo. These changes make the WordPress admin "
+"menu look cleaner and it is clearer that the\n"
+"plugin is not only for iDEAL payments anymore."
 msgstr ""
 
 #: admin/tab-new.php:39
-msgid "Payments Reports"
+msgid "Recurring payments"
 msgstr ""
 
 #: admin/tab-new.php:44
 msgid ""
-"Under iDEAL » Reports you can find a graph with all payments of this year.\n"
-"The number of open, successful, canceled, expired and failed payments are "
-"grouped.\n"
-"That way you get a good idea of the number of payments and their status."
+"Recurring payments are now supported with the payment provider Mollie. A "
+"mandate which makes automatic\n"
+"recurring payments possible, can be created with a first payment via either "
+"iDEAL or credit card by using the new\n"
+"subscriptions feature. Recurring payments are recognizable by the repeater "
+"icon in the payments overview."
 msgstr ""
 
-#: admin/tab-new.php:56
-msgid "Badge Pending Payments"
+#: admin/tab-new.php:56 classes/Pronamic/WP/Pay/Admin.php:457
+#: classes/Pronamic/WP/Pay/Admin.php:458
+#: classes/Pronamic/WP/Pay/PostTypes.php:107
+#: classes/Pronamic/WP/Pay/PostTypes.php:109
+#: classes/Pronamic/WP/Pay/PostTypes.php:120
+msgid "Subscriptions"
 msgstr ""
 
 #: admin/tab-new.php:61
 msgid ""
-"We noticed that many iDEAL users have problems with the feedback of the "
-"payment status.\n"
-"We have added an badge to give users more insight in payments with the "
-"pending status.\n"
-"Through this badge you can immediately see how many payments have the "
-"pending status.\n"
-"We advise users to monitor these payments periodically."
+"Subscriptions are now supported and have a dedicated admin page to track "
+"which subscriptions are created\n"
+"and to view related payments and their status. The new `Direct Debit "
+"(mandate via iDEAL)` and credit card payment methods\n"
+"can be used with WooCommerce Subscriptions to set up automatically "
+"recurring payments for subscriptions."
 msgstr ""
 
-#: admin/tab-new.php:82
-msgid "Payment Status Filter"
+#: admin/tab-new.php:80
+msgid "Payment status requests for Ingenico"
 msgstr ""
 
-#: admin/tab-new.php:87
+#: admin/tab-new.php:85
 msgid ""
-"It is now also possible to view only the payments to a specific payment "
-"status.\n"
-"So you can now easily see a list of payments with the status pending.\n"
-"That way you have a better understanding of your payments and their status."
+"The Pronamic iDEAL plugin processes payment status update that are sent to "
+"your website by the payment provider.\n"
+"But we can also request the payment status automatically for you. Ingenico "
+"(previously Ogone) is now added to the list\n"
+"of payment providers which support this feature (iDEAL "
+"Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl and\n"
+"Targetpay). Make sure to add API user credentials to your Ingenico "
+"configuration to benefit."
 msgstr ""
 
-#: admin/tab-new.php:99
-msgid "Edit Payment Status"
+#: admin/tab-new.php:97
+msgid "Check status of pending payments"
 msgstr ""
 
-#: admin/tab-new.php:104
+#: admin/tab-new.php:102
 msgid ""
-"The payment status of payments can also be updated manually.\n"
-"Handy in case your payment provider payment status has not communicated "
-"well or the Pronamic iDEAL this plugin could not retrieve the status.\n"
-"That way you can always keep empty the list of payments pending."
+"We always put a lot of effort in under the hood improvements to make "
+"automatic payment status updates as\n"
+"reliable as possible, but it might still occur that the payment status is "
+"pending for a prolonged period of time. With\n"
+"supported payment providers, you can now manually check the payment status. "
+"The number of pending payments is\n"
+"mentioned in the admin menu item badge."
 msgstr ""
 
-#: admin/tab-new.php:124
-msgid "Tour"
+#: admin/tab-new.php:122
+msgid "Refreshed payments overview"
 msgstr ""
 
-#: admin/tab-new.php:129
+#: admin/tab-new.php:127
 msgid ""
-"For new users, we have added a simle tour functionality to the Pronamic "
-"iDEAL plugin.\n"
-"This tour shows the main pages of the Pronamic iDEAL plugin.\n"
-"That way you can quickly find your way around the Pronamic iDEAL plugin."
+"The payments list got a visual refresh. Most noticeable are the new status "
+"icons and updated default columns\n"
+"to make the overview a lot cleaner and easier to use. Additional columns "
+"can be displayed by enabling them in the\n"
+"\"Screen Options\" at the right top of the page."
 msgstr ""
 
 #: admin/tab-system_status.php:10
@@ -1325,13 +1369,13 @@ msgid ""
 "href=\"%s\" target=\"_blank\">check your license status</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:129
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:132
 msgid "%s payment updated."
 msgid_plural "%s payments updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:143
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:146
 msgid "%s payment is not updated because it already has a final payment status."
 msgid_plural ""
 "%s payments are not updated because they already have a final payment "
@@ -1339,7 +1383,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:165
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:167
 msgid "Requesting the current payment status is unsupported by %s."
 msgstr ""
 
@@ -1510,20 +1554,8 @@ msgstr ""
 msgid "Pay"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:457 classes/Pronamic/WP/Pay/Admin.php:458
-#: classes/Pronamic/WP/Pay/PostTypes.php:107
-#: classes/Pronamic/WP/Pay/PostTypes.php:109
-#: classes/Pronamic/WP/Pay/PostTypes.php:120
-msgid "Subscriptions"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin.php:468
 msgid "Forms"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin.php:475 classes/Pronamic/WP/Pay/Admin.php:476
-#: classes/Pronamic/WP/Pay/PostTypes.php:52
-msgid "Configurations"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:32
@@ -2948,8 +2980,14 @@ msgstr ""
 msgid "Enable Bitcoin"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:56
+#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:58
 msgid "Enable Credit Card"
+msgstr ""
+
+#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:87
+msgid ""
+"You have given us permission on %s to use your credit card for any due "
+"amounts. This mandate will be used for your (subscription) order."
 msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:39
