@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-10-14 14:46+0100\n"
+"PO-Revision-Date: 2016-10-19 09:50+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -177,28 +177,34 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:195 admin/meta-box-subscription-info.php:107
+#: admin/meta-box-payment-info.php:195
+#: admin/meta-box-subscription-info.php:107
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:203 admin/meta-box-subscription-info.php:115
+#: admin/meta-box-payment-info.php:203
+#: admin/meta-box-subscription-info.php:115
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:216 admin/meta-box-subscription-info.php:128
+#: admin/meta-box-payment-info.php:216
+#: admin/meta-box-subscription-info.php:128
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:224 admin/meta-box-subscription-info.php:136
+#: admin/meta-box-payment-info.php:224
+#: admin/meta-box-subscription-info.php:136
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:237 admin/meta-box-subscription-info.php:149
+#: admin/meta-box-payment-info.php:237
+#: admin/meta-box-subscription-info.php:149
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:245 admin/meta-box-subscription-info.php:157
+#: admin/meta-box-payment-info.php:245
+#: admin/meta-box-subscription-info.php:157
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -207,7 +213,7 @@ msgid "No logs found."
 msgstr "Geen logs gevonden."
 
 #: admin/meta-box-payment-log.php:34 admin/meta-box-subscription-log.php:34
-#: vendor/wp-pay-gateways/mollie/src/Client.php:374
+#: vendor/wp-pay-gateways/mollie/src/Client.php:378
 msgid "%1$s at %2$s"
 msgstr "%1$s om %2$s"
 
@@ -369,17 +375,20 @@ msgid ""
 "Please follow the tour, read the 'What is new' and 'Getting Started' pages "
 "before contacting us. Also, check the system status page for any issues."
 msgstr ""
+"Volg de tour en lees de 'Wat is nieuw' en 'Om te beginnen' pagina's voordat "
+"je contact met ons opneemt. Controleer ook de systeemstatus pagina op "
+"eventuele problemen."
 
 #: admin/page-dashboard.php:29 admin/pointer-start.php:9
-#, fuzzy
 msgid "Start tour"
-msgstr "Rondleiding starten"
+msgstr "Start rondleiding"
 
 #: admin/page-dashboard.php:55
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -722,7 +731,8 @@ msgstr "Volg Pronamic"
 
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
-#: classes/Pronamic/WP/Pay/Admin.php:245 vendor/wp-pay/core/src/Gateway.php:416
+#: classes/Pronamic/WP/Pay/Admin.php:245
+#: vendor/wp-pay/core/src/Gateway.php:416
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:120
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -897,12 +907,10 @@ msgid "Site"
 msgstr "Website"
 
 #: admin/tab-getting-started.php:14
-#, fuzzy
 msgid "Step 1: open an account with a payment provider"
-msgstr "Stap 1 - Account payment provider"
+msgstr "Stap 1: open een account bij een betalingsprovider"
 
 #: admin/tab-getting-started.php:19
-#, fuzzy
 msgid ""
 "To start accepting online payments, you'll first need to register with a "
 "payment provider. Payment\n"
@@ -913,34 +921,31 @@ msgid ""
 "the chosen payment provider and a wide variety of supported e-commerce "
 "plugins."
 msgstr ""
-"Een payment provider verzorgt de daadwerkelijke verwerking van "
-"betalingstransacties. Wij zijn geen payment provider, je dient dus een "
-"account bij een payment provider of bank af te sluiten. We ondersteunen de "
-"meest populaire payment providers en banken. De Pronamic iDEAL plugin maakt "
-"de koppeling tussen de gekozen payment provider en de e-commerce plugin."
+"Om te beginnen met het ontvangen van online betalingen, dien je je eerst bij "
+"een betalingsprovider te registreren. Betalingsproviders verzorgen de "
+"daadwerkelijke verwerking van betalingstransacties. We ondersteunen de "
+"meeste populaire betalingsproviders en banken, maar zijn zelf geen "
+"betalingsprovider. De Pronamic iDEAL plugin maakt de koppeling tussen de "
+"gekozen betalingsprovider en een uitgebreid aanbod aan ondersteunde e-"
+"commerce plugins."
 
 #: admin/tab-getting-started.php:37
-#, fuzzy
 msgid "View supported payment providers"
-msgstr "Betalingsprovider"
+msgstr "Bekijk ondersteunde betalingsproviders"
 
 #: admin/tab-getting-started.php:55
-#, fuzzy
 msgid "Step 2: add payment provider configuration"
-msgstr "Stap 2 - Gateway configuratie toevoegen"
+msgstr "Stap 2: betalingsprovider configuratie toevoegen"
 
 #: admin/tab-getting-started.php:60
-#, fuzzy
 msgid ""
 "Create a new configuration via Pay » Configurations » Add new. The account "
 "details to use\n"
 "are provided by the payment provider via e-mail or through a dashboard."
 msgstr ""
-"Maak een nieuwe configuratie aan via iDEAL » Configuraties » Nieuwe "
-"toevoegen.\n"
-"De instellingen zijn afhankelijk van de gekozen betalingsprovider.\n"
-"Volg de instructies van de meest populaire betalingsproviders om de juiste "
-"instellingen te gebruiken."
+"Maak een nieuwe configuratie aan via Betalingen » Configuraties » Nieuwe "
+"toevoegen. De te gebruiken account gegevens ontvang je van de "
+"betalingsprovider via e-mail of via het dashboard van de betalingsprovider."
 
 #: admin/tab-getting-started.php:69
 msgid ""
@@ -948,16 +953,17 @@ msgid ""
 "status updates in WordPress. Please\n"
 "see the \"Transaction Feedback\" tab of the configuration for details."
 msgstr ""
+"Sommige betalingsproviders hebben extra configuratie nodig om de "
+"betalingsstatus automatisch in WordPress te ontvangen. Zie het tabblad\n"
+"\"Transactie feedback\" bij het bewerken van de configuratie."
 
 #: admin/tab-getting-started.php:83
-#, fuzzy
 msgid "Add new payment provider configuration"
-msgstr "Nieuwe betalingsgateway configuratie toevoegen"
+msgstr "Nieuwe betalingsprovider configuratie toevoegen"
 
 #: admin/tab-getting-started.php:93
-#, fuzzy
 msgid "Step 3: test configuration"
-msgstr "Selecteer configuratie"
+msgstr "Stap 3: test configuratie"
 
 #: admin/tab-getting-started.php:98
 msgid ""
@@ -969,6 +975,12 @@ msgid ""
 "working properly if you are redirected to a\n"
 "screen that mentions the same amount."
 msgstr ""
+"Nadat de betalingsprovider configuratie is toegevoegd, kan de \"Test\" "
+"sectie onder de instellingen gebruikt worden om de configuratie te testen. "
+"Je kunt (afhankelijk van de betalingsrprovider) kiezen uit diverse "
+"betaalmethoden en een bedrag invullen voor de testbetalingen. De "
+"configuratie is correct aangemaakt indien je wordt doorgestuurd naar een "
+"betaalscherm waarop hetzelfde bedrag vermeld is."
 
 #: admin/tab-getting-started.php:109
 msgid ""
@@ -977,11 +989,14 @@ msgid ""
 "amounts will be shown. You need to test all these amounts before your live "
 "account will be activated by the payment provider."
 msgstr ""
+"Het testen van diverse bedragen kan verplicht zijn voor jouw "
+"betalingsprovider. Indien dat het geval is, zal een extra tabel met bedragen "
+"getoond worden. Je dient testbetalingen voor al deze bedragen uit te voeren, "
+"alvorens de live account door de betalingsprovider geactiveerd zal worden."
 
 #: admin/tab-getting-started.php:127
-#, fuzzy
 msgid "Step 4: configure e-commerce plugin"
-msgstr "Stap 4 - Configureer e-commerce plugin"
+msgstr "Stap 4: e-commerce plugin instellen"
 
 #: admin/tab-getting-started.php:132
 msgid ""
@@ -992,6 +1007,15 @@ msgid ""
 "page, where you choose which configuration to use in the payment methods "
 "that are provided by the Pronamic iDEAL plugin."
 msgstr ""
+"Om de configuratie daadwerkelijk te gebruiken voor het ontvangen van "
+"betalingen, dien je een e-commerce plugin in te stellen. Veel populaire e-"
+"commerce plugins worden ondersteund. Deze plugins hebben over het algemeen "
+"een eigen instellingen pagina voor het afrekenen, waar je de configuratie "
+"kunt instellen in de betaalmethoden die door Pronamic iDEAL zijn toegevoegd."
+
+#: admin/tab-getting-started.php:148
+msgid "View supported e-commerce plugins"
+msgstr "Bekijk ondersteunde e-commerce plugins"
 
 #: admin/tab-methods.php:12
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:46
@@ -1098,7 +1122,7 @@ msgstr "Wallie"
 
 #: admin/tab-new.php:13
 msgid "Menu name and icon"
-msgstr ""
+msgstr "Menu naam en icoon"
 
 #: admin/tab-new.php:18
 msgid ""
@@ -1110,11 +1134,16 @@ msgid ""
 "menu look cleaner and it is clearer that the\n"
 "plugin is not only for iDEAL payments anymore."
 msgstr ""
+"Veel gebruikers weten dat Pronamic iDEAL inmiddels meer betaalmethoden dan "
+"alleen iDEAL ondersteunt. Met deze versie hebben we daarom de naam in het "
+"menu gewijzigd van \"iDEAL\" in \"Betalen\". Het icoon is gewijzigd in het "
+"WordPress betalen icoon, in plaats van het iDEAL logo. De wijzigingen zorgen "
+"voor een opgeruimder menu en het is duidelijker dat de plugin niet alleen "
+"meer voor iDEAL betalingen gebruikt kan worden."
 
 #: admin/tab-new.php:39
-#, fuzzy
 msgid "Recurring payments"
-msgstr "Terugkerende betaling"
+msgstr "Terugkerende betalingen"
 
 #: admin/tab-new.php:44
 msgid ""
@@ -1125,6 +1154,11 @@ msgid ""
 "subscriptions feature. Recurring payments are recognizable by the repeater "
 "icon in the payments overview."
 msgstr ""
+"Terugkerende betalingen zijn nu ondersteund met de betalingsprovider Mollie. "
+"Een mandaat waarmee automatisch terugkerende betalingen mogelijk worden, kan "
+"aangemaakt worden met een eerste betaling via iDEAL of creditcard door de "
+"nieuwe abonnementen functionaliteit te gebruiken. Terugkerende betalingen "
+"zijn te herkennen aan het herhalingsicoon in het betalingsoverzicht."
 
 #: admin/tab-new.php:56 classes/Pronamic/WP/Pay/Admin.php:457
 #: classes/Pronamic/WP/Pay/Admin.php:458
@@ -1143,11 +1177,16 @@ msgid ""
 "can be used with WooCommerce Subscriptions to set up automatically recurring "
 "payments for subscriptions."
 msgstr ""
+"Abonnementen zijn nu ondersteund en hebben een eigen pagina in het dashboard "
+"om bij te houden welke abonnementen zijn aangemaakt en om gerelateerde "
+"betalingen en hun status te raadplegen. De nieuwe `Incasso (mandaat via "
+"iDEAL)` en creditcard betaalmethoden kunnen gebruikt worden met WooCommerce "
+"Subscriptions om automatisch terugkerende betalingen te gebruiken voor "
+"abonnementen."
 
 #: admin/tab-new.php:80
-#, fuzzy
 msgid "Payment status requests for Ingenico"
-msgstr "Betalingsstatus is bijgewerkt."
+msgstr "Betalingsstatus opvragen met Ingenico"
 
 #: admin/tab-new.php:85
 msgid ""
@@ -1160,11 +1199,18 @@ msgid ""
 "Targetpay). Make sure to add API user credentials to your Ingenico "
 "configuration to benefit."
 msgstr ""
+"De Pronamic iDEAL plugin verwerkt betalingsstatus updates die door de "
+"betalingsprovider naar je website gestuurd worden.\n"
+"Maar we kunnen de status ook automatisch voor je opvragen. Ingenico "
+"(voorheen Ogone) is nu toegevoegd aan de lijst\n"
+"van betalingsprovider die deze functionaliteit ondersteunen (iDEAL Advanced/"
+"Professional, ING Kassa Compleet, Mollie, Pay.nl en\n"
+"Targetpay). Vul de inloggegevens van de API gebruiker in in de configuratie "
+"om hier gebruik van te maken."
 
 #: admin/tab-new.php:97
-#, fuzzy
 msgid "Check status of pending payments"
-msgstr "Eerste van terugkerende betaling"
+msgstr "Status van openstaande betalingen controleren"
 
 #: admin/tab-new.php:102
 msgid ""
@@ -1176,10 +1222,16 @@ msgid ""
 "The number of pending payments is\n"
 "mentioned in the admin menu item badge."
 msgstr ""
+"Wij steken veel energie in technische verbeteringen om de automatische "
+"betalingsstatus updates zo betrouwbaar mogelijk te verwerken, maar het kan "
+"nog steeds voorkomen dat de betalingsstatus voor langere tijd op 'In "
+"afwachting' staat. Met ondersteunde betalingsproviders kun je nu handmatig "
+"de betalingsstatus opvragen. Het aantal openstaande betalingen is vermeld in "
+"de badge in het menu."
 
 #: admin/tab-new.php:122
 msgid "Refreshed payments overview"
-msgstr ""
+msgstr "Vernieuwd betalingsoverzicht"
 
 #: admin/tab-new.php:127
 msgid ""
@@ -1189,6 +1241,11 @@ msgid ""
 "be displayed by enabling them in the\n"
 "\"Screen Options\" at the right top of the page."
 msgstr ""
+"Het betalingsoverzicht heeft een visuele verfrissing gekregen. Het meest "
+"opvallende zijn de nieuwe status iconen en bijgewerkte standaard kolommen\n"
+"om het overzicht er opgeruimder en gebruiksvriendelijker uit te laten zien. "
+"Aanvullende kolommen kunnen getoond worden door deze in te schakelen via\n"
+"\"Scherminstellingen\" in de rechter hoek bovenaan op de pagina."
 
 #: admin/tab-system_status.php:10
 msgid "License Status"
@@ -1646,7 +1703,8 @@ msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 msgid "Pronamic Pay"
 msgstr "Pronamic betalen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:440 vendor/wp-pay/core/src/Gateway.php:630
+#: classes/Pronamic/WP/Pay/Admin.php:440
+#: vendor/wp-pay/core/src/Gateway.php:630
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:46
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:64
@@ -3152,14 +3210,13 @@ msgid "Enable Credit Card"
 msgstr "Creditcard inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:87
-#, fuzzy
 msgid ""
 "You have given us permission on %s to use your credit card for any due "
 "amounts. This mandate will be used for your (subscription) order."
 msgstr ""
-"Je hebt ons toestemming gegeven op %s om verschuldigde bedragen te "
-"incasseren van je bankrekening. Dit mandaat zal worden gebruikt voor je "
-"(abonnement) bestelling."
+"Je hebt ons toestemming gegeven op %s om je creditcard te gebruiken voor "
+"verschuldigde bedragen. Dit mandaat zal worden gebruikt voor je (abonnement) "
+"bestelling."
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:39
 msgid "Enable Direct Debit"
