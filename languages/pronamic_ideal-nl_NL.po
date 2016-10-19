@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-10-19 09:50+0100\n"
+"PO-Revision-Date: 2016-10-19 14:39+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -732,9 +732,9 @@ msgstr "Volg Pronamic"
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: classes/Pronamic/WP/Pay/Admin.php:245
-#: vendor/wp-pay/core/src/Gateway.php:416
+#: vendor/wp-pay/core/src/Gateway.php:418
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:120
+#: vendor/wp-pay/core/src/PaymentMethods.php:121
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/IDealGateway.php:29
@@ -813,7 +813,7 @@ msgstr "Banner 100&times;100 (zonder campagne-uitingen)"
 #: admin/tab-branding.php:101 admin/tab-branding.php:107
 #: admin/tab-branding.php:113 admin/tab-methods.php:94
 #: vendor/wp-pay/core/src/BancontactPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:114
+#: vendor/wp-pay/core/src/PaymentMethods.php:115
 #: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BancontactGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/MisterCashGateway.php:29
@@ -1049,7 +1049,7 @@ msgid "AfterPay"
 msgstr "AfterPay"
 
 #: admin/tab-methods.php:55 vendor/wp-pay/core/src/BitcoinPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:116
+#: vendor/wp-pay/core/src/PaymentMethods.php:117
 #: vendor/wp-pay-extensions/woocommerce/src/BitcoinGateway.php:28
 msgid "Bitcoin"
 msgstr "Bitcoin"
@@ -1064,7 +1064,7 @@ msgstr "GiftCard"
 
 #: admin/tab-methods.php:69
 #: vendor/wp-pay/core/src/CreditCardPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:117
+#: vendor/wp-pay/core/src/PaymentMethods.php:118
 #: vendor/wp-pay-extensions/appthemes/src/CreditCardGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/CreditCardGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/CreditCardGateway.php:29
@@ -1082,7 +1082,7 @@ msgstr "Creditcard"
 
 #: admin/tab-methods.php:76
 #: vendor/wp-pay/core/src/DirectDebitPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:118
+#: vendor/wp-pay/core/src/PaymentMethods.php:119
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/DirectDebitGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/DirectDebitGateway.php:29
@@ -1111,7 +1111,7 @@ msgid "paysafecard"
 msgstr "paysafecard"
 
 #: admin/tab-methods.php:102 vendor/wp-pay/core/src/PayPalPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:121
+#: vendor/wp-pay/core/src/PaymentMethods.php:122
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:28
 msgid "PayPal"
 msgstr "PayPal"
@@ -1195,16 +1195,15 @@ msgid ""
 "But we can also request the payment status automatically for you. Ingenico "
 "(previously Ogone) is now added to the list\n"
 "of payment providers which support this feature (iDEAL Advanced/"
-"Professional, ING Kassa Compleet, Mollie, Pay.nl and\n"
-"Targetpay). Make sure to add API user credentials to your Ingenico "
+"Professional, ING Kassa Compleet, Mollie, Pay.nl, Sisow\n"
+"and Targetpay). Make sure to add API user credentials to your Ingenico "
 "configuration to benefit."
 msgstr ""
 "De Pronamic iDEAL plugin verwerkt betalingsstatus updates die door de "
-"betalingsprovider naar je website gestuurd worden.\n"
-"Maar we kunnen de status ook automatisch voor je opvragen. Ingenico "
-"(voorheen Ogone) is nu toegevoegd aan de lijst\n"
-"van betalingsprovider die deze functionaliteit ondersteunen (iDEAL Advanced/"
-"Professional, ING Kassa Compleet, Mollie, Pay.nl en\n"
+"betalingsprovider naar je website gestuurd worden. Maar we kunnen de status "
+"ook automatisch voor je opvragen. Ingenico (voorheen Ogone) is nu toegevoegd "
+"aan de lijst van betalingsprovider die deze functionaliteit ondersteunen "
+"(iDEAL Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl, Sisow en "
 "Targetpay). Vul de inloggegevens van de API gebruiker in in de configuratie "
 "om hier gebruik van te maken."
 
@@ -1704,7 +1703,7 @@ msgid "Pronamic Pay"
 msgstr "Pronamic betalen"
 
 #: classes/Pronamic/WP/Pay/Admin.php:440
-#: vendor/wp-pay/core/src/Gateway.php:630
+#: vendor/wp-pay/core/src/Gateway.php:632
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:46
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:64
@@ -2193,7 +2192,7 @@ msgid "Payment Info"
 msgstr "Betalingsinformatie"
 
 #: vendor/wp-pay/core/src/BankTransferPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:115
+#: vendor/wp-pay/core/src/PaymentMethods.php:116
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/BankTransferGateway.php:30
 #: vendor/wp-pay-extensions/charitable/src/BankTransferGateway.php:29
@@ -2207,7 +2206,7 @@ msgstr "Betalingsinformatie"
 msgid "Bank Transfer"
 msgstr "Bankoverschrijving"
 
-#: vendor/wp-pay/core/src/Gateway.php:429
+#: vendor/wp-pay/core/src/Gateway.php:431
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:281
 #: vendor/wp-pay-extensions/gravityforms/vendor/wp-pay/core/src/Gateway.php:383
 #: vendor/wp-pay-gateways/buckaroo/vendor/wp-pay/core/src/Gateway.php:383
@@ -2215,11 +2214,11 @@ msgstr "Bankoverschrijving"
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:119
+#: vendor/wp-pay/core/src/PaymentMethods.php:120
 msgid "Direct Debit mandate via iDEAL"
 msgstr "Incasso (machtiging via iDEAL)"
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:122
+#: vendor/wp-pay/core/src/PaymentMethods.php:123
 #: vendor/wp-pay/core/src/SofortPaymentMethod.php:19
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:30
@@ -2688,7 +2687,7 @@ msgstr ""
 "tags voor aangepaste beschrijvingen."
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-meta-box-config.php:167
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:72
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:83
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:89
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:82
 msgid "Available tags:"
@@ -2987,7 +2986,7 @@ msgstr "Button afbeelding URL"
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:75
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:101
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:79
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:90
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:66
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:96
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:208
@@ -3382,7 +3381,7 @@ msgstr "Issuers konden niet opgehaald worden bij Buckaroo."
 #: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:71
 #: vendor/wp-pay-gateways/paydutch/src/Gateway.php:70
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:74
-#: vendor/wp-pay-gateways/sisow/src/Gateway.php:62
+#: vendor/wp-pay-gateways/sisow/src/Gateway.php:66
 #: vendor/wp-pay-gateways/targetpay/src/Gateway.php:73
 msgid "Choose your bank"
 msgstr "Kies uw bank"
@@ -3457,6 +3456,7 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:38
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:122
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:61
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:29
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:62
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:194
@@ -3553,17 +3553,13 @@ msgid "Approval code"
 msgstr "Goedkeuringscode"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:63
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:74
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:237
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:198
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
 msgid "Order ID"
 msgstr "Bestelling ID"
-
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
-msgid "Reference number"
-msgstr "Referentienummer"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
 msgid "Time of transaction processing"
@@ -3635,7 +3631,21 @@ msgstr ""
 "Deze instellingen dienen overeen te komen met het dashboard van de "
 "betalingsprovider."
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:67
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:65
+#: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:198
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:196
+#: vendor/wp-pay-gateways/mollie/src/Settings.php:58
+#: vendor/wp-pay-gateways/multisafepay/src/Settings.php:90
+#: vendor/wp-pay-gateways/pay-nl/src/Settings.php:64
+#: vendor/wp-pay-gateways/sisow/src/Settings.php:80
+#: vendor/wp-pay-gateways/targetpay/src/Settings.php:51
+msgid ""
+"Payment status updates will be processed without any additional "
+"configuration."
+msgstr ""
+"Transactie status updates worden verwerkt zonder aanvullende configuratie."
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:78
 msgid "The EMS e-Commerce %s parameter."
 msgstr "De EMS e-Commerce %s parameter."
 
@@ -3866,19 +3876,6 @@ msgstr ""
 "Het certificaat wordt gebruikt voor veilige communicatie met de "
 "betalingsprovider. Indien leeg gelaten, zal het certificaat aangemaakt "
 "worden met de privé sleutel en de ingevulde organisatiegegevens."
-
-#: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:198
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:196
-#: vendor/wp-pay-gateways/mollie/src/Settings.php:58
-#: vendor/wp-pay-gateways/multisafepay/src/Settings.php:90
-#: vendor/wp-pay-gateways/pay-nl/src/Settings.php:64
-#: vendor/wp-pay-gateways/sisow/src/Settings.php:80
-#: vendor/wp-pay-gateways/targetpay/src/Settings.php:51
-msgid ""
-"Payment status updates will be processed without any additional "
-"configuration."
-msgstr ""
-"Transactie status updates worden verwerkt zonder aanvullende configuratie."
 
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:220
 #: vendor/wp-pay-gateways/ideal-advanced/src/Settings.php:287
@@ -4672,8 +4669,8 @@ msgctxt "slug"
 msgid "payment-forms"
 msgstr "betalingsformulieren"
 
-#: vendor/wp-pay/core/src/Gateway.php:410
-#: vendor/wp-pay/core/src/Gateway.php:422
+#: vendor/wp-pay/core/src/Gateway.php:412
+#: vendor/wp-pay/core/src/Gateway.php:424
 #: vendor/wp-pay-extensions/gravityforms/vendor/wp-pay/core/src/Gateway.php:376
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:117
 #: vendor/wp-pay-gateways/buckaroo/vendor/wp-pay/core/src/Gateway.php:376
@@ -4682,7 +4679,7 @@ msgctxt "Payment method field"
 msgid "All available methods"
 msgstr "Alle beschikbare methoden"
 
-#: vendor/wp-pay/core/src/Gateway.php:412
+#: vendor/wp-pay/core/src/Gateway.php:414
 #: vendor/wp-pay-extensions/gravityforms/vendor/wp-pay/core/src/Gateway.php:367
 #: vendor/wp-pay-gateways/buckaroo/vendor/wp-pay/core/src/Gateway.php:367
 #: vendor/wp-pay-gateways/omnikassa/vendor/wp-pay/core/src/Gateway.php:367
@@ -4695,6 +4692,21 @@ msgstr "Anders"
 msgctxt "Payment method field"
 msgid "All"
 msgstr "Alle"
+
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
+msgctxt "creditcard"
+msgid "Reference number"
+msgstr "Referentienummer"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
+msgctxt "creditcard"
+msgid "Capture Day"
+msgstr "Belast dag"
+
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
+msgctxt "creditcard"
+msgid "Capture Mode"
+msgstr "Belast modus"
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:43
 msgctxt "ems"
@@ -4725,16 +4737,6 @@ msgstr "API-sleutel"
 msgctxt "mollie"
 msgid "API Key"
 msgstr "API-key"
-
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:195
-msgctxt "creditcard"
-msgid "Capture Day"
-msgstr "Belast dag"
-
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:196
-msgctxt "creditcard"
-msgid "Capture Mode"
-msgstr "Belast modus"
 
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:36
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:41

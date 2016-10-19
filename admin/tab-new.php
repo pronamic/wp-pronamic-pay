@@ -84,8 +84,8 @@ can be used with WooCommerce Subscriptions to set up automatically recurring pay
 
 esc_html_e( 'The Pronamic iDEAL plugin processes payment status update that are sent to your website by the payment provider.
 But we can also request the payment status automatically for you. Ingenico (previously Ogone) is now added to the list
-of payment providers which support this feature (iDEAL Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl and
-Targetpay). Make sure to add API user credentials to your Ingenico configuration to benefit.', 'pronamic_ideal' );
+of payment providers which support this feature (iDEAL Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl, Sisow
+and Targetpay). Make sure to add API user credentials to your Ingenico configuration to benefit.', 'pronamic_ideal' );
 
 			?>
 		</p>
