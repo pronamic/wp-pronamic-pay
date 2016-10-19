@@ -135,5 +135,20 @@ page, where you choose which configuration to use in the payment methods that ar
 
 			?>
 		</p>
+
+		<p>
+			<?php
+
+			printf(
+				'» <a href="%1$s" title="%2$s">%2$s</a>',
+				esc_url( add_query_arg( array(
+					'page' => 'pronamic_pay_tools',
+					'tab'  => 'extensions',
+				), admin_url( 'admin.php' ) ) ),
+				__( 'View supported e-commerce plugins', 'pronamic_ideal' )
+			);
+
+			?>
+		</p>
 	</div>
 </div>
