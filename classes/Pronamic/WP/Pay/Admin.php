@@ -456,7 +456,7 @@ class Pronamic_WP_Pay_Admin {
 			'pronamic_ideal',
 			__( 'Subscriptions', 'pronamic_ideal' ),
 			__( 'Subscriptions', 'pronamic_ideal' ),
-			'manage_options',
+			'edit_payments',
 			'edit.php?post_type=pronamic_pay_subscr'
 		);
 
