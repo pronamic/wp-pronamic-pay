@@ -1,9 +1,10 @@
-<table class="pronamic-pay-status-table widefat">
+<table class="pronamic-pay-table pronamic-pay-status-table widefat">
 	<thead>
-	<tr>
-		<th colspan="3"><?php esc_html_e( 'License', 'pronamic_ideal' ); ?></th>
-	</tr>
+		<tr>
+			<th colspan="3"><?php esc_html_e( 'License', 'pronamic_ideal' ); ?></th>
+		</tr>
 	</thead>
+
 	<tbody>
 		<tr>
 			<th scope="row">
@@ -59,12 +60,13 @@
 	</tbody>
 </table>
 
-<table class="pronamic-pay-status-table widefat">
+<table class="pronamic-pay-table pronamic-pay-status-table widefat">
 	<thead>
 		<tr>
 			<th colspan="3"><?php esc_html_e( 'WordPress Environment', 'pronamic_ideal' ); ?></th>
 		</tr>
 	</thead>
+
 	<tbody>
 		<tr>
 			<th scope="row">
@@ -320,7 +322,6 @@
 	</tbody>
 </table>
 
-
 <?php
 
 $data = get_transient( 'pronamic_pay_ideal_issuers_status' );
@@ -348,7 +349,7 @@ if ( ! $data ) {
 
 ?>
 
-<table class="wp-list-table widefat pronamic-pay-status-table">
+<table class="wp-list-table widefat pronamic-pay-table pronamic-pay-status-table">
 	<thead>
 		<tr>
 			<th colspan="5">

@@ -3,15 +3,15 @@
 @import '../fonts/variables';
 
 @import 'admin/variables';
+@import 'admin/forms';
+@import 'admin/dashboard-widget-payments';
+@import 'admin/chart';
+@import 'admin/tables';
+@import 'admin/tabs';
+@import 'admin/tip';
 
 .pronamic-pay-status-table {
 	margin-top: 2em;
-
-	thead {
-		th {
-			font-weight: bold;
-		}
-	}
 
 	tbody {
 		th {
@@ -200,7 +200,7 @@
 	}
 }
 
-@import 'admin/dashboard-widget-payments';
+
 
 // Settings
 .pronamic-pay-settings select {
@@ -320,8 +320,6 @@ pre.security-data {
 	}
 }
 
-@import 'admin/chart';
-
 // Error
 .pronamic-pay-error {
 	background: #F9F9F9;
@@ -342,8 +340,6 @@ pre.security-data {
 #_pronamic_gateway_ideal_private_certificate {
 	width: 100%;
 }
-
-@import 'admin/tabs';
 
 div.extra-settings {
 	display: none;
@@ -422,8 +418,6 @@ div.extra-settings {
 	}
 }
 
-@import 'admin/forms';
-
 #pk-cert-fields-toggle {
 	display: inline-block;
 
@@ -449,8 +443,6 @@ body.post-new-php div.extra-settings {
 		display: none;
 	}
 }
-
-@import 'admin/tip';
 
 #pronamic-pay-gateway-description {
 	font-size: .9em;
