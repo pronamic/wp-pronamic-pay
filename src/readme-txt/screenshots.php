@@ -1,10 +1,17 @@
-1.	Configuration edit page
-2.	WooCommerce - Settings - Payment Gateways
-3.	WooCommerce - Wootique theme - Checkout
-4.	Gravity Forms form edit page(iDEAL advanced)
-5.	Gravity Forms form edit page(iDEAL advanced)
-6.	Gravity Forms feed edit page
-7.	Feeds overview page
-8.	Payments overview page
-9.	Gravity Forms form on site with iDEAL feed
-10.	Gravity Forms frontend issuer drop down
+1. Payment provider configurations
+2. Edit configuration
+3. Built-in payment forms
+4. Edit payment form
+5. Payment form sample
+6. Payments
+7. Subscriptions
+8. Reports
+9. Settings
+10. Gravity Forms - Form editor
+11. Gravity Forms - Feed editor
+12. Gravity Forms - Sample payment form
+13. WooCommerce - Checkout settings
+14. WooCommerce - Checkout form
+15. WooCommerce - Checkout with credit card and valid mandate (mandates work with payment provider Mollie, subscriptions require WooCommerce Subscriptions)
+16. s2Member - Button generator
+17. Getting started
