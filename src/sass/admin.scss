@@ -171,9 +171,7 @@
 	&.pronamic-pay-tip {
 		float: left;
 	}
-}
 
-.pronamic-pay-recurring {
 	&::after {
 		color: #999;
 
@@ -202,79 +200,7 @@
 	}
 }
 
-// Dashboard
-// @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
-#pronamic_pay_dashboard_status .inside {
-	margin: 0;
-	padding: 0;
-}
-
-.pronamic-pay-status-list {
-	margin: 0;
-
-	overflow: hidden;
-
-	li {
-		@include box-sizing(border-box);
-
-		border-top: 1px solid #ECECEC;
-
-		color: #AAA;
-
-		float: left;
-
-		margin: 0;
-		padding: 0;
-
-		width: 50%;
-
-		a {
-			color: #aaa;
-
-			display: block;
-
-			font-size: 12px;
-
-			padding: 9px 12px;
-
-			-webkit-transition: all ease .5s;
-
-			position: relative;
-
-			strong {
-				color: #21759b;
-
-				display: block;
-
-				font-size: 18px;
-				font-weight: normal;
-
-				line-height: 1.2em;
-			}
-
-			&:hover {
-				color: #2ea2cc;
-
-				&:before,
-				strong {
-					color: #2ea2cc;
-				}
-			}
-		}
-	}
-
-	li:first-child {
-		border-top: 0;
-
-		width: 100%;
-	}
-
-	li {
-		&:nth-child(even) {
-			border-right: 1px solid #ECECEC;
-		}
-	}
-}
+@import 'admin/dashboard-widget-payments';
 
 // Settings
 .pronamic-pay-settings select {
@@ -512,9 +438,11 @@ div.extra-settings {
 
 // Hide download buttons for new configuration
 body.post-new-php div.extra-settings {
-	input[name='download_private_key'],
-	input[name='download_private_certificate'] {
-		display: none;
+	input {
+		[name='download_private_key'],
+		[name='download_private_certificate'] {
+			display: none;
+		}
 	}
 
 	.pk-cert-error > span {
