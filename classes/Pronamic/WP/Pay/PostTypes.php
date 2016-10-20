@@ -131,9 +131,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'supports'           => false,
 			'rewrite'            => false,
 			'query_var'          => false,
-			'capabilities'       => array(
-				'create_posts'   => 'do_not_allow',
-			),
+			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
 
