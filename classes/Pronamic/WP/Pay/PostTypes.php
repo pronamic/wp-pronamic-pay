@@ -132,7 +132,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'rewrite'            => false,
 			'query_var'          => false,
 			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
-			'map_meta_cap'       => true,
+			'map_meta_cap'       => false,
 		) );
 
 		register_post_type( 'pronamic_pay_form', array(
