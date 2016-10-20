@@ -4,177 +4,169 @@
 .pronamic-pay-status-table {
   margin-top: 2em;
 }
-/* line 10, ../sass/admin.scss */
+/* line 11, ../sass/admin.scss */
 .pronamic-pay-status-table thead th {
   font-weight: bold;
 }
-/* line 14, ../sass/admin.scss */
+/* line 18, ../sass/admin.scss */
 .pronamic-pay-status-table tbody th:first-child {
   width: 20%;
 }
 
-/* line 21, ../sass/admin.scss */
+/* line 27, ../sass/admin.scss */
 .pronamic-pay-subscriptions-table {
   border-spacing: 0;
-  width: 100%;
   clear: both;
   margin: 0;
+  width: 100%;
 }
-
-/* line 28, ../sass/admin.scss */
+/* line 37, ../sass/admin.scss */
 .pronamic-pay-subscriptions-table thead th {
   border-bottom: 1px solid #e1e1e1;
 }
-
-/* line 32, ../sass/admin.scss */
-.pronamic-pay-subscriptions-table td,
-.pronamic-pay-subscriptions-table th {
+/* line 42, ../sass/admin.scss */
+.pronamic-pay-subscriptions-table th,
+.pronamic-pay-subscriptions-table td {
   padding: 8px 10px;
 }
-
-/* line 37, ../sass/admin.scss */
+/* line 47, ../sass/admin.scss */
 .pronamic-pay-subscriptions-table th {
   text-align: left;
 }
 
-/* line 43, ../sass/admin.scss */
+/* line 55, ../sass/admin.scss */
 .widefat .column-pronamic_payment_status,
-.widefat .column-pronamic_subscription_status {
-  width: 1em;
-}
-
-/* line 48, ../sass/admin.scss */
-.pronamic-pay-status {
-  display: block;
-  text-indent: -9999px;
-  position: relative;
-  height: 1em;
-  width: 1em;
-}
-
-/* line 59, ../sass/admin.scss */
-.pronamic-pay-status:after {
-  display: block;
-  font-family: "Pronamic Pay Icons";
-  speak: none;
-  text-indent: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-}
-
-/* line 78, ../sass/admin.scss */
-.pronamic-pay-status-publish:after {
-  content: "";
-}
-
-/* line 82, ../sass/admin.scss */
-.pronamic-pay-status-payment_pending:after,
-.pronamic-pay-status-subscr_pending:after {
-  content: "";
-  color: #ffba00;
-}
-
-/* line 88, ../sass/admin.scss */
-.pronamic-pay-status-payment_cancelled:after,
-.pronamic-pay-status-subscr_cancelled:after {
-  content: "";
-  color: #a00;
-}
-
-/* line 94, ../sass/admin.scss */
-.pronamic-pay-status-payment_processing:after {
-  content: "";
-  color: #73a724;
-}
-
-/* line 99, ../sass/admin.scss */
-.pronamic-pay-status-payment_completed:after,
-.pronamic-pay-status-subscr_active:after,
-.pronamic-pay-status-subscr_completed:after {
-  content: "";
-  color: #2ea2cc;
-}
-
-/* line 106, ../sass/admin.scss */
-.pronamic-pay-status-payment_refunded:after {
-  content: "";
-  color: #999;
-}
-
-/* line 111, ../sass/admin.scss */
-.pronamic-pay-status-payment_failed:after,
-.pronamic-pay-status-subscr_failed:after {
-  content: "";
-  color: #d0c21f;
-}
-
-/* line 117, ../sass/admin.scss */
-.pronamic-pay-status-payment_on_hold:after {
-  content: "";
-  color: #999;
-}
-
-/* line 122, ../sass/admin.scss */
-.pronamic-pay-status-payment_expired:after,
-.pronamic-pay-status-subscr_expired:after {
-  content: "";
-  color: #999;
-}
-
-/* line 129, ../sass/admin.scss */
+.widefat .column-pronamic_subscription_status,
 .widefat .column-pronamic_payment_subscription {
   width: 1em;
 }
 
-/* line 133, ../sass/admin.scss */
+/* line 62, ../sass/admin.scss */
+.pronamic-pay-status {
+  display: block;
+  position: relative;
+  text-indent: -9999px;
+  width: 1em;
+  height: 1em;
+}
+/* line 72, ../sass/admin.scss */
+.pronamic-pay-status::after {
+  content: "";
+  display: block;
+  font-family: 'Pronamic Pay Icons';
+  position: absolute;
+  top: 0;
+  left: 0;
+  speak: none;
+  text-indent: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 93, ../sass/admin.scss */
+.pronamic-pay-status-publish::after {
+  content: "";
+}
+
+/* line 100, ../sass/admin.scss */
+.pronamic-pay-status-payment_pending::after,
+.pronamic-pay-status-subscr_pending::after {
+  color: #ffba00;
+  content: "";
+}
+
+/* line 108, ../sass/admin.scss */
+.pronamic-pay-status-payment_cancelled::after,
+.pronamic-pay-status-subscr_cancelled::after {
+  color: #a00;
+  content: "";
+}
+
+/* line 115, ../sass/admin.scss */
+.pronamic-pay-status-payment_processing::after {
+  color: #73a724;
+  content: "";
+}
+
+/* line 124, ../sass/admin.scss */
+.pronamic-pay-status-payment_completed::after,
+.pronamic-pay-status-subscr_active::after,
+.pronamic-pay-status-subscr_completed::after {
+  color: #2ea2cc;
+  content: "";
+}
+
+/* line 131, ../sass/admin.scss */
+.pronamic-pay-status-payment_refunded::after {
+  color: #999;
+  content: "";
+}
+
+/* line 139, ../sass/admin.scss */
+.pronamic-pay-status-payment_failed::after,
+.pronamic-pay-status-subscr_failed::after {
+  color: #d0c21f;
+  content: "";
+}
+
+/* line 146, ../sass/admin.scss */
+.pronamic-pay-status-payment_on_hold::after {
+  color: #999;
+  content: "";
+}
+
+/* line 154, ../sass/admin.scss */
+.pronamic-pay-status-payment_expired::after,
+.pronamic-pay-status-subscr_expired::after {
+  color: #999;
+  content: "";
+}
+
+/* line 161, ../sass/admin.scss */
 .pronamic-pay-recurring {
   display: block;
-  text-indent: -9999px;
   position: relative;
-  height: 1em;
+  text-indent: -9999px;
   width: 1em;
+  height: 1em;
 }
-/* line 143, ../sass/admin.scss */
+/* line 171, ../sass/admin.scss */
 .pronamic-pay-recurring.pronamic-pay-tip {
   float: left;
 }
 
-/* line 148, ../sass/admin.scss */
-.pronamic-pay-recurring:after {
+/* line 177, ../sass/admin.scss */
+.pronamic-pay-recurring::after {
+  color: #999;
+  content: "";
   display: block;
   font-family: 'Pronamic Pay Icons';
-  speak: none;
-  text-indent: 0;
   position: absolute;
   top: 0;
   left: 0;
+  speak: none;
+  text-indent: 0;
   width: 100%;
   height: 100%;
-  content: "";
-  color: #999;
 }
 
-/* line 168, ../sass/admin.scss */
-.pronamic-pay-recurring-first:after {
+/* line 200, ../sass/admin.scss */
+.pronamic-pay-recurring-first::after {
   color: #2ea2cc;
 }
 
-/* line 174, ../sass/admin.scss */
+/* line 207, ../sass/admin.scss */
 #pronamic_pay_dashboard_status .inside {
   margin: 0;
   padding: 0;
 }
 
-/* line 179, ../sass/admin.scss */
+/* line 212, ../sass/admin.scss */
 .pronamic-pay-status-list {
   overflow: hidden;
   margin: 0;
 }
-/* line 184, ../sass/admin.scss */
+/* line 217, ../sass/admin.scss */
 .pronamic-pay-status-list li {
   box-sizing: border-box;
   border-top: 1px solid #ECECEC;
@@ -184,7 +176,7 @@
   padding: 0;
   margin: 0;
 }
-/* line 198, ../sass/admin.scss */
+/* line 231, ../sass/admin.scss */
 .pronamic-pay-status-list li a {
   display: block;
   color: #aaa;
@@ -193,7 +185,7 @@
   position: relative;
   font-size: 12px;
 }
-/* line 206, ../sass/admin.scss */
+/* line 239, ../sass/admin.scss */
 .pronamic-pay-status-list li a strong {
   color: #21759b;
   display: block;
@@ -201,115 +193,115 @@
   font-weight: normal;
   line-height: 1.2em;
 }
-/* line 217, ../sass/admin.scss */
+/* line 250, ../sass/admin.scss */
 .pronamic-pay-status-list li a:hover {
   color: #2ea2cc;
 }
-/* line 220, ../sass/admin.scss */
+/* line 253, ../sass/admin.scss */
 .pronamic-pay-status-list li a:hover:before,
 .pronamic-pay-status-list li a:hover strong {
   color: #2ea2cc;
 }
-/* line 228, ../sass/admin.scss */
+/* line 261, ../sass/admin.scss */
 .pronamic-pay-status-list li:first-child {
-  border-top: none;
+  border-top: 0;
   width: 100%;
 }
-/* line 234, ../sass/admin.scss */
+/* line 267, ../sass/admin.scss */
 .pronamic-pay-status-list li:nth-child(even) {
   border-right: 1px solid #ECECEC;
 }
 
-/* line 240, ../sass/admin.scss */
+/* line 273, ../sass/admin.scss */
 .pronamic-pay-settings select {
   width: 25em;
 }
 
-/* line 244, ../sass/admin.scss */
+/* line 277, ../sass/admin.scss */
 #pronamic_pay_create_pages {
   margin-top: 1em;
 }
 
-/* line 250, ../sass/admin.scss */
+/* line 283, ../sass/admin.scss */
 #pronamic_gateway_config option.deprecated {
   color: #AAA;
 }
-/* line 255, ../sass/admin.scss */
+/* line 288, ../sass/admin.scss */
 #pronamic_gateway_config .gateway-config-section-header h4 {
   margin: 0;
 }
-/* line 259, ../sass/admin.scss */
+/* line 292, ../sass/admin.scss */
 #pronamic_gateway_config .gateway-config-section-header p {
   margin: 0 0 1em 0;
 }
-/* line 262, ../sass/admin.scss */
+/* line 295, ../sass/admin.scss */
 #pronamic_gateway_config .gateway-config-section-header p:last-child {
   margin-bottom: 0;
 }
 
-/* line 271, ../sass/admin.scss */
+/* line 304, ../sass/admin.scss */
 #pronamic_gateway_test .inside > label,
 #pronamic_gateway_test .inside div label {
   display: block;
 }
-/* line 276, ../sass/admin.scss */
+/* line 309, ../sass/admin.scss */
 #pronamic_gateway_test .pronamic-pay-test-payment-method td label {
   display: none;
 }
-/* line 280, ../sass/admin.scss */
+/* line 313, ../sass/admin.scss */
 #pronamic_gateway_test .pronamic-pay-test-payment-method {
   display: none;
 }
 
-/* line 286, ../sass/admin.scss */
+/* line 319, ../sass/admin.scss */
 #pronamic_payment_log.postbox .inside {
   margin: 0;
   padding: 0;
 }
 
-/* line 291, ../sass/admin.scss */
+/* line 324, ../sass/admin.scss */
 #pronamic_payment_log .comments-box {
   border: 0 none;
 }
 
-/* line 298, ../sass/admin.scss */
+/* line 331, ../sass/admin.scss */
 body.post-type-pronamic_payment #post-body-content,
 body.post-type-pronamic_pay_subscr #post-body-content {
   display: none;
 }
 
-/* line 304, ../sass/admin.scss */
+/* line 337, ../sass/admin.scss */
 .pronamic-pay-shortcode-input {
   width: 100%;
 }
 
-/* line 309, ../sass/admin.scss */
+/* line 342, ../sass/admin.scss */
 #pronamic_payment_update .inside,
 #pronamic_subscription_update .inside {
   margin: 0;
   padding: 0;
 }
 
-/* line 315, ../sass/admin.scss */
+/* line 348, ../sass/admin.scss */
 .pronamic-pay-inner {
   margin: 6px 0 0 0;
   padding: 0 12px 12px;
 }
 
-/* line 320, ../sass/admin.scss */
+/* line 353, ../sass/admin.scss */
 .pronamic-pay-major-actions {
   background: #F5F5F5;
   border-top: 1px solid #DDD;
   padding: 10px;
 }
 
-/* line 328, ../sass/admin.scss */
+/* line 361, ../sass/admin.scss */
 .pronamic-pay-action {
   float: right;
   text-align: right;
 }
 
-/* line 335, ../sass/admin.scss */
+/* line 368, ../sass/admin.scss */
 pre.security-data {
   background-color: #EEE;
   border-radius: 3px 3px 3px 3px;
@@ -319,63 +311,60 @@ pre.security-data {
   overflow: auto;
 }
 
-/* line 348, ../sass/admin.scss */
+/* line 383, ../sass/admin.scss */
 .pronamic-pay-table tr.deprecated td,
 .pronamic-pay-table tr.deprecated a {
-  color: #AAAAAA;
+  color: #aaa;
 }
 
-/* line 354, ../sass/admin.scss */
+/* line 3, ../sass/admin/_chart.scss */
 .postbox .pronamic-pay-chart-with-sidebar {
   padding: 12px 12px 12px 249px;
 }
 
-/* line 360, ../sass/admin.scss */
+/* line 8, ../sass/admin/_chart.scss */
 .pronamic-pay-chart-sidebar {
   float: left;
   margin-left: -237px;
   width: 225px;
 }
 
-/* line 368, ../sass/admin.scss */
+/* line 16, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend {
-  list-style: none;
-  margin: 0 0 1em;
-  padding: 0;
+  background: #fff;
   border: 1px solid #dfdfdf;
   border-right-width: 0;
   border-bottom-width: 0;
-  background: #FFF;
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
 }
-
-/* line 381, ../sass/admin.scss */
+/* line 28, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend li {
-  border-right: 5px solid #AAA;
+  border-right: 5px solid #aaa;
   box-shadow: inset 0 -1px 0 0 #dfdfdf;
-  color: #AAA;
+  color: #aaa;
   display: block;
-  padding: 1em;
   margin: 0;
+  padding: 1em;
   transition: all ease .5s;
 }
-
-/* line 396, ../sass/admin.scss */
+/* line 42, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend li:hover {
-  box-shadow: inset 0 -1px 0 0 #DFDFDF, inset 300px 0 0 rgba(35, 40, 47, 0.1);
-  border-right: 5px solid #23282F !important;
+  border-right: 5px solid #23282f !important;
+  box-shadow: inset 0 -1px 0 0 #dfdfdf, inset 300px 0 0 rgba(35, 40, 47, 0.1);
   padding-left: 1.5em;
 }
-
-/* line 404, ../sass/admin.scss */
+/* line 51, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend strong {
   color: #464646;
   display: block;
   font-size: 1.618em;
-  line-height: 1.2em;
   font-weight: 400;
+  line-height: 1.2em;
 }
 
-/* line 416, ../sass/admin.scss */
+/* line 63, ../sass/admin/_chart.scss */
 .pronamic-pay-chart-tooltip {
   background: #333;
   border-radius: 3px;
@@ -388,30 +377,24 @@ pre.security-data {
   text-align: center;
 }
 
-/**
- * Error
- */
-/* line 439, ../sass/admin.scss */
+/* line 393, ../sass/admin.scss */
 .pronamic-pay-error {
   background: #F9F9F9;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
   border-left: 4px solid #a00;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
   clear: both;
   margin: 15px 0;
-  position: relative;
   padding: 1em 1em 1em 2em;
+  position: relative;
 }
 
-/* line 455, ../sass/admin.scss */
+/* line 408, ../sass/admin.scss */
 #_pronamic_gateway_ideal_private_key,
 #_pronamic_gateway_ideal_private_certificate {
   width: 100%;
 }
 
-/**
- * Tabs
- */
-/* line 463, ../sass/admin.scss */
+/* line 2, ../sass/admin/_tabs.scss */
 .pronamic-pay-tabs-items {
   border-bottom: 1px solid #e5e5e5;
   display: block;
@@ -419,11 +402,11 @@ pre.security-data {
   margin: 3px 0 0;
   width: 100%;
 }
-/* line 474, ../sass/admin.scss */
+/* line 13, ../sass/admin/_tabs.scss */
 .pronamic-pay-tabs-items li {
   background: #e5e5e5;
-  border-left: 1px solid #e5e5e5;
   border-right: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
   color: #444;
   cursor: pointer;
   display: block;
@@ -431,80 +414,80 @@ pre.security-data {
   margin: 0 5px -1px 0;
   padding: 8px 15px;
 }
-/* line 491, ../sass/admin.scss */
+/* line 30, ../sass/admin/_tabs.scss */
 .pronamic-pay-tabs-items li.active {
-  background: #FFF;
-  border-top: 3px solid #C06;
+  background: #fff;
+  border-top: 3px solid #c06;
   margin-top: -3px;
 }
 
-/* line 500, ../sass/admin.scss */
+/* line 415, ../sass/admin.scss */
 div.extra-settings {
   display: none;
 }
 
-/* line 504, ../sass/admin.scss */
+/* line 419, ../sass/admin.scss */
 div.pronamic-pay-tab,
 div.extra-settings {
   border: 1px solid #e5e5e5;
   border-top: 0;
   clear: both;
 }
-/* line 511, ../sass/admin.scss */
+/* line 426, ../sass/admin.scss */
 div.pronamic-pay-tab > div,
 div.extra-settings > div {
   font-style: italic;
   padding: 20px 10px;
 }
-/* line 517, ../sass/admin.scss */
+/* line 432, ../sass/admin.scss */
 div.pronamic-pay-tab .gateway-config-section-header h4,
 div.pronamic-pay-tab .show-provider,
 div.extra-settings .gateway-config-section-header h4,
 div.extra-settings .show-provider {
   display: none;
 }
-/* line 522, ../sass/admin.scss */
+/* line 437, ../sass/admin.scss */
 div.pronamic-pay-tab .form-table,
 div.extra-settings .form-table {
   margin-top: 0;
 }
-/* line 525, ../sass/admin.scss */
+/* line 440, ../sass/admin.scss */
 div.pronamic-pay-tab .form-table tr.even,
 div.extra-settings .form-table tr.even {
   background: #f9f9f9;
 }
-/* line 529, ../sass/admin.scss */
+/* line 444, ../sass/admin.scss */
 div.pronamic-pay-tab .form-table th,
 div.extra-settings .form-table th {
   padding-left: 10px;
 }
-/* line 534, ../sass/admin.scss */
+/* line 449, ../sass/admin.scss */
 div.pronamic-pay-tab .form-table td p,
 div.extra-settings .form-table td p {
   line-height: inherit;
 }
-/* line 538, ../sass/admin.scss */
+/* line 452, ../sass/admin.scss */
 div.pronamic-pay-tab .form-table td p:first-child,
 div.extra-settings .form-table td p:first-child {
   margin-top: 5px;
 }
-/* line 544, ../sass/admin.scss */
+/* line 459, ../sass/admin.scss */
 div.pronamic-pay-tab .input-file-wrapper,
 div.extra-settings .input-file-wrapper {
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
-/* line 549, ../sass/admin.scss */
-div.pronamic-pay-tab .input-file-wrapper input[type="file"],
-div.extra-settings .input-file-wrapper input[type="file"] {
+/* line 464, ../sass/admin.scss */
+div.pronamic-pay-tab .input-file-wrapper input[type='file'],
+div.extra-settings .input-file-wrapper input[type='file'] {
+  cursor: pointer;
+  font-size: 50px;
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
-  font-size: 50px;
-  cursor: pointer;
 }
-/* line 561, ../sass/admin.scss */
+/* line 477, ../sass/admin.scss */
 div.pronamic-pay-tab p + input.button,
 div.pronamic-pay-tab .pk-cert-ok input.button,
 div.pronamic-pay-tab input.large-text.code + input.button,
@@ -513,7 +496,7 @@ div.extra-settings .pk-cert-ok input.button,
 div.extra-settings input.large-text.code + input.button {
   margin-top: 10px;
 }
-/* line 566, ../sass/admin.scss */
+/* line 482, ../sass/admin.scss */
 div.pronamic-pay-tab p + input.button + div.button,
 div.pronamic-pay-tab .pk-cert-ok input.button + div.button,
 div.pronamic-pay-tab input.large-text.code + input.button + div.button,
@@ -522,98 +505,100 @@ div.extra-settings .pk-cert-ok input.button + div.button,
 div.extra-settings input.large-text.code + input.button + div.button {
   margin-top: 10px;
 }
-/* line 571, ../sass/admin.scss */
+/* line 487, ../sass/admin.scss */
 div.pronamic-pay-tab span.description,
 div.extra-settings span.description {
   line-height: 1.9;
 }
 
-/* line 576, ../sass/admin.scss */
+/* line 1, ../sass/admin/_forms.scss */
 .pronamic-pay-form-control + .pronamic-pay-form-text {
   display: block;
   line-height: 1.9;
   margin-top: 10px;
 }
 
-/* line 584, ../sass/admin.scss */
+/* line 494, ../sass/admin.scss */
 #pk-cert-fields-toggle {
   display: inline-block;
   margin: 1em;
 }
 
-/* line 589, ../sass/admin.scss */
+/* line 500, ../sass/admin.scss */
 #_pronamic_gateway_country + span.description {
   display: inline;
   margin-left: 10px;
 }
 
-/* Hide download buttons for new configuration */
-/* line 596, ../sass/admin.scss */
-body.post-new-php div.extra-settings input[name="download_private_key"],
-body.post-new-php div.extra-settings input[name="download_private_certificate"] {
+/* line 508, ../sass/admin.scss */
+body.post-new-php div.extra-settings input[name='download_private_key'],
+body.post-new-php div.extra-settings input[name='download_private_certificate'] {
   display: none;
 }
-/* line 601, ../sass/admin.scss */
+/* line 513, ../sass/admin.scss */
 body.post-new-php div.extra-settings .pk-cert-error > span {
   display: none;
 }
 
-/* line 606, ../sass/admin.scss */
+/* line 1, ../sass/admin/_tip.scss */
 .pronamic-pay-tip {
-  float: right;
   color: #777;
   cursor: help;
+  float: right;
 }
 
-/* line 615, ../sass/admin.scss */
+/* line 10, ../sass/admin/_tip.scss */
 #tiptip_content {
   background: #333;
-  border: none;
+  border: 0;
   box-shadow: none;
 }
 
-/* line 622, ../sass/admin.scss */
+/* line 520, ../sass/admin.scss */
 #pronamic-pay-gateway-description {
-  margin-top: 10px;
   font-size: .9em;
+  margin-top: 10px;
 }
 
-/* line 627, ../sass/admin.scss */
+/* line 526, ../sass/admin.scss */
 #debug-selected-method {
   float: none;
 }
 
-/* line 632, ../sass/admin.scss */
+/* line 531, ../sass/admin.scss */
 #pronamic-pay-gateway-config-editor .dashicons {
   vertical-align: text-bottom;
 }
-/* line 635, ../sass/admin.scss */
+/* line 534, ../sass/admin.scss */
 #pronamic-pay-gateway-config-editor .dashicons.dashicons-yes {
   color: green;
 }
-/* line 639, ../sass/admin.scss */
+/* line 538, ../sass/admin.scss */
 #pronamic-pay-gateway-config-editor .dashicons.dashicons-no {
   color: red;
 }
-/* line 643, ../sass/admin.scss */
+/* line 542, ../sass/admin.scss */
 #pronamic-pay-gateway-config-editor .dashicons.dashicons-warning {
   color: orange;
 }
 
 @media only screen and (max-width: 960px) {
-  /* line 650, ../sass/admin.scss */
+  /* line 549, ../sass/admin.scss */
   .pronamic-pay-tabs-items {
     display: none;
   }
 
-  /* line 654, ../sass/admin.scss */
-  div.pronamic-pay-tab,
+  /* line 553, ../sass/admin.scss */
+  div.pronamic-pay-tab {
+    border: 0;
+  }
+  /* line 556, ../sass/admin.scss */
   div.pronamic-pay-tab .form-table {
     border: 0;
   }
 }
 @media only screen and (max-width: 782px) {
-  /* line 662, ../sass/admin.scss */
+  /* line 565, ../sass/admin.scss */
   div.pronamic-pay-tab .form-table th,
   div.pronamic-pay-tab .form-table td {
     padding: 11px;

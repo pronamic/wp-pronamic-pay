@@ -2,7 +2,7 @@
 
 @import '../fonts/variables';
 
-@import 'variables';
+@import 'admin/variables';
 
 .pronamic-pay-status-table {
 	margin-top: 2em;
@@ -53,7 +53,8 @@
 // @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
 .widefat {
 	.column-pronamic_payment_status,
-	.column-pronamic_subscription_status {
+	.column-pronamic_subscription_status,
+	.column-pronamic_payment_subscription {
 		width: 1em;
 	}
 }
@@ -97,23 +98,23 @@
 .pronamic-pay-status-payment_pending,
 .pronamic-pay-status-subscr_pending {
 	&::after {
-		content: $ppi-status-pending;
 		color: #ffba00;
+		content: $ppi-status-pending;
 	}
 }
 
 .pronamic-pay-status-payment_cancelled,
 .pronamic-pay-status-subscr_cancelled {
 	&::after {
-		content: $ppi-status-cancelled;
 		color: #a00;
+		content: $ppi-status-cancelled;
 	}
 }
 
 .pronamic-pay-status-payment_processing {
 	&::after {
-		content: $ppi-status-processing;
 		color: #73a724;
+		content: $ppi-status-processing;
 	}
 }
 
@@ -121,48 +122,42 @@
 .pronamic-pay-status-subscr_active,
 .pronamic-pay-status-subscr_completed {
 	&::after {
-		content: $ppi-status-completed;
 		color: #2ea2cc;
+		content: $ppi-status-completed;
 	}
 }
 
 .pronamic-pay-status-payment_refunded {
 	&::after {
-		content: $ppi-status-refunded;
 		color: #999;
+		content: $ppi-status-refunded;
 	}
 }
 
 .pronamic-pay-status-payment_failed,
 .pronamic-pay-status-subscr_failed {
 	&::after {
-		content: $ppi-status-failed;
 		color: #d0c21f;
+		content: $ppi-status-failed;
 	}
 }
 
 .pronamic-pay-status-payment_on_hold {
 	&::after {
-		content: $ppi-status-on-hold;
 		color: #999;
+		content: $ppi-status-on-hold;
 	}
 }
 
 .pronamic-pay-status-payment_expired,
 .pronamic-pay-status-subscr_expired {
 	&::after {
-		content: $ppi-status-on-hold;
 		color: #999;
+		content: $ppi-status-on-hold;
 	}
 }
 
 // Recurring status
-.widefat {
-	.column-pronamic_payment_subscription {
-		width: 1em;
-	}
-}
-
 .pronamic-pay-recurring {
 	display: block;
 
@@ -215,9 +210,9 @@
 }
 
 .pronamic-pay-status-list {
-	overflow: hidden;
-
 	margin: 0;
+
+	overflow: hidden;
 
 	li {
 		@include box-sizing(border-box);
@@ -228,18 +223,23 @@
 
 		float: left;
 
+		margin: 0;
+		padding: 0;
+
 		width: 50%;
 
-		padding: 0;
-		margin: 0;
-
 		a {
-			display: block;
 			color: #aaa;
-			padding: 9px 12px;
-			-webkit-transition: all ease .5s;
-			position: relative;
+
+			display: block;
+
 			font-size: 12px;
+
+			padding: 9px 12px;
+
+			-webkit-transition: all ease .5s;
+
+			position: relative;
 
 			strong {
 				color: #21759b;
@@ -265,12 +265,14 @@
 
 	li:first-child {
 		border-top: 0;
-	
+
 		width: 100%;
 	}
 
-	li:nth-child(even) {
-		border-right: 1px solid #ECECEC;
+	li {
+		&:nth-child(even) {
+			border-right: 1px solid #ECECEC;
+		}
 	}
 }
 
@@ -286,7 +288,7 @@
 // Gateway config postbox
 #pronamic_gateway_config {
 	option.deprecated {
-		color: #AAA;
+		color: #aaa;
 	}
 
 	.gateway-config-section-header {
@@ -356,9 +358,9 @@ body.post-type-pronamic_pay_subscr {
 }
 
 .pronamic-pay-major-actions {
-	background: #F5F5F5;
+	background: #f5f5f5;
 
-	border-top: 1px solid #DDD;
+	border-top: 1px solid #ddd;
 
 	padding: 10px;
 }
@@ -371,10 +373,10 @@ body.post-type-pronamic_pay_subscr {
 
 // iDEAL
 pre.security-data {
-	background-color: #EEE;
+	background-color: #eee;
 
-	border-radius: 3px 3px 3px 3px;
-	border: 1px solid #DFDFDF;
+	border: 1px solid #dfdfdf;
+	border-radius: 3px;
 
 	height: 10em;
 	width: 40em;
@@ -392,7 +394,7 @@ pre.security-data {
 	}
 }
 
-@import 'chart';
+@import 'admin/chart';
 
 // Error
 .pronamic-pay-error {
@@ -415,7 +417,7 @@ pre.security-data {
 	width: 100%;
 }
 
-@import 'tabs';
+@import 'admin/tabs';
 
 div.extra-settings {
 	display: none;
@@ -453,7 +455,7 @@ div.extra-settings {
 		td {
 			p {
 				line-height: inherit;
-			
+
 				&:first-child {
 					margin-top: 5px;
 				}
@@ -494,7 +496,7 @@ div.extra-settings {
 	}
 }
 
-@import 'forms';
+@import 'admin/forms';
 
 #pk-cert-fields-toggle {
 	display: inline-block;
@@ -520,7 +522,7 @@ body.post-new-php div.extra-settings {
 	}
 }
 
-@import 'tip';
+@import 'admin/tip';
 
 #pronamic-pay-gateway-description {
 	font-size: .9em;
@@ -537,15 +539,15 @@ body.post-new-php div.extra-settings {
 		vertical-align: text-bottom;
 
 		&.dashicons-yes {
-			color: green;
+			color: $green;
 		}
 
 		&.dashicons-no {
-			color: red;
+			color: $red;
 		}
 
 		&.dashicons-warning {
-			color: orange;
+			color: $orange;
 		}
 	}
 }
