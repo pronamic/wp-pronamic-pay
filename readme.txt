@@ -2,32 +2,42 @@
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
-Requires at least: 3.6
-Tested up to: 4.6
-Stable tag: 4.3.0
+Requires at least: 4.3
+Tested up to: 4.6.1
+Stable tag: 4.4.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
 
 == Description ==
 
-*	Easy installation and configuration
-*	Automatic updates
+Pronamic iDEAL is the best plugin available to accept payments through iDEAL in WordPress. iDEAL is the most popular payment method in the Netherlands, so if you want to start with e-commerce in the Dutch market: you’ll need iDEAL. The plugin supports the Bancontact payment method too, which is commonly used in Belgium. With over 100,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
 
-= Extensions =
+= Key Benefits =
+
+*   Quickly add and edit payment provider configurations.
+*   Easily execute required iDEAL tests with custom amounts.
+*   Automatic status updates in WordPress of webshop orders.
+*   Continually updated to support the latest e-commerce plugins.
+*   Built-in generation of required security certificates.
+*   Works with all popular WordPress e-commerce plugins.
+*   Easily switch between different payment providers.
+*   Reliable payment solution, with over 100,000 downloads.
+
+= Support WordPress e-commerce plugins =
 
 *	[Charitable](https://www.wpcharitable.com/)
 	*	**Author:** [Studio 164a](http://164a.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/charitable/](https://wordpress.org/plugins/charitable/)
 	*	**GitHub:** [https://github.com/Charitable/Charitable](https://github.com/Charitable/Charitable)
 	*	**Requires at least:** 1.3
-	*	**Tested up to:** 1.3
+	*	**Tested up to:** 1.4.0
 *	[Easy Digital Downloads](https://easydigitaldownloads.com/)
 	*	**Author:** [Pippin Williamson](http://pippinsplugins.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/easy-digital-downloads/](http://wordpress.org/plugins/easy-digital-downloads/)
 	*	**GitHub:** [https://github.com/easydigitaldownloads/Easy-Digital-Downloads](https://github.com/easydigitaldownloads/Easy-Digital-Downloads)
 	*	**Requires at least:** 1.8.6
-	*	**Tested up to:** 2.3
+	*	**Tested up to:** 2.6.6
 *	[Event Espresso 3](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-legacy](https://github.com/eventespresso/event-espresso-legacy)
 	*	**Requires at least:** 3.1.24
@@ -40,7 +50,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 *	[Event Espresso 4](http://eventespresso.com/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.7.p
-	*	**Tested up to:** 4.6.17.p
+	*	**Tested up to:** 4.9.7.p
 *	[Event Espresso 4 Decaf](http://eventespresso.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/event-espresso-decaf/](https://wordpress.org/plugins/event-espresso-decaf/)
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
@@ -55,12 +65,12 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**WordPress.org:** [https://wordpress.org/plugins/give/](https://wordpress.org/plugins/give/)
 	*	**GitHub:** [https://github.com/WordImpress/Give](https://github.com/WordImpress/Give)
 	*	**Requires at least:** 1.3.6
-	*	**Tested up to:** 1.3.6
+	*	**Tested up to:** 1.5.2
 *	[Gravity Forms](http://www.gravityforms.com/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
-	*	**Tested up to:** 1.8.13
+	*	**Tested up to:** 2.0.6
 *	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
@@ -91,7 +101,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**WordPress.org:** [http://wordpress.org/plugins/ithemes-exchange/](http://wordpress.org/plugins/ithemes-exchange/)
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
-	*	**Tested up to:** 1.7.16
+	*	**Tested up to:** 1.35.9
 *	[Jigoshop](http://jigoshop.com/)
 	*	**Author:** [Jigowatt](http://jigowatt.co.uk/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
@@ -117,7 +127,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**WordPress.org:** [http://wordpress.org/plugins/s2member/](http://wordpress.org/plugins/s2member/)
 	*	**GitHub:** [https://github.com/WebSharks/s2Member](https://github.com/WebSharks/s2Member)
 	*	**Requires at least:** 130816
-	*	**Tested up to:** 141007
+	*	**Tested up to:** 160801
 *	[Shopp](https://shopplugin.net/)
 	*	**Author:** [Ingenesis Limited](http://ingenesis.net/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/shopp/](http://wordpress.org/plugins/shopp/)
@@ -129,13 +139,13 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
-	*	**Tested up to:** 2.1.5
+	*	**Tested up to:** 2.6.4
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
 	*	**GitHub:** [https://github.com/wp-e-commerce/WP-e-Commerce](https://github.com/wp-e-commerce/WP-e-Commerce)
 	*	**Requires at least:** 3.8.12.1
-	*	**Tested up to:** 3.8.14
+	*	**Tested up to:** 3.11.3
 *	[Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/)
 	*	**Author:** [Astoundify](http://www.astoundify.com/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/appthemer-crowdfunding/](http://wordpress.org/plugins/appthemer-crowdfunding/)
@@ -156,58 +166,40 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	**Author:** [Astoundify](http://www.astoundify.com/)
 	*	**Tested up to:** 1.5
 
-= Gateways =
+= Support payment providers =
 
 *	[ABN AMRO](http://abnamro.nl/)
 	*	ABN AMRO - iDEAL Easy
 	*	ABN AMRO - iDEAL Only Kassa
-	*	ABN AMRO - Internetkassa
 	*	ABN AMRO - iDEAL Zelfbouw - v3
-	*	ABN AMRO - iDEAL Hosted
-	*	ABN AMRO - iDEAL Zelfbouw
+	*	ABN AMRO - Internetkassa
 *	[Buckaroo](http://www.buckaroo.nl/)
 	*	Buckaroo - HTML
 *	[Deutsche Bank](http://deutschebank.nl/)
 	*	Deutsche Bank - iDEAL via Ogone
 	*	Deutsche Bank - iDEAL Expert - v3
-*	[Dutch Payment Group](http://www.dutchpaymentgroup.com/)
-	*	PayDutch
 *	[Easy iDeal](http://www.easy-ideal.com/)
 	*	Easy iDeal - iDEAL
-*	[Fibonacci ORANGE](http://www.fibonacciorange.com/)
+*	[European Merchant Services](http://www.emscard.nl/)
+	*	EMS - e-Commerce
+*	[Fibonacci ORANGE](http://www.fibonacciorange.nl/)
 	*	Fibonacci ORANGE
-*	Fortis Bank
-	*	Fortis Bank - iDEAL Hosted
-	*	Fortis Bank - iDEAL Internet Kassa
-	*	Fortis Bank - iDEAL Integrated
-*	[Friesland Bank](http://frieslandbank.nl/)
-	*	Friesland Bank - iDEAL Zakelijk
-	*	Friesland Bank - iDEAL Zakelijk Plus - v3
-	*	Friesland Bank - iDEAL Zakelijk Plus
 *	[ICEPAY](http://www.icepay.nl/)
 	*	ICEPAY
 *	[iDEAL Simulator](http://ideal-simulator.nl/)
-	*	iDEAL Simulator - iDEAL Lite / Basic
 	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3
-	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw
 *	[ING](http://ing.nl/)
 	*	ING - iDEAL Basic
-	*	ING - iDEAL Internet Kassa
 	*	ING - iDEAL Advanced - v3
-	*	ING - iDEAL Advanced
+	*	ING - Kassa Compleet
 *	[Mollie](http://www.mollie.nl/)
 	*	Mollie
-	*	Mollie - iDEAL
-	*	Mollie - iDEAL Basic
-	*	Mollie - iDEAL Advanced
 *	[MultiSafepay](http://www.multisafepay.com/)
 	*	MultiSafepay - Connect
-*	[NEOS](http://neossolution.com/)
-	*	NEOS - Internet Kassa
 *	[Ingenico/Ogone](http://payment-services.ingenico.com/)
 	*	Ingenico/Ogone - Easy
-	*	Ingenico/Ogone - OrderStandard
 	*	Ingenico/Ogone - DirectLink
+	*	Ingenico/Ogone - OrderStandard
 *	[Pay.nl](https://www.pay.nl/)
 	*	Pay.nl
 *	[Paytor](http://www.paytor.com/)
@@ -216,18 +208,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 	*	Postcode iDEAL
 *	[Rabobank](http://rabobank.nl/)
 	*	Rabobank - OmniKassa
-	*	Rabobank - iDEAL Lite
 	*	Rabobank - iDEAL Professional - v3
-	*	Rabobank - Rabo iDEAL Kassa
-	*	Rabobank - iDEAL Professional
 *	[Sisow](http://sisow.nl/)
 	*	Sisow
-	*	Sisow - iDEAL Basic
-	*	Sisow - iDEAL Advanced
 *	[TargetPay](https://www.targetpay.com/)
 	*	TargetPay - iDEAL
 *	[Qantani](https://www.qantani.com/)
-	*	Qantani - iDEAL
+	*	Qantani (new platform)
+	*	Qantani (old platform)
 
 
 == Installation ==
@@ -265,17 +253,23 @@ backup your site just in case.
 
 == Screenshots ==
 
-1.	Configuration edit page
-2.	WooCommerce - Settings - Payment Gateways
-3.	WooCommerce - Wootique theme - Checkout
-4.	Gravity Forms form edit page(iDEAL advanced)
-5.	Gravity Forms form edit page(iDEAL advanced)
-6.	Gravity Forms feed edit page
-7.	Feeds overview page
-8.	Payments overview page
-9.	Gravity Forms form on site with iDEAL feed
-10.	Gravity Forms frontend issuer drop down
-
+1. Payment provider configurations
+2. Edit configuration
+3. Built-in payment forms
+4. Edit payment form
+5. Payment form sample
+6. Payments
+7. Subscriptions
+8. Reports
+9. Settings
+10. Gravity Forms - Form editor
+11. Gravity Forms - Feed editor
+12. Gravity Forms - Sample payment form
+13. WooCommerce - Checkout settings
+14. WooCommerce - Checkout form
+15. WooCommerce - Checkout with credit card and valid mandate (mandates work with payment provider Mollie, subscriptions require WooCommerce Subscriptions)
+16. s2Member - Button generator
+17. Getting started
 
 == Are there any known plugin conflicts? ==
 
@@ -307,6 +301,41 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.4.0 - 2016-10-26 =
+*	Updated WordPress pay core library to version 1.3.9.
+*	Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.4.
+*	Updated WordPress pay ABN AMRO - iDEAL Zelfbouw - v3 library to version 1.0.5.
+*	Updated WordPress pay ABN AMRO - Internetkassa library to version 1.0.2.
+*	Updated WordPress pay Buckaroo library to version 1.2.6.
+*	Updated WordPress pay Deutsche Bank - iDEAL Expert - v3 library to version 1.0.3.
+*	Updated WordPress pay Deutsche Bank - iDEAL via Ogone library to version 1.0.2.
+*	Updated WordPress pay EMS e-Commerce library to version 1.0.1.
+*	Updated WordPress pay ICEPAY library to version 1.2.9.
+*	Updated WordPress pay iDEAL library to version 1.1.5.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.7.
+*	Updated WordPress pay iDEAL Basic library to version 1.1.6.
+*	Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.2.
+*	Updated WordPress pay ING Kassa Compleet library to version 1.0.5.
+*	Updated WordPress pay Mollie library to version 1.1.9.
+*	Updated WordPress pay Mollie iDEAL library to version 1.0.7.
+*	Updated WordPress pay MultiSafepay Connect library to version 1.3.0.
+*	Updated WordPress pay Ingenico/Ogone library to version 1.3.2.
+*	Updated WordPress pay OmniKassa library to version 1.2.0.
+*	Updated WordPress pay Pay.nl library to version 1.1.7.
+*	Updated WordPress pay Qantani library to version 1.1.0.
+*	Updated WordPress pay Sisow library to version 1.2.1.
+*	Updated WordPress pay AppThemes library to version 1.0.5.
+*	Updated WordPress pay Charitable library to version 1.0.5.
+*	Updated WordPress pay Easy Digital Downloads library to version 1.2.5.
+*	Updated WordPress pay Event Espresso library to version 1.1.5.
+*	Updated WordPress pay Give library to version 1.0.3.
+*	Updated WordPress pay Gravity Forms library to version 1.4.9.
+*	Updated WordPress pay MemberPress library to version 1.0.3.
+*	Updated WordPress pay Membership library to version 1.0.6.
+*	Updated WordPress pay s2Member library to version 1.2.5.
+*	Updated WordPress pay WooCommerce library to version 1.2.1.
+*	Updated WordPress pay WP eCommerce library to version 1.3.9.
 
 = 4.3.0 - 2016-07-06 =
 *	Added WordPress pay EMS e-Commerce Gateway library version 1.0.0.

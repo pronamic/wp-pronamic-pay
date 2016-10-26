@@ -6,6 +6,43 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.4.0] - 2016-10-26
+
+### Changed
+- Updated WordPress pay core library to version 1.3.9.
+- Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.4.
+- Updated WordPress pay ABN AMRO - iDEAL Zelfbouw - v3 library to version 1.0.5.
+- Updated WordPress pay ABN AMRO - Internetkassa library to version 1.0.2.
+- Updated WordPress pay Buckaroo library to version 1.2.6.
+- Updated WordPress pay Deutsche Bank - iDEAL Expert - v3 library to version 1.0.3.
+- Updated WordPress pay Deutsche Bank - iDEAL via Ogone library to version 1.0.2.
+- Updated WordPress pay EMS e-Commerce library to version 1.0.1.
+- Updated WordPress pay ICEPAY library to version 1.2.9.
+- Updated WordPress pay iDEAL library to version 1.1.5.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.7.
+- Updated WordPress pay iDEAL Basic library to version 1.1.6.
+- Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.2.
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.5.
+- Updated WordPress pay Mollie library to version 1.1.9.
+- Updated WordPress pay Mollie iDEAL library to version 1.0.7.
+- Updated WordPress pay MultiSafepay Connect library to version 1.3.0.
+- Updated WordPress pay Ingenico/Ogone library to version 1.3.2.
+- Updated WordPress pay OmniKassa library to version 1.2.0.
+- Updated WordPress pay Pay.nl library to version 1.1.7.
+- Updated WordPress pay Qantani library to version 1.1.0.
+- Updated WordPress pay Sisow library to version 1.2.1.
+- Updated WordPress pay AppThemes library to version 1.0.5.
+- Updated WordPress pay Charitable library to version 1.0.5.
+- Updated WordPress pay Easy Digital Downloads library to version 1.2.5.
+- Updated WordPress pay Event Espresso library to version 1.1.5.
+- Updated WordPress pay Give library to version 1.0.3.
+- Updated WordPress pay Gravity Forms library to version 1.4.9.
+- Updated WordPress pay MemberPress library to version 1.0.3.
+- Updated WordPress pay Membership library to version 1.0.6.
+- Updated WordPress pay s2Member library to version 1.2.5.
+- Updated WordPress pay WooCommerce library to version 1.2.1.
+- Updated WordPress pay WP eCommerce library to version 1.3.9.
+
 ## [4.3.0] - 2016-07-06
 
 ### Added
@@ -1286,7 +1323,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.0...HEAD
+[4.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...4.4.0
 [4.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0
 [4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
 [4.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...4.2.2
