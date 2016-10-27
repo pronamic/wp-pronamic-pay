@@ -100,7 +100,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'rewrite'            => false,
 			'query_var'          => false,
 			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
-			'map_meta_cap'       => false,
+			'map_meta_cap'       => true,
 		) );
 
 		register_post_type( 'pronamic_pay_subscr', array(
@@ -132,7 +132,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'rewrite'            => false,
 			'query_var'          => false,
 			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
-			'map_meta_cap'       => false,
+			'map_meta_cap'       => true,
 		) );
 
 		register_post_type( 'pronamic_pay_form', array(
@@ -169,7 +169,7 @@ class Pronamic_WP_Pay_PostTypes {
 			),
 			'query_var'          => false,
 			'capabilities'       => Pronamic_WP_Pay_Admin_FormPostType::get_capabilities(),
-			'map_meta_cap'       => false,
+			'map_meta_cap'       => true,
 		) );
 	}
 
