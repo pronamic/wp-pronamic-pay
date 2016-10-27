@@ -82,7 +82,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	public function maybe_check_status() {
 		// Current user
-		if ( ! current_user_can( 'edit_payment' ) ) {
+		if ( ! current_user_can( 'edit_payments' ) ) {
 			return;
 		}
 

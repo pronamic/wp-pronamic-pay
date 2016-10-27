@@ -24,7 +24,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	 */
 	public function load() {
 		// Current user
-		if ( ! current_user_can( 'edit_payment' ) ) {
+		if ( ! current_user_can( 'edit_payments' ) ) {
 			return;
 		}
 
