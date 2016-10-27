@@ -12,13 +12,15 @@
 			{
 				"name": "Fixed",
 				"changes": [
-					"Fixed styling of recurring icon in the WordPress admin payments overview page."
+					"Fixed styling of recurring icon in the WordPress admin payments overview page.",
+					"Fixed `format_price` function if a non float value is passed in."
 				]
 			},
 			{
 				"name": "Changed",
 				"changes": [
-					"Changed version number in `wp_register_style` and `wp_register_script` function calls."
+					"Changed version number in `wp_register_style` and `wp_register_script` function calls.",
+					"Simplified the status icons CSS and related code."
 				]
 			}
 		]

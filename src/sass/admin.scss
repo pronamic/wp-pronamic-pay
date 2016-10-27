@@ -91,68 +91,49 @@
 	}
 }
 
-.pronamic-pay-status-publish {
-	&::after {
-		content: $ppi-status-processing;
-	}
-}
-
-.pronamic-pay-status-payment_pending,
-.pronamic-pay-status-subscr_pending {
+.pronamic-pay-status-pending {
 	&::after {
 		color: #ffba00;
 		content: $ppi-status-pending;
 	}
 }
 
-.pronamic-pay-status-payment_cancelled,
-.pronamic-pay-status-subscr_cancelled {
+.pronamic-pay-status-cancelled {
 	&::after {
 		color: #a00;
 		content: $ppi-status-cancelled;
 	}
 }
 
-.pronamic-pay-status-payment_processing {
+.pronamic-pay-status-processing {
 	&::after {
 		color: #73a724;
 		content: $ppi-status-processing;
 	}
 }
 
-.pronamic-pay-status-payment_completed,
-.pronamic-pay-status-subscr_active,
-.pronamic-pay-status-subscr_completed {
+.pronamic-pay-status-completed {
 	&::after {
 		color: #2ea2cc;
 		content: $ppi-status-completed;
 	}
 }
 
-.pronamic-pay-status-payment_refunded {
+.pronamic-pay-status-refunded {
 	&::after {
 		color: #999;
 		content: $ppi-status-refunded;
 	}
 }
 
-.pronamic-pay-status-payment_failed,
-.pronamic-pay-status-subscr_failed {
+.pronamic-pay-status-failed {
 	&::after {
 		color: #d0c21f;
 		content: $ppi-status-failed;
 	}
 }
 
-.pronamic-pay-status-payment_on_hold {
-	&::after {
-		color: #999;
-		content: $ppi-status-on-hold;
-	}
-}
-
-.pronamic-pay-status-payment_expired,
-.pronamic-pay-status-subscr_expired {
+.pronamic-pay-status-on-hold {
 	&::after {
 		color: #999;
 		content: $ppi-status-on-hold;

@@ -10,9 +10,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Fixed
 - Fixed styling of recurring icon in the WordPress admin payments overview page.
+- Fixed `format_price` function if a non float value is passed in.
 
 ### Changed
 - Changed version number in `wp_register_style` and `wp_register_script` function calls.
+- Simplified the status icons CSS and related code.
 
 ## [4.4.0] - 2016-10-27
 

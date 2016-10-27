@@ -305,7 +305,9 @@ results in OmniKassa data that no longer matches the signature.
 
 = 4.4.1 - 2016-10-28 =
 *	Fixed styling of recurring icon in the WordPress admin payments overview page.
+*	Fixed `format_price` function if a non float value is passed in.
 *	Changed version number in `wp_register_style` and `wp_register_script` function calls.
+*	Simplified the status icons CSS and related code.
 
 = 4.4.0 - 2016-10-27 =
 *	Added experimental support for subscriptions / recurring payments (WooCommerce Subscriptions).
