@@ -6,6 +6,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.4.1] - 2016-10-28
+
+### Changed
+- Changed version number in `wp_register_style` and `wp_register_script` function calls.
+
 ## [4.4.0] - 2016-10-27
 
 ### Added
@@ -1381,7 +1386,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.1...HEAD
+[4.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.0...4.4.1
 [4.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...4.4.0
 [4.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0
 [4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
