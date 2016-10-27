@@ -304,6 +304,7 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = 4.4.1 - 2016-10-28 =
+*	Fixed styling of recurring icon in the WordPress admin payments overview page.
 *	Changed version number in `wp_register_style` and `wp_register_script` function calls.
 
 = 4.4.0 - 2016-10-27 =

@@ -8,6 +8,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.4.1] - 2016-10-28
 
+### Fixed
+- Fixed styling of recurring icon in the WordPress admin payments overview page.
+
 ### Changed
 - Changed version number in `wp_register_style` and `wp_register_script` function calls.
 
