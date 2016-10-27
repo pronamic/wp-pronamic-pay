@@ -137,12 +137,10 @@ class Pronamic_WP_Pay_Settings {
 	 */
 	public function settings_section( $args ) {
 		switch ( $args['id'] ) {
-			case 'pronamic_pay_pages':
-				?>
-
-				<p class="description"><?php esc_html_e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' ); ?></p>
-
-				<?php
+			case 'pronamic_pay_pages' :
+				echo '<p>';
+				esc_html_e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' );
+				echo '</p>';
 
 				$pages = array( 'completed', 'cancel', 'expired', 'error', 'unknown' );
 

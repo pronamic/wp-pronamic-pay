@@ -10,6 +10,7 @@
 @import 'admin/tabs';
 @import 'admin/tip';
 @import 'admin/code';
+@import 'admin/settings';
 
 .pronamic-pay-status-table {
 	margin-top: 2em;
@@ -197,17 +198,6 @@
 	}
 }
 
-
-
-// Settings
-.pronamic-pay-settings select {
-	width: 25em;
-}
-
-#pronamic_pay_create_pages {
-	margin-top: 1em;
-}
-
 // Gateway config postbox
 #pronamic_gateway_config {
 	option.deprecated {
@@ -276,7 +266,7 @@ body.post-type-pronamic_pay_subscr {
 }
 
 .pronamic-pay-inner {
-	margin: 6px 0 0 0;
+	margin: 6px 0 0;
 	padding: 0 12px 12px;
 }
 
@@ -306,7 +296,7 @@ body.post-type-pronamic_pay_subscr {
 
 // Error
 .pronamic-pay-error {
-	background: #F9F9F9;
+	background: $gray-very-light-white;
 
 	border-left: 4px solid #a00;
 
