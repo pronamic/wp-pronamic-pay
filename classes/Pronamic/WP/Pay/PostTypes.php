@@ -68,6 +68,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'rewrite'            => false,
 			'query_var'          => false,
 			'capabilities'       => Pronamic_WP_Pay_Admin_GatewayPostType::get_capabilities(),
+			// Don't map meta capabilities since we only use the `manage_options` capability for this post type.
 			'map_meta_cap'       => false,
 		) );
 
