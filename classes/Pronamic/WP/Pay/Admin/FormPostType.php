@@ -269,7 +269,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 			'read_post'              => 'read_form',
 			'delete_post'            => 'delete_form',
 			'edit_posts'             => 'edit_forms',
-			'edit_others_posts'      => 'edit_other_forms',
+			'edit_others_posts'      => 'edit_others_forms',
 			'publish_posts'          => 'publish_forms',
 			'read_private_posts'     => 'read_private_forms',
 			'read'                   => 'read',

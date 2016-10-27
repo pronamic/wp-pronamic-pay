@@ -479,7 +479,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'read_post'              => 'read_payment',
 			'delete_post'            => 'delete_payment',
 			'edit_posts'             => 'edit_payments',
-			'edit_others_posts'      => 'edit_other_payments',
+			'edit_others_posts'      => 'edit_others_payments',
 			'publish_posts'          => 'publish_payments',
 			'read_private_posts'     => 'read_private_payments',
 			'read'                   => 'read',
