@@ -37,9 +37,10 @@ $payment = get_pronamic_payment( $post_id );
 		<td>
 			<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
-			echo ' ';
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
+			$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
+			$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
+			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 			?>
 		</td>
@@ -50,6 +51,30 @@ $payment = get_pronamic_payment( $post_id );
 		</th>
 		<td>
 			<?php echo esc_html( get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ) ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$method = $payment->get_meta( 'method' );
+
+			$name = Pronamic_WP_Pay_PaymentMethods::get_name( $method );
+
+			echo esc_html( $name );
+
+			if ( Pronamic_WP_Pay_PaymentMethods::IDEAL === $method ) {
+				$issuer = $payment->get_meta( 'issuer' );
+
+				if ( $issuer ) {
+					echo esc_html( sprintf( ' (`%s`)', $issuer ) );
+				}
+			}
+
+			?>
 		</td>
 	</tr>
 	<tr>
@@ -154,4 +179,75 @@ $payment = get_pronamic_payment( $post_id );
 			?>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo $payment->get_source_text(); //xss ok ?>
+		</td>
+	</tr>
+
+	<?php if ( 's2member' === $payment->get_source() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Period', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true ) ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Level', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ) ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( 'wp-e-commerce' === $payment->get_source() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Purchase ID', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_purchase_id', true ) ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Session ID', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_wpsc_session_id', true ) ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( 'membership' === $payment->get_source() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'User ID', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_membership_user_id', true ) ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Subscription ID', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_membership_subscription_id', true ) ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
 </table>

@@ -1,0 +1,74 @@
+// Dashboard
+// @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
+.postbox {
+	.inside {
+		.pronamic-pay-status-widget {
+			margin: -12px;
+		}
+	}
+}
+
+.pronamic-pay-status-list {
+	margin-bottom: 0;
+
+	overflow: hidden;
+
+	li {
+		@include box-sizing(border-box);
+
+		border-top: 1px solid $wp-postbox-handle-border-color;
+
+		color: #aaa;
+
+		float: left;
+
+		margin: 0;
+		padding: 0;
+
+		width: 50%;
+
+		a {
+			color: #aaa;
+
+			display: block;
+
+			font-size: 12px;
+
+			padding: 9px 12px;
+
+			position: relative;
+
+			transition: color ease .5s;
+
+			strong {
+				color: #21759b;
+
+				display: block;
+
+				font-size: 18px;
+				font-weight: normal;
+
+				line-height: 1.2em;
+			}
+
+			&:hover {
+				color: #2ea2cc;
+
+				&::before,
+				strong {
+					color: #2ea2cc;
+				}
+			}
+		}
+
+		&:first-child {
+			border-top: 0;
+
+			width: 100%;
+		}
+
+		&:nth-child(even) {
+			border-right: 1px solid $wp-postbox-handle-border-color;
+		}
+	}
+}

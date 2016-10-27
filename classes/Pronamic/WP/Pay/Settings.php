@@ -40,6 +40,7 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay_general', // section
 			array(
 				'label_for' => 'pronamic_pay_license_key',
+				'classes'   => 'regular-text code',
 			) // args
 		);
 
@@ -135,11 +136,11 @@ class Pronamic_WP_Pay_Settings {
 	 * Settings section
 	 */
 	public function settings_section( $args ) {
-		switch( $args['id'] ) {
+		switch ( $args['id'] ) {
 			case 'pronamic_pay_pages':
 				?>
 
-				<p class="description"><?php _e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' ); ?></p>
+				<p class="description"><?php esc_html_e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' ); ?></p>
 
 				<?php
 
@@ -187,7 +188,7 @@ class Pronamic_WP_Pay_Settings {
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			$args['classes']
+			esc_attr( $args['classes'] )
 		);
 
 	}
@@ -220,7 +221,7 @@ class Pronamic_WP_Pay_Settings {
 			'post_type'        => esc_attr( isset( $args['post_type'] ) ? $args['post_type'] : 'page' ),
 			'selected'         => esc_attr( get_option( $name, '' ) ),
 			'show_option_none' => esc_attr( isset( $args['show_option_none'] ) ? $args['show_option_none'] : __( '— Select a page —', 'pronamic_ideal' ) ),
-			'class'            => 'regular-text'
+			'class'            => 'regular-text',
 		) );
 	}
 }

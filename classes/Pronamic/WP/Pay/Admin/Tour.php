@@ -112,7 +112,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'toplevel_page_pronamic_ideal' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap h1',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-dashboard' ),
 							'position'  => (object) array(
@@ -128,7 +128,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'edit-pronamic_payment' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap h1',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-payments' ),
 							'position'  => (object) array(
@@ -144,7 +144,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'edit-pronamic_gateway' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap h1',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-gateways' ),
 							'position'  => (object) array(
@@ -160,7 +160,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'edit-pronamic_pay_form' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap h1',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-forms' ),
 							'position'  => (object) array(
@@ -195,7 +195,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'pronamic_pay_tools' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap .nav-tab-wrapper',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-tools' ),
 							'position'  => (object) array(
@@ -211,7 +211,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 			case 'pronamic_pay_reports' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap h1',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-reports' ),
 							'position'  => (object) array(
@@ -233,7 +233,7 @@ class Pronamic_WP_Pay_Admin_Tour {
 					'options'  => (object) array(
 						'content'   => $this->get_content( 'pointer-start' ),
 						'position'  => (object) array(
-							'edge'      => 'bottom',
+							'edge'      => 'left',
 							'align'     => 'center',
 						),
 					),

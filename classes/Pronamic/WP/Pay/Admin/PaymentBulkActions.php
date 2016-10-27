@@ -23,18 +23,26 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	 * Admin init
 	 */
 	public function load() {
+		// Current user
+		if ( ! current_user_can( 'edit_payments' ) ) {
+			return;
+		}
+
+		// Screen
 		$screen = get_current_screen();
 
-		if ( 'edit' === $screen->base && 'pronamic_payment' === $screen->post_type ) {
-			// Bulk actions
-			$this->maybe_do_bulk_actions();
-
-			// Admin notices
-			add_action( 'admin_notices', array( $this, 'admin_notices' ) );
-
-			// Admin footer
-			add_action( 'admin_footer', array( $this, 'admin_footer' ) );
+		if ( ! ( 'edit' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
+			return;
 		}
+
+		// Bulk actions
+		$this->maybe_do_bulk_actions();
+
+		// Admin notices
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+
+		// Admin footer
+		add_action( 'admin_footer', array( $this, 'admin_footer' ) );
 	}
 
 	/**
@@ -64,12 +72,37 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 		}
 
 		// Post IDs
-		$status_updated = 0;
-
 		$post_ids = filter_input( INPUT_GET, 'post', FILTER_VALIDATE_INT, FILTER_FORCE_ARRAY );
+
+		$status_updated       = 0;
+		$skipped_check        = 0;
+		$unsupported_gateways = array();
+		$gateways             = array();
 
 		foreach ( $post_ids as $post_id ) {
 			$payment = get_pronamic_payment( $post_id );
+
+			// Only check status for pending payments.
+			if ( Pronamic_WP_Pay_Statuses::OPEN !== $payment->status && '' !== $payment->status ) {
+				$skipped_check++;
+
+				continue;
+			}
+
+			// Make sure gateway supports `payment_status_request` feature.
+			$config_id = $payment->config_id;
+
+			if ( ! isset( $gateways[ $config_id ] ) ) {
+				$gateways[ $config_id ] = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+
+				if ( $gateways[ $config_id ] && ! $gateways[ $config_id ]->supports( 'payment_status_request' ) ) {
+					$unsupported_gateways[] = $config_id;
+				}
+			}
+
+			if ( in_array( $config_id, $unsupported_gateways ) ) {
+				continue;
+			}
 
 			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
 
@@ -77,7 +110,9 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 		}
 
 		$sendback = add_query_arg( array(
-			'status_updated' => $status_updated,
+			'status_updated'       => $status_updated,
+			'skipped_check'        => $skipped_check,
+			'unsupported_gateways' => implode( ',', $unsupported_gateways ),
 		), $sendback );
 
 		// Redirect
@@ -93,12 +128,49 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 		if ( filter_has_var( INPUT_GET, 'status_updated' ) ) {
 			$updated = filter_input( INPUT_GET, 'status_updated', FILTER_VALIDATE_INT );
 
-			$message = sprintf( _n( 'Payment updated.', '%s payments updated.', $updated, 'pronamic_ideal' ), number_format_i18n( $updated ) );
+			if ( $updated > 0 ) {
+				$message = sprintf( _n( '%s payment updated.', '%s payments updated.', $updated, 'pronamic_ideal' ), number_format_i18n( $updated ) );
 
-			printf(
-				'<div class="updated"><p>%s</p></div>',
-				esc_html( $message )
-			);
+				printf(
+					'<div class="notice notice-success"><p>%s</p></div>',
+					esc_html( $message )
+				);
+			}
+		}
+
+		if ( filter_has_var( INPUT_GET, 'skipped_check' ) ) {
+			$updated = filter_input( INPUT_GET, 'skipped_check', FILTER_VALIDATE_INT );
+
+			if ( $updated > 0 ) {
+				$message = sprintf(
+					_n( '%s payment is not updated because it already has a final payment status.', '%s payments are not updated because they already have a final payment status.', $updated, 'pronamic_ideal' ),
+					number_format_i18n( $updated )
+				);
+
+				printf(
+					'<div class="notice notice-warning"><p>%s</p></div>',
+					esc_html( $message )
+				);
+			}
+		}
+
+		if ( filter_has_var( INPUT_GET, 'unsupported_gateways' ) ) {
+			$unsupported = filter_input( INPUT_GET, 'unsupported_gateways', FILTER_SANITIZE_STRING );
+
+			if ( '' !== $unsupported ) {
+				$gateways = explode( ',', $unsupported );
+
+				foreach ( $gateways as $index => $config_id ) {
+					$gateways[ $index ] = get_the_title( $config_id );
+				}
+
+				$message = sprintf( __( 'Requesting the current payment status is unsupported by %s.', 'pronamic_ideal' ), implode( ', ', $gateways ) );
+
+				printf(
+					'<div class="notice notice-error"><p>%s</p></div>',
+					esc_html( $message )
+				);
+			}
 		}
 	}
 

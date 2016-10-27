@@ -28,23 +28,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - Internetkassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
 			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Hosted</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Zelfbouw</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>Adyen</td>
+			<td>ABN AMRO - Internetkassa</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
@@ -59,40 +47,16 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>Deutsche Bank - iDEAL Expert - v3</td>
 		</tr>
 		<tr>
-			<td><a href="http://www.dutchpaymentgroup.com/">Dutch Payment Group</a></td>
-			<td>PayDutch</td>
-		</tr>
-		<tr>
 			<td><a href="http://www.easy-ideal.com/">Easy iDeal</a></td>
 			<td>Easy iDeal - iDEAL</td>
 		</tr>
 		<tr>
-			<td><a href="http://www.fibonacciorange.com/">Fibonacci ORANGE</a></td>
+			<td><a href="http://www.emscard.nl/">European Merchant Services</a></td>
+			<td>EMS - e-Commerce</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.fibonacciorange.nl/">Fibonacci ORANGE</a></td>
 			<td>Fibonacci ORANGE</td>
-		</tr>
-		<tr>
-			<td>Fortis Bank</td>
-			<td>Fortis Bank - iDEAL Hosted</td>
-		</tr>
-		<tr>
-			<td>Fortis Bank</td>
-			<td>Fortis Bank - iDEAL Internet Kassa</td>
-		</tr>
-		<tr>
-			<td>Fortis Bank</td>
-			<td>Fortis Bank - iDEAL Integrated</td>
-		</tr>
-		<tr>
-			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
-			<td>Friesland Bank - iDEAL Zakelijk</td>
-		</tr>
-		<tr>
-			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
-			<td>Friesland Bank - iDEAL Zakelijk Plus - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://frieslandbank.nl/">Friesland Bank</a></td>
-			<td>Friesland Bank - iDEAL Zakelijk Plus</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.icepay.nl/">ICEPAY</a></td>
@@ -100,15 +64,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
-			<td>iDEAL Simulator - iDEAL Lite / Basic</td>
-		</tr>
-		<tr>
-			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
 			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
-			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw</td>
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
@@ -116,39 +72,19 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Internet Kassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://ing.nl/">ING</a></td>
 			<td>ING - iDEAL Advanced - v3</td>
 		</tr>
 		<tr>
 			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Advanced</td>
+			<td>ING - Kassa Compleet</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.mollie.nl/">Mollie</a></td>
 			<td>Mollie</td>
 		</tr>
 		<tr>
-			<td><a href="http://www.mollie.nl/">Mollie</a></td>
-			<td>Mollie - iDEAL</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.mollie.nl/">Mollie</a></td>
-			<td>Mollie - iDEAL Basic</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.mollie.nl/">Mollie</a></td>
-			<td>Mollie - iDEAL Advanced</td>
-		</tr>
-		<tr>
 			<td><a href="http://www.multisafepay.com/">MultiSafepay</a></td>
 			<td>MultiSafepay - Connect</td>
-		</tr>
-		<tr>
-			<td><a href="http://neossolution.com/">NEOS</a></td>
-			<td>NEOS - Internet Kassa</td>
 		</tr>
 		<tr>
 			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
@@ -156,11 +92,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
-			<td>Ingenico/Ogone - OrderStandard</td>
+			<td>Ingenico/Ogone - DirectLink</td>
 		</tr>
 		<tr>
 			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
-			<td>Ingenico/Ogone - DirectLink</td>
+			<td>Ingenico/Ogone - OrderStandard</td>
 		</tr>
 		<tr>
 			<td><a href="https://www.pay.nl/">Pay.nl</a></td>
@@ -180,31 +116,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - iDEAL Lite</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
 			<td>Rabobank - iDEAL Professional - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - Rabo iDEAL Kassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - iDEAL Professional</td>
 		</tr>
 		<tr>
 			<td><a href="http://sisow.nl/">Sisow</a></td>
 			<td>Sisow</td>
-		</tr>
-		<tr>
-			<td><a href="http://sisow.nl/">Sisow</a></td>
-			<td>Sisow - iDEAL Basic</td>
-		</tr>
-		<tr>
-			<td><a href="http://sisow.nl/">Sisow</a></td>
-			<td>Sisow - iDEAL Advanced</td>
 		</tr>
 		<tr>
 			<td><a href="https://www.targetpay.com/">TargetPay</a></td>
@@ -212,7 +128,11 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 		</tr>
 		<tr>
 			<td><a href="https://www.qantani.com/">Qantani</a></td>
-			<td>Qantani - iDEAL</td>
+			<td>Qantani (new platform)</td>
+		</tr>
+		<tr>
+			<td><a href="https://www.qantani.com/">Qantani</a></td>
+			<td>Qantani (old platform)</td>
 		</tr>
 	</tbody>
 </table>
@@ -239,7 +159,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://wordpress.org/plugins/charitable/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/Charitable/Charitable" target="_blank">GitHub</a></td>
 			<td>1.3</td>
-			<td>1.3</td>
+			<td>1.4.0</td>
 		</tr>
 		<tr>
 			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
@@ -247,7 +167,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
 			<td>1.8.6</td>
-			<td>2.3</td>
+			<td>2.6.6</td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3</a></td>
@@ -271,7 +191,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
 			<td>4.4.7.p</td>
-			<td>4.6.17.p</td>
+			<td>4.9.7.p</td>
 		</tr>
 		<tr>
 			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4 Decaf</a></td>
@@ -295,7 +215,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="https://wordpress.org/plugins/give/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/WordImpress/Give" target="_blank">GitHub</a></td>
 			<td>1.3.6</td>
-			<td>1.3.6</td>
+			<td>1.5.2</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
@@ -303,7 +223,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
 			<td>1.6</td>
-			<td>1.8.13</td>
+			<td>2.0.6</td>
 		</tr>
 		<tr>
 			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
@@ -351,7 +271,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/wp-plugins/ithemes-exchange" target="_blank">GitHub</a></td>
 			<td>1.7.14</td>
-			<td>1.7.16</td>
+			<td>1.35.9</td>
 		</tr>
 		<tr>
 			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
@@ -391,7 +311,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/s2member/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
 			<td>130816</td>
-			<td>141007</td>
+			<td>160801</td>
 		</tr>
 		<tr>
 			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
@@ -407,7 +327,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
 			<td>2.1.0</td>
-			<td>2.1.5</td>
+			<td>2.6.4</td>
 		</tr>
 		<tr>
 			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
@@ -415,7 +335,7 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td><a href="http://wordpress.org/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
 			<td>3.8.12.1</td>
-			<td>3.8.14</td>
+			<td>3.11.3</td>
 		</tr>
 		<tr>
 			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">Crowdfunding by Astoundify</a></td>
@@ -512,5 +432,3 @@ results in OmniKassa data that no longer matches the signature.
 *	[Maildit](http://wordpress.org/extend/plugins/maildit/)
 *	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
 *	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pronamic/wp-pronamic-ideal/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

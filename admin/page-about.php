@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 ?>
 <div class="wrap about-wrap">
-	<h1><?php esc_html_e( 'Welcome at Pronamic iDEAL', 'pronamic_ideal' ); ?></h1>
+	<h1><?php esc_html_e( 'Welcome to Pronamic iDEAL', 'pronamic_ideal' ); ?></h1>
 
 	<div class="about-text">
 		<?php

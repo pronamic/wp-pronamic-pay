@@ -64,6 +64,16 @@ module.exports = function( grunt ) {
 			]
 		},
 
+		// Sass Lint
+		sasslint: {
+			options: {
+				configFile: '.sass-lint.yml'
+			},
+			target: [
+				'src/sass/**/*.scss'
+			]
+		},
+
 		// Check WordPress version
 		checkwpversion: {
 			options: {
@@ -238,6 +248,18 @@ module.exports = function( grunt ) {
 							'tipTip.css'
 						],
 						dest: 'assets/tiptip'
+					}
+				]
+			},
+			other: {
+				files: [
+					{ // extensions.json
+						expand: true,
+						cwd: 'src/',
+						src: [
+							'extensions.json'
+						],
+						dest: 'other/'
 					}
 				]
 			},
@@ -432,12 +454,35 @@ module.exports = function( grunt ) {
 					version: '<%= pkg.version %>'
 				}
 			}
+		},
+
+		webfont: {
+			icons: {
+				src: 'src/fonts/images/*.svg',
+				dest: 'fonts',
+				options: {
+					font: 'pronamic-pay-icons',
+					fontFamilyName: 'Pronamic Pay Icons',
+					normalize: true,
+					stylesheets: [ 'css' ],
+					templateOptions: {
+						baseClass: 'pronamic-pay-icon',
+						classPrefix: 'pronamic-pay-icon-'
+					},
+					types: [ 'eot', 'woff2', 'woff', 'ttf', 'svg' ],
+					fontHeight: 768,
+					customOutputs: [ {
+						template: 'src/fonts/templates/variables.scss',
+						dest: 'src/fonts/_variables.scss'
+					} ]
+				}
+			}
 		}
 	} );
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
-	grunt.registerTask( 'assets', [ 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets' ] );
+	grunt.registerTask( 'assets', [ 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );

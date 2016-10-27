@@ -93,27 +93,27 @@ $sections = array(
 			),
 		),
 	),
-	'mistercash' => array(
-		'name'      => 'Mister Cash',
+	'bancontact' => array(
+		'name'      => 'Bancontact',
 		'resources' => array(
-			// Mister Cash
+			// Bancontact
 			array(
-				'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
+				'title'  => __( 'Bancontact', 'pronamic_ideal' ),
 				'width'  => 16,
 				'height' => 16,
-				'url'    => plugins_url( 'images/mister-cash/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
+				'url'    => plugins_url( 'images/bancontact/icon-16x16.png', Pronamic_WP_Pay_Plugin::$file ),
 			),
 			array(
-				'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
+				'title'  => __( 'Bancontact', 'pronamic_ideal' ),
 				'width'  => 24,
 				'height' => 24,
-				'url'    => plugins_url( 'images/mister-cash/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
+				'url'    => plugins_url( 'images/bancontact/icon-24x24.png', Pronamic_WP_Pay_Plugin::$file ),
 			),
 			array(
-				'title'  => __( 'Mister Cash', 'pronamic_ideal' ),
+				'title'  => __( 'Bancontact', 'pronamic_ideal' ),
 				'width'  => 32,
 				'height' => 32,
-				'url'    => plugins_url( 'images/mister-cash/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
+				'url'    => plugins_url( 'images/bancontact/icon-32x32.png', Pronamic_WP_Pay_Plugin::$file ),
 			),
 		),
 	),

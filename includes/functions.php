@@ -32,12 +32,44 @@ function get_pronamic_payment_by_meta( $meta_key, $meta_value ) {
 	return $payment;
 }
 
+function get_pronamic_payments_by_meta( $meta_key, $meta_value ) {
+	global $wpdb;
+
+	$payments = array();
+
+	$db_query = $wpdb->prepare( "
+		SELECT
+			post_id
+		FROM
+			$wpdb->postmeta
+		WHERE
+			meta_key = %s
+				AND
+			meta_value = %s
+			;
+	", $meta_key, $meta_value );
+
+	$results = $wpdb->get_results( $db_query ); // WPCS: unprepared SQL ok.
+
+	foreach ( $results as $result ) {
+		$payments[] = new Pronamic_WP_Pay_Payment( $result->post_id );
+	}
+
+	return $payments;
+}
+
 function get_pronamic_payment_by_purchase_id( $purchase_id ) {
 	return get_pronamic_payment_by_meta( '_pronamic_payment_purchase_id', $purchase_id );
 }
 
 function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code = null ) {
 	return get_pronamic_payment_by_meta( '_pronamic_payment_transaction_id', $transaction_id );
+}
+
+function get_pronamic_subscription( $post_id ) {
+	$subscription = new Pronamic_WP_Pay_Subscription( $post_id );
+
+	return $subscription;
 }
 
 function bind_providers_and_gateways() {

@@ -75,6 +75,9 @@ class Pronamic_WP_Pay_Plugin {
 		// Form Processor
 		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
 
+		// Payment Status Checker
+		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
@@ -97,8 +100,8 @@ class Pronamic_WP_Pay_Plugin {
 		 */
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
-		// Payment notes
-		add_filter( 'comments_clauses', array( $this, 'exclude_comment_payment_notes' ), 10, 2 );
+		// Exclude payment and subscription notes
+		add_filter( 'comments_clauses', array( $this, 'exclude_comment_notes' ), 10, 2 );
 
 		// Payment redirect URL
 		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
@@ -114,14 +117,18 @@ class Pronamic_WP_Pay_Plugin {
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/payment.php';
 		require_once self::$dirname . '/includes/post.php';
+		require_once self::$dirname . '/includes/subscription.php';
 		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 
-		// The 'pronamic_ideal_check_transaction_status' hook is scheduled the status requests
-		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
+		// The 'pronamic_pay_update_subscription_payments' hook is scheduled to add subscription payments
+		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
+
+		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
+		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
@@ -162,66 +169,20 @@ class Pronamic_WP_Pay_Plugin {
 	 * @param WP_Comment_Query $query
 	 * @return array
 	 */
-	public function exclude_comment_payment_notes( $clauses, $query ) {
+	public function exclude_comment_notes( $clauses, $query ) {
 		$type = $query->query_vars['type'];
 
-		// Ignore payment notes comments if it's not specific requested
+		// Ignore payment notes comments if it's not specifically requested
 		if ( 'payment_note' !== $type ) {
 			$clauses['where'] .= " AND comment_type != 'payment_note'";
 		}
 
+		// Ignore subscription notes comments if it's not specifically requested
+		if ( 'subscription_note' !== $type ) {
+			$clauses['where'] .= " AND comment_type != 'subscription_note'";
+		}
+
 		return $clauses;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Check status of the specified payment
-	 *
-	 * @param string $paymentId
-	 */
-	public function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
-		$payment = new Pronamic_WP_Pay_Payment( $payment_id );
-
-		if ( null !== $payment ) {
-			// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
-			// - No status request after a final status has been received for a transaction;
-			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
-				self::update_payment( $payment );
-
-				if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
-					switch ( $number_tries ) {
-						case 0 :
-							// 30 seconds after a transaction request is sent
-							$seconds = 30;
-							break;
-						case 1 :
-							// Half-way through an expirationPeriod
-							$seconds = 30 * MINUTE_IN_SECONDS;
-							break;
-							// Half-way through an expirationPeriod
-						case 2 :
-							// Just after an expirationPeriod
-							$seconds = HOUR_IN_SECONDS;
-							break;
-						case 3 :
-						default :
-							$seconds = DAY_IN_SECONDS;
-							break;
-					}
-
-					if ( $number_tries < 4 ) {
-						$time = time();
-
-						wp_schedule_single_event( $time + $seconds, 'pronamic_ideal_check_transaction_status', array(
-							'payment_id'   => $payment->get_id(),
-							'seconds'      => $seconds,
-							'number_tries' => ++$number_tries,
-						) );
-					}
-				}
-			}
-		}  // Payment with the specified ID could not be found, can't check the status
 	}
 
 	/**
@@ -288,6 +249,7 @@ class Pronamic_WP_Pay_Plugin {
 				$new_status = strtolower( $payment->status );
 
 				pronamic_wp_pay_update_payment( $payment );
+				pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
 				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
 					$can_redirect = false;
@@ -386,7 +348,14 @@ class Pronamic_WP_Pay_Plugin {
 
 				if ( null !== $gateway && $gateway->is_html_form() ) {
 					$gateway->start( $payment );
-					$gateway->redirect( $payment );
+
+					$error = $gateway->get_error();
+
+					if ( is_wp_error( $error ) ) {
+						Pronamic_WP_Pay_Plugin::render_errors( $error );
+					} else {
+						$gateway->redirect( $payment );
+					}
 				}
 
 				wp_redirect( $payment->action_url );
@@ -464,6 +433,17 @@ class Pronamic_WP_Pay_Plugin {
 		);
 	}
 
+	public static function get_subscription_states() {
+		return array(
+			'subscr_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_cancelled' => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_expired'   => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_failed'    => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_active'    => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_completed' => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
+		);
+	}
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -507,6 +487,11 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
@@ -643,19 +628,35 @@ class Pronamic_WP_Pay_Plugin {
 			$gateway->start( $payment );
 
 			pronamic_wp_pay_update_payment( $payment );
+			pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
 			$gateway->payment( $payment );
+
+			if ( $gateway->supports( 'payment_status_request' ) ) {
+				Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
+			}
 		}
 
 		return $payment;
 	}
 
-	public static function create_payment( $config_id, $gateway, $data, $payment_method = null ) {
-		$payment = null;
+	public static function create_payment( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
+		$payment         = null;
+		$subscription    = $data->get_subscription();
+		$subscription_id = $data->get_subscription_id();
+
+		$title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
+
+		if ( $subscription && $subscription_id ) {
+			$subscription_title    = get_the_title( $subscription_id );
+			$subscription_title[0] = strtolower( $subscription_title[0] );
+
+			$title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
+		}
 
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
-			'post_title'  => sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() ),
+			'post_title'  => $title,
 			'post_status' => 'payment_pending',
 		), true );
 
@@ -666,61 +667,128 @@ class Pronamic_WP_Pay_Plugin {
 			// @todo temporary solution for WPMU DEV
 			$data->payment_post_id = $post_id;
 
-			// Payment
 			$payment = new Pronamic_WP_Pay_Payment( $post_id );
-			$payment->config_id     = $config_id;
-			$payment->key           = uniqid( 'pay_' );
-			$payment->order_id      = $data->get_order_id();
-			$payment->currency      = $data->get_currency();
-			$payment->amount        = $data->get_amount();
-			$payment->language      = $data->get_language();
-			$payment->locale        = $data->get_language_and_country();
-			$payment->entrance_code = $data->get_entrance_code();
-			$payment->description   = $data->get_description();
-			$payment->source        = $data->get_source();
-			$payment->source_id     = $data->get_source_id();
-			$payment->email         = $data->get_email();
-			$payment->status        = null;
-			$payment->method        = $payment_method;
-			$payment->issuer        = $data->get_issuer_id();
-			$payment->customer_name = $data->get_customer_name();
-			$payment->address       = $data->get_address();
-			$payment->zip           = $data->get_zip();
-			$payment->city          = $data->get_city();
-			$payment->country       = $data->get_country();
-			$payment->telephone_number = $data->get_telephone_number();
+
+			// Subscription
+			if ( $subscription ) {
+
+				if ( $subscription_id ) {
+					wp_update_post( array(
+						'ID' => $post_id,
+						'post_author' => get_post_field( 'post_author', $subscription_id ),
+					) );
+				}
+
+				if ( ! $subscription_id ) {
+					$subscription_id = wp_insert_post( array(
+						'post_type'   => 'pronamic_pay_subscr',
+						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
+						'post_status' => 'subscr_pending',
+					), true );
+
+					if ( is_wp_error( $subscription_id ) ) {
+						// @todo what if subscription_id is error
+						$subscription_id = null;
+					} else {
+						// Meta
+						$prefix = '_pronamic_subscription_';
+
+						$next_payment = new DateTime();
+						$next_payment->modify( sprintf(
+							'+%d %s',
+							$subscription->get_interval(),
+							$subscription->get_interval_period()
+						) );
+
+						$meta = array(
+							$prefix . 'source'          => $data->get_source(),
+							$prefix . 'source_id'       => $data->get_source_id(),
+							$prefix . 'frequency'       => $subscription->get_frequency(),
+							$prefix . 'interval'        => $subscription->get_interval(),
+							$prefix . 'interval_period' => $subscription->get_interval_period(),
+							$prefix . 'transaction_id'  => $subscription->get_transaction_id(),
+							$prefix . 'description'     => $subscription->get_description(),
+							$prefix . 'currency'        => $subscription->get_currency(),
+							$prefix . 'amount'          => $subscription->get_amount(),
+							$prefix . 'next_payment'    => $next_payment->format( 'Y-m-d H:i:s' ),
+							$prefix . 'email'           => $data->get_email(),
+							$prefix . 'customer_name'   => $data->get_customer_name(),
+							$prefix . 'consumer_name'   => null,
+							$prefix . 'consumer_iban'   => null,
+							$prefix . 'consumer_bic'    => null,
+						);
+
+						foreach ( $meta as $key => $value ) {
+							if ( ! empty( $value ) ) {
+								update_post_meta( $subscription_id, $key, $value );
+							}
+						}
+
+						self::maybe_schedule_subscription_payments();
+					}
+				}
+
+				$payment->subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			}
+
+			// Payment
+			$payment->config_id                 = $config_id;
+			$payment->key                       = uniqid( 'pay_' );
+			$payment->order_id                  = $data->get_order_id();
+			$payment->currency                  = $data->get_currency();
+			$payment->amount                    = $data->get_amount();
+			$payment->language                  = $data->get_language();
+			$payment->locale                    = $data->get_language_and_country();
+			$payment->entrance_code             = $data->get_entrance_code();
+			$payment->description               = $data->get_description();
+			$payment->source                    = $data->get_source();
+			$payment->source_id                 = $data->get_source_id();
+			$payment->email                     = $data->get_email();
+			$payment->status                    = null;
+			$payment->method                    = $payment_method;
+			$payment->issuer                    = $data->get_issuer_id();
+			$payment->customer_name             = $data->get_customer_name();
+			$payment->address                   = $data->get_address();
+			$payment->zip                       = $data->get_zip();
+			$payment->city                      = $data->get_city();
+			$payment->country                   = $data->get_country();
+			$payment->telephone_number          = $data->get_telephone_number();
+			$payment->subscription_id           = $subscription_id;
+			$payment->recurring                 = $data->get_recurring();
 
 			// Meta
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-				$prefix . 'config_id'               => $payment->config_id,
-				$prefix . 'key'                     => $payment->key,
-				$prefix . 'order_id'                => $payment->order_id,
-				$prefix . 'currency'                => $payment->currency,
-				$prefix . 'amount'                  => $payment->amount,
-				$prefix . 'method'                  => $payment->method,
-				$prefix . 'issuer'                  => $payment->issuer,
-				$prefix . 'expiration_period'       => null,
-				$prefix . 'language'                => $payment->language,
-				$prefix . 'locale'                  => $payment->locale,
-				$prefix . 'entrance_code'           => $payment->entrance_code,
-				$prefix . 'description'             => $payment->description,
-				$prefix . 'consumer_name'           => null,
-				$prefix . 'consumer_account_number' => null,
-				$prefix . 'consumer_iban'           => null,
-				$prefix . 'consumer_bic'            => null,
-				$prefix . 'consumer_city'           => null,
-				$prefix . 'status'                  => null,
-				$prefix . 'source'                  => $payment->source,
-				$prefix . 'source_id'               => $payment->source_id,
-				$prefix . 'email'                   => $payment->email,
-				$prefix . 'customer_name'           => $payment->customer_name,
-				$prefix . 'address'                 => $payment->address,
-				$prefix . 'zip'                     => $payment->zip,
-				$prefix . 'city'                    => $payment->city,
-				$prefix . 'country'                 => $payment->country,
-				$prefix . 'telephone_number'        => $payment->telephone_number,
+				$prefix . 'config_id'                 => $payment->config_id,
+				$prefix . 'key'                       => $payment->key,
+				$prefix . 'order_id'                  => $payment->order_id,
+				$prefix . 'currency'                  => $payment->currency,
+				$prefix . 'amount'                    => $payment->amount,
+				$prefix . 'method'                    => $payment->method,
+				$prefix . 'issuer'                    => $payment->issuer,
+				$prefix . 'expiration_period'         => null,
+				$prefix . 'language'                  => $payment->language,
+				$prefix . 'locale'                    => $payment->locale,
+				$prefix . 'entrance_code'             => $payment->entrance_code,
+				$prefix . 'description'               => $payment->description,
+				$prefix . 'consumer_name'             => null,
+				$prefix . 'consumer_account_number'   => null,
+				$prefix . 'consumer_iban'             => null,
+				$prefix . 'consumer_bic'              => null,
+				$prefix . 'consumer_city'             => null,
+				$prefix . 'status'                    => null,
+				$prefix . 'source'                    => $payment->source,
+				$prefix . 'source_id'                 => $payment->source_id,
+				$prefix . 'email'                     => $payment->email,
+				$prefix . 'customer_name'             => $payment->customer_name,
+				$prefix . 'address'                   => $payment->address,
+				$prefix . 'zip'                       => $payment->zip,
+				$prefix . 'city'                      => $payment->city,
+				$prefix . 'country'                   => $payment->country,
+				$prefix . 'telephone_number'          => $payment->telephone_number,
+				$prefix . 'subscription_id'           => $payment->subscription_id,
+				$prefix . 'recurring'                 => $payment->recurring,
 			);
 
 			foreach ( $meta as $key => $value ) {
@@ -731,5 +799,119 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		return $payment;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe schedule subscription payment
+	 *
+	 * @param int $subscription_id
+	 */
+	public static function maybe_schedule_subscription_payments() {
+		if ( wp_next_scheduled( 'pronamic_pay_update_subscription_payments' ) ) {
+			return;
+		}
+
+		wp_schedule_event( time(), 'hourly', 'pronamic_pay_update_subscription_payments' );
+	}
+
+	/**
+	 * Update subscription payments
+	 */
+	public static function update_subscription_payments() {
+		// Don't create payments for sources which schedule payments
+		$sources = array(
+			'woocommerce',
+		);
+
+		$args = array(
+			'fields'      => 'ids',
+			'post_type'   => 'pronamic_pay_subscr',
+			'nopaging'    => true,
+			'orderby'     => 'post_date',
+			'order'       => 'ASC',
+			'post_status' => array(
+				'subscr_pending',
+				'subscr_expired',
+				'subscr_failed',
+				'subscr_active',
+			),
+			'meta_query'  => array(
+				array(
+					'key'     => '_pronamic_subscription_source',
+					'value'   => $sources,
+				    'compare' => 'NOT IN',
+				),
+				array(
+					'key'     => '_pronamic_subscription_next_payment',
+					'value'   => current_time( 'mysql', true ),
+					'compare' => '<=',
+					'type'    => 'DATETIME',
+				),
+			),
+		);
+
+		$subscriptions = get_posts( $args );
+
+		foreach ( $subscriptions as $subscription_id ) {
+			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			$first        = $subscription->get_first_payment();
+			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+			$data         = new Pronamic_WP_Pay_RecurringPaymentData( $subscription_id );
+
+			$payment = self::start( $first->config_id, $gateway, $data, $first->method );
+
+			if ( $payment ) {
+				$frequency = $subscription->get_frequency();
+				$schedule  = false;
+
+				if ( '' === $frequency ) {
+					$schedule = true;
+				}
+
+				// Date of next payment
+				$next_payment = new DateTime( $subscription->get_meta( 'next_payment' ) );
+				$next_payment->modify( sprintf(
+					'+%d %s',
+					$subscription->get_interval(),
+					$subscription->get_interval_period()
+				) );
+
+				if ( ! $schedule ) {
+					$final_payment = new DateTime( $first->post->post_date_gmt );
+					$final_payment->modify( sprintf(
+						'+%d %s',
+						( $frequency * $subscription->get_interval() ),
+						$subscription->get_interval_period()
+					) );
+
+					if ( $next_payment < $final_payment ) {
+						$schedule = true;
+					}
+				}
+
+				if ( $schedule ) {
+					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next_payment->format( 'Y-m-d H:i:s' ) );
+				} else {
+					wp_schedule_single_event( $final_payment->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
+
+					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment' );
+				}
+
+				self::update_payment( $payment, false );
+			}
+		}
+	}
+
+	/**
+	 * Subscription completed
+	 */
+	public function subscription_completed( $subscription_id ) {
+		$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+
+		$subscription->set_status( Pronamic_WP_Pay_Statuses::COMPLETED );
+
+		pronamic_wp_pay_update_subscription( $subscription );
 	}
 }

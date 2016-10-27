@@ -5,55 +5,73 @@
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
 			<div id="postbox-container-1" class="postbox-container">
 				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
-					<div class="postbox">
-						<h2 class="hndle"><span><?php esc_html_e( 'Help', 'pronamic_ideal' ); ?></span></h2>
 
-						<div class="inside">
-							<p>
-								<?php esc_html_e( 'Before asking for help we recommend to check the tour, getting started and status page.', 'pronamic_ideal' ); ?>
-							</p>
+					<?php if ( current_user_can( 'manage_options' ) ) : ?>
 
-							<?php
+						<div class="postbox">
+							<h2 class="hndle"><span><?php esc_html_e( 'Support', 'pronamic_ideal' ); ?></span></h2>
 
-							printf(
-								'<a href="%s" class="button-secondary">%s</a>',
-								esc_attr(
-									wp_nonce_url( add_query_arg( array(
-										'page'                     => 'pronamic_ideal',
-										'pronamic_pay_ignore_tour'  => '0',
-									) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' )
-								),
-								esc_html__( 'Start Tour', 'pronamic_ideal' )
-							);
+							<div class="inside">
+								<p>
+									<?php esc_html_e( "Please follow the tour, read the 'What is new' and 'Getting Started' pages before contacting us. Also, check the system status page for any issues.", 'pronamic_ideal' ); ?>
+								</p>
 
-							echo ' ';
+								<?php
 
-							printf(
-								'<a href="%s" class="button-secondary">%s</a>',
-								esc_attr(
-									add_query_arg( array(
-										'page' => 'pronamic-pay-about',
-										'tab'  => 'getting-started',
-									) )
-								),
-								esc_html__( 'Getting Started', 'pronamic_ideal' )
-							);
+								printf(
+									'<a href="%s" class="button-secondary">%s</a>',
+									esc_attr(
+										wp_nonce_url( add_query_arg( array(
+											'page'                     => 'pronamic_ideal',
+											'pronamic_pay_ignore_tour'  => '0',
+										) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' )
+									),
+									esc_html__( 'Start tour', 'pronamic_ideal' )
+								);
 
-							echo ' ';
+								echo ' ';
 
-							printf(
-								'<a href="%s" class="button-secondary">%s</a>',
-								esc_attr(
-									add_query_arg( array(
-										'page' => 'pronamic_pay_tools',
-									) )
-								),
-								esc_html__( 'System Status', 'pronamic_ideal' )
-							);
+								printf(
+									'<a href="%s" class="button-secondary">%s</a>',
+									esc_attr(
+										add_query_arg( array(
+											'page' => 'pronamic-pay-about',
+											'tab'  => 'new',
+										) )
+									),
+									esc_html__( "What is new", 'pronamic_ideal' )
+								);
 
-							?>
+								echo ' ';
+
+								printf(
+									'<a href="%s" class="button-secondary">%s</a>',
+									esc_attr(
+										add_query_arg( array(
+											'page' => 'pronamic-pay-about',
+											'tab'  => 'getting-started',
+										) )
+									),
+									esc_html__( 'Getting Started', 'pronamic_ideal' )
+								);
+
+								echo ' ';
+
+								printf(
+									'<a href="%s" class="button-secondary">%s</a>',
+									esc_attr(
+										add_query_arg( array(
+											'page' => 'pronamic_pay_tools',
+										) )
+									),
+									esc_html__( 'System Status', 'pronamic_ideal' )
+								);
+
+								?>
+							</div>
 						</div>
-					</div>
+
+					<?php endif; ?>
 
 					<div class="postbox">
 						<h2 class="hndle"><span><?php esc_html_e( 'Pending Payments', 'pronamic_ideal' ); ?></span></h2>

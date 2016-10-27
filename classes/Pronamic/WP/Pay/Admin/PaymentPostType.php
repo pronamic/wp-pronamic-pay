@@ -16,6 +16,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 */
 	const POST_TYPE = 'pronamic_payment';
 
+	/**
+	 * Admin notices.
+	 */
+	private $admin_notices = array();
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -24,13 +29,22 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
 
-		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'columns' ) );
+		add_filter( 'manage_edit-' . self::POST_TYPE . '_sortable_columns', array( $this, 'sortable_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
+
+		add_action( 'load-post.php', array( $this, 'maybe_check_status' ) );
+
+		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
+
+		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
+
+		add_filter( 'default_hidden_columns', array( $this, 'default_hidden_columns' ) );
 
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
@@ -63,30 +77,187 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		return $vars;
 	}
 
+	/**
+	 * Maybe check status.
+	 */
+	public function maybe_check_status() {
+		// Current user
+		if ( ! current_user_can( 'edit_payments' ) ) {
+			return;
+		}
+
+		// Screen
+		$screen = get_current_screen();
+
+		if ( ! ( 'post' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
+			return;
+		}
+
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
+
+		if ( filter_has_var( INPUT_GET, 'pronamic_pay_check_status' ) && check_admin_referer( 'pronamic_payment_check_status_' . $post_id ) ) {
+			$payment = get_pronamic_payment( $post_id );
+
+			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+
+			$this->admin_notices[] = array(
+				'type' => 'info',
+				'message' => __( 'Payment status updated.', 'pronamic_ideal' ),
+			);
+		}
+	}
+
+	public function admin_notices() {
+		foreach ( $this->admin_notices as $notice ) {
+			printf( '<div class="notice notice-%1$s"><p>%2$s</p></div>', $notice['type'], $notice['message'] );
+		}
+	}
+
+	/**
+	 * Pre get posts.
+	 *
+	 * @param WP_Query $query
+	 */
+	public function pre_get_posts( $query ) {
+		if ( 'pronamic_payment_amount' == $query->get( 'orderby' ) ) {  
+			$query->set( 'meta_key', '_pronamic_payment_amount' );
+			$query->set( 'orderby', 'meta_value_num' );  
+		}
+	}
+
 	//////////////////////////////////////////////////
 
-	public function edit_columns( $columns ) {
+	public function columns( $columns ) {
 		$columns = array(
-			'cb'                           => '<input type="checkbox" />',
-			'title'                        => __( 'Title', 'pronamic_ideal' ),
-			'pronamic_payment_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-			'pronamic_payment_transaction' => __( 'Transaction', 'pronamic_ideal' ),
-			'pronamic_payment_description' => __( 'Description', 'pronamic_ideal' ),
-			'pronamic_payment_amount'      => __( 'Amount', 'pronamic_ideal' ),
-			'pronamic_payment_consumer'    => __( 'Consumer', 'pronamic_ideal' ),
-			'pronamic_payment_source'      => __( 'Source', 'pronamic_ideal' ),
-			'pronamic_payment_status'      => __( 'Status', 'pronamic_ideal' ),
-			'author'                       => __( 'User', 'pronamic_ideal' ),
-			'date'                         => __( 'Date', 'pronamic_ideal' ),
+			'cb'                            => '<input type="checkbox" />',
+			'pronamic_payment_status'       => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-status" data-tip="%s">%s</span>',
+				esc_html__( 'Status', 'pronamic_ideal' ),
+				esc_html__( 'Status', 'pronamic_ideal' )
+			),
+			'pronamic_payment_subscription' => sprintf(
+				'<span class="pronamic-pay-tip pronamic-pay-recurring" data-tip="%s">%s</span>',
+				esc_html__( 'Subscription', 'pronamic_ideal' ),
+				esc_html__( 'Subscription', 'pronamic_ideal' )
+			),
+			'pronamic_payment_title'        => __( 'Payment', 'pronamic_ideal' ),
+			'pronamic_payment_transaction'  => __( 'Transaction', 'pronamic_ideal' ),
+			'pronamic_payment_gateway'      => __( 'Gateway', 'pronamic_ideal' ),
+			'pronamic_payment_description'  => __( 'Description', 'pronamic_ideal' ),
+			'pronamic_payment_customer'     => __( 'Customer', 'pronamic_ideal' ),
+			'pronamic_payment_amount'       => __( 'Amount', 'pronamic_ideal' ),
+			'pronamic_payment_date'         => __( 'Date', 'pronamic_ideal' ),
+
+//			'pronamic_payment_source'       => __( 'Source', 'pronamic_ideal' ),
+//			'author'                        => __( 'User', 'pronamic_ideal' ),
+//			'date'                          => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
+	}
+
+	public function default_hidden_columns( $hidden ) {
+		$hidden[] = 'pronamic_payment_gateway';
+		$hidden[] = 'pronamic_payment_description';
+
+		return $hidden;
+	}
+
+	public function sortable_columns( $sortable_columns ) {
+		$sortable_columns['pronamic_payment_title']  = 'ID';
+		$sortable_columns['pronamic_payment_amount'] = 'pronamic_payment_amount';
+		$sortable_columns['pronamic_payment_date']   = 'date';
+
+		return $sortable_columns;
 	}
 
 	public function custom_columns( $column, $post_id ) {
 		global $post;
 
 		switch ( $column ) {
+			case 'pronamic_payment_status':
+				$post_status = get_post_status( $post_id );
+
+				$label = __( 'Unknown', 'pronamic_ideal' );
+
+				$status_object = get_post_status_object( $post_status );
+
+				if ( isset( $status_object, $status_object->label ) ) {
+					$label = $status_object->label;
+				}
+
+				printf(
+					'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
+					esc_attr( $post_status ),
+					esc_attr( $label ),
+					esc_html( $label )
+				);
+
+				break;
+			case 'pronamic_payment_subscription':
+				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
+
+				if ( $subscription_id ) {
+					$label = __( 'Recurring payment', 'pronamic_ideal' );
+					$class = 'pronamic-pay-recurring';
+
+					$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
+
+					if ( ! $recurring ) {
+						$label  = __( 'First of recurring payment', 'pronamic_ideal' );
+						$class .= ' pronamic-pay-recurring-first';
+					}
+
+					printf(
+						'<span class="pronamic-pay-tip pronamic-pay-recurring pronamic-pay-recurring-%s" data-tip="%s">%s</span>',
+						esc_attr( $class ),
+						esc_attr( $label ),
+						esc_attr( $label )
+					);
+				}
+
+
+				break;
+			case 'pronamic_payment_title':
+				$payment = get_pronamic_payment( $post_id );
+
+				$source    = $payment->get_source();
+				$source_id = $payment->get_source_id();
+
+				$text = $source;
+
+				switch ( $source ) {
+					case 'woocommerce' :
+						$text = __( 'WooCommerce Order', 'pronamic_ideal' );
+
+						break;
+					case 'gravityforms' :
+					case 'gravityformsideal' :
+						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
+
+						break;
+					case 'test' :
+						$text = __( 'Test', 'pronamic_ideal' );
+
+						break;
+				}
+
+				printf(
+					__( '%s for %s %s', 'pronamic_ideal' ),
+					sprintf(
+						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
+						get_edit_post_link( $post_id ),
+						$post_id
+					),
+					$text,
+					sprintf(
+						'<a href="%s">#%s</a>',
+						get_edit_post_link( $source_id ),
+						$source_id
+					)
+				);
+
+				break;
 			case 'pronamic_payment_gateway':
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
 
@@ -106,9 +277,14 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				break;
 			case 'pronamic_payment_amount':
-				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_currency', true ) );
-				echo ' ';
-				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_amount', true ) );
+				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
+				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
+
+				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+
+				break;
+			case 'pronamic_payment_date':
+				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
 
 				break;
 			case 'pronamic_payment_consumer':
@@ -121,20 +297,14 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
 
 				break;
+			case 'pronamic_payment_customer':
+				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_customer_name', true ) );
+
+				break;
 			case 'pronamic_payment_source':
 				$payment = get_pronamic_payment( $post_id );
 
 				echo $payment->get_source_text(); //xss ok
-
-				break;
-			case 'pronamic_payment_status':
-				$status_object = get_post_status_object( get_post_status( $post_id ) );
-
-				if ( isset( $status_object, $status_object->label ) ) {
-					echo esc_html( $status_object->label );
-				} else {
-					echo '—';
-				}
 
 				break;
 		}
@@ -157,9 +327,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			);
 
 			add_meta_box(
-				'pronamic_payment_source',
-				__( 'Source', 'pronamic_ideal' ),
-				array( $this, 'meta_box_source' ),
+				'pronamic_payment_subscription',
+				__( 'Subscription', 'pronamic_ideal' ),
+				array( $this, 'meta_box_subscription' ),
 				$post_type,
 				'normal',
 				'high'
@@ -202,17 +372,17 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
-	public function meta_box_source( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-source.php';
+	public function meta_box_log( $post ) {
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
 	}
 
 	/**
-	 * Pronamic Pay gateway config meta box
+	 * Pronamic Pay payment subscription meta box
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
-	public function meta_box_log( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
+	public function meta_box_subscription( $post ) {
+		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
 	}
 
 	/**
@@ -296,5 +466,30 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
+	}
+
+	/**
+	 * Get capabilities for this post type.
+	 *
+	 * @return array
+	 */
+	public static function get_capabilities() {
+		return array(
+			'edit_post'              => 'edit_payment',
+			'read_post'              => 'read_payment',
+			'delete_post'            => 'delete_payment',
+			'edit_posts'             => 'edit_payments',
+			'edit_others_posts'      => 'edit_others_payments',
+			'publish_posts'          => 'publish_payments',
+			'read_private_posts'     => 'read_private_payments',
+			'read'                   => 'read',
+			'delete_posts'           => 'delete_payments',
+			'delete_private_posts'   => 'delete_private_payments',
+			'delete_published_posts' => 'delete_published_payments',
+			'delete_others_posts'    => 'delete_others_payments',
+			'edit_private_posts'     => 'edit_private_payments',
+			'edit_published_posts'   => 'edit_published_payments',
+			'create_posts'           => 'create_payments',
+		);
 	}
 }

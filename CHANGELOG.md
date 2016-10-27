@@ -6,6 +6,101 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.4.0] - 2016-10-27
+
+### Added
+- Added experimental support for subscriptions / recurring payments (WooCommerce Subscriptions).
+- Added check status button on the WordPress admin edit payment page.
+- Added custom capabilities for the custom post types.
+
+### Changed
+- Changed WordPress admin menu name from 'iDEAL' to 'Pay'.
+- Changed WordPress admin menu icon from iDEAL icon to dash icon 'money'.
+- Updated WordPress pay core library to version 1.3.9.
+- Updated WordPress pay ABN AMRO - iDEAL Easy library to version 1.0.4.
+- Updated WordPress pay ABN AMRO - iDEAL Zelfbouw - v3 library to version 1.0.5.
+- Updated WordPress pay ABN AMRO - Internetkassa library to version 1.0.2.
+- Updated WordPress pay Buckaroo library to version 1.2.6.
+  - Fixed unable to use payment method 'All available methods'.
+  - Added new Bancontact constant.
+  - Fixed `Fatal error: Call to undefined method Pronamic_WP_Pay_Gateways_Buckaroo_Client::get_error().`
+- Updated WordPress pay Deutsche Bank - iDEAL Expert - v3 library to version 1.0.3.
+- Updated WordPress pay Deutsche Bank - iDEAL via Ogone library to version 1.0.2.
+- Updated WordPress pay EMS e-Commerce library to version 1.0.1.
+  - Added transaction feedback status setting.
+  - Fixed - Too many arguments for function "__".
+- Updated WordPress pay ICEPAY library to version 1.2.9.
+  - Added support for new Bancontact constant.
+- Updated WordPress pay iDEAL library to version 1.1.5.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.7.
+- Updated WordPress pay iDEAL Basic library to version 1.1.6.
+- Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.2.
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.5.
+- Updated WordPress pay Mollie library to version 1.1.9.
+  - Fixed wrong char in switch statement.
+  - Added support for new Bancontact constant.
+  - Use seperate customer IDs for test and live mode.
+- Updated WordPress pay Mollie iDEAL library to version 1.0.7.
+- Updated WordPress pay MultiSafepay Connect library to version 1.3.0.
+  - Improved error reporting.
+- Updated WordPress pay Ingenico/Ogone library to version 1.3.2.
+  - Added `payment_status_request` feature support.
+  - Updated SHA-IN parameters list from ingenico.com.
+  - Updated SHA-OUT parameters list from ingenico.com.
+  - Removed schedule status check event, this will be part of the Pronamic iDEAL plugin.
+  - Use new `$payment->format_string()` function, and remove util function.
+  - Added support for new Bancontact constant.
+  - Fixed method `get_default_form_action_url()` visibility.
+  - Added support for form action URL for OrderStandard Easy.
+- Updated WordPress pay OmniKassa library to version 1.2.0.
+- Updated WordPress pay Pay.nl library to version 1.1.7.
+  - Added `payment_status_request` feature support.
+  - Fixed "urlencode should only be used when dealing with legacy applications, rawurlencode() should now be used instead".
+  - Removed schedule status check event, this will be part of the Pronamic iDEAL plugin.
+  - Added end user name and e-mail address to transaction.
+  - Added support new Bancontact constant.
+  - Don't schedule `pronamic_ideal_check_transaction_status` event on transaction error.
+- Updated WordPress pay Qantani library to version 1.1.0.
+- Updated WordPress pay Sisow library to version 1.2.1.
+  - Only send status check if transaction ID is not empty.
+  - Added feature support payment_status_request.
+  - Added support for new Bancontact constant.
+- Updated WordPress pay AppThemes library to version 1.0.5.
+- Updated WordPress pay Charitable library to version 1.0.5.
+  - Added cancel URL.
+  - Added Pronamic gateway usage clarification
+  - Added transaction description setting.
+  - Make use of new Bancontact label and constant.
+  - Ensure that the filter returns a value to avoid breaking other Charitable extensions that implement their own custom templates for certain form fields.
+- Updated WordPress pay Easy Digital Downloads library to version 1.2.5.
+- Updated WordPress pay Event Espresso library to version 1.1.5.
+  - Use payment redirect URL.
+  - Added help text with available tags.
+  - Added support for custom transaction descriptions.
+- Updated WordPress pay Give library to version 1.0.3.
+  - Use 'donation' instead of 'transaction' in transaction description.
+  - Added Pronamic gateway usage clarification.
+  - Added transaction description setting.
+  - Use new Bancontact label and constant.
+- Updated WordPress pay Gravity Forms library to version 1.5.0.
+  - Implemented the new pronamic_payment_redirect_url filter and added some early returns.
+  - Fixed deprecated usage of GFUserData.
+  - Refactored custom payment fields.
+- Updated WordPress pay MemberPress library to version 1.0.3.
+  - Added membership slug to thank you page URL.
+  - Maybe cancel old subscriptions and send notices.
+  - Make use of new Bancontact label and constant.
+  - Use MemberPress transaction number in 'Thank you' redirect instead of payment source ID.
+- Updated WordPress pay Membership library to version 1.0.6.
+- Updated WordPress pay s2Member library to version 1.2.5.
+  - Added support for payment method in shortcode.
+- Updated WordPress pay WooCommerce library to version 1.2.1.
+  - Added experimental support for WooCommerce Subscriptions / recurring payments.
+  - Restore compatibility with WooCommerce versions < 2.2.0.
+  - Switched to new Bancontact logo.
+  - Added Bitcoin gateway.
+- Updated WordPress pay WP eCommerce library to version 1.3.9.
+
 ## [4.3.0] - 2016-07-06
 
 ### Added
@@ -1286,7 +1381,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.0...HEAD
+[4.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.3.0...4.4.0
 [4.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.3...4.3.0
 [4.2.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.2...4.2.3
 [4.2.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.2.1...4.2.2

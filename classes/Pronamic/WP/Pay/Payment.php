@@ -6,6 +6,13 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	 */
 	public $post;
 
+	/**
+	 * The subscription
+	 *
+	 * @var Pronamic_Pay_WP_Subscription
+	 */
+	public $subscription;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -49,6 +56,8 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		$this->city             = $this->get_meta( 'city' );
 		$this->country          = $this->get_meta( 'country' );
 		$this->telephone_number = $this->get_meta( 'telephone_number' );
+
+		$this->subscription_id  = $this->get_meta( 'subscription_id' );
 	}
 
 	//////////////////////////////////////////////////
@@ -107,7 +116,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	}
 
 	/**
-	 * Get the return URL for this payment. This URL is passed to the payment providers / gateways 
+	 * Get the return URL for this payment. This URL is passed to the payment providers / gateways
 	 * so they know where they should return users to.
 	 *
 	 * @return string
@@ -126,7 +135,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 	/**
 	 * Get the return redirect URL for this payment. This URL is used after a user is returned
-	 * from a payment provider / gateway to WordPress. It allows WordPress payment extensions 
+	 * from a payment provider / gateway to WordPress. It allows WordPress payment extensions
 	 * to redirect users to the correct URL.
 	 *
 	 * @return string
@@ -150,5 +159,59 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		_deprecated_function( __FUNCTION__, '4.1.2', 'get_return_redirect_url()' );
 
 		return $this->get_return_redirect_url();
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get subscription.
+	 *
+	 * @return Pronamic_WP_Pay_Subscription
+	 */
+	public function get_subscription() {
+		if ( is_object( $this->subscription ) ) {
+			return $this->subscription;
+		}
+
+		if ( '' === $this->subscription_id ) {
+			return false;
+		}
+
+		$this->subscription = new Pronamic_WP_Pay_Subscription( $this->subscription_id );
+
+		return $this->subscription;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Format string
+	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/v2.2.3/includes/abstracts/abstract-wc-email.php#L187-L195
+	 * @param string $string
+	 * @return string
+	 */
+	public function format_string( $string ) {
+		// Find and replace
+		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
+		$find    = array();
+		$replace = array();
+
+		$find[]    = '{order_id}';
+		$replace[] = $this->get_order_id();
+
+		$find[]    = '{payment_id}';
+		$replace[] = $this->get_id();
+
+		// Order ID
+		$string = str_replace( $find, $replace, $string, $count );
+
+		// Make sure there is an dynamic part in the order ID
+		// @see https://secure.ogone.com/ncol/param_cookbook.asp
+		if ( 0 === $count ) {
+			$string .= $this->get_id();
+		}
+
+		return $string;
 	}
 }

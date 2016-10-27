@@ -1,107 +1,208 @@
-@import "compass/css3";
+@import 'compass/css3';
 
-/**
- * Colors
- */
+@import '../fonts/variables';
 
-// WordPress .postbox border-color
-// WordPress table.widefat border-color
-$pronamic-border-color: #e5e5e5;
-// WordPress .striped background-color
-$pronamic-striped-background-color: #f9f9f9;
-
-/**
- * Column
- */
-td.column-version {
-	width: 5em;
-}
+@import 'admin/variables';
+@import 'admin/forms';
+@import 'admin/dashboard-widget-payments';
+@import 'admin/chart';
+@import 'admin/tables';
+@import 'admin/tabs';
+@import 'admin/tip';
 
 .pronamic-pay-status-table {
 	margin-top: 2em;
 
-	thead th {
-		font-weight: bold;
-	}
-
-	tbody th:first-child {
-		width: 20%;
-	}
-}
-
-/**
- * Dashboard
- *
- * @see https://github.com/woothemes/woocommerce/blob/2.3.13/assets/css/dashboard.scss#L51-L173
- */
-#pronamic_pay_dashboard_status .inside {
-	margin: 0;
-	padding: 0;
-}
-
-.pronamic-pay-status-list {
-	overflow: hidden;
-
-	margin: 0;
-
-	li {
-		border-top: 1px solid #ECECEC;
-
-		@include box-sizing( border-box );
-
-		color: #AAA;
-
-		float: left;
-
-		width: 50%;
-
-		padding: 0;
-		margin: 0;
-
-		a {
-			display: block;
-			color: #aaa;
-			padding: 9px 12px;
-			-webkit-transition: all ease .5s;
-			position: relative;
-			font-size: 12px;
-
-			strong {
-				color: #21759b;
-
-				display: block;
-
-				font-size: 18px;
-				font-weight: normal;
-
-				line-height: 1.2em;				
-			}
-
-			&:hover {
-				color: #2ea2cc;
-
-				&:before,
-				strong {
-					color: #2ea2cc;
-				}
+	tbody {
+		th {
+			&:first-child {
+				width: 20%;
 			}
 		}
 	}
+}
 
-	li:first-child {
-		border-top: none;
-	
-		width: 100%;
+// Subscriptions table
+// @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
+.pronamic-pay-subscriptions-table {
+	border-spacing: 0;
+
+	clear: both;
+
+	margin: 0;
+
+	width: 100%;
+
+	thead {
+		th {
+			border-bottom: 1px solid #e1e1e1;
+		}
 	}
 
-	li:nth-child(even) {
-		border-right: 1px solid #ECECEC;
+	th,
+	td {
+		padding: 8px 10px;
+	}
+
+	th {
+		text-align: left;
 	}
 }
 
-/**
- * Settings
- */
+// Status
+// @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
+.widefat {
+	.column-pronamic_payment_status,
+	.column-pronamic_subscription_status,
+	.column-pronamic_payment_subscription {
+		width: 1em;
+	}
+}
+
+.pronamic-pay-status {
+	display: block;
+
+	position: relative;
+
+	text-indent: -9999px;
+
+	width: 1em;
+	height: 1em;
+
+	&::after {
+		content: $ppi-status-processing;
+
+		display: block;
+
+		font-family: 'Pronamic Pay Icons';
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		speak: none;
+
+		text-indent: 0;
+
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.pronamic-pay-status-publish {
+	&::after {
+		content: $ppi-status-processing;
+	}
+}
+
+.pronamic-pay-status-payment_pending,
+.pronamic-pay-status-subscr_pending {
+	&::after {
+		color: #ffba00;
+		content: $ppi-status-pending;
+	}
+}
+
+.pronamic-pay-status-payment_cancelled,
+.pronamic-pay-status-subscr_cancelled {
+	&::after {
+		color: #a00;
+		content: $ppi-status-cancelled;
+	}
+}
+
+.pronamic-pay-status-payment_processing {
+	&::after {
+		color: #73a724;
+		content: $ppi-status-processing;
+	}
+}
+
+.pronamic-pay-status-payment_completed,
+.pronamic-pay-status-subscr_active,
+.pronamic-pay-status-subscr_completed {
+	&::after {
+		color: #2ea2cc;
+		content: $ppi-status-completed;
+	}
+}
+
+.pronamic-pay-status-payment_refunded {
+	&::after {
+		color: #999;
+		content: $ppi-status-refunded;
+	}
+}
+
+.pronamic-pay-status-payment_failed,
+.pronamic-pay-status-subscr_failed {
+	&::after {
+		color: #d0c21f;
+		content: $ppi-status-failed;
+	}
+}
+
+.pronamic-pay-status-payment_on_hold {
+	&::after {
+		color: #999;
+		content: $ppi-status-on-hold;
+	}
+}
+
+.pronamic-pay-status-payment_expired,
+.pronamic-pay-status-subscr_expired {
+	&::after {
+		color: #999;
+		content: $ppi-status-on-hold;
+	}
+}
+
+// Recurring status
+.pronamic-pay-recurring {
+	display: block;
+
+	position: relative;
+
+	text-indent: -9999px;
+
+	width: 1em;
+	height: 1em;
+
+	&.pronamic-pay-tip {
+		float: left;
+	}
+
+	&::after {
+		color: #999;
+
+		content: $ppi-recurring;
+
+		display: block;
+
+		font-family: 'Pronamic Pay Icons';
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		speak: none;
+
+		text-indent: 0;
+
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.pronamic-pay-recurring-first {
+	&::after {
+		color: #2ea2cc;
+	}
+}
+
+
+
+// Settings
 .pronamic-pay-settings select {
 	width: 25em;
 }
@@ -110,12 +211,10 @@ td.column-version {
 	margin-top: 1em;
 }
 
-/**
- * Gateway config postbox
- */
+// Gateway config postbox
 #pronamic_gateway_config {
 	option.deprecated {
-		color: #AAA;
+		color: #aaa;
 	}
 
 	.gateway-config-section-header {
@@ -124,7 +223,7 @@ td.column-version {
 		}
 
 		p {
-			margin: 0 0 1em 0;
+			margin: 0 0 1em;
 
 			&:last-child {
 				margin-bottom: 0;
@@ -133,9 +232,7 @@ td.column-version {
 	}
 }
 
-/**
- * Gateway test postbox
- */
+// Gateway test postbox
 #pronamic_gateway_test {
 	.inside > label,
 	.inside div label {
@@ -151,9 +248,7 @@ td.column-version {
 	}
 }
 
-/**
- * Payment log postbox
- */
+// Payment log postbox
 #pronamic_payment_log.postbox .inside {
 	margin: 0;
 	padding: 0;
@@ -163,26 +258,22 @@ td.column-version {
 	border: 0 none;
 }
 
-/**
- * Post type payment
- */
-body.post-type-pronamic_payment {
+// Post type payment
+body.post-type-pronamic_payment,
+body.post-type-pronamic_pay_subscr {
 	#post-body-content {
-		display: none;
+		margin-bottom: 0;
 	}
 }
 
-/**
- * Input shortcode
- */
+// Input shortcode
 .pronamic-pay-shortcode-input {
 	width: 100%;
 }
 
-/**
- * Meta box payment update
- */
-#pronamic_payment_update .inside {
+// Meta box update
+#pronamic_payment_update .inside,
+#pronamic_subscription_update .inside {
 	margin: 0;
 	padding: 0;
 }
@@ -193,9 +284,9 @@ body.post-type-pronamic_payment {
 }
 
 .pronamic-pay-major-actions {
-	background: #F5F5F5;
+	background: #f5f5f5;
 
-	border-top: 1px solid #DDD;
+	border-top: 1px solid #ddd;
 
 	padding: 10px;
 }
@@ -206,14 +297,12 @@ body.post-type-pronamic_payment {
 	text-align: right;
 }
 
-/**
- * iDEAL
- */
+// iDEAL
 pre.security-data {
-	background-color: #EEE;
+	background-color: #eee;
 
-	border-radius: 3px 3px 3px 3px;
-	border: 1px solid #DFDFDF;
+	border: 1px solid #dfdfdf;
+	border-radius: 3px;
 
 	height: 10em;
 	width: 40em;
@@ -221,161 +310,35 @@ pre.security-data {
 	overflow: auto;
 }
 
-/**
- * Documentation
- */
-.pronamic-pay-table tr.deprecated td,
-.pronamic-pay-table tr.deprecated a {
-	color: #AAAAAA;
+// Documentation
+.pronamic-pay-table {
+	tr.deprecated {
+		td,
+		a {
+			color: #aaa;
+		}
+	}
 }
 
-/**
- * Charts
- */
-.postbox .pronamic-pay-chart-with-sidebar {
-	padding: 12px 12px 12px 249px;
-
-
-}
-
-.pronamic-pay-chart-sidebar {
-	float: left;
-
-	margin-left: -237px;
-
-	width: 225px;
-}
-
-.pronamci-pay-chart-legend {
-	list-style: none;
-
-	margin: 0 0 1em;
-	padding: 0;
-
-	border: 1px solid #dfdfdf;
-	border-right-width: 0;
-	border-bottom-width: 0;
-
-	background: #FFF;
-}
-
-.pronamci-pay-chart-legend li {
-	border-right: 5px solid #AAA;
-
-	box-shadow: inset 0 -1px 0 0 #dfdfdf;
-
-	color: #AAA;
-
-	display: block;
-
-	padding: 1em;
-	margin: 0;
-
-	transition: all ease .5s;
-}
-
-.pronamci-pay-chart-legend li:hover {
-	box-shadow: inset 0 -1px 0 0 #DFDFDF, inset 300px 0 0 rgba( #23282F, .1 );
-
-	border-right: 5px solid #23282F !important;
-
-	padding-left: 1.5em;
-}
-
-.pronamci-pay-chart-legend strong {
-	color: #464646;
-
-	display: block;
-
-	font-size: 1.618em;
-
-	line-height: 1.2em;
-
-	font-weight: 400;
-}
-
-.pronamic-pay-chart-tooltip {
-	background: #333;
-
-	border-radius: 3px;
-
-	box-shadow: 0 1px 3px rgba( #000, 0.2 );
-
-	color: #fff;
-
-	font-size: .8em;
-
-	max-width: 150px;
-	
-	padding: .618em 1em;
-
-	position: absolute;
-
-	text-align: center;
-}
-
-/**
- * Error
- */
+// Error
 .pronamic-pay-error {
 	background: #F9F9F9;
 
-	box-shadow: 0 1px 1px rgba( #000, .125 );
-
 	border-left: 4px solid #a00;
+
+	box-shadow: 0 1px 1px rgba(#000, .125);
 
 	clear: both;
 
 	margin: 15px 0;
+	padding: 1em 1em 1em 2em;
 
 	position: relative;
-
-	padding: 1em 1em 1em 2em;
 }
 
 #_pronamic_gateway_ideal_private_key,
 #_pronamic_gateway_ideal_private_certificate {
 	width: 100%;
-}
-
-/**
- * Tabs
- */
-.pronamic-pay-tabs-items {
-	border-bottom: 1px solid $pronamic-border-color;
-
-	display: block;
-
-	float: left;
-
-	margin: 3px 0 0 0;
-
-	width: 100%;
-
-	li {
-		background: $pronamic-border-color;
-
-		border-left: 1px solid $pronamic-border-color;
-		border-right: 1px solid $pronamic-border-color;
-
-		color: #444;
-
-		cursor: pointer;
-
-		display: block;
-
-		float: left;
-
-		margin: 0 5px -1px 0;
-		padding: 8px 15px;
-
-		&.active {
-			background: #FFF;
-
-			border-top: 3px solid #C06;
-			margin-top: -3px;
-		}
-	}
 }
 
 div.extra-settings {
@@ -385,7 +348,7 @@ div.extra-settings {
 div.pronamic-pay-tab,
 div.extra-settings {
 	border: 1px solid $pronamic-border-color;
-	border-top: none;
+	border-top: 0;
 
 	clear: both;
 
@@ -414,28 +377,29 @@ div.extra-settings {
 		td {
 			p {
 				line-height: inherit;
-			}
 
-			p:first-child {
-				margin-top: 5px;
+				&:first-child {
+					margin-top: 5px;
+				}
 			}
 		}
 	}
 
 	.input-file-wrapper {
-		position: relative;
-
 		overflow: hidden;
 
-		input[type="file"] {
-			position: absolute;
-			top: 0;
-			right: 0;
-			height: 100%;
+		position: relative;
+
+		input[type='file'] {
+			cursor: pointer;
 
 			font-size: 50px;
 
-			cursor: pointer;
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			height: 100%;
 		}
 	}
 
@@ -449,29 +413,30 @@ div.extra-settings {
 		}
 	}
 
-	div + span.description,
-	input:not( [type="hidden"] ) + span.description {
-		display: block;
+	span.description {
 		line-height: 1.9;
-		margin-top: 10px;
 	}
 }
 
 #pk-cert-fields-toggle {
 	display: inline-block;
+
 	margin: 1em;
 }
 
 #_pronamic_gateway_country + span.description {
 	display: inline;
+
 	margin-left: 10px;
 }
 
-/* Hide download buttons for new configuration */
+// Hide download buttons for new configuration
 body.post-new-php div.extra-settings {
-	input[name="download_private_key"],
-	input[name="download_private_certificate"] {
-		display: none;
+	input {
+		[name='download_private_key'],
+		[name='download_private_certificate'] {
+			display: none;
+		}
 	}
 
 	.pk-cert-error > span {
@@ -479,29 +444,10 @@ body.post-new-php div.extra-settings {
 	}
 }
 
-.pronamic-pay-tip {
-	float: right;
-
-	color: #777;
-
-	cursor: help;
-}
-
-// @see https://github.com/woothemes/woocommerce/blob/2.5.5/assets/css/admin.scss#L3522-L3548
-#tiptip_content {
-	background: #333;
-
-	border: none;
-	box-shadow: none;
-}
-
 #pronamic-pay-gateway-description {
-	margin-top: 10px;
 	font-size: .9em;
-}
 
-#debug-selected-method {
-	float: none;
+	margin-top: 10px;
 }
 
 #pronamic-pay-gateway-config-editor {
@@ -509,34 +455,15 @@ body.post-new-php div.extra-settings {
 		vertical-align: text-bottom;
 
 		&.dashicons-yes {
-			color: green;
+			color: $green;
 		}
 
 		&.dashicons-no {
-			color: red;
+			color: $red;
 		}
 
 		&.dashicons-warning {
-			color: orange;
-		}
-	}
-}
-
-@media only screen and ( max-width: 960px ) {
-	.pronamic-pay-tabs-items {
-		display: none;
-	}
-
-	div.pronamic-pay-tab,
-	div.pronamic-pay-tab .form-table {
-		border: none;
-	}
-}
-
-@media only screen and ( max-width: 782px ) {
-	div.pronamic-pay-tab .form-table {
-		th, td {
-			padding: 11px;
+			color: $orange;
 		}
 	}
 }

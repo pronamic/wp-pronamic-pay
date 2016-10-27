@@ -43,6 +43,11 @@ class Pronamic_WP_Pay_Admin_Notices {
 	public function admin_notices() {
 		$screen = get_current_screen();
 
+		// Show notices only to options managers (administrators)
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		// Jetpack
 		if ( 'jetpack' === $screen->parent_base ) {
 			return;
@@ -56,13 +61,13 @@ class Pronamic_WP_Pay_Admin_Notices {
 
 			if ( '' === $license ) {
 				$notice = sprintf(
-					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%s">support license key</a>, please <a href="%s" target="_blank">get your key at pronamic.eu</a>.', 'pronamic_ideal' ),
+					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%1$s">support license key</a>, please <a href="%2$s" target="_blank">get your key at pronamic.eu</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 					'https://www.pronamic.eu/plugins/pronamic-ideal/'
 				);
 			} else {
 				$notice = sprintf(
-					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%s">support license key</a>. Please <a href="%s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
+					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%1$s">support license key</a>. Please <a href="%2$s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 					'https://www.pronamic.eu/plugins/pronamic-ideal/',
 					'https://www.pronamic.eu/account/'
@@ -74,6 +79,11 @@ class Pronamic_WP_Pay_Admin_Notices {
 				esc_attr( $class ),
 				$notice
 			);
+		}
+
+		// Update PHP
+		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-update-php.php';
 		}
 
 		// Stored notices

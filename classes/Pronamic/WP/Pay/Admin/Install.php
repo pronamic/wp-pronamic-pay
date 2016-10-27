@@ -124,12 +124,36 @@ class Pronamic_WP_Pay_Admin_Install {
 
 	/**
 	 * Create roles
+	 *
+	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/class-wc-install.php#L519-L562
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/class-wc-post-types.php#L245
 	 */
 	private function create_roles() {
 		// Payer role
 		add_role( 'payer', __( 'Payer', 'pronamic_ideal' ), array(
 			'read' => true,
 		) );
+
+		// @see https://developer.wordpress.org/reference/functions/wp_roles/
+		$roles = wp_roles();
+
+		// Payments
+		$payment_capabilities = Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities();
+
+		unset( $payment_capabilities['publish_posts'] );
+		unset( $payment_capabilities['create_posts'] );
+
+		foreach ( $payment_capabilities as $capability ) {
+			$roles->add_cap( 'administrator', $capability );
+		}
+
+		// Forms
+		$form_capabilities = Pronamic_WP_Pay_Admin_FormPostType::get_capabilities();
+
+		foreach ( $form_capabilities as $capability ) {
+			$roles->add_cap( 'administrator', $capability );
+		}
 	}
 
 	//////////////////////////////////////////////////
