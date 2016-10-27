@@ -375,7 +375,7 @@ results in OmniKassa data that no longer matches the signature.
 	*	Added Pronamic gateway usage clarification.
 	*	Added transaction description setting.
 	*	Use new Bancontact label and constant.
-*	Updated WordPress pay Gravity Forms library to version 1.4.9.
+*	Updated WordPress pay Gravity Forms library to version 1.5.0.
 	*	Implemented the new pronamic_payment_redirect_url filter and added some early returns.
 	*	Fixed deprecated usage of GFUserData.
 	*	Refactored custom payment fields.
