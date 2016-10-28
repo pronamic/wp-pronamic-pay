@@ -6,8 +6,7 @@ header( 'Content-Type: text/plain' );
 # [Pronamic iDEAL](http://www.pronamic.eu/plugins/pronamic-ideal/)
 
 [![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
-[![Dependency Status](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004/badge.png)](https://www.versioneye.com/user/projects/52c56fa3ec1375b1f8000004)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 <?php include __DIR__ . '/../general/description-short.php'; ?>
 

@@ -13,7 +13,13 @@
 				"name": "Fixed",
 				"changes": [
 					"Fixed styling of recurring icon in the WordPress admin payments overview page.",
-					"Fixed `format_price` function if a non float value is passed in."
+					"Fixed `format_price` function if a non float value is passed in.",
+					{
+						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.8.",
+						"changes": [
+							"Fixed zero days private certificate validity in OpenSSL command."
+						]
+					}
 				]
 			},
 			{
