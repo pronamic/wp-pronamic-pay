@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9db984b1b46517b94d490ea6afe9c2b8",
-    "content-hash": "04b3e9b944c0eb89de5bb0e82f3dab36",
+    "hash": "0415a28009c449c6e63c9304f7939505",
+    "content-hash": "bc4dcbb6aac90babbfee4679de3d8b55",
     "packages": [
         {
             "name": "composer/installers",
@@ -641,16 +641,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.5.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "5a7b97dd30f72090df7a581c145bf0f522a31eba"
+                "reference": "78f55f31e920af8ccbfe3492ca12c75d6ee6faad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/5a7b97dd30f72090df7a581c145bf0f522a31eba",
-                "reference": "5a7b97dd30f72090df7a581c145bf0f522a31eba",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/78f55f31e920af8ccbfe3492ca12c75d6ee6faad",
+                "reference": "78f55f31e920af8ccbfe3492ca12c75d6ee6faad",
                 "shasum": ""
             },
             "require": {
@@ -702,7 +702,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-27 11:27:57"
+            "time": "2016-10-28 08:47:37"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -6083,9 +6083,18 @@
             "time": "2016-08-29 20:04:47"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.5.1",
+            "alias_normalized": "1.5.1.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/gravityforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
