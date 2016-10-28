@@ -1,10 +1,10 @@
 === Pronamic iDEAL ===
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
-Donate link: http://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
+Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.3
 Tested up to: 4.6.1
-Stable tag: 4.4.0
+Stable tag: 4.4.1
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -302,6 +302,17 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.4.1 - 2016-10-28 =
+*	Fixed styling of recurring icon in the WordPress admin payments overview page.
+*	Fixed `format_price` function if a non float value is passed in.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.8.
+	*	Fixed zero days private certificate validity in OpenSSL command.
+*	Changed version number in `wp_register_style` and `wp_register_script` function calls.
+*	Simplified the status icons CSS and related code.
+*	Updated WordPress pay Gravity Forms library to version 1.5.1.
+	*	Changed Gravity Forms admin menu item text 'iDEAL' to 'Payment Feeds'.
+	*	Changed text 'Payment Form(s)' to 'Payment Feed(s)'.
 
 = 4.4.0 - 2016-10-27 =
 *	Added experimental support for subscriptions / recurring payments (WooCommerce Subscriptions).

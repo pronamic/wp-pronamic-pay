@@ -371,6 +371,14 @@ module.exports = function( grunt ) {
 
 		// Clean
 		clean: {
+			build: {
+				src: [
+					'assets',
+					'css',
+					'images',
+					'js'
+				]
+			},
 			deploy: {
 				src: [ 'deploy/latest' ]
 			},
@@ -489,6 +497,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
 
 	grunt.registerTask( 'build', [
+		'clean:build',
 		'assets',
 		'min',
 		'pot'
@@ -496,8 +505,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'deploy', [
 		'default',
-		'assets',
-		'min',
+		'build',
 		'doc',
 		'clean:deploy',
 		'copy:deploy',

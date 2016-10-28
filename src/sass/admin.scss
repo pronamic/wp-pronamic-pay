@@ -9,6 +9,8 @@
 @import 'admin/tables';
 @import 'admin/tabs';
 @import 'admin/tip';
+@import 'admin/code';
+@import 'admin/settings';
 
 .pronamic-pay-status-table {
 	margin-top: 2em;
@@ -89,68 +91,49 @@
 	}
 }
 
-.pronamic-pay-status-publish {
-	&::after {
-		content: $ppi-status-processing;
-	}
-}
-
-.pronamic-pay-status-payment_pending,
-.pronamic-pay-status-subscr_pending {
+.pronamic-pay-status-pending {
 	&::after {
 		color: #ffba00;
 		content: $ppi-status-pending;
 	}
 }
 
-.pronamic-pay-status-payment_cancelled,
-.pronamic-pay-status-subscr_cancelled {
+.pronamic-pay-status-cancelled {
 	&::after {
 		color: #a00;
 		content: $ppi-status-cancelled;
 	}
 }
 
-.pronamic-pay-status-payment_processing {
+.pronamic-pay-status-processing {
 	&::after {
 		color: #73a724;
 		content: $ppi-status-processing;
 	}
 }
 
-.pronamic-pay-status-payment_completed,
-.pronamic-pay-status-subscr_active,
-.pronamic-pay-status-subscr_completed {
+.pronamic-pay-status-completed {
 	&::after {
 		color: #2ea2cc;
 		content: $ppi-status-completed;
 	}
 }
 
-.pronamic-pay-status-payment_refunded {
+.pronamic-pay-status-refunded {
 	&::after {
 		color: #999;
 		content: $ppi-status-refunded;
 	}
 }
 
-.pronamic-pay-status-payment_failed,
-.pronamic-pay-status-subscr_failed {
+.pronamic-pay-status-failed {
 	&::after {
 		color: #d0c21f;
 		content: $ppi-status-failed;
 	}
 }
 
-.pronamic-pay-status-payment_on_hold {
-	&::after {
-		color: #999;
-		content: $ppi-status-on-hold;
-	}
-}
-
-.pronamic-pay-status-payment_expired,
-.pronamic-pay-status-subscr_expired {
+.pronamic-pay-status-on-hold {
 	&::after {
 		color: #999;
 		content: $ppi-status-on-hold;
@@ -167,10 +150,6 @@
 
 	width: 1em;
 	height: 1em;
-
-	&.pronamic-pay-tip {
-		float: left;
-	}
 
 	&::after {
 		color: #999;
@@ -198,17 +177,6 @@
 	&::after {
 		color: #2ea2cc;
 	}
-}
-
-
-
-// Settings
-.pronamic-pay-settings select {
-	width: 25em;
-}
-
-#pronamic_pay_create_pages {
-	margin-top: 1em;
 }
 
 // Gateway config postbox
@@ -279,7 +247,7 @@ body.post-type-pronamic_pay_subscr {
 }
 
 .pronamic-pay-inner {
-	margin: 6px 0 0 0;
+	margin: 6px 0 0;
 	padding: 0 12px 12px;
 }
 
@@ -297,19 +265,6 @@ body.post-type-pronamic_pay_subscr {
 	text-align: right;
 }
 
-// iDEAL
-pre.security-data {
-	background-color: #eee;
-
-	border: 1px solid #dfdfdf;
-	border-radius: 3px;
-
-	height: 10em;
-	width: 40em;
-
-	overflow: auto;
-}
-
 // Documentation
 .pronamic-pay-table {
 	tr.deprecated {
@@ -322,7 +277,7 @@ pre.security-data {
 
 // Error
 .pronamic-pay-error {
-	background: #F9F9F9;
+	background: $gray-very-light-white;
 
 	border-left: 4px solid #a00;
 
@@ -334,11 +289,6 @@ pre.security-data {
 	padding: 1em 1em 1em 2em;
 
 	position: relative;
-}
-
-#_pronamic_gateway_ideal_private_key,
-#_pronamic_gateway_ideal_private_certificate {
-	width: 100%;
 }
 
 div.extra-settings {

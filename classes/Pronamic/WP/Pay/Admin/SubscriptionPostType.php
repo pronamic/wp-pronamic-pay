@@ -109,8 +109,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				}
 
 				printf(
-					'<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status-%s" data-tip="%s">%s</span>',
-					esc_attr( $post_status ),
+					'<span class="pronamic-pay-tip pronamic-pay-status %s" data-tip="%s">%s</span>',
+					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);

@@ -25,14 +25,14 @@ plugin is not only for iDEAL payments anymore.', 'pronamic_ideal' );
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/admin-menu-name-icon.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-WordPress-admin-menu-en-icoon.png" />
 	</div>
 </div>
 
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/recurring.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-terugkerende-betalingen.png" />
 	</div>
 
 	<div class="col">
@@ -67,13 +67,13 @@ can be used with WooCommerce Subscriptions to set up automatically recurring pay
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/subscriptions.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-abonnementen.png" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/payment-status-check-ingenico.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-Ingenico-betalingsstatus-controleren.png" />
 	</div>
 
 	<div class="col">
@@ -109,13 +109,13 @@ mentioned in the admin menu item badge.', 'pronamic_ideal' );
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/payment-status-check.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-betalingsstatus-controleren.png" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/new/payments.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-vernieuwd-betalingsoverzicht.png" />
 	</div>
 
 	<div class="col">

@@ -145,6 +145,12 @@ class Pronamic_WP_Util {
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-core-functions.php#L299-L376
 	 */
 	public static function format_price( $amount, $currency = null ) {
+		$float = filter_var( $amount, FILTER_VALIDATE_FLOAT );
+
+		if ( false === $float ) {
+			return;
+		}
+
 		$currency = ( null === $currency ) ? 'EUR' : $currency;
 
 		$currency_symbol = $currency;
@@ -161,7 +167,7 @@ class Pronamic_WP_Util {
 		// @see https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods
 		$non_breaking_space = ' ';
 
-		return '' . $currency_symbol . $non_breaking_space . number_format_i18n( $amount, 2 );
+		return '' . $currency_symbol . $non_breaking_space . number_format_i18n( $float, 2 );
 	}
 
 	/**

@@ -262,6 +262,10 @@ bind_providers_and_gateways();
 								$classes[] = 'pronamic-pay-form-control';
 							}
 
+							if ( in_array( $field['type'], array( 'textarea' ) ) ) {
+								$classes[] = 'pronamic-pay-form-control-lg';
+							}
+
 							if ( ! empty( $classes ) ) {
 								$attributes['class'] = implode( ' ', $classes );
 							}

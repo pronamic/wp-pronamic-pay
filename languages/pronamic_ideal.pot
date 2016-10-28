@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 4.4.0\n"
+"Project-Id-Version: Pronamic iDEAL 4.4.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -440,9 +440,6 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/PostTypes.php:140
 #: classes/Pronamic/WP/Pay/PostTypes.php:142
 #: classes/Pronamic/WP/Pay/PostTypes.php:153
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:35
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:37
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:48
 msgid "Payment Forms"
 msgstr ""
 
@@ -669,7 +666,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:135
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:299
 #: vendor/wp-pay-extensions/give/src/IDealGateway.php:20
-#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:53
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:68
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-page-settings.php:2
 #: vendor/wp-pay-extensions/ithemes-exchange/views/html-admin-wizard-settings.php:2
@@ -1563,7 +1559,6 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/FormProcessor.php:126
 #: classes/Pronamic/WP/Pay/PostTypes.php:143
 #: classes/Pronamic/WP/Pay/Shortcodes.php:59
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
 msgid "Payment Form"
 msgstr ""
 
@@ -1615,7 +1610,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/PostTypes.php:112
 #: classes/Pronamic/WP/Pay/PostTypes.php:144
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:66
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
 msgid "Add New"
 msgstr ""
 
@@ -1748,32 +1743,26 @@ msgid "Subscriptions list"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:145
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:40
 msgid "Add New Payment Form"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:146
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
 msgid "Edit Payment Form"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:147
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
 msgid "New Payment Form"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:148
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
 msgid "All Payment Forms"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:149
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
 msgid "View Payment Form"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PostTypes.php:150
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
 msgid "Search Payment Forms"
 msgstr ""
 
@@ -1913,17 +1902,17 @@ msgstr ""
 msgid "Decimal Seperator"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:143
+#: classes/Pronamic/WP/Pay/Settings.php:142
 msgid ""
 "The page an user will get redirected to after payment, based on the payment "
 "status."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:161
+#: classes/Pronamic/WP/Pay/Settings.php:159
 msgid "Set default pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:223
+#: classes/Pronamic/WP/Pay/Settings.php:221
 msgid "— Select a page —"
 msgstr ""
 
@@ -1941,31 +1930,31 @@ msgstr ""
 msgid "Could not load the XML string."
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:175
+#: classes/Pronamic/WP/Util.php:181
 msgid "Every %s day"
 msgid_plural "Every %s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Util.php:179
+#: classes/Pronamic/WP/Util.php:185
 msgid "Every %s week"
 msgid_plural "Every %s weeks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Util.php:183
+#: classes/Pronamic/WP/Util.php:189
 msgid "Every %s month"
 msgid_plural "Every %s months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Util.php:187
+#: classes/Pronamic/WP/Util.php:193
 msgid "Every %s year"
 msgid_plural "Every %s years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Util.php:199
+#: classes/Pronamic/WP/Util.php:205
 msgid "%s time"
 msgid_plural "%s times"
 msgstr[0] ""
@@ -2318,6 +2307,13 @@ msgstr ""
 msgid "Give donation %s"
 msgstr ""
 
+#: vendor/wp-pay-extensions/gravityforms/src/Admin.php:53
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:36
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:38
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:49
+msgid "Payment Feeds"
+msgstr ""
+
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:88
 msgid "Payment Status"
 msgstr ""
@@ -2352,10 +2348,11 @@ msgid "Payment Fields"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Fields.php:78
-msgid "— Use Payment Form Setting —"
+msgid "— Use Payment Feed Setting —"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:168
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:43
 msgid "New Payment Feed"
 msgstr ""
 
@@ -2385,12 +2382,48 @@ msgstr ""
 msgid "Forms » iDEAL"
 msgstr ""
 
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:39
+msgid "Payment Feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:41
+msgid "Add New Payment Feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:42
+msgid "Edit Payment Feed"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:44
+msgid "All Payment Feeds"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:45
+msgid "View Payment Feed"
+msgstr ""
+
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:46
-msgid "No payment forms found"
+msgid "Search Payment Feeds"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:47
-msgid "No payment forms found in Trash"
+msgid "No payment feeds found."
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:48
+msgid "No payment feeds found in Trash."
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:50
+msgid "Filter payment feeds list"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:51
+msgid "Payment feeds list navigation"
+msgstr ""
+
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:52
+msgid "Payment feeds list"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:223
@@ -4104,7 +4137,7 @@ msgctxt "Recurring payment"
 msgid "Frequency"
 msgstr ""
 
-#: classes/Pronamic/WP/Util.php:196
+#: classes/Pronamic/WP/Util.php:202
 msgctxt "Recurring payment"
 msgid "Unlimited"
 msgstr ""

@@ -42,13 +42,13 @@ the chosen payment provider and a wide variety of supported e-commerce plugins."
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/payment-providers.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/pronamic-ideal-payment-providers.png" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/new-gateway-configuration.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/pronamic-ideal-new-gateway-configuration.png" />
 	</div>
 
 	<div class="col">
@@ -114,13 +114,13 @@ amounts will be shown. You need to test all these amounts before your live accou
 	</div>
 
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/meta-box-test.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/pronamic-ideal-meta-box-test.png" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="<?php echo esc_attr( plugins_url( 'images/getting-started/extensions.png', Pronamic_WP_Pay_Plugin::$file ) ); ?>" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/pronamic-ideal-extensions.png" />
 	</div>
 
 	<div class="col">

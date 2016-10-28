@@ -355,21 +355,21 @@ class Pronamic_WP_Pay_Admin {
 				'pronamic-pay-icons',
 				plugins_url( 'fonts/pronamic-pay-icons.css', Pronamic_WP_Pay_Plugin::$file ),
 				array(),
-				'3.9.0'
+				$this->plugin->get_version()
 			);
 
 			wp_register_style(
 				'pronamic-pay-admin',
 				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'pronamic-pay-icons' ),
-				'3.9.0'
+				$this->plugin->get_version()
 			);
 
 			wp_register_script(
 				'pronamic-pay-admin',
 				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery', 'jquery-tiptip' ),
-				'3.9.0',
+				$this->plugin->get_version(),
 				true
 			);
 
@@ -556,5 +556,38 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Get a CSS class for the specified post status.
+	 *
+	 * @param string $post_status
+	 * @return string
+	 */
+	public static function get_post_status_class( $post_status ) {
+		switch ( $post_status ) {
+			case 'payment_pending' :
+			case 'subscr_pending' :
+				return 'pronamic-pay-status-pending';
+			case 'payment_cancelled' :
+			case 'payment_cancelled' :
+				return 'pronamic-pay-status-cancelled';
+			case 'payment_completed' :
+			case 'subscr_active' :
+			case 'subscr_completed' :
+				return 'pronamic-pay-status-completed';
+			case 'payment_refunded' :
+				return 'pronamic-pay-status-refunded';
+			case 'payment_failed' :
+			case 'subscr_failed' :
+				return 'pronamic-pay-status-failed';
+			case 'payment_on_hold' :
+			case 'payment_expired' :
+			case 'subscr_expired' :
+				return 'pronamic-pay-status-on-hold';
+			case 'payment_processing' :
+			default :
+				return 'pronamic-pay-status-processing';
+		}
 	}
 }
