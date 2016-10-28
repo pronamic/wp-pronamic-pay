@@ -17,6 +17,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Changed
 - Changed version number in `wp_register_style` and `wp_register_script` function calls.
 - Simplified the status icons CSS and related code.
+- Updated WordPress pay Gravity Forms library to version 1.5.1.
+  - Changed Gravity Forms admin menu item text 'iDEAL' to 'Payment Feeds'.
+  - Changed text 'Payment Form(s)' to 'Payment Feed(s)'.
 
 ## [4.4.0] - 2016-10-27
 
