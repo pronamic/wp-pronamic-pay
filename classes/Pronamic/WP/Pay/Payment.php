@@ -173,7 +173,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 			return $this->subscription;
 		}
 
-		if ( '' === $this->subscription_id ) {
+		if ( ! is_numeric( $this->subscription_id ) ) {
 			return false;
 		}
 
