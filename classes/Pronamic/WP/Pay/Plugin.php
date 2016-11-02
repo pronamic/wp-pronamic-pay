@@ -112,7 +112,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/functions.php';
-		require_once self::$dirname . '/includes/formatting.php';
 		require_once self::$dirname . '/includes/page-functions.php';
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/payment.php';
