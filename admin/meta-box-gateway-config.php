@@ -375,9 +375,15 @@ bind_providers_and_gateways();
 							}
 
 							if ( isset( $field['description'] ) ) {
+								$prefix = ' ';
+
+								if ( in_array( 'regular-text', $classes, true ) ) {
+									$prefix = '<br />';
+								}
+
 								printf( //xss ok
 									'<span class="pronamic-pay-form-text description">%s</span>',
-									$field['description']
+									$prefix . $field['description']
 								);
 							}
 

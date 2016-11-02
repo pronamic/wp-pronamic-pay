@@ -1,19 +1,23 @@
 rules:
   indentation:
     - 1
-    -
-      size: 'tab'
+    - size: 'tab'
   class-name-format:
     - 1
-    -
-      ignore:
-        - .pronamic-pay-status-payment_pending
-        - .column-pronamic_subscription_status
-        - .column-pronamic_payment_status
+    - ignore:
+        - column-pronamic_payment_status
+        - column-pronamic_payment_subscription
+        - column-pronamic_subscription_status
+        - post-type-pronamic_payment
+        - post-type-pronamic_pay_subscr
+  nesting-depth:
+    - 1
+    - max-depth: 3
+  no-ids:
+    - 0
   property-sort-order:
     - 1
-    -
-      order:
+    - order:
         - background
         - background-color
         - background-image

@@ -4,4 +4,61 @@
 			font-weight: bold;
 		}
 	}
+
+	.deprecated {
+		td,
+		a {
+			color: $gray;
+		}
+	}
+}
+
+// Status table
+.pronamic-pay-status-table {
+	margin-top: 2em;
+
+	tbody {
+		th {
+			&:first-child {
+				width: 20%;
+			}
+		}
+	}
+}
+
+// Subscriptions table
+// @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
+.pronamic-pay-subscriptions-table {
+	border-spacing: 0;
+
+	clear: both;
+
+	margin: 0;
+
+	width: 100%;
+
+	thead {
+		th {
+			border-bottom: 1px solid #e1e1e1;
+		}
+	}
+
+	th,
+	td {
+		padding: 8px 10px;
+	}
+
+	th {
+		text-align: left;
+	}
+}
+
+// Widefat table column status
+// @see https://github.com/woothemes/woocommerce/blob/v2.2.3/assets/css/admin.less#L1122-L1164
+.widefat {
+	.column-pronamic_payment_status,
+	.column-pronamic_subscription_status,
+	.column-pronamic_payment_subscription {
+		width: 1em;
+	}
 }

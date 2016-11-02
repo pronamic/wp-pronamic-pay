@@ -131,12 +131,12 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		$columns = array(
 			'cb'                            => '<input type="checkbox" />',
 			'pronamic_payment_status'       => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-status" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon" data-tip="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
 			'pronamic_payment_subscription' => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-recurring" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-icon-recurring" data-tip="%s">%s</span>',
 				esc_html__( 'Subscription', 'pronamic_ideal' ),
 				esc_html__( 'Subscription', 'pronamic_ideal' )
 			),
@@ -187,8 +187,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				}
 
 				printf(
-					'<span class="pronamic-pay-tip pronamic-pay-status %s" data-tip="%s">%s</span>',
-					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_class( $post_status ) ),
+					'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
+					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);
@@ -199,17 +199,17 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				if ( $subscription_id ) {
 					$label = __( 'Recurring payment', 'pronamic_ideal' );
-					$class = 'pronamic-pay-recurring';
+					$class = 'pronamic-pay-icon-recurring';
 
 					$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
 
 					if ( ! $recurring ) {
-						$label  = __( 'First of recurring payment', 'pronamic_ideal' );
-						$class .= ' pronamic-pay-recurring-first';
+						$label = __( 'First of recurring payment', 'pronamic_ideal' );
+						$class = ' pronamic-pay-icon-recurring-first';
 					}
 
 					printf(
-						'<span class="pronamic-pay-tip pronamic-pay-recurring pronamic-pay-recurring-%s" data-tip="%s">%s</span>',
+						'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
 						esc_attr( $class ),
 						esc_attr( $label ),
 						esc_attr( $label )
