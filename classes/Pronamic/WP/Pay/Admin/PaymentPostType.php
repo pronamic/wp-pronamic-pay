@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 3.7.0
+ * @version 4.4.2
  * @since 3.7.0
  */
 class Pronamic_WP_Pay_Admin_PaymentPostType {
@@ -234,6 +234,10 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					case 'gravityforms' :
 					case 'gravityformsideal' :
 						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
+
+						break;
+					case 'easydigitaldownloads ' :
+						$text = __( 'Easy Digital Downloads Order', 'pronamic_ideal' );
 
 						break;
 					case 'test' :

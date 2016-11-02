@@ -6,6 +6,19 @@
 		]
 	},
 	{
+		"version": "4.4.2",
+		"date": "2016-11-02",
+		"changes": [
+			{
+				"name": "Fixed",
+				"changes": [
+					"Fix \"Fatal error: Can't inherit abstract function Pronamic_Pay_PaymentDataInterface::get_subscription_id() (previously declared abstract in Pronamic_Pay_AbstractPaymentData)\".",
+					"Check if subscription id is empty instead of an empty string (can be null too)."
+				]
+			}
+		]
+	},
+	{
 		"version": "4.4.1",
 		"date": "2016-10-28",
 		"changes": [

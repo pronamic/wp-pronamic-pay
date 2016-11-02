@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Title: WordPress payment data
+ * Description:
+ * Copyright: Copyright (c) 2005 - 2016
+ * Company: Pronamic
+ *
+ * @author Remco Tolsma
+ * @version 4.4.2
+ * @since 1.0.0
+ */
 class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	/**
 	 * The payment post object
@@ -173,7 +183,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 			return $this->subscription;
 		}
 
-		if ( '' === $this->subscription_id ) {
+		if ( emptu( $this->subscription_id ) ) {
 			return false;
 		}
 
