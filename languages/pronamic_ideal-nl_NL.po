@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2016-11-02 09:45+0100\n"
+"PO-Revision-Date: 2016-11-02 10:45+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -3336,7 +3336,7 @@ msgstr "Issuers konden niet opgehaald worden bij Buckaroo."
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:73
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:89
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:70
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Gateway.php:80
+#: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:80
 #: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:71
 #: vendor/wp-pay-gateways/qantani/src/Gateway.php:74
 #: vendor/wp-pay-gateways/sisow/src/Gateway.php:66
@@ -4006,6 +4006,10 @@ msgstr ""
 "linken. Gebruik de waarde uit het veld Key uit het profiel overzicht. [<a "
 "href=\"%s\" target=\"_blank\">bekijk overzicht van uw profielen</a>]."
 
+#: vendor/wp-pay-gateways/multisafepay/src/Connect/Integration.php:18
+msgid "http://www.multisafepay.com/"
+msgstr "https://www.multisafepay.com/nl_nl/"
+
 #: vendor/wp-pay-gateways/multisafepay/src/Settings.php:22
 #: vendor/wp-pay-gateways/multisafepay/src/Settings.php:26
 #: vendor/wp-pay-gateways/multisafepay/src/Settings.php:47
@@ -4028,10 +4032,6 @@ msgstr "Site ID"
 #: vendor/wp-pay-gateways/multisafepay/src/Settings.php:78
 msgid "Site Security Code"
 msgstr "Site Security Code"
-
-#: vendor/wp-pay-gateways/multisafepay-connect/src/Integration.php:18
-msgid "http://www.multisafepay.com/"
-msgstr "https://www.multisafepay.com/nl_nl/"
 
 #: vendor/wp-pay-gateways/ogone/src/AbstractIntegration.php:6
 msgid "https://payment-services.ingenico.com/nl/en"
