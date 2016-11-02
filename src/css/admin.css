@@ -234,6 +234,19 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   color: #ffa500;
 }
 
+/* line 22, ../sass/admin/_meta-box-gateway-config.scss */
+.gateway-config-section-header h4 {
+  margin: 0;
+}
+/* line 26, ../sass/admin/_meta-box-gateway-config.scss */
+.gateway-config-section-header p {
+  margin: 0 0 1em;
+}
+/* line 29, ../sass/admin/_meta-box-gateway-config.scss */
+.gateway-config-section-header p:last-child {
+  margin-bottom: 0;
+}
+
 /* line 4, ../sass/admin/_meta-box-payment-log.scss */
 #pronamic_payment_log.postbox .inside {
   margin: 0;
@@ -384,95 +397,67 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   box-shadow: none;
 }
 
-/* line 23, ../sass/admin.scss */
-#pronamic_gateway_config option.deprecated {
-  color: #aaa;
-}
-/* line 29, ../sass/admin.scss */
-#pronamic_gateway_config .gateway-config-section-header h4 {
-  margin: 0;
-}
-/* line 33, ../sass/admin.scss */
-#pronamic_gateway_config .gateway-config-section-header p {
-  margin: 0 0 1em;
-}
-/* line 36, ../sass/admin.scss */
-#pronamic_gateway_config .gateway-config-section-header p:last-child {
-  margin-bottom: 0;
-}
-
-/* line 45, ../sass/admin.scss */
+/* line 22, ../sass/admin.scss */
 #pronamic_gateway_test .inside > label,
 #pronamic_gateway_test .inside div label {
   display: block;
 }
-/* line 50, ../sass/admin.scss */
+/* line 27, ../sass/admin.scss */
 #pronamic_gateway_test .pronamic-pay-test-payment-method td label {
   display: none;
 }
-/* line 54, ../sass/admin.scss */
+/* line 31, ../sass/admin.scss */
 #pronamic_gateway_test .pronamic-pay-test-payment-method {
   display: none;
 }
 
-/* line 59, ../sass/admin.scss */
+/* line 36, ../sass/admin.scss */
 div.extra-settings {
   display: none;
 }
 
-/* line 63, ../sass/admin.scss */
-div.pronamic-pay-tab,
+/* line 40, ../sass/admin.scss */
 div.extra-settings {
   border: 1px solid #e5e5e5;
   border-top: 0;
   clear: both;
 }
-/* line 70, ../sass/admin.scss */
-div.pronamic-pay-tab > div,
+/* line 46, ../sass/admin.scss */
 div.extra-settings > div {
   font-style: italic;
   padding: 20px 10px;
 }
-/* line 76, ../sass/admin.scss */
-div.pronamic-pay-tab .gateway-config-section-header h4,
-div.pronamic-pay-tab .show-provider,
+/* line 52, ../sass/admin.scss */
 div.extra-settings .gateway-config-section-header h4,
 div.extra-settings .show-provider {
   display: none;
 }
-/* line 81, ../sass/admin.scss */
-div.pronamic-pay-tab .form-table,
+/* line 57, ../sass/admin.scss */
 div.extra-settings .form-table {
   margin-top: 0;
 }
-/* line 84, ../sass/admin.scss */
-div.pronamic-pay-tab .form-table tr.even,
+/* line 60, ../sass/admin.scss */
 div.extra-settings .form-table tr.even {
   background: #f9f9f9;
 }
-/* line 88, ../sass/admin.scss */
-div.pronamic-pay-tab .form-table th,
+/* line 64, ../sass/admin.scss */
 div.extra-settings .form-table th {
   padding-left: 10px;
 }
-/* line 93, ../sass/admin.scss */
-div.pronamic-pay-tab .form-table td p,
+/* line 69, ../sass/admin.scss */
 div.extra-settings .form-table td p {
   line-height: inherit;
 }
-/* line 96, ../sass/admin.scss */
-div.pronamic-pay-tab .form-table td p:first-child,
+/* line 72, ../sass/admin.scss */
 div.extra-settings .form-table td p:first-child {
   margin-top: 5px;
 }
-/* line 103, ../sass/admin.scss */
-div.pronamic-pay-tab .input-file-wrapper,
+/* line 79, ../sass/admin.scss */
 div.extra-settings .input-file-wrapper {
   overflow: hidden;
   position: relative;
 }
-/* line 108, ../sass/admin.scss */
-div.pronamic-pay-tab .input-file-wrapper input[type='file'],
+/* line 84, ../sass/admin.scss */
 div.extra-settings .input-file-wrapper input[type='file'] {
   cursor: pointer;
   font-size: 50px;
@@ -481,48 +466,31 @@ div.extra-settings .input-file-wrapper input[type='file'] {
   right: 0;
   height: 100%;
 }
-/* line 121, ../sass/admin.scss */
-div.pronamic-pay-tab p + input.button,
-div.pronamic-pay-tab .pk-cert-ok input.button,
-div.pronamic-pay-tab input.large-text.code + input.button,
+/* line 97, ../sass/admin.scss */
 div.extra-settings p + input.button,
 div.extra-settings .pk-cert-ok input.button,
 div.extra-settings input.large-text.code + input.button {
   margin-top: 10px;
 }
-/* line 126, ../sass/admin.scss */
-div.pronamic-pay-tab p + input.button + div.button,
-div.pronamic-pay-tab .pk-cert-ok input.button + div.button,
-div.pronamic-pay-tab input.large-text.code + input.button + div.button,
+/* line 102, ../sass/admin.scss */
 div.extra-settings p + input.button + div.button,
 div.extra-settings .pk-cert-ok input.button + div.button,
 div.extra-settings input.large-text.code + input.button + div.button {
   margin-top: 10px;
 }
-/* line 131, ../sass/admin.scss */
-div.pronamic-pay-tab span.description,
-div.extra-settings span.description {
-  line-height: 1.9;
-}
 
-/* line 136, ../sass/admin.scss */
+/* line 108, ../sass/admin.scss */
 #pk-cert-fields-toggle {
   display: inline-block;
   margin: 1em;
 }
 
-/* line 145, ../sass/admin.scss */
+/* line 117, ../sass/admin.scss */
 body.post-new-php div.extra-settings input [name='download_private_key'],
 body.post-new-php div.extra-settings input [name='download_private_certificate'] {
   display: none;
 }
-/* line 151, ../sass/admin.scss */
+/* line 123, ../sass/admin.scss */
 body.post-new-php div.extra-settings .pk-cert-error > span {
   display: none;
-}
-
-/* line 156, ../sass/admin.scss */
-#pronamic-pay-gateway-description {
-  font-size: .9em;
-  margin-top: 10px;
 }

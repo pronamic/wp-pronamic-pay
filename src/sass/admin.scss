@@ -17,23 +17,6 @@
 @import 'admin/tip';
 @import 'admin/variables';
 
-// Gateway config postbox
-#pronamic_gateway_config {
-	.gateway-config-section-header {
-		h4 {
-			margin: 0;
-		}
-
-		p {
-			margin: 0 0 1em;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-		}
-	}
-}
-
 // Gateway test postbox
 #pronamic_gateway_test {
 	.inside > label,
@@ -54,7 +37,6 @@ div.extra-settings {
 	display: none;
 }
 
-div.pronamic-pay-tab,
 div.extra-settings {
 	border: 1px solid $pronamic-border-color;
 	border-top: 0;
@@ -121,10 +103,6 @@ div.extra-settings {
 			margin-top: 10px;
 		}
 	}
-
-	span.description {
-		line-height: 1.9;
-	}
 }
 
 #pk-cert-fields-toggle {
@@ -135,20 +113,7 @@ div.extra-settings {
 
 // Hide download buttons for new configuration
 body.post-new-php div.extra-settings {
-	input {
-		[name='download_private_key'],
-		[name='download_private_certificate'] {
-			display: none;
-		}
-	}
-
 	.pk-cert-error > span {
 		display: none;
 	}
-}
-
-#pronamic-pay-gateway-description {
-	font-size: .9em;
-
-	margin-top: 10px;
 }
