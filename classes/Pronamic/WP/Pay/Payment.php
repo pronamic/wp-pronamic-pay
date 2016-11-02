@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 4.4.2
+ * @version 4.4.3
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
@@ -183,7 +183,7 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 			return $this->subscription;
 		}
 
-		if ( emptu( $this->subscription_id ) ) {
+		if ( empty( $this->subscription_id ) ) {
 			return false;
 		}
 

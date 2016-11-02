@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e9c4ec560904ffc32cfc05e79bd90cc9",
-    "content-hash": "e6307a0cfc125400ec5152933cf4d377",
+    "hash": "fc493b21fd0084b5c104145151a414d2",
+    "content-hash": "1f2227882f29c6a780a55b833da90624",
     "packages": [
         {
             "name": "composer/installers",
@@ -2752,16 +2752,16 @@
         },
         {
             "name": "wp-pay-gateways/multisafepay",
-            "version": "1.1.4",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/multisafepay.git",
-                "reference": "c48df9c59c6a7c59342d620794dce87df06543a9"
+                "reference": "6cf4913c5d01457bec1a4579642611b61716e693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/c48df9c59c6a7c59342d620794dce87df06543a9",
-                "reference": "c48df9c59c6a7c59342d620794dce87df06543a9",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/6cf4913c5d01457bec1a4579642611b61716e693",
+                "reference": "6cf4913c5d01457bec1a4579642611b61716e693",
                 "shasum": ""
             },
             "require": {
@@ -2773,9 +2773,9 @@
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2812,73 +2812,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-03-22 15:00:42"
-        },
-        {
-            "name": "wp-pay-gateways/multisafepay-connect",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wp-pay-gateways/multisafepay-connect.git",
-                "reference": "9ae35818f3134f3c2582ded67f628719bcb4d4e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay-connect/zipball/9ae35818f3134f3c2582ded67f628719bcb4d4e8",
-                "reference": "9ae35818f3134f3c2582ded67f628719bcb4d4e8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4",
-                "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay-gateways/multisafepay": "^1.1.4",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
-            },
-            "require-dev": {
-                "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL"
-            ],
-            "authors": [
-                {
-                    "name": "Remco Tolsma",
-                    "email": "info@remcotolsma.nl",
-                    "homepage": "http://www.remcotolsma.nl/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pronamic",
-                    "email": "info@pronamic.eu",
-                    "homepage": "http://www.pronamic.eu/",
-                    "role": "Company"
-                }
-            ],
-            "description": "MultiSafepay Connect driver for the WordPress payment processing library.",
-            "homepage": "http://www.wp-pay.org/gateways/multisafepay-connect/",
-            "keywords": [
-                "connect",
-                "gateway",
-                "ideal",
-                "multisafepay",
-                "pay",
-                "pronamic",
-                "wordpress",
-                "wp"
-            ],
-            "time": "2016-10-20 10:37:47"
+            "time": "2016-11-02 09:43:32"
         },
         {
             "name": "wp-pay-gateways/ogone",
@@ -4001,16 +3935,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f"
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
-                "reference": "ea74994a3dc7f8d2f65a06009348f2d63c81e61f",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/399c1f9781e222f6eb6cc238796f5200d1b7f108",
+                "reference": "399c1f9781e222f6eb6cc238796f5200d1b7f108",
                 "shasum": ""
             },
             "require": {
@@ -4039,7 +3973,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2016-09-16 13:37:59"
+            "time": "2016-10-31 17:19:45"
         },
         {
             "name": "pdepend/pdepend",
@@ -4356,16 +4290,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3"
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5f3f7e736d6319d5f1fc402aff8b026da26709a3",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
                 "shasum": ""
             },
             "require": {
@@ -4415,7 +4349,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-26 14:39:29"
+            "time": "2016-11-01 05:06:24"
         },
         {
             "name": "phpunit/php-file-iterator",
