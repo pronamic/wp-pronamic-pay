@@ -141,6 +141,18 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   width: 100%;
 }
 
+/* line 13, ../sass/admin/_forms.scss */
+.pronamic-pay-form-control-file-button [type='file'] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
 /* line 1, ../sass/admin/_icons.scss */
 .pronamic-pay-icon {
   display: block;
@@ -245,6 +257,20 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 /* line 29, ../sass/admin/_meta-box-gateway-config.scss */
 .gateway-config-section-header p:last-child {
   margin-bottom: 0;
+}
+
+/* line 3, ../sass/admin/_meta-box-gateway-test.scss */
+#pronamic_gateway_test .inside > label,
+#pronamic_gateway_test .inside div label {
+  display: block;
+}
+/* line 8, ../sass/admin/_meta-box-gateway-test.scss */
+#pronamic_gateway_test .pronamic-pay-test-payment-method td label {
+  display: none;
+}
+/* line 12, ../sass/admin/_meta-box-gateway-test.scss */
+#pronamic_gateway_test .pronamic-pay-test-payment-method {
+  display: none;
 }
 
 /* line 4, ../sass/admin/_meta-box-payment-log.scss */
@@ -397,100 +423,63 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   box-shadow: none;
 }
 
-/* line 22, ../sass/admin.scss */
-#pronamic_gateway_test .inside > label,
-#pronamic_gateway_test .inside div label {
-  display: block;
-}
-/* line 27, ../sass/admin.scss */
-#pronamic_gateway_test .pronamic-pay-test-payment-method td label {
-  display: none;
-}
-/* line 31, ../sass/admin.scss */
-#pronamic_gateway_test .pronamic-pay-test-payment-method {
-  display: none;
-}
-
-/* line 36, ../sass/admin.scss */
-div.extra-settings {
-  display: none;
-}
-
-/* line 40, ../sass/admin.scss */
+/* line 21, ../sass/admin.scss */
 div.extra-settings {
   border: 1px solid #e5e5e5;
   border-top: 0;
   clear: both;
+  display: none;
 }
-/* line 46, ../sass/admin.scss */
+/* line 29, ../sass/admin.scss */
 div.extra-settings > div {
   font-style: italic;
   padding: 20px 10px;
 }
-/* line 52, ../sass/admin.scss */
+/* line 35, ../sass/admin.scss */
 div.extra-settings .gateway-config-section-header h4,
 div.extra-settings .show-provider {
   display: none;
 }
-/* line 57, ../sass/admin.scss */
+/* line 40, ../sass/admin.scss */
 div.extra-settings .form-table {
   margin-top: 0;
 }
-/* line 60, ../sass/admin.scss */
+/* line 43, ../sass/admin.scss */
 div.extra-settings .form-table tr.even {
   background: #f9f9f9;
 }
-/* line 64, ../sass/admin.scss */
+/* line 47, ../sass/admin.scss */
 div.extra-settings .form-table th {
   padding-left: 10px;
 }
-/* line 69, ../sass/admin.scss */
+/* line 52, ../sass/admin.scss */
 div.extra-settings .form-table td p {
   line-height: inherit;
 }
-/* line 72, ../sass/admin.scss */
+/* line 55, ../sass/admin.scss */
 div.extra-settings .form-table td p:first-child {
   margin-top: 5px;
 }
-/* line 79, ../sass/admin.scss */
-div.extra-settings .input-file-wrapper {
-  overflow: hidden;
-  position: relative;
-}
-/* line 84, ../sass/admin.scss */
-div.extra-settings .input-file-wrapper input[type='file'] {
-  cursor: pointer;
-  font-size: 50px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-}
-/* line 97, ../sass/admin.scss */
+/* line 62, ../sass/admin.scss */
 div.extra-settings p + input.button,
 div.extra-settings .pk-cert-ok input.button,
 div.extra-settings input.large-text.code + input.button {
   margin-top: 10px;
 }
-/* line 102, ../sass/admin.scss */
+/* line 67, ../sass/admin.scss */
 div.extra-settings p + input.button + div.button,
 div.extra-settings .pk-cert-ok input.button + div.button,
 div.extra-settings input.large-text.code + input.button + div.button {
   margin-top: 10px;
 }
 
-/* line 108, ../sass/admin.scss */
+/* line 73, ../sass/admin.scss */
 #pk-cert-fields-toggle {
   display: inline-block;
   margin: 1em;
 }
 
-/* line 117, ../sass/admin.scss */
-body.post-new-php div.extra-settings input [name='download_private_key'],
-body.post-new-php div.extra-settings input [name='download_private_certificate'] {
-  display: none;
-}
-/* line 123, ../sass/admin.scss */
+/* line 81, ../sass/admin.scss */
 body.post-new-php div.extra-settings .pk-cert-error > span {
   display: none;
 }

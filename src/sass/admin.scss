@@ -9,6 +9,7 @@
 @import 'admin/forms';
 @import 'admin/icons';
 @import 'admin/meta-box-gateway-config';
+@import 'admin/meta-box-gateway-test';
 @import 'admin/meta-box-payment-log';
 @import 'admin/meta-box-update';
 @import 'admin/settings';
@@ -17,31 +18,13 @@
 @import 'admin/tip';
 @import 'admin/variables';
 
-// Gateway test postbox
-#pronamic_gateway_test {
-	.inside > label,
-	.inside div label {
-		display: block;
-	}
-
-	.pronamic-pay-test-payment-method td label {
-		display: none;
-	}
-
-	.pronamic-pay-test-payment-method {
-		display: none;
-	}
-}
-
-div.extra-settings {
-	display: none;
-}
-
 div.extra-settings {
 	border: 1px solid $pronamic-border-color;
 	border-top: 0;
 
 	clear: both;
+
+	display: none;
 
 	> div {
 		font-style: italic;
@@ -73,24 +56,6 @@ div.extra-settings {
 					margin-top: 5px;
 				}
 			}
-		}
-	}
-
-	.input-file-wrapper {
-		overflow: hidden;
-
-		position: relative;
-
-		input[type='file'] {
-			cursor: pointer;
-
-			font-size: 50px;
-
-			position: absolute;
-			top: 0;
-			right: 0;
-
-			height: 100%;
 		}
 	}
 
