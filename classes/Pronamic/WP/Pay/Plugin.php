@@ -493,6 +493,10 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
+					$gateways[] = 'rabobank-omnikassa';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'icepay-ideal';
