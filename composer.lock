@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fc493b21fd0084b5c104145151a414d2",
-    "content-hash": "1f2227882f29c6a780a55b833da90624",
+    "hash": "4bafabaf8a9b6f406be8b78bcd6bb76f",
+    "content-hash": "6cd549aa814e988ca68762b9a041ded2",
     "packages": [
         {
             "name": "composer/installers",
@@ -1122,16 +1122,16 @@
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "1.2.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "febd8dccd019c4825c21d91768b7626b7c7198b9"
+                "reference": "9f13999f2301c3020ee2541bf4c4fbc11e929fa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/febd8dccd019c4825c21d91768b7626b7c7198b9",
-                "reference": "febd8dccd019c4825c21d91768b7626b7c7198b9",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/9f13999f2301c3020ee2541bf4c4fbc11e929fa6",
+                "reference": "9f13999f2301c3020ee2541bf4c4fbc11e929fa6",
                 "shasum": ""
             },
             "require": {
@@ -1178,7 +1178,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20 12:08:10"
+            "time": "2016-11-07 13:45:24"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -3532,16 +3532,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "1.3.9",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "3378c22e267d00e43a8b8658532ac6a2012c1e19"
+                "reference": "34e420b48166492caab6abf4dbcfb0cd8be72bc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/3378c22e267d00e43a8b8658532ac6a2012c1e19",
-                "reference": "3378c22e267d00e43a8b8658532ac6a2012c1e19",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/34e420b48166492caab6abf4dbcfb0cd8be72bc8",
+                "reference": "34e420b48166492caab6abf4dbcfb0cd8be72bc8",
                 "shasum": ""
             },
             "require": {
@@ -3588,7 +3588,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20 09:02:38"
+            "time": "2016-11-07 13:08:20"
         },
         {
             "name": "wpackagist-plugin/charitable",
@@ -3660,8 +3660,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/ithemes-exchange.1.11.8.zip",
-                "reference": "tags/1.11.8",
+                "url": "https://downloads.wordpress.org/plugin/ithemes-exchange.1.11.8.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3681,7 +3681,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/jigoshop.1.17.11.zip",
-                "reference": "tags/1.17.11",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3701,7 +3701,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/membership.4.0.0.7.zip",
-                "reference": "tags/4.0.0.7",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3720,8 +3720,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://downloads.wordpress.org/plugin/shopp.1.3.5.zip",
-                "reference": "tags/1.3.5",
+                "url": "https://downloads.wordpress.org/plugin/shopp.1.3.5.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3741,7 +3741,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wp-e-commerce.3.9.3.zip",
-                "reference": "tags/3.9.3",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -6017,9 +6017,25 @@
             "time": "2016-08-29 20:04:47"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.3.10",
+            "alias_normalized": "1.3.10.0",
+            "version": "dev-develop",
+            "package": "wp-pay/core"
+        },
+        {
+            "alias": "1.2.2",
+            "alias_normalized": "1.2.2.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/woocommerce"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay/core": 20,
+        "wp-pay-extensions/woocommerce": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
