@@ -19,11 +19,6 @@
 @import 'admin/variables';
 
 div.extra-settings {
-	border: 1px solid $pronamic-border-color;
-	border-top: 0;
-
-	clear: both;
-
 	display: none;
 
 	> div {
@@ -38,16 +33,6 @@ div.extra-settings {
 	}
 
 	.form-table {
-		margin-top: 0;
-
-		tr.even {
-			background: $pronamic-striped-background-color;
-		}
-
-		th {
-			padding-left: 10px;
-		}
-
 		td {
 			p {
 				line-height: inherit;

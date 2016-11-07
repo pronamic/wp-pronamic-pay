@@ -387,23 +387,38 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   margin-top: -3px;
 }
 
+/* line 38, ../sass/admin/_tabs.scss */
+.pronamic-pay-tab {
+  border: 1px solid #e5e5e5;
+  border-top: 0;
+  clear: both;
+}
+/* line 45, ../sass/admin/_tabs.scss */
+.pronamic-pay-tab .form-table {
+  margin-top: 0;
+}
+/* line 49, ../sass/admin/_tabs.scss */
+.pronamic-pay-tab .form-table th {
+  padding-left: 10px;
+}
+
 @media only screen and (max-width: 960px) {
-  /* line 39, ../sass/admin/_tabs.scss */
+  /* line 57, ../sass/admin/_tabs.scss */
   .pronamic-pay-tabs-items {
     display: none;
   }
 
-  /* line 43, ../sass/admin/_tabs.scss */
+  /* line 61, ../sass/admin/_tabs.scss */
   .pronamic-pay-tab {
     border: 0;
   }
-  /* line 46, ../sass/admin/_tabs.scss */
+  /* line 64, ../sass/admin/_tabs.scss */
   .pronamic-pay-tab .form-table {
     border: 0;
   }
 }
 @media only screen and (max-width: 782px) {
-  /* line 55, ../sass/admin/_tabs.scss */
+  /* line 73, ../sass/admin/_tabs.scss */
   .pronamic-pay-tab .form-table th,
   .pronamic-pay-tab .form-table td {
     padding: 11px;
@@ -425,55 +440,40 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 
 /* line 21, ../sass/admin.scss */
 div.extra-settings {
-  border: 1px solid #e5e5e5;
-  border-top: 0;
-  clear: both;
   display: none;
 }
-/* line 29, ../sass/admin.scss */
+/* line 24, ../sass/admin.scss */
 div.extra-settings > div {
   font-style: italic;
   padding: 20px 10px;
 }
-/* line 35, ../sass/admin.scss */
+/* line 30, ../sass/admin.scss */
 div.extra-settings .gateway-config-section-header h4,
 div.extra-settings .show-provider {
   display: none;
 }
-/* line 40, ../sass/admin.scss */
-div.extra-settings .form-table {
-  margin-top: 0;
-}
-/* line 43, ../sass/admin.scss */
-div.extra-settings .form-table tr.even {
-  background: #f9f9f9;
-}
-/* line 47, ../sass/admin.scss */
-div.extra-settings .form-table th {
-  padding-left: 10px;
-}
-/* line 52, ../sass/admin.scss */
+/* line 37, ../sass/admin.scss */
 div.extra-settings .form-table td p {
   line-height: inherit;
 }
-/* line 55, ../sass/admin.scss */
+/* line 40, ../sass/admin.scss */
 div.extra-settings .form-table td p:first-child {
   margin-top: 5px;
 }
-/* line 62, ../sass/admin.scss */
+/* line 47, ../sass/admin.scss */
 div.extra-settings p + input.button,
 div.extra-settings .pk-cert-ok input.button,
 div.extra-settings input.large-text.code + input.button {
   margin-top: 10px;
 }
-/* line 67, ../sass/admin.scss */
+/* line 52, ../sass/admin.scss */
 div.extra-settings p + input.button + div.button,
 div.extra-settings .pk-cert-ok input.button + div.button,
 div.extra-settings input.large-text.code + input.button + div.button {
   margin-top: 10px;
 }
 
-/* line 73, ../sass/admin.scss */
+/* line 58, ../sass/admin.scss */
 #pk-cert-fields-toggle {
   display: inline-block;
   margin: 1em;
