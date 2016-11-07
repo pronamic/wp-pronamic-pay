@@ -471,6 +471,18 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
+				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+					$gateways[] = 'buckaroo';
+					$gateways[] = 'icepay-ideal';
+					$gateways[] = 'ogone-orderstandard';
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'sisow-ideal';
+					$gateways[] = 'pay_nl';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -495,17 +507,6 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
 					$gateways[] = 'rabobank-omnikassa';
-
-					break;
-				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
-					$gateways[] = 'buckaroo';
-					$gateways[] = 'icepay-ideal';
-					$gateways[] = 'ogone-orderstandard';
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
-					$gateways[] = 'rabobank-omnikassa';
-					$gateways[] = 'sisow-ideal';
-					$gateways[] = 'pay_nl';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
