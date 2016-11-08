@@ -307,47 +307,31 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   color: #aaa;
 }
 
-/* line 20, ../sass/admin/_tables.scss */
+/* line 18, ../sass/admin/_tables.scss */
+.postbox .pronamic-pay-table {
+  border: none;
+}
+
+/* line 27, ../sass/admin/_tables.scss */
 .pronamic-pay-table-striped tbody tr:nth-of-type(odd) {
   background: #f9f9f9;
 }
 
-/* line 29, ../sass/admin/_tables.scss */
+/* line 36, ../sass/admin/_tables.scss */
 .form-table .even {
   background: #f9f9f9;
 }
 
-/* line 35, ../sass/admin/_tables.scss */
+/* line 42, ../sass/admin/_tables.scss */
 .pronamic-pay-status-table {
   margin-top: 2em;
 }
-/* line 40, ../sass/admin/_tables.scss */
+/* line 47, ../sass/admin/_tables.scss */
 .pronamic-pay-status-table tbody th:first-child {
   width: 20%;
 }
 
-/* line 49, ../sass/admin/_tables.scss */
-.pronamic-pay-subscriptions-table {
-  border-spacing: 0;
-  clear: both;
-  margin: 0;
-  width: 100%;
-}
-/* line 59, ../sass/admin/_tables.scss */
-.pronamic-pay-subscriptions-table thead th {
-  border-bottom: 1px solid #e1e1e1;
-}
-/* line 64, ../sass/admin/_tables.scss */
-.pronamic-pay-subscriptions-table th,
-.pronamic-pay-subscriptions-table td {
-  padding: 8px 10px;
-}
-/* line 69, ../sass/admin/_tables.scss */
-.pronamic-pay-subscriptions-table th {
-  text-align: left;
-}
-
-/* line 77, ../sass/admin/_tables.scss */
+/* line 57, ../sass/admin/_tables.scss */
 .widefat .column-pronamic_payment_status,
 .widefat .column-pronamic_subscription_status,
 .widefat .column-pronamic_payment_subscription {

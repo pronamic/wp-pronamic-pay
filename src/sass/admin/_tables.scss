@@ -13,12 +13,19 @@
 	}
 }
 
+// Table in postbox
+.postbox {
+	.pronamic-pay-table {
+		border: none;
+	}
+}
+
 // Striped table
 .pronamic-pay-table-striped {
 	tbody {
 		tr {
 			&:nth-of-type(odd) {
-				background: #f9f9f9;
+				background: $wp-striped-table-background-color;
 			}
 		}
 	}
@@ -27,7 +34,7 @@
 // Form table
 .form-table {
 	.even {
-		background: #f9f9f9;
+		background: $wp-striped-table-background-color;
 	}
 }
 
@@ -41,33 +48,6 @@
 				width: 20%;
 			}
 		}
-	}
-}
-
-// Subscriptions table
-// @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
-.pronamic-pay-subscriptions-table {
-	border-spacing: 0;
-
-	clear: both;
-
-	margin: 0;
-
-	width: 100%;
-
-	thead {
-		th {
-			border-bottom: 1px solid #e1e1e1;
-		}
-	}
-
-	th,
-	td {
-		padding: 8px 10px;
-	}
-
-	th {
-		text-align: left;
 	}
 }
 
