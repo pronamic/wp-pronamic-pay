@@ -131,6 +131,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				),
 				'shadowSize' => 0,
 				'hoverable'  => false,
+				'class'      => 'completed-count',
 			),
 			(object) array(
 				'label'            => __( 'Open payments', 'pronamic_ideal' ),
@@ -151,6 +152,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				),
 				'shadowSize'       => 0,
 				'tooltipFormatter' => 'money',
+				'class'            => 'pending-sum',
 			),
 			(object) array(
 				'label'            => __( 'Succesfull payments', 'pronamic_ideal' ),
@@ -172,6 +174,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'shadowSize'       => 0,
 				'prepend_tooltip'  => '&euro;&nbsp;',
 				'tooltipFormatter' => 'money',
+				'class'            => 'completed-sum',
 			),
 			(object) array(
 				'label'            => __( 'Cancelled payments', 'pronamic_ideal' ),
@@ -193,6 +196,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'shadowSize'       => 0,
 				'prepend_tooltip'  => '&euro;&nbsp;',
 				'tooltipFormatter' => 'money',
+				'class'            => 'cancelled-sum',
 			),
 			(object) array(
 				'label'            => __( 'Expired payments', 'pronamic_ideal' ),
@@ -214,6 +218,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'shadowSize'       => 0,
 				'prepend_tooltip'  => '&euro;&nbsp;',
 				'tooltipFormatter' => 'money',
+				'class'            => 'expired-sum',
 			),
 			(object) array(
 				'label'            => __( 'Failed payments', 'pronamic_ideal' ),
@@ -235,6 +240,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'shadowSize'       => 0,
 				'prepend_tooltip'  => '&euro;&nbsp;',
 				'tooltipFormatter' => 'money',
+				'class'            => 'failed-sum',
 			),
 		);
 

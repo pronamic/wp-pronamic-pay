@@ -58,7 +58,7 @@
 
 .pronamic-pay-icon-refunded {
 	&::after {
-		color: #999;
+		color: $wp-icon-color;
 		content: $ppi-status-refunded;
 	}
 }
@@ -72,14 +72,14 @@
 
 .pronamic-pay-icon-on-hold {
 	&::after {
-		color: #999;
+		color: $wp-icon-color;
 		content: $ppi-status-on-hold;
 	}
 }
 
 .pronamic-pay-icon-recurring {
 	&::after {
-		color: #999;
+		color: $wp-icon-color;
 		content: $ppi-recurring;
 	}
 }

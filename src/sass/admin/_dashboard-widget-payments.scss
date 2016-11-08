@@ -41,7 +41,7 @@
 			transition: color ease .5s;
 
 			strong {
-				color: #21759b;
+				color: $wp-a-color;
 
 				display: block;
 
@@ -52,11 +52,11 @@
 			}
 
 			&:hover {
-				color: #2ea2cc;
+				color: $wp-a-hover-color;
 
 				&::before,
 				strong {
-					color: #2ea2cc;
+					color: $wp-a-hover-color;
 				}
 			}
 		}
