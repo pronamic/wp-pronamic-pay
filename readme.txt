@@ -102,9 +102,9 @@ Pronamic iDEAL is the best plugin available to accept payments through iDEAL in 
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
 	*	**Tested up to:** 1.35.9
-*	[Jigoshop](http://jigoshop.com/)
-	*	**Author:** [Jigowatt](http://jigowatt.co.uk/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
+*	[Jigoshop](https://www.jigoshop.com/)
+	*	**Author:** [Jigoshop](https://www.jigoshop.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/jigoshop/](https://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.12
