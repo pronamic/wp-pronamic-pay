@@ -53,8 +53,6 @@
 			elements.tabItems.find(':visible').first().text( providerName ).click();
 
 			$( '#pronamic-pay-gateway-description').html( obj.selectedVariant.attr( 'data-gateway-description' ) );
-
-			obj.initPkCertFields();
 		};
 
 		// Update row background color
@@ -91,21 +89,6 @@
 
 			// Show tab
 			elements.extraSettings.hide().eq( tabItem.index() ).show();
-		};
-
-		/**
-		 * iDEAL Advanced private key and certificate fields
-		 */
-		this.initPkCertFields = function() {
-			var fieldPrivateKey  = $( '#_pronamic_gateway_ideal_private_key' );
-			var fieldCertificate = $( '#_pronamic_gateway_ideal_private_certificate' );
-
-			if ( '' !== fieldPrivateKey.val() && '' !== fieldCertificate.val() ) {
-				elements.extraSettings.find( 'tr.pk-cert' ).hide();
-				elements.extraSettings.find( '.pk-cert-error' ).hide();
-			} else {
-				elements.extraSettings.find( '.pk-cert-ok' ).hide();
-			}
 		};
 
 		this.togglePkCertFields = function( e ) {
