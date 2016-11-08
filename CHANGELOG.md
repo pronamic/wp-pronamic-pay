@@ -9,6 +9,10 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Removed
 - Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6.
 
+### Changes
+- Updated WordPress pay Charitable library to version 1.1.0.
+  - Updated gateway system to Charitable version 1.3+.
+
 ## [4.4.3] - 2016-11-02
 
 ### Changes
