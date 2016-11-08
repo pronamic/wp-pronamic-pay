@@ -1,15 +1,8 @@
 // Gateway test postbox
-#pronamic_gateway_test {
-	.inside > label,
-	.inside div label {
-		display: block;
-	}
-
-	.pronamic-pay-test-payment-method td label {
-		display: none;
-	}
-
-	.pronamic-pay-test-payment-method {
-		display: none;
+.pronamic-pay-test-payment-method {
+	td {
+		label {
+			display: none;
+		}
 	}
 }

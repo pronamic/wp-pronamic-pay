@@ -19,13 +19,6 @@
 		 * Update config fields
 		 */
 		this.updateFields = function() {
-			// Reset variant specific elements
-			if ( obj.selectedVariant ) {
-				elements.tabs.removeClass( obj.selectedVariant.val() );
-				elements.extraSettings.find( '.show-' + obj.selectedVariant.val() ).hide();
-				elements.extraSettings.find( '.hide-' + obj.selectedVariant.val() ).show();
-			}
-
 			// Find selected variant
 			obj.selectedVariant = elements.variantId.find( 'option:selected' );
 
@@ -43,14 +36,10 @@
 				} );
 			}
 
-			// Hide or show variant specific elements
-			elements.extraSettings.find( '.show-' + obj.selectedVariant.val() ).show();
-			elements.extraSettings.find( '.hide-' + obj.selectedVariant.val() ).hide();
-
 			// Set name of first tab item to name of selected provider
 			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
 
-			elements.tabItems.find(':visible').first().text( providerName ).click();
+			elements.tabItems.find( ':visible' ).first().text( providerName ).click();
 
 			$( '#pronamic-pay-gateway-description').html( obj.selectedVariant.attr( 'data-gateway-description' ) );
 

@@ -143,7 +143,7 @@ bind_providers_and_gateways();
 					<div class="pronamic-pay-tab-block gateway-config-section-header">
 						<?php if ( ! empty( $section['title'] ) ) : ?>
 
-							<h4><?php echo esc_html( $section['title'] ); ?></h4>
+							<h4 class="pronamic-pay-cloack"><?php echo esc_html( $section['title'] ); ?></h4>
 
 						<?php endif; ?>
 
@@ -174,35 +174,6 @@ bind_providers_and_gateways();
 
 						if ( isset( $field['group'] ) ) {
 							$classes[] = $field['group'];
-						}
-
-						if ( isset( $field['show_provider'] ) ) {
-							$providers = $field['show_provider'];
-							$classes[] = 'show-provider';
-
-							if ( is_string( $providers ) ) {
-								$providers = array( $providers );
-							}
-
-							if ( is_array( $providers ) ) {
-								foreach ( $providers as $provider ) {
-									$classes[] = sprintf( 'show-%s', $provider );
-								}
-							}
-						}
-
-						if ( isset( $field['hide_provider'] ) ) {
-							$providers = $field['hide_provider'];
-
-							if ( is_string( $providers ) ) {
-								$providers = array( $providers );
-							}
-
-							if ( is_array( $providers ) ) {
-								foreach ( $providers as $provider ) {
-									$classes[] = sprintf( 'hide-%s', $provider );
-								}
-							}
 						}
 
 						if ( isset( $field['id'] ) ) {

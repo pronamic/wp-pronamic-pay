@@ -64,7 +64,7 @@ if ( $gateway ) {
 
 		<?php foreach ( $inputs as $method => $input ) : ?>
 
-			<tr class="pronamic-pay-test-payment-method <?php echo esc_attr( $method ); ?>">
+			<tr class="pronamic-pay-cloack pronamic-pay-test-payment-method <?php echo esc_attr( $method ); ?>">
 				<th scope="row">
 					<?php echo esc_html( $input['label'] ); ?>
 				</th>

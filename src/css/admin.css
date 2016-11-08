@@ -261,17 +261,8 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   margin-bottom: 0;
 }
 
-/* line 3, ../sass/admin/_meta-box-gateway-test.scss */
-#pronamic_gateway_test .inside > label,
-#pronamic_gateway_test .inside div label {
-  display: block;
-}
-/* line 8, ../sass/admin/_meta-box-gateway-test.scss */
-#pronamic_gateway_test .pronamic-pay-test-payment-method td label {
-  display: none;
-}
-/* line 12, ../sass/admin/_meta-box-gateway-test.scss */
-#pronamic_gateway_test .pronamic-pay-test-payment-method {
+/* line 4, ../sass/admin/_meta-box-gateway-test.scss */
+.pronamic-pay-test-payment-method td label {
   display: none;
 }
 
@@ -457,11 +448,5 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
 
 /* line 3, ../sass/admin/_utilities.scss */
 .pronamic-pay-cloack {
-  display: none;
-}
-
-/* line 24, ../sass/admin.scss */
-div.extra-settings .gateway-config-section-header h4,
-div.extra-settings .show-provider {
   display: none;
 }
