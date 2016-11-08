@@ -139,7 +139,7 @@ bind_providers_and_gateways();
 			<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 				<?php if ( ! empty( $section['title'] ) || ! empty( $section['description'] ) ) : ?>
 
-					<div class="gateway-config-section-header">
+					<div class="pronamic-pay-tab-block gateway-config-section-header">
 						<?php if ( ! empty( $section['title'] ) ) : ?>
 
 							<h4><?php echo esc_html( $section['title'] ); ?></h4>
