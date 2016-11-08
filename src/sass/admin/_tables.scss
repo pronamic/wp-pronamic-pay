@@ -14,8 +14,21 @@
 }
 
 // Striped table
-.pronamic-pay-table-striped tbody tr:nth-of-type(odd) {
-	background: #f9f9f9;
+.pronamic-pay-table-striped {
+	tbody {
+		tr {
+			&:nth-of-type(odd) {
+				background: #f9f9f9;
+			}
+		}
+	}
+}
+
+// Form table
+.form-table {
+	.even {
+		background: #f9f9f9;
+	}
 }
 
 // Status table

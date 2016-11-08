@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "aa0a46d17b84c1e13bc88979784b36f1",
-    "content-hash": "a87456445cb64c1d01938c5ec0cd9933",
+    "hash": "7643fc848a1de02eb81af42774917038",
+    "content-hash": "7766fc253cf816735e832daefd4f7a33",
     "packages": [
         {
             "name": "composer/installers",
@@ -641,16 +641,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "deb389c9f71d4963c727e0d6091b679f36abc37f"
+                "reference": "b562eb301f485f0bb971cb5c64609ff705e7df11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/deb389c9f71d4963c727e0d6091b679f36abc37f",
-                "reference": "deb389c9f71d4963c727e0d6091b679f36abc37f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/b562eb301f485f0bb971cb5c64609ff705e7df11",
+                "reference": "b562eb301f485f0bb971cb5c64609ff705e7df11",
                 "shasum": ""
             },
             "require": {
@@ -702,7 +702,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-28 09:19:23"
+            "time": "2016-11-08 12:48:29"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2087,16 +2087,16 @@
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "1.1.8",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "d0ecf75f14e9e315dad8a8cac293ca4d5a5e3ecc"
+                "reference": "86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/d0ecf75f14e9e315dad8a8cac293ca4d5a5e3ecc",
-                "reference": "d0ecf75f14e9e315dad8a8cac293ca4d5a5e3ecc",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c",
+                "reference": "86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c",
                 "shasum": ""
             },
             "require": {
@@ -2149,7 +2149,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-28 07:51:52"
+            "time": "2016-11-08 13:39:01"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -6025,6 +6025,18 @@
             "package": "wp-pay/core"
         },
         {
+            "alias": "1.1.9",
+            "alias_normalized": "1.1.9.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/ideal-advanced-v3"
+        },
+        {
+            "alias": "1.5.2",
+            "alias_normalized": "1.5.2.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        },
+        {
             "alias": "1.2.2",
             "alias_normalized": "1.2.2.0",
             "version": "dev-develop",
@@ -6034,6 +6046,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay/core": 20,
+        "wp-pay-gateways/ideal-advanced-v3": 20,
+        "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/woocommerce": 20
     },
     "prefer-stable": false,
