@@ -2,6 +2,7 @@
 
 @import '../fonts/variables';
 
+@import 'admin/buttons';
 @import 'admin/chart';
 @import 'admin/code';
 @import 'admin/dashboard-widget-payments';
@@ -25,20 +26,4 @@ div.extra-settings {
 	.show-provider {
 		display: none;
 	}
-
-	p + input.button,
-	.pk-cert-ok input.button,
-	input.large-text.code + input.button {
-		margin-top: 10px;
-
-		& + div.button {
-			margin-top: 10px;
-		}
-	}
-}
-
-#pk-cert-fields-toggle {
-	display: inline-block;
-
-	margin: 1em;
 }
