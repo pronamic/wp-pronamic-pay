@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7643fc848a1de02eb81af42774917038",
-    "content-hash": "7766fc253cf816735e832daefd4f7a33",
+    "hash": "992cbfe267cfbb023900c555f1b2b2d2",
+    "content-hash": "e8e91b06b9dc4d8cc10e6ecdf7c4da97",
     "packages": [
         {
             "name": "composer/installers",
@@ -645,12 +645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "b562eb301f485f0bb971cb5c64609ff705e7df11"
+                "reference": "ad6adf7cf076e77b62fa0a223a549951930b318c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/b562eb301f485f0bb971cb5c64609ff705e7df11",
-                "reference": "b562eb301f485f0bb971cb5c64609ff705e7df11",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ad6adf7cf076e77b62fa0a223a549951930b318c",
+                "reference": "ad6adf7cf076e77b62fa0a223a549951930b318c",
                 "shasum": ""
             },
             "require": {
@@ -702,7 +702,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-11-08 12:48:29"
+            "time": "2016-11-09 10:39:53"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2091,12 +2091,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c"
+                "reference": "ecd6b6f8e0003ba67a31654c24ab4b0b287b0567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c",
-                "reference": "86c46fe1b82363b346a5aa8cfbe28f3a3781ae8c",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/ecd6b6f8e0003ba67a31654c24ab4b0b287b0567",
+                "reference": "ecd6b6f8e0003ba67a31654c24ab4b0b287b0567",
                 "shasum": ""
             },
             "require": {
@@ -2149,7 +2149,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-11-08 13:39:01"
+            "time": "2016-11-08 13:51:19"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -2816,16 +2816,16 @@
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "1.3.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "7c0688bc779544a0beca6e237f42ac20abc53e82"
+                "reference": "992806067c2274d8ec8dd0691d4a350bc04295f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/7c0688bc779544a0beca6e237f42ac20abc53e82",
-                "reference": "7c0688bc779544a0beca6e237f42ac20abc53e82",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/992806067c2274d8ec8dd0691d4a350bc04295f1",
+                "reference": "992806067c2274d8ec8dd0691d4a350bc04295f1",
                 "shasum": ""
             },
             "require": {
@@ -2876,7 +2876,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20 10:39:57"
+            "time": "2016-11-08 15:26:48"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -6031,6 +6031,12 @@
             "package": "wp-pay-gateways/ideal-advanced-v3"
         },
         {
+            "alias": "1.3.3",
+            "alias_normalized": "1.3.3.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/ogone"
+        },
+        {
             "alias": "1.5.2",
             "alias_normalized": "1.5.2.0",
             "version": "dev-develop",
@@ -6047,6 +6053,7 @@
     "stability-flags": {
         "wp-pay/core": 20,
         "wp-pay-gateways/ideal-advanced-v3": 20,
+        "wp-pay-gateways/ogone": 20,
         "wp-pay-extensions/gravityforms": 20,
         "wp-pay-extensions/woocommerce": 20
     },
