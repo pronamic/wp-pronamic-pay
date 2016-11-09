@@ -490,7 +490,7 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
-	grunt.registerTask( 'assets', [ 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
+	grunt.registerTask( 'assets', [ 'sasslint', 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
