@@ -30,63 +30,63 @@
 
 .pronamic-pay-icon-pending {
 	&::after {
-		color: #ffba00;
+		color: $pronamic-pay-pending-color;
 		content: $ppi-status-pending;
 	}
 }
 
 .pronamic-pay-icon-cancelled {
 	&::after {
-		color: $dark-red;
+		color: $pronamic-pay-cancelled-color;
 		content: $ppi-status-cancelled;
 	}
 }
 
 .pronamic-pay-icon-processing {
 	&::after {
-		color: #73a724;
+		color: $pronamic-pay-processing-color;
 		content: $ppi-status-processing;
 	}
 }
 
 .pronamic-pay-icon-completed {
 	&::after {
-		color: #2ea2cc;
+		color: $pronamic-pay-completed-color;
 		content: $ppi-status-completed;
 	}
 }
 
 .pronamic-pay-icon-refunded {
 	&::after {
-		color: $wp-icon-color;
+		color: $pronamic-pay-refunded-color;
 		content: $ppi-status-refunded;
 	}
 }
 
 .pronamic-pay-icon-failed {
 	&::after {
-		color: #d0c21f;
+		color: $pronamic-pay-failed-color;
 		content: $ppi-status-failed;
 	}
 }
 
 .pronamic-pay-icon-on-hold {
 	&::after {
-		color: $wp-icon-color;
+		color: $pronamic-pay-on-hold-color;
 		content: $ppi-status-on-hold;
 	}
 }
 
 .pronamic-pay-icon-recurring {
 	&::after {
-		color: $wp-icon-color;
+		color: $pronamic-pay-recurring-color;
 		content: $ppi-recurring;
 	}
 }
 
 .pronamic-pay-icon-recurring-first {
 	&::after {
-		color: #2ea2cc;
+		color: $pronamic-pay-recurring-first-color;
 		content: $ppi-recurring;
 	}
 }

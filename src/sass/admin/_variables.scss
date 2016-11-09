@@ -26,6 +26,10 @@ $gray-very-dark: #333;
 // Dark red (http://www.colorhexa.com/aa0000)
 $dark-red: #a00;
 
+// WordPress body color
+// @see https://github.com/WordPress/WordPress/blob/4.6/wp-admin/css/common.css#L213
+$wp-body-color: #444;
+
 // WordPress anchor color
 // @see https://github.com/WordPress/WordPress/blob/4.6/wp-admin/css/common.css#L247-L248
 $wp-a-color: #0073aa;
@@ -69,3 +73,34 @@ $ideal-magenta: #c06;
 
 // Prnamic orange
 $pronamic-orange: #fa6b49;
+
+// Pronamic pay pending color
+// Pure (or mostly pure) orange (http://www.colorhexa.com/ffba00)
+$pronamic-pay-pending-color: #ffba00;
+// Pronamic pay cancelled color
+$pronamic-pay-cancelled-color: $dark-red;
+// Pronamic pay processing color
+// Dark green (http://www.colorhexa.com/73a724)
+$pronamic-pay-processing-color: #73a724;
+// Pronamic pay completed color
+// Strong blue (http://www.colorhexa.com/2ea2cc)
+$pronamic-pay-completed-color: #2ea2cc;
+// Pronamic pay refunded color
+$pronamic-pay-refunded-color: $wp-icon-color;
+// Pronamic pay failed color
+// Strong yellow (http://www.colorhexa.com/d0c21f)
+$pronamic-pay-failed-color: #d0c21f;
+// Pronamic pay on-hold color
+$pronamic-pay-on-hold-color: $wp-icon-color;
+// Pronamic pay recurring color
+$pronamic-pay-recurring-color: $wp-icon-color;
+// Pronamic pay recurring first color
+$pronamic-pay-recurring-first-color: $pronamic-pay-completed-color;
+
+$pronamic-pay-chart-completed-count: #dbe1e3;
+$pronamic-pay-chart-pending-sum: #b1d4ea;
+$pronamic-pay-chart-completed-sum: #3498db;
+$pronamic-pay-chart-cancelled-sum: #f1c40f;
+$pronamic-pay-chart-expired-sum: #dbe1e3;
+$pronamic-pay-chart-failed-sum: #e74c3c;
+$pronamic-pay-chart-hover: #23282f;
