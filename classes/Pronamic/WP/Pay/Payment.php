@@ -202,19 +202,19 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	 * @return string
 	 */
 	public function format_string( $string ) {
+		// Replacements definition
+		$replacements = array(
+			'{order_id}'   => $this->get_order_id(),
+			'{payment_id}' => $this->get_id(),
+		);
+
 		// Find and replace
-		// @see https://github.com/woothemes/woocommerce/blob/v2.0.19/classes/emails/class-wc-email-new-order.php
-		$find    = array();
-		$replace = array();
-
-		$find[]    = '{order_id}';
-		$replace[] = $this->get_order_id();
-
-		$find[]    = '{payment_id}';
-		$replace[] = $this->get_id();
-
-		// Order ID
-		$string = str_replace( $find, $replace, $string, $count );
+		$string = str_replace(
+			array_keys( $replacements ),
+			array_values( $replacements ),
+			$string,
+			$count
+		);
 
 		// Make sure there is an dynamic part in the order ID
 		// @see https://secure.ogone.com/ncol/param_cookbook.asp
