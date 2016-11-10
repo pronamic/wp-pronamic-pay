@@ -65,7 +65,7 @@ class Pronamic_WP_Pay_LicenseManager {
 			$this->activate_license( $newvalue );
 		}
 
-		// Shedule weekly license check
+		// Shedule daily license check
 		$time = time() + DAY_IN_SECONDS;
 
 		wp_clear_scheduled_hook( 'pronamic_pay_license_check' );
