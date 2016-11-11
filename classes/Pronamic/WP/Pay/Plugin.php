@@ -65,6 +65,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
+		$this->gateway_post_type = new Pronamic_WP_Pay_GatewayPostType();
 
 		// Shortcodes
 		$this->shortcodes = new Pronamic_WP_Pay_Shortcodes();
