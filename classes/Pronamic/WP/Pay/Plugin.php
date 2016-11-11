@@ -399,6 +399,8 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+
+		self::maybe_schedule_subscription_payments();
 	}
 
 	/**

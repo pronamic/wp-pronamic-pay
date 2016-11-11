@@ -67,6 +67,10 @@ class Pronamic_WP_Pay_Admin {
 
 		// Gateway settings
 		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
+
+		if ( ! wp_next_scheduled ( 'pronamic_pay_license_check' ) ) {
+			wp_schedule_event( time(), 'daily', 'pronamic_pay_license_check' );
+		}
 	}
 
 	/**
