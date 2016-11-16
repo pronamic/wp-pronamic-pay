@@ -6,12 +6,37 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.4.4] - 2016-11-16
+
 ### Removed
 - Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6.
 
 ### Changes
+- Improved and simplified SASS/CSS for WordPress admin elements.
+- Added support for Maestro payment method with OmniKassa.
+- Changed Mastercard icon.
+- Improved support for setting default gateway on WP-CLI.
+- Simplified `format_string()` replacements.
+- Updated WordPress pay core library to version 1.3.10.
+  - Added new constant for the Maestro payment method.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.9.
+  - Simplified settings fields.
+- Updated WordPress pay Mollie library to version 1.3.3.
+  - RemovedImproved Client class, DRY improvements.
+  - Added constants for some extra methods.
+- Updated WordPress pay Ogone library to version 1.3.3.
+  - Removed specific ABN AMRO iDEAL Easy PSPID test description.
+- Updated WordPress pay OmniKassa library to version 1.2.1.
+  - Added support for Maestro payment method.
+  - Default order ID uses payment ID in `format_string()`.
 - Updated WordPress pay Charitable library to version 1.1.0.
   - Updated gateway system to Charitable version 1.3+.
+- Updated WordPress pay Gravity Forms library to version 1.5.2.
+  - Simplified CSS for WordPress admin elements.
+  - Enabled choice values for payment methods field.
+- Updated WordPress pay WooCommerce library to version 1.2.2.
+  - Added Maestro gateway.
+  - Filter gateway description to show mandate notice also when description is empty.
 
 ## [4.4.3] - 2016-11-02
 
@@ -1414,7 +1439,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.4...HEAD
+[4.4.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.3...4.4.4
 [4.4.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.2...4.4.3
 [4.4.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.1...4.4.2
 [4.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.0...4.4.1
