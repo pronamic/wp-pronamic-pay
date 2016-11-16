@@ -307,6 +307,7 @@ results in OmniKassa data that no longer matches the signature.
 *	Added support for Maestro payment method with OmniKassa.
 *	Updated WordPress pay core library to version 1.3.10.
 	*	Added new constant for the Maestro payment method.
+*	Added custom post updated messages for payment post type.
 *	Improved and simplified SASS/CSS for WordPress admin elements.
 *	Changed Mastercard icon.
 *	Improved support for setting default gateway on WP-CLI.
