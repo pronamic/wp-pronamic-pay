@@ -10,25 +10,24 @@
 		"date": "2016-11-16",
 		"changes": [
 			{
-				"name": "Removed",
+				"name": "Changes",
 				"changes": [
-					"Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6."
+					"Added support for Maestro payment method with OmniKassa.",
+					{
+						"description": "Updated WordPress pay core library to version 1.3.10.",
+						"changes": [
+							"Added new constant for the Maestro payment method."
+						]
+					}
 				]
 			},
 			{
 				"name": "Changes",
 				"changes": [
 					"Improved and simplified SASS/CSS for WordPress admin elements.",
-					"Added support for Maestro payment method with OmniKassa.",
 					"Changed Mastercard icon.",
 					"Improved support for setting default gateway on WP-CLI.",
 					"Simplified `format_string()` replacements.",
-					{
-						"description": "Updated WordPress pay core library to version 1.3.10.",
-						"changes": [
-							"Added new constant for the Maestro payment method."
-						]
-					},
 					{
 						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.9.",
 						"changes": [
@@ -40,12 +39,6 @@
 						"changes": [
 							"Improved Client class, DRY improvements.",
 							"Added constants for some extra methods."
-						]
-					},
-					{
-						"description": "Updated WordPress pay Ogone library to version 1.3.3.",
-						"changes": [
-							"Removed specific ABN AMRO iDEAL Easy PSPID test description."
 						]
 					},
 					{
@@ -73,6 +66,29 @@
 						"changes": [
 							"Added Maestro gateway.",
 							"Filter gateway description to show mandate notice also when description is empty."
+						]
+					}
+				]
+			},
+			{
+				"name": "Fixed",
+				"changes": [
+					{
+						"description": "Updated WordPress pay Give library to version 1.0.4.",
+						"changes": [
+							"Display payment input fields also if guest donations are not allowed and registraton and/or login forms are displayed."
+						]
+					}
+				]
+			},
+			{
+				"name": "Removed",
+				"changes": [
+					"Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6.",
+					{
+						"description": "Updated WordPress pay Ogone library to version 1.3.3.",
+						"changes": [
+							"Removed specific ABN AMRO iDEAL Easy PSPID test description."
 						]
 					}
 				]
