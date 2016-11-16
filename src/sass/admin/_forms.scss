@@ -1,11 +1,28 @@
-.pronamic-pay-form-control + .pronamic-pay-form-text {
-	display: block;
-
-	line-height: 1.9;
-
-	margin-top: 10px;
-}
-
 .pronamic-pay-form-control-lg {
 	width: 100%;
+}
+
+// Input shortcode
+.pronamic-pay-shortcode-input {
+	width: 100%;
+}
+
+// Input type file
+// @see http://stackoverflow.com/questions/572768/styling-an-input-type-file-button
+.pronamic-pay-form-control-file-button {
+	[type='file'] {
+		border: 0;
+
+		clip: rect(0, 0, 0, 0);
+
+		margin: -1px;
+		padding: 0;
+
+		overflow: hidden;
+
+		position: absolute;
+
+		width: 1px;
+		height: 1px;
+	}
 }

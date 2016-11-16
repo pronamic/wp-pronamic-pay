@@ -65,6 +65,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
+		$this->gateway_post_type = new Pronamic_WP_Pay_GatewayPostType();
 
 		// Shortcodes
 		$this->shortcodes = new Pronamic_WP_Pay_Shortcodes();
@@ -112,7 +113,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Initialize requirements
 		require_once self::$dirname . '/includes/version.php';
 		require_once self::$dirname . '/includes/functions.php';
-		require_once self::$dirname . '/includes/formatting.php';
 		require_once self::$dirname . '/includes/page-functions.php';
 		require_once self::$dirname . '/includes/providers.php';
 		require_once self::$dirname . '/includes/payment.php';
@@ -399,6 +399,8 @@ class Pronamic_WP_Pay_Plugin {
 		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+
+		self::maybe_schedule_subscription_payments();
 	}
 
 	/**
@@ -472,6 +474,18 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
+				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+					$gateways[] = 'buckaroo';
+					$gateways[] = 'icepay-ideal';
+					$gateways[] = 'ogone-orderstandard';
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'sisow-ideal';
+					$gateways[] = 'pay_nl';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -494,15 +508,8 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
-					$gateways[] = 'buckaroo';
-					$gateways[] = 'icepay-ideal';
-					$gateways[] = 'ogone-orderstandard';
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
+				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
 					$gateways[] = 'rabobank-omnikassa';
-					$gateways[] = 'sisow-ideal';
-					$gateways[] = 'pay_nl';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :

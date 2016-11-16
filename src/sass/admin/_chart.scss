@@ -1,3 +1,5 @@
+@import 'variables';
+
 // Charts
 .postbox {
 	.pronamic-pay-chart-with-sidebar {
@@ -16,7 +18,7 @@
 .pronamci-pay-chart-legend {
 	background: $white;
 
-	border: 1px solid #dfdfdf;
+	border: 1px solid $wp-postbox-border-color;
 	border-right-width: 0;
 	border-bottom-width: 0;
 
@@ -26,30 +28,55 @@
 	padding: 0;
 
 	li {
-		border-right: 5px solid #aaa;
+		border-right: 5px solid $gray;
 
-		box-shadow: inset 0 -1px 0 0 #dfdfdf;
+		box-shadow: inset 0 -1px 0 0 $wp-postbox-border-color;
 
-		color: #aaa;
+		color: $gray;
 
 		display: block;
 
 		margin: 0;
 		padding: 1em;
 
-		transition: all ease .5s;
+		transition-duration: .5s;
+		transition-property: border, box-shadow, padding;
+
+		&.completed-count {
+			border-right-color: $pronamic-pay-chart-completed-count;
+		}
+
+		&.pending-sum {
+			border-right-color: $pronamic-pay-chart-pending-sum;
+		}
+
+		&.completed-sum {
+			border-right-color: $pronamic-pay-chart-completed-sum;
+		}
+
+		&.cancelled-sum {
+			border-right-color: $pronamic-pay-chart-cancelled-sum;
+		}
+
+		&.expired-sum {
+			border-right-color: $pronamic-pay-chart-expired-sum;
+		}
+
+		&.failed-sum {
+			border-right-color: $pronamic-pay-chart-failed-sum;
+		}
 
 		&:hover {
-			border-right: 5px solid #23282f !important;
+			border-right-color: $pronamic-pay-chart-hover;
 
-			box-shadow: inset 0 -1px 0 0 #dfdfdf, inset 300px 0 0 rgba(#23282f, .1);
+			box-shadow: inset 0 -1px 0 0 $wp-postbox-border-color, inset 300px 0 0 $wp-striped-table-background-color;
 
 			padding-left: 1.5em;
 		}
 	}
 
 	strong {
-		color: #464646;
+		color: $wp-body-color;
 
 		display: block;
 
@@ -61,11 +88,9 @@
 }
 
 .pronamic-pay-chart-tooltip {
-	background: #333;
+	background: $gray-very-dark;
 
 	border-radius: 3px;
-
-	box-shadow: 0 1px 3px rgba(#000, .2);
 
 	color: $white;
 

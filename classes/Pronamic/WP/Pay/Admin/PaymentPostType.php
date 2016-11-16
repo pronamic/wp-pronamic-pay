@@ -46,6 +46,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		add_filter( 'default_hidden_columns', array( $this, 'default_hidden_columns' ) );
 
+		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+
 		// Transition Post Status
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 
@@ -131,12 +133,12 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		$columns = array(
 			'cb'                            => '<input type="checkbox" />',
 			'pronamic_payment_status'       => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-status" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon" data-tip="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
 			'pronamic_payment_subscription' => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-recurring" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-icon-recurring" data-tip="%s">%s</span>',
 				esc_html__( 'Subscription', 'pronamic_ideal' ),
 				esc_html__( 'Subscription', 'pronamic_ideal' )
 			),
@@ -187,8 +189,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				}
 
 				printf(
-					'<span class="pronamic-pay-tip pronamic-pay-status %s" data-tip="%s">%s</span>',
-					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_class( $post_status ) ),
+					'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
+					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);
@@ -199,17 +201,17 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				if ( $subscription_id ) {
 					$label = __( 'Recurring payment', 'pronamic_ideal' );
-					$class = 'pronamic-pay-recurring';
+					$class = 'pronamic-pay-icon-recurring';
 
 					$recurring = get_post_meta( $post_id, '_pronamic_payment_recurring', true );
 
 					if ( ! $recurring ) {
-						$label  = __( 'First of recurring payment', 'pronamic_ideal' );
-						$class .= ' pronamic-pay-recurring-first';
+						$label = __( 'First of recurring payment', 'pronamic_ideal' );
+						$class = ' pronamic-pay-icon-recurring-first';
 					}
 
 					printf(
-						'<span class="pronamic-pay-tip pronamic-pay-recurring pronamic-pay-recurring-%s" data-tip="%s">%s</span>',
+						'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
 						esc_attr( $class ),
 						esc_attr( $label ),
 						esc_attr( $label )
@@ -470,6 +472,48 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
+	}
+
+	/**
+	 * Post updated messages.
+	 *
+	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
+	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/edit-form-advanced.php#L134-L173
+	 * @see https://github.com/woothemes/woocommerce/blob/2.5.5/includes/admin/class-wc-admin-post-types.php#L111-L168
+	 * @param string $message
+	 * @return string
+	 */
+	public function post_updated_messages( $messages ) {
+		global $post;
+
+		// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352797&filters[translation_id]=37948900
+		$scheduled_date = date_i18n( __( 'M j, Y @ H:i', 'pronamic_ideal' ), strtotime( $post->post_date ) );
+
+		$messages[ self::POST_TYPE ] = array(
+			 0 => '', // Unused. Messages start at index 1.
+			 1 => __( 'Payment updated.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352799&filters[translation_id]=37947229
+			 2 => $messages['post'][2],
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352800&filters[translation_id]=37947870
+			 3 => $messages['post'][3],
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230
+			 4 => __( 'Payment updated.', 'pronamic_ideal' ),
+			/* translators: %s: date and time of the revision */
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
+			 5 => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
+			 6 => __( 'Payment published.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232
+			 7 => __( 'Payment saved.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303
+			 8 => __( 'Payment submitted.', 'pronamic_ideal' ),
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302
+			 9 => sprintf( __( 'Payment scheduled for: %s.', 'pronamic_ideal' ), '<strong>' . $scheduled_date . '</strong>' ),
+			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301
+			10 => __( 'Payment draft updated.', 'pronamic_ideal' ),
+		);
+
+		return $messages;
 	}
 
 	/**

@@ -273,9 +273,9 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td>1.35.9</td>
 		</tr>
 		<tr>
-			<td><a href="http://jigoshop.com/" target="_blank">Jigoshop</a></td>
-			<td><a href="http://jigowatt.co.uk/" target="_blank">Jigowatt</a></td>
-			<td><a href="http://wordpress.org/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
+			<td><a href="https://www.jigoshop.com/" target="_blank">Jigoshop</a></td>
+			<td><a href="https://www.jigoshop.com/" target="_blank">Jigoshop</a></td>
+			<td><a href="https://wordpress.org/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
 			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
 			<td>1.1</td>
 			<td>1.12</td>

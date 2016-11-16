@@ -67,6 +67,10 @@ class Pronamic_WP_Pay_Admin {
 
 		// Gateway settings
 		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
+
+		if ( ! wp_next_scheduled ( 'pronamic_pay_license_check' ) ) {
+			wp_schedule_event( time(), 'daily', 'pronamic_pay_license_check' );
+		}
 	}
 
 	/**
@@ -564,30 +568,30 @@ class Pronamic_WP_Pay_Admin {
 	 * @param string $post_status
 	 * @return string
 	 */
-	public static function get_post_status_class( $post_status ) {
+	public static function get_post_status_icon_class( $post_status ) {
 		switch ( $post_status ) {
 			case 'payment_pending' :
 			case 'subscr_pending' :
-				return 'pronamic-pay-status-pending';
+				return 'pronamic-pay-icon-pending';
 			case 'payment_cancelled' :
 			case 'payment_cancelled' :
-				return 'pronamic-pay-status-cancelled';
+				return 'pronamic-pay-icon-cancelled';
 			case 'payment_completed' :
 			case 'subscr_active' :
 			case 'subscr_completed' :
-				return 'pronamic-pay-status-completed';
+				return 'pronamic-pay-icon-completed';
 			case 'payment_refunded' :
-				return 'pronamic-pay-status-refunded';
+				return 'pronamic-pay-icon-refunded';
 			case 'payment_failed' :
 			case 'subscr_failed' :
-				return 'pronamic-pay-status-failed';
+				return 'pronamic-pay-icon-failed';
 			case 'payment_on_hold' :
 			case 'payment_expired' :
 			case 'subscr_expired' :
-				return 'pronamic-pay-status-on-hold';
+				return 'pronamic-pay-icon-on-hold';
 			case 'payment_processing' :
 			default :
-				return 'pronamic-pay-status-processing';
+				return 'pronamic-pay-icon-processing';
 		}
 	}
 }

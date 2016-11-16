@@ -16,11 +16,11 @@ $payments = $subscription->get_payments();
 
 <?php else : ?>
 
-	<table class="pronamic-pay-subscriptions-table">
+	<table class="pronamic-pay-table widefat">
 		<thead>
 			<tr>
 				<th scope="col">
-					<span class="pronamic-pay-tip pronamic-pay-status pronamic-pay-status" data-tip="<?php esc_attr_e( 'Status', 'pronamic_ideal' ); ?>"><?php esc_html_e( 'Status', 'pronamic_ideal' ); ?></span>
+					<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-status" data-tip="<?php esc_attr_e( 'Status', 'pronamic_ideal' ); ?>"><?php esc_html_e( 'Status', 'pronamic_ideal' ); ?></span>
 				</th>
 				<th scope="col"><?php esc_html_e( 'Payment', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Transaction', 'pronamic_ideal' ); ?></th>

@@ -13,7 +13,7 @@
 
 						<?php foreach ( $this->reports->get_reports() as $i => $serie ) : ?>
 
-							<li style="border-right-color: <?php echo esc_attr( $serie->color ); ?>;" data-pronamic-pay-highlight-serie="<?php echo esc_attr( $i ); ?>">
+							<li class="<?php echo esc_attr( $serie->class ); ?>" data-pronamic-pay-highlight-serie="<?php echo esc_attr( $i ); ?>">
 								<strong><?php
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {

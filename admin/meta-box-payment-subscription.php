@@ -80,8 +80,10 @@ if ( $subscription ) : ?>
 		</tr>
 	</table>
 
-<?php else :
+<?php else : ?>
 
-	esc_html_e( 'This payment is not related to a subscription.', 'pronamic_ideal' );
+	<p>
+		<?php esc_html_e( 'This payment is not related to a subscription.', 'pronamic_ideal' ); ?>
+	</p>
 
-endif;
+<?php endif; ?>

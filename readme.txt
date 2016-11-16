@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.3
 Tested up to: 4.6.1
-Stable tag: 4.4.3
+Stable tag: 4.4.4
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -102,9 +102,9 @@ Pronamic iDEAL is the best plugin available to accept payments through iDEAL in 
 	*	**GitHub:** [https://github.com/wp-plugins/ithemes-exchange](https://github.com/wp-plugins/ithemes-exchange)
 	*	**Requires at least:** 1.7.14
 	*	**Tested up to:** 1.35.9
-*	[Jigoshop](http://jigoshop.com/)
-	*	**Author:** [Jigowatt](http://jigowatt.co.uk/)
-	*	**WordPress.org:** [http://wordpress.org/plugins/jigoshop/](http://wordpress.org/plugins/jigoshop/)
+*	[Jigoshop](https://www.jigoshop.com/)
+	*	**Author:** [Jigoshop](https://www.jigoshop.com/)
+	*	**WordPress.org:** [https://wordpress.org/plugins/jigoshop/](https://wordpress.org/plugins/jigoshop/)
 	*	**GitHub:** [https://github.com/jigoshop/jigoshop](https://github.com/jigoshop/jigoshop)
 	*	**Requires at least:** 1.1
 	*	**Tested up to:** 1.12
@@ -302,6 +302,37 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.4.4 - 2016-11-16 =
+*	Added support for Maestro payment method with OmniKassa.
+*	Updated WordPress pay core library to version 1.3.10.
+	*	Added new constant for the Maestro payment method.
+*	Added custom post updated messages for payment post type.
+*	Improved and simplified SASS/CSS for WordPress admin elements.
+*	Changed Mastercard icon.
+*	Improved support for setting default gateway on WP-CLI.
+*	Simplified `format_string()` replacements.
+*	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.9.
+	*	Simplified settings fields.
+*	Updated WordPress pay Mollie library to version 1.3.3.
+	*	Improved Client class, DRY improvements.
+	*	Added constants for some extra methods.
+*	Updated WordPress pay OmniKassa library to version 1.2.1.
+	*	Added support for Maestro payment method.
+	*	Default order ID uses payment ID in `format_string()`.
+*	Updated WordPress pay Charitable library to version 1.1.0.
+	*	Updated gateway system to Charitable version 1.3+.
+*	Updated WordPress pay Gravity Forms library to version 1.5.2.
+	*	Simplified CSS for WordPress admin elements.
+	*	Enabled choice values for payment methods field.
+*	Updated WordPress pay WooCommerce library to version 1.2.2.
+	*	Added Maestro gateway.
+	*	Filter gateway description to show mandate notice also when description is empty.
+*	Updated WordPress pay Give library to version 1.0.4.
+	*	Display payment input fields also if guest donations are not allowed and registraton and/or login forms are displayed.
+*	Removed own definition of the `wp_slash` function, this plugin requires already WordPress 4.3 or higher, this function is part of WordPress since 3.6.
+*	Updated WordPress pay Ogone library to version 1.3.3.
+	*	Removed specific ABN AMRO iDEAL Easy PSPID test description.
 
 = 4.4.3 - 2016-11-02 =
 *	Updated WordPress pay MultiSafepay library to version 2.0.0.

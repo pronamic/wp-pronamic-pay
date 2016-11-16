@@ -18,7 +18,7 @@
 
 		border-top: 1px solid $wp-postbox-handle-border-color;
 
-		color: #aaa;
+		color: $gray;
 
 		float: left;
 
@@ -28,7 +28,7 @@
 		width: 50%;
 
 		a {
-			color: #aaa;
+			color: $gray;
 
 			display: block;
 
@@ -41,7 +41,7 @@
 			transition: color ease .5s;
 
 			strong {
-				color: #21759b;
+				color: $wp-a-color;
 
 				display: block;
 
@@ -52,11 +52,11 @@
 			}
 
 			&:hover {
-				color: #2ea2cc;
+				color: $wp-a-hover-color;
 
 				&::before,
 				strong {
-					color: #2ea2cc;
+					color: $wp-a-hover-color;
 				}
 			}
 		}
