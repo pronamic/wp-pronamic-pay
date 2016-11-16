@@ -315,7 +315,7 @@ results in OmniKassa data that no longer matches the signature.
 *	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.9.
 	*	Simplified settings fields.
 *	Updated WordPress pay Mollie library to version 1.3.3.
-	*	RemovedImproved Client class, DRY improvements.
+	*	Improved Client class, DRY improvements.
 	*	Added constants for some extra methods.
 *	Updated WordPress pay Ogone library to version 1.3.3.
 	*	Removed specific ABN AMRO iDEAL Easy PSPID test description.
