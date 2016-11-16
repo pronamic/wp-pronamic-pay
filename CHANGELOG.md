@@ -8,7 +8,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.4.4] - 2016-11-16
 
-### Changes
+### Added
 - Added support for Maestro payment method with OmniKassa.
 - Updated WordPress pay core library to version 1.3.10.
   - Added new constant for the Maestro payment method.
