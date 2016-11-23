@@ -46,11 +46,7 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 /**
  * Autoload
  */
-if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-} elseif ( version_compare( PHP_VERSION, '5.2', '>=' ) ) {
-	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload_52.php';
-}
+require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 /**
  * Bootstrap
