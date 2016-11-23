@@ -4,9 +4,9 @@ language: php
 
 matrix:
   include:
-    - php: 5.2
+    - php: 5.3
       env: WP_VERSION=latest WP_MULTISITE=1
-    - php: 5.2
+    - php: 5.3
       env: WP_VERSION=4.0 WP_MULTISITE=1
     - php: 5.3
       env: WP_VERSION=4.0
