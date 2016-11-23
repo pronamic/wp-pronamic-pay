@@ -81,11 +81,6 @@ class Pronamic_WP_Pay_Admin_Notices {
 			);
 		}
 
-		// Update PHP
-		if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
-			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-update-php.php';
-		}
-
 		// Stored notices
 		$notices = get_option( 'pronamic_pay_admin_notices', array() );
 
