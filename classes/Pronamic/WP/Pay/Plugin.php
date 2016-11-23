@@ -74,7 +74,7 @@ class Pronamic_WP_Pay_Plugin {
 		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
 
 		// Form Processor
-		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
+		$this->form_processor = new Pronamic_WP_Pay_FormProcessor( $this );
 
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
@@ -129,8 +129,6 @@ class Pronamic_WP_Pay_Plugin {
 
 		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
 		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -140,24 +138,6 @@ class Pronamic_WP_Pay_Plugin {
 		global $pronamic_pay_version;
 
 		return $pronamic_pay_version;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Enqueue scripts
-	 */
-	public function enqueue_scripts() {
-		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		wp_register_style(
-			'pronamic-pay-forms',
-			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
-			array(),
-			$this->get_version()
-		);
-
-		wp_enqueue_style( 'pronamic-pay-forms' );
 	}
 
 	//////////////////////////////////////////////////

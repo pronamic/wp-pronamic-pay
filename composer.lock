@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dbc67b79cfc87edabaae1dfd4dd57f6f",
-    "content-hash": "8d1d174b5e448a4fd4fc7ee39d29326c",
+    "hash": "6a2fc25531f2b96c1774d016f5966c6c",
+    "content-hash": "31d664a5f1b527c3405eed4ca40b10de",
     "packages": [
         {
             "name": "composer/installers",
@@ -329,20 +329,20 @@
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
-            "version": "1.2.5",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "64c522e0372cb648bca4f2a9bfdf7d3850eb2096"
+                "reference": "b8ee9165db727e5b6068146f17366bbcffab1d12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/64c522e0372cb648bca4f2a9bfdf7d3850eb2096",
-                "reference": "64c522e0372cb648bca4f2a9bfdf7d3850eb2096",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/b8ee9165db727e5b6068146f17366bbcffab1d12",
+                "reference": "b8ee9165db727e5b6068146f17366bbcffab1d12",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": ">=5.3",
                 "wp-pay/core": "^1.3",
                 "wpackagist-plugin/easy-digital-downloads": "2.5.9"
             },
@@ -388,7 +388,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20 11:40:15"
+            "time": "2016-11-23 15:20:04"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -6018,9 +6018,18 @@
             "time": "2016-08-29 20:04:47"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.2.6",
+            "alias_normalized": "1.2.6.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/easy-digital-downloads"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/easy-digital-downloads": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
