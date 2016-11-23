@@ -29,7 +29,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-- npm install -g npm@latest
+  - npm install -g npm@latest
 
 before_script:
   - bash bin/travis-before_script
