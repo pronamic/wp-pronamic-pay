@@ -30,9 +30,7 @@ class Pronamic_WP_Pay_Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Reports
-		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
-		}
+		$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
 
 		// Tour
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
