@@ -466,6 +466,10 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'pay_nl';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::BELFIUS :
+					$gateways[] = 'mollie';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -486,6 +490,10 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::KBC :
+					$gateways[] = 'mollie';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
