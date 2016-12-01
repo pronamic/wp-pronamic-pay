@@ -640,19 +640,28 @@ class Pronamic_WP_Pay_Plugin {
 		$subscription    = $data->get_subscription();
 		$subscription_id = $data->get_subscription_id();
 
-		$title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
+		// Set title
+		$post_title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
 
 		if ( $subscription && $subscription_id ) {
 			$subscription_title    = get_the_title( $subscription_id );
 			$subscription_title[0] = strtolower( $subscription_title[0] );
 
-			$title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
+			$post_title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
+		}
+
+		// Set post author
+		$post_author = get_current_user_id();
+
+		if ( $subscription && $subscription_id ) {
+			$post_author = get_post_field( 'post_author', $subscription_id );
 		}
 
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
-			'post_title'  => $title,
+			'post_title'  => $post_title,
 			'post_status' => 'payment_pending',
+			'post_author' => $post_author,
 		), true );
 
 		if ( ! is_wp_error( $result ) ) {
@@ -666,13 +675,6 @@ class Pronamic_WP_Pay_Plugin {
 
 			// Subscription
 			if ( $subscription ) {
-
-				if ( $subscription_id ) {
-					wp_update_post( array(
-						'ID' => $post_id,
-						'post_author' => get_post_field( 'post_author', $subscription_id ),
-					) );
-				}
 
 				if ( ! $subscription_id ) {
 					$subscription_id = wp_insert_post( array(
