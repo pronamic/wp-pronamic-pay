@@ -182,6 +182,10 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				$label = __( 'Unknown', 'pronamic_ideal' );
 
+				if ( 'trash' === $post_status ) {
+					$post_status = get_post_meta( $post_id, '_wp_trash_meta_status', true );
+				}
+
 				$status_object = get_post_status_object( $post_status );
 
 				if ( isset( $status_object, $status_object->label ) ) {
