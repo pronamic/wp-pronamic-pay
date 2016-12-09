@@ -217,4 +217,13 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	public function get_recurring() {
 		return $this->recurring;
 	}
+
+	/**
+	 * Set recurring
+	 *
+	 * @param bool $recurring
+	 */
+	public function set_recurring( $recurring ) {
+		$this->recurring = $recurring;
+	}
 }
