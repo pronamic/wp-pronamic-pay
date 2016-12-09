@@ -6,6 +6,8 @@ class Pronamic_Pay_Subscription {
 
 	//////////////////////////////////////////////////
 
+	public $key;
+
 	public $frequency;
 
 	public $interval;
@@ -64,6 +66,12 @@ class Pronamic_Pay_Subscription {
 
 	public function get_id() {
 		return $this->id;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_key() {
+		return $this->key;
 	}
 
 	//////////////////////////////////////////////////

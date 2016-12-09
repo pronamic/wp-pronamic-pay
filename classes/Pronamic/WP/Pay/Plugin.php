@@ -710,6 +710,7 @@ class Pronamic_WP_Pay_Plugin {
 						) );
 
 						$meta = array(
+							$prefix . 'key'             => uniqid( 'subscr_' ),
 							$prefix . 'source'          => $data->get_source(),
 							$prefix . 'source_id'       => $data->get_source_id(),
 							$prefix . 'frequency'       => $subscription->get_frequency(),
