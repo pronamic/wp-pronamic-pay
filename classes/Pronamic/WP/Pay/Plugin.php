@@ -1085,8 +1085,12 @@ class Pronamic_WP_Pay_Plugin {
 	public function subscription_completed( $subscription_id ) {
 		$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 
+		if ( ! $subscription ) {
+			return;
+		}
+
 		$subscription->set_status( Pronamic_WP_Pay_Statuses::COMPLETED );
 
-		pronamic_wp_pay_update_subscription( $subscription );
+		$this->update_subscription( $subscription, false );
 	}
 }
