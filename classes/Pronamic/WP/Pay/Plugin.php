@@ -984,9 +984,8 @@ class Pronamic_WP_Pay_Plugin {
 			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 			$first        = $subscription->get_first_payment();
 			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
-			$data         = new Pronamic_WP_Pay_RecurringPaymentData( $subscription_id );
 
-			$payment = self::start( $first->config_id, $gateway, $data, $first->method );
+			$payment = self::start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
 				$frequency = $subscription->get_frequency();
