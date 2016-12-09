@@ -122,6 +122,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
+		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 
 		// The 'pronamic_pay_update_subscription_payments' hook is scheduled to add subscription payments
@@ -256,6 +257,36 @@ class Pronamic_WP_Pay_Plugin {
 		}
 	}
 
+	public static function update_subscription( $subscription = null, $can_redirect = true ) {
+		if ( $subscription ) {
+			$old_status_meta = $subscription->get_meta( 'status' );
+
+			if ( strlen( $old_status_meta ) <= 0 ) {
+				$old_status = 'unknown';
+			}
+
+			$new_status_meta = strtolower( $subscription->get_status() );
+
+			pronamic_wp_pay_update_subscription( $subscription );
+
+			if ( defined( 'DOING_CRON' ) && empty( $subscription->status ) ) {
+				$can_redirect = false;
+			}
+
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
+
+			if ( $can_redirect ) {
+				//$url = $payment->get_return_redirect_url();
+
+				wp_redirect( home_url() );
+
+				exit;
+			}
+		}
+	}
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -308,6 +339,76 @@ class Pronamic_WP_Pay_Plugin {
 			}
 
 			self::update_payment( $payment, $should_redirect );
+		}
+	}
+
+	/**
+	 * Handle subscription action
+	 */
+	public function handle_subscription() {
+		if ( ! filter_has_var( INPUT_GET, 'subscription' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'action' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'key' ) ) {
+			return;
+		}
+
+		$subscription_id = filter_input( INPUT_GET, 'subscription', FILTER_SANITIZE_STRING );
+		$subscription    = get_pronamic_subscription( $subscription_id );
+
+		$action = filter_input( INPUT_GET, 'action', FILTER_SANITIZE_STRING );
+
+		$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+
+		// Check if subscription is valid
+		if ( ! $subscription ) {
+			return;
+		}
+
+		// Check if subscription key is valid
+		if ( $key !== $subscription->get_key() ) {
+			wp_redirect( home_url() );
+
+			exit;
+		}
+
+		// Check if we should redirect
+		$should_redirect = true;
+
+		switch ( $action ) {
+			case 'cancel':
+				$subscription->set_status( Pronamic_WP_Pay_Statuses::CANCELLED );
+
+				if ( Pronamic_WP_Pay_Statuses::CANCELLED !== $subscription->get_status() ) {
+					self::update_subscription( $subscription, $should_redirect );
+				}
+
+				break;
+			case 'renew':
+				$first        = $subscription->get_first_payment();
+				$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+
+				if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $subscription->get_status() ) {
+					$payment = self::start_recurring( $subscription, $gateway, true );
+
+					$next = $subscription->get_next_payment_datetime();
+
+					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
+
+					if ( ! $gateway->has_error() ) {
+						// Redirect
+						$gateway->redirect( $payment );
+					}
+				}
+
+				wp_redirect( home_url() );
+
+				exit;
 		}
 	}
 
