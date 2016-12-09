@@ -228,6 +228,12 @@ class Pronamic_WP_Pay_Plugin {
 
 				$new_status = strtolower( $payment->status );
 
+				if ( $gateway->has_error() ) {
+					foreach ( $gateway->error->get_error_codes() as $code ) {
+						$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
+					}
+				}
+
 				pronamic_wp_pay_update_payment( $payment );
 				pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
@@ -621,6 +627,12 @@ class Pronamic_WP_Pay_Plugin {
 
 		if ( $payment ) {
 			$gateway->start( $payment );
+
+			if ( $gateway->has_error() ) {
+				foreach ( $gateway->error->get_error_codes() as $code ) {
+					$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
+				}
+			}
 
 			pronamic_wp_pay_update_payment( $payment );
 			pronamic_wp_pay_update_subscription( $payment->get_subscription() );
