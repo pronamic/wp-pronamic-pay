@@ -817,7 +817,7 @@ class Pronamic_WP_Pay_Plugin {
 						$next_payment->modify( sprintf(
 							'+%d %s',
 							$subscription->get_interval(),
-							$subscription->get_interval_period()
+							Pronamic_WP_Util::to_interval_name( $subscription->get_interval_period() )
 						) );
 
 						// Set renewal notice date meta
