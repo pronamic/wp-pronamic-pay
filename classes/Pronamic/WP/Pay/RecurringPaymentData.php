@@ -13,12 +13,12 @@ class Pronamic_WP_Pay_RecurringPaymentData extends Pronamic_WP_Pay_PaymentData {
 	/**
 	 * Constructs and intializes an WordPress iDEAL data proxy
 	 */
-	public function __construct( $subscription_id ) {
+	public function __construct( $subscription_id, $recurring ) {
 		parent::__construct();
 
 		$this->subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 		$this->payment      = $this->subscription->get_first_payment();
-		$this->recurring    = true;
+		$this->recurring    = $recurring;
 	}
 
 	//////////////////////////////////////////////////
