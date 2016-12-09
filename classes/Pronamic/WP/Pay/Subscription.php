@@ -87,4 +87,32 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 
 		return null;
 	}
+
+	public function get_next_payment_datetime( $cycle = 0 ) {
+		$next = new DateTime( $this->get_meta( 'next_payment' ) );
+
+		if ( 0 !== $cycle ) {
+			$next->modify( sprintf(
+				'+%d %s',
+				( $cycle * $this->get_interval() ),
+				Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+			) );
+		}
+
+		return $next;
+	}
+
+	public function get_final_payment_datetime() {
+		$first = $this->get_first_payment();
+
+		$final = new DateTime( $first->post->post_date_gmt );
+
+		$final->modify( sprintf(
+			'+%d %s',
+			( $this->get_frequency() * $this->get_interval() ),
+			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+		) );
+
+		return $final;
+	}
 }
