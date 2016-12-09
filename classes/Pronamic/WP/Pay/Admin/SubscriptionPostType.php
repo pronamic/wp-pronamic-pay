@@ -378,11 +378,10 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
 
 			$subscription = get_pronamic_subscription( $post->ID );
-			$payment = $subscription->get_first_payment();
 
-			do_action( 'pronamic_subscription_status_update_' . $payment->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $payment, $can_redirect );
-			do_action( 'pronamic_subscription_status_update_' . $payment->source, $subscription, $payment, $can_redirect );
-			do_action( 'pronamic_subscription_status_update', $subscription, $payment, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
 		}
 	}
 }
