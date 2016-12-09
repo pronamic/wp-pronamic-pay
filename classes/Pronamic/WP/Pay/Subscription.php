@@ -19,6 +19,8 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		$this->id   = $post_id;
 		$this->post = get_post( $post_id );
 
+		$this->key             = $this->get_meta( 'key' );
+		$this->status          = $this->get_meta( 'status' );
 		$this->source          = $this->get_meta( 'source' );
 		$this->source_id       = $this->get_meta( 'source_id' );
 		$this->frequency       = $this->get_meta( 'frequency' );
