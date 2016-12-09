@@ -46,20 +46,10 @@ class Pronamic_Pay_Subscription {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Payments
-	 *
-	 * @var array
-	 */
-	public $payments;
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Constructs and initialize an payment object
 	 */
 	public function __construct() {
 		$this->meta     = array();
-		$this->payments = array();
 	}
 
 	//////////////////////////////////////////////////

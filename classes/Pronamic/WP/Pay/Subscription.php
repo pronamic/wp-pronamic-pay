@@ -30,8 +30,6 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		$this->description     = $this->get_meta( 'description' );
 		$this->currency        = $this->get_meta( 'currency' );
 		$this->amount          = $this->get_meta( 'amount' );
-
-		$this->payments = $this->get_payments();
 	}
 
 	//////////////////////////////////////////////////
@@ -65,13 +63,13 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 	//////////////////////////////////////////////////
 
 	public function get_payments() {
-		$this->payments = get_pronamic_payments_by_meta( '_pronamic_payment_subscription_id', $this->id );
-
-		return $this->payments;
+		return get_pronamic_payments_by_meta( '_pronamic_payment_subscription_id', $this->id );
 	}
 
 	public function has_valid_payment() {
-		foreach ( $this->payments as $payment ) {
+		$payments = $this->get_payments();
+
+		foreach ( $payments as $payment ) {
 			if ( Pronamic_WP_Pay_Statuses::SUCCESS === $payment->get_status() ) {
 				return $payment;
 			}
@@ -81,10 +79,10 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 	}
 
 	public function get_first_payment() {
-		$this->payments = $this->get_payments();
+		$payments = $this->get_payments();
 
-		if ( count( $this->payments ) > 0 ) {
-			return $this->payments[0];
+		if ( count( $payments ) > 0 ) {
+			return $payments[0];
 		}
 
 		return null;
