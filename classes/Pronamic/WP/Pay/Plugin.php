@@ -647,6 +647,16 @@ class Pronamic_WP_Pay_Plugin {
 		return $payment;
 	}
 
+	public static function start_recurring( Pronamic_Pay_Subscription $subscription, Pronamic_WP_Pay_Gateway $gateway, $renewal = false ) {
+		$recurring = ! $renewal;
+		$first     = $subscription->get_first_payment();
+		$data      = new Pronamic_WP_Pay_RecurringPaymentData( $subscription->get_id(), $recurring );
+
+		$payment = self::start( $first->config_id, $gateway, $data, $first->method );
+
+		return $payment;
+	}
+
 	public static function create_payment( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
 		$payment         = null;
 		$subscription    = $data->get_subscription();
