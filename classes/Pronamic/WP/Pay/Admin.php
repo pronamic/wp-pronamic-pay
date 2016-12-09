@@ -332,6 +332,7 @@ class Pronamic_WP_Pay_Admin {
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
+		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
