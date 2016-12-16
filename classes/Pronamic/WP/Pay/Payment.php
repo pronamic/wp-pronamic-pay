@@ -171,6 +171,51 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 		return $this->get_return_redirect_url();
 	}
 
+	/**
+	 * Get source description.
+	 *
+	 * @return string
+	 */
+	public function get_source_description() {
+		$description = $this->source;
+
+		$description = apply_filters( 'pronamic_payment_source_description', $description, $this );
+		$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $this );
+
+		return $description;
+	}
+
+	/**
+	 * Get the source link for this payment.
+	 *
+	 * @return string
+	 */
+	public function get_source_link() {
+		$url = null;
+
+		$url = apply_filters( 'pronamic_payment_source_url', $url, $this );
+		$url = apply_filters( 'pronamic_payment_source_url_' . $this->source, $url, $this );
+
+		return $url;
+	}
+
+	/**
+	 * Get provider link for this payment.
+	 *
+	 * @return string
+	 */
+	public function get_provider_link() {
+		$url = null;
+
+		$config_id  = get_post_meta( $this->id, '_pronamic_payment_config_id', true );
+		$gateway_id = get_post_meta( $config_id, '_pronamic_gateway_id', true );
+
+		$url = apply_filters( 'pronamic_payment_provider_url', $url, $this );
+		$url = apply_filters( 'pronamic_payment_provider_url_' . $gateway_id, $url, $this );
+
+		return $url;
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

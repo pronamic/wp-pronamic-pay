@@ -2,6 +2,8 @@
 
 $post_id = get_the_ID();
 
+$post_type = 'pronamic_payment';
+
 $payment = get_pronamic_payment( $post_id );
 
 ?>
@@ -50,7 +52,7 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Transaction ID', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo esc_html( get_post_meta( $post_id, '_pronamic_payment_transaction_id', true ) ); ?>
+			<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_transaction', $post_id ); ?>
 		</td>
 	</tr>
 	<tr>
