@@ -142,7 +142,8 @@ module.exports = function( grunt ) {
 						'node_modules/.*',
 						'wp-content/.*',
 						'vendor/wp-cli/.*',
-						'vendor/wp-pay.*/.*/vendor/wp-cli/.*'
+						'vendor/wp-pay.*/.*/vendor/wp-cli/.*',
+						'vendor/wp-pay.*/.*/wp-content/.*'
 					]
 				}
 			}
