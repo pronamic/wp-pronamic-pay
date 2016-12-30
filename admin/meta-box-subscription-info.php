@@ -65,6 +65,96 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php echo esc_html_x( 'Start date', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$start_date = get_date_from_gmt( $subscription->get_start_date()->format( 'Y-m-d H:i:s' ) );
+
+			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php echo esc_html_x( 'Expiration date', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$expiration_date = $subscription->get_expiration_date();
+
+			if ( $expiration_date ) {
+				$date = get_date_from_gmt( $expiration_date->format( 'Y-m-d H:i:s' ) );
+
+				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
+			} else {
+				echo esc_html( __( 'Not applicable', 'pronamic_ideal' ) );
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php echo esc_html_x( 'First payment', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$first_date = $subscription->get_first_payment_date();
+
+			$date = get_date_from_gmt( $first_date->format( 'Y-m-d H:i:s' ) );
+
+			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php echo esc_html_x( 'Next payment', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$next_payment = $subscription->get_next_payment_datetime();
+
+			if ( $next_payment ) {
+				$local_date = get_date_from_gmt( $next_payment->format( 'Y-m-d H:i:s' ) );
+
+				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $local_date ) ) );
+			} else {
+				echo esc_html( __( 'None', 'pronamic_ideal' ) );
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php echo esc_html_x( 'Final payment', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$final_payment = $subscription->get_final_payment_datetime();
+
+			if ( $final_payment ) {
+				$local_date = get_date_from_gmt( $final_payment->format( 'Y-m-d H:i:s' ) );
+
+				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $local_date ) ) );
+			} else {
+				echo esc_html( __( 'Not applicable', 'pronamic_ideal' ) );
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
 		</th>
 		<td>

@@ -835,7 +835,6 @@ class Pronamic_WP_Pay_Plugin {
 							$prefix . 'description'     => $subscription->get_description(),
 							$prefix . 'currency'        => $subscription->get_currency(),
 							$prefix . 'amount'          => $subscription->get_amount(),
-							$prefix . 'next_payment'    => $next_payment->format( 'Y-m-d H:i:s' ),
 							$prefix . 'renewal_notice'  => $next_renewal->format( 'Y-m-d H:i:s' ),
 							$prefix . 'email'           => $data->get_email(),
 							$prefix . 'customer_name'   => $data->get_customer_name(),
@@ -843,6 +842,10 @@ class Pronamic_WP_Pay_Plugin {
 							$prefix . 'consumer_iban'   => null,
 							$prefix . 'consumer_bic'    => null,
 						);
+
+						if ( '' === $subscription->get_frequency() || $subscription->get_frequency() > 1 ) {
+							$meta[ $prefix . 'next_payment' ] = $next_payment->format( 'Y-m-d H:i:s' );
+						}
 
 						foreach ( $meta as $key => $value ) {
 							if ( ! empty( $value ) ) {
@@ -1000,7 +1003,7 @@ class Pronamic_WP_Pay_Plugin {
 				if ( ! $schedule ) {
 					$final = $subscription->get_final_payment_datetime();
 
-					if ( $next < $final ) {
+					if ( $final && $next < $final ) {
 						$schedule = true;
 					}
 				}

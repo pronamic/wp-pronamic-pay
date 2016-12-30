@@ -116,8 +116,44 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		return null;
 	}
 
+	//////////////////////////////////////////////////
+
+	public function get_start_date() {
+		return new DateTime( $this->post->post_date_gmt );
+	}
+
+	public function get_expiration_date() {
+		if ( '' === $this->get_frequency() ) {
+			return;
+		}
+
+		$expiration = $this->get_start_date();
+
+		return $expiration->modify( sprintf(
+			'+%d %s',
+			( $this->get_frequency() * $this->get_interval() ),
+			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+		) );
+	}
+
+	public function get_first_payment_date() {
+		$first_payment = $this->get_first_payment();
+
+		if ( $first_payment ) {
+			return new DateTime( $first_payment->post->post_date_gmt );
+		}
+
+		return $this->get_start_date();
+	}
+
 	public function get_next_payment_datetime( $cycle = 0 ) {
-		$next = new DateTime( $this->get_meta( 'next_payment' ) );
+		$next_payment = $this->get_meta( 'next_payment' );
+
+		if ( '' === $next_payment ) {
+			return;
+		}
+
+		$next = new DateTime( $next_payment );
 
 		if ( 0 !== $cycle ) {
 			$next->modify( sprintf(
@@ -131,16 +167,16 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 	}
 
 	public function get_final_payment_datetime() {
-		$first = $this->get_first_payment();
+		$expiration_date = $this->get_expiration_date();
 
-		$final = new DateTime( $first->post->post_date_gmt );
+		if ( ! $expiration_date ) {
+			return;
+		}
 
-		$final->modify( sprintf(
-			'+%d %s',
-			( $this->get_frequency() * $this->get_interval() ),
+		return $expiration_date->modify( sprintf(
+			'-%d %s',
+			$this->get_interval(),
 			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
 		) );
-
-		return $final;
 	}
 }
