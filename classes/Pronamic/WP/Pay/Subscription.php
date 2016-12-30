@@ -60,6 +60,34 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		return get_post_meta( $this->id, $key, true );
 	}
 
+	/**
+	 * Get source description.
+	 *
+	 * @return string
+	 */
+	public function get_source_description() {
+		$description = $this->source;
+
+		$description = apply_filters( 'pronamic_payment_source_description', $description, $this->get_first_payment() );
+		$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $this->get_first_payment() );
+
+		return $description;
+	}
+
+	/**
+	 * Get source link for this subscription.
+	 *
+	 * @return string
+	 */
+	public function get_source_link() {
+		$url = null;
+
+		$url = apply_filters( 'pronamic_payment_source_url', $url, $this->get_first_payment() );
+		$url = apply_filters( 'pronamic_payment_source_url_' . $this->source, $url, $this->get_first_payment() );
+
+		return $url;
+	}
+
 	//////////////////////////////////////////////////
 
 	public function get_payments() {

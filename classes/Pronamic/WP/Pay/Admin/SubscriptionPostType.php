@@ -121,25 +121,20 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_title':
-				$source    = get_post_meta( $post_id, '_pronamic_subscription_source', true );
-				$source_id = get_post_meta( $post_id, '_pronamic_subscription_source_id', true );
+				$source             = $subscription->get_source();
+				$source_id          = $subscription->get_source_id();
+				$source_description = $subscription->get_source_description();
 
-				$text = $source;
+				$source_id_text = '#' . $source_id;
 
-				switch ( $source ) {
-					case 'woocommerce' :
-						$text = __( 'WooCommerce Order', 'pronamic_ideal' );
+				$source_link = $subscription->get_source_link();
 
-						break;
-					case 'gravityforms' :
-					case 'gravityformsideal' :
-						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
-
-						break;
-					case 'test' :
-						$text = __( 'Test', 'pronamic_ideal' );
-
-						break;
+				if ( null !== $source_link ) {
+					$source_id_text = sprintf(
+						'<a href="%s">%s</a>',
+						esc_url( $source_link ),
+						$source_id_text
+					);
 				}
 
 				printf(
@@ -149,12 +144,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 						get_edit_post_link( $post_id ),
 						$post_id
 					),
-					$text,
-					sprintf(
-						'<a href="%s">#%s</a>',
-						get_edit_post_link( $source_id ),
-						$source_id
-					)
+					$source_description,
+					$source_id_text
 				);
 
 				break;
