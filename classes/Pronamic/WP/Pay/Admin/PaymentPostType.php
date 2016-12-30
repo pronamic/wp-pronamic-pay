@@ -237,7 +237,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				if ( null !== $source_link ) {
 					$source_id_text = sprintf(
 						'<a href="%s">%s</a>',
-						get_edit_post_link( $source_id ),
+						esc_url( $source_link ),
 						$source_id_text
 					);
 				}
