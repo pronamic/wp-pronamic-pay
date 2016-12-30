@@ -65,7 +65,7 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php echo esc_html_x( 'Start date', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Start date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -79,7 +79,7 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php echo esc_html_x( 'Expiration date', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Expiration date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -99,7 +99,7 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php echo esc_html_x( 'First payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'First payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -115,7 +115,7 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php echo esc_html_x( 'Next payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Next payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -135,7 +135,7 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php echo esc_html_x( 'Final payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Final payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
