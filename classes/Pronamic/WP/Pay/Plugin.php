@@ -586,6 +586,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -604,10 +605,12 @@ class Pronamic_WP_Pay_Plugin {
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 
