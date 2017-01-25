@@ -8,11 +8,6 @@ module.exports = function( grunt ) {
 
 		// PHPLint
 		phplint: {
-			options: {
-				phpArgs: {
-					'-lf': null
-				}
-			},
 			all: [
 				'**/*.php',
 				'!bower_components/**',
