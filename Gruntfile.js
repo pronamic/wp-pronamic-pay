@@ -47,7 +47,12 @@ module.exports = function( grunt ) {
 
 		// PHPUnit
 		phpunit: {
-			classes: {}
+			options: {
+				bin: 'vendor/bin/phpunit'
+			},
+			classes: {
+				
+			}
 		},
 
 		// JSHint
