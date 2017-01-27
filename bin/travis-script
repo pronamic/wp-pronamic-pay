@@ -3,7 +3,7 @@
 set -ev
 
 # PHPUnit
-phpunit
+./vendor/bin/phpunit
 
 # Grunt
 if [[ '1' == $GRUNT ]]; then
