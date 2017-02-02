@@ -5,7 +5,7 @@ header( 'Content-Type: text/plain' );
 ?>
 # [Pronamic iDEAL](https://www.pronamic.eu/plugins/pronamic-ideal/)
 
-[![Build Status](https://secure.travis-ci.org/pronamic/wp-pronamic-ideal.png?branch=develop)](http://travis-ci.org/pronamic/wp-pronamic-ideal)
+[![Build Status](https://travis-ci.org/pronamic/wp-pronamic-ideal.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-ideal)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 <?php include __DIR__ . '/../general/description-short.php'; ?>
