@@ -382,9 +382,9 @@ class Pronamic_WP_Pay_Plugin {
 
 		switch ( $action ) {
 			case 'cancel':
-				$subscription->set_status( Pronamic_WP_Pay_Statuses::CANCELLED );
-
 				if ( Pronamic_WP_Pay_Statuses::CANCELLED !== $subscription->get_status() ) {
+					$subscription->set_status( Pronamic_WP_Pay_Statuses::CANCELLED );
+
 					self::update_subscription( $subscription, $should_redirect );
 				}
 
