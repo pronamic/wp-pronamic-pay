@@ -573,10 +573,9 @@ class Pronamic_WP_Pay_Admin {
 			case 'subscr_pending' :
 				return 'pronamic-pay-icon-pending';
 			case 'payment_cancelled' :
-			case 'payment_cancelled' :
+			case 'subscr_cancelled' :
 				return 'pronamic-pay-icon-cancelled';
 			case 'payment_completed' :
-			case 'subscr_active' :
 			case 'subscr_completed' :
 				return 'pronamic-pay-icon-completed';
 			case 'payment_refunded' :
@@ -589,6 +588,7 @@ class Pronamic_WP_Pay_Admin {
 			case 'subscr_expired' :
 				return 'pronamic-pay-icon-on-hold';
 			case 'payment_processing' :
+			case 'subscr_active' :
 			default :
 				return 'pronamic-pay-icon-processing';
 		}
