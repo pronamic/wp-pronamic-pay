@@ -7,9 +7,151 @@
 	},
 	{
 		"version": "4.5.0",
-		"date": "2016-12-21",
+		"date": "2017-02-08",
 		"changes": [
-			
+			{
+				"name": "Changes",
+				"changes": [
+					{
+						"description": "Updated WordPress pay core library to version 1.3.11.",
+						"changes": [
+							"Added new constant for the KBC/CBC Payment Button payment method.",
+							"Added new constant for the Belfius Direct Net payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay EMS e-Commerce Gateway library to version 1.0.2.",
+						"changes": [
+							"Make sure always the same transaction date time is used.",
+							"Make sure to not encode quotes."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ICEPAY library to version 1.3.0.",
+						"changes": [
+							"Added order ID setting."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 1.1.12.",
+						"changes": [
+							"Enabled support for more Mollie payment methods.",
+							"Auto renew invalid customer IDs.",
+							"Only update subscription status for subscriptions.",
+							"Added filter for payment provider URL.",
+							"Removed deprecated MISTER_CASH from the get_supported_payment_methods function."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Charitable library to version 1.1.1.",
+						"changes": [
+							"Added filter for payment source URL and description.",
+							"Added process_donation() method to make sure Pronamic gateway works correctly."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ClassiPress library to version 1.0.3.",
+						"changes": [
+							"Updated dev libraries.",
+							"Simplified adding hooks.",
+							"Added filter for payment source description and URL.",
+							"Added a extra filter for the payment redirect URL.",
+							"Always redirect to the pay redirect URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 1.2.6.",
+						"changes": [
+							"Added Bank Transfer gateway.",
+							"Added Bitcoin gateway.",
+							"Added filter for payment source description and URL.",
+							"Changed to class functions.",
+							"Added new icons for Bitcoin and Soft."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Event Espresso library to version 1.1.6.",
+						"changes": [
+							"Added filter for payment source description and URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Formidable Forms library to version 1.0.2.",
+						"changes": [
+							"Added filter for payment source link and description."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Give library to version 1.0.5.",
+						"changes": [
+							"Added filter for payment source description and URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.6.0.",
+						"changes": [
+							"Added support for subscriptions.",
+							"Added temporary pay feeds moved notice.",
+							"Added filter function for the payment source description.",
+							"Added filter for source URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay iThemes Exchange library to version 1.1.4.",
+						"changes": [
+							"Added filter for payment source description."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Jigoshop library to version 1.0.5.",
+						"changes": [
+							"Added filter for payment source description and URL.",
+							"Simplified gateway by always redirecting to the pay URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MemberPress library to version 1.0.4.",
+						"changes": [
+							"Use MeprUtils class for sending transaction notices (Zendesk #10084).",
+							"No longer echo invoice in payment redirect function.",
+							"Added filter payment source description and URL.",
+							"Use credit card alias instead of Sofort in credit card gateway."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Membership library to version 1.0.7.",
+						"changes": [
+							"Added filter for payment source description and URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay s2Member library to version 1.2.6.",
+						"changes": [
+							"Added filter payment source description."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Shopp library to version 1.0.6.",
+						"changes": [
+							"Added filter for payment source description and URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 1.2.4.",
+						"changes": [
+							"Added KBC/CBC Payment Button gateway.",
+							"Added Belfius Direct Net gateway.",
+							"Added filter for payment source description and URL."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WP eCommerce library to version 1.0.4.",
+						"changes": [
+							"Added filter for payment source description and URL."
+						]
+					}
+				]
+			}
 		]
 	},
 	{

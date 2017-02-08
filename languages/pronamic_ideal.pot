@@ -217,17 +217,6 @@ msgstr ""
 msgid "Y/m/d"
 msgstr ""
 
-#: admin/meta-box-payment-subscription.php:14
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:143
-#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:337
-#: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:74
-#: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:236
-#: classes/Pronamic/WP/Pay/PostTypes.php:111
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:59
-msgid "Subscription"
-msgstr ""
-
 #: admin/meta-box-payment-subscription.php:86
 msgid "This payment is not related to a subscription."
 msgstr ""
@@ -1411,6 +1400,16 @@ msgstr ""
 msgid "Payment status updated."
 msgstr ""
 
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:143
+#: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:337
+#: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:74
+#: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:236
+#: classes/Pronamic/WP/Pay/PostTypes.php:111
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:59
+msgid "Subscription"
+msgstr ""
+
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:77
 msgid "Customer"
@@ -1573,7 +1572,7 @@ msgid "Pronamic Pay"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:443 vendor/wp-pay/core/src/Gateway.php:631
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:112
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
 #: vendor/wp-pay-extensions/memberpress/src/Gateway.php:517
@@ -2117,7 +2116,7 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:61
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:62
 msgid "General Information"
 msgstr ""
 
@@ -2642,6 +2641,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:61
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:31
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:29
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:29
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:29
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:29
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:28
@@ -2682,6 +2682,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:166
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:92
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:94
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:89
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:82
 msgid "Available tags:"
@@ -2880,6 +2881,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:657
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:33
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:31
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:31
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:31
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:31
 msgid "Optional settings for advanced usage only."
@@ -3060,6 +3062,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:85
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:101
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:99
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:101
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:66
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:96
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:204
@@ -3507,8 +3510,8 @@ msgstr ""
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:38
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:122
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:67
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:29
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:62
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:36
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:69
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:185
 #: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:22
 #: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:48
@@ -3578,7 +3581,7 @@ msgid ""
 msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:126
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:66
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:73
 #: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:52
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:72
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:169
@@ -3593,6 +3596,7 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:83
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:85
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:237
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:194
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
@@ -3691,33 +3695,37 @@ msgstr ""
 msgid "ICEPAY"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:31
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:38
 msgid ""
 "Set the below URLs in the payment provider dashboard to receive automatic "
 "transaction status updates."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:45
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:52
 msgid ""
 "Merchant ID as mentioned in the ICEPAY dashboard at the \"My websites\" "
 "page."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:56
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:63
 msgid ""
 "Secret Code as mentioned in the ICEPAY dashboard at the \"My websites\" "
 "page."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:73
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:89
+msgid "The Icepay %s parameter."
+msgstr ""
+
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:110
 msgid "Thank you page URL"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:83
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:120
 msgid "Error page URL"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:93
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:130
 msgid "Postback URL"
 msgstr ""
 
@@ -4616,12 +4624,12 @@ msgctxt "ems"
 msgid "Shared Secret"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:43
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:50
 msgctxt "icepay"
 msgid "Merchant ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:53
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:60
 msgctxt "icepay"
 msgid "Secret Code"
 msgstr ""
