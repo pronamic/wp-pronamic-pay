@@ -2,24 +2,28 @@ sudo: false
 
 language: php
 
+php:
+- 5.3
+- 5.4
+- 5.5
+- 5.6
+- 7.0
+- hhvm
+
+env:
+- WP_VERSION=latest WP_MULTISITE=0
+- WP_VERSION=4.4 WP_MULTISITE=0
+- WP_VERSION=4.3 WP_MULTISITE=0
+- WP_VERSION=4.2 WP_MULTISITE=0
+- WP_VERSION=4.1 WP_MULTISITE=0
+- WP_VERSION=4.0 WP_MULTISITE=0
+
 matrix:
   include:
-    - php: 5.2
-      env: WP_VERSION=latest WP_MULTISITE=1
-    - php: 5.2
-      env: WP_VERSION=4.0 WP_MULTISITE=1
     - php: 5.3
-      env: WP_VERSION=4.0
-    - php: 5.4
-      env: WP_VERSION=4.0
-    - php: 5.5
-      env: WP_VERSION=4.0
+      env: WP_VERSION=latest WP_MULTISITE=1
     - php: 5.6
       env: WP_VERSION=4.0 COVERAGE=1 GRUNT=1
-    - php: 7.0
-      env: WP_VERSION=4.0
-    - php: hhvm
-      env: WP_VERSION=4.0
   fast_finish: true
 
 cache:
@@ -29,7 +33,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-- npm install -g npm@latest
+  - npm install -g npm@latest
 
 before_script:
   - bash bin/travis-before_script

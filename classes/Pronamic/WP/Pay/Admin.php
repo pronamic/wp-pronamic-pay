@@ -30,9 +30,7 @@ class Pronamic_WP_Pay_Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Reports
-		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-			$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
-		}
+		$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
 
 		// Tour
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
@@ -68,7 +66,7 @@ class Pronamic_WP_Pay_Admin {
 		// Gateway settings
 		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
 
-		if ( ! wp_next_scheduled ( 'pronamic_pay_license_check' ) ) {
+		if ( ! wp_next_scheduled( 'pronamic_pay_license_check' ) ) {
 			wp_schedule_event( time(), 'daily', 'pronamic_pay_license_check' );
 		}
 	}
@@ -334,6 +332,7 @@ class Pronamic_WP_Pay_Admin {
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
+		$enqueue |= 'toplevel_page_gf_edit_forms' === $screen->id;
 
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -574,10 +573,9 @@ class Pronamic_WP_Pay_Admin {
 			case 'subscr_pending' :
 				return 'pronamic-pay-icon-pending';
 			case 'payment_cancelled' :
-			case 'payment_cancelled' :
+			case 'subscr_cancelled' :
 				return 'pronamic-pay-icon-cancelled';
 			case 'payment_completed' :
-			case 'subscr_active' :
 			case 'subscr_completed' :
 				return 'pronamic-pay-icon-completed';
 			case 'payment_refunded' :
@@ -590,6 +588,7 @@ class Pronamic_WP_Pay_Admin {
 			case 'subscr_expired' :
 				return 'pronamic-pay-icon-on-hold';
 			case 'payment_processing' :
+			case 'subscr_active' :
 			default :
 				return 'pronamic-pay-icon-processing';
 		}

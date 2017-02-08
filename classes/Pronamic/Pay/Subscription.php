@@ -6,6 +6,8 @@ class Pronamic_Pay_Subscription {
 
 	//////////////////////////////////////////////////
 
+	public $key;
+
 	public $frequency;
 
 	public $interval;
@@ -44,26 +46,22 @@ class Pronamic_Pay_Subscription {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Payments
-	 *
-	 * @var array
-	 */
-	public $payments;
-
-	//////////////////////////////////////////////////
-
-	/**
 	 * Constructs and initialize an payment object
 	 */
 	public function __construct() {
 		$this->meta     = array();
-		$this->payments = array();
 	}
 
 	//////////////////////////////////////////////////
 
 	public function get_id() {
 		return $this->id;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function get_key() {
+		return $this->key;
 	}
 
 	//////////////////////////////////////////////////

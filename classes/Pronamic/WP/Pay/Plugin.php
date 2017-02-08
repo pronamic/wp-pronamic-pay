@@ -74,7 +74,7 @@ class Pronamic_WP_Pay_Plugin {
 		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
 
 		// Form Processor
-		$this->form_processor = new Pronamic_WP_Pay_FormProcessor();
+		$this->form_processor = new Pronamic_WP_Pay_FormProcessor( $this );
 
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
@@ -122,15 +122,14 @@ class Pronamic_WP_Pay_Plugin {
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
+		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 
-		// The 'pronamic_pay_update_subscription_payments' hook is scheduled to add subscription payments
+		// The 'pronamic_pay_update_subscription_payments' hook adds subscription payments and sends renewal notices
 		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
 
 		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
 		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
-
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -140,24 +139,6 @@ class Pronamic_WP_Pay_Plugin {
 		global $pronamic_pay_version;
 
 		return $pronamic_pay_version;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Enqueue scripts
-	 */
-	public function enqueue_scripts() {
-		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-
-		wp_register_style(
-			'pronamic-pay-forms',
-			plugins_url( 'css/forms' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
-			array(),
-			$this->get_version()
-		);
-
-		wp_enqueue_style( 'pronamic-pay-forms' );
 	}
 
 	//////////////////////////////////////////////////
@@ -248,6 +229,12 @@ class Pronamic_WP_Pay_Plugin {
 
 				$new_status = strtolower( $payment->status );
 
+				if ( $gateway->has_error() ) {
+					foreach ( $gateway->error->get_error_codes() as $code ) {
+						$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
+					}
+				}
+
 				pronamic_wp_pay_update_payment( $payment );
 				pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
@@ -266,6 +253,36 @@ class Pronamic_WP_Pay_Plugin {
 
 					exit;
 				}
+			}
+		}
+	}
+
+	public static function update_subscription( $subscription = null, $can_redirect = true ) {
+		if ( $subscription ) {
+			$old_status_meta = $subscription->get_meta( 'status' );
+
+			if ( strlen( $old_status_meta ) <= 0 ) {
+				$old_status = 'unknown';
+			}
+
+			$new_status_meta = strtolower( $subscription->get_status() );
+
+			pronamic_wp_pay_update_subscription( $subscription );
+
+			if ( defined( 'DOING_CRON' ) && empty( $subscription->status ) ) {
+				$can_redirect = false;
+			}
+
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
+
+			if ( $can_redirect ) {
+				//$url = $payment->get_return_redirect_url();
+
+				wp_redirect( home_url() );
+
+				exit;
 			}
 		}
 	}
@@ -322,6 +339,76 @@ class Pronamic_WP_Pay_Plugin {
 			}
 
 			self::update_payment( $payment, $should_redirect );
+		}
+	}
+
+	/**
+	 * Handle subscription action
+	 */
+	public function handle_subscription() {
+		if ( ! filter_has_var( INPUT_GET, 'subscription' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'action' ) ) {
+			return;
+		}
+
+		if ( ! filter_has_var( INPUT_GET, 'key' ) ) {
+			return;
+		}
+
+		$subscription_id = filter_input( INPUT_GET, 'subscription', FILTER_SANITIZE_STRING );
+		$subscription    = get_pronamic_subscription( $subscription_id );
+
+		$action = filter_input( INPUT_GET, 'action', FILTER_SANITIZE_STRING );
+
+		$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+
+		// Check if subscription is valid
+		if ( ! $subscription ) {
+			return;
+		}
+
+		// Check if subscription key is valid
+		if ( $key !== $subscription->get_key() ) {
+			wp_redirect( home_url() );
+
+			exit;
+		}
+
+		// Check if we should redirect
+		$should_redirect = true;
+
+		switch ( $action ) {
+			case 'cancel':
+				if ( Pronamic_WP_Pay_Statuses::CANCELLED !== $subscription->get_status() ) {
+					$subscription->set_status( Pronamic_WP_Pay_Statuses::CANCELLED );
+
+					self::update_subscription( $subscription, $should_redirect );
+				}
+
+				break;
+			case 'renew':
+				$first        = $subscription->get_first_payment();
+				$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+
+				if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $subscription->get_status() ) {
+					$payment = self::start_recurring( $subscription, $gateway, true );
+
+					$next = $subscription->get_next_payment_datetime();
+
+					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
+
+					if ( ! $gateway->has_error() ) {
+						// Redirect
+						$gateway->redirect( $payment );
+					}
+				}
+
+				wp_redirect( home_url() );
+
+				exit;
 		}
 	}
 
@@ -486,6 +573,10 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'pay_nl';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::BELFIUS :
+					$gateways[] = 'mollie';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -495,6 +586,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
@@ -508,11 +600,17 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::KBC :
+					$gateways[] = 'mollie';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 
@@ -634,6 +732,12 @@ class Pronamic_WP_Pay_Plugin {
 		if ( $payment ) {
 			$gateway->start( $payment );
 
+			if ( $gateway->has_error() ) {
+				foreach ( $gateway->error->get_error_codes() as $code ) {
+					$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
+				}
+			}
+
 			pronamic_wp_pay_update_payment( $payment );
 			pronamic_wp_pay_update_subscription( $payment->get_subscription() );
 
@@ -647,24 +751,43 @@ class Pronamic_WP_Pay_Plugin {
 		return $payment;
 	}
 
+	public static function start_recurring( Pronamic_Pay_Subscription $subscription, Pronamic_WP_Pay_Gateway $gateway, $renewal = false ) {
+		$recurring = ! $renewal;
+		$first     = $subscription->get_first_payment();
+		$data      = new Pronamic_WP_Pay_RecurringPaymentData( $subscription->get_id(), $recurring );
+
+		$payment = self::start( $first->config_id, $gateway, $data, $first->method );
+
+		return $payment;
+	}
+
 	public static function create_payment( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
 		$payment         = null;
 		$subscription    = $data->get_subscription();
 		$subscription_id = $data->get_subscription_id();
 
-		$title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
+		// Set title
+		$post_title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
 
 		if ( $subscription && $subscription_id ) {
 			$subscription_title    = get_the_title( $subscription_id );
 			$subscription_title[0] = strtolower( $subscription_title[0] );
 
-			$title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
+			$post_title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
+		}
+
+		// Set post author
+		$post_author = get_current_user_id();
+
+		if ( $subscription && $subscription_id ) {
+			$post_author = get_post_field( 'post_author', $subscription_id );
 		}
 
 		$result = wp_insert_post( array(
 			'post_type'   => 'pronamic_payment',
-			'post_title'  => $title,
+			'post_title'  => $post_title,
 			'post_status' => 'payment_pending',
+			'post_author' => $post_author,
 		), true );
 
 		if ( ! is_wp_error( $result ) ) {
@@ -678,13 +801,6 @@ class Pronamic_WP_Pay_Plugin {
 
 			// Subscription
 			if ( $subscription ) {
-
-				if ( $subscription_id ) {
-					wp_update_post( array(
-						'ID' => $post_id,
-						'post_author' => get_post_field( 'post_author', $subscription_id ),
-					) );
-				}
 
 				if ( ! $subscription_id ) {
 					$subscription_id = wp_insert_post( array(
@@ -704,10 +820,15 @@ class Pronamic_WP_Pay_Plugin {
 						$next_payment->modify( sprintf(
 							'+%d %s',
 							$subscription->get_interval(),
-							$subscription->get_interval_period()
+							Pronamic_WP_Util::to_interval_name( $subscription->get_interval_period() )
 						) );
 
+						// Set renewal notice date meta
+						$next_renewal = new DateTime( $next_payment->format( DateTime::ISO8601 ) );
+						$next_renewal->modify( '-1 week' );
+
 						$meta = array(
+							$prefix . 'key'             => uniqid( 'subscr_' ),
 							$prefix . 'source'          => $data->get_source(),
 							$prefix . 'source_id'       => $data->get_source_id(),
 							$prefix . 'frequency'       => $subscription->get_frequency(),
@@ -717,13 +838,17 @@ class Pronamic_WP_Pay_Plugin {
 							$prefix . 'description'     => $subscription->get_description(),
 							$prefix . 'currency'        => $subscription->get_currency(),
 							$prefix . 'amount'          => $subscription->get_amount(),
-							$prefix . 'next_payment'    => $next_payment->format( 'Y-m-d H:i:s' ),
+							$prefix . 'renewal_notice'  => $next_renewal->format( 'Y-m-d H:i:s' ),
 							$prefix . 'email'           => $data->get_email(),
 							$prefix . 'customer_name'   => $data->get_customer_name(),
 							$prefix . 'consumer_name'   => null,
 							$prefix . 'consumer_iban'   => null,
 							$prefix . 'consumer_bic'    => null,
 						);
+
+						if ( '' === $subscription->get_frequency() || $subscription->get_frequency() > 1 ) {
+							$meta[ $prefix . 'next_payment' ] = $next_payment->format( 'Y-m-d H:i:s' );
+						}
 
 						foreach ( $meta as $key => $value ) {
 							if ( ! empty( $value ) ) {
@@ -865,9 +990,8 @@ class Pronamic_WP_Pay_Plugin {
 			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 			$first        = $subscription->get_first_payment();
 			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
-			$data         = new Pronamic_WP_Pay_RecurringPaymentData( $subscription_id );
 
-			$payment = self::start( $first->config_id, $gateway, $data, $first->method );
+			$payment = self::start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
 				$frequency = $subscription->get_frequency();
@@ -877,37 +1001,75 @@ class Pronamic_WP_Pay_Plugin {
 					$schedule = true;
 				}
 
-				// Date of next payment
-				$next_payment = new DateTime( $subscription->get_meta( 'next_payment' ) );
-				$next_payment->modify( sprintf(
-					'+%d %s',
-					$subscription->get_interval(),
-					$subscription->get_interval_period()
-				) );
+				$next = $subscription->get_next_payment_datetime( 1 );
 
 				if ( ! $schedule ) {
-					$final_payment = new DateTime( $first->post->post_date_gmt );
-					$final_payment->modify( sprintf(
-						'+%d %s',
-						( $frequency * $subscription->get_interval() ),
-						$subscription->get_interval_period()
-					) );
+					$final = $subscription->get_final_payment_datetime();
 
-					if ( $next_payment < $final_payment ) {
+					if ( $final && $next < $final ) {
 						$schedule = true;
 					}
 				}
 
 				if ( $schedule ) {
-					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next_payment->format( 'Y-m-d H:i:s' ) );
+					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
 				} else {
-					wp_schedule_single_event( $final_payment->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
+					wp_schedule_single_event( $final->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
 
 					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment' );
+					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_renewal_notice' );
 				}
 
 				self::update_payment( $payment, false );
 			}
+		}
+
+		self::send_subscription_renewal_notices();
+	}
+
+	/**
+	 * Send renewal notices
+	 */
+	public static function send_subscription_renewal_notices() {
+		$args = array(
+			'fields'      => 'ids',
+			'post_type'   => 'pronamic_pay_subscr',
+			'nopaging'    => true,
+			'orderby'     => 'post_date',
+			'order'       => 'ASC',
+			'post_status' => array(
+				'subscr_pending',
+				'subscr_expired',
+				'subscr_failed',
+				'subscr_active',
+			),
+			'meta_query'  => array(
+				array(
+					'key'     => '_pronamic_subscription_renewal_notice',
+					'value'   => current_time( 'mysql', true ),
+					'compare' => '<=',
+					'type'    => 'DATETIME',
+				),
+			),
+		);
+
+		$subscriptions = get_posts( $args );
+
+		foreach ( $subscriptions as $subscription_id ) {
+			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+
+			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
+
+			// Set next renewal date meta
+			$next_renewal = $subscription->get_next_payment_datetime( 1 );
+			$next_renewal->modify( '-1 week' );
+
+			// Prevent multiple notices being send for the same renewal date
+			if ( $next_renewal < $subscription->get_next_payment_datetime() ) {
+				$next_renewal = $subscription->get_next_payment_datetime();
+			}
+
+			update_post_meta( $subscription_id, '_pronamic_subscription_renewal_notice', $next_renewal->format( 'Y-m-d H:i:s' ) );
 		}
 	}
 
@@ -917,8 +1079,12 @@ class Pronamic_WP_Pay_Plugin {
 	public function subscription_completed( $subscription_id ) {
 		$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 
+		if ( ! $subscription ) {
+			return;
+		}
+
 		$subscription->set_status( Pronamic_WP_Pay_Statuses::COMPLETED );
 
-		pronamic_wp_pay_update_subscription( $subscription );
+		$this->update_subscription( $subscription, false );
 	}
 }

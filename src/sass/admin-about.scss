@@ -2,8 +2,14 @@
 
 // About badge
 .pronamic-pay-badge {
-	background-color: $ideal-magenta;
-	background-image: none;
+	background-color: $pronamic-orange;
+	background-image: url( '../images/pronamic-logo-white.png' );
 
-	color: mix($ideal-magenta, $white, 20%);
+	color: mix($pronamic-orange, $white, 20%);
+}
+
+.svg {
+	.pronamic-pay-badge {
+		background-image: url( '../images/pronamic-logo-white.svg' );
+	}
 }

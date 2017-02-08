@@ -39,7 +39,7 @@
 											'tab'  => 'new',
 										) )
 									),
-									esc_html__( "What is new", 'pronamic_ideal' )
+									esc_html__( 'What is new', 'pronamic_ideal' )
 								);
 
 								echo ' ';

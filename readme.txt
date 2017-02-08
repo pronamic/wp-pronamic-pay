@@ -4,7 +4,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.3
 Tested up to: 4.6.1
-Stable tag: 4.4.4
+Stable tag: 4.5.0
 
 The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
 
@@ -302,6 +302,70 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.5.0 - 2017-02-08 =
+*	Updated WordPress pay core library to version 1.3.11.
+	*	Added new constant for the KBC/CBC Payment Button payment method.
+	*	Added new constant for the Belfius Direct Net payment method.
+*	Updated WordPress pay EMS e-Commerce Gateway library to version 1.0.2.
+	*	Make sure always the same transaction date time is used.
+	*	Make sure to not encode quotes.
+*	Updated WordPress pay ICEPAY library to version 1.3.0.
+	*	Added order ID setting.
+*	Updated WordPress pay Mollie library to version 1.1.12.
+	*	Enabled support for more Mollie payment methods.
+	*	Auto renew invalid customer IDs.
+	*	Only update subscription status for subscriptions.
+	*	Added filter for payment provider URL.
+	*	Removed deprecated MISTER_CASH from the get_supported_payment_methods function.
+*	Updated WordPress pay Charitable library to version 1.1.1.
+	*	Added filter for payment source URL and description.
+	*	Added process_donation() method to make sure Pronamic gateway works correctly.
+*	Updated WordPress pay ClassiPress library to version 1.0.3.
+	*	Updated dev libraries.
+	*	Simplified adding hooks.
+	*	Added filter for payment source description and URL.
+	*	Added a extra filter for the payment redirect URL.
+	*	Always redirect to the pay redirect URL.
+*	Updated WordPress pay Easy Digital Downloads library to version 1.2.6.
+	*	Added Bank Transfer gateway.
+	*	Added Bitcoin gateway.
+	*	Added filter for payment source description and URL.
+	*	Changed to class functions.
+	*	Added new icons for Bitcoin and Soft.
+*	Updated WordPress pay Event Espresso library to version 1.1.6.
+	*	Added filter for payment source description and URL.
+*	Updated WordPress pay Formidable Forms library to version 1.0.2.
+	*	Added filter for payment source link and description.
+*	Updated WordPress pay Give library to version 1.0.5.
+	*	Added filter for payment source description and URL.
+*	Updated WordPress pay Gravity Forms library to version 1.6.0.
+	*	Added support for subscriptions.
+	*	Added temporary pay feeds moved notice.
+	*	Added filter function for the payment source description.
+	*	Added filter for source URL.
+*	Updated WordPress pay iThemes Exchange library to version 1.1.4.
+	*	Added filter for payment source description.
+*	Updated WordPress pay Jigoshop library to version 1.0.5.
+	*	Added filter for payment source description and URL.
+	*	Simplified gateway by always redirecting to the pay URL.
+*	Updated WordPress pay MemberPress library to version 1.0.4.
+	*	Use MeprUtils class for sending transaction notices (Zendesk #10084).
+	*	No longer echo invoice in payment redirect function.
+	*	Added filter payment source description and URL.
+	*	Use credit card alias instead of Sofort in credit card gateway.
+*	Updated WordPress pay Membership library to version 1.0.7.
+	*	Added filter for payment source description and URL.
+*	Updated WordPress pay s2Member library to version 1.2.6.
+	*	Added filter payment source description.
+*	Updated WordPress pay Shopp library to version 1.0.6.
+	*	Added filter for payment source description and URL.
+*	Updated WordPress pay WooCommerce library to version 1.2.4.
+	*	Added KBC/CBC Payment Button gateway.
+	*	Added Belfius Direct Net gateway.
+	*	Added filter for payment source description and URL.
+*	Updated WordPress pay WP eCommerce library to version 1.0.4.
+	*	Added filter for payment source description and URL.
 
 = 4.4.4 - 2016-11-16 =
 *	Added support for Maestro payment method with OmniKassa.

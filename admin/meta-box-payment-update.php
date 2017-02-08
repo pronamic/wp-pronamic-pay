@@ -38,7 +38,7 @@ $states = Pronamic_WP_Pay_Plugin::get_payment_states();
 			add_query_arg( array(
 				'post'                      => $post->ID,
 				'action'                    => 'edit',
-				'pronamic_pay_check_status' => true
+				'pronamic_pay_check_status' => true,
 			), admin_url( 'post.php' ) ),
 			'pronamic_payment_check_status_' . $post->ID
 		);
@@ -46,7 +46,7 @@ $states = Pronamic_WP_Pay_Plugin::get_payment_states();
 		printf(
 			'<a class="button" href="%s">%s</a>',
 			esc_url( $check_status_nonce_url ),
-			__( 'Check status', 'pronamic_ideal' )
+			esc_html__( 'Check status', 'pronamic_ideal' )
 		);
 
 	}

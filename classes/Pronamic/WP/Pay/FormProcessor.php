@@ -14,11 +14,16 @@ class Pronamic_WP_Pay_FormProcessor {
 	/**
 	 * Constructs and initalize an form processor object
 	 */
-	public function __construct() {
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
+
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
 
 		add_filter( 'pronamic_payment_source_text_payment_form', array( $this, 'source_text' ), 10, 2 );
+
+		// Scripts
+		$this->scripts = new Pronamic_WP_Pay_FormScripts( $plugin );
 	}
 
 	//////////////////////////////////////////////////

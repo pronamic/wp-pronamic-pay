@@ -102,6 +102,10 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				$label = __( 'Unknown', 'pronamic_ideal' );
 
+				if ( 'trash' === $post_status ) {
+					$post_status = get_post_meta( $post_id, '_wp_trash_meta_status', true );
+				}
+
 				$status_object = get_post_status_object( $post_status );
 
 				if ( isset( $status_object, $status_object->label ) ) {
@@ -117,25 +121,20 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_title':
-				$source    = get_post_meta( $post_id, '_pronamic_subscription_source', true );
-				$source_id = get_post_meta( $post_id, '_pronamic_subscription_source_id', true );
+				$source             = $subscription->get_source();
+				$source_id          = $subscription->get_source_id();
+				$source_description = $subscription->get_source_description();
 
-				$text = $source;
+				$source_id_text = '#' . $source_id;
 
-				switch ( $source ) {
-					case 'woocommerce' :
-						$text = __( 'WooCommerce Order', 'pronamic_ideal' );
+				$source_link = $subscription->get_source_link();
 
-						break;
-					case 'gravityforms' :
-					case 'gravityformsideal' :
-						$text = __( 'Gravity Forms Entry', 'pronamic_ideal' );
-
-						break;
-					case 'test' :
-						$text = __( 'Test', 'pronamic_ideal' );
-
-						break;
+				if ( null !== $source_link ) {
+					$source_id_text = sprintf(
+						'<a href="%s">%s</a>',
+						esc_url( $source_link ),
+						$source_id_text
+					);
 				}
 
 				printf(
@@ -145,12 +144,8 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 						get_edit_post_link( $post_id ),
 						$post_id
 					),
-					$text,
-					sprintf(
-						'<a href="%s">#%s</a>',
-						get_edit_post_link( $source_id ),
-						$source_id
-					)
+					$source_description,
+					$source_id_text
 				);
 
 				break;
@@ -374,11 +369,10 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
 
 			$subscription = get_pronamic_subscription( $post->ID );
-			$payment = $subscription->get_first_payment();
 
-			do_action( 'pronamic_subscription_status_update_' . $payment->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $payment, $can_redirect );
-			do_action( 'pronamic_subscription_status_update_' . $payment->source, $subscription, $payment, $can_redirect );
-			do_action( 'pronamic_subscription_status_update', $subscription, $payment, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
 		}
 	}
 }

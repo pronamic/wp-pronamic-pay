@@ -195,6 +195,28 @@ class Pronamic_WP_Util {
 	}
 
 	/**
+	 * Convert single interval period character to full name.
+	 *
+	 * @param $interval_period Short interval period (D, W, M or Y)
+	 *
+	 * @return string
+	 */
+	public static function to_interval_name( $interval_period ) {
+		switch ( $interval_period ) {
+			case 'D' :
+				return 'days';
+			case 'W' :
+				return 'weeks';
+			case 'M' :
+				return 'months';
+			case 'Y' :
+				return 'years';
+		}
+
+		return $interval_period;
+	}
+
+	/**
 	 * Format frequency.
 	 */
 	public static function format_frequency( $frequency ) {

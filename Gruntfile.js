@@ -8,11 +8,6 @@ module.exports = function( grunt ) {
 
 		// PHPLint
 		phplint: {
-			options: {
-				phpArgs: {
-					'-lf': null
-				}
-			},
 			all: [
 				'**/*.php',
 				'!bower_components/**',
@@ -52,7 +47,12 @@ module.exports = function( grunt ) {
 
 		// PHPUnit
 		phpunit: {
-			classes: {}
+			options: {
+				bin: 'vendor/bin/phpunit'
+			},
+			classes: {
+				
+			}
 		},
 
 		// JSHint
@@ -142,7 +142,8 @@ module.exports = function( grunt ) {
 						'node_modules/.*',
 						'wp-content/.*',
 						'vendor/wp-cli/.*',
-						'vendor/wp-pay.*/.*/vendor/wp-cli/.*'
+						'vendor/wp-pay.*/.*/vendor/wp-cli/.*',
+						'vendor/wp-pay.*/.*/wp-content/.*'
 					]
 				}
 			}

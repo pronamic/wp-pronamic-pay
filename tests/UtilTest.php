@@ -9,7 +9,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_UtilTest extends PHPUnit_Framework_TestCase {
+class Pronamic_WP_UtilTest extends WP_UnitTestCase {
 	public function test_to_string_boolean() {
 		$boolean = false;
 

@@ -307,7 +307,7 @@ $providers = array(
 		'url'       => 'http://buckaroo.nl/',
 		'resources' => array(
 			array(
-				'url'  => 'http://payment.buckaroo.nl/',
+				'url'  => 'https://plaza.buckaroo.nl/',
 				'name' => 'iDEAL Payment Gateway and Support',
 			),
 		),
