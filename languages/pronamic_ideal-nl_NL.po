@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-02-08 15:51+0100\n"
+"PO-Revision-Date: 2017-02-09 13:51+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -294,7 +294,7 @@ msgid "Icon"
 msgstr "Icoon"
 
 #: admin/methods-wp-admin.php:7 admin/tab-extensions.php:14
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:203
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:210
 msgid "Name"
 msgstr "Naam"
 
@@ -1450,7 +1450,7 @@ msgstr "Standaard"
 #: vendor/wp-pay-extensions/give/src/Gateway.php:67
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:43
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:93
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:205
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:212
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:101
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:119
 #: vendor/wp-pay-extensions/memberpress/src/Gateway.php:561
@@ -1771,7 +1771,7 @@ msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
 #: classes/Pronamic/WP/Pay/PaymentFormData.php:96
-#: classes/Pronamic/WP/Pay/Plugin.php:776
+#: classes/Pronamic/WP/Pay/Plugin.php:774
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 msgid "Payment %s"
 msgstr "Betaling %s"
@@ -1781,22 +1781,22 @@ msgstr "Betaling %s"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:544
+#: classes/Pronamic/WP/Pay/Plugin.php:542
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another way."
 msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:631
+#: classes/Pronamic/WP/Pay/Plugin.php:629
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:770
+#: classes/Pronamic/WP/Pay/Plugin.php:768
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:808
+#: classes/Pronamic/WP/Pay/Plugin.php:806
 msgid "Subscription for %s"
 msgstr "Abonnement voor %s"
 
@@ -1814,7 +1814,7 @@ msgstr "Betalingsgateway configuratie"
 #: classes/Pronamic/WP/Pay/PostTypes.php:80
 #: classes/Pronamic/WP/Pay/PostTypes.php:112
 #: classes/Pronamic/WP/Pay/PostTypes.php:144
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:145
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:152
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentFormPostType.php:48
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
@@ -2566,7 +2566,7 @@ msgstr "— Selecteer veld —"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:56
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:44
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:204
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:211
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:147
 msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
@@ -2702,55 +2702,55 @@ msgstr "Kies een bank voor iDEAL-betaling"
 msgid "WordPress Pay Add-On"
 msgstr "WordPress betalen add-on"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:81
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:88
 msgid "Payment feed"
 msgstr "Betalingsfeed"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:133
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:140
 msgid "Pay Feeds"
 msgstr "Betalen feeds"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:220
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:227
 msgid "Default pay feed"
 msgstr "Standaard betalingsfeed"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:271
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:278
 msgid "This form doesn't have any pay feeds. Let's go %1$screate one%2$s."
 msgstr "Dit formulier heeft nog geen betalingsfeeds. %1$sMaak er één aan%2$s."
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:303
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:310
 msgid "Payment Completed"
 msgstr "Betaling voltooid"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:304
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:311
 msgid "Payment Failed"
 msgstr "Betaling mislukt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:305
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:312
 msgid "Payment Pending"
 msgstr "Betaling in afwachting"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:317
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:324
 msgid "Subscription Created"
 msgstr "Abonnement aangemaakt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:318
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:325
 msgid "Subscription Canceled"
 msgstr "Abonnement geannuleerd"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:319
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:326
 msgid "Subscription Expired"
 msgstr "Abonnement verlopen"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:320
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:327
 msgid "Subscription Renewal Notice"
 msgstr "Abonnement vernieuwingsmelding"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:321
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:328
 msgid "Subscription Payment Added"
 msgstr "Abonnement betaling aangemaakt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:322
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:329
 msgid "Subscription Payment Failed"
 msgstr "Abonnement betaling mislukt"
 
@@ -4825,85 +4825,85 @@ msgctxt "Recurring payment"
 msgid "times"
 msgstr "keer"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:514
+#: classes/Pronamic/WP/Pay/Plugin.php:512
 #: classes/Pronamic/WP/Pay/PostTypes.php:185
 msgctxt "Payment status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:515
+#: classes/Pronamic/WP/Pay/Plugin.php:513
 #: classes/Pronamic/WP/Pay/PostTypes.php:194
 msgctxt "Payment status"
 msgid "Processing"
 msgstr "In verwerking"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:516
+#: classes/Pronamic/WP/Pay/Plugin.php:514
 #: classes/Pronamic/WP/Pay/PostTypes.php:203
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr "In de wacht"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:517
+#: classes/Pronamic/WP/Pay/Plugin.php:515
 #: classes/Pronamic/WP/Pay/PostTypes.php:212
 msgctxt "Payment status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:518
+#: classes/Pronamic/WP/Pay/Plugin.php:516
 #: classes/Pronamic/WP/Pay/PostTypes.php:221
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:519
+#: classes/Pronamic/WP/Pay/Plugin.php:517
 #: classes/Pronamic/WP/Pay/PostTypes.php:230
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr "Terugbetaald"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:520
+#: classes/Pronamic/WP/Pay/Plugin.php:518
 #: classes/Pronamic/WP/Pay/PostTypes.php:239
 msgctxt "Payment status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:521
+#: classes/Pronamic/WP/Pay/Plugin.php:519
 #: classes/Pronamic/WP/Pay/PostTypes.php:248
 msgctxt "Payment status"
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:527
+#: classes/Pronamic/WP/Pay/Plugin.php:525
 #: classes/Pronamic/WP/Pay/PostTypes.php:260
 msgctxt "Subscription status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:528
+#: classes/Pronamic/WP/Pay/Plugin.php:526
 #: classes/Pronamic/WP/Pay/PostTypes.php:269
 msgctxt "Subscription status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:529
+#: classes/Pronamic/WP/Pay/Plugin.php:527
 #: classes/Pronamic/WP/Pay/PostTypes.php:278
 msgctxt "Subscription status"
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:530
+#: classes/Pronamic/WP/Pay/Plugin.php:528
 #: classes/Pronamic/WP/Pay/PostTypes.php:287
 msgctxt "Subscription status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:531
+#: classes/Pronamic/WP/Pay/Plugin.php:529
 #: classes/Pronamic/WP/Pay/PostTypes.php:296
 msgctxt "Subscription status"
 msgid "Active"
 msgstr "Actief"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:532
+#: classes/Pronamic/WP/Pay/Plugin.php:530
 #: classes/Pronamic/WP/Pay/PostTypes.php:305
 msgctxt "Subscription status"
 msgid "Completed"

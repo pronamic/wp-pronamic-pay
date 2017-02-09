@@ -262,7 +262,7 @@ class Pronamic_WP_Pay_Plugin {
 			$old_status_meta = $subscription->get_meta( 'status' );
 
 			if ( strlen( $old_status_meta ) <= 0 ) {
-				$old_status = 'unknown';
+				$old_status_meta = 'unknown';
 			}
 
 			$new_status_meta = strtolower( $subscription->get_status() );
@@ -278,8 +278,6 @@ class Pronamic_WP_Pay_Plugin {
 			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
 
 			if ( $can_redirect ) {
-				//$url = $payment->get_return_redirect_url();
-
 				wp_redirect( home_url() );
 
 				exit;
