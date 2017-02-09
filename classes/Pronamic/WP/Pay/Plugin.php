@@ -278,8 +278,6 @@ class Pronamic_WP_Pay_Plugin {
 			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
 
 			if ( $can_redirect ) {
-				//$url = $payment->get_return_redirect_url();
-
 				wp_redirect( home_url() );
 
 				exit;
