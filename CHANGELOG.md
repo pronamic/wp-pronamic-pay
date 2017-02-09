@@ -10,7 +10,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changes
 - Updated WordPress pay Gravity Forms library to version 1.6.1.
-  - 
+  - Only check admin referer for payment feeds and not when saving/testing configurations.
 
 ## [4.5.0] - 2017-02-08
 
