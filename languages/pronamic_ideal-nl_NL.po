@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-02-09 13:51+0100\n"
+"PO-Revision-Date: 2017-02-13 10:44+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box-form-options.php:7 admin/tab-gateways.php:15
@@ -170,8 +170,7 @@ msgstr "Status"
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:168
-#: admin/meta-box-subscription-info.php:158
+#: admin/meta-box-payment-info.php:168 admin/meta-box-subscription-info.php:158
 msgid "Consumer"
 msgstr "Consument"
 
@@ -181,34 +180,28 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:197
-#: admin/meta-box-subscription-info.php:197
+#: admin/meta-box-payment-info.php:197 admin/meta-box-subscription-info.php:197
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:205
-#: admin/meta-box-subscription-info.php:205
+#: admin/meta-box-payment-info.php:205 admin/meta-box-subscription-info.php:205
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:218
-#: admin/meta-box-subscription-info.php:218
+#: admin/meta-box-payment-info.php:218 admin/meta-box-subscription-info.php:218
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:226
-#: admin/meta-box-subscription-info.php:226
+#: admin/meta-box-payment-info.php:226 admin/meta-box-subscription-info.php:226
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:239
-#: admin/meta-box-subscription-info.php:239
+#: admin/meta-box-payment-info.php:239 admin/meta-box-subscription-info.php:239
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:247
-#: admin/meta-box-subscription-info.php:247
+#: admin/meta-box-payment-info.php:247 admin/meta-box-subscription-info.php:247
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -294,7 +287,7 @@ msgid "Icon"
 msgstr "Icoon"
 
 #: admin/methods-wp-admin.php:7 admin/tab-extensions.php:14
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:210
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:216
 msgid "Name"
 msgstr "Naam"
 
@@ -396,8 +389,7 @@ msgstr "Start rondleiding"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:67 admin/page-tools.php:4
-#: admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -737,8 +729,7 @@ msgstr "Volg Pronamic"
 
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
-#: classes/Pronamic/WP/Pay/Admin.php:247
-#: vendor/wp-pay/core/src/Gateway.php:417
+#: classes/Pronamic/WP/Pay/Admin.php:247 vendor/wp-pay/core/src/Gateway.php:417
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:146
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -1450,7 +1441,7 @@ msgstr "Standaard"
 #: vendor/wp-pay-extensions/give/src/Gateway.php:67
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:43
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:93
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:212
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:218
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:101
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:119
 #: vendor/wp-pay-extensions/memberpress/src/Gateway.php:561
@@ -1727,9 +1718,8 @@ msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 msgid "Pronamic Pay"
 msgstr "Pronamic betalen"
 
-#: classes/Pronamic/WP/Pay/Admin.php:443
-#: vendor/wp-pay/core/src/Gateway.php:631
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:112
+#: classes/Pronamic/WP/Pay/Admin.php:443 vendor/wp-pay/core/src/Gateway.php:631
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
 #: vendor/wp-pay-extensions/memberpress/src/Gateway.php:517
@@ -2282,7 +2272,7 @@ msgstr "Bestelling #%s"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:62
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:61
 msgid "General Information"
 msgstr "Algemene informatie"
 
@@ -2528,7 +2518,7 @@ msgid "Formidable"
 msgstr "Formidable"
 
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:172
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:200
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:236
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -2566,7 +2556,7 @@ msgstr "— Selecteer veld —"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:56
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:44
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:211
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:217
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:147
 msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
@@ -2661,11 +2651,11 @@ msgstr "Pronamic abonnement vernieuwingsdatum"
 msgid "Form"
 msgstr "Formulier"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:195
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:231
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:210
+#: vendor/wp-pay-extensions/gravityforms/src/Extension.php:246
 msgid "Gravity Forms Entry"
 msgstr "Gravity Forms inzending"
 
@@ -2710,47 +2700,47 @@ msgstr "Betalingsfeed"
 msgid "Pay Feeds"
 msgstr "Betalen feeds"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:227
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:233
 msgid "Default pay feed"
 msgstr "Standaard betalingsfeed"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:278
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:284
 msgid "This form doesn't have any pay feeds. Let's go %1$screate one%2$s."
 msgstr "Dit formulier heeft nog geen betalingsfeeds. %1$sMaak er één aan%2$s."
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:310
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:316
 msgid "Payment Completed"
 msgstr "Betaling voltooid"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:311
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:317
 msgid "Payment Failed"
 msgstr "Betaling mislukt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:312
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:318
 msgid "Payment Pending"
 msgstr "Betaling in afwachting"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:324
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:330
 msgid "Subscription Created"
 msgstr "Abonnement aangemaakt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:325
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:331
 msgid "Subscription Canceled"
 msgstr "Abonnement geannuleerd"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:326
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:332
 msgid "Subscription Expired"
 msgstr "Abonnement verlopen"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:327
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:333
 msgid "Subscription Renewal Notice"
 msgstr "Abonnement vernieuwingsmelding"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:328
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:334
 msgid "Subscription Payment Added"
 msgstr "Abonnement betaling aangemaakt"
 
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:329
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:335
 msgid "Subscription Payment Failed"
 msgstr "Abonnement betaling mislukt"
 

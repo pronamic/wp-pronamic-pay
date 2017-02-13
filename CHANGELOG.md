@@ -6,6 +6,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.5.2] - 2017-02-13
+
+### Changes
+- Updated WordPress pay Gravity Forms library to version 1.6.2.
+  - No longer check on the payment feed post ID, a empty payment feed post ID is allowed when creating new payment feeds.
+  - Auto enable new payment feeds.
+  - Make `is_active` backwards compatible when getting feeds.
+  - Added support for No Conflict Mode.
+
 ## [4.5.1] - 2017-02-09
 
 ### Changes
@@ -1518,7 +1527,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.2...HEAD
+[4.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.1...4.5.2
 [4.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.0...4.5.1
 [4.5.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.4...4.5.0
 [4.4.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.4.3...4.4.4

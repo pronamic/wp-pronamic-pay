@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "66c1973d033f887dde6469351cbaa150",
+    "content-hash": "293f76f525dabd78578eb6d037e737a8",
     "packages": [
         {
             "name": "composer/installers",
@@ -642,25 +642,25 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "2532999013cd949961909bf413dc2c2233f1252a"
+                "reference": "2f20ab9df5f15e84740d32c5b254ec58519a06e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/2532999013cd949961909bf413dc2c2233f1252a",
-                "reference": "2532999013cd949961909bf413dc2c2233f1252a",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/2f20ab9df5f15e84740d32c5b254ec58519a06e3",
+                "reference": "2f20ab9df5f15e84740d32c5b254ec58519a06e3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "php": "^5.3",
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -703,7 +703,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-02-09T12:38:12+00:00"
+            "time": "2017-02-11T13:45:54+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
