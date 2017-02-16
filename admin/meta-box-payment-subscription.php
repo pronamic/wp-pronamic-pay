@@ -11,10 +11,10 @@ if ( $subscription ) : ?>
 	<table class="form-table">
 		<tr>
 			<th scope="row">
+				<?php esc_html_e( 'Subscription', 'pronamic_ideal' ); ?>
+ 			</th>
+ 			<td>
 				<?php edit_post_link( get_the_title( $subscription->post->ID ), '', '', $subscription->post->ID ); ?>
-			</th>
-			<td>
-				<?php echo get_the_title( $subscription->post->ID ); ?>
 			</td>
 		</tr>
 		<tr>
