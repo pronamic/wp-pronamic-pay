@@ -165,6 +165,9 @@ Pronamic iDEAL is the best plugin available to accept payments through iDEAL in 
 *	[Campaignify](http://www.astoundify.com/)
 	*	**Author:** [Astoundify](http://www.astoundify.com/)
 	*	**Tested up to:** 1.5
+*	[Charitable](https://www.wpcharitable.com/)
+	*	**Author:** [Studio 164a](http://164a.com/)
+	*	**Tested up to:** 1.3
 
 = Support payment providers =
 

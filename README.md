@@ -380,6 +380,14 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 			<td></td>
 			<td>1.5</td>
 		</tr>
+		<tr>
+			<td><a href="https://www.wpcharitable.com" target="_blank">Charitable</a></td>
+			<td><a href="http://164a.com" target="_blank">Studio 164a</a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>1.3</td>
+		</tr>
 	</tbody>
 </table>
 
