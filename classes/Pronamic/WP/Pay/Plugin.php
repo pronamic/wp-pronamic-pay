@@ -728,6 +728,8 @@ class Pronamic_WP_Pay_Plugin {
 		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
 
 		if ( $payment ) {
+			$payment->set_credit_card( $data->get_credit_card() );
+
 			$gateway->start( $payment );
 
 			if ( $gateway->has_error() ) {
