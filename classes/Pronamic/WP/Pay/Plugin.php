@@ -589,6 +589,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'ogone-directlink';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 
