@@ -562,6 +562,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
