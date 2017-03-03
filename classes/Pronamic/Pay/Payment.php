@@ -275,7 +275,7 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
-	public function set_credit_card( Pronamic_Pay_CreditCard $credit_card ) {
+	public function set_credit_card( $credit_card ) {
 		$this->credit_card = $credit_card;
 	}
 
