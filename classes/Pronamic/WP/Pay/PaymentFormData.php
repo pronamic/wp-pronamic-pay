@@ -121,12 +121,12 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 
 	public function get_email() {
-		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_VALIDATE_EMAIL );
+		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_SANITIZE_EMAIL );
 	}
 
 	public function get_customer_name() {
-		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_VALIDATE_EMAIL );
-		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_VALIDATE_EMAIL );
+		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING);
+		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_SANITIZE_STRING );
 
 		return $first_name . ' ' . $last_name;
 	}
