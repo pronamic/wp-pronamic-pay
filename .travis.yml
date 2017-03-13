@@ -11,18 +11,26 @@ php:
 - 7.1
 - hhvm
 
-env:
-- WP_VERSION=latest WP_MULTISITE=0
-- WP_VERSION=4.4 WP_MULTISITE=0
-- WP_VERSION=4.3 WP_MULTISITE=0
-- WP_VERSION=4.2 WP_MULTISITE=0
-- WP_VERSION=4.1 WP_MULTISITE=0
-- WP_VERSION=4.0 WP_MULTISITE=0
-
 matrix:
   include:
-    - php: 5.3
+    - php: 5.6
       env: WP_VERSION=latest WP_MULTISITE=1
+    - php: 5.6
+      env: WP_VERSION=4.7
+    - php: 5.6
+      env: WP_VERSION=4.6
+    - php: 5.6
+      env: WP_VERSION=4.5
+    - php: 5.6
+      env: WP_VERSION=4.4
+    - php: 5.6
+      env: WP_VERSION=4.3
+    - php: 5.6
+      env: WP_VERSION=4.2
+    - php: 5.6
+      env: WP_VERSION=4.1
+    - php: 5.6
+      env: WP_VERSION=4.0
     - php: 5.6
       env: WP_VERSION=4.0 COVERAGE=1 GRUNT=1
   fast_finish: true
@@ -36,11 +44,23 @@ cache:
 before_install:
   - npm install -g npm@latest
 
+install:
+  - phpenv local 5.6
+  - composer self-update
+  - composer install
+  - phpenv local --unset
+
 before_script:
-  - bash bin/travis-before_script
+  - wget https://raw.githubusercontent.com/wp-cli/sample-plugin/master/bin/install-wp-tests.sh
+  - bash install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - phpenv rehash
 
 script:
-  - bash bin/travis-script
+  - php vendor/bin/phpunit
+  - npm install -g grunt-cli
+  - npm install --no-optional
+  - grunt phplint
+  - if [[ "$GRUNT" == "1" ]]; then grunt; fi
 
 after_success:
-  - bash bin/travis-after_success
+  - if [[ '1' == $COVERAGE ]]; then php vendor/bin/coveralls fi
