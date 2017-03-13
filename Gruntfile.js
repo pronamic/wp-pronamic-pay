@@ -8,7 +8,7 @@ module.exports = function( grunt ) {
 
 		// PHPLint
 		phplint: {
-			all: [
+			core: [
 				'**/*.php',
 				'!bower_components/**',
 				'!build/**',
@@ -17,6 +17,11 @@ module.exports = function( grunt ) {
 				'!node_modules/**',
 				'!vendor/**',
 				'!wp-content/**'
+			],
+			wp_pay: [
+				'vendor/wp-pay/**/*.php',
+				'vendor/wp-pay-extensions/**/*.php',
+				'vendor/wp-pay-gateways/**/*.php',
 			]
 		},
 
