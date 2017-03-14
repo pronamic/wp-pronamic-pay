@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 			wp_pay: [
 				'vendor/wp-pay/**/*.php',
 				'vendor/wp-pay-extensions/**/*.php',
-				'vendor/wp-pay-gateways/**/*.php',
+				'vendor/wp-pay-gateways/**/*.php'
 			]
 		},
 
