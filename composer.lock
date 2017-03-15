@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "65359d1e47e36879c8aff3be73883eee",
+    "content-hash": "fb579a8f866328ef776bd857af1dc814",
     "packages": [
         {
             "name": "composer/installers",
@@ -2764,26 +2764,26 @@
         },
         {
             "name": "wp-pay-gateways/ogone",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "1414858184212a0d079f7b4e3f99281fa59fe0c0"
+                "reference": "98355cf66e6b0a894be0e5908c49a08916ed2ab3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/1414858184212a0d079f7b4e3f99281fa59fe0c0",
-                "reference": "1414858184212a0d079f7b4e3f99281fa59fe0c0",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/98355cf66e6b0a894be0e5908c49a08916ed2ab3",
+                "reference": "98355cf66e6b0a894be0e5908c49a08916ed2ab3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -2824,7 +2824,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-11-16T09:18:42+00:00"
+            "time": "2017-03-15T14:27:42+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa",

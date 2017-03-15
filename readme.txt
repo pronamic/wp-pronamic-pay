@@ -323,6 +323,8 @@ results in OmniKassa data that no longer matches the signature.
 	*	Set default payment method to null in `has_valid_mandate` function.
 	*	Improved getting the first valid mandate date time.
 	*	Ignore valid mandates for first payments.
+*	Updated WordPress pay Ogone library to version 1.3.4.
+	*	Only set credit card data if we have it.
 *	Updated WordPress pay OmniKassa library to version 1.2.2.
 	*	Set payment transaction ID to transaction reference (e.g. for payment notes and merge tags).
 	*	Added support for Maestro payment method.
