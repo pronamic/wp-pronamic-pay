@@ -304,6 +304,41 @@ results in OmniKassa data that no longer matches the signature.
 == Changelog ==
 
 = 4.5.3 - 2017-03-15 =
+*	Fixed subscription title link in meta payment subscription.
+*	Removed amount input `required` attribute with choices.
+*	Added credit card methods to payment.
+*	Added Ogone DirectLink to credit card config select options.
+*	Added `ems-e-commerce` to Bancontact config select options.
+*	Sanitize instead of validate user input in payment form data.
+*	Increase delay for first scheduled status check from 30s to 15m.
+*	Updated WordPress pay core library to version 1.3.12.
+	*	Make sure payment methods are stored as array in transient.
+*	Updated WordPress pay EMS e-Commerce library to version 1.0.3.
+	*	Set decimal and group separators for `chargetotal` parameter according to specs.
+	*	Added support for Bancontact payment method.
+	*	No longer filter storename and shared secret setting fields.
+*	Updated WordPress pay Mollie library to version 1.1.13.
+	*	Return null if the payment method variable is not a scalar type to fix “Warning: Illegal offset type in isset or empty” error.
+	*	No longer check if $payment_method is a empty string, the compare on the mandate method is enough.
+	*	Set default payment method to null in `has_valid_mandate` function.
+	*	Improved getting the first valid mandate date time.
+	*	Ignore valid mandates for first payments.
+*	Updated WordPress pay OmniKassa library to version 1.2.2.
+	*	Set payment transaction ID to transaction reference (e.g. for payment notes and merge tags).
+	*	Added support for Maestro payment method.
+	*	Default order ID uses payment ID in `format_string()`.
+*	Updated WordPress pay Gravity Forms library to version 1.6.4.
+	*	Updated new feed URL link in payment fields.
+	*	Only load the payment methods field if Gravity Forms version is > 1.9.19.
+	*	Simplified loading and setting up the Gravity Forms extension with a early return.
+	*	Fixed 'Warning: Missing argument 3 for gf_apply_filters()'.
+	*	Added support for delaying ActiveCampaign subscriptions.
+	*	Use version compare helper to prevent fatal errors.
+*	Updated WordPress pay ClassiPress library to version 1.0.4.
+	*	Fixed “Fatal error: Uncaught Error: Using $this when not in object context”.
+*	Updated WordPress pay WooCommerce library to version 1.2.5.
+	*	Don't set subscriptions 'on hold' due to delay in direct debit status update.
+	*	Removed gateway description about valid mandate, as these mandates are no longer in use.
 
 = 4.5.2 - 2017-02-13 =
 *	Updated WordPress pay Gravity Forms library to version 1.6.2.
