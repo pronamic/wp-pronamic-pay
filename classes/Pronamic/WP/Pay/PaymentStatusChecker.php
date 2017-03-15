@@ -7,7 +7,8 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0
+ * @version 4.5.3
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_PaymentStatusChecker {
 	/**

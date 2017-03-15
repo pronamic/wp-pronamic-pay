@@ -7,7 +7,7 @@
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 3.7.0
+ * @version 4.5.3
  * @since 3.7.0
  */
 class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
