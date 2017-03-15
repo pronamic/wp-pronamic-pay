@@ -3,11 +3,12 @@
 /**
  * Title: WordPress payment status checker
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2017
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 1.0
+ * @version 4.5.3
+ * @since 1.0.0
  */
 class Pronamic_WP_Pay_PaymentStatusChecker {
 	/**
@@ -45,8 +46,10 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 
 		$time = time();
 
-		// 30 seconds after a transaction request is sent
-		wp_schedule_single_event( $time + 30, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => 30 ) );
+		// 15 minutes after a transaction request is sent
+		$delay = 15 * MINUTE_IN_SECONDS;
+
+		wp_schedule_single_event( $time + $delay, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => $delay ) );
 	}
 
 	/**
@@ -58,8 +61,8 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 	private function get_delay_seconds( $number_tries ) {
 		switch ( $number_tries ) {
 			case 0 :
-				// 30 seconds after a transaction request is sent
-				return 30;
+				// 15 minutes after a transaction request is sent
+				return 15 * MINUTE_IN_SECONDS;
 			case 1 :
 				// Half-way through an expirationPeriod
 				return 30 * MINUTE_IN_SECONDS;

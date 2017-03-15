@@ -3,11 +3,11 @@
 /**
  * Title: WordPress payment test data
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2017
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 3.7.0
+ * @version 4.5.3
  * @since 3.7.0
  */
 class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
@@ -121,12 +121,12 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 	//////////////////////////////////////////////////
 
 	public function get_email() {
-		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_VALIDATE_EMAIL );
+		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_SANITIZE_EMAIL );
 	}
 
 	public function get_customer_name() {
-		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_VALIDATE_EMAIL );
-		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_VALIDATE_EMAIL );
+		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING);
+		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_SANITIZE_STRING );
 
 		return $first_name . ' ' . $last_name;
 	}

@@ -275,6 +275,16 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function set_credit_card( $credit_card ) {
+		$this->credit_card = $credit_card;
+	}
+
+	public function get_credit_card() {
+		return $this->credit_card;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function get_subscription_id() {
 		return $this->subscription_id;
 	}

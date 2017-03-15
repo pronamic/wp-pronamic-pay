@@ -72,7 +72,7 @@ if ( $gateway ) : ?>
 									<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount[]" type="radio" required="required" value="" />
 									<label for="pronamic-pay-amount-other">
 										<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-										<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount[other]" type="text" placeholder="" required="required" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
+										<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount[other]" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
 									</label>
 								</div>
 
@@ -83,7 +83,7 @@ if ( $gateway ) : ?>
 					<?php if ( Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
 
 						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
-						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" required="required" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
+						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
 
 	                <?php endif; ?>
 				</div>

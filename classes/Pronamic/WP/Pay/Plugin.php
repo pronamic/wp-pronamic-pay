@@ -3,11 +3,11 @@
 /**
  * Title: WordPress iDEAL plugin
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2017
  * Company: Pronamic
  *
  * @author Remco Tolsma
- * @version 4.1.0
+ * @version 4.5.3
  * @since 1.0.0
  */
 class Pronamic_WP_Pay_Plugin {
@@ -562,6 +562,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
+					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
@@ -589,6 +590,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'ogone-directlink';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 
@@ -728,6 +730,8 @@ class Pronamic_WP_Pay_Plugin {
 		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
 
 		if ( $payment ) {
+			$payment->set_credit_card( $data->get_credit_card() );
+
 			$gateway->start( $payment );
 
 			if ( $gateway->has_error() ) {
