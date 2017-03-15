@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "293f76f525dabd78578eb6d037e737a8",
+    "content-hash": "645ae535a25b9fab06327c715889cb6e",
     "packages": [
         {
             "name": "composer/installers",
@@ -271,24 +271,24 @@
         },
         {
             "name": "wp-pay-extensions/classipress",
-            "version": "1.0.3",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "ecac532edb2db48b92f43008ea93ba76a1fcd977"
+                "reference": "a4946dc791f68462e1fbba768c0f88949bdf21ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/ecac532edb2db48b92f43008ea93ba76a1fcd977",
-                "reference": "ecac532edb2db48b92f43008ea93ba76a1fcd977",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/a4946dc791f68462e1fbba768c0f88949bdf21ab",
+                "reference": "a4946dc791f68462e1fbba768c0f88949bdf21ab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay/core": "^1.0.2"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master",
+                "satooshi/php-coveralls": "^1.0",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -326,7 +326,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-01-25T10:50:17+00:00"
+            "time": "2017-03-13 14:01:02"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -642,16 +642,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.6.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "2f20ab9df5f15e84740d32c5b254ec58519a06e3"
+                "reference": "7d3a793f1e23f6a269089b69509d241c9c2845fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/2f20ab9df5f15e84740d32c5b254ec58519a06e3",
-                "reference": "2f20ab9df5f15e84740d32c5b254ec58519a06e3",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/7d3a793f1e23f6a269089b69509d241c9c2845fe",
+                "reference": "7d3a793f1e23f6a269089b69509d241c9c2845fe",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +703,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-02-11T13:45:54+00:00"
+            "time": "2017-03-14 13:56:09"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -1799,26 +1799,26 @@
         },
         {
             "name": "wp-pay-gateways/ems-e-commerce",
-            "version": "1.0.2",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ems-e-commerce.git",
-                "reference": "cc4e3ad5624ec76f20ba197a022801bd671a9028"
+                "reference": "8b4b46f2cd4a609b1d1d0508adfc29619143be53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/cc4e3ad5624ec76f20ba197a022801bd671a9028",
-                "reference": "cc4e3ad5624ec76f20ba197a022801bd671a9028",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/8b4b46f2cd4a609b1d1d0508adfc29619143be53",
+                "reference": "8b4b46f2cd4a609b1d1d0508adfc29619143be53",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -1858,7 +1858,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-01-25T10:04:37+00:00"
+            "time": "2017-03-09 10:45:30"
         },
         {
             "name": "wp-pay-gateways/fibonacciorange",
@@ -2503,26 +2503,26 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "1.1.12",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "230a6caac6a7a7b66ca501b9491eb3c4a10452e5"
+                "reference": "0e296ab9dde5abca66e48436c3f7f05bf197ff47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/230a6caac6a7a7b66ca501b9491eb3c4a10452e5",
-                "reference": "230a6caac6a7a7b66ca501b9491eb3c4a10452e5",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/0e296ab9dde5abca66e48436c3f7f05bf197ff47",
+                "reference": "0e296ab9dde5abca66e48436c3f7f05bf197ff47",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -2562,7 +2562,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-01-25T14:12:39+00:00"
+            "time": "2017-03-09 14:56:10"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -5508,9 +5508,39 @@
             "time": "2016-08-29T20:04:47+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.3",
+            "alias_normalized": "1.0.3.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/ems-e-commerce"
+        },
+        {
+            "alias": "1.1.13",
+            "alias_normalized": "1.1.13.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/mollie"
+        },
+        {
+            "alias": "1.0.4",
+            "alias_normalized": "1.0.4.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/classipress"
+        },
+        {
+            "alias": "1.6.3",
+            "alias_normalized": "1.6.3.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/gravityforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/ems-e-commerce": 20,
+        "wp-pay-gateways/mollie": 20,
+        "wp-pay-extensions/classipress": 20,
+        "wp-pay-extensions/gravityforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
