@@ -3,7 +3,7 @@
 /**
  * Title: WordPress admin payment bulk actions
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2017
  * Company: Pronamic
  *
  * @see https://www.skyverge.com/blog/add-custom-bulk-action/

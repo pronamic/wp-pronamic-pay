@@ -3,7 +3,7 @@
 /**
  * Title: WordPress admin subscription post type
  * Description:
- * Copyright: Copyright (c) 2005 - 2016
+ * Copyright: Copyright (c) 2005 - 2017
  * Company: Pronamic
  *
  * @author Reüel van der Steege
