@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-03-15 11:23+0100\n"
+"PO-Revision-Date: 2017-03-15 15:06+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -39,7 +39,7 @@ msgstr "Betaal nu"
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:198
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 msgid "Amount"
 msgstr "Bedrag"
 
@@ -749,7 +749,7 @@ msgstr "Volg Pronamic"
 #: admin/tab-branding.php:11 admin/tab-branding.php:17
 #: admin/tab-branding.php:23 admin/tab-methods.php:89
 #: classes/Pronamic/WP/Pay/Admin.php:247
-#: vendor/wp-pay/core/src/Gateway.php:417
+#: vendor/wp-pay/core/src/Gateway.php:422
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:146
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -1729,7 +1729,7 @@ msgid "Pronamic Pay"
 msgstr "Pronamic betalen"
 
 #: classes/Pronamic/WP/Pay/Admin.php:443
-#: vendor/wp-pay/core/src/Gateway.php:631
+#: vendor/wp-pay/core/src/Gateway.php:636
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:112
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
@@ -2233,7 +2233,7 @@ msgstr "Betalingsinformatie"
 msgid "Bank Transfer"
 msgstr "Bankoverschrijving"
 
-#: vendor/wp-pay/core/src/Gateway.php:430
+#: vendor/wp-pay/core/src/Gateway.php:435
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:285
 msgid "Choose a payment method"
 msgstr "Kies een betaalmethode"
@@ -3483,18 +3483,9 @@ msgstr "Belfius Direct Net inschakelen"
 msgid "Enable Bitcoin"
 msgstr "Bitcoin inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:62
+#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:59
 msgid "Enable Credit Card"
 msgstr "Creditcard inschakelen"
-
-#: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:89
-msgid ""
-"You have given us permission on %s to use your credit card for any due "
-"amounts. This mandate will be used for your (subscription) order."
-msgstr ""
-"Je hebt ons toestemming gegeven op %s om je creditcard te gebruiken voor "
-"verschuldigde bedragen. Dit mandaat zal worden gebruikt voor je (abonnement) "
-"bestelling."
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:40
 msgid "Enable Direct Debit"
@@ -3504,20 +3495,11 @@ msgstr "Incasso inschakelen"
 msgid "Direct Debit (mandate via iDEAL)"
 msgstr "Incasso (machtiging via iDEAL)"
 
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:70
-msgid ""
-"You have given us permission on %s to debit any due amounts from your bank "
-"account. This mandate will be used for your (subscription) order."
-msgstr ""
-"Je hebt ons toestemming gegeven op %s om verschuldigde bedragen te "
-"incasseren van je bankrekening. Dit mandaat zal worden gebruikt voor je "
-"(abonnement) bestelling."
-
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:97
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:82
 msgid "Enable Direct Debit (mandate via iDEAL)"
 msgstr "Incasso (machtiging via iDEAL) inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:98
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:83
 msgid ""
 "By using this payment method you authorize us via iDEAL to debit payments "
 "from your bank account."
@@ -3612,10 +3594,6 @@ msgstr ""
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:235
 msgid "Awaiting payment."
 msgstr "Wachten op betaling."
-
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:271
-msgid "Subscription renewal payment due."
-msgstr "Betaling abonnementsverlenging verschuldigd."
 
 #: vendor/wp-pay-extensions/woocommerce/src/KbcGateway.php:40
 msgid "Enable KBC/CBC Payment Button"
@@ -3853,7 +3831,7 @@ msgstr "Goedkeuringscode"
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:85
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:237
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:194
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
 msgid "Order ID"
 msgstr "Bestelling ID"
@@ -3992,7 +3970,7 @@ msgid "Postback URL"
 msgstr "Postback URL"
 
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:44
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:41
 msgid "Merchant ID"
 msgstr "Winkelier ID"
@@ -4578,40 +4556,40 @@ msgstr ""
 "Direct HTTP server-to-server request URL voor de betaalstatussen "
 "\"geannuleerd door klant\" of \"te veel weigeringen door de acquirer\"."
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
 msgid "Currency Code"
 msgstr "Valuta"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
 msgid "Transaction Date Time"
 msgstr "Transactie tijdstip"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:206
 msgid "Transaction Reference"
 msgstr "Transactiereferentie"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:206
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:207
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:61
 msgid "Key Version"
 msgstr "Sleutelversie"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:207
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:208
 msgid "Authorisation ID"
 msgstr "Autorisatie ID"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:208
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:209
 msgid "Payment Mean Brand"
 msgstr "Betaalmethode merknaam"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:209
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:210
 msgid "Payment Mean Type"
 msgstr "Type betaalmethode"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:210
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:211
 msgid "Response Code"
 msgstr "Antwoordcode"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:216
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:217
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
@@ -4916,14 +4894,14 @@ msgctxt "slug"
 msgid "payment-forms"
 msgstr "betalingsformulieren"
 
-#: vendor/wp-pay/core/src/Gateway.php:411
-#: vendor/wp-pay/core/src/Gateway.php:423
+#: vendor/wp-pay/core/src/Gateway.php:416
+#: vendor/wp-pay/core/src/Gateway.php:428
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:94
 msgctxt "Payment method field"
 msgid "All available methods"
 msgstr "Alle beschikbare methoden"
 
-#: vendor/wp-pay/core/src/Gateway.php:413
+#: vendor/wp-pay/core/src/Gateway.php:418
 msgctxt "Payment method field"
 msgid "Other"
 msgstr "Anders"
@@ -4939,12 +4917,12 @@ msgctxt "creditcard"
 msgid "Reference number"
 msgstr "Referentienummer"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
-#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
+#: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
@@ -5011,6 +4989,25 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid ""
+#~ "You have given us permission on %s to use your credit card for any due "
+#~ "amounts. This mandate will be used for your (subscription) order."
+#~ msgstr ""
+#~ "Je hebt ons toestemming gegeven op %s om je creditcard te gebruiken voor "
+#~ "verschuldigde bedragen. Dit mandaat zal worden gebruikt voor je "
+#~ "(abonnement) bestelling."
+
+#~ msgid ""
+#~ "You have given us permission on %s to debit any due amounts from your "
+#~ "bank account. This mandate will be used for your (subscription) order."
+#~ msgstr ""
+#~ "Je hebt ons toestemming gegeven op %s om verschuldigde bedragen te "
+#~ "incasseren van je bankrekening. Dit mandaat zal worden gebruikt voor je "
+#~ "(abonnement) bestelling."
+
+#~ msgid "Subscription renewal payment due."
+#~ msgstr "Betaling abonnementsverlenging verschuldigd."
 
 #~ msgid "Create pay feed"
 #~ msgstr "Creëer betalen feed"
