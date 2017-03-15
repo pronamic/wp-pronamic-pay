@@ -281,7 +281,6 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
-					'!bin/**',
 					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
