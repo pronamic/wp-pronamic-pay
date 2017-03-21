@@ -33,7 +33,12 @@ function pronamic_ideal_block_activation() {
 		esc_attr( '_blank' )
 	);
 
-	wp_die( $message );
+	wp_die( wp_kses( $message, array(
+		'a' => array(
+			'href'   => true,
+			'target' => true,
+		),
+	) ) );
 }
 
 if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
