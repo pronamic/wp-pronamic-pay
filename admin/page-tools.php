@@ -3,10 +3,7 @@
 $tabs = array(
 	'system_status'   => __( 'System Status', 'pronamic_ideal' ),
 	'gateways'        => __( 'Payment Gateways', 'pronamic_ideal' ),
-	'extensions'      => __( 'Extensions', 'pronamic_ideal' ),
-	'methods'         => __( 'Methods', 'pronamic_ideal' ),
 	'documentation'   => __( 'Documentation', 'pronamic_ideal' ),
-	'branding'        => __( 'Branding', 'pronamic_ideal' ),
 );
 
 $current_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING );
