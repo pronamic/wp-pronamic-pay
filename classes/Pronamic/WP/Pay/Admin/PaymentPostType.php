@@ -125,7 +125,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Query $query
 	 */
 	public function pre_get_posts( $query ) {
-		if ( 'pronamic_payment_amount' == $query->get( 'orderby' ) ) {
+		if ( 'pronamic_payment_amount' === $query->get( 'orderby' ) ) {
 			$query->set( 'meta_key', '_pronamic_payment_amount' );
 			$query->set( 'orderby', 'meta_value_num' );
 		}
