@@ -110,7 +110,17 @@ while ( $have_configs ) {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$wpdb->update( $config_table, array( 'post_id' => $post_id ), array( 'id' => $config->id ), '%d', '%d' );
+			$wpdb->update(
+				$config_table,
+				array(
+					'post_id' => $post_id,
+				),
+				array(
+					'id' => $config->id,
+				),
+				'%d',
+				'%d'
+			);
 
 			// Meta
 			// We ignore (@) all notice of not existing properties
@@ -272,7 +282,17 @@ while ( $have_feeds ) {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$wpdb->update( $feeds_table, array( 'post_id' => $post_id ), array( 'id' => $feed->id ), '%d', '%d' );
+			$wpdb->update(
+				$feeds_table,
+				array(
+					'post_id' => $post_id,
+				),
+				array(
+					'id' => $feed->id,
+				),
+				'%d',
+				'%d'
+			);
 
 			// Meta
 			// We ignore (@) all notice of not existing properties
@@ -385,7 +405,17 @@ while ( $have_payments ) {
 		$post_id = wp_insert_post( $post );
 
 		if ( $post_id ) {
-			$wpdb->update( $payments_table, array( 'post_id' => $post_id ), array( 'id' => $payment->id ), '%d', '%d' );
+			$wpdb->update(
+				$payments_table,
+				array(
+					'post_id' => $post_id,
+				),
+				array(
+					'id' => $payment->id,
+				),
+				'%d',
+				'%d'
+			);
 
 			// Meta
 			$meta = array(
@@ -478,8 +508,12 @@ if ( $shopp_meta_table === $wpdb->get_var( "SHOW TABLES LIKE '$shopp_meta_table'
 
 			$wpdb->update(
 				$shopp_meta_table,
-				array( 'value' => serialize( $settings ) ),
-				array( 'id' => $row->id )
+				array(
+					'value' => serialize( $settings ),
+				),
+				array(
+					'id' => $row->id,
+				)
 			);
 		}
 	}
