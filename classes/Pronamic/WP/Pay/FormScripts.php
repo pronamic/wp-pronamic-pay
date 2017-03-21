@@ -44,8 +44,8 @@ class Pronamic_WP_Pay_FormScripts {
 	public function enqueue() {
 		$post = get_post();
 
-		if ( 
-			is_object( $post ) && has_shortcode( $post->post_content, 'pronamic_payment_form' ) 
+		if (
+			is_object( $post ) && has_shortcode( $post->post_content, 'pronamic_payment_form' )
 				||
 			is_singular( 'pronamic_pay_form' )
 		) {
