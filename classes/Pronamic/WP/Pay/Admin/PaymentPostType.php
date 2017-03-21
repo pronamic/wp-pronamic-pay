@@ -114,7 +114,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			printf(
 				'<div class="notice notice-%1$s"><p>%2$s</p></div>',
 				esc_attr( $notice['type'] ),
-				$notice['message']
+				esc_html( $notice['message'] )
 			);
 		}
 	}
