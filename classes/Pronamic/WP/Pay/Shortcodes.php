@@ -70,7 +70,9 @@ class Pronamic_WP_Pay_Shortcodes {
 						'label'    => __( 'Select Payment Form', 'pronamic_ideal' ),
 						'attr'     => 'id',
 						'type'     => 'post_select',
-						'query'    => array( 'post_type' => 'pronamic_pay_form' ),
+						'query'    => array(
+							'post_type' => 'pronamic_pay_form',
+						),
 						'multiple' => false,
 					),
 

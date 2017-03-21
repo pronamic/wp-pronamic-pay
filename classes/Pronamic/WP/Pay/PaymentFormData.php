@@ -69,7 +69,9 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 		// Amount
 		$amount = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING, array(
 			'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
-			'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
+			'options' => array(
+				'decimal' => pronamic_pay_get_decimal_separator(),
+			),
 		) );
 
 		// Get correct amount if pronamic_pay_amount is an array
@@ -125,7 +127,7 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 	}
 
 	public function get_customer_name() {
-		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING);
+		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING );
 		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_SANITIZE_STRING );
 
 		return $first_name . ' ' . $last_name;
