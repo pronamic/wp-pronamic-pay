@@ -504,7 +504,7 @@ class Pronamic_WP_Pay_Admin {
 		global $submenu;
 
 		if ( isset( $submenu['pronamic_ideal'] ) ) {
-			$submenu['pronamic_ideal'][0][0] = __( 'Dashboard', 'pronamic_ideal' );
+			$submenu['pronamic_ideal'][0][0] = __( 'Dashboard', 'pronamic_ideal' ); // WPCS: override ok.
 		}
 	}
 
