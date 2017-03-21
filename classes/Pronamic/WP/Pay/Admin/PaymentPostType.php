@@ -222,7 +222,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					);
 				}
 
-
 				break;
 			case 'pronamic_payment_title' :
 				$source             = $payment->get_source();
