@@ -1050,7 +1050,6 @@ class Pronamic_WP_Pay_Plugin {
 	 */
 	public static function send_subscription_renewal_notices() {
 		$args = array(
-			'fields'      => 'ids',
 			'post_type'   => 'pronamic_pay_subscr',
 			'nopaging'    => true,
 			'orderby'     => 'post_date',
