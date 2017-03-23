@@ -244,8 +244,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					__( '%1$s for %2$s %3$s', 'pronamic_ideal' ),
 					sprintf(
 						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
-						get_edit_post_link( $post_id ),
-						$post_id
+						esc_url( get_edit_post_link( $post_id ) ),
+						esc_html( $post_id )
 					),
 					$source_description,
 					$source_id_text
