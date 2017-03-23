@@ -627,16 +627,24 @@ class Pronamic_WP_Pay_Plugin {
 			);
 		}
 
-		$gateways = get_posts( $args );
+		$query = new WP_Query( $args );
 
 		$options = array( __( '— Select Configuration —', 'pronamic_ideal' ) );
 
-		foreach ( $gateways as $gateway ) {
-			$options[ $gateway->ID ] = sprintf(
-				'%s (%s)',
-				get_the_title( $gateway->ID ),
-				get_post_meta( $gateway->ID, '_pronamic_gateway_mode', true )
-			);
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+
+				$id = get_the_ID();
+
+				$options[ $id ] = sprintf(
+					'%s (%s)',
+					get_the_title( $id ),
+					get_post_meta( $id, '_pronamic_gateway_mode', true )
+				);
+			}
+
+			wp_reset_postdata();
 		}
 
 		return $options;
