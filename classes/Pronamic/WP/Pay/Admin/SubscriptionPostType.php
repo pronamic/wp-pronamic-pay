@@ -133,7 +133,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				}
 
 				printf(
-					__( '%s for %s %s', 'pronamic_ideal' ),
+					__( '%1$s for %2$s %3$s', 'pronamic_ideal' ),
 					sprintf(
 						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
 						esc_url( get_edit_post_link( $post_id ) ),
