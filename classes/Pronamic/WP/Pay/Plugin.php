@@ -570,6 +570,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
 					$gateways[] = 'pay_nl';
+					$gateways[] = 'ing-kassa-compleet';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::BELFIUS :
