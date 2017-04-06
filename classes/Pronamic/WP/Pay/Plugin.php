@@ -594,6 +594,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ogone-directlink';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'sisow-ideal';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
@@ -621,6 +622,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'sisow-ideal';
 
 					break;
 			}
