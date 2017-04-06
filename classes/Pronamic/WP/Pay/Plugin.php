@@ -610,6 +610,13 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'rabobank-omnikassa';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
+					$gateways[] = 'ems-ecommerce';
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
+					$gateways[] = 'sisow-ideal';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
