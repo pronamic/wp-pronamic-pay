@@ -4,72 +4,40 @@ $data       = file_get_contents( __DIR__ . '/../extensions.json' );
 $extensions = json_decode( $data );
 
 ?>
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Name</th>
-			<th scope="col">Author</th>
-			<th scope="col">WordPress.org</th>
-			<th scope="col">GitHub</th>
-			<th scope="col">Requires at least</th>
-			<th scope="col">Tested up to</th>
-		</tr>
-	</thead>
-
-	<tbody>
+| Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
+| ---- | ------ | ------------- | ------ | ----------------- | ------------ |
 <?php foreach ( $extensions as $extension ) : ?>
-		<tr>
-			<td><?php
+| <?php
 
-			printf(
-				'<a href="%s" target="_blank">%s</a>',
-				$extension->url,
-				$extension->name
-			);
+echo '[' . $extension->name . '](' . $extension->url . ')';
 
-			?></td>
-			<td><?php
+echo ' | ';
 
-			if ( isset( $extension->author, $extension->author_url ) ) {
-				printf(
-					'<a href="%s" target="_blank">%s</a>',
-					$extension->author_url,
-					$extension->author
-				);
-			}
+if ( isset( $extension->author, $extension->author_url ) ) {
+	echo '[' . $extension->author . '](' . $extension->author_url . ')';
+}
 
-			?></td>
-			<td><?php
+echo ' | ';
 
-			if ( isset( $extension->wp_org_url ) ) {
-				printf(
-					'<a href="%s" target="_blank">%s</a>',
-					$extension->wp_org_url,
-					'WordPress.org'
-				);
-			}
+if ( isset( $extension->wp_org_url ) ) {
+	echo '[WordPress.org](' . $extension->wp_org_url . ')';
+}
 
-			?></td>
-			<td><?php
+echo ' | ';
 
-			if ( isset( $extension->github_url ) ) {
-				printf(
-					'<a href="%s" target="_blank">%s</a>',
-					$extension->github_url,
-					'GitHub'
-				);
-			}
+if ( isset( $extension->github_url ) ) {
+	echo '[GitHub](' . $extension->github_url . ')';
+}
 
-			?></td>
-			<td><?php
+echo ' | ';
 
-			if ( isset( $extension->requires_at_least ) ) {
-				echo $extension->requires_at_least;
-			}
+if ( isset( $extension->requires_at_least ) ) {
+	echo $extension->requires_at_least;
+}
 
-			?></td>
-			<td><?php echo $extension->tested_up_to; ?></td>
-		</tr>
+echo ' | ';
+
+echo $extension->tested_up_to;
+
+?> |
 <?php endforeach; ?>
-	</tbody>
-</table>
