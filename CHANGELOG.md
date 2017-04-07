@@ -6,6 +6,22 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.5.4] - 2017-04-07
+
+### Changes
+- Added PayPal config select options.
+- Added Sisow to credit card and Sofort config select options.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.
+  - 
+- Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.3.
+  - 
+- Updated WordPress pay ING - Kassa Compleet library to version 1.0.6.
+  - 
+- Updated WordPress pay OmniKassa library to version 1.2.3.
+  - 
+- Updated WordPress pay Gravity Forms library to version 1.6.5.
+  - 
+
 ## [4.5.3] - 2017-03-15
 
 ### Changes
@@ -1568,7 +1584,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...HEAD
+[4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
 [4.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.2...4.5.3
 [4.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.1...4.5.2
 [4.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.0...4.5.1
