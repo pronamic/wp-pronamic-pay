@@ -2,8 +2,6 @@
 
 <ruleset name="Pronamic iDEAL">
 	<rule ref="WordPress">
-		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
-
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 
 		<exclude name="Squiz.Commenting" />
@@ -25,12 +23,10 @@
 		<exclude name="WordPress.VIP.SlowDBQuery.slow_db_query_meta_query" />
 
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents_file_get_contents" />
-		<exclude name="WordPress.VIP.RestrictedFunctions.get_posts" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get_wp_remote_get" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta_get_user_meta" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.user_meta_update_user_meta" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.custom_role_add_role" />
-		<exclude name="WordPress.VIP.RestrictedFunctions.serialize" />
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_redirect_wp_redirect" />
 
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
