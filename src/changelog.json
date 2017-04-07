@@ -15,6 +15,12 @@
 					"Added PayPal config select options.",
 					"Added Sisow to credit card and Sofort config select options.",
 					{
+						"description": "Updated WordPress pay Buckaroo library to version 1.2.7.",
+						"changes": [
+							"Use `brq_push` parameter for the Buckaroo Push URL."
+						]
+					},
+					{
 						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.",
 						"changes": [
 							"Removed surrounding quotes from subject, these are already added by `escapeshellarg()`."
@@ -37,6 +43,12 @@
 						"description": "Updated WordPress pay OmniKassa library to version 1.2.3.",
 						"changes": [
 							"Fixed incorrect seal calculations."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Sisow library to version 1.2.2.",
+						"changes": [
+							"Added support for PayPal, Sofort and 'leap of faith' payment methods."
 						]
 					},
 					{

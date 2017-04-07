@@ -11,6 +11,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Changes
 - Added PayPal config select options.
 - Added Sisow to credit card and Sofort config select options.
+- Updated WordPress pay Buckaroo library to version 1.2.7.
+  - Use `brq_push` parameter for the Buckaroo Push URL.
 - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.
   - Removed surrounding quotes from subject, these are already added by `escapeshellarg()`.
 - Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.3.
@@ -20,6 +22,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added two extra payment methods.
 - Updated WordPress pay OmniKassa library to version 1.2.3.
   - Fixed incorrect seal calculations.
+- Updated WordPress pay Sisow library to version 1.2.2.
+  - Added support for PayPal, Sofort and 'leap of faith' payment methods.
 - Updated WordPress pay Gravity Forms library to version 1.6.5.
   - Fulfill order with payment status 'Paid'.
   - Prevent sending delayed notification twice.
