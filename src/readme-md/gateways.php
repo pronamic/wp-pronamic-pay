@@ -24,36 +24,24 @@ foreach ( $gateways as $gateway ) {
 }
 
 ?>
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Provider</th>
-			<th scope="col">Name</th>
-		</tr>
-	</thead>
-
-	<tbody>
+| Provider | Name |
+| -------- | ---- |
 <?php foreach ( $gateways as $gateway ) : ?>
-		<tr>
-			<td><?php
+| <?php
 
-			if ( isset( $gateway->provider, $providers[ $gateway->provider ] ) ) {
-				$provider = $providers[ $gateway->provider ];
+if ( isset( $gateway->provider, $providers[ $gateway->provider ] ) ) {
+	$provider = $providers[ $gateway->provider ];
 
-				if ( isset( $provider->url ) ) {
-					printf(
-						'<a href="%s">%s</a>',
-						$provider->url,
-						$provider->name
-					);
-				} else {
-					echo $provider->name;
-				}
-			}
+	if ( isset( $provider->url ) ) {
+		printf( '[%s](%s)', $provider->name, $provider->url );
+	} else {
+		echo $provider->name;
+	}
+}
 
-			?></td>
-			<td><?php echo $gateway->name; ?></td>
-		</tr>
+echo ' | ';
+
+echo $gateway->name;
+
+?> |
 <?php endforeach; ?>
-	</tbody>
-</table>

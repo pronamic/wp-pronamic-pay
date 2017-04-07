@@ -9,35 +9,35 @@ $extensions = json_decode( $data );
 <?php foreach ( $extensions as $extension ) : ?>
 | <?php
 
-echo '[' . $extension->name . '](' . $extension->url . ')';
+printf( '[%s](%s)', $extension->name, $extension->url );
 
 echo ' | ';
 
 if ( isset( $extension->author, $extension->author_url ) ) {
-	echo '[' . $extension->author . '](' . $extension->author_url . ')';
+	printf( '[%s](%s)', $extension->author, $extension->author_url );
 }
 
 echo ' | ';
 
 if ( isset( $extension->wp_org_url ) ) {
-	echo '[WordPress.org](' . $extension->wp_org_url . ')';
+	printf( '[%s](%s)', 'WordPress.org', $extension->wp_org_url );
 }
 
 echo ' | ';
 
 if ( isset( $extension->github_url ) ) {
-	echo '[GitHub](' . $extension->github_url . ')';
+	printf( '[%s](%s)', 'GitHub', $extension->github_url );
 }
 
 echo ' | ';
 
 if ( isset( $extension->requires_at_least ) ) {
-	echo $extension->requires_at_least;
+	printf( '`%s`', $extension->requires_at_least );
 }
 
 echo ' | ';
 
-echo $extension->tested_up_to;
+printf( '`%s`', $extension->tested_up_to );
 
 ?> |
 <?php endforeach; ?>
