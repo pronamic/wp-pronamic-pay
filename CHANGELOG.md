@@ -12,15 +12,17 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added PayPal config select options.
 - Added Sisow to credit card and Sofort config select options.
 - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.
-  - 
+  - Removed surrounding quotes from subject, these are already added by `escapeshellarg()`.
 - Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.3.
-  - 
+  - Added new signing certificate.
 - Updated WordPress pay ING - Kassa Compleet library to version 1.0.6.
-  - 
+  - Only set iDEAL payment method if none set yet.
+  - Added two extra payment methods.
 - Updated WordPress pay OmniKassa library to version 1.2.3.
-  - 
+  - Fixed incorrect seal calculations.
 - Updated WordPress pay Gravity Forms library to version 1.6.5.
-  - 
+  - Fulfill order with payment status 'Paid'.
+  - Prevent sending delayed notification twice.
 
 ## [4.5.3] - 2017-03-15
 

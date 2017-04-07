@@ -17,31 +17,33 @@
 					{
 						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.",
 						"changes": [
-							""
+							"Removed surrounding quotes from subject, these are already added by `escapeshellarg()`."
 						]
 					},
 					{
 						"description": "Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.3.",
 						"changes": [
-							""
+							"Added new signing certificate."
 						]
 					},
 					{
 						"description": "Updated WordPress pay ING - Kassa Compleet library to version 1.0.6.",
 						"changes": [
-							""
+							"Only set iDEAL payment method if none set yet.",
+							"Added two extra payment methods."
 						]
 					},
 					{
 						"description": "Updated WordPress pay OmniKassa library to version 1.2.3.",
 						"changes": [
-							""
+							"Fixed incorrect seal calculations."
 						]
 					},
 					{
 						"description": "Updated WordPress pay Gravity Forms library to version 1.6.5.",
 						"changes": [
-							""
+							"Fulfill order with payment status 'Paid'.",
+							"Prevent sending delayed notification twice."
 						]
 					}
 				]
