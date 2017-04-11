@@ -52,7 +52,7 @@ bind_providers_and_gateways();
 					$name = implode( '', $name );
 
 					// Deprecated notice
-					if ( isset( $integration->deprecated ) && $integration->deprecated  ) {
+					if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 						$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 					}
 

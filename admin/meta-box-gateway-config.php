@@ -50,7 +50,7 @@ bind_providers_and_gateways();
 								$description = '';
 								$links   = array();
 
-								if ( isset( $integration->deprecated ) && $integration->deprecated  ) {
+								if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 									$classes[] = 'deprecated';
 
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
@@ -230,11 +230,11 @@ bind_providers_and_gateways();
 									$attributes['size'] = $field['size'];
 								}
 
-								if ( in_array( $field['type'], array( 'text', 'password', 'textarea', 'select' ) ) ) {
+								if ( in_array( $field['type'], array( 'text', 'password', 'textarea', 'select' ), true ) ) {
 									$classes[] = 'pronamic-pay-form-control';
 								}
 
-								if ( in_array( $field['type'], array( 'textarea' ) ) ) {
+								if ( in_array( $field['type'], array( 'textarea' ), true ) ) {
 									$classes[] = 'pronamic-pay-form-control-lg';
 								}
 

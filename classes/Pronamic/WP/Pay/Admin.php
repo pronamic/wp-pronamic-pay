@@ -398,7 +398,9 @@ class Pronamic_WP_Pay_Admin {
 			if ( $gateway ) {
 				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
 					'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
-					'options' => array( 'decimal' => pronamic_pay_get_decimal_separator() ),
+					'options' => array(
+						'decimal' => pronamic_pay_get_decimal_separator(),
+					),
 				) );
 
 				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
@@ -502,7 +504,7 @@ class Pronamic_WP_Pay_Admin {
 		global $submenu;
 
 		if ( isset( $submenu['pronamic_ideal'] ) ) {
-			$submenu['pronamic_ideal'][0][0] = __( 'Dashboard', 'pronamic_ideal' );
+			$submenu['pronamic_ideal'][0][0] = __( 'Dashboard', 'pronamic_ideal' ); // WPCS: override ok.
 		}
 	}
 

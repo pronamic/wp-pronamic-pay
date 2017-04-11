@@ -72,15 +72,10 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
 			'pronamic_subscription_title'       => __( 'Subscription', 'pronamic_ideal' ),
-//			'pronamic_subscription_gateway'     => __( 'Gateway', 'pronamic_ideal' ),
-//			'pronamic_subscription_description' => __( 'Description', 'pronamic_ideal' ),
 			'pronamic_subscription_customer'    => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_subscription_amount'      => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_subscription_recurring'   => __( 'Recurrence', 'pronamic_ideal' ),
 			'pronamic_subscription_date'        => __( 'Date', 'pronamic_ideal' ),
-//			'pronamic_subscription_source'      => __( 'Source', 'pronamic_ideal' ),
-//			'author'                            => __( 'User', 'pronamic_ideal' ),
-//			'date'                              => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
@@ -137,15 +132,24 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 					);
 				}
 
-				printf(
-					__( '%s for %s %s', 'pronamic_ideal' ),
+				echo wp_kses(
 					sprintf(
-						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
-						get_edit_post_link( $post_id ),
-						$post_id
+						__( '%1$s for %2$s %3$s', 'pronamic_ideal' ),
+						sprintf(
+							'<a href="%s" class="row-title"><strong>#%s</strong></a>',
+							esc_url( get_edit_post_link( $post_id ) ),
+							esc_html( $post_id )
+						),
+						$source_description,
+						$source_id_text
 					),
-					$source_description,
-					$source_id_text
+					array(
+						'a'      => array(
+							'href'  => true,
+							'class' => true,
+						),
+						'strong' => array(),
+					)
 				);
 
 				break;

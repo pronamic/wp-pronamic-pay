@@ -87,7 +87,9 @@ class Pronamic_WP_Pay_Settings {
 				array( $this, 'input_page' ), // callback
 				'pronamic_pay', // page
 				'pronamic_pay_pages', // section
-				array( 'label_for' => $id ) // args
+				array(
+					'label_for' => $id,
+				) // args
 			);
 
 			register_setting( 'pronamic_pay', $id );

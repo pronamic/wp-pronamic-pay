@@ -6,6 +6,28 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.5.4] - 2017-04-11
+
+### Changes
+- Added PayPal config select options.
+- Added Sisow to credit card and Sofort config select options.
+- Updated WordPress pay Buckaroo library to version 1.2.7.
+  - Use `brq_push` parameter for the Buckaroo Push URL.
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.10.
+  - Removed surrounding quotes from subject, these are already added by `escapeshellarg()`.
+- Updated WordPress pay ING - iDEAL Advanced - v3 library to version 1.0.3.
+  - Added new signing certificate.
+- Updated WordPress pay ING - Kassa Compleet library to version 1.0.6.
+  - Only set iDEAL payment method if none set yet.
+  - Added two extra payment methods.
+- Updated WordPress pay OmniKassa library to version 1.2.3.
+  - Fixed incorrect seal calculations.
+- Updated WordPress pay Sisow library to version 1.2.2.
+  - Added support for PayPal, Sofort and 'leap of faith' payment methods.
+- Updated WordPress pay Gravity Forms library to version 1.6.5.
+  - Fulfill order with payment status 'Paid'.
+  - Prevent sending delayed notification twice.
+
 ## [4.5.3] - 2017-03-15
 
 ### Changes
@@ -1568,7 +1590,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...HEAD
+[4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
 [4.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.2...4.5.3
 [4.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.1...4.5.2
 [4.5.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.0...4.5.1

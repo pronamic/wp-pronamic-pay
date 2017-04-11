@@ -34,7 +34,7 @@ the chosen payment provider and a wide variety of supported e-commerce plugins."
 					'page' => 'pronamic_pay_tools',
 					'tab'  => 'gateways',
 				), admin_url( 'admin.php' ) ) ),
-				__( 'View supported payment providers', 'pronamic_ideal' )
+				esc_html__( 'View supported payment providers', 'pronamic_ideal' )
 			);
 
 			?>
@@ -80,7 +80,7 @@ see the "Transaction Feedback" tab of the configuration for details.', 'pronamic
 				esc_url( add_query_arg( array(
 					'post_type' => 'pronamic_gateway',
 				), admin_url( 'post-new.php' ) ) ),
-				__( 'Add new payment provider configuration', 'pronamic_ideal' )
+				esc_html__( 'Add new payment provider configuration', 'pronamic_ideal' )
 			);
 
 			?>
@@ -145,7 +145,7 @@ page, where you choose which configuration to use in the payment methods that ar
 					'page' => 'pronamic_pay_tools',
 					'tab'  => 'extensions',
 				), admin_url( 'admin.php' ) ) ),
-				__( 'View supported e-commerce plugins', 'pronamic_ideal' )
+				esc_html__( 'View supported e-commerce plugins', 'pronamic_ideal' )
 			);
 
 			?>

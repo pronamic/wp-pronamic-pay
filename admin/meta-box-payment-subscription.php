@@ -12,8 +12,8 @@ if ( $subscription ) : ?>
 		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Subscription', 'pronamic_ideal' ); ?>
- 			</th>
- 			<td>
+			</th>
+			<td>
 				<?php edit_post_link( get_the_title( $subscription->post->ID ), '', '', $subscription->post->ID ); ?>
 			</td>
 		</tr>

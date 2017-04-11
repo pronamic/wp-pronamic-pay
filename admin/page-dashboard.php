@@ -79,31 +79,29 @@
 						<div class="inside">
 							<?php
 
-							$payments = get_posts( array(
+							$query = new WP_Query( array(
 								'post_type'      => 'pronamic_payment',
 								'post_status'    => 'payment_pending',
 								'posts_per_page' => 5,
 							) );
 
-							if ( empty( $payments ) ) : ?>
-
-
-
-							<?php else : ?>
+							if ( $query->have_posts() ) : ?>
 
 								<div id="dashboard_recent_drafts">
 									<ul>
 
-										<?php foreach ( $payments as $payment ) : ?>
+										<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 
 											<li>
 												<h4>
 													<?php
 
+													$post = get_post();
+
 													printf(
 														'<a href="%s">%s</a>',
-														esc_attr( get_edit_post_link( $payment ) ),
-														esc_html( get_the_title( $payment ) )
+														esc_attr( get_edit_post_link( $post ) ),
+														esc_html( get_the_title( $post ) )
 													);
 
 													?>
@@ -111,18 +109,20 @@
 
 													printf( '<abbr title="%s">%s</abbr>',
 														/* translators: comment date format. See http://php.net/date */
-														esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $payment ) ),
-														esc_html( get_the_time( get_option( 'date_format' ), $payment ) )
+														esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $post ) ),
+														esc_html( get_the_time( get_option( 'date_format' ), $post ) )
 													);
 
 													?>
 												</h4>
 											</li>
 
-										<?php endforeach; ?>
+										<?php endwhile; ?>
 
 									</ul>
 								</div>
+
+								<?php wp_reset_postdata(); ?>
 
 							<?php endif; ?>
 						</div>

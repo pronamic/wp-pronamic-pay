@@ -49,7 +49,10 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 		// 15 minutes after a transaction request is sent
 		$delay = 15 * MINUTE_IN_SECONDS;
 
-		wp_schedule_single_event( $time + $delay, 'pronamic_ideal_check_transaction_status', array( 'payment_id' => $payment->get_id(), 'seconds' => $delay ) );
+		wp_schedule_single_event( $time + $delay, 'pronamic_ideal_check_transaction_status', array(
+			'payment_id' => $payment->get_id(),
+			'seconds'    => $delay,
+		) );
 	}
 
 	/**

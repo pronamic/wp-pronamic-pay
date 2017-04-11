@@ -103,7 +103,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
 
 			$this->admin_notices[] = array(
-				'type' => 'info',
+				'type'    => 'info',
 				'message' => __( 'Payment status updated.', 'pronamic_ideal' ),
 			);
 		}
@@ -111,7 +111,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 	public function admin_notices() {
 		foreach ( $this->admin_notices as $notice ) {
-			printf( '<div class="notice notice-%1$s"><p>%2$s</p></div>', $notice['type'], $notice['message'] );
+			printf(
+				'<div class="notice notice-%1$s"><p>%2$s</p></div>',
+				esc_attr( $notice['type'] ),
+				esc_html( $notice['message'] )
+			);
 		}
 	}
 
@@ -121,9 +125,9 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Query $query
 	 */
 	public function pre_get_posts( $query ) {
-		if ( 'pronamic_payment_amount' == $query->get( 'orderby' ) ) {  
+		if ( 'pronamic_payment_amount' === $query->get( 'orderby' ) ) {
 			$query->set( 'meta_key', '_pronamic_payment_amount' );
-			$query->set( 'orderby', 'meta_value_num' );  
+			$query->set( 'orderby', 'meta_value_num' );
 		}
 	}
 
@@ -149,10 +153,6 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			'pronamic_payment_customer'     => __( 'Customer', 'pronamic_ideal' ),
 			'pronamic_payment_amount'       => __( 'Amount', 'pronamic_ideal' ),
 			'pronamic_payment_date'         => __( 'Date', 'pronamic_ideal' ),
-
-//			'pronamic_payment_source'       => __( 'Source', 'pronamic_ideal' ),
-//			'author'                        => __( 'User', 'pronamic_ideal' ),
-//			'date'                          => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
@@ -177,7 +177,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		$payment = get_pronamic_payment( $post_id );
 
 		switch ( $column ) {
-			case 'pronamic_payment_status':
+			case 'pronamic_payment_status' :
 				$post_status = get_post_status( $post_id );
 
 				$label = __( 'Unknown', 'pronamic_ideal' );
@@ -200,7 +200,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				);
 
 				break;
-			case 'pronamic_payment_subscription':
+			case 'pronamic_payment_subscription' :
 				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
 
 				if ( $subscription_id ) {
@@ -222,10 +222,8 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					);
 				}
 
-
 				break;
-			case 'pronamic_payment_title':
-
+			case 'pronamic_payment_title' :
 				$source             = $payment->get_source();
 				$source_id          = $payment->get_source_id();
 				$source_description = $payment->get_source_description();
@@ -242,19 +240,28 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 					);
 				}
 
-				printf(
-					__( '%s for %s %s', 'pronamic_ideal' ),
+				echo wp_kses(
 					sprintf(
-						'<a href="%s" class="row-title"><strong>#%s</strong></a>',
-						get_edit_post_link( $post_id ),
-						$post_id
+						__( '%1$s for %2$s %3$s', 'pronamic_ideal' ),
+						sprintf(
+							'<a href="%s" class="row-title"><strong>#%s</strong></a>',
+							esc_url( get_edit_post_link( $post_id ) ),
+							esc_html( $post_id )
+						),
+						$source_description,
+						$source_id_text
 					),
-					$source_description,
-					$source_id_text
+					array(
+						'a'      => array(
+							'href'  => true,
+							'class' => true,
+						),
+						'strong' => array(),
+					)
 				);
 
 				break;
-			case 'pronamic_payment_gateway':
+			case 'pronamic_payment_gateway' :
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
 
 				if ( ! empty( $config_id ) ) {
@@ -264,7 +271,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				}
 
 				break;
-			case 'pronamic_payment_transaction':
+			case 'pronamic_payment_transaction' :
 				$transaction_id = get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
 
 				$url = $payment->get_provider_link();
@@ -280,22 +287,22 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				}
 
 				break;
-			case 'pronamic_payment_description':
+			case 'pronamic_payment_description' :
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_description', true ) );
 
 				break;
-			case 'pronamic_payment_amount':
+			case 'pronamic_payment_amount' :
 				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
 				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 				break;
-			case 'pronamic_payment_date':
+			case 'pronamic_payment_date' :
 				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
 
 				break;
-			case 'pronamic_payment_consumer':
+			case 'pronamic_payment_consumer' :
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
 				echo '<br />';
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
@@ -305,11 +312,11 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
 
 				break;
-			case 'pronamic_payment_customer':
+			case 'pronamic_payment_customer' :
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_customer_name', true ) );
 
 				break;
-			case 'pronamic_payment_source':
+			case 'pronamic_payment_source' :
 				echo $payment->get_source_text(); //xss ok
 
 				break;
@@ -500,7 +507,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 			 4 => __( 'Payment updated.', 'pronamic_ideal' ),
 			/* translators: %s: date and time of the revision */
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
-			 5 => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			 5 => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // WPCS: CSRF ok.
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
 			 6 => __( 'Payment published.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232

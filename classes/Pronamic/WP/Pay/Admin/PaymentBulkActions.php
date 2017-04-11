@@ -100,7 +100,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 				}
 			}
 
-			if ( in_array( $config_id, $unsupported_gateways ) ) {
+			if ( in_array( $config_id, $unsupported_gateways, true ) ) {
 				continue;
 			}
 

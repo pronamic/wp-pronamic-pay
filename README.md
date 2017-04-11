@@ -12,376 +12,71 @@ The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to y
 
 ## Gateways
 
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Provider</th>
-			<th scope="col">Name</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Easy</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Only Kassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - iDEAL Zelfbouw - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://abnamro.nl/">ABN AMRO</a></td>
-			<td>ABN AMRO - Internetkassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.buckaroo.nl/">Buckaroo</a></td>
-			<td>Buckaroo - HTML</td>
-		</tr>
-		<tr>
-			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
-			<td>Deutsche Bank - iDEAL via Ogone</td>
-		</tr>
-		<tr>
-			<td><a href="http://deutschebank.nl/">Deutsche Bank</a></td>
-			<td>Deutsche Bank - iDEAL Expert - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.easy-ideal.com/">Easy iDeal</a></td>
-			<td>Easy iDeal - iDEAL</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.emscard.nl/">European Merchant Services</a></td>
-			<td>EMS - e-Commerce</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.fibonacciorange.nl/">Fibonacci ORANGE</a></td>
-			<td>Fibonacci ORANGE</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.icepay.nl/">ICEPAY</a></td>
-			<td>ICEPAY</td>
-		</tr>
-		<tr>
-			<td><a href="http://ideal-simulator.nl/">iDEAL Simulator</a></td>
-			<td>iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Basic</td>
-		</tr>
-		<tr>
-			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - iDEAL Advanced - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://ing.nl/">ING</a></td>
-			<td>ING - Kassa Compleet</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.mollie.nl/">Mollie</a></td>
-			<td>Mollie</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.multisafepay.com/">MultiSafepay</a></td>
-			<td>MultiSafepay - Connect</td>
-		</tr>
-		<tr>
-			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
-			<td>Ingenico/Ogone - Easy</td>
-		</tr>
-		<tr>
-			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
-			<td>Ingenico/Ogone - DirectLink</td>
-		</tr>
-		<tr>
-			<td><a href="http://payment-services.ingenico.com/">Ingenico/Ogone</a></td>
-			<td>Ingenico/Ogone - OrderStandard</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.pay.nl/">Pay.nl</a></td>
-			<td>Pay.nl</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.paytor.com/">Paytor</a></td>
-			<td>Paytor</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.postcode.nl/">Postcode.nl</a></td>
-			<td>Postcode iDEAL</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - OmniKassa</td>
-		</tr>
-		<tr>
-			<td><a href="http://rabobank.nl/">Rabobank</a></td>
-			<td>Rabobank - iDEAL Professional - v3</td>
-		</tr>
-		<tr>
-			<td><a href="http://sisow.nl/">Sisow</a></td>
-			<td>Sisow</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.targetpay.com/">TargetPay</a></td>
-			<td>TargetPay - iDEAL</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.qantani.com/">Qantani</a></td>
-			<td>Qantani (new platform)</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.qantani.com/">Qantani</a></td>
-			<td>Qantani (old platform)</td>
-		</tr>
-	</tbody>
-</table>
+| Provider | Name |
+| -------- | ---- |
+| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Easy |
+| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Only Kassa |
+| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - v3 |
+| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - Internetkassa |
+| [Buckaroo](http://www.buckaroo.nl/) | Buckaroo - HTML |
+| [Deutsche Bank](http://deutschebank.nl/) | Deutsche Bank - iDEAL via Ogone |
+| [Deutsche Bank](http://deutschebank.nl/) | Deutsche Bank - iDEAL Expert - v3 |
+| [Easy iDeal](http://www.easy-ideal.com/) | Easy iDeal - iDEAL |
+| [European Merchant Services](http://www.emscard.nl/) | EMS - e-Commerce |
+| [Fibonacci ORANGE](http://www.fibonacciorange.nl/) | Fibonacci ORANGE |
+| [ICEPAY](http://www.icepay.nl/) | ICEPAY |
+| [iDEAL Simulator](http://ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3 |
+| [ING](http://ing.nl/) | ING - iDEAL Basic |
+| [ING](http://ing.nl/) | ING - iDEAL Advanced - v3 |
+| [ING](http://ing.nl/) | ING - Kassa Compleet |
+| [Mollie](http://www.mollie.nl/) | Mollie |
+| [MultiSafepay](http://www.multisafepay.com/) | MultiSafepay - Connect |
+| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - Easy |
+| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
+| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
+| [Pay.nl](https://www.pay.nl/) | Pay.nl |
+| [Paytor](http://www.paytor.com/) | Paytor |
+| [Postcode.nl](https://www.postcode.nl/) | Postcode iDEAL |
+| [Rabobank](http://rabobank.nl/) | Rabobank - OmniKassa |
+| [Rabobank](http://rabobank.nl/) | Rabobank - iDEAL Professional - v3 |
+| [Sisow](http://sisow.nl/) | Sisow |
+| [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
+| [Qantani](https://www.qantani.com/) | Qantani (new platform) |
+| [Qantani](https://www.qantani.com/) | Qantani (old platform) |
 
 
 ## Extensions
 
-<table>
-	<thead>
-		<tr>
-			<th scope="col">Name</th>
-			<th scope="col">Author</th>
-			<th scope="col">WordPress.org</th>
-			<th scope="col">GitHub</th>
-			<th scope="col">Requires at least</th>
-			<th scope="col">Tested up to</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-			<td><a href="https://www.wpcharitable.com/" target="_blank">Charitable</a></td>
-			<td><a href="http://164a.com/" target="_blank">Studio 164a</a></td>
-			<td><a href="https://wordpress.org/plugins/charitable/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/Charitable/Charitable" target="_blank">GitHub</a></td>
-			<td>1.3</td>
-			<td>1.4.0</td>
-		</tr>
-		<tr>
-			<td><a href="https://easydigitaldownloads.com/" target="_blank">Easy Digital Downloads</a></td>
-			<td><a href="http://pippinsplugins.com/" target="_blank">Pippin Williamson</a></td>
-			<td><a href="http://wordpress.org/plugins/easy-digital-downloads/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads" target="_blank">GitHub</a></td>
-			<td>1.8.6</td>
-			<td>2.6.6</td>
-		</tr>
-		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3</a></td>
-			<td></td>
-			<td></td>
-			<td><a href="https://github.com/eventespresso/event-espresso-legacy" target="_blank">GitHub</a></td>
-			<td>3.1.24</td>
-			<td>3.1.35.P</td>
-		</tr>
-		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 3 Lite</a></td>
-			<td></td>
-			<td><a href="http://wordpress.org/plugins/event-espresso-free/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
-			<td>3.1.29.1.L</td>
-			<td>3.1.35.L</td>
-		</tr>
-		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4</a></td>
-			<td></td>
-			<td></td>
-			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
-			<td>4.4.7.p</td>
-			<td>4.9.7.p</td>
-		</tr>
-		<tr>
-			<td><a href="http://eventespresso.com/" target="_blank">Event Espresso 4 Decaf</a></td>
-			<td></td>
-			<td><a href="https://wordpress.org/plugins/event-espresso-decaf/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/eventespresso/event-espresso-core" target="_blank">GitHub</a></td>
-			<td>4.4.4.decaf</td>
-			<td>4.4.4.decaf</td>
-		</tr>
-		<tr>
-			<td><a href="https://formidablepro.com/" target="_blank">Formidable Forms</a></td>
-			<td></td>
-			<td><a href="https://wordpress.org/plugins/formidable/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/Strategy11/formidable-forms" target="_blank">GitHub</a></td>
-			<td>2.0.22</td>
-			<td>2.0.22</td>
-		</tr>
-		<tr>
-			<td><a href="https://givewp.com/" target="_blank">Give</a></td>
-			<td></td>
-			<td><a href="https://wordpress.org/plugins/give/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/WordImpress/Give" target="_blank">GitHub</a></td>
-			<td>1.3.6</td>
-			<td>1.5.2</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/" target="_blank">Gravity Forms</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityforms" target="_blank">GitHub</a></td>
-			<td>1.6</td>
-			<td>2.0.6</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/add-ons/aweber/" target="_blank">Gravity Forms AWeber Add-On</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityformsaweber" target="_blank">GitHub</a></td>
-			<td>1.4.2</td>
-			<td>1.4.2</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/add-ons/campaign-monitor/" target="_blank">Gravity Forms Campaign Monitor Add-On</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityformscampaignmonitor" target="_blank">GitHub</a></td>
-			<td>2.5.1</td>
-			<td>2.5.1</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/add-ons/mailchimp/" target="_blank">Gravity Forms MailChimp Add-On</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
-			<td>2.4.1</td>
-			<td>2.4.1</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/add-ons/user-registration/" target="_blank">Gravity Forms User Registration Add-On</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityformsmailchimp" target="_blank">GitHub</a></td>
-			<td>1.8</td>
-			<td>1.8</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.gravityforms.com/add-ons/zapier/" target="_blank">Gravity Forms Zapier Add-On</a></td>
-			<td><a href="http://www.rocketgenius.com/" target="_blank">Rocketgenius</a></td>
-			<td></td>
-			<td><a href="https://github.com/gravityforms/gravityformszapier" target="_blank">GitHub</a></td>
-			<td>1.4.2</td>
-			<td>1.4.2</td>
-		</tr>
-		<tr>
-			<td><a href="http://ithemes.com/exchange/" target="_blank">iThemes Exchange</a></td>
-			<td><a href="http://ithemes.com/" target="_blank">iThemes</a></td>
-			<td><a href="http://wordpress.org/plugins/ithemes-exchange/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/wp-plugins/ithemes-exchange" target="_blank">GitHub</a></td>
-			<td>1.7.14</td>
-			<td>1.35.9</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.jigoshop.com/" target="_blank">Jigoshop</a></td>
-			<td><a href="https://www.jigoshop.com/" target="_blank">Jigoshop</a></td>
-			<td><a href="https://wordpress.org/plugins/jigoshop/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/jigoshop/jigoshop" target="_blank">GitHub</a></td>
-			<td>1.1</td>
-			<td>1.12</td>
-		</tr>
-		<tr>
-			<td><a href="https://www.memberpress.com/" target="_blank">MemberPress</a></td>
-			<td><a href="http://www.caseproof.com/" target="_blank">Caseproof, LLC</a></td>
-			<td></td>
-			<td></td>
-			<td>1.2.4</td>
-			<td>1.2.4</td>
-		</tr>
-		<tr>
-			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">Membership 2</a></td>
-			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
-			<td><a href="http://wordpress.org/plugins/membership/" target="_blank">WordPress.org</a></td>
-			<td></td>
-			<td>3.4.4.1</td>
-			<td>4.0.0.7</td>
-		</tr>
-		<tr>
-			<td><a href="https://premium.wpmudev.org/project/membership/" target="_blank">Membership Premium</a></td>
-			<td><a href="http://www.wpmudev.org/" target="_blank">WPMUDEV.org</a></td>
-			<td></td>
-			<td><a href="https://github.com/pronamic-wpmudev/membership-premium" target="_blank">GitHub</a></td>
-			<td>3.4.6</td>
-			<td>3.5.1.3</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.s2member.com/" target="_blank">s2Member®</a></td>
-			<td><a href="http://www.websharks-inc.com/" target="_blank">WebSharks, Inc.</a></td>
-			<td><a href="http://wordpress.org/plugins/s2member/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/WebSharks/s2Member" target="_blank">GitHub</a></td>
-			<td>130816</td>
-			<td>160801</td>
-		</tr>
-		<tr>
-			<td><a href="https://shopplugin.net/" target="_blank">Shopp</a></td>
-			<td><a href="http://ingenesis.net/" target="_blank">Ingenesis Limited</a></td>
-			<td><a href="http://wordpress.org/plugins/shopp/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/ingenesis/shopp" target="_blank">GitHub</a></td>
-			<td>1.1</td>
-			<td>1.3.5</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.woothemes.com/woocommerce/" target="_blank">WooCommerce</a></td>
-			<td><a href="http://www.woothemes.com/" target="_blank">WooThemes</a></td>
-			<td><a href="http://wordpress.org/plugins/woocommerce/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/woothemes/woocommerce" target="_blank">GitHub</a></td>
-			<td>2.1.0</td>
-			<td>2.6.4</td>
-		</tr>
-		<tr>
-			<td><a href="http://getshopped.org/" target="_blank">WP e-Commerce</a></td>
-			<td><a href="http://instinct.co.nz/" target="_blank">Instinct Entertainment</a></td>
-			<td><a href="http://wordpress.org/plugins/wp-e-commerce/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/wp-e-commerce/WP-e-Commerce" target="_blank">GitHub</a></td>
-			<td>3.8.12.1</td>
-			<td>3.11.3</td>
-		</tr>
-		<tr>
-			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">Crowdfunding by Astoundify</a></td>
-			<td><a href="http://www.astoundify.com/" target="_blank">Astoundify</a></td>
-			<td><a href="http://wordpress.org/plugins/appthemer-crowdfunding/" target="_blank">WordPress.org</a></td>
-			<td><a href="https://github.com/astoundify/crowdfunding/" target="_blank">GitHub</a></td>
-			<td>1.8.2</td>
-			<td>1.8.2</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.appthemes.com/themes/classipress/" target="_blank">ClassiPress</a></td>
-			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
-			<td></td>
-			<td></td>
-			<td>3.3.1</td>
-			<td>3.3.3</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.appthemes.com/themes/jobroller/" target="_blank">JobRoller</a></td>
-			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>1.7.1</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.appthemes.com/themes/vantage/" target="_blank">Vantage</a></td>
-			<td><a href="http://www.appthemes.com/" target="_blank">AppThemes</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>1.3.2</td>
-		</tr>
-		<tr>
-			<td><a href="http://www.astoundify.com/" target="_blank">Campaignify</a></td>
-			<td><a href="http://www.astoundify.com/" target="_blank">Astoundify</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>1.5</td>
-		</tr>
-	</tbody>
-</table>
+| Name | Author | WordPress.org | GitHub | Requires at least | Tested up to |
+| ---- | ------ | ------------- | ------ | ----------------- | ------------ |
+| [Charitable](https://www.wpcharitable.com/) | [Studio 164a](http://164a.com/) | [WordPress.org](https://wordpress.org/plugins/charitable/) | [GitHub](https://github.com/Charitable/Charitable) | `1.3` | `1.4.0` |
+| [Easy Digital Downloads](https://easydigitaldownloads.com/) | [Pippin Williamson](http://pippinsplugins.com/) | [WordPress.org](http://wordpress.org/plugins/easy-digital-downloads/) | [GitHub](https://github.com/easydigitaldownloads/Easy-Digital-Downloads) | `1.8.6` | `2.6.6` |
+| [Event Espresso 3](http://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-legacy) | `3.1.24` | `3.1.35.P` |
+| [Event Espresso 3 Lite](http://eventespresso.com/) |  | [WordPress.org](http://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `3.1.29.1.L` | `3.1.35.L` |
+| [Event Espresso 4](http://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.9.7.p` |
+| [Event Espresso 4 Decaf](http://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.4.4.decaf` |
+| [Formidable Forms](https://formidablepro.com/) |  | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `2.0.22` |
+| [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.3.6` | `1.5.2` |
+| [Gravity Forms](http://www.gravityforms.com/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityforms) | `1.6` | `2.0.6` |
+| [Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsaweber) | `1.4.2` | `1.4.2` |
+| [Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformscampaignmonitor) | `2.5.1` | `2.5.1` |
+| [Gravity Forms MailChimp Add-On](http://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsmailchimp) | `2.4.1` | `2.4.1` |
+| [Gravity Forms User Registration Add-On](http://www.gravityforms.com/add-ons/user-registration/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsmailchimp) | `1.8` | `1.8` |
+| [Gravity Forms Zapier Add-On](http://www.gravityforms.com/add-ons/zapier/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformszapier) | `1.4.2` | `1.4.2` |
+| [iThemes Exchange](http://ithemes.com/exchange/) | [iThemes](http://ithemes.com/) | [WordPress.org](http://wordpress.org/plugins/ithemes-exchange/) | [GitHub](https://github.com/wp-plugins/ithemes-exchange) | `1.7.14` | `1.35.9` |
+| [Jigoshop](https://www.jigoshop.com/) | [Jigoshop](https://www.jigoshop.com/) | [WordPress.org](https://wordpress.org/plugins/jigoshop/) | [GitHub](https://github.com/jigoshop/jigoshop) | `1.1` | `1.12` |
+| [MemberPress](https://www.memberpress.com/) | [Caseproof, LLC](http://www.caseproof.com/) |  |  | `1.2.4` | `1.2.4` |
+| [Membership 2](http://wordpress.org/plugins/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) | [WordPress.org](http://wordpress.org/plugins/membership/) |  | `3.4.4.1` | `4.0.0.7` |
+| [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
+| [s2Member®](http://www.s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](http://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `160801` |
+| [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](http://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.3.5` |
+| [WooCommerce](http://www.woothemes.com/woocommerce/) | [WooThemes](http://www.woothemes.com/) | [WordPress.org](http://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woothemes/woocommerce) | `2.1.0` | `2.6.4` |
+| [WP e-Commerce](http://getshopped.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](http://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.11.3` |
+| [Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/) | [Astoundify](http://www.astoundify.com/) | [WordPress.org](http://wordpress.org/plugins/appthemer-crowdfunding/) | [GitHub](https://github.com/astoundify/crowdfunding/) | `1.8.2` | `1.8.2` |
+| [ClassiPress](http://www.appthemes.com/themes/classipress/) | [AppThemes](http://www.appthemes.com/) |  |  | `3.3.1` | `3.3.3` |
+| [JobRoller](http://www.appthemes.com/themes/jobroller/) | [AppThemes](http://www.appthemes.com/) |  |  |  | `1.7.1` |
+| [Vantage](http://www.appthemes.com/themes/vantage/) | [AppThemes](http://www.appthemes.com/) |  |  |  | `1.3.2` |
+| [Campaignify](http://www.astoundify.com/) | [Astoundify](http://www.astoundify.com/) |  |  |  | `1.5` |
 
 
 ## Installation
