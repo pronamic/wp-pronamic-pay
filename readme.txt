@@ -303,7 +303,7 @@ results in OmniKassa data that no longer matches the signature.
 
 == Changelog ==
 
-= 4.5.4 - 2017-04-07 =
+= 4.5.4 - 2017-04-11 =
 *	Added PayPal config select options.
 *	Added Sisow to credit card and Sofort config select options.
 *	Updated WordPress pay Buckaroo library to version 1.2.7.

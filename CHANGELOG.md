@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [4.5.4] - 2017-04-07
+## [4.5.4] - 2017-04-11
 
 ### Changes
 - Added PayPal config select options.

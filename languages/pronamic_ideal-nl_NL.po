@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2017-04-07 12:19:19+00:00\n"
-"PO-Revision-Date: 2017-04-07 14:25+0100\n"
+"POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
+"PO-Revision-Date: 2017-04-10 11:09+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -37,7 +37,7 @@ msgstr "Betaal nu"
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:76
 #: templates/form.php:40
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 msgid "Amount"
@@ -84,7 +84,7 @@ msgstr "Productinformatie"
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:143
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:240
 msgid "Payment Method"
 msgstr "Betaalmethode"
@@ -290,7 +290,7 @@ msgstr "Geen betalingen gevonden."
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:335
 #: classes/Pronamic/WP/Pay/PostTypes.php:79
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:211
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
 msgid "Payment"
 msgstr "Betaling"
 
@@ -1875,7 +1875,7 @@ msgid "Error"
 msgstr "Fout"
 
 #: classes/Pronamic/WP/Pay/Settings.php:101
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:238
 msgid "Currency"
 msgstr "Valuta"
@@ -2154,7 +2154,7 @@ msgstr "Charitable donatie {donation_id}"
 #: vendor/wp-pay-extensions/event-espresso/src/IDealPaymentMethod.php:91
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:93
 #: vendor/wp-pay-extensions/give/src/Gateway.php:77
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:100
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:108
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:203
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:222
 msgid "Available tags: %s"
@@ -3123,7 +3123,7 @@ msgid "Button image URL"
 msgstr "Button afbeelding URL"
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:85
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:101
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:109
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:93
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:101
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:66
@@ -3488,11 +3488,11 @@ msgstr "Aankoop #%s"
 msgid "WP e-Commerce Purchase"
 msgstr "WP e-Commerce bestelling"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Client.php:489
+#: vendor/wp-pay-gateways/buckaroo/src/Client.php:518
 msgid "Unable to retrieve issuers from Buckaroo."
 msgstr "Issuers konden niet opgehaald worden bij Buckaroo."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:83
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:84
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:76
@@ -3506,47 +3506,47 @@ msgstr "Issuers konden niet opgehaald worden bij Buckaroo."
 msgid "Choose your bank"
 msgstr "Kies uw bank"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
 msgid "Status Code"
 msgstr "Statuscode"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
 msgid "Status Code Detail"
 msgstr "Statuscode detail"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
 msgid "Status Message"
 msgstr "Statusbericht"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
 msgid "Invoice Number"
 msgstr "Factuurnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
 msgid "Timestamp"
 msgstr "Timestamp"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
 msgid "Service iDEAL Consumer Issuer"
 msgstr "Service iDEAL gebruiker issuer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
 msgid "Service iDEAL Consumer Name"
 msgstr "Service iDEAL gebruiker naam"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
 msgid "Service iDEAL Consumer IBAN"
 msgstr "Service iDEAL gebruiker IBAN"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
 msgid "Service iDEAL Consumer BIC"
 msgstr "Service iDEAL gebruiker BIC"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:225
 msgid "Transactions"
 msgstr "Transacties"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:230
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:231
 msgid "Buckaroo data:"
 msgstr "Buckaroo data:"
 
@@ -3556,8 +3556,6 @@ msgstr "http://www.buckaroo.nl"
 
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:22
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:26
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:42
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:115
 msgid "Buckaroo"
 msgstr "Buckaroo"
 
@@ -3574,7 +3572,7 @@ msgstr ""
 "moeten overeenkomen met het %1$s dashboard."
 
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:38
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:122
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:72
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:61
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:36
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:69
@@ -3596,19 +3594,20 @@ msgstr ""
 msgid "Transaction feedback"
 msgstr "Transactie terugkoppeling"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:41
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:40
 msgid ""
-"Set the Push URL in the %s dashboard to receive automatic transaction status "
+"Payment status updates will be processed without any additional "
+"configuration. The <em>Push URL</em> is being used to receive the status "
 "updates."
 msgstr ""
-"Stel de Push URL in het %s dashboard in om automatische transactie status "
-"updates te ontvangen."
+"Transactie status updates worden verwerkt zonder aanvullende configuratie. "
+"De <em>Push URL</em> wordt gebruikt om de status updates op te ontvangen."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:55
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:52
 msgid "Website Key"
 msgstr "Website sleutel"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:58
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:55
 msgid ""
 "Website key as mentioned in the Buckaroo dashboard on the page \"Profile » "
 "Website\"."
@@ -3616,12 +3615,12 @@ msgstr ""
 "Website sleutel zoals vermeld in het Buckaroo dashboard op de pagina "
 "\"Profiel » Website\"."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:66
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:63
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:51
 msgid "Secret Key"
 msgstr "Geheime sleutel"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:69
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:66
 msgid ""
 "Secret key as mentioned in the Buckaroo dashboardb on the page "
 "\"Configuration » Secret Key for Digital Signature\"."
@@ -3629,42 +3628,44 @@ msgstr ""
 "Geheime sleutel zoals vermeld in het Buckaroo dashboard op de pagina "
 "\"Configuratie » Secret key voor digitale handtekening\"."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:77
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:76
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:65
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:189
+#: vendor/wp-pay-gateways/mollie/src/Settings.php:58
+#: vendor/wp-pay-gateways/multisafepay/src/Settings.php:90
+#: vendor/wp-pay-gateways/pay-nl/src/Settings.php:64
+#: vendor/wp-pay-gateways/sisow/src/Settings.php:80
+#: vendor/wp-pay-gateways/targetpay/src/Settings.php:51
+msgid ""
+"Payment status updates will be processed without any additional "
+"configuration."
+msgstr ""
+"Transactie status updates worden verwerkt zonder aanvullende configuratie."
+
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:85
 msgid "Excluded services"
 msgstr "Uitgesloten betaalmethoden"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:81
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:95
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:89
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:103
 msgid "This controls the Buckaroo %s parameter."
 msgstr "Hiermee beheer je de Buckaroo %s parameter."
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:91
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:99
 msgid "Invoice number"
 msgstr "Factuurnummer"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:108
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:116
 msgid "Push URL"
 msgstr "Push URL"
 
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:114
+#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:121
 msgid ""
-"Copy the Push URL to the %s dashboard to receive automatic transaction "
-"status updates."
+"The Push URL as sent with each transaction to receive automatic payment "
+"status updates on."
 msgstr ""
-"Kopieer de Push URL naar het %s dashboard om automatische transactie status "
-"updates te ontvangen."
-
-#: vendor/wp-pay-gateways/buckaroo/src/Settings.php:126
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:73
-#: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:52
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:76
-#: vendor/wp-pay-gateways/ogone/src/Settings.php:169
-msgid ""
-"Receiving payment status updates needs additional configuration, if not yet "
-"completed."
-msgstr ""
-"Het ontvangen van transactie status updates vereist aanvullende "
-"configuratie, indien nog niet uitgevoerd."
+"De Push URL die wordt meegestuurd met elke transactie om de automatische "
+"transactie status update op te ontvangen."
 
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
 msgid "Approval code"
@@ -3750,19 +3751,6 @@ msgstr ""
 "Deze instellingen dienen overeen te komen met het dashboard van de "
 "betalingsprovider."
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:65
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:189
-#: vendor/wp-pay-gateways/mollie/src/Settings.php:58
-#: vendor/wp-pay-gateways/multisafepay/src/Settings.php:90
-#: vendor/wp-pay-gateways/pay-nl/src/Settings.php:64
-#: vendor/wp-pay-gateways/sisow/src/Settings.php:80
-#: vendor/wp-pay-gateways/targetpay/src/Settings.php:51
-msgid ""
-"Payment status updates will be processed without any additional "
-"configuration."
-msgstr ""
-"Transactie status updates worden verwerkt zonder aanvullende configuratie."
-
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:81
 msgid "The EMS e-Commerce %s parameter."
 msgstr "De EMS e-Commerce %s parameter."
@@ -3796,6 +3784,17 @@ msgid ""
 msgstr ""
 "Secret Code zoals vermeld in het ICEPAY dashboard op de pagina \"Mijn "
 "websites\"."
+
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:73
+#: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:52
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:76
+#: vendor/wp-pay-gateways/ogone/src/Settings.php:169
+msgid ""
+"Receiving payment status updates needs additional configuration, if not yet "
+"completed."
+msgstr ""
+"Het ontvangen van transactie status updates vereist aanvullende "
+"configuratie, indien nog niet uitgevoerd."
 
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:89
 msgid "The Icepay %s parameter."
@@ -4855,6 +4854,20 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid ""
+#~ "Set the Push URL in the %s dashboard to receive automatic transaction "
+#~ "status updates."
+#~ msgstr ""
+#~ "Stel de Push URL in het %s dashboard in om automatische transactie status "
+#~ "updates te ontvangen."
+
+#~ msgid ""
+#~ "Copy the Push URL to the %s dashboard to receive automatic transaction "
+#~ "status updates."
+#~ msgstr ""
+#~ "Kopieer de Push URL naar het %s dashboard om automatische transactie "
+#~ "status updates te ontvangen."
 
 #~ msgid "Branding"
 #~ msgstr "Huisstijl"

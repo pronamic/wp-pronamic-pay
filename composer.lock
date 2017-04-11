@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "feed3d331641357deab4d7d5511433e3",
+    "content-hash": "bb7c6e4bcfd222d6df0e7a040fb6b15a",
     "packages": [
         {
             "name": "composer/installers",
@@ -642,16 +642,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "dev-develop",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "4c2865b6a4dbb8ad91a7af383206389fe0de92f8"
+                "reference": "ba184107065a6894c8cc98a3eff6bfe158e5804b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/4c2865b6a4dbb8ad91a7af383206389fe0de92f8",
-                "reference": "4c2865b6a4dbb8ad91a7af383206389fe0de92f8",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/ba184107065a6894c8cc98a3eff6bfe158e5804b",
+                "reference": "ba184107065a6894c8cc98a3eff6bfe158e5804b",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +703,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-04-07 13:21:45"
+            "time": "2017-04-07T13:50:52+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -1469,16 +1469,16 @@
         },
         {
             "name": "wp-pay-gateways/buckaroo",
-            "version": "dev-develop",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/buckaroo.git",
-                "reference": "cf8c6aa79403922516760cafb126c858c197d72e"
+                "reference": "ea6add5cc6728cd23afddd90a7829af2e3d757ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/cf8c6aa79403922516760cafb126c858c197d72e",
-                "reference": "cf8c6aa79403922516760cafb126c858c197d72e",
+                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/ea6add5cc6728cd23afddd90a7829af2e3d757ba",
+                "reference": "ea6add5cc6728cd23afddd90a7829af2e3d757ba",
                 "shasum": ""
             },
             "require": {
@@ -1528,7 +1528,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-04-07 13:43:15"
+            "time": "2017-04-10T08:41:43+00:00"
         },
         {
             "name": "wp-pay-gateways/common",
@@ -3284,16 +3284,16 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "dev-develop",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "eabe8ecf73e8c20a07a982d93483e3996c239ced"
+                "reference": "9795190496b51a62b50ded7b055c95d4bea55779"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/eabe8ecf73e8c20a07a982d93483e3996c239ced",
-                "reference": "eabe8ecf73e8c20a07a982d93483e3996c239ced",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/9795190496b51a62b50ded7b055c95d4bea55779",
+                "reference": "9795190496b51a62b50ded7b055c95d4bea55779",
                 "shasum": ""
             },
             "require": {
@@ -3343,7 +3343,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-04-07 13:50:10"
+            "time": "2017-04-10T08:48:43+00:00"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-basic",
@@ -5508,32 +5508,9 @@
             "time": "2017-03-20T23:17:58+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "1.2.7",
-            "alias_normalized": "1.2.7.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/buckaroo"
-        },
-        {
-            "alias": "1.2.2",
-            "alias_normalized": "1.2.2.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/sisow"
-        },
-        {
-            "alias": "1.6.5",
-            "alias_normalized": "1.6.5.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/gravityforms"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-pay-gateways/buckaroo": 20,
-        "wp-pay-gateways/sisow": 20,
-        "wp-pay-extensions/gravityforms": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
