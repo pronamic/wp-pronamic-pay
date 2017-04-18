@@ -2,7 +2,7 @@
 /*
 Plugin Name: Pronamic iDEAL
 Plugin URI: http://www.pronamic.eu/plugins/pronamic-ideal/
-Description: The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
+Description: The Pronamic iDEAL plugin allows you to add payment methods like iDEAL, Bitcoin, Bancontact, PayPal and more to your WordPress website.
 
 Version: 4.5.5
 Requires at least: 4.3

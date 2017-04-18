@@ -7,7 +7,11 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [Unreleased][unreleased]
 
 ## [4.5.5] - 2017-04-18
+
+### Changes
 - Don't use global post for WP_Query posts traversal, fix for WooCommerce save order empty address details.
+- Updated WordPress pay WooCommerce library to version 1.2.6.
+  - Improved support for WooCommerce 3.0.
 
 ## [4.5.4] - 2017-04-11
 

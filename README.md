@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-ideal.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-ideal)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
-The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
+The Pronamic iDEAL plugin allows you to add payment methods like iDEAL, Bitcoin, Bancontact, PayPal and more to your WordPress website.
 
 
 ## Gateways
