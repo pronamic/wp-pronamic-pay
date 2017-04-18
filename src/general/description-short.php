@@ -1,1 +1,1 @@
-The Pronamic iDEAL plugin allows you to easily add the iDEAL payment method to your WordPress website.
+The Pronamic iDEAL plugin allows you to add payment methods like iDEAL, Bitcoin, Bancontact, PayPal and more to your WordPress website.

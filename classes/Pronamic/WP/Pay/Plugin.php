@@ -640,20 +640,14 @@ class Pronamic_WP_Pay_Plugin {
 
 		$options = array( __( '— Select Configuration —', 'pronamic_ideal' ) );
 
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
+		foreach ( $query->posts as $post ) {
+			$id = $post->ID;
 
-				$id = get_the_ID();
-
-				$options[ $id ] = sprintf(
-					'%s (%s)',
-					get_the_title( $id ),
-					get_post_meta( $id, '_pronamic_gateway_mode', true )
-				);
-			}
-
-			wp_reset_postdata();
+			$options[ $id ] = sprintf(
+				'%s (%s)',
+				get_the_title( $id ),
+				get_post_meta( $id, '_pronamic_gateway_mode', true )
+			);
 		}
 
 		return $options;
@@ -1005,50 +999,44 @@ class Pronamic_WP_Pay_Plugin {
 
 		$query = new WP_Query( $args );
 
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
+		foreach ( $query->posts as $post ) {
+			$subscription_id = $post->ID;
 
-				$subscription_id = get_the_ID();
+			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			$first        = $subscription->get_first_payment();
+			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
 
-				$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
-				$first        = $subscription->get_first_payment();
-				$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+			$payment = self::start_recurring( $subscription, $gateway );
 
-				$payment = self::start_recurring( $subscription, $gateway );
+			if ( $payment ) {
+				$frequency = $subscription->get_frequency();
+				$schedule  = false;
 
-				if ( $payment ) {
-					$frequency = $subscription->get_frequency();
-					$schedule  = false;
+				if ( '' === $frequency ) {
+					$schedule = true;
+				}
 
-					if ( '' === $frequency ) {
+				$next = $subscription->get_next_payment_datetime( 1 );
+
+				if ( ! $schedule ) {
+					$final = $subscription->get_final_payment_datetime();
+
+					if ( $final && $next < $final ) {
 						$schedule = true;
 					}
-
-					$next = $subscription->get_next_payment_datetime( 1 );
-
-					if ( ! $schedule ) {
-						$final = $subscription->get_final_payment_datetime();
-
-						if ( $final && $next < $final ) {
-							$schedule = true;
-						}
-					}
-
-					if ( $schedule ) {
-						update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
-					} else {
-						wp_schedule_single_event( $final->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
-
-						delete_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment' );
-						delete_post_meta( $subscription->get_id(), '_pronamic_subscription_renewal_notice' );
-					}
-
-					self::update_payment( $payment, false );
 				}
-			}
 
-			wp_reset_postdata();
+				if ( $schedule ) {
+					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
+				} else {
+					wp_schedule_single_event( $final->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
+
+					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment' );
+					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_renewal_notice' );
+				}
+
+				self::update_payment( $payment, false );
+			}
 		}
 
 		self::send_subscription_renewal_notices();
@@ -1081,29 +1069,23 @@ class Pronamic_WP_Pay_Plugin {
 
 		$query = new WP_Query( $args );
 
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
+		foreach ( $query->posts as $post ) {
+			$subscription_id = $post->ID;
 
-				$subscription_id = get_the_ID();
+			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
 
-				$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
-				do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
+			// Set next renewal date meta
+			$next_renewal = $subscription->get_next_payment_date( 1 );
+			$next_renewal->modify( '-1 week' );
 
-				// Set next renewal date meta
-				$next_renewal = $subscription->get_next_payment_datetime( 1 );
-				$next_renewal->modify( '-1 week' );
-
-				// Prevent multiple notices being send for the same renewal date
-				if ( $next_renewal < $subscription->get_next_payment_datetime() ) {
-					$next_renewal = $subscription->get_next_payment_datetime();
-				}
-
-				update_post_meta( $subscription_id, '_pronamic_subscription_renewal_notice', $next_renewal->format( 'Y-m-d H:i:s' ) );
+			// Prevent multiple notices being send for the same renewal date
+			if ( $next_renewal < $subscription->get_next_payment_date() ) {
+				$next_renewal = $subscription->get_next_payment_date();
 			}
 
-			wp_reset_postdata();
+			update_post_meta( $subscription_id, '_pronamic_subscription_renewal_notice', $next_renewal->format( 'Y-m-d H:i:s' ) );
 		}
 	}
 

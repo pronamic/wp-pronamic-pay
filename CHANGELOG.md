@@ -6,6 +6,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.5.5] - 2017-04-18
+
+### Changes
+- Don't use global post for WP_Query posts traversal, fix for WooCommerce save order empty address details.
+- Updated WordPress pay WooCommerce library to version 1.2.6.
+  - Improved support for WooCommerce 3.0.
+
 ## [4.5.4] - 2017-04-11
 
 ### Changes
@@ -1590,7 +1597,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...HEAD
+[4.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...4.5.5
 [4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
 [4.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.2...4.5.3
 [4.5.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.1...4.5.2
