@@ -791,7 +791,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		// Set post author
-		$post_author = get_current_user_id();
+		$post_author = $data->get_user_id();
 
 		if ( $subscription && $subscription_id ) {
 			$post_author = get_post_field( 'post_author', $subscription_id );
