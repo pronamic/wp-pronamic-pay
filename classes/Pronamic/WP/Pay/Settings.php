@@ -15,13 +15,34 @@ class Pronamic_WP_Pay_Settings {
 	 */
 	public function __construct() {
 		// Actions
+		add_action( 'init', array( $this, 'init' ) );
+
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
-	//////////////////////////////////////////////////
+	/**
+	 * Initialize.
+	 *
+	 * @see https://make.wordpress.org/core/2016/10/26/registering-your-settings-in-wordpress-4-7/
+	 * @see https://github.com/WordPress/WordPress/blob/4.6/wp-admin/includes/plugin.php#L1767-L1795
+	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-includes/option.php#L1849-L1925
+	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-includes/option.php#L1715-L1847
+	 */
+	public function init() {
+		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'trim',
+		) );
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_config_id' );
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
+
+		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
+	}
 
 	/**
-	 * Admin initialize
+	 * Admin initialize.
 	 */
 	public function admin_init() {
 		// Settings - General
@@ -44,8 +65,6 @@ class Pronamic_WP_Pay_Settings {
 			) // args
 		);
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', 'trim' );
-
 		// Default Config
 		add_settings_field(
 			'pronamic_pay_config_id', // id
@@ -59,8 +78,6 @@ class Pronamic_WP_Pay_Settings {
 				'label_for'        => 'pronamic_pay_config_id',
 			) // args
 		);
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_config_id' );
 
 		// Settings - Pages
 		add_settings_section(
@@ -103,8 +120,6 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay' // page
 		);
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
-
 		add_settings_field(
 			'pronamic_pay_thousands_sep', // id
 			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
@@ -116,8 +131,6 @@ class Pronamic_WP_Pay_Settings {
 			       'classes'   => 'tiny-text',
 			)
 		);
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
 
 		add_settings_field(
 			'pronamic_pay_decimal_sep', // id
