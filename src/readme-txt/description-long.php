@@ -1,4 +1,4 @@
-Pronamic iDEAL is the best plugin available to accept payments through iDEAL in WordPress. iDEAL is the most popular payment method in the Netherlands, so if you want to start with e-commerce in the Dutch market: you’ll need iDEAL. The plugin supports the Bancontact payment method too, which is commonly used in Belgium. With over 100,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
+Pronamic Pay is the best plugin available to accept payments through iDEAL in WordPress. iDEAL is the most popular payment method in the Netherlands, so if you want to start with e-commerce in the Dutch market: you’ll need iDEAL. The plugin supports the Bancontact payment method too, which is commonly used in Belgium. With over 100,000 downloads, the plugin has proven itself as a reliable WordPress solution to use for your payments.
 
 = Key Benefits =
 

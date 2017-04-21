@@ -12,7 +12,7 @@ $class = ( 'valid' === $data->license ) ? 'updated' : 'error';
 ?>
 <div class="<?php echo esc_attr( $class ); ?>">
 	<p>
-		<strong><?php esc_html_e( 'Pronamic iDEAL', 'pronamic_ideal' ); ?></strong> —
+		<strong><?php esc_html_e( 'Pronamic Pay', 'pronamic_ideal' ); ?></strong> —
 		<?php
 
 		if ( 'valid' === $data->license ) {

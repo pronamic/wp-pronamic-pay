@@ -3,7 +3,7 @@
 header( 'Content-Type: text/plain' );
 
 ?>
-# [Pronamic iDEAL](https://www.pronamic.eu/plugins/pronamic-ideal/)
+# [Pronamic Pay](https://www.pronamic.eu/plugins/pronamic-ideal/)
 
 [![WordPress plugin](https://img.shields.io/wordpress/plugin/v/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
 [![WordPress](https://img.shields.io/wordpress/plugin/dt/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)

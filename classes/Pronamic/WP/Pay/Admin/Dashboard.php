@@ -35,7 +35,7 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 		if ( current_user_can( 'manage_options' ) ) {
 			wp_add_dashboard_widget(
 				'pronamic_pay_dashboard_status',
-				__( 'Pronamic iDEAL Status', 'pronamic_ideal' ),
+				__( 'Pronamic Pay Status', 'pronamic_ideal' ),
 				array( $this, 'status_widget' )
 			);
 		}

@@ -61,13 +61,13 @@ class Pronamic_WP_Pay_Admin_Notices {
 
 			if ( '' === $license ) {
 				$notice = sprintf(
-					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%1$s">support license key</a>, please <a href="%2$s" target="_blank">get your key at pronamic.eu</a>.', 'pronamic_ideal' ),
+					__( '<strong>Pronamic Pay</strong> — You have not entered a valid <a href="%1$s">support license key</a>, please <a href="%2$s" target="_blank">get your key at pronamic.eu</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 					'https://www.pronamic.eu/plugins/pronamic-ideal/'
 				);
 			} else {
 				$notice = sprintf(
-					__( '<strong>Pronamic iDEAL</strong> — You have not entered a valid <a href="%1$s">support license key</a>. Please <a href="%2$s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%3$s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
+					__( '<strong>Pronamic Pay</strong> — You have not entered a valid <a href="%1$s">support license key</a>. Please <a href="%2$s" target="_blank">get your key at pronamic.eu</a> or login to <a href="%3$s" target="_blank">check your license status</a>.', 'pronamic_ideal' ),
 					add_query_arg( 'page', 'pronamic_pay_settings', get_admin_url( null, 'admin.php' ) ),
 					'https://www.pronamic.eu/plugins/pronamic-ideal/',
 					'https://www.pronamic.eu/account/'

@@ -16,7 +16,7 @@ $update_link = wp_nonce_url( add_query_arg(
 ?>
 <div class="updated">
 	<p>
-		<strong><?php esc_html_e( 'Pronamic iDEAL Data Update Required', 'pronamic_ideal' ); ?></strong> – 
+		<strong><?php esc_html_e( 'Pronamic Pay Data Update Required', 'pronamic_ideal' ); ?></strong> – 
 		<?php esc_html_e( 'We just need to update your install to the latest version', 'pronamic_ideal' ); ?>
 	</p>
 

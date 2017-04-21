@@ -21,17 +21,17 @@
 
 <p>
 	<strong><?php esc_html_e( 'Gateways', 'pronamic_ideal' ); ?></strong><br />
-	<?php esc_html_e( 'The gateways page gives you an overview of all the gateways that er supported by the Pronamic iDEAL plugin.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'The gateways page gives you an overview of all the gateways that er supported by the Pronamic Pay plugin.', 'pronamic_ideal' ); ?>
 </p>
 
 <p>
 	<strong><?php esc_html_e( 'Extensions', 'pronamic_ideal' ); ?></strong><br />
-	<?php esc_html_e( 'The extensions page gives you an overview of all the extensions that er supported by the Pronamic iDEAL plugin.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'The extensions page gives you an overview of all the extensions that er supported by the Pronamic Pay plugin.', 'pronamic_ideal' ); ?>
 </p>
 
 <p>
 	<strong><?php esc_html_e( 'Methods', 'pronamic_ideal' ); ?></strong><br />
-	<?php esc_html_e( 'The methods page gives you an overview of all the methods that er supported by the Pronamic iDEAL plugin.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'The methods page gives you an overview of all the methods that er supported by the Pronamic Pay plugin.', 'pronamic_ideal' ); ?>
 </p>
 
 <p>

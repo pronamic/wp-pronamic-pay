@@ -10,13 +10,13 @@ if ( ! defined( 'WPINC' ) ) {
 
 ?>
 <div class="wrap about-wrap">
-	<h1><?php esc_html_e( 'Welcome to Pronamic iDEAL', 'pronamic_ideal' ); ?></h1>
+	<h1><?php esc_html_e( 'Welcome to Pronamic Pay', 'pronamic_ideal' ); ?></h1>
 
 	<div class="about-text">
 		<?php
 
 		printf(
-			esc_html__( 'Thanks for installing Pronamic iDEAL. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ),
+			esc_html__( 'Thanks for installing Pronamic Pay. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ),
 			esc_html( $this->plugin->get_version() )
 		);
 
