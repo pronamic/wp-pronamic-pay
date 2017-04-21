@@ -17,8 +17,6 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	 */
 	public function __construct() {
 		add_action( 'load-edit.php', array( $this, 'load' ) );
-
-		add_filter( 'bulk_actions-edit-pronamic_payment', array( $this, 'bulk_actions' ) );
 	}
 
 	/**
@@ -33,12 +31,14 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 		// Screen
 		$screen = get_current_screen();
 
-		if ( ! ( 'edit' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
+		if ( 'edit-pronamic_payment' !== $screen->id ) {
 			return;
 		}
 
 		// Bulk actions
-		$this->maybe_do_bulk_actions();
+		add_filter( 'bulk_actions-' . $screen->id, array( $this, 'bulk_actions' ) );
+
+		add_filter( 'handle_bulk_actions-' . $screen->id, array( $this, 'handle_bulk_action' ), 10, 3 );
 
 		// Admin notices
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
@@ -48,6 +48,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	 * Custom bulk actions.
 	 *
 	 * @see https://make.wordpress.org/core/2016/10/04/custom-bulk-actions/
+	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/includes/class-wp-list-table.php#L440-L452
 	 * @param array $bulk_actions
 	 */
 	public function bulk_actions( $bulk_actions ) {
@@ -61,33 +62,19 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	}
 
 	/**
-	 * Maybe do bulk action.
+	 * Handle bulk action.
 	 *
-	 * @see https://www.skyverge.com/blog/add-custom-bulk-action/
-	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/edit.php#L66-L175
+	 * @see hhttps://make.wordpress.org/core/2016/10/04/custom-bulk-actions/
+	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/edit.php#L166-L167
+	 * @param string $sendback
+	 * @param string $doaction
+	 * @param array $post_ids
+	 * @return string
 	 */
-	private function maybe_do_bulk_actions() {
-		// Action
-		$list_table = _get_list_table( 'WP_Posts_List_Table' );
-
-		$action = $list_table->current_action();
-
-		if ( 'pronamic_payment_check_status' !== $action ) {
-			return;
+	public function handle_bulk_action( $sendback, $doaction, $post_ids ) {
+		if ( 'pronamic_payment_check_status' !== $doaction ) {
+			return $sendback;
 		}
-
-		// Referer
-		check_admin_referer( 'bulk-posts' );
-
-		// Sendback
-		$sendback = wp_get_referer();
-
-		if ( false === $sendback ) {
-			$sendback = add_query_arg( 'post_type', 'pronamic_payment', admin_url( 'edit.php' ) );
-		}
-
-		// Post IDs
-		$post_ids = filter_input( INPUT_GET, 'post', FILTER_VALIDATE_INT, FILTER_FORCE_ARRAY );
 
 		$status_updated       = 0;
 		$skipped_check        = 0;
@@ -130,10 +117,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 			'unsupported_gateways' => implode( ',', $unsupported_gateways ),
 		), $sendback );
 
-		// Redirect
-		wp_redirect( $sendback );
-
-		exit;
+		return $sendback;
 	}
 
 	/**
