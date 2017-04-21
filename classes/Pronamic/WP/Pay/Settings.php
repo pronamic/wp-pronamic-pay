@@ -29,16 +29,36 @@ class Pronamic_WP_Pay_Settings {
 	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-includes/option.php#L1715-L1847
 	 */
 	public function init() {
+		global $wp_locale;
+
 		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', array(
 			'type'              => 'string',
-			'sanitize_callback' => 'trim',
+			'sanitize_callback' => 'sanitize_text_field',
 		) );
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_config_id' );
+		register_setting( 'pronamic_pay', 'pronamic_pay_config_id', array(
+			'type'              => 'integer',
+			'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
+		) );
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep' );
+		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => $wp_locale->number_format['thousands_sep'],
+		) );
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep' );
+		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => $wp_locale->number_format['decimal_point'],
+		) );
+
+		foreach ( $this->get_pages() as $id => $label ) {
+			register_setting( 'pronamic_pay', $id, array(
+				'type'              => 'integer',
+				'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
+			) );
+		}
 	}
 
 	/**
@@ -87,17 +107,7 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay' // page
 		);
 
-		$pages = array(
-			'completed' => __( 'Completed', 'pronamic_ideal' ),
-			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
-			'expired'   => __( 'Expired', 'pronamic_ideal' ),
-			'error'     => __( 'Error', 'pronamic_ideal' ),
-			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
-		);
-
-		foreach ( $pages as $key => $label ) {
-			$id = sprintf( 'pronamic_pay_%s_page_id', $key );
-
+		foreach ( $this->get_pages() as $id => $label ) {
 			add_settings_field(
 				$id, // id
 				$label, // title
@@ -108,8 +118,6 @@ class Pronamic_WP_Pay_Settings {
 					'label_for' => $id,
 				) // args
 			);
-
-			register_setting( 'pronamic_pay', $id );
 		}
 
 		// Settings - Currency
@@ -145,7 +153,44 @@ class Pronamic_WP_Pay_Settings {
 		);
 	}
 
-	//////////////////////////////////////////////////
+	/**
+	 * Sanitize published post ID.
+	 *
+	 * @param string $value
+	 * @return value if post status is publish, false otherwise
+	 */
+	public function sanitize_published_post_id( $value ) {
+		if ( 'publish' === get_post_status( $value ) ) {
+			return $value;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Get pages.
+	 *
+	 * @return array
+	 */
+	private function get_pages() {
+		$return = array();
+
+		$pages = array(
+			'completed' => __( 'Completed', 'pronamic_ideal' ),
+			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
+			'expired'   => __( 'Expired', 'pronamic_ideal' ),
+			'error'     => __( 'Error', 'pronamic_ideal' ),
+			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
+		);
+
+		foreach ( $pages as $key => $label ) {
+			$id = sprintf( 'pronamic_pay_%s_page_id', $key );
+
+			$return[ $id ] = $label;
+		}
+
+		return $return;
+	}
 
 	/**
 	 * Settings section
