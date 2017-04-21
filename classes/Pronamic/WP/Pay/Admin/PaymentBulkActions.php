@@ -17,6 +17,8 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 	 */
 	public function __construct() {
 		add_action( 'load-edit.php', array( $this, 'load' ) );
+
+		add_filter( 'bulk_actions-edit-pronamic_payment', array( $this, 'bulk_actions' ) );
 	}
 
 	/**
@@ -40,9 +42,22 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 
 		// Admin notices
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+	}
 
-		// Admin footer
-		add_action( 'admin_footer', array( $this, 'admin_footer' ) );
+	/**
+	 * Custom bulk actions.
+	 *
+	 * @see https://make.wordpress.org/core/2016/10/04/custom-bulk-actions/
+	 * @param array $bulk_actions
+	 */
+	public function bulk_actions( $bulk_actions ) {
+		// Don't allow edit in bulk.
+		unset( $bulk_actions['edit'] );
+
+		// Bulk check payment status.
+		$bulk_actions['pronamic_payment_check_status'] = __( 'Check Payment Status', 'pronamic_ideal' );
+
+		return $bulk_actions;
 	}
 
 	/**
@@ -172,25 +187,5 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 				);
 			}
 		}
-	}
-
-	/**
-	 * Admin footer.
-	 *
-	 * @see https://www.skyverge.com/blog/add-custom-bulk-action/
-	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/admin-footer.php#L59-L95
-	 */
-	public function admin_footer() {
-		$value = 'pronamic_payment_check_status';
-		$label = __( 'Check Payment Status', 'pronamic_ideal' );
-
-		?>
-		<script type="text/javascript">
-			jQuery( document ).ready( function() {
-				jQuery( '<option>' ).val( '<?php echo esc_js( $value ); ?>' ).text( '<?php echo esc_js( $label ); ?>' ).appendTo( 'select[name="action"]' );
-				jQuery( '<option>' ).val( '<?php echo esc_js( $value ); ?>' ).text( '<?php echo esc_js( $label ); ?>' ).appendTo( 'select[name="action2"]' );
-			} );
-		</script>
-		<?php
 	}
 }
