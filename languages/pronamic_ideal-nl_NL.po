@@ -170,8 +170,7 @@ msgstr "Status"
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:168
-#: admin/meta-box-subscription-info.php:158
+#: admin/meta-box-payment-info.php:168 admin/meta-box-subscription-info.php:158
 msgid "Consumer"
 msgstr "Consument"
 
@@ -181,34 +180,28 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:197
-#: admin/meta-box-subscription-info.php:197
+#: admin/meta-box-payment-info.php:197 admin/meta-box-subscription-info.php:197
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:205
-#: admin/meta-box-subscription-info.php:205
+#: admin/meta-box-payment-info.php:205 admin/meta-box-subscription-info.php:205
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:218
-#: admin/meta-box-subscription-info.php:218
+#: admin/meta-box-payment-info.php:218 admin/meta-box-subscription-info.php:218
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:226
-#: admin/meta-box-subscription-info.php:226
+#: admin/meta-box-payment-info.php:226 admin/meta-box-subscription-info.php:226
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:239
-#: admin/meta-box-subscription-info.php:239
+#: admin/meta-box-payment-info.php:239 admin/meta-box-subscription-info.php:239
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:247
-#: admin/meta-box-subscription-info.php:247
+#: admin/meta-box-payment-info.php:247 admin/meta-box-subscription-info.php:247
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -407,8 +400,7 @@ msgstr "Start rondleiding"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:67 admin/page-tools.php:4
-#: admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -1403,8 +1395,7 @@ msgstr "Mislukte betalingen"
 msgid "Recurrence"
 msgstr "Herhaling"
 
-#: classes/Pronamic/WP/Pay/Admin.php:247
-#: vendor/wp-pay/core/src/Gateway.php:422
+#: classes/Pronamic/WP/Pay/Admin.php:247 vendor/wp-pay/core/src/Gateway.php:422
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:146
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -1499,8 +1490,7 @@ msgstr "onbekend"
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 
-#: classes/Pronamic/WP/Pay/Admin.php:445
-#: vendor/wp-pay/core/src/Gateway.php:636
+#: classes/Pronamic/WP/Pay/Admin.php:445 vendor/wp-pay/core/src/Gateway.php:636
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
@@ -1542,7 +1532,7 @@ msgstr "Betalingsformulier"
 msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
-#: classes/Pronamic/WP/Pay/PaymentFormData.php:81
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:83
 #: classes/Pronamic/WP/Pay/Plugin.php:790
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 msgid "Payment %s"
@@ -4633,10 +4623,10 @@ msgid "https://www.pronamic.eu/plugins/pronamic-ideal/"
 msgstr "https://www.pronamic.eu/plugins/pronamic-ideal/"
 
 #. Description of the plugin/theme
+#, fuzzy
 msgid ""
-"The Pronamic iDEAL plugin adds payment methods like iDEAL, Bancontact, "
-"credit card and more to your WordPress site for a variety of payment "
-"providers."
+"The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit "
+"card and more to your WordPress site for a variety of payment providers."
 msgstr ""
 "De Pronamic iDEAL plugin voegt betaalmethoden zoals iDEAL, Bancontact, "
 "creditcard en meer toe aan je WordPress website voor diverse "
