@@ -310,7 +310,7 @@ results in OmniKassa data that no longer matches the signature.
 *	Added `get_user_id()` to payment data for usage as payment `post_author`.
 *	Updated WordPress pay Buckaroo library to version 1.2.8.
 	*	Use custom payment ID field in transaction request/response instead of invoice number.
-*	Updated WordPress pay Buckaroo library to version 1.0.4.
+*	Updated WordPress pay EMS e-Commerce library to version 1.0.4.
 	*	Added missing Bancontact payment method transformation.
 	*	Added leap of faith payment method support.
 *	Updated WordPress pay Mollie library to version 1.1.14.
