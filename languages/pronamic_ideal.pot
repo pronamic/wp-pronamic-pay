@@ -36,7 +36,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:76
 #: templates/form.php:40
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 msgid "Amount"
@@ -83,7 +83,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:143
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:240
 msgid "Payment Method"
 msgstr ""
@@ -156,7 +156,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:71
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:72
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:236
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:242
 msgid "Status"
@@ -281,7 +281,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:335
 #: classes/Pronamic/WP/Pay/PostTypes.php:79
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
 msgid "Payment"
 msgstr ""
 
@@ -1130,13 +1130,17 @@ msgid ""
 "href=\"%3$s\" target=\"_blank\">check your license status</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:132
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:59
+msgid "Check Payment Status"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:131
 msgid "%s payment updated."
 msgid_plural "%s payments updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:146
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:145
 msgid "%s payment is not updated because it already has a final payment status."
 msgid_plural ""
 "%s payments are not updated because they already have a final payment "
@@ -1144,12 +1148,8 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:167
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:166
 msgid "Requesting the current payment status is unsupported by %s."
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:185
-msgid "Check Payment Status"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:107
@@ -1688,7 +1688,7 @@ msgid "Payment Status Pages"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Settings.php:126
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:238
 msgid "Currency"
 msgstr ""
@@ -3253,14 +3253,14 @@ msgstr ""
 msgid "WP e-Commerce Purchase"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Client.php:518
+#: vendor/wp-pay-gateways/buckaroo/src/Client.php:547
 msgid "Unable to retrieve issuers from Buckaroo."
 msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:84
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:76
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:78
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:90
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:70
 #: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:80
@@ -3271,47 +3271,47 @@ msgstr ""
 msgid "Choose your bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
 msgid "Status Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
 msgid "Status Code Detail"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
 msgid "Status Message"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 msgid "Invoice Number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
 msgid "Timestamp"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
 msgid "Service iDEAL Consumer Issuer"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
 msgid "Service iDEAL Consumer Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
 msgid "Service iDEAL Consumer IBAN"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:225
 msgid "Service iDEAL Consumer BIC"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:225
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:226
 msgid "Transactions"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:231
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:232
 msgid "Buckaroo data:"
 msgstr ""
 
@@ -3421,11 +3421,11 @@ msgid ""
 "status updates on."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
 msgid "Approval code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:77
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:85
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:237
@@ -3435,47 +3435,47 @@ msgstr ""
 msgid "Order ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
 msgid "Time of transaction processing"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
 msgid "Identification for transaction"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:179
 msgid "Fail reason"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:180
 msgid "Response hash"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
 msgid "Processor response code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:182
 msgid "Fail code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:183
 msgid "Terminal ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:184
 msgid "Creditcard issuing bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:185
 msgid "Creditcard country"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:186
 msgid "Creditcard brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:184
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:192
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr ""
 
@@ -4451,7 +4451,7 @@ msgctxt "Payment method field"
 msgid "All"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
 msgctxt "creditcard"
 msgid "Reference number"
 msgstr ""

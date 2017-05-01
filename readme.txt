@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
-Requires at least: 4.3
-Tested up to: 4.7.3
+Requires at least: 4.7
+Tested up to: 4.7.4
 Stable tag: 4.6.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
@@ -302,6 +302,25 @@ results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.6.0 - 2017-05-01 =
+*	Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.
+*	Use the new bulk actions WordPress 4.7 filter and remove the edit bulk option.
+*	Use new register WordPress 4.7 setting feature.
+*	Added `get_user_id()` to payment data for usage as payment `post_author`.
+*	Updated WordPress pay Buckaroo library to version 1.2.8.
+	*	Use custom payment ID field in transaction request/response instead of invoice number.
+*	Updated WordPress pay Buckaroo library to version 1.0.4.
+	*	Added missing Bancontact payment method transformation.
+	*	Added leap of faith payment method support.
+*	Updated WordPress pay Mollie library to version 1.1.14.
+	*	Set payment status to `Failed` too if `mollie_error` occurs.
+*	Updated WordPress pay ING Kassa Compleet library to version 1.0.7.
+	*	Fixed issuer not set if payment method is not empty.
+	*	Improved error handling for inactive payment methods.
+	*	Make payment method required.
+*	Updated WordPress pay Rabobank - iDEAL Professional - v3 library to version 1.0.2.
+	*	Added new signing certificate.
 
 = 4.5.5 - 2017-04-18 =
 *	Don't use global post for WP_Query posts traversal, fix for WooCommerce save order empty address details.
