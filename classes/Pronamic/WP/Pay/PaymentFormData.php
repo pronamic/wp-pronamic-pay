@@ -71,9 +71,11 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 
 		if ( 'other' === $amount ) {
 			$amount = filter_input( INPUT_POST, 'pronamic_pay_amount_other', FILTER_SANITIZE_STRING );
-		}
 
-		$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
+			$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
+		} else {
+			$amount /= 100;
+		}
 
 		// Item
 		$item = new Pronamic_IDeal_Item();

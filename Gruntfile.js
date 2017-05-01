@@ -334,7 +334,7 @@ module.exports = function( grunt ) {
 		cssmin: {
 			styles: {
 				files: {
-					// Pronamic iDEAL
+					// Pronamic Pay
 					'css/admin.min.css': 'src/css/admin.css',
 					'css/admin-about.min.css': 'src/css/admin-about.css',
 					'css/admin-tour.min.css': 'src/css/admin-tour.css',
@@ -354,7 +354,7 @@ module.exports = function( grunt ) {
 		uglify: {
 			scripts: {
 				files: {
-					// Pronamic iDEAL
+					// Pronamic Pay
 					'js/admin.min.js': 'src/js/admin.js',
 					'js/admin-reports.min.js': 'src/js/admin-reports.js',
 					'js/admin-tour.min.js': 'src/js/admin-tour.js',

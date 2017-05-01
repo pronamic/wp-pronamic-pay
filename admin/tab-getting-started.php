@@ -18,7 +18,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 esc_html_e( "To start accepting online payments, you'll first need to register with a payment provider. Payment
 providers are responsible for the actual processing of transactions. We support most popular Dutch payment
-providers and banks, but are not a payment provider ourselves. The Pronamic iDEAL plugin is the glue between
+providers and banks, but are not a payment provider ourselves. The Pronamic Pay plugin is the glue between
 the chosen payment provider and a wide variety of supported e-commerce plugins.", 'pronamic_ideal' );
 
 			?>

@@ -1,7 +1,7 @@
 <h3><?php esc_html_e( 'Reports', 'pronamic_ideal' ); ?></h3>
 
 <p>
-	<?php esc_html_e( 'The Pronamic iDEAL reports page shows you an graph of all the payments of this year.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'The Pronamic Pay reports page shows you an graph of all the payments of this year.', 'pronamic_ideal' ); ?>
 	<?php esc_html_e( 'You can see the number of succesfull payments and the total amount of pending, succesfull, cancelled and failed payments.', 'pronamic_ideal' ); ?>
 </p>
 

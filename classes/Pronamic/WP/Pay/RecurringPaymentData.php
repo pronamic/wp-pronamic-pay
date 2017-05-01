@@ -21,6 +21,14 @@ class Pronamic_WP_Pay_RecurringPaymentData extends Pronamic_WP_Pay_PaymentData {
 		$this->recurring    = $recurring;
 	}
 
+	public function get_user_id() {
+		if ( null === $this->payment ) {
+			return $this->subscription->post->post_author;
+		}
+
+		return $this->payment->post->post_author;
+	}
+
 	//////////////////////////////////////////////////
 
 	/**

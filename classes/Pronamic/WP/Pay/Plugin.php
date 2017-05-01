@@ -242,8 +242,8 @@ class Pronamic_WP_Pay_Plugin {
 					$can_redirect = false;
 				}
 
-				do_action( "pronamic_payment_status_update_{$payment->source}_{$old_status}_to_{$new_status}", $payment, $can_redirect );
-				do_action( "pronamic_payment_status_update_{$payment->source}", $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status . '_to_' . $new_status, $payment, $can_redirect );
+				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
 				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 
 				if ( $can_redirect ) {
@@ -791,7 +791,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		// Set post author
-		$post_author = get_current_user_id();
+		$post_author = $data->get_user_id();
 
 		if ( $subscription && $subscription_id ) {
 			$post_author = get_post_field( 'post_author', $subscription_id );

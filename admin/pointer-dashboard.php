@@ -1,7 +1,7 @@
 <h3><?php esc_html_e( 'Dashboard', 'pronamic_ideal' ); ?></h3>
 
 <p>
-	<?php esc_html_e( 'On the Pronamic iDEAL dashboard you can restart this tour and see an overview of the latest pending payments.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'On the Pronamic Pay dashboard you can restart this tour and see an overview of the latest pending payments.', 'pronamic_ideal' ); ?>
 	<?php esc_html_e( 'It also gives you access to the “Getting Started” and “System Status” pages in case you have issues.', 'pronamic_ideal' ); ?>
 	<?php esc_html_e( 'And you can follow the latest news from the Pronamic.eu weblog.', 'pronamic_ideal' ); ?>
 </p>

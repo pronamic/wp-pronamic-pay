@@ -1,7 +1,7 @@
 <h3><?php esc_html_e( 'Congratulations', 'pronamic_ideal' ); ?></h3>
 
 <p>
-	<?php esc_html_e( 'You’ve just installed the Pronamic iDEAL plugin. Click “Start Tour” to view a quick introduction of this plugin’s core functionality.', 'pronamic_ideal' ); ?>
+	<?php esc_html_e( 'You’ve just installed the Pronamic Pay plugin. Click “Start Tour” to view a quick introduction of this plugin’s core functionality.', 'pronamic_ideal' ); ?>
 </p>
 
 <div class="wp-pointer-buttons pp-pointer-buttons">

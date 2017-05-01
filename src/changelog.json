@@ -6,6 +6,54 @@
 		]
 	},
 	{
+		"version": "4.6.0",
+		"date": "2017-05-01",
+		"changes": [
+			{
+				"name": "Changes",
+				"changes": [
+					"Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.",
+					"Use the new bulk actions WordPress 4.7 filter and remove the edit bulk option.",
+					"Use new register WordPress 4.7 setting feature.",
+					"Added `get_user_id()` to payment data for usage as payment `post_author`.",
+					{
+						"description": "Updated WordPress pay Buckaroo library to version 1.2.8.",
+						"changes": [
+							"Use custom payment ID field in transaction request/response instead of invoice number."
+						]
+					},
+					{
+						"description": "Updated WordPress pay EMS e-Commerce library to version 1.0.4.",
+						"changes": [
+							"Added missing Bancontact payment method transformation.",
+							"Added leap of faith payment method support."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Mollie library to version 1.1.14.",
+						"changes": [
+							"Set payment status to `Failed` too if `mollie_error` occurs."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ING Kassa Compleet library to version 1.0.7.",
+						"changes": [
+							"Fixed issuer not set if payment method is not empty.",
+							"Improved error handling for inactive payment methods.",
+							"Make payment method required."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Rabobank - iDEAL Professional - v3 library to version 1.0.2.",
+						"changes": [
+							"Added new signing certificate."
+						]
+					}
+				]
+			}
+		]
+	},
+	{
 		"version": "4.5.5",
 		"date": "2017-04-18",
 		"changes": [

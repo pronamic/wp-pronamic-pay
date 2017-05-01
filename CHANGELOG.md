@@ -6,6 +6,27 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.6.0] - 2017-05-01
+
+### Changes
+- Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.
+- Use the new bulk actions WordPress 4.7 filter and remove the edit bulk option.
+- Use new register WordPress 4.7 setting feature.
+- Added `get_user_id()` to payment data for usage as payment `post_author`.
+- Updated WordPress pay Buckaroo library to version 1.2.8.
+  - Use custom payment ID field in transaction request/response instead of invoice number.
+- Updated WordPress pay EMS e-Commerce library to version 1.0.4.
+  - Added missing Bancontact payment method transformation.
+  - Added leap of faith payment method support.
+- Updated WordPress pay Mollie library to version 1.1.14.
+  - Set payment status to `Failed` too if `mollie_error` occurs.
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.7.
+  - Fixed issuer not set if payment method is not empty.
+  - Improved error handling for inactive payment methods.
+  - Make payment method required.
+- Updated WordPress pay Rabobank - iDEAL Professional - v3 library to version 1.0.2.
+  - Added new signing certificate.
+
 ## [4.5.5] - 2017-04-18
 
 ### Changes
@@ -1597,7 +1618,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...HEAD
+[4.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...4.6.0
 [4.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...4.5.5
 [4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
 [4.5.3]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.2...4.5.3

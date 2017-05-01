@@ -20,6 +20,10 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 		$this->entrance_code = uniqid();
 	}
 
+	public function get_user_id() {
+		return get_current_user_id();
+	}
+
 	//////////////////////////////////////////////////
 
 	public abstract function get_source();

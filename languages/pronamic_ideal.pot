@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic iDEAL 4.5.5\n"
+"Project-Id-Version: Pronamic Pay 4.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:76
 #: templates/form.php:40
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:20
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
 msgid "Amount"
@@ -83,7 +83,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:143
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:92
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PronamicMerchant.php:108
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:240
 msgid "Payment Method"
 msgstr ""
@@ -156,7 +156,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:142
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:71
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:72
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:168
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:236
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:242
 msgid "Status"
@@ -281,7 +281,7 @@ msgstr ""
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:149
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:335
 #: classes/Pronamic/WP/Pay/PostTypes.php:79
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:213
 msgid "Payment"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgid "Website"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Pronamic iDEAL"
+msgid "Pronamic Pay"
 msgstr ""
 
 #: admin/notice-license.php:19
@@ -327,7 +327,7 @@ msgid ""
 msgstr ""
 
 #: admin/notice-update_db.php:19
-msgid "Pronamic iDEAL Data Update Required"
+msgid "Pronamic Pay Data Update Required"
 msgstr ""
 
 #: admin/notice-update_db.php:20
@@ -344,14 +344,14 @@ msgid ""
 "Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: admin/page-about.php:13
-msgid "Welcome to Pronamic iDEAL"
+#: admin/page-about.php:13 classes/Pronamic/WP/Pay/Admin/About.php:44
+msgid "Welcome to Pronamic Pay"
 msgstr ""
 
 #: admin/page-about.php:19
 msgid ""
-"Thanks for installing Pronamic iDEAL. Version %s is more powerful, stable "
-"and secure than ever before. We hope you enjoy using it."
+"Thanks for installing Pronamic Pay. Version %s is more powerful, stable and "
+"secure than ever before. We hope you enjoy using it."
 msgstr ""
 
 #: admin/page-about.php:30
@@ -401,7 +401,7 @@ msgstr ""
 msgid "Pronamic News"
 msgstr ""
 
-#. Author URI of the plugin/theme
+#: admin/page-dashboard.php:142
 msgid "http://www.pronamic.eu/"
 msgstr ""
 
@@ -420,8 +420,8 @@ msgstr ""
 
 #: admin/pointer-dashboard.php:4
 msgid ""
-"On the Pronamic iDEAL dashboard you can restart this tour and see an "
-"overview of the latest pending payments."
+"On the Pronamic Pay dashboard you can restart this tour and see an overview "
+"of the latest pending payments."
 msgstr ""
 
 #: admin/pointer-dashboard.php:5
@@ -490,7 +490,7 @@ msgstr ""
 
 #: admin/pointer-gateways.php:5
 msgid ""
-"To use the Pronamic iDEAL plugin you have to add an payment gateway "
+"To use the Pronamic Pay plugin you have to add an payment gateway "
 "configuration."
 msgstr ""
 
@@ -535,7 +535,7 @@ msgstr ""
 
 #: admin/pointer-reports.php:4
 msgid ""
-"The Pronamic iDEAL reports page shows you an graph of all the payments of "
+"The Pronamic Pay reports page shows you an graph of all the payments of "
 "this year."
 msgstr ""
 
@@ -551,7 +551,7 @@ msgid "Settings"
 msgstr ""
 
 #: admin/pointer-settings.php:4
-msgid "These are the General settings for the Pronamic iDEAL plugin."
+msgid "These are the General settings for the Pronamic Pay plugin."
 msgstr ""
 
 #: admin/pointer-settings.php:5
@@ -564,8 +564,8 @@ msgstr ""
 
 #: admin/pointer-start.php:4
 msgid ""
-"You’ve just installed the Pronamic iDEAL plugin. Click “Start Tour” to view "
-"a quick introduction of this plugin’s core functionality."
+"You’ve just installed the Pronamic Pay plugin. Click “Start Tour” to view a "
+"quick introduction of this plugin’s core functionality."
 msgstr ""
 
 #: admin/pointer-tools.php:1 classes/Pronamic/WP/Pay/Admin.php:497
@@ -610,7 +610,7 @@ msgstr ""
 #: admin/pointer-tools.php:24
 msgid ""
 "The gateways page gives you an overview of all the gateways that er "
-"supported by the Pronamic iDEAL plugin."
+"supported by the Pronamic Pay plugin."
 msgstr ""
 
 #: admin/pointer-tools.php:28
@@ -620,7 +620,7 @@ msgstr ""
 #: admin/pointer-tools.php:29
 msgid ""
 "The extensions page gives you an overview of all the extensions that er "
-"supported by the Pronamic iDEAL plugin."
+"supported by the Pronamic Pay plugin."
 msgstr ""
 
 #: admin/pointer-tools.php:33
@@ -630,7 +630,7 @@ msgstr ""
 #: admin/pointer-tools.php:34
 msgid ""
 "The methods page gives you an overview of all the methods that er supported "
-"by the Pronamic iDEAL plugin."
+"by the Pronamic Pay plugin."
 msgstr ""
 
 #: admin/pointer-tools.php:39
@@ -697,7 +697,7 @@ msgid ""
 "providers are responsible for the actual processing of transactions. We "
 "support most popular Dutch payment\n"
 "providers and banks, but are not a payment provider ourselves. The Pronamic "
-"iDEAL plugin is the glue between\n"
+"Pay plugin is the glue between\n"
 "the chosen payment provider and a wide variety of supported e-commerce "
 "plugins."
 msgstr ""
@@ -901,7 +901,7 @@ msgid "PHP Version"
 msgstr ""
 
 #: admin/tab-system_status.php:106
-msgid "Pronamic iDEAL requires PHP 5.2 or above."
+msgid "Pronamic Pay requires PHP 5.2 or above."
 msgstr ""
 
 #: admin/tab-system_status.php:114
@@ -909,7 +909,7 @@ msgid "MySQL Version"
 msgstr ""
 
 #: admin/tab-system_status.php:131
-msgid "Pronamic iDEAL requires MySQL 5 or above."
+msgid "Pronamic Pay requires MySQL 5 or above."
 msgstr ""
 
 #: admin/tab-system_status.php:139
@@ -917,7 +917,7 @@ msgid "WordPress Version"
 msgstr ""
 
 #: admin/tab-system_status.php:150
-msgid "Pronamic iDEAL requires WordPress 3.2 or above."
+msgid "Pronamic Pay requires WordPress 3.2 or above."
 msgstr ""
 
 #: admin/tab-system_status.php:158
@@ -935,7 +935,7 @@ msgid "Character Set"
 msgstr ""
 
 #: admin/tab-system_status.php:206
-msgid "Pronamic iDEAL advices to set the character encoding to UTF-8."
+msgid "Pronamic Pay advices to set the character encoding to UTF-8."
 msgstr ""
 
 #: admin/tab-system_status.php:214
@@ -955,7 +955,7 @@ msgid "OpenSSL"
 msgstr ""
 
 #: admin/tab-system_status.php:271
-msgid "Pronamic iDEAL requires OpenSSL 0.9.8 or above."
+msgid "Pronamic Pay requires OpenSSL 0.9.8 or above."
 msgstr ""
 
 #: admin/tab-system_status.php:279
@@ -963,7 +963,7 @@ msgid "Registered Hashing Algorithms"
 msgstr ""
 
 #: admin/tab-system_status.php:296
-msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
+msgid "Pronamic Pay requires the \"sha1\" hashing algorithm."
 msgstr ""
 
 #: admin/tab-system_status.php:304
@@ -1003,12 +1003,8 @@ msgstr[1] ""
 msgid "About Pronamic Pay"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/About.php:44
-msgid "Welcome to Pronamic Pay"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin/Dashboard.php:38
-msgid "Pronamic iDEAL Status"
+msgid "Pronamic Pay Status"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/Dashboard.php:48
@@ -1121,26 +1117,30 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/Notices.php:64
 msgid ""
-"<strong>Pronamic iDEAL</strong> — You have not entered a valid <a "
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
 "href=\"%1$s\">support license key</a>, please <a href=\"%2$s\" "
 "target=\"_blank\">get your key at pronamic.eu</a>."
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/Notices.php:70
 msgid ""
-"<strong>Pronamic iDEAL</strong> — You have not entered a valid <a "
+"<strong>Pronamic Pay</strong> — You have not entered a valid <a "
 "href=\"%1$s\">support license key</a>. Please <a href=\"%2$s\" "
 "target=\"_blank\">get your key at pronamic.eu</a> or login to <a "
 "href=\"%3$s\" target=\"_blank\">check your license status</a>."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:132
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:59
+msgid "Check Payment Status"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:131
 msgid "%s payment updated."
 msgid_plural "%s payments updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:146
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:145
 msgid "%s payment is not updated because it already has a final payment status."
 msgid_plural ""
 "%s payments are not updated because they already have a final payment "
@@ -1148,12 +1148,8 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:167
+#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:166
 msgid "Requesting the current payment status is unsupported by %s."
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Admin/PaymentBulkActions.php:185
-msgid "Check Payment Status"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:107
@@ -1167,7 +1163,7 @@ msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin/PaymentPostType.php:183
 #: classes/Pronamic/WP/Pay/Admin/SubscriptionPostType.php:98
-#: classes/Pronamic/WP/Pay/Settings.php:78
+#: classes/Pronamic/WP/Pay/Settings.php:183
 msgid "Unknown"
 msgstr ""
 
@@ -1347,11 +1343,6 @@ msgstr ""
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Admin.php:444
-#: vendor/wp-pay-extensions/formidable-forms/src/PaymentAction.php:28
-msgid "Pronamic Pay"
-msgstr ""
-
 #: classes/Pronamic/WP/Pay/Admin.php:445 vendor/wp-pay/core/src/Gateway.php:636
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
@@ -1394,7 +1385,7 @@ msgstr ""
 msgid "Payment Form %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/PaymentFormData.php:81
+#: classes/Pronamic/WP/Pay/PaymentFormData.php:83
 #: classes/Pronamic/WP/Pay/Plugin.php:790
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 msgid "Payment %s"
@@ -1673,74 +1664,74 @@ msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:30
+#: classes/Pronamic/WP/Pay/Settings.php:71
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:57
 #: vendor/wp-pay-extensions/membership/src/Admin.php:41
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:31
 msgid "General"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:37
+#: classes/Pronamic/WP/Pay/Settings.php:78
 msgid "Support License Key"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:52
+#: classes/Pronamic/WP/Pay/Settings.php:91
 msgid "Default Gateway"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:58
+#: classes/Pronamic/WP/Pay/Settings.php:97
 msgid "— Select a gateway —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:68
+#: classes/Pronamic/WP/Pay/Settings.php:105
 msgid "Payment Status Pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:74
+#: classes/Pronamic/WP/Pay/Settings.php:126
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
+#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:238
+msgid "Currency"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Settings.php:133
+msgid "Thousands Seperator"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Settings.php:145
+msgid "Decimal Seperator"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Settings.php:179
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:75
+#: classes/Pronamic/WP/Pay/Settings.php:180
 msgid "Canceled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:76
+#: classes/Pronamic/WP/Pay/Settings.php:181
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:395
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:77 templates/form.php:173
+#: classes/Pronamic/WP/Pay/Settings.php:182 templates/form.php:173
 #: vendor/wp-pay-extensions/give/src/Gateway.php:122
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:396
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:233
 msgid "Error"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:101
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
-#: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:238
-msgid "Currency"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Settings.php:110
-msgid "Thousands Seperator"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Settings.php:124
-msgid "Decimal Seperator"
-msgstr ""
-
-#: classes/Pronamic/WP/Pay/Settings.php:144
+#: classes/Pronamic/WP/Pay/Settings.php:202
 msgid ""
 "The page an user will get redirected to after payment, based on the payment "
 "status."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:161
+#: classes/Pronamic/WP/Pay/Settings.php:219
 msgid "Set default pages"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Settings.php:223
+#: classes/Pronamic/WP/Pay/Settings.php:281
 msgid "— Select a page —"
 msgstr ""
 
@@ -2160,6 +2151,14 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:225
 msgid "Click to toggle"
+msgstr ""
+
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:228
+#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:51
+#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:81
+#: vendor/wp-pay-extensions/wp-e-commerce/src/Extension.php:88
+#: vendor/wp-pay-extensions/wp-e-commerce/src/IDealMerchant.php:20
+msgid "Pronamic iDEAL"
 msgstr ""
 
 #: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:237
@@ -3254,14 +3253,14 @@ msgstr ""
 msgid "WP e-Commerce Purchase"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Client.php:518
+#: vendor/wp-pay-gateways/buckaroo/src/Client.php:547
 msgid "Unable to retrieve issuers from Buckaroo."
 msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:94
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:84
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:76
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:78
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:90
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:70
 #: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:80
@@ -3272,47 +3271,47 @@ msgstr ""
 msgid "Choose your bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:214
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
 msgid "Status Code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:215
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
 msgid "Status Code Detail"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:216
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
 msgid "Status Message"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:217
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 msgid "Invoice Number"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:220
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
 msgid "Timestamp"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:221
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
 msgid "Service iDEAL Consumer Issuer"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:222
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
 msgid "Service iDEAL Consumer Name"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:223
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
 msgid "Service iDEAL Consumer IBAN"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:224
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:225
 msgid "Service iDEAL Consumer BIC"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:225
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:226
 msgid "Transactions"
 msgstr ""
 
-#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:231
+#: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:232
 msgid "Buckaroo data:"
 msgstr ""
 
@@ -3422,11 +3421,11 @@ msgid ""
 "status updates on."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:165
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
 msgid "Approval code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:166
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:77
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:85
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:237
@@ -3436,47 +3435,47 @@ msgstr ""
 msgid "Order ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:169
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
 msgid "Time of transaction processing"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:170
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
 msgid "Identification for transaction"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:171
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:179
 msgid "Fail reason"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:180
 msgid "Response hash"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:173
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:181
 msgid "Processor response code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:174
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:182
 msgid "Fail code"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:183
 msgid "Terminal ID"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:176
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:184
 msgid "Creditcard issuing bank"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:177
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:185
 msgid "Creditcard country"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:178
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:186
 msgid "Creditcard brand"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:184
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:192
 msgid "EMS e-Commerce transaction data in response message:"
 msgstr ""
 
@@ -4303,13 +4302,17 @@ msgid "Please click the button below if you are not automatically redirected."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.pronamic.eu/plugins/pronamic-ideal/"
+msgid "https://www.pronamic.eu/plugins/pronamic-ideal/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"The Pronamic iDEAL plugin allows you to add payment methods like iDEAL, "
-"Bitcoin, Bancontact, PayPal and more to your WordPress website."
+"The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit "
+"card and more to your WordPress site for a variety of payment providers."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.pronamic.eu/"
 msgstr ""
 
 #: admin/meta-box-payment-subscription.php:45
@@ -4448,7 +4451,7 @@ msgctxt "Payment method field"
 msgid "All"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
+#: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:175
 msgctxt "creditcard"
 msgid "Reference number"
 msgstr ""

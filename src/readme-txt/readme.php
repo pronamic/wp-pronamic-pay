@@ -6,12 +6,12 @@ $data = file_get_contents( __DIR__ . '/../../package.json' );
 $pkg  = json_decode( $data );
 
 ?>
-=== Pronamic iDEAL ===
+=== Pronamic Pay ===
 Contributors: pronamic, remcotolsma 
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
-Requires at least: 4.3
-Tested up to: 4.7.3
+Requires at least: 4.7
+Tested up to: 4.7.4
 Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 
 <?php include __DIR__ . '/../general/description-short.php'; ?>
