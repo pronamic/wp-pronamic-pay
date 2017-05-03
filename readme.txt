@@ -215,7 +215,6 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	TargetPay - iDEAL
 *	[Qantani](https://www.qantani.com/)
 	*	Qantani (new platform)
-	*	Qantani (old platform)
 
 
 == Installation ==

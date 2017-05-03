@@ -78,7 +78,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_multisafepay_account_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_pay_nl_service_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_paydutch_username', true ),
-					get_post_meta( $post_id, '_pronamic_gateway_qantani_merchant_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_id', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_targetpay_layoutcode', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_psp_id', true ),
@@ -95,7 +94,6 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 					get_post_meta( $post_id, '_pronamic_gateway_buckaroo_secret_key', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_icepay_secret_code', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_sisow_merchant_key', true ),
-					get_post_meta( $post_id, '_pronamic_gateway_qantani_merchant_secret', true ),
 					get_post_meta( $post_id, '_pronamic_gateway_ogone_password', true ),
 				) );
 

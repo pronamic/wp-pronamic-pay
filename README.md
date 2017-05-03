@@ -42,7 +42,6 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Sisow](http://sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 | [Qantani](https://www.qantani.com/) | Qantani (new platform) |
-| [Qantani](https://www.qantani.com/) | Qantani (old platform) |
 
 
 ## Extensions

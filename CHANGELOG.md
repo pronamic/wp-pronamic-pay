@@ -6,6 +6,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+### Removed
+- Removed support for old Qantani platform.
+
 ## [4.6.0] - 2017-05-01
 
 ### Changes
