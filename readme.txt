@@ -70,7 +70,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
-	*	**Tested up to:** 2.0.6
+	*	**Tested up to:** 2.2.1.2
 *	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
@@ -139,7 +139,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
-	*	**Tested up to:** 2.6.4
+	*	**Tested up to:** 3.0.6
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)

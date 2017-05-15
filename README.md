@@ -56,7 +56,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Event Espresso 4 Decaf](http://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.4.4.decaf` |
 | [Formidable Forms](https://formidablepro.com/) |  | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `2.0.22` |
 | [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.3.6` | `1.5.2` |
-| [Gravity Forms](http://www.gravityforms.com/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityforms) | `1.6` | `2.0.6` |
+| [Gravity Forms](http://www.gravityforms.com/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityforms) | `1.6` | `2.2.1.2` |
 | [Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsaweber) | `1.4.2` | `1.4.2` |
 | [Gravity Forms Campaign Monitor Add-On](http://www.gravityforms.com/add-ons/campaign-monitor/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformscampaignmonitor) | `2.5.1` | `2.5.1` |
 | [Gravity Forms MailChimp Add-On](http://www.gravityforms.com/add-ons/mailchimp/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsmailchimp) | `2.4.1` | `2.4.1` |
@@ -69,7 +69,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Membership Premium](https://premium.wpmudev.org/project/membership/) | [WPMUDEV.org](http://www.wpmudev.org/) |  | [GitHub](https://github.com/pronamic-wpmudev/membership-premium) | `3.4.6` | `3.5.1.3` |
 | [s2Member®](http://www.s2member.com/) | [WebSharks, Inc.](http://www.websharks-inc.com/) | [WordPress.org](http://wordpress.org/plugins/s2member/) | [GitHub](https://github.com/WebSharks/s2Member) | `130816` | `160801` |
 | [Shopp](https://shopplugin.net/) | [Ingenesis Limited](http://ingenesis.net/) | [WordPress.org](http://wordpress.org/plugins/shopp/) | [GitHub](https://github.com/ingenesis/shopp) | `1.1` | `1.3.5` |
-| [WooCommerce](http://www.woothemes.com/woocommerce/) | [WooThemes](http://www.woothemes.com/) | [WordPress.org](http://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woothemes/woocommerce) | `2.1.0` | `2.6.4` |
+| [WooCommerce](http://www.woothemes.com/woocommerce/) | [WooThemes](http://www.woothemes.com/) | [WordPress.org](http://wordpress.org/plugins/woocommerce/) | [GitHub](https://github.com/woothemes/woocommerce) | `2.1.0` | `3.0.6` |
 | [WP e-Commerce](http://getshopped.org/) | [Instinct Entertainment](http://instinct.co.nz/) | [WordPress.org](http://wordpress.org/plugins/wp-e-commerce/) | [GitHub](https://github.com/wp-e-commerce/WP-e-Commerce) | `3.8.12.1` | `3.11.3` |
 | [Crowdfunding by Astoundify](http://wordpress.org/plugins/appthemer-crowdfunding/) | [Astoundify](http://www.astoundify.com/) | [WordPress.org](http://wordpress.org/plugins/appthemer-crowdfunding/) | [GitHub](https://github.com/astoundify/crowdfunding/) | `1.8.2` | `1.8.2` |
 | [ClassiPress](http://www.appthemes.com/themes/classipress/) | [AppThemes](http://www.appthemes.com/) |  |  | `3.3.1` | `3.3.3` |
