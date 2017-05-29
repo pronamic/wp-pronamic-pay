@@ -893,7 +893,7 @@ class Pronamic_WP_Pay_Plugin {
 			$payment->email                     = $data->get_email();
 			$payment->status                    = null;
 			$payment->method                    = $payment_method;
-			$payment->issuer                    = $data->get_issuer_id();
+			$payment->issuer                    = $data->get_issuer( $payment_method );
 			$payment->customer_name             = $data->get_customer_name();
 			$payment->address                   = $data->get_address();
 			$payment->zip                       = $data->get_zip();

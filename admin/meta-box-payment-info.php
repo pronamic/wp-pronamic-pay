@@ -68,12 +68,10 @@ $payment = get_pronamic_payment( $post_id );
 
 			echo esc_html( $name );
 
-			if ( Pronamic_WP_Pay_PaymentMethods::IDEAL === $method ) {
-				$issuer = $payment->get_meta( 'issuer' );
+			$issuer = $payment->get_meta( 'issuer' );
 
-				if ( $issuer ) {
-					echo esc_html( sprintf( ' (`%s`)', $issuer ) );
-				}
+			if ( $issuer ) {
+				echo esc_html( sprintf( ' (`%s`)', $issuer ) );
 			}
 
 			?>

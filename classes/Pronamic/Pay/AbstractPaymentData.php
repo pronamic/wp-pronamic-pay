@@ -180,8 +180,20 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	// Issuer
 	//////////////////////////////////////////////////
 
+	public function get_issuer( $payment_method = null ) {
+		if ( Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD === $payment_method ) {
+			return $this->get_credit_card_issuer_id();
+		}
+
+		return $this->get_issuer_id();
+	}
+
 	public function get_issuer_id() {
 		return filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
+	}
+
+	public function get_credit_card_issuer_id() {
+		return filter_input( INPUT_POST, 'pronamic_credit_card_issuer_id', FILTER_SANITIZE_STRING );
 	}
 
 	/**
