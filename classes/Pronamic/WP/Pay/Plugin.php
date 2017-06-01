@@ -225,7 +225,11 @@ class Pronamic_WP_Pay_Plugin {
 					$old_status = 'unknown';
 				}
 
-				$gateway->update_status( $payment );
+				if ( 0.0 === $payment->get_amount() ) {
+					$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+				} else {
+					$gateway->update_status( $payment );
+				}
 
 				$new_status = strtolower( $payment->status );
 
@@ -743,6 +747,12 @@ class Pronamic_WP_Pay_Plugin {
 		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
 
 		if ( $payment ) {
+			if ( 0.0 === $payment->get_amount() ) {
+				self::update_payment( $payment, false );
+
+				return $payment;
+			}
+
 			$payment->set_credit_card( $data->get_credit_card() );
 
 			$gateway->start( $payment );
