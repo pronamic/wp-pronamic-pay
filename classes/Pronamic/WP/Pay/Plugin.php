@@ -987,7 +987,7 @@ class Pronamic_WP_Pay_Plugin {
 				array(
 					'key'     => '_pronamic_subscription_source',
 					'value'   => $sources,
-				    'compare' => 'NOT IN',
+					'compare' => 'NOT IN',
 				),
 				array(
 					'key'     => '_pronamic_subscription_next_payment',

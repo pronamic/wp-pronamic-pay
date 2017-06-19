@@ -25,8 +25,8 @@
 				border: 1px solid #C3C3C3;
 
 				-webkit-border-radius: 4px;
-				   -moz-border-radius: 4px;
-				        border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
 
 				box-shadow: 1px 1px 3px #E7E7E7;
 
@@ -67,14 +67,14 @@
 				border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 				border-bottom-color: #b3b3b3;
 				-webkit-border-radius: 4px;
-				   -moz-border-radius: 4px;
-				        border-radius: 4px;
+				-moz-border-radius: 4px;
+				border-radius: 4px;
 				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
 				filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 				*zoom: 1;
 				-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-				   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-				        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+				-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+				box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 			}
 
 			.btn-primary {

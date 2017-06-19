@@ -74,7 +74,7 @@ class Pronamic_WP_Pay_PaymentFormData extends Pronamic_WP_Pay_PaymentData {
 			$amount = filter_input( INPUT_POST, 'pronamic_pay_amount_other', FILTER_SANITIZE_STRING );
 
 			$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
-		} elseif ( in_array( $amount_method, array( Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_ONLY, Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT ) ) ) {
+		} elseif ( in_array( $amount_method, array( Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_ONLY, Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT ), true ) ) {
 			$amount /= 100;
 		}
 

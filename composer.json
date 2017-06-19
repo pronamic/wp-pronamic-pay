@@ -99,10 +99,5 @@
 		"satooshi/php-coveralls": "^1.0",
 		"squizlabs/php_codesniffer": "^2.7",
 		"wp-coding-standards/wpcs": "^0.11.0"
-	},
-	"scripts": {
-		"post-autoload-dump": [
-			"if [ -d vendor/wp-coding-standards/wpcs ]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
-		]
 	}
 }
