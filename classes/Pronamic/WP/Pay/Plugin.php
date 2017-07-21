@@ -908,6 +908,8 @@ class Pronamic_WP_Pay_Plugin {
 			$payment->status                    = null;
 			$payment->method                    = $payment_method;
 			$payment->issuer                    = $data->get_issuer( $payment_method );
+			$payment->first_name                = $data->get_first_name();
+			$payment->last_name                 = $data->get_last_name();
 			$payment->customer_name             = $data->get_customer_name();
 			$payment->address                   = $data->get_address();
 			$payment->zip                       = $data->get_zip();
@@ -933,6 +935,8 @@ class Pronamic_WP_Pay_Plugin {
 				$prefix . 'locale'                    => $payment->locale,
 				$prefix . 'entrance_code'             => $payment->entrance_code,
 				$prefix . 'description'               => $payment->description,
+				$prefix . 'first_name'                => $payment->first_name,
+				$prefix . 'last_name'                 => $payment->last_name,
 				$prefix . 'consumer_name'             => null,
 				$prefix . 'consumer_account_number'   => null,
 				$prefix . 'consumer_iban'             => null,
