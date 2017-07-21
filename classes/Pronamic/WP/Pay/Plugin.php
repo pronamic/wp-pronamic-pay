@@ -565,6 +565,10 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::BUNQ :
+					$gateways[] = 'sisow-ideal';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
