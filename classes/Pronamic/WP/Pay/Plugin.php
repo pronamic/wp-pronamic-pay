@@ -607,6 +607,11 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'sisow-ideal';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_BANCONTACT :
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
