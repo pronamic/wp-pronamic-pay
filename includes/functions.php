@@ -72,6 +72,32 @@ function get_pronamic_subscription( $post_id ) {
 	return $subscription;
 }
 
+function get_pronamic_subscription_by_meta( $meta_key, $meta_value ) {
+	global $wpdb;
+
+	$subscription = null;
+
+	$db_query = $wpdb->prepare( "
+		SELECT
+			post_id
+		FROM
+			$wpdb->postmeta
+		WHERE
+			meta_key = %s
+				AND
+			meta_value = %s
+			;
+	", $meta_key, $meta_value );
+
+	$post_id = $wpdb->get_var( $db_query ); // WPCS: unprepared SQL ok.
+
+	if ( $post_id ) {
+		$subscription = new Pronamic_WP_Pay_Subscription( $post_id );
+	}
+
+	return $subscription;
+}
+
 function bind_providers_and_gateways() {
 	global $pronamic_pay_providers;
 
