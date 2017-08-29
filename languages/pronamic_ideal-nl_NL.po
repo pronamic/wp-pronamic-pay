@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-08-29 12:37+0100\n"
+"PO-Revision-Date: 2017-08-29 14:09+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -164,50 +164,62 @@ msgstr "Redirect URL"
 msgid "Status"
 msgstr "Status"
 
-#: admin/meta-box-payment-info.php:154
+#: admin/meta-box-payment-info.php:154 templates/form.php:102
+#: templates/form.php:105
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:625
+msgid "First Name"
+msgstr "Voornaam"
+
+#: admin/meta-box-payment-info.php:166 templates/form.php:110
+#: templates/form.php:113
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:626
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: admin/meta-box-payment-info.php:178
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:634
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:127
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:166
+#: admin/meta-box-payment-info.php:190
 #: admin/meta-box-subscription-info.php:158
 msgid "Consumer"
 msgstr "Consument"
 
-#: admin/meta-box-payment-info.php:184
+#: admin/meta-box-payment-info.php:208
 #: admin/meta-box-payment-subscription.php:61
 #: admin/meta-box-subscription-info.php:174
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:199
+#: admin/meta-box-payment-info.php:223
 #: admin/meta-box-subscription-info.php:197
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:207
+#: admin/meta-box-payment-info.php:231
 #: admin/meta-box-subscription-info.php:205
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:220
+#: admin/meta-box-payment-info.php:244
 #: admin/meta-box-subscription-info.php:218
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:228
+#: admin/meta-box-payment-info.php:252
 #: admin/meta-box-subscription-info.php:226
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:241
+#: admin/meta-box-payment-info.php:265
 #: admin/meta-box-subscription-info.php:239
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:249
+#: admin/meta-box-payment-info.php:273
 #: admin/meta-box-subscription-info.php:247
 msgid "Subscription ID"
 msgstr "Abonnement ID"
@@ -1973,16 +1985,6 @@ msgstr ""
 msgid "Personal Info"
 msgstr "Persoonlijke informatie"
 
-#: templates/form.php:102 templates/form.php:105
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:625
-msgid "First Name"
-msgstr "Voornaam"
-
-#: templates/form.php:110 templates/form.php:113
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:626
-msgid "Last Name"
-msgstr "Achternaam"
-
 #: templates/form.php:118 templates/form.php:122
 msgid "Email Address"
 msgstr "E-mailadres"
@@ -3339,7 +3341,11 @@ msgstr "Bitcoin inschakelen"
 msgid "bunq"
 msgstr "bunq"
 
-#: vendor/wp-pay-extensions/woocommerce/src/BunqGateway.php:45
+#: vendor/wp-pay-extensions/woocommerce/src/BunqGateway.php:31
+msgid "Proceed to bunq"
+msgstr "Ga verder naar bunq"
+
+#: vendor/wp-pay-extensions/woocommerce/src/BunqGateway.php:47
 msgid "Enable bunq"
 msgstr "bunq inschakelen"
 
@@ -3471,6 +3477,10 @@ msgstr ""
 msgid "Awaiting payment."
 msgstr "Wachten op betaling."
 
+#: vendor/wp-pay-extensions/woocommerce/src/IDealGateway.php:32
+msgid "Proceed to iDEAL"
+msgstr "Ga verder naar iDEAL"
+
 #: vendor/wp-pay-extensions/woocommerce/src/KbcGateway.php:40
 msgid "Enable KBC/CBC Payment Button"
 msgstr "KBC/CBC-Betaalknop inschakelen"
@@ -3483,11 +3493,19 @@ msgstr "Maestro"
 msgid "Enable Maestro"
 msgstr "Maestro inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:40
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:31
+msgid "Proceed to Bancontact"
+msgstr "Ga verder naar Bancontact"
+
+#: vendor/wp-pay-extensions/woocommerce/src/MisterCashGateway.php:42
 msgid "Enable Bancontact"
 msgstr "Bancontact inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:42
+#: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:31
+msgid "Proceed to PayPal"
+msgstr "Ga verder naar PayPal"
+
+#: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:44
 msgid "Enable PayPal"
 msgstr "PayPal inschakelen"
 
@@ -3503,7 +3521,11 @@ msgstr "WooCommerce bestelling %s"
 msgid "Enable Pronamic"
 msgstr "Pronamic inschakelen"
 
-#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:40
+#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:31
+msgid "Proceed to SOFORT Banking"
+msgstr "Ga verder naar SOFORT Banking"
+
+#: vendor/wp-pay-extensions/woocommerce/src/SofortGateway.php:42
 msgid "Enable SOFORT Banking"
 msgstr "SOFORT Banking inschakelen"
 
@@ -7451,9 +7473,6 @@ msgstr "Shop ID"
 
 #~ msgid "iDEAL Condition"
 #~ msgstr "iDEAL-conditie"
-
-#~ msgid "Send to iDEAL if "
-#~ msgstr "Verstuur naar iDEAL als"
 
 #~ msgid "To get started, please configure your %s."
 #~ msgstr "Om te beginnen configureer je %s."
