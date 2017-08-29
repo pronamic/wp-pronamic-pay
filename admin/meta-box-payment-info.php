@@ -151,6 +151,30 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_first_name', true ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_last_name', true ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Email', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
