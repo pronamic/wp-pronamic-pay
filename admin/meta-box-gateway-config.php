@@ -149,7 +149,13 @@ bind_providers_and_gateways();
 
 						<?php if ( ! empty( $section['description'] ) ) : ?>
 
-							<p><?php echo $section['description']; //xss ok ?></p>
+							<p>
+								<?php
+
+								echo $section['description']; // WPCS: XSS ok.
+
+								?>
+							</p>
 
 						<?php endif; ?>
 					</div>
@@ -158,9 +164,9 @@ bind_providers_and_gateways();
 
 				<table class="form-table">
 
-					<?php foreach ( $sections_fields[ $id ] as $field ) : ?>
+					<?php
 
-						<?php
+					foreach ( $sections_fields[ $id ] as $field ) :
 
 						$classes = array();
 						if ( isset( $field['methods'] ) ) {

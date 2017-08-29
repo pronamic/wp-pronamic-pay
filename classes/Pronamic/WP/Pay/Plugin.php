@@ -33,7 +33,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @param string $file
 	 */
 	public static function bootstrap( $file ) {
-		self::$file	= $file;
+		self::$file = $file;
 		self::$dirname = dirname( $file );
 
 		// Plugin

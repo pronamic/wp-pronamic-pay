@@ -34,7 +34,7 @@ function pronamic_wp_pay_update_subscription( $subscription ) {
 	// Do not update post_status if subscription is draft or trashed.
 	$post_status = get_post_status( $post_id );
 
-	if ( in_array( $post_status, array( 'trash', 'draft' ) ) ) {
+	if ( in_array( $post_status, array( 'trash', 'draft' ), true ) ) {
 		return;
 	}
 

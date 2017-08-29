@@ -133,14 +133,19 @@ function pronamic_pay_let_to_num( $size ) {
 	switch ( strtoupper( $l ) ) {
 		case 'P':
 			$ret *= 1024;
+			// no break
 		case 'T':
 			$ret *= 1024;
+			// no break
 		case 'G':
 			$ret *= 1024;
+			// no break
 		case 'M':
 			$ret *= 1024;
+			// no break
 		case 'K':
 			$ret *= 1024;
+			// no break
 	}
 
 	return $ret;

@@ -85,7 +85,9 @@
 								'posts_per_page' => 5,
 							) );
 
-							if ( $query->have_posts() ) : ?>
+							if ( $query->have_posts() ) :
+
+								?>
 
 								<div id="dashboard_recent_drafts">
 									<ul>

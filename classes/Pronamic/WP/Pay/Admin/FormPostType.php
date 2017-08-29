@@ -255,7 +255,8 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 	<label for="pronamic-pay-shortcode"><?php esc_html_e( 'Shortcode:', 'pronamic_ideal' ); ?></label>
 
 	<input id="pronamic-pay-shortcode" class="pronamic-pay-shortcode-input" onClick="this.setSelectionRange( 0, this.value.length )" type="text" class="shortcode-input" readonly value="<?php echo esc_attr( $this->get_shortcode() ); ?>" />
-</div><?php
+</div>
+<?php
 	}
 
 	/**

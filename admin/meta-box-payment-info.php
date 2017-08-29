@@ -184,7 +184,11 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo $payment->get_source_text(); //xss ok ?>
+			<?php
+
+			echo $payment->get_source_text(); // WPCS: XSS ok.
+
+			?>
 		</td>
 	</tr>
 
