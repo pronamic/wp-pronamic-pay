@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-05-29 14:09+0100\n"
-"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
+"PO-Revision-Date: 2017-08-29 12:37+0100\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Button tekst"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: admin/meta-box-form-options.php:38 admin/meta-box-gateway-test.php:80
+#: admin/meta-box-form-options.php:38 admin/meta-box-gateway-test.php:84
 #: admin/meta-box-payment-info.php:37
 #: admin/meta-box-payment-subscription.php:30
 #: admin/meta-box-subscription-info.php:37
@@ -89,13 +89,13 @@ msgstr "Productinformatie"
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
-#: admin/meta-box-gateway-test.php:93
+#: admin/meta-box-gateway-test.php:97
 #: classes/Pronamic/WP/Pay/Admin/GatewayPostType.php:189
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:37
 msgid "Test"
 msgstr "Test"
 
-#: admin/meta-box-gateway-test.php:106
+#: admin/meta-box-gateway-test.php:110
 msgid ""
 "Please save the entered account details of your payment provider, to make a "
 "test payment."
@@ -170,7 +170,8 @@ msgstr "Status"
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:166 admin/meta-box-subscription-info.php:158
+#: admin/meta-box-payment-info.php:166
+#: admin/meta-box-subscription-info.php:158
 msgid "Consumer"
 msgstr "Consument"
 
@@ -180,28 +181,34 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:195 admin/meta-box-subscription-info.php:197
+#: admin/meta-box-payment-info.php:199
+#: admin/meta-box-subscription-info.php:197
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:203 admin/meta-box-subscription-info.php:205
+#: admin/meta-box-payment-info.php:207
+#: admin/meta-box-subscription-info.php:205
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:216 admin/meta-box-subscription-info.php:218
+#: admin/meta-box-payment-info.php:220
+#: admin/meta-box-subscription-info.php:218
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:224 admin/meta-box-subscription-info.php:226
+#: admin/meta-box-payment-info.php:228
+#: admin/meta-box-subscription-info.php:226
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:237 admin/meta-box-subscription-info.php:239
+#: admin/meta-box-payment-info.php:241
+#: admin/meta-box-subscription-info.php:239
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:245 admin/meta-box-subscription-info.php:247
+#: admin/meta-box-payment-info.php:249
+#: admin/meta-box-subscription-info.php:247
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -400,7 +407,8 @@ msgstr "Start rondleiding"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4
+#: admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -409,15 +417,15 @@ msgid "Pending Payments"
 msgstr "Betalingen in afwachting"
 
 #. translators: comment date format. See http:php.net/date
-#: admin/page-dashboard.php:112
+#: admin/page-dashboard.php:114
 msgid "c"
 msgstr "c"
 
-#: admin/page-dashboard.php:136 admin/page-dashboard.php:144
+#: admin/page-dashboard.php:138 admin/page-dashboard.php:146
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#: admin/page-dashboard.php:142
+#: admin/page-dashboard.php:144
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
@@ -512,7 +520,7 @@ msgstr "Configuraties"
 #: admin/pointer-gateways.php:4
 msgid ""
 "Here you can find an overview of all the gateway configurations on your "
-"WordPres site."
+"WordPress site."
 msgstr ""
 "Hier vind je een overzicht van al de betalingsconfiguraties op je WordPress "
 "website."
@@ -546,7 +554,7 @@ msgstr "Betalingen"
 #: admin/pointer-payments.php:4
 msgid ""
 "On the payments page you can find an overview off all the payments initiated "
-"on your WordPres site."
+"on your WordPress site."
 msgstr ""
 "Op de betalingen pagina vind je een overzicht van alle betalingen die "
 "gestart zijn op je WordPress website."
@@ -1395,7 +1403,8 @@ msgstr "Mislukte betalingen"
 msgid "Recurrence"
 msgstr "Herhaling"
 
-#: classes/Pronamic/WP/Pay/Admin.php:247 vendor/wp-pay/core/src/Gateway.php:456
+#: classes/Pronamic/WP/Pay/Admin.php:247
+#: vendor/wp-pay/core/src/Gateway.php:456
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:166
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -1490,7 +1499,8 @@ msgstr "onbekend"
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 
-#: classes/Pronamic/WP/Pay/Admin.php:445 vendor/wp-pay/core/src/Gateway.php:670
+#: classes/Pronamic/WP/Pay/Admin.php:445
+#: vendor/wp-pay/core/src/Gateway.php:670
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
@@ -2065,12 +2075,11 @@ msgstr "Belfius Direct Net"
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:161
 msgid "Bunq"
-msgstr ""
+msgstr "Bunq"
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:164
-#, fuzzy
 msgid "Direct Debit mandate via Bancontact"
-msgstr "Incasso (machtiging via iDEAL)"
+msgstr "Incasso (machtiging via Bancontact)"
 
 #: vendor/wp-pay/core/src/PaymentMethods.php:165
 msgid "Direct Debit mandate via iDEAL"
@@ -3328,34 +3337,30 @@ msgstr "Bitcoin inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/BunqGateway.php:28
 msgid "bunq"
-msgstr ""
+msgstr "bunq"
 
 #: vendor/wp-pay-extensions/woocommerce/src/BunqGateway.php:45
-#, fuzzy
 msgid "Enable bunq"
-msgstr "Inschakelen"
+msgstr "bunq inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/CreditCardGateway.php:74
 msgid "Enable Credit Card"
 msgstr "Creditcard inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitBancontactGateway.php:28
-#, fuzzy
 msgid "Direct Debit (mandate via Bancontact)"
-msgstr "Incasso (machtiging via iDEAL)"
+msgstr "Incasso (machtiging via Bancontact)"
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitBancontactGateway.php:57
-#, fuzzy
 msgid "Enable Direct Debit (mandate via Bancontact)"
-msgstr "Incasso (machtiging via iDEAL) inschakelen"
+msgstr "Incasso (machtiging via Bancontact) inschakelen"
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitBancontactGateway.php:58
-#, fuzzy
 msgid ""
 "By using this payment method you authorize us via Bancontact to debit "
 "payments from your bank account."
 msgstr ""
-"Met deze betaalmethode machtig je ons via iDEAL om betalingen van je "
+"Met deze betaalmethode machtig je ons via Bancontact om betalingen van je "
 "bankrekening af te schrijven."
 
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitGateway.php:40
@@ -4606,23 +4611,23 @@ msgstr ""
 "Layout code zoals vermeld in het TargetPay dashboard op de pagina \"Mijn "
 "account » Subaccounts\"."
 
-#: views/error.php:9 views/error.php:24 views/error.php:50
+#: views/error.php:9 views/error.php:26 views/error.php:55
 msgid "Code"
 msgstr "Code"
 
-#: views/error.php:12 views/error.php:27 views/error.php:53
+#: views/error.php:12 views/error.php:29 views/error.php:58
 msgid "Message"
 msgstr "Bericht"
 
-#: views/error.php:30 views/error.php:56
+#: views/error.php:32 views/error.php:61
 msgid "Detail"
 msgstr "Detail"
 
-#: views/error.php:33 views/error.php:59
+#: views/error.php:35 views/error.php:64
 msgid "Suggested Action"
 msgstr "Voorgestelde actie"
 
-#: views/error.php:36 views/error.php:62
+#: views/error.php:38 views/error.php:67
 msgid "Consumer Message"
 msgstr "Consumenten bericht"
 
@@ -4643,15 +4648,15 @@ msgstr "Verwacht resultaat als de integratie juist is"
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr "Transactie met <code>amount</code> = %s:"
 
-#: views/redirect-via-html.php:7 views/redirect-via-html.php:120
+#: views/redirect-via-html.php:21 views/redirect-via-html.php:36
 msgid "Redirecting…"
 msgstr "Doorverwijzen…"
 
-#: views/redirect-via-html.php:123
+#: views/redirect-via-html.php:39
 msgid "You will be automatically redirected to the online payment environment."
 msgstr "U wordt automatisch doorgestuurd naar de online betaalomgeving."
 
-#: views/redirect-via-html.php:127
+#: views/redirect-via-html.php:43
 msgid "Please click the button below if you are not automatically redirected."
 msgstr "Klik op onderstaande knop als je niet automatisch wordt doorgestuurd."
 
