@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4ded98a444d63ae6991056247a3339a",
+    "content-hash": "3342591c91ebdd9e1eec04a2f3a811e1",
     "packages": [
         {
             "name": "composer/installers",
@@ -344,12 +344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "441af755b2b283827de697bf253d9839259f9e16"
+                "reference": "9dec3e7558a83daa6bf3b5ced55a2315aba1f542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/441af755b2b283827de697bf253d9839259f9e16",
-                "reference": "441af755b2b283827de697bf253d9839259f9e16",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/9dec3e7558a83daa6bf3b5ced55a2315aba1f542",
+                "reference": "9dec3e7558a83daa6bf3b5ced55a2315aba1f542",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-08-29T11:25:54+00:00"
+            "time": "2017-08-29T12:35:53+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -2045,16 +2045,16 @@
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "1.1.10",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "2a817cdbfac7c9d6f237e3bdf54118c6e36d90b0"
+                "reference": "9f78733c4d5bd85079e271dfa26e3fb84fab7936"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/2a817cdbfac7c9d6f237e3bdf54118c6e36d90b0",
-                "reference": "2a817cdbfac7c9d6f237e3bdf54118c6e36d90b0",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/9f78733c4d5bd85079e271dfa26e3fb84fab7936",
+                "reference": "9f78733c4d5bd85079e271dfa26e3fb84fab7936",
                 "shasum": ""
             },
             "require": {
@@ -2064,12 +2064,12 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "phpmd/phpmd": "^2.2.3",
+                "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.7",
+                "squizlabs/php_codesniffer": "^2.9",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wp-coding-standards/wpcs": "^0.13.1"
             },
             "type": "library",
             "autoload": {
@@ -2107,7 +2107,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-04-07T13:27:33+00:00"
+            "time": "2017-08-31T09:30:04+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -5531,6 +5531,12 @@
             "package": "wp-pay/core"
         },
         {
+            "alias": "1.1.11",
+            "alias_normalized": "1.1.11.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/ideal-advanced-v3"
+        },
+        {
             "alias": "1.2.3",
             "alias_normalized": "1.2.3.0",
             "version": "dev-develop",
@@ -5600,6 +5606,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay/core": 20,
+        "wp-pay-gateways/ideal-advanced-v3": 20,
         "wp-pay-gateways/sisow": 20,
         "wp-pay-extensions/charitable": 20,
         "wp-pay-extensions/easy-digital-downloads": 20,
