@@ -12,6 +12,7 @@ Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocom
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
 Tested up to: 4.8
+Requires PHP: 5.3
 Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 
 <?php include __DIR__ . '/../general/description-short.php'; ?>
