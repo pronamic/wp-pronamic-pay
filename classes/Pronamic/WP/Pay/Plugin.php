@@ -841,6 +841,7 @@ class Pronamic_WP_Pay_Plugin {
 						'post_type'   => 'pronamic_pay_subscr',
 						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
 						'post_status' => 'subscr_pending',
+						'post_author' => $post_author,
 					), true );
 
 					if ( is_wp_error( $subscription_id ) ) {
