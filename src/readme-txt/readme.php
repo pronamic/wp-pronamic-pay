@@ -45,8 +45,3 @@ Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 
 <?php include __DIR__ . '/../general/links.php'; ?>
 
-
-== Pronamic plugins ==
-
-<?php include __DIR__ . '/../general/plugins.php'; ?>
-

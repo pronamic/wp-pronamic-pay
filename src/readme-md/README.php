@@ -37,7 +37,3 @@ header( 'Content-Type: text/plain' );
 
 <?php include __DIR__ . '/../general/links.php'; ?>
 
-
-## Pronamic plugins
-
-<?php include __DIR__ . '/../general/plugins.php'; ?>

@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.8
 Requires PHP: 5.3
-Stable tag: 4.6.0
+Stable tag: 4.6.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -284,6 +284,9 @@ The WordPress HTTPS can conflict with the OmniKassa payment method. It can cause
 
 
 == Changelog ==
+
+= 4.6.1 - 2017-09-14 =
+*	Removed support for old Qantani platform.
 
 = 4.6.0 - 2017-05-01 =
 *	Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.
@@ -1800,15 +1803,4 @@ The WordPress HTTPS can conflict with the OmniKassa payment method. It can cause
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 		"Markdown is what the parser uses to process much of the readme file"
-
-
-== Pronamic plugins ==
-
-*	[Pronamic Google Maps](http://wordpress.org/extend/plugins/pronamic-google-maps/)
-*	[Gravity Forms (nl)](http://wordpress.org/extend/plugins/gravityforms-nl/)
-*	[Pronamic Page Widget](http://wordpress.org/extend/plugins/pronamic-page-widget/)
-*	[Pronamic Page Teasers](http://wordpress.org/extend/plugins/pronamic-page-teasers/)
-*	[Maildit](http://wordpress.org/extend/plugins/maildit/)
-*	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
-*	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
 

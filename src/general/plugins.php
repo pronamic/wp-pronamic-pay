@@ -1,7 +1,0 @@
-*	[Pronamic Google Maps](http://wordpress.org/extend/plugins/pronamic-google-maps/)
-*	[Gravity Forms (nl)](http://wordpress.org/extend/plugins/gravityforms-nl/)
-*	[Pronamic Page Widget](http://wordpress.org/extend/plugins/pronamic-page-widget/)
-*	[Pronamic Page Teasers](http://wordpress.org/extend/plugins/pronamic-page-teasers/)
-*	[Maildit](http://wordpress.org/extend/plugins/maildit/)
-*	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
-*	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
