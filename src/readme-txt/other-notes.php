@@ -13,9 +13,3 @@ The WPML plugin(s) can conflict with multiple gateways. A lot of the gateways us
 === [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) ===
 
 The WordPress HTTPS can conflict with the OmniKassa payment method. It can cause invalid signature errors. The WordPress HTTPS plugin parses the complete output of an WordPress website and changes 'http' URLs to 'https' URLs, this  results in OmniKassa data that no longer matches the signature.
-
-
-== To Do ==
-
-*	Qantani - Check Callback URL implementation.
-*	Mollie - Add unit tests for new API.

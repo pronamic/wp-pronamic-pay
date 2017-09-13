@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 4.6.0\n"
+"Project-Id-Version: Pronamic Pay 4.6.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
 "MIME-Version: 1.0\n"
@@ -2055,6 +2055,12 @@ msgstr ""
 msgid "Advertisement %s"
 msgstr ""
 
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitIDealGateway.php:20
+#: vendor/wp-pay-extensions/easy-digital-downloads/src/DirectDebitIDealGateway.php:21
+#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
+msgid "Direct Debit (mandate via iDEAL)"
+msgstr ""
+
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:127
 msgid "Payment completed."
 msgstr ""
@@ -3145,10 +3151,6 @@ msgstr ""
 msgid "Enable Direct Debit"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:28
-msgid "Direct Debit (mandate via iDEAL)"
-msgstr ""
-
 #: vendor/wp-pay-extensions/woocommerce/src/DirectDebitIDealGateway.php:85
 msgid "Enable Direct Debit (mandate via iDEAL)"
 msgstr ""
@@ -3391,7 +3393,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:61
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:36
 #: vendor/wp-pay-gateways/icepay/src/Settings.php:69
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:185
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:186
 #: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:22
 #: vendor/wp-pay-gateways/ideal-basic/src/Settings.php:48
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:34
@@ -3439,7 +3441,7 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:76
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:65
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:189
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:190
 #: vendor/wp-pay-gateways/mollie/src/Settings.php:58
 #: vendor/wp-pay-gateways/multisafepay/src/Settings.php:90
 #: vendor/wp-pay-gateways/pay-nl/src/Settings.php:64
@@ -3633,11 +3635,13 @@ msgstr ""
 msgid "The iDEAL %s parameter."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:176
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:189
+#. translators: %s: response code
 msgid "The response code (<code>%s<code>) from the iDEAL provider was incorrect."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:218
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Client.php:235
+#. translators: %s: XML document element name
 msgid "Unknwon iDEAL message (%s)"
 msgstr ""
 
@@ -3682,126 +3686,127 @@ msgstr ""
 msgid "E-mail address"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:120
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:121
+#. translators: %s: admin email
 msgid "E-mail address, e.g. %s"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:133
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:134
 msgid "Number Days Valid"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:136
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:137
 msgid ""
 "Number of days the generated certificate will be valid for, e.g. 1825 days "
 "for the maximum duration of 5 years."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:146
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:147
 msgid "Private Key Password"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:150
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:151
 msgid ""
 "A random password which will be used for the generation of the private key "
 "and certificate."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:160
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:161
 msgid "Private Key"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:164
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:165
 msgid ""
 "The private key is used for secure communication with the payment provider. "
 "If left empty, the private key will be generated using the given private "
 "key password."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:174
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:175
 msgid "Private Certificate"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:178
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:179
 msgid ""
 "The certificate is used for secure communication with the payment provider. "
 "If left empty, the certificate will be generated using the private key and "
 "given organization details."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:209
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:210
 msgid "The private key and certificate have not yet been configured."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:213
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:214
 msgid ""
 "A private key and certificate are required for communication with the "
 "payment provider. Enter the organization details from the iDEAL account "
 "below to generate these required files."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:217
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:218
 msgid ""
 "A private key and certificate have been configured. The certificate must be "
 "uploaded to the payment provider dashboard to complete configuration."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:224
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:225
 msgid "Download certificate"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:232
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:233
 msgid "Show details…"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:244
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:297
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:245
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:298
 msgid "ideal.key"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:255
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:330
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:256
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:331
 msgid "OpenSSL command"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:262
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:263
 msgid ""
 "Leave empty and save the configuration to generate the private key or view "
 "the OpenSSL command."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:272
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:376
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:273
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:377
 msgid "Download"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:283
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:387
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:284
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:388
 msgid "Upload"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:298
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:299
 msgid "ideal.cer"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:337
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:338
 msgid ""
 "Leave empty and save the configuration to generate the certificate or view "
 "the OpenSSL command."
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:348
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:349
 msgid "SHA Fingerprint"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:354
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:355
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:357
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:358
 msgid "Valid From"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:362
+#: vendor/wp-pay-gateways/ideal-advanced-v3/src/Settings.php:363
 msgid "Valid To"
 msgstr ""
 

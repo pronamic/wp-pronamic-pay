@@ -14,7 +14,45 @@
 			{
 				"name": "Changes",
 				"changes": [
-
+					{
+						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.",
+						"changes": [
+							"Fix for a incorrect implementation at https://www.ideal-checkout.nl/simulator/.",
+							"Some acquirers only accept fingerprints in uppercase.",
+							"Updated WordPress Coding Standards."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Sisow library to version 1.2.3.",
+						"changes": [
+							"Added support for bunq payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Charitable library to version 1.1.2.",
+						"changes": [
+							"Implemented `get_first_name()` and `get_last_name()`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Easy Digital Downloads library to version 1.2.7.",
+						"changes": [
+							"Implemented `get_first_name()` and `get_last_name()`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Give library to version 1.0.6.",
+						"changes": [
+							"Implemented `get_first_name()` and `get_last_name()`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 1.6.6.",
+						"changes": [
+							"Implemented `get_first_name()` and `get_last_name()`.",
+							"Fix possible PHP notices for undefined index `id`."
+						]
+					}
 				]
 			},
 			{

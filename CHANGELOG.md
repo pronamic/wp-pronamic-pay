@@ -9,6 +9,21 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [4.6.1] - 2017-09-14
 
 ### Changes
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.
+  - Fix for a incorrect implementation at https://www.ideal-checkout.nl/simulator/.
+  - Some acquirers only accept fingerprints in uppercase.
+  - Updated WordPress Coding Standards.
+- Updated WordPress pay Sisow library to version 1.2.3.
+  - Added support for bunq payment method.
+- Updated WordPress pay Charitable library to version 1.1.2.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Easy Digital Downloads library to version 1.2.7.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Give library to version 1.0.6.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Gravity Forms library to version 1.6.6.
+  - Implemented `get_first_name()` and `get_last_name()`.
+  - Fix possible PHP notices for undefined index `id`.
 
 ### Removed
 - Removed support for old Qantani platform.
