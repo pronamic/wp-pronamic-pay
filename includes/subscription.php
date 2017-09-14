@@ -31,6 +31,14 @@ function pronamic_wp_pay_update_subscription( $subscription ) {
 		}
 	}
 
+	// Do not update post_status if subscription is draft or trashed.
+	$post_status = get_post_status( $post_id );
+
+	if ( in_array( $post_status, array( 'trash', 'draft' ), true ) ) {
+		return;
+	}
+
+	// Go ahead, update post_status according to meta status.
 	$status = get_post_meta( $post_id, '_pronamic_subscription_status', true );
 
 	$post_status = null;

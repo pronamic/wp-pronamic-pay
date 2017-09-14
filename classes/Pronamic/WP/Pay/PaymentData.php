@@ -66,12 +66,31 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 		return $email;
 	}
 
-	public function get_customer_name() {
-		$name = null;
-
+	public function get_first_name() {
 		if ( is_user_logged_in() ) {
-			$name = $this->user->user_firstname . ' ' . $this->user->user_lastname;
+			return $this->user->user_firstname;
 		}
+	}
+
+	public function get_last_name() {
+		if ( is_user_logged_in() ) {
+			return $this->user->user_lastname;
+		}
+	}
+
+	public function get_customer_name() {
+		$parts = array(
+			$this->get_first_name(),
+			$this->get_last_name(),
+		);
+
+		$parts = array_filter( $parts );
+
+		if ( empty( $parst ) ) {
+			return null;
+		}
+
+		$name = trim( implode( ' ', $parts ) );
 
 		return $name;
 	}

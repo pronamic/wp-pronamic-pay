@@ -603,8 +603,8 @@ $providers = array(
 		<<?php echo esc_html( $tag ); ?>>
 			<tr>
 				<th scope="col" class="manage-column"><?php esc_html_e( 'Title', 'pronamic_ideal' ); ?></th>
-				<th scope="col" class="manage-column"><?php esc_html_e( 'Date', 'pronamic_ideal' );  ?></th>
-				<th scope="col" class="manage-column"><?php esc_html_e( 'Version', 'pronamic_ideal' );  ?></th>
+				<th scope="col" class="manage-column"><?php esc_html_e( 'Date', 'pronamic_ideal' ); ?></th>
+				<th scope="col" class="manage-column"><?php esc_html_e( 'Version', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</<?php echo esc_html( $tag ); ?>>
 

@@ -3,8 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 4.7.4
-Stable tag: 4.6.0
+Tested up to: 4.8
+Requires PHP: 5.3
+Stable tag: 4.6.1
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -70,7 +71,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityforms](https://github.com/gravityforms/gravityforms)
 	*	**Requires at least:** 1.6
-	*	**Tested up to:** 2.0.6
+	*	**Tested up to:** 2.2.1.2
 *	[Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/)
 	*	**Author:** [Rocketgenius](http://www.rocketgenius.com/)
 	*	**GitHub:** [https://github.com/gravityforms/gravityformsaweber](https://github.com/gravityforms/gravityformsaweber)
@@ -139,7 +140,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**WordPress.org:** [http://wordpress.org/plugins/woocommerce/](http://wordpress.org/plugins/woocommerce/)
 	*	**GitHub:** [https://github.com/woothemes/woocommerce](https://github.com/woothemes/woocommerce)
 	*	**Requires at least:** 2.1.0
-	*	**Tested up to:** 2.6.4
+	*	**Tested up to:** 3.0.6
 *	[WP e-Commerce](http://getshopped.org/)
 	*	**Author:** [Instinct Entertainment](http://instinct.co.nz/)
 	*	**WordPress.org:** [http://wordpress.org/plugins/wp-e-commerce/](http://wordpress.org/plugins/wp-e-commerce/)
@@ -215,40 +216,27 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	TargetPay - iDEAL
 *	[Qantani](https://www.qantani.com/)
 	*	Qantani (new platform)
-	*	Qantani (old platform)
 
 
 == Installation ==
 
 = Requirements =
 
-The Pronamic iDEAL plugin extends WordPress extensions with the iDEAL 
-payment method. To offer the iDEAL payment method to the vistors of
-your WordPress website you also require one of these extensions. Normally
-this is an e-commerce or forms plugin. 
+The Pronamic Pay plugin extends WordPress extensions with the iDEAL payment method. To offer the iDEAL payment method to the vistors of your WordPress website you also require one of these extensions. Normally this is an e-commerce or forms plugin. 
 
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file 
-transfers itself and you don’t need to leave your web browser. To do an 
-automatic install of Pronamic iDEAL, log in to your WordPress dashboard, 
-navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Pronamic iDEAL, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type “Pronamic iDEAL” and click Search Plugins. Once 
-you’ve found our iDEAL plugin you can view details about it such as the the 
-point release, rating and description. Most importantly of course, you can 
-install it by simply clicking “Install Now”.
+In the search field type “Pronamic iDEAL” and click Search Plugins. Once you’ve found our iDEAL plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
 = Manual installation =
 
-The manual installation method involves downloading our iDEAL plugin and 
-uploading it to your webserver via your favourite FTP application. 
-The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+The manual installation method involves downloading our iDEAL plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
 
 = Updating =
 
-Automatic updates should work like a charm; as always though, ensure you 
-backup your site just in case.
+Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
 
 
 == Screenshots ==
@@ -280,28 +268,50 @@ As conflicts are found we will update this list. If you discover a conflict with
 
 Here is a list of known plugin conflicts:
 
-=== [WPML](https://wpml.org/) ===
+=== WPML ===
 
-The WPML plugin(s) can conflict with multiple gateways. A lot of the gateways
-use `home_url( '/' )` to retrieve the WordPress home URL. The WPML plugins hooks
-in to this function to change the home URL to the correct language URL. This
-can result in incorrect checksums, signatures and hashes.
+The [WPML](https://wpml.org/) plugin(s) can conflict with multiple gateways. A lot of the gateways use `home_url( '/' )` to retrieve the WordPress home URL. The WPML plugins hooks in to this function to change the home URL to the correct language URL. This can result in incorrect checksums, signatures and hashes.
 
-=== [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) ===
+=== WordPress HTTPS ===
 
-The WordPress HTTPS can conflict with the OmniKassa payment method. It can 
-cause invalid signature errors. The WordPress HTTPS plugin parses the complete 
-output of an WordPress website and changes 'http' URLs to 'https' URLs, this 
-results in OmniKassa data that no longer matches the signature.
-
-
-== To Do ==
-
-*	Qantani - Check Callback URL implementation.
-*	Mollie - Add unit tests for new API.
+The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can conflict with the OmniKassa payment method. It can cause invalid signature errors. The WordPress HTTPS plugin parses the complete output of an WordPress website and changes 'http' URLs to 'https' URLs, this  results in OmniKassa data that no longer matches the signature.
 
 
 == Changelog ==
+
+= 4.6.1 - 2017-09-14 =
+*	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.
+	*	Fix for a incorrect implementation at https://www.ideal-checkout.nl/simulator/.
+	*	Some acquirers only accept fingerprints in uppercase.
+	*	Updated WordPress Coding Standards.
+*	Updated WordPress pay Sisow library to version 1.2.3.
+	*	Added support for bunq payment method.
+*	Updated WordPress pay Charitable library to version 1.1.2.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Easy Digital Downloads library to version 1.2.7.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Give library to version 1.0.6.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Gravity Forms library to version 1.6.6.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+	*	Fix possible PHP notices for undefined index `id`.
+*	Updated WordPress pay iThemes Exchange library to version 1.1.5.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Jigoshop library to version 1.0.6.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Membership library to version 1.0.8.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Shopp library to version 1.0.7.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay WooCommerce library to version 1.2.7.
+	*	Added credit card payment fields.
+	*	Added bunq gateway.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+	*	Added `Direct Debit (mandate via Bancontact)` gateway.
+	*	Added a few `order_button_text` labels.
+*	Updated WordPress pay WP eCommerce library to version 1.0.5.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Removed support for old Qantani platform.
 
 = 4.6.0 - 2017-05-01 =
 *	Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.
@@ -1818,15 +1828,4 @@ results in OmniKassa data that no longer matches the signature.
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax
 		"Markdown is what the parser uses to process much of the readme file"
-
-
-== Pronamic plugins ==
-
-*	[Pronamic Google Maps](http://wordpress.org/extend/plugins/pronamic-google-maps/)
-*	[Gravity Forms (nl)](http://wordpress.org/extend/plugins/gravityforms-nl/)
-*	[Pronamic Page Widget](http://wordpress.org/extend/plugins/pronamic-page-widget/)
-*	[Pronamic Page Teasers](http://wordpress.org/extend/plugins/pronamic-page-teasers/)
-*	[Maildit](http://wordpress.org/extend/plugins/maildit/)
-*	[Pronamic Framework](http://wordpress.org/extend/plugins/pronamic-framework/)
-*	[Pronamic iDEAL](http://wordpress.org/extend/plugins/pronamic-ideal/)
 

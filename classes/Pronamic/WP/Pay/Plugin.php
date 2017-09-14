@@ -33,7 +33,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @param string $file
 	 */
 	public static function bootstrap( $file ) {
-		self::$file	= $file;
+		self::$file = $file;
 		self::$dirname = dirname( $file );
 
 		// Plugin
@@ -225,7 +225,11 @@ class Pronamic_WP_Pay_Plugin {
 					$old_status = 'unknown';
 				}
 
-				$gateway->update_status( $payment );
+				if ( 0.0 === $payment->get_amount() ) {
+					$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+				} else {
+					$gateway->update_status( $payment );
+				}
 
 				$new_status = strtolower( $payment->status );
 
@@ -242,9 +246,11 @@ class Pronamic_WP_Pay_Plugin {
 					$can_redirect = false;
 				}
 
-				do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status . '_to_' . $new_status, $payment, $can_redirect );
-				do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-				do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+				if ( $new_status !== $old_status ) {
+					do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status . '_to_' . $new_status, $payment, $can_redirect );
+					do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
+					do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+				}
 
 				if ( $can_redirect ) {
 					$url = $payment->get_return_redirect_url();
@@ -559,6 +565,10 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::BUNQ :
+					$gateways[] = 'sisow-ideal';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
 				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
@@ -595,6 +605,11 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'sisow-ideal';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_BANCONTACT :
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
@@ -716,7 +731,6 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Integration';
 		// Rabobank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
@@ -742,6 +756,12 @@ class Pronamic_WP_Pay_Plugin {
 		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
 
 		if ( $payment ) {
+			if ( 0.0 === $payment->get_amount() ) {
+				self::update_payment( $payment, false );
+
+				return $payment;
+			}
+
 			$payment->set_credit_card( $data->get_credit_card() );
 
 			$gateway->start( $payment );
@@ -821,6 +841,7 @@ class Pronamic_WP_Pay_Plugin {
 						'post_type'   => 'pronamic_pay_subscr',
 						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
 						'post_status' => 'subscr_pending',
+						'post_author' => $post_author,
 					), true );
 
 					if ( is_wp_error( $subscription_id ) ) {
@@ -892,7 +913,9 @@ class Pronamic_WP_Pay_Plugin {
 			$payment->email                     = $data->get_email();
 			$payment->status                    = null;
 			$payment->method                    = $payment_method;
-			$payment->issuer                    = $data->get_issuer_id();
+			$payment->issuer                    = $data->get_issuer( $payment_method );
+			$payment->first_name                = $data->get_first_name();
+			$payment->last_name                 = $data->get_last_name();
 			$payment->customer_name             = $data->get_customer_name();
 			$payment->address                   = $data->get_address();
 			$payment->zip                       = $data->get_zip();
@@ -918,6 +941,8 @@ class Pronamic_WP_Pay_Plugin {
 				$prefix . 'locale'                    => $payment->locale,
 				$prefix . 'entrance_code'             => $payment->entrance_code,
 				$prefix . 'description'               => $payment->description,
+				$prefix . 'first_name'                => $payment->first_name,
+				$prefix . 'last_name'                 => $payment->last_name,
 				$prefix . 'consumer_name'             => null,
 				$prefix . 'consumer_account_number'   => null,
 				$prefix . 'consumer_iban'             => null,
@@ -986,7 +1011,7 @@ class Pronamic_WP_Pay_Plugin {
 				array(
 					'key'     => '_pronamic_subscription_source',
 					'value'   => $sources,
-				    'compare' => 'NOT IN',
+					'compare' => 'NOT IN',
 				),
 				array(
 					'key'     => '_pronamic_subscription_next_payment',

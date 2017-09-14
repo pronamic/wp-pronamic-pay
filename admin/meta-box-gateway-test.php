@@ -69,7 +69,11 @@ if ( $gateway ) {
 					<?php echo esc_html( $input['label'] ); ?>
 				</th>
 				<td>
-					<?php echo $input['html']; // WPCS: XSS ok. ?>
+					<?php
+
+					echo $input['html']; // WPCS: XSS ok.
+
+					?>
 				</td>
 			</tr>
 

@@ -135,8 +135,8 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
 			array( // args
-			       'label_for' => 'pronamic_pay_thousands_sep',
-			       'classes'   => 'tiny-text',
+				'label_for' => 'pronamic_pay_thousands_sep',
+				'classes'   => 'tiny-text',
 			)
 		);
 
@@ -147,8 +147,8 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay', // page
 			'pronamic_pay_currency', // section
 			array(  // args
-			        'label_for' => 'pronamic_pay_decimal_sep',
-			        'classes'   => 'tiny-text',
+				'label_for' => 'pronamic_pay_decimal_sep',
+				'classes'   => 'tiny-text',
 			)
 		);
 	}

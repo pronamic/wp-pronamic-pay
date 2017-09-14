@@ -245,6 +245,14 @@ class Pronamic_Pay_Payment {
 
 	//////////////////////////////////////////////////
 
+	public function get_first_name() {
+		return $this->first_name;
+	}
+
+	public function get_last_name() {
+		return $this->last_name;
+	}
+
 	public function get_customer_name() {
 		return $this->customer_name;
 	}

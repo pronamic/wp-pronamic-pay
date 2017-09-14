@@ -14,7 +14,9 @@
 						<?php foreach ( $this->reports->get_reports() as $i => $serie ) : ?>
 
 							<li class="<?php echo esc_attr( $serie->class ); ?>" data-pronamic-pay-highlight-serie="<?php echo esc_attr( $i ); ?>">
-								<strong><?php
+								<?php
+
+								echo '<strong>';
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
 									echo esc_html( Pronamic_WP_Util::format_price( $serie->legendValue ) );
@@ -22,8 +24,11 @@
 									echo esc_html( $serie->legendValue );
 								}
 
-								?></strong>
-								<?php echo esc_html( $serie->label ); ?>
+								echo '</strong>';
+
+								echo esc_html( $serie->label );
+
+								?>
 							</li>
 
 						<?php endforeach; ?>

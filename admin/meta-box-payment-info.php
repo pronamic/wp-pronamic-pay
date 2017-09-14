@@ -68,12 +68,10 @@ $payment = get_pronamic_payment( $post_id );
 
 			echo esc_html( $name );
 
-			if ( Pronamic_WP_Pay_PaymentMethods::IDEAL === $method ) {
-				$issuer = $payment->get_meta( 'issuer' );
+			$issuer = $payment->get_meta( 'issuer' );
 
-				if ( $issuer ) {
-					echo esc_html( sprintf( ' (`%s`)', $issuer ) );
-				}
+			if ( $issuer ) {
+				echo esc_html( sprintf( ' (`%s`)', $issuer ) );
 			}
 
 			?>
@@ -153,6 +151,30 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_first_name', true ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_last_name', true ) );
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Email', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
@@ -186,7 +208,11 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo $payment->get_source_text(); //xss ok ?>
+			<?php
+
+			echo $payment->get_source_text(); // WPCS: XSS ok.
+
+			?>
 		</td>
 	</tr>
 

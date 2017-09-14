@@ -85,7 +85,7 @@ if ( $gateway ) : ?>
 						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
 						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
 
-	                <?php endif; ?>
+					<?php endif; ?>
 				</div>
 
 			<?php if ( in_array( $amount_method, $methods_with_choices, true ) ) : ?>

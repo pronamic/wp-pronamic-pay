@@ -497,25 +497,25 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		$scheduled_date = date_i18n( __( 'M j, Y @ H:i', 'pronamic_ideal' ), strtotime( $post->post_date ) );
 
 		$messages[ self::POST_TYPE ] = array(
-			 0 => '', // Unused. Messages start at index 1.
-			 1 => __( 'Payment updated.', 'pronamic_ideal' ),
+			0  => '', // Unused. Messages start at index 1.
+			1  => __( 'Payment updated.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352799&filters[translation_id]=37947229
-			 2 => $messages['post'][2],
+			2  => $messages['post'][2],
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352800&filters[translation_id]=37947870
-			 3 => $messages['post'][3],
+			3  => $messages['post'][3],
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230
-			 4 => __( 'Payment updated.', 'pronamic_ideal' ),
+			4  => __( 'Payment updated.', 'pronamic_ideal' ),
 			/* translators: %s: date and time of the revision */
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
-			 5 => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // WPCS: CSRF ok.
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // WPCS: CSRF ok.
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
-			 6 => __( 'Payment published.', 'pronamic_ideal' ),
+			6  => __( 'Payment published.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232
-			 7 => __( 'Payment saved.', 'pronamic_ideal' ),
+			7  => __( 'Payment saved.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303
-			 8 => __( 'Payment submitted.', 'pronamic_ideal' ),
+			8  => __( 'Payment submitted.', 'pronamic_ideal' ),
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302
-			 9 => sprintf( __( 'Payment scheduled for: %s.', 'pronamic_ideal' ), '<strong>' . $scheduled_date . '</strong>' ),
+			9  => sprintf( __( 'Payment scheduled for: %s.', 'pronamic_ideal' ), '<strong>' . $scheduled_date . '</strong>' ),
 			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301
 			10 => __( 'Payment draft updated.', 'pronamic_ideal' ),
 		);

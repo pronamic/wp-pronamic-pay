@@ -6,6 +6,44 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+## [4.6.1] - 2017-09-14
+
+### Changes
+- Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.
+  - Fix for a incorrect implementation at https://www.ideal-checkout.nl/simulator/.
+  - Some acquirers only accept fingerprints in uppercase.
+  - Updated WordPress Coding Standards.
+- Updated WordPress pay Sisow library to version 1.2.3.
+  - Added support for bunq payment method.
+- Updated WordPress pay Charitable library to version 1.1.2.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Easy Digital Downloads library to version 1.2.7.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Give library to version 1.0.6.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Gravity Forms library to version 1.6.6.
+  - Implemented `get_first_name()` and `get_last_name()`.
+  - Fix possible PHP notices for undefined index `id`.
+- Updated WordPress pay iThemes Exchange library to version 1.1.5.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Jigoshop library to version 1.0.6.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Membership library to version 1.0.8.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay Shopp library to version 1.0.7.
+  - Implemented `get_first_name()` and `get_last_name()`.
+- Updated WordPress pay WooCommerce library to version 1.2.7.
+  - Added credit card payment fields.
+  - Added bunq gateway.
+  - Implemented `get_first_name()` and `get_last_name()`.
+  - Added `Direct Debit (mandate via Bancontact)` gateway.
+  - Added a few `order_button_text` labels.
+- Updated WordPress pay WP eCommerce library to version 1.0.5.
+  - Implemented `get_first_name()` and `get_last_name()`.
+
+### Removed
+- Removed support for old Qantani platform.
+
 ## [4.6.0] - 2017-05-01
 
 ### Changes
@@ -1618,7 +1656,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.1...HEAD
+[4.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...4.6.1
 [4.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...4.6.0
 [4.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...4.5.5
 [4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
