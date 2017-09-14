@@ -295,6 +295,22 @@ The WordPress HTTPS can conflict with the OmniKassa payment method. It can cause
 *	Updated WordPress pay Gravity Forms library to version 1.6.6.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 	*	Fix possible PHP notices for undefined index `id`.
+*	Updated WordPress pay iThemes Exchange library to version 1.1.5.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Jigoshop library to version 1.0.6.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Membership library to version 1.0.8.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay Shopp library to version 1.0.7.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay WooCommerce library to version 1.2.7.
+	*	Added credit card payment fields.
+	*	Added bunq gateway.
+	*	Implemented `get_first_name()` and `get_last_name()`.
+	*	Added `Direct Debit (mandate via Bancontact)` gateway.
+	*	Added a few `order_button_text` labels.
+*	Updated WordPress pay WP eCommerce library to version 1.0.5.
+	*	Implemented `get_first_name()` and `get_last_name()`.
 *	Removed support for old Qantani platform.
 
 = 4.6.0 - 2017-05-01 =
