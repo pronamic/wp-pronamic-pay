@@ -46,6 +46,8 @@ function get_pronamic_payments_by_meta( $meta_key, $meta_value ) {
 			meta_key = %s
 				AND
 			meta_value = %s
+		ORDER BY
+			meta_id ASC
 			;
 	", $meta_key, $meta_value );
 
