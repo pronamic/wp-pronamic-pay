@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2015-10-14 13:03:08+00:00\n"
-"PO-Revision-Date: 2017-09-14 11:12+0100\n"
+"PO-Revision-Date: 2017-10-30 20:05+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box-form-options.php:7 admin/tab-gateways.php:15
@@ -40,6 +40,7 @@ msgstr "Betaal nu"
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:199
 msgid "Amount"
 msgstr "Bedrag"
 
@@ -182,8 +183,7 @@ msgstr "Achternaam"
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:190
-#: admin/meta-box-subscription-info.php:158
+#: admin/meta-box-payment-info.php:190 admin/meta-box-subscription-info.php:158
 msgid "Consumer"
 msgstr "Consument"
 
@@ -193,34 +193,28 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:223
-#: admin/meta-box-subscription-info.php:197
+#: admin/meta-box-payment-info.php:223 admin/meta-box-subscription-info.php:197
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:231
-#: admin/meta-box-subscription-info.php:205
+#: admin/meta-box-payment-info.php:231 admin/meta-box-subscription-info.php:205
 msgid "Level"
 msgstr "Niveau"
 
-#: admin/meta-box-payment-info.php:244
-#: admin/meta-box-subscription-info.php:218
+#: admin/meta-box-payment-info.php:244 admin/meta-box-subscription-info.php:218
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:80
 msgid "Purchase ID"
 msgstr "Aankoop ID"
 
-#: admin/meta-box-payment-info.php:252
-#: admin/meta-box-subscription-info.php:226
+#: admin/meta-box-payment-info.php:252 admin/meta-box-subscription-info.php:226
 msgid "Session ID"
 msgstr "Sessie ID"
 
-#: admin/meta-box-payment-info.php:265
-#: admin/meta-box-subscription-info.php:239
+#: admin/meta-box-payment-info.php:265 admin/meta-box-subscription-info.php:239
 msgid "User ID"
 msgstr "Gebruiker ID"
 
-#: admin/meta-box-payment-info.php:273
-#: admin/meta-box-subscription-info.php:247
+#: admin/meta-box-payment-info.php:273 admin/meta-box-subscription-info.php:247
 msgid "Subscription ID"
 msgstr "Abonnement ID"
 
@@ -419,8 +413,7 @@ msgstr "Start rondleiding"
 msgid "Getting Started"
 msgstr "Om te beginnen"
 
-#: admin/page-dashboard.php:67 admin/page-tools.php:4
-#: admin/pointer-tools.php:8
+#: admin/page-dashboard.php:67 admin/page-tools.php:4 admin/pointer-tools.php:8
 msgid "System Status"
 msgstr "Systeemstatus"
 
@@ -1415,8 +1408,7 @@ msgstr "Mislukte betalingen"
 msgid "Recurrence"
 msgstr "Herhaling"
 
-#: classes/Pronamic/WP/Pay/Admin.php:247
-#: vendor/wp-pay/core/src/Gateway.php:456
+#: classes/Pronamic/WP/Pay/Admin.php:247 vendor/wp-pay/core/src/Gateway.php:456
 #: vendor/wp-pay/core/src/IDealPaymentMethod.php:19
 #: vendor/wp-pay/core/src/PaymentMethods.php:166
 #: vendor/wp-pay-extensions/appthemes/src/IDealGateway.php:29
@@ -1511,8 +1503,7 @@ msgstr "onbekend"
 msgid "<p>The status of your iDEAL payment is unknown.</p>"
 msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 
-#: classes/Pronamic/WP/Pay/Admin.php:445
-#: vendor/wp-pay/core/src/Gateway.php:670
+#: classes/Pronamic/WP/Pay/Admin.php:445 vendor/wp-pay/core/src/Gateway.php:670
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:111
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:103
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:48
@@ -1555,7 +1546,7 @@ msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
 #: classes/Pronamic/WP/Pay/PaymentFormData.php:84
-#: classes/Pronamic/WP/Pay/Plugin.php:810
+#: classes/Pronamic/WP/Pay/Plugin.php:814
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 msgid "Payment %s"
 msgstr "Betaling %s"
@@ -1572,15 +1563,15 @@ msgstr ""
 "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal "
 "op een andere manier."
 
-#: classes/Pronamic/WP/Pay/Plugin.php:656
+#: classes/Pronamic/WP/Pay/Plugin.php:659
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:804
+#: classes/Pronamic/WP/Pay/Plugin.php:808
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Pronamic/WP/Pay/Plugin.php:842
+#: classes/Pronamic/WP/Pay/Plugin.php:846
 msgid "Subscription for %s"
 msgstr "Abonnement voor %s"
 
@@ -3733,6 +3724,7 @@ msgstr "Goedkeuringscode"
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:194
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:204
 msgid "Order ID"
 msgstr "Bestelling ID"
 
@@ -3870,6 +3862,7 @@ msgstr "Postback URL"
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:44
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:41
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:203
 msgid "Merchant ID"
 msgstr "Winkelier ID"
 
@@ -4471,39 +4464,48 @@ msgstr ""
 "\"geannuleerd door klant\" of \"te veel weigeringen door de acquirer\"."
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:202
 msgid "Currency Code"
 msgstr "Valuta"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:205
 msgid "Transaction Date Time"
 msgstr "Transactie tijdstip"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:206
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:206
 msgid "Transaction Reference"
 msgstr "Transactiereferentie"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:207
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:61
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:207
 msgid "Key Version"
 msgstr "Sleutelversie"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:208
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:208
 msgid "Authorisation ID"
 msgstr "Autorisatie ID"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:209
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:209
 msgid "Payment Mean Brand"
 msgstr "Betaalmethode merknaam"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:210
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:210
 msgid "Payment Mean Type"
 msgstr "Type betaalmethode"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:211
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:211
 msgid "Response Code"
 msgstr "Antwoordcode"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:217
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:217
 msgid "OmniKassa transaction data in response message:"
 msgstr "OmniKassa transactiedata in antwoordbericht:"
 
@@ -4528,6 +4530,10 @@ msgstr "De sleutelversie zoals vermeld in het OmniKassa download dashboard."
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:77
 msgid "The OmniKassa %s parameter."
 msgstr "De OmniKassa parameter %s."
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:21
+msgid "OmniKassa 2.0"
+msgstr "OmniKassa 2.0"
 
 #: vendor/wp-pay-gateways/pay-nl/src/Client.php:101
 msgid "Unknown response from Pay.nl error."
@@ -4846,11 +4852,13 @@ msgid "Reference number"
 msgstr "Referentienummer"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:200
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr "Belast dag"
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:201
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr "Belast modus"
@@ -4884,6 +4892,16 @@ msgstr "API-sleutel"
 msgctxt "mollie"
 msgid "API Key"
 msgstr "API-key"
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:34
+msgctxt "omnikassa"
+msgid "Refresh Token"
+msgstr "Refresh token"
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:44
+msgctxt "omnikassa"
+msgid "Signing key"
+msgstr "Signing key"
 
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:36
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:41

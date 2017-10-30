@@ -39,6 +39,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:219
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:239
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:199
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:199
 msgid "Amount"
 msgstr ""
 
@@ -1398,7 +1399,7 @@ msgid "Payment Form %s"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PaymentFormData.php:84
-#: classes/Pronamic/WP/Pay/Plugin.php:810
+#: classes/Pronamic/WP/Pay/Plugin.php:814
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 msgid "Payment %s"
 msgstr ""
@@ -1414,15 +1415,15 @@ msgid ""
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:656
+#: classes/Pronamic/WP/Pay/Plugin.php:659
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:804
+#: classes/Pronamic/WP/Pay/Plugin.php:808
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:842
+#: classes/Pronamic/WP/Pay/Plugin.php:846
 msgid "Subscription for %s"
 msgstr ""
 
@@ -3486,6 +3487,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:194
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:204
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:73
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:204
 msgid "Order ID"
 msgstr ""
 
@@ -3614,6 +3616,7 @@ msgstr ""
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:44
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:203
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:41
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:203
 msgid "Merchant ID"
 msgstr ""
 
@@ -4154,39 +4157,48 @@ msgid ""
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:202
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:202
 msgid "Currency Code"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:205
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:205
 msgid "Transaction Date Time"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:206
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:206
 msgid "Transaction Reference"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:207
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:61
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:207
 msgid "Key Version"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:208
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:208
 msgid "Authorisation ID"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:209
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:209
 msgid "Payment Mean Brand"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:210
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:210
 msgid "Payment Mean Type"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:211
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:211
 msgid "Response Code"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:217
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:217
 msgid "OmniKassa transaction data in response message:"
 msgstr ""
 
@@ -4210,6 +4222,10 @@ msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:77
 msgid "The OmniKassa %s parameter."
+msgstr ""
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:21
+msgid "OmniKassa 2.0"
 msgstr ""
 
 #: vendor/wp-pay-gateways/pay-nl/src/Client.php:101
@@ -4514,11 +4530,13 @@ msgid "Reference number"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:200
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:200
 msgctxt "creditcard"
 msgid "Capture Day"
 msgstr ""
 
 #: vendor/wp-pay-gateways/omnikassa/src/Gateway.php:201
+#: vendor/wp-pay-gateways/omnikassa-2/src/Gateway.php:201
 msgctxt "creditcard"
 msgid "Capture Mode"
 msgstr ""
@@ -4551,6 +4569,16 @@ msgstr ""
 #: vendor/wp-pay-gateways/mollie/src/Settings.php:44
 msgctxt "mollie"
 msgid "API Key"
+msgstr ""
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:34
+msgctxt "omnikassa"
+msgid "Refresh Token"
+msgstr ""
+
+#: vendor/wp-pay-gateways/omnikassa-2/src/Settings.php:44
+msgctxt "omnikassa"
+msgid "Signing key"
 msgstr ""
 
 #: vendor/wp-pay-gateways/qantani/src/Settings.php:36

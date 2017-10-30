@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76695322d9c1b8cb1f8b9de9c9bd9ac8",
+    "content-hash": "4aeccc629dec8baba795ba563284ded0",
     "packages": [
         {
             "name": "composer/installers",
@@ -2900,6 +2900,69 @@
             "time": "2017-04-07T13:30:11+00:00"
         },
         {
+            "name": "wp-pay-gateways/omnikassa-2",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
+                "reference": "bb39e1377e5bd6d9e27c3da769b13c600323ee45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/bb39e1377e5bd6d9e27c3da769b13c600323ee45",
+                "reference": "bb39e1377e5bd6d9e27c3da769b13c600323ee45",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3",
+                "wp-pay-gateways/common": "^1.0.2",
+                "wp-pay/core": "^1.3.10"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
+                "satooshi/php-coveralls": "^0.7.1",
+                "squizlabs/php_codesniffer": "^2.7",
+                "wp-cli/wp-cli": "^0.21.1",
+                "wp-coding-standards/wpcs": "^0.10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\OmniKassa2\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "OmniKassa 2.0 driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/omnikassa-2/",
+            "keywords": [
+                "gateway",
+                "omnikassa",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2017-10-30T19:55:27+00:00"
+        },
+        {
             "name": "wp-pay-gateways/pay-nl",
             "version": "1.1.7",
             "source": {
@@ -3560,7 +3623,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/charitable.1.1.5.zip",
-                "reference": "tags/1.1.5",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3580,7 +3643,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/easy-digital-downloads.2.5.9.zip",
-                "reference": "tags/2.5.9",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3600,7 +3663,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/formidable.2.0.24.zip",
-                "reference": "tags/2.0.24",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -5523,9 +5586,18 @@
             "time": "2017-08-05T16:08:58+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay-gateways/omnikassa-2"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-gateways/omnikassa-2": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

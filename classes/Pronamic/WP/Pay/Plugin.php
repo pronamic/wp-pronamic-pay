@@ -578,6 +578,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'rabobank-omnikassa-2';
 					$gateways[] = 'sisow-ideal';
 					$gateways[] = 'pay_nl';
 					$gateways[] = 'ing-kassa-compleet';
@@ -604,6 +605,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ogone-directlink';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'rabobank-omnikassa-2';
 					$gateways[] = 'sisow-ideal';
 
 					break;
@@ -624,6 +626,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'rabobank-omnikassa';
+					$gateways[] = 'rabobank-omnikassa-2';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
@@ -723,6 +726,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
 		// OmniKassa
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
+		$integrations[] = '\Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration';
 		// Pay.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayNL_Integration';
 		// Paytor
