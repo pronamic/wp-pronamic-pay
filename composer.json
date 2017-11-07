@@ -99,6 +99,24 @@
 		"phpunit/phpunit-selenium": "^2.0",
 		"satooshi/php-coveralls": "^1.0",
 		"squizlabs/php_codesniffer": "^2.7",
-		"wp-coding-standards/wpcs": "^0.13.1"
+		"wp-coding-standards/wpcs": "^0.13.1",
+
+		"wikimedia/composer-merge-plugin": "^1.4",
+
+		"wp-pay-gateways/icepay": "dev-develop as 1.3.0",
+		"wp-pay-gateways/ideal-advanced-v3": "dev-develop as 1.1.11",
+		"wp-pay-gateways/ideal-basic": "dev-develop as 1.1.6",
+		"wp-pay-gateways/mollie": "dev-develop as 1.1.14",
+		"wp-pay-gateways/ogone": "dev-develop as 1.3.4",
+		"wp-pay-gateways/omnikassa": "dev-develop as 1.2.3",
+		"wp-pay-gateways/omnikassa-2": "dev-develop as 1.0.0",
+		"wp-pay-gateways/sisow": "dev-develop as 1.2.3"
+	},
+	"extra": {
+		"merge-plugin": {
+			"include": [
+				"composer.local.json"
+			]
+		}
 	}
 }
