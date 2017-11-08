@@ -108,4 +108,4 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 $json_string = json_encode( $composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
 
-file_put_contents( '../composer.local.json', $json_string );
+file_put_contents( dirname( __DIR__ ) . '/composer.local.json', $json_string );
