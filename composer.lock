@@ -1941,23 +1941,23 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/icepay",
-                "reference": "eeadcd5541d6b169403166c98c3f8d5501af7ca3",
+                "url": "repositories/wp-pay-gateways/icepay",
+                "reference": "f8d1270064cffd54fd062eb84124fc1d0cf964ce",
                 "shasum": null
             },
             "require": {
                 "icepay/icepay": "~2.4.0",
                 "php": ">=5.2.4",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3.7",
+                "wp-pay/core": "^1.3",
                 "xrstf/composer-php52": "1.*"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2058,7 +2058,7 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/ideal-advanced-v3",
+                "url": "repositories/wp-pay-gateways/ideal-advanced-v3",
                 "reference": "5edcef40339598d86f5434b30fcb22a1bf400723",
                 "shasum": null
             },
@@ -2122,7 +2122,7 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/ideal-basic",
+                "url": "repositories/wp-pay-gateways/ideal-basic",
                 "reference": "26bfe3e490ff5c151d287d09560b382e3aa89931",
                 "shasum": null
             },
@@ -2534,18 +2534,18 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/mollie",
-                "reference": "b2bd96c76c0b9be40cbc73f9acfde2570d1a0fc2",
+                "url": "repositories/wp-pay-gateways/mollie",
+                "reference": "2d8d4c516ed3943b048dbafdab2b27ede185412a",
                 "shasum": null
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -2558,14 +2558,7 @@
                 ]
             },
             "scripts": {
-                "post-install-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
-                "post-update-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
                 "post-autoload-dump": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd",
                     "bin/install-wpcs"
                 ]
             },
@@ -2805,22 +2798,22 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/ogone",
-                "reference": "5d886a65cc4c125ab0de05167cb9ba1febe6ea05",
+                "url": "repositories/wp-pay-gateways/ogone",
+                "reference": "3b7b9a7c9780a29f95d5b68282a0117dcd8f6fae",
                 "shasum": null
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3.7",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -2829,15 +2822,8 @@
                 ]
             },
             "scripts": {
-                "post-install-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
-                "post-update-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
                 "post-autoload-dump": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd",
-                    "bin/install-wpcs"
+                    "if [ -d vendor/wp-coding-standards/wpcs ]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
                 ]
             },
             "license": [
@@ -2879,18 +2865,18 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/omnikassa",
-                "reference": "010eab28fc28f9bbe92b90ecc21b1f56e24c1155",
+                "url": "repositories/wp-pay-gateways/omnikassa",
+                "reference": "c8317f645e294c39922e47b5380ecf62f7d71aa1",
                 "shasum": null
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3.10"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
@@ -2903,15 +2889,8 @@
                 ]
             },
             "scripts": {
-                "post-install-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
-                "post-update-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
                 "post-autoload-dump": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd",
-                    "bin/install-wpcs"
+                    "if [ -d vendor/wp-coding-standards/wpcs ]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
                 ]
             },
             "license": [
@@ -2950,6 +2929,11 @@
         {
             "name": "wp-pay-gateways/omnikassa-2",
             "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
+                "reference": "1d9ecdae061929318eb2b953ebd236e857c9db6d"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/1d9ecdae061929318eb2b953ebd236e857c9db6d",
@@ -3404,22 +3388,22 @@
             "version": "dev-develop",
             "dist": {
                 "type": "path",
-                "url": "/Users/remco/Projects/sisow",
-                "reference": "bf27dc7dc36853b65ba2df3cfbed9f67c28d6e20",
+                "url": "repositories/wp-pay-gateways/sisow",
+                "reference": "9a6d2537f9135fbb8e596c7020f70116bad7cecc",
                 "shasum": null
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3.7",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.2.0",
+                "squizlabs/php_codesniffer": "^2.7",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "0.9.0"
+                "wp-coding-standards/wpcs": "^0.10.0"
             },
             "type": "library",
             "autoload": {
@@ -3428,15 +3412,8 @@
                 ]
             },
             "scripts": {
-                "post-install-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
-                "post-update-cmd": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd"
-                ],
                 "post-autoload-dump": [
-                    "xrstf\\Composer52\\Generator::onPostInstallCmd",
-                    "bin/install-wpcs"
+                    "if [ -d vendor/wp-coding-standards/wpcs ]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
                 ]
             },
             "license": [
