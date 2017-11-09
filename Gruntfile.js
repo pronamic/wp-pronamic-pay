@@ -10,7 +10,6 @@ module.exports = function( grunt ) {
 		phplint: {
 			core: [
 				'**/*.php',
-				'!bower_components/**',
 				'!build/**',
 				'!deploy/**',
 				'!includes/xmlseclibs/**',
@@ -30,7 +29,6 @@ module.exports = function( grunt ) {
 			application: {
 				src: [
 					'**/*.php',
-					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
 					'!includes/xmlseclibs/**',
@@ -121,7 +119,6 @@ module.exports = function( grunt ) {
 			files: {
 				src:  [
 					'**/*.php',
-					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
 					'!node_modules/**',
@@ -142,7 +139,6 @@ module.exports = function( grunt ) {
 					updatePoFiles: true,
 					updateTimestamp: false,
 					exclude: [
-						'bower_components/.*',
 						'build/.*',
 						'deploy/.*',
 						'node_modules/.*',
@@ -231,7 +227,7 @@ module.exports = function( grunt ) {
 				files: [
 					{ // Flot - http://www.flotcharts.org/
 						expand: true,
-						cwd: 'bower_components/flot/',
+						cwd: 'node_modules/flot/',
 						src: [
 							'jquery.flot.js',
 							'jquery.flot.time.js',
@@ -239,17 +235,18 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
-					{ // accounting.js - http://openexchangerates.github.io/accounting.js
+					{ // accounting-js - https://nashdot.github.io/accounting-js/
 						expand: true,
-						cwd: 'bower_components/accounting.js/',
+						cwd: 'node_modules/accounting-js/',
 						src: [
-							'accounting.js'
+							'accounting.umd.js',
+							'accounting.umd.js.map'
 						],
-						dest: 'assets/accounting'
+						dest: 'assets/accounting-js'
 					},
 					{ // TipTip - https://github.com/drewwilson/TipTip
 						expand: true,
-						cwd: 'bower_components/TipTip/',
+						cwd: 'node_modules/TipTip/',
 						src: [
 							'jquery.tipTip.js',
 							'tipTip.css'
@@ -273,7 +270,6 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [
 					'**',
-					'!bower.json',
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
@@ -283,7 +279,6 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!CHANGELOG.md',
 					'!README.md',
-					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
 					'!etc/**',
@@ -360,7 +355,7 @@ module.exports = function( grunt ) {
 					'js/admin-reports.min.js': 'src/js/admin-reports.js',
 					'js/admin-tour.min.js': 'src/js/admin-tour.js',
 					// Accounting
-					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
+					'assets/accounting-js/accounting.umd.min.js': 'assets/accounting-js/accounting.umd.js',
 					// Flot
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',

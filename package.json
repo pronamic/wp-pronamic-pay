@@ -29,6 +29,12 @@
     "email": "support@pronamic.nl"
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-ideal",
+  "dependencies": {
+    "TipTip": "https://github.com/drewwilson/TipTip.git",
+    "accounting-js": "^1.1.1",
+    "flot": "^0.8.0-alpha",
+    "jquery": "^3.2.1"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
@@ -54,5 +60,6 @@
     "grunt-webfont": "^1.6.0",
     "grunt-wp-i18n": "~0.5.4",
     "load-grunt-tasks": "^3.5.2"
-  }
+  },
+  "private": true
 }

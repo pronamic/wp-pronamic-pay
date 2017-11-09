@@ -47,11 +47,13 @@ class Pronamic_WP_Pay_Admin_Reports {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Flot - http://www.flotcharts.org/
+		$flot_version = '0.8.0-alpha';
+
 		wp_register_script(
 			'flot',
 			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 
@@ -59,7 +61,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'flot-time',
 			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 
@@ -67,16 +69,16 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'flot-resize',
 			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 
 		// Accounting.js - http://openexchangerates.github.io/accounting.js
 		wp_register_script(
-			'accounting',
-			plugins_url( 'assets/accounting/accounting' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			'accounting-js',
+			plugins_url( 'assets/accounting-js/accounting.umd' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
-			'0.4.1',
+			'1.1.1',
 			true
 		);
 
@@ -89,7 +91,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'flot',
 				'flot-time',
 				'flot-resize',
-				'accounting',
+				'accounting-js',
 			),
 			'3.7.0',
 			true
