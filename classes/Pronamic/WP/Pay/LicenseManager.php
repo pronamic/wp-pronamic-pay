@@ -182,11 +182,6 @@ class Pronamic_WP_Pay_LicenseManager {
 			)
 		);
 
-		if ( is_wp_error( $response ) ) {
-			// On errors we give benefit of the doubt.
-			$status = 'valid';
-		}
-
 		$data = json_decode( wp_remote_retrieve_body( $response ) );
 
 		if ( $data ) {
