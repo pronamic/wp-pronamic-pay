@@ -630,6 +630,7 @@ class Pronamic_WP_Pay_Plugin {
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
+					$gateways[] = 'buckaroo';
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
