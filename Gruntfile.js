@@ -284,6 +284,7 @@ module.exports = function( grunt ) {
 					'!etc/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!repositories/**',
 					'!src/**',
 					'!tests/**',
 					'!vendor/**',
