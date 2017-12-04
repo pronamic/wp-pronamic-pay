@@ -144,6 +144,19 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 	}
 
 	/**
+	 * Get action URL.
+	 */
+	public function get_action_url() {
+		if ( '' === $this->get_amount() || 0.0 === $this->get_amount() ) {
+			$this->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+
+			return $this->get_return_redirect_url();
+		}
+
+		return parent::get_action_url();
+	}
+
+	/**
 	 * Get the return redirect URL for this payment. This URL is used after a user is returned
 	 * from a payment provider / gateway to WordPress. It allows WordPress payment extensions
 	 * to redirect users to the correct URL.
