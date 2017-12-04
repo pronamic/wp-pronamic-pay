@@ -237,7 +237,7 @@ module.exports = function( grunt ) {
 					},
 					{ // accounting-js - https://nashdot.github.io/accounting-js/
 						expand: true,
-						cwd: 'node_modules/accounting-js/',
+						cwd: 'node_modules/accounting-js/dist/',
 						src: [
 							'accounting.umd.js',
 							'accounting.umd.js.map'
