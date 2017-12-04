@@ -68,8 +68,12 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 	public function get_source_description() {
 		$description = $this->source;
 
-		$description = apply_filters( 'pronamic_payment_source_description', $description, $this->get_first_payment() );
-		$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $this->get_first_payment() );
+		$payment = $this->get_first_payment();
+
+		if ( $payment ) {
+			$description = apply_filters( 'pronamic_payment_source_description', $description,  $payment );
+			$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $payment );
+		}
 
 		return $description;
 	}
@@ -82,8 +86,12 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 	public function get_source_link() {
 		$url = null;
 
-		$url = apply_filters( 'pronamic_payment_source_url', $url, $this->get_first_payment() );
-		$url = apply_filters( 'pronamic_payment_source_url_' . $this->source, $url, $this->get_first_payment() );
+		$payment = $this->get_first_payment();
+
+		if ( $payment ) {
+			$url = apply_filters( 'pronamic_payment_source_url', $url, $payment );
+			$url = apply_filters( 'pronamic_payment_source_url_' . $this->source, $url, $payment );
+		}
 
 		return $url;
 	}
