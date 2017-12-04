@@ -6,6 +6,10 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 global $wpdb;
 
+if ( '1' !== get_option( 'pronamic_pay_uninstall_clear_data', false ) ) {
+	return;
+}
+
 //////////////////////////////////////////////////
 // Delete tables
 //////////////////////////////////////////////////
@@ -32,7 +36,7 @@ delete_option( 'pronamic_pay_version' );
 delete_option( 'pronamic_pay_db_version' );
 
 //////////////////////////////////////////////////
-// Delete exntesion options
+// Delete extension options
 //////////////////////////////////////////////////
 
 // Event Espresso
