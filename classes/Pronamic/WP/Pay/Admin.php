@@ -150,9 +150,10 @@ class Pronamic_WP_Pay_Admin {
 
 	public static function dropdown_configs( $args ) {
 		$defaults = array(
-			'name'     => 'pronamic_pay_config_id',
-			'echo'     => true,
-			'selected' => false,
+			'name'           => 'pronamic_pay_config_id',
+			'echo'           => true,
+			'selected'       => false,
+			'payment_method' => null,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -175,7 +176,7 @@ class Pronamic_WP_Pay_Admin {
 			esc_attr( $name )
 		);
 
-		$options = Pronamic_WP_Pay_Plugin::get_config_select_options();
+		$options = Pronamic_WP_Pay_Plugin::get_config_select_options( $args['payment_method'] );
 
 		foreach ( $options as $value => $name ) {
 			$output .= sprintf(
