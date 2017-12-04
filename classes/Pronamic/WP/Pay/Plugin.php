@@ -226,7 +226,7 @@ class Pronamic_WP_Pay_Plugin {
 					$old_status = 'unknown';
 				}
 
-				if ( 0.0 === $payment->get_amount() ) {
+				if ( '' === $payment->get_amount() || 0.0 === $payment->get_amount() ) {
 					$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
 				} else {
 					$gateway->update_status( $payment );
