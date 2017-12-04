@@ -90,6 +90,42 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get cancel URL for this subscription.
+	 *
+	 * @return string
+	 */
+	public function get_cancel_url() {
+		$cancel_url = add_query_arg(
+			array(
+				'subscription' => $this->get_id(),
+				'key'          => $this->get_key(),
+				'action'       => 'cancel',
+			), home_url()
+		);
+
+		return $cancel_url;
+	}
+
+	/**
+	 * Get renewal URL for this subscription.
+	 *
+	 * @return string
+	 */
+	public function get_renewal_url() {
+		$renewal_url = add_query_arg(
+			array(
+				'subscription' => $this->get_id(),
+				'key'          => $this->get_key(),
+				'action'       => 'renew',
+			), home_url()
+		);
+
+		return $renewal_url;
+	}
+
+	//////////////////////////////////////////////////
+
 	public function get_payments() {
 		return get_pronamic_payments_by_meta( '_pronamic_payment_subscription_id', $this->id );
 	}
