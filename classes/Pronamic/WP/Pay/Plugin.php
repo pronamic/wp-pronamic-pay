@@ -1054,6 +1054,8 @@ class Pronamic_WP_Pay_Plugin {
 	 * Update subscription payments
 	 */
 	public static function update_subscription_payments() {
+		self::send_subscription_renewal_notices();
+
 		// Don't create payments for sources which schedule payments
 		$sources = array(
 			'woocommerce',
