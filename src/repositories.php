@@ -1,7 +1,8 @@
 <?php
 
 $working_dir      = getcwd();
-$repositories_dir = __DIR__ . '/../repositories';
+$project_dir      = dirname( __DIR__ );
+$repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
 	'wp-pay'            => array(
@@ -58,15 +59,13 @@ $organisations = array(
 		'jigoshop',
 		'memberpress',
 		'membership',
+		'restrict-content-pro',
 		's2member',
 		'shopp',
 		'woocommerce',
 		'wp-e-commerce',
 	),
 );
-
-$composer = new stdClass();
-$composer->repositories = array();
 
 foreach ( $organisations as $organisation => $repositories ) {
 	echo '# ', $organisation, PHP_EOL;
@@ -94,18 +93,28 @@ foreach ( $organisations as $organisation => $repositories ) {
 		}
 
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
-			`git pull`;
+			$command = 'git pull';
+
+			echo $command, PHP_EOL;
+
+			echo shell_exec( $command ), PHP_EOL;
 		}
 
 		chdir( $working_dir );
 
-		$composer->repositories[] = (object) array(
-			'type' => 'path',
-			'url'  => 'repositories/' . $organisation . '/' . $repository,
-		);
+		$target = $project_dir . '/repositories/' . $organisation . '/' . $repository;
+		$link   = $project_dir . '/vendor/' . $organisation . '/' . $repository;
+
+		$command = sprintf( 'rm -rf %s', escapeshellarg( $link ) );
+
+		echo $command, PHP_EOL;
+
+		echo shell_exec( $command ), PHP_EOL;
+
+		$command = sprintf( 'ln -s %s %s', escapeshellarg( $target ), escapeshellarg( $link ) );
+
+		echo $command, PHP_EOL;
+
+		echo shell_exec( $command ), PHP_EOL;
 	}
 }
-
-$json_string = json_encode( $composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES );
-
-file_put_contents( dirname( __DIR__ ) . '/composer.local.json', $json_string );
