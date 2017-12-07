@@ -178,35 +178,116 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 
 	//////////////////////////////////////////////////
 
-	public function get_start_date() {
-		return new DateTime( $this->post->post_date_gmt );
+	public function set_start_date( $value ) {
+		$this->set_meta( 'start_date', $value );
 	}
 
-	public function get_expiration_date() {
-		if ( '' === $this->get_frequency() ) {
-			return;
+	public function get_start_date() {
+		$start_date = $this->get_meta( 'start_date' );
+
+		if ( '' !== $start_date ) {
+			return new DateTime( $start_date );
 		}
 
-		$expiration = $this->get_start_date();
+		if ( Pronamic_WP_Pay_Statuses::COMPLETED !== $this->get_status() ) {
+			return new DateTime( $this->post->post_date_gmt );
+		}
 
-		return $expiration->modify( sprintf(
+		return null;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_expiry_date( $value ) {
+		$this->set_meta( 'expiry_date', $value );
+	}
+
+	public function get_expiry_date() {
+		$expiry_date = $this->get_meta( 'expiry_date' );
+
+		if ( '' !== $expiry_date ) {
+			return new DateTime( $expiry_date );
+		}
+
+		// If no meta expiry date is set, use start date + 1 interval period
+		$start_date = $this->get_start_date();
+
+		if ( null === $start_date ) {
+			return null;
+		}
+
+		return $start_date->modify( sprintf(
 			'+%d %s',
-			( $this->get_frequency() * $this->get_interval() ),
+			$this->get_interval(),
 			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
 		) );
 	}
 
-	public function get_first_payment_date() {
-		$first_payment = $this->get_first_payment();
+	//////////////////////////////////////////////////
 
-		if ( $first_payment ) {
-			return new DateTime( $first_payment->post->post_date_gmt );
-		}
-
-		return $this->get_start_date();
+	public function set_first_payment_date( $value ) {
+		$this->set_meta( 'first_payment', $value );
 	}
 
-	public function get_next_payment_datetime( $cycle = 0 ) {
+	public function get_first_payment_date() {
+		$first_date = $this->get_meta( 'first_payment' );
+
+		if ( '' !== $first_date ) {
+			return new DateTime( $first_date );
+		}
+
+		return new DateTime( $this->post->post_date_gmt );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_final_payment_date( $value ) {
+		$this->set_meta( 'final_payment', $value );
+	}
+
+	public function get_final_payment_date() {
+		$final = $this->get_meta( 'final_payment' );
+
+		if ( '' !== $final ) {
+			return new DateTime( $final );
+		}
+
+		// If no frequency is set, use next payment or start date.
+		$frequency = $this->get_frequency();
+
+		if ( '' === $frequency ) {
+			$next_date = $this->get_next_payment_date();
+
+			if ( null === $next_date ) {
+				return $this->get_start_date();
+			}
+
+			return $next_date;
+		}
+
+		// Add frequency * interval period to first payment date.
+		$first_date = $this->get_first_payment_date();
+
+		return $first_date->modify( sprintf(
+			'+%d %s',
+			( $frequency - 1 ) * $this->get_interval(),
+			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+		) );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_next_payment_date( $value ) {
+		$this->set_meta( 'next_payment', $value );
+
+		if ( false === $value ) {
+			$this->set_renewal_notice_date( false );
+		}
+	}
+
+	public function get_next_payment_date( $cycle = 0 ) {
+		// meta next_payment, possibly doesn't exist if last payment has been processed.
+
 		$next_payment = $this->get_meta( 'next_payment' );
 
 		if ( '' === $next_payment ) {
@@ -226,17 +307,138 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		return $next;
 	}
 
-	public function get_final_payment_datetime() {
-		$expiration_date = $this->get_expiration_date();
-
-		if ( ! $expiration_date ) {
+	private function refresh_next_payment_date() {
+		if ( null !== $this->get_next_payment_date() ) {
+			// Only set next payment date if not set already.
 			return;
 		}
 
-		return $expiration_date->modify( sprintf(
-			'-%d %s',
-			$this->get_interval(),
-			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
-		) );
+		$expiry = $this->get_expiry_date();
+		$now    = new DateTime( 'now', new DateTimeZone( Pronamic_IDeal_IDeal::TIMEZONE ) );
+
+		if ( $expiry > $now ) {
+			// Expiry date is in the future, use it.
+			$next_payment = $expiry;
+		} else {
+			$next_payment = $now;
+		}
+
+		$this->set_next_payment_date( $next_payment );
+
+		// Update renewal notice date
+		$next_renewal = new DateTime( $next_payment->format( DateTime::ISO8601 ) );
+		$next_renewal->modify( '-1 week' );
+
+		$this->set_renewal_notice_date( $next_renewal );
+	}
+
+	//////////////////////////////////////////////////
+
+	public function set_renewal_notice_date( $value ) {
+		$this->set_meta( 'renewal_notice', $value );
+	}
+
+	public function get_renewal_notice_date() {
+		$renewal_notice = $this->get_meta( 'renewal_notice' );
+
+		if ( '' !== $renewal_notice ) {
+			return $renewal_notice;
+		}
+
+		return false;
+	}
+
+	//////////////////////////////////////////////////
+
+	public function update_status( $status, $note = null ) {
+		if ( Pronamic_WP_Pay_Statuses::ACTIVE === $status ) {
+			$status = Pronamic_WP_Pay_Statuses::SUCCESS;
+		}
+
+		$this->set_status( $status );
+
+		switch ( $status ) {
+			case Pronamic_WP_Pay_Statuses::OPEN :
+				$meta_status = $this->get_meta( 'status' );
+
+				if ( $meta_status !== Pronamic_WP_Pay_Statuses::OPEN ) {
+					$this->refresh_next_payment_date();
+
+					if ( ! $note ) {
+						$this->add_note( __( "Subscription status changed to 'Open'", 'pronamic_ideal' ) );
+					}
+				}
+
+				break;
+			case Pronamic_WP_Pay_Statuses::SUCCESS :
+				$meta_status = $this->get_meta( 'status' );
+
+				if ( $meta_status !== Pronamic_WP_Pay_Statuses::SUCCESS ) {
+					$this->refresh_next_payment_date();
+
+					if ( ! $note ) {
+						$this->add_note( __( "Subscription status changed to 'Active'", 'pronamic_ideal' ) );
+					}
+				}
+
+				break;
+			case Pronamic_WP_Pay_Statuses::FAILURE :
+				if ( ! $note ) {
+					$this->add_note( __( "Subscription status changed to 'Failed'", 'pronamic_ideal' ) );
+				}
+
+				break;
+			case Pronamic_WP_Pay_Statuses::CANCELLED :
+				$this->set_next_payment_date( false );
+
+				if ( ! $note ) {
+					$this->add_note( __( "Subscription status changed to 'Cancelled'", 'pronamic_ideal' ) );
+				}
+
+				break;
+			case Pronamic_WP_Pay_Statuses::COMPLETED :
+				$this->set_next_payment_date( false );
+				$this->set_start_date( false );
+
+				if ( ! $note ) {
+					$this->add_note( __( "Subscription status changed to 'Completed'", 'pronamic_ideal' ) );
+				}
+
+				break;
+		}
+
+		if ( $note ) {
+			$this->add_note( $note );
+		}
+
+		// Note: make sure Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect ) is called after the status has been updated!
+	}
+
+	public function update_meta( $meta ) {
+		if ( ! is_array( $meta ) || count( $meta ) === 0 ) {
+			return;
+		}
+
+		$note = sprintf(
+			'<p>%s:</p>',
+			__( 'Subscription changed', 'pronamic_ideal' )
+		);
+
+		$note .= '<dl>';
+
+		foreach ( $meta as $key => $value ) {
+			$this->set_meta( $key, $value );
+
+			if ( $value instanceof DateTime ) {
+				$value = date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), $value->getTimestamp() );
+			}
+
+			$note .= sprintf( '<dt>%s</dt>', esc_html( $key ) );
+			$note .= sprintf( '<dd>%s</dd>', esc_html( $value ) );
+		}
+
+		$note .= '</dl>';
+
+		$this->add_note( $note );
 	}
 }

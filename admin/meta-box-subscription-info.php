@@ -65,50 +65,14 @@ $payment = $subscription->get_first_payment();
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'Start date', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
-
-			$start_date = get_date_from_gmt( $subscription->get_start_date()->format( 'Y-m-d H:i:s' ) );
-
-			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ) );
-
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Expiration date', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
-
-			$expiration_date = $subscription->get_expiration_date();
-
-			if ( $expiration_date ) {
-				$date = get_date_from_gmt( $expiration_date->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
-			} else {
-				echo esc_html( __( 'Not applicable', 'pronamic_ideal' ) );
-			}
-
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
 			<?php esc_html_e( 'First payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$first_date = $subscription->get_first_payment_date();
+			$first_date = get_date_from_gmt( $subscription->get_first_payment_date()->format( 'Y-m-d H:i:s' ) );
 
-			$date = get_date_from_gmt( $first_date->format( 'Y-m-d H:i:s' ) );
-
-			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
+			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $first_date ) ) );
 
 			?>
 		</td>
@@ -120,12 +84,12 @@ $payment = $subscription->get_first_payment();
 		<td>
 			<?php
 
-			$next_payment = $subscription->get_next_payment_datetime();
+			$next_payment = $subscription->get_next_payment_date();
 
 			if ( $next_payment ) {
-				$local_date = get_date_from_gmt( $next_payment->format( 'Y-m-d H:i:s' ) );
+				$next_date = get_date_from_gmt( $next_payment->format( 'Y-m-d H:i:s' ) );
 
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $local_date ) ) );
+				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $next_date ) ) );
 			} else {
 				echo esc_html( __( 'None', 'pronamic_ideal' ) );
 			}
@@ -140,14 +104,40 @@ $payment = $subscription->get_first_payment();
 		<td>
 			<?php
 
-			$final_payment = $subscription->get_final_payment_datetime();
+			$final_payment = $subscription->get_final_payment_date();
 
 			if ( $final_payment ) {
-				$local_date = get_date_from_gmt( $final_payment->format( 'Y-m-d H:i:s' ) );
+				$final_date = get_date_from_gmt( $final_payment->format( 'Y-m-d H:i:s' ) );
 
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $local_date ) ) );
-			} else {
-				echo esc_html( __( 'Not applicable', 'pronamic_ideal' ) );
+				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $final_date ) ) );
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Current period', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$start_date  = $subscription->get_start_date();
+			$expiry_date = $subscription->get_expiry_date();
+
+			if ( $start_date && $expiry_date ) {
+				$start_date  = get_date_from_gmt( $start_date->format( 'Y-m-d H:i:s' ) );
+				$expiry_date = get_date_from_gmt( $expiry_date->format( 'Y-m-d H:i:s' ) );
+
+				echo esc_html( sprintf(
+					'%s – %s',
+					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ),
+					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $expiry_date ) )
+				) );
+			}
+
+			if ( Pronamic_WP_Pay_Statuses::COMPLETED === $subscription->get_status() ) {
+				echo esc_html( sprintf( __( 'None (subscription completed)', 'pronamic_ideal' ) ) );
 			}
 
 			?>
@@ -197,7 +187,7 @@ $payment = $subscription->get_first_payment();
 				<?php esc_html_e( 'Period', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_period', true ) ); ?>
+				<?php echo esc_html( get_post_meta( $subscription->get_id(), '_pronamic_subscription_s2member_period', true ) ); ?>
 			</td>
 		</tr>
 		<tr>
@@ -205,7 +195,7 @@ $payment = $subscription->get_first_payment();
 				<?php esc_html_e( 'Level', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_s2member_level', true ) ); ?>
+				<?php echo esc_html( get_post_meta( $subscription->get_id(), '_pronamic_subscription_s2member_level', true ) ); ?>
 			</td>
 		</tr>
 
