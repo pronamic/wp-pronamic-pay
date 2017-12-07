@@ -374,6 +374,18 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 			$subscription = get_pronamic_subscription( $post->ID );
 
+			// Update subscription status.
+			remove_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
+
+			$can_redirect = false;
+
+			$subscription->update_status( $new_status_meta );
+
+			Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect );
+
+			add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
+
+			// Do subscription status update actions.
 			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
 			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
 			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
