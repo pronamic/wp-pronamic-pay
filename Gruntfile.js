@@ -143,6 +143,7 @@ module.exports = function( grunt ) {
 						'deploy/.*',
 						'node_modules/.*',
 						'wp-content/.*',
+						'repositories/.*',
 						'vendor/wp-cli/.*',
 						'vendor/wp-pay.*/.*/vendor/wp-cli/.*',
 						'vendor/wp-pay.*/.*/wp-content/.*'
