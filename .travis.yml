@@ -42,9 +42,8 @@ cache:
     - $HOME/.composer/cache
 
 install:
-  - npm install -g npm@latest
   - npm install -g grunt-cli
-  - npm install --no-optional
+  - npm install
   - phpenv local 5.6
   - composer self-update
   - composer install
