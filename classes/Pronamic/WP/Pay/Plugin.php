@@ -1130,22 +1130,26 @@ class Pronamic_WP_Pay_Plugin {
 		$query = new WP_Query( $args );
 
 		foreach ( $query->posts as $post ) {
-			$subscription_id = $post->ID;
-
-			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
 
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
 			// Set next renewal date meta
 			$next_renewal = $subscription->get_next_payment_date( 1 );
-			$next_renewal->modify( '-1 week' );
 
-			// Prevent multiple notices being send for the same renewal date
-			if ( $next_renewal < $subscription->get_next_payment_date() ) {
-				$next_renewal = $subscription->get_next_payment_date();
+			if ( $next_renewal ) {
+				$next_renewal->modify( '-1 week' );
+
+				// If next renewal notice date is before next payment date,
+				// prevent duplicate renewal messages by setting the renewal
+				// notice date to the date of next payment.
+				if ( $next_renewal < $subscription->get_next_payment_date() ) {
+					$next_renewal = $subscription->get_next_payment_date();
+				}
 			}
 
-			update_post_meta( $subscription_id, '_pronamic_subscription_renewal_notice', $next_renewal->format( 'Y-m-d H:i:s' ) );
+			// Update or delete next renewal notice date meta.
+			$subscription->set_renewal_notice_date( $next_renewal );
 		}
 	}
 
