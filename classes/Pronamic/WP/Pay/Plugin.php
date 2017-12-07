@@ -1090,46 +1090,16 @@ class Pronamic_WP_Pay_Plugin {
 		$query = new WP_Query( $args );
 
 		foreach ( $query->posts as $post ) {
-			$subscription_id = $post->ID;
-
-			$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
 			$first        = $subscription->get_first_payment();
 			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
 
 			$payment = self::start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
-				$frequency = $subscription->get_frequency();
-				$schedule  = false;
-
-				if ( '' === $frequency ) {
-					$schedule = true;
-				}
-
-				$next = $subscription->get_next_payment_datetime( 1 );
-
-				if ( ! $schedule ) {
-					$final = $subscription->get_final_payment_datetime();
-
-					if ( $final && $next < $final ) {
-						$schedule = true;
-					}
-				}
-
-				if ( $schedule ) {
-					update_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment', $next->format( 'Y-m-d H:i:s' ) );
-				} else {
-					wp_schedule_single_event( $final->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription_id ) );
-
-					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_next_payment' );
-					delete_post_meta( $subscription->get_id(), '_pronamic_subscription_renewal_notice' );
-				}
-
 				self::update_payment( $payment, false );
 			}
 		}
-
-		self::send_subscription_renewal_notices();
 	}
 
 	/**
