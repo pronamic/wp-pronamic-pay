@@ -881,7 +881,9 @@ class Pronamic_WP_Pay_Plugin {
 				}
 
 				// Set subscription next payment and renewal notice dates
-				if ( ! $data->get_recurring() && '0' !== $subscription->get_frequency() && ( empty( $subscription->get_frequency() ) || $subscription->get_frequency() > 1 ) ) {
+				$frequency = $subscription->get_frequency();
+
+				if ( ! $data->get_recurring() && '0' !== $frequency && ( empty( $frequency ) || $frequency > 1 ) ) {
 					// Next payment date
 					$first_next_payment = new DateTime( $payment->post->post_date_gmt );
 
