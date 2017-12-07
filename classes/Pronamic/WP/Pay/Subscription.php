@@ -60,6 +60,22 @@ class Pronamic_WP_Pay_Subscription extends Pronamic_Pay_Subscription {
 		return get_post_meta( $this->id, $key, true );
 	}
 
+	public function set_meta( $key, $value = false ) {
+		$key = '_pronamic_subscription_' . $key;
+
+		if ( $value instanceof DateTime ) {
+			$value = $value->format( 'Y-m-d H:i:s' );
+		}
+
+		if ( empty( $value ) ) {
+			return delete_post_meta( $this->id, $key );
+		}
+
+		return update_post_meta( $this->id, $key, $value );
+	}
+
+	//////////////////////////////////////////////////
+
 	/**
 	 * Get source description.
 	 *
