@@ -75,10 +75,10 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		// Accounting.js - http://openexchangerates.github.io/accounting.js
 		wp_register_script(
-			'accounting-js',
-			plugins_url( 'assets/accounting-js/accounting.umd' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			'accounting',
+			plugins_url( 'assets/accounting/accounting' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
-			'1.1.1',
+			'0.4.1',
 			true
 		);
 
@@ -91,7 +91,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 				'flot',
 				'flot-time',
 				'flot-resize',
-				'accounting-js',
+				'accounting',
 			),
 			'3.7.0',
 			true

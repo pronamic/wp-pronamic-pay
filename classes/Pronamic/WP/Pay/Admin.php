@@ -338,19 +338,12 @@ class Pronamic_WP_Pay_Admin {
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// TipTip - https://github.com/drewwilson/TipTip
-			wp_register_style(
-				'jquery-tiptip',
-				plugins_url( 'assets/tiptip/tipTip' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
-				array(),
-				'1.3.0'
-			);
-
+			// Tippy.js - https://atomiks.github.io/tippyjs/
 			wp_register_script(
-				'jquery-tiptip',
-				plugins_url( 'assets/tiptip/jquery.tipTip' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'1.3.0',
+				'tippy.js',
+				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'2.0.1',
 				true
 			);
 
@@ -372,14 +365,12 @@ class Pronamic_WP_Pay_Admin {
 			wp_register_script(
 				'pronamic-pay-admin',
 				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery', 'jquery-tiptip' ),
+				array( 'jquery', 'tippy.js' ),
 				$this->plugin->get_version(),
 				true
 			);
 
 			// Enqueue
-			wp_enqueue_style( 'jquery-tiptip' );
-
 			wp_enqueue_style( 'pronamic-pay-admin' );
 			wp_enqueue_script( 'pronamic-pay-admin' );
 		}

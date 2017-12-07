@@ -235,23 +235,17 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
-					{ // accounting-js - https://nashdot.github.io/accounting-js/
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js/
 						expand: true,
-						cwd: 'node_modules/accounting-js/dist/',
-						src: [
-							'accounting.umd.js',
-							'accounting.umd.js.map'
-						],
-						dest: 'assets/accounting-js'
+						cwd: 'node_modules/accounting/',
+						src: 'accounting.js',
+						dest: 'assets/accounting'
 					},
-					{ // TipTip - https://github.com/drewwilson/TipTip
+					{ // Tippy.js - https://atomiks.github.io/tippyjs/
 						expand: true,
-						cwd: 'node_modules/TipTip/',
-						src: [
-							'jquery.tipTip.js',
-							'tipTip.css'
-						],
-						dest: 'assets/tiptip'
+						cwd: 'node_modules/tippy.js/dist',
+						src: 'tippy.all.js',
+						dest: 'assets/tippy.js'
 					}
 				]
 			},
@@ -335,9 +329,7 @@ module.exports = function( grunt ) {
 					'css/admin.min.css': 'src/css/admin.css',
 					'css/admin-about.min.css': 'src/css/admin-about.css',
 					'css/admin-tour.min.css': 'src/css/admin-tour.css',
-					'css/forms.min.css': 'src/css/forms.css',
-					// TipTIp
-					'assets/tiptip/tipTip.min.css': 'assets/tiptip/tipTip.css'
+					'css/forms.min.css': 'src/css/forms.css'
 				}
 			},
 			assets: {
@@ -356,13 +348,13 @@ module.exports = function( grunt ) {
 					'js/admin-reports.min.js': 'src/js/admin-reports.js',
 					'js/admin-tour.min.js': 'src/js/admin-tour.js',
 					// Accounting
-					'assets/accounting-js/accounting.umd.min.js': 'assets/accounting-js/accounting.umd.js',
+					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
 					// Flot
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// TipTIp
-					'assets/tiptip/jquery.tipTip.min.js': 'assets/tiptip/jquery.tipTip.js'
+					// Tippy.js
+					'assets/tippy.js/tippy.all.min.js': 'assets/tippy.js/tippy.all.js'
 				}
 			},
 			assets: {
