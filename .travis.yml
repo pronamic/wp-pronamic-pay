@@ -10,6 +10,8 @@ php:
 - 5.6
 - 7.0
 - 7.1
+- 7.2
+- nightly
 - hhvm
 
 matrix:
@@ -39,6 +41,8 @@ matrix:
     - php: 5.6
       env: WP_VERSION=4.0 COVERAGE=1 GRUNT=1
   fast_finish: true
+  allow_failures:
+    - php: nightly
 
 cache:
   yarn: true
@@ -48,11 +52,16 @@ cache:
     - $HOME/.composer/cache
 
 install:
-  - nvm install node
-  - nvm use node
+  # Install `.nvmrc` version of Node.js (https://github.com/creationix/nvm).
+  - nvm install
+  - nvm use
+  # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
   - npm install -g grunt-cli
+  # Install Node.js packages.
   - npm install
+  # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
   - composer self-update
+  # Install Composer packages.
   - composer install
 
 before_script:
@@ -66,4 +75,3 @@ script:
 
 after_success:
   - if [[ '1' == $COVERAGE ]]; then php vendor/bin/coveralls fi
-  
