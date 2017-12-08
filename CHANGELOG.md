@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-## [4.6.1] - 2017-09-14
+## [4.7.0] - 2017-12-12
 
 ### Changes
 - Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.
@@ -1656,8 +1656,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.1...HEAD
-[4.6.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...4.6.1
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.7.0...HEAD
+[4.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...4.7.0
 [4.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...4.6.0
 [4.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...4.5.5
 [4.5.4]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.3...4.5.4
