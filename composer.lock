@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "280fc5ba7b753050557c0d3688760650",
+    "content-hash": "9d6e202cbb4fc7a920a79086011bacec",
     "packages": [
         {
             "name": "composer/installers",
@@ -1604,16 +1604,16 @@
         },
         {
             "name": "wp-pay-gateways/common",
-            "version": "dev-develop",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/common.git",
-                "reference": "b9bfc4ca3d91213a3d06f5043887d0b62b812fd9"
+                "reference": "f55f2c0bb06eaebf47a63505740a7a331eb4724f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/common/zipball/b9bfc4ca3d91213a3d06f5043887d0b62b812fd9",
-                "reference": "b9bfc4ca3d91213a3d06f5043887d0b62b812fd9",
+                "url": "https://api.github.com/repos/wp-pay-gateways/common/zipball/f55f2c0bb06eaebf47a63505740a7a331eb4724f",
+                "reference": "f55f2c0bb06eaebf47a63505740a7a331eb4724f",
                 "shasum": ""
             },
             "require": {
@@ -1624,9 +1624,9 @@
             "require-dev": {
                 "phpmd/phpmd": "^2.2.3",
                 "satooshi/php-coveralls": "^0.7.1",
-                "squizlabs/php_codesniffer": "^2.7",
+                "squizlabs/php_codesniffer": "^2.2.0",
                 "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wp-coding-standards/wpcs": "0.9.0"
             },
             "type": "library",
             "autoload": {
@@ -1662,7 +1662,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20T09:06:54+00:00"
+            "time": "2016-03-22T12:34:20+00:00"
         },
         {
             "name": "wp-pay-gateways/deutschebank-ideal-expert-v3",
@@ -5711,12 +5711,6 @@
             "package": "wp-pay/core"
         },
         {
-            "alias": "1.0.2",
-            "alias_normalized": "1.0.2.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/common"
-        },
-        {
             "alias": "1.2.8",
             "alias_normalized": "1.2.8.0",
             "version": "dev-develop",
@@ -5804,7 +5798,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay/core": 20,
-        "wp-pay-gateways/common": 20,
         "wp-pay-gateways/buckaroo": 20,
         "wp-pay-gateways/icepay": 20,
         "wp-pay-gateways/ideal-advanced-v3": 20,
