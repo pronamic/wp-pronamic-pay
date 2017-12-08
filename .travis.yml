@@ -48,6 +48,8 @@ cache:
     - $HOME/.composer/cache
 
 install:
+  - nvm install 8.4
+  - nvm use 8.4
   - npm install -g grunt-cli
   - npm install
   - phpenv local 5.6
