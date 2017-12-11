@@ -52,9 +52,9 @@ cache:
     - $HOME/.composer/cache
 
 install:
-  # Install `.nvmrc` version of Node.js (https://github.com/creationix/nvm).
-  - nvm install
-  - nvm use
+  # Install latest version of Node.js (https://github.com/creationix/nvm).
+  - nvm install node
+  - nvm use node
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
   - npm install -g grunt-cli
   # Install Node.js packages.
