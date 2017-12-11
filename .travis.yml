@@ -53,7 +53,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  - if [[ "$YARN_INSTALL" == "1" ]]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
+  - if [[ "$YARN_INSTALL" == "1" ]]; then npm install -g yarn; fi
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
