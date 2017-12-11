@@ -343,7 +343,7 @@ class Pronamic_WP_Pay_Admin {
 				'tippy.js',
 				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 				array(),
-				'2.0.1',
+				'2.0.4',
 				true
 			);
 
