@@ -76,24 +76,6 @@ module.exports = function( grunt ) {
 				'src/sass/**/*.scss'
 			]
 		},
-
-		// Check WordPress version
-		checkwpversion: {
-			options: {
-				readme: 'readme.txt',
-				plugin: 'pronamic-ideal.php'
-			},
-			check: {
-				version1: 'plugin',
-				version2: 'readme',
-				compare: '=='
-			},
-			check2: {
-				version1: 'plugin',
-				version2: '<%= pkg.version %>',
-				compare: '=='
-			}
-		},
 		
 		// Check textdomain errors
 		checktextdomain: {
@@ -168,6 +150,12 @@ module.exports = function( grunt ) {
 
 		// Shell
 		shell: {
+
+			// Check versions
+			check_versions: {
+				command: 'php src/check-versions.php'
+			},
+
 			// PlantUML
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
@@ -185,12 +173,12 @@ module.exports = function( grunt ) {
 
 			// Generate README.md
 			readme_md: {
-				command: 'php src/readme-md/README.php > README.md'	
+				command: 'php src/readme-md/README.php > README.md'
 			},
 
 			// Generate CHANGELOG.md
 			changelog_md: {
-				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'	
+				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'
 			},
 
 			// Composer
@@ -486,7 +474,7 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
 	grunt.registerTask( 'assets', [ 'sasslint', 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
