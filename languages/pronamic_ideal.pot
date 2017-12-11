@@ -11,7 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
 
 #: admin/meta-box-form-options.php:7 admin/tab-gateways.php:15
 #: classes/Pronamic/WP/Pay/Admin/FormPostType.php:53
@@ -794,73 +794,73 @@ msgid "View supported e-commerce plugins"
 msgstr ""
 
 #: admin/tab-new.php:13
-msgid "Menu name and icon"
+msgid "Rabobank OmniKassa 2.0"
 msgstr ""
 
 #: admin/tab-new.php:18
 msgid ""
-"Most of our users already know that Pronamic iDEAL supports other payment "
-"methods besides iDEAL. With this\n"
-"release we therefore changed the name of the menu item from \"iDEAL\" to "
-"\"Pay\". The icon has been changed to the WordPress\n"
-"pay icon instead of the iDEAL logo. These changes make the WordPress admin "
-"menu look cleaner and it is clearer that the\n"
-"plugin is not only for iDEAL payments anymore."
+"Rabobank has introduced a new version of the OmniKassa payment platform. "
+"Pronamic Pay\n"
+"now supports the new OmniKassa. To receive payments with your OmniKassa 2.0 "
+"account, create a new configuration via Pay »\n"
+"Configurations and update the configuration in the payment method settings."
 msgstr ""
 
-#: admin/tab-new.php:39
-msgid "Recurring payments"
+#: admin/tab-new.php:38
+msgid "Better subscriptions"
 msgstr ""
 
-#: admin/tab-new.php:44
+#: admin/tab-new.php:43
 msgid ""
-"Recurring payments are now supported with the payment provider Mollie. A "
-"mandate which makes automatic\n"
-"recurring payments possible, can be created with a first payment via either "
-"iDEAL or credit card by using the new\n"
-"subscriptions feature. Recurring payments are recognizable by the repeater "
-"icon in the payments overview."
+"Pronamic Pay includes support for subscriptions to receive recurring "
+"payments. This version includes\n"
+"improvements based on user feedback. Switching between subscriptions with "
+"WooCommerce\n"
+"Subscriptions is now supported for example, and payment dates information "
+"has been extended and is more reliable."
 msgstr ""
 
-#: admin/tab-new.php:56 classes/Pronamic/WP/Pay/Admin.php:454
-#: classes/Pronamic/WP/Pay/Admin.php:455
-#: classes/Pronamic/WP/Pay/PostTypes.php:108
-#: classes/Pronamic/WP/Pay/PostTypes.php:110
-#: classes/Pronamic/WP/Pay/PostTypes.php:121
-msgid "Subscriptions"
+#: admin/tab-new.php:54
+#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:210
+#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:220
+#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:231
+#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:241
+#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:265
+msgid "Restrict Content Pro"
 msgstr ""
 
-#: admin/tab-new.php:61
+#: admin/tab-new.php:59
 msgid ""
-"Subscriptions are now supported and have a dedicated admin page to track "
-"which subscriptions are created\n"
-"and to view related payments and their status. The new `Direct Debit "
-"(mandate via iDEAL)` and credit card payment methods\n"
-"can be used with WooCommerce Subscriptions to set up automatically "
-"recurring payments for subscriptions."
+"Restrict Content Pro lets you sell memberships to provide access to your "
+"content. In this\n"
+"version of Pronamic Pay we introduce support for this plugin. Recurring "
+"payments can be used, so subscription payments\n"
+"are processed automatically when they are due for renewal. Recurring "
+"payments are now also\n"
+"supported with s2Member (new shortcodes can be created with the included "
+"generator)."
 msgstr ""
 
-#: admin/tab-new.php:80
-msgid "Payment status requests for Ingenico"
+#: admin/tab-new.php:79
+msgid "Gravity Forms + Moneybird"
 msgstr ""
 
-#: admin/tab-new.php:85
+#: admin/tab-new.php:84
 msgid ""
-"The Pronamic iDEAL plugin processes payment status update that are sent to "
-"your website by the payment provider.\n"
-"But we can also request the payment status automatically for you. Ingenico "
-"(previously Ogone) is now added to the list\n"
-"of payment providers which support this feature (iDEAL "
-"Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl, Sisow\n"
-"and Targetpay). Make sure to add API user credentials to your Ingenico "
-"configuration to benefit."
+"The Gravity Forms Moneybird Add-On plugin makes it possible to send "
+"invoices and estimates through a\n"
+"Moneybird account for Gravity Forms entries. With this version of Pronamic "
+"Pay it is possible to delay the creation of\n"
+"invoices and estimates until the payment has been received. Delaying these "
+"actions is now also possible for the Sliced\n"
+"Invoices plugin."
 msgstr ""
 
-#: admin/tab-new.php:97
+#: admin/tab-new.php:96
 msgid "Check status of pending payments"
 msgstr ""
 
-#: admin/tab-new.php:102
+#: admin/tab-new.php:101
 msgid ""
 "We always put a lot of effort in under the hood improvements to make "
 "automatic payment status updates as\n"
@@ -871,11 +871,11 @@ msgid ""
 "mentioned in the admin menu item badge."
 msgstr ""
 
-#: admin/tab-new.php:122
+#: admin/tab-new.php:121
 msgid "Refreshed payments overview"
 msgstr ""
 
-#: admin/tab-new.php:127
+#: admin/tab-new.php:126
 msgid ""
 "The payments list got a visual refresh. Most noticeable are the new status "
 "icons and updated default columns\n"
@@ -1381,6 +1381,13 @@ msgstr ""
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:77
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:115
 msgid "Pay"
+msgstr ""
+
+#: classes/Pronamic/WP/Pay/Admin.php:454 classes/Pronamic/WP/Pay/Admin.php:455
+#: classes/Pronamic/WP/Pay/PostTypes.php:108
+#: classes/Pronamic/WP/Pay/PostTypes.php:110
+#: classes/Pronamic/WP/Pay/PostTypes.php:121
+msgid "Subscriptions"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/Admin.php:465
@@ -2620,7 +2627,7 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:166
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:86
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:94
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:95
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:89
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:82
 msgid "Available tags:"
@@ -3012,12 +3019,13 @@ msgstr ""
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:85
 #: vendor/wp-pay-gateways/buckaroo/src/Settings.php:109
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Settings.php:93
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:101
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:103
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:66
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:96
 #: vendor/wp-pay-gateways/ogone/src/Settings.php:204
 #: vendor/wp-pay-gateways/omnikassa/src/Settings.php:89
 #: vendor/wp-pay-gateways/sisow/src/Settings.php:68
+#. translators: %s: <code>{payment_id}</code>
 msgid "Default: <code>%s</code>"
 msgstr ""
 
@@ -3033,14 +3041,6 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:209
 msgid "Subscription activated by %s"
-msgstr ""
-
-#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:210
-#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:220
-#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:231
-#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:241
-#: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:265
-msgid "Restrict Content Pro"
 msgstr ""
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:219
@@ -3501,7 +3501,7 @@ msgid "Unable to retrieve issuers from Buckaroo."
 msgstr ""
 
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
-#: vendor/wp-pay-gateways/icepay/src/Gateway.php:142
+#: vendor/wp-pay-gateways/icepay/src/Gateway.php:144
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:84
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:78
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:90
@@ -3791,19 +3791,20 @@ msgid ""
 "completed."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:89
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:90
+#. translators: %s: <code>OrderID</code>
 msgid "The Icepay %s parameter."
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:110
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:112
 msgid "Thank you page URL"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:120
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:122
 msgid "Error page URL"
 msgstr ""
 
-#: vendor/wp-pay-gateways/icepay/src/Settings.php:130
+#: vendor/wp-pay-gateways/icepay/src/Settings.php:132
 msgid "Postback URL"
 msgstr ""
 
