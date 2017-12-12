@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "23f1c348046a6bfd0d3d1b39c2047f0b",
+    "content-hash": "1de3e586d7b7a0dc8ea51a0e44de03c6",
     "packages": [
         {
             "name": "composer/installers",
@@ -218,30 +218,29 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "dev-develop",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/charitable.git",
-                "reference": "95b5ea49776b3caa8e5b5f59bddb7f740232c64c"
+                "reference": "97e3d3e7cacce908323d42808add2354ef400753"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/95b5ea49776b3caa8e5b5f59bddb7f740232c64c",
-                "reference": "95b5ea49776b3caa8e5b5f59bddb7f740232c64c",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/97e3d3e7cacce908323d42808add2354ef400753",
+                "reference": "97e3d3e7cacce908323d42808add2354ef400753",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
-                "wp-pay/core": "^1.3",
-                "wpackagist-plugin/charitable": "1.1.5",
-                "xrstf/composer-php52": "1.*"
+                "php": "^5.3",
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -277,7 +276,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-12-12T13:16:13+00:00"
+            "time": "2017-12-12T19:35:45+00:00"
         },
         {
             "name": "wp-pay-extensions/classipress",
@@ -3678,26 +3677,6 @@
             "time": "2017-12-12T12:40:02+00:00"
         },
         {
-            "name": "wpackagist-plugin/charitable",
-            "version": "1.1.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/charitable/",
-                "reference": "tags/1.1.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/charitable.1.1.5.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/charitable/"
-        },
-        {
             "name": "wpackagist-plugin/easy-digital-downloads",
             "version": "2.5.9",
             "source": {
@@ -5714,12 +5693,6 @@
             "package": "wp-pay-gateways/omnikassa-2"
         },
         {
-            "alias": "1.1.2",
-            "alias_normalized": "1.1.2.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/charitable"
-        },
-        {
             "alias": "1.0.0",
             "alias_normalized": "1.0.0.0",
             "version": "dev-develop",
@@ -5729,7 +5702,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay-gateways/omnikassa-2": 20,
-        "wp-pay-extensions/charitable": 20,
         "wp-pay-extensions/restrict-content-pro": 20
     },
     "prefer-stable": false,
