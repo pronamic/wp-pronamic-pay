@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2eada78b2c6ce213642b003dca5178a3",
+    "content-hash": "0db7540a06a901a6ea9696693703710b",
     "packages": [
         {
             "name": "composer/installers",
@@ -2575,16 +2575,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "dev-develop",
+            "version": "1.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "d058ef4652b309e19d19688311b54a43c5489cee"
+                "reference": "bba4c5026e867771c1d21a6e693e80d6d9492aec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/d058ef4652b309e19d19688311b54a43c5489cee",
-                "reference": "d058ef4652b309e19d19688311b54a43c5489cee",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/bba4c5026e867771c1d21a6e693e80d6d9492aec",
+                "reference": "bba4c5026e867771c1d21a6e693e80d6d9492aec",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-12-12T08:51:41+00:00"
+            "time": "2017-12-12T10:52:09+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -5711,12 +5711,6 @@
             "package": "wp-pay/core"
         },
         {
-            "alias": "1.1.14",
-            "alias_normalized": "1.1.14.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/mollie"
-        },
-        {
             "alias": "2.0.0",
             "alias_normalized": "2.0.0.0",
             "version": "dev-develop",
@@ -5792,7 +5786,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay/core": 20,
-        "wp-pay-gateways/mollie": 20,
         "wp-pay-gateways/multisafepay": 20,
         "wp-pay-gateways/omnikassa-2": 20,
         "wp-pay-gateways/pay-nl": 20,
