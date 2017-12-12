@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7334f65c451c900795aa483ea18f99d1",
+    "content-hash": "e2d70cfad688c9541fccae610fcba551",
     "packages": [
         {
             "name": "composer/installers",
@@ -1021,16 +1021,16 @@
         },
         {
             "name": "wp-pay-extensions/s2member",
-            "version": "dev-develop",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/s2member.git",
-                "reference": "423957e950cb3ddb2f0694c83420c8a780ad151f"
+                "reference": "36688632255f9a95047d4e4a2c58c81a191008ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/423957e950cb3ddb2f0694c83420c8a780ad151f",
-                "reference": "423957e950cb3ddb2f0694c83420c8a780ad151f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/36688632255f9a95047d4e4a2c58c81a191008ec",
+                "reference": "36688632255f9a95047d4e4a2c58c81a191008ec",
                 "shasum": ""
             },
             "require": {
@@ -1078,7 +1078,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-12-12T15:24:33+00:00"
+            "time": "2017-12-12T15:49:18+00:00"
         },
         {
             "name": "wp-pay-extensions/shopp",
@@ -1146,12 +1146,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "183dd211b42492e29be3f139c83e3cebfdae6f52"
+                "reference": "1488d8732923a50f274a499382040d57d49d35f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/183dd211b42492e29be3f139c83e3cebfdae6f52",
-                "reference": "183dd211b42492e29be3f139c83e3cebfdae6f52",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/1488d8732923a50f274a499382040d57d49d35f1",
+                "reference": "1488d8732923a50f274a499382040d57d49d35f1",
                 "shasum": ""
             },
             "require": {
@@ -1159,8 +1159,8 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.1",
-                "satooshi/php-coveralls": "dev-master",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -1198,7 +1198,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-12-12T15:22:20+00:00"
+            "time": "2017-12-12T15:45:53+00:00"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -5726,12 +5726,6 @@
             "package": "wp-pay-extensions/restrict-content-pro"
         },
         {
-            "alias": "1.2.6",
-            "alias_normalized": "1.2.6.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/s2member"
-        },
-        {
             "alias": "1.2.7",
             "alias_normalized": "1.2.7.0",
             "version": "dev-develop",
@@ -5743,7 +5737,6 @@
         "wp-pay-gateways/omnikassa-2": 20,
         "wp-pay-extensions/charitable": 20,
         "wp-pay-extensions/restrict-content-pro": 20,
-        "wp-pay-extensions/s2member": 20,
         "wp-pay-extensions/woocommerce": 20
     },
     "prefer-stable": false,
