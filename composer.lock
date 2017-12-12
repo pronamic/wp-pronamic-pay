@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2d70cfad688c9541fccae610fcba551",
+    "content-hash": "23f1c348046a6bfd0d3d1b39c2047f0b",
     "packages": [
         {
             "name": "composer/installers",
@@ -1142,20 +1142,20 @@
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "dev-develop",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "1488d8732923a50f274a499382040d57d49d35f1"
+                "reference": "21bbb4b2caa2908fea7dd07ae919636c02385fef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/1488d8732923a50f274a499382040d57d49d35f1",
-                "reference": "1488d8732923a50f274a499382040d57d49d35f1",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/21bbb4b2caa2908fea7dd07ae919636c02385fef",
+                "reference": "21bbb4b2caa2908fea7dd07ae919636c02385fef",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": "^5.3",
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
@@ -1198,7 +1198,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-12-12T15:45:53+00:00"
+            "time": "2017-12-12T19:01:33+00:00"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -5724,20 +5724,13 @@
             "alias_normalized": "1.0.0.0",
             "version": "dev-develop",
             "package": "wp-pay-extensions/restrict-content-pro"
-        },
-        {
-            "alias": "1.2.7",
-            "alias_normalized": "1.2.7.0",
-            "version": "dev-develop",
-            "package": "wp-pay-extensions/woocommerce"
         }
     ],
     "minimum-stability": "stable",
     "stability-flags": {
         "wp-pay-gateways/omnikassa-2": 20,
         "wp-pay-extensions/charitable": 20,
-        "wp-pay-extensions/restrict-content-pro": 20,
-        "wp-pay-extensions/woocommerce": 20
+        "wp-pay-extensions/restrict-content-pro": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
