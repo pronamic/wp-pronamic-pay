@@ -1,6 +1,6 @@
 /* Pretty handling of time axes.
 
-Copyright (c) 2007-2014 IOLA and Ole Laursen.
+Copyright (c) 2007-2012 IOLA and Ole Laursen.
 Licensed under the MIT license.
 
 Set axis.mode to "time" to enable. See the section "Time series data" in
@@ -10,14 +10,7 @@ API.txt for details.
 
 (function($) {
 
-	var options = {
-		xaxis: {
-			timezone: null,		// "browser" for local to the client or timezone for timezone-js
-			timeformat: null,	// format string to use
-			twelveHourClock: false,	// 12 or 24 time in time mode
-			monthNames: null	// list of names of months
-		}
-	};
+	var options = {};
 
 	// round to nearby lower multiple of base
 
@@ -73,7 +66,6 @@ API.txt for details.
 					case 'b': c = "" + monthNames[d.getMonth()]; break;
 					case 'd': c = leftPad(d.getDate()); break;
 					case 'e': c = leftPad(d.getDate(), " "); break;
-					case 'h':	// For back-compat with 0.7; remove in 1.0
 					case 'H': c = leftPad(hours); break;
 					case 'I': c = leftPad(hours12); break;
 					case 'l': c = leftPad(hours12, " "); break;
@@ -195,7 +187,7 @@ API.txt for details.
 		[1, "year"]]);
 
 	function init(plot) {
-		plot.hooks.processOptions.push(function (plot, options) {
+		plot.hooks.processDatapoints.push(function (plot, series, datapoints) {
 			$.each(plot.getAxes(), function(axisName, axis) {
 
 				var opts = axis.options;
@@ -295,23 +287,17 @@ API.txt for details.
 
 						if (step >= timeUnitSize.minute) {
 							d.setSeconds(0);
-						}
-						if (step >= timeUnitSize.hour) {
+						} else if (step >= timeUnitSize.hour) {
 							d.setMinutes(0);
-						}
-						if (step >= timeUnitSize.day) {
+						} else if (step >= timeUnitSize.day) {
 							d.setHours(0);
-						}
-						if (step >= timeUnitSize.day * 4) {
+						} else if (step >= timeUnitSize.day * 4) {
 							d.setDate(1);
-						}
-						if (step >= timeUnitSize.month * 2) {
+						} else if (step >= timeUnitSize.month * 2) {
 							d.setMonth(floorInBase(d.getMonth(), 3));
-						}
-						if (step >= timeUnitSize.quarter * 2) {
+						} else if (step >= timeUnitSize.quarter * 2) {
 							d.setMonth(floorInBase(d.getMonth(), 6));
-						}
-						if (step >= timeUnitSize.year) {
+						} else if (step >= timeUnitSize.year) {
 							d.setMonth(0);
 						}
 
@@ -427,6 +413,5 @@ API.txt for details.
 	// on the function, so we need to re-expose it here.
 
 	$.plot.formatDate = formatDate;
-	$.plot.dateGenerator = dateGenerator;
 
 })(jQuery);

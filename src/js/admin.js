@@ -1,3 +1,4 @@
+/* global tippy */
 ( function( $ ) {
 	/**
 	 * Pronamic iDEAL config prototype
@@ -363,15 +364,7 @@
 		$( '#pronamic_gateway_test').pronamicPayGatewayTest();
 		$( '.pronamic-pay-tabs' ).pronamicPayTabs();
 
-		// Tooltips
-		var tiptip_args = {
-			'attribute': 'data-tip',
-			'fadeIn': 50,
-			'fadeOut': 50,
-			'delay': 200,
-			'maxWidth': '400px'
-		};
-
-		$( '.pronamic-pay-tip' ).tipTip( tiptip_args );
+		// Tooltip
+		tippy( '.pronamic-pay-tip' );
 	} );
 } )( jQuery );

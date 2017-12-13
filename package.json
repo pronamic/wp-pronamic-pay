@@ -1,6 +1,6 @@
 {
   "name": "pronamic-ideal",
-  "version": "4.6.1",
+  "version": "4.7.0",
   "description": "The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.",
   "repository": {
     "type": "git",
@@ -29,12 +29,17 @@
     "email": "support@pronamic.nl"
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-ideal",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "flot": "^0.8.0-alpha",
+    "jquery": "^3.2.1",
+    "tippy.js": "^2.0.4"
+  },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-aws-s3": "^2.0.0",
     "grunt-checktextdomain": "^1.0.1",
-    "grunt-checkwpversion": "~0.3.0",
     "grunt-composer": "^0.4.5",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-compass": "^1.1.1",
@@ -42,17 +47,18 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-imagemin": "^2.0.1",
-    "grunt-contrib-jshint": "~1.1.0",
-    "grunt-contrib-uglify": "^3.1.0",
-    "grunt-git": "^1.0.6",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-git": "^1.0.9",
     "grunt-phpcs": "^0.4.0",
     "grunt-phplint": "0.1.0",
-    "grunt-phpunit": "~0.3.6",
-    "grunt-rt-wp-deploy": "^0.1.0",
-    "grunt-sass-lint": "^0.2.3",
+    "grunt-phpunit": "^0.3.6",
+    "grunt-rt-wp-deploy": "^0.1.2",
+    "grunt-sass-lint": "^0.2.4",
     "grunt-shell": "^2.1.0",
-    "grunt-webfont": "^1.6.0",
-    "grunt-wp-i18n": "~0.5.4",
+    "grunt-webfont": "^1.7.1",
+    "grunt-wp-i18n": "^1.0.1",
     "load-grunt-tasks": "^3.5.2"
-  }
+  },
+  "private": true
 }

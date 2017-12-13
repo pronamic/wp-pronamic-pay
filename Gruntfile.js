@@ -10,11 +10,11 @@ module.exports = function( grunt ) {
 		phplint: {
 			core: [
 				'**/*.php',
-				'!bower_components/**',
 				'!build/**',
 				'!deploy/**',
 				'!includes/xmlseclibs/**',
 				'!node_modules/**',
+				'!repositories/**',
 				'!vendor/**',
 				'!wp-content/**'
 			],
@@ -30,7 +30,6 @@ module.exports = function( grunt ) {
 			application: {
 				src: [
 					'**/*.php',
-					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
 					'!includes/xmlseclibs/**',
@@ -78,24 +77,6 @@ module.exports = function( grunt ) {
 				'src/sass/**/*.scss'
 			]
 		},
-
-		// Check WordPress version
-		checkwpversion: {
-			options: {
-				readme: 'readme.txt',
-				plugin: 'pronamic-ideal.php'
-			},
-			check: {
-				version1: 'plugin',
-				version2: 'readme',
-				compare: '=='
-			},
-			check2: {
-				version1: 'plugin',
-				version2: '<%= pkg.version %>',
-				compare: '=='
-			}
-		},
 		
 		// Check textdomain errors
 		checktextdomain: {
@@ -121,7 +102,6 @@ module.exports = function( grunt ) {
 			files: {
 				src:  [
 					'**/*.php',
-					'!bower_components/**',
 					'!build/**',
 					'!deploy/**',
 					'!node_modules/**',
@@ -136,21 +116,12 @@ module.exports = function( grunt ) {
 		makepot: {
 			target: {
 				options: {
+					cwd: 'deploy/latest',
 					domainPath: 'languages',
 					type: 'wp-plugin',
 					mainFile: 'pronamic-ideal.php',
 					updatePoFiles: true,
-					updateTimestamp: false,
-					exclude: [
-						'bower_components/.*',
-						'build/.*',
-						'deploy/.*',
-						'node_modules/.*',
-						'wp-content/.*',
-						'vendor/wp-cli/.*',
-						'vendor/wp-pay.*/.*/vendor/wp-cli/.*',
-						'vendor/wp-pay.*/.*/wp-content/.*'
-					]
+					updateTimestamp: false
 				}
 			}
 		},
@@ -171,6 +142,12 @@ module.exports = function( grunt ) {
 
 		// Shell
 		shell: {
+
+			// Check versions
+			check_versions: {
+				command: 'php src/check-versions.php'
+			},
+
 			// PlantUML
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
@@ -188,12 +165,12 @@ module.exports = function( grunt ) {
 
 			// Generate README.md
 			readme_md: {
-				command: 'php src/readme-md/README.php > README.md'	
+				command: 'php src/readme-md/README.php > README.md'
 			},
 
 			// Generate CHANGELOG.md
 			changelog_md: {
-				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'	
+				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'
 			},
 
 			// Composer
@@ -212,8 +189,8 @@ module.exports = function( grunt ) {
 					{ // CSS
 						expand: true,
 						cwd: 'src/css/',
-						src: [ '**' ],
-						dest: 'css'
+						src: '**',
+						dest: 'css/'
 					}
 				]
 			},
@@ -222,8 +199,8 @@ module.exports = function( grunt ) {
 					{ // JS
 						expand: true,
 						cwd: 'src/js/',
-						src: [ '**' ],
-						dest: 'js'
+						src: '**',
+						dest: 'js/'
 					}
 				]
 			},
@@ -231,7 +208,7 @@ module.exports = function( grunt ) {
 				files: [
 					{ // Flot - http://www.flotcharts.org/
 						expand: true,
-						cwd: 'bower_components/flot/',
+						cwd: 'node_modules/flot/',
 						src: [
 							'jquery.flot.js',
 							'jquery.flot.time.js',
@@ -239,22 +216,17 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
-					{ // accounting.js - http://openexchangerates.github.io/accounting.js
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js/
 						expand: true,
-						cwd: 'bower_components/accounting.js/',
-						src: [
-							'accounting.js'
-						],
+						cwd: 'node_modules/accounting/',
+						src: 'accounting.js',
 						dest: 'assets/accounting'
 					},
-					{ // TipTip - https://github.com/drewwilson/TipTip
+					{ // Tippy.js - https://atomiks.github.io/tippyjs/
 						expand: true,
-						cwd: 'bower_components/TipTip/',
-						src: [
-							'jquery.tipTip.js',
-							'tipTip.css'
-						],
-						dest: 'assets/tiptip'
+						cwd: 'node_modules/tippy.js/dist',
+						src: 'tippy.all.js',
+						dest: 'assets/tippy.js'
 					}
 				]
 			},
@@ -271,31 +243,37 @@ module.exports = function( grunt ) {
 				]
 			},
 			deploy: {
+				expand: true,
 				src: [
 					'**',
-					'!bower.json',
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
 					'!package-lock.json',
 					'!phpunit.xml',
 					'!phpunit.xml.dist',
-					'!phpcs.ruleset.xml',
+					'!phpcs.xml.dist',
 					'!CHANGELOG.md',
 					'!README.md',
-					'!bower_components/**',
+					'!yarn.lock',
 					'!build/**',
 					'!deploy/**',
 					'!etc/**',
 					'!documentation/**',
 					'!node_modules/**',
+					'!repositories/**',
 					'!src/**',
 					'!tests/**',
 					'!vendor/**',
 					'!wp-content/**'
 				],
-				dest: 'deploy/latest',
-				expand: true
+				dest: 'deploy/latest/'
+			},
+			pot_to_dev: {
+				expand: true,
+				cwd: 'deploy/latest/languages/',
+				src: '**',
+				dest: 'languages/'
 			}
 		},
 
@@ -339,14 +317,7 @@ module.exports = function( grunt ) {
 					'css/admin.min.css': 'src/css/admin.css',
 					'css/admin-about.min.css': 'src/css/admin-about.css',
 					'css/admin-tour.min.css': 'src/css/admin-tour.css',
-					'css/forms.min.css': 'src/css/forms.css',
-					// TipTIp
-					'assets/tiptip/tipTip.min.css': 'assets/tiptip/tipTip.css'
-				}
-			},
-			assets: {
-				files: {
-					
+					'css/forms.min.css': 'src/css/forms.css'
 				}
 			}
 		},
@@ -365,20 +336,15 @@ module.exports = function( grunt ) {
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// TipTIp
-					'assets/tiptip/jquery.tipTip.min.js': 'assets/tiptip/jquery.tipTip.js'
-				}
-			},
-			assets: {
-				files: {
-					
+					// Tippy.js
+					'assets/tippy.js/tippy.all.min.js': 'assets/tippy.js/tippy.all.js'
 				}
 			}
 		},
 
 		// Clean
 		clean: {
-			build: {
+			assets: {
 				src: [
 					'assets',
 					'css',
@@ -497,29 +463,39 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'checkwpversion' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
 	grunt.registerTask( 'assets', [ 'sasslint', 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
-	grunt.registerTask( 'min', [ 'cssmin:styles', 'uglify:scripts', 'imagemin' ] );
+	grunt.registerTask( 'min', [ 'cssmin', 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
-	grunt.registerTask( 'pot', [ 'makepot' ] );
-	grunt.registerTask( 'doc', [ 'shell:readme_txt', 'shell:readme_md', 'shell:changelog_md' ] );
+	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
 
-	grunt.registerTask( 'build', [
-		'clean:build',
-		'assets',
-		'min',
-		'pot'
+	grunt.registerTask( 'build_docs', [
+		'shell:readme_txt',
+		'shell:readme_md',
+		'shell:changelog_md'
 	] );
 
-	grunt.registerTask( 'deploy', [
-		'default',
-		'build',
-		'doc',
+	grunt.registerTask( 'build_assets', [
+		'clean:assets',
+		'assets',
+		'min'
+	] );
+
+	grunt.registerTask( 'build_latest', [
 		'clean:deploy',
 		'copy:deploy',
 		'shell:deploy',
 		'clean:deploy_composer',
-		'clean:deploy_wp_content',
+		'clean:deploy_wp_content'
+	] );
+
+	grunt.registerTask( 'deploy', [
+		'default',
+		'build_docs',
+		'build_assets',
+		'build_latest',
+		'makepot',
+		'copy:pot_to_dev',
 		'compress:deploy'
 	] );
 

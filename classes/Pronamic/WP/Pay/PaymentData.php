@@ -86,7 +86,7 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 
 		$parts = array_filter( $parts );
 
-		if ( empty( $parst ) ) {
+		if ( empty( $parts ) ) {
 			return null;
 		}
 

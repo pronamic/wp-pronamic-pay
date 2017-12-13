@@ -41,6 +41,11 @@ class Pronamic_WP_Pay_Settings {
 			'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
 		) );
 
+		register_setting( 'pronamic_pay', 'pronamic_pay_uninstall_clear_data', array(
+			'type'              => 'integer',
+			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+		) );
+
 		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep', array(
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_text_field',
@@ -97,6 +102,21 @@ class Pronamic_WP_Pay_Settings {
 				'show_option_none' => __( '— Select a gateway —', 'pronamic_ideal' ),
 				'label_for'        => 'pronamic_pay_config_id',
 			) // args
+		);
+
+		// Remove data on uninstall
+		add_settings_field(
+			'pronamic_pay_uninstall_clear_data', // id
+			__( 'Remove data', 'pronamic_ideal' ), // title
+			array( $this, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_general', // section
+			array(  // args
+			        'description' => __( 'Remove all plugin data on uninstall', 'pronamic_ideal' ),
+			        'label_for' => 'pronamic_pay_uninstall_clear_data',
+			        'classes'   => 'regular-text',
+			        'type'      => 'checkbox',
+			)
 		);
 
 		// Settings - Pages
@@ -162,6 +182,20 @@ class Pronamic_WP_Pay_Settings {
 	public function sanitize_published_post_id( $value ) {
 		if ( 'publish' === get_post_status( $value ) ) {
 			return $value;
+		}
+
+		return null;
+	}
+
+	/**
+	 * Sanitize checkbox.
+	 *
+	 * @param string $value
+	 * @return 1 or null
+	 */
+	public function sanitize_checkbox( $value ) {
+		if ( 'on' === $value ) {
+			return '1';
 		}
 
 		return null;
@@ -234,19 +268,27 @@ class Pronamic_WP_Pay_Settings {
 	 */
 	public function input_element( $args ) {
 		$defaults = array(
-			'type'    => 'text',
-			'classes' => 'regular-text',
+			'type'        => 'text',
+			'classes'     => 'regular-text',
+			'description' => '',
 		);
 
 		$args = wp_parse_args( $args, $defaults );
 
+		$value = sprintf( 'value="%s"', esc_attr( get_option( $args['label_for'] ) ) );
+
+		if ( 'checkbox' === $args['type'] ) {
+			$value = checked( 1, get_option( $args['label_for'] ), false );
+		}
+
 		printf(
-			'<input name="%s" id="%s" type="%s" value="%s" class="%s" />',
+			'<input name="%s" id="%s" type="%s" class="%s" %s />%s',
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['type'] ),
-			esc_attr( get_option( $args['label_for'] ) ),
-			esc_attr( $args['classes'] )
+			esc_attr( $args['classes'] ),
+			$value,
+			esc_html( $args['description'] )
 		);
 
 	}

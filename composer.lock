@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "76695322d9c1b8cb1f8b9de9c9bd9ac8",
+    "content-hash": "735180ae94d0dcb3b67a91fa3d2c3c1a",
     "packages": [
         {
             "name": "composer/installers",
@@ -218,30 +218,29 @@
         },
         {
             "name": "wp-pay-extensions/charitable",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/charitable.git",
-                "reference": "80d49da348b7847bf9bb6fb374e32c990bbe1d1f"
+                "reference": "97e3d3e7cacce908323d42808add2354ef400753"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/80d49da348b7847bf9bb6fb374e32c990bbe1d1f",
-                "reference": "80d49da348b7847bf9bb6fb374e32c990bbe1d1f",
+                "url": "https://api.github.com/repos/wp-pay-extensions/charitable/zipball/97e3d3e7cacce908323d42808add2354ef400753",
+                "reference": "97e3d3e7cacce908323d42808add2354ef400753",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
-                "wp-pay/core": "^1.3",
-                "wpackagist-plugin/charitable": "1.1.5",
-                "xrstf/composer-php52": "1.*"
+                "php": "^5.3",
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -277,7 +276,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-13T13:31:23+00:00"
+            "time": "2017-12-12T19:35:45+00:00"
         },
         {
             "name": "wp-pay-extensions/classipress",
@@ -652,16 +651,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "1.6.6",
+            "version": "1.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "1a9450079d57f7c69d5de3c48af7a252946d6ff0"
+                "reference": "4bad7f65802eb6e9c45dfd17c7c183a613e3fb57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/1a9450079d57f7c69d5de3c48af7a252946d6ff0",
-                "reference": "1a9450079d57f7c69d5de3c48af7a252946d6ff0",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/4bad7f65802eb6e9c45dfd17c7c183a613e3fb57",
+                "reference": "4bad7f65802eb6e9c45dfd17c7c183a613e3fb57",
                 "shasum": ""
             },
             "require": {
@@ -669,12 +668,12 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
                 "phpunit/phpunit": "^4.5",
-                "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -713,7 +712,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-13T13:49:51+00:00"
+            "time": "2017-12-12T14:56:09+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -839,16 +838,16 @@
         },
         {
             "name": "wp-pay-extensions/memberpress",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/memberpress.git",
-                "reference": "7345aa75df31425f5c881bc2f94d7d7144cdd0a3"
+                "reference": "6c21e5642cfc99e04d84a22e760f423e9139fc32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/7345aa75df31425f5c881bc2f94d7d7144cdd0a3",
-                "reference": "7345aa75df31425f5c881bc2f94d7d7144cdd0a3",
+                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/6c21e5642cfc99e04d84a22e760f423e9139fc32",
+                "reference": "6c21e5642cfc99e04d84a22e760f423e9139fc32",
                 "shasum": ""
             },
             "require": {
@@ -856,8 +855,8 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.4",
-                "satooshi/php-coveralls": "dev-master",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -895,7 +894,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-01-25T13:31:27+00:00"
+            "time": "2017-12-12T13:11:33+00:00"
         },
         {
             "name": "wp-pay-extensions/membership",
@@ -958,27 +957,93 @@
             "time": "2017-09-14T07:27:11+00:00"
         },
         {
-            "name": "wp-pay-extensions/s2member",
-            "version": "1.2.6",
+            "name": "wp-pay-extensions/restrict-content-pro",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/wp-pay-extensions/s2member.git",
-                "reference": "3113797cd7d89f66e143282e3693168be141afb8"
+                "url": "https://github.com/wp-pay-extensions/restrict-content-pro.git",
+                "reference": "bb4051424be3d0032e25f7a9f91c533d89c1181a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/3113797cd7d89f66e143282e3693168be141afb8",
-                "reference": "3113797cd7d89f66e143282e3693168be141afb8",
+                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/bb4051424be3d0032e25f7a9f91c533d89c1181a",
+                "reference": "bb4051424be3d0032e25f7a9f91c533d89c1181a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "Restrict Content Pro driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/extensions/restrict-content-pro/",
+            "keywords": [
+                "content",
+                "extension",
+                "pay",
+                "pro",
+                "pronamic",
+                "restrict",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2017-12-13T12:59:52+00:00"
+        },
+        {
+            "name": "wp-pay-extensions/s2member",
+            "version": "1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/s2member.git",
+                "reference": "36688632255f9a95047d4e4a2c58c81a191008ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/36688632255f9a95047d4e4a2c58c81a191008ec",
+                "reference": "36688632255f9a95047d4e4a2c58c81a191008ec",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3",
+                "wp-pay/core": "^1.3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpunit/phpunit": "^4.5",
+                "squizlabs/php_codesniffer": "^2.7",
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -1014,7 +1079,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-01-25T13:37:24+00:00"
+            "time": "2017-12-12T15:49:18+00:00"
         },
         {
             "name": "wp-pay-extensions/shopp",
@@ -1078,25 +1143,25 @@
         },
         {
             "name": "wp-pay-extensions/woocommerce",
-            "version": "1.2.7",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "9241460ab63565f4454116f2b31fdc414a8f2a8c"
+                "reference": "21bbb4b2caa2908fea7dd07ae919636c02385fef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/9241460ab63565f4454116f2b31fdc414a8f2a8c",
-                "reference": "9241460ab63565f4454116f2b31fdc414a8f2a8c",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/21bbb4b2caa2908fea7dd07ae919636c02385fef",
+                "reference": "21bbb4b2caa2908fea7dd07ae919636c02385fef",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": "^5.3",
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.1",
-                "satooshi/php-coveralls": "dev-master",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -1134,7 +1199,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-14T07:35:59+00:00"
+            "time": "2017-12-12T19:01:33+00:00"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -1479,16 +1544,16 @@
         },
         {
             "name": "wp-pay-gateways/buckaroo",
-            "version": "1.2.8",
+            "version": "1.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/buckaroo.git",
-                "reference": "5aeb976c9da98690fd33f5ca0c8f18ee231ec8a1"
+                "reference": "a8d890a20625a82f590c423687fffd0059e0daec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/5aeb976c9da98690fd33f5ca0c8f18ee231ec8a1",
-                "reference": "5aeb976c9da98690fd33f5ca0c8f18ee231ec8a1",
+                "url": "https://api.github.com/repos/wp-pay-gateways/buckaroo/zipball/a8d890a20625a82f590c423687fffd0059e0daec",
+                "reference": "a8d890a20625a82f590c423687fffd0059e0daec",
                 "shasum": ""
             },
             "require": {
@@ -1497,12 +1562,12 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
                 "phpunit/phpunit": "^4.5",
-                "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -1538,7 +1603,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-05-01T13:43:47+00:00"
+            "time": "2017-12-12T10:33:02+00:00"
         },
         {
             "name": "wp-pay-gateways/common",
@@ -1938,31 +2003,31 @@
         },
         {
             "name": "wp-pay-gateways/icepay",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/icepay.git",
-                "reference": "e1f629cb0ab605329c82a5f2e5bb0aadf94ee7ed"
+                "reference": "3e6e925a16739fa078d5f1238e8cbf67f60b3196"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/e1f629cb0ab605329c82a5f2e5bb0aadf94ee7ed",
-                "reference": "e1f629cb0ab605329c82a5f2e5bb0aadf94ee7ed",
+                "url": "https://api.github.com/repos/wp-pay-gateways/icepay/zipball/3e6e925a16739fa078d5f1238e8cbf67f60b3196",
+                "reference": "3e6e925a16739fa078d5f1238e8cbf67f60b3196",
                 "shasum": ""
             },
             "require": {
                 "icepay/icepay": "~2.4.0",
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "phpmd/phpmd": "^2.2.3",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -1999,7 +2064,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-02-08T14:45:55+00:00"
+            "time": "2017-12-12T10:14:40+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal",
@@ -2045,16 +2110,16 @@
         },
         {
             "name": "wp-pay-gateways/ideal-advanced-v3",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "77cac41dc3dacc74cd84e7868e392c2308918d1a"
+                "reference": "5c0eb8a50e7ee30feabac7c689cf949fbebfd1dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/77cac41dc3dacc74cd84e7868e392c2308918d1a",
-                "reference": "77cac41dc3dacc74cd84e7868e392c2308918d1a",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/5c0eb8a50e7ee30feabac7c689cf949fbebfd1dd",
+                "reference": "5c0eb8a50e7ee30feabac7c689cf949fbebfd1dd",
                 "shasum": ""
             },
             "require": {
@@ -2068,8 +2133,8 @@
                 "phpunit/phpunit": "^4.5",
                 "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.9",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.13.1"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -2107,7 +2172,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-13T13:22:56+00:00"
+            "time": "2017-12-12T10:29:35+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -2513,16 +2578,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "1.1.14",
+            "version": "1.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "3f749e7fb61693a8d9ba4229e00333159b0c4153"
+                "reference": "bba4c5026e867771c1d21a6e693e80d6d9492aec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/3f749e7fb61693a8d9ba4229e00333159b0c4153",
-                "reference": "3f749e7fb61693a8d9ba4229e00333159b0c4153",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/bba4c5026e867771c1d21a6e693e80d6d9492aec",
+                "reference": "bba4c5026e867771c1d21a6e693e80d6d9492aec",
                 "shasum": ""
             },
             "require": {
@@ -2531,12 +2596,12 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
                 "phpunit/phpunit": "^4.5",
-                "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -2572,7 +2637,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-05-01T13:48:13+00:00"
+            "time": "2017-12-12T10:52:09+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -2710,30 +2775,30 @@
         },
         {
             "name": "wp-pay-gateways/multisafepay",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/multisafepay.git",
-                "reference": "6cf4913c5d01457bec1a4579642611b61716e693"
+                "reference": "4399fb0e78eda2ea35367bc998ce3296fc01b5d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/6cf4913c5d01457bec1a4579642611b61716e693",
-                "reference": "6cf4913c5d01457bec1a4579642611b61716e693",
+                "url": "https://api.github.com/repos/wp-pay-gateways/multisafepay/zipball/4399fb0e78eda2ea35367bc998ce3296fc01b5d2",
+                "reference": "4399fb0e78eda2ea35367bc998ce3296fc01b5d2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3.5",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3.5"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -2770,7 +2835,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-11-02T09:43:32+00:00"
+            "time": "2017-12-12T10:56:10+00:00"
         },
         {
             "name": "wp-pay-gateways/ogone",
@@ -2900,31 +2965,94 @@
             "time": "2017-04-07T13:30:11+00:00"
         },
         {
-            "name": "wp-pay-gateways/pay-nl",
-            "version": "1.1.7",
+            "name": "wp-pay-gateways/omnikassa-2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/wp-pay-gateways/pay-nl.git",
-                "reference": "5f5ee54081104091b5f5b4dd2a2a9f2643e125aa"
+                "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
+                "reference": "44b045854ec5a3b7597d1449bd9d910405101038"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/pay-nl/zipball/5f5ee54081104091b5f5b4dd2a2a9f2643e125aa",
-                "reference": "5f5ee54081104091b5f5b4dd2a2a9f2643e125aa",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/44b045854ec5a3b7597d1449bd9d910405101038",
+                "reference": "44b045854ec5a3b7597d1449bd9d910405101038",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3.10"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
+                "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\OmniKassa2\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "Remco Tolsma",
+                    "email": "info@remcotolsma.nl",
+                    "homepage": "http://www.remcotolsma.nl/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                }
+            ],
+            "description": "OmniKassa 2.0 driver for the WordPress payment processing library.",
+            "homepage": "http://www.wp-pay.org/gateways/omnikassa-2/",
+            "keywords": [
+                "gateway",
+                "omnikassa",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2017-12-13T10:15:42+00:00"
+        },
+        {
+            "name": "wp-pay-gateways/pay-nl",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-gateways/pay-nl.git",
+                "reference": "d4dff4cb3812d37865ae251f961395dc47edc0f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-gateways/pay-nl/zipball/d4dff4cb3812d37865ae251f961395dc47edc0f7",
+                "reference": "d4dff4cb3812d37865ae251f961395dc47edc0f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3",
+                "wp-pay-gateways/common": "^1.0.2",
+                "wp-pay/core": "^1.3"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.2.3",
+                "phpunit/phpunit": "^4.5",
+                "squizlabs/php_codesniffer": "^2.7",
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -2961,7 +3089,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20T11:13:33+00:00"
+            "time": "2017-12-12T11:33:07+00:00"
         },
         {
             "name": "wp-pay-gateways/paytor",
@@ -3295,16 +3423,16 @@
         },
         {
             "name": "wp-pay-gateways/sisow",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "309c267e771c365a6714b66eb46defab28a2ce6a"
+                "reference": "3bc0a905be669b1bf4d6836cd827bcdc19750b50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/309c267e771c365a6714b66eb46defab28a2ce6a",
-                "reference": "309c267e771c365a6714b66eb46defab28a2ce6a",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/3bc0a905be669b1bf4d6836cd827bcdc19750b50",
+                "reference": "3bc0a905be669b1bf4d6836cd827bcdc19750b50",
                 "shasum": ""
             },
             "require": {
@@ -3313,12 +3441,12 @@
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
                 "phpunit/phpunit": "^4.5",
-                "satooshi/php-coveralls": "^0.7.1",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -3354,7 +3482,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-13T13:27:54+00:00"
+            "time": "2017-12-12T11:02:22+00:00"
         },
         {
             "name": "wp-pay-gateways/sisow-ideal-basic",
@@ -3427,31 +3555,31 @@
         },
         {
             "name": "wp-pay-gateways/targetpay",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/targetpay.git",
-                "reference": "5792f95a9e54c1e1f78dc919addf0da47023fb69"
+                "reference": "4e1abf2154b0fb632407a07d7542ab5f94d3aefd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/5792f95a9e54c1e1f78dc919addf0da47023fb69",
-                "reference": "5792f95a9e54c1e1f78dc919addf0da47023fb69",
+                "url": "https://api.github.com/repos/wp-pay-gateways/targetpay/zipball/4e1abf2154b0fb632407a07d7542ab5f94d3aefd",
+                "reference": "4e1abf2154b0fb632407a07d7542ab5f94d3aefd",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3",
-                "xrstf/composer-php52": "1.*"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.2.3",
-                "satooshi/php-coveralls": "^0.7.1",
+                "phpunit/phpunit": "^4.5",
                 "sebastian/phpcpd": "^2.0",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-cli/wp-cli": "^0.21.1",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -3487,31 +3615,32 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2016-10-20T11:34:47+00:00"
+            "time": "2017-12-12T11:32:30+00:00"
         },
         {
             "name": "wp-pay/core",
-            "version": "1.3.13",
+            "version": "1.3.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "da2142766d4635556280fc5e3ac89060e64adeb2"
+                "reference": "3330ae7993c1d79e1f1c8a498d8410cfc674f0d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/da2142766d4635556280fc5e3ac89060e64adeb2",
-                "reference": "da2142766d4635556280fc5e3ac89060e64adeb2",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/3330ae7993c1d79e1f1c8a498d8410cfc674f0d6",
+                "reference": "3330ae7993c1d79e1f1c8a498d8410cfc674f0d6",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.5",
-                "satooshi/php-coveralls": "^1.0",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "0.10.0"
+                "wimg/php-compatibility": "^8.0",
+                "wp-coding-standards/wpcs": "^0.14.0"
             },
             "type": "library",
             "autoload": {
@@ -3547,27 +3676,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-09-14T09:00:42+00:00"
-        },
-        {
-            "name": "wpackagist-plugin/charitable",
-            "version": "1.1.5",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/charitable/",
-                "reference": "tags/1.1.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/charitable.1.1.5.zip",
-                "reference": "tags/1.1.5",
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/charitable/"
+            "time": "2017-12-12T12:40:02+00:00"
         },
         {
             "name": "wpackagist-plugin/easy-digital-downloads",
@@ -3580,7 +3689,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/easy-digital-downloads.2.5.9.zip",
-                "reference": "tags/2.5.9",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3600,7 +3709,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/formidable.2.0.24.zip",
-                "reference": "tags/2.0.24",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -3932,6 +4041,67 @@
             "time": "2015-09-20T20:30:27+00:00"
         },
         {
+            "name": "php-coveralls/php-coveralls",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-coveralls/php-coveralls.git",
+                "reference": "37f8f83fe22224eb9d9c6d593cdeb33eedd2a9ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-coveralls/php-coveralls/zipball/37f8f83fe22224eb9d9c6d593cdeb33eedd2a9ad",
+                "reference": "37f8f83fe22224eb9d9c6d593cdeb33eedd2a9ad",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "guzzle/guzzle": "^2.8 || ^3.0",
+                "php": "^5.3.3 || ^7.0",
+                "psr/log": "^1.0",
+                "symfony/config": "^2.1 || ^3.0 || ^4.0",
+                "symfony/console": "^2.1 || ^3.0 || ^4.0",
+                "symfony/stopwatch": "^2.0 || ^3.0 || ^4.0",
+                "symfony/yaml": "^2.0 || ^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.4.3 || ^6.0"
+            },
+            "suggest": {
+                "symfony/http-kernel": "Allows Symfony integration"
+            },
+            "bin": [
+                "bin/coveralls"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Satooshi\\": "src/Satooshi/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kitamura Satoshi",
+                    "email": "with.no.parachute@gmail.com",
+                    "homepage": "https://www.facebook.com/satooshi.jp"
+                }
+            ],
+            "description": "PHP client library for Coveralls API",
+            "homepage": "https://github.com/php-coveralls/php-coveralls",
+            "keywords": [
+                "ci",
+                "coverage",
+                "github",
+                "test"
+            ],
+            "time": "2017-12-06T23:17:56+00:00"
+        },
+        {
             "name": "phpdocumentor/reflection-docblock",
             "version": "2.0.5",
             "source": {
@@ -4047,16 +4217,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6"
+                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
-                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
+                "reference": "e4ed002c67da8eceb0eb8ddb8b3847bb53c5c2bf",
                 "shasum": ""
             },
             "require": {
@@ -4068,7 +4238,7 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^2.5|^3.2",
-                "phpunit/phpunit": "^4.8 || ^5.6.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7"
             },
             "type": "library",
             "extra": {
@@ -4106,7 +4276,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-09-04T11:05:03+00:00"
+            "time": "2017-11-24T13:59:53+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4172,16 +4342,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.4.2",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
-                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
                 "shasum": ""
             },
             "require": {
@@ -4215,7 +4385,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03T07:40:28+00:00"
+            "time": "2017-11-27T13:52:08+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -4309,16 +4479,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
+                "reference": "1ce90ba27c42e4e44e6d8458241466380b51fa16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e03f8f67534427a787e21a385a67ec3ca6978ea7",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/1ce90ba27c42e4e44e6d8458241466380b51fa16",
+                "reference": "1ce90ba27c42e4e44e6d8458241466380b51fa16",
                 "shasum": ""
             },
             "require": {
@@ -4354,7 +4524,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-12-04T08:55:13+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -4594,64 +4764,6 @@
                 "psr-3"
             ],
             "time": "2016-10-10T12:19:37+00:00"
-        },
-        {
-            "name": "satooshi/php-coveralls",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/satooshi/php-coveralls.git",
-                "reference": "da51d304fe8622bf9a6da39a8446e7afd432115c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/satooshi/php-coveralls/zipball/da51d304fe8622bf9a6da39a8446e7afd432115c",
-                "reference": "da51d304fe8622bf9a6da39a8446e7afd432115c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-simplexml": "*",
-                "guzzle/guzzle": "^2.8|^3.0",
-                "php": ">=5.3.3",
-                "psr/log": "^1.0",
-                "symfony/config": "^2.1|^3.0",
-                "symfony/console": "^2.1|^3.0",
-                "symfony/stopwatch": "^2.0|^3.0",
-                "symfony/yaml": "^2.0|^3.0"
-            },
-            "suggest": {
-                "symfony/http-kernel": "Allows Symfony integration"
-            },
-            "bin": [
-                "bin/coveralls"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Satooshi\\": "src/Satooshi/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kitamura Satoshi",
-                    "email": "with.no.parachute@gmail.com",
-                    "homepage": "https://www.facebook.com/satooshi.jp"
-                }
-            ],
-            "description": "PHP client library for Coveralls API",
-            "homepage": "https://github.com/satooshi/php-coveralls",
-            "keywords": [
-                "ci",
-                "coverage",
-                "github",
-                "test"
-            ],
-            "time": "2016-01-20T17:35:46+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -5483,17 +5595,69 @@
             "time": "2015-07-26T08:59:42+00:00"
         },
         {
-            "name": "wp-coding-standards/wpcs",
-            "version": "0.13.1",
+            "name": "wimg/php-compatibility",
+            "version": "8.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc"
+                "url": "https://github.com/wimg/PHPCompatibility.git",
+                "reference": "4c4385fb891dff0501009670f988d4fe36785249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
-                "reference": "1f64b1a0b5b789822d0303436ee4e30e0135e4dc",
+                "url": "https://api.github.com/repos/wimg/PHPCompatibility/zipball/4c4385fb891dff0501009670f988d4fe36785249",
+                "reference": "4c4385fb891dff0501009670f988d4fe36785249",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "squizlabs/php_codesniffer": "^2.2 || ^3.0.2"
+            },
+            "conflict": {
+                "squizlabs/php_codesniffer": "2.6.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
+            },
+            "suggest": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "PHPCompatibility\\": "PHPCompatibility/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Wim Godden",
+                    "role": "lead"
+                }
+            ],
+            "description": "A set of sniffs for PHP_CodeSniffer that checks for PHP version compatibility.",
+            "homepage": "http://techblog.wimgodden.be/tag/codesniffer/",
+            "keywords": [
+                "compatibility",
+                "phpcs",
+                "standards"
+            ],
+            "time": "2017-08-07T19:39:05+00:00"
+        },
+        {
+            "name": "wp-coding-standards/wpcs",
+            "version": "0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
+                "reference": "8cadf48fa1c70b2381988e0a79e029e011a8f41c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/8cadf48fa1c70b2381988e0a79e029e011a8f41c",
+                "reference": "8cadf48fa1c70b2381988e0a79e029e011a8f41c",
                 "shasum": ""
             },
             "require": {
@@ -5501,7 +5665,7 @@
                 "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
             },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -5520,7 +5684,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2017-08-05T16:08:58+00:00"
+            "time": "2017-11-01T15:10:46+00:00"
         }
     ],
     "aliases": [],

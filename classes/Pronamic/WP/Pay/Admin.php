@@ -150,9 +150,10 @@ class Pronamic_WP_Pay_Admin {
 
 	public static function dropdown_configs( $args ) {
 		$defaults = array(
-			'name'     => 'pronamic_pay_config_id',
-			'echo'     => true,
-			'selected' => false,
+			'name'           => 'pronamic_pay_config_id',
+			'echo'           => true,
+			'selected'       => false,
+			'payment_method' => null,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -175,7 +176,7 @@ class Pronamic_WP_Pay_Admin {
 			esc_attr( $name )
 		);
 
-		$options = Pronamic_WP_Pay_Plugin::get_config_select_options();
+		$options = Pronamic_WP_Pay_Plugin::get_config_select_options( $args['payment_method'] );
 
 		foreach ( $options as $value => $name ) {
 			$output .= sprintf(
@@ -337,19 +338,12 @@ class Pronamic_WP_Pay_Admin {
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// TipTip - https://github.com/drewwilson/TipTip
-			wp_register_style(
-				'jquery-tiptip',
-				plugins_url( 'assets/tiptip/tipTip' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
-				array(),
-				'1.3.0'
-			);
-
+			// Tippy.js - https://atomiks.github.io/tippyjs/
 			wp_register_script(
-				'jquery-tiptip',
-				plugins_url( 'assets/tiptip/jquery.tipTip' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery' ),
-				'1.3.0',
+				'tippy.js',
+				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				array(),
+				'2.0.4',
 				true
 			);
 
@@ -371,14 +365,12 @@ class Pronamic_WP_Pay_Admin {
 			wp_register_script(
 				'pronamic-pay-admin',
 				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
-				array( 'jquery', 'jquery-tiptip' ),
+				array( 'jquery', 'tippy.js' ),
 				$this->plugin->get_version(),
 				true
 			);
 
 			// Enqueue
-			wp_enqueue_style( 'jquery-tiptip' );
-
 			wp_enqueue_style( 'pronamic-pay-admin' );
 			wp_enqueue_script( 'pronamic-pay-admin' );
 		}

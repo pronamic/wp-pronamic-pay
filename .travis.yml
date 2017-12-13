@@ -1,20 +1,28 @@
+dist: trusty
+
 sudo: false
 
 language: php
 
 php:
-- 5.3
 - 5.4
 - 5.5
 - 5.6
 - 7.0
 - 7.1
+- 7.2
+- nightly
 - hhvm
 
 matrix:
   include:
+    - php: 5.3
+      dist: precise
+      env: TRAVIS_DIST_PRECISE=1
     - php: 5.6
       env: WP_VERSION=latest WP_MULTISITE=1
+    - php: 5.6
+      env: WP_VERSION=4.8
     - php: 5.6
       env: WP_VERSION=4.7
     - php: 5.6
@@ -34,26 +42,35 @@ matrix:
     - php: 5.6
       env: WP_VERSION=4.0 COVERAGE=1 GRUNT=1
   fast_finish: true
+  allow_failures:
+    - php: nightly
 
 cache:
+  yarn: true
   directories:
     - node_modules
     - vendor
     - $HOME/.composer/cache
 
+before_install:
+  # Install Yarn (https://yarnpkg.com/lang/en/docs/install-ci/#travis-tab)
+  - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
+  - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
+  - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then export PATH=$HOME/.yarn/bin:$PATH; fi
+
 install:
-  - npm install -g npm@latest
-  - npm install -g grunt-cli
-  - npm install --no-optional
-  - phpenv local 5.6
+  # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
+  - yarn global add grunt-cli
+  # Install Node.js packages.
+  - yarn install
+  # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
   - composer self-update
+  # Install Composer packages.
   - composer install
-  - phpenv local --unset
 
 before_script:
   - wget https://raw.githubusercontent.com/wp-cli/sample-plugin/master/bin/install-wp-tests.sh
   - bash install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-  - phpenv rehash
 
 script:
   - grunt phpunit

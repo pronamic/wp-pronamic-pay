@@ -10,41 +10,39 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 <div class="feature-section two-col">
 	<div class="col">
-		<h3><?php esc_html_e( 'Menu name and icon', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Rabobank OmniKassa 2.0', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
-esc_html_e( 'Most of our users already know that Pronamic iDEAL supports other payment methods besides iDEAL. With this
-release we therefore changed the name of the menu item from "iDEAL" to "Pay". The icon has been changed to the WordPress
-pay icon instead of the iDEAL logo. These changes make the WordPress admin menu look cleaner and it is clearer that the
-plugin is not only for iDEAL payments anymore.', 'pronamic_ideal' );
+esc_html_e( 'Rabobank has introduced a new version of the OmniKassa payment platform. Pronamic Pay
+now supports the new OmniKassa. To receive payments with your OmniKassa 2.0 account, create a new configuration via Pay »
+Configurations and update the configuration in the payment method settings.', 'pronamic_ideal' );
 
 			?>
 		</p>
 	</div>
 
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-WordPress-admin-menu-en-icoon.png" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-omnikassa-2_0.jpg" />
 	</div>
 </div>
 
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-terugkerende-betalingen.png" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-subscriptions-dates.jpg" />
 	</div>
 
 	<div class="col">
-		<h3><?php esc_html_e( 'Recurring payments', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Better subscriptions', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
-esc_html_e( 'Recurring payments are now supported with the payment provider Mollie. A mandate which makes automatic
-recurring payments possible, can be created with a first payment via either iDEAL or credit card by using the new
-subscriptions feature. Recurring payments are recognizable by the repeater icon in the payments overview.',
-'pronamic_ideal' );
+esc_html_e( 'Pronamic Pay includes support for subscriptions to receive recurring payments. This version includes
+improvements based on user feedback. Switching between subscriptions with WooCommerce
+Subscriptions is now supported for example, and payment dates information has been extended and is more reliable.', 'pronamic_ideal' );
 
 			?>
 		</p>
@@ -53,39 +51,40 @@ subscriptions feature. Recurring payments are recognizable by the repeater icon 
 
 <div class="feature-section two-col">
 	<div class="col">
-		<h3><?php esc_html_e( 'Subscriptions', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Restrict Content Pro', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
-esc_html_e( 'Subscriptions are now supported and have a dedicated admin page to track which subscriptions are created
-and to view related payments and their status. The new `Direct Debit (mandate via iDEAL)` and credit card payment methods
-can be used with WooCommerce Subscriptions to set up automatically recurring payments for subscriptions.', 'pronamic_ideal' );
+			esc_html_e( 'Restrict Content Pro lets you sell memberships to provide access to your content. In this
+version of Pronamic Pay we introduce support for this plugin. Recurring payments can be used, so subscription payments
+are processed automatically when they are due for renewal. Recurring payments are now also
+supported with s2Member (new shortcodes can be created with the included generator).', 'pronamic_ideal' );
 
 			?>
 		</p>
 	</div>
 
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-abonnementen.png" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-restrictcontentpro.jpg" />
 	</div>
 </div>
 
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-Ingenico-betalingsstatus-controleren.png" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-gravityforms-delay-actions.jpg" />
 	</div>
 
 	<div class="col">
-		<h3><?php esc_html_e( 'Payment status requests for Ingenico', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Gravity Forms + Moneybird', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
-esc_html_e( 'The Pronamic iDEAL plugin processes payment status update that are sent to your website by the payment provider.
-But we can also request the payment status automatically for you. Ingenico (previously Ogone) is now added to the list
-of payment providers which support this feature (iDEAL Advanced/Professional, ING Kassa Compleet, Mollie, Pay.nl, Sisow
-and Targetpay). Make sure to add API user credentials to your Ingenico configuration to benefit.', 'pronamic_ideal' );
+esc_html_e( 'The Gravity Forms Moneybird Add-On plugin makes it possible to send invoices and estimates through a
+Moneybird account for Gravity Forms entries. With this version of Pronamic Pay it is possible to delay the creation of
+invoices and estimates until the payment has been received. Delaying these actions is now also possible for the Sliced
+Invoices plugin.', 'pronamic_ideal' );
 
 			?>
 		</p>

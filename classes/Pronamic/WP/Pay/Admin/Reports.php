@@ -47,11 +47,13 @@ class Pronamic_WP_Pay_Admin_Reports {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 		// Flot - http://www.flotcharts.org/
+		$flot_version = '0.8.0-alpha';
+
 		wp_register_script(
 			'flot',
 			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 
@@ -59,7 +61,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'flot-time',
 			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 
@@ -67,7 +69,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 			'flot-resize',
 			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
-			'0.8.3',
+			$flot_version,
 			true
 		);
 

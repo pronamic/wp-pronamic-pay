@@ -101,7 +101,7 @@ if ( $gateway ) {
 
 	<?php
 
-	if ( $is_ideal ) {
+	if ( $is_ideal || $gateway instanceof \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Gateway ) {
 		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';
 	}
 } else {

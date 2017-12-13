@@ -3,6 +3,7 @@
 $tabs = array(
 	'system_status'   => __( 'System Status', 'pronamic_ideal' ),
 	'gateways'        => __( 'Payment Gateways', 'pronamic_ideal' ),
+	'extensions'      => __( 'Extensions', 'pronamic_ideal' ),
 	'documentation'   => __( 'Documentation', 'pronamic_ideal' ),
 );
 

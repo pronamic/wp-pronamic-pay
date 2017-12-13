@@ -1,11 +1,11 @@
 === Pronamic Pay ===
 Contributors: pronamic, remcotolsma 
-Tags: ideal, bank, payment, gravity forms, gravity, forms, form, payment, woocommerce, woothemes, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart, classipress, appthemes
+Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 4.8
+Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 4.6.1
+Stable tag: 4.7.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -279,36 +279,72 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 4.6.1 - 2017-09-14 =
+= 4.7.0 - 2017-12-12 =
+*	Added WordPress pay OmniKassa 2.0 library version 1.0.0.
+*	Added WordPress pay Restrict Content Pro library version 1.0.0.
+*	Updated WordPress pay Buckaroo library to version 1.2.9.
+	*	Added support for PayPal payment method.
+*	Updated WordPress pay ICEPAY library to version 1.3.1.
+	*	Set payment success and error return URLs.
 *	Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.
 	*	Fix for a incorrect implementation at https://www.ideal-checkout.nl/simulator/.
 	*	Some acquirers only accept fingerprints in uppercase.
 	*	Updated WordPress Coding Standards.
+*	Updated WordPress pay Mollie library to version 1.1.15.
+	*	Added support for payment method Direct Debit (mandate via Bancontact).
+	*	No longer create new Mollie customer during recurring (not first) payments.
+	*	Update payment consumer BIC from Mollie payment details.
+	*	Update payment consumer name with Mollie payment card holder name.
+	*	Cancel subscriptions if first payment fails, to prevent future reactivation when a vailid customer ID becomes available.
+	*	Update subscription status on payment start only if it's not a recurring payment for a cancelled subscription.
+*	Updated WordPress pay MultiSafepay library to version 2.0.1.
+	*	Added support for first and last name.
+*	Updated WordPress pay Pay.nl library to version 1.1.8.
+	*	Set transaction description.
 *	Updated WordPress pay Sisow library to version 1.2.3.
 	*	Added support for bunq payment method.
-*	Updated WordPress pay Charitable library to version 1.1.2.
+*	Updated WordPress pay TargetPay library to version 1.1.1.
+	*	WordPress Coding Standards optimizations.
+*	Updated WordPress pay Charitable library to version 1.1.3.
 	*	Implemented `get_first_name()` and `get_last_name()`.
+	*	Use default gateway if no configuration has been set.
 *	Updated WordPress pay Easy Digital Downloads library to version 1.2.7.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 *	Updated WordPress pay Give library to version 1.0.6.
 	*	Implemented `get_first_name()` and `get_last_name()`.
-*	Updated WordPress pay Gravity Forms library to version 1.6.6.
+*	Updated WordPress pay Gravity Forms library to version 1.6.7.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 	*	Fix possible PHP notices for undefined index `id`.
+	*	Added support for delaying Sliced Invoices feed processing.
+	*	Filter payment method choices if not in form editor.
+	*	Added support for delaying Moneybird feed processing.
+	*	Simplified merge tag replacement.
 *	Updated WordPress pay iThemes Exchange library to version 1.1.5.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 *	Updated WordPress pay Jigoshop library to version 1.0.6.
 	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay MemberPress library to version 1.0.5.
+	*	Added Pronamic gateway.
+	*	Fixed MemberPress v1.3.18 redirect URL compatibility.
+	*	Added Bitcoin and PayPal gateways.
+	*	Updated iDEAL and PayPal icons.
 *	Updated WordPress pay Membership library to version 1.0.8.
 	*	Implemented `get_first_name()` and `get_last_name()`.
+*	Updated WordPress pay s2Member library to version 1.2.7.
+	*	Add support for recurring payments.
 *	Updated WordPress pay Shopp library to version 1.0.7.
 	*	Implemented `get_first_name()` and `get_last_name()`.
-*	Updated WordPress pay WooCommerce library to version 1.2.7.
+*	Updated WordPress pay WooCommerce library to version 1.2.8.
 	*	Added credit card payment fields.
 	*	Added bunq gateway.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 	*	Added `Direct Debit (mandate via Bancontact)` gateway.
 	*	Added a few `order_button_text` labels.
+	*	Updated subscription payment data.
+	*	Set subscription payment method on renewal to account for changed payment method.
+	*	Improved WooCommerce 3.0 compatibility.
+	*	Added gateway support for amount and date changes.
+	*	Clear subscription next payment date on gateway error during payment processing.
 *	Updated WordPress pay WP eCommerce library to version 1.0.5.
 	*	Implemented `get_first_name()` and `get_last_name()`.
 *	Removed support for old Qantani platform.
