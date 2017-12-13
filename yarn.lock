@@ -175,7 +175,7 @@ async-each-series@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/async-each-series/-/async-each-series-1.1.0.tgz#f42fd8155d38f21a5b8ea07c28e063ed1700b138"
 
-async@0.9.x, async@~0.9.0:
+async@0.9.x:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
 
@@ -298,6 +298,10 @@ block-stream@*:
   resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
   dependencies:
     inherits "~2.0.0"
+
+bluebird@^3.4.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
 boom@4.x.x:
   version "4.3.1"
@@ -532,9 +536,13 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.8.1, commander@~2.11.0:
+commander@^2.8.1:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+
+commander@~2.12.1:
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
 
 commander@~2.8.1:
   version "2.8.1"
@@ -878,7 +886,7 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-encoding@^0.1.11:
+encoding@^0.1.12:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
   dependencies:
@@ -1365,11 +1373,12 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gettext-parser@~1.1.0:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-1.1.2.tgz#cf0f0c9c9089aedb0ee5149929183e9dc43584a7"
+gettext-parser@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-1.3.0.tgz#61465851c266f8521ba69e61ef505aa54f635d0a"
   dependencies:
-    encoding "^0.1.11"
+    encoding "^0.1.12"
+    safe-buffer "^5.1.1"
 
 gifsicle@^3.0.0:
   version "3.0.4"
@@ -1566,12 +1575,6 @@ grunt-checktextdomain@^1.0.1:
     chalk "~0.2.1"
     text-table "~0.2.0"
 
-grunt-checkwpversion@~0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/grunt-checkwpversion/-/grunt-checkwpversion-0.3.0.tgz#a3fea10d50f2e9b78cbfb860724c15cb61bf9be1"
-  dependencies:
-    chalk "~0.2.1"
-
 grunt-cli@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/grunt-cli/-/grunt-cli-1.2.0.tgz#562b119ebb069ddb464ace2845501be97b35b6a8"
@@ -1647,7 +1650,7 @@ grunt-contrib-imagemin@^2.0.1:
     imagemin-optipng "^5.1.0"
     imagemin-svgo "^5.1.0"
 
-grunt-contrib-jshint@~1.1.0:
+grunt-contrib-jshint@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/grunt-contrib-jshint/-/grunt-contrib-jshint-1.1.0.tgz#369d909b2593c40e8be79940b21340850c7939ac"
   dependencies:
@@ -1655,16 +1658,16 @@ grunt-contrib-jshint@~1.1.0:
     hooker "^0.2.3"
     jshint "~2.9.4"
 
-grunt-contrib-uglify@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-3.1.0.tgz#10d1e4849210ec92bf0b08247e24186354d5e9ee"
+grunt-contrib-uglify@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/grunt-contrib-uglify/-/grunt-contrib-uglify-3.2.1.tgz#8458943eb6053badff829b6f0c9126b1ea624c4a"
   dependencies:
     chalk "^1.0.0"
     maxmin "^1.1.0"
-    uglify-js "~3.0.4"
+    uglify-js "~3.2.0"
     uri-path "^1.0.0"
 
-grunt-git@^1.0.6:
+grunt-git@^1.0.9:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/grunt-git/-/grunt-git-1.0.9.tgz#167b551ec7ccf75f10c9df8e785f16a0b5a9b1a9"
   dependencies:
@@ -1744,15 +1747,15 @@ grunt-phplint@0.1.0:
     cache-swap "~0.3.0"
     grunt "~0.4.1"
 
-grunt-phpunit@~0.3.6:
+grunt-phpunit@^0.3.6:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/grunt-phpunit/-/grunt-phpunit-0.3.6.tgz#0e75bee6b5c2e65fda45075672a06ceb2cecd869"
 
-grunt-rt-wp-deploy@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/grunt-rt-wp-deploy/-/grunt-rt-wp-deploy-0.1.0.tgz#6a79e0d0fba74ba5675d3baa6159048cd4493237"
+grunt-rt-wp-deploy@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/grunt-rt-wp-deploy/-/grunt-rt-wp-deploy-0.1.2.tgz#f53ef561b3f564cfc6183de8fa8686d4b8c16247"
 
-grunt-sass-lint@^0.2.3:
+grunt-sass-lint@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/grunt-sass-lint/-/grunt-sass-lint-0.2.4.tgz#06f77635ad8a5048968ea33c5584b40a18281e35"
   dependencies:
@@ -1765,9 +1768,9 @@ grunt-shell@^2.1.0:
     chalk "^1.0.0"
     npm-run-path "^2.0.0"
 
-grunt-webfont@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/grunt-webfont/-/grunt-webfont-1.6.0.tgz#a0d790f39056d94f340f50b3dc24c9ab4bcabcae"
+grunt-webfont@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/grunt-webfont/-/grunt-webfont-1.7.1.tgz#b0886dea3cc4afebdfbf53846ab4b262ad005335"
   dependencies:
     async "~1.5.2"
     chalk "~1.1.1"
@@ -1785,15 +1788,12 @@ grunt-webfont@^1.6.0:
     underscore.string "~3.2.3"
     winston "~2.1.1"
 
-grunt-wp-i18n@~0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/grunt-wp-i18n/-/grunt-wp-i18n-0.5.4.tgz#8729e5ad4f4b231269721f3171654d2c62955492"
+grunt-wp-i18n@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/grunt-wp-i18n/-/grunt-wp-i18n-1.0.1.tgz#d5f3ebad3bb117dbfdf1c64ef885f769e4d668bf"
   dependencies:
-    async "~0.9.0"
-    gettext-parser "~1.1.0"
-    grunt "~0.4.5"
-    underscore "~1.8.2"
-    underscore.string "~3.0.3"
+    grunt "^1.0.1"
+    node-wp-i18n "^1.0.4"
 
 grunt@^1.0.1:
   version "1.0.1"
@@ -1816,7 +1816,7 @@ grunt@^1.0.1:
     path-is-absolute "~1.0.0"
     rimraf "~2.2.8"
 
-grunt@~0.4.1, grunt@~0.4.5:
+grunt@~0.4.1:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/grunt/-/grunt-0.4.5.tgz#56937cd5194324adff6d207631832a9d6ba4e7f0"
   dependencies:
@@ -2598,7 +2598,7 @@ lodash@^3.6.0, lodash@~3.10.1:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.3.0, lodash@^4.7.0, lodash@^4.8.0, lodash@~4.17.4:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.14.2, lodash@^4.3.0, lodash@^4.7.0, lodash@^4.8.0, lodash@~4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2844,6 +2844,18 @@ node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
 
+node-wp-i18n@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/node-wp-i18n/-/node-wp-i18n-1.0.4.tgz#e81145f5783e481f4fa00d3a6b84a6eb1c3c2396"
+  dependencies:
+    bluebird "^3.4.1"
+    gettext-parser "^1.2.0"
+    glob "^7.0.5"
+    lodash "^4.14.2"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    tmp "^0.0.33"
+
 noop-logger@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/noop-logger/-/noop-logger-0.1.1.tgz#94a2b1633c4f1317553007d8966fd0e841b6a4c2"
@@ -2965,7 +2977,7 @@ os-homedir@^1.0.0, os-homedir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
 
-os-tmpdir@^1.0.0, os-tmpdir@~1.0.1:
+os-tmpdir@^1.0.0, os-tmpdir@~1.0.1, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
@@ -3496,7 +3508,7 @@ sntp@2.x.x:
   dependencies:
     hoek "4.x.x"
 
-source-map@0.5.x, source-map@^0.5.3, source-map@~0.5.1:
+source-map@0.5.x, source-map@^0.5.3:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
@@ -3505,6 +3517,10 @@ source-map@~0.4.2:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
     amdefine ">=0.0.4"
+
+source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
 
 sparkles@^1.0.0:
   version "1.0.0"
@@ -3834,9 +3850,9 @@ timed-out@^3.0.0:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-3.1.3.tgz#95860bfcc5c76c277f8f8326fd0f5b2e20eba217"
 
-tippy.js@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-2.0.2.tgz#67b570d8bb5c2890f0abb575bc83668c6c0506ca"
+tippy.js@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-2.0.4.tgz#cdee937870119bbbafb80193f0e140636cb48422"
   dependencies:
     popper.js "^1.12.9"
 
@@ -3845,6 +3861,12 @@ tmp@0.0.28:
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.28.tgz#172735b7f614ea7af39664fa84cf0de4e515d120"
   dependencies:
     os-tmpdir "~1.0.1"
+
+tmp@^0.0.33:
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
+  dependencies:
+    os-tmpdir "~1.0.2"
 
 to-absolute-glob@^0.1.1:
   version "0.1.1"
@@ -3918,12 +3940,12 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uglify-js@~3.0.4:
-  version "3.0.28"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.28.tgz#96b8495f0272944787b5843a1679aa326640d5f7"
+uglify-js@~3.2.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.2.2.tgz#870e4b34ed733d179284f9998efd3293f7fd73f6"
   dependencies:
-    commander "~2.11.0"
-    source-map "~0.5.1"
+    commander "~2.12.1"
+    source-map "~0.6.1"
 
 underscore.string@^2.3.3, underscore.string@~2.4.0:
   version "2.4.0"
@@ -3937,15 +3959,11 @@ underscore.string@~2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.3.3.tgz#71c08bf6b428b1133f37e78fa3a21c82f7329b0d"
 
-underscore.string@~3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.0.3.tgz#4617b8c1a250cf6e5064fbbb363d0fa96cf14552"
-
 underscore.string@~3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-3.2.3.tgz#806992633665d5e5fcb4db1fb3a862eb68e9e6da"
 
-underscore@^1.6.0, underscore@~1.8.2:
+underscore@^1.6.0:
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
