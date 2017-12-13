@@ -12,8 +12,27 @@
 		"date": "2017-12-12",
 		"changes": [
 			{
+				"name": "Added",
+				"changes": [
+					"Added WordPress pay OmniKassa 2.0 library version 1.0.0.",
+					"Added WordPress pay Restrict Content Pro library version 1.0.0."
+				]
+			},
+			{
 				"name": "Changes",
 				"changes": [
+					{
+						"description": "Updated WordPress pay Buckaroo library to version 1.2.9.",
+						"changes": [
+							"Added support for PayPal payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay ICEPAY library to version 1.3.1.",
+						"changes": [
+							"Set payment success and error return URLs."
+						]
+					},
 					{
 						"description": "Updated WordPress pay iDEAL Advanced v3 library to version 1.1.11.",
 						"changes": [
@@ -23,15 +42,45 @@
 						]
 					},
 					{
+						"description": "Updated WordPress pay Mollie library to version 1.1.15.",
+						"changes": [
+							"Added support for payment method Direct Debit (mandate via Bancontact).",
+							"No longer create new Mollie customer during recurring (not first) payments.",
+							"Update payment consumer BIC from Mollie payment details.",
+							"Update payment consumer name with Mollie payment card holder name.",
+							"Cancel subscriptions if first payment fails, to prevent future reactivation when a vailid customer ID becomes available.",
+							"Update subscription status on payment start only if it's not a recurring payment for a cancelled subscription."
+						]
+					},
+					{
+						"description": "Updated WordPress pay MultiSafepay library to version 2.0.1.",
+						"changes": [
+							"Added support for first and last name."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Pay.nl library to version 1.1.8.",
+						"changes": [
+							"Set transaction description."
+						]
+					},
+					{
 						"description": "Updated WordPress pay Sisow library to version 1.2.3.",
 						"changes": [
 							"Added support for bunq payment method."
 						]
 					},
 					{
-						"description": "Updated WordPress pay Charitable library to version 1.1.2.",
+						"description": "Updated WordPress pay TargetPay library to version 1.1.1.",
 						"changes": [
-							"Implemented `get_first_name()` and `get_last_name()`."
+							"WordPress Coding Standards optimizations."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Charitable library to version 1.1.3.",
+						"changes": [
+							"Implemented `get_first_name()` and `get_last_name()`.",
+							"Use default gateway if no configuration has been set."
 						]
 					},
 					{
@@ -47,10 +96,14 @@
 						]
 					},
 					{
-						"description": "Updated WordPress pay Gravity Forms library to version 1.6.6.",
+						"description": "Updated WordPress pay Gravity Forms library to version 1.6.7.",
 						"changes": [
 							"Implemented `get_first_name()` and `get_last_name()`.",
-							"Fix possible PHP notices for undefined index `id`."
+							"Fix possible PHP notices for undefined index `id`.",
+							"Added support for delaying Sliced Invoices feed processing.",
+							"Filter payment method choices if not in form editor.",
+							"Added support for delaying Moneybird feed processing.",
+							"Simplified merge tag replacement."
 						]
 					},
 					{
@@ -66,9 +119,24 @@
 						]
 					},
 					{
+						"description": "Updated WordPress pay MemberPress library to version 1.0.5.",
+						"changes": [
+							"Added Pronamic gateway.",
+							"Fixed MemberPress v1.3.18 redirect URL compatibility.",
+							"Added Bitcoin and PayPal gateways.",
+							"Updated iDEAL and PayPal icons."
+						]
+					},
+					{
 						"description": "Updated WordPress pay Membership library to version 1.0.8.",
 						"changes": [
 							"Implemented `get_first_name()` and `get_last_name()`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay s2Member library to version 1.2.7.",
+						"changes": [
+							"Add support for recurring payments."
 						]
 					},
 					{
@@ -78,13 +146,18 @@
 						]
 					},
 					{
-						"description": "Updated WordPress pay WooCommerce library to version 1.2.7.",
+						"description": "Updated WordPress pay WooCommerce library to version 1.2.8.",
 						"changes": [
 							"Added credit card payment fields.",
 							"Added bunq gateway.",
 							"Implemented `get_first_name()` and `get_last_name()`.",
 							"Added `Direct Debit (mandate via Bancontact)` gateway.",
-							"Added a few `order_button_text` labels."
+							"Added a few `order_button_text` labels.",
+							"Updated subscription payment data.",
+							"Set subscription payment method on renewal to account for changed payment method.",
+							"Improved WooCommerce 3.0 compatibility.",
+							"Added gateway support for amount and date changes.",
+							"Clear subscription next payment date on gateway error during payment processing."
 						]
 					},
 					{
