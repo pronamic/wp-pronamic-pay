@@ -14,6 +14,7 @@ module.exports = function( grunt ) {
 				'!deploy/**',
 				'!includes/xmlseclibs/**',
 				'!node_modules/**',
+				'!repositories/**',
 				'!vendor/**',
 				'!wp-content/**'
 			],
