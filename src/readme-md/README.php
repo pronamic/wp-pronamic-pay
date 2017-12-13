@@ -9,6 +9,7 @@ header( 'Content-Type: text/plain' );
 [![WordPress](https://img.shields.io/wordpress/plugin/dt/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
 [![WordPress rating](https://img.shields.io/wordpress/plugin/r/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
 [![WordPress](https://img.shields.io/wordpress/v/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/wp-pay/core.svg)]()
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-ideal.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-ideal)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
