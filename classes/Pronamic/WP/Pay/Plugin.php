@@ -503,6 +503,10 @@ class Pronamic_WP_Pay_Plugin {
 			return 'nl_NL';
 		}
 
+		if ( 'nl_BE' === $locale ) {
+			return 'nl_NL';
+		}
+
 		return $locale;
 	}
 
