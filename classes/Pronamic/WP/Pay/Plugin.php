@@ -488,6 +488,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
+		self::maybe_set_active_payment_methods();
 		self::maybe_schedule_subscription_payments();
 	}
 
@@ -675,6 +676,23 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	//////////////////////////////////////////////////
+
+	/**
+	 * Maybe set active payment methods option.
+	 *
+	 * @since unreleased
+	 *
+	 * @param void
+	 */
+	public static function maybe_set_active_payment_methods() {
+		$active_methods = get_option( 'pronamic_pay_active_payment_methods' );
+
+		if ( is_array( $active_methods ) ) {
+			return;
+		}
+
+		Pronamic_WP_Pay_PaymentMethods::update_active_payment_methods();
+	}
 
 	/**
 	 * Render errors
