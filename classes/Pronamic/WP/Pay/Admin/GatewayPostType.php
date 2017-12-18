@@ -313,6 +313,8 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 
 		// Transient
 		delete_transient( 'pronamic_pay_issuers_' . $post_id );
+
+		\Pronamic_WP_Pay_PaymentMethods::update_active_payment_methods();
 	}
 
 	/**
