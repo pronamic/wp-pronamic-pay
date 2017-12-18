@@ -285,7 +285,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 							$default = $field['default'];
 
 							if ( is_array( $default ) && 2 === count( $default ) && Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
-								$data[ $field['meta_key'] ] = $default( $field );
+								$data[ $field['meta_key'] ] = call_user_func( $default, $field );
 							} else {
 								$data[ $field['meta_key'] ] = $default;
 							}
