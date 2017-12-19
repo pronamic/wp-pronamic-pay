@@ -1418,7 +1418,7 @@ msgid "Payment Form %s"
 msgstr ""
 
 #: classes/Pronamic/WP/Pay/PaymentFormData.php:84
-#: classes/Pronamic/WP/Pay/Plugin.php:835
+#: classes/Pronamic/WP/Pay/Plugin.php:884
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:170
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:281
 #. translators: %s: source id
@@ -1430,21 +1430,21 @@ msgstr ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:550
+#: classes/Pronamic/WP/Pay/Plugin.php:596
 msgid ""
 "Paying with iDEAL is not possible. Please try again later or pay another "
 "way."
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:663
+#: classes/Pronamic/WP/Pay/Plugin.php:712
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:829
+#: classes/Pronamic/WP/Pay/Plugin.php:878
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:876
+#: classes/Pronamic/WP/Pay/Plugin.php:925
 msgid "Subscription for %s"
 msgstr ""
 
@@ -1967,7 +1967,7 @@ msgid "Choose a payment method"
 msgstr ""
 
 #: vendor/wp-pay/core/src/PayPalPaymentMethod.php:19
-#: vendor/wp-pay/core/src/PaymentMethods.php:178
+#: vendor/wp-pay/core/src/PaymentMethods.php:179
 #: vendor/wp-pay-extensions/memberpress/src/PayPalGateway.php:22
 #: vendor/wp-pay-extensions/woocommerce/src/PayPalGateway.php:28
 msgid "PayPal"
@@ -1995,7 +1995,12 @@ msgstr ""
 msgid "KBC/CBC Payment Button"
 msgstr ""
 
-#: vendor/wp-pay/core/src/PaymentMethods.php:179
+#: vendor/wp-pay/core/src/PaymentMethods.php:178
+#: vendor/wp-pay-extensions/woocommerce/src/PayconiqGateway.php:28
+msgid "Payconiq"
+msgstr ""
+
+#: vendor/wp-pay/core/src/PaymentMethods.php:180
 #: vendor/wp-pay/core/src/SofortPaymentMethod.php:19
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:29
 #: vendor/wp-pay-extensions/appthemes/src/SofortGateway.php:30
@@ -3456,10 +3461,6 @@ msgstr ""
 msgid "Proceed to PayPal"
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/PayconiqGateway.php:28
-msgid "Payconiq"
-msgstr ""
-
 #: vendor/wp-pay-extensions/woocommerce/src/PayconiqGateway.php:30
 msgid "Proceed to Payconiq"
 msgstr ""
@@ -4034,15 +4035,31 @@ msgid ""
 "automatic transaction status updates."
 msgstr ""
 
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:168
+msgid ""
+"You have chosen the payment method \"Bank transfer\". To complete your "
+"payment, please transfer the amount to the payment service provider (%1$s).\n"
+"\n"
+"<strong>Account holder:</strong> %2$s\n"
+"<strong>Account IBAN:</strong> %3$s\n"
+"<strong>Account BIC:</strong> %4$s\n"
+"<strong>Amount:</strong> %5$s\n"
+"<strong>Transaction reference:</strong> %6$s\n"
+"\n"
+"<em>Please note: only payments with the mentioned transaction reference can "
+"be processed.</em>"
+msgstr ""
+
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:177
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:27
+msgid "ING"
+msgstr ""
+
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:22
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:38
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:62
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:90
 msgid "ING Kassa Compleet"
-msgstr ""
-
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:27
-msgid "ING"
 msgstr ""
 
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:37
@@ -4547,6 +4564,10 @@ msgstr ""
 msgid "Transaction with <code>amount</code> = %s:"
 msgstr ""
 
+#: views/redirect-message.php:21
+msgid "Payment notice"
+msgstr ""
+
 #: views/redirect-via-html.php:21 views/redirect-via-html.php:36
 msgid "Redirecting…"
 msgstr ""
@@ -4602,88 +4623,88 @@ msgctxt "Recurring payment"
 msgid "times"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:520
+#: classes/Pronamic/WP/Pay/Plugin.php:566
 #: classes/Pronamic/WP/Pay/PostTypes.php:185
 msgctxt "Payment status"
 msgid "Pending"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:521
+#: classes/Pronamic/WP/Pay/Plugin.php:567
 #: classes/Pronamic/WP/Pay/PostTypes.php:194
 msgctxt "Payment status"
 msgid "Processing"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:522
+#: classes/Pronamic/WP/Pay/Plugin.php:568
 #: classes/Pronamic/WP/Pay/PostTypes.php:203
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:523
+#: classes/Pronamic/WP/Pay/Plugin.php:569
 #: classes/Pronamic/WP/Pay/PostTypes.php:212
 msgctxt "Payment status"
 msgid "Completed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:524
+#: classes/Pronamic/WP/Pay/Plugin.php:570
 #: classes/Pronamic/WP/Pay/PostTypes.php:221
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:66
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:525
+#: classes/Pronamic/WP/Pay/Plugin.php:571
 #: classes/Pronamic/WP/Pay/PostTypes.php:230
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:526
+#: classes/Pronamic/WP/Pay/Plugin.php:572
 #: classes/Pronamic/WP/Pay/PostTypes.php:239
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:74
 msgctxt "Payment status"
 msgid "Failed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:527
+#: classes/Pronamic/WP/Pay/Plugin.php:573
 #: classes/Pronamic/WP/Pay/PostTypes.php:248
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:70
 msgctxt "Payment status"
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:533
+#: classes/Pronamic/WP/Pay/Plugin.php:579
 #: classes/Pronamic/WP/Pay/PostTypes.php:260
 msgctxt "Subscription status"
 msgid "Pending"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:534
+#: classes/Pronamic/WP/Pay/Plugin.php:580
 #: classes/Pronamic/WP/Pay/PostTypes.php:269
 msgctxt "Subscription status"
 msgid "Cancelled"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:535
+#: classes/Pronamic/WP/Pay/Plugin.php:581
 #: classes/Pronamic/WP/Pay/PostTypes.php:278
 msgctxt "Subscription status"
 msgid "Expired"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:536
+#: classes/Pronamic/WP/Pay/Plugin.php:582
 #: classes/Pronamic/WP/Pay/PostTypes.php:287
 msgctxt "Subscription status"
 msgid "Failed"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:537
+#: classes/Pronamic/WP/Pay/Plugin.php:583
 #: classes/Pronamic/WP/Pay/PostTypes.php:296
 msgctxt "Subscription status"
 msgid "Active"
 msgstr ""
 
-#: classes/Pronamic/WP/Pay/Plugin.php:538
+#: classes/Pronamic/WP/Pay/Plugin.php:584
 #: classes/Pronamic/WP/Pay/PostTypes.php:305
 msgctxt "Subscription status"
 msgid "Completed"
