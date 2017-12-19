@@ -52,7 +52,7 @@
 											'tab'  => 'getting-started',
 										) )
 									),
-									esc_html__( 'Getting Started', 'pronamic_ideal' )
+									esc_html__( 'Getting started', 'pronamic_ideal' )
 								);
 
 								echo ' ';
