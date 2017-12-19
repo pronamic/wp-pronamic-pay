@@ -431,6 +431,52 @@ class Pronamic_WP_Pay_Plugin {
 				exit;
 			}
 
+			$redirect_message = $payment->get_meta( 'payment_redirect_message' );
+
+			if ( ! empty( $redirect_message ) ) {
+				$valid_key = false;
+
+				if ( filter_has_var( INPUT_GET, 'key' ) ) {
+					$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+
+					$valid_key = ( $key === $payment->key );
+				}
+
+				if ( ! $valid_key ) {
+					wp_redirect( home_url() );
+
+					exit;
+				}
+
+				// @see https://github.com/woothemes/woocommerce/blob/2.3.11/includes/class-wc-cache-helper.php
+				// @see https://www.w3-edge.com/products/w3-total-cache/
+				if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+					define( 'DONOTCACHEPAGE', true );
+				}
+
+				if ( ! defined( 'DONOTCACHEDB' ) ) {
+					define( 'DONOTCACHEDB', true );
+				}
+
+				if ( ! defined( 'DONOTMINIFY' ) ) {
+					define( 'DONOTMINIFY', true );
+				}
+
+				if ( ! defined( 'DONOTCDN' ) ) {
+					define( 'DONOTCDN', true );
+				}
+
+				if ( ! defined( 'DONOTCACHEOBJECT' ) ) {
+					define( 'DONOTCACHEOBJECT', true );
+				}
+
+				nocache_headers();
+
+				include Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-message.php';
+
+				exit;
+			}
+
 			if ( '' !== $payment->config_id ) {
 				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
 
