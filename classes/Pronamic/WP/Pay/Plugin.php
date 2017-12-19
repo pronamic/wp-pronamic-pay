@@ -679,6 +679,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::PAYCONIQ :
 					$gateways[] = 'ing-kassa-compleet';
+
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
 					$gateways[] = 'buckaroo';
