@@ -359,6 +359,7 @@ module.exports = function( grunt ) {
 			deploy_composer: {
 				src: [
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
+					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',
 					'deploy/latest/vendor/wp-pay*/*/tests/**',
 					'deploy/latest/vendor/wp-pay*/*/.gitignore',
