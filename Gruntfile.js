@@ -34,6 +34,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
+					'!repositories/**',
 					'!src/changelog-md/**',
 					'!src/general/**',
 					'!src/readme-md/**',
