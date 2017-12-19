@@ -677,6 +677,9 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'rabobank-omnikassa-2';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::PAYCONIQ :
+					$gateways[] = 'ing-kassa-compleet';
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'ems-ecommerce';
