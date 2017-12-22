@@ -86,6 +86,8 @@ class Pronamic_WP_Pay_Admin {
 				||
 			defined( 'DOING_AJAX' ) && DOING_AJAX
 				||
+			defined( 'DOING_CRON' ) && DOING_CRON
+				||
 			is_network_admin()
 				||
 			filter_has_var( INPUT_GET, 'activate-multi' )
@@ -94,6 +96,9 @@ class Pronamic_WP_Pay_Admin {
 		) {
 			return;
 		}
+
+		// Update
+		update_transient( 'pronamic_pay_admin_redirect', false );
 
 		// Delete
 		delete_transient( 'pronamic_pay_admin_redirect' );
