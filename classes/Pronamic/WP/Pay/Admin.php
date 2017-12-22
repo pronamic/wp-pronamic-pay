@@ -84,6 +84,8 @@ class Pronamic_WP_Pay_Admin {
 		if (
 			false === $redirect
 				||
+			defined( 'DOING_AJAX' ) && DOING_AJAX
+				||
 			is_network_admin()
 				||
 			filter_has_var( INPUT_GET, 'activate-multi' )
