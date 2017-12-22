@@ -667,6 +667,11 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_SOFORT :
+					$gateways[] = 'mollie';
+					$gateways[] = 'qantani-mollie';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::KBC :
 					$gateways[] = 'mollie';
 
