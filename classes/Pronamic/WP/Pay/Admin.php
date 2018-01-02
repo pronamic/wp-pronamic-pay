@@ -98,7 +98,7 @@ class Pronamic_WP_Pay_Admin {
 		}
 
 		// Update
-		update_transient( 'pronamic_pay_admin_redirect', false );
+		set_transient( 'pronamic_pay_admin_redirect', false );
 
 		// Delete
 		delete_transient( 'pronamic_pay_admin_redirect' );
