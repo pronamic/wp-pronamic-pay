@@ -104,6 +104,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 		wp_remote_post( self::API_URL, array(
 			'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
 			'body'       => http_build_query( $transaction ),
+			'blocking'   => false,
 		) );
 
 		// Item Hit
@@ -121,6 +122,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 		wp_remote_post( self::API_URL, array(
 			'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
 			'body'       => http_build_query( $item ),
+			'blocking'   => false,
 		) );
 	}
 
