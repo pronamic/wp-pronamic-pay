@@ -92,7 +92,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 			'tid' => get_option( 'pronamic_pay_google_analytics_property' ),
 			'cid' => $this->get_client_id( $payment ),
 			'ti'  => $payment->get_id(),
-			'cu'  => 'EUR',
+			'cu'  => $payment->get_currency(),
 		);
 
 		// Transaction Hit
