@@ -302,13 +302,16 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Autoprefixer
-		autoprefixer: {
+		// PostCSS
+		postcss: {
 			options: {
-		 		browsers: [ 'last 2 version', 'ie 8', 'ie 9' ]
+				map: false,
+				processors: [
+					require( 'autoprefixer' )()
+				]
 			},
-			admin: {
-				src: 'src/css/admin.css'
+			dist: {
+				src: 'css/*.css'
 			}
 		},
 

@@ -31,13 +31,18 @@
 /* line 30, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend li {
   border-right: 5px solid #aaa;
-  box-shadow: inset 0 -1px 0 0 #e5e5e5;
+  -webkit-box-shadow: inset 0 -1px 0 0 #e5e5e5;
+          box-shadow: inset 0 -1px 0 0 #e5e5e5;
   color: #aaa;
   display: block;
   margin: 0;
   padding: 1em;
-  transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  -webkit-transition-property: border, padding, -webkit-box-shadow;
+  transition-property: border, padding, -webkit-box-shadow;
   transition-property: border, box-shadow, padding;
+  transition-property: border, box-shadow, padding, -webkit-box-shadow;
 }
 /* line 45, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend li.completed-count {
@@ -66,7 +71,8 @@
 /* line 69, ../sass/admin/_chart.scss */
 .pronamci-pay-chart-legend li:hover {
   border-right-color: #23282f;
-  box-shadow: inset 0 -1px 0 0 #e5e5e5, inset 300px 0 0 #f9f9f9;
+  -webkit-box-shadow: inset 0 -1px 0 0 #e5e5e5, inset 300px 0 0 #f9f9f9;
+          box-shadow: inset 0 -1px 0 0 #e5e5e5, inset 300px 0 0 #f9f9f9;
   padding-left: 1.5em;
 }
 /* line 78, ../sass/admin/_chart.scss */
@@ -102,7 +108,8 @@
 }
 /* line 16, ../sass/admin/_dashboard-widget-payments.scss */
 .pronamic-pay-status-list li {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-top: 1px solid #eee;
   color: #aaa;
   float: left;
@@ -117,6 +124,7 @@
   font-size: 12px;
   padding: 9px 12px;
   position: relative;
+  -webkit-transition: color ease .5s;
   transition: color ease .5s;
 }
 /* line 43, ../sass/admin/_dashboard-widget-payments.scss */
