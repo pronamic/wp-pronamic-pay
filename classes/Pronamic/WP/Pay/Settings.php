@@ -58,6 +58,11 @@ class Pronamic_WP_Pay_Settings {
 			'default'           => $wp_locale->number_format['decimal_point'],
 		) );
 
+		register_setting( 'pronamic_pay', 'pronamic_pay_google_analytics_property', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+		) );
+
 		foreach ( $this->get_pages() as $id => $label ) {
 			register_setting( 'pronamic_pay', $id, array(
 				'type'              => 'integer',
@@ -104,6 +109,19 @@ class Pronamic_WP_Pay_Settings {
 			) // args
 		);
 
+		// Google Analytics property UA code
+		add_settings_field(
+			'pronamic_pay_google_analytics_property', // id
+			__( 'Google Analytics Property ID', 'pronamic_ideal' ), // title
+			array( $this, 'input_element' ), // callback
+			'pronamic_pay', // page
+			'pronamic_pay_general', // section
+			array(  // args
+				'description' => __( 'Set a Google Analytics Property UA code to track ecommerce revenue.', 'pronamic_ideal' ),
+				'label_for'   => 'pronamic_pay_google_analytics_property',
+			)
+		);
+
 		// Remove data on uninstall
 		add_settings_field(
 			'pronamic_pay_uninstall_clear_data', // id
@@ -112,10 +130,10 @@ class Pronamic_WP_Pay_Settings {
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array(  // args
-			        'description' => __( 'Remove all plugin data on uninstall', 'pronamic_ideal' ),
-			        'label_for' => 'pronamic_pay_uninstall_clear_data',
-			        'classes'   => 'regular-text',
-			        'type'      => 'checkbox',
+				'description' => __( 'Remove all plugin data on uninstall', 'pronamic_ideal' ),
+				'label_for'   => 'pronamic_pay_uninstall_clear_data',
+				'classes'     => 'regular-text',
+				'type'        => 'checkbox',
 			)
 		);
 
@@ -277,8 +295,18 @@ class Pronamic_WP_Pay_Settings {
 
 		$value = sprintf( 'value="%s"', esc_attr( get_option( $args['label_for'] ) ) );
 
-		if ( 'checkbox' === $args['type'] ) {
-			$value = checked( 1, get_option( $args['label_for'] ), false );
+		switch ( $args['type'] ) {
+			case 'checkbox':
+				$value = checked( 1, get_option( $args['label_for'] ), false );
+
+				break;
+			case 'text':
+				if ( ! empty( $args['description'] ) ) {
+					$description = $args['description'];
+					$args['description'] = '';
+				}
+
+				break;
 		}
 
 		printf(
@@ -291,6 +319,12 @@ class Pronamic_WP_Pay_Settings {
 			esc_html( $args['description'] )
 		);
 
+		if ( isset( $description ) ) {
+			printf(
+				'<p class="description">%s</p>',
+				esc_html( $description )
+			);
+		}
 	}
 
 	/**

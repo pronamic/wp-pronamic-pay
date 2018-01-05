@@ -60,6 +60,8 @@ class Pronamic_Pay_Payment {
 
 	public $telephone_number;
 
+	public $analytics_client_id;
+
 	public $status;
 
 	public $status_requests;
@@ -275,6 +277,10 @@ class Pronamic_Pay_Payment {
 
 	public function get_telephone_number() {
 		return $this->telephone_number;
+	}
+
+	public function get_analytics_client_id() {
+		return $this->analytics_client_id;
 	}
 
 	public function get_entrance_code() {

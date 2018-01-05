@@ -60,12 +60,13 @@ class Pronamic_WP_Pay_Payment extends Pronamic_Pay_Payment {
 
 		$this->status         = get_post_meta( $post_id, '_pronamic_payment_status', true );
 
-		$this->customer_name    = $this->get_meta( 'customer_name' );
-		$this->address          = $this->get_meta( 'address' );
-		$this->zip              = $this->get_meta( 'zip' );
-		$this->city             = $this->get_meta( 'city' );
-		$this->country          = $this->get_meta( 'country' );
-		$this->telephone_number = $this->get_meta( 'telephone_number' );
+		$this->customer_name       = $this->get_meta( 'customer_name' );
+		$this->address             = $this->get_meta( 'address' );
+		$this->zip                 = $this->get_meta( 'zip' );
+		$this->city                = $this->get_meta( 'city' );
+		$this->country             = $this->get_meta( 'country' );
+		$this->telephone_number    = $this->get_meta( 'telephone_number' );
+		$this->analytics_client_id = $this->get_meta( 'analytics_client_id' );
 
 		$this->subscription_id  = $this->get_meta( 'subscription_id' );
 	}

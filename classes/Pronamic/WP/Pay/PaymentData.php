@@ -95,6 +95,17 @@ abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentD
 		return $name;
 	}
 
+	public function get_analytics_client_id() {
+		$property_id = get_option( 'pronamic_pay_google_analytics_property' );
+
+		// Only use Client ID if Analytics property has been set
+		if ( empty( $property_id ) ) {
+			return;
+		}
+
+		return Pronamic_WP_Pay_GoogleAnalyticsEcommerce::get_cookie_client_id();
+	}
+
 	//////////////////////////////////////////////////
 	// URL's
 	//////////////////////////////////////////////////

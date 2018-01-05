@@ -80,6 +80,9 @@ class Pronamic_WP_Pay_Plugin {
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
 
+		// Google Analytics Ecommerce
+		$this->google_analytics_ecommerce = new Pronamic_WP_Pay_GoogleAnalyticsEcommerce();
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_WP_Pay_Admin( $this );
@@ -1042,67 +1045,69 @@ class Pronamic_WP_Pay_Plugin {
 			}
 
 			// Payment
-			$payment->config_id                 = $config_id;
-			$payment->key                       = uniqid( 'pay_' );
-			$payment->order_id                  = $data->get_order_id();
-			$payment->currency                  = $data->get_currency();
-			$payment->amount                    = $data->get_amount();
-			$payment->language                  = $data->get_language();
-			$payment->locale                    = $data->get_language_and_country();
-			$payment->entrance_code             = $data->get_entrance_code();
-			$payment->description               = $data->get_description();
-			$payment->source                    = $data->get_source();
-			$payment->source_id                 = $data->get_source_id();
-			$payment->email                     = $data->get_email();
-			$payment->status                    = null;
-			$payment->method                    = $payment_method;
-			$payment->issuer                    = $data->get_issuer( $payment_method );
-			$payment->first_name                = $data->get_first_name();
-			$payment->last_name                 = $data->get_last_name();
-			$payment->customer_name             = $data->get_customer_name();
-			$payment->address                   = $data->get_address();
-			$payment->zip                       = $data->get_zip();
-			$payment->city                      = $data->get_city();
-			$payment->country                   = $data->get_country();
-			$payment->telephone_number          = $data->get_telephone_number();
-			$payment->subscription_id           = $subscription_id;
-			$payment->recurring                 = $data->get_recurring();
+			$payment->config_id           = $config_id;
+			$payment->key                 = uniqid( 'pay_' );
+			$payment->order_id            = $data->get_order_id();
+			$payment->currency            = $data->get_currency();
+			$payment->amount              = $data->get_amount();
+			$payment->language            = $data->get_language();
+			$payment->locale              = $data->get_language_and_country();
+			$payment->entrance_code       = $data->get_entrance_code();
+			$payment->description         = $data->get_description();
+			$payment->source              = $data->get_source();
+			$payment->source_id           = $data->get_source_id();
+			$payment->email               = $data->get_email();
+			$payment->status              = null;
+			$payment->method              = $payment_method;
+			$payment->issuer              = $data->get_issuer( $payment_method );
+			$payment->first_name          = $data->get_first_name();
+			$payment->last_name           = $data->get_last_name();
+			$payment->customer_name       = $data->get_customer_name();
+			$payment->address             = $data->get_address();
+			$payment->zip                 = $data->get_zip();
+			$payment->city                = $data->get_city();
+			$payment->country             = $data->get_country();
+			$payment->telephone_number    = $data->get_telephone_number();
+			$payment->analytics_client_id = $data->get_analytics_client_id();
+			$payment->subscription_id     = $subscription_id;
+			$payment->recurring           = $data->get_recurring();
 
 			// Meta
 			$prefix = '_pronamic_payment_';
 
 			$meta = array(
-				$prefix . 'config_id'                 => $payment->config_id,
-				$prefix . 'key'                       => $payment->key,
-				$prefix . 'order_id'                  => $payment->order_id,
-				$prefix . 'currency'                  => $payment->currency,
-				$prefix . 'amount'                    => $payment->amount,
-				$prefix . 'method'                    => $payment->method,
-				$prefix . 'issuer'                    => $payment->issuer,
-				$prefix . 'expiration_period'         => null,
-				$prefix . 'language'                  => $payment->language,
-				$prefix . 'locale'                    => $payment->locale,
-				$prefix . 'entrance_code'             => $payment->entrance_code,
-				$prefix . 'description'               => $payment->description,
-				$prefix . 'first_name'                => $payment->first_name,
-				$prefix . 'last_name'                 => $payment->last_name,
-				$prefix . 'consumer_name'             => null,
-				$prefix . 'consumer_account_number'   => null,
-				$prefix . 'consumer_iban'             => null,
-				$prefix . 'consumer_bic'              => null,
-				$prefix . 'consumer_city'             => null,
-				$prefix . 'status'                    => null,
-				$prefix . 'source'                    => $payment->source,
-				$prefix . 'source_id'                 => $payment->source_id,
-				$prefix . 'email'                     => $payment->email,
-				$prefix . 'customer_name'             => $payment->customer_name,
-				$prefix . 'address'                   => $payment->address,
-				$prefix . 'zip'                       => $payment->zip,
-				$prefix . 'city'                      => $payment->city,
-				$prefix . 'country'                   => $payment->country,
-				$prefix . 'telephone_number'          => $payment->telephone_number,
-				$prefix . 'subscription_id'           => $payment->subscription_id,
-				$prefix . 'recurring'                 => $payment->recurring,
+				$prefix . 'config_id'               => $payment->config_id,
+				$prefix . 'key'                     => $payment->key,
+				$prefix . 'order_id'                => $payment->order_id,
+				$prefix . 'currency'                => $payment->currency,
+				$prefix . 'amount'                  => $payment->amount,
+				$prefix . 'method'                  => $payment->method,
+				$prefix . 'issuer'                  => $payment->issuer,
+				$prefix . 'expiration_period'       => null,
+				$prefix . 'language'                => $payment->language,
+				$prefix . 'locale'                  => $payment->locale,
+				$prefix . 'entrance_code'           => $payment->entrance_code,
+				$prefix . 'description'             => $payment->description,
+				$prefix . 'first_name'              => $payment->first_name,
+				$prefix . 'last_name'               => $payment->last_name,
+				$prefix . 'consumer_name'           => null,
+				$prefix . 'consumer_account_number' => null,
+				$prefix . 'consumer_iban'           => null,
+				$prefix . 'consumer_bic'            => null,
+				$prefix . 'consumer_city'           => null,
+				$prefix . 'status'                  => null,
+				$prefix . 'source'                  => $payment->source,
+				$prefix . 'source_id'               => $payment->source_id,
+				$prefix . 'email'                   => $payment->email,
+				$prefix . 'customer_name'           => $payment->customer_name,
+				$prefix . 'address'                 => $payment->address,
+				$prefix . 'zip'                     => $payment->zip,
+				$prefix . 'city'                    => $payment->city,
+				$prefix . 'country'                 => $payment->country,
+				$prefix . 'telephone_number'        => $payment->telephone_number,
+				$prefix . 'analytics_client_id'     => $payment->analytics_client_id,
+				$prefix . 'subscription_id'         => $payment->subscription_id,
+				$prefix . 'recurring'               => $payment->recurring,
 			);
 
 			foreach ( $meta as $key => $value ) {
