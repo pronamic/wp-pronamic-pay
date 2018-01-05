@@ -315,13 +315,16 @@ module.exports = function( grunt ) {
 		// CSS min
 		cssmin: {
 			styles: {
-				files: {
-					// Pronamic Pay
-					'css/admin.min.css': 'src/css/admin.css',
-					'css/admin-about.min.css': 'src/css/admin-about.css',
-					'css/admin-tour.min.css': 'src/css/admin-tour.css',
-					'css/forms.min.css': 'src/css/forms.css'
-				}
+				files: [ {
+					expand: true,
+					cwd: 'css',
+					src: [
+						'*.css',
+						'!*.min.css'
+					],
+					dest: 'css',
+					ext: '.min.css'
+				} ]
 			}
 		},
 
