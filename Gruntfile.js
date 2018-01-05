@@ -185,16 +185,6 @@ module.exports = function( grunt ) {
 
 		// Copy
 		copy: {
-			styles: {
-				files: [
-					{ // CSS
-						expand: true,
-						cwd: 'src/css/',
-						src: '**',
-						dest: 'css/'
-					}
-				]
-			},
 			scripts: {
 				files: [
 					{ // JS
@@ -292,12 +282,16 @@ module.exports = function( grunt ) {
 
 		// SASS
 		sass: {
+			options: {
+				style: 'expanded'
+			},
 			build: {
 				files: [ {
 					expand: true,
 					cwd: 'src/sass',
 					src: '*.scss',
-					dest: '../css'
+					dest: 'src/css',
+					ext: '.css'
 				} ]
 			}
 		},
@@ -305,27 +299,37 @@ module.exports = function( grunt ) {
 		// PostCSS
 		postcss: {
 			options: {
-				map: false,
-				processors: [
-					require( 'autoprefixer' )()
-				]
+				map: false
 			},
-			dist: {
-				src: 'css/*.css'
-			}
-		},
-
-		// CSS min
-		cssmin: {
-			styles: {
+			prefix: {
+				options: {
+					processors: [
+						require( 'autoprefixer' )(),
+						require( 'postcss-eol' )()
+					]
+				},
 				files: [ {
 					expand: true,
-					cwd: 'css',
+					cwd: 'src/css/',
+					src: '*.css',
+					dest: 'css/'
+				} ]
+			},
+			min: {
+				options: {
+					processors: [
+						require( 'cssnano' )(),
+						require( 'postcss-eol' )()
+					]
+				},
+				files: [ {
+					expand: true,
+					cwd: 'css/',
 					src: [
 						'*.css',
 						'!*.min.css'
 					],
-					dest: 'css',
+					dest: 'css/',
 					ext: '.min.css'
 				} ]
 			}
@@ -474,8 +478,8 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
-	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
-	grunt.registerTask( 'min', [ 'cssmin', 'uglify', 'imagemin' ] );
+	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
+	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
 
