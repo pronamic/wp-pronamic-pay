@@ -290,13 +290,15 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Compass
-		compass: {
+		// SASS
+		sass: {
 			build: {
-				options: {
-					sassDir: 'src/sass',
-					cssDir: 'src/css'
-				}
+				files: [ {
+					expand: true,
+					cwd: 'src/sass',
+					src: '*.scss',
+					dest: '../css'
+				} ]
 			}
 		},
 
@@ -466,7 +468,7 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
-	grunt.registerTask( 'assets', [ 'sasslint', 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
+	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'cssmin', 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );

@@ -29,11 +29,15 @@
     "email": "support@pronamic.nl"
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-ideal",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "accounting": "^0.4.1",
     "flot": "^0.8.0-alpha",
     "jquery": "^3.2.1",
-    "tippy.js": "^2.0.4"
+    "tippy.js": "^2.0.8"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -42,13 +46,13 @@
     "grunt-checktextdomain": "^1.0.1",
     "grunt-composer": "^0.4.5",
     "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-compress": "^1.4.3",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-git": "^1.0.9",
     "grunt-phpcs": "^0.4.0",
     "grunt-phplint": "0.1.0",
