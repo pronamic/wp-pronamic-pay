@@ -114,16 +114,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Plugin locale
 		add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
 
-		// Initialize requirements
-		require_once self::$dirname . '/includes/version.php';
-		require_once self::$dirname . '/includes/functions.php';
-		require_once self::$dirname . '/includes/page-functions.php';
-		require_once self::$dirname . '/includes/providers.php';
-		require_once self::$dirname . '/includes/payment.php';
-		require_once self::$dirname . '/includes/post.php';
-		require_once self::$dirname . '/includes/subscription.php';
-		require_once self::$dirname . '/includes/xmlseclibs/xmlseclibs-ing.php';
-
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
 		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );

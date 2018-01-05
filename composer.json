@@ -31,9 +31,19 @@
 		}
 	],
 	"autoload": {
-		"classmap": ["classes/"],
+		"classmap": [
+			"classes/"
+		],
 		"files": [
-			"includes/deprecated-classes.php"
+			"includes/deprecated-classes.php",
+			"includes/functions.php",
+			"includes/page-functions.php",
+			"includes/payment.php",
+			"includes/post.php",
+			"includes/providers.php",
+			"includes/subscription.php",
+			"includes/version.php",
+			"includes/xmlseclibs/xmlseclibs-ing.php"
 		]
 	},
 	"repositories": [
