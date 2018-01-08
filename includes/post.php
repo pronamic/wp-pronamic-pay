@@ -13,19 +13,6 @@ function pronamic_pay_get_form( $id ) {
 }
 
 /**
- * Pay form content
- */
-function pronamic_pay_form_the_content( $content ) {
-	if ( is_singular( 'pronamic_pay_form' ) && 'pronamic_pay_form' === get_post_type() ) {
-		$content .= pronamic_pay_get_form( get_the_ID() );
-	}
-
-	return $content;
-}
-
-add_filter( 'the_content', 'pronamic_pay_form_the_content' );
-
-/**
  * Helper function to update post meta data
  *
  * @see http://codex.wordpress.org/Function_Reference/update_post_meta
