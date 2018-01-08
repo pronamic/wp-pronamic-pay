@@ -58,7 +58,7 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_EDD_Extension::bootstrap();
+		Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();

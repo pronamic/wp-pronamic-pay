@@ -346,12 +346,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "bd7ddf651fe68df95ec7299a212e3c3e61a94cda"
+                "reference": "f334ab0c9aaae148335f5654c627a87a58b88cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/bd7ddf651fe68df95ec7299a212e3c3e61a94cda",
-                "reference": "bd7ddf651fe68df95ec7299a212e3c3e61a94cda",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/f334ab0c9aaae148335f5654c627a87a58b88cd7",
+                "reference": "f334ab0c9aaae148335f5654c627a87a58b88cd7",
                 "shasum": ""
             },
             "require": {
@@ -368,9 +368,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\EasyDigitalDownloads\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -403,7 +403,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-03T09:53:30+00:00"
+            "time": "2018-01-08T14:46:30+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
