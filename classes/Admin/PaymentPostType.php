@@ -139,12 +139,12 @@ class PaymentPostType {
 		$columns = array(
 			'cb'                            => '<input type="checkbox" />',
 			'pronamic_payment_status'       => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-icon" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon" title="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
 			'pronamic_payment_subscription' => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-icon-recurring" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-icon-recurring" title="%s">%s</span>',
 				esc_html__( 'Subscription', 'pronamic_ideal' ),
 				esc_html__( 'Subscription', 'pronamic_ideal' )
 			),
@@ -217,7 +217,7 @@ class PaymentPostType {
 					}
 
 					printf(
-						'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
+						'<span class="pronamic-pay-tip pronamic-pay-icon %s" title="%s">%s</span>',
 						esc_attr( $class ),
 						esc_attr( $label ),
 						esc_attr( $label )

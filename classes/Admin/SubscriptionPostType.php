@@ -69,7 +69,7 @@ class SubscriptionPostType {
 		$columns = array(
 			'cb'                                => '<input type="checkbox" />',
 			'pronamic_subscription_status'      => sprintf(
-				'<span class="pronamic-pay-tip pronamic-pay-icon" data-tip="%s">%s</span>',
+				'<span class="pronamic-pay-tip pronamic-pay-icon" title="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
@@ -110,7 +110,7 @@ class SubscriptionPostType {
 				}
 
 				printf(
-					'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
+					'<span class="pronamic-pay-tip pronamic-pay-icon %s" title="%s">%s</span>',
 					esc_attr( \Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
