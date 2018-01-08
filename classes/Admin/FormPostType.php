@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin gateway post type
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_FormPostType {
+class FormPostType {
 	/**
 	 * Post type
 	 */
@@ -143,7 +145,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 
 				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				echo esc_html( Pronamic_WP_Util::format_price( $value ) );
+				echo esc_html( \Pronamic_WP_Util::format_price( $value ) );
 
 				break;
 			case 'pronamic_payment_form_shortcode' :
@@ -178,7 +180,7 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_form_options( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-form-options.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-form-options.php';
 	}
 
 	/**
@@ -220,9 +222,9 @@ class Pronamic_WP_Pay_Admin_FormPostType {
 		// Convert amount choices to cents
 		if ( isset( $data['_pronamic_payment_form_amount_choices'] ) ) {
 			foreach ( $data['_pronamic_payment_form_amount_choices'] as $i => $amount ) {
-				$amount = Pronamic_WP_Pay_Util::string_to_amount( $amount );
+				$amount = \Pronamic_WP_Pay_Util::string_to_amount( $amount );
 
-				$data['_pronamic_payment_form_amount_choices'][ $i ] = Pronamic_WP_Pay_Util::amount_to_cents( $amount );
+				$data['_pronamic_payment_form_amount_choices'][ $i ] = \Pronamic_WP_Pay_Util::amount_to_cents( $amount );
 			}
 
 			// Remove empty choices

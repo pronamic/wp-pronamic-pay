@@ -67,7 +67,7 @@ class Pronamic_WP_Pay_PostTypes {
 			),
 			'rewrite'            => false,
 			'query_var'          => false,
-			'capabilities'       => Pronamic_WP_Pay_Admin_GatewayPostType::get_capabilities(),
+			'capabilities'       => \Pronamic\WordPress\Pay\Admin\GatewayPostType::get_capabilities(),
 			// Don't map meta capabilities since we only use the `manage_options` capability for this post type.
 			'map_meta_cap'       => false,
 		) );
@@ -100,7 +100,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'supports'           => false,
 			'rewrite'            => false,
 			'query_var'          => false,
-			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
+			'capabilities'       => \Pronamic\WordPress\Pay\Admin\PaymentPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
 
@@ -132,7 +132,7 @@ class Pronamic_WP_Pay_PostTypes {
 			'supports'           => false,
 			'rewrite'            => false,
 			'query_var'          => false,
-			'capabilities'       => Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities(),
+			'capabilities'       => \Pronamic\WordPress\Pay\Admin\PaymentPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
 
@@ -169,7 +169,7 @@ class Pronamic_WP_Pay_PostTypes {
 				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
 			),
 			'query_var'          => false,
-			'capabilities'       => Pronamic_WP_Pay_Admin_FormPostType::get_capabilities(),
+			'capabilities'       => \Pronamic\WordPress\Pay\Admin\FormPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
 	}

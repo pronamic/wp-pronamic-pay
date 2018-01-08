@@ -31,8 +31,11 @@
 		}
 	],
 	"autoload": {
+		"psr-4": {
+			"Pronamic\\WordPress\\Pay\\Admin\\": "classes/Admin"
+		},
 		"classmap": [
-			"classes/"
+			"classes/Pronamic"
 		],
 		"files": [
 			"includes/deprecated-classes.php",

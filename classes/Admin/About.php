@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin about
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_About {
+class About {
 	private $admin;
 
 	//////////////////////////////////////////////////
@@ -60,7 +62,7 @@ class Pronamic_WP_Pay_Admin_About {
 
 		wp_enqueue_style(
 			'proanmic-pay-admin-about',
-			plugins_url( 'css/admin-about' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'css/admin-about' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
 			array(),
 			'3.7.0'
 		);

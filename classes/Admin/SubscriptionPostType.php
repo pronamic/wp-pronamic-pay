@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin subscription post type
  * Description:
@@ -10,7 +12,7 @@
  * @version 1.0.0
  * @since unreleased
  */
-class Pronamic_WP_Pay_Admin_SubscriptionPostType {
+class SubscriptionPostType {
 	/**
 	 * Post type
 	 */
@@ -52,7 +54,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( Pronamic_WP_Pay_Plugin::get_subscription_states() );
+				$vars['post_status'] = array_keys( \Pronamic_WP_Pay_Plugin::get_subscription_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
@@ -109,7 +111,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 				printf(
 					'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
-					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
+					esc_attr( \Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);
@@ -175,21 +177,21 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 				$currency = get_post_meta( $post_id, '_pronamic_subscription_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_subscription_amount', true );
 
-				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+				echo esc_html( \Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_subscription_interval':
-				echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
+				echo esc_html( \Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
 
 				break;
 			case 'pronamic_subscription_frequency':
-				echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
+				echo esc_html( \Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_recurring':
-				echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
+				echo esc_html( \Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
 				echo '<br />';
-				echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
+				echo esc_html( \Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_date':
@@ -282,7 +284,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-info.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-info.php';
 	}
 
 	/**
@@ -291,7 +293,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-log.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-log.php';
 	}
 
 	/**
@@ -300,7 +302,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_payments( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-payments.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-payments.php';
 	}
 
 	/**
@@ -311,7 +313,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' );
 
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-update.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-update.php';
 	}
 
 	//////////////////////////////////////////////////
@@ -338,17 +340,17 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
 			case 'subscr_pending' :
-				return Pronamic_WP_Pay_Statuses::OPEN;
+				return \Pronamic_WP_Pay_Statuses::OPEN;
 			case 'subscr_cancelled' :
-				return Pronamic_WP_Pay_Statuses::CANCELLED;
+				return \Pronamic_WP_Pay_Statuses::CANCELLED;
 			case 'subscr_expired' :
-				return Pronamic_WP_Pay_Statuses::EXPIRED;
+				return \Pronamic_WP_Pay_Statuses::EXPIRED;
 			case 'subscr_failed' :
-				return Pronamic_WP_Pay_Statuses::FAILURE;
+				return \Pronamic_WP_Pay_Statuses::FAILURE;
 			case 'subscr_active' :
-				return Pronamic_WP_Pay_Statuses::ACTIVE;
+				return \Pronamic_WP_Pay_Statuses::ACTIVE;
 			case 'subscr_completed' :
-				return Pronamic_WP_Pay_Statuses::COMPLETED;
+				return \Pronamic_WP_Pay_Statuses::COMPLETED;
 		}
 	}
 
@@ -381,7 +383,7 @@ class Pronamic_WP_Pay_Admin_SubscriptionPostType {
 
 			$subscription->update_status( $new_status_meta );
 
-			Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect );
+			\Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect );
 
 			add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 

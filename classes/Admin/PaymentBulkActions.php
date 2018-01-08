@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin payment bulk actions
  * Description:
@@ -11,7 +13,7 @@
  * @version 4.1.0
  * @since 4.1.0
  */
-class Pronamic_WP_Pay_Admin_PaymentBulkActions {
+class PaymentBulkActions {
 	/**
 	 * Constructs and initializes an admin payment bulk actions object.
 	 */
@@ -85,7 +87,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 			$payment = get_pronamic_payment( $post_id );
 
 			// Only check status for pending payments.
-			if ( Pronamic_WP_Pay_Statuses::OPEN !== $payment->status && '' !== $payment->status ) {
+			if ( \Pronamic_WP_Pay_Statuses::OPEN !== $payment->status && '' !== $payment->status ) {
 				$skipped_check++;
 
 				continue;
@@ -95,7 +97,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 			$config_id = $payment->config_id;
 
 			if ( ! isset( $gateways[ $config_id ] ) ) {
-				$gateways[ $config_id ] = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+				$gateways[ $config_id ] = \Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 				if ( $gateways[ $config_id ] && ! $gateways[ $config_id ]->supports( 'payment_status_request' ) ) {
 					$unsupported_gateways[] = $config_id;
@@ -106,7 +108,7 @@ class Pronamic_WP_Pay_Admin_PaymentBulkActions {
 				continue;
 			}
 
-			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+			\Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
 
 			$status_updated++;
 		}

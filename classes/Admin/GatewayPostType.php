@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin gateway post type
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.8.0
  * @since ?
  */
-class Pronamic_WP_Pay_Admin_GatewayPostType {
+class GatewayPostType {
 	/**
 	 * Post type
 	 */
@@ -203,7 +205,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	public function meta_box_config( $post ) {
 		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
 	/**
@@ -212,7 +214,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_test( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
 
 	//////////////////////////////////////////////////
@@ -255,7 +257,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 		$data = filter_input_array( INPUT_POST, $definition );
 
 		if ( ! empty( $data['_pronamic_gateway_id'] ) ) {
-			$integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+			$integrations = new \Pronamic_WP_Pay_GatewayIntegrations();
 
 			$integration = $integrations->get_integration( $data['_pronamic_gateway_id'] );
 
@@ -284,7 +286,7 @@ class Pronamic_WP_Pay_Admin_GatewayPostType {
 						if ( empty( $data[ $field['meta_key'] ] ) ) {
 							$default = $field['default'];
 
-							if ( is_array( $default ) && 2 === count( $default ) && Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
+							if ( is_array( $default ) && 2 === count( $default ) && \Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
 								$data[ $field['meta_key'] ] = call_user_func( $default, $field );
 							} else {
 								$data[ $field['meta_key'] ] = $default;

@@ -30,17 +30,17 @@ class Pronamic_WP_Pay_Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Reports
-		$this->reports = new Pronamic_WP_Pay_Admin_Reports( $this );
+		$this->reports = new \Pronamic\WordPress\Pay\Admin\Reports( $this );
 
 		// Tour
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
-			$this->tour = new Pronamic_WP_Pay_Admin_Tour( $this );
+			$this->tour = new \Pronamic\WordPress\Pay\Admin\Tour( $this );
 		}
 
-		$this->install   = new Pronamic_WP_Pay_Admin_Install( $this );
-		$this->notices   = new Pronamic_WP_Pay_Admin_Notices( $this );
-		$this->dashboard = new Pronamic_WP_Pay_Admin_Dashboard( $this );
-		$this->about     = new Pronamic_WP_Pay_Admin_About( $this );
+		$this->install   = new \Pronamic\WordPress\Pay\Admin\Install( $this );
+		$this->notices   = new \Pronamic\WordPress\Pay\Admin\Notices( $this );
+		$this->dashboard = new \Pronamic\WordPress\Pay\Admin\Dashboard( $this );
+		$this->about     = new \Pronamic\WordPress\Pay\Admin\About( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -58,13 +58,13 @@ class Pronamic_WP_Pay_Admin {
 		$this->maybe_redirect();
 
 		// Post types
-		new Pronamic_WP_Pay_Admin_FormPostType();
-		new Pronamic_WP_Pay_Admin_GatewayPostType( $this );
-		new Pronamic_WP_Pay_Admin_PaymentPostType();
-		new Pronamic_WP_Pay_Admin_SubscriptionPostType();
+		new \Pronamic\WordPress\Pay\Admin\FormPostType();
+		new \Pronamic\WordPress\Pay\Admin\GatewayPostType( $this );
+		new \Pronamic\WordPress\Pay\Admin\PaymentPostType();
+		new \Pronamic\WordPress\Pay\Admin\SubscriptionPostType();
 
 		// Gateway settings
-		$this->gateway_settings = new Pronamic_WP_Pay_Admin_GatewaySettings();
+		$this->gateway_settings = new \Pronamic\WordPress\Pay\Admin\GatewaySettings();
 
 		if ( ! wp_next_scheduled( 'pronamic_pay_license_check' ) ) {
 			wp_schedule_event( time(), 'daily', 'pronamic_pay_license_check' );

@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin gateway settings
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.8.0
  * @since 3.8.0
  */
-class Pronamic_WP_Pay_Admin_GatewaySettings {
+class GatewaySettings {
 	/**
 	 * Settings
 	 */

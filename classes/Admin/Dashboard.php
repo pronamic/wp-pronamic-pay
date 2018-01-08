@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin dashboard
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_Dashboard {
+class Dashboard {
 	private $admin;
 
 	//////////////////////////////////////////////////
@@ -56,6 +58,6 @@ class Pronamic_WP_Pay_Admin_Dashboard {
 			'post_type' => 'pronamic_payment',
 		), admin_url( 'edit.php' ) );
 
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/widget-payments-status-list.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/widget-payments-status-list.php';
 	}
 }

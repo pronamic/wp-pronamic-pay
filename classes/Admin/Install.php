@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin install
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_Install {
+class Install {
 	/**
 	 * Database updates
 	 */
@@ -139,7 +141,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		$roles = wp_roles();
 
 		// Payments
-		$payment_capabilities = Pronamic_WP_Pay_Admin_PaymentPostType::get_capabilities();
+		$payment_capabilities = PaymentPostType::get_capabilities();
 
 		unset( $payment_capabilities['publish_posts'] );
 		unset( $payment_capabilities['create_posts'] );
@@ -149,7 +151,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		}
 
 		// Forms
-		$form_capabilities = Pronamic_WP_Pay_Admin_FormPostType::get_capabilities();
+		$form_capabilities = FormPostType::get_capabilities();
 
 		foreach ( $form_capabilities as $capability ) {
 			$roles->add_cap( 'administrator', $capability );
@@ -171,7 +173,7 @@ class Pronamic_WP_Pay_Admin_Install {
 		if ( $current_db_version ) {
 			foreach ( $this->db_updates as $version ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
-					$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
+					$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
 
 					if ( is_readable( $file ) ) {
 						include $file;

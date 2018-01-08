@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin payment post type
  * Description:
@@ -10,7 +12,7 @@
  * @version 4.4.2
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_PaymentPostType {
+class PaymentPostType {
 	/**
 	 * Post type
 	 */
@@ -52,7 +54,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 
 		// Bulk Actions
-		$this->bulk_actions = new Pronamic_WP_Pay_Admin_PaymentBulkActions();
+		$this->bulk_actions = new PaymentBulkActions();
 	}
 
 	//////////////////////////////////////////////////
@@ -70,7 +72,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( Pronamic_WP_Pay_Plugin::get_payment_states() );
+				$vars['post_status'] = array_keys( \Pronamic_WP_Pay_Plugin::get_payment_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
@@ -100,7 +102,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 		if ( filter_has_var( INPUT_GET, 'pronamic_pay_check_status' ) && check_admin_referer( 'pronamic_payment_check_status_' . $post_id ) ) {
 			$payment = get_pronamic_payment( $post_id );
 
-			Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+			\Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
 
 			$this->admin_notices[] = array(
 				'type'    => 'info',
@@ -194,7 +196,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 
 				printf(
 					'<span class="pronamic-pay-tip pronamic-pay-icon %s" data-tip="%s">%s</span>',
-					esc_attr( Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
+					esc_attr( \Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);
@@ -295,7 +297,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
-				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+				echo esc_html( \Pronamic_WP_Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_payment_date' :
@@ -377,7 +379,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-info.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-info.php';
 	}
 
 	/**
@@ -386,7 +388,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
 	}
 
 	/**
@@ -395,7 +397,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_subscription( $post ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
 	}
 
 	/**
@@ -406,7 +408,7 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_payment_update', 'pronamic_payment_update_nonce' );
 
-		include Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
+		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
 	}
 
 	//////////////////////////////////////////////////
@@ -433,21 +435,21 @@ class Pronamic_WP_Pay_Admin_PaymentPostType {
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
 			case 'payment_pending' :
-				return Pronamic_WP_Pay_Statuses::OPEN;
+				return \Pronamic_WP_Pay_Statuses::OPEN;
 			case 'payment_processing' :
-				return Pronamic_WP_Pay_Statuses::OPEN;
+				return \Pronamic_WP_Pay_Statuses::OPEN;
 			case 'payment_on_hold' :
 				return null;
 			case 'payment_completed' :
-				return Pronamic_WP_Pay_Statuses::SUCCESS;
+				return \Pronamic_WP_Pay_Statuses::SUCCESS;
 			case 'payment_cancelled' :
-				return Pronamic_WP_Pay_Statuses::CANCELLED;
+				return \Pronamic_WP_Pay_Statuses::CANCELLED;
 			case 'payment_refunded' :
 				return null;
 			case 'payment_failed' :
-				return Pronamic_WP_Pay_Statuses::FAILURE;
+				return \Pronamic_WP_Pay_Statuses::FAILURE;
 			case 'payment_expired' :
-				return Pronamic_WP_Pay_Statuses::EXPIRED;
+				return \Pronamic_WP_Pay_Statuses::EXPIRED;
 		}
 	}
 

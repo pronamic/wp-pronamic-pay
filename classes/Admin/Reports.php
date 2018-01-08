@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
  * Title: WordPress admin reports
  * Description:
@@ -10,7 +12,7 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Admin_Reports {
+class Reports {
 	private $admin;
 
 	public function __construct( $admin ) {
@@ -51,7 +53,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		wp_register_script(
 			'flot',
-			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
 			$flot_version,
 			true
@@ -59,7 +61,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		wp_register_script(
 			'flot-time',
-			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
 			$flot_version,
 			true
@@ -67,7 +69,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 
 		wp_register_script(
 			'flot-resize',
-			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 			array( 'flot' ),
 			$flot_version,
 			true
@@ -76,7 +78,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 		// Accounting.js - http://openexchangerates.github.io/accounting.js
 		wp_register_script(
 			'accounting',
-			plugins_url( 'assets/accounting/accounting' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/accounting/accounting' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 			array( 'jquery' ),
 			'0.4.1',
 			true
@@ -85,7 +87,7 @@ class Pronamic_WP_Pay_Admin_Reports {
 		// Reports
 		wp_register_script(
 			'proanmic-pay-admin-reports',
-			plugins_url( 'js/admin-reports' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'js/admin-reports' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 			array(
 				'jquery',
 				'flot',
@@ -115,8 +117,8 @@ class Pronamic_WP_Pay_Admin_Reports {
 	//////////////////////////////////////////////////
 
 	public function get_reports() {
-		$start = new DateTime( 'First day of January' );
-		$end   = new DateTime( 'Last day of December' );
+		$start = new \DateTime( 'First day of January' );
+		$end   = new \DateTime( 'Last day of December' );
 
 		$data = array(
 			(object) array(
@@ -264,8 +266,8 @@ class Pronamic_WP_Pay_Admin_Reports {
 	private function get_report( $status, $function, $start, $end ) {
 		global $wpdb;
 
-		$interval = new DateInterval( 'P1M' );
-		$period   = new DatePeriod( $start, $interval, $end );
+		$interval = new \DateInterval( 'P1M' );
+		$period   = new \DatePeriod( $start, $interval, $end );
 
 		$date_format = '%Y-%m';
 
