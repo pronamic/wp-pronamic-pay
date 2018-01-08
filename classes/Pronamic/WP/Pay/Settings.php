@@ -42,8 +42,8 @@ class Pronamic_WP_Pay_Settings {
 		) );
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_uninstall_clear_data', array(
-			'type'              => 'integer',
-			'sanitize_callback' => array( $this, 'sanitize_checkbox' ),
+			'type'    => 'boolean',
+			'default' => false,
 		) );
 
 		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep', array(
@@ -119,6 +119,7 @@ class Pronamic_WP_Pay_Settings {
 			array(  // args
 				'description' => __( 'Set a Google Analytics Property UA code to track ecommerce revenue.', 'pronamic_ideal' ),
 				'label_for'   => 'pronamic_pay_google_analytics_property',
+				'classes'     => 'regular-text code',
 			)
 		);
 
@@ -126,7 +127,7 @@ class Pronamic_WP_Pay_Settings {
 		add_settings_field(
 			'pronamic_pay_uninstall_clear_data', // id
 			__( 'Remove data', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
+			array( $this, 'input_checkbox' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array(  // args
@@ -206,20 +207,6 @@ class Pronamic_WP_Pay_Settings {
 	}
 
 	/**
-	 * Sanitize checkbox.
-	 *
-	 * @param string $value
-	 * @return 1 or null
-	 */
-	public function sanitize_checkbox( $value ) {
-		if ( 'on' === $value ) {
-			return '1';
-		}
-
-		return null;
-	}
-
-	/**
 	 * Get pages.
 	 *
 	 * @return array
@@ -293,38 +280,67 @@ class Pronamic_WP_Pay_Settings {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$value = sprintf( 'value="%s"', esc_attr( get_option( $args['label_for'] ) ) );
+		$name  = $args['label_for'];
+		$value = get_option( $name );
 
-		switch ( $args['type'] ) {
-			case 'checkbox':
-				$value = checked( 1, get_option( $args['label_for'] ), false );
-
-				break;
-			case 'text':
-				if ( ! empty( $args['description'] ) ) {
-					$description = $args['description'];
-					$args['description'] = '';
-				}
-
-				break;
-		}
-
-		printf(
-			'<input name="%s" id="%s" type="%s" class="%s" %s />%s',
-			esc_attr( $args['label_for'] ),
-			esc_attr( $args['label_for'] ),
-			esc_attr( $args['type'] ),
-			esc_attr( $args['classes'] ),
-			$value,
-			esc_html( $args['description'] )
+		$atts = array(
+			'name'  => $name,
+			'id'    => $name,
+			'type'  => $args['type'],
+			'class' => $args['classes'],
+			'value' => $value,
 		);
 
-		if ( isset( $description ) ) {
+		printf(
+			'<input %s />',
+			Pronamic_WP_HTML_Helper::array_to_html_attributes( $atts )
+		);
+
+		if ( ! empty( $args['description'] ) ) {
 			printf(
 				'<p class="description">%s</p>',
-				esc_html( $description )
+				esc_html( $args['description'] )
 			);
 		}
+	}
+
+	/**
+	 * Input checkbox.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.9.1/wp-admin/options-writing.php#L60-L68
+	 * @see https://github.com/WordPress/WordPress/blob/4.9.1/wp-admin/options-reading.php#L110-L141
+	 * @param array $args
+	 */
+	public function input_checkbox( $args ) {
+		$id     = $args['label_for'];
+		$name   = $args['label_for'];
+		$value  = get_option( $name );
+		$legend = $args['legend'];
+
+		echo '<fieldset>';
+
+		printf(
+			'<legend class="screen-reader-text"><span>%s</span></legend>',
+			esc_html( $legend )
+		);
+
+		printf(
+			'<label for="%s">',
+			esc_attr( $id )
+		);
+
+		printf(
+			'<input name="%s" id="%s" type="checkbox" value="1" %s />',
+			esc_attr( $name ),
+			esc_attr( $id ),
+			checked( $value, 1, false )
+		);
+
+		echo esc_html( $args['description'] );
+
+		echo '</label>';
+
+		echo '</fieldset>';
 	}
 
 	/**
