@@ -52,7 +52,25 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 /**
  * Autoload
  */
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+$loader = require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) {
+	foreach ( glob( __DIR__ . '/repositories/*/*/composer.json' ) as $file ) {
+		$content = file_get_contents( $file );
+
+		$object = json_decode( $content );
+
+		if ( isset( $object->autoload ) ) {
+			foreach ( $object->autoload as $type => $map ) {
+				if ( 'psr-4' === $type ) {
+					foreach ( $map as $prefix => $path ) {
+						$loader->addPsr4( $prefix, dirname( $file ) . '/' . $path, true );
+					}
+				}
+			}
+		}
+	}
+}
 
 /**
  * Bootstrap
