@@ -17,7 +17,9 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 ?>
 
 <div class="wrap pronamic-pay-settings">
-	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<hr class="wp-header-end">
 
 	<form action="options.php" method="post">
 		<?php wp_nonce_field( 'pronamic_pay_settings', 'pronamic_pay_nonce' ); ?>

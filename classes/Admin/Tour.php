@@ -114,7 +114,8 @@ class Tour {
 			case 'toplevel_page_pronamic_ideal' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h1',
+						// @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/edit.php#L321
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-dashboard' ),
 							'position'  => (object) array(
@@ -130,7 +131,7 @@ class Tour {
 			case 'edit-pronamic_payment' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h1',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-payments' ),
 							'position'  => (object) array(
@@ -146,7 +147,7 @@ class Tour {
 			case 'edit-pronamic_gateway' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h1',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-gateways' ),
 							'position'  => (object) array(
@@ -162,7 +163,7 @@ class Tour {
 			case 'edit-pronamic_pay_form' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h1',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-forms' ),
 							'position'  => (object) array(
@@ -181,7 +182,7 @@ class Tour {
 			case 'pronamic_pay_settings' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h2',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-settings' ),
 							'position'  => (object) array(
@@ -197,7 +198,7 @@ class Tour {
 			case 'pronamic_pay_tools' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap .nav-tab-wrapper',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-tools' ),
 							'position'  => (object) array(
@@ -213,7 +214,7 @@ class Tour {
 			case 'pronamic_pay_reports' :
 				$pointers = array(
 					array(
-						'selector' => '.wrap h1',
+						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
 							'content'   => $this->get_content( 'pointer-reports' ),
 							'position'  => (object) array(

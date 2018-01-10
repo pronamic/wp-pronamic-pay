@@ -1,5 +1,7 @@
 <div class="wrap">
-	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<hr class="wp-header-end">
 
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">

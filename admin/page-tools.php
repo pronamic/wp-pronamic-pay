@@ -39,6 +39,8 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 		?>
 	</h1>
 
+	<hr class="wp-header-end">
+
 	<?php
 
 	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
