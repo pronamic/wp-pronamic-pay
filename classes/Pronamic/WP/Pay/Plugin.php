@@ -527,8 +527,60 @@ class Pronamic_WP_Pay_Plugin {
 
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
+		$this->register_gateway_integrations( $this->gateway_integrations );
+
+		// Maybes
 		self::maybe_set_active_payment_methods();
 		self::maybe_schedule_subscription_payments();
+	}
+
+	private function register_gateway_integrations( $integrations ) {
+		// ABN AMRO iDEAL Easy
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
+		$integration->set_id( 'abnamro-ideal-easy' );
+		$integration->set_name( 'ABN AMRO - iDEAL Easy' );
+		$integration->url           = 'https://internetkassa.abnamro.nl/';
+		$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
+		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
+		$integration->provider      = 'abnamro';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Deutsche Bank - iDEAL via Ogone
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
+		$integration->set_id( 'deutschebank-ideal-via-ogone' );
+		$integration->set_name( 'Deutsche Bank - iDEAL via Ogone' );
+		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
+		$integration->provider      = 'deutschebank';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Fibonacci ORANGE
+		$integration = new Pronamic_WP_Pay_Gateways_Icepay_Integration();
+		$integration->set_id( 'fibonacciorange' );
+		$integration->set_name( 'Fibonacci ORANGE' );
+		$integration->product_url = 'http://www.fibonacciorange.nl/';
+		$integration->provider    = 'fibonacciorange';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Paytor
+		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+		$integration->set_id( 'paytor' );
+		$integration->set_name( 'Paytor' );
+		$integration->url           = 'http://paytor.com/';
+		$integration->product_url   = 'http://paytor.com/';
+		$integration->provider      = 'paytor';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
 	}
 
 	/**
@@ -761,7 +813,7 @@ class Pronamic_WP_Pay_Plugin {
 
 	public function gateway_integrations( $integrations ) {
 		// ABN AMRO
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
@@ -769,13 +821,13 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_Integration';
 		// Deutsche Bank
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealViaOgone_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealViaOgone_Integration';
 		// Easy iDEAL
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_Integration';
 		// EMS e-Commerce Gateway
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration';
 		// Fibonacci ORANGE
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_FibonacciOrange_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_FibonacciOrange_Integration';
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
@@ -799,7 +851,7 @@ class Pronamic_WP_Pay_Plugin {
 		// Pay.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayNL_Integration';
 		// Paytor
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
 		// Postcode.nl
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
@@ -819,6 +871,21 @@ class Pronamic_WP_Pay_Plugin {
 		$config = new Pronamic_WP_Pay_Config( $config_id );
 
 		$config = Pronamic_WP_Pay_ConfigProvider::get_config( $config->gateway_id, $config_id );
+
+		$gateway_id = get_post_meta( $config_id, '_pronamic_gateway_id', true );
+		$mode       = get_post_meta( $config_id, '_pronamic_gateway_mode', true );
+		$is_utf8    = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
+
+		switch ( $gateway_id ) {
+			case 'abnamro-ideal-easy' :
+				$config->form_action_url = sprintf(
+					'https://internetkassa.abnamro.nl/ncol/%s/orderstandard%s.asp',
+					'test' === $mode ? 'test' : 'prod',
+					$is_utf8 ? '_utf8' : ''
+				);
+
+				break;
+		}
 
 		$gateway = Pronamic_WP_Pay_GatewayFactory::create( $config );
 

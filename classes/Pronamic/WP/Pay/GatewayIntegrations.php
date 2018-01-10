@@ -14,7 +14,7 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 	/**
 	 * Integrations
 	 */
-	private $integrations;
+	public $integrations;
 
 	//////////////////////////////////////////////////
 
@@ -27,8 +27,12 @@ class Pronamic_WP_Pay_GatewayIntegrations implements IteratorAggregate {
 		// Classes
 		$classes = apply_filters( 'pronamic_pay_gateway_integrations', array() );
 
-		foreach ( $classes as $class ) {
-			$object = new $class();
+		foreach ( $classes as $value ) {
+			if ( is_object( $value ) ) {
+				$object = $value;
+			} else {
+				$object = new $value();
+			}
 
 			$this->integrations[ $object->get_id() ] = $object;
 
