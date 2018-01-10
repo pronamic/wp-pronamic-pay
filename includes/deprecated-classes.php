@@ -12,3 +12,5 @@ class_alias( '\Pronamic\WordPress\Pay\Admin\PaymentPostType',      '\Pronamic_WP
 class_alias( '\Pronamic\WordPress\Pay\Admin\Reports',              '\Pronamic_WP_Pay_Admin_Reports' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\SubscriptionPostType', '\Pronamic_WP_Pay_Admin_SubscriptionPostType' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\Tour',                 '\Pronamic_WP_Pay_Admin_Tour' );
+
+class_alias( 'Pronamic_WP_Pay_Payment', 'Pronamic_Pay_Payment' );
