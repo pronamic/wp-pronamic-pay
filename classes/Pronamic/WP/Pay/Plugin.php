@@ -523,18 +523,18 @@ class Pronamic_WP_Pay_Plugin {
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		// Gateway Integrations
-		add_filter( 'pronamic_pay_gateway_integrations', array( $this, 'gateway_integrations' ) );
-
 		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
 
-		$this->register_gateway_integrations( $this->gateway_integrations );
+		$this->register_gateway_integrations();
 
 		// Maybes
 		self::maybe_set_active_payment_methods();
 		self::maybe_schedule_subscription_payments();
 	}
 
-	private function register_gateway_integrations( $integrations ) {
+	private function register_gateway_integrations() {
+		$integrations = array();
+
 		// ABN AMRO iDEAL Easy
 		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
 		$integration->set_id( 'abnamro-ideal-easy' );
@@ -544,9 +544,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
 		$integration->provider      = 'abnamro';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - iDEAL Only Kassa
 		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
@@ -557,9 +555,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
 		$integration->provider      = 'abnamro';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - Internetkassa
 		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
@@ -570,9 +566,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
 		$integration->provider      = 'abnamro';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - iDEAL Zelfbouw (v3)
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -586,9 +580,12 @@ class Pronamic_WP_Pay_Plugin {
 		);
 		$integration->provider      = 'abnamro';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// Buckaroo
+		$integration = new Pronamic_WP_Pay_Gateways_Buckaroo_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Deutsche Bank - iDEAL via Ogone
 		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
@@ -597,9 +594,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
 		$integration->provider      = 'deutschebank';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Deutsche Bank - iDEAL Expert (v3)
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -612,9 +607,12 @@ class Pronamic_WP_Pay_Plugin {
 		);
 		$integration->provider      = 'deutschebank';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// EMS e-Commerce Gateway
+		$integration = new Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Fibonacci ORANGE
 		$integration = new Pronamic_WP_Pay_Gateways_Icepay_Integration();
@@ -623,9 +621,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->product_url = 'http://www.fibonacciorange.nl/';
 		$integration->provider    = 'fibonacciorange';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// ICEPAY
+		$integration = new Pronamic_WP_Pay_Gateways_Icepay_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// iDEAL Simulator - iDEAL Lite / Basic
 		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
@@ -633,9 +634,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
 		$integration->provider = 'ideal-simulator';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -644,9 +643,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->provider    = 'ideal-simulator';
 		$integration->product_url = 'https://www.ideal-checkout.nl/support/ideal-simulator';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - iDEAL Basic
 		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
@@ -659,9 +656,7 @@ class Pronamic_WP_Pay_Plugin {
 			'live' => 'https://ideal.secure-ing.com/',
 		);
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - iDEAL Advanced (v3)
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -674,9 +669,22 @@ class Pronamic_WP_Pay_Plugin {
 			'live' => 'https://ideal.secure-ing.com/',
 		);
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// ING - Kassa Compleet
+		$integration = new Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Mollie
+		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Mollie - iDEAL
+		$integration = new Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Mollie - iDEAL Basic
 		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
@@ -686,9 +694,37 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->provider      = 'mollie';
 		$integration->deprecated    = true;
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// MultiSafepay
+		$integration = new Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Ogone - DirectLink
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Ogone - OrderStandard
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// OmniKassa
+		$integration = new Pronamic_WP_Pay_Gateways_OmniKassa_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// OmniKassa 2.0
+		$integration = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Pay.nl
+		$integration = new Pronamic_WP_Pay_Gateways_PayNL_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Paytor
 		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
@@ -698,9 +734,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->product_url   = 'http://paytor.com/';
 		$integration->provider      = 'paytor';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Postcode iDEAL
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -710,9 +744,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->product_url   = 'https://services.postcode.nl/ideal';
 		$integration->dashboard_url = 'https://services.postcode.nl/ideal';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Qantani (new platform)
 		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
@@ -723,9 +755,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->dashboard_url = 'https://www.qantani.eu/';
 		$integration->provider      = 'qantani';
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
-
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Rabobank - iDEAL Professional (v3)
 		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
@@ -738,9 +768,12 @@ class Pronamic_WP_Pay_Plugin {
 			'live' => 'https://ideal.rabobank.nl/',
 		);
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// Sisow
+		$integration = new Pronamic_WP_Pay_Gateways_Sisow_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
 
 		// Sisow - iDEAL Basic
 		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
@@ -751,9 +784,20 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->provider      = 'sisow';
 		$integration->deprecated    = true;
 
-		$integrations->integrations[ $integration->get_id() ] = $integration;
+		$integrations[ $integration->get_id() ] = $integration;
 
-		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		// TargetPay
+		$integration = new Pronamic_WP_Pay_Gateways_TargetPay_Integration();
+
+		$integrations[ $integration->get_id() ] = $integration;
+
+		// Gateway integrations
+		$this->gateway_integrations->integrations = $integrations;
+
+		// Register config providers
+		foreach ( $integrations as $integration ) {
+			Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+		}
 	}
 
 	/**
@@ -980,64 +1024,6 @@ class Pronamic_WP_Pay_Plugin {
 		foreach ( $errors as $error ) {
 			include Pronamic_WP_Pay_Plugin::$dirname . '/views/error.php';
 		}
-	}
-
-	//////////////////////////////////////////////////
-
-	public function gateway_integrations( $integrations ) {
-		// ABN AMRO
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
-		// Buckaroo
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_Integration';
-		// Deutsche Bank
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealViaOgone_Integration';
-		// Easy iDEAL
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_Integration';
-		// EMS e-Commerce Gateway
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration';
-		// Fibonacci ORANGE
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_FibonacciOrange_Integration';
-		// ICEPAY
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
-		// iDEAL Simulator
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
-		// ING
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration';
-		// Mollie
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
-		// MultiSafepay
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
-		// Ingenico/Ogone
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration';
-		// OmniKassa
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_OmniKassa_Integration';
-		$integrations[] = '\Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration';
-		// Pay.nl
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_PayNL_Integration';
-		// Paytor
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
-		// Postcode.nl
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
-		// Qantani
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
-		// Rabobank
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
-		// Sisow
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_Integration';
-		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_Integration';
-		// TargetPay
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_TargetPay_Integration';
-
-		return $integrations;
 	}
 
 	public static function get_gateway( $config_id ) {
