@@ -548,11 +548,68 @@ class Pronamic_WP_Pay_Plugin {
 
 		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
 
+		// ABN AMRO - iDEAL Only Kassa
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+		$integration->set_id( 'abnamro-ideal-only-kassa' );
+		$integration->set_name( 'ABN AMRO - iDEAL Only Kassa' );
+		$integration->url           = 'https://internetkassa.abnamro.nl/';
+		$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
+		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
+		$integration->provider      = 'abnamro';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// ABN AMRO - Internetkassa
+		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+		$integration->set_id( 'abnamro-internetkassa' );
+		$integration->set_name( 'ABN AMRO - Internetkassa' );
+		$integration->url           = 'https://internetkassa.abnamro.nl/';
+		$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
+		$integration->dashboard_url = 'https://internetkassa.abnamro.nl/';
+		$integration->provider      = 'abnamro';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// ABN AMRO - iDEAL Zelfbouw (v3)
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'abnamro-ideal-zelfbouw-v3' );
+		$integration->set_name( 'ABN AMRO - iDEAL Zelfbouw (v3)' );
+		$integration->url           = 'https://abnamro.ideal-payment.de/';
+		$integration->product_url   = 'https://www.abnamro.nl/nl/zakelijk/betalen/online-betalen/betaaloplossing/';
+		$integration->dashboard_url = array(
+			'test' => 'https://abnamro-test.ideal-payment.de/',
+			'live' => 'https://abnamro.ideal-payment.de/',
+		);
+		$integration->provider      = 'abnamro';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
 		// Deutsche Bank - iDEAL via Ogone
 		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
 		$integration->set_id( 'deutschebank-ideal-via-ogone' );
 		$integration->set_name( 'Deutsche Bank - iDEAL via Ogone' );
 		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
+		$integration->provider      = 'deutschebank';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Deutsche Bank - iDEAL Expert (v3)
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'deutschebank-ideal-expert-v3' );
+		$integration->set_name( 'Deutsche Bank - iDEAL Expert (v3)' );
+		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
+		$integration->dashboard_url = array(
+			'test' => 'https://myideal.test.db.com/',
+			'live' => 'https://myideal.db.com/',
+		);
 		$integration->provider      = 'deutschebank';
 
 		$integrations->integrations[ $integration->get_id() ] = $integration;
@@ -570,6 +627,69 @@ class Pronamic_WP_Pay_Plugin {
 
 		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
 
+		// iDEAL Simulator - iDEAL Lite / Basic
+		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration->set_id( 'ideal-simulator-ideal-basic' );
+		$integration->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
+		$integration->provider = 'ideal-simulator';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'ideal-simulator-ideal-advanced-v3' );
+		$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
+		$integration->provider    = 'ideal-simulator';
+		$integration->product_url = 'https://www.ideal-checkout.nl/support/ideal-simulator';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// ING - iDEAL Basic
+		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration->set_id( 'ing-ideal-basic' );
+		$integration->set_name( 'ING - iDEAL Basic' );
+		$integration->provider      = 'ing';
+		$integration->product_url   = 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/';
+		$integration->dashboard_url = array(
+			'test' => 'https://idealtest.secure-ing.com/',
+			'live' => 'https://ideal.secure-ing.com/',
+		);
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// ING - iDEAL Advanced (v3)
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'ing-ideal-advanced-v3' );
+		$integration->set_name( 'ING - iDEAL Advanced (v3)' );
+		$integration->provider      = 'ing';
+		$integration->product_url   = 'https://www.ing.nl/zakelijk/betalen/geld-ontvangen/ideal/';
+		$integration->dashboard_url = array(
+			'test' => 'https://idealtest.secure-ing.com/',
+			'live' => 'https://ideal.secure-ing.com/',
+		);
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Mollie - iDEAL Basic
+		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration->set_id( 'mollie-ideal-basic' );
+		$integration->set_name( 'Mollie - iDEAL Basic' );
+		$integration->dashboard_url = 'http://www.mollie.nl/beheer/';
+		$integration->provider      = 'mollie';
+		$integration->deprecated    = true;
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
 		// Paytor
 		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
 		$integration->set_id( 'paytor' );
@@ -577,6 +697,59 @@ class Pronamic_WP_Pay_Plugin {
 		$integration->url           = 'http://paytor.com/';
 		$integration->product_url   = 'http://paytor.com/';
 		$integration->provider      = 'paytor';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Postcode iDEAL
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'postcode-ideal' );
+		$integration->set_name( 'Postcode iDEAL' );
+		$integration->provider      = 'postcode.nl';
+		$integration->product_url   = 'https://services.postcode.nl/ideal';
+		$integration->dashboard_url = 'https://services.postcode.nl/ideal';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Qantani (new platform)
+		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+		$integration->set_id( 'qantani-mollie' );
+		$integration->set_name( __( 'Qantani (new platform)', 'pronamic_ideal' ) );
+		$integration->url           = 'https://www.qantani.com/';
+		$integration->product_url   = 'https://www.qantani.com/tarieven/';
+		$integration->dashboard_url = 'https://www.qantani.eu/';
+		$integration->provider      = 'qantani';
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Rabobank - iDEAL Professional (v3)
+		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration->set_id( 'rabobank-ideal-professional-v3' );
+		$integration->set_name( 'Rabobank - iDEAL Professional (v3)' );
+		$integration->provider      = 'rabobank';
+		$integration->product_url   = 'https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/ideal-professional/';
+		$integration->dashboard_url = array(
+			'test' => 'https://idealtest.rabobank.nl/',
+			'live' => 'https://ideal.rabobank.nl/',
+		);
+
+		$integrations->integrations[ $integration->get_id() ] = $integration;
+
+		Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+
+		// Sisow - iDEAL Basic
+		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration->set_id( 'sisow-ideal-basic' );
+		$integration->set_name( 'Sisow - iDEAL Basic' );
+		$integration->url           = 'https://www.sisow.nl/';
+		$integration->dashboard_url = 'https://www.sisow.nl/Sisow/iDeal/Login.aspx';
+		$integration->provider      = 'sisow';
+		$integration->deprecated    = true;
 
 		$integrations->integrations[ $integration->get_id() ] = $integration;
 
@@ -814,13 +987,13 @@ class Pronamic_WP_Pay_Plugin {
 	public function gateway_integrations( $integrations ) {
 		// ABN AMRO
 		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealEasy_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealOnlyKassa_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_IDealZelfbouwV3_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_AbnAmro_Internetkassa_Integration';
 		// Buckaroo
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Buckaroo_Integration';
 		// Deutsche Bank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealExpertV3_Integration';
 		// $integrations[] = 'Pronamic_WP_Pay_Gateways_DeutscheBank_IDealViaOgone_Integration';
 		// Easy iDEAL
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_EasyIDeal_Integration';
@@ -831,15 +1004,15 @@ class Pronamic_WP_Pay_Plugin {
 		// ICEPAY
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Icepay_Integration';
 		// iDEAL Simulator
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_IDealSimulator_IDealAdvancedV3_Integration';
 		// ING
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealAdvancedV3_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_ING_IDealBasic_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration';
 		// Mollie
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_Integration';
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Mollie_IDealBasic_Integration';
 		// MultiSafepay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration';
 		// Ingenico/Ogone
@@ -853,14 +1026,14 @@ class Pronamic_WP_Pay_Plugin {
 		// Paytor
 		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Paytor_Integration';
 		// Postcode.nl
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_PostcodeIDeal_Integration';
 		// Qantani
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Qantani_Mollie_Integration';
 		// Rabobank
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Rabobank_IDealAdvancedV3_Integration';
 		// Sisow
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_Integration';
-		$integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_Integration';
+		// $integrations[] = 'Pronamic_WP_Pay_Gateways_Sisow_IDealBasic_Integration';
 		// TargetPay
 		$integrations[] = 'Pronamic_WP_Pay_Gateways_TargetPay_Integration';
 
@@ -878,11 +1051,93 @@ class Pronamic_WP_Pay_Plugin {
 
 		switch ( $gateway_id ) {
 			case 'abnamro-ideal-easy' :
+			case 'abnamro-ideal-only-kassa' :
+			case 'abnamro-internetkassa' :
 				$config->form_action_url = sprintf(
 					'https://internetkassa.abnamro.nl/ncol/%s/orderstandard%s.asp',
 					'test' === $mode ? 'test' : 'prod',
 					$is_utf8 ? '_utf8' : ''
 				);
+
+				break;
+			case 'abnamro-ideal-zelfbouw-v3' :
+				$config->payment_server_url = 'https://abnamro.ideal-payment.de/ideal/iDEALv3';
+
+				if ( 'test' === $mode ) {
+					$config->payment_server_url = 'https://abnamro-test.ideal-payment.de/ideal/iDEALv3';
+				}
+
+				$config->certificates = array();
+
+				break;
+			case 'deutschebank-ideal-expert-v3' :
+				$config->payment_server_url = 'https://myideal.db.com/ideal/iDealv3';
+
+				$config->certificates = array();
+
+				break;
+			case 'ideal-simulator-ideal-basic' :
+				$config->url = 'https://www.ideal-simulator.nl/lite/';
+
+				break;
+			case 'ideal-simulator-ideal-advanced-v3' :
+				$config->payment_server_url = 'https://www.ideal-checkout.nl/simulator/';
+
+				$config->certificates = array();
+
+				break;
+			case 'ing-ideal-basic' :
+				$config->url = 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do';
+
+				if ( 'test' === $mode ) {
+					$config->url = 'https://idealtest.secure-ing.com/ideal/mpiPayInitIng.do';
+				}
+
+				break;
+			case 'ing-ideal-advanced-v3' :
+				$config->payment_server_url = 'https://ideal.secure-ing.com/ideal/iDEALv3';
+
+				if ( 'test' === $mode ) {
+					$config->payment_server_url = 'https://idealtest.secure-ing.com/ideal/iDEALv3';
+				}
+
+				$config->certificates = array();
+
+				break;
+			case 'mollie-ideal-basic' :
+				$config->url = 'https://secure.mollie.nl/xml/idealAcquirer/lite/';
+
+				if ( 'test' === $mode ) {
+					$config->url = 'https://secure.mollie.nl/xml/idealAcquirer/testmode/lite/';
+				}
+
+				break;
+			case 'postcode-ideal' :
+				$config->payment_server_url = 'https://ideal.postcode.nl/ideal';
+
+				if ( 'test' === $mode ) {
+					$config->payment_server_url = 'https://ideal-test.postcode.nl/ideal';
+				}
+
+				$config->certificates = array();
+
+				break;
+			case 'rabobank-ideal-professional-v3' :
+				$config->payment_server_url = 'https://ideal.rabobank.nl/ideal/iDEALv3';
+
+				if ( 'test' === $mode ) {
+					$config->payment_server_url = 'https://idealtest.rabobank.nl/ideal/iDEALv3';
+				}
+
+				$config->certificates = array();
+
+				break;
+			case 'sisow-ideal-basic' :
+				$config->url = 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx';
+
+				if ( 'test' === $mode ) {
+					$config->url = 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx/test';
+				}
 
 				break;
 		}
