@@ -3,7 +3,7 @@
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: WordPress iDEAL form processor
+ * Title: Form processor
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic

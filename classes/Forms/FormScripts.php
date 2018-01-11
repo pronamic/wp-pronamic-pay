@@ -3,7 +3,7 @@
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: WordPress iDEAL form scripts
+ * Title: Form scripts
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic

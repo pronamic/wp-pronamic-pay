@@ -3,7 +3,7 @@
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: WordPress payment test data
+ * Title: Payment form data
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic

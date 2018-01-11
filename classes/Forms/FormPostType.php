@@ -3,7 +3,7 @@
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: WordPress admin gateway post type
+ * Title: Form post type
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
