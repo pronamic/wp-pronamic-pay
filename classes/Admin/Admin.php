@@ -31,14 +31,9 @@ class Admin {
 
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
-		// Reports
-		$this->reports = new Reports( $this );
-
-		// Tour
-		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
-			$this->tour = new Tour( $this );
-		}
-
+		// Modules
+		$this->reports   = new Reports( $this );
+		$this->tour      = new Tour( $this );
 		$this->install   = new Install( $this );
 		$this->notices   = new Notices( $this );
 		$this->dashboard = new Dashboard( $this );
@@ -185,7 +180,7 @@ class Admin {
 			esc_attr( $name )
 		);
 
-		$options = Pronamic_WP_Pay_Plugin::get_config_select_options( $args['payment_method'] );
+		$options = \Pronamic_WP_Pay_Plugin::get_config_select_options( $args['payment_method'] );
 
 		foreach ( $options as $value => $name ) {
 			$output .= sprintf(
