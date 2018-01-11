@@ -11,8 +11,8 @@ $amount_method  = get_post_meta( $id, '_pronamic_payment_form_amount_method', tr
 $amount_choices = get_post_meta( $id, '_pronamic_payment_form_amount_choices', true );
 
 $methods_with_choices = array(
-	\Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_CHOICES_ONLY,
-	\Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
+	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_ONLY,
+	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
 );
 
 $gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
@@ -66,7 +66,7 @@ if ( $gateway ) : ?>
 
 							<?php endforeach; ?>
 
-							<?php if ( \Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
+							<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
 
 								<div>
 									<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount" type="radio" required="required" value="other" />
@@ -80,7 +80,7 @@ if ( $gateway ) : ?>
 
 					<?php endif; ?>
 
-					<?php if ( \Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
+					<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
 
 						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
 						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
