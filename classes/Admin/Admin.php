@@ -1,7 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Admin;
+
 /**
- * Title: WordPress iDEAL admin
+ * Title: WordPress Pay admin
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -10,14 +12,14 @@
  * @version 1.0.0
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Admin {
+class Admin {
 	/**
 	 * Constructs and initalize an admin object
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin   = $plugin;
 
-		$this->settings = new Pronamic_WP_Pay_Settings();
+		$this->settings = new \Pronamic_WP_Pay_Settings();
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -30,17 +32,17 @@ class Pronamic_WP_Pay_Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Reports
-		$this->reports = new \Pronamic\WordPress\Pay\Admin\Reports( $this );
+		$this->reports = new Reports( $this );
 
 		// Tour
 		if ( version_compare( get_bloginfo( 'version' ), '3.3', '>=' ) ) {
-			$this->tour = new \Pronamic\WordPress\Pay\Admin\Tour( $this );
+			$this->tour = new Tour( $this );
 		}
 
-		$this->install   = new \Pronamic\WordPress\Pay\Admin\Install( $this );
-		$this->notices   = new \Pronamic\WordPress\Pay\Admin\Notices( $this );
-		$this->dashboard = new \Pronamic\WordPress\Pay\Admin\Dashboard( $this );
-		$this->about     = new \Pronamic\WordPress\Pay\Admin\About( $this );
+		$this->install   = new Install( $this );
+		$this->notices   = new Notices( $this );
+		$this->dashboard = new Dashboard( $this );
+		$this->about     = new About( $this );
 	}
 
 	//////////////////////////////////////////////////
@@ -58,13 +60,13 @@ class Pronamic_WP_Pay_Admin {
 		$this->maybe_redirect();
 
 		// Post types
-		new \Pronamic\WordPress\Pay\Admin\FormPostType();
-		new \Pronamic\WordPress\Pay\Admin\GatewayPostType( $this );
-		new \Pronamic\WordPress\Pay\Admin\PaymentPostType();
-		new \Pronamic\WordPress\Pay\Admin\SubscriptionPostType();
+		new FormPostType();
+		new GatewayPostType( $this );
+		new PaymentPostType();
+		new SubscriptionPostType();
 
 		// Gateway settings
-		$this->gateway_settings = new \Pronamic\WordPress\Pay\Admin\GatewaySettings();
+		$this->gateway_settings = new GatewaySettings();
 
 		if ( ! wp_next_scheduled( 'pronamic_pay_license_check' ) ) {
 			wp_schedule_event( time(), 'daily', 'pronamic_pay_license_check' );
@@ -348,7 +350,7 @@ class Pronamic_WP_Pay_Admin {
 			// Tippy.js - https://atomiks.github.io/tippyjs/
 			wp_register_script(
 				'tippy.js',
-				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 				array(),
 				'2.0.8',
 				true
@@ -357,21 +359,21 @@ class Pronamic_WP_Pay_Admin {
 			// Pronamic
 			wp_register_style(
 				'pronamic-pay-icons',
-				plugins_url( 'fonts/pronamic-pay-icons.css', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'fonts/pronamic-pay-icons.css', \Pronamic_WP_Pay_Plugin::$file ),
 				array(),
 				$this->plugin->get_version()
 			);
 
 			wp_register_style(
 				'pronamic-pay-admin',
-				plugins_url( 'css/admin' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'css/admin' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
 				array( 'pronamic-pay-icons' ),
 				$this->plugin->get_version()
 			);
 
 			wp_register_script(
 				'pronamic-pay-admin',
-				plugins_url( 'js/admin' . $min . '.js', Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'js/admin' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
 				array( 'jquery', 'tippy.js' ),
 				$this->plugin->get_version(),
 				true
@@ -392,7 +394,7 @@ class Pronamic_WP_Pay_Admin {
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
 			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
-			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $id );
+			$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $id );
 
 			if ( $gateway ) {
 				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
@@ -402,16 +404,16 @@ class Pronamic_WP_Pay_Admin {
 					),
 				) );
 
-				$data = new Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
+				$data = new \Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
 
 				$payment_method = filter_input( INPUT_POST, 'pronamic_pay_test_payment_method', FILTER_SANITIZE_STRING );
 
-				$payment = Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
+				$payment = \Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					Pronamic_WP_Pay_Plugin::render_errors( $error );
+					\Pronamic_WP_Pay_Plugin::render_errors( $error );
 
 					exit;
 				}
@@ -529,7 +531,7 @@ class Pronamic_WP_Pay_Admin {
 	public function render_page( $name ) {
 		$result = false;
 
-		$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
+		$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
 
 		if ( is_readable( $file ) ) {
 			include $file;
