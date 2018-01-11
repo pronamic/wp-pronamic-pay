@@ -3,7 +3,7 @@
 /**
  * Title: WordPress iDEAL plugin
  * Description:
- * Copyright: Copyright (c) 2005 - 2017
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
  * @author Remco Tolsma
@@ -1027,13 +1027,11 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	public static function get_gateway( $config_id ) {
-		$config = new Pronamic_WP_Pay_Config( $config_id );
-
-		$config = Pronamic_WP_Pay_ConfigProvider::get_config( $config->gateway_id, $config_id );
-
 		$gateway_id = get_post_meta( $config_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $config_id, '_pronamic_gateway_mode', true );
 		$is_utf8    = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
+
+		$config = Pronamic_WP_Pay_ConfigProvider::get_config( $gateway_id, $config_id );
 
 		switch ( $gateway_id ) {
 			case 'abnamro-ideal-easy' :
