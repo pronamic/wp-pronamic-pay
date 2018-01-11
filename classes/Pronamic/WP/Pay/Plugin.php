@@ -68,14 +68,11 @@ class Pronamic_WP_Pay_Plugin {
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
 		$this->gateway_post_type = new Pronamic_WP_Pay_GatewayPostType();
 
-		// Shortcodes
-		$this->shortcodes = new Pronamic_WP_Pay_Shortcodes();
-
 		// License
 		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
 
 		// Form Processor
-		$this->form_processor = new Pronamic_WP_Pay_FormProcessor( $this );
+		$this->form_processor = new \Pronamic\WordPress\Pay\Forms\FormProcessor( $this );
 
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();

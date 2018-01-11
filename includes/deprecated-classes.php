@@ -15,5 +15,9 @@ class_alias( '\Pronamic\WordPress\Pay\Admin\PaymentBulkActions',   '\Pronamic_WP
 class_alias( '\Pronamic\WordPress\Pay\Admin\PaymentPostType',      '\Pronamic_WP_Pay_Admin_PaymentPostType' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\SubscriptionPostType', '\Pronamic_WP_Pay_Admin_SubscriptionPostType' );
 
+class_alias( '\Pronamic\WordPress\Pay\Forms\FormProcessor', '\Pronamic_WP_Pay_FormProcessor' );
+class_alias( '\Pronamic\WordPress\Pay\Forms\FormScripts',   '\Pronamic_WP_Pay_FormScripts' );
+class_alias( '\Pronamic\WordPress\Pay\Forms\FormShortcode',   '\Pronamic_WP_Pay_Shortcodes' );
+
 class_alias( 'Pronamic_WP_Pay_Payment', 'Pronamic_Pay_Payment' );
 class_alias( 'Pronamic_WP_Pay_Subscription', 'Pronamic_Pay_Subscription' );

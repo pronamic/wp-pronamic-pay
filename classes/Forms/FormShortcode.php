@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Forms;
+
 /**
  * Title: WordPress iDEAL shortcodes
  * Description:
@@ -10,22 +12,14 @@
  * @version 3.7.0
  * @since 3.7.0
  */
-class Pronamic_WP_Pay_Shortcodes {
+class FormShortcode {
 	/**
 	 * Constructs and initializes an post types object
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'init' ) );
-
 		add_shortcode( 'pronamic_payment_form', array( $this, 'shortcode_form' ) );
-	}
 
-	//////////////////////////////////////////////////
-
-	public function init() {
-		if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
-			$this->shortcode_ui_register();
-		}
+		add_action( 'init', array( $this, 'shortcode_ui_register' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -52,6 +46,10 @@ class Pronamic_WP_Pay_Shortcodes {
 	 * Shortcode user interface register
 	 */
 	public function shortcode_ui_register() {
+		if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+			return;
+		}
+
 		shortcode_ui_register_for_shortcode(
 			'pronamic_payment_form',
 			array(
