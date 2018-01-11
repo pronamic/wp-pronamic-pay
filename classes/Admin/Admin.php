@@ -21,6 +21,8 @@ class Admin {
 
 		$this->settings = new \Pronamic_WP_Pay_Settings();
 
+		$this->install   = new Install( $this );
+
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -32,12 +34,11 @@ class Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Modules
-		$this->reports   = new Reports( $this );
-		$this->tour      = new Tour( $this );
-		$this->install   = new Install( $this );
-		$this->notices   = new Notices( $this );
-		$this->dashboard = new Dashboard( $this );
-		$this->about     = new About( $this );
+		$this->reports   = new AdminReports( $this );
+		$this->tour      = new AdminTour( $this );
+		$this->notices   = new AdminNotices( $this );
+		$this->dashboard = new AdminDashboard( $this );
+		$this->about     = new AdminAboutPage( $this );
 	}
 
 	//////////////////////////////////////////////////

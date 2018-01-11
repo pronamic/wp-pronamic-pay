@@ -12,7 +12,7 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @version 3.7.0
  * @since 3.7.0
  */
-class Dashboard {
+class AdminDashboard {
 	private $admin;
 
 	//////////////////////////////////////////////////
