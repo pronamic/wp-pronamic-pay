@@ -52,24 +52,4 @@ class Pronamic_IDeal_IDeal {
 
 		return $html;
 	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Sanitize iDEAL value
-	 *
-	 * @see page 30 http://pronamic.nl/wp-content/uploads/2012/09/iDEAL-Merchant-Integratie-Gids-NL.pdf
-	 *
-	 * The use of characters that are not listed above will not lead to a refusal of a batch or post, but the
-	 * character will be changed by Equens (formerly Interpay) to a space, question mark or asterisk. The
-	 * same goes for diacritical characters (à, ç, ô, ü, ý etcetera).
-	 *
-	 * @param string $value
-	 * @return string
-	 */
-	public static function sanitize_ideal_value( $value ) {
-		$value = remove_accents( $value );
-
-		return $value;
-	}
 }
