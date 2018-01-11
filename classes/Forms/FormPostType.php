@@ -31,6 +31,16 @@ class FormPostType {
 	 * Constructs and initializes an admin form post type object
 	 */
 	public function __construct() {
+		/**
+		 * Priotiry of the initial post types function should be set to < 10
+		 *
+		 * @see https://core.trac.wordpress.org/ticket/28488
+		 * @see https://core.trac.wordpress.org/changeset/29318
+		 *
+		 * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
+		 */
+		add_action( 'init', array( $this, 'register_post_type' ), 0 ); // highest priority
+
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
 
 		add_action( 'manage_' . self::POST_TYPE . '_posts_custom_column', array( $this, 'custom_columns' ), 10, 2 );
@@ -44,6 +54,45 @@ class FormPostType {
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'save_post' ) );
 
 		add_action( 'post_submitbox_misc_actions', array( $this, 'post_submitbox_misc_actions' ) );
+	}
+
+	public function register_post_type() {
+		register_post_type( self::POST_TYPE, array(
+			'label'              => __( 'Payment Forms', 'pronamic_ideal' ),
+			'labels'             => array(
+				'name'                  => __( 'Payment Forms', 'pronamic_ideal' ),
+				'singular_name'         => __( 'Payment Form', 'pronamic_ideal' ),
+				'add_new'               => __( 'Add New', 'pronamic_ideal' ),
+				'add_new_item'          => __( 'Add New Payment Form', 'pronamic_ideal' ),
+				'edit_item'             => __( 'Edit Payment Form', 'pronamic_ideal' ),
+				'new_item'              => __( 'New Payment Form', 'pronamic_ideal' ),
+				'all_items'             => __( 'All Payment Forms', 'pronamic_ideal' ),
+				'view_item'             => __( 'View Payment Form', 'pronamic_ideal' ),
+				'search_items'          => __( 'Search Payment Forms', 'pronamic_ideal' ),
+				'not_found'             => __( 'No payment forms found.', 'pronamic_ideal' ),
+				'not_found_in_trash'    => __( 'No payment forms found in Trash.', 'pronamic_ideal' ),
+				'menu_name'             => __( 'Payment Forms', 'pronamic_ideal' ),
+				'filter_items_list'     => __( 'Filter payment forms list', 'pronamic_ideal' ),
+				'items_list_navigation' => __( 'Payment forms list navigation', 'pronamic_ideal' ),
+				'items_list'            => __( 'Payment forms list', 'pronamic_ideal' ),
+			),
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_nav_menus'  => true,
+			'show_in_menu'       => false,
+			'show_in_admin_bar'  => false,
+			'supports'           => array(
+				'title',
+				'revisions',
+			),
+			'rewrite'            => array(
+				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
+			),
+			'query_var'          => false,
+			'capabilities'       => FormPostType::get_capabilities(),
+			'map_meta_cap'       => true,
+		) );
 	}
 
 	//////////////////////////////////////////////////

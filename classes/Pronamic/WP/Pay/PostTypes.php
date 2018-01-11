@@ -135,43 +135,6 @@ class Pronamic_WP_Pay_PostTypes {
 			'capabilities'       => \Pronamic\WordPress\Pay\Admin\PaymentPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
-
-		register_post_type( 'pronamic_pay_form', array(
-			'label'              => __( 'Payment Forms', 'pronamic_ideal' ),
-			'labels'             => array(
-				'name'                  => __( 'Payment Forms', 'pronamic_ideal' ),
-				'singular_name'         => __( 'Payment Form', 'pronamic_ideal' ),
-				'add_new'               => __( 'Add New', 'pronamic_ideal' ),
-				'add_new_item'          => __( 'Add New Payment Form', 'pronamic_ideal' ),
-				'edit_item'             => __( 'Edit Payment Form', 'pronamic_ideal' ),
-				'new_item'              => __( 'New Payment Form', 'pronamic_ideal' ),
-				'all_items'             => __( 'All Payment Forms', 'pronamic_ideal' ),
-				'view_item'             => __( 'View Payment Form', 'pronamic_ideal' ),
-				'search_items'          => __( 'Search Payment Forms', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payment forms found.', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payment forms found in Trash.', 'pronamic_ideal' ),
-				'menu_name'             => __( 'Payment Forms', 'pronamic_ideal' ),
-				'filter_items_list'     => __( 'Filter payment forms list', 'pronamic_ideal' ),
-				'items_list_navigation' => __( 'Payment forms list navigation', 'pronamic_ideal' ),
-				'items_list'            => __( 'Payment forms list', 'pronamic_ideal' ),
-			),
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_nav_menus'  => true,
-			'show_in_menu'       => false,
-			'show_in_admin_bar'  => false,
-			'supports'           => array(
-				'title',
-				'revisions',
-			),
-			'rewrite'            => array(
-				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
-			),
-			'query_var'          => false,
-			'capabilities'       => \Pronamic\WordPress\Pay\Forms\FormPostType::get_capabilities(),
-			'map_meta_cap'       => true,
-		) );
 	}
 
 	/**

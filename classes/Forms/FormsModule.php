@@ -19,6 +19,9 @@ class FormsModule {
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
 
+		// Form Post Type
+		$this->form_post_type = new FormPostType();
+
 		// Processor
 		$this->processor = new FormProcessor( $plugin );
 
@@ -27,16 +30,5 @@ class FormsModule {
 
 		// Shortcode
 		$this->shortcode = new FormShortcode();
-
-		// Actions
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-	}
-
-	/**
-	 * Admin initialize.
-	 */
-	public function admin_init() {
-		// Form Post Type
-		$this->form_post_type = new FormPostType();
 	}
 }
