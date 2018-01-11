@@ -3,7 +3,7 @@
 /**
  * Title: iDEAL item
  * Description:
- * Copyright: Copyright (c) 2005 - 2017
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
  * @author Remco Tolsma

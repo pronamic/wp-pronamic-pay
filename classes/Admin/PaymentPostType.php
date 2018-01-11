@@ -5,7 +5,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 /**
  * Title: WordPress admin payment post type
  * Description:
- * Copyright: Copyright (c) 2005 - 2017
+ * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
  *
  * @author Remco Tolsma
