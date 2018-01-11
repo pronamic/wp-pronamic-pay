@@ -26,7 +26,12 @@ wp_register_style(
 	<?php
 
 	$auto_submit = true;
-	$onload      = $auto_submit ? 'document.forms[0].submit();' : '';
+
+	if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) {
+		$auto_submit = false;
+	}
+
+	$onload = $auto_submit ? 'document.forms[0].submit();' : '';
 
 	?>
 
