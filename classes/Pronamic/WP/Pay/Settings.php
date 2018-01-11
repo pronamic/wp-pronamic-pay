@@ -126,11 +126,12 @@ class Pronamic_WP_Pay_Settings {
 		// Remove data on uninstall
 		add_settings_field(
 			'pronamic_pay_uninstall_clear_data', // id
-			__( 'Remove data', 'pronamic_ideal' ), // title
+			__( 'Remove Data', 'pronamic_ideal' ), // title
 			array( $this, 'input_checkbox' ), // callback
 			'pronamic_pay', // page
 			'pronamic_pay_general', // section
 			array(  // args
+				'legend'      => __( 'Remove Data', 'pronamic_ideal' ),
 				'description' => __( 'Remove all plugin data on uninstall', 'pronamic_ideal' ),
 				'label_for'   => 'pronamic_pay_uninstall_clear_data',
 				'classes'     => 'regular-text',
