@@ -22,17 +22,7 @@ class AdminNotices {
 		$this->admin = $admin;
 
 		// Actions
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 11 );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Admin intialize
-	 */
-	public function admin_init() {
-
 	}
 
 	//////////////////////////////////////////////////
