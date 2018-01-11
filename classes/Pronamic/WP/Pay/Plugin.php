@@ -72,7 +72,7 @@ class Pronamic_WP_Pay_Plugin {
 		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
 
 		// Form Processor
-		$this->form_processor = new \Pronamic\WordPress\Pay\Forms\FormProcessor( $this );
+		$this->forms_module = new \Pronamic\WordPress\Pay\Forms\FormsModule( $this );
 
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();

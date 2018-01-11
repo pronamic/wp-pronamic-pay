@@ -45,9 +45,9 @@
 				$amount_method = get_post_meta( $post->ID, '_pronamic_payment_form_amount_method', true );
 
 				$options = array(
-					\Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_INPUT_ONLY      => __( 'Show as input field', 'pronamic_ideal' ),
-					\Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_CHOICES_ONLY      => __( 'Show as choices', 'pronamic_ideal' ),
-					\Pronamic\WordPress\Pay\Admin\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT => __( 'Show as choices with input field', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY        => __( 'Show as input field', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_ONLY      => __( 'Show as choices', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT => __( 'Show as choices with input field', 'pronamic_ideal' ),
 				);
 
 				foreach ( $options as $value => $name ) {

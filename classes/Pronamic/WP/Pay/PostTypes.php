@@ -169,7 +169,7 @@ class Pronamic_WP_Pay_PostTypes {
 				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
 			),
 			'query_var'          => false,
-			'capabilities'       => \Pronamic\WordPress\Pay\Admin\FormPostType::get_capabilities(),
+			'capabilities'       => \Pronamic\WordPress\Pay\Forms\FormPostType::get_capabilities(),
 			'map_meta_cap'       => true,
 		) );
 	}

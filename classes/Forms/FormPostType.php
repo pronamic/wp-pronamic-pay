@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WordPress\Pay\Admin;
+namespace Pronamic\WordPress\Pay\Forms;
 
 /**
  * Title: WordPress admin gateway post type

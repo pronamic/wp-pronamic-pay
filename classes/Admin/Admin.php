@@ -56,7 +56,6 @@ class Admin {
 		$this->maybe_redirect();
 
 		// Post types
-		new FormPostType();
 		new GatewayPostType( $this );
 		new PaymentPostType();
 		new SubscriptionPostType();
