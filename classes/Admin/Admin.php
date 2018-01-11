@@ -34,11 +34,11 @@ class Admin {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Modules
-		$this->reports   = new AdminReports( $this );
-		$this->tour      = new AdminTour( $this );
-		$this->notices   = new AdminNotices( $this );
-		$this->dashboard = new AdminDashboard( $this );
-		$this->about     = new AdminAboutPage( $this );
+		$this->about     = new AdminAboutPage( $plugin, $this );
+		$this->dashboard = new AdminDashboard( $plugin );
+		$this->notices   = new AdminNotices( $plugin );
+		$this->reports   = new AdminReports( $plugin, $this );
+		$this->tour      = new AdminTour( $plugin );
 	}
 
 	//////////////////////////////////////////////////

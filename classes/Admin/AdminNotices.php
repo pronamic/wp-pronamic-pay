@@ -18,8 +18,8 @@ class AdminNotices {
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/class-wc-admin-notices.php
 	 */
-	public function __construct( $admin ) {
-		$this->admin = $admin;
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
 
 		// Actions
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 11 );

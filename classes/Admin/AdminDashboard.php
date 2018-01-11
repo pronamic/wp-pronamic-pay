@@ -13,7 +13,7 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @since 3.7.0
  */
 class AdminDashboard {
-	private $admin;
+	private $plugin;
 
 	//////////////////////////////////////////////////
 
@@ -24,8 +24,8 @@ class AdminDashboard {
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
 	 */
-	public function __construct( $admin ) {
-		$this->admin = $admin;
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
 
 		// Actions
 		add_action( 'wp_dashboard_setup', array( $this, 'setup' ) );

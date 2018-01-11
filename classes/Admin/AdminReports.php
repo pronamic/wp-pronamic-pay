@@ -13,10 +13,13 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @since 3.7.0
  */
 class AdminReports {
+	private $plugin;
+
 	private $admin;
 
-	public function __construct( $admin ) {
-		$this->admin = $admin;
+	public function __construct( $plugin, $admin ) {
+		$this->plugin = $plugin;
+		$this->admin  = $admin;
 
 		// Actions
 		add_action( 'pronamic_pay_admin_menu', array( $this, 'admin_menu' ) );
@@ -95,7 +98,7 @@ class AdminReports {
 				'flot-resize',
 				'accounting',
 			),
-			'3.7.0',
+			$this->plugin->get_version(),
 			true
 		);
 

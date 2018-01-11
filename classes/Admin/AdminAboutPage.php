@@ -13,19 +13,22 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @since 3.7.0
  */
 class AdminAboutPage {
+	private $plugin;
+
 	private $admin;
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Constructs and initializes admin about object
+	 * Constructs and initializes admin about page object.
 	 *
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/admin/dashboard-widgets.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
 	 */
-	public function __construct( $admin ) {
-		$this->admin = $admin;
+	public function __construct( $plugin, $admin ) {
+		$this->plugin = $plugin;
+		$this->admin  = $admin;
 
 		// Actions
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -64,7 +67,7 @@ class AdminAboutPage {
 			'proanmic-pay-admin-about',
 			plugins_url( 'css/admin-about' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
 			array(),
-			'3.7.0'
+			$plugin->get_version()
 		);
 	}
 

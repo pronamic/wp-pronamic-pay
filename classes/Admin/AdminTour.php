@@ -20,8 +20,8 @@ class AdminTour {
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/includes/template.php#L1955-L2016
 	 * @see https://github.com/Yoast/wordpress-seo/blob/2.3.4/admin/class-pointers.php
 	 */
-	public function __construct( $admin ) {
-		$this->admin = $admin;
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -55,7 +55,7 @@ class AdminTour {
 			array(
 				'wp-pointer',
 			),
-			'3.7.0'
+			$this->plugin->get_version()
 		);
 
 		wp_register_script(
@@ -65,7 +65,7 @@ class AdminTour {
 				'jquery',
 				'wp-pointer',
 			),
-			'3.7.0',
+			$this->plugin->get_version(),
 			true
 		);
 
