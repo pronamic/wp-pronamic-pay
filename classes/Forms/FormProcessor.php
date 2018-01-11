@@ -72,7 +72,7 @@ class FormProcessor {
 					$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
 
 					if ( $gateway ) {
-						$data = new \Pronamic_WP_Pay_PaymentFormData();
+						$data = new PaymentFormData();
 
 						$payment = \Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
 
