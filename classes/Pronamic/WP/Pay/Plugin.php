@@ -64,6 +64,10 @@ class Pronamic_WP_Pay_Plugin {
 		Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
 		Pronamic_WP_Pay_Extensions_RCP_Extension::bootstrap();
 
+		// Data Stores
+		$this->payments_data_store      = new \Pronamic\WordPress\Pay\Payments\PaymentsDataStoreCPT();
+		$this->subscriptions_data_store = new \Pronamic\WordPress\Pay\Subscriptions\SubscriptionsDataStoreCPT();
+
 		// Post Types
 		$this->post_types = new Pronamic_WP_Pay_PostTypes();
 		$this->gateway_post_type = new Pronamic_WP_Pay_GatewayPostType();
