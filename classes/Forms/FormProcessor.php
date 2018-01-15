@@ -21,31 +21,6 @@ class FormProcessor {
 
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
-
-		add_filter( 'the_content', array( $this, 'maybe_add_form_to_content' ) );
-
-		add_filter( 'pronamic_payment_source_text_payment_form', array( $this, 'source_text' ), 10, 2 );
-
-		// Scripts
-		$this->scripts = new FormScripts( $plugin );
-
-		// Shortcode
-		$this->shortcode = new FormShortcode();
-	}
-
-	/**
-	 * Maybe add form to content.
-	 *
-	 * @see https://developer.wordpress.org/reference/hooks/the_content/
-	 * @param string $content
-	 * @return string
-	 */
-	public function maybe_add_form_to_content( $content ) {
-		if ( is_singular( 'pronamic_pay_form' ) && 'pronamic_pay_form' === get_post_type() ) {
-			$content .= pronamic_pay_get_form( get_the_ID() );
-		}
-
-		return $content;
 	}
 
 	//////////////////////////////////////////////////
@@ -154,24 +129,5 @@ class FormProcessor {
 		}
 
 		return empty( $pronamic_pay_errors );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Source text
-	 */
-	public function source_text( $text, Pronamic_WP_Pay_Payment $payment ) {
-		$text  = '';
-
-		$text .= __( 'Payment Form', 'pronamic_ideal' ) . '<br />';
-
-		$text .= sprintf(
-			'<a href="%s">%s</a>',
-			get_edit_post_link( $payment->source_id ),
-			$payment->source_id
-		);
-
-		return $text;
 	}
 }

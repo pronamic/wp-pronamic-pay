@@ -1,17 +1,5 @@
 <?php
 
-function pronamic_pay_get_form( $id ) {
-	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
-
-	ob_start();
-
-	include $file;
-
-	$output = ob_get_clean();
-
-	return $output;
-}
-
 /**
  * Helper function to update post meta data
  *

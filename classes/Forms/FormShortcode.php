@@ -16,7 +16,9 @@ class FormShortcode {
 	/**
 	 * Constructs and initializes an post types object
 	 */
-	public function __construct() {
+	public function __construct( $forms_module ) {
+		$this->forms_module = $forms_module;
+
 		add_shortcode( 'pronamic_payment_form', array( $this, 'shortcode_form' ) );
 
 		add_action( 'init', array( $this, 'shortcode_ui_register' ) );
@@ -37,7 +39,7 @@ class FormShortcode {
 
 		$id = $atts['id'];
 
-		return pronamic_pay_get_form( $id );
+		return $this->forms_module->get_form_output( $id );
 	}
 
 	//////////////////////////////////////////////////
