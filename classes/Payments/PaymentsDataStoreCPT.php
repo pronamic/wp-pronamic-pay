@@ -22,22 +22,33 @@ class PaymentsDataStoreCPT {
 	 * @param Payment $payment
 	 */
 	public function create( $payment ) {
-		$result = wp_insert_post( array(
-			'post_type'   => 'pronamic_payment',
-			'post_title'  => sprintf(
+		$title = $payment->title;
+
+		if ( empty( $title ) ) {
+			$title = sprintf(
 				'Payment – %s',
 				date_i18n( _x( '@todo', 'Payment title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
-			),
+			);
+		}
+
+		$result = wp_insert_post( array(
+			'post_type'   => 'pronamic_payment',
+			'post_title'  => $title,
 			'post_status' => $this->get_post_status( $payment ),
+			'post_author' => $payment->user_id,
 		), true );
 
 		if ( is_wp_error( $result ) ) {
-			return;
+			return false;
 		}
 
 		$payment->set_id( $result );
 
 		$this->update_post_meta( $payment );
+
+		do_action( 'pronamic_pay_new_payment', $payment );
+
+		return true;
 	}
 
 	/**
@@ -46,9 +57,16 @@ class PaymentsDataStoreCPT {
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/abstracts/abstract-wc-order.php#L85-L111
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L78-L111
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L81-L136
+	 * @see https://developer.wordpress.org/reference/functions/get_post/
+	 * @see https://developer.wordpress.org/reference/classes/wp_post/
 	 * @param Payment $payment
 	 */
 	public function read( $payment ) {
+		$payment->title    = get_the_title( $payment->get_id() );
+		$payment->date     = get_post_field( 'post_date', $payment->get_id(), 'raw' );
+		$payment->date_gmt = get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' );
+		$payment->user_id  = get_post_field( 'post_author', $payment->get_id(), 'raw' );
+
 		$this->read_post_meta( $payment );
 	}
 
@@ -83,15 +101,15 @@ class PaymentsDataStoreCPT {
 	 */
 	private function get_post_status( $payment, $default = 'payment_pending' ) {
 		switch ( $payment->status ) {
-			case Pronamic_WP_Pay_Statuses::CANCELLED :
+			case \Pronamic_WP_Pay_Statuses::CANCELLED :
 				return 'payment_cancelled';
-			case Pronamic_WP_Pay_Statuses::EXPIRED :
+			case \Pronamic_WP_Pay_Statuses::EXPIRED :
 				return 'payment_expired';
-			case Pronamic_WP_Pay_Statuses::FAILURE :
+			case \Pronamic_WP_Pay_Statuses::FAILURE :
 				return 'payment_failed';
-			case Pronamic_WP_Pay_Statuses::SUCCESS :
+			case \Pronamic_WP_Pay_Statuses::SUCCESS :
 				return 'payment_completed';
-			case Pronamic_WP_Pay_Statuses::OPEN :
+			case \Pronamic_WP_Pay_Statuses::OPEN :
 				return 'payment_pending';
 			default : 
 				return $default;
@@ -112,7 +130,7 @@ class PaymentsDataStoreCPT {
 		$payment->config_id      = get_post_meta( $id, $prefix . 'config_id', true );
 		$payment->key            = get_post_meta( $id, $prefix . 'key', true );
 
-		$payment->amount         = get_post_meta( $id, $prefix . 'amount', true );
+		$payment->amount         = (float) get_post_meta( $id, $prefix . 'amount', true );
 		$payment->currency       = get_post_meta( $id, $prefix . 'currency', true );
 		$payment->method         = get_post_meta( $id, $prefix . 'method', true );
 		$payment->issuer         = get_post_meta( $id, $prefix . 'issuer', true );
@@ -193,12 +211,22 @@ class PaymentsDataStoreCPT {
 			'action_url'              => $payment->get_action_url(),
 		);
 
+		$data = array_merge( $payment->meta, $data );
+
 		foreach ( $data as $key => $value ) {
 			if ( ! empty( $value ) ) {
 				$meta_key = $prefix . $key;
 
-				update_post_meta( $post_id, $meta_key, $value );
+				update_post_meta( $payment->get_id(), $meta_key, $value );
 			}
+		}
+
+		if ( $previous_status !== $payment->status ) {
+			$can_redirect = false;
+
+			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $previous_status . '_to_' . $payment->status, $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
 		}
 	}
 }

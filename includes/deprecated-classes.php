@@ -1,6 +1,6 @@
 <?php
 
-class_alias( '\Pronamic\WordPress\Pay\Admin\Admin',                '\Pronamic_WP_Pay_Admin' );
+class_alias( '\Pronamic\WordPress\Pay\Admin\AdminModule',          '\Pronamic_WP_Pay_Admin' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminAboutPage',       '\Pronamic_WP_Pay_Admin_About' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminDashboard',       '\Pronamic_WP_Pay_Admin_Dashboard' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminNotices',         '\Pronamic_WP_Pay_Admin_Notices' );

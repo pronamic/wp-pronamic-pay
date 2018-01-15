@@ -75,8 +75,9 @@ class Pronamic_WP_Pay_Plugin {
 		// License
 		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
 
-		// Form Processor
-		$this->forms_module = new \Pronamic\WordPress\Pay\Forms\FormsModule( $this );
+		// Modules
+		$this->forms_module         = new \Pronamic\WordPress\Pay\Forms\FormsModule( $this );
+		$this->subscriptions_module = new \Pronamic\WordPress\Pay\Subscriptions\SubscriptionsModule( $this );
 
 		// Payment Status Checker
 		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
@@ -86,7 +87,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Admin
 		if ( is_admin() ) {
-			$this->admin = new \Pronamic\WordPress\Pay\Admin\Admin( $this );
+			$this->admin = new \Pronamic\WordPress\Pay\Admin\AdminModule( $this );
 		}
 
 		/*
@@ -117,14 +118,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// If WordPress is loaded check on returns and maybe redirect requests
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
-		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
-
-		// The 'pronamic_pay_update_subscription_payments' hook adds subscription payments and sends renewal notices
-		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
-
-		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
-		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
 	}
 
 	/**
@@ -151,11 +145,6 @@ class Pronamic_WP_Pay_Plugin {
 		// Ignore payment notes comments if it's not specifically requested
 		if ( 'payment_note' !== $type ) {
 			$clauses['where'] .= " AND comment_type != 'payment_note'";
-		}
-
-		// Ignore subscription notes comments if it's not specifically requested
-		if ( 'subscription_note' !== $type ) {
-			$clauses['where'] .= " AND comment_type != 'subscription_note'";
 		}
 
 		return $clauses;
@@ -210,79 +199,44 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	public static function update_payment( $payment = null, $can_redirect = true ) {
-		if ( $payment ) {
-			$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+		if ( empty( $payment ) ) {
+			return;
+		}
 
-			if ( $gateway ) {
-				$old_status = strtolower( $payment->status );
+		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
 
-				if ( strlen( $old_status ) <= 0 ) {
-					$old_status = 'unknown';
-				}
+		if ( empty( $gateway ) ) {
+			return;
+		}
 
-				if ( '' === $payment->get_amount() || 0.0 === $payment->get_amount() ) {
-					$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
-				} else {
-					$gateway->update_status( $payment );
-				}
+		$amount = $payment->get_amount();
 
-				$new_status = strtolower( $payment->status );
+		if ( empty( $amount ) ) {
+			$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+		} else {
+			$gateway->update_status( $payment );
 
-				if ( $gateway->has_error() ) {
-					foreach ( $gateway->error->get_error_codes() as $code ) {
-						$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
-					}
-				}
-
-				pronamic_wp_pay_update_payment( $payment );
-				pronamic_wp_pay_update_subscription( $payment->get_subscription() );
-
-				if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
-					$can_redirect = false;
-				}
-
-				if ( $new_status !== $old_status ) {
-					do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old_status . '_to_' . $new_status, $payment, $can_redirect );
-					do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-					do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
-				}
-
-				if ( $can_redirect ) {
-					$url = $payment->get_return_redirect_url();
-
-					wp_redirect( $url );
-
-					exit;
+			if ( $gateway->has_error() ) {
+				foreach ( $gateway->error->get_error_codes() as $code ) {
+					$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
 				}
 			}
 		}
-	}
 
-	public static function update_subscription( $subscription = null, $can_redirect = true ) {
-		if ( $subscription ) {
-			$old_status_meta = $subscription->get_meta( 'status' );
+		global $pronamic_ideal;
 
-			if ( strlen( $old_status_meta ) <= 0 ) {
-				$old_status_meta = 'unknown';
-			}
+		$pronamic_ideal->payments_data_store->update( $payment );
 
-			$new_status_meta = strtolower( $subscription->get_status() );
+		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
+			$can_redirect = false;
+		}
 
-			pronamic_wp_pay_update_subscription( $subscription );
+		if ( $can_redirect ) {
+			$url = $payment->get_return_redirect_url();
 
-			if ( defined( 'DOING_CRON' ) && empty( $subscription->status ) ) {
-				$can_redirect = false;
-			}
+			wp_redirect( $url );
 
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
-
-			if ( $can_redirect ) {
-				wp_redirect( home_url() );
-
-				exit;
-			}
+			exit;
 		}
 	}
 
@@ -338,72 +292,6 @@ class Pronamic_WP_Pay_Plugin {
 			}
 
 			self::update_payment( $payment, $should_redirect );
-		}
-	}
-
-	/**
-	 * Handle subscription action
-	 */
-	public function handle_subscription() {
-		if ( ! filter_has_var( INPUT_GET, 'subscription' ) ) {
-			return;
-		}
-
-		if ( ! filter_has_var( INPUT_GET, 'action' ) ) {
-			return;
-		}
-
-		if ( ! filter_has_var( INPUT_GET, 'key' ) ) {
-			return;
-		}
-
-		$subscription_id = filter_input( INPUT_GET, 'subscription', FILTER_SANITIZE_STRING );
-		$subscription    = get_pronamic_subscription( $subscription_id );
-
-		$action = filter_input( INPUT_GET, 'action', FILTER_SANITIZE_STRING );
-
-		$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
-
-		// Check if subscription is valid
-		if ( ! $subscription ) {
-			return;
-		}
-
-		// Check if subscription key is valid
-		if ( $key !== $subscription->get_key() ) {
-			wp_redirect( home_url() );
-
-			exit;
-		}
-
-		// Check if we should redirect
-		$should_redirect = true;
-
-		switch ( $action ) {
-			case 'cancel':
-				if ( Pronamic_WP_Pay_Statuses::CANCELLED !== $subscription->get_status() ) {
-					$subscription->update_status( Pronamic_WP_Pay_Statuses::CANCELLED );
-
-					self::update_subscription( $subscription, $should_redirect );
-				}
-
-				break;
-			case 'renew':
-				$first   = $subscription->get_first_payment();
-				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
-
-				if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $subscription->get_status() ) {
-					$payment = self::start_recurring( $subscription, $gateway, true );
-
-					if ( ! $gateway->has_error() ) {
-						// Redirect
-						$gateway->redirect( $payment );
-					}
-				}
-
-				wp_redirect( home_url() );
-
-				exit;
 		}
 	}
 
@@ -530,7 +418,6 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Maybes
 		self::maybe_set_active_payment_methods();
-		self::maybe_schedule_subscription_payments();
 	}
 
 	private function register_gateway_integrations() {
@@ -1133,420 +1020,59 @@ class Pronamic_WP_Pay_Plugin {
 	}
 
 	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
-		$payment = self::create_payment( $config_id, $gateway, $data, $payment_method );
+		$payment = new Pronamic_WP_Pay_Payment();
 
-		if ( $payment ) {
-			if ( 0.0 === $payment->get_amount() ) {
-				self::update_payment( $payment, false );
+		$payment->title               = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
+		$payment->user_id             = $data->get_user_id();
+		$payment->config_id           = $config_id;
+		$payment->key                 = uniqid( 'pay_' );
+		$payment->order_id            = $data->get_order_id();
+		$payment->currency            = $data->get_currency();
+		$payment->amount              = $data->get_amount();
+		$payment->language            = $data->get_language();
+		$payment->locale              = $data->get_language_and_country();
+		$payment->entrance_code       = $data->get_entrance_code();
+		$payment->description         = $data->get_description();
+		$payment->source              = $data->get_source();
+		$payment->source_id           = $data->get_source_id();
+		$payment->email               = $data->get_email();
+		$payment->status              = null;
+		$payment->method              = $payment_method;
+		$payment->issuer              = $data->get_issuer( $payment_method );
+		$payment->first_name          = $data->get_first_name();
+		$payment->last_name           = $data->get_last_name();
+		$payment->customer_name       = $data->get_customer_name();
+		$payment->address             = $data->get_address();
+		$payment->zip                 = $data->get_zip();
+		$payment->city                = $data->get_city();
+		$payment->country             = $data->get_country();
+		$payment->telephone_number    = $data->get_telephone_number();
+		$payment->analytics_client_id = $data->get_analytics_client_id();
+		$payment->recurring           = $data->get_recurring();
+		$payment->subscription        = $data->get_subscription();
+		$payment->subscription_id     = $data->get_subscription_id();
+		$payment->set_credit_card( $data->get_credit_card() );
 
-				return $payment;
+		global $pronamic_ideal;
+
+		$pronamic_ideal->payments_data_store->create( $payment );
+
+		$gateway->start( $payment );
+
+		if ( $gateway->has_error() ) {
+			foreach ( $gateway->error->get_error_codes() as $code ) {
+				$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
 			}
+		}
 
-			$payment->set_credit_card( $data->get_credit_card() );
+		$pronamic_ideal->payments_data_store->update( $payment );		
 
-			$gateway->start( $payment );
+		$gateway->payment( $payment );
 
-			if ( $gateway->has_error() ) {
-				foreach ( $gateway->error->get_error_codes() as $code ) {
-					$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
-				}
-			}
-
-			pronamic_wp_pay_update_payment( $payment );
-			pronamic_wp_pay_update_subscription( $payment->get_subscription() );
-
-			$gateway->payment( $payment );
-
-			if ( $gateway->supports( 'payment_status_request' ) ) {
-				Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
-			}
+		if ( $gateway->supports( 'payment_status_request' ) ) {
+			Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
 		}
 
 		return $payment;
-	}
-
-	public static function start_recurring( Pronamic_Pay_Subscription $subscription, Pronamic_WP_Pay_Gateway $gateway, $renewal = false ) {
-		$recurring = ! $renewal;
-		$first     = $subscription->get_first_payment();
-		$data      = new Pronamic_WP_Pay_RecurringPaymentData( $subscription->get_id(), $recurring );
-
-		$payment = self::start( $first->config_id, $gateway, $data, $first->method );
-
-		return $payment;
-	}
-
-	public static function create_payment( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
-		$payment         = null;
-		$subscription    = $data->get_subscription();
-		$subscription_id = $data->get_subscription_id();
-
-		// Set title
-		$post_title = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
-
-		if ( $subscription && $subscription_id ) {
-			$subscription_title    = get_the_title( $subscription_id );
-			$subscription_title[0] = strtolower( $subscription_title[0] );
-
-			$post_title = sprintf( __( 'Payment %s', 'pronamic_ideal' ), $subscription_title );
-		}
-
-		// Set post author
-		$post_author = $data->get_user_id();
-
-		if ( $subscription && $subscription_id ) {
-			$post_author = get_post_field( 'post_author', $subscription_id );
-		}
-
-		$result = wp_insert_post( array(
-			'post_type'   => 'pronamic_payment',
-			'post_title'  => $post_title,
-			'post_status' => 'payment_pending',
-			'post_author' => $post_author,
-		), true );
-
-		if ( ! is_wp_error( $result ) ) {
-			// @todo what if result is error
-			$post_id = $result;
-
-			// @todo temporary solution for WPMU DEV
-			$data->payment_post_id = $post_id;
-
-			$payment = new Pronamic_WP_Pay_Payment( $post_id );
-
-			// Subscription
-			if ( $subscription ) {
-				// Set/update subscription frequency, interval, amount
-				$prefix = '_pronamic_subscription_';
-				$meta   = array(
-					$prefix . 'frequency'       => $subscription->get_frequency(),
-					$prefix . 'interval'        => $subscription->get_interval(),
-					$prefix . 'interval_period' => $subscription->get_interval_period(),
-					$prefix . 'currency'        => $subscription->get_currency(),
-					$prefix . 'amount'          => $subscription->get_amount(),
-				);
-
-				if ( ! $subscription_id ) {
-					$subscription_id = wp_insert_post( array(
-						'post_type'   => 'pronamic_pay_subscr',
-						'post_title'  => sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $data->get_title() ),
-						'post_status' => 'subscr_pending',
-						'post_author' => $post_author,
-					), true );
-
-					if ( is_wp_error( $subscription_id ) ) {
-						// @todo what if subscription_id is error
-						$subscription_id = null;
-					} else {
-						// Meta
-						$subscription_meta = array(
-							$prefix . 'key'             => uniqid( 'subscr_' ),
-							$prefix . 'source'          => $data->get_source(),
-							$prefix . 'source_id'       => $data->get_source_id(),
-							$prefix . 'transaction_id'  => $subscription->get_transaction_id(),
-							$prefix . 'description'     => $subscription->get_description(),
-							$prefix . 'email'           => $data->get_email(),
-							$prefix . 'customer_name'   => $data->get_customer_name(),
-							$prefix . 'consumer_name'   => null,
-							$prefix . 'consumer_iban'   => null,
-							$prefix . 'consumer_bic'    => null,
-							$prefix . 'first_payment'   => $payment->post->post_date_gmt,
-						);
-
-						$meta = array_merge( $meta, $subscription_meta );
-
-						self::maybe_schedule_subscription_payments();
-					}
-				}
-
-				// Set subscription next payment and renewal notice dates
-				$frequency = $subscription->get_frequency();
-
-				if ( ! $data->get_recurring() && '0' !== $frequency && ( empty( $frequency ) || $frequency > 1 ) ) {
-					// Next payment date
-					$first_next_payment = new DateTime( $payment->post->post_date_gmt );
-
-					$first_next_payment->modify( sprintf(
-						'+%d %s',
-						$subscription->get_interval(),
-						Pronamic_WP_Util::to_interval_name( $subscription->get_interval_period() )
-					) );
-
-					// Renewal notice date
-					$next_renewal = new DateTime( $first_next_payment->format( DateTime::ISO8601 ) );
-					$next_renewal->modify( '-1 week' );
-
-					$meta[ $prefix . 'next_payment' ]   = $first_next_payment->format( 'Y-m-d H:i:s' );
-					$meta[ $prefix . 'renewal_notice' ] = $next_renewal->format( 'Y-m-d H:i:s' );
-				}
-
-				foreach ( $meta as $key => $value ) {
-					if ( ! empty( $value ) ) {
-						update_post_meta( $subscription_id, $key, $value );
-					}
-				}
-
-				$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
-
-				// Update subscription dates
-
-				// Remove expiry date as the current period will be calculated based on the updated start date.
-				$subscription->set_expiry_date( false );
-
-				if ( isset( $first_next_payment ) ) {
-					// First payment
-					$next_payment = $first_next_payment;
-					$start_date   = $subscription->get_next_payment_date( -1 );
-				} else {
-					// Recurring payment
-					$next_payment = $subscription->get_next_payment_date( 1 );
-					$start_date   = $subscription->get_next_payment_date();
-				}
-
-				// Set start date
-				$subscription->set_start_date( $start_date );
-
-				if ( '' === $subscription->get_frequency() ) {
-					// No frequency, payment continues forever.
-					$final_payment = $subscription->get_final_payment_date();
-
-					$final_payment->modify( sprintf(
-						'+%d %s',
-						$subscription->get_interval(),
-						Pronamic_WP_Util::to_interval_name( $subscription->get_interval_period() )
-					) );
-				} else {
-					$final_payment = $subscription->get_final_payment_date();
-				}
-
-				if ( $next_payment > $final_payment ) {
-					// Next payment is after the final payment date, which means that this is the
-					// last payment for this subscription and we should remove the next payment date.
-					$next_payment = false;
-				}
-
-				if ( $next_payment ) {
-					$next_renewal = new DateTime( $next_payment->format( DateTime::ISO8601 ) );
-					$next_renewal->modify( '-1 week' );
-				} else {
-					// If there is no next payment, no renewal notices should be send.
-					$next_renewal = false;
-
-					// Schedule event to set the subscription status to `complete`.
-					wp_schedule_single_event( $final_payment->getTimestamp(), 'pronamic_pay_subscription_completed', array( $subscription->get_id() ) );
-				}
-
-				$subscription->set_next_payment_date( $next_payment );
-				$subscription->set_renewal_notice_date( $next_renewal );
-
-				$payment->subscription = $subscription;
-			}
-
-			// Payment
-			$payment->config_id           = $config_id;
-			$payment->key                 = uniqid( 'pay_' );
-			$payment->order_id            = $data->get_order_id();
-			$payment->currency            = $data->get_currency();
-			$payment->amount              = $data->get_amount();
-			$payment->language            = $data->get_language();
-			$payment->locale              = $data->get_language_and_country();
-			$payment->entrance_code       = $data->get_entrance_code();
-			$payment->description         = $data->get_description();
-			$payment->source              = $data->get_source();
-			$payment->source_id           = $data->get_source_id();
-			$payment->email               = $data->get_email();
-			$payment->status              = null;
-			$payment->method              = $payment_method;
-			$payment->issuer              = $data->get_issuer( $payment_method );
-			$payment->first_name          = $data->get_first_name();
-			$payment->last_name           = $data->get_last_name();
-			$payment->customer_name       = $data->get_customer_name();
-			$payment->address             = $data->get_address();
-			$payment->zip                 = $data->get_zip();
-			$payment->city                = $data->get_city();
-			$payment->country             = $data->get_country();
-			$payment->telephone_number    = $data->get_telephone_number();
-			$payment->analytics_client_id = $data->get_analytics_client_id();
-			$payment->subscription_id     = $subscription_id;
-			$payment->recurring           = $data->get_recurring();
-
-			// Meta
-			$prefix = '_pronamic_payment_';
-
-			$meta = array(
-				$prefix . 'config_id'               => $payment->config_id,
-				$prefix . 'key'                     => $payment->key,
-				$prefix . 'order_id'                => $payment->order_id,
-				$prefix . 'currency'                => $payment->currency,
-				$prefix . 'amount'                  => $payment->amount,
-				$prefix . 'method'                  => $payment->method,
-				$prefix . 'issuer'                  => $payment->issuer,
-				$prefix . 'expiration_period'       => null,
-				$prefix . 'language'                => $payment->language,
-				$prefix . 'locale'                  => $payment->locale,
-				$prefix . 'entrance_code'           => $payment->entrance_code,
-				$prefix . 'description'             => $payment->description,
-				$prefix . 'first_name'              => $payment->first_name,
-				$prefix . 'last_name'               => $payment->last_name,
-				$prefix . 'consumer_name'           => null,
-				$prefix . 'consumer_account_number' => null,
-				$prefix . 'consumer_iban'           => null,
-				$prefix . 'consumer_bic'            => null,
-				$prefix . 'consumer_city'           => null,
-				$prefix . 'status'                  => null,
-				$prefix . 'source'                  => $payment->source,
-				$prefix . 'source_id'               => $payment->source_id,
-				$prefix . 'email'                   => $payment->email,
-				$prefix . 'customer_name'           => $payment->customer_name,
-				$prefix . 'address'                 => $payment->address,
-				$prefix . 'zip'                     => $payment->zip,
-				$prefix . 'city'                    => $payment->city,
-				$prefix . 'country'                 => $payment->country,
-				$prefix . 'telephone_number'        => $payment->telephone_number,
-				$prefix . 'analytics_client_id'     => $payment->analytics_client_id,
-				$prefix . 'subscription_id'         => $payment->subscription_id,
-				$prefix . 'recurring'               => $payment->recurring,
-			);
-
-			foreach ( $meta as $key => $value ) {
-				if ( ! empty( $value ) ) {
-					update_post_meta( $post_id, $key, $value );
-				}
-			}
-		}
-
-		return $payment;
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Maybe schedule subscription payment
-	 *
-	 * @param int $subscription_id
-	 */
-	public static function maybe_schedule_subscription_payments() {
-		if ( wp_next_scheduled( 'pronamic_pay_update_subscription_payments' ) ) {
-			return;
-		}
-
-		wp_schedule_event( time(), 'hourly', 'pronamic_pay_update_subscription_payments' );
-	}
-
-	/**
-	 * Update subscription payments
-	 */
-	public static function update_subscription_payments() {
-		self::send_subscription_renewal_notices();
-
-		// Don't create payments for sources which schedule payments
-		$sources = array(
-			'woocommerce',
-		);
-
-		$args = array(
-			'post_type'   => 'pronamic_pay_subscr',
-			'nopaging'    => true,
-			'orderby'     => 'post_date',
-			'order'       => 'ASC',
-			'post_status' => array(
-				'subscr_pending',
-				'subscr_expired',
-				'subscr_failed',
-				'subscr_active',
-			),
-			'meta_query'  => array(
-				array(
-					'key'     => '_pronamic_subscription_source',
-					'value'   => $sources,
-					'compare' => 'NOT IN',
-				),
-				array(
-					'key'     => '_pronamic_subscription_next_payment',
-					'value'   => current_time( 'mysql', true ),
-					'compare' => '<=',
-					'type'    => 'DATETIME',
-				),
-			),
-		);
-
-		$query = new WP_Query( $args );
-
-		foreach ( $query->posts as $post ) {
-			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
-			$first        = $subscription->get_first_payment();
-			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
-
-			$payment = self::start_recurring( $subscription, $gateway );
-
-			if ( $payment ) {
-				self::update_payment( $payment, false );
-			}
-		}
-	}
-
-	/**
-	 * Send renewal notices
-	 */
-	public static function send_subscription_renewal_notices() {
-		$args = array(
-			'post_type'   => 'pronamic_pay_subscr',
-			'nopaging'    => true,
-			'orderby'     => 'post_date',
-			'order'       => 'ASC',
-			'post_status' => array(
-				'subscr_pending',
-				'subscr_expired',
-				'subscr_failed',
-				'subscr_active',
-			),
-			'meta_query'  => array(
-				array(
-					'key'     => '_pronamic_subscription_renewal_notice',
-					'value'   => current_time( 'mysql', true ),
-					'compare' => '<=',
-					'type'    => 'DATETIME',
-				),
-			),
-		);
-
-		$query = new WP_Query( $args );
-
-		foreach ( $query->posts as $post ) {
-			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
-
-			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
-
-			// Set next renewal date meta
-			$next_renewal = $subscription->get_next_payment_date( 1 );
-
-			if ( $next_renewal ) {
-				$next_renewal->modify( '-1 week' );
-
-				// If next renewal notice date is before next payment date,
-				// prevent duplicate renewal messages by setting the renewal
-				// notice date to the date of next payment.
-				if ( $next_renewal < $subscription->get_next_payment_date() ) {
-					$next_renewal = $subscription->get_next_payment_date();
-				}
-			}
-
-			// Update or delete next renewal notice date meta.
-			$subscription->set_renewal_notice_date( $next_renewal );
-		}
-	}
-
-	/**
-	 * Subscription completed
-	 */
-	public function subscription_completed( $subscription_id ) {
-		$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
-
-		if ( ! isset( $subscription->post ) ) {
-			return;
-		}
-
-		$subscription->update_status( Pronamic_WP_Pay_Statuses::COMPLETED );
-
-		$this->update_subscription( $subscription, false );
 	}
 }

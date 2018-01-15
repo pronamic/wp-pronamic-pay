@@ -12,7 +12,7 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @version 1.0.0
  * @since 1.0.0
  */
-class Admin {
+class AdminModule {
 	/**
 	 * Constructs and initalize an admin object
 	 */
