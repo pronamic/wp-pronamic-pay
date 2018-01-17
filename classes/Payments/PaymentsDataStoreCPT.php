@@ -159,6 +159,7 @@ class PaymentsDataStoreCPT {
 		$payment->analytics_client_id = get_post_meta( $id, $prefix . 'analytics_client_id', true );
 
 		$payment->subscription_id = get_post_meta( $id, $prefix . 'subscription_id', true );
+		$payment->recurring       = get_post_meta( $id, $prefix . 'recurring', true );
 	}
 
 	/**
