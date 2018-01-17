@@ -743,7 +743,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @return string
 	 */
 	public static function get_default_error_message() {
-		return __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
+		return __( 'Something went wrong with the payment. Please try again later or pay another way.', 'pronamic_ideal' );
 	}
 
 	//////////////////////////////////////////////////
@@ -763,6 +763,10 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
+				case Pronamic_WP_Pay_PaymentMethods::ALIPAY :
+					$gateways[] = 'multisafepay-connect';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::BUNQ :
 					$gateways[] = 'sisow-ideal';
 
@@ -774,6 +778,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'icepay-ideal';
 					$gateways[] = 'ogone-orderstandard';
 					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
 					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'rabobank-omnikassa-2';
@@ -784,6 +789,7 @@ class Pronamic_WP_Pay_Plugin {
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::BELFIUS :
 					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
@@ -822,8 +828,17 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'qantani-mollie';
 
 					break;
+				case Pronamic_WP_Pay_PaymentMethods::GIROPAY :
+					$gateways[] = 'multisafepay-connect';
+
+					break;
+				case Pronamic_WP_Pay_PaymentMethods::IDEALQR :
+					$gateways[] = 'multisafepay-connect';
+
+					break;
 				case Pronamic_WP_Pay_PaymentMethods::KBC :
 					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
 
 					break;
 				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
@@ -841,6 +856,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
 					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'sisow-ideal';
 
@@ -848,6 +864,7 @@ class Pronamic_WP_Pay_Plugin {
 				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
+					$gateways[] = 'multisafepay-connect';
 					$gateways[] = 'qantani-mollie';
 					$gateways[] = 'sisow-ideal';
 
