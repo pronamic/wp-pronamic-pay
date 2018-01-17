@@ -743,7 +743,7 @@ class Pronamic_WP_Pay_Plugin {
 	 * @return string
 	 */
 	public static function get_default_error_message() {
-		return __( 'Paying with iDEAL is not possible. Please try again later or pay another way.', 'pronamic_ideal' );
+		return __( 'Something went wrong with the payment. Please try again later or pay another way.', 'pronamic_ideal' );
 	}
 
 	//////////////////////////////////////////////////
