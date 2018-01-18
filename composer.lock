@@ -1641,18 +1641,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "c4c7c0312fe61b37f793c37ea473eb6ed4345ba2"
+                "reference": "7de90fc7d45870e485e84921cb2ecd5b808aa00e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/c4c7c0312fe61b37f793c37ea473eb6ed4345ba2",
-                "reference": "c4c7c0312fe61b37f793c37ea473eb6ed4345ba2",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/7de90fc7d45870e485e84921cb2ecd5b808aa00e",
+                "reference": "7de90fc7d45870e485e84921cb2ecd5b808aa00e",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3",
                 "wp-pay-gateways/common": "^1.0.2",
-                "wp-pay/core": "^1.3"
+                "wp-pay/core": "dev-develop as 1.4"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^1.0",
@@ -1664,13 +1664,13 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Gateways\\Mollie\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0+"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -1696,7 +1696,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-17T08:40:12+00:00"
+            "time": "2018-01-18T20:17:11+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",

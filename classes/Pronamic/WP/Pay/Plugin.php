@@ -565,7 +565,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Mollie
-		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -615,7 +615,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Paytor
-		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
 		$integration->set_id( 'paytor' );
 		$integration->set_name( 'Paytor' );
 		$integration->url           = 'http://paytor.com/';
@@ -635,7 +635,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Qantani (new platform)
-		$integration = new Pronamic_WP_Pay_Gateways_Mollie_Integration();
+		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
 		$integration->set_id( 'qantani-mollie' );
 		$integration->set_name( __( 'Qantani (new platform)', 'pronamic_ideal' ) );
 		$integration->url           = 'https://www.qantani.com/';
