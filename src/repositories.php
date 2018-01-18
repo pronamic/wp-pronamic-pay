@@ -81,22 +81,5 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 			echo shell_exec( $command ), PHP_EOL;
 		}
-
-		chdir( $working_dir );
-
-		$target = $project_dir . '/repositories/' . $organisation . '/' . $repository;
-		$link   = $project_dir . '/vendor/' . $organisation . '/' . $repository;
-
-		$command = sprintf( 'rm -rf %s', escapeshellarg( $link ) );
-
-		echo $command, PHP_EOL;
-
-		echo shell_exec( $command ), PHP_EOL;
-
-		$command = sprintf( 'ln -s %s %s', escapeshellarg( $target ), escapeshellarg( $link ) );
-
-		echo $command, PHP_EOL;
-
-		echo shell_exec( $command ), PHP_EOL;
 	}
 }
