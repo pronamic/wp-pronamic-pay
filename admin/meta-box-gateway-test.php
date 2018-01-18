@@ -190,6 +190,13 @@ if ( $gateway ) {
 				</th>
 				<td>
 					<div>
+						<input type="radio" name="pronamic_pay_ends_on" value="never" <?php checked( 'never', '' ); ?> />
+
+						<?php esc_html_e( 'Never', 'pronamic_ideal' ); ?>
+
+						<input type="number" name="pronamic_pay_ends_on_never" value="1" style="visibility: hidden;" />
+					</div>
+					<div>
 						<input type="radio" name="pronamic_pay_ends_on" value="count" <?php checked( 'count', '' ); ?> />
 
 						<?php
@@ -207,7 +214,7 @@ if ( $gateway ) {
 
 						echo wp_kses(
 							sprintf(
-								__( 'After %s instances', 'pronamic_ideal' ),
+								__( 'After %s times', 'pronamic_ideal' ),
 								sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
 							),
 							$allowed_html
@@ -217,13 +224,13 @@ if ( $gateway ) {
 					</div>
 
 					<div>
-						<input type="radio" name="pronamic_pay_ends_on" value="until" />
+						<input type="radio" name="pronamic_pay_ends_on" value="date" />
 
 						<?php
 						echo wp_kses(
 							sprintf(
-								__( 'Until %s', 'pronamic_ideal' ),
-								sprintf( '<input type="date" id="pronamic_pay_ends_on_until" name="pronamic_pay_ends_on_until" value="%s" />', esc_attr( '' ) )
+								__( 'On %s', 'pronamic_ideal' ),
+								sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
 							),
 							$allowed_html
 						);

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-01-17 19:35:29+00:00\n"
-"PO-Revision-Date: 2018-01-17 20:36+0100\n"
+"POT-Creation-Date: 2018-01-18 19:56:05+00:00\n"
+"PO-Revision-Date: 2018-01-18 21:04+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -148,32 +148,36 @@ msgstr "Start een abonnement voor deze betaling."
 msgid "Frequency"
 msgstr "Frequentie"
 
-#: admin/meta-box-gateway-test.php:168
+#: admin/meta-box-gateway-test.php:167
 msgid "Repeat every"
 msgstr "Herhaal iedere"
 
-#: admin/meta-box-gateway-test.php:186
+#: admin/meta-box-gateway-test.php:184
 msgid "days/weeks/months/year"
 msgstr "dagen/weken/maanden/jaar"
 
-#: admin/meta-box-gateway-test.php:191
+#: admin/meta-box-gateway-test.php:189
 msgid "Ends On"
 msgstr "Eindigt op"
 
-#: admin/meta-box-gateway-test.php:212
-msgid "After %s instances"
-msgstr "Na %s instanties"
+#: admin/meta-box-gateway-test.php:195
+msgid "Never"
+msgstr "Nooit"
 
-#: admin/meta-box-gateway-test.php:227
-msgid "Until %s"
-msgstr "Tot %s"
+#: admin/meta-box-gateway-test.php:216
+msgid "After %s times"
+msgstr "Na %s keer"
 
-#: admin/meta-box-gateway-test.php:241 classes/Admin/GatewayPostType.php:191
+#: admin/meta-box-gateway-test.php:231
+msgid "On %s"
+msgstr "Op %s"
+
+#: admin/meta-box-gateway-test.php:245 classes/Admin/GatewayPostType.php:191
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:37
 msgid "Test"
 msgstr "Test"
 
-#: admin/meta-box-gateway-test.php:272
+#: admin/meta-box-gateway-test.php:276
 msgid ""
 "Please save the entered account details of your payment provider, to make a "
 "test payment."
@@ -195,7 +199,7 @@ msgstr "Datum"
 #: admin/meta-box-subscription-info.php:110
 #: admin/meta-box-subscription-info.php:132
 #: admin/meta-box-subscription-info.php:133
-#: classes/Pronamic/WP/Pay/Subscription.php:551
+#: classes/Pronamic/WP/Pay/Subscription.php:556
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr "j F Y H:i:s"
 
@@ -2002,27 +2006,27 @@ msgstr "Standaardpagina's instellen"
 msgid "— Select a page —"
 msgstr "— Selecteer een pagina —"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:486
+#: classes/Pronamic/WP/Pay/Subscription.php:491
 msgid "Subscription status changed to 'Open'"
 msgstr "Abonnement status gewijzigd naar 'In afwachting'"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:498
+#: classes/Pronamic/WP/Pay/Subscription.php:503
 msgid "Subscription status changed to 'Active'"
 msgstr "Abonnement status gewijzigd naar 'Actief'"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:505
+#: classes/Pronamic/WP/Pay/Subscription.php:510
 msgid "Subscription status changed to 'Failed'"
 msgstr "Abonnement status gewijzigd naar 'Mislukt'"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:513
+#: classes/Pronamic/WP/Pay/Subscription.php:518
 msgid "Subscription status changed to 'Cancelled'"
 msgstr "Abonnement status gewijzigd naar 'Geannuleerd'"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:522
+#: classes/Pronamic/WP/Pay/Subscription.php:527
 msgid "Subscription status changed to 'Completed'"
 msgstr "Abonnement status gewijzigd naar 'Voltooid'"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:542
+#: classes/Pronamic/WP/Pay/Subscription.php:547
 msgid "Subscription changed"
 msgstr "Abonnement gewijzigd"
 
@@ -5154,7 +5158,7 @@ msgctxt "Subscription status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:29
+#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:30
 msgctxt "Subscription title date format parsed by `date_i18n`."
 msgid "@todo"
 msgstr ""
@@ -5261,6 +5265,9 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid "Until %s"
+#~ msgstr "Tot %s"
 
 #~ msgid "Formidable"
 #~ msgstr "Formidable"

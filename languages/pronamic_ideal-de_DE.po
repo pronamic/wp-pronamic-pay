@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-01-17 19:35:29+00:00\n"
+"POT-Creation-Date: 2018-01-18 19:56:05+00:00\n"
 "PO-Revision-Date: 2017-12-22 12:37+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: German\n"
@@ -153,32 +153,36 @@ msgstr "Legen Sie die Abonnementdetails für wiederkehrende Zahlungen fest."
 msgid "Frequency"
 msgstr "Häufigkeit"
 
-#: admin/meta-box-gateway-test.php:168
+#: admin/meta-box-gateway-test.php:167
 msgid "Repeat every"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:186
+#: admin/meta-box-gateway-test.php:184
 msgid "days/weeks/months/year"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:191
+#: admin/meta-box-gateway-test.php:189
 msgid "Ends On"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:212
-msgid "After %s instances"
+#: admin/meta-box-gateway-test.php:195
+msgid "Never"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:227
-msgid "Until %s"
+#: admin/meta-box-gateway-test.php:216
+msgid "After %s times"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:241 classes/Admin/GatewayPostType.php:191
+#: admin/meta-box-gateway-test.php:231
+msgid "On %s"
+msgstr ""
+
+#: admin/meta-box-gateway-test.php:245 classes/Admin/GatewayPostType.php:191
 #: classes/Pronamic/WP/Pay/DefaultGatewaySettings.php:37
 msgid "Test"
 msgstr "Test"
 
-#: admin/meta-box-gateway-test.php:272
+#: admin/meta-box-gateway-test.php:276
 #, fuzzy
 msgid ""
 "Please save the entered account details of your payment provider, to make a "
@@ -202,7 +206,7 @@ msgstr "Datum"
 #: admin/meta-box-subscription-info.php:110
 #: admin/meta-box-subscription-info.php:132
 #: admin/meta-box-subscription-info.php:133
-#: classes/Pronamic/WP/Pay/Subscription.php:551
+#: classes/Pronamic/WP/Pay/Subscription.php:556
 #, fuzzy
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr "l jS \\o\\f F Y, h:ia"
@@ -2159,32 +2163,32 @@ msgstr "Standard Seiten"
 msgid "— Select a page —"
 msgstr "— Wählen Sie eine Seite —"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:486
+#: classes/Pronamic/WP/Pay/Subscription.php:491
 #, fuzzy
 msgid "Subscription status changed to 'Open'"
 msgstr "Abonnementstatus wurde in \"Offen\" geändert"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:498
+#: classes/Pronamic/WP/Pay/Subscription.php:503
 #, fuzzy
 msgid "Subscription status changed to 'Active'"
 msgstr "Abonnementstatus wurde in \"Aktiv\" geändert"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:505
+#: classes/Pronamic/WP/Pay/Subscription.php:510
 #, fuzzy
 msgid "Subscription status changed to 'Failed'"
 msgstr "Abonnementstatus wurde in \"Fehlgeschlagen\" geändert"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:513
+#: classes/Pronamic/WP/Pay/Subscription.php:518
 #, fuzzy
 msgid "Subscription status changed to 'Cancelled'"
 msgstr "Abonnementstatus wurde in \"Storniert\" geändert"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:522
+#: classes/Pronamic/WP/Pay/Subscription.php:527
 #, fuzzy
 msgid "Subscription status changed to 'Completed'"
 msgstr "Abonnementstatus wurde in \"Abgeschlossen\" geändert"
 
-#: classes/Pronamic/WP/Pay/Subscription.php:542
+#: classes/Pronamic/WP/Pay/Subscription.php:547
 msgid "Subscription changed"
 msgstr "Abonnement geändert"
 
@@ -5556,7 +5560,7 @@ msgctxt "Subscription status"
 msgid "Completed"
 msgstr "Abgeschlossen"
 
-#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:29
+#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:30
 msgctxt "Subscription title date format parsed by `date_i18n`."
 msgid "@todo"
 msgstr ""
