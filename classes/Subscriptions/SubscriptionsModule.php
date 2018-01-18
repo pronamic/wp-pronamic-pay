@@ -187,7 +187,7 @@ class SubscriptionsModule {
 		}
 
 		// New subscription
-		$subscription = new Pronamic_WP_Pay_Subscription();
+		$subscription = new \Pronamic_WP_Pay_Subscription();
 
 		$subscription->user_id         = $payment->user_id;
 		$subscription->title           = sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $payment->title );
@@ -202,11 +202,42 @@ class SubscriptionsModule {
 		$subscription->description     = $payment->description;
 		$subscription->email           = $payment->email;
 		$subscription->customer_name   = $payment->customer_name;
-		$subscription->first_payment   = $payment->date_gmt;
+		$subscription->first_payment   = $payment->date;
 
 		// @todo
 		// Calculate dates
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/4.7.0/classes/Pronamic/WP/Pay/Plugin.php#L883-L964
+		$interval_spec = 'P' . $subscription_data->interval . $subscription_data->interval_period;
+		
+		$interval = new \DateInterval( $interval_spec );
+
+		$start_date = $payment->date;
+
+		$expiry_date = $start_date;
+
+		$next_date = clone $start_date;
+		$next_date->add( $interval );
+
+		$notice_date = clone $next_date;
+		$notice_date->modify( '-1 week' );
+
+		$final_date = null;
+
+		if ( $subscription_data->frequency ) {
+			// @see https://stackoverflow.com/a/10818981/6411283
+			$period = new \DatePeriod( $start_date, $interval, $subscription_data->frequency );
+
+			$dates = iterator_to_array( $period );
+
+			$final_date = end( $dates );
+		}
+
+		$subscription->start_date     = $start_date;
+		$subscription->expiry_date    = $expiry_date;
+		$subscription->first_payment  = $start_date;
+		$subscription->next_payment   = $next_date;
+		$subscription->final_payment  = $final_date;
+		$subscription->renewal_notice = $notice_date;
 
 		// Create
 		$result = $this->plugin->subscriptions_data_store->create( $subscription );
@@ -214,7 +245,7 @@ class SubscriptionsModule {
 		if ( $result ) {
 			$payment->subscription_id = $subscription->get_id();
 
-			$this->plugin->paymens_data_store->update( $payment );
+			$this->plugin->payments_data_store->update( $payment );
 		}
 	}
 

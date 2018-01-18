@@ -102,6 +102,10 @@ class Pronamic_WP_Pay_Payment {
 
 	public $recurring;
 
+	public $first_name;
+
+	public $last_name;
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -118,6 +122,7 @@ class Pronamic_WP_Pay_Payment {
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;
+		$this->date = new \DateTime();
 		$this->meta = array();
 
 		if ( null !== $post_id ) {

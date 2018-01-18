@@ -123,6 +123,56 @@ class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
 	}
 
 	//////////////////////////////////////////////////
+	// Subscription
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get subscription.
+	 *
+	 * @since 1.2.1
+	 * @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/abstracts/abstract-wc-payment-gateway.php#L52
+	 * @see https://github.com/wp-premium/woocommerce-subscriptions/blob/2.0.18/includes/class-wc-subscriptions-renewal-order.php#L371-L398
+	 * @return string|bool
+	 */
+	public function get_subscription() {
+		$test_subscription = filter_input( INPUT_POST, 'pronamic_pay_test_subscription', FILTER_VALIDATE_BOOLEAN );
+
+		if ( ! $test_subscription ) {
+			return false;
+		}
+
+		$times = filter_input( INPUT_POST, 'pronamic_pay_ends_on_count', FILTER_VALIDATE_INT );
+
+		if ( empty( $times ) ) {
+			return false;
+		}
+
+		$interval = filter_input( INPUT_POST, 'pronamic_pay_test_repeat_interval', FILTER_VALIDATE_INT );
+
+		if ( empty( $interval ) ) {
+			return false;
+		}
+
+		$interval_period = filter_input( INPUT_POST, 'pronamic_pay_test_repeat_frequency', FILTER_SANITIZE_STRING );
+
+		if ( empty( $interval_period ) ) {
+			return false;
+		}
+
+		// Subscription
+		$subscription = new Pronamic_Pay_Subscription();
+
+		$subscription->currency        = $this->get_currency();
+		$subscription->description     = $this->get_description();
+		$subscription->amount          = $this->get_amount();
+		$subscription->frequency       = $times;
+		$subscription->interval        = $interval;
+		$subscription->interval_period = Pronamic_WP_Pay_Util::to_period( $interval_period );
+
+		return $subscription;
+	}
+
+	//////////////////////////////////////////////////
 	// Creditcard
 	//////////////////////////////////////////////////
 

@@ -23,13 +23,14 @@ class SubscriptionsDataStoreCPT {
 	 */
 	public function create( $subscription ) {
 		$result = wp_insert_post( array(
-			'post_type'   => 'pronamic_pay_subscr',
-			'post_title'  => sprintf(
+			'post_type'     => 'pronamic_pay_subscr',
+			'post_date_gmt' => $subscription->date->format( 'Y-m-d H:i:s' ),
+			'post_title'    => sprintf(
 				'Subscription – %s',
 				date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
 			),
-			'post_status' => $this->get_post_status( $subscription ),
-			'post_author' => $subscription->user_id,
+			'post_status'   => $this->get_post_status( $subscription ),
+			'post_author'   => $subscription->user_id,
 		), true );
 
 		if ( is_wp_error( $result ) ) {
@@ -37,6 +38,7 @@ class SubscriptionsDataStoreCPT {
 		}
 
 		$subscription->set_id( $result );
+		$subscription->post = get_post( $result );
 
 		$this->update_post_meta( $subscription );
 
@@ -53,10 +55,10 @@ class SubscriptionsDataStoreCPT {
 	 * @param Subscription $subscription
 	 */
 	public function read( $subscription ) {
-		$subscription->title    = get_the_title( $subscription->get_id() );
-		$subscription->date     = get_post_field( 'post_date', $subscription->get_id(), 'raw' );
-		$subscription->date_gmt = get_post_field( 'post_date_gmt', $subscription->get_id(), 'raw' );
-		$subscription->user_id  = get_post_field( 'post_author', $subscription->get_id(), 'raw' );
+		$subscription->post    = get_post( $subscription->get_id() );
+		$subscription->title   = get_the_title( $subscription->get_id() );
+		$subscription->date    = new \DateTime( get_post_field( 'post_date_gmt', $subscription->get_id(), 'raw' ) );
+		$subscription->user_id = get_post_field( 'post_author', $subscription->get_id(), 'raw' );
 
 		$this->read_post_meta( $subscription );
 	}
@@ -92,17 +94,17 @@ class SubscriptionsDataStoreCPT {
 	 */
 	private function get_post_status( $subscription, $default = 'subscr_pending' ) {
 		switch ( $subscription->status ) {
-			case Pronamic_WP_Pay_Statuses::CANCELLED :
+			case \Pronamic_WP_Pay_Statuses::CANCELLED :
 				return 'subscr_cancelled';
-			case Pronamic_WP_Pay_Statuses::EXPIRED :
+			case \Pronamic_WP_Pay_Statuses::EXPIRED :
 				return 'subscr_expired';
-			case Pronamic_WP_Pay_Statuses::FAILURE :
+			case \Pronamic_WP_Pay_Statuses::FAILURE :
 				return 'subscr_failed';
-			case Pronamic_WP_Pay_Statuses::SUCCESS :
+			case \Pronamic_WP_Pay_Statuses::SUCCESS :
 				return 'subscr_active';
-			case Pronamic_WP_Pay_Statuses::OPEN :
+			case \Pronamic_WP_Pay_Statuses::OPEN :
 				return 'subscr_pending';
-			case Pronamic_WP_Pay_Statuses::COMPLETED :
+			case \Pronamic_WP_Pay_Statuses::COMPLETED :
 				return 'subscr_completed';
 			default : 
 				return $default;
@@ -133,12 +135,24 @@ class SubscriptionsDataStoreCPT {
 		$subscription->description      = get_post_meta( $id, $prefix . 'description', true );
 		$subscription->email            = get_post_meta( $id, $prefix . 'email', true );
 		$subscription->customer_name    = get_post_meta( $id, $prefix . 'customer_name', true );
-		$subscription->start_date       = get_post_meta( $id, $prefix . 'start_date', true );
-		$subscription->expiry_date      = get_post_meta( $id, $prefix . 'expiry_date', true );
-		$subscription->first_payment    = get_post_meta( $id, $prefix . 'first_payment', true );
-		$subscription->next_payment     = get_post_meta( $id, $prefix . 'next_payment', true );
-		$subscription->final_payment    = get_post_meta( $id, $prefix . 'final_payment', true );
-		$subscription->renewal_notice   = get_post_meta( $id, $prefix . 'renewal_notice', true );
+
+		$date_string = get_post_meta( $id, $prefix . 'start_date', true );
+		$subscription->start_date       = empty( $date_string ) ? null : new \DateTime( $date_string );
+
+		$date_string = get_post_meta( $id, $prefix . 'expiry_date', true );
+		$subscription->expiry_date      = empty( $date_string ) ? null : new \DateTime( $date_string );
+
+		$date_string = get_post_meta( $id, $prefix . 'first_payment', true );
+		$subscription->first_payment    = empty( $date_string ) ? null : new \DateTime( $date_string );
+
+		$date_string = get_post_meta( $id, $prefix . 'next_payment', true );
+		$subscription->next_payment     = empty( $date_string ) ? null : new \DateTime( $date_string );
+
+		$date_string = get_post_meta( $id, $prefix . 'final_payment', true );
+		$subscription->final_payment    = empty( $date_string ) ? null : new \DateTime( $date_string );
+
+		$date_string = get_post_meta( $id, $prefix . 'renewal_notice', true );
+		$subscription->renewal_notice   = empty( $date_string ) ? null : new \DateTime( $date_string );
 	}
 
 	/**
@@ -147,10 +161,12 @@ class SubscriptionsDataStoreCPT {
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
 	 * @param Subscription $subscription
 	 */
-	private function update_post_meta( $payment ) {
+	private function update_post_meta( $subscription ) {
 		$prefix = '_pronamic_subscription_';
 
-		$previous_status = get_post_meta( $subscription->get_id(), '_pronamic_subscription_status', true );
+		$id = $subscription->get_id();
+
+		$previous_status = get_post_meta( $id, '_pronamic_subscription_status', true );
 		$previous_status = strtolower( $previous_status );
 		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
 
@@ -176,13 +192,28 @@ class SubscriptionsDataStoreCPT {
 			'renewal_notice'  => $subscription->renewal_notice,
 		);
 
+		$date_properties = array(
+			'start_date',
+			'expiry_date',
+			'first_payment',
+			'next_payment',
+			'final_payment',
+			'renewal_notice',
+		);
+
+		foreach ( $date_properties as $property ) {
+			if ( property_exists( $subscription, $property ) && $subscription->$property instanceof \DateTimeInterface ) {
+				$data[ $property ] = $subscription->$property->format( 'Y-m-d H:i:s' );
+			}
+		}
+
 		$data = array_merge( $subscription->meta, $data );
 
 		foreach ( $data as $key => $value ) {
 			if ( ! empty( $value ) ) {
 				$meta_key = $prefix . $key;
 
-				update_post_meta( $post_id, $meta_key, $value );
+				update_post_meta( $id, $meta_key, $value );
 			}
 		}
 

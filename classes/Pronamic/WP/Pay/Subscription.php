@@ -59,6 +59,7 @@ class Pronamic_WP_Pay_Subscription {
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;
+		$this->date = new \DateTime();
 		$this->meta = array();
 
 		if ( null !== $post_id ) {
@@ -72,6 +73,10 @@ class Pronamic_WP_Pay_Subscription {
 
 	public function get_id() {
 		return $this->id;
+	}
+
+	public function set_id( $id ) {
+		$this->id = $id;
 	}
 
 	//////////////////////////////////////////////////

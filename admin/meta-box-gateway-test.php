@@ -121,7 +121,7 @@ if ( $gateway ) {
 						<legend class="screen-reader-text"><span><?php esc_html_e( 'Test Subscription', 'pronamic_ideal' ); ?></span></legend>
 
 						<label for="pronamic-pay-test-subscription">
-							<input name="test_subscription" id="pronamic-pay-test-subscription" value="1" type="checkbox" />		
+							<input name="pronamic_pay_test_subscription" id="pronamic-pay-test-subscription" value="1" type="checkbox" />		
 							<?php esc_html_e( 'Start a subscription for this payment.', 'pronamic_ideal' ); ?>
 						</label>
 					</fieldset>
@@ -137,10 +137,10 @@ if ( $gateway ) {
 			</tr>
 			<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
 				<th scope="row">
-					<label for="pronamic_pay_repeat_frequency"><?php esc_html_e( 'Frequency', 'pronamic_ideal' ); ?></label>
+					<label for="pronamic_pay_test_repeat_frequency"><?php esc_html_e( 'Frequency', 'pronamic_ideal' ); ?></label>
 				</th>
 				<td>
-					<select id="pronamic_pay_repeat_frequency" name="pronamic_pay_test_repeat_frequency">
+					<select id="pronamic_pay_test_repeat_frequency" name="pronamic_pay_test_repeat_frequency">
 						<?php
 
 						foreach ( $options as $key => $label ) {
@@ -151,10 +151,9 @@ if ( $gateway ) {
 							}
 
 							printf(
-								'<option value="%s" data-interval-suffix="%s" %s">%s</option>',
+								'<option value="%s" data-interval-suffix="%s">%s</option>',
 								esc_attr( $key ),
 								esc_attr( $interval_suffix ),
-								selected( $key, $frequency, false ),
 								esc_html( $label )
 							);
 						}
@@ -173,9 +172,8 @@ if ( $gateway ) {
 
 						foreach ( range( 1, 30 ) as $value ) {
 							printf(
-								'<option value="%s" %s">%s</option>',
+								'<option value="%s">%s</option>',
 								esc_attr( $value ),
-								selected( $value, $interval, false ),
 								esc_html( $value )
 							);
 						}
@@ -183,7 +181,7 @@ if ( $gateway ) {
 						?>
 					</select>
 
-					<span id="pronamic_pay_repeat_interval_suffix"><?php esc_html_e( 'days/weeks/months/year', 'pronamic_ideal' ); ?></span>
+					<span id="pronamic_pay_test_repeat_interval_suffix"><?php esc_html_e( 'days/weeks/months/year', 'pronamic_ideal' ); ?></span>
 				</td>
 			</tr>
 			<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
@@ -250,12 +248,12 @@ if ( $gateway ) {
 		jQuery( document ).ready( function( $ ) {
 			// Interval label
 			function set_interval_label() {
-				var text = $( '#pronamic_pay_repeat_frequency :selected' ).data( 'interval-suffix' );
+				var text = $( '#pronamic_pay_test_repeat_frequency :selected' ).data( 'interval-suffix' );
 
-				$( '#pronamic_pay_repeat_interval_suffix' ).text( text );
+				$( '#pronamic_pay_test_repeat_interval_suffix' ).text( text );
 			}
 
-			$( '#pronamic_pay_repeat_frequency' ).change( function() { set_interval_label(); } );
+			$( '#pronamic_pay_test_repeat_frequency' ).change( function() { set_interval_label(); } );
 
 			set_interval_label();
 		} );

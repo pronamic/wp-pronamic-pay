@@ -32,10 +32,11 @@ class PaymentsDataStoreCPT {
 		}
 
 		$result = wp_insert_post( array(
-			'post_type'   => 'pronamic_payment',
-			'post_title'  => $title,
-			'post_status' => $this->get_post_status( $payment ),
-			'post_author' => $payment->user_id,
+			'post_type'     => 'pronamic_payment',
+			'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
+			'post_title'    => $title,
+			'post_status'   => $this->get_post_status( $payment ),
+			'post_author'   => $payment->user_id,
 		), true );
 
 		if ( is_wp_error( $result ) ) {
@@ -43,6 +44,7 @@ class PaymentsDataStoreCPT {
 		}
 
 		$payment->set_id( $result );
+		$payment->post = get_post( $result );
 
 		$this->update_post_meta( $payment );
 
@@ -62,10 +64,10 @@ class PaymentsDataStoreCPT {
 	 * @param Payment $payment
 	 */
 	public function read( $payment ) {
-		$payment->title    = get_the_title( $payment->get_id() );
-		$payment->date     = get_post_field( 'post_date', $payment->get_id(), 'raw' );
-		$payment->date_gmt = get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' );
-		$payment->user_id  = get_post_field( 'post_author', $payment->get_id(), 'raw' );
+		$payment->post    = get_post( $payment->get_id() );
+		$payment->title   = get_the_title( $payment->get_id() );
+		$payment->date    = new \DateTime( get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' ) );
+		$payment->user_id = get_post_field( 'post_author', $payment->get_id(), 'raw' );
 
 		$this->read_post_meta( $payment );
 	}
