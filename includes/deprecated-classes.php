@@ -1,5 +1,9 @@
 <?php
 
+class_alias( '\Pronamic\WordPress\Pay\Plugin',          '\Pronamic_WP_Pay_Plugin' );
+class_alias( '\Pronamic\WordPress\Pay\Settings',        '\Pronamic_WP_Pay_Settings' );
+class_alias( '\Pronamic\WordPress\Pay\GatewayPostType', '\Pronamic_WP_Pay_GatewayPostType' );
+
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminModule',          '\Pronamic_WP_Pay_Admin' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminAboutPage',       '\Pronamic_WP_Pay_Admin_About' );
 class_alias( '\Pronamic\WordPress\Pay\Admin\AdminDashboard',       '\Pronamic_WP_Pay_Admin_Dashboard' );

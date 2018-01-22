@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay;
+
 /**
  * Title: WordPress iDEAL plugin
  * Description:
@@ -10,7 +12,7 @@
  * @version 4.5.3
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Plugin {
+class Plugin {
 	/**
 	 * The root file of this WordPress plugin
 	 *
@@ -28,16 +30,23 @@ class Pronamic_WP_Pay_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Bootstrap
-	 *
-	 * @param string $file
+	 * Instance.
 	 */
-	public static function bootstrap( $file ) {
-		self::$file = $file;
-		self::$dirname = dirname( $file );
+	protected static $instance = null;
 
-		// Plugin
-		return new Pronamic_WP_Pay_Plugin();
+	/**
+	 * Instance.
+	 */
+	public static function instance( $file = null ) {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self( $file );
+
+			// Backward compatibility
+			self::$file = $file;
+			self::$dirname = dirname( $file );
+		}
+
+		return self::$instance;
 	}
 
 	/**
@@ -45,49 +54,53 @@ class Pronamic_WP_Pay_Plugin {
 	 */
 	public function __construct() {
 		// Bootstrap the add-ons
-		Pronamic_WP_Pay_Extensions_Charitable_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_Give_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_ClassiPress_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_Charitable_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_Give_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_ClassiPress_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
 		\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
-		Pronamic_WP_Pay_Extensions_RCP_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
+		\Pronamic_WP_Pay_Extensions_RCP_Extension::bootstrap();
+
+		// Settings
+		$this->settings = new Settings( $this );
 
 		// Data Stores
-		$this->payments_data_store      = new \Pronamic\WordPress\Pay\Payments\PaymentsDataStoreCPT();
-		$this->subscriptions_data_store = new \Pronamic\WordPress\Pay\Subscriptions\SubscriptionsDataStoreCPT();
+		$this->payments_data_store      = new Payments\PaymentsDataStoreCPT();
+		$this->subscriptions_data_store = new Subscriptions\SubscriptionsDataStoreCPT();
 
 		// Post Types
-		$this->post_types = new Pronamic_WP_Pay_PostTypes();
-		$this->gateway_post_type = new Pronamic_WP_Pay_GatewayPostType();
+		$this->gateway_post_type      = new GatewayPostType();
+		$this->payment_post_type      = new PaymentPostType();
+		$this->subscription_post_type = new SubscriptionPostType();
 
 		// License
-		$this->license_manager = new Pronamic_WP_Pay_LicenseManager();
+		$this->license_manager = new LicenseManager( $this );
 
 		// Modules
-		$this->forms_module         = new \Pronamic\WordPress\Pay\Forms\FormsModule( $this );
-		$this->subscriptions_module = new \Pronamic\WordPress\Pay\Subscriptions\SubscriptionsModule( $this );
+		$this->forms_module         = new Forms\FormsModule( $this );
+		$this->subscriptions_module = new Subscriptions\SubscriptionsModule( $this );
 
 		// Payment Status Checker
-		$this->payment_status_checker = new Pronamic_WP_Pay_PaymentStatusChecker();
+		$this->payment_status_checker = new \Pronamic_WP_Pay_PaymentStatusChecker();
 
 		// Google Analytics Ecommerce
-		$this->google_analytics_ecommerce = new Pronamic_WP_Pay_GoogleAnalyticsEcommerce();
+		$this->google_analytics_ecommerce = new \Pronamic_WP_Pay_GoogleAnalyticsEcommerce();
 
 		// Admin
 		if ( is_admin() ) {
-			$this->admin = new \Pronamic\WordPress\Pay\Admin\AdminModule( $this );
+			$this->admin = new Admin\AdminModule( $this );
 		}
 
 		/*
@@ -130,6 +143,14 @@ class Pronamic_WP_Pay_Plugin {
 		return $pronamic_pay_version;
 	}
 
+	public function get_file() {
+		return $this->file;
+	}
+
+	public function get_plugin_dir_path() {
+		return plugin_dir_path( $this->get_file() );
+	}
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -161,23 +182,23 @@ class Pronamic_WP_Pay_Plugin {
 		$page_id = null;
 
 		switch ( $payment->status ) {
-			case Pronamic_WP_Pay_Statuses::CANCELLED :
+			case \Pronamic_WP_Pay_Statuses::CANCELLED :
 				$page_id = pronamic_pay_get_page_id( 'cancel' );
 
 				break;
-			case Pronamic_WP_Pay_Statuses::EXPIRED :
+			case \Pronamic_WP_Pay_Statuses::EXPIRED :
 				$page_id = pronamic_pay_get_page_id( 'expired' );
 
 				break;
-			case Pronamic_WP_Pay_Statuses::FAILURE :
+			case \Pronamic_WP_Pay_Statuses::FAILURE :
 				$page_id = pronamic_pay_get_page_id( 'error' );
 
 				break;
-			case Pronamic_WP_Pay_Statuses::OPEN :
+			case \Pronamic_WP_Pay_Statuses::OPEN :
 				$page_id = pronamic_pay_get_page_id( 'unknown' );
 
 				break;
-			case Pronamic_WP_Pay_Statuses::SUCCESS :
+			case \Pronamic_WP_Pay_Statuses::SUCCESS :
 				$page_id = pronamic_pay_get_page_id( 'completed' );
 
 				break;
@@ -203,7 +224,7 @@ class Pronamic_WP_Pay_Plugin {
 			return;
 		}
 
-		$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+		$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
 
 		if ( empty( $gateway ) ) {
 			return;
@@ -212,7 +233,7 @@ class Pronamic_WP_Pay_Plugin {
 		$amount = $payment->get_amount();
 
 		if ( empty( $amount ) ) {
-			$payment->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+			$payment->set_status( \Pronamic_WP_Pay_Statuses::SUCCESS );
 		} else {
 			$gateway->update_status( $payment );
 
@@ -227,7 +248,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		$pronamic_ideal->payments_data_store->update( $payment );
 
-		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
+		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
 			$can_redirect = false;
 		}
 
@@ -354,7 +375,7 @@ class Pronamic_WP_Pay_Plugin {
 
 				nocache_headers();
 
-				include Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-message.php';
+				include \Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-message.php';
 
 				exit;
 			}
@@ -412,7 +433,7 @@ class Pronamic_WP_Pay_Plugin {
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
 		// Gateway Integrations
-		$this->gateway_integrations = new Pronamic_WP_Pay_GatewayIntegrations();
+		$this->gateway_integrations = new \Pronamic_WP_Pay_GatewayIntegrations();
 
 		$this->register_gateway_integrations();
 
@@ -424,7 +445,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations = array();
 
 		// ABN AMRO iDEAL Easy
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
 		$integration->set_id( 'abnamro-ideal-easy' );
 		$integration->set_name( 'ABN AMRO - iDEAL Easy' );
 		$integration->url           = 'https://internetkassa.abnamro.nl/';
@@ -435,7 +456,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - iDEAL Only Kassa
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
 		$integration->set_id( 'abnamro-ideal-only-kassa' );
 		$integration->set_name( 'ABN AMRO - iDEAL Only Kassa' );
 		$integration->url           = 'https://internetkassa.abnamro.nl/';
@@ -446,7 +467,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - Internetkassa
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
 		$integration->set_id( 'abnamro-internetkassa' );
 		$integration->set_name( 'ABN AMRO - Internetkassa' );
 		$integration->url           = 'https://internetkassa.abnamro.nl/';
@@ -457,7 +478,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - iDEAL Zelfbouw (v3)
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'abnamro-ideal-zelfbouw-v3' );
 		$integration->set_name( 'ABN AMRO - iDEAL Zelfbouw (v3)' );
 		$integration->url           = 'https://abnamro.ideal-payment.de/';
@@ -471,12 +492,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Buckaroo
-		$integration = new Pronamic_WP_Pay_Gateways_Buckaroo_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Buckaroo_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Deutsche Bank - iDEAL via Ogone
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
 		$integration->set_id( 'deutschebank-ideal-via-ogone' );
 		$integration->set_name( 'Deutsche Bank - iDEAL via Ogone' );
 		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
@@ -485,7 +506,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Deutsche Bank - iDEAL Expert (v3)
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'deutschebank-ideal-expert-v3' );
 		$integration->set_name( 'Deutsche Bank - iDEAL Expert (v3)' );
 		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
@@ -498,12 +519,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// EMS e-Commerce Gateway
-		$integration = new Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_EMS_ECommerce_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Fibonacci ORANGE
-		$integration = new Pronamic_WP_Pay_Gateways_Icepay_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Icepay_Integration();
 		$integration->set_id( 'fibonacciorange' );
 		$integration->set_name( 'Fibonacci ORANGE' );
 		$integration->product_url = 'http://www.fibonacciorange.nl/';
@@ -512,12 +533,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ICEPAY
-		$integration = new Pronamic_WP_Pay_Gateways_Icepay_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Icepay_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// iDEAL Simulator - iDEAL Lite / Basic
-		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
 		$integration->set_id( 'ideal-simulator-ideal-basic' );
 		$integration->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
 		$integration->provider = 'ideal-simulator';
@@ -525,7 +546,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'ideal-simulator-ideal-advanced-v3' );
 		$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
 		$integration->provider    = 'ideal-simulator';
@@ -534,7 +555,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - iDEAL Basic
-		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
 		$integration->set_id( 'ing-ideal-basic' );
 		$integration->set_name( 'ING - iDEAL Basic' );
 		$integration->provider      = 'ing';
@@ -547,7 +568,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - iDEAL Advanced (v3)
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'ing-ideal-advanced-v3' );
 		$integration->set_name( 'ING - iDEAL Advanced (v3)' );
 		$integration->provider      = 'ing';
@@ -560,7 +581,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - Kassa Compleet
-		$integration = new Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_ING_KassaCompleet_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -570,12 +591,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Mollie - iDEAL
-		$integration = new Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Mollie_IDeal_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Mollie - iDEAL Basic
-		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
 		$integration->set_id( 'mollie-ideal-basic' );
 		$integration->set_name( 'Mollie - iDEAL Basic' );
 		$integration->dashboard_url = 'http://www.mollie.nl/beheer/';
@@ -585,22 +606,22 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// MultiSafepay
-		$integration = new Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Ogone - DirectLink
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_DirectLink_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Ogone - OrderStandard
-		$integration = new Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandard_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// OmniKassa
-		$integration = new Pronamic_WP_Pay_Gateways_OmniKassa_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_OmniKassa_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -610,7 +631,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Pay.nl
-		$integration = new Pronamic_WP_Pay_Gateways_PayNL_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_PayNL_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -625,7 +646,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Postcode iDEAL
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'postcode-ideal' );
 		$integration->set_name( 'Postcode iDEAL' );
 		$integration->provider      = 'postcode.nl';
@@ -646,7 +667,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Rabobank - iDEAL Professional (v3)
-		$integration = new Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
 		$integration->set_id( 'rabobank-ideal-professional-v3' );
 		$integration->set_name( 'Rabobank - iDEAL Professional (v3)' );
 		$integration->provider      = 'rabobank';
@@ -659,12 +680,12 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Sisow
-		$integration = new Pronamic_WP_Pay_Gateways_Sisow_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_Sisow_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Sisow - iDEAL Basic
-		$integration = new Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_IDealBasic_Integration();
 		$integration->set_id( 'sisow-ideal-basic' );
 		$integration->set_name( 'Sisow - iDEAL Basic' );
 		$integration->url           = 'https://www.sisow.nl/';
@@ -675,7 +696,7 @@ class Pronamic_WP_Pay_Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// TargetPay
-		$integration = new Pronamic_WP_Pay_Gateways_TargetPay_Integration();
+		$integration = new \Pronamic_WP_Pay_Gateways_TargetPay_Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -684,7 +705,7 @@ class Pronamic_WP_Pay_Plugin {
 
 		// Register config providers
 		foreach ( $integrations as $integration ) {
-			Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
+			\Pronamic_WP_Pay_ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
 		}
 	}
 
@@ -763,16 +784,16 @@ class Pronamic_WP_Pay_Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
-				case Pronamic_WP_Pay_PaymentMethods::ALIPAY :
+				case \Pronamic_WP_Pay_PaymentMethods::ALIPAY :
 					$gateways[] = 'multisafepay-connect';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::BUNQ :
+				case \Pronamic_WP_Pay_PaymentMethods::BUNQ :
 					$gateways[] = 'sisow-ideal';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
-				case Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
+				case \Pronamic_WP_Pay_PaymentMethods::BANCONTACT :
+				case \Pronamic_WP_Pay_PaymentMethods::MISTER_CASH :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
@@ -787,19 +808,19 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'ing-kassa-compleet';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::BELFIUS :
+				case \Pronamic_WP_Pay_PaymentMethods::BELFIUS :
 					$gateways[] = 'mollie';
 					$gateways[] = 'multisafepay-connect';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
+				case \Pronamic_WP_Pay_PaymentMethods::BANK_TRANSFER :
 					$gateways[] = 'ing-kassa-compleet';
 					$gateways[] = 'mollie';
 					$gateways[] = 'multisafepay-connect';
 					$gateways[] = 'sisow-ideal';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
+				case \Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'icepay-ideal';
@@ -813,45 +834,45 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'sisow-ideal';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_BANCONTACT :
+				case \Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_BANCONTACT :
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
+				case \Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_IDEAL :
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_SOFORT :
+				case \Pronamic_WP_Pay_PaymentMethods::DIRECT_DEBIT_SOFORT :
 					$gateways[] = 'mollie';
 					$gateways[] = 'qantani-mollie';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::GIROPAY :
+				case \Pronamic_WP_Pay_PaymentMethods::GIROPAY :
 					$gateways[] = 'multisafepay-connect';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::IDEALQR :
+				case \Pronamic_WP_Pay_PaymentMethods::IDEALQR :
 					$gateways[] = 'multisafepay-connect';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::KBC :
+				case \Pronamic_WP_Pay_PaymentMethods::KBC :
 					$gateways[] = 'mollie';
 					$gateways[] = 'multisafepay-connect';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::MAESTRO :
+				case \Pronamic_WP_Pay_PaymentMethods::MAESTRO :
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'rabobank-omnikassa';
 					$gateways[] = 'rabobank-omnikassa-2';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::PAYCONIQ :
+				case \Pronamic_WP_Pay_PaymentMethods::PAYCONIQ :
 					$gateways[] = 'ing-kassa-compleet';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::PAYPAL :
+				case \Pronamic_WP_Pay_PaymentMethods::PAYPAL :
 					$gateways[] = 'buckaroo';
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'ing-kassa-compleet';
@@ -861,7 +882,7 @@ class Pronamic_WP_Pay_Plugin {
 					$gateways[] = 'sisow-ideal';
 
 					break;
-				case Pronamic_WP_Pay_PaymentMethods::SOFORT :
+				case \Pronamic_WP_Pay_PaymentMethods::SOFORT :
 					$gateways[] = 'ems-ecommerce';
 					$gateways[] = 'mollie';
 					$gateways[] = 'multisafepay-connect';
@@ -880,7 +901,7 @@ class Pronamic_WP_Pay_Plugin {
 			);
 		}
 
-		$query = new WP_Query( $args );
+		$query = new \WP_Query( $args );
 
 		$options = array( __( '— Select Configuration —', 'pronamic_ideal' ) );
 
@@ -913,7 +934,7 @@ class Pronamic_WP_Pay_Plugin {
 			return;
 		}
 
-		Pronamic_WP_Pay_PaymentMethods::update_active_payment_methods();
+		\Pronamic_WP_Pay_PaymentMethods::update_active_payment_methods();
 	}
 
 	/**
@@ -927,7 +948,7 @@ class Pronamic_WP_Pay_Plugin {
 		}
 
 		foreach ( $errors as $error ) {
-			include Pronamic_WP_Pay_Plugin::$dirname . '/views/error.php';
+			include \Pronamic_WP_Pay_Plugin::$dirname . '/views/error.php';
 		}
 	}
 
@@ -936,7 +957,7 @@ class Pronamic_WP_Pay_Plugin {
 		$mode       = get_post_meta( $config_id, '_pronamic_gateway_mode', true );
 		$is_utf8    = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
 
-		$config = Pronamic_WP_Pay_ConfigProvider::get_config( $gateway_id, $config_id );
+		$config = \Pronamic_WP_Pay_ConfigProvider::get_config( $gateway_id, $config_id );
 
 		switch ( $gateway_id ) {
 			case 'abnamro-ideal-easy' :
@@ -1031,13 +1052,13 @@ class Pronamic_WP_Pay_Plugin {
 				break;
 		}
 
-		$gateway = Pronamic_WP_Pay_GatewayFactory::create( $config );
+		$gateway = \Pronamic_WP_Pay_GatewayFactory::create( $config );
 
 		return $gateway;
 	}
 
-	public static function start( $config_id, Pronamic_WP_Pay_Gateway $gateway, Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
-		$payment = new Pronamic_WP_Pay_Payment();
+	public static function start( $config_id, \Pronamic_WP_Pay_Gateway $gateway, \Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
+		$payment = new \Pronamic_WP_Pay_Payment();
 
 		$payment->title               = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
 		$payment->user_id             = $data->get_user_id();
@@ -1087,9 +1108,34 @@ class Pronamic_WP_Pay_Plugin {
 		$gateway->payment( $payment );
 
 		if ( $gateway->supports( 'payment_status_request' ) ) {
-			Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
+			\Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
 		}
 
 		return $payment;
+	}
+
+	/**
+	 * Get pages.
+	 *
+	 * @return array
+	 */
+	public function get_pages() {
+		$return = array();
+
+		$pages = array(
+			'completed' => __( 'Completed', 'pronamic_ideal' ),
+			'cancel'    => __( 'Canceled', 'pronamic_ideal' ),
+			'expired'   => __( 'Expired', 'pronamic_ideal' ),
+			'error'     => __( 'Error', 'pronamic_ideal' ),
+			'unknown'   => __( 'Unknown', 'pronamic_ideal' ),
+		);
+
+		foreach ( $pages as $key => $label ) {
+			$id = sprintf( 'pronamic_pay_%s_page_id', $key );
+
+			$return[ $id ] = $label;
+		}
+
+		return $return;
 	}
 }

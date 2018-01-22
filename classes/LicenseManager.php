@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay;
+
 /**
  * Title: WordPress iDEAL admin
  * Description:
@@ -9,11 +11,15 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_LicenseManager {
+class LicenseManager {
+	private $plugin;
+
 	/**
 	 * Constructs and initalize an license manager object.
 	 */
-	public function __construct() {
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
+
 		// Actions
 		add_action( 'pronamic_pay_license_check', array( $this, 'license_check_event' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
@@ -32,7 +38,7 @@ class Pronamic_WP_Pay_LicenseManager {
 		$data = get_transient( 'pronamic_pay_license_data' );
 
 		if ( $data ) {
-			include plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-license.php';
+			include $this->plugin->get_plugin_dir_path() . 'admin/notice-license.php';
 
 			delete_transient( 'pronamic_pay_license_data' );
 		}

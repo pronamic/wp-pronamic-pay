@@ -19,9 +19,7 @@ class AdminModule {
 	public function __construct( $plugin ) {
 		$this->plugin   = $plugin;
 
-		$this->settings = new \Pronamic_WP_Pay_Settings();
-
-		$this->install   = new Install( $this );
+		$this->install  = new Install( $this );
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -34,6 +32,7 @@ class AdminModule {
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
 		// Modules
+		$this->settings  = new AdminSettings( $plugin );
 		$this->about     = new AdminAboutPage( $plugin, $this );
 		$this->dashboard = new AdminDashboard( $plugin );
 		$this->notices   = new AdminNotices( $plugin );

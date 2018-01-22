@@ -75,6 +75,15 @@ if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) {
 /**
  * Bootstrap
  */
+\Pronamic\WordPress\Pay\Plugin::instance( __FILE__ );
+
+function pronamic_pay_plugin() {
+	return \Pronamic\WordPress\Pay\Plugin::instance();
+}
+
+/**
+ * Backward compatibility
+ */
 global $pronamic_ideal;
 
-$pronamic_ideal = Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
+$pronamic_ideal = pronamic_pay_plugin();

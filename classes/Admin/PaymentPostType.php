@@ -524,29 +524,4 @@ class PaymentPostType {
 
 		return $messages;
 	}
-
-	/**
-	 * Get capabilities for this post type.
-	 *
-	 * @return array
-	 */
-	public static function get_capabilities() {
-		return array(
-			'edit_post'              => 'edit_payment',
-			'read_post'              => 'read_payment',
-			'delete_post'            => 'delete_payment',
-			'edit_posts'             => 'edit_payments',
-			'edit_others_posts'      => 'edit_others_payments',
-			'publish_posts'          => 'publish_payments',
-			'read_private_posts'     => 'read_private_payments',
-			'read'                   => 'read',
-			'delete_posts'           => 'delete_payments',
-			'delete_private_posts'   => 'delete_private_payments',
-			'delete_published_posts' => 'delete_published_payments',
-			'delete_others_posts'    => 'delete_others_payments',
-			'edit_private_posts'     => 'edit_private_payments',
-			'edit_published_posts'   => 'edit_published_payments',
-			'create_posts'           => 'create_payments',
-		);
-	}
 }
