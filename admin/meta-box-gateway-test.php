@@ -238,16 +238,17 @@ if ( $gateway ) {
 					</div>
 				</td>
 			</tr>
-			<tr>
-				<td>
-
-				</td>
-				<td>
-					<?php submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false ); ?>
-				</td>
-			</tr>
 
 		<?php endif; ?>
+
+		<tr>
+			<td>
+
+			</td>
+			<td>
+				<?php submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false ); ?>
+			</td>
+		</tr>
 
 	</table>
 
