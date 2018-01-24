@@ -1,6 +1,8 @@
 <?php
 
-$states = Pronamic_WP_Pay_Plugin::get_payment_states();
+use Pronamic\WordPress\Pay\Plugin;
+
+$states = Plugin::get_payment_states();
 
 ?>
 <div class="pronamic-pay-inner">
@@ -29,7 +31,7 @@ $states = Pronamic_WP_Pay_Plugin::get_payment_states();
 	 */
 	$config_id = get_post_meta( $post->ID, '_pronamic_payment_config_id', true );
 
-	$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+	$gateway = Plugin::get_gateway( $config_id );
 
 	if ( $gateway && $gateway->supports( 'payment_status_request' ) ) {
 		// Only show button if gateway exists and status check is supported.

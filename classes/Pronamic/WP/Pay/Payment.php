@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+
 /**
  * Title: WordPress payment data
  * Description:
@@ -399,7 +401,7 @@ class Pronamic_WP_Pay_Payment {
 	/**
 	 * Get subscription.
 	 *
-	 * @return Pronamic_WP_Pay_Subscription
+	 * @return Subscription
 	 */
 	public function get_subscription() {
 		if ( is_object( $this->subscription ) ) {
@@ -410,7 +412,7 @@ class Pronamic_WP_Pay_Payment {
 			return false;
 		}
 
-		$this->subscription = new Pronamic_WP_Pay_Subscription( $this->subscription_id );
+		$this->subscription = new Subscription( $this->subscription_id );
 
 		return $this->subscription;
 	}

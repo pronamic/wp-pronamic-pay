@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Payments\PaymentData;
+
 /**
  * Title: WordPress payment test data
  * Description:
@@ -9,7 +11,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_PaymentTestData extends Pronamic_WP_Pay_PaymentData {
+class Pronamic_WP_Pay_PaymentTestData extends PaymentData {
 	/**
 	 * WordPress uer
 	 *

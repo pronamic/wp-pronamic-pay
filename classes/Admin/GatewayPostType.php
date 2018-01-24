@@ -205,7 +205,7 @@ class GatewayPostType {
 	public function meta_box_config( $post ) {
 		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-config.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
 	/**
@@ -214,7 +214,7 @@ class GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_test( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-gateway-test.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
 
 	//////////////////////////////////////////////////

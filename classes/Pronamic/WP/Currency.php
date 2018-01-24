@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress currency class
  * Description:
@@ -19,7 +21,7 @@ class Pronamic_WP_Currency {
 	public static function transform_code_to_number( $code ) {
 		$currencies = array();
 
-		$file = dirname( Pronamic_WP_Pay_Plugin::$file ) . '/other/dl_iso_table_a1.xml';
+		$file = dirname( Plugin::$file ) . '/other/dl_iso_table_a1.xml';
 
 		$xml = simplexml_load_file( $file );
 

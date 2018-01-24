@@ -56,7 +56,7 @@ class FormProcessor {
 
 		$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
-		$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+		$gateway = \Pronamic\WordPress\Pay\Plugin::get_gateway( $config_id );
 
 		if ( ! $gateway ) {
 			return;
@@ -65,12 +65,12 @@ class FormProcessor {
 		// Data
 		$data = new PaymentFormData();
 
-		$payment = \Pronamic_WP_Pay_Plugin::start( $config_id, $gateway, $data );
+		$payment = \Pronamic\WordPress\Pay\Plugin::start( $config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
 		if ( is_wp_error( $error ) ) {
-			\Pronamic_WP_Pay_Plugin::render_errors( $error );
+			\Pronamic\WordPress\Pay\Plugin::render_errors( $error );
 
 			exit;
 		}

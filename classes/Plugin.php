@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay;
 
+use Pronamic_WP_Pay_Payment;
+
 /**
  * Title: WordPress iDEAL plugin
  * Description:
@@ -42,7 +44,7 @@ class Plugin {
 			self::$instance = new self( $file );
 
 			// Backward compatibility
-			self::$file = $file;
+			self::$file    = $file;
 			self::$dirname = dirname( $file );
 		}
 
@@ -158,6 +160,7 @@ class Plugin {
 	 *
 	 * @param array $clauses
 	 * @param WP_Comment_Query $query
+	 *
 	 * @return array
 	 */
 	public function exclude_comment_notes( $clauses, $query ) {
@@ -174,8 +177,9 @@ class Plugin {
 	/**
 	 * Payment redirect URL filter.
 	 *
-	 * @param string                  $url
+	 * @param string $url
 	 * @param Pronamic_WP_Pay_Payment $payment
+	 *
 	 * @return string
 	 */
 	public function payment_redirect_url( $url, $payment ) {
@@ -224,7 +228,7 @@ class Plugin {
 			return;
 		}
 
-		$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+		$gateway = Plugin::get_gateway( $payment->config_id );
 
 		if ( empty( $gateway ) ) {
 			return;
@@ -375,13 +379,13 @@ class Plugin {
 
 				nocache_headers();
 
-				include \Pronamic_WP_Pay_Plugin::$dirname . '/views/redirect-message.php';
+				include Plugin::$dirname . '/views/redirect-message.php';
 
 				exit;
 			}
 
 			if ( '' !== $payment->config_id ) {
-				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $payment->config_id );
+				$gateway = Plugin::get_gateway( $payment->config_id );
 
 				if ( null !== $gateway && $gateway->is_html_form() ) {
 					$gateway->start( $payment );
@@ -389,7 +393,7 @@ class Plugin {
 					$error = $gateway->get_error();
 
 					if ( is_wp_error( $error ) ) {
-						Pronamic_WP_Pay_Plugin::render_errors( $error );
+						Plugin::render_errors( $error );
 					} else {
 						$gateway->redirect( $payment );
 					}
@@ -500,8 +504,8 @@ class Plugin {
 		$integration = new \Pronamic_WP_Pay_Gateways_Ogone_OrderStandardEasy_Integration();
 		$integration->set_id( 'deutschebank-ideal-via-ogone' );
 		$integration->set_name( 'Deutsche Bank - iDEAL via Ogone' );
-		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
-		$integration->provider      = 'deutschebank';
+		$integration->product_url = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
+		$integration->provider    = 'deutschebank';
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -639,9 +643,9 @@ class Plugin {
 		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
 		$integration->set_id( 'paytor' );
 		$integration->set_name( 'Paytor' );
-		$integration->url           = 'http://paytor.com/';
-		$integration->product_url   = 'http://paytor.com/';
-		$integration->provider      = 'paytor';
+		$integration->url         = 'http://paytor.com/';
+		$integration->product_url = 'http://paytor.com/';
+		$integration->provider    = 'paytor';
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -948,7 +952,7 @@ class Plugin {
 		}
 
 		foreach ( $errors as $error ) {
-			include \Pronamic_WP_Pay_Plugin::$dirname . '/views/error.php';
+			include Plugin::$dirname . '/views/error.php';
 		}
 	}
 
@@ -1103,7 +1107,7 @@ class Plugin {
 			}
 		}
 
-		$pronamic_ideal->payments_data_store->update( $payment );		
+		$pronamic_ideal->payments_data_store->update( $payment );
 
 		$gateway->payment( $payment );
 

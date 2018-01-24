@@ -1,5 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Subscriptions;
+
+use Pronamic_IDeal_Item;
+use Pronamic_IDeal_Items;
+use Pronamic\WordPress\Pay\Payments\PaymentData;
+
 /**
  * Title: WordPress recurring payment data
  * Description:
@@ -9,14 +15,14 @@
  * @author Reüel van der Steege
  * @version 1.0
  */
-class Pronamic_WP_Pay_RecurringPaymentData extends Pronamic_WP_Pay_PaymentData {
+class RecurringPaymentData extends PaymentData {
 	/**
 	 * Constructs and intializes an WordPress iDEAL data proxy
 	 */
 	public function __construct( $subscription_id, $recurring ) {
 		parent::__construct();
 
-		$this->subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+		$this->subscription = new Subscription( $subscription_id );
 		$this->payment      = $this->subscription->get_first_payment();
 		$this->recurring    = $recurring;
 	}

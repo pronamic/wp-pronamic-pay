@@ -229,7 +229,7 @@ class FormPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_form_options( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-form-options.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-form-options.php';
 	}
 
 	/**

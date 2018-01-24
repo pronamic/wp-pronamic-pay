@@ -1,5 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
+use Pronamic_Pay_AbstractPaymentData;
+use Pronamic_WP_Pay_GoogleAnalyticsEcommerce;
+use WP_User;
+
 /**
  * Title: WordPress payment data
  * Description:
@@ -9,7 +15,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class Pronamic_WP_Pay_PaymentData extends Pronamic_Pay_AbstractPaymentData {
+abstract class PaymentData extends Pronamic_Pay_AbstractPaymentData {
 	/**
 	 * The current user
 	 *

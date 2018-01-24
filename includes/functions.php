@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+
 function get_pronamic_payment( $post_id ) {
 	$payment = new Pronamic_WP_Pay_Payment( $post_id );
 
@@ -69,7 +71,7 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
 }
 
 function get_pronamic_subscription( $post_id ) {
-	$subscription = new Pronamic_WP_Pay_Subscription( $post_id );
+	$subscription = new Subscription( $post_id );
 
 	return $subscription;
 }
@@ -94,7 +96,7 @@ function get_pronamic_subscription_by_meta( $meta_key, $meta_value ) {
 	$post_id = $wpdb->get_var( $db_query ); // WPCS: unprepared SQL ok.
 
 	if ( $post_id ) {
-		$subscription = new Pronamic_WP_Pay_Subscription( $post_id );
+		$subscription = new Subscription( $post_id );
 	}
 
 	return $subscription;

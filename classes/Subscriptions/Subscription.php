@@ -1,6 +1,14 @@
 <?php
 
-class Pronamic_WP_Pay_Subscription {
+namespace Pronamic\WordPress\Pay\Subscriptions;
+
+use DateTime;
+use DateTimeZone;
+use Pronamic_IDeal_IDeal;
+use Pronamic_WP_Pay_Statuses;
+use Pronamic_WP_Util;
+
+class Subscription {
 
 	protected $id;
 
@@ -210,7 +218,7 @@ class Pronamic_WP_Pay_Subscription {
 		$payment = $this->get_first_payment();
 
 		if ( $payment ) {
-			$description = apply_filters( 'pronamic_payment_source_description', $description,  $payment );
+			$description = apply_filters( 'pronamic_payment_source_description', $description, $payment );
 			$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $payment );
 		}
 
@@ -534,7 +542,7 @@ class Pronamic_WP_Pay_Subscription {
 			$this->add_note( $note );
 		}
 
-		// Note: make sure Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect ) is called after the status has been updated!
+		// Note: make sure Pronamic\WordPress\Pay\Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect ) is called after the status has been updated!
 	}
 
 	public function update_meta( $meta ) {

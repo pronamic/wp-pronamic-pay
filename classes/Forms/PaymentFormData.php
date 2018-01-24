@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use \Pronamic\WordPress\Pay\Payments\PaymentData;
+
 /**
  * Title: Payment form data
  * Description:
@@ -12,7 +14,7 @@ namespace Pronamic\WordPress\Pay\Forms;
  * @version 4.5.3
  * @since 3.7.0
  */
-class PaymentFormData extends \Pronamic_WP_Pay_PaymentData {
+class PaymentFormData extends PaymentData {
 	/**
 	 * Amount
 	 *

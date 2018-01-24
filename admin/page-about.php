@@ -1,4 +1,7 @@
 <?php
+
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Page about
  */
@@ -67,7 +70,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 	<?php
 
-	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
+	$file = plugin_dir_path( Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
 
 	if ( is_readable( $file ) ) {
 		include $file;

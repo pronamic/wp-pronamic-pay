@@ -2,7 +2,9 @@
 
 global $pronamic_ideal_errors;
 
-$gateway = Pronamic_WP_Pay_Plugin::get_gateway( get_the_ID() );
+use Pronamic\WordPress\Pay\Plugin;
+
+$gateway = Plugin::get_gateway( get_the_ID() );
 
 if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
@@ -35,7 +37,7 @@ if ( $gateway ) {
 		$pronamic_ideal_errors[] = $gateway->get_error();
 	}
 
-	include Pronamic_WP_Pay_Plugin::$dirname . '/views/errors.php';
+	include Plugin::$dirname . '/views/errors.php';
 
 	?>
 	<table class="form-table">
@@ -270,7 +272,7 @@ if ( $gateway ) {
 	<?php
 
 	if ( $is_ideal || $gateway instanceof \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Gateway ) {
-		include Pronamic_WP_Pay_Plugin::$dirname . '/views/ideal-test-cases.php';
+		include Plugin::$dirname . '/views/ideal-test-cases.php';
 	}
 } else {
 	printf(

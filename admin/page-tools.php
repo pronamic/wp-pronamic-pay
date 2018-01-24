@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Plugin;
+
 $tabs = array(
 	'system_status'   => __( 'System Status', 'pronamic_ideal' ),
 	'gateways'        => __( 'Payment Gateways', 'pronamic_ideal' ),
@@ -43,7 +45,7 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 
 	<?php
 
-	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
+	$file = plugin_dir_path( Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
 
 	if ( is_readable( $file ) ) {
 		include $file;

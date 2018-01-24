@@ -47,7 +47,7 @@ class AdminNotices {
 
 		// License notice
 		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
-			$class = \Pronamic_WP_Pay_Plugin::get_number_payments() > 20 ? 'error' : 'updated';
+			$class = \Pronamic\WordPress\Pay\Plugin::get_number_payments() > 20 ? 'error' : 'updated';
 
 			$license = get_option( 'pronamic_pay_license_key' );
 
@@ -77,7 +77,7 @@ class AdminNotices {
 		$notices = get_option( 'pronamic_pay_admin_notices', array() );
 
 		foreach ( $notices as $name ) {
-			$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'admin/notice-' . $name . '.php';
+			$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/notice-' . $name . '.php';
 
 			if ( is_readable( $file ) ) {
 				include $file;

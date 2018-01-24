@@ -58,6 +58,6 @@ class AdminDashboard {
 			'post_type' => 'pronamic_payment',
 		), admin_url( 'edit.php' ) );
 
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/widget-payments-status-list.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/widget-payments-status-list.php';
 	}
 }

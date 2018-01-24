@@ -56,7 +56,7 @@ class AdminReports {
 
 		wp_register_script(
 			'flot',
-			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array( 'jquery' ),
 			$flot_version,
 			true
@@ -64,7 +64,7 @@ class AdminReports {
 
 		wp_register_script(
 			'flot-time',
-			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot.time' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array( 'flot' ),
 			$flot_version,
 			true
@@ -72,7 +72,7 @@ class AdminReports {
 
 		wp_register_script(
 			'flot-resize',
-			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/flot/jquery.flot.resize' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array( 'flot' ),
 			$flot_version,
 			true
@@ -81,7 +81,7 @@ class AdminReports {
 		// Accounting.js - http://openexchangerates.github.io/accounting.js
 		wp_register_script(
 			'accounting',
-			plugins_url( 'assets/accounting/accounting' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'assets/accounting/accounting' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array( 'jquery' ),
 			'0.4.1',
 			true
@@ -90,7 +90,7 @@ class AdminReports {
 		// Reports
 		wp_register_script(
 			'proanmic-pay-admin-reports',
-			plugins_url( 'js/admin-reports' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'js/admin-reports' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array(
 				'jquery',
 				'flot',

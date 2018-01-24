@@ -51,7 +51,7 @@ class AdminTour {
 		// Pointers
 		wp_register_style(
 			'proanmic-pay-admin-tour',
-			plugins_url( 'css/admin-tour' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'css/admin-tour' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array(
 				'wp-pointer',
 			),
@@ -60,7 +60,7 @@ class AdminTour {
 
 		wp_register_script(
 			'proanmic-pay-admin-tour',
-			plugins_url( 'js/admin-tour' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'js/admin-tour' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array(
 				'jquery',
 				'wp-pointer',
@@ -86,7 +86,7 @@ class AdminTour {
 	 * Get pointer content
 	 */
 	private function get_content( $file ) {
-		$path = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'admin/' . $file . '.php';
+		$path = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/' . $file . '.php';
 
 		if ( is_readable( $path ) ) {
 			ob_start();

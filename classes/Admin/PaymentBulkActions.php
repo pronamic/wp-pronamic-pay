@@ -97,7 +97,7 @@ class PaymentBulkActions {
 			$config_id = $payment->config_id;
 
 			if ( ! isset( $gateways[ $config_id ] ) ) {
-				$gateways[ $config_id ] = \Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+				$gateways[ $config_id ] = \Pronamic\WordPress\Pay\Plugin::get_gateway( $config_id );
 
 				if ( $gateways[ $config_id ] && ! $gateways[ $config_id ]->supports( 'payment_status_request' ) ) {
 					$unsupported_gateways[] = $config_id;
@@ -108,7 +108,7 @@ class PaymentBulkActions {
 				continue;
 			}
 
-			\Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+			\Pronamic\WordPress\Pay\Plugin::update_payment( $payment, false );
 
 			$status_updated++;
 		}

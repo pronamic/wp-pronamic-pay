@@ -72,7 +72,7 @@ class PaymentPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( \Pronamic_WP_Pay_Plugin::get_payment_states() );
+				$vars['post_status'] = array_keys( \Pronamic\WordPress\Pay\Plugin::get_payment_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
@@ -102,7 +102,7 @@ class PaymentPostType {
 		if ( filter_has_var( INPUT_GET, 'pronamic_pay_check_status' ) && check_admin_referer( 'pronamic_payment_check_status_' . $post_id ) ) {
 			$payment = get_pronamic_payment( $post_id );
 
-			\Pronamic_WP_Pay_Plugin::update_payment( $payment, false );
+			\Pronamic\WordPress\Pay\Plugin::update_payment( $payment, false );
 
 			$this->admin_notices[] = array(
 				'type'    => 'info',
@@ -379,7 +379,7 @@ class PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-info.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-info.php';
 	}
 
 	/**
@@ -388,7 +388,7 @@ class PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-log.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-log.php';
 	}
 
 	/**
@@ -397,7 +397,7 @@ class PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_subscription( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
 	}
 
 	/**
@@ -408,7 +408,7 @@ class PaymentPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_payment_update', 'pronamic_payment_update_nonce' );
 
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-payment-update.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-update.php';
 	}
 
 	//////////////////////////////////////////////////

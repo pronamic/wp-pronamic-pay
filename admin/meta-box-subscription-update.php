@@ -1,6 +1,8 @@
 <?php
 
-$states = Pronamic_WP_Pay_Plugin::get_subscription_states();
+use Pronamic\WordPress\Pay\Plugin;
+
+$states = Plugin::get_subscription_states();
 
 ?>
 <div class="pronamic-pay-inner">

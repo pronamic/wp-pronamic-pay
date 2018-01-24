@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: Subscriptions module
  * Description:
@@ -87,7 +89,7 @@ class SubscriptionsModule {
 				break;
 			case 'renew':
 				$first   = $subscription->get_first_payment();
-				$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+				$gateway = Plugin::get_gateway( $first->config_id );
 
 				if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $subscription->get_status() ) {
 					$payment = $this->start_recurring( $subscription, $gateway, true );
@@ -107,9 +109,9 @@ class SubscriptionsModule {
 	public function start_recurring( Pronamic_Pay_Subscription $subscription, Pronamic_WP_Pay_Gateway $gateway, $renewal = false ) {
 		$recurring = ! $renewal;
 		$first     = $subscription->get_first_payment();
-		$data      = new Pronamic_WP_Pay_RecurringPaymentData( $subscription->get_id(), $recurring );
+		$data      = new RecurringPaymentData( $subscription->get_id(), $recurring );
 
-		$payment = Pronamic_WP_Pay_Plugin::start( $first->config_id, $gateway, $data, $first->method );
+		$payment = Plugin::start( $first->config_id, $gateway, $data, $first->method );
 
 		return $payment;
 	}
@@ -187,7 +189,7 @@ class SubscriptionsModule {
 		}
 
 		// New subscription
-		$subscription = new \Pronamic_WP_Pay_Subscription();
+		$subscription = new Subscription();
 
 		$subscription->user_id         = $payment->user_id;
 		$subscription->title           = sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $payment->title );
@@ -289,9 +291,9 @@ class SubscriptionsModule {
 		$query = new WP_Query( $args );
 
 		foreach ( $query->posts as $post ) {
-			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
+			$subscription = new Subscription( $post->ID );
 			$first        = $subscription->get_first_payment();
-			$gateway      = Pronamic_WP_Pay_Plugin::get_gateway( $first->config_id );
+			$gateway      = Plugin::get_gateway( $first->config_id );
 
 			$payment = self::start_recurring( $subscription, $gateway );
 
@@ -329,7 +331,7 @@ class SubscriptionsModule {
 		$query = new WP_Query( $args );
 
 		foreach ( $query->posts as $post ) {
-			$subscription = new Pronamic_WP_Pay_Subscription( $post->ID );
+			$subscription = new Subscription( $post->ID );
 
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
@@ -358,7 +360,7 @@ class SubscriptionsModule {
 	 * @param string $subscription_id
 	 */
 	public function subscription_completed( $subscription_id ) {
-		$subscription = new Pronamic_WP_Pay_Subscription( $subscription_id );
+		$subscription = new Subscription( $subscription_id );
 
 		if ( ! isset( $subscription->post ) ) {
 			return;

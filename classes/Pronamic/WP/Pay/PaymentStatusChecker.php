@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress payment status checker
  * Description:
@@ -100,7 +102,7 @@ class Pronamic_WP_Pay_PaymentStatusChecker {
 		// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 		// - No status request after a final status has been received for a transaction;
 		if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
-			Pronamic_WP_Pay_Plugin::update_payment( $payment );
+			Plugin::update_payment( $payment );
 
 			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
 				$time = time();

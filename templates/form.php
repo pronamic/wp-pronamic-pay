@@ -2,6 +2,8 @@
 
 global $pronamic_pay_errors;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 $config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
 $button_text = get_post_meta( $id, '_pronamic_payment_form_button_text', true );
@@ -15,7 +17,7 @@ $methods_with_choices = array(
 	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
 );
 
-$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+$gateway = Plugin::get_gateway( $config_id );
 
 $amount_value = '';
 

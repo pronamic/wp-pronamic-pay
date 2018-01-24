@@ -179,7 +179,7 @@ class AdminModule {
 			esc_attr( $name )
 		);
 
-		$options = \Pronamic_WP_Pay_Plugin::get_config_select_options( $args['payment_method'] );
+		$options = \Pronamic\WordPress\Pay\Plugin::get_config_select_options( $args['payment_method'] );
 
 		foreach ( $options as $value => $name ) {
 			$output .= sprintf(
@@ -344,7 +344,7 @@ class AdminModule {
 			// Tippy.js - https://atomiks.github.io/tippyjs/
 			wp_register_script(
 				'tippy.js',
-				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 				array(),
 				'2.0.8',
 				true
@@ -353,21 +353,21 @@ class AdminModule {
 			// Pronamic
 			wp_register_style(
 				'pronamic-pay-icons',
-				plugins_url( 'fonts/pronamic-pay-icons.css', \Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'fonts/pronamic-pay-icons.css', \Pronamic\WordPress\Pay\Plugin::$file ),
 				array(),
 				$this->plugin->get_version()
 			);
 
 			wp_register_style(
 				'pronamic-pay-admin',
-				plugins_url( 'css/admin' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'css/admin' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
 				array( 'pronamic-pay-icons' ),
 				$this->plugin->get_version()
 			);
 
 			wp_register_script(
 				'pronamic-pay-admin',
-				plugins_url( 'js/admin' . $min . '.js', \Pronamic_WP_Pay_Plugin::$file ),
+				plugins_url( 'js/admin' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 				array( 'jquery', 'tippy.js' ),
 				$this->plugin->get_version(),
 				true
@@ -388,7 +388,7 @@ class AdminModule {
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
 			$id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
 
-			$gateway = \Pronamic_WP_Pay_Plugin::get_gateway( $id );
+			$gateway = \Pronamic\WordPress\Pay\Plugin::get_gateway( $id );
 
 			if ( $gateway ) {
 				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
@@ -402,12 +402,12 @@ class AdminModule {
 
 				$payment_method = filter_input( INPUT_POST, 'pronamic_pay_test_payment_method', FILTER_SANITIZE_STRING );
 
-				$payment = \Pronamic_WP_Pay_Plugin::start( $id, $gateway, $data, $payment_method );
+				$payment = \Pronamic\WordPress\Pay\Plugin::start( $id, $gateway, $data, $payment_method );
 
 				$error = $gateway->get_error();
 
 				if ( is_wp_error( $error ) ) {
-					\Pronamic_WP_Pay_Plugin::render_errors( $error );
+					\Pronamic\WordPress\Pay\Plugin::render_errors( $error );
 
 					exit;
 				}
@@ -525,7 +525,7 @@ class AdminModule {
 	public function render_page( $name ) {
 		$result = false;
 
-		$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'admin/page-' . $name . '.php';
+		$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/page-' . $name . '.php';
 
 		if ( is_readable( $file ) ) {
 			include $file;

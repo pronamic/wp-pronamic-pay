@@ -59,7 +59,7 @@ class FormsModule {
 	 * @return string
 	 */
 	public function get_form_output( $id ) {
-		$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'templates/form.php';
+		$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'templates/form.php';
 
 		ob_start();
 

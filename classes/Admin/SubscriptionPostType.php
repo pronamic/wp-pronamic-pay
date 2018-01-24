@@ -54,7 +54,7 @@ class SubscriptionPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( \Pronamic_WP_Pay_Plugin::get_subscription_states() );
+				$vars['post_status'] = array_keys( \Pronamic\WordPress\Pay\Plugin::get_subscription_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
@@ -284,7 +284,7 @@ class SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-info.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-info.php';
 	}
 
 	/**
@@ -293,7 +293,7 @@ class SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_log( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-log.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-log.php';
 	}
 
 	/**
@@ -302,7 +302,7 @@ class SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_payments( $post ) {
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-payments.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-payments.php';
 	}
 
 	/**
@@ -313,7 +313,7 @@ class SubscriptionPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' );
 
-		include \Pronamic_WP_Pay_Plugin::$dirname . '/admin/meta-box-subscription-update.php';
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-update.php';
 	}
 
 	//////////////////////////////////////////////////
@@ -383,7 +383,7 @@ class SubscriptionPostType {
 
 			$subscription->update_status( $new_status_meta );
 
-			\Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect );
+			\Pronamic\WordPress\Pay\Plugin::update_subscription( $subscription, $can_redirect );
 
 			add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 

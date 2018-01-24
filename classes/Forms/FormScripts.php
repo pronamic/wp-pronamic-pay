@@ -31,7 +31,7 @@ class FormScripts {
 
 		wp_register_style(
 			'pronamic-pay-forms',
-			plugins_url( 'css/forms' . $min . '.css', \Pronamic_WP_Pay_Plugin::$file ),
+			plugins_url( 'css/forms' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
 			array(),
 			$this->plugin->get_version()
 		);

@@ -173,7 +173,7 @@ class Install {
 		if ( $current_db_version ) {
 			foreach ( $this->db_updates as $version ) {
 				if ( version_compare( $current_db_version, $version, '<' ) ) {
-					$file = plugin_dir_path( \Pronamic_WP_Pay_Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
+					$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
 
 					if ( is_readable( $file ) ) {
 						include $file;

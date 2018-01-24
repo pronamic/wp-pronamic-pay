@@ -1,3 +1,9 @@
+<?php
+
+use Pronamic\WordPress\Pay\Plugin;
+
+?>
+
 <h2><?php esc_html_e( 'Documentation', 'pronamic_ideal' ); ?></h2>
 
 <?php
@@ -630,7 +636,7 @@ $providers = array(
 					$href = null;
 
 					if ( isset( $resource['path'] ) ) {
-						$href = plugins_url( $resource['path'], Pronamic_WP_Pay_Plugin::$file );
+						$href = plugins_url( $resource['path'], Plugin::$file );
 					}
 
 					if ( isset( $resource['url'] ) ) {
