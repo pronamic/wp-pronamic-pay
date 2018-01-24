@@ -1,5 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay;
+
+use DateTime;
+
 /**
  * Title: Credit card class
  * Description:
@@ -9,7 +13,7 @@
  * @author Remco Tolsma
  * @since 1.4.0
  */
-class Pronamic_Pay_CreditCard {
+class CreditCard {
 	/**
 	 * Credit card number
 	 *

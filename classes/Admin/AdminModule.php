@@ -398,7 +398,7 @@ class AdminModule {
 					),
 				) );
 
-				$data = new \Pronamic_WP_Pay_PaymentTestData( wp_get_current_user(), $amount );
+				$data = new \Pronamic\WordPress\Pay\Payments\PaymentTestData( wp_get_current_user(), $amount );
 
 				$payment_method = filter_input( INPUT_POST, 'pronamic_pay_test_payment_method', FILTER_SANITIZE_STRING );
 
@@ -539,19 +539,19 @@ class AdminModule {
 	//////////////////////////////////////////////////
 
 	public function gateway_settings( $classes ) {
-		$classes[] = 'Pronamic_WP_Pay_DefaultGatewaySettings';
-
 		foreach ( $this->plugin->gateway_integrations as $integration ) {
 			$class = $integration->get_settings_class();
 
-			if ( null !== $class ) {
-				if ( is_array( $class ) ) {
-					foreach ( $class as $c ) {
-						$classes[ $c ] = $c;
-					}
-				} else {
-					$classes[ $class ] = $class;
+			if ( null === $class ) {
+				continue;
+			}
+
+			if ( is_array( $class ) ) {
+				foreach ( $class as $c ) {
+					$classes[ $c ] = $c;
 				}
+			} else {
+				$classes[ $class ] = $class;
 			}
 		}
 

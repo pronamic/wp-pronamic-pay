@@ -177,21 +177,21 @@ class SubscriptionPostType {
 				$currency = get_post_meta( $post_id, '_pronamic_subscription_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_subscription_amount', true );
 
-				echo esc_html( \Pronamic_WP_Util::format_price( $amount, $currency ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_subscription_interval':
-				echo esc_html( \Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
 
 				break;
 			case 'pronamic_subscription_frequency':
-				echo esc_html( \Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_recurring':
-				echo esc_html( \Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) );
 				echo '<br />';
-				echo esc_html( \Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_frequency( $subscription->get_frequency() ) );
 
 				break;
 			case 'pronamic_subscription_date':

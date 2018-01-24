@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin gateway post type
  * Description:
@@ -205,7 +207,7 @@ class GatewayPostType {
 	public function meta_box_config( $post ) {
 		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-gateway-config.php';
+		include Plugin::$dirname . '/admin/meta-box-gateway-config.php';
 	}
 
 	/**
@@ -214,7 +216,7 @@ class GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_test( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-gateway-test.php';
+		include Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
 
 	//////////////////////////////////////////////////

@@ -194,7 +194,7 @@ class FormPostType {
 
 				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				echo esc_html( \Pronamic_WP_Util::format_price( $value ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $value ) );
 
 				break;
 			case 'pronamic_payment_form_shortcode' :

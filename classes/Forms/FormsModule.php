@@ -2,6 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Pay\Payments\Payment;
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: Forms module
  * Description:
@@ -59,7 +62,7 @@ class FormsModule {
 	 * @return string
 	 */
 	public function get_form_output( $id ) {
-		$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'templates/form.php';
+		$file = plugin_dir_path( Plugin::$file ) . 'templates/form.php';
 
 		ob_start();
 
@@ -75,10 +78,8 @@ class FormsModule {
 	/**
 	 * Source text
 	 */
-	public function source_text( $text, \Pronamic_WP_Pay_Payment $payment ) {
-		$text  = '';
-
-		$text .= __( 'Payment Form', 'pronamic_ideal' ) . '<br />';
+	public function source_text( $text, Payment $payment ) {
+		$text = __( 'Payment Form', 'pronamic_ideal' ) . '<br />';
 
 		$text .= sprintf(
 			'<a href="%s">%s</a>',

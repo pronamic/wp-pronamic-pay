@@ -2,7 +2,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use Pronamic_WP_Pay_Payment;
+use Pronamic\WordPress\Pay\Payments\Payment;
 
 /**
  * Title: WordPress iDEAL plugin
@@ -95,7 +95,7 @@ class Plugin {
 		$this->subscriptions_module = new Subscriptions\SubscriptionsModule( $this );
 
 		// Payment Status Checker
-		$this->payment_status_checker = new \Pronamic_WP_Pay_PaymentStatusChecker();
+		$this->payment_status_checker = new Payments\StatusChecker();
 
 		// Google Analytics Ecommerce
 		$this->google_analytics_ecommerce = new \Pronamic_WP_Pay_GoogleAnalyticsEcommerce();
@@ -178,7 +178,7 @@ class Plugin {
 	 * Payment redirect URL filter.
 	 *
 	 * @param string $url
-	 * @param Pronamic_WP_Pay_Payment $payment
+	 * @param Payment $payment
 	 *
 	 * @return string
 	 */
@@ -1061,8 +1061,8 @@ class Plugin {
 		return $gateway;
 	}
 
-	public static function start( $config_id, \Pronamic_WP_Pay_Gateway $gateway, \Pronamic_Pay_PaymentDataInterface $data, $payment_method = null ) {
-		$payment = new \Pronamic_WP_Pay_Payment();
+	public static function start( $config_id, \Pronamic_WP_Pay_Gateway $gateway, Payments\PaymentDataInterface $data, $payment_method = null ) {
+		$payment = new Payments\Payment();
 
 		$payment->title               = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
 		$payment->user_id             = $data->get_user_id();
@@ -1112,7 +1112,7 @@ class Plugin {
 		$gateway->payment( $payment );
 
 		if ( $gateway->supports( 'payment_status_request' ) ) {
-			\Pronamic_WP_Pay_PaymentStatusChecker::schedule_event( $payment );
+			Payments\StatusChecker::schedule_event( $payment );
 		}
 
 		return $payment;

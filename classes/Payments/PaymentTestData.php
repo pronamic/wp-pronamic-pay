@@ -1,6 +1,13 @@
 <?php
 
-use Pronamic\WordPress\Pay\Payments\PaymentData;
+namespace Pronamic\WordPress\Pay\Payments;
+
+use Pronamic\WordPress\Pay\CreditCard;
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use Pronamic_IDeal_Item;
+use Pronamic_IDeal_Items;
+use Pronamic_WP_Pay_Util;
+use WP_User;
 
 /**
  * Title: WordPress payment test data
@@ -11,7 +18,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentData;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Pay_PaymentTestData extends PaymentData {
+class PaymentTestData extends PaymentData {
 	/**
 	 * WordPress uer
 	 *
@@ -162,7 +169,7 @@ class Pronamic_WP_Pay_PaymentTestData extends PaymentData {
 		}
 
 		// Subscription
-		$subscription = new Pronamic_Pay_Subscription();
+		$subscription = new Subscription();
 
 		$subscription->currency        = $this->get_currency();
 		$subscription->description     = $this->get_description();
@@ -179,7 +186,7 @@ class Pronamic_WP_Pay_PaymentTestData extends PaymentData {
 	//////////////////////////////////////////////////
 
 	public function get_credit_card() {
-		$credit_card = new Pronamic_Pay_CreditCard();
+		$credit_card = new CreditCard();
 
 		// @see http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm
 		// Test card to simulate a 3-D Secure registered card

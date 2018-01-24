@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Util;
+
 $post_id = get_the_ID();
 
 $post_type = 'pronamic_payment';
@@ -42,7 +44,7 @@ $payment = get_pronamic_payment( $post_id );
 			$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 			$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
-			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+			echo esc_html( Util::format_price( $amount, $currency ) );
 
 			?>
 		</td>

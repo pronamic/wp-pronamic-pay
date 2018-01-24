@@ -1,6 +1,10 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use Pronamic\WordPress\Pay\Currency;
+use Pronamic_WP_Pay_Statuses;
 
 /**
  * Title: WordPress payment data
@@ -12,7 +16,7 @@ use Pronamic\WordPress\Pay\Subscriptions\Subscription;
  * @version 4.4.3
  * @since 1.0.0
  */
-class Pronamic_WP_Pay_Payment {
+class Payment {
 	/**
 	 * The payment post object
 	 */
@@ -21,12 +25,11 @@ class Pronamic_WP_Pay_Payment {
 	/**
 	 * The subscription
 	 *
-	 * @var Pronamic_Pay_WP_Subscription
+	 * @var Subscription
 	 */
 	public $subscription;
 
 	//////////////////////////////////////////////////
-
 
 	protected $id;
 
@@ -212,7 +215,7 @@ class Pronamic_WP_Pay_Payment {
 	 * @return Ambigous <string, NULL>
 	 */
 	public function get_currency_numeric_code() {
-		return Pronamic_WP_Currency::transform_code_to_number( $this->get_currency() );
+		return Currency::transform_code_to_number( $this->get_currency() );
 	}
 
 	//////////////////////////////////////////////////
@@ -423,7 +426,9 @@ class Pronamic_WP_Pay_Payment {
 	 * Format string
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/v2.2.3/includes/abstracts/abstract-wc-email.php#L187-L195
+	 *
 	 * @param string $string
+	 *
 	 * @return string
 	 */
 	public function format_string( $string ) {

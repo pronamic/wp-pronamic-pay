@@ -35,10 +35,36 @@ class GatewaySettings {
 	}
 
 	public function get_sections() {
-		return apply_filters( 'pronamic_pay_gateway_sections', array() );
+		// Default sections
+		$sections = array(
+			'general' => array(),
+		);
+
+		return apply_filters( 'pronamic_pay_gateway_sections', $sections );
 	}
 
 	public function get_fields() {
-		return apply_filters( 'pronamic_pay_gateway_fields', array() );
+		// Default fields
+		$fields = array(
+			array(
+				'filter'   => FILTER_SANITIZE_STRING,
+				'section'  => 'general',
+				'meta_key' => '_pronamic_gateway_mode',
+				'name'     => 'mode',
+				'id'       => 'pronamic_ideal_mode',
+				'title'    => __( 'Mode', 'pronamic_ideal' ),
+				'type'     => 'select',
+				'options'  => array(
+					array(
+						'options' => array(
+							'test' => __( 'Test', 'pronamic_ideal' ),
+							'live' => __( 'Live', 'pronamic_ideal' ),
+						),
+					),
+				),
+			),
+		);
+
+		return apply_filters( 'pronamic_pay_gateway_fields', $fields );
 	}
 }

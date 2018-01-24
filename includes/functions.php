@@ -1,9 +1,10 @@
 <?php
 
+use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 
 function get_pronamic_payment( $post_id ) {
-	$payment = new Pronamic_WP_Pay_Payment( $post_id );
+	$payment = new Payment( $post_id );
 
 	return $payment;
 }
@@ -28,7 +29,7 @@ function get_pronamic_payment_by_meta( $meta_key, $meta_value ) {
 	$post_id = $wpdb->get_var( $db_query ); // WPCS: unprepared SQL ok.
 
 	if ( $post_id ) {
-		$payment = new Pronamic_WP_Pay_Payment( $post_id );
+		$payment = new Payment( $post_id );
 	}
 
 	return $payment;
@@ -56,7 +57,7 @@ function get_pronamic_payments_by_meta( $meta_key, $meta_value ) {
 	$results = $wpdb->get_results( $db_query ); // WPCS: unprepared SQL ok.
 
 	foreach ( $results as $result ) {
-		$payments[] = new Pronamic_WP_Pay_Payment( $result->post_id );
+		$payments[] = new Payment( $result->post_id );
 	}
 
 	return $payments;

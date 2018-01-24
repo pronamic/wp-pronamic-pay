@@ -1,5 +1,7 @@
 <div class="wrap">
-	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php use Pronamic\WordPress\Pay\Util;
+
+		echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<hr class="wp-header-end">
 
@@ -21,7 +23,7 @@
 								echo '<strong>';
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
-									echo esc_html( Pronamic_WP_Util::format_price( $serie->legendValue ) );
+									echo esc_html( Util::format_price( $serie->legendValue ) );
 								} else {
 									echo esc_html( $serie->legendValue );
 								}

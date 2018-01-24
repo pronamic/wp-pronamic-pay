@@ -1,7 +1,9 @@
 <?php
 
+use Pronamic\WordPress\Pay\Payments\Payment;
+
 /**
- * Title: WordPress iDEAL Google Analytics e-commerce
+ * Title: Pronamic Pay Google Analytics e-commerce
  * Description:
  * Copyright: Copyright (c) 2005 - 2018
  * Company: Pronamic
@@ -84,7 +86,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 	 * &tt=12.00        // Transaction tax.
 	 * &cu=EUR          // Currency code.
 	 *
-	 * @param $payment Pronamic_WP_Pay_Payment
+	 * @param $payment Payment
 	 */
 	private function send_transaction( $payment ) {
 		$defaults = array(
@@ -133,7 +135,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 	 *
 	 * @return string
 	 */
-	private function get_client_id( Pronamic_WP_Pay_Payment $payment ) {
+	private function get_client_id( Payment $payment ) {
 		$client_id = $payment->get_analytics_client_id();
 
 		if ( ! empty( $client_id ) ) {

@@ -6,7 +6,7 @@ use DateTime;
 use DateTimeZone;
 use Pronamic_IDeal_IDeal;
 use Pronamic_WP_Pay_Statuses;
-use Pronamic_WP_Util;
+use Pronamic\WordPress\Pay\Util;
 
 class Subscription {
 
@@ -350,7 +350,7 @@ class Subscription {
 		return $start_date->modify( sprintf(
 			'+%d %s',
 			$this->get_interval(),
-			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+			Util::to_interval_name( $this->get_interval_period() )
 		) );
 	}
 
@@ -402,7 +402,7 @@ class Subscription {
 		return $first_date->modify( sprintf(
 			'+%d %s',
 			( $frequency - 1 ) * $this->get_interval(),
-			Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+			Util::to_interval_name( $this->get_interval_period() )
 		) );
 	}
 
@@ -431,7 +431,7 @@ class Subscription {
 			$next->modify( sprintf(
 				'+%d %s',
 				( $cycle * $this->get_interval() ),
-				Pronamic_WP_Util::to_interval_name( $this->get_interval_period() )
+				Util::to_interval_name( $this->get_interval_period() )
 			) );
 		}
 

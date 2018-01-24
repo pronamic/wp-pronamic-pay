@@ -2,7 +2,6 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
-use Pronamic_Pay_AbstractPaymentData;
 use Pronamic_WP_Pay_GoogleAnalyticsEcommerce;
 use WP_User;
 
@@ -15,7 +14,7 @@ use WP_User;
  * @author Remco Tolsma
  * @version 1.0
  */
-abstract class PaymentData extends Pronamic_Pay_AbstractPaymentData {
+abstract class PaymentData extends AbstractPaymentData {
 	/**
 	 * The current user
 	 *

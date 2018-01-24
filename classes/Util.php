@@ -1,5 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay;
+
+use DateTime;
+use SimpleXMLElement;
+use WP_Error;
+
 /**
  * Title: WordPress utility class
  * Description:
@@ -9,12 +15,15 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Util {
+class Util {
 	/**
 	 * Remote get body
 	 *
 	 * @param string $url
 	 * @param int $required_response_code
+	 * @param array $args
+	 *
+	 * @return bool|string|WP_Error
 	 */
 	public static function remote_get_body( $url, $required_response_code = 200, array $args = array() ) {
 		$return = false;
@@ -47,6 +56,7 @@ class Pronamic_WP_Util {
 	 * SimpleXML load string
 	 *
 	 * @param string $string
+	 *
 	 * @return SimpleXMLElement || WP_Error
 	 */
 	public static function simplexml_load_string( $string ) {
@@ -84,6 +94,7 @@ class Pronamic_WP_Util {
 	 * Amount to cents
 	 *
 	 * @param float $price
+	 *
 	 * @return int
 	 */
 	public static function amount_to_cents( $price ) {
@@ -94,6 +105,7 @@ class Pronamic_WP_Util {
 	 * Cents to amount
 	 *
 	 * @param int $cents
+	 *
 	 * @return float
 	 */
 	public static function cents_to_amount( $cents ) {
@@ -106,7 +118,9 @@ class Pronamic_WP_Util {
 	 * Convert boolean to an numceric boolean
 	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
+	 *
 	 * @param boolean $boolean
+	 *
 	 * @return int
 	 */
 	public static function to_numeric_boolean( $boolean ) {
@@ -119,7 +133,9 @@ class Pronamic_WP_Util {
 	 * Convert boolean to an string boolean
 	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
+	 *
 	 * @param boolean $boolean
+	 *
 	 * @return int
 	 */
 	public static function to_string_boolean( $boolean ) {
@@ -197,7 +213,7 @@ class Pronamic_WP_Util {
 	/**
 	 * Convert single interval period character to full name.
 	 *
-	 * @param $interval_period Short interval period (D, W, M or Y)
+	 * @param $interval_period string Short interval period (D, W, M or Y)
 	 *
 	 * @return string
 	 */
@@ -234,6 +250,7 @@ class Pronamic_WP_Util {
 	 *
 	 * @param string $url
 	 * @param array $parameters
+	 *
 	 * @return string
 	 */
 	public static function build_url( $url, array $parameters ) {

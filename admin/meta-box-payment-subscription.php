@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Util;
+
 $post_id = get_the_ID();
 
 $payment = get_pronamic_payment( $post_id );
@@ -35,7 +37,7 @@ if ( $subscription ) : ?>
 				$currency = $subscription->get_currency();
 				$amount   = $subscription->get_amount();
 
-				echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+				echo esc_html( Util::format_price( $amount, $currency ) );
 
 				?>
 			</td>
@@ -45,7 +47,7 @@ if ( $subscription ) : ?>
 				<?php echo esc_html_x( 'Interval', 'Recurring payment', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) ); ?>
+				<?php echo esc_html( Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) ); ?>
 			</td>
 		</tr>
 		<tr>
@@ -53,7 +55,7 @@ if ( $subscription ) : ?>
 				<?php echo esc_html_x( 'Frequency', 'Recurring payment', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) ); ?>
+				<?php echo esc_html( Util::format_frequency( $subscription->get_frequency() ) ); ?>
 			</td>
 		</tr>
 		<tr>

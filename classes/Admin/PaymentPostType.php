@@ -297,7 +297,7 @@ class PaymentPostType {
 				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
-				echo esc_html( \Pronamic_WP_Util::format_price( $amount, $currency ) );
+				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $amount, $currency ) );
 
 				break;
 			case 'pronamic_payment_date' :

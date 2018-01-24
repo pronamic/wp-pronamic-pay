@@ -50,7 +50,7 @@ class RecurringPaymentData extends PaymentData {
 	/**
 	 * Get source ID
 	 *
-	 * @see Pronamic_Pay_AbstractPaymentData::get_source_id()
+	 * @see Pronamic\WordPress\Pay\Payments\AbstractPaymentData::get_source_id()
 	 */
 	public function get_source_id() {
 		return $this->subscription->get_source_id();

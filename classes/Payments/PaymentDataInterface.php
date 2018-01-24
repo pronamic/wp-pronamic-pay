@@ -1,5 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
+use Pronamic\WordPress\Pay\CreditCard;
+
 /**
  * Title: Payment data interface
  * Description:
@@ -10,7 +14,7 @@
  * @version 4.4.2
  * @since 1.4.0
  */
-interface Pronamic_Pay_PaymentDataInterface {
+interface PaymentDataInterface {
 	/**
 	 * Get the title of the payment
 	 *
@@ -21,7 +25,7 @@ interface Pronamic_Pay_PaymentDataInterface {
 	/**
 	 * Get credit card object
 	 *
-	 * @return Pronamic_Pay_CreditCard
+	 * @return CreditCard
 	 */
 	public function get_credit_card();
 

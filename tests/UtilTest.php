@@ -1,4 +1,5 @@
 <?php
+use Pronamic\WordPress\Pay\Util;
 
 /**
  * Title: WordPress utility test
@@ -13,7 +14,7 @@ class Pronamic_WP_UtilTest extends WP_UnitTestCase {
 	public function test_to_string_boolean() {
 		$boolean = false;
 
-		$result = Pronamic_WP_Util::to_string_boolean( $boolean );
+		$result = Util::to_string_boolean( $boolean );
 
 		$this->assertEquals( 'false', $result );
 	}
@@ -24,7 +25,7 @@ class Pronamic_WP_UtilTest extends WP_UnitTestCase {
 	 * @dataProvider format_price_matrix_provider
 	 */
 	public function test_format_price( $amount, $currency, $expected ) {
-		$formatted = Pronamic_WP_Util::format_price( $amount );
+		$formatted = Util::format_price( $amount );
 
 		$this->assertEquals( $expected, $formatted );
 	}

@@ -1,5 +1,11 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
+use Pronamic\WordPress\Pay\CreditCard;
+use Pronamic\WordPress\Pay\Currency;
+use Pronamic_WP_Pay_PaymentMethods;
+
 /**
  * Title: Abstract payment data class
  * Description:
@@ -9,7 +15,7 @@
  * @author Remco Tolsma
  * @since 1.4.0
  */
-abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentDataInterface {
+abstract class AbstractPaymentData implements PaymentDataInterface {
 	private $entrance_code;
 
 	protected $recurring;
@@ -123,7 +129,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	/**
 	 * Get the curreny alphabetic code
 	 *
-	 *  @return string
+	 * @return string
 	 */
 	public abstract function get_currency_alphabetic_code();
 
@@ -133,7 +139,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	 * @return Ambigous <string, NULL>
 	 */
 	public function get_currency_numeric_code() {
-		return Pronamic_WP_Currency::transform_code_to_number( $this->get_currency_alphabetic_code() );
+		return Currency::transform_code_to_number( $this->get_currency_alphabetic_code() );
 	}
 
 	/**
@@ -199,7 +205,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	/**
 	 * Get credit card object
 	 *
-	 * @return Pronamic_Pay_CreditCard
+	 * @return CreditCard
 	 */
 	public function get_credit_card() {
 		return null;
@@ -212,7 +218,7 @@ abstract class Pronamic_Pay_AbstractPaymentData implements Pronamic_Pay_PaymentD
 	/**
 	 * Subscription
 	 *
-	 * @return false|Pronamic_Pay_Subscription
+	 * @return false|\Pronamic\WordPress\Pay\Subscriptions\Subscription
 	 */
 	public function get_subscription() {
 		return false;

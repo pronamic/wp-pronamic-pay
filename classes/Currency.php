@@ -1,6 +1,8 @@
 <?php
 
-use Pronamic\WordPress\Pay\Plugin;
+namespace Pronamic\WordPress\Pay;
+
+use Pronamic_WP_Pay_XML_Security;
 
 /**
  * Title: WordPress currency class
@@ -11,11 +13,12 @@ use Pronamic\WordPress\Pay\Plugin;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_Currency {
+class Currency {
 	/**
 	 * Transform currency code to number
 	 *
 	 * @param string $code
+	 *
 	 * @return string
 	 */
 	public static function transform_code_to_number( $code ) {
