@@ -94,17 +94,11 @@ while ( $have_configs ) {
 	foreach ( $configs as $config ) {
 		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
-		$integration = $pronamic_ideal->get_integration( $config->variant_id );
-
-		if ( $integration ) {
-			$title = $integration->get_name();
-		}
-
 		// Post
 		$post = array(
-			'post_title'    => $title,
-			'post_type'     => 'pronamic_gateway',
-			'post_status'   => 'publish',
+			'post_title'  => $title,
+			'post_type'   => 'pronamic_gateway',
+			'post_status' => 'publish',
 		);
 
 		$post_id = wp_insert_post( $post );
