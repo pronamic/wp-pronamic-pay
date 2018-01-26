@@ -4,7 +4,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Currency;
-use Pronamic_WP_Pay_Statuses;
+use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
  * Title: WordPress payment data
@@ -314,7 +314,7 @@ class Payment {
 	 */
 	public function get_action_url() {
 		if ( '' === $this->get_amount() || 0.0 === $this->get_amount() ) {
-			$this->set_status( Pronamic_WP_Pay_Statuses::SUCCESS );
+			$this->set_status( Statuses::SUCCESS );
 
 			return $this->get_return_redirect_url();
 		}

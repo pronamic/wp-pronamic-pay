@@ -2,7 +2,9 @@
 
 global $pronamic_pay_errors;
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Util;
 
 $config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
@@ -129,7 +131,7 @@ if ( $gateway ) : ?>
 
 			if ( $gateway->payment_method_is_required() ) {
 
-				$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
+				$gateway->set_payment_method( PaymentMethods::IDEAL );
 
 			}
 
@@ -153,7 +155,7 @@ if ( $gateway ) : ?>
 							<?php if ( 'select' === $field['type'] ) : ?>
 
 								<select id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>">
-									<?php echo Pronamic_WP_HTML_Helper::select_options_grouped( $field['choices'] ); ?>
+									<?php echo Util::select_options_grouped( $field['choices'] ); ?>
 								</select>
 
 							<?php endif; ?>

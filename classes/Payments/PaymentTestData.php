@@ -4,9 +4,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 
 use Pronamic\WordPress\Pay\CreditCard;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
-use Pronamic_IDeal_Item;
-use Pronamic_IDeal_Items;
-use Pronamic_WP_Pay_Util;
+use Pronamic\WordPress\Pay\Core\Util as Core_Util;
 use WP_User;
 
 /**
@@ -83,14 +81,14 @@ class PaymentTestData extends PaymentData {
 	 * Get items
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
-	 * @return Pronamic_IDeal_Items
+	 * @return Items
 	 */
 	public function get_items() {
 		// Items
-		$items = new Pronamic_IDeal_Items();
+		$items = new Items();
 
 		// Item
-		$item = new Pronamic_IDeal_Item();
+		$item = new Item();
 		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->get_order_id() ) );
 		$item->setPrice( $this->amount );
@@ -176,7 +174,7 @@ class PaymentTestData extends PaymentData {
 		$subscription->amount          = $this->get_amount();
 		$subscription->frequency       = $times;
 		$subscription->interval        = $interval;
-		$subscription->interval_period = Pronamic_WP_Pay_Util::to_period( $interval_period );
+		$subscription->interval_period = Core_Util::to_period( $interval_period );
 
 		return $subscription;
 	}

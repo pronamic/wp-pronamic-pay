@@ -1,6 +1,6 @@
 <?php
 
-namespace Pronamic\WordPress\Pay;
+namespace Pronamic\WordPress\Pay\Payments;
 
 /**
  * Title: WordPress iDEAL post types

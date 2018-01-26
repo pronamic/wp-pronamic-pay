@@ -4,7 +4,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 
 use Pronamic\WordPress\Pay\CreditCard;
 use Pronamic\WordPress\Pay\Currency;
-use Pronamic_WP_Pay_PaymentMethods;
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 
 /**
  * Title: Abstract payment data class
@@ -187,7 +187,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	//////////////////////////////////////////////////
 
 	public function get_issuer( $payment_method = null ) {
-		if ( Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD === $payment_method ) {
+		if ( PaymentMethods::CREDIT_CARD === $payment_method ) {
 			return $this->get_credit_card_issuer_id();
 		}
 

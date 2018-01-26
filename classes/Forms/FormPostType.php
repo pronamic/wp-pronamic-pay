@@ -271,9 +271,9 @@ class FormPostType {
 		// Convert amount choices to cents
 		if ( isset( $data['_pronamic_payment_form_amount_choices'] ) ) {
 			foreach ( $data['_pronamic_payment_form_amount_choices'] as $i => $amount ) {
-				$amount = \Pronamic_WP_Pay_Util::string_to_amount( $amount );
+				$amount = \Pronamic\WordPress\Pay\Core\Util::string_to_amount( $amount );
 
-				$data['_pronamic_payment_form_amount_choices'][ $i ] = \Pronamic_WP_Pay_Util::amount_to_cents( $amount );
+				$data['_pronamic_payment_form_amount_choices'][ $i ] = \Pronamic\WordPress\Pay\Core\Util::amount_to_cents( $amount );
 			}
 
 			// Remove empty choices

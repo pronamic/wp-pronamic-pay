@@ -1,5 +1,10 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
+use ArrayIterator;
+use IteratorAggregate;
+
 /**
  * Title: Items
  * Description:
@@ -9,7 +14,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Items implements IteratorAggregate {
+class Items implements IteratorAggregate {
 	/**
 	 * The items
 	 *
@@ -42,7 +47,7 @@ class Pronamic_IDeal_Items implements IteratorAggregate {
 	/**
 	 * Add item
 	 */
-	public function addItem( Pronamic_IDeal_Item $item ) {
+	public function addItem( Item $item ) {
 		$this->items[] = $item;
 	}
 

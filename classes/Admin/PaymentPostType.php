@@ -435,21 +435,21 @@ class PaymentPostType {
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
 			case 'payment_pending' :
-				return \Pronamic_WP_Pay_Statuses::OPEN;
+				return \Pronamic\WordPress\Pay\Core\Statuses::OPEN;
 			case 'payment_processing' :
-				return \Pronamic_WP_Pay_Statuses::OPEN;
+				return \Pronamic\WordPress\Pay\Core\Statuses::OPEN;
 			case 'payment_on_hold' :
 				return null;
 			case 'payment_completed' :
-				return \Pronamic_WP_Pay_Statuses::SUCCESS;
+				return \Pronamic\WordPress\Pay\Core\Statuses::SUCCESS;
 			case 'payment_cancelled' :
-				return \Pronamic_WP_Pay_Statuses::CANCELLED;
+				return \Pronamic\WordPress\Pay\Core\Statuses::CANCELLED;
 			case 'payment_refunded' :
 				return null;
 			case 'payment_failed' :
-				return \Pronamic_WP_Pay_Statuses::FAILURE;
+				return \Pronamic\WordPress\Pay\Core\Statuses::FAILURE;
 			case 'payment_expired' :
-				return \Pronamic_WP_Pay_Statuses::EXPIRED;
+				return \Pronamic\WordPress\Pay\Core\Statuses::EXPIRED;
 		}
 	}
 

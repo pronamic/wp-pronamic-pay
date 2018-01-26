@@ -256,4 +256,68 @@ class Util {
 	public static function build_url( $url, array $parameters ) {
 		return $url . '?' . _http_build_query( $parameters, null, '&' );
 	}
+
+	/**
+	 * Get hidden inputs HTML for data.
+	 *
+	 * @param $data array
+	 *
+	 * @return string
+	 */
+	public static function html_hidden_fields( $data ) {
+		$html = '';
+
+		foreach ( $data as $name => $value ) {
+			$html .= sprintf( '<input type="hidden" name="%s" value="%s" />', esc_attr( $name ), esc_attr( $value ) );
+		}
+
+		return $html;
+	}
+
+	/**
+	 * Array to HTML attributes
+	 *
+	 * @param array $pieces
+	 */
+	public static function array_to_html_attributes( array $attributes ) {
+		$html = '';
+
+		foreach ( $attributes as $key => $value ) {
+			$html .= sprintf( '%s="%s"', $key, esc_attr( $value ) );
+		}
+
+		$html = trim( $html );
+
+		return $html;
+	}
+
+	/**
+	 * Select options grouped
+	 *
+	 * @param array $groups
+	 * @param string $selected_value
+	 */
+	public static function select_options_grouped( $groups, $selected_value = null ) {
+		$html = '';
+
+		if ( is_array( $groups ) ) {
+			foreach ( $groups as $group ) {
+				$optgroup = isset( $group['name'] ) && ! empty( $group['name'] );
+
+				if ( $optgroup ) {
+					$html .= '<optgroup label="' . $group['name'] . '">';
+				}
+
+				foreach ( $group['options'] as $value => $label ) {
+					$html .= '<option value="' . $value . '" ' . selected( $selected_value, $value, false ) . '>' . $label . '</option>';
+				}
+
+				if ( $optgroup ) {
+					$html .= '</optgroup>';
+				}
+			}
+		}
+
+		return $html;
+	}
 }

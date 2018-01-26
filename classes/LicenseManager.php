@@ -17,7 +17,7 @@ class LicenseManager {
 	/**
 	 * Constructs and initalize an license manager object.
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions

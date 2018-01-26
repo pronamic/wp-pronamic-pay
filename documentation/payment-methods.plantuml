@@ -20,7 +20,7 @@ namespace Pronamic_Pay {
 	}
 
 	note bottom of IDealPaymentMethod
-		""$this->id   = Pronamic_WP_Pay_PaymentMethods::IDEAL;""
+		""$this->id   = Pronamic\WordPress\Pay\Core\PaymentMethods::IDEAL;""
 		""$this->name = __( 'iDEAL', 'pronamic_ideal' );""
 	end note
 
@@ -29,7 +29,7 @@ namespace Pronamic_Pay {
 	}
 
 	note bottom of CreditCardPaymentMethod
-		""$this->id   = Pronamic_WP_Pay_PaymentMethods::CREDIT_CARD;""
+		""$this->id   = Pronamic\WordPress\Pay\Core\PaymentMethods::CREDIT_CARD;""
 		""$this->name = __( 'Credit Card', 'pronamic_ideal' );""
 	end note
 }

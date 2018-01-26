@@ -2,6 +2,9 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Pay\Core\Util as Core_util;
+use Pronamic\WordPress\Pay\Payments\Item;
+use Pronamic\WordPress\Pay\Payments\Items;
 use \Pronamic\WordPress\Pay\Payments\PaymentData;
 
 /**
@@ -68,7 +71,7 @@ class PaymentFormData extends PaymentData {
 	 */
 	public function get_items() {
 		// Items
-		$items = new \Pronamic_IDeal_Items();
+		$items = new Items();
 
 		// Amount
 		$amount_method = get_post_meta( $this->get_source_id(), '_pronamic_payment_form_amount_method', true );
@@ -77,13 +80,13 @@ class PaymentFormData extends PaymentData {
 		if ( 'other' === $amount ) {
 			$amount = filter_input( INPUT_POST, 'pronamic_pay_amount_other', FILTER_SANITIZE_STRING );
 
-			$amount = \Pronamic_WP_Pay_Util::string_to_amount( $amount );
+			$amount = Core_util::string_to_amount( $amount );
 		} elseif ( in_array( $amount_method, array( FormPostType::AMOUNT_METHOD_CHOICES_ONLY, FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT ), true ) ) {
 			$amount /= 100;
 		}
 
 		// Item
-		$item = new \Pronamic_IDeal_Item();
+		$item = new Item();
 		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( sprintf( __( 'Payment %s', 'pronamic_ideal' ), $this->get_order_id() ) );
 		$item->setPrice( $amount );

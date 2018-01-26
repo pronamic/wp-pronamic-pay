@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
@@ -25,7 +26,7 @@ class GatewayPostType {
 	/**
 	 * Constructs and initializes an admin gateway post type object
 	 */
-	public function __construct( $admin ) {
+	public function __construct( AdminModule $admin ) {
 		$this->admin = $admin;
 
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
@@ -47,25 +48,29 @@ class GatewayPostType {
 
 	public function edit_columns( $columns ) {
 		$columns = array(
-			'cb'                           => '<input type="checkbox" />',
-			'title'                        => __( 'Title', 'pronamic_ideal' ),
-			'pronamic_gateway_variant'     => __( 'Variant', 'pronamic_ideal' ),
-			'pronamic_gateway_id'          => __( 'ID', 'pronamic_ideal' ),
-			'pronamic_gateway_dashboard'   => __( 'Dashboard', 'pronamic_ideal' ),
-			'date'                         => __( 'Date', 'pronamic_ideal' ),
+			'cb'                         => '<input type="checkbox" />',
+			'title'                      => __( 'Title', 'pronamic_ideal' ),
+			'pronamic_gateway_variant'   => __( 'Variant', 'pronamic_ideal' ),
+			'pronamic_gateway_id'        => __( 'ID', 'pronamic_ideal' ),
+			'pronamic_gateway_dashboard' => __( 'Dashboard', 'pronamic_ideal' ),
+			'date'                       => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;
 	}
 
-	function custom_columns( $column, $post_id ) {
+	public function custom_columns( $column, $post_id ) {
 		$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
-		$integration = $this->admin->plugin->gateway_integrations->get_integration( $id );
+		$integrations = $this->admin->plugin->gateway_integrations;
+
+		if ( isset( $integrations[ $id ] ) ) {
+			$integration = $integrations[ $id ];
+		}
 
 		switch ( $column ) {
 			case 'pronamic_gateway_variant':
-				if ( $integration ) {
+				if ( isset( $integration ) ) {
 					echo esc_html( $integration->get_name() );
 				} else {
 					echo esc_html( $id );
@@ -105,7 +110,7 @@ class GatewayPostType {
 
 				break;
 			case 'pronamic_gateway_dashboard':
-				if ( $integration ) {
+				if ( isset( $integration ) ) {
 					$urls = $integration->get_dashboard_url();
 
 					// Output
@@ -259,9 +264,11 @@ class GatewayPostType {
 		$data = filter_input_array( INPUT_POST, $definition );
 
 		if ( ! empty( $data['_pronamic_gateway_id'] ) ) {
-			$integrations = new \Pronamic_WP_Pay_GatewayIntegrations();
+			$integrations = $this->admin->plugin->gateway_integrations;
 
-			$integration = $integrations->get_integration( $data['_pronamic_gateway_id'] );
+			if ( isset( $integrations[ $data['_pronamic_gateway_id'] ] ) ) {
+				$integration = $integrations[ $data['_pronamic_gateway_id'] ];
+			}
 
 			if ( $integration ) {
 				$settings = $integration->get_settings();
@@ -288,7 +295,7 @@ class GatewayPostType {
 						if ( empty( $data[ $field['meta_key'] ] ) ) {
 							$default = $field['default'];
 
-							if ( is_array( $default ) && 2 === count( $default ) && \Pronamic_WP_Pay_Class::method_exists( $default[0], $default[1] ) ) {
+							if ( is_array( $default ) && 2 === count( $default ) && Util::class_method_exists( $default[0], $default[1] ) ) {
 								$data[ $field['meta_key'] ] = call_user_func( $default, $field );
 							} else {
 								$data[ $field['meta_key'] ] = $default;
@@ -318,7 +325,7 @@ class GatewayPostType {
 		// Transient
 		delete_transient( 'pronamic_pay_issuers_' . $post_id );
 
-		\Pronamic_WP_Pay_PaymentMethods::update_active_payment_methods();
+		\Pronamic\WordPress\Pay\Core\PaymentMethods::update_active_payment_methods();
 	}
 
 	/**

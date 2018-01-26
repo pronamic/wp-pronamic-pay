@@ -1,5 +1,9 @@
 <?php
 
+namespace Pronamic\WordPress\Pay;
+
+use Pronamic\WordPress\Pay\Core\Gateway;
+use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 
 /**
@@ -12,7 +16,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  * @version unreleased
  * @since unreleased
  */
-class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
+class GoogleAnalyticsEcommerce {
 	/**
 	 * Google Analytics Measurement Protocol API endpoint URL.
 	 *
@@ -44,7 +48,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 
 	public function maybe_send_transaction( $payment, $can_redirect ) {
 		// Only process successful payments
-		if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $payment->get_status() ) {
+		if ( Statuses::SUCCESS !== $payment->get_status() ) {
 			return;
 		}
 
@@ -61,7 +65,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 		}
 
 		// Ignore test mode payments
-		if ( Pronamic_IDeal_IDeal::MODE_TEST === get_post_meta( $payment->config_id, '_pronamic_gateway_mode', true ) ) {
+		if ( Gateway::MODE_TEST === get_post_meta( $payment->config_id, '_pronamic_gateway_mode', true ) ) {
 			return;
 		}
 
@@ -147,7 +151,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 		}
 
 		// Check cookie `_ga` for Client ID
-		$this->client_id = Pronamic_WP_Pay_GoogleAnalyticsEcommerce::get_cookie_client_id();
+		$this->client_id = GoogleAnalyticsEcommerce::get_cookie_client_id();
 
 		if ( empty( $this->client_id ) ) {
 			// Generate UUID
@@ -192,7 +196,7 @@ class Pronamic_WP_Pay_GoogleAnalyticsEcommerce {
 
 		$ga = explode( '.', $ga_cookie );
 
-		if ( isset( $ga[2] ) && Pronamic_WP_Pay_GoogleAnalyticsEcommerce::is_uuid( $ga[2] ) ) {
+		if ( isset( $ga[2] ) && GoogleAnalyticsEcommerce::is_uuid( $ga[2] ) ) {
 			// Use UUID from cookie
 			$client_id = $ga[2];
 		} elseif ( isset( $ga[2], $ga[3] ) ) {

@@ -2,7 +2,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use Pronamic_WP_Pay_XML_Security;
+use Pronamic\WordPress\Pay\Core\XML\Security;
 
 /**
  * Title: WordPress currency class
@@ -29,8 +29,8 @@ class Currency {
 		$xml = simplexml_load_file( $file );
 
 		foreach ( $xml->ISO_CURRENCY as $currency ) {
-			$alphabetic_code = Pronamic_WP_Pay_XML_Security::filter( $currency->ALPHABETIC_CODE );
-			$numeric_code    = Pronamic_WP_Pay_XML_Security::filter( $currency->NUMERIC_CODE );
+			$alphabetic_code = Security::filter( $currency->ALPHABETIC_CODE );
+			$numeric_code    = Security::filter( $currency->NUMERIC_CODE );
 
 			$currencies[ $alphabetic_code ] = $numeric_code;
 		}
