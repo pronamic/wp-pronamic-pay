@@ -26,7 +26,7 @@ class SubscriptionsModule {
 		// Actions
 		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );
 
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
+		add_action( 'plugins_loaded', array( $this, 'maybe_schedule_subscription_payments' ), 5 );
 
 		// Exclude payment and subscription notes
 		add_filter( 'comments_clauses', array( $this, 'exclude_subscription_comment_notes' ), 10, 2 );
@@ -41,7 +41,10 @@ class SubscriptionsModule {
 	}
 
 	/**
-	 * Handle subscription action
+	 * Handle subscription actions.
+	 *
+	 * Extensions like Gravity Forms can send action links in for example
+	 * email notifications so users can cancel or renew their subscription.
 	 */
 	public function handle_subscription() {
 		if ( ! filter_has_var( INPUT_GET, 'subscription' ) ) {
@@ -132,10 +135,6 @@ class SubscriptionsModule {
 
 			exit;
 		}
-	}
-
-	public function plugins_loaded() {
-		$this->maybe_schedule_subscription_payments();
 	}
 
 	/**
