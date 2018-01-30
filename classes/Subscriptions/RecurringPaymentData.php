@@ -2,8 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
-use Pronamic_IDeal_Item;
-use Pronamic_IDeal_Items;
+use Pronamic\WordPress\Pay\Payments\Item;
+use Pronamic\WordPress\Pay\Payments\Items;
 use Pronamic\WordPress\Pay\Payments\PaymentData;
 
 /**
@@ -61,7 +61,7 @@ class RecurringPaymentData extends PaymentData {
 	/**
 	 * Get description
 	 *
-	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
+	 * @see PaymentData::get_description()
 	 * @return string
 	 */
 	public function get_description() {
@@ -71,7 +71,7 @@ class RecurringPaymentData extends PaymentData {
 	/**
 	 * Get order ID
 	 *
-	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
+	 * @see PaymentData::get_order_id()
 	 * @return string
 	 */
 	public function get_order_id() {
@@ -81,17 +81,18 @@ class RecurringPaymentData extends PaymentData {
 	/**
 	 * Get items
 	 *
-	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
-	 * @return Pronamic_IDeal_Items
+	 * @see PaymentData::get_items()
+	 *
+	 * @return Items
 	 */
 	public function get_items() {
-		$item = new Pronamic_IDeal_Item();
+		$item = new Item();
 		$item->setNumber( 1 );
 		$item->setDescription( $this->subscription->get_description() );
 		$item->setPrice( $this->subscription->get_amount() );
 		$item->setQuantity( 1 );
 
-		$items = new Pronamic_IDeal_Items();
+		$items = new Items();
 		$items->addItem( $item );
 
 		return $items;

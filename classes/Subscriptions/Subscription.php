@@ -4,8 +4,9 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateTime;
 use DateTimeZone;
+use Pronamic\WordPress\Pay\Plugin;
 use Pronamic_IDeal_IDeal;
-use Pronamic_WP_Pay_Statuses;
+use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
 
 class Subscription {
@@ -289,7 +290,7 @@ class Subscription {
 		$payments = $this->get_payments();
 
 		foreach ( $payments as $payment ) {
-			if ( Pronamic_WP_Pay_Statuses::SUCCESS === $payment->get_status() ) {
+			if ( Statuses::SUCCESS === $payment->get_status() ) {
 				return $payment;
 			}
 		}
@@ -320,7 +321,7 @@ class Subscription {
 			return new DateTime( $start_date );
 		}
 
-		if ( Pronamic_WP_Pay_Statuses::COMPLETED !== $this->get_status() ) {
+		if ( Statuses::COMPLETED !== $this->get_status() ) {
 			return new DateTime( $this->post->post_date_gmt );
 		}
 
@@ -445,7 +446,7 @@ class Subscription {
 		}
 
 		$expiry = $this->get_expiry_date();
-		$now    = new DateTime( 'now', new DateTimeZone( Pronamic_IDeal_IDeal::TIMEZONE ) );
+		$now    = new DateTime( 'now', new DateTimeZone( Plugin::TIMEZONE ) );
 
 		if ( $expiry > $now ) {
 			// Expiry date is in the future, use it.
@@ -482,17 +483,17 @@ class Subscription {
 	//////////////////////////////////////////////////
 
 	public function update_status( $status, $note = null ) {
-		if ( Pronamic_WP_Pay_Statuses::ACTIVE === $status ) {
-			$status = Pronamic_WP_Pay_Statuses::SUCCESS;
+		if ( Statuses::ACTIVE === $status ) {
+			$status = Statuses::SUCCESS;
 		}
 
 		$this->set_status( $status );
 
 		switch ( $status ) {
-			case Pronamic_WP_Pay_Statuses::OPEN :
+			case Statuses::OPEN :
 				$meta_status = $this->get_meta( 'status' );
 
-				if ( $meta_status !== Pronamic_WP_Pay_Statuses::OPEN ) {
+				if ( $meta_status !== Statuses::OPEN ) {
 					$this->refresh_next_payment_date();
 
 					if ( ! $note ) {
@@ -501,10 +502,10 @@ class Subscription {
 				}
 
 				break;
-			case Pronamic_WP_Pay_Statuses::SUCCESS :
+			case Statuses::SUCCESS :
 				$meta_status = $this->get_meta( 'status' );
 
-				if ( $meta_status !== Pronamic_WP_Pay_Statuses::SUCCESS ) {
+				if ( $meta_status !== Statuses::SUCCESS ) {
 					$this->refresh_next_payment_date();
 
 					if ( ! $note ) {
@@ -513,13 +514,13 @@ class Subscription {
 				}
 
 				break;
-			case Pronamic_WP_Pay_Statuses::FAILURE :
+			case Statuses::FAILURE :
 				if ( ! $note ) {
 					$this->add_note( __( "Subscription status changed to 'Failed'", 'pronamic_ideal' ) );
 				}
 
 				break;
-			case Pronamic_WP_Pay_Statuses::CANCELLED :
+			case Statuses::CANCELLED :
 				$this->set_next_payment_date( false );
 
 				if ( ! $note ) {
@@ -527,7 +528,7 @@ class Subscription {
 				}
 
 				break;
-			case Pronamic_WP_Pay_Statuses::COMPLETED :
+			case Statuses::COMPLETED :
 				$this->set_next_payment_date( false );
 				$this->set_start_date( false );
 

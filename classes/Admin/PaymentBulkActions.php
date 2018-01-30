@@ -87,7 +87,7 @@ class PaymentBulkActions {
 			$payment = get_pronamic_payment( $post_id );
 
 			// Only check status for pending payments.
-			if ( \Pronamic_WP_Pay_Statuses::OPEN !== $payment->status && '' !== $payment->status ) {
+			if ( \Pronamic\WordPress\Pay\Core\Statuses::OPEN !== $payment->status && '' !== $payment->status ) {
 				$skipped_check++;
 
 				continue;

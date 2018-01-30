@@ -214,8 +214,7 @@
 				<?php esc_html_e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ) ); ?><br />
-				<?php echo esc_html( date( Pronamic_IDeal_IDeal::DATE_FORMAT ) ); ?>
+				<?php echo esc_html( date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ) ); ?>
 			</td>
 			<td>
 				✓

@@ -1,5 +1,7 @@
 <?php
 
+use Pronamic\WordPress\Pay\Util;
+
 $sections = $this->admin->gateway_settings->get_sections();
 $fields   = $this->admin->gateway_settings->get_fields();
 
@@ -270,7 +272,7 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
+											Util::array_to_html_attributes( $attributes )
 										);
 
 										break;
@@ -280,7 +282,7 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+											Util::array_to_html_attributes( $attributes ),
 											checked( $value, true, false )
 										);
 
@@ -299,7 +301,7 @@ bind_providers_and_gateways();
 
 										printf(
 											'<textarea %s />%s</textarea>',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+											Util::array_to_html_attributes( $attributes ),
 											esc_textarea( $value )
 										);
 
@@ -309,15 +311,15 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
+											Util::array_to_html_attributes( $attributes )
 										);
 
 										break;
 									case 'select' :
 										printf(
 											'<select %s>%s</select>',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
-											Pronamic_WP_HTML_Helper::select_options_grouped( $field['options'], $value )
+											Util::array_to_html_attributes( $attributes ),
+											Util::select_options_grouped( $field['options'], $value )
 										);
 
 										break;

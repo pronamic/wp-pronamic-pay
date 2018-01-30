@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Util;
+
 /**
  * Title: WordPress iDEAL admin
  * Description:
@@ -208,7 +210,7 @@ class AdminSettings {
 
 		printf(
 			'<input %s />',
-			\Pronamic_WP_HTML_Helper::array_to_html_attributes( $atts )
+			Util::array_to_html_attributes( $atts )
 		);
 
 		if ( ! empty( $args['description'] ) ) {

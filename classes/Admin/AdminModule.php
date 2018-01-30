@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress Pay admin
  * Description:
@@ -16,10 +18,10 @@ class AdminModule {
 	/**
 	 * Constructs and initalize an admin object
 	 */
-	public function __construct( $plugin ) {
-		$this->plugin   = $plugin;
+	public function __construct( Plugin $plugin ) {
+		$this->plugin = $plugin;
 
-		$this->install  = new Install( $this );
+		$this->install = new Install( $this );
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );

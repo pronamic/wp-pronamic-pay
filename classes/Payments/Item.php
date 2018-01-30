@@ -1,5 +1,7 @@
 <?php
 
+namespace Pronamic\WordPress\Pay\Payments;
+
 /**
  * Title: iDEAL item
  * Description:
@@ -9,7 +11,7 @@
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_IDeal_Item {
+class Item {
 	/**
 	 * The number
 	 *

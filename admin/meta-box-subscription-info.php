@@ -1,5 +1,6 @@
 <?php
 
+use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
@@ -136,7 +137,7 @@ $subscription = get_pronamic_subscription( $post_id );
 				) );
 			}
 
-			if ( Pronamic_WP_Pay_Statuses::COMPLETED === $subscription->get_status() ) {
+			if ( Statuses::COMPLETED === $subscription->get_status() ) {
 				echo esc_html( sprintf( __( 'None (subscription completed)', 'pronamic_ideal' ) ) );
 			}
 

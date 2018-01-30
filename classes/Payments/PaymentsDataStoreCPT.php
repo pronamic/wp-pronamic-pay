@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Pay\Core\Statuses;
+
 /**
  * Title: Payments data store CPT
  * Description:
@@ -103,17 +105,22 @@ class PaymentsDataStoreCPT {
 	 */
 	private function get_post_status( $payment, $default = 'payment_pending' ) {
 		switch ( $payment->status ) {
-			case \Pronamic_WP_Pay_Statuses::CANCELLED :
+			case Statuses::CANCELLED:
 				return 'payment_cancelled';
-			case \Pronamic_WP_Pay_Statuses::EXPIRED :
+
+			case Statuses::EXPIRED:
 				return 'payment_expired';
-			case \Pronamic_WP_Pay_Statuses::FAILURE :
+
+			case Statuses::FAILURE:
 				return 'payment_failed';
-			case \Pronamic_WP_Pay_Statuses::SUCCESS :
+
+			case Statuses::SUCCESS:
 				return 'payment_completed';
-			case \Pronamic_WP_Pay_Statuses::OPEN :
+
+			case Statuses::OPEN:
 				return 'payment_pending';
-			default : 
+
+			default:
 				return $default;
 		}
 	}

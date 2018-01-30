@@ -1,6 +1,8 @@
 <?php
 
-namespace Pronamic\WordPress\Pay;
+namespace Pronamic\WordPress\Pay\Subscriptions;
+
+use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 
 /**
  * Title: WordPress iDEAL post types

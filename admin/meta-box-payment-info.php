@@ -1,5 +1,6 @@
 <?php
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
@@ -66,7 +67,7 @@ $payment = get_pronamic_payment( $post_id );
 
 			$method = $payment->get_meta( 'method' );
 
-			$name = Pronamic_WP_Pay_PaymentMethods::get_name( $method );
+			$name = PaymentMethods::get_name( $method );
 
 			echo esc_html( $name );
 

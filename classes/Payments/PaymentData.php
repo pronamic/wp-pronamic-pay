@@ -2,7 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
-use Pronamic_WP_Pay_GoogleAnalyticsEcommerce;
+use Pronamic\WordPress\Pay\GoogleAnalyticsEcommerce;
 use WP_User;
 
 /**
@@ -108,7 +108,7 @@ abstract class PaymentData extends AbstractPaymentData {
 			return;
 		}
 
-		return Pronamic_WP_Pay_GoogleAnalyticsEcommerce::get_cookie_client_id();
+		return GoogleAnalyticsEcommerce::get_cookie_client_id();
 	}
 
 	//////////////////////////////////////////////////
