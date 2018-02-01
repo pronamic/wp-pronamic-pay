@@ -642,7 +642,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Pay.nl
-		$integration = new \Pronamic_WP_Pay_Gateways_PayNL_Integration();
+		$integration = new Gateways\PayNL\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
