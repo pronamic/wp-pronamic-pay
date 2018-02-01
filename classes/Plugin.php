@@ -597,7 +597,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Mollie
-		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
+		$integration = new Gateways\Mollie\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -637,7 +637,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// OmniKassa 2.0
-		$integration = new \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Integration();
+		$integration = new Gateways\OmniKassa2\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
@@ -647,7 +647,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Paytor
-		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
+		$integration = new Gateways\Mollie\Integration();
 		$integration->set_id( 'paytor' );
 		$integration->set_name( 'Paytor' );
 		$integration->url         = 'http://paytor.com/';
@@ -667,7 +667,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Qantani (new platform)
-		$integration = new \Pronamic\WordPress\Pay\Gateways\Mollie\Integration();
+		$integration = new Gateways\Mollie\Integration();
 		$integration->set_id( 'qantani-mollie' );
 		$integration->set_name( __( 'Qantani (new platform)', 'pronamic_ideal' ) );
 		$integration->url           = 'https://www.qantani.com/';
