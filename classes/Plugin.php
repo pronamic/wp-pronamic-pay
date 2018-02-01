@@ -66,7 +66,7 @@ class Plugin {
 	public function __construct() {
 		// Bootstrap the add-ons
 		\Pronamic_WP_Pay_Extensions_Charitable_Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_Give_Extension::bootstrap();
+		Extensions\Give\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
