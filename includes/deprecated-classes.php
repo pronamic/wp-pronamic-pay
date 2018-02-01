@@ -24,6 +24,9 @@ class_alias( 'Pronamic\WordPress\Pay\Forms\FormScripts', '\Pronamic_WP_Pay_FormS
 class_alias( 'Pronamic\WordPress\Pay\Forms\FormShortcode', '\Pronamic_WP_Pay_Shortcodes' );
 class_alias( 'Pronamic\WordPress\Pay\Forms\PaymentFormData', '\Pronamic_WP_Pay_PaymentFormData' );
 
-class_alias( 'Pronamic\WordPress\Pay\Payments\Payment', 'Pronamic_Pay_Payment' );
-class_alias( 'Pronamic\WordPress\Pay\Payments\PaymentData', 'Pronamic_WP_Pay_PaymentData' );
-class_alias( 'Pronamic\WordPress\Pay\Subscriptions\Subscription', 'Pronamic_Pay_Subscription' );
+class_alias( 'Pronamic\WordPress\Pay\Payments\Payment', '\Pronamic_Pay_Payment' );
+class_alias( 'Pronamic\WordPress\Pay\Payments\PaymentData', '\Pronamic_WP_Pay_PaymentData' );
+class_alias( 'Pronamic\WordPress\Pay\Payments\Items', '\Pronamic_IDeal_Items' );
+class_alias( 'Pronamic\WordPress\Pay\Payments\Item', '\Pronamic_IDeal_Item' );
+
+class_alias( 'Pronamic\WordPress\Pay\Subscriptions\Subscription', '\Pronamic_Pay_Subscription' );
