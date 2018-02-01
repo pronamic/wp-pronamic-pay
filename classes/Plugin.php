@@ -617,7 +617,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// MultiSafepay
-		$integration = new \Pronamic_WP_Pay_Gateways_MultiSafepay_Connect_Integration();
+		$integration = new Gateways\MultiSafepay\Connect\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
