@@ -2,6 +2,10 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Forms\FormPostType;
+use Pronamic\WordPress\Pay\Payments\PaymentPostType;
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin install
  * Description:
@@ -168,20 +172,18 @@ class Install {
 
 		$current_db_version = get_option( 'pronamic_pay_db_version', null );
 
-		$updated = false;
-
 		if ( $current_db_version ) {
 			foreach ( $this->db_updates as $version ) {
-				if ( version_compare( $current_db_version, $version, '<' ) ) {
-					$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
+				if ( ! version_compare( $current_db_version, $version, '<' ) ) {
+					continue;
+				}
 
-					if ( is_readable( $file ) ) {
-						include $file;
+				$file = plugin_dir_path( Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
 
-						update_option( 'pronamic_pay_db_version', $version );
+				if ( is_readable( $file ) ) {
+					include $file;
 
-						$updated = true;
-					}
+					update_option( 'pronamic_pay_db_version', $version );
 				}
 			}
 		}
