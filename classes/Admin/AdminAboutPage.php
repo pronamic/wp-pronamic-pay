@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin about
  * Description:
@@ -65,9 +67,9 @@ class AdminAboutPage {
 
 		wp_enqueue_style(
 			'proanmic-pay-admin-about',
-			plugins_url( 'css/admin-about' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
+			plugins_url( 'css/admin-about' . $min . '.css', Plugin::$file ),
 			array(),
-			$plugin->get_version()
+			$this->plugin->get_version()
 		);
 	}
 
