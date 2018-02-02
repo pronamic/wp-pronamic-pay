@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
+use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
@@ -261,7 +262,7 @@ class Plugin {
 
 		$pronamic_ideal->payments_data_store->update( $payment );
 
-		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) ) {
+		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) ) {
 			$can_redirect = false;
 		}
 
@@ -489,7 +490,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ABN AMRO - iDEAL Zelfbouw (v3)
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'abnamro-ideal-zelfbouw-v3' );
 		$integration->set_name( 'ABN AMRO - iDEAL Zelfbouw (v3)' );
 		$integration->url           = 'https://abnamro.ideal-payment.de/';
@@ -517,7 +518,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Deutsche Bank - iDEAL Expert (v3)
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'deutschebank-ideal-expert-v3' );
 		$integration->set_name( 'Deutsche Bank - iDEAL Expert (v3)' );
 		$integration->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
@@ -557,7 +558,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'ideal-simulator-ideal-advanced-v3' );
 		$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
 		$integration->provider    = 'ideal-simulator';
@@ -579,7 +580,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// ING - iDEAL Advanced (v3)
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'ing-ideal-advanced-v3' );
 		$integration->set_name( 'ING - iDEAL Advanced (v3)' );
 		$integration->provider      = 'ing';
@@ -657,7 +658,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Postcode iDEAL
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'postcode-ideal' );
 		$integration->set_name( 'Postcode iDEAL' );
 		$integration->provider      = 'postcode.nl';
@@ -678,7 +679,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Rabobank - iDEAL Professional (v3)
-		$integration = new \Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Integration();
+		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'rabobank-ideal-professional-v3' );
 		$integration->set_name( 'Rabobank - iDEAL Professional (v3)' );
 		$integration->provider      = 'rabobank';

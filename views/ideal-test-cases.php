@@ -1,3 +1,8 @@
+<?php
+
+use Pronamic\WordPress\Pay\Gateways\IDeal_Advanced_V3\IDeal;
+
+?>
 <table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
 	<thead>
 		<tr>
@@ -53,7 +58,7 @@
 						sprintf(
 							/* translators: %s: formatted amount */
 							__( 'Transaction with <code>amount</code> = %s:', 'pronamic_ideal' ),
-							esc_html( Pronamic_WP_Pay_Gateways_IDealAdvancedV3_IDeal::format_amount( $data['amount'] ) )
+							esc_html( IDeal::format_amount( $data['amount'] ) )
 						),
 						array(
 							'code' => array(),

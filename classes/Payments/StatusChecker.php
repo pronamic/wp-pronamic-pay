@@ -2,9 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Plugin;
-use Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status;
-use Pronamic\WordPress\Pay\Payments\Payment;
 
 /**
  * Title: WordPress payment status checker
@@ -88,7 +87,11 @@ class StatusChecker {
 	/**
 	 * Check status of the specified payment
 	 *
-	 * @param string $paymentId
+	 * @param null $payment_id
+	 * @param null $seconds
+	 * @param int  $number_tries
+	 *
+	 * @internal param string $paymentId
 	 */
 	public function check_status( $payment_id = null, $seconds = null, $number_tries = 1 ) {
 		$payment = new Payment( $payment_id );
@@ -106,10 +109,10 @@ class StatusChecker {
 
 		// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 		// - No status request after a final status has been received for a transaction;
-		if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
+		if ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) {
 			Plugin::update_payment( $payment );
 
-			if ( empty( $payment->status ) || Pronamic_WP_Pay_Gateways_IDealAdvancedV3_Status::OPEN === $payment->status ) {
+			if ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) {
 				$time = time();
 
 				$seconds = $this->get_delay_seconds( $number_tries );
