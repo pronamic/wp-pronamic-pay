@@ -708,7 +708,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// TargetPay
-		$integration = new \Pronamic_WP_Pay_Gateways_TargetPay_Integration();
+		$integration = new Gateways\TargetPay\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
