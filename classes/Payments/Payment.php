@@ -457,8 +457,8 @@ class Payment {
 
 	//////////////////////////////////////////////////
 
-	public function set_consumer_name( $consumer_name ) {
-		$this->consumer_name = $consumer_name;
+	public function set_consumer_name( $name ) {
+		$this->consumer_name = $name;
 	}
 
 	//////////////////////////////////////////////////
