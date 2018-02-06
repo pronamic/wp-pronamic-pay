@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin tour
  * Description:
@@ -19,8 +21,10 @@ class AdminTour {
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-includes/js/wp-pointer.js
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/includes/template.php#L1955-L2016
 	 * @see https://github.com/Yoast/wordpress-seo/blob/2.3.4/admin/class-pointers.php
+	 *
+	 * @param Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions
@@ -117,10 +121,10 @@ class AdminTour {
 						// @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/edit.php#L321
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-dashboard' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-dashboard' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -133,10 +137,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-payments' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-payments' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -149,10 +153,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-gateways' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-gateways' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -165,10 +169,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-forms' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-forms' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -184,10 +188,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-settings' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-settings' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -200,10 +204,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-tools' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-tools' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -216,10 +220,10 @@ class AdminTour {
 					array(
 						'selector' => '.wrap .wp-header-end',
 						'options'  => (object) array(
-							'content'   => $this->get_content( 'pointer-reports' ),
-							'position'  => (object) array(
-								'edge'      => 'top',
-								'align'     => ( is_rtl() ) ? 'left' : 'right',
+							'content'      => $this->get_content( 'pointer-reports' ),
+							'position'     => (object) array(
+								'edge'  => 'top',
+								'align' => ( is_rtl() ) ? 'left' : 'right',
 							),
 							'pointerWidth' => 450,
 						),
@@ -232,12 +236,12 @@ class AdminTour {
 		if ( empty( $pointers ) ) {
 			$pointers = array(
 				array(
-					'selector'  => 'li.toplevel_page_pronamic_ideal',
+					'selector' => 'li.toplevel_page_pronamic_ideal',
 					'options'  => (object) array(
-						'content'   => $this->get_content( 'pointer-start' ),
-						'position'  => (object) array(
-							'edge'      => 'left',
-							'align'     => 'center',
+						'content'  => $this->get_content( 'pointer-start' ),
+						'position' => (object) array(
+							'edge'  => 'left',
+							'align' => 'center',
 						),
 					),
 				),
@@ -252,7 +256,7 @@ class AdminTour {
 	 */
 	public function get_close_url() {
 		return wp_nonce_url( add_query_arg( array(
-			'pronamic_pay_ignore_tour'  => true,
+			'pronamic_pay_ignore_tour' => true,
 		) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' );
 	}
 }

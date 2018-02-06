@@ -27,8 +27,11 @@ class AdminAboutPage {
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/admin/dashboard-widgets.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
+	 *
+	 * @param Plugin      $plugin
+	 * @param AdminModule $admin
 	 */
-	public function __construct( $plugin, $admin ) {
+	public function __construct( Plugin $plugin, AdminModule $admin ) {
 		$this->plugin = $plugin;
 		$this->admin  = $admin;
 

@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin notices
  * Description:
@@ -17,8 +19,10 @@ class AdminNotices {
 	 * Constructs and initializes an notices object
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/class-wc-admin-notices.php
+	 *
+	 * @param Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions

@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin reports
  * Description:
@@ -17,7 +19,13 @@ class AdminReports {
 
 	private $admin;
 
-	public function __construct( $plugin, $admin ) {
+	/**
+	 * AdminReports constructor.
+	 *
+	 * @param Plugin      $plugin
+	 * @param AdminModule $admin
+	 */
+	public function __construct( Plugin $plugin, AdminModule $admin ) {
 		$this->plugin = $plugin;
 		$this->admin  = $admin;
 

@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Title: WordPress admin dashboard
  * Description:
@@ -23,8 +25,10 @@ class AdminDashboard {
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/admin/dashboard-widgets.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
+	 *
+	 * @param Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions

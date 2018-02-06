@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
 
 /**
@@ -18,8 +19,10 @@ class AdminSettings {
 
 	/**
 	 * Constructs and initalize an admin object
+	 *
+	 * @param Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions

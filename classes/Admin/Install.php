@@ -34,8 +34,10 @@ class Install {
 	 * Constructs and initializes an install object
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/class-wc-install.php
+	 *
+	 * @param AdminModule $admin
 	 */
-	public function __construct( $admin ) {
+	public function __construct( AdminModule $admin ) {
 		$this->admin = $admin;
 
 		// Actions
