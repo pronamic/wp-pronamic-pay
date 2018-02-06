@@ -692,7 +692,7 @@ class Plugin {
 		$integrations[ $integration->get_id() ] = $integration;
 
 		// Sisow
-		$integration = new \Pronamic_WP_Pay_Gateways_Sisow_Integration();
+		$integration = new Gateways\Sisow\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
