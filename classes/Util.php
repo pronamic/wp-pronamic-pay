@@ -121,7 +121,7 @@ class Util {
 	 *
 	 * @return int
 	 */
-	public static function to_numeric_boolean( $boolean ) {
+	public static function boolean_to_numeric( $boolean ) {
 		return $boolean ? 1 : 0;
 	}
 
@@ -136,7 +136,7 @@ class Util {
 	 *
 	 * @return int
 	 */
-	public static function to_string_boolean( $boolean ) {
+	public static function boolean_to_string( $boolean ) {
 		return $boolean ? 'true' : 'false';
 	}
 
