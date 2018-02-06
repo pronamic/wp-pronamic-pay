@@ -14,7 +14,7 @@ class Pronamic_WP_UtilTest extends WP_UnitTestCase {
 	public function test_to_string_boolean() {
 		$boolean = false;
 
-		$result = Util::to_string_boolean( $boolean );
+		$result = Util::boolean_to_string( $boolean );
 
 		$this->assertEquals( 'false', $result );
 	}
