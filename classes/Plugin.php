@@ -155,8 +155,13 @@ class Plugin {
 		return $pronamic_pay_version;
 	}
 
+	/**
+	 * Get plugin file path.
+	 *
+	 * @return string
+	 */
 	public function get_file() {
-		return $this->file;
+		return self::$file;
 	}
 
 	public function get_plugin_dir_path() {
