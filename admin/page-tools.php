@@ -3,10 +3,10 @@
 use Pronamic\WordPress\Pay\Plugin;
 
 $tabs = array(
-	'system_status'   => __( 'System Status', 'pronamic_ideal' ),
-	'gateways'        => __( 'Payment Gateways', 'pronamic_ideal' ),
-	'extensions'      => __( 'Extensions', 'pronamic_ideal' ),
-	'documentation'   => __( 'Documentation', 'pronamic_ideal' ),
+	'system_status' => __( 'System Status', 'pronamic_ideal' ),
+	'gateways'      => __( 'Payment Gateways', 'pronamic_ideal' ),
+	'extensions'    => __( 'Extensions', 'pronamic_ideal' ),
+	'documentation' => __( 'Documentation', 'pronamic_ideal' ),
 );
 
 $current_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING );
@@ -53,5 +53,5 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 
 	?>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

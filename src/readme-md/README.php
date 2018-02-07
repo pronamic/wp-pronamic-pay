@@ -38,4 +38,3 @@ header( 'Content-Type: text/plain' );
 ## Links
 
 <?php include __DIR__ . '/../general/links.php'; ?>
-

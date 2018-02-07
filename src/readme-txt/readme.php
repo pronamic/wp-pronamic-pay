@@ -15,33 +15,32 @@ Tested up to: 4.9
 Requires PHP: 5.3
 Stable tag: <?php echo $pkg->version, "\r\n"; ?>
 
-<?php include __DIR__ . '/../general/description-short.php'; ?>
+<?php require __DIR__ . '/../general/description-short.php'; ?>
 
 
 == Description ==
 
-<?php include 'description-long.php'; ?>
+<?php require 'description-long.php'; ?>
 
 
 == Installation ==
 
-<?php include 'installation.php'; ?>
+<?php require 'installation.php'; ?>
 
 
 == Screenshots ==
 
-<?php include 'screenshots.php'; ?>
+<?php require 'screenshots.php'; ?>
 
 
-<?php include 'other-notes.php'; ?>
+<?php require 'other-notes.php'; ?>
 
 
 == Changelog ==
 
-<?php include 'changelog.php'; ?>
+<?php require 'changelog.php'; ?>
 
 
 == Links ==
 
-<?php include __DIR__ . '/../general/links.php'; ?>
-
+<?php require __DIR__ . '/../general/links.php'; ?>

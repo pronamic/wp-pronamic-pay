@@ -4,73 +4,73 @@ global $pronamic_pay_providers;
 
 $pronamic_pay_providers = array(
 	'abnamro'           => array(
-		'name'          => 'ABN AMRO',
-		'url'           => 'http://abnamro.nl/',
+		'name' => 'ABN AMRO',
+		'url'  => 'http://abnamro.nl/',
 	),
 	'buckaroo'          => array(
-		'name'          => 'Buckaroo',
-		'url'           => 'http://www.buckaroo.nl/',
+		'name' => 'Buckaroo',
+		'url'  => 'http://www.buckaroo.nl/',
 	),
 	'deutschebank'      => array(
-		'name'          => 'Deutsche Bank',
-		'url'           => 'http://deutschebank.nl/',
+		'name' => 'Deutsche Bank',
+		'url'  => 'http://deutschebank.nl/',
 	),
 	'dutchpaymentgroup' => array(
-		'name'          => 'Dutch Payment Group',
-		'url'           => 'http://www.dutchpaymentgroup.com/',
+		'name' => 'Dutch Payment Group',
+		'url'  => 'http://www.dutchpaymentgroup.com/',
 	),
 	'easy-ideal'        => array(
 		'name'          => 'Easy iDeal',
 		'url'           => 'http://www.easy-ideal.com/',
 		'affiliate_url' => 'https://www.qantanipayments.com/backoffice/signup/easyideal/step1/pronamic/',
 	),
-	'ems'        => array(
-		'name'          => 'European Merchant Services',
-		'url'           => 'https://emscard.nl/',
+	'ems'               => array(
+		'name' => 'European Merchant Services',
+		'url'  => 'https://emscard.nl/',
 	),
 	'fibonacciorange'   => array(
-		'name'          => 'Fibonacci ORANGE',
-		'url'           => 'http://www.fibonacciorange.com/',
+		'name' => 'Fibonacci ORANGE',
+		'url'  => 'http://www.fibonacciorange.com/',
 	),
 	'icepay'            => array(
-		'name'          => 'ICEPAY',
-		'url'           => 'http://www.icepay.nl/',
+		'name' => 'ICEPAY',
+		'url'  => 'http://www.icepay.nl/',
 	),
 	'ideal-simulator'   => array(
-		'name'          => 'iDEAL Simulator',
-		'url'           => 'http://ideal-simulator.nl/',
+		'name' => 'iDEAL Simulator',
+		'url'  => 'http://ideal-simulator.nl/',
 	),
 	'ing'               => array(
-		'name'          => 'ING',
-		'url'           => 'http://ing.nl/',
+		'name' => 'ING',
+		'url'  => 'http://ing.nl/',
 	),
 	'mollie'            => array(
-		'name'          => 'Mollie',
-		'url'           => 'http://www.mollie.nl/',
+		'name' => 'Mollie',
+		'url'  => 'http://www.mollie.nl/',
 	),
 	'multisafepay'      => array(
-		'name'          => 'MultiSafepay',
-		'url'           => 'http://www.multisafepay.com/',
+		'name' => 'MultiSafepay',
+		'url'  => 'http://www.multisafepay.com/',
 	),
 	'ogone'             => array(
-		'name'          => 'Ingenico/Ogone',
-		'url'           => 'http://payment-services.ingenico.com/',
+		'name' => 'Ingenico/Ogone',
+		'url'  => 'http://payment-services.ingenico.com/',
 	),
-	'pay_nl'             => array(
-		'name'          => 'Pay.nl',
-		'url'           => 'https://www.pay.nl/',
+	'pay_nl'            => array(
+		'name' => 'Pay.nl',
+		'url'  => 'https://www.pay.nl/',
 	),
-	'paytor'             => array(
-		'name'          => 'Paytor',
-		'url'           => 'http://www.paytor.com/',
+	'paytor'            => array(
+		'name' => 'Paytor',
+		'url'  => 'http://www.paytor.com/',
 	),
 	'postcode.nl'       => array(
-		'name'          => 'Postcode.nl',
-		'url'           => 'https://www.postcode.nl/',
+		'name' => 'Postcode.nl',
+		'url'  => 'https://www.postcode.nl/',
 	),
 	'rabobank'          => array(
-		'name'          => 'Rabobank',
-		'url'           => 'http://rabobank.nl/',
+		'name' => 'Rabobank',
+		'url'  => 'http://rabobank.nl/',
 	),
 	'sisow'             => array(
 		'name'          => 'Sisow',

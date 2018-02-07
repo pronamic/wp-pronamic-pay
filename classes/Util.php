@@ -292,8 +292,10 @@ class Util {
 	/**
 	 * Select options grouped
 	 *
-	 * @param array $groups
+	 * @param array  $groups
 	 * @param string $selected_value
+	 *
+	 * @return string
 	 */
 	public static function select_options_grouped( $groups, $selected_value = null ) {
 		$html = '';

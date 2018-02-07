@@ -9,13 +9,13 @@ use Pronamic\WordPress\Pay\Plugin;
 <?php
 
 $providers = array(
-	'abnamro.nl' => array(
+	'abnamro.nl'            => array(
 		'name'      => 'ABN AMRO',
 		'url'       => 'http://abnamro.nl/',
 		'resources' => array(
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEALeasy_NL.pdf',
-				'name'    => 'Handleiding IDEAL EASY',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEALeasy_NL.pdf',
+				'name' => 'Handleiding IDEAL EASY',
 			),
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/User_Manual_NL.pdf',
@@ -63,31 +63,31 @@ $providers = array(
 				'version' => '3.2.2',
 			),
 			array(
-				'url'     => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp',
-				'name'    => 'Parameter Cookbook',
+				'url'  => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp',
+				'name' => 'Parameter Cookbook',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-List-of-the-payment-statuses-and-error-codes.pdf',
-				'url2'    => 'https://internetkassa.abnamro.nl/ncol/paymentinfos1.asp',
-				'name'    => 'List of the payment statuses and error codes',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-List-of-the-payment-statuses-and-error-codes.pdf',
+				'url2' => 'https://internetkassa.abnamro.nl/ncol/paymentinfos1.asp',
+				'name' => 'List of the payment statuses and error codes',
 			),
 			array(
-				'url'     => 'https://internetkassa.abnamro.nl/ncol/paymentinfos8.asp',
-				'name'    => 'Lijst van betalingsstatussen en foutcodes',
+				'url'  => 'https://internetkassa.abnamro.nl/ncol/paymentinfos8.asp',
+				'name' => 'Lijst van betalingsstatussen en foutcodes',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-Internetkassa_-Parameter-Cookbook.pdf',
-				'url2'    => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp',
-				'name'    => 'Parameter Cookbook',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2012/11/ABN-AMRO-Internetkassa_-Parameter-Cookbook.pdf',
+				'url2' => 'https://internetkassa.abnamro.nl/ncol/param_cookbook.asp',
+				'name' => 'Parameter Cookbook',
 			),
 		),
 	),
-	'adyen.com' => array(
+	'adyen.com'             => array(
 		'name'      => 'Adyen',
 		'url'       => 'http://adyen.com/',
 		'resources' => array(),
 	),
-	'buckaroo' => array(
+	'buckaroo'              => array(
 		'name'      => 'Buckaroo',
 		'url'       => 'http://www.buckaroo.nl/',
 		'resources' => array(
@@ -105,7 +105,7 @@ $providers = array(
 			),
 		),
 	),
-	'cardgate.com' => array(
+	'cardgate.com'          => array(
 		'name'      => 'Card Gate Plus',
 		'url'       => 'http://cardgate.com/',
 		'resources' => array(
@@ -117,7 +117,7 @@ $providers = array(
 			),
 		),
 	),
-	'currence.nl' => array(
+	'currence.nl'           => array(
 		'name'      => 'Currence',
 		'url'       => 'http://currence.nl/',
 		'resources' => array(
@@ -171,7 +171,7 @@ $providers = array(
 			),
 		),
 	),
-	'icepay.com' => array(
+	'icepay.com'            => array(
 		'name'      => 'ICEPAY',
 		'url'       => 'http://www.icepay.com/',
 		'resources' => array(
@@ -182,7 +182,7 @@ $providers = array(
 			),
 		),
 	),
-	'ideal.nl' => array(
+	'ideal.nl'              => array(
 		'name'      => 'iDEAL',
 		'url'       => 'http://ideal.nl/',
 		'resources' => array(
@@ -196,7 +196,7 @@ $providers = array(
 			),
 		),
 	),
-	'idealdesk.com' => array(
+	'idealdesk.com'         => array(
 		'name'      => 'iDEALdesk',
 		'url'       => 'https://www.idealdesk.com/',
 		'resources' => array(
@@ -206,7 +206,7 @@ $providers = array(
 			),
 		),
 	),
-	'ing.nl' => array(
+	'ing.nl'                => array(
 		'name'      => 'ING',
 		'url'       => 'http://ing.nl/',
 		'resources' => array(
@@ -222,8 +222,8 @@ $providers = array(
 				'version' => '2.2',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Wijzigen_van_een_acquiring_certificaat_in_iDEAL_Advanced_internet_tcm7-82882.pdf',
-				'name'    => 'Wijzigen van een acquiring certificaat in iDEAL Advanced',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2011/12/Wijzigen_van_een_acquiring_certificaat_in_iDEAL_Advanced_internet_tcm7-82882.pdf',
+				'name' => 'Wijzigen van een acquiring certificaat in iDEAL Advanced',
 			),
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.3.pdf',
@@ -267,7 +267,7 @@ $providers = array(
 			),
 		),
 	),
-	'mollie.nl' => array(
+	'mollie.nl'             => array(
 		'name'      => 'Mollie',
 		'url'       => 'http://mollie.nl/',
 		'resources' => array(
@@ -292,7 +292,7 @@ $providers = array(
 			),
 		),
 	),
-	'multisafepay.com' => array(
+	'multisafepay.com'      => array(
 		'name'      => 'MultiSafepay',
 		'url'       => 'https://www.multisafepay.com/',
 		'resources' => array(
@@ -308,7 +308,7 @@ $providers = array(
 			),
 		),
 	),
-	'buckaroo.nl' => array(
+	'buckaroo.nl'           => array(
 		'name'      => 'Buckaroo',
 		'url'       => 'http://buckaroo.nl/',
 		'resources' => array(
@@ -318,14 +318,14 @@ $providers = array(
 			),
 		),
 	),
-	'ogone.nl' => array(
+	'ogone.nl'              => array(
 		'name'      => 'Ogone',
 		'url'       => 'http://www.ogone.nl/',
 		'resources' => array(
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2011/12/Ogone_eCom_STD_Integration_20041224_EN.pdf',
-				'name'    => 'Ogone Document II: Ogone e-Commerce, integration in the merchant\'s WEB site',
-				'date'    => new DateTime( '26-10-2006' ),
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2011/12/Ogone_eCom_STD_Integration_20041224_EN.pdf',
+				'name' => 'Ogone Document II: Ogone e-Commerce, integration in the merchant\'s WEB site',
+				'date' => new DateTime( '26-10-2006' ),
 			),
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone_DirectLink_EN.pdf',
@@ -333,28 +333,28 @@ $providers = array(
 				'version' => '4.3.3',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Parameter-Cookbook.pdf',
-				'name'    => 'Ogone - Parameter Cookbook',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Parameter-Cookbook.pdf',
+				'name' => 'Ogone - Parameter Cookbook',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-List-of-the-payment-statuses-and-error-codes.pdf',
-				'name'    => 'Ogone - List of the payment statuses and error codes',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-List-of-the-payment-statuses-and-error-codes.pdf',
+				'name' => 'Ogone - List of the payment statuses and error codes',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Lijst-van-de-betaalstatussen-en-foutcodes.pdf',
-				'name'    => 'Ogone - Lijst van de betaalstatussen en foutcodes',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2013/08/Ogone-Lijst-van-de-betaalstatussen-en-foutcodes.pdf',
+				'name' => 'Ogone - Lijst van de betaalstatussen en foutcodes',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/11/Ogone_DirectLink-3-D_EN.pdf',
-				'name'    => 'Ogone - DirectLink with 3-D Secure',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2013/11/Ogone_DirectLink-3-D_EN.pdf',
+				'name' => 'Ogone - DirectLink with 3-D Secure',
 			),
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2014/06/Ogone-Integratieparameters.pdf',
-				'name'    => 'Ogone - Integratieparameters',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2014/06/Ogone-Integratieparameters.pdf',
+				'name' => 'Ogone - Integratieparameters',
 			),
 		),
 	),
-	'paygate.co.za' => array(
+	'paygate.co.za'         => array(
 		'name'      => 'PayGate',
 		'url'       => 'http://paygate.co.za/',
 		'resources' => array(
@@ -366,7 +366,7 @@ $providers = array(
 			),
 		),
 	),
-	'rabobank.nl' => array(
+	'rabobank.nl'           => array(
 		'name'      => 'Rabobank',
 		'url'       => 'http://rabobank.nl/',
 		'resources' => array(
@@ -385,8 +385,8 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf',
-				'name'       => 'Kennismaking Rabobank iDEAL Dashboard',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2011/12/kennismaking_rabobank_ideal_dashboard.pdf',
+				'name' => 'Kennismaking Rabobank iDEAL Dashboard',
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/01/rabo_omnikassa_gebruikerhandleiding_dashboard_d1_1_dutch_20120117_final_29420243.pdf',
@@ -407,9 +407,9 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
-				'name'       => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
-				'date'       => new DateTime( '17-04-2012' ),
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2012/05/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
+				'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
+				'date' => new DateTime( '17-04-2012' ),
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/07/integration_guide_rabo_omnikassa_v2_0_1_final_29451215.pdf',
@@ -440,19 +440,19 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/Integration_Guide_Rabo_Omnikassa_v300_en.pdf',
-				'name'       => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',
-				'version'   => '3.0',
-				'date'       => new DateTime( '01-09-2012' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2012/09/Integration_Guide_Rabo_Omnikassa_v300_en.pdf',
+				'name'    => 'Integration guide Rabo OmniKassa - Version 3.0 September 2012',
+				'version' => '3.0',
+				'date'    => new DateTime( '01-09-2012' ),
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/09/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
-				'name'       => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
-				'date'       => new DateTime( '03-09-2012' ),
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2012/09/zo_werkt_het_aanvragen_en_aansluiten_van_de_rabo_omnikassa_29417568.pdf',
+				'name' => 'Zo werkt het aanvragen en aansluiten van de Rabo OmniKassa',
+				'date' => new DateTime( '03-09-2012' ),
 			),
 			array(
-				'url'       => 'http://www.rabobank.nl/omnikassa-actueel',
-				'name'       => 'Rabo OmniKassa Actueel',
+				'url'  => 'http://www.rabobank.nl/omnikassa-actueel',
+				'name' => 'Rabo OmniKassa Actueel',
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2012/11/integratiehandleiding_rabo_omnikassa_versie_7_11_2012_29420242.pdf',
@@ -469,10 +469,10 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
-				'name'       => 'Rabo OmniKassa - Gebruikshandleiding Downloadsite - Versie 2.1, december 2012',
-				'version'    => '2.1',
-				'date'       => new DateTime( '01-12-2012' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/01/rabobank_omnikassa_gebruikshandleiding_downloadsite_versie_2_1_december_2012_29420244.pdf',
+				'name'    => 'Rabo OmniKassa - Gebruikshandleiding Downloadsite - Versie 2.1, december 2012',
+				'version' => '2.1',
+				'date'    => new DateTime( '01-12-2012' ),
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/01/rabo_omnikassa_gebruikerhandleiding_dashboard_29420243.pdf',
@@ -482,22 +482,22 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabo_omnikassa_gebruikshandleiding_dashboard_new_29550801.pdf',
-				'name'       => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - versie 2.4, 5 juni 2013',
-				'version'    => '2.4',
-				'date'       => new DateTime( '05-06-2013' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/06/rabo_omnikassa_gebruikshandleiding_dashboard_new_29550801.pdf',
+				'name'    => 'Gebruikshandleiding - Dashboard van de Rabo OmniKassa - versie 2.4, 5 juni 2013',
+				'version' => '2.4',
+				'date'    => new DateTime( '05-06-2013' ),
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Lite.pdf',
-				'name'       => 'Rabo iDEAL Lite - Integratie Handleiding',
-				'version'    => '2.6',
-				'date'       => new DateTime( '01-01-2012' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Lite.pdf',
+				'name'    => 'Rabo iDEAL Lite - Integratie Handleiding',
+				'version' => '2.6',
+				'date'    => new DateTime( '01-01-2012' ),
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Professional.pdf',
-				'name'       => 'Handleiding iDEAL Professional',
-				'version'    => '1.2',
-				'date'       => new DateTime( '01-11-2012' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/06/Handleiding-iDEAL-Professional.pdf',
+				'name'    => 'Handleiding iDEAL Professional',
+				'version' => '1.2',
+				'date'    => new DateTime( '01-11-2012' ),
 			),
 			array(
 				'url'        => 'http://pronamic.nl/wp-content/uploads/2013/06/rabobank_omnikassa_integratiehandleiding_29420242.pdf',
@@ -549,26 +549,26 @@ $providers = array(
 				'deprecated' => true,
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_rabo_omnikassa_en_version_7_1_april_2014_final_2_0_29637101.pdf',
-				'name'       => 'Integration Guide Rabo OmniKassa, Version 7.1, April 2014',
-				'version'    => '7.1',
-				'date'       => new DateTime( '01-04-2014' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_rabo_omnikassa_en_version_7_1_april_2014_final_2_0_29637101.pdf',
+				'name'    => 'Integration Guide Rabo OmniKassa, Version 7.1, April 2014',
+				'version' => '7.1',
+				'date'    => new DateTime( '01-04-2014' ),
 			),
 			array(
-				'url'        => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_nl_12_2013_29420242.pdf',
-				'name'       => 'Integratiehandleiding Rabo OmniKassa, versie 7.1, april 2014',
-				'version'    => '7.1',
-				'date'       => new DateTime( '01-04-2014' ),
+				'url'     => 'http://pronamic.nl/wp-content/uploads/2014/07/integratiehandleiding_nl_12_2013_29420242.pdf',
+				'name'    => 'Integratiehandleiding Rabo OmniKassa, versie 7.1, april 2014',
+				'version' => '7.1',
+				'date'    => new DateTime( '01-04-2014' ),
 			),
 		),
 	),
-	'sisow.nl' => array(
+	'sisow.nl'              => array(
 		'name'      => 'Sisow',
 		'url'       => 'http://sisow.nl/',
 		'resources' => array(
 			array(
-				'url'     => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf',
-				'name'    => 'Sisow - Pronamic iDEAL',
+				'url'  => 'http://pronamic.nl/wp-content/uploads/2012/06/Sisow-Pronamic-iDEAL.pdf',
+				'name' => 'Sisow - Pronamic iDEAL',
 			),
 			array(
 				'url'     => 'http://pronamic.nl/wp-content/uploads/2013/02/sisow-rest-api-v3.2.1.pdf',
@@ -582,7 +582,7 @@ $providers = array(
 			),
 		),
 	),
-	'qantani.com' => array(
+	'qantani.com'           => array(
 		'name'      => 'Qantani',
 		'url'       => 'http://qantani.com/',
 		'resources' => array(

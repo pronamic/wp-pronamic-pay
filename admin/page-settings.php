@@ -31,5 +31,5 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 		<?php submit_button(); ?>
 	</form>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

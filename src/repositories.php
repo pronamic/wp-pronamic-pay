@@ -65,7 +65,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		if ( ! is_dir( $git_dir ) ) {
 			`git clone $git_url $git_dir`;
-		} 
+		}
 
 		// Git flow
 		chdir( $git_dir );

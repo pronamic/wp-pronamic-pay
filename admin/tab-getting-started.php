@@ -12,7 +12,7 @@ if ( ! defined( 'WPINC' ) ) {
 <div class="feature-section two-col">
 	<div class="col">
 		<h3><?php esc_html_e( 'Step 1: open an account with a payment provider', 'pronamic_ideal' ); ?></h3>
-		
+
 		<p>
 			<?php
 
@@ -125,7 +125,7 @@ amounts will be shown. You need to test all these amounts before your live accou
 
 	<div class="col">
 		<h3><?php esc_html_e( 'Step 4: configure e-commerce plugin', 'pronamic_ideal' ); ?></h3>
-		
+
 		<p>
 			<?php
 

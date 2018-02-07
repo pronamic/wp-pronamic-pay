@@ -24,8 +24,8 @@
 									'<a href="%s" class="button-secondary">%s</a>',
 									esc_attr(
 										wp_nonce_url( add_query_arg( array(
-											'page'                     => 'pronamic_ideal',
-											'pronamic_pay_ignore_tour'  => '0',
+											'page' => 'pronamic_ideal',
+											'pronamic_pay_ignore_tour' => '0',
 										) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' )
 									),
 									esc_html__( 'Start tour', 'pronamic_ideal' )
@@ -159,5 +159,5 @@
 		</div>
 	</div>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

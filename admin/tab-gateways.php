@@ -29,7 +29,7 @@ bind_providers_and_gateways();
 			if ( isset( $provider['integrations'] ) && is_array( $provider['integrations'] ) ) :
 
 				foreach ( $provider['integrations'] as $integration ) :
-					$name    = $integration->get_name();
+					$name = $integration->get_name();
 
 					$name = explode( ' - ', $name );
 
@@ -46,6 +46,7 @@ bind_providers_and_gateways();
 						$provider = '';
 					else :
 						$current_provider = $integration->provider;
+
 						$alternate = ! $alternate;
 					endif;
 

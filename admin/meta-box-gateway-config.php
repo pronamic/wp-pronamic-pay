@@ -46,11 +46,11 @@ bind_providers_and_gateways();
 							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
 
 							foreach ( $provider['integrations'] as $integration ) {
-								$id      = $integration->get_id();
-								$name    = $integration->get_name();
-								$classes = array();
+								$id          = $integration->get_id();
+								$name        = $integration->get_name();
+								$classes     = array();
 								$description = '';
-								$links   = array();
+								$links       = array();
 
 								if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 									$classes[] = 'deprecated';
@@ -219,7 +219,7 @@ bind_providers_and_gateways();
 							<td <?php if ( 'html' === $field['type'] ) : ?>colspan="2"<?php endif; ?>>
 								<?php
 
-								$attributes = array();
+								$attributes         = array();
 								$attributes['id']   = $id;
 								$attributes['name'] = $id;
 
@@ -307,7 +307,7 @@ bind_providers_and_gateways();
 
 										break;
 									case 'file' :
-										$attributes['type']  = 'file';
+										$attributes['type'] = 'file';
 
 										printf(
 											'<input %s />',

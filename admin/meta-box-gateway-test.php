@@ -207,12 +207,12 @@ if ( $gateway ) {
 
 						$allowed_html = array(
 							'input' => array(
-								'id'     => true,
-								'name'   => true,
-								'type'   => true,
-								'value'  => true,
-								'size'   => true,
-								'class'  => true,
+								'id'    => true,
+								'name'  => true,
+								'type'  => true,
+								'value' => true,
+								'size'  => true,
+								'class' => true,
 							),
 						);
 
