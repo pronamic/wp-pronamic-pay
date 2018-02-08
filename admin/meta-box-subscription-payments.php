@@ -26,6 +26,8 @@ $payments = $subscription->get_payments();
 				<th scope="col"><?php esc_html_e( 'Transaction', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Date', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Start Date', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</thead>
 
@@ -55,6 +57,32 @@ $payments = $subscription->get_payments();
 					</td>
 					<td>
 						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_date', $payment_id ); ?>
+					</td>
+					<td>
+						<?php
+
+						if ( empty( $payment->start_date ) ) {
+							echo '—';
+						} else {
+							$date = get_date_from_gmt( $payment->start_date->format( 'Y-m-d H:i:s' ) );
+
+							echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
+						}
+
+						?>
+					</td>
+					<td>
+						<?php
+
+						if ( empty( $payment->end_date ) ) {
+							echo '—';
+						} else {
+							$date = get_date_from_gmt( $payment->end_date->format( 'Y-m-d H:i:s' ) );
+
+							echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
+						}
+
+						?>
 					</td>
 				</tr>
 

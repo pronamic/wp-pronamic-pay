@@ -169,6 +169,20 @@ class PaymentsDataStoreCPT {
 
 		$payment->subscription_id = get_post_meta( $id, $prefix . 'subscription_id', true );
 		$payment->recurring       = get_post_meta( $id, $prefix . 'recurring', true );
+
+		// Start Date
+		$start_date_string = get_post_meta( $id, $prefix . 'start_date', true );
+		
+		if ( ! empty( $start_date_string ) ) {
+			$payment->start_date = date_create( $start_date_string );
+		}
+
+		// End Date 
+		$end_date_string = get_post_meta( $id, $prefix . 'end_date', true );
+		
+		if ( ! empty( $end_date_string ) ) {
+			$payment->end_date = date_create( $end_date_string );
+		}
 	}
 
 	/**
@@ -220,6 +234,14 @@ class PaymentsDataStoreCPT {
 			'transaction_id'          => $payment->get_transaction_id(),
 			'action_url'              => $payment->get_action_url(),
 		);
+
+		if ( isset( $payment->start_date ) ) {
+			$data['start_date'] = $payment->start_date->format( 'Y-m-d H:i:s' );
+		}
+
+		if ( isset( $payment->end_date ) ) {
+			$data['end_date'] = $payment->end_date->format( 'Y-m-d H:i:s' );
+		}
 
 		$data = array_merge( $payment->meta, $data );
 

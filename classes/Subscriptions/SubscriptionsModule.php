@@ -246,6 +246,9 @@ class SubscriptionsModule {
 		if ( $result ) {
 			$payment->subscription_id = $subscription->get_id();
 
+			$payment->start_date = $start_date;
+			$payment->end_date   = $next_date;
+
 			$this->plugin->payments_data_store->update( $payment );
 		}
 	}
