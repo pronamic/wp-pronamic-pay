@@ -92,7 +92,7 @@ abstract class PaymentData extends AbstractPaymentData {
 		$parts = array_filter( $parts );
 
 		if ( empty( $parts ) ) {
-			return null;
+			return $this->user->display_name;
 		}
 
 		$name = trim( implode( ' ', $parts ) );
