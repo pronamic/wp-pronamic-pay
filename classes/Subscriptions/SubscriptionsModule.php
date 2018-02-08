@@ -3,7 +3,10 @@
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\Statuses;
+use WP_CLI;
+use WP_Query;
 
 /**
  * Title: Subscriptions module
@@ -42,6 +45,14 @@ class SubscriptionsModule {
 
 		// Listen to payment status changes so we can update related subscriptions
 		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
+
+		// WordPress CLI
+		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369
+		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php
+		// @see https://make.wordpress.org/cli/handbook/commands-cookbook/
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			WP_CLI::add_command( 'pay subscriptions test', array( $this, 'cli_subscriptions_test' ) );
+		}
 	}
 
 	/**
@@ -113,7 +124,7 @@ class SubscriptionsModule {
 		}
 	}
 
-	public function start_recurring( Pronamic_Pay_Subscription $subscription, Pronamic_WP_Pay_Gateway $gateway, $renewal = false ) {
+	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
 		$recurring = ! $renewal;
 		$first     = $subscription->get_first_payment();
 		$data      = new RecurringPaymentData( $subscription->get_id(), $recurring );
@@ -207,6 +218,7 @@ class SubscriptionsModule {
 		$subscription->description     = $payment->description;
 		$subscription->email           = $payment->email;
 		$subscription->customer_name   = $payment->customer_name;
+		$subscription->payment_method  = $payment->method;
 		$subscription->first_payment   = $payment->date;
 
 		// @todo
@@ -301,10 +313,10 @@ class SubscriptionsModule {
 			$first        = $subscription->get_first_payment();
 			$gateway      = Plugin::get_gateway( $first->config_id );
 
-			$payment = self::start_recurring( $subscription, $gateway );
+			$payment = $this->start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
-				self::update_payment( $payment, false );
+				Plugin::update_payment( $payment, false );
 			}
 		}
 	}
@@ -430,5 +442,51 @@ class SubscriptionsModule {
 
 		// Update
 		$result = $this->plugin->subscriptions_data_store->update( $subscription );
+	}
+
+	/**
+	 * CLI subscriptions test.
+	 */
+	public function cli_subscriptions_test() {
+		$args = array(
+			'post_type'   => 'pronamic_pay_subscr',
+			'nopaging'    => true,
+			'orderby'     => 'post_date',
+			'order'       => 'ASC',
+			'post_status' => array(
+				'subscr_pending',
+				'subscr_expired',
+				'subscr_failed',
+				'subscr_active',
+			),
+			'meta_query'  => array(
+				array(
+					'key'     => '_pronamic_subscription_source',
+					'value'   => array(
+						// Don't create payments for sources which schedule payments
+						'woocommerce',
+					),
+					'compare' => 'NOT IN',
+				),
+			),
+		);
+
+		$query = new WP_Query( $args );
+
+		foreach ( $query->posts as $post ) {
+			WP_CLI::log( sprintf( 'Processing post `%d` - "%s"…', $post->ID, get_the_title( $post ) ) );
+
+			$subscription = new Subscription( $post->ID );
+			$first        = $subscription->get_first_payment();
+			$gateway      = Plugin::get_gateway( $first->config_id );
+
+			$payment = $this->start_recurring( $subscription, $gateway );
+
+			if ( $payment ) {
+				Plugin::update_payment( $payment, false );
+			}
+		}
+
+		WP_CLI::success( 'Pronamic Pay subscriptions test.' );
 	}
 }
