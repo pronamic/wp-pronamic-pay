@@ -144,6 +144,7 @@ class SubscriptionsDataStoreCPT {
 		$subscription->description      = get_post_meta( $id, $prefix . 'description', true );
 		$subscription->email            = get_post_meta( $id, $prefix . 'email', true );
 		$subscription->customer_name    = get_post_meta( $id, $prefix . 'customer_name', true );
+		$subscription->payment_method   = get_post_meta( $id, $prefix . 'payment_method', true );
 
 		$date_string = get_post_meta( $id, $prefix . 'start_date', true );
 		$subscription->start_date       = empty( $date_string ) ? null : new DateTime( $date_string );
@@ -193,6 +194,7 @@ class SubscriptionsDataStoreCPT {
 			'description'     => $subscription->description,
 			'email'           => $subscription->email,
 			'customer_name'   => $subscription->customer_name,
+			'payment_method'  => $subscription->payment_method,
 			'start_date'      => $subscription->start_date,
 			'expiry_date'     => $subscription->expiry_date,
 			'first_payment'   => $subscription->first_payment,

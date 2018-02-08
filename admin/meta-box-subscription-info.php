@@ -1,5 +1,6 @@
 <?php
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
 
@@ -31,6 +32,14 @@ $subscription = get_pronamic_subscription( $post_id );
 		</th>
 		<td>
 			<?php echo esc_html( $subscription->get_description() ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo esc_html( PaymentMethods::get_name( $subscription->payment_method ) ); ?>
 		</td>
 	</tr>
 	<tr>
