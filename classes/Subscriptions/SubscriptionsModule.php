@@ -402,10 +402,28 @@ class SubscriptionsModule {
 
 		// Status
 		switch ( $payment->get_status() ) {
+			case Statuses::OPEN:
+				// @todo
+
+				break;
 			case Statuses::SUCCESS:
+				$subscription->set_status( Statuses::SUCCESS );
+
 				if ( $subscription->expiry_date < $payment->end_date ) {
 					$subscription->expiry_date = $payment->end_date;
 				}
+
+				break;
+			case Statuses::FAILURE:
+				$subscription->set_status( Statuses::FAILURE );
+
+				break;
+			case Statuses::CANCELLED:
+				$subscription->set_status( Statuses::CANCELLED );
+
+				break;
+			case Statuses::COMPLETED:
+				$subscription->set_status( Statuses::COMPLETED );
 
 				break;
 		}
