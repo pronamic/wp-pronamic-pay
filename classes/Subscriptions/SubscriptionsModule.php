@@ -3,6 +3,7 @@
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
  * Title: Subscriptions module
@@ -38,6 +39,9 @@ class SubscriptionsModule {
 
 		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
 		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
+
+		// Listen to payment status changes so we can update related subscriptions
+		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
 	}
 
 	/**
@@ -371,5 +375,42 @@ class SubscriptionsModule {
 		$subscription->update_status( Pronamic_WP_Pay_Statuses::COMPLETED );
 
 		$this->update_subscription( $subscription, false );
+	}
+
+	/**
+	 * Payment status update.
+	 */
+	public function payment_status_update( $payment ) {
+		// Check if the payment is connected to a subscription.
+		$subscription_id = $payment->get_subscription_id();
+
+		if ( empty( $subscription_id ) ) {
+			// Payment not connected to a subscription, nothing to do.
+			return;
+		}
+
+		if ( empty( $payment->start_date ) ) {
+			return;
+		}
+
+		if ( empty( $payment->end_date ) ) {
+			return;
+		}
+
+		// Create subscription object.
+		$subscription = new Subscription( $subscription_id );
+
+		// Status
+		switch ( $payment->get_status() ) {
+			case Statuses::SUCCESS:
+				if ( $subscription->expiry_date < $payment->end_date ) {
+					$subscription->expiry_date = $payment->end_date;
+				}
+
+				break;
+		}
+
+		// Update
+		$result = $this->plugin->subscriptions_data_store->update( $subscription );
 	}
 }
