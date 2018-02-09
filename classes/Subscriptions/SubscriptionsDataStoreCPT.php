@@ -147,6 +147,18 @@ class SubscriptionsDataStoreCPT {
 		$subscription->customer_name    = get_post_meta( $id, $prefix . 'customer_name', true );
 		$subscription->payment_method   = get_post_meta( $id, $prefix . 'payment_method', true );
 
+		$first_payment = $subscription->get_first_payment();
+
+		if ( is_object( $first_payment ) ) {
+			if ( empty( $subscription->config_id ) ) {
+				$subscription->config_id = $first_payment->config_id;
+			}
+
+			if ( empty( $subscription->payment_method ) ) {
+				$subscription->payment_method = $first_payment->payment_method;
+			}
+		}
+
 		$date_string = get_post_meta( $id, $prefix . 'start_date', true );
 		$subscription->start_date       = empty( $date_string ) ? null : new DateTime( $date_string );
 

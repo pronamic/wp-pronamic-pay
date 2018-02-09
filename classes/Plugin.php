@@ -1108,9 +1108,15 @@ class Plugin {
 		$payment->subscription_id     = $data->get_subscription_id();
 		$payment->set_credit_card( $data->get_credit_card() );
 
+		self::start_payment( $payment );
+	}
+
+	public static function start_payment( Payments\Payment $payment ) {
 		global $pronamic_ideal;
 
 		$pronamic_ideal->payments_data_store->create( $payment );
+
+		$gateway = Plugin::get_gateway( $payment->config_id );
 
 		$gateway->start( $payment );
 

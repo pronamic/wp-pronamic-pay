@@ -5,6 +5,7 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\Statuses;
+use Pronamic\WordPress\Pay\Payments\Payment;
 use WP_CLI;
 use WP_Query;
 
@@ -125,11 +126,32 @@ class SubscriptionsModule {
 	}
 
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
-		$recurring = ! $renewal;
-		$first     = $subscription->get_first_payment();
-		$data      = new RecurringPaymentData( $subscription->get_id(), $recurring );
+		$payment = new Payment();
 
-		$payment = Plugin::start( $first->config_id, $gateway, $data, $first->method );
+		$payment->config_id        = $subscription->config_id;
+		$payment->user_id          = $subscription->user_id;
+		$payment->source           = $subscription->source;
+		$payment->source_id        = $subscription->source_id;
+		$payment->description      = $subscription->description;
+		$payment->order_id         = $subscription->order_id;
+		$payment->currency         = $subscription->currency;
+		$payment->email            = $subscription->email;
+		$payment->customer_name    = $subscription->customer_name;
+		$payment->address          = $subscription->address;
+		$payment->address          = $subscription->address;
+		$payment->city             = $subscription->city;
+		$payment->zip              = $subscription->zip;
+		$payment->country          = $subscription->country;
+		$payment->telephone_number = $subscription->telephone_number;
+		$payment->payment_method   = $subscription->payment_method;
+		$payment->subscription     = $subscription;
+		$payment->subscription_id  = $subscription->get_id();
+		$payment->amount           = $subscription->amount;
+		$payment->start_date       = new \DateTime();
+		$payment->end_date         = new \DateTime();
+		$payment->recurring        = ! $renewal;
+
+		$payment = Plugin::start_payment( $payment );
 
 		return $payment;
 	}
