@@ -131,6 +131,7 @@ class SubscriptionsDataStoreCPT {
 
 		$id = $subscription->get_id();
 
+		$subscription->config_id        = get_post_meta( $id, $prefix . 'config_id', true );
 		$subscription->key              = get_post_meta( $id, $prefix . 'key', true );
 		$subscription->source           = get_post_meta( $id, $prefix . 'source', true );
 		$subscription->source_id        = get_post_meta( $id, $prefix . 'source_id', true );
@@ -181,6 +182,7 @@ class SubscriptionsDataStoreCPT {
 		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
 
 		$data = array(
+			'config_id'       => $subscription->config_id,
 			'key'             => $subscription->key,
 			'source'          => $subscription->source,
 			'source_id'       => $subscription->source_id,

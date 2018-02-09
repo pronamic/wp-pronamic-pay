@@ -205,6 +205,7 @@ class SubscriptionsModule {
 		// New subscription
 		$subscription = new Subscription();
 
+		$subscription->config_id       = $payment->config_id;
 		$subscription->user_id         = $payment->user_id;
 		$subscription->title           = sprintf( __( 'Subscription for %s', 'pronamic_ideal' ), $payment->title );
 		$subscription->frequency       = $subscription_data->get_frequency();
