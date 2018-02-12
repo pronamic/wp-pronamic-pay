@@ -1173,7 +1173,7 @@ class Plugin {
 		$payment->subscription_id     = $data->get_subscription_id();
 		$payment->set_credit_card( $data->get_credit_card() );
 
-		self::start_payment( $payment );
+		return self::start_payment( $payment );
 	}
 
 	/**
