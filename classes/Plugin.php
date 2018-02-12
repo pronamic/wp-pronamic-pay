@@ -68,17 +68,17 @@ class Plugin {
 	 */
 	public function __construct() {
 		// Bootstrap the add-ons
-		\Pronamic_WP_Pay_Extensions_Charitable_Extension::bootstrap();
+		Extensions\Charitable\Extension::bootstrap();
 		Extensions\Give\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_GravityForms_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_ClassiPress_Extension::bootstrap();
+		Extensions\ClassiPress\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_AppThemes_Extension::bootstrap();
+		Extensions\AppThemes\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
 		Extensions\EasyDigitalDownloads\Extension::bootstrap();
@@ -1138,6 +1138,8 @@ class Plugin {
 	 * @param Gateway                       $gateway
 	 * @param Payments\PaymentDataInterface $data
 	 * @param string|null                   $payment_method
+	 *
+	 * @return Payment
 	 */
 	public static function start( $config_id, Core\Gateway $gateway, Payments\PaymentDataInterface $data, $payment_method = null ) {
 		$payment = new Payments\Payment();
