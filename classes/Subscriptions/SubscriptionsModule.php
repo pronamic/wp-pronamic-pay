@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
+use DateInterval;
+use DatePeriod;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\Statuses;
@@ -23,9 +25,20 @@ use WP_Query;
  */
 class SubscriptionsModule {
 	/**
-	 * Construct and initialize a subscriptions module object.
+	 * Plugin.
+	 *
+	 * @var Plugin $plugin
 	 */
-	public function __construct( $plugin ) {
+	public $plugin;
+
+	/**
+	 * Construct and initialize a subscriptions module object.
+	 *
+	 * @param Plugin $plugin
+	 *
+	 * @throws \Exception
+	 */
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions
@@ -99,8 +112,8 @@ class SubscriptionsModule {
 
 		switch ( $action ) {
 			case 'cancel':
-				if ( Pronamic_WP_Pay_Statuses::CANCELLED !== $subscription->get_status() ) {
-					$subscription->update_status( Pronamic_WP_Pay_Statuses::CANCELLED );
+				if ( Statuses::CANCELLED !== $subscription->get_status() ) {
+					$subscription->update_status( Statuses::CANCELLED );
 
 					$this->update_subscription( $subscription, $should_redirect );
 				}
@@ -110,7 +123,7 @@ class SubscriptionsModule {
 				$first   = $subscription->get_first_payment();
 				$gateway = Plugin::get_gateway( $first->config_id );
 
-				if ( Pronamic_WP_Pay_Statuses::SUCCESS !== $subscription->get_status() ) {
+				if ( Statuses::SUCCESS !== $subscription->get_status() ) {
 					$payment = $this->start_recurring( $subscription, $gateway, true );
 
 					if ( ! $gateway->has_error() ) {
@@ -248,8 +261,8 @@ class SubscriptionsModule {
 		// Calculate dates
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/4.7.0/classes/Pronamic/WP/Pay/Plugin.php#L883-L964
 		$interval_spec = 'P' . $subscription_data->interval . $subscription_data->interval_period;
-		
-		$interval = new \DateInterval( $interval_spec );
+
+		$interval = new DateInterval( $interval_spec );
 
 		$start_date = $payment->date;
 
@@ -265,7 +278,7 @@ class SubscriptionsModule {
 
 		if ( $subscription_data->frequency ) {
 			// @see https://stackoverflow.com/a/10818981/6411283
-			$period = new \DatePeriod( $start_date, $interval, $subscription_data->frequency );
+			$period = new DatePeriod( $start_date, $interval, $subscription_data->frequency );
 
 			$dates = iterator_to_array( $period );
 
@@ -407,7 +420,7 @@ class SubscriptionsModule {
 			return;
 		}
 
-		$subscription->update_status( Pronamic_WP_Pay_Statuses::COMPLETED );
+		$subscription->update_status( Statuses::COMPLETED );
 
 		$this->update_subscription( $subscription, false );
 	}
