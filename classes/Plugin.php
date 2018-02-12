@@ -2,10 +2,12 @@
 
 namespace Pronamic\WordPress\Pay;
 
+use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
+use WP_Query;
 
 /**
  * Title: WordPress iDEAL plugin
@@ -238,6 +240,12 @@ class Plugin {
 		return $url;
 	}
 
+	/**
+	 * Update payment.
+	 *
+	 * @param null $payment
+	 * @param bool $can_redirect
+	 */
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( empty( $payment ) ) {
 			return;
@@ -458,6 +466,9 @@ class Plugin {
 		self::maybe_set_active_payment_methods();
 	}
 
+	/**
+	 * Register gateway integrations.
+	 */
 	private function register_gateway_integrations() {
 		$integrations = array();
 
@@ -728,6 +739,11 @@ class Plugin {
 
 	/**
 	 * Filter plugin locale.
+	 *
+	 * @param $locale
+	 * @param $domain
+	 *
+	 * @return string
 	 */
 	public function plugin_locale( $locale, $domain ) {
 		if ( 'pronamic_ideal' !== $domain ) {
@@ -749,6 +765,11 @@ class Plugin {
 	// Functions from Pronamic_WordPress_IDeal_IDeal
 	//////////////////////////////////////////////////
 
+	/**
+	 * Get payment states.
+	 *
+	 * @return array
+	 */
 	public static function get_payment_states() {
 		return array(
 			'payment_pending'    => _x( 'Pending', 'Payment status', 'pronamic_ideal' ),
@@ -762,6 +783,11 @@ class Plugin {
 		);
 	}
 
+	/**
+	 * Get subscription states.
+	 *
+	 * @return array
+	 */
 	public static function get_subscription_states() {
 		return array(
 			'subscr_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
@@ -789,6 +815,8 @@ class Plugin {
 	/**
 	 * Get config select options
 	 *
+	 * @param null|string $payment_method
+	 *
 	 * @return array
 	 */
 	public static function get_config_select_options( $payment_method = null ) {
@@ -797,114 +825,136 @@ class Plugin {
 			'nopaging'  => true,
 		);
 
-		if ( isset( $payment_method ) ) {
+		if ( $payment_method ) {
 			$gateways = array();
 
 			switch ( $payment_method ) {
 				case Core\PaymentMethods::ALIPAY :
-					$gateways[] = 'multisafepay-connect';
+					$gateways = array( 'multisafepay-connect' );
 
 					break;
 				case Core\PaymentMethods::BUNQ :
-					$gateways[] = 'sisow-ideal';
+					$gateways = array( 'sisow-ideal' );
 
 					break;
 				case Core\PaymentMethods::BANCONTACT :
 				case Core\PaymentMethods::MISTER_CASH :
-					$gateways[] = 'buckaroo';
-					$gateways[] = 'ems-ecommerce';
-					$gateways[] = 'icepay-ideal';
-					$gateways[] = 'ogone-orderstandard';
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
-					$gateways[] = 'qantani-mollie';
-					$gateways[] = 'rabobank-omnikassa';
-					$gateways[] = 'rabobank-omnikassa-2';
-					$gateways[] = 'sisow-ideal';
-					$gateways[] = 'pay_nl';
-					$gateways[] = 'ing-kassa-compleet';
+					$gateways = array(
+						'buckaroo',
+						'ems-ecommerce',
+						'icepay-ideal',
+						'ogone-orderstandard',
+						'mollie',
+						'multisafepay-connect',
+						'qantani-mollie',
+						'rabobank-omnikassa',
+						'rabobank-omnikassa-2',
+						'sisow-ideal',
+						'pay_nl',
+						'ing-kassa-compleet',
+					);
 
 					break;
 				case Core\PaymentMethods::BELFIUS :
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
+					$gateways = array(
+						'mollie',
+						'multisafepay-connect',
+					);
 
 					break;
 				case Core\PaymentMethods::BANK_TRANSFER :
-					$gateways[] = 'ing-kassa-compleet';
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
-					$gateways[] = 'sisow-ideal';
+					$gateways = array(
+						'ing-kassa-compleet',
+						'mollie',
+						'multisafepay-connect',
+						'sisow-ideal',
+					);
 
 					break;
 				case Core\PaymentMethods::CREDIT_CARD :
-					$gateways[] = 'buckaroo';
-					$gateways[] = 'ems-ecommerce';
-					$gateways[] = 'icepay-ideal';
-					$gateways[] = 'ing-kassa-compleet';
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
-					$gateways[] = 'ogone-directlink';
-					$gateways[] = 'ogone-orderstandard';
-					$gateways[] = 'rabobank-omnikassa';
-					$gateways[] = 'rabobank-omnikassa-2';
-					$gateways[] = 'sisow-ideal';
+					$gateways = array(
+						'buckaroo',
+						'ems-ecommerce',
+						'icepay-ideal',
+						'ing-kassa-compleet',
+						'mollie',
+						'qantani-mollie',
+						'ogone-directlink',
+						'ogone-orderstandard',
+						'rabobank-omnikassa',
+						'rabobank-omnikassa-2',
+						'sisow-ideal',
+					);
 
 					break;
 				case Core\PaymentMethods::DIRECT_DEBIT_BANCONTACT :
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
+					$gateways = array(
+						'mollie',
+						'qantani-mollie',
+					);
 
 					break;
 				case Core\PaymentMethods::DIRECT_DEBIT_IDEAL :
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
+					$gateways = array(
+						'mollie',
+						'qantani-mollie',
+					);
 
 					break;
 				case Core\PaymentMethods::DIRECT_DEBIT_SOFORT :
-					$gateways[] = 'mollie';
-					$gateways[] = 'qantani-mollie';
+					$gateways = array(
+						'mollie',
+						'qantani-mollie',
+					);
 
 					break;
 				case Core\PaymentMethods::GIROPAY :
-					$gateways[] = 'multisafepay-connect';
+					$gateways = array( 'multisafepay-connect' );
 
 					break;
 				case Core\PaymentMethods::IDEALQR :
-					$gateways[] = 'multisafepay-connect';
+					$gateways = array( 'multisafepay-connect' );
 
 					break;
 				case Core\PaymentMethods::KBC :
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
+					$gateways = array(
+						'mollie',
+						'multisafepay-connect',
+					);
 
 					break;
 				case Core\PaymentMethods::MAESTRO :
-					$gateways[] = 'ems-ecommerce';
-					$gateways[] = 'rabobank-omnikassa';
-					$gateways[] = 'rabobank-omnikassa-2';
+					$gateways = array(
+						'ems-ecommerce',
+						'rabobank-omnikassa',
+						'rabobank-omnikassa-2',
+					);
 
 					break;
 				case Core\PaymentMethods::PAYCONIQ :
-					$gateways[] = 'ing-kassa-compleet';
+					$gateways = array( 'ing-kassa-compleet' );
 
 					break;
 				case Core\PaymentMethods::PAYPAL :
-					$gateways[] = 'buckaroo';
-					$gateways[] = 'ems-ecommerce';
-					$gateways[] = 'ing-kassa-compleet';
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
-					$gateways[] = 'qantani-mollie';
-					$gateways[] = 'sisow-ideal';
+					$gateways = array(
+						'buckaroo',
+						'ems-ecommerce',
+						'ing-kassa-compleet',
+						'mollie',
+						'multisafepay-connect',
+						'qantani-mollie',
+						'sisow-ideal',
+					);
 
 					break;
 				case Core\PaymentMethods::SOFORT :
-					$gateways[] = 'ems-ecommerce';
-					$gateways[] = 'mollie';
-					$gateways[] = 'multisafepay-connect';
-					$gateways[] = 'qantani-mollie';
-					$gateways[] = 'sisow-ideal';
+					$gateways = array(
+						'ems-ecommerce',
+						'mollie',
+						'multisafepay-connect',
+						'qantani-mollie',
+						'sisow-ideal',
+					);
 
 					break;
 			}
@@ -918,7 +968,7 @@ class Plugin {
 			);
 		}
 
-		$query = new \WP_Query( $args );
+		$query = new WP_Query( $args );
 
 		$options = array( __( '— Select Configuration —', 'pronamic_ideal' ) );
 
@@ -969,6 +1019,13 @@ class Plugin {
 		}
 	}
 
+	/**
+	 * Get gateway.
+	 *
+	 * @param $config_id
+	 *
+	 * @return Gateway
+	 */
 	public static function get_gateway( $config_id ) {
 		$gateway_id = get_post_meta( $config_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $config_id, '_pronamic_gateway_mode', true );
@@ -1074,6 +1131,14 @@ class Plugin {
 		return $gateway;
 	}
 
+	/**
+	 * Start a payment.
+	 *
+	 * @param                               $config_id
+	 * @param Gateway                       $gateway
+	 * @param Payments\PaymentDataInterface $data
+	 * @param string|null                   $payment_method
+	 */
 	public static function start( $config_id, Core\Gateway $gateway, Payments\PaymentDataInterface $data, $payment_method = null ) {
 		$payment = new Payments\Payment();
 
@@ -1111,7 +1176,14 @@ class Plugin {
 		self::start_payment( $payment );
 	}
 
-	public static function start_payment( Payments\Payment $payment ) {
+	/**
+	 * Start payment.
+	 *
+	 * @param Payment $payment
+	 *
+	 * @return Payment
+	 */
+	public static function start_payment( Payment $payment ) {
 		global $pronamic_ideal;
 
 		$pronamic_ideal->payments_data_store->create( $payment );
