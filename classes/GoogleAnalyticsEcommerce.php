@@ -53,7 +53,9 @@ class GoogleAnalyticsEcommerce {
 		}
 
 		// Ignore free orders
-		if ( '' === $payment->get_amount() || 0.0 === $payment->get_amount() ) {
+		$amount = $payment->get_amount();
+
+		if ( empty( $amount ) ) {
 			return;
 		}
 
