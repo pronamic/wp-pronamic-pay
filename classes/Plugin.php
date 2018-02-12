@@ -1173,7 +1173,7 @@ class Plugin {
 		$payment->subscription_id     = $data->get_subscription_id();
 		$payment->set_credit_card( $data->get_credit_card() );
 
-		return self::start_payment( $payment );
+		return self::start_payment( $payment, $gateway );
 	}
 
 	/**
@@ -1183,12 +1183,10 @@ class Plugin {
 	 *
 	 * @return Payment
 	 */
-	public static function start_payment( Payment $payment ) {
+	public static function start_payment( Payment $payment, Core\Gateway $gateway ) {
 		global $pronamic_ideal;
 
 		$pronamic_ideal->payments_data_store->create( $payment );
-
-		$gateway = Plugin::get_gateway( $payment->config_id );
 
 		$gateway->start( $payment );
 
