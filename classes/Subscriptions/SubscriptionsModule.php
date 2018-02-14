@@ -139,10 +139,23 @@ class SubscriptionsModule {
 
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
 		if ( empty( $subscription->next_payment ) ) {
+			$subscription->status = Statuses::COMPLETED;
+
+			$result = $this->plugin->subscriptions_data_store->update( $subscription );
+
+			// @todo
+
 			return;
 		}
 
 		if ( ! empty( $subscription->final_payment ) && $subscription->final_payment <= $subscription->next_payment ) {
+			$subscription->next_payment = null;
+			$subscription->status       = Statuses::COMPLETED;
+
+			$result = $this->plugin->subscriptions_data_store->update( $subscription );
+
+			// @todo
+
 			return;
 		}
 
