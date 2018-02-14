@@ -120,8 +120,7 @@ class SubscriptionsModule {
 
 				break;
 			case 'renew':
-				$first   = $subscription->get_first_payment();
-				$gateway = Plugin::get_gateway( $first->config_id );
+				$gateway = Plugin::get_gateway( $subscription->config_id );
 
 				if ( Statuses::SUCCESS !== $subscription->get_status() ) {
 					$payment = $this->start_recurring( $subscription, $gateway, true );
@@ -139,6 +138,22 @@ class SubscriptionsModule {
 	}
 
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
+		if ( empty( $subscription->next_payment ) ) {
+			return;
+		}
+
+		if ( ! empty( $subscription->final_payment ) && $subscription->final_payment <= $subscription->next_payment ) {
+			return;
+		}
+
+		$start_date = $subscription->next_payment;
+
+		$end_date = clone $start_date;
+		$end_date->add( $subscription->get_date_interval() );
+
+		$subscription->next_payment = $end_date;
+
+		// Create follow up payment.
 		$payment = new Payment();
 
 		$payment->config_id        = $subscription->config_id;
@@ -160,11 +175,15 @@ class SubscriptionsModule {
 		$payment->subscription     = $subscription;
 		$payment->subscription_id  = $subscription->get_id();
 		$payment->amount           = $subscription->amount;
-		$payment->start_date       = new \DateTime();
-		$payment->end_date         = new \DateTime();
+		$payment->start_date       = $start_date;
+		$payment->end_date         = $end_date;
 		$payment->recurring        = ! $renewal;
 
-		$payment = Plugin::start_payment( $payment );
+		// Start payment.
+		$payment = Plugin::start_payment( $payment, $gateway );
+
+		// Update subscription.
+		$result = $this->plugin->subscriptions_data_store->update( $subscription );
 
 		return $payment;
 	}
@@ -260,9 +279,7 @@ class SubscriptionsModule {
 		// @todo
 		// Calculate dates
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/4.7.0/classes/Pronamic/WP/Pay/Plugin.php#L883-L964
-		$interval_spec = 'P' . $subscription_data->interval . $subscription_data->interval_period;
-
-		$interval = new DateInterval( $interval_spec );
+		$interval = $subscription->get_date_interval();
 
 		$start_date = $payment->date;
 

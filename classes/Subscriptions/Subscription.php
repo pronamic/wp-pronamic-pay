@@ -2,6 +2,7 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
+use DateInterval;
 use DateTime;
 use DateTimeZone;
 use Pronamic\WordPress\Pay\Plugin;
@@ -116,6 +117,14 @@ class Subscription {
 
 	public function get_interval_period() {
 		return $this->interval_period;
+	}
+
+	public function get_date_interval() {
+		$interval_spec = 'P' . $this->interval . $this->interval_period;
+
+		$interval = new DateInterval( $interval_spec );
+
+		return $interval;
 	}
 
 	public function get_description() {
