@@ -373,8 +373,8 @@ class SubscriptionsModule {
 
 		foreach ( $query->posts as $post ) {
 			$subscription = new Subscription( $post->ID );
-			$first        = $subscription->get_first_payment();
-			$gateway      = Plugin::get_gateway( $first->config_id );
+
+			$gateway = Plugin::get_gateway( $subscription->config_id );
 
 			$payment = $this->start_recurring( $subscription, $gateway );
 
@@ -523,8 +523,8 @@ class SubscriptionsModule {
 			WP_CLI::log( sprintf( 'Processing post `%d` - "%s"…', $post->ID, get_the_title( $post ) ) );
 
 			$subscription = new Subscription( $post->ID );
-			$first        = $subscription->get_first_payment();
-			$gateway      = Plugin::get_gateway( $first->config_id );
+
+			$gateway      = Plugin::get_gateway( $subscription->config_id );
 
 			$payment = $this->start_recurring( $subscription, $gateway );
 
