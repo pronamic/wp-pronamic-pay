@@ -168,6 +168,7 @@ class PaymentsDataStoreCPT {
 		$payment->analytics_client_id = get_post_meta( $id, $prefix . 'analytics_client_id', true );
 
 		$payment->subscription_id = get_post_meta( $id, $prefix . 'subscription_id', true );
+		$payment->recurring_type  = get_post_meta( $id, $prefix . 'recurring_type', true );
 		$payment->recurring       = get_post_meta( $id, $prefix . 'recurring', true );
 
 		// Start Date
@@ -230,6 +231,7 @@ class PaymentsDataStoreCPT {
 			'telephone_number'        => $payment->telephone_number,
 			'analytics_client_id'     => $payment->analytics_client_id,
 			'subscription_id'         => $payment->subscription_id,
+			'recurring_type'          => $payment->recurring_type,
 			'recurring'               => $payment->recurring,
 			'transaction_id'          => $payment->get_transaction_id(),
 			'action_url'              => $payment->get_action_url(),
