@@ -76,15 +76,15 @@ class Plugin {
 		\Pronamic_WP_Pay_Extensions_Jigoshop_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
 		Extensions\ClassiPress\Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_EventEspressoLegacy_Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_EventEspresso_Extension::bootstrap();
+		Extensions\EventEspressoLegacy\Extension::bootstrap();
+		Extensions\EventEspresso\Extension::bootstrap();
 		Extensions\AppThemes\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_S2Member_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WPMUDEV_Membership_Extension::bootstrap();
 		Extensions\EasyDigitalDownloads\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_IThemesExchange_Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_MemberPress_Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_FormidableForms_Extension::bootstrap();
+		Extensions\FormidableForms\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_RCP_Extension::bootstrap();
 
 		// Settings
