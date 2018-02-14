@@ -54,9 +54,6 @@ class SubscriptionsModule {
 		// The 'pronamic_pay_update_subscription_payments' hook adds subscription payments and sends renewal notices
 		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
 
-		// The 'pronamic_pay_subscription_completed' hook is scheduled to update the subscriptions status when subscription ends
-		add_action( 'pronamic_pay_subscription_completed', array( $this, 'subscription_completed' ) );
-
 		// Listen to payment status changes so we can update related subscriptions
 		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
 
@@ -436,23 +433,6 @@ class SubscriptionsModule {
 			// Update or delete next renewal notice date meta.
 			$subscription->set_renewal_notice_date( $next_renewal );
 		}
-	}
-
-	/**
-	 * Subscription completed.
-	 *
-	 * @param string $subscription_id
-	 */
-	public function subscription_completed( $subscription_id ) {
-		$subscription = new Subscription( $subscription_id );
-
-		if ( ! isset( $subscription->post ) ) {
-			return;
-		}
-
-		$subscription->update_status( Statuses::COMPLETED );
-
-		$this->update_subscription( $subscription, false );
 	}
 
 	/**
