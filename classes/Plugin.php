@@ -1200,8 +1200,6 @@ class Plugin {
 
 		$pronamic_ideal->payments_data_store->update( $payment );
 
-		$gateway->payment( $payment );
-
 		if ( $gateway->supports( 'payment_status_request' ) ) {
 			Payments\StatusChecker::schedule_event( $payment );
 		}
