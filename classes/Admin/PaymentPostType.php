@@ -196,7 +196,7 @@ class PaymentPostType {
 
 				printf(
 					'<span class="pronamic-pay-tip pronamic-pay-icon %s" title="%s">%s</span>',
-					esc_attr( \Pronamic_WP_Pay_Admin::get_post_status_icon_class( $post_status ) ),
+					esc_attr( AdminModule::get_post_status_icon_class( $post_status ) ),
 					esc_attr( $label ),
 					esc_html( $label )
 				);
