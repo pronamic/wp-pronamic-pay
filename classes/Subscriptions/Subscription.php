@@ -534,7 +534,7 @@ class Subscription {
 			case Statuses::OPEN :
 				$meta_status = $this->get_meta( 'status' );
 
-				if ( $meta_status !== Statuses::OPEN ) {
+				if ( Statuses::OPEN !== $meta_status ) {
 					$this->refresh_next_payment_date();
 
 					if ( ! $note ) {
@@ -546,7 +546,7 @@ class Subscription {
 			case Statuses::SUCCESS :
 				$meta_status = $this->get_meta( 'status' );
 
-				if ( $meta_status !== Statuses::SUCCESS ) {
+				if ( Statuses::SUCCESS !== $meta_status ) {
 					$this->refresh_next_payment_date();
 
 					if ( ! $note ) {

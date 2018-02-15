@@ -532,7 +532,7 @@ class SubscriptionsModule {
 
 			$subscription = new Subscription( $post->ID );
 
-			$gateway      = Plugin::get_gateway( $subscription->config_id );
+			$gateway = Plugin::get_gateway( $subscription->config_id );
 
 			$payment = $this->start_recurring( $subscription, $gateway );
 

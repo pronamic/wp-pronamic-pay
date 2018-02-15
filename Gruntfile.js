@@ -35,10 +35,7 @@ module.exports = function( grunt ) {
 					'!includes/xmlseclibs/**',
 					'!node_modules/**',
 					'!repositories/**',
-					'!src/changelog-md/**',
-					'!src/general/**',
-					'!src/readme-md/**',
-					'!src/readme-txt/**',
+					'!src/**',
 					'!vendor/**',
 					'!wp-content/**'
 				]

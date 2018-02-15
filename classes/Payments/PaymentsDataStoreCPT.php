@@ -173,7 +173,7 @@ class PaymentsDataStoreCPT {
 
 		// Start Date
 		$start_date_string = get_post_meta( $id, $prefix . 'start_date', true );
-		
+
 		if ( ! empty( $start_date_string ) ) {
 			$payment->start_date = date_create( $start_date_string );
 		}

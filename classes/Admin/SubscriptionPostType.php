@@ -67,17 +67,17 @@ class SubscriptionPostType {
 
 	public function columns( $columns ) {
 		$columns = array(
-			'cb'                                => '<input type="checkbox" />',
-			'pronamic_subscription_status'      => sprintf(
+			'cb'                             => '<input type="checkbox" />',
+			'pronamic_subscription_status'   => sprintf(
 				'<span class="pronamic-pay-tip pronamic-pay-icon" title="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
 			),
-			'pronamic_subscription_title'       => __( 'Subscription', 'pronamic_ideal' ),
-			'pronamic_subscription_customer'    => __( 'Customer', 'pronamic_ideal' ),
-			'pronamic_subscription_amount'      => __( 'Amount', 'pronamic_ideal' ),
-			'pronamic_subscription_recurring'   => __( 'Recurrence', 'pronamic_ideal' ),
-			'pronamic_subscription_date'        => __( 'Date', 'pronamic_ideal' ),
+			'pronamic_subscription_title'     => __( 'Subscription', 'pronamic_ideal' ),
+			'pronamic_subscription_customer'  => __( 'Customer', 'pronamic_ideal' ),
+			'pronamic_subscription_amount'    => __( 'Amount', 'pronamic_ideal' ),
+			'pronamic_subscription_recurring' => __( 'Recurrence', 'pronamic_ideal' ),
+			'pronamic_subscription_date'      => __( 'Date', 'pronamic_ideal' ),
 		);
 
 		return $columns;

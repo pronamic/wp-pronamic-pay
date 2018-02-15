@@ -56,7 +56,7 @@ class FormShortcode {
 			'pronamic_payment_form',
 			array(
 				// Display label. String. Required.
-				'label' => __( 'Payment Form', 'pronamic_ideal' ),
+				'label'         => __( 'Payment Form', 'pronamic_ideal' ),
 
 				// Icon/attachment for shortcode. Optional. src or dashicons-$icon. Defaults to carrot.
 				'listItemImage' => 'dashicons-money',
@@ -64,7 +64,7 @@ class FormShortcode {
 				// Available shortcode attributes and default values. Required. Array.
 				// Attribute model expects 'attr', 'type' and 'label'
 				// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
-				'attrs' => array(
+				'attrs'         => array(
 
 					array(
 						'label'    => __( 'Select Payment Form', 'pronamic_ideal' ),

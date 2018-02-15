@@ -466,7 +466,7 @@ class PaymentPostType {
 				&&
 			check_admin_referer( 'pronamic_payment_update', 'pronamic_payment_update_nonce' )
 				&&
-			 'pronamic_payment' === get_post_type( $post )
+			'pronamic_payment' === get_post_type( $post )
 		) {
 			$can_redirect = false;
 

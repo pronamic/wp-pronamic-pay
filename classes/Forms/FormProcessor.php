@@ -37,7 +37,7 @@ class FormProcessor {
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return;
 		}
-		
+
 		$nonce = filter_input( INPUT_POST, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING );
 
 		if ( ! wp_verify_nonce( $nonce, 'pronamic_pay' ) ) {

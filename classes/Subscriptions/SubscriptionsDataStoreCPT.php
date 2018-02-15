@@ -131,21 +131,21 @@ class SubscriptionsDataStoreCPT {
 
 		$id = $subscription->get_id();
 
-		$subscription->config_id        = get_post_meta( $id, $prefix . 'config_id', true );
-		$subscription->key              = get_post_meta( $id, $prefix . 'key', true );
-		$subscription->source           = get_post_meta( $id, $prefix . 'source', true );
-		$subscription->source_id        = get_post_meta( $id, $prefix . 'source_id', true );
-		$subscription->frequency        = get_post_meta( $id, $prefix . 'frequency', true );
-		$subscription->interval         = get_post_meta( $id, $prefix . 'interval', true );
-		$subscription->interval_period  = get_post_meta( $id, $prefix . 'interval_period', true );
-		$subscription->currency         = get_post_meta( $id, $prefix . 'currency', true );
-		$subscription->amount           = get_post_meta( $id, $prefix . 'amount', true );
-		$subscription->transaction_id   = get_post_meta( $id, $prefix . 'transaction_id', true );
-		$subscription->status           = get_post_meta( $id, $prefix . 'status', true );
-		$subscription->description      = get_post_meta( $id, $prefix . 'description', true );
-		$subscription->email            = get_post_meta( $id, $prefix . 'email', true );
-		$subscription->customer_name    = get_post_meta( $id, $prefix . 'customer_name', true );
-		$subscription->payment_method   = get_post_meta( $id, $prefix . 'payment_method', true );
+		$subscription->config_id       = get_post_meta( $id, $prefix . 'config_id', true );
+		$subscription->key             = get_post_meta( $id, $prefix . 'key', true );
+		$subscription->source          = get_post_meta( $id, $prefix . 'source', true );
+		$subscription->source_id       = get_post_meta( $id, $prefix . 'source_id', true );
+		$subscription->frequency       = get_post_meta( $id, $prefix . 'frequency', true );
+		$subscription->interval        = get_post_meta( $id, $prefix . 'interval', true );
+		$subscription->interval_period = get_post_meta( $id, $prefix . 'interval_period', true );
+		$subscription->currency        = get_post_meta( $id, $prefix . 'currency', true );
+		$subscription->amount          = get_post_meta( $id, $prefix . 'amount', true );
+		$subscription->transaction_id  = get_post_meta( $id, $prefix . 'transaction_id', true );
+		$subscription->status          = get_post_meta( $id, $prefix . 'status', true );
+		$subscription->description     = get_post_meta( $id, $prefix . 'description', true );
+		$subscription->email           = get_post_meta( $id, $prefix . 'email', true );
+		$subscription->customer_name   = get_post_meta( $id, $prefix . 'customer_name', true );
+		$subscription->payment_method  = get_post_meta( $id, $prefix . 'payment_method', true );
 
 		$first_payment = $subscription->get_first_payment();
 
@@ -155,7 +155,7 @@ class SubscriptionsDataStoreCPT {
 			}
 
 			if ( empty( $subscription->user_id ) ) {
-				$subscription->user_id = $first_payment->user_id;	
+				$subscription->user_id = $first_payment->user_id;
 			}
 
 			if ( empty( $subscription->payment_method ) ) {
@@ -164,22 +164,22 @@ class SubscriptionsDataStoreCPT {
 		}
 
 		$date_string = get_post_meta( $id, $prefix . 'start_date', true );
-		$subscription->start_date       = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->start_date = empty( $date_string ) ? null : new DateTime( $date_string );
 
 		$date_string = get_post_meta( $id, $prefix . 'expiry_date', true );
-		$subscription->expiry_date      = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->expiry_date = empty( $date_string ) ? null : new DateTime( $date_string );
 
 		$date_string = get_post_meta( $id, $prefix . 'first_payment', true );
-		$subscription->first_payment    = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->first_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
 		$date_string = get_post_meta( $id, $prefix . 'next_payment', true );
-		$subscription->next_payment     = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->next_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
 		$date_string = get_post_meta( $id, $prefix . 'final_payment', true );
-		$subscription->final_payment    = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->final_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
 		$date_string = get_post_meta( $id, $prefix . 'renewal_notice', true );
-		$subscription->renewal_notice   = empty( $date_string ) ? null : new DateTime( $date_string );
+		$subscription->renewal_notice = empty( $date_string ) ? null : new DateTime( $date_string );
 	}
 
 	/**
