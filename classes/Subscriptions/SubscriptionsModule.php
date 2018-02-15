@@ -442,9 +442,9 @@ class SubscriptionsModule {
 	 */
 	public function payment_status_update( $payment ) {
 		// Check if the payment is connected to a subscription.
-		$subscription_id = $payment->get_subscription_id();
+		$subscription = $payment->get_subscription();
 
-		if ( empty( $subscription_id ) ) {
+		if ( empty( $subscription ) ) {
 			// Payment not connected to a subscription, nothing to do.
 			return;
 		}
@@ -456,9 +456,6 @@ class SubscriptionsModule {
 		if ( empty( $payment->end_date ) ) {
 			return;
 		}
-
-		// Create subscription object.
-		$subscription = new Subscription( $subscription_id );
 
 		// Status
 		switch ( $payment->get_status() ) {
