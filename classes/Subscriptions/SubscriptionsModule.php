@@ -457,6 +457,11 @@ class SubscriptionsModule {
 			return;
 		}
 
+		if ( Statuses::CANCELLED === $subscription->get_status() ) {
+			// If subscritpion is cancelled never change the subscription status.
+			return;
+		}
+
 		// Status
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
@@ -472,10 +477,14 @@ class SubscriptionsModule {
 
 				break;
 			case Statuses::FAILURE:
-				$subscription->set_status( Statuses::FAILURE );
+				$subscription->set_status( Statuses::CANCELLED );
 
 				break;
 			case Statuses::CANCELLED:
+				$subscription->set_status( Statuses::CANCELLED );
+
+				break;
+			case Statuses::EXPIRED:
 				$subscription->set_status( Statuses::CANCELLED );
 
 				break;
