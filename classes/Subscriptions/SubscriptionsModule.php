@@ -181,7 +181,7 @@ class SubscriptionsModule {
 		$payment->zip              = $subscription->zip;
 		$payment->country          = $subscription->country;
 		$payment->telephone_number = $subscription->telephone_number;
-		$payment->payment_method   = $subscription->payment_method;
+		$payment->method           = $subscription->payment_method;
 		$payment->subscription     = $subscription;
 		$payment->subscription_id  = $subscription->get_id();
 		$payment->amount           = $subscription->amount;

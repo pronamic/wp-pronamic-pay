@@ -1190,8 +1190,33 @@ class Plugin {
 
 		$pronamic_ideal->payments_data_store->create( $payment );
 
-		$gateway->start( $payment );
+		// Start payment at the gateway.
+		$result = $gateway->start( $payment );
 
+		// If result is false the payment failed to start.
+		if ( false === $result ) {
+			// If payment failed to start we directly update the payment status to 'failure'.
+			$payment->set_status( Core\Statuses::FAILURE );
+
+			// Check if there is a subscription attached to the payment.
+			$subscription = $payment->get_subscription();
+
+			if ( $subscription ) {
+				if ( ! $payment->get_recurring() ) {
+					// First payment
+
+					// Cancel subscription to prevent unwanted recurring payments in the future,
+					// when a valid customer ID might be set for the user.
+					$subscription->update_status( Core\Statuses::CANCELLED );
+				} else {
+					$subscription->set_status( Core\Statuses::FAILURE );
+				}
+
+				$pronamic_ideal->subscriptions_data_store->update( $subscription );
+			}
+		}
+
+		// Check if the gateway has an error.
 		if ( $gateway->has_error() ) {
 			foreach ( $gateway->error->get_error_codes() as $code ) {
 				$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );

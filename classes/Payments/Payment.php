@@ -33,6 +33,8 @@ class Payment {
 
 	protected $id;
 
+	public $title;
+
 	public $config_id;
 
 	public $key;
@@ -110,6 +112,8 @@ class Payment {
 	public $first_name;
 
 	public $last_name;
+
+	public $recurring_type;
 
 	//////////////////////////////////////////////////
 

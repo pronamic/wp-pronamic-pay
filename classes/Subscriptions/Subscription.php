@@ -44,6 +44,38 @@ class Subscription {
 
 	public $consumer_bic;
 
+	public $order_id;
+
+	public $address;
+
+	public $city;
+
+	public $zip;
+
+	public $country;
+
+	public $telephone_number;
+
+	public $config_id;
+
+	public $email;
+
+	public $customer_name;
+
+	public $payment_method;
+
+	public $start_date;
+
+	public $expiry_date;
+
+	public $first_payment;
+
+	public $next_payment;
+
+	public $final_payment;
+
+	public $renewal_notice;
+
 	//////////////////////////////////////////////////
 
 	/**
