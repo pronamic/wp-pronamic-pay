@@ -154,8 +154,12 @@ class SubscriptionsDataStoreCPT {
 				$subscription->config_id = $first_payment->config_id;
 			}
 
+			if ( empty( $subscription->user_id ) ) {
+				$subscription->user_id = $first_payment->user_id;	
+			}
+
 			if ( empty( $subscription->payment_method ) ) {
-				$subscription->payment_method = $first_payment->payment_method;
+				$subscription->payment_method = $first_payment->method;
 			}
 		}
 
