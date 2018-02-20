@@ -32,7 +32,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 
 	//////////////////////////////////////////////////
 
-	public abstract function get_source();
+	abstract public function get_source();
 
 	public function get_source_id() {
 		return $this->get_order_id();
@@ -44,11 +44,11 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_description();
 	}
 
-	public abstract function get_description();
+	abstract public function get_description();
 
-	public abstract function get_order_id();
+	abstract public function get_order_id();
 
-	public abstract function get_items();
+	abstract public function get_items();
 
 	public function get_amount() {
 		return $this->get_items()->get_amount();
@@ -131,7 +131,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 *
 	 * @return string
 	 */
-	public abstract function get_currency_alphabetic_code();
+	abstract public function get_currency_alphabetic_code();
 
 	/**
 	 * Get currency numeric code
@@ -162,7 +162,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 *
 	 * @return string
 	 */
-	public abstract function get_language();
+	abstract public function get_language();
 
 	/**
 	 * Get the language (ISO639) and country (ISO3166) code
@@ -172,7 +172,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 *
 	 * @return string
 	 */
-	public abstract function get_language_and_country();
+	abstract public function get_language_and_country();
 
 	//////////////////////////////////////////////////
 	// Entrance code
@@ -229,7 +229,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 *
 	 * @return int
 	 */
-	public abstract function get_subscription_id();
+	abstract public function get_subscription_id();
 
 	/**
 	 * Is this a recurring (not first) payment?
