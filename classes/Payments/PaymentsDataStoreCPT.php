@@ -21,9 +21,12 @@ class PaymentsDataStoreCPT {
 	 * Create payment.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L47-L76
+	 *
 	 * @param Payment $payment
+	 *
+	 * @return bool
 	 */
-	public function create( $payment ) {
+	public function create( Payment $payment ) {
 		$title = $payment->title;
 
 		if ( empty( $title ) ) {
@@ -63,9 +66,10 @@ class PaymentsDataStoreCPT {
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L81-L136
 	 * @see https://developer.wordpress.org/reference/functions/get_post/
 	 * @see https://developer.wordpress.org/reference/classes/wp_post/
+	 *
 	 * @param Payment $payment
 	 */
-	public function read( $payment ) {
+	public function read( Payment $payment ) {
 		$payment->post    = get_post( $payment->get_id() );
 		$payment->title   = get_the_title( $payment->get_id() );
 		$payment->date    = new \DateTime( get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' ) );
@@ -81,7 +85,7 @@ class PaymentsDataStoreCPT {
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
 	 * @param Payment $payment
 	 */
-	public function update( $payment ) {
+	public function update( Payment $payment ) {
 		$data = array(
 			'ID' => $payment->get_id(),
 		);
@@ -101,6 +105,8 @@ class PaymentsDataStoreCPT {
 	 * Get post status.
 	 *
 	 * @param Payment $payment
+	 * @param string  $default
+	 *
 	 * @return string
 	 */
 	private function get_post_status( $payment, $default = 'payment_pending' ) {
