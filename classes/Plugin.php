@@ -294,138 +294,128 @@ class Plugin {
 	 * Handle returns
 	 */
 	public function handle_returns() {
-		if ( filter_has_var( INPUT_GET, 'payment' ) ) {
-			$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
-
-			$payment = get_pronamic_payment( $payment_id );
-
-			// Check if payment key is valid
-			$valid_key = false;
-
-			if ( empty( $payment->key ) ) {
-				$valid_key = true;
-			} elseif ( filter_has_var( INPUT_GET, 'key' ) ) {
-				$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
-
-				$valid_key = ( $key === $payment->key );
-			}
-
-			if ( ! $valid_key ) {
-				wp_redirect( home_url() );
-
-				exit;
-			}
-
-			// Check if we should redirect
-			$should_redirect = true;
-
-			// Check if the request is an callback request
-			// Sisow gatway will extend callback requests with querystring "callback=true"
-			if ( filter_has_var( INPUT_GET, 'callback' ) ) {
-				$is_callback = filter_input( INPUT_GET, 'callback', FILTER_VALIDATE_BOOLEAN );
-
-				if ( $is_callback ) {
-					$should_redirect = false;
-				}
-			}
-
-			// Check if the request is an notify request
-			// Sisow gatway will extend callback requests with querystring "notify=true"
-			if ( filter_has_var( INPUT_GET, 'notify' ) ) {
-				$is_notify = filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN );
-
-				if ( $is_notify ) {
-					$should_redirect = false;
-				}
-			}
-
-			self::update_payment( $payment, $should_redirect );
+		if ( ! filter_has_var( INPUT_GET, 'payment' ) ) {
+			return;
 		}
+
+		$payment_id = filter_input( INPUT_GET, 'payment', FILTER_SANITIZE_NUMBER_INT );
+
+		$payment = get_pronamic_payment( $payment_id );
+
+		// Check if payment key is valid
+		$valid_key = false;
+
+		if ( empty( $payment->key ) ) {
+			$valid_key = true;
+		} elseif ( filter_has_var( INPUT_GET, 'key' ) ) {
+			$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+
+			$valid_key = ( $key === $payment->key );
+		}
+
+		if ( ! $valid_key ) {
+			wp_redirect( home_url() );
+
+			exit;
+		}
+
+		// Check if we should redirect
+		$should_redirect = true;
+
+		// Check if the request is an callback request
+		// Sisow gatway will extend callback requests with querystring "callback=true"
+		if ( filter_has_var( INPUT_GET, 'callback' ) && filter_input( INPUT_GET, 'callback', FILTER_VALIDATE_BOOLEAN ) ) {
+			$should_redirect = false;
+		}
+
+		// Check if the request is an notify request
+		// Sisow gatway will extend callback requests with querystring "notify=true"
+		if ( filter_has_var( INPUT_GET, 'notify' ) && filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN ) ) {
+			$should_redirect = false;
+		}
+
+		self::update_payment( $payment, $should_redirect );
 	}
 
 	/**
 	 * Maybe redirect
 	 */
 	public function maybe_redirect() {
-		if ( filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
-			$payment_id = filter_input( INPUT_GET, 'payment_redirect', FILTER_SANITIZE_NUMBER_INT );
+		if ( ! filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
+			return;
+		}
 
-			$payment = get_pronamic_payment( $payment_id );
+		$payment_id = filter_input( INPUT_GET, 'payment_redirect', FILTER_SANITIZE_NUMBER_INT );
 
-			// HTML Answer
-			$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
+		$payment = get_pronamic_payment( $payment_id );
 
-			if ( ! empty( $html_answer ) ) {
-				echo $html_answer; //xss ok
+		// HTML Answer
+		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
 
-				exit;
-			}
+		if ( ! empty( $html_answer ) ) {
+			echo $html_answer; //xss ok
 
-			$redirect_message = $payment->get_meta( 'payment_redirect_message' );
+			exit;
+		}
 
-			if ( ! empty( $redirect_message ) ) {
-				$valid_key = false;
+		$redirect_message = $payment->get_meta( 'payment_redirect_message' );
 
-				if ( filter_has_var( INPUT_GET, 'key' ) ) {
-					$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
+		if ( ! empty( $redirect_message ) ) {
+			$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
 
-					$valid_key = ( $key === $payment->key );
-				}
-
-				if ( ! $valid_key ) {
-					wp_redirect( home_url() );
-
-					exit;
-				}
-
-				// @see https://github.com/woothemes/woocommerce/blob/2.3.11/includes/class-wc-cache-helper.php
-				// @see https://www.w3-edge.com/products/w3-total-cache/
-				if ( ! defined( 'DONOTCACHEPAGE' ) ) {
-					define( 'DONOTCACHEPAGE', true );
-				}
-
-				if ( ! defined( 'DONOTCACHEDB' ) ) {
-					define( 'DONOTCACHEDB', true );
-				}
-
-				if ( ! defined( 'DONOTMINIFY' ) ) {
-					define( 'DONOTMINIFY', true );
-				}
-
-				if ( ! defined( 'DONOTCDN' ) ) {
-					define( 'DONOTCDN', true );
-				}
-
-				if ( ! defined( 'DONOTCACHEOBJECT' ) ) {
-					define( 'DONOTCACHEOBJECT', true );
-				}
-
-				nocache_headers();
-
-				include Plugin::$dirname . '/views/redirect-message.php';
+			if ( $key !== $payment->key ) {
+				wp_redirect( home_url() );
 
 				exit;
 			}
 
-			if ( '' !== $payment->config_id ) {
-				$gateway = Plugin::get_gateway( $payment->config_id );
-
-				if ( null !== $gateway && $gateway->is_html_form() ) {
-					$gateway->start( $payment );
-
-					$error = $gateway->get_error();
-
-					if ( is_wp_error( $error ) ) {
-						Plugin::render_errors( $error );
-					} else {
-						$gateway->redirect( $payment );
-					}
-				}
-
-				wp_redirect( $payment->action_url );
-
-				exit;
+			// @see https://github.com/woothemes/woocommerce/blob/2.3.11/includes/class-wc-cache-helper.php
+			// @see https://www.w3-edge.com/products/w3-total-cache/
+			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+				define( 'DONOTCACHEPAGE', true );
 			}
+
+			if ( ! defined( 'DONOTCACHEDB' ) ) {
+				define( 'DONOTCACHEDB', true );
+			}
+
+			if ( ! defined( 'DONOTMINIFY' ) ) {
+				define( 'DONOTMINIFY', true );
+			}
+
+			if ( ! defined( 'DONOTCDN' ) ) {
+				define( 'DONOTCDN', true );
+			}
+
+			if ( ! defined( 'DONOTCACHEOBJECT' ) ) {
+				define( 'DONOTCACHEOBJECT', true );
+			}
+
+			nocache_headers();
+
+			include Plugin::$dirname . '/views/redirect-message.php';
+
+			exit;
+		}
+
+		$gateway = Plugin::get_gateway( $payment->config_id );
+
+		if ( $gateway && $gateway->is_html_form() ) {
+			$gateway->start( $payment );
+
+			$error = $gateway->get_error();
+
+			if ( is_wp_error( $error ) ) {
+				Plugin::render_errors( $error );
+			} else {
+				$gateway->redirect( $payment );
+			}
+		}
+
+		if ( ! empty( $payment->action_url ) ) {
+			wp_redirect( $payment->action_url );
+
+			exit;
 		}
 	}
 
@@ -1182,6 +1172,7 @@ class Plugin {
 	 * Start payment.
 	 *
 	 * @param Payment $payment
+	 * @param Gateway $gateway
 	 *
 	 * @return Payment
 	 */
