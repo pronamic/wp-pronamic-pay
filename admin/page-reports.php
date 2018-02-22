@@ -45,5 +45,5 @@
 		</div>
 	</div>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>
