@@ -365,6 +365,9 @@
 		$( '.pronamic-pay-tabs' ).pronamicPayTabs();
 
 		// Tooltip
-		tippy( '.pronamic-pay-tip' );
+		tippy( '.pronamic-pay-tip', {
+			arrow: true,
+			theme: 'pronamic-pay'
+		} );
 	} );
 } )( jQuery );
