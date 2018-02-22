@@ -1,9 +1,11 @@
 <?php
 
-$comments = get_comments( array(
-	'post_id' => get_the_ID(),
-	'type'    => 'payment_note',
-) );
+$comments = get_comments(
+	array(
+		'post_id' => get_the_ID(),
+		'type'    => 'payment_note',
+	)
+);
 
 ?>
 <table class="widefat fixed comments comments-box" cellspacing="0">
@@ -31,7 +33,8 @@ $comments = get_comments( array(
 					<td>
 						<?php
 
-						printf( esc_html__( '%1$s at %2$s', 'pronamic_ideal' ),
+						printf(
+							esc_html__( '%1$s at %2$s', 'pronamic_ideal' ),
 							/* translators: comment date format. See http://php.net/date */
 							esc_html( get_comment_date( __( 'Y/m/d', 'pronamic_ideal' ), $comment->comment_ID ) ),
 							esc_html( get_comment_date( get_option( 'time_format' ), $comment->comment_ID ) )

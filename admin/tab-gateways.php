@@ -61,7 +61,8 @@ bind_providers_and_gateways();
 					$site = '';
 
 					if ( $integration->get_product_url() ) {
-						$site = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+						$site = sprintf(
+							'<a href="%s" target="_blank" title="%s">%2$s</a>',
 							$integration->get_product_url(),
 							__( 'Site', 'pronamic_ideal' )
 						);

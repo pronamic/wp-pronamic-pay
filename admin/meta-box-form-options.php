@@ -12,10 +12,12 @@
 
 			$config_id = get_post_meta( $post->ID, '_pronamic_payment_form_config_id', true );
 
-			\Pronamic\WordPress\Pay\Admin\AdminModule::dropdown_configs( array(
-				'name'     => '_pronamic_payment_form_config_id',
-				'selected' => $config_id,
-			) );
+			\Pronamic\WordPress\Pay\Admin\AdminModule::dropdown_configs(
+				array(
+					'name'     => '_pronamic_payment_form_config_id',
+					'selected' => $config_id,
+				)
+			);
 
 			?>
 		</td>

@@ -66,7 +66,8 @@ bind_providers_and_gateways();
 								$dashboards = $integration->get_dashboard_url();
 
 								if ( 1 === count( $dashboards ) ) {
-									$links[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+									$links[] = sprintf(
+										'<a href="%s" title="%s">%2$s</a>',
 										esc_attr( $dashboards[0] ),
 										__( 'Dashboard', 'pronamic_ideal' )
 									);
@@ -74,13 +75,15 @@ bind_providers_and_gateways();
 									$dashboard_urls = array();
 
 									foreach ( $dashboards as $dashboard_name => $dashboard_url ) {
-										$dashboard_urls[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+										$dashboard_urls[] = sprintf(
+											'<a href="%s" title="%s">%2$s</a>',
 											esc_attr( $dashboard_url ),
 											esc_html( ucfirst( $dashboard_name ) )
 										);
 									}
 
-									$links[] = sprintf( '%s: %s',
+									$links[] = sprintf(
+										'%s: %s',
 										__( 'Dashboards', 'pronamic_ideal' ),
 										strtolower( implode( ', ', $dashboard_urls ) )
 									);
@@ -88,7 +91,8 @@ bind_providers_and_gateways();
 
 								// Product link
 								if ( $integration->get_product_url() ) {
-									$links[] = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+									$links[] = sprintf(
+										'<a href="%s" target="_blank" title="%s">%2$s</a>',
 										$integration->get_product_url(),
 										__( 'Product information', 'pronamic_ideal' )
 									);
@@ -265,8 +269,8 @@ bind_providers_and_gateways();
 								}
 
 								switch ( $field['type'] ) {
-									case 'text' :
-									case 'password' :
+									case 'text':
+									case 'password':
 										$attributes['type']  = $field['type'];
 										$attributes['value'] = $value;
 
@@ -278,7 +282,7 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'checkbox' :
+									case 'checkbox':
 										$attributes['type']  = $field['type'];
 										$attributes['value'] = '1';
 
@@ -299,7 +303,7 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'textarea' :
+									case 'textarea':
 										$attributes['rows'] = 4;
 										$attributes['cols'] = 65;
 
@@ -312,7 +316,7 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'file' :
+									case 'file':
 										$attributes['type'] = 'file';
 
 										printf(
@@ -323,7 +327,7 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'select' :
+									case 'select':
 										printf(
 											'<select %s>%s</select>',
 											// @codingStandardsIgnoreStart
@@ -333,7 +337,7 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'optgroup' :
+									case 'optgroup':
 										printf( '<fieldset>' );
 										printf( '<legend class="screen-reader-text">%s</legend>', esc_html( $field['title'] ) );
 

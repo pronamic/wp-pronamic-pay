@@ -139,11 +139,13 @@ $subscription = get_pronamic_subscription( $post_id );
 				$start_date  = get_date_from_gmt( $start_date->format( 'Y-m-d H:i:s' ) );
 				$expiry_date = get_date_from_gmt( $expiry_date->format( 'Y-m-d H:i:s' ) );
 
-				echo esc_html( sprintf(
-					'%s – %s',
-					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ),
-					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $expiry_date ) )
-				) );
+				echo esc_html(
+					sprintf(
+						'%s – %s',
+						date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ),
+						date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $expiry_date ) )
+					)
+				);
 			}
 
 			if ( Statuses::COMPLETED === $subscription->get_status() ) {

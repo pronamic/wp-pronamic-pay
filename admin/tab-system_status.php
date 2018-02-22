@@ -28,7 +28,7 @@
 						esc_html_e( 'Site Inactive', 'pronamic_ideal' );
 
 						break;
-					default :
+					default:
 						echo esc_html( $status );
 
 						break;

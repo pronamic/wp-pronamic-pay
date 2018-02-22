@@ -5,13 +5,15 @@
  * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/views/html-notice-update.php
  */
 
-$update_link = wp_nonce_url( add_query_arg(
-	array(
-		'page'                   => 'pronamic_ideal',
-		'pronamic_pay_update_db' => true,
-	),
-	admin_url( 'admin.php' )
-), 'pronamic_pay_update_db', 'pronamic_pay_nonce' );
+$update_link = wp_nonce_url(
+	add_query_arg(
+		array(
+			'page'                   => 'pronamic_ideal',
+			'pronamic_pay_update_db' => true,
+		),
+		admin_url( 'admin.php' )
+	), 'pronamic_pay_update_db', 'pronamic_pay_nonce'
+);
 
 ?>
 <div class="updated">

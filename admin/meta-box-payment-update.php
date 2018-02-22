@@ -37,11 +37,13 @@ $states = Plugin::get_payment_states();
 		// Only show button if gateway exists and status check is supported.
 
 		$check_status_nonce_url = wp_nonce_url(
-			add_query_arg( array(
-				'post'                      => $post->ID,
-				'action'                    => 'edit',
-				'pronamic_pay_check_status' => true,
-			), admin_url( 'post.php' ) ),
+			add_query_arg(
+				array(
+					'post'                      => $post->ID,
+					'action'                    => 'edit',
+					'pronamic_pay_check_status' => true,
+				), admin_url( 'post.php' )
+			),
 			'pronamic_payment_check_status_' . $post->ID
 		);
 
