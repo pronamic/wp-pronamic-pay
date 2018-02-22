@@ -1,7 +1,10 @@
-<div class="wrap">
-	<h1 class="wp-heading-inline"><?php use Pronamic\WordPress\Pay\Util;
+<?php
 
-		echo esc_html( get_admin_page_title() ); ?></h1>
+use Pronamic\WordPress\Pay\Util;
+
+?>
+<div class="wrap">
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<hr class="wp-header-end">
 
