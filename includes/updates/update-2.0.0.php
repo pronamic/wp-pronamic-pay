@@ -154,23 +154,23 @@ while ( $have_configs ) {
 			}
 
 			// Buckaroo
-			$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
-			$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
+			$meta['buckaroo_website_key'] = @$config_meta->buckarooWebsiteKey;
+			$meta['buckaroo_secret_key']  = @$config_meta->buckarooSecretKey;
 
 			// Icepay
-			$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
-			$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
+			$meta['icepay_merchant_id'] = @$config_meta->icepayMerchantId;
+			$meta['icepay_secret_code'] = @$config_meta->icepaySecretCode;
 
 			// Mollie
-			$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
-			$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
+			$meta['mollie_partner_id']  = @$config_meta->molliePartnerId;
+			$meta['mollie_profile_key'] = @$config_meta->mollieProfileKey;
 
 			// Sisow
-			$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
-			$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
+			$meta['sisow_merchant_id']  = @$config_meta->sisowMerchantId;
+			$meta['sisow_merchant_key'] = @$config_meta->sisowMerchantKey;
 
 			// TargetPay
-			$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
+			$meta['targetpay_layout_code'] = @$config_meta->targetPayLayoutCode;
 
 			// Qantani
 			$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
@@ -185,13 +185,13 @@ while ( $have_configs ) {
 			$meta['ogone_password']            = @$config_meta->ogone_password;
 
 			// Other
-			$meta['country']                 = @$config_meta->country;
-			$meta['state_or_province']       = @$config_meta->stateOrProvince;
-			$meta['locality']                = @$config_meta->locality;
-			$meta['organization']            = @$config_meta->organization;
-			$meta['organization_unit']       = @$config_meta->organizationUnit;
-			$meta['common_name']             = @$config_meta->commonName;
-			$meta['email']                   = @$config_meta->eMailAddress;
+			$meta['country']           = @$config_meta->country;
+			$meta['state_or_province'] = @$config_meta->stateOrProvince;
+			$meta['locality']          = @$config_meta->locality;
+			$meta['organization']      = @$config_meta->organization;
+			$meta['organization_unit'] = @$config_meta->organizationUnit;
+			$meta['common_name']       = @$config_meta->commonName;
+			$meta['email']             = @$config_meta->eMailAddress;
 
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {
@@ -268,9 +268,9 @@ while ( $have_feeds ) {
 	foreach ( $feeds as $feed ) {
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
-			'post_type'     => 'pronamic_pay_gf',
-			'post_status'   => 'publish',
+			'post_title'  => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
+			'post_type'   => 'pronamic_pay_gf',
+			'post_status' => 'publish',
 		);
 
 		$post_id = wp_insert_post( $post );
