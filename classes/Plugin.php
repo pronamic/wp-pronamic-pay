@@ -72,7 +72,7 @@ class Plugin {
 		Extensions\Give\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
 		Extensions\GravityForms\Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_Shopp_Extension::bootstrap();
+		Extensions\Shopp\Extension::bootstrap();
 		Extensions\Jigoshop\Extension::bootstrap();
 		\Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
 		Extensions\ClassiPress\Extension::bootstrap();
