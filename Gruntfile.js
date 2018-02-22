@@ -27,17 +27,15 @@ module.exports = function( grunt ) {
 
 		// PHP Code Sniffer
 		phpcs: {
-			application: {
+			core: {
 				src: [
-					'**/*.php',
-					'!build/**',
-					'!deploy/**',
+					'admin/**/*.php',
+					'classes/**/*.php',
+					'includes/**/*.php',
 					'!includes/xmlseclibs/**',
-					'!node_modules/**',
-					'!repositories/**',
-					'!src/**',
-					'!vendor/**',
-					'!wp-content/**'
+					'views/**/*.php',
+					'pronamic-ideal.php',
+					'uninstall.php'
 				]
 			},
 			options: {
