@@ -74,7 +74,7 @@ class Plugin {
 		Extensions\GravityForms\Extension::bootstrap();
 		Extensions\Shopp\Extension::bootstrap();
 		Extensions\Jigoshop\Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_WPeCommerce_Extension::bootstrap();
+		Extensions\WPeCommerce\Extension::bootstrap();
 		Extensions\ClassiPress\Extension::bootstrap();
 		Extensions\EventEspressoLegacy\Extension::bootstrap();
 		Extensions\EventEspresso\Extension::bootstrap();
