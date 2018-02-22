@@ -70,7 +70,7 @@ class Plugin {
 		// Bootstrap the add-ons
 		Extensions\Charitable\Extension::bootstrap();
 		Extensions\Give\Extension::bootstrap();
-		\Pronamic_WP_Pay_Extensions_WooCommerce_Extension::bootstrap();
+		Extensions\WooCommerce\Extension::bootstrap();
 		Extensions\GravityForms\Extension::bootstrap();
 		Extensions\Shopp\Extension::bootstrap();
 		Extensions\Jigoshop\Extension::bootstrap();
