@@ -25,16 +25,18 @@ class SubscriptionsDataStoreCPT {
 	 * @param Payment $payment
 	 */
 	public function create( $subscription ) {
-		$result = wp_insert_post( array(
-			'post_type'     => 'pronamic_pay_subscr',
-			'post_date_gmt' => $subscription->date->format( 'Y-m-d H:i:s' ),
-			'post_title'    => sprintf(
-				'Subscription – %s',
-				date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
-			),
-			'post_status'   => $this->get_post_status( $subscription ),
-			'post_author'   => $subscription->user_id,
-		), true );
+		$result = wp_insert_post(
+			array(
+				'post_type'     => 'pronamic_pay_subscr',
+				'post_date_gmt' => $subscription->date->format( 'Y-m-d H:i:s' ),
+				'post_title'    => sprintf(
+					'Subscription – %s',
+					date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
+				),
+				'post_status'   => $this->get_post_status( $subscription ),
+				'post_author'   => $subscription->user_id,
+			), true
+		);
 
 		if ( is_wp_error( $result ) ) {
 			return false;
@@ -163,22 +165,22 @@ class SubscriptionsDataStoreCPT {
 			}
 		}
 
-		$date_string = get_post_meta( $id, $prefix . 'start_date', true );
+		$date_string              = get_post_meta( $id, $prefix . 'start_date', true );
 		$subscription->start_date = empty( $date_string ) ? null : new DateTime( $date_string );
 
-		$date_string = get_post_meta( $id, $prefix . 'expiry_date', true );
+		$date_string               = get_post_meta( $id, $prefix . 'expiry_date', true );
 		$subscription->expiry_date = empty( $date_string ) ? null : new DateTime( $date_string );
 
-		$date_string = get_post_meta( $id, $prefix . 'first_payment', true );
+		$date_string                 = get_post_meta( $id, $prefix . 'first_payment', true );
 		$subscription->first_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
-		$date_string = get_post_meta( $id, $prefix . 'next_payment', true );
+		$date_string                = get_post_meta( $id, $prefix . 'next_payment', true );
 		$subscription->next_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
-		$date_string = get_post_meta( $id, $prefix . 'final_payment', true );
+		$date_string                 = get_post_meta( $id, $prefix . 'final_payment', true );
 		$subscription->final_payment = empty( $date_string ) ? null : new DateTime( $date_string );
 
-		$date_string = get_post_meta( $id, $prefix . 'renewal_notice', true );
+		$date_string                  = get_post_meta( $id, $prefix . 'renewal_notice', true );
 		$subscription->renewal_notice = empty( $date_string ) ? null : new DateTime( $date_string );
 	}
 
