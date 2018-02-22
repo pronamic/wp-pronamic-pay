@@ -21,8 +21,6 @@
 
 		<exclude name="WordPress.Files.FileName" />
 
-		<exclude name="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize" />
-
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
 		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
@@ -46,5 +44,9 @@
 
 	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
 		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize">
+		<exclude-pattern>/includes/updates/update-2.0.0.php</exclude-pattern>
 	</rule>
 </ruleset>
