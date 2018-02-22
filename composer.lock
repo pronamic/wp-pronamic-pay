@@ -167,12 +167,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "ed1dded2c240dcb2a0d8b650dde561c888ca2e65"
+                "reference": "d16c27b3009164af71ed16c01ce9f44f4a22ea7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/ed1dded2c240dcb2a0d8b650dde561c888ca2e65",
-                "reference": "ed1dded2c240dcb2a0d8b650dde561c888ca2e65",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/d16c27b3009164af71ed16c01ce9f44f4a22ea7e",
+                "reference": "d16c27b3009164af71ed16c01ce9f44f4a22ea7e",
                 "shasum": ""
             },
             "require": {
@@ -218,7 +218,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-12T16:06:32+00:00"
+            "time": "2018-02-21T08:40:44+00:00"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -226,12 +226,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "85d269a86d2e9705bc10ac381160f7339ee6fc18"
+                "reference": "e0fef91527e7fc5feac12f0b3180cc97daebc95d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/85d269a86d2e9705bc10ac381160f7339ee6fc18",
-                "reference": "85d269a86d2e9705bc10ac381160f7339ee6fc18",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/e0fef91527e7fc5feac12f0b3180cc97daebc95d",
+                "reference": "e0fef91527e7fc5feac12f0b3180cc97daebc95d",
                 "shasum": ""
             },
             "require": {
@@ -283,7 +283,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:07:32+00:00"
+            "time": "2018-02-21T08:35:27+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -541,12 +541,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "47b72dc3d1c4b8a630016650688971e4d77fb18a"
+                "reference": "8ec007c6e737238acaeda52c2815ef01fa54ad59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/47b72dc3d1c4b8a630016650688971e4d77fb18a",
-                "reference": "47b72dc3d1c4b8a630016650688971e4d77fb18a",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/8ec007c6e737238acaeda52c2815ef01fa54ad59",
+                "reference": "8ec007c6e737238acaeda52c2815ef01fa54ad59",
                 "shasum": ""
             },
             "require": {
@@ -563,9 +563,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\GravityForms\\": "src/"
+                },
                 "files": [
                     "src/functions.php"
                 ]
@@ -598,7 +598,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-02T12:37:35+00:00"
+            "time": "2018-02-21T12:17:02+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -606,12 +606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ithemes-exchange.git",
-                "reference": "8a99b698c0996ce1221fb2ce75bc6830168ce02c"
+                "reference": "9ffb4110577a91f1dbfb0f5482673bb3cde4ed80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/8a99b698c0996ce1221fb2ce75bc6830168ce02c",
-                "reference": "8a99b698c0996ce1221fb2ce75bc6830168ce02c",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ithemes-exchange/zipball/9ffb4110577a91f1dbfb0f5482673bb3cde4ed80",
+                "reference": "9ffb4110577a91f1dbfb0f5482673bb3cde4ed80",
                 "shasum": ""
             },
             "require": {
@@ -626,9 +626,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\IThemesExchange\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -659,7 +659,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-07T09:00:29+00:00"
+            "time": "2018-02-20T09:23:57+00:00"
         },
         {
             "name": "wp-pay-extensions/jigoshop",
@@ -667,12 +667,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/jigoshop.git",
-                "reference": "93888a1a347ffb63606f24ea27ff058870b14214"
+                "reference": "378d4e0405ab0265b5bf8105e3e8ec563ba9cb4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/93888a1a347ffb63606f24ea27ff058870b14214",
-                "reference": "93888a1a347ffb63606f24ea27ff058870b14214",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/378d4e0405ab0265b5bf8105e3e8ec563ba9cb4e",
+                "reference": "378d4e0405ab0265b5bf8105e3e8ec563ba9cb4e",
                 "shasum": ""
             },
             "require": {
@@ -686,9 +686,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\Jigoshop\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -718,7 +718,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:16:43+00:00"
+            "time": "2018-02-20T09:47:14+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
@@ -726,12 +726,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/memberpress.git",
-                "reference": "23fbd2f87f75315ec44bbc7d05c61654d6d7e6ac"
+                "reference": "bc38bdb0ee53c40d21a4e50f33f7aaf8e4babdb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/23fbd2f87f75315ec44bbc7d05c61654d6d7e6ac",
-                "reference": "23fbd2f87f75315ec44bbc7d05c61654d6d7e6ac",
+                "url": "https://api.github.com/repos/wp-pay-extensions/memberpress/zipball/bc38bdb0ee53c40d21a4e50f33f7aaf8e4babdb3",
+                "reference": "bc38bdb0ee53c40d21a4e50f33f7aaf8e4babdb3",
                 "shasum": ""
             },
             "require": {
@@ -746,9 +746,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\MemberPress\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -778,7 +778,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:16:28+00:00"
+            "time": "2018-02-20T10:53:56+00:00"
         },
         {
             "name": "wp-pay-extensions/membership",
@@ -786,12 +786,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/membership.git",
-                "reference": "9f8b37a302e00b76d0b1d628102bb19e74418915"
+                "reference": "55e80aa397f7488006a4cfb8300364c9410acf65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/membership/zipball/9f8b37a302e00b76d0b1d628102bb19e74418915",
-                "reference": "9f8b37a302e00b76d0b1d628102bb19e74418915",
+                "url": "https://api.github.com/repos/wp-pay-extensions/membership/zipball/55e80aa397f7488006a4cfb8300364c9410acf65",
+                "reference": "55e80aa397f7488006a4cfb8300364c9410acf65",
                 "shasum": ""
             },
             "require": {
@@ -805,9 +805,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\Membership\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -837,7 +837,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:15:52+00:00"
+            "time": "2018-02-20T13:55:19+00:00"
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
@@ -845,12 +845,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/restrict-content-pro.git",
-                "reference": "d1386cc8c0a8ff7b653684a69e3e69c07f2f9b18"
+                "reference": "4422fdd93be95eff8fb4c8fefc42fc704c4cb771"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/d1386cc8c0a8ff7b653684a69e3e69c07f2f9b18",
-                "reference": "d1386cc8c0a8ff7b653684a69e3e69c07f2f9b18",
+                "url": "https://api.github.com/repos/wp-pay-extensions/restrict-content-pro/zipball/4422fdd93be95eff8fb4c8fefc42fc704c4cb771",
+                "reference": "4422fdd93be95eff8fb4c8fefc42fc704c4cb771",
                 "shasum": ""
             },
             "require": {
@@ -867,9 +867,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\RestrictContentPro\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -901,7 +901,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-13T13:09:23+00:00"
+            "time": "2018-02-20T15:16:30+00:00"
         },
         {
             "name": "wp-pay-extensions/s2member",
@@ -909,12 +909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/s2member.git",
-                "reference": "4cceef9c10d9c6211edb7bc27b84141a4ebc1d63"
+                "reference": "7ae4a34095e50a9b695726260fe1b4bf7f713771"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/4cceef9c10d9c6211edb7bc27b84141a4ebc1d63",
-                "reference": "4cceef9c10d9c6211edb7bc27b84141a4ebc1d63",
+                "url": "https://api.github.com/repos/wp-pay-extensions/s2member/zipball/7ae4a34095e50a9b695726260fe1b4bf7f713771",
+                "reference": "7ae4a34095e50a9b695726260fe1b4bf7f713771",
                 "shasum": ""
             },
             "require": {
@@ -930,9 +930,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\S2Member\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -962,7 +962,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:15:11+00:00"
+            "time": "2018-02-21T10:59:16+00:00"
         },
         {
             "name": "wp-pay-extensions/shopp",
@@ -970,12 +970,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/shopp.git",
-                "reference": "db3b882c7c8052ca6977356f3e07842f2e139da4"
+                "reference": "c8127ce9318c716da4e6dde0d73092ef2b78593a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/db3b882c7c8052ca6977356f3e07842f2e139da4",
-                "reference": "db3b882c7c8052ca6977356f3e07842f2e139da4",
+                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/c8127ce9318c716da4e6dde0d73092ef2b78593a",
+                "reference": "c8127ce9318c716da4e6dde0d73092ef2b78593a",
                 "shasum": ""
             },
             "require": {
@@ -989,9 +989,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\Shopp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1021,7 +1021,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-26T14:13:55+00:00"
+            "time": "2018-02-22T09:51:30+00:00"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -1515,12 +1515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "f7cd44256df605d6e712a3c4123fccfff06658a7"
+                "reference": "08bd3b4ebc9897fb0063c4de90bbccd1a6ac005e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/f7cd44256df605d6e712a3c4123fccfff06658a7",
-                "reference": "f7cd44256df605d6e712a3c4123fccfff06658a7",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/08bd3b4ebc9897fb0063c4de90bbccd1a6ac005e",
+                "reference": "08bd3b4ebc9897fb0063c4de90bbccd1a6ac005e",
                 "shasum": ""
             },
             "require": {
@@ -1571,7 +1571,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-01T09:06:15+00:00"
+            "time": "2018-02-21T08:50:39+00:00"
         },
         {
             "name": "wp-pay-gateways/ing-kassa-compleet",
@@ -2639,16 +2639,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -2698,7 +2698,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -4070,16 +4070,16 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "0.14.0",
+            "version": "0.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "8cadf48fa1c70b2381988e0a79e029e011a8f41c"
+                "reference": "cf6b310caad735816caef7573295f8a534374706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/8cadf48fa1c70b2381988e0a79e029e011a8f41c",
-                "reference": "8cadf48fa1c70b2381988e0a79e029e011a8f41c",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
+                "reference": "cf6b310caad735816caef7573295f8a534374706",
                 "shasum": ""
             },
             "require": {
@@ -4106,7 +4106,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2017-11-01T15:10:46+00:00"
+            "time": "2018-02-16T01:57:48+00:00"
         }
     ],
     "aliases": [
