@@ -590,7 +590,7 @@ class Subscription {
 			$this->add_note( $note );
 		}
 
-		// Note: make sure Pronamic\WordPress\Pay\Pronamic_WP_Pay_Plugin::update_subscription( $subscription, $can_redirect ) is called after the status has been updated!
+		// Note: make sure Plugin::update_subscription( $subscription, $can_redirect ) is called after the status has been updated!
 	}
 
 	public function update_meta( $meta ) {
