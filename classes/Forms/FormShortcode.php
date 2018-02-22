@@ -33,9 +33,11 @@ class FormShortcode {
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/forms/template.php#L18-L140
 	 */
 	public function shortcode_form( $atts ) {
-		$atts = shortcode_atts( array(
-			'id' => null,
-		), $atts, 'pronamic_payment_form' );
+		$atts = shortcode_atts(
+			array(
+				'id' => null,
+			), $atts, 'pronamic_payment_form'
+		);
 
 		$id = $atts['id'];
 

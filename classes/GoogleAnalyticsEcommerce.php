@@ -104,34 +104,42 @@ class GoogleAnalyticsEcommerce {
 		);
 
 		// Transaction Hit
-		$transaction = wp_parse_args( array(
-			't'  => 'transaction',
-			'tr' => $payment->get_amount(),
-		), $defaults );
+		$transaction = wp_parse_args(
+			array(
+				't'  => 'transaction',
+				'tr' => $payment->get_amount(),
+			), $defaults
+		);
 
-		wp_remote_post( self::API_URL, array(
-			'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
-			'body'       => http_build_query( $transaction ),
-			'blocking'   => false,
-		) );
+		wp_remote_post(
+			self::API_URL, array(
+				'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
+				'body'       => http_build_query( $transaction ),
+				'blocking'   => false,
+			)
+		);
 
 		// Item Hit
-		$item = wp_parse_args( array(
-			't'  => 'item',
-			'in' => sprintf(
-				'%s #%s',
-				$payment->get_source_description(),
-				$payment->get_source_id()
-			),
-			'ip' => $payment->get_amount(),
-			'iq' => 1,
-		), $defaults );
+		$item = wp_parse_args(
+			array(
+				't'  => 'item',
+				'in' => sprintf(
+					'%s #%s',
+					$payment->get_source_description(),
+					$payment->get_source_id()
+				),
+				'ip' => $payment->get_amount(),
+				'iq' => 1,
+			), $defaults
+		);
 
-		wp_remote_post( self::API_URL, array(
-			'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
-			'body'       => http_build_query( $item ),
-			'blocking'   => false,
-		) );
+		wp_remote_post(
+			self::API_URL, array(
+				'user-agent' => filter_input( INPUT_SERVER, 'HTTP_USER_AGENT' ),
+				'body'       => http_build_query( $item ),
+				'blocking'   => false,
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////

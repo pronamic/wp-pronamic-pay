@@ -339,17 +339,17 @@ class SubscriptionPostType {
 	 */
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
-			case 'subscr_pending' :
+			case 'subscr_pending':
 				return \Pronamic\WordPress\Pay\Core\Statuses::OPEN;
-			case 'subscr_cancelled' :
+			case 'subscr_cancelled':
 				return \Pronamic\WordPress\Pay\Core\Statuses::CANCELLED;
-			case 'subscr_expired' :
+			case 'subscr_expired':
 				return \Pronamic\WordPress\Pay\Core\Statuses::EXPIRED;
-			case 'subscr_failed' :
+			case 'subscr_failed':
 				return \Pronamic\WordPress\Pay\Core\Statuses::FAILURE;
-			case 'subscr_active' :
+			case 'subscr_active':
 				return \Pronamic\WordPress\Pay\Core\Statuses::ACTIVE;
-			case 'subscr_completed' :
+			case 'subscr_completed':
 				return \Pronamic\WordPress\Pay\Core\Statuses::COMPLETED;
 		}
 	}

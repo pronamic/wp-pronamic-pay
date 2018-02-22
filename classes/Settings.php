@@ -35,43 +35,57 @@ class Settings {
 	public function init() {
 		global $wp_locale;
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_license_key', array(
-			'type'              => 'string',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_license_key', array(
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 
-		register_setting( 'pronamic_pay', 'pronamic_pay_config_id', array(
-			'type'              => 'integer',
-			'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
-		) );
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_uninstall_clear_data', array(
-			'type'    => 'boolean',
-			'default' => false,
-		) );
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_thousands_sep', array(
-			'type'              => 'string',
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => $wp_locale->number_format['thousands_sep'],
-		) );
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_decimal_sep', array(
-			'type'              => 'string',
-			'sanitize_callback' => 'sanitize_text_field',
-			'default'           => $wp_locale->number_format['decimal_point'],
-		) );
-
-		register_setting( 'pronamic_pay', 'pronamic_pay_google_analytics_property', array(
-			'type'              => 'string',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-
-		foreach ( $this->plugin->get_pages() as $id => $label ) {
-			register_setting( 'pronamic_pay', $id, array(
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_config_id', array(
 				'type'              => 'integer',
 				'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
-			) );
+			)
+		);
+
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_uninstall_clear_data', array(
+				'type'    => 'boolean',
+				'default' => false,
+			)
+		);
+
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_thousands_sep', array(
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'default'           => $wp_locale->number_format['thousands_sep'],
+			)
+		);
+
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_decimal_sep', array(
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+				'default'           => $wp_locale->number_format['decimal_point'],
+			)
+		);
+
+		register_setting(
+			'pronamic_pay', 'pronamic_pay_google_analytics_property', array(
+				'type'              => 'string',
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		foreach ( $this->plugin->get_pages() as $id => $label ) {
+			register_setting(
+				'pronamic_pay', $id, array(
+					'type'              => 'integer',
+					'sanitize_callback' => array( $this, 'sanitize_published_post_id' ),
+				)
+			);
 		}
 	}
 

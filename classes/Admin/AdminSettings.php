@@ -156,7 +156,7 @@ class AdminSettings {
 	 */
 	public function settings_section( $args ) {
 		switch ( $args['id'] ) {
-			case 'pronamic_pay_pages' :
+			case 'pronamic_pay_pages':
 				echo '<p>';
 				esc_html_e( 'The page an user will get redirected to after payment, based on the payment status.', 'pronamic_ideal' );
 				echo '</p>';

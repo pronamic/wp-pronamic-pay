@@ -115,7 +115,7 @@ class AdminTour {
 		$screen = get_current_screen();
 
 		switch ( $screen->id ) {
-			case 'toplevel_page_pronamic_ideal' :
+			case 'toplevel_page_pronamic_ideal':
 				$pointers = array(
 					array(
 						// @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/edit.php#L321
@@ -132,7 +132,7 @@ class AdminTour {
 				);
 
 				break;
-			case 'edit-pronamic_payment' :
+			case 'edit-pronamic_payment':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -148,7 +148,7 @@ class AdminTour {
 				);
 
 				break;
-			case 'edit-pronamic_gateway' :
+			case 'edit-pronamic_gateway':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -164,7 +164,7 @@ class AdminTour {
 				);
 
 				break;
-			case 'edit-pronamic_pay_form' :
+			case 'edit-pronamic_pay_form':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -183,7 +183,7 @@ class AdminTour {
 		}
 
 		switch ( $page ) {
-			case 'pronamic_pay_settings' :
+			case 'pronamic_pay_settings':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -199,7 +199,7 @@ class AdminTour {
 				);
 
 				break;
-			case 'pronamic_pay_tools' :
+			case 'pronamic_pay_tools':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -215,7 +215,7 @@ class AdminTour {
 				);
 
 				break;
-			case 'pronamic_pay_reports' :
+			case 'pronamic_pay_reports':
 				$pointers = array(
 					array(
 						'selector' => '.wrap .wp-header-end',
@@ -255,8 +255,12 @@ class AdminTour {
 	 * Get tour close URL
 	 */
 	public function get_close_url() {
-		return wp_nonce_url( add_query_arg( array(
-			'pronamic_pay_ignore_tour' => true,
-		) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' );
+		return wp_nonce_url(
+			add_query_arg(
+				array(
+					'pronamic_pay_ignore_tour' => true,
+				)
+			), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce'
+		);
 	}
 }

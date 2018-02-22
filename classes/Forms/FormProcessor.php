@@ -88,23 +88,27 @@ class FormProcessor {
 			$password = wp_generate_password( 10 );
 
 			// Make a user with the username as the email
-			$user_id = wp_insert_user( array(
-				'user_login' => $email,
-				'user_pass'  => $password,
-				'user_email' => $email,
-				'role'       => 'payer',
-				'first_name' => $first_name,
-				'last_name'  => $last_name,
-			) );
+			$user_id = wp_insert_user(
+				array(
+					'user_login' => $email,
+					'user_pass'  => $password,
+					'user_email' => $email,
+					'role'       => 'payer',
+					'first_name' => $first_name,
+					'last_name'  => $last_name,
+				)
+			);
 
 			// User
 			$user = new \WP_User( $user_id );
 		}
 
-		wp_update_post( array(
-			'ID'          => $payment->post->ID,
-			'post_author' => $user->ID,
-		) );
+		wp_update_post(
+			array(
+				'ID'          => $payment->post->ID,
+				'post_author' => $user->ID,
+			)
+		);
 
 		$gateway->redirect( $payment );
 

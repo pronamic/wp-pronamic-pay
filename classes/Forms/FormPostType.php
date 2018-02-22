@@ -57,42 +57,44 @@ class FormPostType {
 	}
 
 	public function register_post_type() {
-		register_post_type( self::POST_TYPE, array(
-			'label'              => __( 'Payment Forms', 'pronamic_ideal' ),
-			'labels'             => array(
-				'name'                  => __( 'Payment Forms', 'pronamic_ideal' ),
-				'singular_name'         => __( 'Payment Form', 'pronamic_ideal' ),
-				'add_new'               => __( 'Add New', 'pronamic_ideal' ),
-				'add_new_item'          => __( 'Add New Payment Form', 'pronamic_ideal' ),
-				'edit_item'             => __( 'Edit Payment Form', 'pronamic_ideal' ),
-				'new_item'              => __( 'New Payment Form', 'pronamic_ideal' ),
-				'all_items'             => __( 'All Payment Forms', 'pronamic_ideal' ),
-				'view_item'             => __( 'View Payment Form', 'pronamic_ideal' ),
-				'search_items'          => __( 'Search Payment Forms', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payment forms found.', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payment forms found in Trash.', 'pronamic_ideal' ),
-				'menu_name'             => __( 'Payment Forms', 'pronamic_ideal' ),
-				'filter_items_list'     => __( 'Filter payment forms list', 'pronamic_ideal' ),
-				'items_list_navigation' => __( 'Payment forms list navigation', 'pronamic_ideal' ),
-				'items_list'            => __( 'Payment forms list', 'pronamic_ideal' ),
-			),
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_nav_menus'  => true,
-			'show_in_menu'       => false,
-			'show_in_admin_bar'  => false,
-			'supports'           => array(
-				'title',
-				'revisions',
-			),
-			'rewrite'            => array(
-				'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
-			),
-			'query_var'          => false,
-			'capabilities'       => FormPostType::get_capabilities(),
-			'map_meta_cap'       => true,
-		) );
+		register_post_type(
+			self::POST_TYPE, array(
+				'label'              => __( 'Payment Forms', 'pronamic_ideal' ),
+				'labels'             => array(
+					'name'                  => __( 'Payment Forms', 'pronamic_ideal' ),
+					'singular_name'         => __( 'Payment Form', 'pronamic_ideal' ),
+					'add_new'               => __( 'Add New', 'pronamic_ideal' ),
+					'add_new_item'          => __( 'Add New Payment Form', 'pronamic_ideal' ),
+					'edit_item'             => __( 'Edit Payment Form', 'pronamic_ideal' ),
+					'new_item'              => __( 'New Payment Form', 'pronamic_ideal' ),
+					'all_items'             => __( 'All Payment Forms', 'pronamic_ideal' ),
+					'view_item'             => __( 'View Payment Form', 'pronamic_ideal' ),
+					'search_items'          => __( 'Search Payment Forms', 'pronamic_ideal' ),
+					'not_found'             => __( 'No payment forms found.', 'pronamic_ideal' ),
+					'not_found_in_trash'    => __( 'No payment forms found in Trash.', 'pronamic_ideal' ),
+					'menu_name'             => __( 'Payment Forms', 'pronamic_ideal' ),
+					'filter_items_list'     => __( 'Filter payment forms list', 'pronamic_ideal' ),
+					'items_list_navigation' => __( 'Payment forms list navigation', 'pronamic_ideal' ),
+					'items_list'            => __( 'Payment forms list', 'pronamic_ideal' ),
+				),
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_nav_menus'  => true,
+				'show_in_menu'       => false,
+				'show_in_admin_bar'  => false,
+				'supports'           => array(
+					'title',
+					'revisions',
+				),
+				'rewrite'            => array(
+					'slug' => _x( 'payment-forms', 'slug', 'pronamic_ideal' ),
+				),
+				'query_var'          => false,
+				'capabilities'       => FormPostType::get_capabilities(),
+				'map_meta_cap'       => true,
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -115,7 +117,7 @@ class FormPostType {
 		global $post;
 
 		switch ( $column ) {
-			case 'pronamic_payment_form_gateway' :
+			case 'pronamic_payment_form_gateway':
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_form_config_id', true );
 
 				if ( ! empty( $config_id ) ) {
@@ -125,10 +127,11 @@ class FormPostType {
 				}
 
 				break;
-			case 'pronamic_payment_form_payments' :
+			case 'pronamic_payment_form_payments':
 				global $wpdb;
 
-				$query = $wpdb->prepare( "
+				$query = $wpdb->prepare(
+					"
 					SELECT
 						COUNT( post.ID ) AS value
 					FROM
@@ -161,10 +164,11 @@ class FormPostType {
 				echo esc_html( number_format_i18n( $value ) );
 
 				break;
-			case 'pronamic_payment_form_earnings' :
+			case 'pronamic_payment_form_earnings':
 				global $wpdb;
 
-				$query = $wpdb->prepare( "
+				$query = $wpdb->prepare(
+					"
 					SELECT
 						SUM( meta_amount.meta_value ) AS value
 					FROM
@@ -197,7 +201,7 @@ class FormPostType {
 				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $value ) );
 
 				break;
-			case 'pronamic_payment_form_shortcode' :
+			case 'pronamic_payment_form_shortcode':
 				printf(
 					'<input onclick="this.setSelectionRange( 0, this.value.length )" type="text" class="pronamic-pay-shortcode-input" readonly="" value="%s" />',
 					esc_attr( $this->get_shortcode( $post_id ) )

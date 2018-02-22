@@ -170,10 +170,10 @@ class Util {
 		$currency_symbol = $currency;
 
 		switch ( $currency ) {
-			case 'EUR' :
+			case 'EUR':
 				$currency_symbol = '€';
 				break;
-			case 'USD' :
+			case 'USD':
 				$currency_symbol = '$';
 				break;
 		}
@@ -189,21 +189,21 @@ class Util {
 	 */
 	public static function format_interval( $interval, $period ) {
 		switch ( $period ) {
-			case 'D' :
-			case 'day' :
-			case 'days' :
+			case 'D':
+			case 'day':
+			case 'days':
 				return sprintf( _n( 'Every %s day', 'Every %s days', $interval, 'pronamic_ideal' ), $interval );
-			case 'W' :
-			case 'week' :
-			case 'weeks' :
+			case 'W':
+			case 'week':
+			case 'weeks':
 				return sprintf( _n( 'Every %s week', 'Every %s weeks', $interval, 'pronamic_ideal' ), $interval );
-			case 'M' :
-			case 'month' :
-			case 'months' :
+			case 'M':
+			case 'month':
+			case 'months':
 				return sprintf( _n( 'Every %s month', 'Every %s months', $interval, 'pronamic_ideal' ), $interval );
-			case 'Y' :
-			case 'year' :
-			case 'years' :
+			case 'Y':
+			case 'year':
+			case 'years':
 				return sprintf( _n( 'Every %s year', 'Every %s years', $interval, 'pronamic_ideal' ), $interval );
 		}
 	}
@@ -217,13 +217,13 @@ class Util {
 	 */
 	public static function to_interval_name( $interval_period ) {
 		switch ( $interval_period ) {
-			case 'D' :
+			case 'D':
 				return 'days';
-			case 'W' :
+			case 'W':
 				return 'weeks';
-			case 'M' :
+			case 'M':
 				return 'months';
-			case 'Y' :
+			case 'Y':
 				return 'years';
 		}
 

@@ -58,9 +58,11 @@ class AdminDashboard {
 			'payment_expired'   => __( '%s expired', 'pronamic_ideal' ),
 		);
 
-		$url = add_query_arg( array(
-			'post_type' => 'pronamic_payment',
-		), admin_url( 'edit.php' ) );
+		$url = add_query_arg(
+			array(
+				'post_type' => 'pronamic_payment',
+			), admin_url( 'edit.php' )
+		);
 
 		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/widget-payments-status-list.php';
 	}

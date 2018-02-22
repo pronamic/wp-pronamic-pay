@@ -308,10 +308,12 @@ class AdminModule {
 
 			$this->create_pages( $pages );
 
-			$url = add_query_arg( array(
-				'page'    => 'pronamic_pay_settings',
-				'message' => 'pages-generated',
-			), admin_url( 'admin.php' ) );
+			$url = add_query_arg(
+				array(
+					'page'    => 'pronamic_pay_settings',
+					'message' => 'pages-generated',
+				), admin_url( 'admin.php' )
+			);
 
 			wp_redirect( $url );
 
@@ -328,13 +330,15 @@ class AdminModule {
 		$screen = get_current_screen();
 
 		$enqueue  = false;
-		$enqueue |= in_array( $screen->post_type, array(
-			'pronamic_gateway',
-			'pronamic_payment',
-			'pronamic_pay_form',
-			'pronamic_pay_gf',
-			'pronamic_pay_subscr',
-		), true );
+		$enqueue |= in_array(
+			$screen->post_type, array(
+				'pronamic_gateway',
+				'pronamic_payment',
+				'pronamic_pay_form',
+				'pronamic_pay_gf',
+				'pronamic_pay_subscr',
+			), true
+		);
 		$enqueue |= 'dashboard' === $screen->id;
 		$enqueue |= strpos( $hook, 'pronamic_pay' ) !== false;
 		$enqueue |= strpos( $hook, 'pronamic_ideal' ) !== false;
@@ -393,12 +397,14 @@ class AdminModule {
 			$gateway = \Pronamic\WordPress\Pay\Plugin::get_gateway( $id );
 
 			if ( $gateway ) {
-				$amount = filter_input( INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
-					'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
-					'options' => array(
-						'decimal' => pronamic_pay_get_decimal_separator(),
-					),
-				) );
+				$amount = filter_input(
+					INPUT_POST, 'test_amount', FILTER_VALIDATE_FLOAT, array(
+						'flags'   => FILTER_FLAG_ALLOW_THOUSAND,
+						'options' => array(
+							'decimal' => pronamic_pay_get_decimal_separator(),
+						),
+					)
+				);
 
 				$data = new \Pronamic\WordPress\Pay\Payments\PaymentTestData( wp_get_current_user(), $amount );
 
@@ -568,27 +574,27 @@ class AdminModule {
 	 */
 	public static function get_post_status_icon_class( $post_status ) {
 		switch ( $post_status ) {
-			case 'payment_pending' :
-			case 'subscr_pending' :
+			case 'payment_pending':
+			case 'subscr_pending':
 				return 'pronamic-pay-icon-pending';
-			case 'payment_cancelled' :
-			case 'subscr_cancelled' :
+			case 'payment_cancelled':
+			case 'subscr_cancelled':
 				return 'pronamic-pay-icon-cancelled';
-			case 'payment_completed' :
-			case 'subscr_completed' :
+			case 'payment_completed':
+			case 'subscr_completed':
 				return 'pronamic-pay-icon-completed';
-			case 'payment_refunded' :
+			case 'payment_refunded':
 				return 'pronamic-pay-icon-refunded';
-			case 'payment_failed' :
-			case 'subscr_failed' :
+			case 'payment_failed':
+			case 'subscr_failed':
 				return 'pronamic-pay-icon-failed';
-			case 'payment_on_hold' :
-			case 'payment_expired' :
-			case 'subscr_expired' :
+			case 'payment_on_hold':
+			case 'payment_expired':
+			case 'subscr_expired':
 				return 'pronamic-pay-icon-on-hold';
-			case 'payment_processing' :
-			case 'subscr_active' :
-			default :
+			case 'payment_processing':
+			case 'subscr_active':
+			default:
 				return 'pronamic-pay-icon-processing';
 		}
 	}

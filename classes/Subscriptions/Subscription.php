@@ -389,11 +389,13 @@ class Subscription {
 			return null;
 		}
 
-		return $start_date->modify( sprintf(
-			'+%d %s',
-			$this->get_interval(),
-			Util::to_interval_name( $this->get_interval_period() )
-		) );
+		return $start_date->modify(
+			sprintf(
+				'+%d %s',
+				$this->get_interval(),
+				Util::to_interval_name( $this->get_interval_period() )
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -441,11 +443,13 @@ class Subscription {
 		// Add frequency * interval period to first payment date.
 		$first_date = $this->get_first_payment_date();
 
-		return $first_date->modify( sprintf(
-			'+%d %s',
-			( $frequency - 1 ) * $this->get_interval(),
-			Util::to_interval_name( $this->get_interval_period() )
-		) );
+		return $first_date->modify(
+			sprintf(
+				'+%d %s',
+				( $frequency - 1 ) * $this->get_interval(),
+				Util::to_interval_name( $this->get_interval_period() )
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////
@@ -470,11 +474,13 @@ class Subscription {
 		$next = new DateTime( $next_payment );
 
 		if ( 0 !== $cycle ) {
-			$next->modify( sprintf(
-				'+%d %s',
-				( $cycle * $this->get_interval() ),
-				Util::to_interval_name( $this->get_interval_period() )
-			) );
+			$next->modify(
+				sprintf(
+					'+%d %s',
+					( $cycle * $this->get_interval() ),
+					Util::to_interval_name( $this->get_interval_period() )
+				)
+			);
 		}
 
 		return $next;
@@ -531,7 +537,7 @@ class Subscription {
 		$this->set_status( $status );
 
 		switch ( $status ) {
-			case Statuses::OPEN :
+			case Statuses::OPEN:
 				$meta_status = $this->get_meta( 'status' );
 
 				if ( Statuses::OPEN !== $meta_status ) {
@@ -543,7 +549,7 @@ class Subscription {
 				}
 
 				break;
-			case Statuses::SUCCESS :
+			case Statuses::SUCCESS:
 				$meta_status = $this->get_meta( 'status' );
 
 				if ( Statuses::SUCCESS !== $meta_status ) {
@@ -555,13 +561,13 @@ class Subscription {
 				}
 
 				break;
-			case Statuses::FAILURE :
+			case Statuses::FAILURE:
 				if ( ! $note ) {
 					$this->add_note( __( "Subscription status changed to 'Failed'", 'pronamic_ideal' ) );
 				}
 
 				break;
-			case Statuses::CANCELLED :
+			case Statuses::CANCELLED:
 				$this->set_next_payment_date( false );
 
 				if ( ! $note ) {
@@ -569,7 +575,7 @@ class Subscription {
 				}
 
 				break;
-			case Statuses::COMPLETED :
+			case Statuses::COMPLETED:
 				$this->set_next_payment_date( false );
 				$this->set_start_date( false );
 

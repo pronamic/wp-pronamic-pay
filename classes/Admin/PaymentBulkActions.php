@@ -113,11 +113,13 @@ class PaymentBulkActions {
 			$status_updated++;
 		}
 
-		$sendback = add_query_arg( array(
-			'status_updated'       => $status_updated,
-			'skipped_check'        => $skipped_check,
-			'unsupported_gateways' => implode( ',', $unsupported_gateways ),
-		), $sendback );
+		$sendback = add_query_arg(
+			array(
+				'status_updated'       => $status_updated,
+				'skipped_check'        => $skipped_check,
+				'unsupported_gateways' => implode( ',', $unsupported_gateways ),
+			), $sendback
+		);
 
 		return $sendback;
 	}

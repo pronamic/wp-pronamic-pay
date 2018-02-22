@@ -203,23 +203,23 @@ class Plugin {
 		$page_id = null;
 
 		switch ( $payment->status ) {
-			case Core\Statuses::CANCELLED :
+			case Core\Statuses::CANCELLED:
 				$page_id = pronamic_pay_get_page_id( 'cancel' );
 
 				break;
-			case Core\Statuses::EXPIRED :
+			case Core\Statuses::EXPIRED:
 				$page_id = pronamic_pay_get_page_id( 'expired' );
 
 				break;
-			case Core\Statuses::FAILURE :
+			case Core\Statuses::FAILURE:
 				$page_id = pronamic_pay_get_page_id( 'error' );
 
 				break;
-			case Core\Statuses::OPEN :
+			case Core\Statuses::OPEN:
 				$page_id = pronamic_pay_get_page_id( 'unknown' );
 
 				break;
-			case Core\Statuses::SUCCESS :
+			case Core\Statuses::SUCCESS:
 				$page_id = pronamic_pay_get_page_id( 'completed' );
 
 				break;
@@ -819,16 +819,16 @@ class Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
-				case Core\PaymentMethods::ALIPAY :
+				case Core\PaymentMethods::ALIPAY:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::BUNQ :
+				case Core\PaymentMethods::BUNQ:
 					$gateways = array( 'sisow-ideal' );
 
 					break;
-				case Core\PaymentMethods::BANCONTACT :
-				case Core\PaymentMethods::MISTER_CASH :
+				case Core\PaymentMethods::BANCONTACT:
+				case Core\PaymentMethods::MISTER_CASH:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -845,14 +845,14 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::BELFIUS :
+				case Core\PaymentMethods::BELFIUS:
 					$gateways = array(
 						'mollie',
 						'multisafepay-connect',
 					);
 
 					break;
-				case Core\PaymentMethods::BANK_TRANSFER :
+				case Core\PaymentMethods::BANK_TRANSFER:
 					$gateways = array(
 						'ing-kassa-compleet',
 						'mollie',
@@ -861,7 +861,7 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::CREDIT_CARD :
+				case Core\PaymentMethods::CREDIT_CARD:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -877,43 +877,43 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_BANCONTACT :
+				case Core\PaymentMethods::DIRECT_DEBIT_BANCONTACT:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_IDEAL :
+				case Core\PaymentMethods::DIRECT_DEBIT_IDEAL:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_SOFORT :
+				case Core\PaymentMethods::DIRECT_DEBIT_SOFORT:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::GIROPAY :
+				case Core\PaymentMethods::GIROPAY:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::IDEALQR :
+				case Core\PaymentMethods::IDEALQR:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::KBC :
+				case Core\PaymentMethods::KBC:
 					$gateways = array(
 						'mollie',
 						'multisafepay-connect',
 					);
 
 					break;
-				case Core\PaymentMethods::MAESTRO :
+				case Core\PaymentMethods::MAESTRO:
 					$gateways = array(
 						'ems-ecommerce',
 						'rabobank-omnikassa',
@@ -921,11 +921,11 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::PAYCONIQ :
+				case Core\PaymentMethods::PAYCONIQ:
 					$gateways = array( 'ing-kassa-compleet' );
 
 					break;
-				case Core\PaymentMethods::PAYPAL :
+				case Core\PaymentMethods::PAYPAL:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -937,7 +937,7 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::SOFORT :
+				case Core\PaymentMethods::SOFORT:
 					$gateways = array(
 						'ems-ecommerce',
 						'mollie',
@@ -1024,9 +1024,9 @@ class Plugin {
 		$config = Core\ConfigProvider::get_config( $gateway_id, $config_id );
 
 		switch ( $gateway_id ) {
-			case 'abnamro-ideal-easy' :
-			case 'abnamro-ideal-only-kassa' :
-			case 'abnamro-internetkassa' :
+			case 'abnamro-ideal-easy':
+			case 'abnamro-ideal-only-kassa':
+			case 'abnamro-internetkassa':
 				$config->form_action_url = sprintf(
 					'https://internetkassa.abnamro.nl/ncol/%s/orderstandard%s.asp',
 					'test' === $mode ? 'test' : 'prod',
@@ -1034,7 +1034,7 @@ class Plugin {
 				);
 
 				break;
-			case 'abnamro-ideal-zelfbouw-v3' :
+			case 'abnamro-ideal-zelfbouw-v3':
 				$config->payment_server_url = 'https://abnamro.ideal-payment.de/ideal/iDEALv3';
 
 				if ( 'test' === $mode ) {
@@ -1044,23 +1044,23 @@ class Plugin {
 				$config->certificates = array();
 
 				break;
-			case 'deutschebank-ideal-expert-v3' :
+			case 'deutschebank-ideal-expert-v3':
 				$config->payment_server_url = 'https://myideal.db.com/ideal/iDealv3';
 
 				$config->certificates = array();
 
 				break;
-			case 'ideal-simulator-ideal-basic' :
+			case 'ideal-simulator-ideal-basic':
 				$config->url = 'https://www.ideal-simulator.nl/lite/';
 
 				break;
-			case 'ideal-simulator-ideal-advanced-v3' :
+			case 'ideal-simulator-ideal-advanced-v3':
 				$config->payment_server_url = 'https://www.ideal-checkout.nl/simulator/';
 
 				$config->certificates = array();
 
 				break;
-			case 'ing-ideal-basic' :
+			case 'ing-ideal-basic':
 				$config->url = 'https://ideal.secure-ing.com/ideal/mpiPayInitIng.do';
 
 				if ( 'test' === $mode ) {
@@ -1068,7 +1068,7 @@ class Plugin {
 				}
 
 				break;
-			case 'ing-ideal-advanced-v3' :
+			case 'ing-ideal-advanced-v3':
 				$config->payment_server_url = 'https://ideal.secure-ing.com/ideal/iDEALv3';
 
 				if ( 'test' === $mode ) {
@@ -1078,7 +1078,7 @@ class Plugin {
 				$config->certificates = array();
 
 				break;
-			case 'mollie-ideal-basic' :
+			case 'mollie-ideal-basic':
 				$config->url = 'https://secure.mollie.nl/xml/idealAcquirer/lite/';
 
 				if ( 'test' === $mode ) {
@@ -1086,7 +1086,7 @@ class Plugin {
 				}
 
 				break;
-			case 'postcode-ideal' :
+			case 'postcode-ideal':
 				$config->payment_server_url = 'https://ideal.postcode.nl/ideal';
 
 				if ( 'test' === $mode ) {
@@ -1096,7 +1096,7 @@ class Plugin {
 				$config->certificates = array();
 
 				break;
-			case 'rabobank-ideal-professional-v3' :
+			case 'rabobank-ideal-professional-v3':
 				$config->payment_server_url = 'https://ideal.rabobank.nl/ideal/iDEALv3';
 
 				if ( 'test' === $mode ) {
@@ -1106,7 +1106,7 @@ class Plugin {
 				$config->certificates = array();
 
 				break;
-			case 'sisow-ideal-basic' :
+			case 'sisow-ideal-basic':
 				$config->url = 'https://www.sisow.nl/Sisow/iDeal/IssuerHandler.ashx';
 
 				if ( 'test' === $mode ) {

@@ -179,7 +179,7 @@ class PaymentPostType {
 		$payment = get_pronamic_payment( $post_id );
 
 		switch ( $column ) {
-			case 'pronamic_payment_status' :
+			case 'pronamic_payment_status':
 				$post_status = get_post_status( $post_id );
 
 				$label = __( 'Unknown', 'pronamic_ideal' );
@@ -202,7 +202,7 @@ class PaymentPostType {
 				);
 
 				break;
-			case 'pronamic_payment_subscription' :
+			case 'pronamic_payment_subscription':
 				$subscription_id = get_post_meta( $post_id, '_pronamic_payment_subscription_id', true );
 
 				if ( $subscription_id ) {
@@ -225,7 +225,7 @@ class PaymentPostType {
 				}
 
 				break;
-			case 'pronamic_payment_title' :
+			case 'pronamic_payment_title':
 				$source             = $payment->get_source();
 				$source_id          = $payment->get_source_id();
 				$source_description = $payment->get_source_description();
@@ -263,7 +263,7 @@ class PaymentPostType {
 				);
 
 				break;
-			case 'pronamic_payment_gateway' :
+			case 'pronamic_payment_gateway':
 				$config_id = get_post_meta( $post_id, '_pronamic_payment_config_id', true );
 
 				if ( ! empty( $config_id ) ) {
@@ -273,7 +273,7 @@ class PaymentPostType {
 				}
 
 				break;
-			case 'pronamic_payment_transaction' :
+			case 'pronamic_payment_transaction':
 				$transaction_id = get_post_meta( $post_id, '_pronamic_payment_transaction_id', true );
 
 				$url = $payment->get_provider_link();
@@ -289,22 +289,22 @@ class PaymentPostType {
 				}
 
 				break;
-			case 'pronamic_payment_description' :
+			case 'pronamic_payment_description':
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_description', true ) );
 
 				break;
-			case 'pronamic_payment_amount' :
+			case 'pronamic_payment_amount':
 				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
 				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
 
 				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $amount, $currency ) );
 
 				break;
-			case 'pronamic_payment_date' :
+			case 'pronamic_payment_date':
 				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
 
 				break;
-			case 'pronamic_payment_consumer' :
+			case 'pronamic_payment_consumer':
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_name', true ) );
 				echo '<br />';
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_account_number', true ) );
@@ -314,11 +314,11 @@ class PaymentPostType {
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_consumer_city', true ) );
 
 				break;
-			case 'pronamic_payment_customer' :
+			case 'pronamic_payment_customer':
 				echo esc_html( get_post_meta( $post_id, '_pronamic_payment_customer_name', true ) );
 
 				break;
-			case 'pronamic_payment_source' :
+			case 'pronamic_payment_source':
 				echo $payment->get_source_text(); //xss ok
 
 				break;
@@ -434,21 +434,21 @@ class PaymentPostType {
 	 */
 	private function translate_post_status_to_meta_status( $post_status ) {
 		switch ( $post_status ) {
-			case 'payment_pending' :
+			case 'payment_pending':
 				return \Pronamic\WordPress\Pay\Core\Statuses::OPEN;
-			case 'payment_processing' :
+			case 'payment_processing':
 				return \Pronamic\WordPress\Pay\Core\Statuses::OPEN;
-			case 'payment_on_hold' :
+			case 'payment_on_hold':
 				return null;
-			case 'payment_completed' :
+			case 'payment_completed':
 				return \Pronamic\WordPress\Pay\Core\Statuses::SUCCESS;
-			case 'payment_cancelled' :
+			case 'payment_cancelled':
 				return \Pronamic\WordPress\Pay\Core\Statuses::CANCELLED;
-			case 'payment_refunded' :
+			case 'payment_refunded':
 				return null;
-			case 'payment_failed' :
+			case 'payment_failed':
 				return \Pronamic\WordPress\Pay\Core\Statuses::FAILURE;
-			case 'payment_expired' :
+			case 'payment_expired':
 				return \Pronamic\WordPress\Pay\Core\Statuses::EXPIRED;
 		}
 	}

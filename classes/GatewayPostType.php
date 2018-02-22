@@ -43,42 +43,44 @@ class GatewayPostType {
 	 * @see https://github.com/WordPress/WordPress/blob/4.6.1/wp-includes/post.php#L1277-L1300
 	 */
 	public function register_gateway_post_type() {
-		register_post_type( 'pronamic_gateway', array(
-			'label'              => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
-			'labels'             => array(
-				'name'                  => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
-				'singular_name'         => __( 'Payment Gateway Configuration', 'pronamic_ideal' ),
-				'add_new'               => __( 'Add New', 'pronamic_ideal' ),
-				'add_new_item'          => __( 'Add New Payment Gateway Configuration', 'pronamic_ideal' ),
-				'edit_item'             => __( 'Edit Payment Gateway Configuration', 'pronamic_ideal' ),
-				'new_item'              => __( 'New Payment Gateway Configuration', 'pronamic_ideal' ),
-				'all_items'             => __( 'All Payment Gateway Configurations', 'pronamic_ideal' ),
-				'view_item'             => __( 'View Payment Gateway Configuration', 'pronamic_ideal' ),
-				'search_items'          => __( 'Search Payment Gateway Configurations', 'pronamic_ideal' ),
-				'not_found'             => __( 'No payment gateway configurations found.', 'pronamic_ideal' ),
-				'not_found_in_trash'    => __( 'No payment gateway configurations found in Trash.', 'pronamic_ideal' ),
-				'menu_name'             => __( 'Configurations', 'pronamic_ideal' ),
-				'filter_items_list'     => __( 'Filter payment gateway configurations list', 'pronamic_ideal' ),
-				'items_list_navigation' => __( 'Payment gateway configurations list navigation', 'pronamic_ideal' ),
-				'items_list'            => __( 'Payment gateway configurations list', 'pronamic_ideal' ),
-			),
-			'public'             => false,
-			'publicly_queryable' => false,
-			'show_ui'            => true,
-			'show_in_nav_menus'  => false,
-			'show_in_menu'       => false,
-			'show_in_admin_bar'  => false,
-			'hierarchical'       => true,
-			'supports'           => array(
-				'title',
-				'revisions',
-			),
-			'rewrite'            => false,
-			'query_var'          => false,
-			'capabilities'       => self::get_capabilities(),
-			// Don't map meta capabilities since we only use the `manage_options` capability for this post type.
-			'map_meta_cap'       => false,
-		) );
+		register_post_type(
+			'pronamic_gateway', array(
+				'label'              => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
+				'labels'             => array(
+					'name'                  => __( 'Payment Gateway Configurations', 'pronamic_ideal' ),
+					'singular_name'         => __( 'Payment Gateway Configuration', 'pronamic_ideal' ),
+					'add_new'               => __( 'Add New', 'pronamic_ideal' ),
+					'add_new_item'          => __( 'Add New Payment Gateway Configuration', 'pronamic_ideal' ),
+					'edit_item'             => __( 'Edit Payment Gateway Configuration', 'pronamic_ideal' ),
+					'new_item'              => __( 'New Payment Gateway Configuration', 'pronamic_ideal' ),
+					'all_items'             => __( 'All Payment Gateway Configurations', 'pronamic_ideal' ),
+					'view_item'             => __( 'View Payment Gateway Configuration', 'pronamic_ideal' ),
+					'search_items'          => __( 'Search Payment Gateway Configurations', 'pronamic_ideal' ),
+					'not_found'             => __( 'No payment gateway configurations found.', 'pronamic_ideal' ),
+					'not_found_in_trash'    => __( 'No payment gateway configurations found in Trash.', 'pronamic_ideal' ),
+					'menu_name'             => __( 'Configurations', 'pronamic_ideal' ),
+					'filter_items_list'     => __( 'Filter payment gateway configurations list', 'pronamic_ideal' ),
+					'items_list_navigation' => __( 'Payment gateway configurations list navigation', 'pronamic_ideal' ),
+					'items_list'            => __( 'Payment gateway configurations list', 'pronamic_ideal' ),
+				),
+				'public'             => false,
+				'publicly_queryable' => false,
+				'show_ui'            => true,
+				'show_in_nav_menus'  => false,
+				'show_in_menu'       => false,
+				'show_in_admin_bar'  => false,
+				'hierarchical'       => true,
+				'supports'           => array(
+					'title',
+					'revisions',
+				),
+				'rewrite'            => false,
+				'query_var'          => false,
+				'capabilities'       => self::get_capabilities(),
+				// Don't map meta capabilities since we only use the `manage_options` capability for this post type.
+				'map_meta_cap'       => false,
+			)
+		);
 	}
 
 	//////////////////////////////////////////////////

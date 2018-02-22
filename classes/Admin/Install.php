@@ -108,18 +108,22 @@ class Install {
 		// Redirect
 		if ( null === $current_version ) {
 			// No version? This is a new install :)
-			$url = add_query_arg( array(
-				'page' => 'pronamic-pay-about',
-				'tab'  => 'getting-started',
-			), admin_url( 'index.php' ) );
+			$url = add_query_arg(
+				array(
+					'page' => 'pronamic-pay-about',
+					'tab'  => 'getting-started',
+				), admin_url( 'index.php' )
+			);
 
 			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
 		} elseif ( version_compare( $current_version, $minor_version, '<' ) ) {
 			// Show welcome screen for minor updates only
-			$url = add_query_arg( array(
-				'page' => 'pronamic-pay-about',
-				'tab'  => 'new',
-			), admin_url( 'index.php' ) );
+			$url = add_query_arg(
+				array(
+					'page' => 'pronamic-pay-about',
+					'tab'  => 'new',
+				), admin_url( 'index.php' )
+			);
 
 			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
 		}
@@ -139,9 +143,11 @@ class Install {
 	 */
 	private function create_roles() {
 		// Payer role
-		add_role( 'payer', __( 'Payer', 'pronamic_ideal' ), array(
-			'read' => true,
-		) );
+		add_role(
+			'payer', __( 'Payer', 'pronamic_ideal' ), array(
+				'read' => true,
+			)
+		);
 
 		// @see https://developer.wordpress.org/reference/functions/wp_roles/
 		$roles = wp_roles();

@@ -54,10 +54,12 @@ class StatusChecker {
 		// 15 minutes after a transaction request is sent
 		$delay = 15 * MINUTE_IN_SECONDS;
 
-		wp_schedule_single_event( $time + $delay, 'pronamic_ideal_check_transaction_status', array(
-			'payment_id' => $payment->get_id(),
-			'seconds'    => $delay,
-		) );
+		wp_schedule_single_event(
+			$time + $delay, 'pronamic_ideal_check_transaction_status', array(
+				'payment_id' => $payment->get_id(),
+				'seconds'    => $delay,
+			)
+		);
 	}
 
 	/**
@@ -69,17 +71,17 @@ class StatusChecker {
 	 */
 	private function get_delay_seconds( $number_tries ) {
 		switch ( $number_tries ) {
-			case 0 :
+			case 0:
 				// 15 minutes after a transaction request is sent
 				return 15 * MINUTE_IN_SECONDS;
-			case 1 :
+			case 1:
 				// Half-way through an expirationPeriod
 				return 30 * MINUTE_IN_SECONDS;
-			case 2 :
+			case 2:
 				// Just after an expirationPeriod
 				return HOUR_IN_SECONDS;
-			case 3 :
-			default :
+			case 3:
+			default:
 				return DAY_IN_SECONDS;
 		}
 	}
@@ -117,11 +119,13 @@ class StatusChecker {
 
 				$seconds = $this->get_delay_seconds( $number_tries );
 
-				wp_schedule_single_event( $time + $seconds, 'pronamic_ideal_check_transaction_status', array(
-					'payment_id'   => $payment->get_id(),
-					'seconds'      => $seconds,
-					'number_tries' => $number_tries + 1,
-				) );
+				wp_schedule_single_event(
+					$time + $seconds, 'pronamic_ideal_check_transaction_status', array(
+						'payment_id'   => $payment->get_id(),
+						'seconds'      => $seconds,
+						'number_tries' => $number_tries + 1,
+					)
+				);
 			}
 		}
 	}
