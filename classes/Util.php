@@ -1,4 +1,11 @@
 <?php
+/**
+ * Util
+ *
+ * @author  Pronamic <info@pronamic.eu>
+ * @license GPL-3.0-or-later
+ * @package Pronamic\WordPress\Pay
+ */
 
 namespace Pronamic\WordPress\Pay;
 
@@ -17,11 +24,11 @@ use WP_Error;
  */
 class Util {
 	/**
-	 * Remote get body
+	 * Remote get body.
 	 *
-	 * @param string $url
-	 * @param int $required_response_code
-	 * @param array $args
+	 * @param string $url                    The URL to use for the remote request.
+	 * @param int    $required_response_code The required response code.
+	 * @param array  $args                   The WordPress HTTP API request arguments.
 	 *
 	 * @return string|WP_Error
 	 */
@@ -48,22 +55,20 @@ class Util {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * SimpleXML load string
+	 * SimpleXML load string.
 	 *
-	 * @param string $string
+	 * @param string $string The XML string to convert to a SimpleXMLElement object.
 	 *
 	 * @return SimpleXMLElement|WP_Error
 	 */
 	public static function simplexml_load_string( $string ) {
 		$result = false;
 
-		// Suppress all XML errors
+		// Suppress all XML errors.
 		$use_errors = libxml_use_internal_errors( true );
 
-		// Load
+		// Load.
 		$xml = simplexml_load_string( $string );
 
 		if ( false !== $xml ) {
@@ -80,18 +85,16 @@ class Util {
 			$result = $error;
 		}
 
-		// Set back to previous value
+		// Set back to previous value.
 		libxml_use_internal_errors( $use_errors );
 
 		return $result;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Amount to cents
+	 * Amount to cents.
 	 *
-	 * @param float $price
+	 * @param float $price The amount to convert to cents.
 	 *
 	 * @return int
 	 */
@@ -100,9 +103,9 @@ class Util {
 	}
 
 	/**
-	 * Cents to amount
+	 * Cents to amount.
 	 *
-	 * @param int $cents
+	 * @param int $cents The numberof cents to convert to an amount.
 	 *
 	 * @return float
 	 */
@@ -110,14 +113,12 @@ class Util {
 		return $cents / 100;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Convert boolean to an numceric boolean
+	 * Convert boolean to an numceric boolean.
 	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
 	 *
-	 * @param boolean $boolean
+	 * @param boolean $boolean The boolean to convert to 1 or 0.
 	 *
 	 * @return int
 	 */
@@ -125,14 +126,12 @@ class Util {
 		return $boolean ? 1 : 0;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Convert boolean to an string boolean
+	 * Convert boolean to an string boolean.
 	 *
 	 * @see https://github.com/eet-nu/buckaroo-ideal/blob/master/lib/buckaroo-ideal/request.rb#L136
 	 *
-	 * @param boolean $boolean
+	 * @param boolean $boolean The boolean to convert to the string 'true' or 'false'.
 	 *
 	 * @return int
 	 */
@@ -140,8 +139,13 @@ class Util {
 		return $boolean ? 'true' : 'false';
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Format date.
+	 *
+	 * @param string   $format The desired date form.
+	 * @param DateTime $date   The date to format.
+	 * @return string
+	 */
 	public static function format_date( $format, DateTime $date = null ) {
 		$result = null;
 
@@ -157,6 +161,11 @@ class Util {
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-formatting-functions.php#L306-L347
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-core-functions.php#L299-L376
+	 *
+	 * @param float  $amount   The amount to format.
+	 * @param string $currency The currency code for the currency symbol.
+	 *
+	 * @return string
 	 */
 	public static function format_price( $amount, $currency = null ) {
 		$float = filter_var( $amount, FILTER_VALIDATE_FLOAT );
@@ -186,6 +195,11 @@ class Util {
 
 	/**
 	 * Format interval.
+	 *
+	 * @param int    $interval The interval number.
+	 * @param string $period   The period indicator.
+	 *
+	 * @return string
 	 */
 	public static function format_interval( $interval, $period ) {
 		switch ( $period ) {
@@ -211,7 +225,7 @@ class Util {
 	/**
 	 * Convert single interval period character to full name.
 	 *
-	 * @param $interval_period string Short interval period (D, W, M or Y)
+	 * @param string $interval_period string Short interval period (D, W, M or Y).
 	 *
 	 * @return string
 	 */
@@ -232,6 +246,10 @@ class Util {
 
 	/**
 	 * Format frequency.
+	 *
+	 * @param int $frequency The number of times.
+	 *
+	 * @return string
 	 */
 	public static function format_frequency( $frequency ) {
 		if ( '' === $frequency ) {
@@ -241,13 +259,11 @@ class Util {
 		return sprintf( _n( '%s time', '%s times', $frequency, 'pronamic_ideal' ), $frequency );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Build URL with the specified parameters
 	 *
-	 * @param string $url
-	 * @param array $parameters
+	 * @param string $url        The URL to extend with specified parameters.
+	 * @param array  $parameters The parameters to add to the specified URL.
 	 *
 	 * @return string
 	 */
@@ -258,7 +274,7 @@ class Util {
 	/**
 	 * Get hidden inputs HTML for data.
 	 *
-	 * @param $data array
+	 * @param array $data Array with name and value pairs to convert to hidden HTML input eleemnts.
 	 *
 	 * @return string
 	 */
@@ -273,9 +289,11 @@ class Util {
 	}
 
 	/**
-	 * Array to HTML attributes
+	 * Array to HTML attributes.
 	 *
-	 * @param array $pieces
+	 * @param array $attributes The key and value pairs to convert to HTML attributes.
+	 *
+	 * @return string
 	 */
 	public static function array_to_html_attributes( array $attributes ) {
 		$html = '';
@@ -290,10 +308,10 @@ class Util {
 	}
 
 	/**
-	 * Select options grouped
+	 * Select options grouped.
 	 *
-	 * @param array  $groups
-	 * @param string $selected_value
+	 * @param array  $groups         The grouped select options.
+	 * @param string $selected_value The selected value.
 	 *
 	 * @return string
 	 */
