@@ -67,8 +67,8 @@ class SubscriptionPostType {
 
 	public function columns( $columns ) {
 		$columns = array(
-			'cb'                             => '<input type="checkbox" />',
-			'pronamic_subscription_status'   => sprintf(
+			'cb'                              => '<input type="checkbox" />',
+			'pronamic_subscription_status'    => sprintf(
 				'<span class="pronamic-pay-tip pronamic-pay-icon" title="%s">%s</span>',
 				esc_html__( 'Status', 'pronamic_ideal' ),
 				esc_html__( 'Status', 'pronamic_ideal' )
