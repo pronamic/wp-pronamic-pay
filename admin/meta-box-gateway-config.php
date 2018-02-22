@@ -272,7 +272,9 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s />',
+											// @codingStandardsIgnoreStart
 											Util::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;
@@ -282,7 +284,9 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s %s />',
+											// @codingStandardsIgnoreStart
 											Util::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreEnd
 											checked( $value, true, false )
 										);
 
@@ -301,7 +305,9 @@ bind_providers_and_gateways();
 
 										printf(
 											'<textarea %s />%s</textarea>',
+											// @codingStandardsIgnoreStart
 											Util::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreEnd
 											esc_textarea( $value )
 										);
 
@@ -311,15 +317,19 @@ bind_providers_and_gateways();
 
 										printf(
 											'<input %s />',
+											// @codingStandardsIgnoreStart
 											Util::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;
 									case 'select' :
 										printf(
 											'<select %s>%s</select>',
+											// @codingStandardsIgnoreStart
 											Util::array_to_html_attributes( $attributes ),
 											Util::select_options_grouped( $field['options'], $value )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;

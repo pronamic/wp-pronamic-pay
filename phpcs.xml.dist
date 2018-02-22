@@ -42,15 +42,12 @@
 		<exclude name="WordPress.VIP.RestrictedFunctions.wp_redirect_wp_redirect" />
 
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment" />
+
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents" />
+		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_file_get_contents" />
 	</rule>
 
 	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
 		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
-	</rule>
-
-	<rule ref="WordPress.XSS.EscapeOutput">
-		<properties>
-			<property name="customEscapingFunctions" type="array" value="Pronamic_WP_HTML_Helper" />
-		</properties>
 	</rule>
 </ruleset>
