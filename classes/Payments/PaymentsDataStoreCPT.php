@@ -36,13 +36,15 @@ class PaymentsDataStoreCPT {
 			);
 		}
 
-		$result = wp_insert_post( array(
-			'post_type'     => 'pronamic_payment',
-			'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
-			'post_title'    => $title,
-			'post_status'   => $this->get_post_status( $payment ),
-			'post_author'   => $payment->user_id,
-		), true );
+		$result = wp_insert_post(
+			array(
+				'post_type'     => 'pronamic_payment',
+				'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
+				'post_title'    => $title,
+				'post_status'   => $this->get_post_status( $payment ),
+				'post_author'   => $payment->user_id,
+			), true
+		);
 
 		if ( is_wp_error( $result ) ) {
 			return false;
@@ -142,28 +144,28 @@ class PaymentsDataStoreCPT {
 
 		$id = $payment->get_id();
 
-		$payment->config_id      = get_post_meta( $id, $prefix . 'config_id', true );
-		$payment->key            = get_post_meta( $id, $prefix . 'key', true );
+		$payment->config_id = get_post_meta( $id, $prefix . 'config_id', true );
+		$payment->key       = get_post_meta( $id, $prefix . 'key', true );
 
-		$payment->amount         = (float) get_post_meta( $id, $prefix . 'amount', true );
-		$payment->currency       = get_post_meta( $id, $prefix . 'currency', true );
-		$payment->method         = get_post_meta( $id, $prefix . 'method', true );
-		$payment->issuer         = get_post_meta( $id, $prefix . 'issuer', true );
+		$payment->amount   = (float) get_post_meta( $id, $prefix . 'amount', true );
+		$payment->currency = get_post_meta( $id, $prefix . 'currency', true );
+		$payment->method   = get_post_meta( $id, $prefix . 'method', true );
+		$payment->issuer   = get_post_meta( $id, $prefix . 'issuer', true );
 
 		$payment->order_id       = get_post_meta( $id, $prefix . 'order_id', true );
 		$payment->transaction_id = get_post_meta( $id, $prefix . 'transaction_id', true );
 		$payment->entrance_code  = get_post_meta( $id, $prefix . 'entrance_code', true );
 		$payment->action_url     = get_post_meta( $id, $prefix . 'action_url', true );
 
-		$payment->source         = get_post_meta( $id, $prefix . 'source', true );
-		$payment->source_id      = get_post_meta( $id, $prefix . 'source_id', true );
-		$payment->description    = get_post_meta( $id, $prefix . 'description', true );
+		$payment->source      = get_post_meta( $id, $prefix . 'source', true );
+		$payment->source_id   = get_post_meta( $id, $prefix . 'source_id', true );
+		$payment->description = get_post_meta( $id, $prefix . 'description', true );
 
-		$payment->language       = get_post_meta( $id, $prefix . 'language', true );
-		$payment->locale         = get_post_meta( $id, $prefix . 'locale', true );
-		$payment->email          = get_post_meta( $id, $prefix . 'email', true );
+		$payment->language = get_post_meta( $id, $prefix . 'language', true );
+		$payment->locale   = get_post_meta( $id, $prefix . 'locale', true );
+		$payment->email    = get_post_meta( $id, $prefix . 'email', true );
 
-		$payment->status         = get_post_meta( $id, $prefix . 'status', true );
+		$payment->status = get_post_meta( $id, $prefix . 'status', true );
 
 		$payment->customer_name       = get_post_meta( $id, $prefix . 'customer_name', true );
 		$payment->address             = get_post_meta( $id, $prefix . 'address', true );
@@ -184,9 +186,9 @@ class PaymentsDataStoreCPT {
 			$payment->start_date = date_create( $start_date_string );
 		}
 
-		// End Date 
+		// End Date
 		$end_date_string = get_post_meta( $id, $prefix . 'end_date', true );
-		
+
 		if ( ! empty( $end_date_string ) ) {
 			$payment->end_date = date_create( $end_date_string );
 		}
