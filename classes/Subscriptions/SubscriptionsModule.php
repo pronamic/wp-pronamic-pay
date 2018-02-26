@@ -49,23 +49,23 @@ class SubscriptionsModule {
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'wp_loaded', array( $this, 'handle_subscription' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'maybe_schedule_subscription_payments' ), 5 );
 
-		// Exclude payment and subscription notes
+		// Exclude payment and subscription notes.
 		add_filter( 'comments_clauses', array( $this, 'exclude_subscription_comment_notes' ), 10, 2 );
 
 		add_action( 'pronamic_pay_new_payment', array( $this, 'maybe_create_subscription' ) );
 
-		// The 'pronamic_pay_update_subscription_payments' hook adds subscription payments and sends renewal notices
+		// The 'pronamic_pay_update_subscription_payments' hook adds subscription payments and sends renewal notices.
 		add_action( 'pronamic_pay_update_subscription_payments', array( $this, 'update_subscription_payments' ) );
 
-		// Listen to payment status changes so we can update related subscriptions
+		// Listen to payment status changes so we can update related subscriptions.
 		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
 
-		// WordPress CLI
+		// WordPress CLI.
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php
 		// @see https://make.wordpress.org/cli/handbook/commands-cookbook/
@@ -100,19 +100,19 @@ class SubscriptionsModule {
 
 		$key = filter_input( INPUT_GET, 'key', FILTER_SANITIZE_STRING );
 
-		// Check if subscription is valid
+		// Check if subscription is valid.
 		if ( ! $subscription ) {
 			return;
 		}
 
-		// Check if subscription key is valid
+		// Check if subscription key is valid.
 		if ( $key !== $subscription->get_key() ) {
 			wp_redirect( home_url() );
 
 			exit;
 		}
 
-		// Check if we should redirect
+		// Check if we should redirect.
 		$should_redirect = true;
 
 		switch ( $action ) {
@@ -142,6 +142,13 @@ class SubscriptionsModule {
 		}
 	}
 
+	/**
+	 * Start a recurring payment at the specified gateway for the specified subscription.
+	 *
+	 * @param Subscription $subscription The subscription to start a recurring payment for.
+	 * @param Gateway      $gateway      The gateway to start the recurring payment at.
+	 * @param boolean      $renewal      Flag for renewal payment.
+	 */
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
 		if ( empty( $subscription->next_payment ) ) {
 			$subscription->status = Statuses::COMPLETED;
@@ -205,6 +212,12 @@ class SubscriptionsModule {
 		return $payment;
 	}
 
+	/**
+	 * Update the specified subscription and redirect if allowed.
+	 *
+	 * @param Subscription $subscription The updated subscription.
+	 * @param boolean      $can_redirect Flag to redirect or not.
+	 */
 	public function update_subscription( $subscription = null, $can_redirect = true ) {
 		if ( empty( $subscription ) ) {
 			return;
@@ -226,14 +239,14 @@ class SubscriptionsModule {
 	/**
 	 * Comments clauses.
 	 *
-	 * @param array            $clauses
-	 * @param WP_Comment_Query $query
+	 * @param array            $clauses The database query clauses.
+	 * @param WP_Comment_Query $query   The WordPress comment query object.
 	 * @return array
 	 */
 	public function exclude_subscription_comment_notes( $clauses, $query ) {
 		$type = $query->query_vars['type'];
 
-		// Ignore subscription notes comments if it's not specifically requested
+		// Ignore subscription notes comments if it's not specifically requested.
 		if ( 'subscription_note' !== $type ) {
 			$clauses['where'] .= " AND comment_type != 'subscription_note'";
 		}
@@ -255,7 +268,7 @@ class SubscriptionsModule {
 	/**
 	 * Maybe create subscription for the specified payment.
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment The new payment.
 	 */
 	public function maybe_create_subscription( $payment ) {
 		// Check if there is already subscription attached to the payment.
@@ -273,7 +286,7 @@ class SubscriptionsModule {
 			return;
 		}
 
-		// New subscription
+		// New subscription.
 		$subscription = new Subscription();
 
 		$subscription->config_id       = $payment->config_id;
@@ -326,7 +339,7 @@ class SubscriptionsModule {
 		$subscription->final_payment  = $final_date;
 		$subscription->renewal_notice = $notice_date;
 
-		// Create
+		// Create.
 		$result = $this->plugin->subscriptions_data_store->create( $subscription );
 
 		if ( $result ) {
@@ -424,7 +437,7 @@ class SubscriptionsModule {
 
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
-			// Set next renewal date meta
+			// Set next renewal date meta.
 			$next_renewal = $subscription->get_next_payment_date( 1 );
 
 			if ( $next_renewal ) {
@@ -445,6 +458,8 @@ class SubscriptionsModule {
 
 	/**
 	 * Payment status update.
+	 *
+	 * @param $payment Payment The status updated payment.
 	 */
 	public function payment_status_update( $payment ) {
 		// Check if the payment is connected to a subscription.
@@ -468,7 +483,7 @@ class SubscriptionsModule {
 			return;
 		}
 
-		// Status
+		// Status.
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
@@ -499,7 +514,7 @@ class SubscriptionsModule {
 				break;
 		}
 
-		// Update
+		// Update.
 		$result = $this->plugin->subscriptions_data_store->update( $subscription );
 	}
 
