@@ -1,4 +1,12 @@
 <?php
+/**
+ * Subscription
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Subscriptions
+ */
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
@@ -11,10 +19,7 @@ use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
 
 class Subscription {
-
 	protected $id;
-
-	//////////////////////////////////////////////////
 
 	public $key;
 
@@ -76,8 +81,6 @@ class Subscription {
 
 	public $renewal_notice;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Meta
 	 *
@@ -85,14 +88,10 @@ class Subscription {
 	 */
 	public $meta;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * The subscription post object
 	 */
 	public $post;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Construct and initialize payment object
@@ -111,8 +110,6 @@ class Subscription {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_id() {
 		return $this->id;
 	}
@@ -121,13 +118,9 @@ class Subscription {
 		$this->id = $id;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_key() {
 		return $this->key;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_source() {
 		return $this->source;
@@ -136,8 +129,6 @@ class Subscription {
 	public function get_source_id() {
 		return $this->source_id;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_frequency() {
 		return $this->frequency;
@@ -171,8 +162,6 @@ class Subscription {
 		return $this->amount;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_transaction_id() {
 		return $this->transaction_id;
 	}
@@ -181,8 +170,6 @@ class Subscription {
 		$this->transaction_id = $transaction_id;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_status() {
 		return $this->status;
 	}
@@ -190,8 +177,6 @@ class Subscription {
 	public function set_status( $status ) {
 		$this->status = $status;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function set_consumer_name( $name ) {
 		$this->consumer_name = $name;
@@ -204,8 +189,6 @@ class Subscription {
 	public function set_consumer_bic( $bic ) {
 		$this->consumer_bic = $bic;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function add_note( $note ) {
 		$commentdata = array(
@@ -224,8 +207,6 @@ class Subscription {
 
 		return $comment_id;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_meta( $key ) {
 		$key = '_pronamic_subscription_' . $key;
@@ -246,8 +227,6 @@ class Subscription {
 
 		return update_post_meta( $this->id, $key, $value );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get source description.
@@ -285,8 +264,6 @@ class Subscription {
 		return $url;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get cancel URL for this subscription.
 	 *
@@ -321,8 +298,6 @@ class Subscription {
 		return $renewal_url;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_payments() {
 		return get_pronamic_payments_by_meta( '_pronamic_payment_subscription_id', $this->id );
 	}
@@ -349,8 +324,6 @@ class Subscription {
 		return null;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function set_start_date( $value ) {
 		$this->set_meta( 'start_date', $value );
 	}
@@ -368,8 +341,6 @@ class Subscription {
 
 		return null;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function set_expiry_date( $value ) {
 		$this->set_meta( 'expiry_date', $value );
@@ -398,8 +369,6 @@ class Subscription {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	public function set_first_payment_date( $value ) {
 		$this->set_meta( 'first_payment', $value );
 	}
@@ -413,8 +382,6 @@ class Subscription {
 
 		return new DateTime( $this->post->post_date_gmt );
 	}
-
-	//////////////////////////////////////////////////
 
 	public function set_final_payment_date( $value ) {
 		$this->set_meta( 'final_payment', $value );
@@ -451,8 +418,6 @@ class Subscription {
 			)
 		);
 	}
-
-	//////////////////////////////////////////////////
 
 	public function set_next_payment_date( $value ) {
 		$this->set_meta( 'next_payment', $value );
@@ -511,8 +476,6 @@ class Subscription {
 		$this->set_renewal_notice_date( $next_renewal );
 	}
 
-	//////////////////////////////////////////////////
-
 	public function set_renewal_notice_date( $value ) {
 		$this->set_meta( 'renewal_notice', $value );
 	}
@@ -526,8 +489,6 @@ class Subscription {
 
 		return false;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function update_status( $status, $note = null ) {
 		if ( Statuses::ACTIVE === $status ) {

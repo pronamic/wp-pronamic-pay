@@ -1,4 +1,12 @@
 <?php
+/**
+ * Install
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Admin
+ */
 
 namespace Pronamic\WordPress\Pay\Admin;
 
@@ -8,9 +16,6 @@ use Pronamic\WordPress\Pay\Plugin;
 
 /**
  * Title: WordPress admin install
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
  *
  * @author Remco Tolsma
  * @version 3.7.0

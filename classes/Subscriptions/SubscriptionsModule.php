@@ -1,4 +1,12 @@
 <?php
+/**
+ * Subscriptions Module
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Subscriptions
+ */
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
@@ -141,7 +149,6 @@ class SubscriptionsModule {
 			$result = $this->plugin->subscriptions_data_store->update( $subscription );
 
 			// @todo
-
 			return;
 		}
 
@@ -152,7 +159,6 @@ class SubscriptionsModule {
 			$result = $this->plugin->subscriptions_data_store->update( $subscription );
 
 			// @todo
-
 			return;
 		}
 
@@ -220,7 +226,7 @@ class SubscriptionsModule {
 	/**
 	 * Comments clauses.
 	 *
-	 * @param array $clauses
+	 * @param array            $clauses
 	 * @param WP_Comment_Query $query
 	 * @return array
 	 */
@@ -466,7 +472,6 @@ class SubscriptionsModule {
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
-
 				break;
 			case Statuses::SUCCESS:
 				$subscription->set_status( Statuses::SUCCESS );
@@ -517,7 +522,7 @@ class SubscriptionsModule {
 				array(
 					'key'     => '_pronamic_subscription_source',
 					'value'   => array(
-						// Don't create payments for sources which schedule payments
+						// Don't create payments for sources which schedule payments.
 						'woocommerce',
 					),
 					'compare' => 'NOT IN',

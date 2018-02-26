@@ -1,4 +1,12 @@
 <?php
+/**
+ * Subscription Post Type
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Subscriptions
+ */
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
@@ -6,9 +14,6 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 
 /**
  * Title: WordPress iDEAL post types
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
  *
  * @author Remco Tolsma
  * @version 3.7.0

@@ -1,12 +1,17 @@
 <?php
+/**
+ * Subscription Post Type
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Admin
+ */
 
 namespace Pronamic\WordPress\Pay\Admin;
 
 /**
  * Title: WordPress admin subscription post type
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
  *
  * @author Reüel van der Steege
  * @version 1.0.0

@@ -1029,12 +1029,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/woocommerce.git",
-                "reference": "66998b7c5d0f210b3d496bd893b375f0b00029c5"
+                "reference": "2e8968b1088dcf7e0a2aea49d76ec62c4dcdd01b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/66998b7c5d0f210b3d496bd893b375f0b00029c5",
-                "reference": "66998b7c5d0f210b3d496bd893b375f0b00029c5",
+                "url": "https://api.github.com/repos/wp-pay-extensions/woocommerce/zipball/2e8968b1088dcf7e0a2aea49d76ec62c4dcdd01b",
+                "reference": "2e8968b1088dcf7e0a2aea49d76ec62c4dcdd01b",
                 "shasum": ""
             },
             "require": {
@@ -1049,9 +1049,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\WooCommerce\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1081,7 +1081,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-01-30T09:09:35+00:00"
+            "time": "2018-02-22T15:12:22+00:00"
         },
         {
             "name": "wp-pay-extensions/wp-e-commerce",
@@ -1089,12 +1089,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/wp-e-commerce.git",
-                "reference": "a2f9a0c979274ae97e3b3855f70419efbf79ba98"
+                "reference": "9761ccf9a382a86be0f20cffed29f4930264f144"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/wp-e-commerce/zipball/a2f9a0c979274ae97e3b3855f70419efbf79ba98",
-                "reference": "a2f9a0c979274ae97e3b3855f70419efbf79ba98",
+                "url": "https://api.github.com/repos/wp-pay-extensions/wp-e-commerce/zipball/9761ccf9a382a86be0f20cffed29f4930264f144",
+                "reference": "9761ccf9a382a86be0f20cffed29f4930264f144",
                 "shasum": ""
             },
             "require": {
@@ -1108,12 +1108,9 @@
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
-                "files": [
-                    "src/functions.php"
-                ]
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\WPeCommerce\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1143,7 +1140,7 @@
                 "wp",
                 "wp-e-commerce"
             ],
-            "time": "2018-02-07T09:01:23+00:00"
+            "time": "2018-02-22T13:17:06+00:00"
         },
         {
             "name": "wp-pay-gateways/buckaroo",
@@ -1835,12 +1832,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "32678b2732a9db36d5a9cea6f248624e9eb49572"
+                "reference": "943727498fc58e04e8ea0c9db853d93fcb56db8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/32678b2732a9db36d5a9cea6f248624e9eb49572",
-                "reference": "32678b2732a9db36d5a9cea6f248624e9eb49572",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/943727498fc58e04e8ea0c9db853d93fcb56db8e",
+                "reference": "943727498fc58e04e8ea0c9db853d93fcb56db8e",
                 "shasum": ""
             },
             "require": {
@@ -1891,7 +1888,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-01T08:58:16+00:00"
+            "time": "2018-02-22T15:37:45+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa",

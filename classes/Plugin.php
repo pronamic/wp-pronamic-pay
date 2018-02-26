@@ -1,4 +1,12 @@
 <?php
+/**
+ * Plugin
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 namespace Pronamic\WordPress\Pay;
 
@@ -11,9 +19,6 @@ use WP_Query;
 
 /**
  * Title: WordPress iDEAL plugin
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
  *
  * @author Remco Tolsma
  * @version 4.5.3
