@@ -25,18 +25,16 @@ class SubscriptionPostType {
 	 */
 	public function __construct() {
 		/**
-		 * Priotiry of the initial post types function should be set to < 10
+		 * Priotiry of the initial post types function should be set to < 10.
 		 *
 		 * @see https://core.trac.wordpress.org/ticket/28488
 		 * @see https://core.trac.wordpress.org/changeset/29318
 		 *
 		 * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
 		 */
-		add_action( 'init', array( $this, 'register_subscription_post_type' ), 0 ); // highest priority
+		add_action( 'init', array( $this, 'register_subscription_post_type' ), 0 ); // Highest priority.
 		add_action( 'init', array( $this, 'register_post_status' ), 9 );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Register post types.
@@ -84,7 +82,7 @@ class SubscriptionPostType {
 	 */
 	public function register_post_status() {
 		/**
-		 * Subscription post statuses
+		 * Subscription post statuses.
 		 */
 		register_post_status(
 			'subscr_pending', array(

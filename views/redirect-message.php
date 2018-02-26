@@ -1,4 +1,12 @@
 <?php
+/**
+ * Redirect message
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 global $pronamic_ideal;
 
@@ -31,7 +39,7 @@ wp_register_style(
 				<p>
 					<?php
 
-					echo wpautop( $redirect_message ); //xss ok
+					echo wpautop( $redirect_message ); // WPCS: XSS ok.
 
 					?>
 				</p>

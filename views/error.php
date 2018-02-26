@@ -1,4 +1,14 @@
-<?php if ( is_wp_error( $error ) ) : ?>
+<?php
+/**
+ * Error
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+if ( is_wp_error( $error ) ) : ?>
 
 	<div class="error">
 		<?php

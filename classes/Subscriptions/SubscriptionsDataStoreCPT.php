@@ -27,7 +27,7 @@ class SubscriptionsDataStoreCPT {
 	 * Create subscription.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L47-L76
-	 * @param Payment $payment
+	 * @param Subscription $subscription Create the specified subscription in this data store.
 	 */
 	public function create( $subscription ) {
 		$result = wp_insert_post(
@@ -62,7 +62,7 @@ class SubscriptionsDataStoreCPT {
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L78-L111
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L81-L136
-	 * @param Subscription $subscription
+	 * @param Subscription $subscription The subscription to read the additional data for.
 	 */
 	public function read( $subscription ) {
 		$subscription->post    = get_post( $subscription->get_id() );
@@ -78,7 +78,7 @@ class SubscriptionsDataStoreCPT {
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L113-L154
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
-	 * @param Subscription $subscription
+	 * @param Subscription $subscription The subscription to update in this data store.
 	 */
 	public function update( $subscription ) {
 		$data = array(
@@ -99,7 +99,8 @@ class SubscriptionsDataStoreCPT {
 	/**
 	 * Get post status.
 	 *
-	 * @param Subscription $subscription
+	 * @param Subscription $subscription The subscription to get the post status for.
+	 * @param string       $default      The deafult post status if the meta status could not be converted to a post status.
 	 * @return string
 	 */
 	private function get_post_status( $subscription, $default = 'subscr_pending' ) {
@@ -131,7 +132,7 @@ class SubscriptionsDataStoreCPT {
 	 * Read post meta.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/abstracts/abstract-wc-data.php#L462-L507
-	 * @param Subscription $subscription
+	 * @param Subscription $subscription The subscription to read the post meta for.
 	 */
 	private function read_post_meta( $subscription ) {
 		$prefix = '_pronamic_subscription_';
@@ -193,7 +194,7 @@ class SubscriptionsDataStoreCPT {
 	 * Update payment post meta.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
-	 * @param Subscription $subscription
+	 * @param Subscription $subscription The subscription to update the post meta for.
 	 */
 	private function update_post_meta( $subscription ) {
 		$prefix = '_pronamic_subscription_';

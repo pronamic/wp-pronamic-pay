@@ -32,6 +32,7 @@ module.exports = function( grunt ) {
 					'admin/**/*.php',
 					'classes/**/*.php',
 					'includes/**/*.php',
+					'!includes/updates/**',
 					'!includes/xmlseclibs/**',
 					'views/**/*.php',
 					'pronamic-ideal.php',

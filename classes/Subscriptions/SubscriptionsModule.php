@@ -42,9 +42,7 @@ class SubscriptionsModule {
 	/**
 	 * Construct and initialize a subscriptions module object.
 	 *
-	 * @param Plugin $plugin
-	 *
-	 * @throws \Exception
+	 * @param Plugin $plugin The plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
@@ -66,9 +64,9 @@ class SubscriptionsModule {
 		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
 
 		// WordPress CLI.
-		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369
-		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php
-		// @see https://make.wordpress.org/cli/handbook/commands-cookbook/
+		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369.
+		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php.
+		// @see https://make.wordpress.org/cli/handbook/commands-cookbook/.
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			WP_CLI::add_command( 'pay subscriptions test', array( $this, 'cli_subscriptions_test' ) );
 		}
@@ -131,7 +129,7 @@ class SubscriptionsModule {
 					$payment = $this->start_recurring( $subscription, $gateway, true );
 
 					if ( ! $gateway->has_error() ) {
-						// Redirect
+						// Redirect.
 						$gateway->redirect( $payment );
 					}
 				}
@@ -359,7 +357,7 @@ class SubscriptionsModule {
 	public function update_subscription_payments() {
 		$this->send_subscription_renewal_notices();
 
-		// Don't create payments for sources which schedule payments
+		// Don't create payments for sources which schedule payments.
 		$sources = array(
 			'woocommerce',
 		);
@@ -459,7 +457,7 @@ class SubscriptionsModule {
 	/**
 	 * Payment status update.
 	 *
-	 * @param $payment Payment The status updated payment.
+	 * @param Payment $payment The status updated payment.
 	 */
 	public function payment_status_update( $payment ) {
 		// Check if the payment is connected to a subscription.
