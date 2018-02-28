@@ -17,15 +17,22 @@ namespace Pronamic\WordPress\Pay;
  * @version 1.0.0
  */
 class Settings {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
 	/**
-	 * Constructs and initalize an admin object
+	 * Constructs and initalize settings object.
+	 *
+	 * @param Plugin $plugin The plugin.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'init', array( $this, 'init' ) );
 	}
 
@@ -97,8 +104,8 @@ class Settings {
 	/**
 	 * Sanitize published post ID.
 	 *
-	 * @param string $value
-	 * @return value if post status is publish, false otherwise
+	 * @param string $value Check if the value is published post ID.
+	 * @return boolean True if post status is publish, false otherwise.
 	 */
 	public function sanitize_published_post_id( $value ) {
 		if ( 'publish' === get_post_status( $value ) ) {

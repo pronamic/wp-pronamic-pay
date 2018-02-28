@@ -1,4 +1,12 @@
 <?php
+/**
+ * Payment Test Data
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Payments
+ */
 
 namespace Pronamic\WordPress\Pay\Payments;
 
@@ -8,33 +16,31 @@ use Pronamic\WordPress\Pay\Core\Util as Core_Util;
 use WP_User;
 
 /**
- * Title: WordPress payment test data
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * WordPress payment test data
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 class PaymentTestData extends PaymentData {
 	/**
-	 * WordPress uer
+	 * WordPress user.
 	 *
 	 * @var WP_User
 	 */
 	private $user;
 
 	/**
-	 * Amount
+	 * Amount.
 	 *
 	 * @var float
 	 */
 	private $amount;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an iDEAL test data proxy
+	 * Constructs and initializes an iDEAL test data proxy.
+	 *
+	 * @param WP_User $user   A WordPress user.
+	 * @param float   $amount The amount to test.
 	 */
 	public function __construct( WP_User $user, $amount ) {
 		parent::__construct();
@@ -43,10 +49,8 @@ class PaymentTestData extends PaymentData {
 		$this->amount = $amount;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get source indicator
+	 * Get source indicator.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
@@ -55,10 +59,8 @@ class PaymentTestData extends PaymentData {
 		return 'test';
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get description
+	 * Get description.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
@@ -68,7 +70,7 @@ class PaymentTestData extends PaymentData {
 	}
 
 	/**
-	 * Get order ID
+	 * Get order ID.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
@@ -78,16 +80,16 @@ class PaymentTestData extends PaymentData {
 	}
 
 	/**
-	 * Get items
+	 * Get items.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Items
 	 */
 	public function get_items() {
-		// Items
+		// Items.
 		$items = new Items();
 
-		// Item
+		// Item.
 		$item = new Item();
 		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( sprintf( __( 'Test %s', 'pronamic_ideal' ), $this->get_order_id() ) );
@@ -99,12 +101,8 @@ class PaymentTestData extends PaymentData {
 		return $items;
 	}
 
-	//////////////////////////////////////////////////
-	// Currency
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get currency alphabetic code
+	 * Get currency alphabetic code.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
@@ -113,25 +111,32 @@ class PaymentTestData extends PaymentData {
 		return 'EUR';
 	}
 
-	//////////////////////////////////////////////////
-	// Customer
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get address.
+	 *
+	 * @return string
+	 */
 	public function get_address() {
 		return '';
 	}
 
+	/**
+	 * Get city.
+	 *
+	 * @return string
+	 */
 	public function get_city() {
 		return '';
 	}
 
+	/**
+	 * Get ZIP.
+	 *
+	 * @return string
+	 */
 	public function get_zip() {
 		return '';
 	}
-
-	//////////////////////////////////////////////////
-	// Subscription
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get subscription.
@@ -166,7 +171,7 @@ class PaymentTestData extends PaymentData {
 			return false;
 		}
 
-		// Subscription
+		// Subscription.
 		$subscription = new Subscription();
 
 		$subscription->currency        = $this->get_currency();
@@ -179,15 +184,16 @@ class PaymentTestData extends PaymentData {
 		return $subscription;
 	}
 
-	//////////////////////////////////////////////////
-	// Creditcard
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get credit card.
+	 *
+	 * @return CreditCard
+	 */
 	public function get_credit_card() {
 		$credit_card = new CreditCard();
 
 		// @see http://www.paypalobjects.com/en_US/vhelp/paypalmanager_help/credit_card_numbers.htm
-		// Test card to simulate a 3-D Secure registered card
+		// Test card to simulate a 3-D Secure registered card.
 		// $credit_card->set_number( '5555555555554444' );
 		// $credit_card->set_number( '4111111111111111' );
 		// $credit_card->set_number( '4000000000000002' );

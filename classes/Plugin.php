@@ -11,8 +11,10 @@
 namespace Pronamic\WordPress\Pay;
 
 use Pronamic\WordPress\Pay\Core\Gateway;
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
+use Pronamic\WordPress\Pay\Payments\PaymentDataInterface;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 use WP_Query;
@@ -46,21 +48,23 @@ class Plugin {
 	 */
 	const TIMEZONE = 'UTC';
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Instance.
+	 *
+	 * @var Plugin
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Instance.
+	 *
+	 * @param string $file The plugin file.
 	 */
 	public static function instance( $file = null ) {
 		if ( is_null( self::$instance ) ) {
 			self::$instance = new self( $file );
 
-			// Backward compatibility
+			// Backward compatibility.
 			self::$file    = $file;
 			self::$dirname = dirname( $file );
 		}
@@ -72,7 +76,7 @@ class Plugin {
 	 * Construct and initialize an Pronamic Pay plugin object
 	 */
 	public function __construct() {
-		// Bootstrap the add-ons
+		// Bootstrap the add-ons.
 		Extensions\Charitable\Extension::bootstrap();
 		Extensions\Give\Extension::bootstrap();
 		Extensions\WooCommerce\Extension::bootstrap();
@@ -92,32 +96,32 @@ class Plugin {
 		Extensions\FormidableForms\Extension::bootstrap();
 		Extensions\RestrictContentPro\Extension::bootstrap();
 
-		// Settings
+		// Settings.
 		$this->settings = new Settings( $this );
 
-		// Data Stores
+		// Data Stores.
 		$this->payments_data_store      = new Payments\PaymentsDataStoreCPT();
 		$this->subscriptions_data_store = new Subscriptions\SubscriptionsDataStoreCPT();
 
-		// Post Types
+		// Post Types.
 		$this->gateway_post_type      = new GatewayPostType();
 		$this->payment_post_type      = new PaymentPostType();
 		$this->subscription_post_type = new SubscriptionPostType();
 
-		// License
+		// License Manager.
 		$this->license_manager = new LicenseManager( $this );
 
-		// Modules
+		// Modules.
 		$this->forms_module         = new Forms\FormsModule( $this );
 		$this->subscriptions_module = new Subscriptions\SubscriptionsModule( $this );
 
-		// Payment Status Checker
+		// Payment Status Checker.
 		$this->payment_status_checker = new Payments\StatusChecker();
 
-		// Google Analytics Ecommerce
+		// Google Analytics Ecommerce.
 		$this->google_analytics_ecommerce = new GoogleAnalyticsEcommerce();
 
-		// Admin
+		// Admin.
 		if ( is_admin() ) {
 			$this->admin = new Admin\AdminModule( $this );
 		}
@@ -139,22 +143,24 @@ class Plugin {
 		 */
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
-		// Exclude payment and subscription notes
+		// Exclude payment and subscription notes.
 		add_filter( 'comments_clauses', array( $this, 'exclude_comment_notes' ), 10, 2 );
 
-		// Payment redirect URL
+		// Payment redirect URL.
 		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
 
-		// Plugin locale
+		// Plugin locale.
 		add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
 
-		// If WordPress is loaded check on returns and maybe redirect requests
+		// If WordPress is loaded check on returns and maybe redirect requests.
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
 	}
 
 	/**
-	 * Get version
+	 * Get the version number of this plugin.
+	 *
+	 * @return string The version number of this plugin.
 	 */
 	public function get_version() {
 		global $pronamic_pay_version;
@@ -171,24 +177,27 @@ class Plugin {
 		return self::$file;
 	}
 
+	/**
+	 * Get the plugin dir path.
+	 *
+	 * @return string
+	 */
 	public function get_plugin_dir_path() {
 		return plugin_dir_path( $this->get_file() );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Comments clauses
+	 * Comments clauses.
 	 *
-	 * @param array $clauses
-	 * @param WP_Comment_Query $query
+	 * @param array            $clauses Array with query clauses for the comments query.
+	 * @param WP_Comment_Query $query   A WordPress comment query object.
 	 *
 	 * @return array
 	 */
 	public function exclude_comment_notes( $clauses, $query ) {
 		$type = $query->query_vars['type'];
 
-		// Ignore payment notes comments if it's not specifically requested
+		// Ignore payment notes comments if it's not specifically requested.
 		if ( 'payment_note' !== $type ) {
 			$clauses['where'] .= " AND comment_type != 'payment_note'";
 		}
@@ -199,8 +208,8 @@ class Plugin {
 	/**
 	 * Payment redirect URL filter.
 	 *
-	 * @param string $url
-	 * @param Payment $payment
+	 * @param string  $url     A payment redirect URL.
+	 * @param Payment $payment The payment to get a redirect URL for.
 	 *
 	 * @return string
 	 */
@@ -248,8 +257,8 @@ class Plugin {
 	/**
 	 * Update payment.
 	 *
-	 * @param null $payment
-	 * @param bool $can_redirect
+	 * @param null $payment      The payment to update.
+	 * @param bool $can_redirect Flag to indicate if redirect is allowed after the payment update.
 	 */
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( empty( $payment ) ) {
@@ -293,10 +302,8 @@ class Plugin {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Handle returns
+	 * Handle returns.
 	 */
 	public function handle_returns() {
 		if ( ! filter_has_var( INPUT_GET, 'payment' ) ) {
@@ -307,7 +314,7 @@ class Plugin {
 
 		$payment = get_pronamic_payment( $payment_id );
 
-		// Check if payment key is valid
+		// Check if payment key is valid.
 		$valid_key = false;
 
 		if ( empty( $payment->key ) ) {
@@ -324,17 +331,17 @@ class Plugin {
 			exit;
 		}
 
-		// Check if we should redirect
+		// Check if we should redirect.
 		$should_redirect = true;
 
-		// Check if the request is an callback request
-		// Sisow gatway will extend callback requests with querystring "callback=true"
+		// Check if the request is an callback request.
+		// Sisow gatway will extend callback requests with querystring "callback=true".
 		if ( filter_has_var( INPUT_GET, 'callback' ) && filter_input( INPUT_GET, 'callback', FILTER_VALIDATE_BOOLEAN ) ) {
 			$should_redirect = false;
 		}
 
-		// Check if the request is an notify request
-		// Sisow gatway will extend callback requests with querystring "notify=true"
+		// Check if the request is an notify request.
+		// Sisow gatway will extend callback requests with querystring "notify=true".
 		if ( filter_has_var( INPUT_GET, 'notify' ) && filter_input( INPUT_GET, 'notify', FILTER_VALIDATE_BOOLEAN ) ) {
 			$should_redirect = false;
 		}
@@ -343,7 +350,7 @@ class Plugin {
 	}
 
 	/**
-	 * Maybe redirect
+	 * Maybe redirect.
 	 */
 	public function maybe_redirect() {
 		if ( ! filter_has_var( INPUT_GET, 'payment_redirect' ) ) {
@@ -354,11 +361,11 @@ class Plugin {
 
 		$payment = get_pronamic_payment( $payment_id );
 
-		// HTML Answer
+		// HTML Answer.
 		$html_answer = $payment->get_meta( 'ogone_directlink_html_answer' );
 
 		if ( ! empty( $html_answer ) ) {
-			echo $html_answer; //xss ok
+			echo $html_answer; // WPCS: XSS ok.
 
 			exit;
 		}
@@ -424,10 +431,8 @@ class Plugin {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get number payments
+	 * Get number payments.
 	 *
 	 * @return int
 	 */
@@ -443,21 +448,19 @@ class Plugin {
 		return $number;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Setup, creates or updates database tables. Will only run when version changes
+	 * Setup, creates or updates database tables. Will only run when version changes.
 	 */
 	public function plugins_loaded() {
-		// Load plugin text domain
+		// Load plugin text domain.
 		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
 
-		// Gateway Integrations
+		// Gateway Integrations.
 		$this->register_gateway_integrations();
 
-		// Maybes
+		// Maybes.
 		self::maybe_set_active_payment_methods();
 	}
 
@@ -467,7 +470,7 @@ class Plugin {
 	private function register_gateway_integrations() {
 		$integrations = array();
 
-		// ABN AMRO iDEAL Easy
+		// ABN AMRO iDEAL Easy.
 		$integration = new Gateways\Ingenico\OrderStandardEasy\Integration();
 		$integration->set_id( 'abnamro-ideal-easy' );
 		$integration->set_name( 'ABN AMRO - iDEAL Easy' );
@@ -478,7 +481,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ABN AMRO - iDEAL Only Kassa
+		// ABN AMRO - iDEAL Only Kassa.
 		$integration = new Gateways\Ingenico\OrderStandard\Integration();
 		$integration->set_id( 'abnamro-ideal-only-kassa' );
 		$integration->set_name( 'ABN AMRO - iDEAL Only Kassa' );
@@ -489,7 +492,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ABN AMRO - Internetkassa
+		// ABN AMRO - Internetkassa.
 		$integration = new Gateways\Ingenico\OrderStandard\Integration();
 		$integration->set_id( 'abnamro-internetkassa' );
 		$integration->set_name( 'ABN AMRO - Internetkassa' );
@@ -500,7 +503,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ABN AMRO - iDEAL Zelfbouw (v3)
+		// ABN AMRO - iDEAL Zelfbouw (v3).
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'abnamro-ideal-zelfbouw-v3' );
 		$integration->set_name( 'ABN AMRO - iDEAL Zelfbouw (v3)' );
@@ -514,12 +517,12 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Buckaroo
+		// Buckaroo.
 		$integration = new Gateways\Buckaroo\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Deutsche Bank - iDEAL via Ogone
+		// Deutsche Bank - iDEAL via Ogone.
 		$integration = new Gateways\Ingenico\OrderStandardEasy\Integration();
 		$integration->set_id( 'deutschebank-ideal-via-ogone' );
 		$integration->set_name( 'Deutsche Bank - iDEAL via Ogone' );
@@ -528,7 +531,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Deutsche Bank - iDEAL Expert (v3)
+		// Deutsche Bank - iDEAL Expert (v3).
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'deutschebank-ideal-expert-v3' );
 		$integration->set_name( 'Deutsche Bank - iDEAL Expert (v3)' );
@@ -541,12 +544,12 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// EMS e-Commerce Gateway
+		// EMS e-Commerce Gateway.
 		$integration = new Gateways\EMS_ECommerce\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Fibonacci ORANGE
+		// Fibonacci ORANGE.
 		$integration = new Gateways\Icepay\Integration();
 		$integration->set_id( 'fibonacciorange' );
 		$integration->set_name( 'Fibonacci ORANGE' );
@@ -555,12 +558,12 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ICEPAY
+		// ICEPAY.
 		$integration = new Gateways\Icepay\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// iDEAL Simulator - iDEAL Lite / Basic
+		// iDEAL Simulator - iDEAL Lite / Basic.
 		$integration = new Gateways\IDeal_Basic\Integration();
 		$integration->set_id( 'ideal-simulator-ideal-basic' );
 		$integration->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
@@ -568,7 +571,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)
+		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'ideal-simulator-ideal-advanced-v3' );
 		$integration->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
@@ -577,7 +580,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ING - iDEAL Basic
+		// ING - iDEAL Basic.
 		$integration = new Gateways\IDeal_Basic\Integration();
 		$integration->set_id( 'ing-ideal-basic' );
 		$integration->set_name( 'ING - iDEAL Basic' );
@@ -590,7 +593,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ING - iDEAL Advanced (v3)
+		// ING - iDEAL Advanced (v3).
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'ing-ideal-advanced-v3' );
 		$integration->set_name( 'ING - iDEAL Advanced (v3)' );
@@ -603,22 +606,22 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// ING - Kassa Compleet
+		// ING - Kassa Compleet.
 		$integration = new Gateways\ING_KassaCompleet\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Mollie
+		// Mollie.
 		$integration = new Gateways\Mollie\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Mollie - iDEAL
+		// Mollie - iDEAL.
 		$integration = new Gateways\Mollie_IDeal\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Mollie - iDEAL Basic
+		// Mollie - iDEAL Basic.
 		$integration = new Gateways\IDeal_Basic\Integration();
 		$integration->set_id( 'mollie-ideal-basic' );
 		$integration->set_name( 'Mollie - iDEAL Basic' );
@@ -628,37 +631,37 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// MultiSafepay
+		// MultiSafepay.
 		$integration = new Gateways\MultiSafepay\Connect\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Ogone - DirectLink
+		// Ogone - DirectLink.
 		$integration = new Gateways\Ingenico\DirectLink\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Ogone - OrderStandard
+		// Ogone - OrderStandard.
 		$integration = new Gateways\Ingenico\OrderStandard\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// OmniKassa
+		// OmniKassa.
 		$integration = new Gateways\OmniKassa\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// OmniKassa 2.0
+		// OmniKassa 2.0.
 		$integration = new Gateways\OmniKassa2\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Pay.nl
+		// Pay.nl.
 		$integration = new Gateways\PayNL\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Paytor
+		// Paytor.
 		$integration = new Gateways\Mollie\Integration();
 		$integration->set_id( 'paytor' );
 		$integration->set_name( 'Paytor' );
@@ -668,7 +671,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Postcode iDEAL
+		// Postcode iDEAL.
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'postcode-ideal' );
 		$integration->set_name( 'Postcode iDEAL' );
@@ -678,7 +681,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Qantani (new platform)
+		// Qantani (new platform).
 		$integration = new Gateways\Mollie\Integration();
 		$integration->set_id( 'qantani-mollie' );
 		$integration->set_name( __( 'Qantani (new platform)', 'pronamic_ideal' ) );
@@ -689,7 +692,7 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Rabobank - iDEAL Professional (v3)
+		// Rabobank - iDEAL Professional (v3).
 		$integration = new Gateways\IDeal_Advanced_V3\Integration();
 		$integration->set_id( 'rabobank-ideal-professional-v3' );
 		$integration->set_name( 'Rabobank - iDEAL Professional (v3)' );
@@ -702,12 +705,12 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Sisow
+		// Sisow.
 		$integration = new Gateways\Sisow\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Sisow - iDEAL Basic
+		// Sisow - iDEAL Basic.
 		$integration = new Gateways\IDeal_Basic\Integration();
 		$integration->set_id( 'sisow-ideal-basic' );
 		$integration->set_name( 'Sisow - iDEAL Basic' );
@@ -718,15 +721,15 @@ class Plugin {
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// TargetPay
+		// TargetPay.
 		$integration = new Gateways\TargetPay\Integration();
 
 		$integrations[ $integration->get_id() ] = $integration;
 
-		// Gateway integrations
+		// Gateway integrations.
 		$this->gateway_integrations = $integrations;
 
-		// Register config providers
+		// Register config providers.
 		foreach ( $integrations as $integration ) {
 			Core\ConfigProvider::register( $integration->get_id(), $integration->get_config_factory_class() );
 		}
@@ -735,8 +738,8 @@ class Plugin {
 	/**
 	 * Filter plugin locale.
 	 *
-	 * @param $locale
-	 * @param $domain
+	 * @param string $locale A WordPress locale identifier.
+	 * @param string $domain A WordPress text domain indentifier.
 	 *
 	 * @return string
 	 */
@@ -755,10 +758,6 @@ class Plugin {
 
 		return $locale;
 	}
-
-	//////////////////////////////////////////////////
-	// Functions from Pronamic_WordPress_IDeal_IDeal
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get payment states.
@@ -794,10 +793,8 @@ class Plugin {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get default error message
+	 * Get default error message.
 	 *
 	 * @return string
 	 */
@@ -805,12 +802,10 @@ class Plugin {
 		return __( 'Something went wrong with the payment. Please try again later or pay another way.', 'pronamic_ideal' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get config select options
+	 * Get config select options.
 	 *
-	 * @param null|string $payment_method
+	 * @param null|string $payment_method The gateway configuration options for the specified payment method.
 	 *
 	 * @return array
 	 */
@@ -824,16 +819,16 @@ class Plugin {
 			$gateways = array();
 
 			switch ( $payment_method ) {
-				case Core\PaymentMethods::ALIPAY:
+				case PaymentMethods::ALIPAY:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::BUNQ:
+				case PaymentMethods::BUNQ:
 					$gateways = array( 'sisow-ideal' );
 
 					break;
-				case Core\PaymentMethods::BANCONTACT:
-				case Core\PaymentMethods::MISTER_CASH:
+				case PaymentMethods::BANCONTACT:
+				case PaymentMethods::MISTER_CASH:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -850,14 +845,14 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::BELFIUS:
+				case PaymentMethods::BELFIUS:
 					$gateways = array(
 						'mollie',
 						'multisafepay-connect',
 					);
 
 					break;
-				case Core\PaymentMethods::BANK_TRANSFER:
+				case PaymentMethods::BANK_TRANSFER:
 					$gateways = array(
 						'ing-kassa-compleet',
 						'mollie',
@@ -866,7 +861,7 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::CREDIT_CARD:
+				case PaymentMethods::CREDIT_CARD:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -882,43 +877,43 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_BANCONTACT:
+				case PaymentMethods::DIRECT_DEBIT_BANCONTACT:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_IDEAL:
+				case PaymentMethods::DIRECT_DEBIT_IDEAL:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::DIRECT_DEBIT_SOFORT:
+				case PaymentMethods::DIRECT_DEBIT_SOFORT:
 					$gateways = array(
 						'mollie',
 						'qantani-mollie',
 					);
 
 					break;
-				case Core\PaymentMethods::GIROPAY:
+				case PaymentMethods::GIROPAY:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::IDEALQR:
+				case PaymentMethods::IDEALQR:
 					$gateways = array( 'multisafepay-connect' );
 
 					break;
-				case Core\PaymentMethods::KBC:
+				case PaymentMethods::KBC:
 					$gateways = array(
 						'mollie',
 						'multisafepay-connect',
 					);
 
 					break;
-				case Core\PaymentMethods::MAESTRO:
+				case PaymentMethods::MAESTRO:
 					$gateways = array(
 						'ems-ecommerce',
 						'rabobank-omnikassa',
@@ -926,11 +921,11 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::PAYCONIQ:
+				case PaymentMethods::PAYCONIQ:
 					$gateways = array( 'ing-kassa-compleet' );
 
 					break;
-				case Core\PaymentMethods::PAYPAL:
+				case PaymentMethods::PAYPAL:
 					$gateways = array(
 						'buckaroo',
 						'ems-ecommerce',
@@ -942,7 +937,7 @@ class Plugin {
 					);
 
 					break;
-				case Core\PaymentMethods::SOFORT:
+				case PaymentMethods::SOFORT:
 					$gateways = array(
 						'ems-ecommerce',
 						'mollie',
@@ -980,14 +975,10 @@ class Plugin {
 		return $options;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Maybe set active payment methods option.
 	 *
 	 * @since unreleased
-	 *
-	 * @param void
 	 */
 	public static function maybe_set_active_payment_methods() {
 		$active_methods = get_option( 'pronamic_pay_active_payment_methods' );
@@ -996,13 +987,13 @@ class Plugin {
 			return;
 		}
 
-		Core\PaymentMethods::update_active_payment_methods();
+		PaymentMethods::update_active_payment_methods();
 	}
 
 	/**
-	 * Render errors
+	 * Render errors.
 	 *
-	 * @param array $errors
+	 * @param array $errors An array with errors to render.
 	 */
 	public static function render_errors( $errors = array() ) {
 		if ( ! is_array( $errors ) ) {
@@ -1017,7 +1008,7 @@ class Plugin {
 	/**
 	 * Get gateway.
 	 *
-	 * @param $config_id
+	 * @param string $config_id A gateway configuration ID.
 	 *
 	 * @return Gateway
 	 */
@@ -1129,14 +1120,14 @@ class Plugin {
 	/**
 	 * Start a payment.
 	 *
-	 * @param                               $config_id
-	 * @param Gateway                       $gateway
-	 * @param Payments\PaymentDataInterface $data
-	 * @param string|null                   $payment_method
+	 * @param string               $config_id      A gateway configuration ID.
+	 * @param Gateway              $gateway        The gateway to start the payment at.
+	 * @param PaymentDataInterface $data           A payment data interface object with all the required payment info.
+	 * @param string|null          $payment_method The payment method to use to start the payment.
 	 *
 	 * @return Payment
 	 */
-	public static function start( $config_id, Core\Gateway $gateway, Payments\PaymentDataInterface $data, $payment_method = null ) {
+	public static function start( $config_id, Gateway $gateway, PaymentDataInterface $data, $payment_method = null ) {
 		$payment = new Payments\Payment();
 
 		$payment->title               = sprintf( __( 'Payment for %s', 'pronamic_ideal' ), $data->get_title() );
@@ -1176,12 +1167,12 @@ class Plugin {
 	/**
 	 * Start payment.
 	 *
-	 * @param Payment $payment
-	 * @param Gateway $gateway
+	 * @param Payment $payment The payment to start at the specified gateway.
+	 * @param Gateway $gateway The gateway to start the payment at.
 	 *
 	 * @return Payment
 	 */
-	public static function start_payment( Payment $payment, Core\Gateway $gateway ) {
+	public static function start_payment( Payment $payment, Gateway $gateway ) {
 		global $pronamic_ideal;
 
 		$pronamic_ideal->payments_data_store->create( $payment );
@@ -1199,8 +1190,7 @@ class Plugin {
 
 			if ( $subscription ) {
 				if ( ! $payment->get_recurring() ) {
-					// First payment
-
+					// First payment.
 					// Cancel subscription to prevent unwanted recurring payments in the future,
 					// when a valid customer ID might be set for the user.
 					$subscription->update_status( Core\Statuses::CANCELLED );

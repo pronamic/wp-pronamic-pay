@@ -1,4 +1,12 @@
 <?php
+/**
+ * Payments Data Store Custom Post Type
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Payments
+ */
 
 namespace Pronamic\WordPress\Pay\Payments;
 
@@ -22,7 +30,7 @@ class PaymentsDataStoreCPT {
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L47-L76
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment The payment to create in this data store.
 	 *
 	 * @return bool
 	 */
@@ -69,7 +77,7 @@ class PaymentsDataStoreCPT {
 	 * @see https://developer.wordpress.org/reference/functions/get_post/
 	 * @see https://developer.wordpress.org/reference/classes/wp_post/
 	 *
-	 * @param Payment $payment
+	 * @param Payment $payment The payment to read from this data store.
 	 */
 	public function read( Payment $payment ) {
 		$payment->post    = get_post( $payment->get_id() );
@@ -85,7 +93,7 @@ class PaymentsDataStoreCPT {
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/abstract-wc-order-data-store-cpt.php#L113-L154
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
-	 * @param Payment $payment
+	 * @param Payment $payment The payment to update in this data store.
 	 */
 	public function update( Payment $payment ) {
 		$data = array(
@@ -106,8 +114,8 @@ class PaymentsDataStoreCPT {
 	/**
 	 * Get post status.
 	 *
-	 * @param Payment $payment
-	 * @param string  $default
+	 * @param Payment $payment The payment to get a WordPress post status for.
+	 * @param string  $default The default WordPress post status to return.
 	 *
 	 * @return string
 	 */
@@ -115,19 +123,14 @@ class PaymentsDataStoreCPT {
 		switch ( $payment->status ) {
 			case Statuses::CANCELLED:
 				return 'payment_cancelled';
-
 			case Statuses::EXPIRED:
 				return 'payment_expired';
-
 			case Statuses::FAILURE:
 				return 'payment_failed';
-
 			case Statuses::SUCCESS:
 				return 'payment_completed';
-
 			case Statuses::OPEN:
 				return 'payment_pending';
-
 			default:
 				return $default;
 		}
@@ -137,7 +140,7 @@ class PaymentsDataStoreCPT {
 	 * Read post meta.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/abstracts/abstract-wc-data.php#L462-L507
-	 * @param Payment $payment
+	 * @param Payment $payment The payment to read.
 	 */
 	private function read_post_meta( $payment ) {
 		$prefix = '_pronamic_payment_';
@@ -179,14 +182,14 @@ class PaymentsDataStoreCPT {
 		$payment->recurring_type  = get_post_meta( $id, $prefix . 'recurring_type', true );
 		$payment->recurring       = get_post_meta( $id, $prefix . 'recurring', true );
 
-		// Start Date
+		// Start Date.
 		$start_date_string = get_post_meta( $id, $prefix . 'start_date', true );
 
 		if ( ! empty( $start_date_string ) ) {
 			$payment->start_date = date_create( $start_date_string );
 		}
 
-		// End Date
+		// End Date.
 		$end_date_string = get_post_meta( $id, $prefix . 'end_date', true );
 
 		if ( ! empty( $end_date_string ) ) {
@@ -198,7 +201,7 @@ class PaymentsDataStoreCPT {
 	 * Update payment post meta.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/3.2.6/includes/data-stores/class-wc-order-data-store-cpt.php#L154-L257
-	 * @param Payment $payment
+	 * @param Payment $payment The payment to update.
 	 */
 	private function update_post_meta( $payment ) {
 		$prefix = '_pronamic_payment_';

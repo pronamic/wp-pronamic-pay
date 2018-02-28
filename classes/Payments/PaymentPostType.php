@@ -1,4 +1,12 @@
 <?php
+/**
+ * Payment Post Type
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Payments
+ */
 
 namespace Pronamic\WordPress\Pay\Payments;
 
@@ -25,11 +33,9 @@ class PaymentPostType {
 		 *
 		 * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
 		 */
-		add_action( 'init', array( $this, 'register_payment_post_type' ), 0 ); // highest priority
+		add_action( 'init', array( $this, 'register_payment_post_type' ), 0 ); // Highest priority.
 		add_action( 'init', array( $this, 'register_post_status' ), 9 );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Register post types.

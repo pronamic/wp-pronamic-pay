@@ -1,4 +1,12 @@
 <?php
+/**
+ * Payment Data
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Payments
+ */
 
 namespace Pronamic\WordPress\Pay\Payments;
 
@@ -6,26 +14,21 @@ use Pronamic\WordPress\Pay\GoogleAnalyticsEcommerce;
 use WP_User;
 
 /**
- * Title: WordPress payment data
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * WordPress payment data
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 abstract class PaymentData extends AbstractPaymentData {
 	/**
-	 * The current user
+	 * The current user.
 	 *
 	 * @var WP_User
 	 */
 	private $user;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and intializes an WordPress iDEAL data proxy
+	 * Constructs and intializes an WordPress iDEAL data proxy.
 	 */
 	public function __construct() {
 		parent::__construct();
@@ -33,10 +36,8 @@ abstract class PaymentData extends AbstractPaymentData {
 		$this->user = wp_get_current_user();
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the ISO 639 language code
+	 * Get the ISO 639 language code.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_language()
 	 * @return string
@@ -48,7 +49,7 @@ abstract class PaymentData extends AbstractPaymentData {
 	}
 
 	/**
-	 * Get the language ISO 639 and ISO 3166 country code
+	 * Get the language ISO 639 and ISO 3166 country code.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_language_and_country()
 	 * @return string
@@ -57,10 +58,11 @@ abstract class PaymentData extends AbstractPaymentData {
 		return get_locale();
 	}
 
-	//////////////////////////////////////////////////
-	// Customer
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get email.
+	 *
+	 * @return string
+	 */
 	public function get_email() {
 		$email = null;
 
@@ -71,18 +73,33 @@ abstract class PaymentData extends AbstractPaymentData {
 		return $email;
 	}
 
+	/**
+	 * Get first name.
+	 *
+	 * @return string
+	 */
 	public function get_first_name() {
 		if ( is_user_logged_in() ) {
 			return $this->user->user_firstname;
 		}
 	}
 
+	/**
+	 * Get last name.
+	 *
+	 * @return string
+	 */
 	public function get_last_name() {
 		if ( is_user_logged_in() ) {
 			return $this->user->user_lastname;
 		}
 	}
 
+	/**
+	 * Get customer name.
+	 *
+	 * @return string
+	 */
 	public function get_customer_name() {
 		$parts = array(
 			$this->get_first_name(),
@@ -100,10 +117,15 @@ abstract class PaymentData extends AbstractPaymentData {
 		return $name;
 	}
 
+	/**
+	 * Get Google Analytics client ID.
+	 *
+	 * @return string
+	 */
 	public function get_analytics_client_id() {
 		$property_id = get_option( 'pronamic_pay_google_analytics_property' );
 
-		// Only use Client ID if Analytics property has been set
+		// Only use Client ID if Analytics property has been set.
 		if ( empty( $property_id ) ) {
 			return;
 		}
@@ -111,10 +133,12 @@ abstract class PaymentData extends AbstractPaymentData {
 		return GoogleAnalyticsEcommerce::get_cookie_client_id();
 	}
 
-	//////////////////////////////////////////////////
-	// URL's
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get URL for the specified name.
+	 *
+	 * @param string $name The name to get the URL for.
+	 * @return string
+	 */
 	private function get_url( $name ) {
 		$url = home_url( '/' );
 
@@ -127,28 +151,47 @@ abstract class PaymentData extends AbstractPaymentData {
 		return $url;
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get normal return URL.
+	 *
+	 * @return string
+	 */
 	public function get_normal_return_url() {
 		return $this->get_url( 'unknown' );
 	}
 
+	/**
+	 * Get cancel URL.
+	 *
+	 * @return string
+	 */
 	public function get_cancel_url() {
 		return $this->get_url( 'cancel' );
 	}
 
+	/**
+	 * Get success URL.
+	 *
+	 * @return string
+	 */
 	public function get_success_url() {
 		return $this->get_url( 'completed' );
 	}
 
+	/**
+	 * Get error URL.
+	 *
+	 * @return string
+	 */
 	public function get_error_url() {
 		return $this->get_url( 'error' );
 	}
 
-	//////////////////////////////////////////////////
-	// WordPress
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get blog name.
+	 *
+	 * @return string
+	 */
 	public function get_blogname() {
 		$blogname = get_option( 'blogname' );
 
@@ -159,10 +202,6 @@ abstract class PaymentData extends AbstractPaymentData {
 
 		return $blogname;
 	}
-
-	//////////////////////////////////////////////////
-	// Subscription
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get subscription source ID.
