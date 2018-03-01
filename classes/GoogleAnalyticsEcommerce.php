@@ -15,7 +15,7 @@ use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 
 /**
- * Title: Pronamic Pay Google Analytics e-commerce
+ * Pronamic Pay Google Analytics e-commerce
  *
  * @author Reüel van der Steege
  * @version unreleased
@@ -26,11 +26,14 @@ class GoogleAnalyticsEcommerce {
 	 * Google Analytics Measurement Protocol API endpoint URL.
 	 *
 	 * @see https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide
+	 * @var string
 	 */
 	const API_URL = 'https://www.google-analytics.com/collect';
 
 	/**
 	 * Measurement Protocol API version.
+	 *
+	 * @var int
 	 */
 	const API_VERSION = 1;
 
@@ -42,36 +45,40 @@ class GoogleAnalyticsEcommerce {
 	private $client_id = '';
 
 	/**
-	 * Constructs an analytics e-commerce object
+	 * Constructs an analytics e-commerce object.
 	 */
 	public function __construct() {
-		// Actions
+		// Actions.
 		add_action( 'pronamic_payment_status_update', array( $this, 'maybe_send_transaction' ), 10, 2 );
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Maybe send transaction for the specified payment.
+	 *
+	 * @param Payment $payment      Payment.
+	 * @param boolean $can_redirect Flag which indicates if a redirect is allowed in this function.
+	 */
 	public function maybe_send_transaction( $payment, $can_redirect ) {
-		// Only process successful payments
+		// Only process successful payments.
 		if ( Statuses::SUCCESS !== $payment->get_status() ) {
 			return;
 		}
 
-		// Ignore free orders
+		// Ignore free orders.
 		$amount = $payment->get_amount();
 
 		if ( empty( $amount ) ) {
 			return;
 		}
 
-		// Check if Google Analytics property ID has been set
+		// Check if Google Analytics property ID has been set.
 		$property_id = get_option( 'pronamic_pay_google_analytics_property' );
 
 		if ( empty( $property_id ) ) {
 			return;
 		}
 
-		// Ignore test mode payments
+		// Ignore test mode payments.
 		if ( Gateway::MODE_TEST === get_post_meta( $payment->config_id, '_pronamic_gateway_mode', true ) ) {
 			return;
 		}
@@ -97,7 +104,7 @@ class GoogleAnalyticsEcommerce {
 	 * &tt=12.00        // Transaction tax.
 	 * &cu=EUR          // Currency code.
 	 *
-	 * @param $payment Payment
+	 * @param Payment $payment Payment.
 	 */
 	private function send_transaction( $payment ) {
 		$defaults = array(
@@ -108,7 +115,7 @@ class GoogleAnalyticsEcommerce {
 			'cu'  => $payment->get_currency(),
 		);
 
-		// Transaction Hit
+		// Transaction Hit.
 		$transaction = wp_parse_args(
 			array(
 				't'  => 'transaction',
@@ -124,7 +131,7 @@ class GoogleAnalyticsEcommerce {
 			)
 		);
 
-		// Item Hit
+		// Item Hit.
 		$item = wp_parse_args(
 			array(
 				't'  => 'item',
@@ -147,11 +154,10 @@ class GoogleAnalyticsEcommerce {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get the Client ID.
 	 *
+	 * @param Payment $payment Payment.
 	 * @return string
 	 */
 	private function get_client_id( Payment $payment ) {
@@ -165,27 +171,27 @@ class GoogleAnalyticsEcommerce {
 			return $this->client_id;
 		}
 
-		// Check cookie `_ga` for Client ID
+		// Check cookie `_ga` for Client ID.
 		$this->client_id = GoogleAnalyticsEcommerce::get_cookie_client_id();
 
 		if ( empty( $this->client_id ) ) {
-			// Generate UUID
-			// Borrowed from https://github.com/ins0/google-measurement-php-client/blob/master/src/Racecore/GATracking/GATracking.php
+			// Generate UUID.
+			// Borrowed from https://github.com/ins0/google-measurement-php-client/blob/master/src/Racecore/GATracking/GATracking.php.
 			$this->client_id = sprintf(
 				'%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-				// 32 bits for "time_low"
+				// 32 bits for "time_low".
 				mt_rand( 0, 0xffff ),
 				mt_rand( 0, 0xffff ),
-				// 16 bits for "time_mid"
+				// 16 bits for "time_mid".
 				mt_rand( 0, 0xffff ),
-				// 16 bits for "time_hi_and_version",
-				// four most significant bits holds version number 4
+				// 16 bits for "time_hi_and_version",.
+				// four most significant bits holds version number 4.
 				mt_rand( 0, 0x0fff ) | 0x4000,
-				// 16 bits, 8 bits for "clk_seq_hi_res",
-				// 8 bits for "clk_seq_low",
-				// two most significant bits holds zero and one for variant DCE1.1
+				// 16 bits, 8 bits for "clk_seq_hi_res",.
+				// 8 bits for "clk_seq_low",.
+				// two most significant bits holds zero and one for variant DCE1.1.
 				mt_rand( 0, 0x3fff ) | 0x8000,
-				// 48 bits for "node"
+				// 48 bits for "node".
 				mt_rand( 0, 0xffff ),
 				mt_rand( 0, 0xffff ),
 				mt_rand( 0, 0xffff )
@@ -195,27 +201,38 @@ class GoogleAnalyticsEcommerce {
 		return $this->client_id;
 	}
 
+	/**
+	 * Check if the specified UUID is valid.
+	 *
+	 * @param string $uuid String.
+	 * @return boolean True if value is a valid UUID, false otherwise.
+	 */
 	public static function is_uuid( $uuid ) {
 		return preg_match( '#^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$#i', $uuid );
 	}
 
+	/**
+	 * Get cookie client ID.
+	 *
+	 * @return string
+	 */
 	public static function get_cookie_client_id() {
 		$client_id = null;
 
 		$ga_cookie = filter_input( INPUT_COOKIE, '_ga', FILTER_SANITIZE_STRING );
 
 		if ( empty( $ga_cookie ) ) {
-			// No `_ga` cookie available
+			// No `_ga` cookie available.
 			return $client_id;
 		}
 
 		$ga = explode( '.', $ga_cookie );
 
 		if ( isset( $ga[2] ) && GoogleAnalyticsEcommerce::is_uuid( $ga[2] ) ) {
-			// Use UUID from cookie
+			// Use UUID from cookie.
 			$client_id = $ga[2];
 		} elseif ( isset( $ga[2], $ga[3] ) ) {
-			// Older Google Client ID
+			// Older Google Client ID.
 			$client_id = sprintf( '%s.%s', $ga[2], $ga[3] );
 		}
 

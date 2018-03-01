@@ -1,24 +1,28 @@
 <?php
+/**
+ * Currency
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 namespace Pronamic\WordPress\Pay;
 
 use Pronamic\WordPress\Pay\Core\XML\Security;
 
 /**
- * Title: WordPress currency class
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * WordPress currency class
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 class Currency {
 	/**
-	 * Transform currency code to number
+	 * Transform currency code to number.
 	 *
-	 * @param string $code
-	 *
+	 * @param string $code Code to convert.
 	 * @return string
 	 */
 	public static function transform_code_to_number( $code ) {

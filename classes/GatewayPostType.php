@@ -19,25 +19,25 @@ namespace Pronamic\WordPress\Pay;
  */
 class GatewayPostType {
 	/**
-	 * Post type
+	 * Post type.
+	 *
+	 * @var string
 	 */
 	const POST_TYPE = 'pronamic_gateway';
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes a gateway post type object
+	 * Constructs and initializes a gateway post type object.
 	 */
 	public function __construct() {
 		/**
-		 * Priotiry of the initial post types function should be set to < 10
+		 * Priotiry of the initial post types function should be set to < 10.
 		 *
 		 * @see https://core.trac.wordpress.org/ticket/28488
 		 * @see https://core.trac.wordpress.org/changeset/29318
 		 *
 		 * @see https://github.com/WordPress/WordPress/blob/4.0/wp-includes/post.php#L167
 		 */
-		add_action( 'init', array( $this, 'register_gateway_post_type' ), 0 ); // highest priority
+		add_action( 'init', array( $this, 'register_gateway_post_type' ), 0 ); // Highest priority.
 
 		add_action( 'save_post_' . self::POST_TYPE, array( $this, 'maybe_set_default_gateway' ) );
 	}
@@ -88,12 +88,10 @@ class GatewayPostType {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Maybe set the default gateway.
 	 *
-	 * @param int $post_id
+	 * @param int $post_id Post ID.
 	 */
 	public function maybe_set_default_gateway( $post_id ) {
 		// Don't set the default gateway if the post is not published.
@@ -108,7 +106,7 @@ class GatewayPostType {
 			return;
 		}
 
-		// Update
+		// Update.
 		update_option( 'pronamic_pay_config_id', $post_id );
 	}
 

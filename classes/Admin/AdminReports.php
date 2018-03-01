@@ -65,6 +65,9 @@ class AdminReports {
 		add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
 	}
 
+	/**
+	 * Page reports.
+	 */
 	public function page_reports() {
 		return $this->admin->render_page( 'reports' );
 	}

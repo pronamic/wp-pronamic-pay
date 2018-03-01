@@ -150,7 +150,7 @@ class AdminModule {
 			esc_html( $args['label'] )
 		);
 
-		printf( //xss ok
+		printf( // WPCS: XSS ok.
 			'<fieldset>%s %s</fieldset>',
 			$legend,
 			$label
@@ -183,10 +183,10 @@ class AdminModule {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		// Output
+		// Output.
 		$output = '';
 
-		// Dropdown
+		// Dropdown.
 		$id       = $args['name'];
 		$name     = $args['name'];
 		$selected = $args['selected'];
@@ -214,9 +214,9 @@ class AdminModule {
 
 		$output .= sprintf( '</select>' );
 
-		// Return or echo
+		// Return or echo.
 		if ( $args['echo'] ) {
-			echo $output; //xss ok
+			echo $output; // WPCS: XSS ok.
 		} else {
 			return $output;
 		}
@@ -225,7 +225,7 @@ class AdminModule {
 	/**
 	 * Create pages.
 	 *
-	 * @param array $pages   Page.
+	 * @param array  $pages   Page.
 	 * @param string $parent Parent post ID.
 	 */
 	private function create_pages( $pages, $parent = null ) {

@@ -11,25 +11,32 @@
 namespace Pronamic\WordPress\Pay;
 
 /**
- * Title: WordPress iDEAL admin
+ * License Manager
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 class LicenseManager {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
 	/**
 	 * Constructs and initalize an license manager object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'pronamic_pay_license_check', array( $this, 'license_check_event' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 
-		// Filters
+		// Filters.
 		add_filter( sprintf( 'pre_update_option_%s', 'pronamic_pay_license_key' ), array( $this, 'pre_update_option_license_key' ), 10, 2 );
 	}
 
@@ -49,13 +56,11 @@ class LicenseManager {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Pre update option 'pronamic_pay_license_key'.
 	 *
-	 * @param string $newvalue
-	 * @param string $oldvalue
+	 * @param string $newvalue New value.
+	 * @param string $oldvalue Old value.
 	 * @return string
 	 */
 	public function pre_update_option_license_key( $newvalue, $oldvalue ) {
@@ -76,20 +81,18 @@ class LicenseManager {
 			$this->activate_license( $newvalue );
 		}
 
-		// Shedule daily license check
+		// Shedule daily license check.
 		$time = time() + DAY_IN_SECONDS;
 
 		wp_clear_scheduled_hook( 'pronamic_pay_license_check' );
 
 		wp_schedule_event( $time, 'daily', 'pronamic_pay_license_check' );
 
-		// Get and update license status
+		// Get and update license status.
 		$this->check_license( $newvalue );
 
 		return $newvalue;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * License check event.
@@ -100,13 +103,10 @@ class LicenseManager {
 		$this->check_license( $license );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Check license.
 	 *
-	 * @param string $license
-	 * @return boolean
+	 * @param string $license License.
 	 */
 	public function check_license( $license ) {
 		$status = null;
@@ -114,7 +114,7 @@ class LicenseManager {
 		if ( empty( $license ) ) {
 			$status = 'invalid';
 		} else {
-			// Request
+			// Request.
 			$args = array(
 				'license' => $license,
 				'name'    => 'Pronamic iDEAL',
@@ -130,7 +130,7 @@ class LicenseManager {
 				)
 			);
 
-			// On errors we give benefit of the doubt
+			// On errors we give benefit of the doubt.
 			$status = 'valid';
 
 			$data = json_decode( wp_remote_retrieve_body( $response ) );
@@ -140,16 +140,14 @@ class LicenseManager {
 			}
 		}
 
-		// Update
+		// Update.
 		update_option( 'pronamic_pay_license_status', $status );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Deactivate license.
 	 *
-	 * @param string $license
+	 * @param string $license License to deactivate.
 	 */
 	public function deactivate_license( $license ) {
 		$args = array(
@@ -168,16 +166,13 @@ class LicenseManager {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Activate license.
 	 *
-	 * @param string $license
-	 * @return boolean
+	 * @param string $license License to activate.
 	 */
 	public function activate_license( $license ) {
-		// Request
+		// Request.
 		$args = array(
 			'license' => $license,
 			'name'    => 'Pronamic iDEAL',

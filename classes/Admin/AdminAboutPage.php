@@ -13,18 +13,26 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin about
+ * WordPress admin about
  *
  * @author Remco Tolsma
  * @version 3.7.0
  * @since 3.7.0
  */
 class AdminAboutPage {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
+	/**
+	 * Admin.
+	 *
+	 * @var Admin
+	 */
 	private $admin;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initializes admin about page object.
@@ -33,22 +41,20 @@ class AdminAboutPage {
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
 	 *
-	 * @param Plugin      $plugin
-	 * @param AdminModule $admin
+	 * @param Plugin      $plugin Plugin.
+	 * @param AdminModule $admin  Admin.
 	 */
 	public function __construct( Plugin $plugin, AdminModule $admin ) {
 		$this->plugin = $plugin;
 		$this->admin  = $admin;
 
-		// Actions
+		// Actions.
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add admin menus/screens
+	 * Add admin menus/screens.
 	 */
 	public function admin_menu() {
 		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
@@ -66,10 +72,16 @@ class AdminAboutPage {
 		}
 	}
 
+	/**
+	 * Admin head.
+	 */
 	public function admin_head() {
 		remove_submenu_page( 'index.php', 'pronamic-pay-about' );
 	}
 
+	/**
+	 * Admin CSS.
+	 */
 	public function admin_css() {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
@@ -82,7 +94,7 @@ class AdminAboutPage {
 	}
 
 	/**
-	 * Page about
+	 * Page about.
 	 */
 	public function page_about() {
 		$this->admin->render_page( 'about' );
