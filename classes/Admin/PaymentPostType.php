@@ -11,7 +11,7 @@
 namespace Pronamic\WordPress\Pay\Admin;
 
 /**
- * Title: WordPress admin payment post type
+ * WordPress admin payment post type
  *
  * @author Remco Tolsma
  * @version 4.4.2
@@ -19,19 +19,21 @@ namespace Pronamic\WordPress\Pay\Admin;
  */
 class PaymentPostType {
 	/**
-	 * Post type
+	 * Post type.
+	 *
+	 * @var string
 	 */
 	const POST_TYPE = 'pronamic_payment';
 
 	/**
 	 * Admin notices.
+	 *
+	 * @var array
 	 */
 	private $admin_notices = array();
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an admin payment post type object
+	 * Constructs and initializes an admin payment post type object.
 	 */
 	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
@@ -55,21 +57,19 @@ class PaymentPostType {
 
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 
-		// Transition Post Status
+		// Transition Post Status.
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 
-		// Bulk Actions
+		// Bulk Actions.
 		$this->bulk_actions = new PaymentBulkActions();
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Filters and sorting handler
+	 * Filters and sorting handler.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-post-types.php#L1585-L1596
 	 *
-	 * @param  array $vars
+	 * @param  array $vars Request variables.
 	 * @return array
 	 */
 	public function request( $vars ) {
@@ -90,12 +90,12 @@ class PaymentPostType {
 	 * Maybe check status.
 	 */
 	public function maybe_check_status() {
-		// Current user
+		// Current user.
 		if ( ! current_user_can( 'edit_payments' ) ) {
 			return;
 		}
 
-		// Screen
+		// Screen.
 		$screen = get_current_screen();
 
 		if ( ! ( 'post' === $screen->base && 'pronamic_payment' === $screen->post_type ) ) {
@@ -116,6 +116,9 @@ class PaymentPostType {
 		}
 	}
 
+	/**
+	 * Admin notices.
+	 */
 	public function admin_notices() {
 		foreach ( $this->admin_notices as $notice ) {
 			printf(
@@ -129,7 +132,7 @@ class PaymentPostType {
 	/**
 	 * Pre get posts.
 	 *
-	 * @param WP_Query $query
+	 * @param WP_Query $query WordPress query.
 	 */
 	public function pre_get_posts( $query ) {
 		if ( 'pronamic_payment_amount' === $query->get( 'orderby' ) ) {
@@ -138,8 +141,12 @@ class PaymentPostType {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Columns.
+	 *
+	 * @param array $columns Columns.
+	 * @return array
+	 */
 	public function columns( $columns ) {
 		$columns = array(
 			'cb'                            => '<input type="checkbox" />',
@@ -165,6 +172,12 @@ class PaymentPostType {
 		return $columns;
 	}
 
+	/**
+	 * Default hidden columns.
+	 *
+	 * @param array $hidden Default hidden columns.
+	 * @return array
+	 */
 	public function default_hidden_columns( $hidden ) {
 		$hidden[] = 'pronamic_payment_gateway';
 		$hidden[] = 'pronamic_payment_description';
@@ -172,6 +185,12 @@ class PaymentPostType {
 		return $hidden;
 	}
 
+	/**
+	 * Sortable columns.
+	 *
+	 * @param array $sortable_columns Sortable columns.
+	 * @return array
+	 */
 	public function sortable_columns( $sortable_columns ) {
 		$sortable_columns['pronamic_payment_title']  = 'ID';
 		$sortable_columns['pronamic_payment_amount'] = 'pronamic_payment_amount';
@@ -180,6 +199,12 @@ class PaymentPostType {
 		return $sortable_columns;
 	}
 
+	/**
+	 * Custom columns.
+	 *
+	 * @param string $column  Column.
+	 * @param string $post_id Post ID.
+	 */
 	public function custom_columns( $column, $post_id ) {
 		$payment = get_pronamic_payment( $post_id );
 
@@ -324,16 +349,16 @@ class PaymentPostType {
 
 				break;
 			case 'pronamic_payment_source':
-				echo $payment->get_source_text(); //xss ok
+				echo $payment->get_source_text(); // WPCS: XSS ok.
 
 				break;
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add meta boxes
+	 * Add meta boxes.
+	 *
+	 * @param string $post_type Post Type.
 	 */
 	public function add_meta_boxes( $post_type ) {
 		if ( self::POST_TYPE === $post_type ) {
@@ -373,13 +398,13 @@ class PaymentPostType {
 				'high'
 			);
 
-			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
+			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/.
 			remove_meta_box( 'submitdiv', $post_type, 'side' );
 		}
 	}
 
 	/**
-	 * Pronamic Pay gateway config meta box
+	 * Pronamic Pay gateway config meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -388,7 +413,7 @@ class PaymentPostType {
 	}
 
 	/**
-	 * Pronamic Pay gateway config meta box
+	 * Pronamic Pay gateway config meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -397,7 +422,7 @@ class PaymentPostType {
 	}
 
 	/**
-	 * Pronamic Pay payment subscription meta box
+	 * Pronamic Pay payment subscription meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -406,7 +431,7 @@ class PaymentPostType {
 	}
 
 	/**
-	 * Pronamic Pay gateway update meta box
+	 * Pronamic Pay gateway update meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -416,10 +441,12 @@ class PaymentPostType {
 		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-update.php';
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Post row actions
+	 * Post row actions.
+	 *
+	 * @param array    $actions Actions array.
+	 * @param \WP_Post $post    WordPress post.
+	 * @return array
 	 */
 	public function post_row_actions( $actions, $post ) {
 		if ( self::POST_TYPE === $post->post_type ) {
@@ -429,12 +456,10 @@ class PaymentPostType {
 		return $actions;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Translate post status to meta status
+	 * Translate post status to meta status.
 	 *
-	 * @param string $post_status
+	 * @param string $post_status Post status.
 	 * @return string
 	 */
 	private function translate_post_status_to_meta_status( $post_status ) {
@@ -459,11 +484,11 @@ class PaymentPostType {
 	}
 
 	/**
-	 * Transition post status
+	 * Transition post status.
 	 *
-	 * @param string $new_status
-	 * @param string $old_status
-	 * @param \WP_Post $post
+	 * @param string   $new_status New status.
+	 * @param string   $old_status Old status.
+	 * @param \WP_Post $post       WordPress post.
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
 		if (
@@ -494,8 +519,8 @@ class PaymentPostType {
 	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
 	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/edit-form-advanced.php#L134-L173
 	 * @see https://github.com/woothemes/woocommerce/blob/2.5.5/includes/admin/class-wc-admin-post-types.php#L111-L168
-	 * @param string $message
-	 * @return string
+	 * @param array $messages Message.
+	 * @return array
 	 */
 	public function post_updated_messages( $messages ) {
 		global $post;
@@ -506,24 +531,24 @@ class PaymentPostType {
 		$messages[ self::POST_TYPE ] = array(
 			0  => '', // Unused. Messages start at index 1.
 			1  => __( 'Payment updated.', 'pronamic_ideal' ),
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352799&filters[translation_id]=37947229
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352799&filters[translation_id]=37947229.
 			2  => $messages['post'][2],
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352800&filters[translation_id]=37947870
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352800&filters[translation_id]=37947870.
 			3  => $messages['post'][3],
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230.
 			4  => __( 'Payment updated.', 'pronamic_ideal' ),
-			/* translators: %s: date and time of the revision */
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231.
+			// translators: %s: date and time of the revision
 			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Payment restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // WPCS: CSRF ok.
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178.
 			6  => __( 'Payment published.', 'pronamic_ideal' ),
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352803&filters[translation_id]=37947232.
 			7  => __( 'Payment saved.', 'pronamic_ideal' ),
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352804&filters[translation_id]=37949303.
 			8  => __( 'Payment submitted.', 'pronamic_ideal' ),
-			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302
+			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352805&filters[translation_id]=37949302.
 			9  => sprintf( __( 'Payment scheduled for: %s.', 'pronamic_ideal' ), '<strong>' . $scheduled_date . '</strong>' ),
-			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301
+			// @https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352806&filters[translation_id]=37949301.
 			10 => __( 'Payment draft updated.', 'pronamic_ideal' ),
 		);
 

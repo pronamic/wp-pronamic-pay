@@ -13,35 +13,39 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin dashboard
+ * WordPress admin dashboard
  *
  * @author Remco Tolsma
  * @version 3.7.0
  * @since 3.7.0
  */
 class AdminDashboard {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes admin dashboard object
+	 * Constructs and initializes admin dashboard object.
 	 *
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/admin/dashboard-widgets.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin.php
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-dashboard.php
 	 *
-	 * @param Plugin $plugin
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'wp_dashboard_setup', array( $this, 'setup' ) );
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Setup.
+	 */
 	public function setup() {
 		if ( current_user_can( 'manage_options' ) ) {
 			wp_add_dashboard_widget(
@@ -52,6 +56,9 @@ class AdminDashboard {
 		}
 	}
 
+	/**
+	 * Status widget.
+	 */
 	public function status_widget() {
 		$counts = wp_count_posts( 'pronamic_payment' );
 

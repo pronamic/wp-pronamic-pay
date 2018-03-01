@@ -14,23 +14,28 @@ use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
 
 /**
- * Title: WordPress iDEAL admin
+ * WordPress iDEAL admin
  *
  * @author Remco Tolsma
  * @version 1.0.0
  */
 class AdminSettings {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
 	/**
-	 * Constructs and initalize an admin object
+	 * Constructs and initalize an admin object.
 	 *
-	 * @param Plugin $plugin
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
@@ -38,62 +43,62 @@ class AdminSettings {
 	 * Admin initialize.
 	 */
 	public function admin_init() {
-		// Settings - General
+		// Settings - General.
 		add_settings_section(
-			'pronamic_pay_general', // id
-			__( 'General', 'pronamic_ideal' ), // title
-			array( $this, 'settings_section' ), // callback
-			'pronamic_pay' // page
+			'pronamic_pay_general',
+			__( 'General', 'pronamic_ideal' ),
+			array( $this, 'settings_section' ),
+			'pronamic_pay'
 		);
 
 		add_settings_field(
-			'pronamic_pay_license_key', // id
-			__( 'Support License Key', 'pronamic_ideal' ), // title
-			array( $this, 'input_license_key' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_general', // section
+			'pronamic_pay_license_key',
+			__( 'Support License Key', 'pronamic_ideal' ),
+			array( $this, 'input_license_key' ),
+			'pronamic_pay',
+			'pronamic_pay_general',
 			array(
 				'label_for' => 'pronamic_pay_license_key',
 				'classes'   => 'regular-text code',
-			) // args
+			)
 		);
 
-		// Default Config
+		// Default Config.
 		add_settings_field(
-			'pronamic_pay_config_id', // id
-			__( 'Default Gateway', 'pronamic_ideal' ), // title
-			array( $this, 'input_page' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_general', // section
+			'pronamic_pay_config_id',
+			__( 'Default Gateway', 'pronamic_ideal' ),
+			array( $this, 'input_page' ),
+			'pronamic_pay',
+			'pronamic_pay_general',
 			array(
 				'post_type'        => 'pronamic_gateway',
 				'show_option_none' => __( '— Select a gateway —', 'pronamic_ideal' ),
 				'label_for'        => 'pronamic_pay_config_id',
-			) // args
+			)
 		);
 
-		// Google Analytics property UA code
+		// Google Analytics property UA code.
 		add_settings_field(
-			'pronamic_pay_google_analytics_property', // id
-			__( 'Google Analytics Property ID', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_general', // section
-			array(  // args
+			'pronamic_pay_google_analytics_property',
+			__( 'Google Analytics Property ID', 'pronamic_ideal' ),
+			array( $this, 'input_element' ),
+			'pronamic_pay',
+			'pronamic_pay_general',
+			array(
 				'description' => __( 'Set a Google Analytics Property UA code to track ecommerce revenue.', 'pronamic_ideal' ),
 				'label_for'   => 'pronamic_pay_google_analytics_property',
 				'classes'     => 'regular-text code',
 			)
 		);
 
-		// Remove data on uninstall
+		// Remove data on uninstall.
 		add_settings_field(
-			'pronamic_pay_uninstall_clear_data', // id
-			__( 'Remove Data', 'pronamic_ideal' ), // title
-			array( $this, 'input_checkbox' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_general', // section
-			array(  // args
+			'pronamic_pay_uninstall_clear_data',
+			__( 'Remove Data', 'pronamic_ideal' ),
+			array( $this, 'input_checkbox' ),
+			'pronamic_pay',
+			'pronamic_pay_general',
+			array(
 				'legend'      => __( 'Remove Data', 'pronamic_ideal' ),
 				'description' => __( 'Remove all plugin data on uninstall', 'pronamic_ideal' ),
 				'label_for'   => 'pronamic_pay_uninstall_clear_data',
@@ -102,54 +107,54 @@ class AdminSettings {
 			)
 		);
 
-		// Settings - Pages
+		// Settings - Pages.
 		add_settings_section(
-			'pronamic_pay_pages', // id
-			__( 'Payment Status Pages', 'pronamic_ideal' ), // title
-			array( $this, 'settings_section' ), // callback
-			'pronamic_pay' // page
+			'pronamic_pay_pages',
+			__( 'Payment Status Pages', 'pronamic_ideal' ),
+			array( $this, 'settings_section' ),
+			'pronamic_pay'
 		);
 
 		foreach ( $this->plugin->get_pages() as $id => $label ) {
 			add_settings_field(
-				$id, // id
-				$label, // title
-				array( $this, 'input_page' ), // callback
-				'pronamic_pay', // page
-				'pronamic_pay_pages', // section
+				$id,
+				$label,
+				array( $this, 'input_page' ),
+				'pronamic_pay',
+				'pronamic_pay_pages',
 				array(
 					'label_for' => $id,
-				) // args
+				)
 			);
 		}
 
-		// Settings - Currency
+		// Settings - Currency.
 		add_settings_section(
-			'pronamic_pay_currency', // id
-			__( 'Currency', 'pronamic_ideal' ), // title
-			array( $this, 'settings_section' ), // callback
-			'pronamic_pay' // page
+			'pronamic_pay_currency',
+			__( 'Currency', 'pronamic_ideal' ),
+			array( $this, 'settings_section' ),
+			'pronamic_pay'
 		);
 
 		add_settings_field(
-			'pronamic_pay_thousands_sep', // id
-			__( 'Thousands Seperator', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_currency', // section
-			array( // args
+			'pronamic_pay_thousands_sep',
+			__( 'Thousands Seperator', 'pronamic_ideal' ),
+			array( $this, 'input_element' ),
+			'pronamic_pay',
+			'pronamic_pay_currency',
+			array(
 				'label_for' => 'pronamic_pay_thousands_sep',
 				'classes'   => 'tiny-text',
 			)
 		);
 
 		add_settings_field(
-			'pronamic_pay_decimal_sep', // id
-			__( 'Decimal Seperator', 'pronamic_ideal' ), // title
-			array( $this, 'input_element' ), // callback
-			'pronamic_pay', // page
-			'pronamic_pay_currency', // section
-			array(  // args
+			'pronamic_pay_decimal_sep',
+			__( 'Decimal Seperator', 'pronamic_ideal' ),
+			array( $this, 'input_element' ),
+			'pronamic_pay',
+			'pronamic_pay_currency',
+			array(
 				'label_for' => 'pronamic_pay_decimal_sep',
 				'classes'   => 'tiny-text',
 			)
@@ -157,7 +162,9 @@ class AdminSettings {
 	}
 
 	/**
-	 * Settings section
+	 * Settings section.
+	 *
+	 * @param array $args Arguments.
 	 */
 	public function settings_section( $args ) {
 		switch ( $args['id'] ) {
@@ -192,9 +199,9 @@ class AdminSettings {
 	}
 
 	/**
-	 * Input text
+	 * Input text.
 	 *
-	 * @param array $args
+	 * @param array $args Arguments.
 	 */
 	public function input_element( $args ) {
 		$defaults = array(
@@ -236,7 +243,7 @@ class AdminSettings {
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.9.1/wp-admin/options-writing.php#L60-L68
 	 * @see https://github.com/WordPress/WordPress/blob/4.9.1/wp-admin/options-reading.php#L110-L141
-	 * @param array $args
+	 * @param array $args Arguments.
 	 */
 	public function input_checkbox( $args ) {
 		$id     = $args['label_for'];
@@ -271,7 +278,9 @@ class AdminSettings {
 	}
 
 	/**
-	 * Input license key
+	 * Input license key.
+	 *
+	 * @param array $args Arguments.
 	 */
 	public function input_license_key( $args ) {
 		do_action( 'pronamic_pay_license_check' );
@@ -286,9 +295,9 @@ class AdminSettings {
 	}
 
 	/**
-	 * Input page
+	 * Input page.
 	 *
-	 * @param array $args
+	 * @param array $args Arguments.
 	 */
 	public function input_page( $args ) {
 		$name = $args['label_for'];

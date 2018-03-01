@@ -14,35 +14,28 @@ use ArrayIterator;
 use IteratorAggregate;
 
 /**
- * Title: Items
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Items
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 class Items implements IteratorAggregate {
 	/**
-	 * The items
+	 * The items.
 	 *
 	 * @var array
 	 */
 	private $items;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initialize a iDEAL basic object
+	 * Constructs and initialize a iDEAL basic object.
 	 */
 	public function __construct() {
 		$this->items = array();
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get iterator
+	 * Get iterator.
 	 *
 	 * @see IteratorAggregate::getIterator()
 	 */
@@ -50,19 +43,19 @@ class Items implements IteratorAggregate {
 		return new ArrayIterator( $this->items );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add item
+	 * Add item.
+	 *
+	 * @param Item $item The item to add.
 	 */
 	public function addItem( Item $item ) {
 		$this->items[] = $item;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Calculate the total amount of all items
+	 * Calculate the total amount of all items.
+	 *
+	 * @return float
 	 */
 	public function get_amount() {
 		$amount = 0;

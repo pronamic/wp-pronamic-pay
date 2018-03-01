@@ -1,4 +1,12 @@
 <?php
+/**
+ * Payment Form Data
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Forms
+ */
 
 namespace Pronamic\WordPress\Pay\Forms;
 
@@ -8,10 +16,7 @@ use Pronamic\WordPress\Pay\Payments\Items;
 use \Pronamic\WordPress\Pay\Payments\PaymentData;
 
 /**
- * Title: Payment form data
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Payment Form Data
  *
  * @author Remco Tolsma
  * @version 4.5.3
@@ -19,16 +24,14 @@ use \Pronamic\WordPress\Pay\Payments\PaymentData;
  */
 class PaymentFormData extends PaymentData {
 	/**
-	 * Amount
+	 * Amount.
 	 *
 	 * @var float
 	 */
 	private $amount;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get source indicator
+	 * Get source indicator.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()
 	 * @return string
@@ -37,14 +40,17 @@ class PaymentFormData extends PaymentData {
 		return 'payment_form';
 	}
 
+	/**
+	 * Get source ID.
+	 *
+	 * @return string
+	 */
 	public function get_source_id() {
 		return filter_input( INPUT_POST, 'pronamic_pay_form_id', FILTER_VALIDATE_INT );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get description
+	 * Get description.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_description()
 	 * @return string
@@ -54,7 +60,7 @@ class PaymentFormData extends PaymentData {
 	}
 
 	/**
-	 * Get order ID
+	 * Get order ID.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_order_id()
 	 * @return string
@@ -64,16 +70,16 @@ class PaymentFormData extends PaymentData {
 	}
 
 	/**
-	 * Get items
+	 * Get items.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
 	 * @return Pronamic_IDeal_Items
 	 */
 	public function get_items() {
-		// Items
+		// Items.
 		$items = new Items();
 
-		// Amount
+		// Amount.
 		$amount_method = get_post_meta( $this->get_source_id(), '_pronamic_payment_form_amount_method', true );
 		$amount        = filter_input( INPUT_POST, 'pronamic_pay_amount', FILTER_SANITIZE_STRING );
 
@@ -85,7 +91,7 @@ class PaymentFormData extends PaymentData {
 			$amount /= 100;
 		}
 
-		// Item
+		// Item.
 		$item = new Item();
 		$item->setNumber( $this->get_order_id() );
 		$item->setDescription( sprintf( __( 'Payment %s', 'pronamic_ideal' ), $this->get_order_id() ) );
@@ -97,12 +103,8 @@ class PaymentFormData extends PaymentData {
 		return $items;
 	}
 
-	//////////////////////////////////////////////////
-	// Currency
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get currency alphabetic code
+	 * Get currency alphabetic code.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_currency_alphabetic_code()
 	 * @return string
@@ -111,14 +113,20 @@ class PaymentFormData extends PaymentData {
 		return 'EUR';
 	}
 
-	//////////////////////////////////////////////////
-	// Customer
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get email.
+	 *
+	 * @return string
+	 */
 	public function get_email() {
 		return filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_SANITIZE_EMAIL );
 	}
 
+	/**
+	 * Get customer name.
+	 *
+	 * @return string
+	 */
 	public function get_customer_name() {
 		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING );
 		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_SANITIZE_STRING );
@@ -126,14 +134,29 @@ class PaymentFormData extends PaymentData {
 		return $first_name . ' ' . $last_name;
 	}
 
+	/**
+	 * Get address.
+	 *
+	 * @return string
+	 */
 	public function get_address() {
 		return '';
 	}
 
+	/**
+	 * Get city.
+	 *
+	 * @return string
+	 */
 	public function get_city() {
 		return '';
 	}
 
+	/**
+	 * Get ZIP.
+	 *
+	 * @return string
+	 */
 	public function get_zip() {
 		return '';
 	}

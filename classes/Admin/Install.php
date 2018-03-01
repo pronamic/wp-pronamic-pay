@@ -15,7 +15,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin install
+ * WordPress admin install
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -23,7 +23,9 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class Install {
 	/**
-	 * Database updates
+	 * Database updates.
+	 *
+	 * @var array
 	 */
 	private $db_updates = array(
 		'2.0.0',
@@ -33,36 +35,32 @@ class Install {
 		'3.7.2',
 	);
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an install object
+	 * Constructs and initializes an install object.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/class-wc-install.php
 	 *
-	 * @param AdminModule $admin
+	 * @param AdminModule $admin Admin Module.
 	 */
 	public function __construct( AdminModule $admin ) {
 		$this->admin = $admin;
 
-		// Actions
+		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ), 5 );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Admin intialize
+	 * Admin intialize.
 	 */
 	public function admin_init() {
-		// Install
+		// Install.
 		global $pronamic_pay_version;
 
 		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
 			$this->install();
 		}
 
-		// Maybe update database
+		// Maybe update database.
 		if ( filter_has_var( INPUT_GET, 'pronamic_pay_update_db' ) && wp_verify_nonce( filter_input( INPUT_GET, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING ), 'pronamic_pay_update_db' ) ) {
 			$this->update_db();
 
@@ -72,21 +70,19 @@ class Install {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Install
+	 * Install.
 	 */
 	private function install() {
 		global $pronamic_pay_version;
 
-		// Roles
+		// Roles.
 		$this->create_roles();
 
-		// Rewrite Rules
+		// Rewrite Rules.
 		flush_rewrite_rules();
 
-		// Database update
+		// Database update.
 		$version = $pronamic_pay_version;
 
 		$parts = explode( '.', $version );
@@ -110,9 +106,9 @@ class Install {
 			$this->admin->notices->add_notice( 'update_db' );
 		}
 
-		// Redirect
+		// Redirect.
 		if ( null === $current_version ) {
-			// No version? This is a new install :)
+			// No version? This is a new install :).
 			$url = add_query_arg(
 				array(
 					'page' => 'pronamic-pay-about',
@@ -122,7 +118,7 @@ class Install {
 
 			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
 		} elseif ( version_compare( $current_version, $minor_version, '<' ) ) {
-			// Show welcome screen for minor updates only
+			// Show welcome screen for minor updates only.
 			$url = add_query_arg(
 				array(
 					'page' => 'pronamic-pay-about',
@@ -133,31 +129,29 @@ class Install {
 			set_transient( 'pronamic_pay_admin_redirect', $url, 3600 );
 		}
 
-		// Update version
+		// Update version.
 		update_option( 'pronamic_pay_version', $version );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Create roles
+	 * Create roles.
 	 *
 	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/class-wc-install.php#L519-L562
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/class-wc-post-types.php#L245
 	 */
 	private function create_roles() {
-		// Payer role
+		// Payer role.
 		add_role(
 			'payer', __( 'Payer', 'pronamic_ideal' ), array(
 				'read' => true,
 			)
 		);
 
-		// @see https://developer.wordpress.org/reference/functions/wp_roles/
+		// @see https://developer.wordpress.org/reference/functions/wp_roles/.
 		$roles = wp_roles();
 
-		// Payments
+		// Payments.
 		$payment_capabilities = PaymentPostType::get_capabilities();
 
 		unset( $payment_capabilities['publish_posts'] );
@@ -167,7 +161,7 @@ class Install {
 			$roles->add_cap( 'administrator', $capability );
 		}
 
-		// Forms
+		// Forms.
 		$form_capabilities = FormPostType::get_capabilities();
 
 		foreach ( $form_capabilities as $capability ) {
@@ -175,10 +169,8 @@ class Install {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Update database
+	 * Update database.
 	 */
 	public function update_db() {
 		global $pronamic_pay_version;
@@ -204,10 +196,8 @@ class Install {
 		update_option( 'pronamic_pay_db_version', $pronamic_pay_version );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Redirect to about
+	 * Redirect to about.
 	 */
 	private function redirect_to_about() {
 		wp_safe_redirect( admin_url( 'index.php?page=pronamic-pay-about' ) );

@@ -1,12 +1,17 @@
 <?php
+/**
+ * Form Scripts
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Forms
+ */
 
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: Form scripts
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Form Scripts
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -15,6 +20,8 @@ namespace Pronamic\WordPress\Pay\Forms;
 class FormScripts {
 	/**
 	 * Constructs and initalize an form scripts object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;

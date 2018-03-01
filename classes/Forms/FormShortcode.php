@@ -1,12 +1,17 @@
 <?php
+/**
+ * Form Shortcode
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Forms
+ */
 
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: Form shortcode
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Form Shortcode
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -14,7 +19,9 @@ namespace Pronamic\WordPress\Pay\Forms;
  */
 class FormShortcode {
 	/**
-	 * Constructs and initializes an post types object
+	 * Constructs and initializes an post types object.
+	 *
+	 * @param FormsModule $forms_module Reference to the forms module.
 	 */
 	public function __construct( $forms_module ) {
 		$this->forms_module = $forms_module;
@@ -24,13 +31,13 @@ class FormShortcode {
 		add_action( 'init', array( $this, 'shortcode_ui_register' ) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Shortcode form
+	 * Shortcode form.
 	 *
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/shortcodes.php#L39-L65
 	 * @see https://github.com/WordImpress/Give/blob/1.1/includes/forms/template.php#L18-L140
+	 * @param array $atts Shortcode attributes array.
+	 * @return string
 	 */
 	public function shortcode_form( $atts ) {
 		$atts = shortcode_atts(
@@ -44,10 +51,8 @@ class FormShortcode {
 		return $this->forms_module->get_form_output( $id );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Shortcode user interface register
+	 * Shortcode user interface register.
 	 */
 	public function shortcode_ui_register() {
 		if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
@@ -64,7 +69,7 @@ class FormShortcode {
 				'listItemImage' => 'dashicons-money',
 
 				// Available shortcode attributes and default values. Required. Array.
-				// Attribute model expects 'attr', 'type' and 'label'
+				// Attribute model expects 'attr', 'type' and 'label'.
 				// Supported field types: text, checkbox, textarea, radio, select, email, url, number, and date.
 				'attrs'         => array(
 

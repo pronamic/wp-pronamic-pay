@@ -1,4 +1,12 @@
 <?php
+/**
+ * Forms Module
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Forms
+ */
 
 namespace Pronamic\WordPress\Pay\Forms;
 
@@ -6,10 +14,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: Forms module
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Forms Module
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -18,23 +23,25 @@ use Pronamic\WordPress\Pay\Plugin;
 class FormsModule {
 	/**
 	 * Constructs and initalize a forms module object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
 
-		// Form Post Type
+		// Form Post Type.
 		$this->form_post_type = new FormPostType();
 
-		// Processor
+		// Processor.
 		$this->processor = new FormProcessor( $plugin );
 
-		// Scripts
+		// Scripts.
 		$this->scripts = new FormScripts( $plugin );
 
-		// Shortcode
+		// Shortcode.
 		$this->shortcode = new FormShortcode( $this );
 
-		// Actions
+		// Actions.
 		add_filter( 'the_content', array( $this, 'maybe_add_form_to_content' ) );
 
 		add_filter( 'pronamic_payment_source_text_payment_form', array( $this, 'source_text' ), 10, 2 );
@@ -44,7 +51,7 @@ class FormsModule {
 	 * Maybe add form to content.
 	 *
 	 * @see https://developer.wordpress.org/reference/hooks/the_content/
-	 * @param string $content
+	 * @param string $content Post content to maybe extend with a payment form.
 	 * @return string
 	 */
 	public function maybe_add_form_to_content( $content ) {
@@ -58,7 +65,7 @@ class FormsModule {
 	/**
 	 * Get form output.
 	 *
-	 * @param string $id
+	 * @param string $id Form ID.
 	 * @return string
 	 */
 	public function get_form_output( $id ) {
@@ -73,10 +80,12 @@ class FormsModule {
 		return $output;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Source text
+	 * Source text filter.
+	 *
+	 * @param string  $text    The source text to filter.
+	 * @param Payment $payment The payment for the specified source text.
+	 * @return string
 	 */
 	public function source_text( $text, Payment $payment ) {
 		$text = __( 'Payment Form', 'pronamic_ideal' ) . '<br />';

@@ -14,7 +14,7 @@ use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin gateway post type
+ * WordPress admin gateway post type
  *
  * @author Remco Tolsma
  * @version 3.8.0
@@ -22,14 +22,16 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class GatewayPostType {
 	/**
-	 * Post type
+	 * Post type.
+	 *
+	 * @var string
 	 */
 	const POST_TYPE = 'pronamic_gateway';
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an admin gateway post type object
+	 * Constructs and initializes an admin gateway post type object.
+	 *
+	 * @param AdminModule $admin Admin Module.
 	 */
 	public function __construct( AdminModule $admin ) {
 		$this->admin = $admin;
@@ -49,8 +51,12 @@ class GatewayPostType {
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Edit columns.
+	 *
+	 * @param array $columns Columns.
+	 * @return array
+	 */
 	public function edit_columns( $columns ) {
 		$columns = array(
 			'cb'                         => '<input type="checkbox" />',
@@ -64,6 +70,12 @@ class GatewayPostType {
 		return $columns;
 	}
 
+	/**
+	 * Custom columns.
+	 *
+	 * @param string $column  Column.
+	 * @param string $post_id Post ID.
+	 */
 	public function custom_columns( $column, $post_id ) {
 		$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
@@ -122,7 +134,7 @@ class GatewayPostType {
 				if ( isset( $integration ) ) {
 					$urls = $integration->get_dashboard_url();
 
-					// Output
+					// Output.
 					$content = array();
 
 					foreach ( $urls as $name => $url ) {
@@ -137,20 +149,18 @@ class GatewayPostType {
 						);
 					}
 
-					echo implode( ' | ', $content ); //xss ok
+					echo implode( ' | ', $content ); // WPCS: XSS ok.
 				}
 
 				break;
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Display post states
+	 * Display post states.
 	 *
-	 * @param $post_stated array
-	 * @param $post WP_Post
+	 * @param array    $post_states Post states.
+	 * @param \WP_Post $post        Post.
 	 */
 	public function display_post_states( $post_states, $post ) {
 		if ( self::POST_TYPE !== get_post_type( $post ) ) {
@@ -164,15 +174,13 @@ class GatewayPostType {
 		return $post_states;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Post edit form tag
+	 * Post edit form tag.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/edit-form-advanced.php#L299
 	 * @see https://github.com/WordPress/WordPress/blob/3.5.2/wp-admin/edit-form-advanced.php#L299
 	 *
-	 * @param WP_Post $post (only available @since 3.5.2)
+	 * @param WP_Post $post Post (only available @since 3.5.2).
 	 */
 	public function post_edit_form_tag( $post ) {
 		if ( empty( $post ) ) {
@@ -186,10 +194,10 @@ class GatewayPostType {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add meta boxes
+	 * Add meta boxes.
+	 *
+	 * @param string $post_type Post Type.
 	 */
 	public function add_meta_boxes( $post_type ) {
 		if ( self::POST_TYPE === $post_type ) {
@@ -214,7 +222,7 @@ class GatewayPostType {
 	}
 
 	/**
-	 * Pronamic Pay gateway config meta box
+	 * Pronamic Pay gateway config meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -225,7 +233,7 @@ class GatewayPostType {
 	}
 
 	/**
-	 * Pronamic Pay gateway test meta box
+	 * Pronamic Pay gateway test meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -233,15 +241,13 @@ class GatewayPostType {
 		include Plugin::$dirname . '/admin/meta-box-gateway-test.php';
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * When the post is saved, saves our custom data.
 	 *
 	 * @param int $post_id The ID of the post being saved.
 	 */
 	public function save_post( $post_id ) {
-		// Nonce
+		// Nonce.
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return $post_id;
 		}
@@ -253,11 +259,11 @@ class GatewayPostType {
 			return $post_id;
 		}
 
-		/* OK, its safe for us to save the data now. */
+		// OK, its safe for us to save the data now.
 		$fields = $this->admin->gateway_settings->get_fields();
 
 		$definition = array(
-			// General
+			// General.
 			'_pronamic_gateway_id' => FILTER_SANITIZE_STRING,
 		);
 
@@ -284,14 +290,14 @@ class GatewayPostType {
 
 				foreach ( $fields as $field ) {
 					if ( isset( $field['default'], $field['meta_key'], $data[ $field['meta_key'] ] ) ) {
-						// Remove default value if not applicable to the selected gateway
+						// Remove default value if not applicable to the selected gateway.
 						if ( isset( $field['methods'] ) ) {
 							$clean_default = array_intersect( $settings, $field['methods'] );
 
 							if ( empty( $clean_default ) ) {
 								$meta_value = get_post_meta( $post_id, $field['meta_key'], true );
 
-								// Only remove value if not saved before
+								// Only remove value if not saved before.
 								if ( empty( $meta_value ) ) {
 									$data[ $field['meta_key'] ] = null;
 
@@ -300,7 +306,7 @@ class GatewayPostType {
 							}
 						}
 
-						// Set the default value if empty
+						// Set the default value if empty.
 						if ( empty( $data[ $field['meta_key'] ] ) ) {
 							$default = $field['default'];
 
@@ -313,7 +319,7 @@ class GatewayPostType {
 					}
 				}
 
-				// Filter data through gateway integration settings
+				// Filter data through gateway integration settings.
 				$settings_classes = $integration->get_settings_class();
 
 				if ( ! is_array( $settings_classes ) ) {
@@ -328,10 +334,10 @@ class GatewayPostType {
 			}
 		}
 
-		// Update post meta data
+		// Update post meta data.
 		pronamic_pay_update_post_meta_data( $post_id, $data );
 
-		// Transient
+		// Transient.
 		delete_transient( 'pronamic_pay_issuers_' . $post_id );
 
 		\Pronamic\WordPress\Pay\Core\PaymentMethods::update_active_payment_methods();
@@ -343,8 +349,8 @@ class GatewayPostType {
 	 * @see https://codex.wordpress.org/Function_Reference/register_post_type
 	 * @see https://github.com/WordPress/WordPress/blob/4.4.2/wp-admin/edit-form-advanced.php#L134-L173
 	 * @see https://github.com/woothemes/woocommerce/blob/2.5.5/includes/admin/class-wc-admin-post-types.php#L111-L168
-	 * @param string $message
-	 * @return string
+	 * @param array $messages Messages.
+	 * @return array
 	 */
 	public function post_updated_messages( $messages ) {
 		global $post;
@@ -361,8 +367,8 @@ class GatewayPostType {
 			3  => $messages['post'][3],
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352798&filters[translation_id]=37947230
 			4  => __( 'Configuration updated.', 'pronamic_ideal' ),
-			/* translators: %s: date and time of the revision */
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352801&filters[translation_id]=37947231
+			// translators: %s: date and time of the revision.
 			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Configuration restored to revision from %s.', 'pronamic_ideal' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false, // WPCS: CSRF ok.
 			// @see https://translate.wordpress.org/projects/wp/4.4.x/admin/nl/default?filters[status]=either&filters[original_id]=2352802&filters[translation_id]=37949178
 			6  => __( 'Configuration published.', 'pronamic_ideal' ),

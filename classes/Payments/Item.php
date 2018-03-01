@@ -11,47 +11,42 @@
 namespace Pronamic\WordPress\Pay\Payments;
 
 /**
- * Title: iDEAL item
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Item.
  *
  * @author Remco Tolsma
  * @version 1.0
  */
 class Item {
 	/**
-	 * The number
+	 * The number.
 	 *
 	 * @var string
 	 */
 	private $number;
 
 	/**
-	 * The description
+	 * The description.
 	 *
 	 * @var string
 	 */
 	private $description;
 
 	/**
-	 * The quantity
+	 * The quantity.
 	 *
 	 * @var int
 	 */
 	private $quantity;
 
 	/**
-	 * The price
+	 * The price.
 	 *
 	 * @var float
 	 */
 	private $price;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initialize a iDEAL basic item
+	 * Constructs and initialize a iDEAL basic item.
 	 */
 	public function __construct() {
 		$this->number      = '';
@@ -60,10 +55,8 @@ class Item {
 		$this->price       = 0;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the number / identifier of this item
+	 * Get the number / identifier of this item.
 	 *
 	 * @return string
 	 */
@@ -72,18 +65,16 @@ class Item {
 	}
 
 	/**
-	 * Set the number / identifier of this item
+	 * Set the number / identifier of this item.
 	 *
-	 * @param string $number
+	 * @param string $number Number.
 	 */
 	public function setNumber( $number ) {
 		$this->number = $number;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the description of this item
+	 * Get the description of this item.
 	 *
 	 * @return string
 	 */
@@ -92,19 +83,17 @@ class Item {
 	}
 
 	/**
-	 * Set the description of this item
-	 * AN..max32 (AN = Alphanumeric, free text)
+	 * Set the description of this item.
+	 * AN..max32 (AN = Alphanumeric, free text).
 	 *
-	 * @param string $description
+	 * @param string $description Description.
 	 */
 	public function setDescription( $description ) {
 		$this->description = substr( $description, 0, 32 );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the quantity of this item
+	 * Get the quantity of this item.
 	 *
 	 * @return int
 	 */
@@ -115,16 +104,14 @@ class Item {
 	/**
 	 * Set the quantity of this item
 	 *
-	 * @param int $quantity
+	 * @param int $quantity Quantity.
 	 */
 	public function setQuantity( $quantity ) {
 		$this->quantity = $quantity;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the price of this item
+	 * Get the price of this item.
 	 *
 	 * @return float
 	 */
@@ -133,18 +120,16 @@ class Item {
 	}
 
 	/**
-	 * Set the price of this item
+	 * Set the price of this item.
 	 *
-	 * @param float $price
+	 * @param float $price Price.
 	 */
 	public function setPrice( $price ) {
 		$this->price = $price;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the amount
+	 * Get the amount.
 	 *
 	 * @return float
 	 */

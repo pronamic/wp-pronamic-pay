@@ -282,7 +282,7 @@ class Subscription {
 	/**
 	 * Construct and initialize payment object.
 	 *
-	 * @param int $post_id A Subscription post ID or null.
+	 * @param int $post_id A subscription post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;

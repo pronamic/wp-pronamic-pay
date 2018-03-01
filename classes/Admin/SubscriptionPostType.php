@@ -11,7 +11,7 @@
 namespace Pronamic\WordPress\Pay\Admin;
 
 /**
- * Title: WordPress admin subscription post type
+ * WordPress admin subscription post type
  *
  * @author Reüel van der Steege
  * @version 1.0.0
@@ -19,14 +19,12 @@ namespace Pronamic\WordPress\Pay\Admin;
  */
 class SubscriptionPostType {
 	/**
-	 * Post type
+	 * Post type.
 	 */
 	const POST_TYPE = 'pronamic_pay_subscr';
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an admin payment post type object
+	 * Constructs and initializes an admin payment post type object.
 	 */
 	public function __construct() {
 		add_filter( 'request', array( $this, 'request' ) );
@@ -40,18 +38,16 @@ class SubscriptionPostType {
 
 		add_filter( 'post_row_actions', array( $this, 'post_row_actions' ), 10, 2 );
 
-		// Transition post status
+		// Transition post status.
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Filters and sorting handler
+	 * Filters and sorting handler.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-post-types.php#L1585-L1596
 	 *
-	 * @param  array $vars
+	 * @param  array $vars Request variables.
 	 * @return array
 	 */
 	public function request( $vars ) {
@@ -68,8 +64,12 @@ class SubscriptionPostType {
 		return $vars;
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Columns.
+	 *
+	 * @param array $columns Columns.
+	 * @return array
+	 */
 	public function columns( $columns ) {
 		$columns = array(
 			'cb'                              => '<input type="checkbox" />',
@@ -88,6 +88,12 @@ class SubscriptionPostType {
 		return $columns;
 	}
 
+	/**
+	 * Sortable columns.
+	 *
+	 * @param array $sortable_columns Sortable columns.
+	 * @return array
+	 */
 	public function sortable_columns( $sortable_columns ) {
 		$sortable_columns['pronamic_subscription_title'] = 'ID';
 		$sortable_columns['pronamic_subscription_date']  = 'date';
@@ -95,6 +101,12 @@ class SubscriptionPostType {
 		return $sortable_columns;
 	}
 
+	/**
+	 * Custom columns.
+	 *
+	 * @param string $column  Column.
+	 * @param string $post_id Post ID.
+	 */
 	public function custom_columns( $column, $post_id ) {
 		$subscription = get_pronamic_subscription( $post_id );
 
@@ -207,13 +219,13 @@ class SubscriptionPostType {
 				$payment = get_pronamic_payment_by_meta( '_pronamic_payment_subscription_id', $post_id );
 
 				if ( $payment ) {
-					echo $payment->get_source_text(); //xss ok
+					echo $payment->get_source_text(); // WPCS: XSS ok.
 				} else {
 					$source    = get_post_meta( $post_id, '_pronamic_subscription_source', true );
 					$source_id = get_post_meta( $post_id, '_pronamic_subscription_source_id', true );
 
 					printf(
-						'%s<br />%s', //xss ok
+						'%s<br />%s', // WPCS: XSS ok.
 						esc_html( $source ),
 						esc_html( $source_id )
 					);
@@ -235,10 +247,10 @@ class SubscriptionPostType {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add meta boxes
+	 * Add meta boxes.
+	 *
+	 * @param string $post_type Post Type.
 	 */
 	public function add_meta_boxes( $post_type ) {
 		if ( self::POST_TYPE === $post_type ) {
@@ -278,13 +290,13 @@ class SubscriptionPostType {
 				'high'
 			);
 
-			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/
+			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/.
 			remove_meta_box( 'submitdiv', $post_type, 'side' );
 		}
 	}
 
 	/**
-	 * Pronamic Pay subscription info meta box
+	 * Pronamic Pay subscription info meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -293,7 +305,7 @@ class SubscriptionPostType {
 	}
 
 	/**
-	 * Pronamic Pay subscription log meta box
+	 * Pronamic Pay subscription log meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -302,7 +314,7 @@ class SubscriptionPostType {
 	}
 
 	/**
-	 * Pronamic Pay subscription payments meta box
+	 * Pronamic Pay subscription payments meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -311,7 +323,7 @@ class SubscriptionPostType {
 	}
 
 	/**
-	 * Pronamic Pay subscription update meta box
+	 * Pronamic Pay subscription update meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
@@ -321,10 +333,12 @@ class SubscriptionPostType {
 		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-update.php';
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Post row actions
+	 * Post row actions.
+	 *
+	 * @param array    $actions Actions array.
+	 * @param \WP_Post $post    WordPress post.
+	 * @return array
 	 */
 	public function post_row_actions( $actions, $post ) {
 		if ( self::POST_TYPE === $post->post_type ) {
@@ -334,12 +348,10 @@ class SubscriptionPostType {
 		return $actions;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Translate post status to meta status
+	 * Translate post status to meta status.
 	 *
-	 * @param string $post_status
+	 * @param string $post_status Post status.
 	 * @return string
 	 */
 	private function translate_post_status_to_meta_status( $post_status ) {
@@ -360,11 +372,11 @@ class SubscriptionPostType {
 	}
 
 	/**
-	 * Transition post status
+	 * Transition post status.
 	 *
-	 * @param string $new_status
-	 * @param string $old_status
-	 * @param \WP_Post $post
+	 * @param string   $new_status New status.
+	 * @param string   $old_status Old status.
+	 * @param \WP_Post $post       WordPress post.
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
 		if (

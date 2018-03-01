@@ -13,7 +13,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin notices
+ * WordPress admin notices
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -21,40 +21,38 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminNotices {
 	/**
-	 * Constructs and initializes an notices object
+	 * Constructs and initializes an notices object.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/class-wc-admin-notices.php
 	 *
-	 * @param Plugin $plugin
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'admin_notices', array( $this, 'admin_notices' ), 11 );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Admin notices
+	 * Admin notices.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.3.1/wp-admin/admin-header.php#L245-L250
 	 */
 	public function admin_notices() {
 		$screen = get_current_screen();
 
-		// Show notices only to options managers (administrators)
+		// Show notices only to options managers (administrators).
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
-		// Jetpack
+		// Jetpack.
 		if ( 'jetpack' === $screen->parent_base ) {
 			return;
 		}
 
-		// License notice
+		// License notice.
 		if ( 'valid' !== get_option( 'pronamic_pay_license_status' ) ) {
 			$class = \Pronamic\WordPress\Pay\Plugin::get_number_payments() > 20 ? 'error' : 'updated';
 
@@ -75,14 +73,14 @@ class AdminNotices {
 				);
 			}
 
-			printf( //xss ok
+			printf( // WPCS: XSS ok.
 				'<div class="%s"><p>%s</p></div>',
 				esc_attr( $class ),
 				$notice
 			);
 		}
 
-		// Stored notices
+		// Stored notices.
 		$notices = get_option( 'pronamic_pay_admin_notices', array() );
 
 		foreach ( $notices as $name ) {
@@ -94,12 +92,10 @@ class AdminNotices {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Add a notice to show
+	 * Add a notice to show.
 	 *
-	 * @param string $name
+	 * @param string $name Name.
 	 */
 	public function add_notice( $name ) {
 		$notices = array_unique( array_merge( get_option( 'pronamic_pay_admin_notices', array() ), array( $name ) ) );
@@ -108,9 +104,9 @@ class AdminNotices {
 	}
 
 	/**
-	 * Remove a notice from being displayed
+	 * Remove a notice from being displayed.
 	 *
-	 * @param string $name
+	 * @param string $name Name.
 	 */
 	public static function remove_notice( $name ) {
 		$notices = array_diff( get_option( 'pronamic_pay_admin_notices', array() ), array( $name ) );

@@ -13,7 +13,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin tour
+ * WordPress admin tour
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -21,23 +21,23 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminTour {
 	/**
-	 * Constructs and initializes an pointers object
+	 * Constructs and initializes an pointers object.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-includes/js/wp-pointer.js
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/includes/template.php#L1955-L2016
 	 * @see https://github.com/Yoast/wordpress-seo/blob/2.3.4/admin/class-pointers.php
 	 *
-	 * @param Plugin $plugin
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
 	/**
-	 * Admin initialize
+	 * Admin initialize.
 	 */
 	public function admin_init() {
 		if ( filter_has_var( INPUT_GET, 'pronamic_pay_ignore_tour' ) && wp_verify_nonce( filter_input( INPUT_GET, 'pronamic_pay_nonce', FILTER_SANITIZE_STRING ), 'pronamic_pay_ignore_tour' ) ) {
@@ -52,12 +52,12 @@ class AdminTour {
 	}
 
 	/**
-	 * Admin enqueue scripts
+	 * Admin enqueue scripts.
 	 */
 	public function admin_enqueue_scripts() {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		// Pointers
+		// Pointers.
 		wp_register_style(
 			'proanmic-pay-admin-tour',
 			plugins_url( 'css/admin-tour' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
@@ -86,13 +86,16 @@ class AdminTour {
 			)
 		);
 
-		// Enqueue
+		// Enqueue.
 		wp_enqueue_style( 'proanmic-pay-admin-tour' );
 		wp_enqueue_script( 'proanmic-pay-admin-tour' );
 	}
 
 	/**
-	 * Get pointer content
+	 * Get pointer content.
+	 *
+	 * @param string $file File.
+	 * @return string
 	 */
 	private function get_content( $file ) {
 		$path = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/' . $file . '.php';
@@ -111,7 +114,9 @@ class AdminTour {
 	}
 
 	/**
-	 * Get pointers
+	 * Get pointers.
+	 *
+	 * @return array
 	 */
 	private function get_pointers() {
 		$pointers = array();
@@ -257,7 +262,9 @@ class AdminTour {
 	}
 
 	/**
-	 * Get tour close URL
+	 * Get tour close URL.
+	 *
+	 * @return string
 	 */
 	public function get_close_url() {
 		return wp_nonce_url(

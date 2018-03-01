@@ -11,7 +11,7 @@
 namespace Pronamic\WordPress\Pay\Admin;
 
 /**
- * Title: WordPress admin gateway settings
+ * WordPress admin gateway settings
  *
  * @author Remco Tolsma
  * @version 3.8.0
@@ -19,19 +19,19 @@ namespace Pronamic\WordPress\Pay\Admin;
  */
 class GatewaySettings {
 	/**
-	 * Settings
+	 * Settings.
+	 *
+	 * @var array
 	 */
 	private $settings;
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Constructs and initializes an admin gateway settings object
+	 * Constructs and initializes an admin gateway settings object.
 	 */
 	public function __construct() {
 		$this->settings = array();
 
-		// Classes
+		// Classes.
 		$classes = apply_filters( 'pronamic_pay_gateway_settings', array() );
 
 		foreach ( $classes as $class ) {
@@ -39,8 +39,13 @@ class GatewaySettings {
 		}
 	}
 
+	/**
+	 * Get sections.
+	 *
+	 * @return array
+	 */
 	public function get_sections() {
-		// Default sections
+		// Default sections.
 		$sections = array(
 			'general' => array(),
 		);
@@ -48,8 +53,13 @@ class GatewaySettings {
 		return apply_filters( 'pronamic_pay_gateway_sections', $sections );
 	}
 
+	/**
+	 * Get fields.
+	 *
+	 * @return array
+	 */
 	public function get_fields() {
-		// Default fields
+		// Default fields.
 		$fields = array(
 			array(
 				'filter'   => FILTER_SANITIZE_STRING,

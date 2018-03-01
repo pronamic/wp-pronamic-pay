@@ -15,57 +15,104 @@ use Pronamic\WordPress\Pay\Currency;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 
 /**
- * Title: Abstract payment data class
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Abstract payment data class
  *
  * @author Remco Tolsma
  * @since 1.4.0
  */
 abstract class AbstractPaymentData implements PaymentDataInterface {
+	/**
+	 * Entrance code.
+	 *
+	 * @todo Is this used?
+	 * @var string
+	 */
 	private $entrance_code;
 
+	/**
+	 * Recurring.
+	 *
+	 * @todo Is this used?
+	 * @var TODO
+	 */
 	protected $recurring;
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Construct and initialize abstract payment data object.
+	 */
 	public function __construct() {
 		$this->entrance_code = uniqid();
 	}
 
+	/**
+	 * Get user ID.
+	 *
+	 * @return string
+	 */
 	public function get_user_id() {
 		return get_current_user_id();
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get source.
+	 *
+	 * @return string
+	 */
 	abstract public function get_source();
 
+	/**
+	 * Get source ID.
+	 *
+	 * @return string
+	 */
 	public function get_source_id() {
 		return $this->get_order_id();
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get title.
+	 *
+	 * @return string
+	 */
 	public function get_title() {
 		return $this->get_description();
 	}
 
+	/**
+	 * Get description.
+	 *
+	 * @return string
+	 */
 	abstract public function get_description();
 
+	/**
+	 * Get order ID.
+	 *
+	 * @return string
+	 */
 	abstract public function get_order_id();
 
+	/**
+	 * Get items.
+	 *
+	 * @return array
+	 */
 	abstract public function get_items();
 
+	/**
+	 * Get amount.
+	 *
+	 * @return float
+	 */
 	public function get_amount() {
 		return $this->get_items()->get_amount();
 	}
 
-	//////////////////////////////////////////////////
-	// Customer
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get email.
+	 *
+	 * @return null
+	 */
 	public function get_email() {
 		return null;
 	}
@@ -79,6 +126,11 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_customer_name();
 	}
 
+	/**
+	 * Get customer name.
+	 *
+	 * @return null
+	 */
 	public function get_customer_name() {
 		return null;
 	}
@@ -92,6 +144,11 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_address();
 	}
 
+	/**
+	 * Get address.
+	 *
+	 * @return null
+	 */
 	public function get_address() {
 		return null;
 	}
@@ -105,6 +162,11 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_city();
 	}
 
+	/**
+	 * Get city.
+	 *
+	 * @return null
+	 */
 	public function get_city() {
 		return null;
 	}
@@ -118,31 +180,42 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_zip();
 	}
 
+	/**
+	 * Get ZIP.
+	 *
+	 * @return null
+	 */
 	public function get_zip() {
 		return null;
 	}
 
+	/**
+	 * Get country.
+	 *
+	 * @return null
+	 */
 	public function get_country() {
 		return null;
 	}
 
+	/**
+	 * Get telephone number.
+	 *
+	 * @return null
+	 */
 	public function get_telephone_number() {
 		return null;
 	}
 
-	//////////////////////////////////////////////////
-	// Currency
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the curreny alphabetic code
+	 * Get the curreny alphabetic code.
 	 *
 	 * @return string
 	 */
 	abstract public function get_currency_alphabetic_code();
 
 	/**
-	 * Get currency numeric code
+	 * Get currency numeric code.
 	 *
 	 * @return Ambigous <string, NULL>
 	 */
@@ -151,7 +224,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	}
 
 	/**
-	 * Helper function to get the curreny alphabetic code
+	 * Helper function to get the curreny alphabetic code.
 	 *
 	 * @return string
 	 */
@@ -159,12 +232,8 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_currency_alphabetic_code();
 	}
 
-	//////////////////////////////////////////////////
-	// Language
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the language code (ISO639)
+	 * Get the language code (ISO639).
 	 *
 	 * @see http://www.w3.org/WAI/ER/IG/ert/iso639.htm
 	 *
@@ -173,7 +242,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	abstract public function get_language();
 
 	/**
-	 * Get the language (ISO639) and country (ISO3166) code
+	 * Get the language (ISO639) and country (ISO3166) code.
 	 *
 	 * @see http://www.w3.org/WAI/ER/IG/ert/iso639.htm
 	 * @see http://www.iso.org/iso/home/standards/country_codes.htm
@@ -182,18 +251,22 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 */
 	abstract public function get_language_and_country();
 
-	//////////////////////////////////////////////////
-	// Entrance code
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get entrance code.
+	 *
+	 * @return string
+	 */
 	public function get_entrance_code() {
 		return $this->entrance_code;
 	}
 
-	//////////////////////////////////////////////////
-	// Issuer
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get issuer of the specified payment method.
+	 *
+	 * @todo Constant?
+	 * @param string $payment_method Payment method identifier.
+	 * @return string
+	 */
 	public function get_issuer( $payment_method = null ) {
 		if ( PaymentMethods::CREDIT_CARD === $payment_method ) {
 			return $this->get_credit_card_issuer_id();
@@ -202,16 +275,26 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return $this->get_issuer_id();
 	}
 
+	/**
+	 * Get issuer ID.
+	 *
+	 * @return string
+	 */
 	public function get_issuer_id() {
 		return filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING );
 	}
 
+	/**
+	 * Get credit card issuer ID.
+	 *
+	 * @return string
+	 */
 	public function get_credit_card_issuer_id() {
 		return filter_input( INPUT_POST, 'pronamic_credit_card_issuer_id', FILTER_SANITIZE_STRING );
 	}
 
 	/**
-	 * Get credit card object
+	 * Get credit card object.
 	 *
 	 * @return CreditCard
 	 */
@@ -219,12 +302,8 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 		return null;
 	}
 
-	//////////////////////////////////////////////////
-	// Subscription
-	//////////////////////////////////////////////////
-
 	/**
-	 * Subscription
+	 * Subscription.
 	 *
 	 * @return false|\Pronamic\WordPress\Pay\Subscriptions\Subscription
 	 */
@@ -233,7 +312,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	}
 
 	/**
-	 * Subscription ID
+	 * Subscription ID.
 	 *
 	 * @return int
 	 */
@@ -242,16 +321,16 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	/**
 	 * Is this a recurring (not first) payment?
 	 *
-	 * @return bool
+	 * @return boolean
 	 */
 	public function get_recurring() {
 		return $this->recurring;
 	}
 
 	/**
-	 * Set recurring
+	 * Set recurring.
 	 *
-	 * @param bool $recurring
+	 * @param boolean $recurring Boolean flag which indicates recurring.
 	 */
 	public function set_recurring( $recurring ) {
 		$this->recurring = $recurring;

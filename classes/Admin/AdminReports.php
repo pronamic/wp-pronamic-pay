@@ -13,31 +13,44 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress admin reports
+ * WordPress admin reports
  *
  * @author Remco Tolsma
  * @version 3.7.0
  * @since 3.7.0
  */
 class AdminReports {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
 	private $plugin;
 
+	/**
+	 * Admin.
+	 *
+	 * @var Admin
+	 */
 	private $admin;
 
 	/**
 	 * AdminReports constructor.
 	 *
-	 * @param Plugin      $plugin
-	 * @param AdminModule $admin
+	 * @param Plugin      $plugin Plugin.
+	 * @param AdminModule $admin  Admin.
 	 */
 	public function __construct( Plugin $plugin, AdminModule $admin ) {
 		$this->plugin = $plugin;
 		$this->admin  = $admin;
 
-		// Actions
+		// Actions.
 		add_action( 'pronamic_pay_admin_menu', array( $this, 'admin_menu' ) );
 	}
 
+	/**
+	 * Admin Menu.
+	 */
 	public function admin_menu() {
 		$hook_suffix = add_submenu_page(
 			'pronamic_ideal',
@@ -48,7 +61,7 @@ class AdminReports {
 			array( $this, 'page_reports' )
 		);
 
-		// @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/admin-header.php#L82-L87
+		// @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/admin-header.php#L82-L87.
 		add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
 	}
 
@@ -56,15 +69,13 @@ class AdminReports {
 		return $this->admin->render_page( 'reports' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Enqueue admin scripts
+	 * Enqueue admin scripts.
 	 */
 	public function admin_css() {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		// Flot - http://www.flotcharts.org/
+		// Flot - http://www.flotcharts.org/.
 		$flot_version = '0.8.0-alpha';
 
 		wp_register_script(
@@ -91,7 +102,7 @@ class AdminReports {
 			true
 		);
 
-		// Accounting.js - http://openexchangerates.github.io/accounting.js
+		// Accounting.js - http://openexchangerates.github.io/accounting.js.
 		wp_register_script(
 			'accounting',
 			plugins_url( 'assets/accounting/accounting' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
@@ -100,7 +111,7 @@ class AdminReports {
 			true
 		);
 
-		// Reports
+		// Reports.
 		wp_register_script(
 			'proanmic-pay-admin-reports',
 			plugins_url( 'js/admin-reports' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
@@ -126,12 +137,15 @@ class AdminReports {
 			)
 		);
 
-		// Enqueue
+		// Enqueue.
 		wp_enqueue_script( 'proanmic-pay-admin-reports' );
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Get reports.
+	 *
+	 * @return array
+	 */
 	public function get_reports() {
 		$start = new \DateTime( 'First day of January' );
 		$end   = new \DateTime( 'Last day of December' );
@@ -271,13 +285,15 @@ class AdminReports {
 		return $data;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get report
+	 * Get report.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.3.11/assets/js/admin/reports.js
 	 * @see https://github.com/woothemes/woocommerce/blob/master/includes/admin/reports/class-wc-report-sales-by-date.php
+	 * @param string    $status   Status.
+	 * @param string    $function Function.
+	 * @param \DateTime $start    Start date.
+	 * @param \DateTime $end      End date.
 	 */
 	private function get_report( $status, $function, $start, $end ) {
 		global $wpdb;
@@ -329,7 +345,7 @@ class AdminReports {
 			}
 
 			$report[] = array(
-				// Flot requires milliseconds so multiply with 1000
+				// Flot requires milliseconds so multiply with 1000.
 				$date->getTimestamp() * 1000,
 				$value,
 			);

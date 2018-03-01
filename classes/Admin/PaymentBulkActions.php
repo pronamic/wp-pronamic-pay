@@ -11,7 +11,7 @@
 namespace Pronamic\WordPress\Pay\Admin;
 
 /**
- * Title: WordPress admin payment bulk actions
+ * WordPress admin payment bulk actions
  *
  * @see https://www.skyverge.com/blog/add-custom-bulk-action/
  * @author Remco Tolsma
@@ -27,27 +27,27 @@ class PaymentBulkActions {
 	}
 
 	/**
-	 * Admin init
+	 * Load.
 	 */
 	public function load() {
-		// Current user
+		// Current user.
 		if ( ! current_user_can( 'edit_payments' ) ) {
 			return;
 		}
 
-		// Screen
+		// Screen.
 		$screen = get_current_screen();
 
 		if ( 'edit-pronamic_payment' !== $screen->id ) {
 			return;
 		}
 
-		// Bulk actions
+		// Bulk actions.
 		add_filter( 'bulk_actions-' . $screen->id, array( $this, 'bulk_actions' ) );
 
 		add_filter( 'handle_bulk_actions-' . $screen->id, array( $this, 'handle_bulk_action' ), 10, 3 );
 
-		// Admin notices
+		// Admin notices.
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 	}
 
@@ -56,7 +56,8 @@ class PaymentBulkActions {
 	 *
 	 * @see https://make.wordpress.org/core/2016/10/04/custom-bulk-actions/
 	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/includes/class-wp-list-table.php#L440-L452
-	 * @param array $bulk_actions
+	 * @param array $bulk_actions Bulk actions.
+	 * @return array
 	 */
 	public function bulk_actions( $bulk_actions ) {
 		// Don't allow edit in bulk.
@@ -73,9 +74,9 @@ class PaymentBulkActions {
 	 *
 	 * @see hhttps://make.wordpress.org/core/2016/10/04/custom-bulk-actions/
 	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-admin/edit.php#L166-L167
-	 * @param string $sendback
-	 * @param string $doaction
-	 * @param array $post_ids
+	 * @param string $sendback Sendback URL.
+	 * @param string $doaction Action indicator.
+	 * @param array  $post_ids  Post ID's to bulk edit.
 	 * @return string
 	 */
 	public function handle_bulk_action( $sendback, $doaction, $post_ids ) {

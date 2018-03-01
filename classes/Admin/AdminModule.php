@@ -13,7 +13,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 
 /**
- * Title: WordPress Pay admin
+ * WordPress Pay admin
  *
  * @author Remco Tolsma
  * @version 1.0.0
@@ -21,14 +21,16 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminModule {
 	/**
-	 * Constructs and initalize an admin object
+	 * Constructs and initalize an admin object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		$this->install = new Install( $this );
 
-		// Actions
+		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
@@ -38,7 +40,7 @@ class AdminModule {
 
 		add_filter( 'pronamic_pay_gateway_settings', array( $this, 'gateway_settings' ) );
 
-		// Modules
+		// Modules.
 		$this->settings  = new AdminSettings( $plugin );
 		$this->about     = new AdminAboutPage( $plugin, $this );
 		$this->dashboard = new AdminDashboard( $plugin );
@@ -47,26 +49,24 @@ class AdminModule {
 		$this->tour      = new AdminTour( $plugin );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Admin initialize
+	 * Admin initialize.
 	 */
 	public function admin_init() {
 		global $pronamic_ideal_errors;
 
 		$pronamic_ideal_errors = array();
 
-		// Maybe
+		// Maybe.
 		$this->maybe_create_pages();
 		$this->maybe_redirect();
 
-		// Post types
+		// Post types.
 		new GatewayPostType( $this );
 		new PaymentPostType();
 		new SubscriptionPostType();
 
-		// Gateway settings
+		// Gateway settings.
 		$this->gateway_settings = new GatewaySettings();
 
 		if ( ! wp_next_scheduled( 'pronamic_pay_license_check' ) ) {
@@ -75,7 +75,7 @@ class AdminModule {
 	}
 
 	/**
-	 * Maybe redirect
+	 * Maybe redirect.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L29
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.4/includes/admin/class-wc-admin.php#L96-L122
@@ -83,7 +83,7 @@ class AdminModule {
 	public function maybe_redirect() {
 		$redirect = get_transient( 'pronamic_pay_admin_redirect' );
 
-		// Check
+		// Check.
 		if (
 			false === $redirect
 				||
@@ -100,20 +100,23 @@ class AdminModule {
 			return;
 		}
 
-		// Update
+		// Update.
 		set_transient( 'pronamic_pay_admin_redirect', false );
 
-		// Delete
+		// Delete.
 		delete_transient( 'pronamic_pay_admin_redirect' );
 
-		// Redirect
+		// Redirect.
 		wp_safe_redirect( $redirect );
 
 		exit;
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Input checkbox.
+	 *
+	 * @param array $args Arguments.
+	 */
 	public static function input_checkbox( $args ) {
 		$defaults = array(
 			'label_for' => '',
@@ -154,10 +157,22 @@ class AdminModule {
 		);
 	}
 
+	/**
+	 * Sanitize the specified value to a boolean.
+	 *
+	 * @param mixed $value Value.
+	 * @return boolean
+	 */
 	public static function sanitize_boolean( $value ) {
 		return filter_var( $value, FILTER_VALIDATE_BOOLEAN );
 	}
 
+	/**
+	 * Configurations dropdown.
+	 *
+	 * @param array $args Arguments.
+	 * @return string
+	 */
 	public static function dropdown_configs( $args ) {
 		$defaults = array(
 			'name'           => 'pronamic_pay_config_id',
@@ -207,10 +222,11 @@ class AdminModule {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Create pages
+	 * Create pages.
+	 *
+	 * @param array $pages   Page.
+	 * @param string $parent Parent post ID.
 	 */
 	private function create_pages( $pages, $parent = null ) {
 		foreach ( $pages as $page ) {
@@ -248,7 +264,7 @@ class AdminModule {
 	}
 
 	/**
-	 * Maybe create pages
+	 * Maybe create pages.
 	 */
 	public function maybe_create_pages() {
 		if ( filter_has_var( INPUT_POST, 'pronamic_pay_create_pages' ) && check_admin_referer( 'pronamic_pay_settings', 'pronamic_pay_nonce' ) ) {
@@ -326,10 +342,10 @@ class AdminModule {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Enqueue admin scripts
+	 * Enqueue admin scripts.
+	 *
+	 * @param string $hook Hook.
 	 */
 	public function enqueue_scripts( $hook ) {
 		$screen = get_current_screen();
@@ -352,7 +368,7 @@ class AdminModule {
 		if ( $enqueue ) {
 			$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// Tippy.js - https://atomiks.github.io/tippyjs/
+			// Tippy.js - https://atomiks.github.io/tippyjs/.
 			wp_register_script(
 				'tippy.js',
 				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
@@ -361,7 +377,7 @@ class AdminModule {
 				true
 			);
 
-			// Pronamic
+			// Pronamic.
 			wp_register_style(
 				'pronamic-pay-icons',
 				plugins_url( 'fonts/pronamic-pay-icons.css', \Pronamic\WordPress\Pay\Plugin::$file ),
@@ -384,16 +400,14 @@ class AdminModule {
 				true
 			);
 
-			// Enqueue
+			// Enqueue.
 			wp_enqueue_style( 'pronamic-pay-admin' );
 			wp_enqueue_script( 'pronamic-pay-admin' );
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Maybe test payment
+	 * Maybe test payment.
 	 */
 	public function maybe_test_payment() {
 		if ( filter_has_var( INPUT_POST, 'test_pay_gateway' ) && check_admin_referer( 'test_pay_gateway', 'pronamic_pay_test_nonce' ) ) {
@@ -430,10 +444,8 @@ class AdminModule {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Create the admin menu
+	 * Create the admin menu.
 	 */
 	public function admin_menu() {
 		// @see https://github.com/woothemes/woocommerce/blob/2.3.13/includes/admin/class-wc-admin-menus.php#L145
@@ -516,24 +528,32 @@ class AdminModule {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Page dashboard.
+	 */
 	public function page_dashboard() {
 		return $this->render_page( 'dashboard' );
 	}
 
+	/**
+	 * Page settings.
+	 */
 	public function page_settings() {
 		return $this->render_page( 'settings' );
 	}
 
+	/**
+	 * Page tools.
+	 */
 	public function page_tools() {
 		return $this->render_page( 'tools' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Render the specified page
+	 * Render the specified page.
+	 *
+	 * @param string $name Page identifier.
+	 * @return boolean True if a page is rendered, false otherwise.
 	 */
 	public function render_page( $name ) {
 		$result = false;
@@ -549,8 +569,11 @@ class AdminModule {
 		return $result;
 	}
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * Gateway settings.
+	 *
+	 * @param array $classes Classes.
+	 */
 	public function gateway_settings( $classes ) {
 		foreach ( $this->plugin->gateway_integrations as $integration ) {
 			$class = $integration->get_settings_class();
@@ -574,7 +597,7 @@ class AdminModule {
 	/**
 	 * Get a CSS class for the specified post status.
 	 *
-	 * @param string $post_status
+	 * @param string $post_status Post status.
 	 * @return string
 	 */
 	public static function get_post_status_icon_class( $post_status ) {

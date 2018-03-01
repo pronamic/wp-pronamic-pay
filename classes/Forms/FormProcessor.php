@@ -1,12 +1,17 @@
 <?php
+/**
+ * Form Processor
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay\Forms
+ */
 
 namespace Pronamic\WordPress\Pay\Forms;
 
 /**
- * Title: Form processor
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Form Processor
  *
  * @author Remco Tolsma
  * @version 3.7.0
@@ -14,26 +19,26 @@ namespace Pronamic\WordPress\Pay\Forms;
  */
 class FormProcessor {
 	/**
-	 * Constructs and initalize an form processor object
+	 * Constructs and initalize an form processor object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Actions.
 		add_action( 'init', array( $this, 'init' ) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Initialize
+	 * Initialize.
 	 */
 	public function init() {
 		global $pronamic_pay_errors;
 
 		$pronamic_pay_errors = array();
 
-		// Nonce
+		// Nonce.
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_nonce' ) ) {
 			return;
 		}
@@ -44,14 +49,14 @@ class FormProcessor {
 			return;
 		}
 
-		// Validate
+		// Validate.
 		$valid = $this->validate();
 
 		if ( ! $valid ) {
 			return;
 		}
 
-		// Gateway
+		// Gateway.
 		$id = filter_input( INPUT_POST, 'pronamic_pay_form_id', FILTER_VALIDATE_INT );
 
 		$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
@@ -62,7 +67,7 @@ class FormProcessor {
 			return;
 		}
 
-		// Data
+		// Data.
 		$data = new PaymentFormData();
 
 		$payment = \Pronamic\WordPress\Pay\Plugin::start( $config_id, $gateway, $data );
@@ -75,8 +80,8 @@ class FormProcessor {
 			exit;
 		}
 
-		// @see https://github.com/WordImpress/Give/blob/1.1/includes/payments/functions.php#L172-L178
-		// @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/wc-user-functions.php#L36-L118
+		// @see https://github.com/WordImpress/Give/blob/1.1/includes/payments/functions.php#L172-L178.
+		// @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/wc-user-functions.php#L36-L118.
 		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING );
 		$last_name  = filter_input( INPUT_POST, 'pronamic_pay_last_name', FILTER_SANITIZE_STRING );
 		$email      = filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_VALIDATE_EMAIL );
@@ -84,10 +89,10 @@ class FormProcessor {
 		$user = get_user_by( 'email', $email );
 
 		if ( ! $user ) {
-			// Make a random string for password
+			// Make a random string for password.
 			$password = wp_generate_password( 10 );
 
-			// Make a user with the username as the email
+			// Make a user with the username as the email.
 			$user_id = wp_insert_user(
 				array(
 					'user_login' => $email,
@@ -99,7 +104,7 @@ class FormProcessor {
 				)
 			);
 
-			// User
+			// User.
 			$user = new \WP_User( $user_id );
 		}
 
@@ -115,17 +120,22 @@ class FormProcessor {
 		exit;
 	}
 
+	/**
+	 * Validate.
+	 *
+	 * @return boolean True if valid, false otherwise.
+	 */
 	private function validate() {
 		global $pronamic_pay_errors;
 
-		// First Name
+		// First Name.
 		$first_name = filter_input( INPUT_POST, 'pronamic_pay_first_name', FILTER_SANITIZE_STRING );
 
 		if ( empty( $first_name ) ) {
 			$pronamic_pay_errors['first_name'] = __( 'Please enter your first name', 'pronamic_ideal' );
 		}
 
-		// E-mail
+		// E-mail.
 		$email = filter_input( INPUT_POST, 'pronamic_pay_email', FILTER_VALIDATE_EMAIL );
 
 		if ( empty( $email ) ) {
