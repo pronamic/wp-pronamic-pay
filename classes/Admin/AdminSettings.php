@@ -180,7 +180,7 @@ class AdminSettings {
 
 					$option = get_option( $option_name );
 
-					if ( false !== $option && '' !== $option ) {
+					if ( ! empty( $option ) ) {
 						$hide_button = true;
 					}
 				}

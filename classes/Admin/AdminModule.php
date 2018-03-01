@@ -267,79 +267,84 @@ class AdminModule {
 	 * Maybe create pages.
 	 */
 	public function maybe_create_pages() {
-		if ( filter_has_var( INPUT_POST, 'pronamic_pay_create_pages' ) && check_admin_referer( 'pronamic_pay_settings', 'pronamic_pay_nonce' ) ) {
+		if ( ! filter_has_var( INPUT_POST, 'pronamic_pay_create_pages' ) ) {
+			return;
+		}
 
-			$pages = array(
-				'ideal' => array(
-					'post_title'   => __( 'iDEAL', 'pronamic_ideal' ),
-					'post_name'    => __( 'ideal', 'pronamic_ideal' ),
-					'post_content' => '',
-					'post_meta'    => array(
-						'_yoast_wpseo_meta-robots-noindex' => true,
+		if ( ! check_admin_referer( 'pronamic_pay_settings', 'pronamic_pay_nonce' ) ) {
+			return;
+		}
+
+		$pages = array(
+			array(
+				'post_title'   => __( 'Payment Status', 'pronamic_ideal' ),
+				'post_name'    => __( 'payment', 'pronamic_ideal' ),
+				'post_content' => '',
+				'post_meta'    => array(
+					'_yoast_wpseo_meta-robots-noindex' => true,
+				),
+				'children'     => array(
+					'completed' => array(
+						'post_title'   => __( 'Payment completed', 'pronamic_ideal' ),
+						'post_name'    => __( 'completed', 'pronamic_ideal' ),
+						'post_content' => __( '<p>The payment has been successfully completed.</p>', 'pronamic_ideal' ),
+						'post_meta'    => array(
+							'_yoast_wpseo_meta-robots-noindex' => true,
+						),
+						'option_name'  => 'pronamic_pay_completed_page_id',
 					),
-					'children'     => array(
-						'completed' => array(
-							'post_title'   => __( 'iDEAL payment completed', 'pronamic_ideal' ),
-							'post_name'    => __( 'completed', 'pronamic_ideal' ),
-							'post_content' => __( '<p>The payment process is successfully completed.</p>', 'pronamic_ideal' ),
-							'post_meta'    => array(
-								'_yoast_wpseo_meta-robots-noindex' => true,
-							),
-							'option_name'  => 'pronamic_pay_completed_page_id',
+					'cancel'    => array(
+						'post_title'   => __( 'Payment cancelled', 'pronamic_ideal' ),
+						'post_name'    => __( 'cancelled', 'pronamic_ideal' ),
+						'post_content' => __( '<p>You have cancelled the payment.</p>', 'pronamic_ideal' ),
+						'post_meta'    => array(
+							'_yoast_wpseo_meta-robots-noindex' => true,
 						),
-						'cancel'    => array(
-							'post_title'   => __( 'iDEAL payment canceled', 'pronamic_ideal' ),
-							'post_name'    => __( 'cancelled', 'pronamic_ideal' ),
-							'post_content' => __( '<p>You canceled the iDEAL payment.</p>', 'pronamic_ideal' ),
-							'post_meta'    => array(
-								'_yoast_wpseo_meta-robots-noindex' => true,
-							),
-							'option_name'  => 'pronamic_pay_cancel_page_id',
+						'option_name'  => 'pronamic_pay_cancel_page_id',
+					),
+					'expired'   => array(
+						'post_title'   => __( 'Payment expired', 'pronamic_ideal' ),
+						'post_name'    => __( 'expired', 'pronamic_ideal' ),
+						'post_content' => __( '<p>Your payment session has expired.</p>', 'pronamic_ideal' ),
+						'post_meta'    => array(
+							'_yoast_wpseo_meta-robots-noindex' => true,
 						),
-						'expired'   => array(
-							'post_title'   => __( 'iDEAL payment expired', 'pronamic_ideal' ),
-							'post_name'    => __( 'expired', 'pronamic_ideal' ),
-							'post_content' => __( '<p>Unfortunately your iDEAL payment session has expired.</p>', 'pronamic_ideal' ),
-							'post_meta'    => array(
-								'_yoast_wpseo_meta-robots-noindex' => true,
-							),
-							'option_name'  => 'pronamic_pay_expired_page_id',
+						'option_name'  => 'pronamic_pay_expired_page_id',
+					),
+					'error'     => array(
+						'post_title'   => __( 'Payment error', 'pronamic_ideal' ),
+						'post_name'    => __( 'error', 'pronamic_ideal' ),
+						'post_content' => __( '<p>An error has occurred during payment.</p>', 'pronamic_ideal' ),
+						'post_meta'    => array(
+							'_yoast_wpseo_meta-robots-noindex' => true,
 						),
-						'error'     => array(
-							'post_title'   => __( 'iDEAL payment error', 'pronamic_ideal' ),
-							'post_name'    => __( 'error', 'pronamic_ideal' ),
-							'post_content' => __( '<p>Unfortunately an error has occurred during your iDEAL payment.</p>', 'pronamic_ideal' ),
-							'post_meta'    => array(
-								'_yoast_wpseo_meta-robots-noindex' => true,
-							),
-							'option_name'  => 'pronamic_pay_error_page_id',
+						'option_name'  => 'pronamic_pay_error_page_id',
+					),
+					'unknown'   => array(
+						'post_title'   => __( 'Payment status unknown', 'pronamic_ideal' ),
+						'post_name'    => __( 'unknown', 'pronamic_ideal' ),
+						'post_content' => __( '<p>The payment status is unknown.</p>', 'pronamic_ideal' ),
+						'post_meta'    => array(
+							'_yoast_wpseo_meta-robots-noindex' => true,
 						),
-						'unknown'   => array(
-							'post_title'   => __( 'iDEAL payment unknown', 'pronamic_ideal' ),
-							'post_name'    => __( 'unknown', 'pronamic_ideal' ),
-							'post_content' => __( '<p>The status of your iDEAL payment is unknown.</p>', 'pronamic_ideal' ),
-							'post_meta'    => array(
-								'_yoast_wpseo_meta-robots-noindex' => true,
-							),
-							'option_name'  => 'pronamic_pay_unknown_page_id',
-						),
+						'option_name'  => 'pronamic_pay_unknown_page_id',
 					),
 				),
-			);
+			),
+		);
 
-			$this->create_pages( $pages );
+		$this->create_pages( $pages );
 
-			$url = add_query_arg(
-				array(
-					'page'    => 'pronamic_pay_settings',
-					'message' => 'pages-generated',
-				), admin_url( 'admin.php' )
-			);
+		$url = add_query_arg(
+			array(
+				'page'    => 'pronamic_pay_settings',
+				'message' => 'pages-generated',
+			), admin_url( 'admin.php' )
+		);
 
-			wp_redirect( $url );
+		wp_redirect( $url );
 
-			exit;
-		}
+		exit;
 	}
 
 	/**
