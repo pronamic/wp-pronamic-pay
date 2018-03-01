@@ -1,5 +1,16 @@
-<?php wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' ); ?>
+<?php
+/**
+ * Meta Box Form Options
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
+wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
+
+?>
 <table class="form-table">
 	<tr>
 		<th scope="row">
@@ -72,12 +83,12 @@
 
 			$choices = get_post_meta( $post->ID, '_pronamic_payment_form_amount_choices', true );
 
-			// Start with an empty field
+			// Start with an empty field.
 			if ( empty( $choices ) ) {
 				$choices = array( '' );
 			}
 
-			// Add empty input field
+			// Add empty input field.
 			$choices[] = '';
 
 			foreach ( $choices as $i => $amount ) {

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Meta Box Payment Subscription
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 use Pronamic\WordPress\Pay\Util;
 
@@ -68,10 +76,10 @@ if ( $subscription ) : ?>
 				$payment = $subscription->get_first_payment();
 
 				if ( $payment ) {
-					echo $payment->get_source_text(); //xss ok
+					echo $payment->get_source_text(); // WPCS: XSS ok.
 				} else {
 					printf(
-						'%s<br />%s', //xss ok
+						'%s<br />%s', // WPCS: XSS ok.
 						esc_html( $subscription->get_source() ),
 						esc_html( $subscription->get_source_id() )
 					);

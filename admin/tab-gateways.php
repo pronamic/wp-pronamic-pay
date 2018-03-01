@@ -1,3 +1,14 @@
+<?php
+/**
+ * Tab Gateways
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <h2><?php esc_html_e( 'Supported Payment Gateways', 'pronamic_ideal' ); ?></h2>
 
 <?php
@@ -33,7 +44,7 @@ bind_providers_and_gateways();
 
 					$name = explode( ' - ', $name );
 
-					// Provider
+					// Provider.
 					if ( count( $name ) > 1 ) :
 						$provider = array_shift( $name );
 					else :
@@ -52,12 +63,12 @@ bind_providers_and_gateways();
 
 					$name = implode( '', $name );
 
-					// Deprecated notice
+					// Deprecated notice.
 					if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 						$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 					}
 
-					// Product link
+					// Product link.
 					$site = '';
 
 					if ( $integration->get_product_url() ) {
@@ -68,7 +79,7 @@ bind_providers_and_gateways();
 						);
 					}
 
-					printf( //xss ok
+					printf( // WPCS: XSS ok.
 						'<tr%s>
 							<td>%s</td>
 							<td>%s</td>

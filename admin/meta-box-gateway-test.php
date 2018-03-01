@@ -1,4 +1,12 @@
 <?php
+/**
+ * Meta Box Gateway Test
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 global $pronamic_ideal_errors;
 
@@ -16,7 +24,7 @@ if ( $gateway ) {
 	$is_ideal |= $gateway instanceof \Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
 	$is_ideal |= $gateway instanceof IDeal_Advanced_V3_Gateway;
 
-	// Payment method selector
+	// Payment method selector.
 	$payment_methods = $gateway->get_payment_method_field( true );
 
 	$inputs = array();
@@ -24,7 +32,7 @@ if ( $gateway ) {
 	foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
 		$gateway->set_payment_method( $payment_method );
 
-		// Payment method input HTML
+		// Payment method input HTML.
 		$html = $gateway->get_input_html();
 
 		if ( ! empty( $html ) ) {
@@ -258,7 +266,7 @@ if ( $gateway ) {
 
 	<script type="text/javascript">
 		jQuery( document ).ready( function( $ ) {
-			// Interval label
+			// Interval label.
 			function set_interval_label() {
 				var text = $( '#pronamic_pay_test_repeat_frequency :selected' ).data( 'interval-suffix' );
 

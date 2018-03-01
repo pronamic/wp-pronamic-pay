@@ -1,4 +1,12 @@
 <?php
+/**
+ * Meta Box Payment Update
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 use Pronamic\WordPress\Pay\Plugin;
 
@@ -35,7 +43,6 @@ $states = Plugin::get_payment_states();
 
 	if ( $gateway && $gateway->supports( 'payment_status_request' ) ) {
 		// Only show button if gateway exists and status check is supported.
-
 		$check_status_nonce_url = wp_nonce_url(
 			add_query_arg(
 				array(

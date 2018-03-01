@@ -1,3 +1,14 @@
+<?php
+/**
+ * Page Dashboard
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <div class="wrap">
 	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
 

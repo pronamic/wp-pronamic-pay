@@ -1,4 +1,12 @@
 <?php
+/**
+ * Page Settings
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 if ( filter_has_var( INPUT_GET, 'message' ) ) {
 	$message_id = filter_input( INPUT_GET, 'message', FILTER_SANITIZE_STRING );

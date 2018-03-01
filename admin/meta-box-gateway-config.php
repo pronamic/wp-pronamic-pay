@@ -1,4 +1,12 @@
 <?php
+/**
+ * Meta Box Gateway Config
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 use Pronamic\WordPress\Pay\Util;
 
@@ -17,7 +25,7 @@ foreach ( $fields as $id => $field ) {
 	$sections_fields[ $section ][ $id ] = $field;
 }
 
-// Sections
+// Sections.
 $variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_id', true );
 
 $options = array();
@@ -62,7 +70,7 @@ bind_providers_and_gateways();
 									}
 								}
 
-								// Dashboard links
+								// Dashboard links.
 								$dashboards = $integration->get_dashboard_url();
 
 								if ( 1 === count( $dashboards ) ) {
@@ -89,7 +97,7 @@ bind_providers_and_gateways();
 									);
 								}
 
-								// Product link
+								// Product link.
 								if ( $integration->get_product_url() ) {
 									$links[] = sprintf(
 										'<a href="%s" target="_blank" title="%s">%2$s</a>',
@@ -263,7 +271,7 @@ bind_providers_and_gateways();
 									$value = $field['value'];
 								}
 
-								// Set default
+								// Set default.
 								if ( empty( $value ) && isset( $field['default'] ) ) {
 									$value = $field['default'];
 								}
@@ -365,11 +373,11 @@ bind_providers_and_gateways();
 										);
 									}
 
-									echo $field['html']; //xss ok
+									echo $field['html']; // WPCS: XSS ok.
 								}
 
 								if ( isset( $field['description'] ) ) {
-									printf( //xss ok
+									printf( // WPCS: XSS ok.
 										'<p class="pronamic-pay-description description">%s</p>',
 										$field['description']
 									);
