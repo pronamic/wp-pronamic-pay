@@ -15,10 +15,7 @@ use Pronamic\WordPress\Pay\Currency;
 use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
- * Title: WordPress payment data
- * Description:
- * Copyright: Copyright (c) 2005 - 2018
- * Company: Pronamic
+ * Payment
  *
  * @author Remco Tolsma
  * @version 4.4.3
@@ -26,23 +23,38 @@ use Pronamic\WordPress\Pay\Core\Statuses;
  */
 class Payment {
 	/**
-	 * The payment post object
+	 * The payment post object.
+	 *
+	 * @var \WP_Post
 	 */
 	public $post;
 
 	/**
-	 * The subscription
+	 * The subscription.
 	 *
 	 * @var Subscription
 	 */
 	public $subscription;
 
-	//////////////////////////////////////////////////
-
+	/**
+	 * The unique ID of this payment.
+	 *
+	 * @var string
+	 */
 	protected $id;
 
+	/**
+	 * The title of this payment.
+	 *
+	 * @var string
+	 */
 	public $title;
 
+	/**
+	 * The configuration ID.
+	 *
+	 * @var string
+	 */
 	public $config_id;
 
 	public $key;
