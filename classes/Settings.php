@@ -33,7 +33,50 @@ class Settings {
 		$this->plugin = $plugin;
 
 		// Actions.
+		add_action( 'load-options.php', array( $this, 'load_options_dont_trim_all_posted_values' ) );
+
 		add_action( 'init', array( $this, 'init' ) );
+	}
+
+	/**
+	 * WordPress will by default `trim` all posted option values, for a few options this
+	 * is not desired. In this function we dome some 'voodoo' to fix this.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-admin/options.php#L203-L214
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-admin/admin.php#L320-L332
+	 */
+	public function load_options_dont_trim_all_posted_values() {
+		$no_trim_options = array(
+			'pronamic_pay_thousands_sep',
+			'pronamic_pay_decimal_sep',
+		);
+
+		foreach ( $no_trim_options as $option ) {
+			add_filter( 'sanitize_option_' . $option, array( $this, 'sanitize_option_dont_trim_posted_value' ), 10, 2 );
+		}
+	}
+
+	/**
+	 * Sanitize option don't trim the posted option value.
+	 *
+	 * @param string $value  The option value to sanitize.
+	 * @param string $option The option name to sanitize.
+	 * @return string
+	 */
+	public function sanitize_option_dont_trim_posted_value( $value, $option ) {
+		$screen = get_current_screen();
+
+		if ( 'options' !== $screen->id ) {
+			return $value;
+		}
+
+		// @see https://github.com/WordPress/WordPress/blob/4.9/wp-admin/options.php#L203-L214
+		if ( isset( $_POST[ $option ] ) ) { // WPCS: CSRF ok.
+			$value = $_POST[ $option ]; // WPCS: CSRF ok.
+			$value = wp_unslash( $value );
+		}
+
+		return $value;
 	}
 
 	/**
@@ -68,19 +111,29 @@ class Settings {
 			)
 		);
 
+		/*
+		 * Note: We deliberately did not define a sanitize callback for this setting,
+		 * all the WordPress sanitize function filter/trim whitespaces and we want
+		 * to allow whitespaces.
+		 */
 		register_setting(
 			'pronamic_pay', 'pronamic_pay_thousands_sep', array(
 				'type'              => 'string',
-				'sanitize_callback' => 'sanitize_text_field',
 				'default'           => $wp_locale->number_format['thousands_sep'],
+				'sanitize_callback' => null,
 			)
 		);
 
+		/*
+		 * Note: We deliberately did not define a sanitize callback for this setting,
+		 * all the WordPress sanitize function filter/trim whitespaces and we want
+		 * to allow whitespaces.
+		 */
 		register_setting(
 			'pronamic_pay', 'pronamic_pay_decimal_sep', array(
 				'type'              => 'string',
-				'sanitize_callback' => 'sanitize_text_field',
 				'default'           => $wp_locale->number_format['decimal_point'],
+				'sanitize_callback' => null,
 			)
 		);
 
