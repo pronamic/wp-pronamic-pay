@@ -473,7 +473,7 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'shell:check_versions' ] );
 	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
