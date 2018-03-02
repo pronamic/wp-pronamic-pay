@@ -52,7 +52,7 @@ foreach ( $tokens as $token ) {
 
 $file_header_lines = explode( "\n", $file_header );
 $file_header_lines = array_map( function( $value ) {
-	return ltrim( $value, '*' );
+	return ltrim( $value, ' *' );
 }, $file_header_lines );
 $file_header_lines = array_map( 'trim', $file_header_lines );
 
