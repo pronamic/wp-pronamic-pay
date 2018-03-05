@@ -348,8 +348,7 @@ class AdminReports {
 			}
 
 			$report[] = array(
-				// Flot requires milliseconds so multiply with 1000.
-				$date->getTimestamp() * 1000,
+				$date->getTimestamp(),
 				$value,
 			);
 		}
