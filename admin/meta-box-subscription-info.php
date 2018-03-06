@@ -14,6 +14,10 @@ use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
 
+if ( empty( $post_id ) ) {
+	return;
+}
+
 $subscription = get_pronamic_subscription( $post_id );
 
 ?>

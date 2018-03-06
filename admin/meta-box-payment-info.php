@@ -13,6 +13,10 @@ use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
 
+if ( empty( $post_id ) ) {
+	return;
+}
+
 $post_type = 'pronamic_payment';
 
 $payment = get_pronamic_payment( $post_id );
