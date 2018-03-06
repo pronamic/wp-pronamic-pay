@@ -54,4 +54,17 @@ class PaymentTest extends WP_UnitTestCase {
 
 		$this->assertEquals( $transaction_id, $payment->get_transaction_id() );
 	}
+
+	/** 
+	 * Test setting and getting the payment status.
+	 */
+	public function test_set_and_get_status() {
+		$payment = new Payment();
+
+		$status = 'completed';
+
+		$payment->set_status( $status );
+
+		$this->assertEquals( $status, $payment->get_status() );
+	}
 }
