@@ -62,7 +62,7 @@ class Plugin {
 	 */
 	public static function instance( $file = null ) {
 		if ( is_null( self::$instance ) ) {
-			self::$instance = new self( $file );
+			self::$instance = new self();
 
 			// Backward compatibility.
 			self::$file    = $file;
