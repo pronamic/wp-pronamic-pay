@@ -25,10 +25,9 @@ DELETE FROM wp_options WHERE option_name = 'pronamic_pay_license_key';
 
 */
 
-//////////////////////////////////////////////////
-// Options
-//////////////////////////////////////////////////
-
+/**
+ * Options.
+ */
 $options = array(
 	'pronamic_ideal_key' => 'pronamic_pay_license_key',
 );

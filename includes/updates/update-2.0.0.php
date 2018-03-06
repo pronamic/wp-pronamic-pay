@@ -54,9 +54,9 @@ DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 
 */
 
-//////////////////////////////////////////////////
-// Configs
-//////////////////////////////////////////////////
+/**
+ * Configs
+ */
 
 global $pronamic_ideal;
 
@@ -212,10 +212,9 @@ while ( $have_configs ) {
 	}
 }
 
-//////////////////////////////////////////////////
-// Config IDs map
-//////////////////////////////////////////////////
-
+/**
+ * Config IDs map
+ */
 $query = "
 	SELECT
 		id,
@@ -233,10 +232,9 @@ foreach ( $config_ids as $config_id ) {
 	$config_ids_map[ $config_id->id ] = $config_id->post_id;
 }
 
-//////////////////////////////////////////////////
-// Gravity Forms payment feeds
-//////////////////////////////////////////////////
-
+/**
+ * Gravity Forms payment feeds
+ */
 $feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
 
 $sql = "CREATE TABLE $feeds_table (
@@ -337,10 +335,9 @@ while ( $have_feeds ) {
 	}
 }
 
-//////////////////////////////////////////////////
-// Payments
-//////////////////////////////////////////////////
-
+/**
+ * Payments.
+ */
 $payments_table = $wpdb->prefix . 'pronamic_ideal_payments';
 
 $sql = "CREATE TABLE $payments_table (
@@ -371,10 +368,7 @@ $sql = "CREATE TABLE $payments_table (
 
 dbDelta( $sql );
 
-// Query
-
-// We convert the payments in groups of 100 so not everything will load
-// in memory at once
+// We convert the payments in groups of 100 so not everything will load in memory at once.
 $query = "
 	SELECT
 		*
