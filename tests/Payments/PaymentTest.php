@@ -29,6 +29,17 @@ class PaymentTest extends WP_UnitTestCase {
 		$this->assertInstanceOf( __NAMESPACE__ . '\Payment', $payment );
 	}
 
+	/**
+	 * Test getting no payment.
+	 *
+	 * @see https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.8.18/tests/tests-payment-class.php#L70-L79
+	 */
+	public function test_getting_no_payment() {
+		$payment = new Payment();
+
+		$this->assertNull( $payment->get_id() );
+	}
+
 	/** 
 	 * Test setting and getting the payment ID.
 	 */
