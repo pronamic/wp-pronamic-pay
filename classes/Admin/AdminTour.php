@@ -98,6 +98,8 @@ class AdminTour {
 	 * @return string
 	 */
 	private function get_content( $file ) {
+		$content = '';
+
 		$path = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/' . $file . '.php';
 
 		if ( is_readable( $path ) ) {
