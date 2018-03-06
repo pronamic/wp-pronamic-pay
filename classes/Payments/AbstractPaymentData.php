@@ -217,7 +217,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	/**
 	 * Get currency numeric code.
 	 *
-	 * @return Ambigous <string, NULL>
+	 * @return string|null
 	 */
 	public function get_currency_numeric_code() {
 		return Currency::transform_code_to_number( $this->get_currency_alphabetic_code() );
