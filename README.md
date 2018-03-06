@@ -7,6 +7,7 @@
 [![WP compatibility](https://plugintests.com/plugins/pronamic-ideal/wp-badge.svg)](https://plugintests.com/plugins/pronamic-ideal/latest-report)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/wp-pay/core.svg)]()
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-ideal.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-ideal)
+[![Coverage Status](https://coveralls.io/repos/github/pronamic/wp-pronamic-ideal/badge.svg?branch=develop)](https://coveralls.io/github/pronamic/wp-pronamic-ideal?branch=develop)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
