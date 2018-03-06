@@ -64,4 +64,4 @@ script:
   - if [[ "$GRUNT" == "1" ]]; then grunt; fi
 
 after_success:
-  - if [[ '1' == $COVERAGE ]]; then travis_retry php vendor/bin/php-coveralls fi
+  - if [[ '1' == $COVERAGE ]]; then travis_retry php vendor/bin/coveralls fi
