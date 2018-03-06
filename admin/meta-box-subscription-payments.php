@@ -10,6 +10,10 @@
 
 $post_id = get_the_ID();
 
+if ( empty( $post_id ) ) {
+	return;
+}
+
 $post_type = get_post_type( $post_id );
 
 $subscription = get_pronamic_subscription( $post_id );
