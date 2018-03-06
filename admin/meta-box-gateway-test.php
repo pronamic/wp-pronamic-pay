@@ -21,7 +21,6 @@ if ( $gateway ) {
 
 	$is_ideal  = false;
 	$is_ideal |= $gateway instanceof IDeal_Basic_Gateway;
-	$is_ideal |= $gateway instanceof \Pronamic_WP_Pay_Gateways_IDealAdvanced_Gateway;
 	$is_ideal |= $gateway instanceof IDeal_Advanced_V3_Gateway;
 
 	// Payment method selector.
