@@ -257,8 +257,8 @@ class Plugin {
 	/**
 	 * Update payment.
 	 *
-	 * @param null $payment      The payment to update.
-	 * @param bool $can_redirect Flag to indicate if redirect is allowed after the payment update.
+	 * @param Payment $payment      The payment to update.
+	 * @param bool    $can_redirect Flag to indicate if redirect is allowed after the payment update.
 	 */
 	public static function update_payment( $payment = null, $can_redirect = true ) {
 		if ( empty( $payment ) ) {
