@@ -1,5 +1,9 @@
 <?php
-use Pronamic\WordPress\Pay\Util;
+
+namespace Pronamic\WordPress\Pay;
+
+use stdClass;
+use WP_UnitTestCase;
 
 /**
  * Title: WordPress utility test
@@ -10,7 +14,7 @@ use Pronamic\WordPress\Pay\Util;
  * @author Remco Tolsma
  * @version 1.0
  */
-class Pronamic_WP_UtilTest extends WP_UnitTestCase {
+class UtilTest extends WP_UnitTestCase {
 	public function test_to_string_boolean() {
 		$boolean = false;
 
