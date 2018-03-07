@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7ee42223daf9b71ad9ac9550ed4d683",
+    "content-hash": "c5de29df2ec0d23556cd58c02b742874",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -45,23 +45,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/appthemes.git",
-                "reference": "d7142b73711f6cd2c3d39d1b5d79acb65aff4058"
+                "reference": "2885c975dfad8c4e258e2d6b7dbecb4319626850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/d7142b73711f6cd2c3d39d1b5d79acb65aff4058",
-                "reference": "d7142b73711f6cd2c3d39d1b5d79acb65aff4058",
+                "url": "https://api.github.com/repos/wp-pay-extensions/appthemes/zipball/2885c975dfad8c4e258e2d6b7dbecb4319626850",
+                "reference": "2885c975dfad8c4e258e2d6b7dbecb4319626850",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
+                "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.4",
-                "satooshi/php-coveralls": "dev-master",
-                "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.9",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1"
             },
             "type": "library",
             "autoload": {
@@ -97,7 +99,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T13:59:28+00:00"
+            "time": "2018-03-06T11:12:08+00:00"
         },
         {
             "name": "wp-pay-extensions/charitable",
@@ -167,22 +169,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "4da2b6ba873c7ab499e1e5fa57579d023f889983"
+                "reference": "11d2610c86d505a052a97317073d7d7b08e57128"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/4da2b6ba873c7ab499e1e5fa57579d023f889983",
-                "reference": "4da2b6ba873c7ab499e1e5fa57579d023f889983",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/11d2610c86d505a052a97317073d7d7b08e57128",
+                "reference": "11d2610c86d505a052a97317073d7d7b08e57128",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3",
-                "wp-pay/core": "^1.0.2"
+                "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.5",
+                "squizlabs/php_codesniffer": "^2.9",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1"
             },
             "type": "library",
             "autoload": {
@@ -218,7 +223,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T14:00:08+00:00"
+            "time": "2018-03-06T12:36:22+00:00"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -226,12 +231,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/easy-digital-downloads.git",
-                "reference": "6985f95f83f1fd52b67a5abc1400548f72651bd6"
+                "reference": "7da51caf49e4abe6c44749ea59a5a2904260f913"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/6985f95f83f1fd52b67a5abc1400548f72651bd6",
-                "reference": "6985f95f83f1fd52b67a5abc1400548f72651bd6",
+                "url": "https://api.github.com/repos/wp-pay-extensions/easy-digital-downloads/zipball/7da51caf49e4abe6c44749ea59a5a2904260f913",
+                "reference": "7da51caf49e4abe6c44749ea59a5a2904260f913",
                 "shasum": ""
             },
             "require": {
@@ -244,7 +249,7 @@
                 "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wimg/php-compatibility": "^8.0",
-                "wp-coding-standards/wpcs": "^0.14.0"
+                "wp-coding-standards/wpcs": "^0.14.1"
             },
             "type": "library",
             "autoload": {
@@ -283,7 +288,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T14:01:20+00:00"
+            "time": "2018-03-06T11:00:55+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso",
@@ -291,22 +296,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/event-espresso.git",
-                "reference": "3fe4a0c494c9060acab9fdd88b26475dcebf9603"
+                "reference": "054be837d2bb44baeae34b410f28508942121130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/3fe4a0c494c9060acab9fdd88b26475dcebf9603",
-                "reference": "3fe4a0c494c9060acab9fdd88b26475dcebf9603",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/054be837d2bb44baeae34b410f28508942121130",
+                "reference": "054be837d2bb44baeae34b410f28508942121130",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4",
+                "php": "^5.3",
                 "wp-pay/core": "^1.3"
             },
             "require-dev": {
-                "satooshi/php-coveralls": "dev-master",
-                "squizlabs/php_codesniffer": "^2.7",
-                "wp-coding-standards/wpcs": "^0.10.0"
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "^2.9",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1"
             },
             "type": "library",
             "autoload": {
@@ -345,7 +353,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-02-14T10:00:45+00:00"
+            "time": "2018-03-06T14:53:32+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso-legacy",
@@ -416,12 +424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/formidable-forms.git",
-                "reference": "7311e45094d0fb8ad1038d48be565157825436d7"
+                "reference": "41f648187bad411878c7b458a49fe7139521936b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/7311e45094d0fb8ad1038d48be565157825436d7",
-                "reference": "7311e45094d0fb8ad1038d48be565157825436d7",
+                "url": "https://api.github.com/repos/wp-pay-extensions/formidable-forms/zipball/41f648187bad411878c7b458a49fe7139521936b",
+                "reference": "41f648187bad411878c7b458a49fe7139521936b",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +479,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T12:50:12+00:00"
+            "time": "2018-03-06T11:19:31+00:00"
         },
         {
             "name": "wp-pay-extensions/give",
@@ -541,12 +549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "c9fa2c1b5622e5fa7dd2d8e083bc4ac55f54c4e6"
+                "reference": "b309b6b7ac9895b7695351e5180ef6ac26867fc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/c9fa2c1b5622e5fa7dd2d8e083bc4ac55f54c4e6",
-                "reference": "c9fa2c1b5622e5fa7dd2d8e083bc4ac55f54c4e6",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/b309b6b7ac9895b7695351e5180ef6ac26867fc8",
+                "reference": "b309b6b7ac9895b7695351e5180ef6ac26867fc8",
                 "shasum": ""
             },
             "require": {
@@ -598,7 +606,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T12:38:19+00:00"
+            "time": "2018-03-02T15:38:55+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -1273,12 +1281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ems-e-commerce.git",
-                "reference": "ec7d5aa52ce21995cd490f50fdb2b2871c0af6d4"
+                "reference": "492ab48875876a44398b20954ec72a3aa78dc347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/ec7d5aa52ce21995cd490f50fdb2b2871c0af6d4",
-                "reference": "ec7d5aa52ce21995cd490f50fdb2b2871c0af6d4",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ems-e-commerce/zipball/492ab48875876a44398b20954ec72a3aa78dc347",
+                "reference": "492ab48875876a44398b20954ec72a3aa78dc347",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1336,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T14:54:08+00:00"
+            "time": "2018-03-06T15:59:07+00:00"
         },
         {
             "name": "wp-pay-gateways/icepay",
@@ -1446,12 +1454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-advanced-v3.git",
-                "reference": "e8beb6700b4e511b2d25197d3d9a09c2ff133838"
+                "reference": "ba1a75480d8aa9b644af1e36480124669f9b8a35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/e8beb6700b4e511b2d25197d3d9a09c2ff133838",
-                "reference": "e8beb6700b4e511b2d25197d3d9a09c2ff133838",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-advanced-v3/zipball/ba1a75480d8aa9b644af1e36480124669f9b8a35",
+                "reference": "ba1a75480d8aa9b644af1e36480124669f9b8a35",
                 "shasum": ""
             },
             "require": {
@@ -1504,7 +1512,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-02T12:09:37+00:00"
+            "time": "2018-03-05T10:47:46+00:00"
         },
         {
             "name": "wp-pay-gateways/ideal-basic",
@@ -2088,12 +2096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/sisow.git",
-                "reference": "b078587697e3d3c092d759054fd5daf9fc5113d6"
+                "reference": "327d07c72437e0bc518450c9993128046203eb75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/b078587697e3d3c092d759054fd5daf9fc5113d6",
-                "reference": "b078587697e3d3c092d759054fd5daf9fc5113d6",
+                "url": "https://api.github.com/repos/wp-pay-gateways/sisow/zipball/327d07c72437e0bc518450c9993128046203eb75",
+                "reference": "327d07c72437e0bc518450c9993128046203eb75",
                 "shasum": ""
             },
             "require": {
@@ -2143,7 +2151,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-02T07:35:42+00:00"
+            "time": "2018-03-06T15:26:36+00:00"
         },
         {
             "name": "wp-pay-gateways/targetpay",
@@ -2215,12 +2223,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "dadb51eac78d9f64032d0c16f264d8ab73fbb87e"
+                "reference": "9aff6878c3511c0e688142758a6f1ce7bb829782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/dadb51eac78d9f64032d0c16f264d8ab73fbb87e",
-                "reference": "dadb51eac78d9f64032d0c16f264d8ab73fbb87e",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/9aff6878c3511c0e688142758a6f1ce7bb829782",
+                "reference": "9aff6878c3511c0e688142758a6f1ce7bb829782",
                 "shasum": ""
             },
             "require": {
@@ -2268,7 +2276,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-02T12:22:42+00:00"
+            "time": "2018-03-06T15:56:00+00:00"
         }
     ],
     "packages-dev": [
@@ -5588,16 +5596,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.35.0",
+            "version": "v1.35.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f"
+                "reference": "9c24f2cd39dc1906b76879e099970b7e53724601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/daa657073e55b0a78cce8fdd22682fddecc6385f",
-                "reference": "daa657073e55b0a78cce8fdd22682fddecc6385f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9c24f2cd39dc1906b76879e099970b7e53724601",
+                "reference": "9c24f2cd39dc1906b76879e099970b7e53724601",
                 "shasum": ""
             },
             "require": {
@@ -5649,7 +5657,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-09-27T18:06:46+00:00"
+            "time": "2018-03-03T16:21:29+00:00"
         },
         {
             "name": "wimg/php-compatibility",
@@ -5742,6 +5750,49 @@
                 "wordpress"
             ],
             "time": "2018-02-16T01:57:48+00:00"
+        },
+        {
+            "name": "wp-phpunit/wp-phpunit",
+            "version": "4.9.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-phpunit/wp-phpunit.git",
+                "reference": "b077a55f4a012891f6ca67c1e636a22b8e2b6dcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-phpunit/wp-phpunit/zipball/b077a55f4a012891f6ca67c1e636a22b8e2b6dcb",
+                "reference": "b077a55f4a012891f6ca67c1e636a22b8e2b6dcb",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "__loaded.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Evan Mattson",
+                    "email": "me@aaemnnost.tv"
+                },
+                {
+                    "name": "WordPress Community",
+                    "homepage": "https://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress core PHPUnit library",
+            "homepage": "https://github.com/wp-phpunit",
+            "keywords": [
+                "phpunit",
+                "test",
+                "wordpress"
+            ],
+            "time": "2018-01-17T17:40:44+00:00"
         },
         {
             "name": "zendframework/zend-cache",
