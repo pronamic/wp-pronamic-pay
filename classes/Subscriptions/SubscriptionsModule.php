@@ -116,7 +116,7 @@ class SubscriptionsModule {
 		switch ( $action ) {
 			case 'cancel':
 				if ( Statuses::CANCELLED !== $subscription->get_status() ) {
-					$subscription->update_status( Statuses::CANCELLED );
+					$subscription->set_status( Statuses::CANCELLED );
 
 					$this->update_subscription( $subscription, $should_redirect );
 				}
@@ -482,12 +482,14 @@ class SubscriptionsModule {
 		}
 
 		// Status.
+		$status_before = $subscription->get_status();
+
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
 				break;
 			case Statuses::SUCCESS:
-				$subscription->set_status( Statuses::SUCCESS );
+				$subscription->set_status( Statuses::ACTIVE );
 
 				if ( $subscription->expiry_date < $payment->end_date ) {
 					$subscription->expiry_date = $payment->end_date;
@@ -510,6 +512,16 @@ class SubscriptionsModule {
 				$subscription->set_status( Statuses::COMPLETED );
 
 				break;
+		}
+
+		$status_after = $subscription->get_status();
+
+		if ( $status_before !== $status_after ) {
+			$this->add_note( sprintf(
+				__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
+				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_before ) ),
+				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_after ) )
+			) );
 		}
 
 		// Update.
