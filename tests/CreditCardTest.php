@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay;
 
+use DateTime;
 use WP_UnitTestCase;
 
 /**
@@ -65,6 +66,35 @@ class CreditCardTest extends WP_UnitTestCase {
 		$credit_card->set_expiration_year( $year );
 
 		$this->assertEquals( $year, $credit_card->get_expiration_year() );
+	}
+
+	/** 
+	 * Test getting the expiration date.
+	 *
+	 * @dataProvider expiration_dates_provider
+	 */
+	public function test_get_expiration_date( $year, $month, $expected_date ) {
+		$credit_card = new CreditCard();
+
+		$credit_card->set_expiration_year( $year );
+		$credit_card->set_expiration_month( $month );
+
+		$date = $credit_card->get_expiration_date();
+
+		$this->assertEquals( $expected_date, $date );
+	}
+
+	/**
+	 * Expiration dates provider.
+	 */
+	public function expiration_dates_provider() {
+		return array(
+			array( '2018', '12', new DateTime( 'first day of December 2018' ) ),
+			array( 2018, 12, new DateTime( 'first day of December 2018' ) ),
+			array( '2018', null, null ),
+			array( null, null, null ),
+			array( false, false, null ),
+		);
 	}
 
 	/** 

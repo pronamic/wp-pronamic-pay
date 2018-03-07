@@ -118,10 +118,21 @@ class CreditCard {
 	/**
 	 * Get expiration date.
 	 *
-	 * @return DateTime
+	 * @see http://php.net/manual/en/datetime.formats.relative.php
+	 * @see http://php.net/manual/en/datetime.setdate.php
+	 * @return DateTime|null
 	 */
 	public function get_expiration_date() {
-		return new DateTime( '@' . gmmktime( 0, 0, 0, $this->expiration_month, 1, $this->expiration_year ) );
+		if ( empty( $this->expiration_year ) || empty( $this->expiration_month ) ) {
+			return null;
+		}
+
+		$date = new DateTime();
+
+		$date->setDate( $this->expiration_year, $this->expiration_month, 1 );
+		$date->setTime( 0, 0 );
+
+		return $date;
 	}
 
 	/**
