@@ -1,0 +1,15 @@
+@startuml
+
+start
+
+:Start payment;
+
+if (First payment for subscription?) then (yes)
+	:Yes;
+else (no)
+	:No;
+endif
+
+stop
+
+@enduml
