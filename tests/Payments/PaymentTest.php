@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Pay\CreditCard;
 use stdClass;
 use WP_UnitTestCase;
 
@@ -77,5 +78,88 @@ class PaymentTest extends WP_UnitTestCase {
 		$payment->set_status( $status );
 
 		$this->assertEquals( $status, $payment->get_status() );
+	}
+
+	/**
+	 * Test setting and getting the payment consumer name.
+	 */
+	public function test_set_and_get_consumer_name() {
+		$payment = new Payment();
+
+		$name = 'John Doe';
+
+		$payment->set_consumer_name( $name );
+
+		$this->assertEquals( $name, $payment->consumer_name );
+	}
+
+	/**
+	 * Test setting and getting the payment consumer account number.
+	 */
+	public function test_set_and_get_consumer_account_number() {
+		$payment = new Payment();
+
+		$number = '1086.34.779';
+
+		$payment->set_consumer_account_number( $number );
+
+		$this->assertEquals( $number, $payment->consumer_account_number );
+	}
+
+	/**
+	 * Test setting and getting the payment consumer IBAN.
+	 */
+	public function test_set_and_get_consumer_iban() {
+		$payment = new Payment();
+
+		$iban = 'NL56 RABO 0108 6347 79';
+
+		$payment->set_consumer_iban( $iban );
+
+		$this->assertEquals( $iban, $payment->consumer_iban );
+	}
+
+	/**
+	 * Test setting and getting the payment consumer BIC.
+	 */
+	public function test_set_and_get_consumer_bic() {
+		$payment = new Payment();
+
+		$bic = 'RABONL2U';
+
+		$payment->set_consumer_bic( $bic );
+
+		$this->assertEquals( $bic, $payment->consumer_bic );
+	}
+
+	/**
+	 * Test setting and getting the payment consumer city.
+	 */
+	public function test_set_and_get_consumer_city() {
+		$payment = new Payment();
+
+		$city = 'Drachten';
+
+		$payment->set_consumer_city( $city );
+
+		$this->assertEquals( $city, $payment->consumer_city );
+	}
+
+	/**
+	 * Test setting and getting the payment credit card.
+	 */
+	public function test_set_and_get_credit_card() {
+		$payment = new Payment();
+
+		$credit_card = new CreditCard();
+		$credit_card->set_number( '5300000000000006' );
+		$credit_card->set_expiration_month( 12 );
+		$credit_card->set_expiration_year( date( 'Y' ) + 5 );
+		$credit_card->set_security_code( '123' );
+		$credit_card->set_name( 'Pronamic' );
+
+		$payment->set_credit_card( $credit_card );
+
+		$this->assertEquals( $credit_card, $payment->get_credit_card() );
 	}
 }
