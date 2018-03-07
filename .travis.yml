@@ -65,3 +65,4 @@ script:
 
 after_success:
   - if [ $COVERAGE == "1" ]; then php vendor/bin/coveralls -v; fi
+  - if [ $COVERAGE == "1" ]; then bash <(curl -s https://codecov.io/bash); fi
