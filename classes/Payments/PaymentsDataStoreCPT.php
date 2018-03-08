@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
 use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
