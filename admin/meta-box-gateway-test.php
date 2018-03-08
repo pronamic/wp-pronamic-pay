@@ -10,6 +10,7 @@
 
 global $pronamic_ideal_errors;
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Gateways\IDeal_Advanced_V3\Gateway as IDeal_Advanced_V3_Gateway;
 use Pronamic\WordPress\Pay\Gateways\IDeal_Basic\Gateway as IDeal_Basic_Gateway;
 use Pronamic\WordPress\Pay\Plugin;
@@ -62,8 +63,9 @@ if ( $gateway ) {
 
 					foreach ( $payment_methods['choices'][0]['options'] as $payment_method => $method_name ) {
 						printf(
-							'<option value="%s">%s</option>',
+							'<option value="%s" data-is-recurring="%d">%s</option>',
 							esc_attr( $payment_method ),
+							esc_attr( PaymentMethods::is_recurring_method( $payment_method ) ),
 							esc_html( $method_name )
 						);
 					}
@@ -201,51 +203,57 @@ if ( $gateway ) {
 				</th>
 				<td>
 					<div>
-						<input type="radio" name="pronamic_pay_ends_on" value="never" <?php checked( 'never', '' ); ?> />
+						<input type="radio" id="pronamic_pay_ends_never" name="pronamic_pay_ends_on" value="never" checked="checked" />
 
-						<?php esc_html_e( 'Never', 'pronamic_ideal' ); ?>
-
-						<input type="number" name="pronamic_pay_ends_on_never" value="1" style="visibility: hidden;" />
+						<label for="pronamic_pay_ends_never">
+							<?php esc_html_e( 'Never', 'pronamic_ideal' ); ?>
+						</label>
 					</div>
 					<div>
-						<input type="radio" name="pronamic_pay_ends_on" value="count" <?php checked( 'count', '' ); ?> />
+						<input type="radio" id="pronamic_pay_ends_count" name="pronamic_pay_ends_on" value="count" />
 
-						<?php
+						<label for="pronamic_pay_ends_count">
+							<?php
 
-						$allowed_html = array(
-							'input' => array(
-								'id'    => true,
-								'name'  => true,
-								'type'  => true,
-								'value' => true,
-								'size'  => true,
-								'class' => true,
-							),
-						);
+							$allowed_html = array(
+								'input' => array(
+									'id'    => true,
+									'name'  => true,
+									'type'  => true,
+									'value' => true,
+									'size'  => true,
+									'class' => true,
+								),
+							);
 
-						echo wp_kses(
-							sprintf(
-								__( 'After %s times', 'pronamic_ideal' ),
-								sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
-							),
-							$allowed_html
-						);
+							echo wp_kses(
+								sprintf(
+									__( 'After %s times', 'pronamic_ideal' ),
+									sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
+								),
+								$allowed_html
+							);
 
-						?>
+							?>
+						</label>
 					</div>
 
 					<div>
-						<input type="radio" name="pronamic_pay_ends_on" value="date" />
+						<input type="radio" id="pronamic_pay_ends_date" name="pronamic_pay_ends_on" value="date" />
 
-						<?php
-						echo wp_kses(
-							sprintf(
-								__( 'On %s', 'pronamic_ideal' ),
-								sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
-							),
-							$allowed_html
-						);
-						?>
+						<label for="pronamic_pay_ends_date">
+							<?php
+
+							echo wp_kses(
+								sprintf(
+									__( 'On %s', 'pronamic_ideal' ),
+									sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
+								),
+								$allowed_html
+							);
+
+							?>
+						</label>
 					</div>
 				</td>
 			</tr>
@@ -275,6 +283,13 @@ if ( $gateway ) {
 			$( '#pronamic_pay_test_repeat_frequency' ).change( function() { set_interval_label(); } );
 
 			set_interval_label();
+
+			// Ends on value.
+			$( 'label[for^="pronamic_pay_ends_"] input' ).focus( function () {
+				var radio_id = $( this ).parents( 'label' ).attr( 'for' );
+
+				$( '#' + radio_id ).prop( 'checked', true );
+			} );
 		} );
 	</script>
 

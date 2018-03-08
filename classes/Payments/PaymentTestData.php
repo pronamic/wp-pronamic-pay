@@ -10,6 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use DateInterval;
+use DatePeriod;
+use DateTime;
 use Pronamic\WordPress\Pay\CreditCard;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Core\Util as Core_Util;
@@ -153,12 +156,6 @@ class PaymentTestData extends PaymentData {
 			return false;
 		}
 
-		$times = filter_input( INPUT_POST, 'pronamic_pay_ends_on_count', FILTER_VALIDATE_INT );
-
-		if ( empty( $times ) ) {
-			return false;
-		}
-
 		$interval = filter_input( INPUT_POST, 'pronamic_pay_test_repeat_interval', FILTER_VALIDATE_INT );
 
 		if ( empty( $interval ) ) {
@@ -169,6 +166,39 @@ class PaymentTestData extends PaymentData {
 
 		if ( empty( $interval_period ) ) {
 			return false;
+		}
+
+		// Ends on.
+		$ends_on = filter_input( INPUT_POST, 'pronamic_pay_ends_on', FILTER_SANITIZE_STRING );
+
+		$times = null;
+
+		switch ( $ends_on ) {
+			case 'count':
+				$count = filter_input( INPUT_POST, 'pronamic_pay_ends_on_count', FILTER_VALIDATE_INT );
+
+				if ( ! empty( $count ) ) {
+					$times = $count;
+				}
+
+				break;
+			case 'date':
+				$end_date = filter_input( INPUT_POST, 'pronamic_pay_ends_on_date', FILTER_SANITIZE_STRING );
+
+				if ( ! empty( $end_date ) ) {
+					/* translators: 1: interval, 2: interval period */
+					$interval_spec = sprintf( 'P%1$s%2$s', $interval, Core_Util::to_period( $interval_period ) );
+
+					$period = new DatePeriod(
+						new DateTime(),
+						new DateInterval( $interval_spec ),
+						new DateTime( $end_date )
+					);
+
+					$times = iterator_count( $period );
+				}
+
+				break;
 		}
 
 		// Subscription.
