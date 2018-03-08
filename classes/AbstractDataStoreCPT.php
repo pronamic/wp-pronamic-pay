@@ -63,7 +63,7 @@ abstract class AbstractDataStoreCPT {
 	 *
 	 * @param string $id  Post ID.
 	 * @param string $key Key.
-	 * @return string|null
+	 * @return DateTime|null
 	 */
 	public function get_meta_date( $id, $key ) {
 		$value = $this->get_meta( $id, $key );
