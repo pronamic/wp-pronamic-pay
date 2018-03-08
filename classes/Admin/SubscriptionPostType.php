@@ -273,9 +273,9 @@ class SubscriptionPostType {
 			);
 
 			add_meta_box(
-				'pronamic_subscription_log',
-				__( 'Log', 'pronamic_ideal' ),
-				array( $this, 'meta_box_log' ),
+				'pronamic_subscription_notes',
+				__( 'Notes', 'pronamic_ideal' ),
+				array( $this, 'meta_box_notes' ),
 				$post_type,
 				'normal',
 				'high'
@@ -305,12 +305,19 @@ class SubscriptionPostType {
 	}
 
 	/**
-	 * Pronamic Pay subscription log meta box.
+	 * Pronamic Pay subscription notes meta box.
 	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
-	public function meta_box_log( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-log.php';
+	public function meta_box_notes( $post ) {
+		$notes = get_comments(
+			array(
+				'post_id' => $post->ID,
+				'type'    => 'subscription_note',
+			)
+		);
+
+		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-notes.php';
 	}
 
 	/**
