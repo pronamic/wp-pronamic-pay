@@ -341,6 +341,20 @@ class Payment {
 	public $meta;
 
 	/**
+	 * Start date if the payment is related to a specific period.
+	 *
+	 * @var DateTime
+	 */
+	public $start_date;
+
+	/**
+	 * End date if the payment is related to a specific period.
+	 *
+	 * @var DateTime
+	 */
+	public $end_date;
+
+	/**
 	 * Construct and initialize payment object.
 	 *
 	 * @param int $post_id A payment post ID or null.
