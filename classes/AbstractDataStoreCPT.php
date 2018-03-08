@@ -42,7 +42,7 @@ abstract class AbstractDataStoreCPT {
 	/**
 	 * Get meta for the specified post ID and key.
 	 *
-	 * @param string $id  Post ID.
+	 * @param int $id     Post ID.
 	 * @param string $key Key.
 	 * @return string
 	 */
@@ -61,7 +61,7 @@ abstract class AbstractDataStoreCPT {
 	/**
 	 * Get date from meta.
 	 *
-	 * @param string $id  Post ID.
+	 * @param int $id     Post ID.
 	 * @param string $key Key.
 	 * @return DateTime|null
 	 */
@@ -84,7 +84,7 @@ abstract class AbstractDataStoreCPT {
 	/**
 	 * Update meta.
 	 *
-	 * @param string $id    Post ID.
+	 * @param int $id       Post ID.
 	 * @param string $key   Key.
 	 * @param mixed  $value Value.
 	 */

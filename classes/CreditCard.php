@@ -29,14 +29,14 @@ class CreditCard {
 	/**
 	 * Credit card expiration month.
 	 *
-	 * @var string
+	 * @var int
 	 */
 	private $expiration_month;
 
 	/**
 	 * Credit card expiration year.
 	 *
-	 * @var string
+	 * @var int
 	 */
 	private $expiration_year;
 

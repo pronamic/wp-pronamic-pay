@@ -54,7 +54,7 @@ class Payment {
 	/**
 	 * The configuration ID.
 	 *
-	 * @var string
+	 * @var int
 	 */
 	public $config_id;
 
