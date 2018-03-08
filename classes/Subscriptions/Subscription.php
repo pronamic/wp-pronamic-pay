@@ -222,14 +222,14 @@ class Subscription {
 	/**
 	 * The date when this subscirption started.
 	 *
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $start_date;
 
 	/**
 	 * The end date of the last succesfull payment.
 	 *
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $expiry_date;
 
@@ -237,7 +237,7 @@ class Subscription {
 	 * The date of the first payment.
 	 *
 	 * @todo Is this required? And is this not equeal to start date of the subscription?
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $first_payment;
 
@@ -245,7 +245,7 @@ class Subscription {
 	 * The next payment date.
 	 *
 	 * @todo Is this required?
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $next_payment;
 
@@ -253,7 +253,7 @@ class Subscription {
 	 * The final payment date, can be null if the subscrption never ends.
 	 *
 	 * @todo Is this required?
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $final_payment;
 
@@ -261,7 +261,7 @@ class Subscription {
 	 * The renewal notice date.
 	 *
 	 * @todo Is this required?
-	 * @var \DateTimeInterface
+	 * @var DateTime
 	 */
 	public $renewal_notice;
 
@@ -661,7 +661,7 @@ class Subscription {
 	 * Get the start date of this subscription.
 	 *
 	 * @todo Should we handle logic in this getter?
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_start_date() {
 		$start_date = $this->get_meta( 'start_date' );
@@ -691,7 +691,7 @@ class Subscription {
 	 * Get the expiry date of this subscription.
 	 *
 	 * @todo Should we handle logic in this getter?
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_expiry_date() {
 		$expiry_date = $this->get_meta( 'expiry_date' );
@@ -730,7 +730,7 @@ class Subscription {
 	 * Get the first payment date of this subscription.
 	 *
 	 * @todo Should we handle logic in this getter?
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_first_payment_date() {
 		$first_date = $this->get_meta( 'first_payment' );
@@ -756,7 +756,7 @@ class Subscription {
 	 * Get the final payment date of this subscription.
 	 *
 	 * @todo Should we handle logic in this getter?
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_final_payment_date() {
 		$final = $this->get_meta( 'final_payment' );
@@ -809,7 +809,7 @@ class Subscription {
 	 *
 	 * @todo   Should we handle logic in this getter?
 	 * @param  int $cycle TODO.
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_next_payment_date( $cycle = 0 ) {
 		// Meta next_payment, possibly doesn't exist if last payment has been processed.
@@ -878,7 +878,7 @@ class Subscription {
 	 * Get the renewal notice date of this subscription.
 	 *
 	 * @todo   Should we handle logic in this getter?
-	 * @return \DateTimeInterface
+	 * @return DateTime
 	 */
 	public function get_renewal_notice_date() {
 		$renewal_notice = $this->get_meta( 'renewal_notice' );
