@@ -169,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/classipress.git",
-                "reference": "11d2610c86d505a052a97317073d7d7b08e57128"
+                "reference": "79ee70a8443a07b3510327976890f030dc3d59a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/11d2610c86d505a052a97317073d7d7b08e57128",
-                "reference": "11d2610c86d505a052a97317073d7d7b08e57128",
+                "url": "https://api.github.com/repos/wp-pay-extensions/classipress/zipball/79ee70a8443a07b3510327976890f030dc3d59a2",
+                "reference": "79ee70a8443a07b3510327976890f030dc3d59a2",
                 "shasum": ""
             },
             "require": {
@@ -223,7 +223,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-06T12:36:22+00:00"
+            "time": "2018-03-08T10:50:44+00:00"
         },
         {
             "name": "wp-pay-extensions/easy-digital-downloads",
@@ -675,12 +675,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/jigoshop.git",
-                "reference": "cb91c368cd7304c5e9d9df6c9cd19923d718ac17"
+                "reference": "a7802ccac71d745e22d3b01ae6e64739978eab92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/cb91c368cd7304c5e9d9df6c9cd19923d718ac17",
-                "reference": "cb91c368cd7304c5e9d9df6c9cd19923d718ac17",
+                "url": "https://api.github.com/repos/wp-pay-extensions/jigoshop/zipball/a7802ccac71d745e22d3b01ae6e64739978eab92",
+                "reference": "a7802ccac71d745e22d3b01ae6e64739978eab92",
                 "shasum": ""
             },
             "require": {
@@ -689,6 +689,8 @@
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -726,7 +728,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T14:02:29+00:00"
+            "time": "2018-03-08T15:10:25+00:00"
         },
         {
             "name": "wp-pay-extensions/memberpress",
@@ -978,12 +980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/shopp.git",
-                "reference": "1d05efbe120a274d6859019ec27b7334a3c45695"
+                "reference": "6408187ccb3bc36dc9bce298fda0ba5b38cd7d7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/1d05efbe120a274d6859019ec27b7334a3c45695",
-                "reference": "1d05efbe120a274d6859019ec27b7334a3c45695",
+                "url": "https://api.github.com/repos/wp-pay-extensions/shopp/zipball/6408187ccb3bc36dc9bce298fda0ba5b38cd7d7b",
+                "reference": "6408187ccb3bc36dc9bce298fda0ba5b38cd7d7b",
                 "shasum": ""
             },
             "require": {
@@ -992,6 +994,8 @@
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^1.0",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wp-coding-standards/wpcs": "^0.10.0"
             },
@@ -1029,7 +1033,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-03-01T14:09:25+00:00"
+            "time": "2018-03-08T15:31:07+00:00"
         },
         {
             "name": "wp-pay-extensions/woocommerce",
@@ -2576,19 +2580,20 @@
         },
         {
             "name": "erusev/parsedown",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown.git",
-                "reference": "6678d59be48c4be64eaca6ce70bea48a09488cc2"
+                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown/zipball/6678d59be48c4be64eaca6ce70bea48a09488cc2",
-                "reference": "6678d59be48c4be64eaca6ce70bea48a09488cc2",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
+                "reference": "92e9c27ba0e74b8b028b111d1b6f956a15c01fc1",
                 "shasum": ""
             },
             "require": {
+                "ext-mbstring": "*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
@@ -2617,7 +2622,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2018-02-28T11:41:37+00:00"
+            "time": "2018-03-08T01:11:30+00:00"
         },
         {
             "name": "guzzle/guzzle",
