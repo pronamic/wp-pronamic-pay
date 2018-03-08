@@ -24,6 +24,8 @@ class Util {
 	/**
 	 * Remote get body.
 	 *
+	 * @see https://developer.wordpress.org/reference/functions/wp_remote_request/
+	 *
 	 * @param string $url                    The URL to use for the remote request.
 	 * @param int    $required_response_code The required response code.
 	 * @param array  $args                   The WordPress HTTP API request arguments.
@@ -33,7 +35,7 @@ class Util {
 	public static function remote_get_body( $url, $required_response_code = 200, array $args = array() ) {
 		$result = wp_remote_request( $url, $args );
 
-		if ( is_wp_error( $result ) ) {
+		if ( ! is_array( $result ) ) {
 			return $result;
 		}
 
