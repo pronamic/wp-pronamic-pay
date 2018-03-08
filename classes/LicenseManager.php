@@ -106,7 +106,7 @@ class LicenseManager {
 	/**
 	 * Check license.
 	 *
-	 * @param string $license License.
+	 * @param string|boolean $license License.
 	 */
 	public function check_license( $license ) {
 		$status = null;

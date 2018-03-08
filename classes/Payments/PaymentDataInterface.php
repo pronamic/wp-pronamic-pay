@@ -11,6 +11,7 @@
 namespace Pronamic\WordPress\Pay\Payments;
 
 use Pronamic\WordPress\Pay\CreditCard;
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 
 /**
  * Title: Payment data interface

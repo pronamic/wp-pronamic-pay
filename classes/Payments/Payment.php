@@ -358,7 +358,7 @@ class Payment {
 	/**
 	 * Construct and initialize payment object.
 	 *
-	 * @param int $post_id A payment post ID or null.
+	 * @param integer $post_id A payment post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;

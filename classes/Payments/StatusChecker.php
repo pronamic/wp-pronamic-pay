@@ -97,9 +97,9 @@ class StatusChecker {
 	/**
 	 * Check status of the specified payment.
 	 *
-	 * @param null $payment_id   The ID of a payment to check.
-	 * @param null $seconds      The number of seconds this status check was delayed.
-	 * @param int  $number_tries The number of status check tries.
+	 * @param integer $payment_id   The ID of a payment to check.
+	 * @param integer $seconds      The number of seconds this status check was delayed.
+	 * @param integer $number_tries The number of status check tries.
 	 *
 	 * @internal param string $paymentId
 	 */
