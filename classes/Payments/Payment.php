@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use DateTime;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Currency;
 use Pronamic\WordPress\Pay\Core\Statuses;
