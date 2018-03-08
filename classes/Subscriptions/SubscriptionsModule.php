@@ -517,7 +517,7 @@ class SubscriptionsModule {
 		$status_after = $subscription->get_status();
 
 		if ( $status_before !== $status_after ) {
-			$this->add_note( sprintf(
+			$subscription->add_note( sprintf(
 				__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
 				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_before ) ),
 				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_after ) )
