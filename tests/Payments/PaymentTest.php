@@ -31,6 +31,87 @@ class PaymentTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Test set and get.
+	 *
+	 * @dataProvider get_and_set_provider
+	 */
+	public function test_set_and_get( $set_function, $get_function, $value ) {
+		$payment = new Payment();
+
+		$payment->$set_function( $value );
+
+		$this->assertEquals( $value, $payment->$get_function() );
+	}
+
+	public function get_and_set_provider() {
+		return array(
+			array( 'set_id',             'get_id',             uniqid()    ),
+			array( 'set_transaction_id', 'get_transaction_id', uniqid()    ),
+			array( 'set_status',         'get_status',         'completed' ),
+		);
+	}
+
+	/**
+	 * Test set.
+	 *
+	 * @dataProvider set_provider
+	 */
+	public function test_set( $set_function, $property, $value ) {
+		$payment = new Payment();
+
+		$payment->$set_function( $value );
+
+		$this->assertEquals( $value, $payment->$property );
+	}
+
+	public function set_provider() {
+		return array(
+			array( 'set_consumer_name',           'consumer_name',           'John Doe' ),
+			array( 'set_consumer_account_number', 'consumer_account_number', '1086.34.779' ),
+			array( 'set_consumer_iban',           'consumer_iban',           'NL56 RABO 0108 6347 79' ),
+			array( 'set_consumer_bic',            'consumer_bic',            'RABONL2U' ),
+			array( 'set_consumer_city',           'consumer_city',           'Drachten' ),
+		);
+	}
+
+	/**
+	 * Test get.
+	 *
+	 * @dataProvider get_provider
+	 */
+	public function test_get( $property, $get_function, $value ) {
+		$payment = new Payment();
+
+		$payment->$property = $value;
+
+		$this->assertEquals( $value, $payment->$get_function() );
+	}
+
+	public function get_provider() {
+		return array(
+			array( 'order_id',            'get_order_id',            1234 ),
+			array( 'amount',              'get_amount',              89.95 ),
+			array( 'currency',            'get_currency',            'EUR' ),
+			array( 'method',              'get_method',              'ideal' ),
+			array( 'issuer',              'get_issuer',              'ideal_KNABNL2H' ),
+			array( 'language',            'get_language',            'nl' ),
+			array( 'locale',              'get_locale',              'nl_NL' ),
+			array( 'description',         'get_description',         'Lorem ipsum dolor sit amet, consectetur.' ),
+			array( 'email',               'get_email',               'john.doe@example.com' ),
+			array( 'first_name',          'get_first_name',          'John' ),
+			array( 'last_name',           'get_last_name',           'Doe' ),
+			array( 'customer_name',       'get_customer_name',       'John Doe' ),
+			array( 'address',             'get_address',             'Burgemeester Wuiteweg 39b' ),
+			array( 'city',                'get_city',                'Drachten' ),
+			array( 'zip',                 'get_zip',                 '9203 KA' ),
+			array( 'country',             'get_country',             'NL' ),
+			array( 'telephone_number',    'get_telephone_number',    '1234567890' ),
+			array( 'analytics_client_id', 'get_analytics_client_id', 'GA1.2.1234567890.1234567890' ),
+			array( 'entrance_code',       'get_entrance_code',       uniqid() ),
+		);
+	}
+
+	/**
 	 * Test getting no payment.
 	 *
 	 * @see https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.8.18/tests/tests-payment-class.php#L70-L79
@@ -39,110 +120,6 @@ class PaymentTest extends WP_UnitTestCase {
 		$payment = new Payment();
 
 		$this->assertNull( $payment->get_id() );
-	}
-
-	/** 
-	 * Test setting and getting the payment ID.
-	 */
-	public function test_set_and_get_id() {
-		$payment = new Payment();
-
-		$id = uniqid();
-
-		$payment->set_id( $id );
-
-		$this->assertEquals( $id, $payment->get_id() );
-	}
-
-	/** 
-	 * Test setting and getting the payment transaction ID.
-	 */
-	public function test_set_and_get_transaction_id() {
-		$payment = new Payment();
-
-		$transaction_id = uniqid();
-
-		$payment->set_transaction_id( $transaction_id );
-
-		$this->assertEquals( $transaction_id, $payment->get_transaction_id() );
-	}
-
-	/** 
-	 * Test setting and getting the payment status.
-	 */
-	public function test_set_and_get_status() {
-		$payment = new Payment();
-
-		$status = 'completed';
-
-		$payment->set_status( $status );
-
-		$this->assertEquals( $status, $payment->get_status() );
-	}
-
-	/**
-	 * Test setting and getting the payment consumer name.
-	 */
-	public function test_set_and_get_consumer_name() {
-		$payment = new Payment();
-
-		$name = 'John Doe';
-
-		$payment->set_consumer_name( $name );
-
-		$this->assertEquals( $name, $payment->consumer_name );
-	}
-
-	/**
-	 * Test setting and getting the payment consumer account number.
-	 */
-	public function test_set_and_get_consumer_account_number() {
-		$payment = new Payment();
-
-		$number = '1086.34.779';
-
-		$payment->set_consumer_account_number( $number );
-
-		$this->assertEquals( $number, $payment->consumer_account_number );
-	}
-
-	/**
-	 * Test setting and getting the payment consumer IBAN.
-	 */
-	public function test_set_and_get_consumer_iban() {
-		$payment = new Payment();
-
-		$iban = 'NL56 RABO 0108 6347 79';
-
-		$payment->set_consumer_iban( $iban );
-
-		$this->assertEquals( $iban, $payment->consumer_iban );
-	}
-
-	/**
-	 * Test setting and getting the payment consumer BIC.
-	 */
-	public function test_set_and_get_consumer_bic() {
-		$payment = new Payment();
-
-		$bic = 'RABONL2U';
-
-		$payment->set_consumer_bic( $bic );
-
-		$this->assertEquals( $bic, $payment->consumer_bic );
-	}
-
-	/**
-	 * Test setting and getting the payment consumer city.
-	 */
-	public function test_set_and_get_consumer_city() {
-		$payment = new Payment();
-
-		$city = 'Drachten';
-
-		$payment->set_consumer_city( $city );
-
-		$this->assertEquals( $city, $payment->consumer_city );
 	}
 
 	/**
