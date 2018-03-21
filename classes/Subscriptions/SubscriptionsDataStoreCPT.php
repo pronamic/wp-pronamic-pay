@@ -10,8 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
-use DateTime;
+use DateTimeZone;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
+use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
@@ -75,7 +76,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 	public function read( $subscription ) {
 		$subscription->post    = get_post( $subscription->get_id() );
 		$subscription->title   = get_the_title( $subscription->get_id() );
-		$subscription->date    = new \DateTime( get_post_field( 'post_date_gmt', $subscription->get_id(), 'raw' ) );
+		$subscription->date    = new DateTime( get_post_field( 'post_date_gmt', $subscription->get_id(), 'raw' ), new DateTimeZone( 'UTC' ) );
 		$subscription->user_id = get_post_field( 'post_author', $subscription->get_id(), 'raw' );
 
 		$this->read_post_meta( $subscription );
@@ -193,11 +194,45 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 			}
 		}
 
-		$subscription->start_date     = $this->get_meta_date( $id, 'start_date' );
-		$subscription->expiry_date    = $this->get_meta_date( $id, 'expiry_date' );
-		$subscription->first_payment  = $this->get_meta_date( $id, 'first_payment' );
-		$subscription->next_payment   = $this->get_meta_date( $id, 'next_payment' );
-		$subscription->final_payment  = $this->get_meta_date( $id, 'final_payment' );
+		// Start Date.
+		$start_date = $this->get_meta_date( $id, 'start_date' );
+
+		if ( empty( $start_date ) ) {
+			// If no meta start date is set, use subscription date.
+			$start_date = clone $subscription->date;
+		}
+
+		$subscription->start_date = $start_date;
+
+		// Expiry Date.
+		$expiry_date = $this->get_meta_date( $id, 'expiry_date' );
+
+		if ( empty( $expiry_date ) ) {
+			// If no meta expiry date is set, use start date + 1 interval period.
+			$expiry_date = clone $start_date;
+
+			$expiry_date->add( $subscription->get_date_interval() );
+		}
+
+		$subscription->expiry_date = $expiry_date;
+
+		// First Payment Date.
+		$first_payment = $this->get_meta_date( $id, 'first_payment' );
+
+		if ( empty( $first_payment ) ) {
+			// If no meta first payment date is set, use subscription date.
+			$first_payment = clone $subscription->date;
+		}
+
+		$subscription->first_payment = $first_payment;
+
+		// Next Payment Date.
+		$subscription->next_payment = $this->get_meta_date( $id, 'next_payment' );
+
+		// Final Payment Date.
+		$subscription->final_payment = $this->get_meta_date( $id, 'final_payment' );
+
+		// Renewal Notice.
 		$subscription->renewal_notice = $this->get_meta_date( $id, 'renewal_notice' );
 	}
 

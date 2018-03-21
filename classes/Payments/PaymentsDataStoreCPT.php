@@ -10,7 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use DateTimeZone;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
+use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**
@@ -90,7 +92,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 	public function read( Payment $payment ) {
 		$payment->post    = get_post( $payment->get_id() );
 		$payment->title   = get_the_title( $payment->get_id() );
-		$payment->date    = new \DateTime( get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' ) );
+		$payment->date    = new DateTime( get_post_field( 'post_date_gmt', $payment->get_id(), 'raw' ), new DateTimeZone( 'UTC' ) );
 		$payment->user_id = get_post_field( 'post_author', $payment->get_id(), 'raw' );
 
 		$this->read_post_meta( $payment );

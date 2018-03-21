@@ -11,6 +11,7 @@
 namespace Pronamic\WordPress\Pay;
 
 use DateTimeInterface;
+use DateTimeZone;
 
 /**
  * Abstract Data Store Custom Post Type
@@ -63,6 +64,9 @@ abstract class AbstractDataStoreCPT {
 	 *
 	 * @param int    $id  Post ID.
 	 * @param string $key Key.
+	 *
+	 * @throws \Exception In case of an error.
+	 *
 	 * @return DateTime|null
 	 */
 	public function get_meta_date( $id, $key ) {
@@ -72,11 +76,7 @@ abstract class AbstractDataStoreCPT {
 			return null;
 		}
 
-		$date = date_create( $value );
-
-		if ( false === $date ) {
-			return null;
-		}
+		$date = new DateTime( $value, new DateTimeZone( 'UTC' ) );
 
 		return $date;
 	}

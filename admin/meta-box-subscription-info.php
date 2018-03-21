@@ -92,9 +92,11 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			$first_date = get_date_from_gmt( $subscription->get_first_payment_date()->format( 'Y-m-d H:i:s' ) );
+			$first_date = $subscription->get_first_payment_date();
 
-			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $first_date ) ) );
+			if ( $first_date ) {
+				echo esc_html( $first_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+			}
 
 			?>
 		</td>
@@ -109,11 +111,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$next_payment = $subscription->get_next_payment_date();
 
 			if ( $next_payment ) {
-				$next_date = get_date_from_gmt( $next_payment->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $next_date ) ) );
-			} else {
-				echo esc_html( __( 'None', 'pronamic_ideal' ) );
+				echo esc_html( $next_payment->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
 			}
 
 			?>
@@ -129,9 +127,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$final_payment = $subscription->get_final_payment_date();
 
 			if ( $final_payment ) {
-				$final_date = get_date_from_gmt( $final_payment->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $final_date ) ) );
+				echo esc_html( $final_payment->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
 			}
 
 			?>
@@ -148,14 +144,11 @@ $subscription = get_pronamic_subscription( $post_id );
 			$expiry_date = $subscription->get_expiry_date();
 
 			if ( $start_date && $expiry_date ) {
-				$start_date  = get_date_from_gmt( $start_date->format( 'Y-m-d H:i:s' ) );
-				$expiry_date = get_date_from_gmt( $expiry_date->format( 'Y-m-d H:i:s' ) );
-
 				echo esc_html(
 					sprintf(
 						'%s – %s',
-						date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ),
-						date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $expiry_date ) )
+						$start_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ),
+						$expiry_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) )
 					)
 				);
 			}

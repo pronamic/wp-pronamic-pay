@@ -654,27 +654,17 @@ class Subscription {
 	 * @param string $value A date value.
 	 */
 	public function set_start_date( $value ) {
-		$this->set_meta( 'start_date', $value );
+		$this->start_date = $value;
 	}
 
 	/**
 	 * Get the start date of this subscription.
 	 *
 	 * @todo Should we handle logic in this getter?
-	 * @return DateTime
+	 * @return DateTime|null
 	 */
 	public function get_start_date() {
-		$start_date = $this->get_meta( 'start_date' );
-
-		if ( '' !== $start_date ) {
-			return new DateTime( $start_date );
-		}
-
-		if ( Statuses::COMPLETED !== $this->get_status() ) {
-			return new DateTime( $this->post->post_date_gmt );
-		}
-
-		return null;
+		return $this->start_date;
 	}
 
 	/**
@@ -684,7 +674,7 @@ class Subscription {
 	 * @param string $value A date value.
 	 */
 	public function set_expiry_date( $value ) {
-		$this->set_meta( 'expiry_date', $value );
+		$this->expiry_date = $expiry_date;
 	}
 
 	/**
@@ -694,26 +684,7 @@ class Subscription {
 	 * @return DateTime
 	 */
 	public function get_expiry_date() {
-		$expiry_date = $this->get_meta( 'expiry_date' );
-
-		if ( '' !== $expiry_date ) {
-			return new DateTime( $expiry_date );
-		}
-
-		// If no meta expiry date is set, use start date + 1 interval period.
-		$start_date = $this->get_start_date();
-
-		if ( null === $start_date ) {
-			return null;
-		}
-
-		return $start_date->modify(
-			sprintf(
-				'+%d %s',
-				$this->get_interval(),
-				Util::to_interval_name( $this->get_interval_period() )
-			)
-		);
+		return $this->expiry_date;
 	}
 
 	/**
@@ -723,7 +694,7 @@ class Subscription {
 	 * @param string $value A date value.
 	 */
 	public function set_first_payment_date( $value ) {
-		$this->set_meta( 'first_payment', $value );
+		$this->first_payment = $value;
 	}
 
 	/**
@@ -733,13 +704,7 @@ class Subscription {
 	 * @return DateTime
 	 */
 	public function get_first_payment_date() {
-		$first_date = $this->get_meta( 'first_payment' );
-
-		if ( '' !== $first_date ) {
-			return new DateTime( $first_date );
-		}
-
-		return new DateTime( $this->post->post_date_gmt );
+		return $this->first_payment;
 	}
 
 	/**
@@ -812,6 +777,8 @@ class Subscription {
 	 * @return DateTime
 	 */
 	public function get_next_payment_date( $cycle = 0 ) {
+		return $this->next_payment;
+
 		// Meta next_payment, possibly doesn't exist if last payment has been processed.
 		$next_payment = $this->get_meta( 'next_payment' );
 
