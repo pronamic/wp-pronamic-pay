@@ -787,36 +787,6 @@ class Subscription {
 	}
 
 	/**
-	 * Refresh next payment date.
-	 *
-	 * @todo Should we handle logic like this in a private function?
-	 */
-	private function refresh_next_payment_date() {
-		if ( null !== $this->get_next_payment_date() ) {
-			// Only set next payment date if not set already.
-			return;
-		}
-
-		$expiry = $this->get_expiry_date();
-		$now    = new DateTime( 'now', new DateTimeZone( Plugin::TIMEZONE ) );
-
-		if ( $expiry > $now ) {
-			// Expiry date is in the future, use it.
-			$next_payment = $expiry;
-		} else {
-			$next_payment = $now;
-		}
-
-		$this->set_next_payment_date( $next_payment );
-
-		// Update renewal notice date.
-		$next_renewal = new DateTime( $next_payment->format( DateTime::ISO8601 ) );
-		$next_renewal->modify( '-1 week' );
-
-		$this->set_renewal_notice_date( $next_renewal );
-	}
-
-	/**
 	 * Set the renewal notice date of this subscription.
 	 *
 	 * @todo  Should we set meta directly?
