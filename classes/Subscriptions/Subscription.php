@@ -616,23 +616,6 @@ class Subscription {
 	}
 
 	/**
-	 * Check if this subscription has one successful payment.
-	 *
-	 * @return boolean True if one successful payment was found, false otherwise.
-	 */
-	public function has_valid_payment() {
-		$payments = $this->get_payments();
-
-		foreach ( $payments as $payment ) {
-			if ( Statuses::SUCCESS === $payment->get_status() ) {
-				return $payment;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get the first payment of this subscription.
 	 *
 	 * @return Payment
