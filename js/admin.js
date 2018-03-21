@@ -255,11 +255,11 @@
 
 			// Hide subscription options for unsupported payment methods.
 			if ( 1 === elements.paymentMethods.find( 'option:selected' ).data( 'is-recurring' ) ) {
-                $( '#pronamic-pay-test-subscription' ).parents( 'tr' ).show();
-            } else {
+				$( '#pronamic-pay-test-subscription' ).parents( 'tr' ).show();
+			} else {
 				$( '#pronamic-pay-test-subscription' ).parents( 'tr' ).hide();
 				$( '#pronamic-pay-test-subscription' ).prop( 'checked', false ).trigger( 'change' );
-            }
+			}
 		};
 
 		// Function calls
