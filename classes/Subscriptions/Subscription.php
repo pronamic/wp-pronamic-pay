@@ -707,6 +707,8 @@ class Subscription {
 	 * @return DateTime
 	 */
 	public function get_final_payment_date() {
+		return $this->final_payment;
+
 		$final = $this->get_meta( 'final_payment' );
 
 		if ( '' !== $final ) {
