@@ -506,12 +506,13 @@ class SubscriptionsModule {
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
+
 				break;
 			case Statuses::SUCCESS:
 				$subscription->set_status( Statuses::ACTIVE );
 
 				if ( isset( $subscription->expiry_date, $payment->end_date ) && $subscription->expiry_date < $payment->end_date ) {
-					$subscription->expiry_date = $payment->end_date;
+					$subscription->expiry_date = clone $payment->end_date;
 				}
 
 				break;
