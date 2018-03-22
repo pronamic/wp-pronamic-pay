@@ -148,18 +148,15 @@ class SubscriptionsModule {
 	 * @param boolean      $renewal      Flag for renewal payment.
 	 */
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
-		if ( empty( $subscription->next_payment ) ) {
-			$subscription->status = Statuses::COMPLETED;
-
-			$result = $this->plugin->subscriptions_data_store->update( $subscription );
-
-			// @todo
-			return;
-		}
-
-		if ( ! empty( $subscription->end_date ) && $subscription->end_date <= $subscription->next_payment ) {
+		// If next payment date is after the subscription end date unset the next payment date.
+		if ( isset( $subscription->end_date, $subscription->next_payment ) && $subscription->end_date <= $subscription->next_payment ) {
 			$subscription->next_payment = null;
-			$subscription->status       = Statuses::COMPLETED;
+		}
+
+		// If there is no next payment date change the subscription status to completed.
+		if ( empty( $subscription->next_payment ) ) {
+			$subscription->status      = Statuses::COMPLETED;
+			$subscription->expiry_date = $subscription->end_date;
 
 			$result = $this->plugin->subscriptions_data_store->update( $subscription );
 
@@ -167,7 +164,8 @@ class SubscriptionsModule {
 			return;
 		}
 
-		$start_date = $subscription->next_payment;
+		// Calculate payment start and end dates.
+		$start_date = clone $subscription->next_payment;
 
 		$end_date = clone $start_date;
 		$end_date->add( $subscription->get_date_interval() );
