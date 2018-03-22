@@ -226,6 +226,13 @@ class Subscription {
 	public $start_date;
 
 	/**
+	 * The date when this subscirption will end, can be `null`.
+	 *
+	 * @var DateTime|null
+	 */
+	public $end_date;
+
+	/**
 	 * The end date of the last succesfull payment.
 	 *
 	 * @var DateTime
@@ -627,7 +634,7 @@ class Subscription {
 	 * @return DateTime|null
 	 */
 	public function get_end_date() {
-		return $this->start_date;
+		return $this->end_date;
 	}
 
 	/**
@@ -636,7 +643,7 @@ class Subscription {
 	 * @param DateTime|null $date End date.
 	 */
 	public function set_end_date( DateTime $date ) {
-		$this->start_date = $date;
+		$this->end_date = $date;
 	}
 
 	/**

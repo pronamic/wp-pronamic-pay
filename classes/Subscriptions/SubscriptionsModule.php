@@ -157,7 +157,7 @@ class SubscriptionsModule {
 			return;
 		}
 
-		if ( ! empty( $subscription->final_payment ) && $subscription->final_payment <= $subscription->next_payment ) {
+		if ( ! empty( $subscription->end_date ) && $subscription->end_date <= $subscription->next_payment ) {
 			$subscription->next_payment = null;
 			$subscription->status       = Statuses::COMPLETED;
 
