@@ -309,17 +309,13 @@ class SubscriptionsModule {
 		// @see https://github.com/pronamic/wp-pronamic-ideal/blob/4.7.0/classes/Pronamic/WP/Pay/Plugin.php#L883-L964
 		$interval = $subscription->get_date_interval();
 
-		$start_date = $payment->date;
-
-		$expiry_date = $start_date;
+		$start_date  = clone $payment->date;
+		$expiry_date = clone $start_date;
 
 		$next_date = clone $start_date;
 		$next_date->add( $interval );
 
-		$notice_date = clone $next_date;
-		$notice_date->modify( '-1 week' );
-
-		$final_date = null;
+		$end_date = null;
 
 		if ( $subscription_data->frequency ) {
 			// @see https://stackoverflow.com/a/10818981/6411283
@@ -327,15 +323,13 @@ class SubscriptionsModule {
 
 			$dates = iterator_to_array( $period );
 
-			$final_date = end( $dates );
+			$end_date = end( $dates );
 		}
 
-		$subscription->start_date     = $start_date;
-		$subscription->expiry_date    = $expiry_date;
-		$subscription->first_payment  = $start_date;
-		$subscription->next_payment   = $next_date;
-		$subscription->final_payment  = $final_date;
-		$subscription->renewal_notice = $notice_date;
+		$subscription->start_date   = $start_date;
+		$subscription->end_date     = $end_date;
+		$subscription->expiry_date  = $expiry_date;
+		$subscription->next_payment = $next_date;
 
 		// Create.
 		$result = $this->plugin->subscriptions_data_store->create( $subscription );
@@ -360,7 +354,7 @@ class SubscriptionsModule {
 	 * @param DateTime $start_date The start date of the period to check for expiring subscriptions.
 	 * @param DateTime $end_date   The end date of the period to check for expiring subscriptions.
 	 * @return array
-	 */ 
+	 */
 	public function get_expiring_subscription_posts( DateTime $start_date, DateTime $end_date ) {
 		$args = array(
 			'post_type'   => 'pronamic_pay_subscr',
@@ -416,13 +410,13 @@ class SubscriptionsModule {
 			'meta_query'  => array(
 				array(
 					'key'     => '_pronamic_subscription_source',
-					'value'   => $sources,
 					'compare' => 'NOT IN',
+					'value'   => $sources,
 				),
 				array(
 					'key'     => '_pronamic_subscription_next_payment',
-					'value'   => current_time( 'mysql', true ),
 					'compare' => '<=',
+					'value'   => current_time( 'mysql', true ),
 					'type'    => 'DATETIME',
 				),
 			),
@@ -579,11 +573,11 @@ class SubscriptionsModule {
 			'meta_query'  => array(
 				array(
 					'key'     => '_pronamic_subscription_source',
+					'compare' => 'NOT IN',
 					'value'   => array(
 						// Don't create payments for sources which schedule payments.
 						'woocommerce',
 					),
-					'compare' => 'NOT IN',
 				),
 			),
 		);
