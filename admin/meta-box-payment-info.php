@@ -72,6 +72,14 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php edit_post_link( get_the_title( $payment->config_id ), '', '', $payment->config_id ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
