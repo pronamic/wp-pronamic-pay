@@ -493,20 +493,16 @@ class SubscriptionsModule {
 			return;
 		}
 
-		if ( Statuses::CANCELLED === $subscription->get_status() ) {
-			// If subscritpion is cancelled never change the subscription status.
-			return;
-		}
-
 		// Status.
 		$status_before = $subscription->get_status();
+		$status_update = $status_before;
 
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
 				break;
 			case Statuses::SUCCESS:
-				$subscription->set_status( Statuses::ACTIVE );
+				$status_update = Statuses::ACTIVE;
 
 				if ( isset( $subscription->expiry_date, $payment->end_date ) && $subscription->expiry_date < $payment->end_date ) {
 					$subscription->expiry_date = clone $payment->end_date;
@@ -514,27 +510,24 @@ class SubscriptionsModule {
 
 				break;
 			case Statuses::FAILURE:
-				$subscription->set_status( Statuses::CANCELLED );
-
-				break;
 			case Statuses::CANCELLED:
-				$subscription->set_status( Statuses::CANCELLED );
-
-				break;
 			case Statuses::EXPIRED:
-				$subscription->set_status( Statuses::CANCELLED );
+				$status_update = Statuses::CANCELLED;
 
 				break;
 		}
 
-		$status_after = $subscription->get_status();
+		// The status of canceled or completed subscriptions will not be changed automatically.
+		if ( ! in_array( $status_before, array( Statuses::CANCELLED, Statuses::COMPLETED ), true ) ) {
+			$subscription->set_status( $status_update );
 
-		if ( $status_before !== $status_after ) {
-			$subscription->add_note( sprintf(
-				__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
-				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_before ) ),
-				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_after ) )
-			) );
+			if ( $status_before !== $status_update ) {
+				$subscription->add_note( sprintf(
+					__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
+					esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_before ) ),
+					esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_update ) )
+				) );
+			}
 		}
 
 		// Update.
