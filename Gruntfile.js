@@ -255,7 +255,7 @@ module.exports = function( grunt ) {
 					'!tests/**',
 					'!vendor/**',
 					'!wordpress/**',
-					'!wp-content/**',
+					'!wp-content/**'
 				],
 				dest: 'deploy/latest/'
 			},
