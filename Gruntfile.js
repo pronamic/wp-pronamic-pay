@@ -104,6 +104,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
+					'!wordpress/**',
 					'!wp-content/**'
 				],
 				expand: true
@@ -140,7 +141,6 @@ module.exports = function( grunt ) {
 
 		// Shell
 		shell: {
-
 			// Check versions
 			check_versions: {
 				command: 'php src/check-versions.php'
@@ -238,6 +238,7 @@ module.exports = function( grunt ) {
 					'!Gruntfile.js',
 					'!package.json',
 					'!package-lock.json',
+					'!phpdoc.dist.xml',
 					'!phpunit.xml',
 					'!phpunit.xml.dist',
 					'!phpcs.xml.dist',
@@ -253,7 +254,8 @@ module.exports = function( grunt ) {
 					'!src/**',
 					'!tests/**',
 					'!vendor/**',
-					'!wp-content/**'
+					'!wordpress/**',
+					'!wp-content/**',
 				],
 				dest: 'deploy/latest/'
 			},
