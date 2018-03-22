@@ -10,9 +10,6 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use DateTimeInterface;
-use DateTimeZone;
-
 /**
  * Abstract Data Store Custom Post Type
  *
@@ -93,8 +90,8 @@ abstract class AbstractDataStoreCPT {
 			return false;
 		}
 
-		if ( $value instanceof DateTimeInterface ) {
-			$value = $value->format( 'Y-m-d H:i:s' );
+		if ( $value instanceof \DateTime ) {
+			$value = $value->format( DateTime::MYSQL );
 		}
 
 		$meta_key = $this->get_meta_key( $key );
