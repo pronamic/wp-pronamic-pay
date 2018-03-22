@@ -67,7 +67,7 @@ class GatewayIntegrations {
 		$abn_amro_internetkassa->provider      = 'abnamro';
 
 		// ABN AMRO - iDEAL Zelfbouw (v3).
-		$abn_amro_ideal_zelfbouw_v3 = new Gateways\IDeal_Advanced_V3\Integration();
+		$abn_amro_ideal_zelfbouw_v3 = new Gateways\IDealAdvancedV3\Integration();
 		$abn_amro_ideal_zelfbouw_v3->set_id( 'abnamro-ideal-zelfbouw-v3' );
 		$abn_amro_ideal_zelfbouw_v3->set_name( 'ABN AMRO - iDEAL Zelfbouw (v3)' );
 		$abn_amro_ideal_zelfbouw_v3->url           = 'https://abnamro.ideal-payment.de/';
@@ -86,7 +86,7 @@ class GatewayIntegrations {
 		$deutsche_bank_ideal_ogone->provider    = 'deutschebank';
 
 		// Deutsche Bank - iDEAL Expert (v3).
-		$deutsche_bank_ideal_expert_v3 = new Gateways\IDeal_Advanced_V3\Integration();
+		$deutsche_bank_ideal_expert_v3 = new Gateways\IDealAdvancedV3\Integration();
 		$deutsche_bank_ideal_expert_v3->set_id( 'deutschebank-ideal-expert-v3' );
 		$deutsche_bank_ideal_expert_v3->set_name( 'Deutsche Bank - iDEAL Expert (v3)' );
 		$deutsche_bank_ideal_expert_v3->product_url   = 'https://www.deutschebank.nl/nl/content/producten_en_services_commercial_banking_cash_management_betalen_ideal.html';
@@ -104,20 +104,20 @@ class GatewayIntegrations {
 		$fibonacci_orange->provider    = 'fibonacciorange';
 
 		// iDEAL Simulator - iDEAL Lite / Basic.
-		$ideal_simulator_ideal_basic = new Gateways\IDeal_Basic\Integration();
+		$ideal_simulator_ideal_basic = new Gateways\IDealBasic\Integration();
 		$ideal_simulator_ideal_basic->set_id( 'ideal-simulator-ideal-basic' );
 		$ideal_simulator_ideal_basic->set_name( 'iDEAL Simulator - iDEAL Lite / Basic' );
 		$ideal_simulator_ideal_basic->provider = 'ideal-simulator';
 
 		// iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3).
-		$ideal_simulator_ideal_advanced_v3 = new Gateways\IDeal_Advanced_V3\Integration();
+		$ideal_simulator_ideal_advanced_v3 = new Gateways\IDealAdvancedV3\Integration();
 		$ideal_simulator_ideal_advanced_v3->set_id( 'ideal-simulator-ideal-advanced-v3' );
 		$ideal_simulator_ideal_advanced_v3->set_name( 'iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw (v3)' );
 		$ideal_simulator_ideal_advanced_v3->provider    = 'ideal-simulator';
 		$ideal_simulator_ideal_advanced_v3->product_url = 'https://www.ideal-checkout.nl/support/ideal-simulator';
 
 		// ING - iDEAL Basic.
-		$ing_ideal_basic = new Gateways\IDeal_Basic\Integration();
+		$ing_ideal_basic = new Gateways\IDealBasic\Integration();
 		$ing_ideal_basic->set_id( 'ing-ideal-basic' );
 		$ing_ideal_basic->set_name( 'ING - iDEAL Basic' );
 		$ing_ideal_basic->provider      = 'ing';
@@ -128,7 +128,7 @@ class GatewayIntegrations {
 		);
 
 		// ING - iDEAL Advanced (v3).
-		$ing_ideal_advanced_v3 = new Gateways\IDeal_Advanced_V3\Integration();
+		$ing_ideal_advanced_v3 = new Gateways\IDealAdvancedV3\Integration();
 		$ing_ideal_advanced_v3->set_id( 'ing-ideal-advanced-v3' );
 		$ing_ideal_advanced_v3->set_name( 'ING - iDEAL Advanced (v3)' );
 		$ing_ideal_advanced_v3->provider      = 'ing';
@@ -139,7 +139,7 @@ class GatewayIntegrations {
 		);
 
 		// Mollie - iDEAL Basic.
-		$mollie_ideal_basic = new Gateways\IDeal_Basic\Integration();
+		$mollie_ideal_basic = new Gateways\IDealBasic\Integration();
 		$mollie_ideal_basic->set_id( 'mollie-ideal-basic' );
 		$mollie_ideal_basic->set_name( 'Mollie - iDEAL Basic' );
 		$mollie_ideal_basic->dashboard_url = 'http://www.mollie.nl/beheer/';
@@ -155,7 +155,7 @@ class GatewayIntegrations {
 		$paytor->provider    = 'paytor';
 
 		// Postcode iDEAL.
-		$postcode_ideal = new Gateways\IDeal_Advanced_V3\Integration();
+		$postcode_ideal = new Gateways\IDealAdvancedV3\Integration();
 		$postcode_ideal->set_id( 'postcode-ideal' );
 		$postcode_ideal->set_name( 'Postcode iDEAL' );
 		$postcode_ideal->provider      = 'postcode.nl';
@@ -172,7 +172,7 @@ class GatewayIntegrations {
 		$qantani_mollie->provider      = 'qantani';
 
 		// Rabobank - iDEAL Professional (v3).
-		$rabobank_ideal_professional_v3 = new Gateways\IDeal_Advanced_V3\Integration();
+		$rabobank_ideal_professional_v3 = new Gateways\IDealAdvancedV3\Integration();
 		$rabobank_ideal_professional_v3->set_id( 'rabobank-ideal-professional-v3' );
 		$rabobank_ideal_professional_v3->set_name( 'Rabobank - iDEAL Professional (v3)' );
 		$rabobank_ideal_professional_v3->provider      = 'rabobank';
@@ -183,7 +183,7 @@ class GatewayIntegrations {
 		);
 
 		// Sisow - iDEAL Basic.
-		$sisow_ideal_basic = new Gateways\IDeal_Basic\Integration();
+		$sisow_ideal_basic = new Gateways\IDealBasic\Integration();
 		$sisow_ideal_basic->set_id( 'sisow-ideal-basic' );
 		$sisow_ideal_basic->set_name( 'Sisow - iDEAL Basic' );
 		$sisow_ideal_basic->url           = 'https://www.sisow.nl/';
