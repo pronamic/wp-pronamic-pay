@@ -285,8 +285,10 @@ class Plugin {
 			}
 		}
 
+		// Update payment in data store.
 		pronamic_pay_plugin()->payments_data_store->update( $payment );
 
+		// Maybe redirect.
 		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) ) {
 			$can_redirect = false;
 		}
