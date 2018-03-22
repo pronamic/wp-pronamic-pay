@@ -135,26 +135,15 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'Current period', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Expiry Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$start_date  = $subscription->get_start_date();
 			$expiry_date = $subscription->get_expiry_date();
 
-			if ( $start_date && $expiry_date ) {
-				echo esc_html(
-					sprintf(
-						'%s – %s',
-						$start_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ),
-						$expiry_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) )
-					)
-				);
-			}
-
-			if ( Statuses::COMPLETED === $subscription->get_status() ) {
-				echo esc_html( sprintf( __( 'None (subscription completed)', 'pronamic_ideal' ) ) );
+			if ( $expiry_date ) {
+				echo esc_html( $expiry_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
 			}
 
 			?>
