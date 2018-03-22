@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-03-22 08:42:13+00:00\n"
+"POT-Creation-Date: 2018-03-22 10:26:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,8 +13,9 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: admin/meta-box-form-options.php:18 admin/tab-gateways.php:26
-#: classes/Admin/PaymentPostType.php:165 classes/Forms/FormPostType.php:132
+#: admin/meta-box-form-options.php:18 admin/meta-box-payment-info.php:75
+#: admin/meta-box-subscription-info.php:51 admin/tab-gateways.php:26
+#: classes/Admin/PaymentPostType.php:167 classes/Forms/FormPostType.php:132
 msgid "Gateway"
 msgstr ""
 
@@ -29,10 +30,10 @@ msgstr ""
 #: admin/meta-box-form-options.php:51 admin/meta-box-gateway-test.php:97
 #: admin/meta-box-payment-info.php:52
 #: admin/meta-box-payment-subscription.php:44
-#: admin/meta-box-subscription-info.php:59
+#: admin/meta-box-subscription-info.php:67
 #: admin/meta-box-subscription-payments.php:39
-#: classes/Admin/PaymentPostType.php:168
-#: classes/Admin/SubscriptionPostType.php:83 templates/form.php:44
+#: classes/Admin/PaymentPostType.php:170
+#: classes/Admin/SubscriptionPostType.php:85 templates/form.php:44
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:22
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:243
@@ -74,8 +75,8 @@ msgstr ""
 msgid "Product information"
 msgstr ""
 
-#: admin/meta-box-gateway-test.php:57 admin/meta-box-payment-info.php:75
-#: admin/meta-box-subscription-info.php:51
+#: admin/meta-box-gateway-test.php:57 admin/meta-box-payment-info.php:83
+#: admin/meta-box-subscription-info.php:59
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:260
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:273
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:143
@@ -125,10 +126,10 @@ msgstr ""
 
 #: admin/meta-box-gateway-test.php:129
 #: admin/meta-box-payment-subscription.php:28
-#: classes/Admin/PaymentPostType.php:160 classes/Admin/PaymentPostType.php:161
-#: classes/Admin/PaymentPostType.php:376
-#: classes/Admin/SubscriptionPostType.php:81
-#: classes/Admin/SubscriptionPostType.php:259
+#: classes/Admin/PaymentPostType.php:162 classes/Admin/PaymentPostType.php:163
+#: classes/Admin/PaymentPostType.php:378
+#: classes/Admin/SubscriptionPostType.php:83
+#: classes/Admin/SubscriptionPostType.php:261
 #: classes/Subscriptions/SubscriptionPostType.php:50
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:63
 msgid "Subscription"
@@ -191,8 +192,8 @@ msgstr ""
 #: admin/meta-box-subscription-info.php:27
 #: admin/meta-box-subscription-payments.php:40 admin/tab-documentation.php:620
 #: admin/tab-system_status.php:399 classes/Admin/GatewayPostType.php:67
-#: classes/Admin/PaymentPostType.php:169
-#: classes/Admin/SubscriptionPostType.php:85 classes/Forms/FormPostType.php:136
+#: classes/Admin/PaymentPostType.php:171
+#: classes/Admin/SubscriptionPostType.php:87 classes/Forms/FormPostType.php:136
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:51
 msgid "Date"
 msgstr ""
@@ -212,14 +213,13 @@ msgid "Y/m/d"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:31 admin/meta-box-subscription-info.php:30
-#: admin/meta-box-subscription-info.php:98
-#: admin/meta-box-subscription-info.php:114
-#: admin/meta-box-subscription-info.php:130
-#: admin/meta-box-subscription-info.php:150
-#: admin/meta-box-subscription-info.php:151
+#: admin/meta-box-subscription-info.php:106
+#: admin/meta-box-subscription-info.php:122
+#: admin/meta-box-subscription-info.php:138
+#: admin/meta-box-subscription-info.php:154
 #: admin/meta-box-subscription-payments.php:81
 #: admin/meta-box-subscription-payments.php:94
-#: classes/Subscriptions/Subscription.php:702
+#: classes/Subscriptions/Subscription.php:707
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr ""
 #: admin/meta-box-payment-info.php:44
 #: admin/meta-box-payment-subscription.php:36
 #: admin/meta-box-subscription-info.php:43
-#: classes/Admin/PaymentPostType.php:166
+#: classes/Admin/PaymentPostType.php:168
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:154
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:114
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:142
@@ -242,79 +242,79 @@ msgstr ""
 msgid "Transaction ID"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:97
+#: admin/meta-box-payment-info.php:105
 msgid "Action URL"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:115
+#: admin/meta-box-payment-info.php:123
 msgid "Return URL"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:133
+#: admin/meta-box-payment-info.php:141
 msgid "Redirect URL"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:151
+#: admin/meta-box-payment-info.php:159
 #: admin/meta-box-subscription-payments.php:35
-#: classes/Admin/PaymentPostType.php:155 classes/Admin/PaymentPostType.php:156
-#: classes/Admin/SubscriptionPostType.php:78
-#: classes/Admin/SubscriptionPostType.php:79
+#: classes/Admin/PaymentPostType.php:157 classes/Admin/PaymentPostType.php:158
+#: classes/Admin/SubscriptionPostType.php:80
+#: classes/Admin/SubscriptionPostType.php:81
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:240
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:246
 msgid "Status"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:169 templates/form.php:106
+#: admin/meta-box-payment-info.php:177 templates/form.php:106
 #: templates/form.php:109
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:677
 msgid "First Name"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:181 templates/form.php:114
+#: admin/meta-box-payment-info.php:189 templates/form.php:114
 #: templates/form.php:117
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:678
 msgid "Last Name"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:193
+#: admin/meta-box-payment-info.php:201
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:686
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:139
 msgid "Email"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:205 admin/meta-box-subscription-info.php:165
+#: admin/meta-box-payment-info.php:213 admin/meta-box-subscription-info.php:162
 msgid "Consumer"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:223
+#: admin/meta-box-payment-info.php:231
 #: admin/meta-box-payment-subscription.php:75
-#: admin/meta-box-subscription-info.php:181
+#: admin/meta-box-subscription-info.php:178
 msgid "Source"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:238 admin/meta-box-subscription-info.php:206
+#: admin/meta-box-payment-info.php:246 admin/meta-box-subscription-info.php:203
 msgid "Period"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:246 admin/meta-box-subscription-info.php:214
+#: admin/meta-box-payment-info.php:254 admin/meta-box-subscription-info.php:211
 msgid "Level"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:259
+#: admin/meta-box-payment-info.php:267
 #: vendor/wp-pay-gateways/ideal/src/Settings.php:84
 msgid "Purchase ID"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:267
+#: admin/meta-box-payment-info.php:275
 msgid "Session ID"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:280
+#: admin/meta-box-payment-info.php:288
 msgid "User ID"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:288
+#: admin/meta-box-payment-info.php:296
 msgid "Subscription ID"
 msgstr ""
 
@@ -328,32 +328,28 @@ msgstr ""
 
 #: admin/meta-box-payment-update.php:75
 #: admin/meta-box-subscription-update.php:43
-#: classes/Admin/PaymentPostType.php:394
-#: classes/Admin/SubscriptionPostType.php:286
+#: classes/Admin/PaymentPostType.php:396
+#: classes/Admin/SubscriptionPostType.php:288
 msgid "Update"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:90
+#: admin/meta-box-subscription-info.php:98
 #: admin/meta-box-subscription-payments.php:41
 msgid "Start Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:106
+#: admin/meta-box-subscription-info.php:114
 #: admin/meta-box-subscription-payments.php:42
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:248
 msgid "End Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:122
+#: admin/meta-box-subscription-info.php:130
 msgid "Next Payment Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:138
-msgid "Current period"
-msgstr ""
-
-#: admin/meta-box-subscription-info.php:157
-msgid "None (subscription completed)"
+#: admin/meta-box-subscription-info.php:146
+msgid "Expiry Date"
 msgstr ""
 
 #: admin/meta-box-subscription-payments.php:27
@@ -362,14 +358,14 @@ msgid "No payments found."
 msgstr ""
 
 #: admin/meta-box-subscription-payments.php:37
-#: classes/Admin/PaymentPostType.php:163 classes/Admin/PaymentPostType.php:367
+#: classes/Admin/PaymentPostType.php:165 classes/Admin/PaymentPostType.php:369
 #: classes/Payments/PaymentPostType.php:51
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
 msgid "Payment"
 msgstr ""
 
 #: admin/meta-box-subscription-payments.php:38
-#: classes/Admin/PaymentPostType.php:164
+#: classes/Admin/PaymentPostType.php:166
 msgid "Transaction"
 msgstr ""
 
@@ -583,7 +579,7 @@ msgid ""
 msgstr ""
 
 #: admin/pointer-payments.php:12 classes/Admin/AdminModule.php:479
-#: classes/Admin/AdminModule.php:480 classes/Admin/SubscriptionPostType.php:268
+#: classes/Admin/AdminModule.php:480 classes/Admin/SubscriptionPostType.php:270
 #: classes/Forms/FormPostType.php:133 classes/Payments/PaymentPostType.php:48
 #: classes/Payments/PaymentPostType.php:50
 #: classes/Payments/PaymentPostType.php:61
@@ -1346,7 +1342,7 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: classes/Admin/GatewayPostType.php:359 classes/Admin/PaymentPostType.php:536
+#: classes/Admin/GatewayPostType.php:359 classes/Admin/PaymentPostType.php:532
 msgid "M j, Y @ H:i"
 msgstr ""
 
@@ -1413,74 +1409,74 @@ msgstr[1] ""
 msgid "Requesting the current payment status is unsupported by %s."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:114
+#: classes/Admin/PaymentPostType.php:116
 msgid "Payment status updated."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:167
-#: classes/Admin/SubscriptionPostType.php:82
+#: classes/Admin/PaymentPostType.php:169
+#: classes/Admin/SubscriptionPostType.php:84
 msgid "Customer"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:215
-#: classes/Admin/SubscriptionPostType.php:117 classes/Plugin.php:965
+#: classes/Admin/PaymentPostType.php:217
+#: classes/Admin/SubscriptionPostType.php:119 classes/Plugin.php:965
 msgid "Unknown"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:239
+#: classes/Admin/PaymentPostType.php:241
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:83
 msgid "Recurring payment"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:245
+#: classes/Admin/PaymentPostType.php:247
 msgid "First of recurring payment"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:277
-#: classes/Admin/SubscriptionPostType.php:156
+#: classes/Admin/PaymentPostType.php:279
+#: classes/Admin/SubscriptionPostType.php:158
 msgid "%1$s for %2$s %3$s"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:334
-#: classes/Admin/SubscriptionPostType.php:215
+#: classes/Admin/PaymentPostType.php:336
+#: classes/Admin/SubscriptionPostType.php:217
 msgid "D j M Y \\a\\t H:i"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:385
-#: classes/Admin/SubscriptionPostType.php:277
+#: classes/Admin/PaymentPostType.php:387
+#: classes/Admin/SubscriptionPostType.php:279
 msgid "Notes"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:540 classes/Admin/PaymentPostType.php:546
+#: classes/Admin/PaymentPostType.php:536 classes/Admin/PaymentPostType.php:542
 msgid "Payment updated."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:549
+#: classes/Admin/PaymentPostType.php:545
 #. translators: %s: date and time of the revision
 msgid "Payment restored to revision from %s."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:551
+#: classes/Admin/PaymentPostType.php:547
 msgid "Payment published."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:553
+#: classes/Admin/PaymentPostType.php:549
 msgid "Payment saved."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:555
+#: classes/Admin/PaymentPostType.php:551
 msgid "Payment submitted."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:557
+#: classes/Admin/PaymentPostType.php:553
 msgid "Payment scheduled for: %s."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:559
+#: classes/Admin/PaymentPostType.php:555
 msgid "Payment draft updated."
 msgstr ""
 
-#: classes/Admin/SubscriptionPostType.php:84
+#: classes/Admin/SubscriptionPostType.php:86
 msgid "Recurrence"
 msgstr ""
 
@@ -1770,7 +1766,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: classes/Subscriptions/Subscription.php:693
+#: classes/Subscriptions/Subscription.php:698
 msgid "Subscription changed"
 msgstr ""
 
@@ -1828,7 +1824,7 @@ msgstr[1] ""
 msgid "Subscription for %s"
 msgstr ""
 
-#: classes/Subscriptions/SubscriptionsModule.php:588
+#: classes/Subscriptions/SubscriptionsModule.php:548
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr ""
 
@@ -2667,7 +2663,7 @@ msgid "— Select a form —"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:108
-msgid "Gateway configuration, created via <strong>iDEAL » Configurations</strong>."
+msgid "Gateway configuration, created via <strong>Pay » Configurations</strong>."
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:130
@@ -4615,13 +4611,13 @@ msgid "https://www.pronamic.eu/"
 msgstr ""
 
 #: admin/meta-box-payment-subscription.php:59
-#: admin/meta-box-subscription-info.php:74
+#: admin/meta-box-subscription-info.php:82
 msgctxt "Recurring payment"
 msgid "Interval"
 msgstr ""
 
 #: admin/meta-box-payment-subscription.php:67
-#: admin/meta-box-subscription-info.php:82
+#: admin/meta-box-subscription-info.php:90
 msgctxt "Recurring payment"
 msgid "Frequency"
 msgstr ""
@@ -4726,7 +4722,7 @@ msgctxt "Subscription status"
 msgid "Completed"
 msgstr ""
 
-#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:48
+#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:49
 msgctxt "Subscription title date format parsed by `date_i18n`."
 msgid "@todo"
 msgstr ""
