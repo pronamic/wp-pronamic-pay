@@ -285,9 +285,7 @@ class Plugin {
 			}
 		}
 
-		global $pronamic_ideal;
-
-		$pronamic_ideal->payments_data_store->update( $payment );
+		pronamic_pay_plugin()->payments_data_store->update( $payment );
 
 		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) ) {
 			$can_redirect = false;
