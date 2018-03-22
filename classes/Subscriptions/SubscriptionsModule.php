@@ -495,14 +495,6 @@ class SubscriptionsModule {
 			return;
 		}
 
-		if ( empty( $payment->start_date ) ) {
-			return;
-		}
-
-		if ( empty( $payment->end_date ) ) {
-			return;
-		}
-
 		if ( Statuses::CANCELLED === $subscription->get_status() ) {
 			// If subscritpion is cancelled never change the subscription status.
 			return;
@@ -518,7 +510,7 @@ class SubscriptionsModule {
 			case Statuses::SUCCESS:
 				$subscription->set_status( Statuses::ACTIVE );
 
-				if ( $subscription->expiry_date < $payment->end_date ) {
+				if ( isset( $subscription->expiry_date, $payment->end_date ) && $subscription->expiry_date < $payment->end_date ) {
 					$subscription->expiry_date = $payment->end_date;
 				}
 
