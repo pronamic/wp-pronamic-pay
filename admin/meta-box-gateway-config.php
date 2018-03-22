@@ -209,7 +209,7 @@ bind_providers_and_gateways();
 
 							<?php if ( 'html' !== $field['type'] ) { ?>
 
-							<th scope="col">
+							<th scope="row">
 								<label for="<?php echo esc_attr( $id ); ?>">
 									<?php echo esc_html( $field['title'] ); ?>
 								</label>
