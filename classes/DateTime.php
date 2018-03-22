@@ -20,6 +20,16 @@ namespace Pronamic\WordPress\Pay;
  */
 class DateTime extends \DateTime {
 	/**
+	 * MySQL datetime foramt.
+	 *
+	 * @see https://dev.mysql.com/doc/en/datetime.html
+	 * @see https://github.com/Rarst/wpdatetime/blob/0.3/src/WpDateTime.php#L10
+	 *
+	 * @var string
+	 */
+	const MYSQL = 'Y-m-d H:i:s';
+
+	/**
 	 * Date I18N.
 	 *
 	 * @see https://github.com/Rarst/wpdatetime/blob/0.3/src/WpDateTimeTrait.php#L79-L104
