@@ -525,10 +525,6 @@ class SubscriptionsModule {
 				$subscription->set_status( Statuses::CANCELLED );
 
 				break;
-			case Statuses::COMPLETED:
-				$subscription->set_status( Statuses::COMPLETED );
-
-				break;
 		}
 
 		$status_after = $subscription->get_status();
