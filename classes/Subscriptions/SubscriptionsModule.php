@@ -506,7 +506,6 @@ class SubscriptionsModule {
 		switch ( $payment->get_status() ) {
 			case Statuses::OPEN:
 				// @todo
-
 				break;
 			case Statuses::SUCCESS:
 				$subscription->set_status( Statuses::ACTIVE );
