@@ -10,6 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Payments\Payment;
+
 /**
  * WordPress admin payment post type
  *
@@ -505,18 +507,12 @@ class PaymentPostType {
 				&&
 			'pronamic_payment' === get_post_type( $post )
 		) {
-			$can_redirect = false;
-
-			$old_status_meta = $this->translate_post_status_to_meta_status( $old_status );
 			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
 
-			update_post_meta( $post->ID, '_pronamic_payment_status', $new_status_meta );
+			$payment = new Payment( $post->ID );
+			$payment->set_status( $new_status_meta );
 
-			$payment = get_pronamic_payment( $post->ID );
-
-			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $payment, $can_redirect );
-			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+			pronamic_pay_plugin()->payments_data_store->update_meta_status( $payment );
 		}
 	}
 

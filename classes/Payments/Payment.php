@@ -366,9 +366,7 @@ class Payment {
 		$this->meta = array();
 
 		if ( null !== $post_id ) {
-			global $pronamic_ideal;
-
-			$pronamic_ideal->payments_data_store->read( $this );
+			pronamic_pay_plugin()->payments_data_store->read( $this );
 		}
 	}
 

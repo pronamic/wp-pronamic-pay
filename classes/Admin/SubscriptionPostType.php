@@ -10,6 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+
 /**
  * WordPress admin subscription post type
  *
@@ -393,28 +395,12 @@ class SubscriptionPostType {
 			&&
 			'pronamic_pay_subscr' === get_post_type( $post )
 		) {
-			$can_redirect = false;
-
-			$old_status_meta = $this->translate_post_status_to_meta_status( $old_status );
 			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
 
-			$subscription = get_pronamic_subscription( $post->ID );
+			$subscription = new Subscription( $post->ID );
+			$subscription->set_status( $new_status_meta );
 
-			// Update subscription status.
-			remove_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
-
-			$can_redirect = false;
-
-			$subscription->update_status( $new_status_meta );
-
-			\Pronamic\WordPress\Pay\Plugin::update_subscription( $subscription, $can_redirect );
-
-			add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
-
-			// Do subscription status update actions.
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $old_status_meta ) . '_to_' . strtolower( $new_status_meta ), $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
+			pronamic_pay_plugin()->subscriptions_data_store->update_meta_status( $subscription );
 		}
 	}
 }

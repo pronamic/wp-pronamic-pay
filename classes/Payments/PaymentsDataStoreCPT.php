@@ -195,10 +195,6 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 	private function update_post_meta( $payment ) {
 		$id = $payment->get_id();
 
-		$previous_status = $this->get_meta( $id, 'status' );
-		$previous_status = strtolower( $previous_status );
-		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
-
 		$this->update_meta( $id, 'config_id', $payment->config_id );
 		$this->update_meta( $id, 'key', $payment->key );
 		$this->update_meta( $id, 'order_id', $payment->order_id );
@@ -218,7 +214,6 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'consumer_iban', $payment->consumer_iban );
 		$this->update_meta( $id, 'consumer_bic', $payment->consumer_bic );
 		$this->update_meta( $id, 'consumer_city', $payment->consumer_city );
-		$this->update_meta( $id, 'status', $payment->status );
 		$this->update_meta( $id, 'source', $payment->source );
 		$this->update_meta( $id, 'source_id', $payment->source_id );
 		$this->update_meta( $id, 'email', $payment->email );
@@ -236,6 +231,23 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'action_url', $payment->get_action_url() );
 		$this->update_meta( $id, 'start_date', $payment->start_date );
 		$this->update_meta( $id, 'end_date', $payment->end_date );
+
+		$this->update_meta_status( $payment );
+	}
+
+	/**
+	 * Update meta status.
+	 *
+	 * @param Payment $payment The payment to update the status for.
+	 */
+	public function update_meta_status( $payment ) {
+		$id = $payment->get_id();
+
+		$previous_status = $this->get_meta( $id, 'status' );
+		$previous_status = strtolower( $previous_status );
+		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
+
+		$this->update_meta( $id, 'status', $payment->status );
 
 		if ( $previous_status !== $payment->status ) {
 			$can_redirect = false;

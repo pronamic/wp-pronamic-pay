@@ -352,6 +352,46 @@ class SubscriptionsModule {
 	}
 
 	/**
+	 * Get expiring subscriptions.
+	 *
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L715-L746
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L652-L712
+	 *
+	 * @param DateTime $start_date The start date of the period to check for expiring subscriptions.
+	 * @param DateTime $end_date   The end date of the period to check for expiring subscriptions.
+	 * @return array
+	 */ 
+	public function get_expiring_subscription_posts( DateTime $start_date, DateTime $end_date ) {
+		$args = array(
+			'post_type'   => 'pronamic_pay_subscr',
+			'nopaging'    => true,
+			'orderby'     => 'post_date',
+			'order'       => 'ASC',
+			'post_status' => array(
+				'subscr_pending',
+				'subscr_expired',
+				'subscr_failed',
+				'subscr_active',
+			),
+			'meta_query'  => array(
+				array(
+					'key'     => '_pronamic_subscription_expiry_date',
+					'value'   => array(
+						$start_date->format( DateTime::MYSQL ),
+						$end_date->format( DateTime::MYSQL ),
+					),
+					'compare' => 'BETWEEN',
+					'type'    => 'DATETIME',
+				),
+			),
+		);
+
+		$query = new WP_Query( $args );
+
+		return $query->posts;
+	}
+
+	/**
 	 * Update subscription payments.
 	 */
 	public function update_subscription_payments() {
@@ -405,52 +445,45 @@ class SubscriptionsModule {
 
 	/**
 	 * Send renewal notices.
+	 *
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L652-L712
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L715-L746
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/classes/class-sl-emails.php#L41-L126
 	 */
 	public function send_subscription_renewal_notices() {
-		$args = array(
-			'post_type'   => 'pronamic_pay_subscr',
-			'nopaging'    => true,
-			'orderby'     => 'post_date',
-			'order'       => 'ASC',
-			'post_status' => array(
-				'subscr_pending',
-				'subscr_expired',
-				'subscr_failed',
-				'subscr_active',
-			),
-			'meta_query'  => array(
-				array(
-					'key'     => '_pronamic_subscription_renewal_notice',
-					'value'   => current_time( 'mysql', true ),
-					'compare' => '<=',
-					'type'    => 'DATETIME',
-				),
-			),
-		);
+		$interval = new DateInterval( 'P1W' ); // 1 week
 
-		$query = new WP_Query( $args );
+		$start_date = new DateTime( 'midnight', new DateTimeZone( 'UTC' ) );
 
-		foreach ( $query->posts as $post ) {
+		$end_date = clone $start_date;
+		$end_date->add( $interval );
+
+		$expiring_subscription_posts = $this->get_expiring_subscription_posts( $start_date, $end_date );
+
+		foreach ( $expiring_subscription_posts as $post ) {
 			$subscription = new Subscription( $post->ID );
+
+			$expiry_date = $subscription->get_expiry_date();
+
+			$sent_date_string = get_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', true );
+
+			if ( $sent_date_string ) {
+				$first_date = clone $expiry_date;
+				$first_date->sub( $interval );
+
+				$sent_date = new DateTime( $sent_date_string, new DateTimeZone( 'UTC' ) );
+
+				if ( $sent_date > $first_date ) {
+					// Prevent renewal notices from being sent more than once.
+					continue;
+				}
+
+				delete_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week' );
+			}
 
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
-			// Set next renewal date meta.
-			$next_renewal = $subscription->get_next_payment_date( 1 );
-
-			if ( $next_renewal ) {
-				$next_renewal->modify( '-1 week' );
-
-				// If next renewal notice date is before next payment date,
-				// prevent duplicate renewal messages by setting the renewal
-				// notice date to the date of next payment.
-				if ( $next_renewal < $subscription->get_next_payment_date() ) {
-					$next_renewal = $subscription->get_next_payment_date();
-				}
-			}
-
-			// Update or delete next renewal notice date meta.
-			$subscription->set_renewal_notice_date( $next_renewal );
+			update_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', $start_date->format( DateTime::MYSQL ) );
 		}
 	}
 

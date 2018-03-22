@@ -87,15 +87,15 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'First payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Start Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$first_date = $subscription->get_first_payment_date();
+			$start_date = $subscription->get_start_date();
 
-			if ( $first_date ) {
-				echo esc_html( $first_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+			if ( $start_date ) {
+				echo esc_html( $start_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
 			}
 
 			?>
@@ -103,7 +103,23 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'Next payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php
+
+			$end_date = $subscription->get_end_date();
+
+			if ( $end_date ) {
+				echo esc_html( $end_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+			}
+
+			?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Next Payment Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
@@ -112,22 +128,6 @@ $subscription = get_pronamic_subscription( $post_id );
 
 			if ( $next_payment ) {
 				echo esc_html( $next_payment->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
-			}
-
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Final payment', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
-
-			$final_payment = $subscription->get_final_payment_date();
-
-			if ( $final_payment ) {
-				echo esc_html( $final_payment->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
 			}
 
 			?>

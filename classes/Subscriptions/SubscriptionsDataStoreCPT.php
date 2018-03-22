@@ -204,6 +204,15 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 
 		$subscription->start_date = $start_date;
 
+		// End Date.
+		$end_date = $this->get_meta_date( $id, 'end_date' );
+
+		if ( empty( $end_date ) ) {
+			// @todo
+		}
+
+		$subscription->end_date = $end_date;
+
 		// Expiry Date.
 		$expiry_date = $this->get_meta_date( $id, 'expiry_date' );
 
@@ -216,24 +225,8 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 
 		$subscription->expiry_date = $expiry_date;
 
-		// First Payment Date.
-		$first_payment = $this->get_meta_date( $id, 'first_payment' );
-
-		if ( empty( $first_payment ) ) {
-			// If no meta first payment date is set, use subscription date.
-			$first_payment = clone $subscription->date;
-		}
-
-		$subscription->first_payment = $first_payment;
-
 		// Next Payment Date.
 		$subscription->next_payment = $this->get_meta_date( $id, 'next_payment' );
-
-		// Final Payment Date.
-		$subscription->final_payment = $this->get_meta_date( $id, 'final_payment' );
-
-		// Renewal Notice.
-		$subscription->renewal_notice = $this->get_meta_date( $id, 'renewal_notice' );
 	}
 
 	/**
@@ -245,10 +238,6 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 	private function update_post_meta( $subscription ) {
 		$id = $subscription->get_id();
 
-		$previous_status = $this->get_meta( $id, 'status' );
-		$previous_status = strtolower( $previous_status );
-		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
-
 		$this->update_meta( $id, 'config_id', $subscription->config_id );
 		$this->update_meta( $id, 'key', $subscription->key );
 		$this->update_meta( $id, 'source', $subscription->source );
@@ -259,23 +248,31 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'currency', $subscription->currency );
 		$this->update_meta( $id, 'amount', $subscription->amount );
 		$this->update_meta( $id, 'transaction_id', $subscription->transaction_id );
-		$this->update_meta( $id, 'status', $subscription->status );
 		$this->update_meta( $id, 'description', $subscription->description );
 		$this->update_meta( $id, 'email', $subscription->email );
 		$this->update_meta( $id, 'customer_name', $subscription->customer_name );
 		$this->update_meta( $id, 'payment_method', $subscription->payment_method );
 		$this->update_meta( $id, 'start_date', $subscription->start_date );
+		$this->update_meta( $id, 'end_date', $subscription->end_date );
 		$this->update_meta( $id, 'expiry_date', $subscription->expiry_date );
-		$this->update_meta( $id, 'first_payment', $subscription->first_payment );
 		$this->update_meta( $id, 'next_payment', $subscription->next_payment );
-		$this->update_meta( $id, 'final_payment', $subscription->final_payment );
-		$this->update_meta( $id, 'renewal_notice', $subscription->renewal_notice );
-		$this->update_meta( $id, 'start_date', $subscription->start_date );
-		$this->update_meta( $id, 'expiry_date', $subscription->expiry_date );
-		$this->update_meta( $id, 'first_payment', $subscription->first_payment );
-		$this->update_meta( $id, 'next_payment', $subscription->next_payment );
-		$this->update_meta( $id, 'final_payment', $subscription->final_payment );
-		$this->update_meta( $id, 'renewal_notice', $subscription->renewal_notice );
+
+		$this->update_meta_status( $subscription );
+	}
+
+	/**
+	 * Update meta status.
+	 *
+	 * @param Subscription $subscription The subscription to update the status for.
+	 */
+	public function update_meta_status( $subscription ) {
+		$id = $subscription->get_id();
+
+		$previous_status = $this->get_meta( $id, 'status' );
+		$previous_status = strtolower( $previous_status );
+		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
+
+		$this->update_meta( $id, 'status', $subscription->status );
 
 		if ( $previous_status !== $subscription->status ) {
 			$can_redirect = false;

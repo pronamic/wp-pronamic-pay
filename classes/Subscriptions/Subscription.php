@@ -11,10 +11,9 @@
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateInterval;
-use DateTime;
-use DateTimeZone;
+use Pronamic\WordPress\Pay\DateTime;
+use Pronamic\WordPress\Pay\DateTimeZone;
 use Pronamic\WordPress\Pay\Plugin;
-use Pronamic_IDeal_IDeal;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
 
@@ -234,36 +233,12 @@ class Subscription {
 	public $expiry_date;
 
 	/**
-	 * The date of the first payment.
-	 *
-	 * @todo Is this required? And is this not equeal to start date of the subscription?
-	 * @var DateTime
-	 */
-	public $first_payment;
-
-	/**
 	 * The next payment date.
 	 *
 	 * @todo Is this required?
 	 * @var DateTime
 	 */
 	public $next_payment;
-
-	/**
-	 * The final payment date, can be null if the subscrption never ends.
-	 *
-	 * @todo Is this required?
-	 * @var DateTime
-	 */
-	public $final_payment;
-
-	/**
-	 * The renewal notice date.
-	 *
-	 * @todo Is this required?
-	 * @var DateTime
-	 */
-	public $renewal_notice;
 
 	/**
 	 * Array for extra meta data to store with this subscription.
@@ -290,9 +265,7 @@ class Subscription {
 		$this->meta = array();
 
 		if ( null !== $post_id ) {
-			global $pronamic_ideal;
-
-			$pronamic_ideal->subscriptions_data_store->read( $this );
+			pronamic_pay_plugin()->subscriptions_data_store->read( $this );
 		}
 	}
 
@@ -631,19 +604,8 @@ class Subscription {
 	}
 
 	/**
-	 * Set the start date of this subscription.
-	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
-	 */
-	public function set_start_date( $value ) {
-		$this->start_date = $value;
-	}
-
-	/**
 	 * Get the start date of this subscription.
 	 *
-	 * @todo Should we handle logic in this getter?
 	 * @return DateTime|null
 	 */
 	public function get_start_date() {
@@ -651,19 +613,35 @@ class Subscription {
 	}
 
 	/**
-	 * Set the expiry date of this subscription.
+	 * Set the start date of this subscription.
 	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
+	 * @param DateTime $date Start date.
 	 */
-	public function set_expiry_date( $value ) {
-		$this->expiry_date = $expiry_date;
+	public function set_start_date( DateTime $date ) {
+		$this->start_date = $value;
+	}
+
+	/**
+	 * Get the end date of this subscription.
+	 *
+	 * @return DateTime|null
+	 */
+	public function get_end_date() {
+		return $this->start_date;
+	}
+
+	/**
+	 * Set the end date of this subscription.
+	 *
+	 * @param DateTime|null $date End date.
+	 */
+	public function set_end_date( DateTime $date ) {
+		$this->start_date = $date;
 	}
 
 	/**
 	 * Get the expiry date of this subscription.
 	 *
-	 * @todo Should we handle logic in this getter?
 	 * @return DateTime
 	 */
 	public function get_expiry_date() {
@@ -671,145 +649,30 @@ class Subscription {
 	}
 
 	/**
-	 * Set the first payment date of this subscription.
+	 * Set the expiry date of this subscription.
 	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
+	 * @param DateTime $date Expiry date.
 	 */
-	public function set_first_payment_date( $value ) {
-		$this->first_payment = $value;
-	}
-
-	/**
-	 * Get the first payment date of this subscription.
-	 *
-	 * @todo Should we handle logic in this getter?
-	 * @return DateTime
-	 */
-	public function get_first_payment_date() {
-		return $this->first_payment;
-	}
-
-	/**
-	 * Set the final payment date of this subscription.
-	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
-	 */
-	public function set_final_payment_date( $value ) {
-		$this->set_meta( 'final_payment', $value );
-	}
-
-	/**
-	 * Get the final payment date of this subscription.
-	 *
-	 * @todo Should we handle logic in this getter?
-	 * @return DateTime
-	 */
-	public function get_final_payment_date() {
-		return $this->final_payment;
-
-		$final = $this->get_meta( 'final_payment' );
-
-		if ( '' !== $final ) {
-			return new DateTime( $final );
-		}
-
-		// If no frequency is set, use next payment or start date.
-		$frequency = $this->get_frequency();
-
-		if ( '' === $frequency ) {
-			$next_date = $this->get_next_payment_date();
-
-			if ( null === $next_date ) {
-				return $this->get_start_date();
-			}
-
-			return $next_date;
-		}
-
-		// Add frequency * interval period to first payment date.
-		$first_date = $this->get_first_payment_date();
-
-		return $first_date->modify(
-			sprintf(
-				'+%d %s',
-				( $frequency - 1 ) * $this->get_interval(),
-				Util::to_interval_name( $this->get_interval_period() )
-			)
-		);
+	public function set_expiry_date( DateTime $date ) {
+		$this->expiry_date = $expiry_date;
 	}
 
 	/**
 	 * Set the next payment date of this subscription.
 	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
+	 * @param DateTime $date Next payment date.
 	 */
-	public function set_next_payment_date( $value ) {
-		$this->set_meta( 'next_payment', $value );
-
-		if ( false === $value ) {
-			$this->set_renewal_notice_date( false );
-		}
+	public function set_next_payment_date( DateTime $date ) {
+		$this->next_payment = $date;
 	}
 
 	/**
 	 * Get the next payment date of this subscription.
 	 *
-	 * @todo   Should we handle logic in this getter?
-	 * @param  int $cycle TODO.
 	 * @return DateTime
 	 */
-	public function get_next_payment_date( $cycle = 0 ) {
+	public function get_next_payment_date() {
 		return $this->next_payment;
-
-		// Meta next_payment, possibly doesn't exist if last payment has been processed.
-		$next_payment = $this->get_meta( 'next_payment' );
-
-		if ( '' === $next_payment ) {
-			return;
-		}
-
-		$next = new DateTime( $next_payment );
-
-		if ( 0 !== $cycle ) {
-			$next->modify(
-				sprintf(
-					'+%d %s',
-					( $cycle * $this->get_interval() ),
-					Util::to_interval_name( $this->get_interval_period() )
-				)
-			);
-		}
-
-		return $next;
-	}
-
-	/**
-	 * Set the renewal notice date of this subscription.
-	 *
-	 * @todo  Should we set meta directly?
-	 * @param string $value A date value.
-	 */
-	public function set_renewal_notice_date( $value ) {
-		$this->set_meta( 'renewal_notice', $value );
-	}
-
-	/**
-	 * Get the renewal notice date of this subscription.
-	 *
-	 * @todo   Should we handle logic in this getter?
-	 * @return DateTime
-	 */
-	public function get_renewal_notice_date() {
-		$renewal_notice = $this->get_meta( 'renewal_notice' );
-
-		if ( '' !== $renewal_notice ) {
-			return $renewal_notice;
-		}
-
-		return false;
 	}
 
 	/**
