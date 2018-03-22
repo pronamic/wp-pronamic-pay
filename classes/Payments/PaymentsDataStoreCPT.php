@@ -184,6 +184,8 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$payment->recurring           = $this->get_meta( $id, 'recurring' );
 		$payment->start_date          = $this->get_meta_date( $id, 'start_date' );
 		$payment->end_date            = $this->get_meta_date( $id, 'end_date' );
+		$payment->user_agent          = $this->get_meta( $id, 'user_agent' );
+		$payment->user_ip             = $this->get_meta( $id, 'user_ip' );
 	}
 
 	/**
@@ -231,6 +233,8 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'action_url', $payment->get_action_url() );
 		$this->update_meta( $id, 'start_date', $payment->start_date );
 		$this->update_meta( $id, 'end_date', $payment->end_date );
+		$this->update_meta( $id, 'user_agent', $payment->user_agent );
+		$this->update_meta( $id, 'user_ip', $payment->user_ip );
 
 		$this->update_meta_status( $payment );
 	}

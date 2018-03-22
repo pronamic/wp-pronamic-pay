@@ -301,4 +301,25 @@ $payment = get_pronamic_payment( $post_id );
 		</tr>
 
 	<?php endif; ?>
+
+	<?php if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'User Agent', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $payment->user_agent ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'IP Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $payment->user_ip ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
 </table>

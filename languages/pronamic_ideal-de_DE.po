@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-03-22 10:26:19+00:00\n"
+"POT-Creation-Date: 2018-03-22 20:39:49+00:00\n"
 "PO-Revision-Date: 2017-12-22 12:37+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: German\n"
@@ -329,6 +329,16 @@ msgstr "Benutzer ID"
 #: admin/meta-box-payment-info.php:296
 msgid "Subscription ID"
 msgstr "Abonnementnummer"
+
+#: admin/meta-box-payment-info.php:309
+#, fuzzy
+msgid "User Agent"
+msgstr "Nutzer Rolle aktualisieren"
+
+#: admin/meta-box-payment-info.php:317
+#, fuzzy
+msgid "IP Address"
+msgstr "Adresse"
 
 #: admin/meta-box-payment-subscription.php:100
 msgid "This payment is not related to a subscription."
@@ -1700,7 +1710,7 @@ msgid "Customer"
 msgstr "Kunde"
 
 #: classes/Admin/PaymentPostType.php:217
-#: classes/Admin/SubscriptionPostType.php:119 classes/Plugin.php:965
+#: classes/Admin/SubscriptionPostType.php:119 classes/Plugin.php:969
 #, fuzzy
 msgid "Unknown"
 msgstr "Unbekannt"
@@ -2062,20 +2072,20 @@ msgstr "— Konfiguration auswählen —"
 msgid "Payment for %s"
 msgstr "Zahlung für %s"
 
-#: classes/Plugin.php:961
+#: classes/Plugin.php:965
 msgid "Completed"
 msgstr "Erledigt"
 
-#: classes/Plugin.php:962
+#: classes/Plugin.php:966
 msgid "Canceled"
 msgstr "Storniert"
 
-#: classes/Plugin.php:963
+#: classes/Plugin.php:967
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:438
 msgid "Expired"
 msgstr "Abgelaufen"
 
-#: classes/Plugin.php:964 templates/form.php:177
+#: classes/Plugin.php:968 templates/form.php:177
 #: vendor/wp-pay-extensions/give/src/Gateway.php:132
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:439
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:257
@@ -2137,11 +2147,11 @@ msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Subscriptions/SubscriptionsModule.php:292
+#: classes/Subscriptions/SubscriptionsModule.php:290
 msgid "Subscription for %s"
 msgstr "Abonnement für %s"
 
-#: classes/Subscriptions/SubscriptionsModule.php:548
+#: classes/Subscriptions/SubscriptionsModule.php:526
 #, fuzzy
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnementstatus wurde in \"Offen\" geändert"
@@ -4063,7 +4073,7 @@ msgstr "Die Aussteller von Buckaroo konnten nicht abgerufen werden."
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:157
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:89
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:81
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:77
 #: vendor/wp-pay-gateways/mollie/src/Gateway.php:91
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:71
 #: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:115
@@ -4708,7 +4718,7 @@ msgstr ""
 
 #. translators: 1: payment provider name, 2: PSP account name, 3: PSP account
 #. number, 4: PSP account BIC, 5: formatted amount, 6: transaction reference
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:172
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:164
 msgid ""
 "You have chosen the payment method \"Bank transfer\". To complete your "
 "payment, please transfer the amount to the payment service provider (%1$s).\n"
@@ -4723,7 +4733,7 @@ msgid ""
 "be processed.</em>"
 msgstr ""
 
-#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:181
+#: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:173
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Settings.php:31
 msgid "ING"
 msgstr "ING"
@@ -7898,10 +7908,6 @@ msgstr "Shop ID"
 #, fuzzy
 #~ msgid "[%s] Joining confirmation"
 #~ msgstr "Kontobestätigung"
-
-#, fuzzy
-#~ msgid "User Roles"
-#~ msgstr "Nutzer Rolle aktualisieren"
 
 #, fuzzy
 #~ msgid "Please enter a valid email address."
