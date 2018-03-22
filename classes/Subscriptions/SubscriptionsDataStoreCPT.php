@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
+use DatePeriod;
 use DateTimeZone;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
 use Pronamic\WordPress\Pay\DateTime;
@@ -207,8 +208,15 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		// End Date.
 		$end_date = $this->get_meta_date( $id, 'end_date' );
 
-		if ( empty( $end_date ) ) {
-			// @todo
+		if ( empty( $end_date ) && $subscription->frequency ) {
+			$interval = $subscription->get_date_interval();
+
+			// @see https://stackoverflow.com/a/10818981/6411283
+			$period = new DatePeriod( $start_date, $interval, $subscription->frequency );
+
+			$dates = iterator_to_array( $period );
+
+			$end_date = end( $dates );
 		}
 
 		$subscription->end_date = $end_date;
