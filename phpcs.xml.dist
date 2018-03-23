@@ -45,7 +45,19 @@
 		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
 	</rule>
 
+	<rule ref="PHPCompatibility.PHP.NewConstants.sort_flag_caseFound">
+		<exclude-pattern>/classes/Admin/GatewaySettings.php</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize">
 		<exclude-pattern>/includes/updates/update-2.0.0.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.VIP.RestrictedVariables.cache_constraints___SERVER__HTTP_USER_AGENT__">
+		<exclude-pattern>/classes/Plugin.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.VIP.RestrictedVariables.cache_constraints___SERVER__REMOTE_ADDR__">
+		<exclude-pattern>/classes/Plugin.php</exclude-pattern>
 	</rule>
 </ruleset>
