@@ -744,6 +744,10 @@ class Plugin {
 	 * @return Gateway
 	 */
 	public static function get_gateway( $config_id ) {
+		if ( empty( $config_id ) ) {
+			return null;
+		}
+
 		$gateway_id = get_post_meta( $config_id, '_pronamic_gateway_id', true );
 		$mode       = get_post_meta( $config_id, '_pronamic_gateway_mode', true );
 		$is_utf8    = strcasecmp( get_bloginfo( 'charset' ), 'UTF-8' ) === 0;
