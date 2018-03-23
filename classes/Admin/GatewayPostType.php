@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
 use Pronamic\WordPress\Pay\Core\Util;
 use Pronamic\WordPress\Pay\Plugin;
 
@@ -339,8 +340,9 @@ class GatewayPostType {
 
 		// Transient.
 		delete_transient( 'pronamic_pay_issuers_' . $post_id );
+		delete_transient( 'pronamic_gateway_payment_methods_' . $post_id );
 
-		\Pronamic\WordPress\Pay\Core\PaymentMethods::update_active_payment_methods();
+		PaymentMethods::update_active_payment_methods();
 	}
 
 	/**

@@ -37,6 +37,8 @@
 				} );
 			}
 
+			$element.find( '.setting-' + obj.selectedVariant.val() ).show();
+
 			// Set name of first tab item to name of selected provider
 			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
 

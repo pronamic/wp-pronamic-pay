@@ -210,6 +210,24 @@ body.post-type-pronamic_payment #post-body-content, body.post-type-pronamic_pay_
   content: "";
 }
 
+.pronamic-pay-payment-methods li {
+  color: #aaa;
+  margin-bottom: 1em;
+}
+.pronamic-pay-payment-methods li .pronamic-pay-icon {
+  display: inline-block;
+  padding-right: .8em;
+}
+.pronamic-pay-payment-methods li .pronamic-pay-icon::after {
+  color: #ededed;
+}
+.pronamic-pay-payment-methods li.available {
+  color: #000;
+}
+.pronamic-pay-payment-methods li.available .pronamic-pay-icon::after {
+  color: #73a724;
+}
+
 #pronamic-pay-gateway-config-editor .dashicons.dashicons-yes {
   color: #008000;
 }
