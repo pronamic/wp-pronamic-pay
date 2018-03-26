@@ -663,6 +663,7 @@ class Plugin {
 						'ing-kassa-compleet',
 						'mollie',
 						'multisafepay-connect',
+						'rabobank-omnikassa-2',
 						'qantani-mollie',
 						'sisow-ideal',
 					);
