@@ -11,8 +11,8 @@
 global $pronamic_ideal_errors;
 
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
-use Pronamic\WordPress\Pay\Gateways\IDeal_Advanced_V3\Gateway as IDeal_Advanced_V3_Gateway;
-use Pronamic\WordPress\Pay\Gateways\IDeal_Basic\Gateway as IDeal_Basic_Gateway;
+use Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Gateway as IDealAdvancedV3_Gateway;
+use Pronamic\WordPress\Pay\Gateways\IDealBasic\Gateway as IDealBasic_Gateway;
 use Pronamic\WordPress\Pay\Plugin;
 
 $gateway = Plugin::get_gateway( get_the_ID() );
@@ -21,8 +21,8 @@ if ( $gateway ) {
 	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
 
 	$is_ideal  = false;
-	$is_ideal |= $gateway instanceof IDeal_Basic_Gateway;
-	$is_ideal |= $gateway instanceof IDeal_Advanced_V3_Gateway;
+	$is_ideal |= $gateway instanceof IDealBasic_Gateway;
+	$is_ideal |= $gateway instanceof IDealAdvancedV3_Gateway;
 
 	// Payment method selector.
 	$payment_methods = $gateway->get_payment_method_field_options( true );

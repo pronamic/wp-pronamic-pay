@@ -8,7 +8,7 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Pay\Gateways\IDeal_Advanced_V3\IDeal;
+use Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\IDeal;
 
 ?>
 <table class="wp-list-table widefat" style="width: auto;" cellspacing="0">
