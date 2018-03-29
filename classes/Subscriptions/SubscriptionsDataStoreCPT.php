@@ -121,6 +121,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 				return 'subscr_expired';
 			case Statuses::FAILURE:
 				return 'subscr_failed';
+			case Statuses::ACTIVE:
 			case Statuses::SUCCESS:
 				return 'subscr_active';
 			case Statuses::OPEN:
