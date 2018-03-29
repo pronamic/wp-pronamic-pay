@@ -252,7 +252,7 @@ class Util {
 	 * @return string
 	 */
 	public static function format_frequency( $frequency ) {
-		if ( '' === $frequency ) {
+		if ( empty( $frequency ) ) {
 			return _x( 'Unlimited', 'Recurring payment', 'pronamic_ideal' );
 		}
 
