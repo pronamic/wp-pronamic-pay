@@ -301,6 +301,7 @@ class SubscriptionsModule {
 		$subscription->customer_name   = $payment->customer_name;
 		$subscription->payment_method  = $payment->method;
 		$subscription->first_payment   = $payment->date;
+		$subscription->status          = Statuses::OPEN;
 
 		// @todo
 		// Calculate dates
