@@ -255,46 +255,48 @@ class SubscriptionPostType {
 	 * @param string $post_type Post Type.
 	 */
 	public function add_meta_boxes( $post_type ) {
-		if ( self::POST_TYPE === $post_type ) {
-			add_meta_box(
-				'pronamic_subscription',
-				__( 'Subscription', 'pronamic_ideal' ),
-				array( $this, 'meta_box_info' ),
-				$post_type,
-				'normal',
-				'high'
-			);
-
-			add_meta_box(
-				'pronamic_subscription_payments',
-				__( 'Payments', 'pronamic_ideal' ),
-				array( $this, 'meta_box_payments' ),
-				$post_type,
-				'normal',
-				'high'
-			);
-
-			add_meta_box(
-				'pronamic_subscription_notes',
-				__( 'Notes', 'pronamic_ideal' ),
-				array( $this, 'meta_box_notes' ),
-				$post_type,
-				'normal',
-				'high'
-			);
-
-			add_meta_box(
-				'pronamic_subscription_update',
-				__( 'Update', 'pronamic_ideal' ),
-				array( $this, 'meta_box_update' ),
-				$post_type,
-				'side',
-				'high'
-			);
-
-			// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/.
-			remove_meta_box( 'submitdiv', $post_type, 'side' );
+		if ( self::POST_TYPE !== $post_type ) {
+			return;
 		}
+
+		add_meta_box(
+			'pronamic_subscription',
+			__( 'Subscription', 'pronamic_ideal' ),
+			array( $this, 'meta_box_info' ),
+			$post_type,
+			'normal',
+			'high'
+		);
+
+		add_meta_box(
+			'pronamic_subscription_payments',
+			__( 'Payments', 'pronamic_ideal' ),
+			array( $this, 'meta_box_payments' ),
+			$post_type,
+			'normal',
+			'high'
+		);
+
+		add_meta_box(
+			'pronamic_subscription_notes',
+			__( 'Notes', 'pronamic_ideal' ),
+			array( $this, 'meta_box_notes' ),
+			$post_type,
+			'normal',
+			'high'
+		);
+
+		add_meta_box(
+			'pronamic_subscription_update',
+			__( 'Update', 'pronamic_ideal' ),
+			array( $this, 'meta_box_update' ),
+			$post_type,
+			'side',
+			'high'
+		);
+
+		// @see http://kovshenin.com/2012/how-to-remove-the-publish-box-from-a-post-type/.
+		remove_meta_box( 'submitdiv', $post_type, 'side' );
 	}
 
 	/**
@@ -351,7 +353,7 @@ class SubscriptionPostType {
 	 */
 	public function post_row_actions( $actions, $post ) {
 		if ( self::POST_TYPE === $post->post_type ) {
-			return array();
+			$actions = array();
 		}
 
 		return $actions;
@@ -388,19 +390,23 @@ class SubscriptionPostType {
 	 * @param \WP_Post $post       WordPress post.
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
-		if (
-			filter_has_var( INPUT_POST, 'pronamic_subscription_update_nonce' )
-			&&
-			check_admin_referer( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' )
-			&&
-			'pronamic_pay_subscr' === get_post_type( $post )
-		) {
-			$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
-
-			$subscription = new Subscription( $post->ID );
-			$subscription->set_status( $new_status_meta );
-
-			pronamic_pay_plugin()->subscriptions_data_store->update_meta_status( $subscription );
+		if ( ! filter_has_var( INPUT_POST, 'pronamic_subscription_update_nonce' ) ) {
+			return;
 		}
+
+		if ( ! check_admin_referer( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' ) ) {
+			return;
+		}
+
+		if ( 'pronamic_pay_subscr' !== get_post_type( $post ) ) {
+			return;
+		}
+
+		$new_status_meta = $this->translate_post_status_to_meta_status( $new_status );
+
+		$subscription = new Subscription( $post->ID );
+		$subscription->set_status( $new_status_meta );
+
+		pronamic_pay_plugin()->subscriptions_data_store->update_meta_status( $subscription );
 	}
 }
