@@ -144,9 +144,6 @@ class Plugin {
 		 */
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
-		// Exclude payment and subscription notes.
-		add_filter( 'comments_clauses', array( $this, 'exclude_comment_notes' ), 10, 2 );
-
 		// Payment redirect URL.
 		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
 
@@ -185,25 +182,6 @@ class Plugin {
 	 */
 	public function get_plugin_dir_path() {
 		return plugin_dir_path( $this->get_file() );
-	}
-
-	/**
-	 * Comments clauses.
-	 *
-	 * @param array            $clauses Array with query clauses for the comments query.
-	 * @param WP_Comment_Query $query   A WordPress comment query object.
-	 *
-	 * @return array
-	 */
-	public function exclude_comment_notes( $clauses, $query ) {
-		$type = $query->query_vars['type'];
-
-		// Ignore payment notes comments if it's not specifically requested.
-		if ( 'payment_note' !== $type ) {
-			$clauses['where'] .= " AND comment_type != 'payment_note'";
-		}
-
-		return $clauses;
 	}
 
 	/**

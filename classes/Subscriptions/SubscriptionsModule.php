@@ -52,7 +52,7 @@ class SubscriptionsModule {
 
 		add_action( 'plugins_loaded', array( $this, 'maybe_schedule_subscription_payments' ), 5 );
 
-		// Exclude payment and subscription notes.
+		// Exclude subscription notes.
 		add_filter( 'comments_clauses', array( $this, 'exclude_subscription_comment_notes' ), 10, 2 );
 
 		add_action( 'pronamic_pay_new_payment', array( $this, 'maybe_create_subscription' ) );
