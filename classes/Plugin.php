@@ -144,9 +144,6 @@ class Plugin {
 		 */
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ), 5 );
 
-		// Payment redirect URL.
-		add_filter( 'pronamic_payment_redirect_url', array( $this, 'payment_redirect_url' ), 5, 2 );
-
 		// Plugin locale.
 		add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
 
@@ -182,55 +179,6 @@ class Plugin {
 	 */
 	public function get_plugin_dir_path() {
 		return plugin_dir_path( $this->get_file() );
-	}
-
-	/**
-	 * Payment redirect URL filter.
-	 *
-	 * @param string  $url     A payment redirect URL.
-	 * @param Payment $payment The payment to get a redirect URL for.
-	 *
-	 * @return string
-	 */
-	public function payment_redirect_url( $url, $payment ) {
-		$page_id = null;
-
-		switch ( $payment->status ) {
-			case Core\Statuses::CANCELLED:
-				$page_id = pronamic_pay_get_page_id( 'cancel' );
-
-				break;
-			case Core\Statuses::EXPIRED:
-				$page_id = pronamic_pay_get_page_id( 'expired' );
-
-				break;
-			case Core\Statuses::FAILURE:
-				$page_id = pronamic_pay_get_page_id( 'error' );
-
-				break;
-			case Core\Statuses::OPEN:
-				$page_id = pronamic_pay_get_page_id( 'unknown' );
-
-				break;
-			case Core\Statuses::SUCCESS:
-				$page_id = pronamic_pay_get_page_id( 'completed' );
-
-				break;
-			default:
-				$page_id = pronamic_pay_get_page_id( 'unknown' );
-
-				break;
-		}
-
-		if ( ! empty( $page_id ) ) {
-			$page_url = get_permalink( $page_id );
-
-			if ( false !== $page_url ) {
-				$url = $page_url;
-			}
-		}
-
-		return $url;
 	}
 
 	/**
