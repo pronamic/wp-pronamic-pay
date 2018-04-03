@@ -116,9 +116,6 @@ class Plugin {
 		$this->payments_module      = new Payments\PaymentsModule( $this );
 		$this->subscriptions_module = new Subscriptions\SubscriptionsModule( $this );
 
-		// Payment Status Checker.
-		$this->payment_status_checker = new Payments\StatusChecker();
-
 		// Google Analytics Ecommerce.
 		$this->google_analytics_ecommerce = new GoogleAnalyticsEcommerce();
 
