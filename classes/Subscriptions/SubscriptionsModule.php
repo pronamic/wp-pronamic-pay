@@ -63,6 +63,9 @@ class SubscriptionsModule {
 		// Listen to payment status changes so we can update related subscriptions.
 		add_action( 'pronamic_payment_status_update', array( $this, 'payment_status_update' ) );
 
+		// Listen to subscription status changes so we can log these in a note.
+		add_action( 'pronamic_subscription_status_update', array( $this, 'log_subscription_status_update' ), 10, 4 );
+
 		// WordPress CLI.
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369.
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php.
@@ -521,18 +524,23 @@ class SubscriptionsModule {
 		// The status of canceled or completed subscriptions will not be changed automatically.
 		if ( ! in_array( $status_before, array( Statuses::CANCELLED, Statuses::COMPLETED ), true ) ) {
 			$subscription->set_status( $status_update );
-
-			if ( $status_before !== $status_update ) {
-				$subscription->add_note( sprintf(
-					__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
-					esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_before ) ),
-					esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $status_update ) )
-				) );
-			}
 		}
 
 		// Update.
 		$result = $this->plugin->subscriptions_data_store->update( $subscription );
+	}
+
+	/**
+	 * Subscription status update.
+	 *
+	 * @param Subscription $subscription The status updated subscirption.
+	 */
+	public function log_subscription_status_update( $subscription, $can_redirect, $old_status, $new_status ) {
+		$subscription->add_note( sprintf(
+			__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
+			esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $old_status ) ),
+			esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $new_status ) )
+		) );
 	}
 
 	/**

@@ -113,6 +113,7 @@ class Plugin {
 
 		// Modules.
 		$this->forms_module         = new Forms\FormsModule( $this );
+		$this->payments_module      = new Payments\PaymentsModule( $this );
 		$this->subscriptions_module = new Subscriptions\SubscriptionsModule( $this );
 
 		// Payment Status Checker.

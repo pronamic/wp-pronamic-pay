@@ -467,14 +467,10 @@ class Subscription {
 	public function add_note( $note ) {
 		$commentdata = array(
 			'comment_post_ID'      => $this->id,
-			'comment_author'       => 'admin',
-			'comment_author_email' => 'admin@admin.com',
-			'comment_author_url'   => 'http://',
 			'comment_content'      => $note,
 			'comment_type'         => 'subscription_note',
-			'comment_parent'       => 0,
-			'user_id'              => 0,
-			'comment_approved'     => 1,
+			'user_id'              => get_current_user_id(),
+			'comment_approved'     => true,
 		);
 
 		$comment_id = wp_insert_comment( $commentdata );

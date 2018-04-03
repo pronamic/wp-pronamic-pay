@@ -278,17 +278,23 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$id = $subscription->get_id();
 
 		$previous_status = $this->get_meta( $id, 'status' );
-		$previous_status = strtolower( $previous_status );
-		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
 
 		$this->update_meta( $id, 'status', $subscription->status );
 
 		if ( $previous_status !== $subscription->status ) {
+			$old = $previous_status;
+			$old = strtolower( $old );
+			$old = empty( $old ) ? 'unknown' : $old;
+
+			$new = $subscription->status;
+			$new = strtolower( $new );
+			$new = empty( $new ) ? 'unknown' : $new;
+
 			$can_redirect = false;
 
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . strtolower( $previous_status ) . '_to_' . strtolower( $subscription->status ), $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect );
-			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source . '_' . $old . '_to_' . $new, $subscription, $can_redirect, $previous_status, $subscription->status );
+			do_action( 'pronamic_subscription_status_update_' . $subscription->source, $subscription, $can_redirect, $previous_status, $subscription->status );
+			do_action( 'pronamic_subscription_status_update', $subscription, $can_redirect, $previous_status, $subscription->status );
 		}
 	}
 }

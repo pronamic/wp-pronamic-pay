@@ -27,6 +27,7 @@ if ( empty( $notes ) ) : ?>
 			<tr>
 				<th scope="col"><?php esc_html_e( 'Date', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Note', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'User', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</thead>
 
@@ -49,6 +50,9 @@ if ( empty( $notes ) ) : ?>
 					</td>
 					<td>
 						<?php comment_text( $note ); ?>
+					</td>
+					<td>
+						<?php comment_author( $note ); ?>
 					</td>
 				</tr>
 

@@ -59,7 +59,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 				'post_type'     => 'pronamic_payment',
 				'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
 				'post_title'    => $title,
-				'post_status'   => $this->get_post_status( $payment ),
+				'post_status'   => $this->get_post_status( $payment->status ),
 				'post_author'   => $payment->user_id,
 			), true
 		);
@@ -110,7 +110,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 			'ID' => $payment->get_id(),
 		);
 
-		$post_status = $this->get_post_status( $payment, null );
+		$post_status = $this->get_post_status( $payment->status, null );
 
 		if ( null !== $post_status ) {
 			$data['post_status'] = $post_status;
@@ -124,13 +124,13 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 	/**
 	 * Get post status.
 	 *
-	 * @param Payment $payment The payment to get a WordPress post status for.
-	 * @param string  $default The default WordPress post status to return.
+	 * @param string $meta_status The payment to get a WordPress post status for.
+	 * @param string $default     The default WordPress post status to return.
 	 *
 	 * @return string
 	 */
-	private function get_post_status( $payment, $default = 'payment_pending' ) {
-		switch ( $payment->status ) {
+	public function get_post_status( $meta_status, $default = 'payment_pending' ) {
+		switch ( $meta_status ) {
 			case Statuses::CANCELLED:
 				return 'payment_cancelled';
 			case Statuses::EXPIRED:
@@ -144,6 +144,28 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 			default:
 				return $default;
 		}
+	}
+
+	/**
+	 * Get meta status label.
+	 *
+	 * @param string $meta_status The subscription meta status to get the status label for.
+	 * @return string|boolean
+	 */
+	public function get_meta_status_label( $meta_status ) {
+		$post_status = $this->get_post_status( $meta_status, null );
+
+		if ( empty( $post_status ) ) {
+			return false;
+		}
+
+		$status_object = get_post_status_object( $post_status );
+
+		if ( isset( $status_object, $status_object->label ) ) {
+			return $status_object->label;
+		}
+
+		return false;
 	}
 
 	/**
@@ -248,17 +270,23 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$id = $payment->get_id();
 
 		$previous_status = $this->get_meta( $id, 'status' );
-		$previous_status = strtolower( $previous_status );
-		$previous_status = empty( $previous_status ) ? 'unknown' : $previous_status;
 
 		$this->update_meta( $id, 'status', $payment->status );
 
 		if ( $previous_status !== $payment->status ) {
+			$old = $previous_status;
+			$old = strtolower( $old );
+			$old = empty( $old ) ? 'unknown' : $old;
+
+			$new = $payment->status;
+			$new = strtolower( $new );
+			$new = empty( $new ) ? 'unknown' : $new;
+
 			$can_redirect = false;
 
-			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $previous_status . '_to_' . $payment->status, $payment, $can_redirect );
-			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect );
-			do_action( 'pronamic_payment_status_update', $payment, $can_redirect );
+			do_action( 'pronamic_payment_status_update_' . $payment->source . '_' . $old . '_to_' . $new, $payment, $can_redirect, $previous_status, $payment->status );
+			do_action( 'pronamic_payment_status_update_' . $payment->source, $payment, $can_redirect, $previous_status, $payment->status );
+			do_action( 'pronamic_payment_status_update', $payment, $can_redirect, $previous_status, $payment->status );
 		}
 	}
 }
