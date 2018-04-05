@@ -424,6 +424,7 @@ class PaymentPostType {
 			array(
 				'post_id' => $post->ID,
 				'type'    => 'payment_note',
+				'orderby' => array( 'comment_date_gmt', 'comment_ID' ),
 			)
 		);
 

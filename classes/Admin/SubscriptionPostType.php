@@ -318,6 +318,7 @@ class SubscriptionPostType {
 			array(
 				'post_id' => $post->ID,
 				'type'    => 'subscription_note',
+				'orderby' => array( 'comment_date_gmt', 'comment_ID' ),
 			)
 		);
 

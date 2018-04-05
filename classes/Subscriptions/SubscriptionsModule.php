@@ -163,7 +163,7 @@ class SubscriptionsModule {
 			$subscription->status      = Statuses::COMPLETED;
 			$subscription->expiry_date = $subscription->end_date;
 
-			$result = $this->plugin->subscriptions_data_store->update( $subscription );
+			$subscription->save();
 
 			// @todo
 			return;
@@ -208,7 +208,7 @@ class SubscriptionsModule {
 		$payment = Plugin::start_payment( $payment, $gateway );
 
 		// Update subscription.
-		$result = $this->plugin->subscriptions_data_store->update( $subscription );
+		$subscription->save();
 
 		return $payment;
 	}
@@ -224,7 +224,7 @@ class SubscriptionsModule {
 			return;
 		}
 
-		$this->plugin->subscriptions_data_store->update( $subscription );
+		$subscription->save();
 
 		if ( defined( 'DOING_CRON' ) && empty( $subscription->status ) ) {
 			$can_redirect = false;
@@ -529,7 +529,7 @@ class SubscriptionsModule {
 		}
 
 		// Update.
-		$result = $this->plugin->subscriptions_data_store->update( $subscription );
+		$subscription->save();
 	}
 
 	/**

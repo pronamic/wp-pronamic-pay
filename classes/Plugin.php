@@ -724,7 +724,7 @@ class Plugin {
 					$subscription->set_status( Core\Statuses::FAILURE );
 				}
 
-				$pronamic_ideal->subscriptions_data_store->update( $subscription );
+				$subscription->save();
 			}
 		}
 
