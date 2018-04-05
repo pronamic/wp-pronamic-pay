@@ -221,7 +221,7 @@ class Subscription {
 	/**
 	 * The date when this subscirption started.
 	 *
-	 * @var DateTime
+	 * @var DateTime|null
 	 */
 	public $start_date;
 
@@ -235,15 +235,14 @@ class Subscription {
 	/**
 	 * The end date of the last succesfull payment.
 	 *
-	 * @var DateTime
+	 * @var DateTime|null
 	 */
 	public $expiry_date;
 
 	/**
 	 * The next payment date.
 	 *
-	 * @todo Is this required?
-	 * @var DateTime
+	 * @var DateTime|null
 	 */
 	public $next_payment;
 
