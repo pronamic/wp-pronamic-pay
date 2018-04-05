@@ -711,4 +711,13 @@ class Subscription {
 
 		$this->add_note( $note );
 	}
+
+	/**
+	 * Save subscription.
+	 *
+	 * @return void
+	 */
+	public function save() {
+		pronamic_pay_plugin()->subscriptions_data_store->update( $this );
+	}
 }
