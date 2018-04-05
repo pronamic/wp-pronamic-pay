@@ -543,11 +543,20 @@ class SubscriptionsModule {
 	 * @return void
 	 */
 	public function log_subscription_status_update( $subscription, $can_redirect, $old_status, $new_status ) {
-		$subscription->add_note( sprintf(
+		$note = sprintf(
 			__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
 			esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $old_status ) ),
 			esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $new_status ) )
-		) );
+		);
+
+		if ( null === $old_status ) {
+			$note = sprintf(
+				__( 'Subscription created with status "%1$s".', 'pronamic_ideal' ),
+				esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $new_status ) )
+			);
+		}
+
+		$subscription->add_note( $note );
 	}
 
 	/**
