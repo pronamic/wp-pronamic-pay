@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-04-04 18:35:07+00:00\n"
+"POT-Creation-Date: 2018-04-05 14:25:18+00:00\n"
 "PO-Revision-Date: 2018-04-04 20:44+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -208,27 +208,6 @@ msgstr "Notitie"
 msgid "User"
 msgstr "Gebruiker"
 
-#. translators: 1: date, 2: time
-#: admin/meta-box-notes.php:43 vendor/wp-pay-gateways/mollie/src/Client.php:347
-msgid "%1$s at %2$s"
-msgstr "%1$s om %2$s"
-
-#. translators: comment date format. See http:php.net/date
-#: admin/meta-box-notes.php:45
-msgid "Y/m/d"
-msgstr "d-m-Y"
-
-#: admin/meta-box-payment-info.php:31 admin/meta-box-subscription-info.php:30
-#: admin/meta-box-subscription-info.php:106
-#: admin/meta-box-subscription-info.php:122
-#: admin/meta-box-subscription-info.php:138
-#: admin/meta-box-subscription-info.php:154
-#: admin/meta-box-subscription-payments.php:81
-#: admin/meta-box-subscription-payments.php:94
-#: classes/Subscriptions/Subscription.php:703
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr "j F Y H:i:s"
-
 #: admin/meta-box-payment-info.php:36 admin/meta-box-subscription-info.php:35
 #: classes/Admin/GatewayPostType.php:66
 msgid "ID"
@@ -346,6 +325,11 @@ msgstr "Controleer status"
 #: classes/Admin/SubscriptionPostType.php:291
 msgid "Update"
 msgstr "Bijwerken"
+
+#: admin/meta-box-subscription-info.php:30
+#: classes/Subscriptions/Subscription.php:702
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "j F Y H:i:s"
 
 #: admin/meta-box-subscription-info.php:98
 #: admin/meta-box-subscription-payments.php:41
@@ -1509,7 +1493,7 @@ msgstr "Standaard"
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:532
+#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:533
 msgid "M j, Y @ H:i"
 msgstr "j F Y H:i"
 
@@ -1623,48 +1607,47 @@ msgstr "Eerste van terugkerende betaling"
 msgid "%1$s for %2$s %3$s"
 msgstr "%1$s voor %2$s %3$s"
 
-#: classes/Admin/PaymentPostType.php:336
-#: classes/Admin/SubscriptionPostType.php:217
-msgid "D j M Y \\a\\t H:i"
-msgstr "D j M Y \\o\\m H:i"
-
 #: classes/Admin/PaymentPostType.php:387
 #: classes/Admin/SubscriptionPostType.php:282
 msgid "Notes"
 msgstr "Notities"
 
-#: classes/Admin/PaymentPostType.php:536 classes/Admin/PaymentPostType.php:542
+#: classes/Admin/PaymentPostType.php:537 classes/Admin/PaymentPostType.php:543
 msgid "Payment updated."
 msgstr "Betaling bijgewerkt."
 
 #. translators: %s: date and time of the revision
-#: classes/Admin/PaymentPostType.php:545
+#: classes/Admin/PaymentPostType.php:546
 msgid "Payment restored to revision from %s."
 msgstr "Betaling hersteld naar revisie van %s."
 
-#: classes/Admin/PaymentPostType.php:547
+#: classes/Admin/PaymentPostType.php:548
 msgid "Payment published."
 msgstr "Betaling gepubliceerd."
 
-#: classes/Admin/PaymentPostType.php:549
+#: classes/Admin/PaymentPostType.php:550
 msgid "Payment saved."
 msgstr "Betaling opgeslagen."
 
-#: classes/Admin/PaymentPostType.php:551
+#: classes/Admin/PaymentPostType.php:552
 msgid "Payment submitted."
 msgstr "Betaling geplaatst."
 
-#: classes/Admin/PaymentPostType.php:553
+#: classes/Admin/PaymentPostType.php:554
 msgid "Payment scheduled for: %s."
 msgstr "Betaling ingepland voor: %s."
 
-#: classes/Admin/PaymentPostType.php:555
+#: classes/Admin/PaymentPostType.php:556
 msgid "Payment draft updated."
 msgstr "Concept betaling bijgewerkt."
 
 #: classes/Admin/SubscriptionPostType.php:86
 msgid "Recurrence"
 msgstr "Herhaling"
+
+#: classes/DateTime.php:43
+msgid "D j M Y \\a\\t H:i"
+msgstr "D j M Y \\o\\m H:i"
 
 #: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:66
 #: classes/Forms/FormsModule.php:91
@@ -1918,7 +1901,7 @@ msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Payments/PaymentsModule.php:132
+#: classes/Payments/PaymentsModule.php:137
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Betalingsstatus gewijzigd van “%1$s” naar “%2$s”."
 
@@ -1958,7 +1941,7 @@ msgstr "Verlopen"
 msgid "Error"
 msgstr "Fout"
 
-#: classes/Subscriptions/Subscription.php:694
+#: classes/Subscriptions/Subscription.php:693
 msgid "Subscription changed"
 msgstr "Abonnement gewijzigd"
 
@@ -2012,11 +1995,11 @@ msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] "Actief <span class=\"count\">(% s)</span>"
 msgstr[1] "Actief <span class=\"count\">(% s)</span>"
 
-#: classes/Subscriptions/SubscriptionsModule.php:293
+#: classes/Subscriptions/SubscriptionsModule.php:295
 msgid "Subscription for %s"
 msgstr "Abonnement voor %s"
 
-#: classes/Subscriptions/SubscriptionsModule.php:540
+#: classes/Subscriptions/SubscriptionsModule.php:547
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnement status gewijzigd van “%1$s” naar “%2$s”."
 
@@ -4471,6 +4454,11 @@ msgstr ""
 "Kopieer de Webhook URL naar het %s dashboard om automatische transactie "
 "status updates te ontvangen."
 
+#. translators: 1: date, 2: time
+#: vendor/wp-pay-gateways/mollie/src/Client.php:347
+msgid "%1$s at %2$s"
+msgstr "%1$s om %2$s"
+
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:32
 msgid "https://www.mollie.com/en/pricing"
 msgstr "https://www.mollie.com/nl/pricing"
@@ -5216,6 +5204,9 @@ msgstr "Merchant Key"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#~ msgid "Y/m/d"
+#~ msgstr "d-m-Y"
 
 #~ msgid "Current period"
 #~ msgstr "Huidige periode"

@@ -2,16 +2,16 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 4.7.0\n"
+"Project-Id-Version: Pronamic Pay 5.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-04-04 18:35:07+00:00\n"
+"POT-Creation-Date: 2018-04-05 15:03:45+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n1.0.1\n"
+"X-Generator: grunt-wp-i18n1.0.2\n"
 
 #: admin/meta-box-form-options.php:18 admin/meta-box-payment-info.php:75
 #: admin/meta-box-subscription-info.php:51 admin/tab-gateways.php:26
@@ -206,27 +206,6 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: admin/meta-box-notes.php:43 vendor/wp-pay-gateways/mollie/src/Client.php:347
-#. translators: 1: date, 2: time
-msgid "%1$s at %2$s"
-msgstr ""
-
-#: admin/meta-box-notes.php:45
-#. translators: comment date format. See http:php.net/date
-msgid "Y/m/d"
-msgstr ""
-
-#: admin/meta-box-payment-info.php:31 admin/meta-box-subscription-info.php:30
-#: admin/meta-box-subscription-info.php:106
-#: admin/meta-box-subscription-info.php:122
-#: admin/meta-box-subscription-info.php:138
-#: admin/meta-box-subscription-info.php:154
-#: admin/meta-box-subscription-payments.php:81
-#: admin/meta-box-subscription-payments.php:94
-#: classes/Subscriptions/Subscription.php:703
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr ""
-
 #: admin/meta-box-payment-info.php:36 admin/meta-box-subscription-info.php:35
 #: classes/Admin/GatewayPostType.php:66
 msgid "ID"
@@ -343,6 +322,11 @@ msgstr ""
 #: classes/Admin/PaymentPostType.php:396
 #: classes/Admin/SubscriptionPostType.php:291
 msgid "Update"
+msgstr ""
+
+#: admin/meta-box-subscription-info.php:30
+#: classes/Subscriptions/Subscription.php:702
+msgid "l jS \\o\\f F Y, h:ia"
 msgstr ""
 
 #: admin/meta-box-subscription-info.php:98
@@ -1354,7 +1338,7 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:532
+#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:533
 msgid "M j, Y @ H:i"
 msgstr ""
 
@@ -1463,47 +1447,46 @@ msgstr ""
 msgid "%1$s for %2$s %3$s"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:336
-#: classes/Admin/SubscriptionPostType.php:217
-msgid "D j M Y \\a\\t H:i"
-msgstr ""
-
 #: classes/Admin/PaymentPostType.php:387
 #: classes/Admin/SubscriptionPostType.php:282
 msgid "Notes"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:536 classes/Admin/PaymentPostType.php:542
+#: classes/Admin/PaymentPostType.php:537 classes/Admin/PaymentPostType.php:543
 msgid "Payment updated."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:545
+#: classes/Admin/PaymentPostType.php:546
 #. translators: %s: date and time of the revision
 msgid "Payment restored to revision from %s."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:547
+#: classes/Admin/PaymentPostType.php:548
 msgid "Payment published."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:549
+#: classes/Admin/PaymentPostType.php:550
 msgid "Payment saved."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:551
+#: classes/Admin/PaymentPostType.php:552
 msgid "Payment submitted."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:553
+#: classes/Admin/PaymentPostType.php:554
 msgid "Payment scheduled for: %s."
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:555
+#: classes/Admin/PaymentPostType.php:556
 msgid "Payment draft updated."
 msgstr ""
 
 #: classes/Admin/SubscriptionPostType.php:86
 msgid "Recurrence"
+msgstr ""
+
+#: classes/DateTime.php:43
+msgid "D j M Y \\a\\t H:i"
 msgstr ""
 
 #: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:66
@@ -1758,7 +1741,7 @@ msgstr[1] ""
 msgid "Test %s"
 msgstr ""
 
-#: classes/Payments/PaymentsModule.php:132
+#: classes/Payments/PaymentsModule.php:137
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr ""
 
@@ -1796,7 +1779,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: classes/Subscriptions/Subscription.php:694
+#: classes/Subscriptions/Subscription.php:693
 msgid "Subscription changed"
 msgstr ""
 
@@ -1850,11 +1833,11 @@ msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Subscriptions/SubscriptionsModule.php:293
+#: classes/Subscriptions/SubscriptionsModule.php:295
 msgid "Subscription for %s"
 msgstr ""
 
-#: classes/Subscriptions/SubscriptionsModule.php:540
+#: classes/Subscriptions/SubscriptionsModule.php:547
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr ""
 
@@ -4156,6 +4139,11 @@ msgstr ""
 msgid ""
 "Copy the Webhook URL to the %s dashboard to receive automatic transaction "
 "status updates."
+msgstr ""
+
+#: vendor/wp-pay-gateways/mollie/src/Client.php:347
+#. translators: 1: date, 2: time
+msgid "%1$s at %2$s"
 msgstr ""
 
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:32

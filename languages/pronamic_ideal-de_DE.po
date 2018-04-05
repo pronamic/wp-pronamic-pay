@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-04-04 18:35:07+00:00\n"
+"POT-Creation-Date: 2018-04-05 14:25:18+00:00\n"
 "PO-Revision-Date: 2017-12-22 12:37+0100\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: German\n"
@@ -217,29 +217,6 @@ msgstr ""
 msgid "User"
 msgstr "Benutzer ID"
 
-#. translators: 1: date, 2: time
-#: admin/meta-box-notes.php:43 vendor/wp-pay-gateways/mollie/src/Client.php:347
-msgid "%1$s at %2$s"
-msgstr "%1$s um %2$s"
-
-#. translators: comment date format. See http:php.net/date
-#: admin/meta-box-notes.php:45
-#, fuzzy
-msgid "Y/m/d"
-msgstr "d/m/Y"
-
-#: admin/meta-box-payment-info.php:31 admin/meta-box-subscription-info.php:30
-#: admin/meta-box-subscription-info.php:106
-#: admin/meta-box-subscription-info.php:122
-#: admin/meta-box-subscription-info.php:138
-#: admin/meta-box-subscription-info.php:154
-#: admin/meta-box-subscription-payments.php:81
-#: admin/meta-box-subscription-payments.php:94
-#: classes/Subscriptions/Subscription.php:703
-#, fuzzy
-msgid "l jS \\o\\f F Y, h:ia"
-msgstr "l jS \\o\\f F Y, h:ia"
-
 #: admin/meta-box-payment-info.php:36 admin/meta-box-subscription-info.php:35
 #: classes/Admin/GatewayPostType.php:66
 msgid "ID"
@@ -359,6 +336,12 @@ msgstr "Status überprüfen"
 #: classes/Admin/SubscriptionPostType.php:291
 msgid "Update"
 msgstr "Aktualisieren"
+
+#: admin/meta-box-subscription-info.php:30
+#: classes/Subscriptions/Subscription.php:702
+#, fuzzy
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "l jS \\o\\f F Y, h:ia"
 
 #: admin/meta-box-subscription-info.php:98
 #: admin/meta-box-subscription-payments.php:41
@@ -1626,7 +1609,7 @@ msgstr "Standard"
 msgid "Configuration"
 msgstr "Konfiguration"
 
-#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:532
+#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:533
 #, fuzzy
 msgid "M j, Y @ H:i"
 msgstr "M j, Y @ H:i"
@@ -1751,49 +1734,43 @@ msgstr "Erste wiederkehrende Zahlung"
 msgid "%1$s for %2$s %3$s"
 msgstr "%1$s für %2$s - %3$s"
 
-#: classes/Admin/PaymentPostType.php:336
-#: classes/Admin/SubscriptionPostType.php:217
-#, fuzzy
-msgid "D j M Y \\a\\t H:i"
-msgstr "D j MY \\ a \\ t H: ich"
-
 #: classes/Admin/PaymentPostType.php:387
 #: classes/Admin/SubscriptionPostType.php:282
 msgid "Notes"
 msgstr ""
 
-#: classes/Admin/PaymentPostType.php:536 classes/Admin/PaymentPostType.php:542
+#: classes/Admin/PaymentPostType.php:537 classes/Admin/PaymentPostType.php:543
 #, fuzzy
 msgid "Payment updated."
 msgstr "Zahlung aktualisiert."
 
 #. translators: %s: date and time of the revision
-#: classes/Admin/PaymentPostType.php:545
+#: classes/Admin/PaymentPostType.php:546
 #, fuzzy
 msgid "Payment restored to revision from %s."
 msgstr "Beitrag aus Überarbeitung vom %s wiederhergestellt"
 
-#: classes/Admin/PaymentPostType.php:547
+#: classes/Admin/PaymentPostType.php:548
 #, fuzzy
 msgid "Payment published."
 msgstr "Zahlung veröffentlicht."
 
-#: classes/Admin/PaymentPostType.php:549
+#: classes/Admin/PaymentPostType.php:550
 #, fuzzy
 msgid "Payment saved."
 msgstr "Zahlungseingang gespeichert."
 
-#: classes/Admin/PaymentPostType.php:551
+#: classes/Admin/PaymentPostType.php:552
 #, fuzzy
 msgid "Payment submitted."
 msgstr "Zahlung erfolgt"
 
-#: classes/Admin/PaymentPostType.php:553
+#: classes/Admin/PaymentPostType.php:554
 #, fuzzy
 msgid "Payment scheduled for: %s."
 msgstr "Zahlung geplant für:%s."
 
-#: classes/Admin/PaymentPostType.php:555
+#: classes/Admin/PaymentPostType.php:556
 #, fuzzy
 msgid "Payment draft updated."
 msgstr "Zahlungsentwurf aktualisiert"
@@ -1802,6 +1779,11 @@ msgstr "Zahlungsentwurf aktualisiert"
 #, fuzzy
 msgid "Recurrence"
 msgstr "Wiederholung"
+
+#: classes/DateTime.php:43
+#, fuzzy
+msgid "D j M Y \\a\\t H:i"
+msgstr "D j MY \\ a \\ t H: ich"
 
 #: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:66
 #: classes/Forms/FormsModule.php:91
@@ -2074,7 +2056,7 @@ msgstr[1] ""
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Payments/PaymentsModule.php:132
+#: classes/Payments/PaymentsModule.php:137
 #, fuzzy
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnementstatus wurde in \"Offen\" geändert"
@@ -2116,7 +2098,7 @@ msgstr "Abgelaufen"
 msgid "Error"
 msgstr "Fehler"
 
-#: classes/Subscriptions/Subscription.php:694
+#: classes/Subscriptions/Subscription.php:693
 msgid "Subscription changed"
 msgstr "Abonnement geändert"
 
@@ -2171,11 +2153,11 @@ msgid_plural "Active <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Subscriptions/SubscriptionsModule.php:293
+#: classes/Subscriptions/SubscriptionsModule.php:295
 msgid "Subscription for %s"
 msgstr "Abonnement für %s"
 
-#: classes/Subscriptions/SubscriptionsModule.php:540
+#: classes/Subscriptions/SubscriptionsModule.php:547
 #, fuzzy
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnementstatus wurde in \"Offen\" geändert"
@@ -4806,6 +4788,11 @@ msgstr ""
 "Kopieren Sie die Webhook-URL in das Dashboard \"%s\", um automatische "
 "Aktualisierungen des Transaktionsstatus zu erhalten."
 
+#. translators: 1: date, 2: time
+#: vendor/wp-pay-gateways/mollie/src/Client.php:347
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s"
+
 #: vendor/wp-pay-gateways/mollie/src/Integration.php:32
 #, fuzzy
 msgid "https://www.mollie.com/en/pricing"
@@ -5626,6 +5613,10 @@ msgstr "Händlerschlüssel"
 msgctxt "sisow"
 msgid "Shop ID"
 msgstr "Shop ID"
+
+#, fuzzy
+#~ msgid "Y/m/d"
+#~ msgstr "d/m/Y"
 
 #~ msgid "Current period"
 #~ msgstr "Aktuell Periode"

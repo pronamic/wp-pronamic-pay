@@ -1,2 +1,2 @@
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
+*	[Pronamic](https://www.pronamic.eu/)
+*	[Remco Tolsma](https://www.remcotolsma.nl/)

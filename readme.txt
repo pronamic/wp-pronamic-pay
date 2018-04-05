@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 4.7.0
+Stable tag: 5.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -278,6 +278,19 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.0.0 - 2018-04-05 =
+*	Updated WordPress pay ING Kassa Compleet library to version 1.0.8.
+	*	Added support for Payconiq payment method.
+	*	Fixed payment redirect for bank transfer payment method.
+*	Updated WordPress pay Gravity Forms library to version 1.6.8.
+	*	Set Gravity Forms add-on capabilities `gravityforms_pronamic_pay` and  `gravityforms_pronamic_pay_uninstall`.
+*	Updated WordPress pay Restrict Content Pro library to version 1.0.1.
+	*	Add PayPal payment method.
+	*	Add Direct Debit (mandate via Sofort) payment method.
+*	Updated WordPress pay WooCommerce library to version 1.2.9.
+	*	Add specific payment methods only if activated by configuration.
+	*	Add Direct Debit (mandate via Sofort) payment method.
 
 = 4.7.0 - 2017-12-12 =
 *	Added WordPress pay OmniKassa 2.0 library version 1.0.0.
@@ -1855,13 +1868,5 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Links ==
 
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
-*	[Online styleguide van iDEAL](http://huisstijl.idealdesk.com/) 
-*	[iDEAL Professional - SSL Certificaten](http://www.ideal-simulator.nl/ideal-professional-ssl-certificaten.html)
-*	[Node.js wrapper for Ogone DirectLink](https://github.com/mlegenhausen/node-ogone-directlink)
-*	[Markdown's Syntax Documentation][markdown syntax]
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-		"Markdown is what the parser uses to process much of the readme file"
-
+*	[Pronamic](https://www.pronamic.eu/)
+*	[Remco Tolsma](https://www.remcotolsma.nl/)

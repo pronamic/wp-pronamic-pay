@@ -6,6 +6,23 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
+### Changes
+
+## [5.0.0] - 2018-04-05
+
+### Changes
+- Updated WordPress pay ING Kassa Compleet library to version 1.0.8.
+  - Added support for Payconiq payment method.
+  - Fixed payment redirect for bank transfer payment method.
+- Updated WordPress pay Gravity Forms library to version 1.6.8.
+  - Set Gravity Forms add-on capabilities `gravityforms_pronamic_pay` and  `gravityforms_pronamic_pay_uninstall`.
+- Updated WordPress pay Restrict Content Pro library to version 1.0.1.
+  - Add PayPal payment method.
+  - Add Direct Debit (mandate via Sofort) payment method.
+- Updated WordPress pay WooCommerce library to version 1.2.9.
+  - Add specific payment methods only if activated by configuration.
+  - Add Direct Debit (mandate via Sofort) payment method.
+
 ## [4.7.0] - 2017-12-12
 
 ### Added
@@ -1694,7 +1711,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.7.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.0...HEAD
+[5.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.7.0...5.0.0
 [4.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...4.7.0
 [4.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...4.6.0
 [4.5.5]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.4...4.5.5
