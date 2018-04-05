@@ -39,12 +39,9 @@ if ( empty( $notes ) ) : ?>
 					<td>
 						<?php
 
-						printf(
-							esc_html__( '%1$s at %2$s', 'pronamic_ideal' ),
-							/* translators: comment date format. See http://php.net/date */
-							esc_html( get_comment_date( __( 'Y/m/d', 'pronamic_ideal' ), $note->comment_ID ) ),
-							esc_html( get_comment_date( get_option( 'time_format' ), $note->comment_ID ) )
-						);
+						$date = new Pronamic\WordPress\Pay\DateTime( $note->comment_date_gmt, new DateTimeZone( 'UTC' ) );
+
+						echo esc_html( $date->format_i18n() );
 
 						?>
 					</td>

@@ -71,30 +71,10 @@ $payments = $subscription->get_payments();
 						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_date', $payment_id ); ?>
 					</td>
 					<td>
-						<?php
-
-						if ( empty( $payment->start_date ) ) {
-							echo '—';
-						} else {
-							$date = get_date_from_gmt( $payment->start_date->format( 'Y-m-d H:i:s' ) );
-
-							echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
-						}
-
-						?>
+						<?php echo empty( $payment->start_date ) ? '—' : esc_html( $payment->start_date->format_i18n() ); ?>
 					</td>
 					<td>
-						<?php
-
-						if ( empty( $payment->end_date ) ) {
-							echo '—';
-						} else {
-							$date = get_date_from_gmt( $payment->end_date->format( 'Y-m-d H:i:s' ) );
-
-							echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $date ) ) );
-						}
-
-						?>
+						<?php echo empty( $payment->end_date ) ? '—' : esc_html( $payment->start_date->format_i18n() ); ?>
 					</td>
 				</tr>
 

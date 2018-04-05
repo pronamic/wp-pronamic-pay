@@ -103,7 +103,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$start_date = $subscription->get_start_date();
 
 			if ( $start_date ) {
-				echo esc_html( $start_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+				echo esc_html( $start_date->format_i18n() );
 			}
 
 			?>
@@ -119,7 +119,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$end_date = $subscription->get_end_date();
 
 			if ( $end_date ) {
-				echo esc_html( $end_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+				echo esc_html( $end_date->format_i18n() );
 			}
 
 			?>
@@ -135,7 +135,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$next_payment = $subscription->get_next_payment_date();
 
 			if ( $next_payment ) {
-				echo esc_html( $next_payment->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+				echo esc_html( $next_payment->format_i18n() );
 			}
 
 			?>
@@ -151,7 +151,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			$expiry_date = $subscription->get_expiry_date();
 
 			if ( $expiry_date ) {
-				echo esc_html( $expiry_date->date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ) );
+				echo esc_html( $expiry_date->format_i18n() );
 			}
 
 			?>

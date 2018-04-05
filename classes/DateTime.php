@@ -30,16 +30,18 @@ class DateTime extends \DateTime {
 	const MYSQL = 'Y-m-d H:i:s';
 
 	/**
-	 * Date I18N.
+	 * Format I18N.
 	 *
 	 * @see https://github.com/Rarst/wpdatetime/blob/0.3/src/WpDateTimeTrait.php#L79-L104
 	 * @see https://github.com/WordPress/WordPress/blob/4.9.4/wp-includes/functions.php#L72-L151
 	 *
-	 * @param string $format Format.
+	 * @param string|null $format Format.
 	 *
 	 * @return string
 	 */
-	public function date_i18n( $format ) {
+	public function format_i18n( $format = null ) {
+		$format = ( null === $format ) ? __( 'D j M Y \a\t H:i', 'pronamic_ideal' ) : $format;
+
 		$date = clone $this;
 
 		$date->setTimezone( DateTimeZone::get_default() );

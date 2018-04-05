@@ -214,7 +214,7 @@ class SubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_date':
-				the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ) );
+				echo esc_html( $subscription->date->format_i18n() );
 
 				break;
 			case 'pronamic_subscription_source':

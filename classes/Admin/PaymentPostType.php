@@ -333,7 +333,7 @@ class PaymentPostType {
 
 				break;
 			case 'pronamic_payment_date':
-				echo esc_html( get_the_time( __( 'D j M Y \a\t H:i', 'pronamic_ideal' ), $post_id ) );
+				echo esc_html( $payment->date->format_i18n() );
 
 				break;
 			case 'pronamic_payment_consumer':

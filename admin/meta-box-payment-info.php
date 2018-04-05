@@ -28,7 +28,7 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ); ?>
+			<?php echo esc_html( $payment->date->format_i18n() ); ?>
 		</td>
 	</tr>
 	<tr>
