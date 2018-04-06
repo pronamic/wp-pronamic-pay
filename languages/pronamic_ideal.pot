@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 5.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-04-06 12:19:42+00:00\n"
+"POT-Creation-Date: 2018-04-06 13:53:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +16,7 @@ msgstr ""
 #: admin/meta-box-form-options.php:18 admin/meta-box-payment-info.php:75
 #: admin/meta-box-subscription-info.php:51 admin/tab-gateways.php:26
 #: classes/Admin/AdminPaymentPostType.php:180
-#: classes/Forms/FormPostType.php:132
+#: classes/Forms/FormPostType.php:146
 msgid "Gateway"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgid "On %s"
 msgstr ""
 
 #: admin/meta-box-gateway-test.php:276
-#: classes/Admin/AdminGatewayPostType.php:226
+#: classes/Admin/AdminGatewayPostType.php:220
 #: classes/Admin/GatewaySettings.php:100
 msgid "Test"
 msgstr ""
@@ -197,7 +197,7 @@ msgstr ""
 #: admin/tab-system_status.php:397 classes/Admin/AdminGatewayPostType.php:78
 #: classes/Admin/AdminPaymentPostType.php:184
 #: classes/Admin/AdminSubscriptionPostType.php:102
-#: classes/Forms/FormPostType.php:136
+#: classes/Forms/FormPostType.php:150
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:51
 msgid "Date"
 msgstr ""
@@ -271,21 +271,21 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:213 admin/meta-box-subscription-info.php:154
+#: admin/meta-box-payment-info.php:213 admin/meta-box-subscription-info.php:177
 msgid "Consumer"
 msgstr ""
 
 #: admin/meta-box-payment-info.php:231
 #: admin/meta-box-payment-subscription.php:75
-#: admin/meta-box-subscription-info.php:170
+#: admin/meta-box-subscription-info.php:193
 msgid "Source"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:246 admin/meta-box-subscription-info.php:189
+#: admin/meta-box-payment-info.php:246 admin/meta-box-subscription-info.php:212
 msgid "Period"
 msgstr ""
 
-#: admin/meta-box-payment-info.php:254 admin/meta-box-subscription-info.php:197
+#: admin/meta-box-payment-info.php:254 admin/meta-box-subscription-info.php:220
 msgid "Level"
 msgstr ""
 
@@ -339,17 +339,17 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:112
+#: admin/meta-box-subscription-info.php:122
 #: admin/meta-box-subscription-payments.php:42
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "End Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:126
+#: admin/meta-box-subscription-info.php:146
 msgid "Next Payment Date"
 msgstr ""
 
-#: admin/meta-box-subscription-info.php:140
+#: admin/meta-box-subscription-info.php:163
 msgid "Expiry Date"
 msgstr ""
 
@@ -425,7 +425,7 @@ msgid ""
 "Are you sure you wish to run the updater now?"
 msgstr ""
 
-#: admin/page-about.php:24 classes/Admin/AdminAboutPage.php:65
+#: admin/page-about.php:24 classes/Admin/AdminAboutPage.php:68
 msgid "Welcome to Pronamic Pay"
 msgstr ""
 
@@ -476,7 +476,7 @@ msgid "c"
 msgstr ""
 
 #: admin/page-dashboard.php:157
-msgid "No pending payments found"
+msgid "No pending payments found."
 msgstr ""
 
 #: admin/page-dashboard.php:168 admin/page-dashboard.php:177
@@ -534,8 +534,8 @@ msgid "Close"
 msgstr ""
 
 #: admin/pointer-forms.php:12 classes/Admin/AdminModule.php:504
-#: classes/Forms/FormPostType.php:84 classes/Forms/FormPostType.php:86
-#: classes/Forms/FormPostType.php:97
+#: classes/Forms/FormPostType.php:98 classes/Forms/FormPostType.php:100
+#: classes/Forms/FormPostType.php:111
 msgid "Payment Forms"
 msgstr ""
 
@@ -587,7 +587,7 @@ msgstr ""
 #: admin/pointer-payments.php:12 classes/Admin/AdminModule.php:486
 #: classes/Admin/AdminModule.php:487
 #: classes/Admin/AdminSubscriptionPostType.php:288
-#: classes/Forms/FormPostType.php:133 classes/Payments/PaymentPostType.php:48
+#: classes/Forms/FormPostType.php:147 classes/Payments/PaymentPostType.php:48
 #: classes/Payments/PaymentPostType.php:50
 #: classes/Payments/PaymentPostType.php:61
 msgid "Payments"
@@ -744,7 +744,7 @@ msgid "Follow Pronamic"
 msgstr ""
 
 #: admin/tab-documentation.php:619 classes/Admin/AdminGatewayPostType.php:74
-#: classes/Forms/FormPostType.php:131
+#: classes/Forms/FormPostType.php:145
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:47
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:118
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:105
@@ -1093,7 +1093,7 @@ msgid_plural "%s payments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Admin/AdminAboutPage.php:64
+#: classes/Admin/AdminAboutPage.php:67
 msgid "About Pronamic Pay"
 msgstr ""
 
@@ -1129,7 +1129,7 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:217
+#: classes/Admin/AdminGatewayPostType.php:211
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:57
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:61
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:96
@@ -1151,38 +1151,38 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:371
+#: classes/Admin/AdminGatewayPostType.php:365
 #: classes/Admin/AdminPaymentPostType.php:546
 msgid "M j, Y @ H:i"
 msgstr ""
 
+#: classes/Admin/AdminGatewayPostType.php:369
 #: classes/Admin/AdminGatewayPostType.php:375
-#: classes/Admin/AdminGatewayPostType.php:381
 msgid "Configuration updated."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:384
+#: classes/Admin/AdminGatewayPostType.php:378
 #. translators: %s: date and time of the revision.
 msgid "Configuration restored to revision from %s."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:386
+#: classes/Admin/AdminGatewayPostType.php:380
 msgid "Configuration published."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:388
+#: classes/Admin/AdminGatewayPostType.php:382
 msgid "Configuration saved."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:390
+#: classes/Admin/AdminGatewayPostType.php:384
 msgid "Configuration submitted."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:392
+#: classes/Admin/AdminGatewayPostType.php:386
 msgid "Configuration scheduled for: %s."
 msgstr ""
 
-#: classes/Admin/AdminGatewayPostType.php:394
+#: classes/Admin/AdminGatewayPostType.php:388
 msgid "Configuration draft updated."
 msgstr ""
 
@@ -1503,12 +1503,12 @@ msgstr ""
 msgid "D j M Y \\a\\t H:i"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:73
-#: classes/Forms/FormsModule.php:91
+#: classes/Forms/FormPostType.php:101 classes/Forms/FormShortcode.php:73
+#: classes/Forms/FormsModule.php:98
 msgid "Payment Form"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:88 classes/GatewayPostType.php:57
+#: classes/Forms/FormPostType.php:102 classes/GatewayPostType.php:57
 #: classes/Payments/PaymentPostType.php:52
 #: classes/Subscriptions/SubscriptionPostType.php:51
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:171
@@ -1516,72 +1516,72 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:89
+#: classes/Forms/FormPostType.php:103
 msgid "Add New Payment Form"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:90
+#: classes/Forms/FormPostType.php:104
 msgid "Edit Payment Form"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:91
+#: classes/Forms/FormPostType.php:105
 msgid "New Payment Form"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:92
+#: classes/Forms/FormPostType.php:106
 msgid "All Payment Forms"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:93
+#: classes/Forms/FormPostType.php:107
 msgid "View Payment Form"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:94
+#: classes/Forms/FormPostType.php:108
 msgid "Search Payment Forms"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:95
+#: classes/Forms/FormPostType.php:109
 msgid "No payment forms found."
 msgstr ""
 
-#: classes/Forms/FormPostType.php:96
+#: classes/Forms/FormPostType.php:110
 msgid "No payment forms found in Trash."
 msgstr ""
 
-#: classes/Forms/FormPostType.php:98
+#: classes/Forms/FormPostType.php:112
 msgid "Filter payment forms list"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:99
+#: classes/Forms/FormPostType.php:113
 msgid "Payment forms list navigation"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:100
+#: classes/Forms/FormPostType.php:114
 msgid "Payment forms list"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:134
+#: classes/Forms/FormPostType.php:148
 msgid "Earnings"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:135
+#: classes/Forms/FormPostType.php:149
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:153
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:255
+#: classes/Forms/FormPostType.php:269
 msgid "Form Options"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:349
+#: classes/Forms/FormPostType.php:363
 msgid "Shortcode:"
 msgstr ""
 
-#: classes/Forms/FormProcessor.php:144
+#: classes/Forms/FormProcessor.php:146
 msgid "Please enter your first name"
 msgstr ""
 
-#: classes/Forms/FormProcessor.php:151
+#: classes/Forms/FormProcessor.php:153
 msgid "Please enter a valid email address"
 msgstr ""
 
@@ -3067,7 +3067,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/jigoshop/src/PaymentData.php:86
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:68
 #: vendor/wp-pay-extensions/shopp/src/PaymentData.php:94
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:442
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:410
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:107
 #: vendor/wp-pay-extensions/wp-e-commerce/src/PaymentData.php:136
 #. translators: %s: purchase id
@@ -3484,8 +3484,8 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:278
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:306
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:357
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:428
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:337
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:396
 msgid "WooCommerce"
 msgstr ""
 
@@ -3493,11 +3493,11 @@ msgstr ""
 msgid "%s subscription reactivated. Status changed to 'Active'."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:356
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:336
 msgid "%s subscription cancelled. Status changed to 'Cancelled'."
 msgstr ""
 
-#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:457
+#: vendor/wp-pay-extensions/woocommerce/src/Extension.php:425
 msgid "WooCommerce Order"
 msgstr ""
 
@@ -4697,7 +4697,7 @@ msgctxt "Recurring payment"
 msgid "times"
 msgstr ""
 
-#: classes/Forms/FormPostType.php:113
+#: classes/Forms/FormPostType.php:127
 msgctxt "slug"
 msgid "payment-forms"
 msgstr ""
