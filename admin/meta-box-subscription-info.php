@@ -107,34 +107,57 @@ $subscription = get_pronamic_subscription( $post_id );
 			?>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
 
-			$end_date = $subscription->get_end_date();
+	<?php
 
-			echo empty( $end_date ) ? '—' : esc_html( $end_date->format_i18n() );
+	$frequency = $subscription->get_frequency();
 
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Next Payment Date', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+	// Show end date if frequency is limited.
+	if ( ! empty( $frequency ) ) :
 
-			$next_payment = $subscription->get_next_payment_date();
+	?>
 
-			echo empty( $next_payment ) ? '—' : esc_html( $next_payment->format_i18n() );
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
 
-			?>
-		</td>
-	</tr>
+				$end_date = $subscription->get_end_date();
+
+				echo empty( $end_date ) ? '—' : esc_html( $end_date->format_i18n() );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	// Show next payment date if subscription is not cancelled or completed.
+	if ( ! in_array( $subscription->get_status(), array( Statuses::CANCELLED, Statuses::COMPLETED ) ), true ) :
+
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Next Payment Date', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$next_payment = $subscription->get_next_payment_date();
+
+				echo empty( $next_payment ) ? '—' : esc_html( $next_payment->format_i18n() );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Expiry Date', 'pronamic_ideal' ); ?>
