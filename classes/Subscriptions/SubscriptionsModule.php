@@ -240,8 +240,8 @@ class SubscriptionsModule {
 	/**
 	 * Comments clauses.
 	 *
-	 * @param array            $clauses The database query clauses.
-	 * @param WP_Comment_Query $query   The WordPress comment query object.
+	 * @param array             $clauses The database query clauses.
+	 * @param \WP_Comment_Query $query   The WordPress comment query object.
 	 * @return array
 	 */
 	public function exclude_subscription_comment_notes( $clauses, $query ) {
