@@ -118,9 +118,7 @@ $subscription = get_pronamic_subscription( $post_id );
 
 			$end_date = $subscription->get_end_date();
 
-			if ( $end_date ) {
-				echo esc_html( $end_date->format_i18n() );
-			}
+			echo empty( $end_date ) ? '—' : esc_html( $end_date->format_i18n() );
 
 			?>
 		</td>
@@ -134,9 +132,7 @@ $subscription = get_pronamic_subscription( $post_id );
 
 			$next_payment = $subscription->get_next_payment_date();
 
-			if ( $next_payment ) {
-				echo esc_html( $next_payment->format_i18n() );
-			}
+			echo empty( $next_payment ) ? '—' : esc_html( $next_payment->format_i18n() );
 
 			?>
 		</td>
@@ -150,9 +146,7 @@ $subscription = get_pronamic_subscription( $post_id );
 
 			$expiry_date = $subscription->get_expiry_date();
 
-			if ( $expiry_date ) {
-				echo esc_html( $expiry_date->format_i18n() );
-			}
+			echo empty( $expiry_date ) ? '—' : esc_html( $expiry_date->format_i18n() );
 
 			?>
 		</td>
