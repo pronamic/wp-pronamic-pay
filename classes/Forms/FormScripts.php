@@ -10,6 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Form Scripts
  *
@@ -18,6 +20,13 @@ namespace Pronamic\WordPress\Pay\Forms;
  * @since 3.7.0
  */
 class FormScripts {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
 	/**
 	 * Constructs and initalize an form scripts object.
 	 *
@@ -38,7 +47,7 @@ class FormScripts {
 
 		wp_register_style(
 			'pronamic-pay-forms',
-			plugins_url( 'css/forms' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
+			plugins_url( 'css/forms' . $min . '.css', $this->plugin->get_file() ),
 			array(),
 			$this->plugin->get_version()
 		);

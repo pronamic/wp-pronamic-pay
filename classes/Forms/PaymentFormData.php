@@ -24,13 +24,6 @@ use \Pronamic\WordPress\Pay\Payments\PaymentData;
  */
 class PaymentFormData extends PaymentData {
 	/**
-	 * Amount.
-	 *
-	 * @var float
-	 */
-	private $amount;
-
-	/**
 	 * Get source indicator.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_source()

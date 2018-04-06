@@ -10,6 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Pay\Plugin;
+
 /**
  * Form Processor
  *
@@ -18,6 +20,13 @@ namespace Pronamic\WordPress\Pay\Forms;
  * @since 3.7.0
  */
 class FormProcessor {
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
 	/**
 	 * Constructs and initalize an form processor object.
 	 *
