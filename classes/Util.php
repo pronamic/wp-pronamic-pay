@@ -140,23 +140,6 @@ class Util {
 	}
 
 	/**
-	 * Format date.
-	 *
-	 * @param string   $format The desired date form.
-	 * @param DateTime $date   The date to format.
-	 * @return string
-	 */
-	public static function format_date( $format, DateTime $date = null ) {
-		$result = null;
-
-		if ( null !== $date ) {
-			$result = $date->format( $format );
-		}
-
-		return $result;
-	}
-
-	/**
 	 * Format price.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-formatting-functions.php#L306-L347
