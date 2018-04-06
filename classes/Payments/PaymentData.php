@@ -229,7 +229,7 @@ abstract class PaymentData extends AbstractPaymentData {
 
 		$payment = get_pronamic_payment_by_meta( '_pronamic_payment_source_id', $this->get_subscription_source_id() );
 
-		if ( ! $payment ) {
+		if ( empty( $payment ) ) {
 			return;
 		}
 

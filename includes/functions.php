@@ -28,7 +28,7 @@ function get_pronamic_payment( $post_id ) {
  *
  * @param string $meta_key   The meta key to query for.
  * @param string $meta_value The Meta value to query for.
- * @return Payment
+ * @return Payment|null
  */
 function get_pronamic_payment_by_meta( $meta_key, $meta_value ) {
 	global $wpdb;
@@ -95,7 +95,7 @@ function get_pronamic_payments_by_meta( $meta_key, $meta_value ) {
  * Get payment by the specified purchase ID.
  *
  * @param string $purchase_id The purchase ID to query for.
- * @return Payment
+ * @return Payment|null
  */
 function get_pronamic_payment_by_purchase_id( $purchase_id ) {
 	return get_pronamic_payment_by_meta( '_pronamic_payment_purchase_id', $purchase_id );
@@ -106,7 +106,7 @@ function get_pronamic_payment_by_purchase_id( $purchase_id ) {
  *
  * @param string $transaction_id The transaction ID to query for.
  * @param string $entrance_code  The entrance code to query for.
- * @return Payment
+ * @return Payment|null
  */
 function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code = null ) {
 	return get_pronamic_payment_by_meta( '_pronamic_payment_transaction_id', $transaction_id );
@@ -129,7 +129,7 @@ function get_pronamic_subscription( $post_id ) {
  *
  * @param string $meta_key   The meta key to query for.
  * @param string $meta_value The Meta value to query for.
- * @return Subscription
+ * @return Subscription|null
  */
 function get_pronamic_subscription_by_meta( $meta_key, $meta_value ) {
 	global $wpdb;
