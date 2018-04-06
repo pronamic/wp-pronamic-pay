@@ -684,7 +684,7 @@ class Payment {
 	/**
 	 * Get the source link for this payment.
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 	public function get_source_link() {
 		$url = null;
