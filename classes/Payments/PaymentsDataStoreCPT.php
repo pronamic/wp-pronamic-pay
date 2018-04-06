@@ -58,11 +58,11 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 
 		$result = wp_insert_post(
 			array(
-				'post_type'     => 'pronamic_payment',
-				'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
-				'post_title'    => $title,
-				'post_status'   => empty( $post_status ) ? 'payment_pending' : null,
-				'post_author'   => $payment->user_id,
+				'post_type'   => 'pronamic_payment',
+				'post_date'   => $payment->date->format_i18n( DateTime::MYSQL ),
+				'post_title'  => $title,
+				'post_status' => empty( $post_status ) ? 'payment_pending' : null,
+				'post_author' => $payment->user_id,
 			), true
 		);
 

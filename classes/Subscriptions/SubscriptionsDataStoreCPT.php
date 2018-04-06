@@ -44,14 +44,14 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 
 		$result = wp_insert_post(
 			array(
-				'post_type'     => 'pronamic_pay_subscr',
-				'post_date_gmt' => $subscription->date->format( 'Y-m-d H:i:s' ),
-				'post_title'    => sprintf(
+				'post_type'   => 'pronamic_pay_subscr',
+				'post_date'   => $subscription->date->format_i18n( DateTime::MYSQL ),
+				'post_title'  => sprintf(
 					'Subscription – %s',
 					date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
 				),
-				'post_status'   => empty( $post_status ) ? 'subscr_pending' : $post_status,
-				'post_author'   => $subscription->user_id,
+				'post_status' => empty( $post_status ) ? 'subscr_pending' : $post_status,
+				'post_author' => $subscription->user_id,
 			), true
 		);
 

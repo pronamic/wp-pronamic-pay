@@ -31,6 +31,13 @@ class Subscription {
 	protected $id;
 
 	/**
+	 * The date of this subscription.
+	 *
+	 * @var DateTime
+	 */
+	public $date;
+
+	/**
 	 * The key of this subscription, used in URL's for security.
 	 *
 	 * @var string
@@ -269,7 +276,7 @@ class Subscription {
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;
-		$this->date = new \DateTime();
+		$this->date = new DateTime();
 		$this->meta = array();
 
 		if ( null !== $post_id ) {

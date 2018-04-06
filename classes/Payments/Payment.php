@@ -10,10 +10,10 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
-use DateTime;
-use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Currency;
+use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 
 /**
  * Payment
@@ -29,6 +29,13 @@ class Payment {
 	 * @var \WP_Post|array
 	 */
 	public $post;
+
+	/**
+	 * The date of this payment.
+	 *
+	 * @var DateTime
+	 */
+	public $date;	
 
 	/**
 	 * The subscription.
@@ -362,7 +369,7 @@ class Payment {
 	 */
 	public function __construct( $post_id = null ) {
 		$this->id   = $post_id;
-		$this->date = new \DateTime();
+		$this->date = new DateTime();
 		$this->meta = array();
 
 		if ( null !== $post_id ) {
