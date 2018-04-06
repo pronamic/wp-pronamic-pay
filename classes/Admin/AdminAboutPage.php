@@ -59,17 +59,23 @@ class AdminAboutPage {
 	public function admin_menu() {
 		$page = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
 
-		if ( 'pronamic-pay-about' === $page ) {
-			$hook_suffix = add_dashboard_page(
-				__( 'About Pronamic Pay', 'pronamic_ideal' ),
-				__( 'Welcome to Pronamic Pay', 'pronamic_ideal' ),
-				'manage_options',
-				$page,
-				array( $this, 'page_about' )
-			);
-
-			add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
+		if ( 'pronamic-pay-about' !== $page ) {
+			return;
 		}
+
+		$hook_suffix = add_dashboard_page(
+			__( 'About Pronamic Pay', 'pronamic_ideal' ),
+			__( 'Welcome to Pronamic Pay', 'pronamic_ideal' ),
+			'manage_options',
+			$page,
+			array( $this, 'page_about' )
+		);
+
+		if ( false === $hook_suffix ) {
+			return;
+		}
+
+		add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
 	}
 
 	/**
