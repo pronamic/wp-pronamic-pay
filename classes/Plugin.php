@@ -524,7 +524,7 @@ class Plugin {
 	/**
 	 * Get gateway.
 	 *
-	 * @param string $config_id A gateway configuration ID.
+	 * @param string|integer|boolean $config_id A gateway configuration ID.
 	 *
 	 * @return Gateway|null
 	 */
