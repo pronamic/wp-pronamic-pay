@@ -84,7 +84,7 @@ class AdminNotices {
 		$notices = get_option( 'pronamic_pay_admin_notices', array() );
 
 		foreach ( $notices as $name ) {
-			$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/notice-' . $name . '.php';
+			$file = plugin_dir_path( $this->plugin->get_file() ) . 'admin/notice-' . $name . '.php';
 
 			if ( is_readable( $file ) ) {
 				include $file;

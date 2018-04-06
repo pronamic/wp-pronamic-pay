@@ -179,7 +179,7 @@ class Install {
 					continue;
 				}
 
-				$file = plugin_dir_path( Plugin::$file ) . 'includes/updates/update-' . $version . '.php';
+				$file = plugin_dir_path( $this->plugin->get_file() ) . 'includes/updates/update-' . $version . '.php';
 
 				if ( is_readable( $file ) ) {
 					include $file;

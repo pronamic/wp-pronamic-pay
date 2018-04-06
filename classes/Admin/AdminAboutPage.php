@@ -87,7 +87,7 @@ class AdminAboutPage {
 
 		wp_enqueue_style(
 			'proanmic-pay-admin-about',
-			plugins_url( 'css/admin-about' . $min . '.css', Plugin::$file ),
+			plugins_url( 'css/admin-about' . $min . '.css', $this->plugin->get_file() ),
 			array(),
 			$this->plugin->get_version()
 		);

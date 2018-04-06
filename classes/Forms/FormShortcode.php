@@ -19,6 +19,13 @@ namespace Pronamic\WordPress\Pay\Forms;
  */
 class FormShortcode {
 	/**
+	 * Forms module.
+	 *
+	 * @var FormsModule
+	 */
+	private $forms_module;
+
+	/**
 	 * Constructs and initializes an post types object.
 	 *
 	 * @param FormsModule $forms_module Reference to the forms module.

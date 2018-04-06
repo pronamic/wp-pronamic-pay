@@ -376,7 +376,7 @@ class AdminModule {
 			// Tippy.js - https://atomiks.github.io/tippyjs/.
 			wp_register_script(
 				'tippy.js',
-				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
+				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', $this->plugin->get_file() ),
 				array(),
 				'2.5.0',
 				true
@@ -385,21 +385,21 @@ class AdminModule {
 			// Pronamic.
 			wp_register_style(
 				'pronamic-pay-icons',
-				plugins_url( 'fonts/pronamic-pay-icons.css', \Pronamic\WordPress\Pay\Plugin::$file ),
+				plugins_url( 'fonts/pronamic-pay-icons.css', $this->plugin->get_file() ),
 				array(),
 				$this->plugin->get_version()
 			);
 
 			wp_register_style(
 				'pronamic-pay-admin',
-				plugins_url( 'css/admin' . $min . '.css', \Pronamic\WordPress\Pay\Plugin::$file ),
+				plugins_url( 'css/admin' . $min . '.css', $this->plugin->get_file() ),
 				array( 'pronamic-pay-icons' ),
 				$this->plugin->get_version()
 			);
 
 			wp_register_script(
 				'pronamic-pay-admin',
-				plugins_url( 'js/admin' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
+				plugins_url( 'js/admin' . $min . '.js', $this->plugin->get_file() ),
 				array( 'jquery', 'tippy.js' ),
 				$this->plugin->get_version(),
 				true
@@ -563,7 +563,7 @@ class AdminModule {
 	public function render_page( $name ) {
 		$result = false;
 
-		$file = plugin_dir_path( \Pronamic\WordPress\Pay\Plugin::$file ) . 'admin/page-' . $name . '.php';
+		$file = plugin_dir_path( $this->plugin->get_file() ) . 'admin/page-' . $name . '.php';
 
 		if ( is_readable( $file ) ) {
 			include $file;
