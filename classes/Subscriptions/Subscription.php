@@ -658,7 +658,7 @@ class Subscription {
 	 * @param DateTime $date Expiry date.
 	 */
 	public function set_expiry_date( DateTime $date ) {
-		$this->expiry_date = $expiry_date;
+		$this->expiry_date = $date;
 	}
 
 	/**
