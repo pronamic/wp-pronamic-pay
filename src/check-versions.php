@@ -2,6 +2,14 @@
 
 $root_dir = dirname( __DIR__ );
 
+/**
+ * Autoload.
+ */
+$loader = require_once $root_dir . '/vendor/autoload.php';
+
+/**
+ * Package.
+ */
 $data = file_get_contents( $root_dir . '/package.json' );
 $pkg  = json_decode( $data );
 
@@ -25,7 +33,7 @@ printf( 'Found "%s" in file "%s".', $search_string, $filename );
 
 echo PHP_EOL;
 
-// Check plugin
+// Check plugin file
 // @see https://codex.wordpress.org/File_Header
 // @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/functions.php#L4810-L4868
 $filename = 'pronamic-ideal.php';
@@ -67,5 +75,29 @@ if ( ! in_array( $search_string, $file_header_lines, true ) ) {
 
 printf( '✅  ' );
 printf( 'Found "%s" in file "%s".', $search_string, $filename );
+
+echo PHP_EOL;
+
+// Check plugin class
+$plugin_class_reflection = new ReflectionClass( '\Pronamic\WordPress\Pay\Plugin' );
+
+$default_properties = $plugin_class_reflection->getDefaultProperties();
+
+if ( ! array_key_exists( 'version', $default_properties ) ) {
+	printf( '❌  ' );
+	printf( 'Could not find "version" property in class "%s".', $plugin_class_reflection->getName() );
+
+	exit( 1 );
+}
+
+if ( $default_properties['version'] !== $pkg->version ) {
+	printf( '❌  ' );
+	printf( 'The "version" property value "%s" in class "%s" does not match.', $default_properties['version'], $plugin_class_reflection->getName() );
+
+	exit( 1 );
+}
+
+printf( '✅  ' );
+printf( 'The "version" property value "%s" in class "%s" matches.', $default_properties['version'], $plugin_class_reflection->getName() );
 
 echo PHP_EOL;

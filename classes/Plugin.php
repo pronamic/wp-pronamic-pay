@@ -28,6 +28,13 @@ use WP_Query;
  */
 class Plugin {
 	/**
+	 * Version.
+	 *
+	 * @var string
+	 */
+	private $version = '5.0.0';
+
+	/**
 	 * The root file of this WordPress plugin
 	 *
 	 * @var string
@@ -155,9 +162,7 @@ class Plugin {
 	 * @return string The version number of this plugin.
 	 */
 	public function get_version() {
-		global $pronamic_pay_version;
-
-		return $pronamic_pay_version;
+		return $this->version;
 	}
 
 	/**

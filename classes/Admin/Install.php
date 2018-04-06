@@ -40,10 +40,12 @@ class Install {
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/class-wc-install.php
 	 *
-	 * @param AdminModule $admin Admin Module.
+	 * @param Plugin      $plugin Plugin.
+	 * @param AdminModule $admin  Admin.
 	 */
-	public function __construct( AdminModule $admin ) {
-		$this->admin = $admin;
+	public function __construct( Plugin $plugin, AdminModule $admin ) {
+		$this->plugin = $plugin;
+		$this->admin  = $admin;
 
 		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ), 5 );
@@ -54,9 +56,7 @@ class Install {
 	 */
 	public function admin_init() {
 		// Install.
-		global $pronamic_pay_version;
-
-		if ( get_option( 'pronamic_pay_version' ) !== $pronamic_pay_version ) {
+		if ( get_option( 'pronamic_pay_version' ) !== $this->plugin->get_version() ) {
 			$this->install();
 		}
 
@@ -74,8 +74,6 @@ class Install {
 	 * Install.
 	 */
 	private function install() {
-		global $pronamic_pay_version;
-
 		// Roles.
 		$this->create_roles();
 
@@ -83,7 +81,7 @@ class Install {
 		flush_rewrite_rules();
 
 		// Database update.
-		$version = $pronamic_pay_version;
+		$version = $this->plugin->get_version();
 
 		$parts = explode( '.', $version );
 
@@ -173,8 +171,6 @@ class Install {
 	 * Update database.
 	 */
 	public function update_db() {
-		global $pronamic_pay_version;
-
 		$current_db_version = get_option( 'pronamic_pay_db_version', null );
 
 		if ( $current_db_version ) {
@@ -193,7 +189,7 @@ class Install {
 			}
 		}
 
-		update_option( 'pronamic_pay_db_version', $pronamic_pay_version );
+		update_option( 'pronamic_pay_db_version', $this->plugin->get_version() );
 	}
 
 	/**

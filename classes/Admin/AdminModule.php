@@ -28,7 +28,7 @@ class AdminModule {
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		$this->install = new Install( $this );
+		$this->install = new Install( $plugin, $this );
 
 		// Actions.
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
