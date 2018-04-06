@@ -1,9 +1,12 @@
 filter:
-    excluded_paths:
-        - "assets/*"
-        - "includes/xmlseclibs/*"
+  excluded_paths:
+    - 'assets/*'
+    - 'includes/xmlseclibs/*'
+    - '*.min.js'
 
 checks:
-    php:
-        code_rating: true
-        duplication: true
+  php:
+    coding_standard:
+      name: WordPress
+    code_rating: true
+    duplication: true
