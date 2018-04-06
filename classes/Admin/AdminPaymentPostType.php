@@ -13,6 +13,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use WP_Post;
+use WP_Query;
 
 /**
  * WordPress admin payment post type
@@ -76,7 +77,7 @@ class AdminPaymentPostType {
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 
 		// Bulk Actions.
-		$this->bulk_actions = new AdminPaymentBulkActions();
+		new AdminPaymentBulkActions();
 	}
 
 	/**
