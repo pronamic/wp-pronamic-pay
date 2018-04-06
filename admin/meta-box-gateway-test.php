@@ -55,7 +55,7 @@ if ( $gateway->has_error() ) {
 	$pronamic_ideal_errors[] = $gateway->get_error();
 }
 
-include Plugin::$dirname . '/views/errors.php';
+require Plugin::$dirname . '/views/errors.php';
 
 ?>
 <table class="form-table">
