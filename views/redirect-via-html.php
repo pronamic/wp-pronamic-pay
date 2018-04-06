@@ -37,7 +37,7 @@ wp_register_style(
 
 	$auto_submit = true;
 
-	if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) {
+	if ( PRONAMIC_PAY_DEBUG ) {
 		$auto_submit = false;
 	}
 

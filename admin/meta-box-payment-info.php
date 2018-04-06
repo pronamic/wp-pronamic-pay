@@ -302,7 +302,7 @@ $payment = get_pronamic_payment( $post_id );
 
 	<?php endif; ?>
 
-	<?php if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) : ?>
+	<?php if ( PRONAMIC_PAY_DEBUG ) : ?>
 
 		<tr>
 			<th scope="row">

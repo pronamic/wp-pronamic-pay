@@ -62,7 +62,11 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
  */
 $loader = require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
-if ( defined( 'PRONAMIC_PAY_DEBUG' ) && PRONAMIC_PAY_DEBUG ) {
+if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
+	define( 'PRONAMIC_PAY_DEBUG', false );
+}
+
+if ( PRONAMIC_PAY_DEBUG ) {
 	foreach ( glob( __DIR__ . '/repositories/*/*/composer.json' ) as $file ) {
 		$content = file_get_contents( $file );
 
