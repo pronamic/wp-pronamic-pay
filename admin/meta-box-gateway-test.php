@@ -17,56 +17,165 @@ use Pronamic\WordPress\Pay\Plugin;
 
 $gateway = Plugin::get_gateway( get_the_ID() );
 
-if ( $gateway ) {
-	wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
+if ( empty( $gateway ) ) {
+	printf(
+		'<em>%s</em>',
+		esc_html( __( 'Please save the entered account details of your payment provider, to make a test payment.', 'pronamic_ideal' ) )
+	);
 
-	$is_ideal  = false;
-	$is_ideal |= $gateway instanceof IDealBasic_Gateway;
-	$is_ideal |= $gateway instanceof IDealAdvancedV3_Gateway;
+	return;
+}
 
-	// Payment method selector.
-	$payment_methods = $gateway->get_payment_method_field_options( true );
+wp_nonce_field( 'test_pay_gateway', 'pronamic_pay_test_nonce' );
 
-	$inputs = array();
+$is_ideal  = false;
+$is_ideal |= $gateway instanceof IDealBasic_Gateway;
+$is_ideal |= $gateway instanceof IDealAdvancedV3_Gateway;
 
-	foreach ( $payment_methods as $payment_method => $method_name ) {
-		$gateway->set_payment_method( $payment_method );
+// Payment method selector.
+$payment_methods = $gateway->get_payment_method_field_options( true );
 
-		// Payment method input HTML.
-		$html = $gateway->get_input_html();
+$inputs = array();
 
-		if ( ! empty( $html ) ) {
-			$inputs[ $payment_method ] = array(
-				'label' => $method_name,
-				'html'  => $html,
-			);
-		}
+foreach ( $payment_methods as $payment_method => $method_name ) {
+	$gateway->set_payment_method( $payment_method );
+
+	// Payment method input HTML.
+	$html = $gateway->get_input_html();
+
+	if ( ! empty( $html ) ) {
+		$inputs[ $payment_method ] = array(
+			'label' => $method_name,
+			'html'  => $html,
+		);
 	}
+}
 
-	if ( $gateway->has_error() ) {
-		$pronamic_ideal_errors[] = $gateway->get_error();
-	}
+if ( $gateway->has_error() ) {
+	$pronamic_ideal_errors[] = $gateway->get_error();
+}
 
-	include Plugin::$dirname . '/views/errors.php';
+include Plugin::$dirname . '/views/errors.php';
 
-	?>
-	<table class="form-table">
+?>
+<table class="form-table">
+	<tr>
+		<th scope="row">
+			<label for="pronamic-pay-test-payment-methods">
+				<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+			</label>
+		</th>
+		<td>
+			<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
+				<?php
+
+				foreach ( $payment_methods as $payment_method => $method_name ) {
+					printf(
+						'<option value="%s" data-is-recurring="%d">%s</option>',
+						esc_attr( $payment_method ),
+						esc_attr( PaymentMethods::is_recurring_method( $payment_method ) ),
+						esc_html( $method_name )
+					);
+				}
+
+				?>
+			</select>
+		</td>
+	</tr>
+
+	<?php foreach ( $inputs as $method => $input ) : ?>
+
+		<tr class="pronamic-pay-cloack pronamic-pay-test-payment-method <?php echo esc_attr( $method ); ?>">
+			<th scope="row">
+				<?php echo esc_html( $input['label'] ); ?>
+			</th>
+			<td>
+				<?php
+
+				echo $input['html']; // WPCS: XSS ok.
+
+				?>
+			</td>
+		</tr>
+
+	<?php endforeach; ?>
+
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<label for="test_amount">€</label>
+
+			<input name="test_amount" id="test_amount" class="regular-text code pronamic-pay-form-control" value="" type="text" size="6" />		
+		</td>
+	</tr>
+
+	<?php if ( $gateway->supports( 'recurring' ) ) : ?>
+
+		<?php
+
+		$options = array(
+			''         => __( '— Select Repeat —', 'pronamic_ideal' ),
+			'daily'    => __( 'Daily', 'pronamic_ideal' ),
+			'weekly'   => __( 'Weekly', 'pronamic_ideal' ),
+			'monthly'  => __( 'Monthly', 'pronamic_ideal' ),
+			'annually' => __( 'Annually', 'pronamic_ideal' ),
+		);
+
+		$options_interval_suffix = array(
+			'daily'    => __( 'days', 'pronamic_ideal' ),
+			'weekly'   => __( 'weeks', 'pronamic_ideal' ),
+			'monthly'  => __( 'months', 'pronamic_ideal' ),
+			'annually' => __( 'year', 'pronamic_ideal' ),
+		);
+
+		?>
 		<tr>
 			<th scope="row">
-				<label for="pronamic-pay-test-payment-methods">
-					<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+				<label for="pronamic-pay-test-subscription">
+					<?php esc_html_e( 'Subscription', 'pronamic_ideal' ); ?>
 				</label>
 			</th>
 			<td>
-				<select id="pronamic-pay-test-payment-methods" name="pronamic_pay_test_payment_method">
+				<fieldset>
+					<legend class="screen-reader-text"><span><?php esc_html_e( 'Test Subscription', 'pronamic_ideal' ); ?></span></legend>
+
+					<label for="pronamic-pay-test-subscription">
+						<input name="pronamic_pay_test_subscription" id="pronamic-pay-test-subscription" value="1" type="checkbox" />		
+						<?php esc_html_e( 'Start a subscription for this payment.', 'pronamic_ideal' ); ?>
+					</label>
+				</fieldset>
+
+				<script type="text/javascript">
+					jQuery( document ).ready( function( $ ) {
+						$( '#pronamic-pay-test-subscription' ).change( function() {
+							$( '.pronamic-pay-test-subscription' ).toggle( $( this ).prop( 'checked' ) );
+						} );
+					} );
+				</script>
+			</td>
+		</tr>
+		<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
+			<th scope="row">
+				<label for="pronamic_pay_test_repeat_frequency"><?php esc_html_e( 'Frequency', 'pronamic_ideal' ); ?></label>
+			</th>
+			<td>
+				<select id="pronamic_pay_test_repeat_frequency" name="pronamic_pay_test_repeat_frequency">
 					<?php
 
-					foreach ( $payment_methods as $payment_method => $method_name ) {
+					foreach ( $options as $key => $label ) {
+						$interval_suffix = '';
+
+						if ( isset( $options_interval_suffix[ $key ] ) ) {
+							$interval_suffix = $options_interval_suffix[ $key ];
+						}
+
 						printf(
-							'<option value="%s" data-is-recurring="%d">%s</option>',
-							esc_attr( $payment_method ),
-							esc_attr( PaymentMethods::is_recurring_method( $payment_method ) ),
-							esc_html( $method_name )
+							'<option value="%s" data-interval-suffix="%s">%s</option>',
+							esc_attr( $key ),
+							esc_attr( $interval_suffix ),
+							esc_html( $label )
 						);
 					}
 
@@ -74,233 +183,126 @@ if ( $gateway ) {
 				</select>
 			</td>
 		</tr>
-
-		<?php foreach ( $inputs as $method => $input ) : ?>
-
-			<tr class="pronamic-pay-cloack pronamic-pay-test-payment-method <?php echo esc_attr( $method ); ?>">
-				<th scope="row">
-					<?php echo esc_html( $input['label'] ); ?>
-				</th>
-				<td>
-					<?php
-
-					echo $input['html']; // WPCS: XSS ok.
-
-					?>
-				</td>
-			</tr>
-
-		<?php endforeach; ?>
-
-		<tr>
+		<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
 			<th scope="row">
-				<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
+				<label for="pronamic_pay_test_repeat_interval"><?php esc_html_e( 'Repeat every', 'pronamic_ideal' ); ?></label>
 			</th>
 			<td>
-				<label for="test_amount">€</label>
+				<select id="pronamic_pay_test_repeat_interval" name="pronamic_pay_test_repeat_interval">
+					<?php
 
-				<input name="test_amount" id="test_amount" class="regular-text code pronamic-pay-form-control" value="" type="text" size="6" />		
+					foreach ( range( 1, 30 ) as $value ) {
+						printf(
+							'<option value="%s">%s</option>',
+							esc_attr( $value ),
+							esc_html( $value )
+						);
+					}
+
+					?>
+				</select>
+
+				<span id="pronamic_pay_test_repeat_interval_suffix"><?php esc_html_e( 'days/weeks/months/year', 'pronamic_ideal' ); ?></span>
 			</td>
 		</tr>
+		<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
+			<th scope="row">
+				<?php esc_html_e( 'Ends On', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<div>
+					<input type="radio" id="pronamic_pay_ends_never" name="pronamic_pay_ends_on" value="never" checked="checked" />
 
-		<?php if ( $gateway->supports( 'recurring' ) ) : ?>
-
-			<?php
-
-			$options = array(
-				''         => __( '— Select Repeat —', 'pronamic_ideal' ),
-				'daily'    => __( 'Daily', 'pronamic_ideal' ),
-				'weekly'   => __( 'Weekly', 'pronamic_ideal' ),
-				'monthly'  => __( 'Monthly', 'pronamic_ideal' ),
-				'annually' => __( 'Annually', 'pronamic_ideal' ),
-			);
-
-			$options_interval_suffix = array(
-				'daily'    => __( 'days', 'pronamic_ideal' ),
-				'weekly'   => __( 'weeks', 'pronamic_ideal' ),
-				'monthly'  => __( 'months', 'pronamic_ideal' ),
-				'annually' => __( 'year', 'pronamic_ideal' ),
-			);
-
-			?>
-			<tr>
-				<th scope="row">
-					<label for="pronamic-pay-test-subscription">
-						<?php esc_html_e( 'Subscription', 'pronamic_ideal' ); ?>
+					<label for="pronamic_pay_ends_never">
+						<?php esc_html_e( 'Never', 'pronamic_ideal' ); ?>
 					</label>
-				</th>
-				<td>
-					<fieldset>
-						<legend class="screen-reader-text"><span><?php esc_html_e( 'Test Subscription', 'pronamic_ideal' ); ?></span></legend>
+				</div>
+				<div>
+					<input type="radio" id="pronamic_pay_ends_count" name="pronamic_pay_ends_on" value="count" />
 
-						<label for="pronamic-pay-test-subscription">
-							<input name="pronamic_pay_test_subscription" id="pronamic-pay-test-subscription" value="1" type="checkbox" />		
-							<?php esc_html_e( 'Start a subscription for this payment.', 'pronamic_ideal' ); ?>
-						</label>
-					</fieldset>
-
-					<script type="text/javascript">
-						jQuery( document ).ready( function( $ ) {
-							$( '#pronamic-pay-test-subscription' ).change( function() {
-								$( '.pronamic-pay-test-subscription' ).toggle( $( this ).prop( 'checked' ) );
-							} );
-						} );
-					</script>
-				</td>
-			</tr>
-			<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
-				<th scope="row">
-					<label for="pronamic_pay_test_repeat_frequency"><?php esc_html_e( 'Frequency', 'pronamic_ideal' ); ?></label>
-				</th>
-				<td>
-					<select id="pronamic_pay_test_repeat_frequency" name="pronamic_pay_test_repeat_frequency">
+					<label for="pronamic_pay_ends_count">
 						<?php
 
-						foreach ( $options as $key => $label ) {
-							$interval_suffix = '';
+						$allowed_html = array(
+							'input' => array(
+								'id'    => true,
+								'name'  => true,
+								'type'  => true,
+								'value' => true,
+								'size'  => true,
+								'class' => true,
+							),
+						);
 
-							if ( isset( $options_interval_suffix[ $key ] ) ) {
-								$interval_suffix = $options_interval_suffix[ $key ];
-							}
-
-							printf(
-								'<option value="%s" data-interval-suffix="%s">%s</option>',
-								esc_attr( $key ),
-								esc_attr( $interval_suffix ),
-								esc_html( $label )
-							);
-						}
+						echo wp_kses(
+							sprintf(
+								__( 'After %s times', 'pronamic_ideal' ),
+								sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
+							),
+							$allowed_html
+						);
 
 						?>
-					</select>
-				</td>
-			</tr>
-			<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
-				<th scope="row">
-					<label for="pronamic_pay_test_repeat_interval"><?php esc_html_e( 'Repeat every', 'pronamic_ideal' ); ?></label>
-				</th>
-				<td>
-					<select id="pronamic_pay_test_repeat_interval" name="pronamic_pay_test_repeat_interval">
+					</label>
+				</div>
+
+				<div>
+					<input type="radio" id="pronamic_pay_ends_date" name="pronamic_pay_ends_on" value="date" />
+
+					<label for="pronamic_pay_ends_date">
 						<?php
 
-						foreach ( range( 1, 30 ) as $value ) {
-							printf(
-								'<option value="%s">%s</option>',
-								esc_attr( $value ),
-								esc_html( $value )
-							);
-						}
+						echo wp_kses(
+							sprintf(
+								__( 'On %s', 'pronamic_ideal' ),
+								sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
+							),
+							$allowed_html
+						);
 
 						?>
-					</select>
-
-					<span id="pronamic_pay_test_repeat_interval_suffix"><?php esc_html_e( 'days/weeks/months/year', 'pronamic_ideal' ); ?></span>
-				</td>
-			</tr>
-			<tr class="pronamic-pay-cloack pronamic-pay-test-subscription">
-				<th scope="row">
-					<?php esc_html_e( 'Ends On', 'pronamic_ideal' ); ?>
-				</th>
-				<td>
-					<div>
-						<input type="radio" id="pronamic_pay_ends_never" name="pronamic_pay_ends_on" value="never" checked="checked" />
-
-						<label for="pronamic_pay_ends_never">
-							<?php esc_html_e( 'Never', 'pronamic_ideal' ); ?>
-						</label>
-					</div>
-					<div>
-						<input type="radio" id="pronamic_pay_ends_count" name="pronamic_pay_ends_on" value="count" />
-
-						<label for="pronamic_pay_ends_count">
-							<?php
-
-							$allowed_html = array(
-								'input' => array(
-									'id'    => true,
-									'name'  => true,
-									'type'  => true,
-									'value' => true,
-									'size'  => true,
-									'class' => true,
-								),
-							);
-
-							echo wp_kses(
-								sprintf(
-									__( 'After %s times', 'pronamic_ideal' ),
-									sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
-								),
-								$allowed_html
-							);
-
-							?>
-						</label>
-					</div>
-
-					<div>
-						<input type="radio" id="pronamic_pay_ends_date" name="pronamic_pay_ends_on" value="date" />
-
-						<label for="pronamic_pay_ends_date">
-							<?php
-
-							echo wp_kses(
-								sprintf(
-									__( 'On %s', 'pronamic_ideal' ),
-									sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
-								),
-								$allowed_html
-							);
-
-							?>
-						</label>
-					</div>
-				</td>
-			</tr>
-
-		<?php endif; ?>
-
-		<tr>
-			<td>
-
-			</td>
-			<td>
-				<?php submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false ); ?>
+					</label>
+				</div>
 			</td>
 		</tr>
 
-	</table>
+	<?php endif; ?>
 
-	<script type="text/javascript">
-		jQuery( document ).ready( function( $ ) {
-			// Interval label.
-			function set_interval_label() {
-				var text = $( '#pronamic_pay_test_repeat_frequency :selected' ).data( 'interval-suffix' );
+	<tr>
+		<td>
 
-				$( '#pronamic_pay_test_repeat_interval_suffix' ).text( text );
-			}
+		</td>
+		<td>
+			<?php submit_button( __( 'Test', 'pronamic_ideal' ), 'secondary', 'test_pay_gateway', false ); ?>
+		</td>
+	</tr>
 
-			$( '#pronamic_pay_test_repeat_frequency' ).change( function() { set_interval_label(); } );
+</table>
 
-			set_interval_label();
+<script type="text/javascript">
+	jQuery( document ).ready( function( $ ) {
+		// Interval label.
+		function set_interval_label() {
+			var text = $( '#pronamic_pay_test_repeat_frequency :selected' ).data( 'interval-suffix' );
 
-			// Ends on value.
-			$( 'label[for^="pronamic_pay_ends_"] input' ).focus( function () {
-				var radio_id = $( this ).parents( 'label' ).attr( 'for' );
+			$( '#pronamic_pay_test_repeat_interval_suffix' ).text( text );
+		}
 
-				$( '#' + radio_id ).prop( 'checked', true );
-			} );
+		$( '#pronamic_pay_test_repeat_frequency' ).change( function() { set_interval_label(); } );
+
+		set_interval_label();
+
+		// Ends on value.
+		$( 'label[for^="pronamic_pay_ends_"] input' ).focus( function () {
+			var radio_id = $( this ).parents( 'label' ).attr( 'for' );
+
+			$( '#' + radio_id ).prop( 'checked', true );
 		} );
-	</script>
+	} );
+</script>
 
-	<?php
+<?php
 
-	if ( $is_ideal || $gateway instanceof \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Gateway ) {
-		include Plugin::$dirname . '/views/ideal-test-cases.php';
-	}
-} else {
-	printf(
-		'<em>%s</em>',
-		esc_html( __( 'Please save the entered account details of your payment provider, to make a test payment.', 'pronamic_ideal' ) )
-	);
+if ( $is_ideal || $gateway instanceof \Pronamic\WordPress\Pay\Gateways\OmniKassa2\Gateway ) {
+	include Plugin::$dirname . '/views/ideal-test-cases.php';
 }

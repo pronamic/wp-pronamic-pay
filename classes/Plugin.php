@@ -526,7 +526,7 @@ class Plugin {
 	 *
 	 * @param string $config_id A gateway configuration ID.
 	 *
-	 * @return Gateway
+	 * @return Gateway|null
 	 */
 	public static function get_gateway( $config_id ) {
 		if ( empty( $config_id ) ) {
