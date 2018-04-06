@@ -14,8 +14,10 @@ use DateInterval;
 use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\DateTimeZone;
 use Pronamic\WordPress\Pay\Plugin;
-use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Util;
+use Pronamic\WordPress\Pay\Core\Statuses;
+use Pronamic\WordPress\Pay\Payments\Payment;
+
 
 /**
  * Subscription.
@@ -261,7 +263,7 @@ class Subscription {
 	public $post;
 
 	/**
-	 * Construct and initialize payment object.
+	 * Construct and initialize subscription object.
 	 *
 	 * @param int $post_id A subscription post ID or null.
 	 */
