@@ -51,14 +51,17 @@ class PaymentsModule {
 		add_action( 'pronamic_payment_status_update', array( $this, 'log_payment_status_update' ), 10, 4 );
 
 		// Payment Status Checker.
-		$this->status_checker = new StatusChecker();
+		$status_checker = new StatusChecker();
+
+		// The 'pronamic_ideal_check_transaction_status' hook is scheduled to request the payment status.
+		add_action( 'pronamic_ideal_check_transaction_status', array( $status_checker, 'check_status' ), 10, 3 );
 	}
 
 	/**
 	 * Comments clauses.
 	 *
-	 * @param array            $clauses Array with query clauses for the comments query.
-	 * @param WP_Comment_Query $query   A WordPress comment query object.
+	 * @param array             $clauses Array with query clauses for the comments query.
+	 * @param \WP_Comment_Query $query   A WordPress comment query object.
 	 *
 	 * @return array
 	 */

@@ -25,14 +25,6 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class StatusChecker {
 	/**
-	 * Constructs and initializes a payment status checker.
-	 */
-	public function __construct() {
-		// The 'pronamic_ideal_check_transaction_status' hook is scheduled to request the payment status.
-		add_action( 'pronamic_ideal_check_transaction_status', array( $this, 'check_status' ), 10, 3 );
-	}
-
-	/**
 	 * Schedule event.
 	 *
 	 * @param Payment $payment The payment to schedule the status check event.
