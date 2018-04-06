@@ -12,6 +12,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Payments\Payment;
+use WP_Post;
 
 /**
  * WordPress admin payment post type
@@ -466,8 +467,8 @@ class AdminPaymentPostType {
 	/**
 	 * Post row actions.
 	 *
-	 * @param array    $actions Actions array.
-	 * @param \WP_Post $post    WordPress post.
+	 * @param array   $actions Actions array.
+	 * @param WP_Post $post    WordPress post.
 	 * @return array
 	 */
 	public function post_row_actions( $actions, $post ) {
@@ -508,9 +509,9 @@ class AdminPaymentPostType {
 	/**
 	 * Transition post status.
 	 *
-	 * @param string   $new_status New status.
-	 * @param string   $old_status Old status.
-	 * @param \WP_Post $post       WordPress post.
+	 * @param string  $new_status New status.
+	 * @param string  $old_status Old status.
+	 * @param WP_Post $post       WordPress post.
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
 		if (
