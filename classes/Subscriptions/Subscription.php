@@ -620,7 +620,7 @@ class Subscription {
 	 * @param DateTime $date Start date.
 	 */
 	public function set_start_date( DateTime $date ) {
-		$this->start_date = $value;
+		$this->start_date = $date;
 	}
 
 	/**
