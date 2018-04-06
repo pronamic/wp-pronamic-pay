@@ -54,12 +54,14 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 			);
 		}
 
+		$post_status = $this->get_post_status( $payment->status );
+
 		$result = wp_insert_post(
 			array(
 				'post_type'     => 'pronamic_payment',
 				'post_date_gmt' => $payment->date->format( 'Y-m-d H:i:s' ),
 				'post_title'    => $title,
-				'post_status'   => $this->get_post_status( $payment->status ),
+				'post_status'   => empty( $post_status ) ? 'payment_pending' : null,
 				'post_author'   => $payment->user_id,
 			), true
 		);
@@ -110,9 +112,9 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 			'ID' => $payment->get_id(),
 		);
 
-		$post_status = $this->get_post_status( $payment->status, null );
+		$post_status = $this->get_post_status( $payment->status );
 
-		if ( null !== $post_status ) {
+		if ( ! empty( $post_status ) ) {
 			$data['post_status'] = $post_status;
 		}
 
@@ -125,11 +127,10 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 	 * Get post status.
 	 *
 	 * @param string $meta_status The payment to get a WordPress post status for.
-	 * @param string $default     The default WordPress post status to return.
 	 *
-	 * @return string
+	 * @return string|null
 	 */
-	public function get_post_status( $meta_status, $default = 'payment_pending' ) {
+	public function get_post_status( $meta_status ) {
 		switch ( $meta_status ) {
 			case Statuses::CANCELLED:
 				return 'payment_cancelled';
@@ -142,7 +143,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 			case Statuses::OPEN:
 				return 'payment_pending';
 			default:
-				return $default;
+				return null;
 		}
 	}
 
@@ -153,7 +154,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 	 * @return string|boolean
 	 */
 	public function get_meta_status_label( $meta_status ) {
-		$post_status = $this->get_post_status( $meta_status, null );
+		$post_status = $this->get_post_status( $meta_status );
 
 		if ( empty( $post_status ) ) {
 			return false;

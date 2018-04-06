@@ -40,6 +40,8 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 	 * @param Subscription $subscription Create the specified subscription in this data store.
 	 */
 	public function create( $subscription ) {
+		$post_status = $this->get_post_status( $subscription->get_status() );
+
 		$result = wp_insert_post(
 			array(
 				'post_type'     => 'pronamic_pay_subscr',
@@ -48,7 +50,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 					'Subscription – %s',
 					date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
 				),
-				'post_status'   => $this->get_post_status( $subscription->get_status() ),
+				'post_status'   => empty( $post_status ) ? 'subscr_pending' : $post_status,
 				'post_author'   => $subscription->user_id,
 			), true
 		);
@@ -95,9 +97,9 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 			'ID' => $subscription->get_id(),
 		);
 
-		$post_status = $this->get_post_status( $subscription->get_status(), null );
+		$post_status = $this->get_post_status( $subscription->get_status() );
 
-		if ( null !== $post_status ) {
+		if ( ! empty( $post_status ) ) {
 			$data['post_status'] = $post_status;
 		}
 
@@ -110,10 +112,10 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 	 * Get post status.
 	 *
 	 * @param string $meta_status The subscription meta status to get the post status for.
-	 * @param string $default     The deafult post status if the meta status could not be converted to a post status.
-	 * @return string
+	 *
+	 * @return string|null
 	 */
-	public function get_post_status( $meta_status, $default = 'subscr_pending' ) {
+	public function get_post_status( $meta_status ) {
 		switch ( $meta_status ) {
 			case Statuses::CANCELLED:
 				return 'subscr_cancelled';
@@ -129,7 +131,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 			case Statuses::COMPLETED:
 				return 'subscr_completed';
 			default:
-				return $default;
+				return null;
 		}
 	}
 
@@ -140,7 +142,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 	 * @return string|boolean
 	 */
 	public function get_meta_status_label( $meta_status ) {
-		$post_status = $this->get_post_status( $meta_status, null );
+		$post_status = $this->get_post_status( $meta_status );
 
 		if ( empty( $post_status ) ) {
 			return false;
