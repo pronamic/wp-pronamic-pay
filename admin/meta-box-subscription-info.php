@@ -172,17 +172,11 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			$first_payment = $subscription->get_first_payment();
-
-			if ( $first_payment ) {
-				echo $first_payment->get_source_text(); // WPCS: XSS ok.
-			} else {
-				printf(
-					'%s<br />%s', // WPCS: XSS ok.
-					esc_html( $subscription->get_source() ),
-					esc_html( $subscription->get_source_id() )
-				);
-			}
+			printf(
+				'%s<br />%s', // WPCS: XSS ok.
+				esc_html( $subscription->get_source() ),
+				esc_html( $subscription->get_source_id() )
+			);
 
 			?>
 		</td>
