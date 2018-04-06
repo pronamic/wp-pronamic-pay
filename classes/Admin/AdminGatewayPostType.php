@@ -40,8 +40,8 @@ class AdminGatewayPostType {
 	/**
 	 * Constructs and initializes an admin gateway post type object.
 	 *
-	 * @param Plugin $plugin Plugin.
-	 * @param AdminModule $admin Admin Module.
+	 * @param Plugin      $plugin Plugin.
+	 * @param AdminModule $admin  Admin Module.
 	 */
 	public function __construct( Plugin $plugin, AdminModule $admin ) {
 		$this->plugin = $plugin;

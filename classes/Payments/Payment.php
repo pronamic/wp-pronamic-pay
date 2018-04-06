@@ -36,7 +36,7 @@ class Payment {
 	 *
 	 * @var DateTime
 	 */
-	public $date;	
+	public $date;
 
 	/**
 	 * The subscription.
