@@ -11,6 +11,8 @@
 namespace Pronamic\WordPress\Pay\Forms;
 
 use Pronamic\WordPress\Pay\Plugin;
+use WP_Error;
+use WP_User;
 
 /**
  * Form Processor
@@ -70,7 +72,7 @@ class FormProcessor {
 
 		$config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
-		$gateway = \Pronamic\WordPress\Pay\Plugin::get_gateway( $config_id );
+		$gateway = Plugin::get_gateway( $config_id );
 
 		if ( ! $gateway ) {
 			return;
@@ -79,12 +81,12 @@ class FormProcessor {
 		// Data.
 		$data = new PaymentFormData();
 
-		$payment = \Pronamic\WordPress\Pay\Plugin::start( $config_id, $gateway, $data );
+		$payment = Plugin::start( $config_id, $gateway, $data );
 
 		$error = $gateway->get_error();
 
-		if ( is_wp_error( $error ) ) {
-			\Pronamic\WordPress\Pay\Plugin::render_errors( $error );
+		if ( $error instanceof WP_Error ) {
+			Plugin::render_errors( $error );
 
 			exit;
 		}
@@ -114,7 +116,7 @@ class FormProcessor {
 			);
 
 			// User.
-			$user = new \WP_User( $user_id );
+			$user = new WP_User( $user_id );
 		}
 
 		wp_update_post(

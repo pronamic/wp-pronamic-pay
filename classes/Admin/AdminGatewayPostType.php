@@ -194,14 +194,8 @@ class AdminGatewayPostType {
 	 * @param WP_Post $post Post (only available @since 3.5.2).
 	 */
 	public function post_edit_form_tag( $post ) {
-		if ( empty( $post ) ) {
-			global $post;
-		}
-
-		if ( $post ) {
-			if ( self::POST_TYPE === $post->post_type ) {
-				echo ' enctype="multipart/form-data"';
-			}
+		if ( self::POST_TYPE === get_post_type( $post ) ) {
+			echo ' enctype="multipart/form-data"';
 		}
 	}
 

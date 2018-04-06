@@ -154,7 +154,7 @@
 
 							<?php else : ?>
 
-								<p><?php esc_html_e( 'No pending payments found', 'pronamic_ideal' ); ?>.</p>
+								<p><?php esc_html_e( 'No pending payments found.', 'pronamic_ideal' ); ?>.</p>
 
 							<?php endif; ?>
 						</div>
