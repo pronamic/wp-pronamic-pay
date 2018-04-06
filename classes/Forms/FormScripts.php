@@ -51,10 +51,8 @@ class FormScripts {
 	 * @see http://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present
 	 */
 	public function enqueue() {
-		$post = get_post();
-
 		if (
-			has_shortcode( get_post_field( 'post_content', $post ), 'pronamic_payment_form' )
+			has_shortcode( get_post_field( 'post_content' ), 'pronamic_payment_form' )
 				||
 			is_singular( 'pronamic_pay_form' )
 		) {
