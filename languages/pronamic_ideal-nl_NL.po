@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
 "POT-Creation-Date: 2018-04-05 14:25:18+00:00\n"
-"PO-Revision-Date: 2018-04-04 20:44+0200\n"
+"PO-Revision-Date: 2018-04-06 13:42+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box-form-options.php:18 admin/meta-box-payment-info.php:75
@@ -195,7 +195,8 @@ msgstr "Geen notities gevonden."
 #: admin/meta-box-subscription-payments.php:40 admin/tab-documentation.php:620
 #: admin/tab-system_status.php:399 classes/Admin/GatewayPostType.php:68
 #: classes/Admin/PaymentPostType.php:171
-#: classes/Admin/SubscriptionPostType.php:87 classes/Forms/FormPostType.php:136
+#: classes/Admin/SubscriptionPostType.php:87
+#: classes/Forms/FormPostType.php:136
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:51
 msgid "Date"
 msgstr "Datum"
@@ -268,7 +269,8 @@ msgstr "Achternaam"
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/meta-box-payment-info.php:213 admin/meta-box-subscription-info.php:162
+#: admin/meta-box-payment-info.php:213
+#: admin/meta-box-subscription-info.php:162
 msgid "Consumer"
 msgstr "Consument"
 
@@ -278,11 +280,13 @@ msgstr "Consument"
 msgid "Source"
 msgstr "Bron"
 
-#: admin/meta-box-payment-info.php:246 admin/meta-box-subscription-info.php:203
+#: admin/meta-box-payment-info.php:246
+#: admin/meta-box-subscription-info.php:203
 msgid "Period"
 msgstr "Periode"
 
-#: admin/meta-box-payment-info.php:254 admin/meta-box-subscription-info.php:211
+#: admin/meta-box-payment-info.php:254
+#: admin/meta-box-subscription-info.php:211
 msgid "Level"
 msgstr "Niveau"
 
@@ -439,7 +443,7 @@ msgid ""
 "secure than ever before. We hope you enjoy using it."
 msgstr ""
 "Bedankt voor het installeren van Pronamic Pay. Versie %s is krachtiger, "
-"stabieler en veiliger dan ooit tevoeren. We hopen dat je het met plezier "
+"stabieler en veiliger dan ooit tevoren. We hopen dat je het met plezier "
 "gebruikt."
 
 #: admin/page-about.php:41
@@ -608,7 +612,8 @@ msgstr ""
 "betalingsprovider."
 
 #: admin/pointer-payments.php:12 classes/Admin/AdminModule.php:479
-#: classes/Admin/AdminModule.php:480 classes/Admin/SubscriptionPostType.php:273
+#: classes/Admin/AdminModule.php:480
+#: classes/Admin/SubscriptionPostType.php:273
 #: classes/Forms/FormPostType.php:133 classes/Payments/PaymentPostType.php:48
 #: classes/Payments/PaymentPostType.php:50
 #: classes/Payments/PaymentPostType.php:61
@@ -877,7 +882,7 @@ msgid ""
 "are provided by the payment provider via e-mail or through a dashboard."
 msgstr ""
 "Maak een nieuwe configuratie aan via Betalingen » Configuraties » Nieuwe "
-"toevoegen. De te gebruiken account gegevens ontvang je van de "
+"toevoegen. De te gebruiken accountgegevens ontvang je van de "
 "betalingsprovider via e-mail of via het dashboard van de betalingsprovider."
 
 #: admin/tab-getting-started.php:82
@@ -910,7 +915,7 @@ msgid ""
 msgstr ""
 "Nadat de betalingsprovider configuratie is toegevoegd, kan de \"Test\" "
 "sectie onder de instellingen gebruikt worden om de configuratie te testen. "
-"Je kunt (afhankelijk van de betalingsrprovider) kiezen uit diverse "
+"Je kunt (afhankelijk van de betalingsprovider) kiezen uit diverse "
 "betaalmethoden en een bedrag invullen voor de testbetalingen. De "
 "configuratie is correct aangemaakt indien je wordt doorgestuurd naar een "
 "betaalscherm waarop hetzelfde bedrag vermeld is."
