@@ -137,7 +137,7 @@ $subscription = get_pronamic_subscription( $post_id );
 	<?php
 
 	// Show next payment date if subscription is not cancelled or completed.
-	if ( ! in_array( $subscription->get_status(), array( Statuses::CANCELLED, Statuses::COMPLETED ) ), true ) :
+	if ( ! in_array( $subscription->get_status(), array( Statuses::CANCELLED, Statuses::COMPLETED ), true ) ) :
 
 	?>
 
