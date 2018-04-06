@@ -378,7 +378,7 @@ class AdminModule {
 				'tippy.js',
 				plugins_url( 'assets/tippy.js/tippy.all' . $min . '.js', \Pronamic\WordPress\Pay\Plugin::$file ),
 				array(),
-				'2.4.0',
+				'2.5.0',
 				true
 			);
 
