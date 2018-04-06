@@ -305,7 +305,6 @@ class SubscriptionsModule {
 		$subscription->email           = $payment->email;
 		$subscription->customer_name   = $payment->customer_name;
 		$subscription->payment_method  = $payment->method;
-		$subscription->first_payment   = $payment->date;
 		$subscription->status          = Statuses::OPEN;
 
 		// @todo
