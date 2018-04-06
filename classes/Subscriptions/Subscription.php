@@ -541,7 +541,7 @@ class Subscription {
 	/**
 	 * Get source link for this subscription.
 	 *
-	 * @return string
+	 * @return string|null
 	 */
 	public function get_source_link() {
 		$url = null;

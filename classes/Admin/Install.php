@@ -23,6 +23,13 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class Install {
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Database updates.
 	 *
 	 * @var array

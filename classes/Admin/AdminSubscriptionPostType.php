@@ -363,8 +363,8 @@ class AdminSubscriptionPostType {
 	/**
 	 * Post row actions.
 	 *
-	 * @param array    $actions Actions array.
-	 * @param \WP_Post $post    WordPress post.
+	 * @param array   $actions Actions array.
+	 * @param WP_Post $post    WordPress post.
 	 * @return array
 	 */
 	public function post_row_actions( $actions, $post ) {
@@ -401,9 +401,9 @@ class AdminSubscriptionPostType {
 	/**
 	 * Transition post status.
 	 *
-	 * @param string   $new_status New status.
-	 * @param string   $old_status Old status.
-	 * @param \WP_Post $post       WordPress post.
+	 * @param string  $new_status New status.
+	 * @param string  $old_status Old status.
+	 * @param WP_Post $post       WordPress post.
 	 */
 	public function transition_post_status( $new_status, $old_status, $post ) {
 		if ( ! filter_has_var( INPUT_POST, 'pronamic_subscription_update_nonce' ) ) {
