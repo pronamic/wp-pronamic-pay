@@ -30,7 +30,7 @@ class AdminReports {
 	/**
 	 * Admin.
 	 *
-	 * @var Admin
+	 * @var AdminModule
 	 */
 	private $admin;
 

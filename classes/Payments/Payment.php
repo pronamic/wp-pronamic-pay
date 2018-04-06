@@ -26,7 +26,7 @@ class Payment {
 	/**
 	 * The payment post object.
 	 *
-	 * @var \WP_Post
+	 * @var \WP_Post|array
 	 */
 	public $post;
 
@@ -54,7 +54,7 @@ class Payment {
 	/**
 	 * The configuration ID.
 	 *
-	 * @var int
+	 * @var integer
 	 */
 	public $config_id;
 

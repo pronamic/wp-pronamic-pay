@@ -10,8 +10,6 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use DateTime;
-
 /**
  * Credit card class
  *

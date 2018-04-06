@@ -30,7 +30,7 @@ class AdminAboutPage {
 	/**
 	 * Admin.
 	 *
-	 * @var Admin
+	 * @var AdminModule
 	 */
 	private $admin;
 

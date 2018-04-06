@@ -191,7 +191,7 @@ class Subscription {
 	 * The gateway configuration ID to use with this subscription.
 	 *
 	 * @todo Should we improve the name of this var?
-	 * @var  string
+	 * @var  integer
 	 */
 	public $config_id;
 
@@ -256,7 +256,7 @@ class Subscription {
 	/**
 	 * WordPress post object related to this subscription.
 	 *
-	 * @var \WP_Post
+	 * @var \WP_Post|array
 	 */
 	public $post;
 
