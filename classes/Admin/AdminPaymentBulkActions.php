@@ -18,7 +18,7 @@ namespace Pronamic\WordPress\Pay\Admin;
  * @version 4.1.0
  * @since 4.1.0
  */
-class PaymentBulkActions {
+class AdminPaymentBulkActions {
 	/**
 	 * Constructs and initializes an admin payment bulk actions object.
 	 */

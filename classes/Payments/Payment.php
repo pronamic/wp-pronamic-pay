@@ -14,6 +14,7 @@ use Pronamic\WordPress\Pay\Currency;
 use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use WP_Post;
 
 /**
  * Payment
@@ -26,7 +27,7 @@ class Payment {
 	/**
 	 * The payment post object.
 	 *
-	 * @var \WP_Post|array
+	 * @var WP_Post|array
 	 */
 	public $post;
 

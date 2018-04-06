@@ -21,7 +21,7 @@ use Pronamic\WordPress\Pay\Plugin;
  * @version 3.8.0
  * @since ?
  */
-class GatewayPostType {
+class AdminGatewayPostType {
 	/**
 	 * Post type.
 	 *
@@ -30,12 +30,21 @@ class GatewayPostType {
 	const POST_TYPE = 'pronamic_gateway';
 
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Constructs and initializes an admin gateway post type object.
 	 *
+	 * @param Plugin $plugin Plugin.
 	 * @param AdminModule $admin Admin Module.
 	 */
-	public function __construct( AdminModule $admin ) {
-		$this->admin = $admin;
+	public function __construct( Plugin $plugin, AdminModule $admin ) {
+		$this->plugin = $plugin;
+		$this->admin  = $admin;
 
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'edit_columns' ) );
 
@@ -230,7 +239,7 @@ class GatewayPostType {
 	public function meta_box_config( $post ) {
 		wp_nonce_field( 'pronamic_pay_save_gateway', 'pronamic_pay_nonce' );
 
-		include Plugin::$dirname . '/admin/meta-box-gateway-config.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-gateway-config.php';
 	}
 
 	/**
@@ -239,7 +248,7 @@ class GatewayPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_test( $post ) {
-		include Plugin::$dirname . '/admin/meta-box-gateway-test.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-gateway-test.php';
 	}
 
 	/**

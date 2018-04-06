@@ -62,9 +62,9 @@ class AdminModule {
 		$this->maybe_redirect();
 
 		// Post types.
-		new GatewayPostType( $this );
-		new PaymentPostType();
-		new SubscriptionPostType();
+		new AdminGatewayPostType( $this->plugin, $this );
+		new AdminPaymentPostType( $this->plugin );
+		new AdminSubscriptionPostType( $this->plugin );
 
 		// Gateway settings.
 		$this->gateway_settings = new GatewaySettings();

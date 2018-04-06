@@ -17,7 +17,7 @@ use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
-
+use WP_Post;
 
 /**
  * Subscription.
@@ -265,7 +265,7 @@ class Subscription {
 	/**
 	 * WordPress post object related to this subscription.
 	 *
-	 * @var \WP_Post|array
+	 * @var WP_Post|array
 	 */
 	public $post;
 

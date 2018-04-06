@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Payments\Payment;
 
 /**
@@ -19,13 +20,20 @@ use Pronamic\WordPress\Pay\Payments\Payment;
  * @version 4.4.2
  * @since 3.7.0
  */
-class PaymentPostType {
+class AdminPaymentPostType {
 	/**
 	 * Post type.
 	 *
 	 * @var string
 	 */
 	const POST_TYPE = 'pronamic_payment';
+
+	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
 
 	/**
 	 * Admin notices.
@@ -36,8 +44,12 @@ class PaymentPostType {
 
 	/**
 	 * Constructs and initializes an admin payment post type object.
+	 *
+	 * @param Plugin $plugin Plugin.
 	 */
-	public function __construct() {
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
+
 		add_filter( 'request', array( $this, 'request' ) );
 
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'columns' ) );
@@ -63,7 +75,7 @@ class PaymentPostType {
 		add_action( 'transition_post_status', array( $this, 'transition_post_status' ), 10, 3 );
 
 		// Bulk Actions.
-		$this->bulk_actions = new PaymentBulkActions();
+		$this->bulk_actions = new AdminPaymentBulkActions();
 	}
 
 	/**
@@ -411,7 +423,7 @@ class PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-info.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-payment-info.php';
 	}
 
 	/**
@@ -428,7 +440,7 @@ class PaymentPostType {
 			)
 		);
 
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-notes.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-notes.php';
 	}
 
 	/**
@@ -437,7 +449,7 @@ class PaymentPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_subscription( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-subscription.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-payment-subscription.php';
 	}
 
 	/**
@@ -448,7 +460,7 @@ class PaymentPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_payment_update', 'pronamic_payment_update_nonce' );
 
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-payment-update.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-payment-update.php';
 	}
 
 	/**
@@ -513,7 +525,7 @@ class PaymentPostType {
 			$payment = new Payment( $post->ID );
 			$payment->set_status( $new_status_meta );
 
-			pronamic_pay_plugin()->payments_data_store->update_meta_status( $payment );
+			$this->plugin->payments_data_store->update_meta_status( $payment );
 		}
 	}
 

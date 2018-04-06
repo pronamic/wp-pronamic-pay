@@ -10,7 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
+use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use WP_Post;
 
 /**
  * WordPress admin subscription post type
@@ -19,16 +21,29 @@ use Pronamic\WordPress\Pay\Subscriptions\Subscription;
  * @version 1.0.0
  * @since unreleased
  */
-class SubscriptionPostType {
+class AdminSubscriptionPostType {
 	/**
 	 * Post type.
+	 *
+	 * @var string
 	 */
 	const POST_TYPE = 'pronamic_pay_subscr';
 
 	/**
-	 * Constructs and initializes an admin payment post type object.
+	 * Plugin.
+	 *
+	 * @var Plugin
 	 */
-	public function __construct() {
+	private $plugin;
+
+	/**
+	 * Constructs and initializes an admin payment post type object.
+	 *
+	 * @param Plugin $plugin Plugin.
+	 */
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
+
 		add_filter( 'request', array( $this, 'request' ) );
 
 		add_filter( 'manage_edit-' . self::POST_TYPE . '_columns', array( $this, 'columns' ) );
@@ -305,7 +320,7 @@ class SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_info( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-info.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-subscription-info.php';
 	}
 
 	/**
@@ -322,7 +337,7 @@ class SubscriptionPostType {
 			)
 		);
 
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-notes.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-notes.php';
 	}
 
 	/**
@@ -331,7 +346,7 @@ class SubscriptionPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_payments( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-payments.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-subscription-payments.php';
 	}
 
 	/**
@@ -342,7 +357,7 @@ class SubscriptionPostType {
 	public function meta_box_update( $post ) {
 		wp_nonce_field( 'pronamic_subscription_update', 'pronamic_subscription_update_nonce' );
 
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-subscription-update.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . 'admin/meta-box-subscription-update.php';
 	}
 
 	/**
