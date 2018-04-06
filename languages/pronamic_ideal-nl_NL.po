@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-04-05 14:25:18+00:00\n"
-"PO-Revision-Date: 2018-04-06 13:42+0100\n"
+"POT-Creation-Date: 2018-04-06 12:19:42+00:00\n"
+"PO-Revision-Date: 2018-04-06 14:31+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -16,7 +16,8 @@ msgstr ""
 
 #: admin/meta-box-form-options.php:18 admin/meta-box-payment-info.php:75
 #: admin/meta-box-subscription-info.php:51 admin/tab-gateways.php:26
-#: classes/Admin/PaymentPostType.php:167 classes/Forms/FormPostType.php:132
+#: classes/Admin/AdminPaymentPostType.php:180
+#: classes/Forms/FormPostType.php:132
 msgid "Gateway"
 msgstr "Gateway"
 
@@ -28,13 +29,13 @@ msgstr "Button tekst"
 msgid "Pay Now"
 msgstr "Betaal nu"
 
-#: admin/meta-box-form-options.php:51 admin/meta-box-gateway-test.php:97
+#: admin/meta-box-form-options.php:51 admin/meta-box-gateway-test.php:105
 #: admin/meta-box-payment-info.php:52
 #: admin/meta-box-payment-subscription.php:44
 #: admin/meta-box-subscription-info.php:67
 #: admin/meta-box-subscription-payments.php:39
-#: classes/Admin/PaymentPostType.php:170
-#: classes/Admin/SubscriptionPostType.php:85 templates/form.php:44
+#: classes/Admin/AdminPaymentPostType.php:183
+#: classes/Admin/AdminSubscriptionPostType.php:100 templates/form.php:44
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:22
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:218
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:219
@@ -63,8 +64,9 @@ msgid "%s (obsoleted)"
 msgstr "%s (verouderd)"
 
 #: admin/meta-box-gateway-config.php:80 admin/pointer-dashboard.php:12
-#: classes/Admin/AdminModule.php:532 classes/Admin/GatewayPostType.php:67
-#: classes/Admin/GatewayPostType.php:143
+#: classes/Admin/AdminGatewayPostType.php:77
+#: classes/Admin/AdminGatewayPostType.php:153
+#: classes/Admin/AdminModule.php:539
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -76,7 +78,14 @@ msgstr "Dashboards"
 msgid "Product information"
 msgstr "Productinformatie"
 
-#: admin/meta-box-gateway-test.php:57 admin/meta-box-payment-info.php:83
+#: admin/meta-box-gateway-test.php:23
+msgid ""
+"Please save the entered account details of your payment provider, to make a "
+"test payment."
+msgstr ""
+"Sla de ingevoerde betalingsgateway gegevens op om een test betaling te maken."
+
+#: admin/meta-box-gateway-test.php:65 admin/meta-box-payment-info.php:83
 #: admin/meta-box-subscription-info.php:59
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:255
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentMethodsField.php:268
@@ -88,103 +97,98 @@ msgstr "Productinformatie"
 msgid "Payment Method"
 msgstr "Betaalmethode"
 
-#: admin/meta-box-gateway-test.php:111
+#: admin/meta-box-gateway-test.php:119
 msgid "— Select Repeat —"
 msgstr "— Selecteer herhaling —"
 
-#: admin/meta-box-gateway-test.php:112
+#: admin/meta-box-gateway-test.php:120
 msgid "Daily"
 msgstr "Dagelijks"
 
-#: admin/meta-box-gateway-test.php:113
+#: admin/meta-box-gateway-test.php:121
 msgid "Weekly"
 msgstr "Wekelijks"
 
-#: admin/meta-box-gateway-test.php:114
+#: admin/meta-box-gateway-test.php:122
 msgid "Monthly"
 msgstr "Maandelijks"
 
-#: admin/meta-box-gateway-test.php:115
+#: admin/meta-box-gateway-test.php:123
 msgid "Annually"
 msgstr "Jaarlijks"
 
-#: admin/meta-box-gateway-test.php:119
+#: admin/meta-box-gateway-test.php:127
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:605
 msgid "days"
 msgstr "dagen"
 
-#: admin/meta-box-gateway-test.php:120
+#: admin/meta-box-gateway-test.php:128
 msgid "weeks"
 msgstr "weken"
 
-#: admin/meta-box-gateway-test.php:121
+#: admin/meta-box-gateway-test.php:129
 msgid "months"
 msgstr "maanden"
 
-#: admin/meta-box-gateway-test.php:122
+#: admin/meta-box-gateway-test.php:130
 msgid "year"
 msgstr "jaar"
 
-#: admin/meta-box-gateway-test.php:129
+#: admin/meta-box-gateway-test.php:137
 #: admin/meta-box-payment-subscription.php:28
-#: classes/Admin/PaymentPostType.php:162 classes/Admin/PaymentPostType.php:163
-#: classes/Admin/PaymentPostType.php:378
-#: classes/Admin/SubscriptionPostType.php:83
-#: classes/Admin/SubscriptionPostType.php:264
+#: classes/Admin/AdminPaymentPostType.php:175
+#: classes/Admin/AdminPaymentPostType.php:176
+#: classes/Admin/AdminPaymentPostType.php:391
+#: classes/Admin/AdminSubscriptionPostType.php:98
+#: classes/Admin/AdminSubscriptionPostType.php:279
 #: classes/Subscriptions/SubscriptionPostType.php:50
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:63
 msgid "Subscription"
 msgstr "Abonnement"
 
-#: admin/meta-box-gateway-test.php:134
+#: admin/meta-box-gateway-test.php:142
 msgid "Test Subscription"
 msgstr "Test abonnement"
 
-#: admin/meta-box-gateway-test.php:138
+#: admin/meta-box-gateway-test.php:146
 msgid "Start a subscription for this payment."
 msgstr "Start een abonnement voor deze betaling."
 
-#: admin/meta-box-gateway-test.php:153
+#: admin/meta-box-gateway-test.php:161
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:625
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:631
 msgid "Frequency"
 msgstr "Frequentie"
 
-#: admin/meta-box-gateway-test.php:180
+#: admin/meta-box-gateway-test.php:188
 msgid "Repeat every"
 msgstr "Herhaal iedere"
 
-#: admin/meta-box-gateway-test.php:197
+#: admin/meta-box-gateway-test.php:205
 msgid "days/weeks/months/year"
 msgstr "dagen/weken/maanden/jaar"
 
-#: admin/meta-box-gateway-test.php:202
+#: admin/meta-box-gateway-test.php:210
 msgid "Ends On"
 msgstr "Eindigt op"
 
-#: admin/meta-box-gateway-test.php:209
+#: admin/meta-box-gateway-test.php:217
 msgid "Never"
 msgstr "Nooit"
 
-#: admin/meta-box-gateway-test.php:231
+#: admin/meta-box-gateway-test.php:239
 msgid "After %s times"
 msgstr "Na %s keer"
 
-#: admin/meta-box-gateway-test.php:249
+#: admin/meta-box-gateway-test.php:257
 msgid "On %s"
 msgstr "Op %s"
 
-#: admin/meta-box-gateway-test.php:268 classes/Admin/GatewayPostType.php:216
+#: admin/meta-box-gateway-test.php:276
+#: classes/Admin/AdminGatewayPostType.php:226
 #: classes/Admin/GatewaySettings.php:100
 msgid "Test"
 msgstr "Test"
-
-#: admin/meta-box-gateway-test.php:304
-msgid ""
-"Please save the entered account details of your payment provider, to make a "
-"test payment."
-msgstr ""
-"Sla de ingevoerde betalingsgateway gegevens op om een test betaling te maken."
 
 #: admin/meta-box-notes.php:21
 msgid "No notes found."
@@ -193,9 +197,9 @@ msgstr "Geen notities gevonden."
 #: admin/meta-box-notes.php:28 admin/meta-box-payment-info.php:28
 #: admin/meta-box-subscription-info.php:27
 #: admin/meta-box-subscription-payments.php:40 admin/tab-documentation.php:620
-#: admin/tab-system_status.php:399 classes/Admin/GatewayPostType.php:68
-#: classes/Admin/PaymentPostType.php:171
-#: classes/Admin/SubscriptionPostType.php:87
+#: admin/tab-system_status.php:397 classes/Admin/AdminGatewayPostType.php:78
+#: classes/Admin/AdminPaymentPostType.php:184
+#: classes/Admin/AdminSubscriptionPostType.php:102
 #: classes/Forms/FormPostType.php:136
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:51
 msgid "Date"
@@ -210,14 +214,14 @@ msgid "User"
 msgstr "Gebruiker"
 
 #: admin/meta-box-payment-info.php:36 admin/meta-box-subscription-info.php:35
-#: classes/Admin/GatewayPostType.php:66
+#: classes/Admin/AdminGatewayPostType.php:76
 msgid "ID"
 msgstr "ID"
 
 #: admin/meta-box-payment-info.php:44
 #: admin/meta-box-payment-subscription.php:36
 #: admin/meta-box-subscription-info.php:43
-#: classes/Admin/PaymentPostType.php:168
+#: classes/Admin/AdminPaymentPostType.php:181
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Gateway.php:154
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:114
 #: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:142
@@ -242,9 +246,10 @@ msgstr "Redirect URL"
 
 #: admin/meta-box-payment-info.php:159
 #: admin/meta-box-subscription-payments.php:35
-#: classes/Admin/PaymentPostType.php:157 classes/Admin/PaymentPostType.php:158
-#: classes/Admin/SubscriptionPostType.php:80
-#: classes/Admin/SubscriptionPostType.php:81
+#: classes/Admin/AdminPaymentPostType.php:170
+#: classes/Admin/AdminPaymentPostType.php:171
+#: classes/Admin/AdminSubscriptionPostType.php:95
+#: classes/Admin/AdminSubscriptionPostType.php:96
 #: vendor/wp-pay-gateways/ems-e-commerce/src/Gateway.php:167
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:216
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:222
@@ -270,23 +275,23 @@ msgid "Email"
 msgstr "E-mail"
 
 #: admin/meta-box-payment-info.php:213
-#: admin/meta-box-subscription-info.php:162
+#: admin/meta-box-subscription-info.php:154
 msgid "Consumer"
 msgstr "Consument"
 
 #: admin/meta-box-payment-info.php:231
 #: admin/meta-box-payment-subscription.php:75
-#: admin/meta-box-subscription-info.php:178
+#: admin/meta-box-subscription-info.php:170
 msgid "Source"
 msgstr "Bron"
 
 #: admin/meta-box-payment-info.php:246
-#: admin/meta-box-subscription-info.php:203
+#: admin/meta-box-subscription-info.php:189
 msgid "Period"
 msgstr "Periode"
 
 #: admin/meta-box-payment-info.php:254
-#: admin/meta-box-subscription-info.php:211
+#: admin/meta-box-subscription-info.php:197
 msgid "Level"
 msgstr "Niveau"
 
@@ -325,13 +330,13 @@ msgstr "Controleer status"
 
 #: admin/meta-box-payment-update.php:75
 #: admin/meta-box-subscription-update.php:43
-#: classes/Admin/PaymentPostType.php:396
-#: classes/Admin/SubscriptionPostType.php:291
+#: classes/Admin/AdminPaymentPostType.php:409
+#: classes/Admin/AdminSubscriptionPostType.php:306
 msgid "Update"
 msgstr "Bijwerken"
 
 #: admin/meta-box-subscription-info.php:30
-#: classes/Subscriptions/Subscription.php:702
+#: classes/Subscriptions/Subscription.php:711
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr "j F Y H:i:s"
 
@@ -340,17 +345,17 @@ msgstr "j F Y H:i:s"
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: admin/meta-box-subscription-info.php:114
+#: admin/meta-box-subscription-info.php:112
 #: admin/meta-box-subscription-payments.php:42
 #: vendor/wp-pay-gateways/ogone/src/OrderStandard/Gateway.php:224
 msgid "End Date"
 msgstr "Einddatum"
 
-#: admin/meta-box-subscription-info.php:130
+#: admin/meta-box-subscription-info.php:126
 msgid "Next Payment Date"
 msgstr "Eerstvolgende betalingsdatum"
 
-#: admin/meta-box-subscription-info.php:146
+#: admin/meta-box-subscription-info.php:140
 msgid "Expiry Date"
 msgstr "Vervaldatum"
 
@@ -360,14 +365,15 @@ msgid "No payments found."
 msgstr "Geen betalingen gevonden."
 
 #: admin/meta-box-subscription-payments.php:37
-#: classes/Admin/PaymentPostType.php:165 classes/Admin/PaymentPostType.php:369
+#: classes/Admin/AdminPaymentPostType.php:178
+#: classes/Admin/AdminPaymentPostType.php:382
 #: classes/Payments/PaymentPostType.php:51
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:212
 msgid "Payment"
 msgstr "Betaling"
 
 #: admin/meta-box-subscription-payments.php:38
-#: classes/Admin/PaymentPostType.php:166
+#: classes/Admin/AdminPaymentPostType.php:179
 msgid "Transaction"
 msgstr "Transactie"
 
@@ -489,11 +495,16 @@ msgstr "Betalingen in afwachting"
 msgid "c"
 msgstr "c"
 
-#: admin/page-dashboard.php:164 admin/page-dashboard.php:173
+#: admin/page-dashboard.php:157
+#, fuzzy
+msgid "No pending payments found"
+msgstr "Geen betalingen gevonden."
+
+#: admin/page-dashboard.php:168 admin/page-dashboard.php:177
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#: admin/page-dashboard.php:171
+#: admin/page-dashboard.php:175
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
@@ -547,7 +558,7 @@ msgstr "Volgende"
 msgid "Close"
 msgstr "Sluiten"
 
-#: admin/pointer-forms.php:12 classes/Admin/AdminModule.php:497
+#: admin/pointer-forms.php:12 classes/Admin/AdminModule.php:504
 #: classes/Forms/FormPostType.php:84 classes/Forms/FormPostType.php:86
 #: classes/Forms/FormPostType.php:97
 msgid "Payment Forms"
@@ -582,8 +593,8 @@ msgstr ""
 msgid "Previous"
 msgstr "Vorige"
 
-#: admin/pointer-gateways.php:12 classes/Admin/AdminModule.php:505
-#: classes/Admin/AdminModule.php:506 classes/GatewayPostType.php:66
+#: admin/pointer-gateways.php:12 classes/Admin/AdminModule.php:512
+#: classes/Admin/AdminModule.php:513 classes/GatewayPostType.php:66
 msgid "Configurations"
 msgstr "Configuraties"
 
@@ -611,9 +622,9 @@ msgstr ""
 "Normaliter krijgen je benodigde configuratie informatie van je "
 "betalingsprovider."
 
-#: admin/pointer-payments.php:12 classes/Admin/AdminModule.php:479
-#: classes/Admin/AdminModule.php:480
-#: classes/Admin/SubscriptionPostType.php:273
+#: admin/pointer-payments.php:12 classes/Admin/AdminModule.php:486
+#: classes/Admin/AdminModule.php:487
+#: classes/Admin/AdminSubscriptionPostType.php:288
 #: classes/Forms/FormPostType.php:133 classes/Payments/PaymentPostType.php:48
 #: classes/Payments/PaymentPostType.php:50
 #: classes/Payments/PaymentPostType.php:61
@@ -666,8 +677,8 @@ msgstr ""
 "Je kunt het aantal succesvolle betalingen en het totale bedrag aan in "
 "afwachting, succesvolle, geannuleerde en mislukte betalingen zien."
 
-#: admin/pointer-settings.php:12 classes/Admin/AdminModule.php:513
-#: classes/Admin/AdminModule.php:514
+#: admin/pointer-settings.php:12 classes/Admin/AdminModule.php:520
+#: classes/Admin/AdminModule.php:521
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -694,8 +705,8 @@ msgstr ""
 "Zojuist is Pronamic Pay geïnstalleerd. Klik op “Rondleiding starten” om een "
 "snelle introductie van de kernfunctionaliteit van deze plugin te zien."
 
-#: admin/pointer-tools.php:12 classes/Admin/AdminModule.php:522
-#: classes/Admin/AdminModule.php:523
+#: admin/pointer-tools.php:12 classes/Admin/AdminModule.php:529
+#: classes/Admin/AdminModule.php:530
 msgid "Tools"
 msgstr "Extra"
 
@@ -807,7 +818,7 @@ msgstr ""
 msgid "Follow Pronamic"
 msgstr "Volg Pronamic"
 
-#: admin/tab-documentation.php:619 classes/Admin/GatewayPostType.php:64
+#: admin/tab-documentation.php:619 classes/Admin/AdminGatewayPostType.php:74
 #: classes/Forms/FormPostType.php:131
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:47
 #: vendor/wp-pay-extensions/ithemes-exchange/src/Extension.php:118
@@ -1197,26 +1208,26 @@ msgstr "Pronamic Pay vereist de \"sha1\" hashing algoritme."
 msgid "Travis CI build status"
 msgstr "Travis CI build status"
 
-#: admin/tab-system_status.php:366
+#: admin/tab-system_status.php:364
 msgid "iDEAL issuers status"
 msgstr "iDEAL-aanbieders status"
 
-#: admin/tab-system_status.php:374
+#: admin/tab-system_status.php:372
 msgid "monitored by <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a>"
 msgstr "gemonitord door <a href=\"%s\" target=\"_blank\">iDEAL-status.nl</a>"
 
-#: admin/tab-system_status.php:390
+#: admin/tab-system_status.php:388
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:214
 #: vendor/wp-pay-extensions/gravityforms/src/IssuersField.php:226
 msgid "Issuer"
 msgstr "Bankenlijst"
 
-#: admin/tab-system_status.php:393
+#: admin/tab-system_status.php:391
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:436
 msgid "Success"
 msgstr "Succes"
 
-#: admin/tab-system_status.php:396
+#: admin/tab-system_status.php:394
 msgid "Failure"
 msgstr "Storing"
 
@@ -1254,85 +1265,150 @@ msgstr "%s mislukt"
 msgid "%s expired"
 msgstr "%s verlopen"
 
-#: classes/Admin/AdminModule.php:280
+#: classes/Admin/AdminGatewayPostType.php:75
+msgid "Variant"
+msgstr "Variant"
+
+#: classes/Admin/AdminGatewayPostType.php:182
+msgid "Default"
+msgstr "Standaard"
+
+#: classes/Admin/AdminGatewayPostType.php:217
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:57
+#: vendor/wp-pay-extensions/charitable/src/Gateway.php:61
+#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:96
+#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:110
+#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:250
+#: vendor/wp-pay-extensions/give/src/Gateway.php:74
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:49
+#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:99
+#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:251
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:105
+#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:123
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:786
+#: vendor/wp-pay-extensions/membership/src/Admin.php:46
+#: vendor/wp-pay-extensions/membership/src/ViewSettings.php:80
+#: vendor/wp-pay-extensions/s2member/src/Settings.php:41
+#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:161
+#: vendor/wp-pay-extensions/wp-e-commerce/src/Gateway.php:105
+#: views/eshop/settings-meta-box.php:26
+msgid "Configuration"
+msgstr "Configuratie"
+
+#: classes/Admin/AdminGatewayPostType.php:371
+#: classes/Admin/AdminPaymentPostType.php:546
+msgid "M j, Y @ H:i"
+msgstr "j F Y H:i"
+
+#: classes/Admin/AdminGatewayPostType.php:375
+#: classes/Admin/AdminGatewayPostType.php:381
+msgid "Configuration updated."
+msgstr "Configuratie bijgewerkt."
+
+#. translators: %s: date and time of the revision.
+#: classes/Admin/AdminGatewayPostType.php:384
+msgid "Configuration restored to revision from %s."
+msgstr "Configuratie hersteld naar revisie van %s."
+
+#: classes/Admin/AdminGatewayPostType.php:386
+msgid "Configuration published."
+msgstr "Configuratie gepubliceerd."
+
+#: classes/Admin/AdminGatewayPostType.php:388
+msgid "Configuration saved."
+msgstr "Configuratie opgeslagen."
+
+#: classes/Admin/AdminGatewayPostType.php:390
+msgid "Configuration submitted."
+msgstr "Configuratie geplaatst."
+
+#: classes/Admin/AdminGatewayPostType.php:392
+msgid "Configuration scheduled for: %s."
+msgstr "Configuratie ingepland voor: %s."
+
+#: classes/Admin/AdminGatewayPostType.php:394
+msgid "Configuration draft updated."
+msgstr "Concept configuratie bijgewerkt."
+
+#: classes/Admin/AdminModule.php:287
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:139
 msgid "Payment Status"
 msgstr "Betalingsstatus"
 
-#: classes/Admin/AdminModule.php:281
+#: classes/Admin/AdminModule.php:288
 msgid "payment"
 msgstr "betaling"
 
-#: classes/Admin/AdminModule.php:288
+#: classes/Admin/AdminModule.php:295
 msgid "Payment completed"
 msgstr "Betaling voltooid"
 
-#: classes/Admin/AdminModule.php:289
+#: classes/Admin/AdminModule.php:296
 msgid "completed"
 msgstr "voltooid"
 
-#: classes/Admin/AdminModule.php:290
+#: classes/Admin/AdminModule.php:297
 #, fuzzy
 msgid "<p>The payment has been successfully completed.</p>"
 msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
 
-#: classes/Admin/AdminModule.php:297
+#: classes/Admin/AdminModule.php:304
 msgid "Payment cancelled"
 msgstr "Betaling geannuleerd"
 
-#: classes/Admin/AdminModule.php:298
+#: classes/Admin/AdminModule.php:305
 msgid "cancelled"
 msgstr "geannuleerd"
 
-#: classes/Admin/AdminModule.php:299
+#: classes/Admin/AdminModule.php:306
 #, fuzzy
 msgid "<p>You have cancelled the payment.</p>"
 msgstr "<p>U heeft de iDEAL-betaling geannuleerd.</p>"
 
-#: classes/Admin/AdminModule.php:306
+#: classes/Admin/AdminModule.php:313
 msgid "Payment expired"
 msgstr "Betaling verlopen"
 
-#: classes/Admin/AdminModule.php:307
+#: classes/Admin/AdminModule.php:314
 msgid "expired"
 msgstr "verlopen"
 
-#: classes/Admin/AdminModule.php:308
+#: classes/Admin/AdminModule.php:315
 #, fuzzy
 msgid "<p>Your payment session has expired.</p>"
 msgstr "<p>Uw iDEAL-betalingssessie is helaas verlopen.</p>"
 
-#: classes/Admin/AdminModule.php:315
+#: classes/Admin/AdminModule.php:322
 msgid "Payment error"
 msgstr "Betalingsfout"
 
-#: classes/Admin/AdminModule.php:316
+#: classes/Admin/AdminModule.php:323
 msgid "error"
 msgstr "fout"
 
-#: classes/Admin/AdminModule.php:317
+#: classes/Admin/AdminModule.php:324
 #, fuzzy
 msgid "<p>An error has occurred during payment.</p>"
 msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL-betaling.</p>"
 
-#: classes/Admin/AdminModule.php:324
+#: classes/Admin/AdminModule.php:331
 msgid "Payment status unknown"
 msgstr "Betalingsstatus onbekend."
 
-#: classes/Admin/AdminModule.php:325
+#: classes/Admin/AdminModule.php:332
 msgid "unknown"
 msgstr "onbekend"
 
-#: classes/Admin/AdminModule.php:326
+#: classes/Admin/AdminModule.php:333
 #, fuzzy
 msgid "<p>The payment status is unknown.</p>"
 msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 
-#: classes/Admin/AdminModule.php:470 vendor/wp-pay/core/src/Gateway.php:609
+#: classes/Admin/AdminModule.php:477 vendor/wp-pay/core/src/Gateway.php:609
 #: vendor/wp-pay-extensions/appthemes/src/Gateway.php:127
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:107
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:67
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:590
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:737
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:315
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:95
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:79
@@ -1340,18 +1416,18 @@ msgstr "<p>De status van uw iDEAL-betaling is onbekend.</p>"
 msgid "Pay"
 msgstr "Betalen"
 
-#: classes/Admin/AdminModule.php:487 classes/Admin/AdminModule.php:488
+#: classes/Admin/AdminModule.php:494 classes/Admin/AdminModule.php:495
 #: classes/Subscriptions/SubscriptionPostType.php:47
 #: classes/Subscriptions/SubscriptionPostType.php:49
 #: classes/Subscriptions/SubscriptionPostType.php:60
 msgid "Subscriptions"
 msgstr "Abonnementen"
 
-#: classes/Admin/AdminModule.php:498
+#: classes/Admin/AdminModule.php:505
 msgid "Forms"
 msgstr "Formulieren"
 
-#: classes/Admin/AdminNotices.php:63
+#: classes/Admin/AdminNotices.php:70
 msgid ""
 "<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
 "\">support license key</a>, please <a href=\"%2$s\" target=\"_blank\">get "
@@ -1361,7 +1437,7 @@ msgstr ""
 "\">support licentiesleutel</a> ingevuld, bestel je licentiesleutel op <a "
 "href=\"%2$s\" target=\"_blank\">pronamic.eu</a>."
 
-#: classes/Admin/AdminNotices.php:69
+#: classes/Admin/AdminNotices.php:76
 msgid ""
 "<strong>Pronamic Pay</strong> — You have not entered a valid <a href=\"%1$s"
 "\">support license key</a>. Please <a href=\"%2$s\" target=\"_blank\">get "
@@ -1372,6 +1448,96 @@ msgstr ""
 "\">support licentiesleutel</a> ingevuld. Bestel je licentie op <a href=\"%2$s"
 "\" target=\"_blank\">pronamic.eu</a> of login om <a href=\"%3$s\" target="
 "\"_blank\">de licentie te controleren</a>."
+
+#: classes/Admin/AdminPaymentBulkActions.php:67
+msgid "Check Payment Status"
+msgstr "Controleer betalingsstatus"
+
+#: classes/Admin/AdminPaymentBulkActions.php:141
+msgid "%s payment updated."
+msgid_plural "%s payments updated."
+msgstr[0] "%s betaling bijgewerkt."
+msgstr[1] "%s betalingen bijgewerkt."
+
+#: classes/Admin/AdminPaymentBulkActions.php:155
+msgid ""
+"%s payment is not updated because it already has a final payment status."
+msgid_plural ""
+"%s payments are not updated because they already have a final payment status."
+msgstr[0] ""
+"%s betaling is niet bijgewerkt, omdat deze reeds een definitieve "
+"betalingsstatus heeft."
+msgstr[1] ""
+"%s betalingen zijn niet bijgewerkt, omdat deze reeds een definitieve "
+"betalingsstatus hebben."
+
+#: classes/Admin/AdminPaymentBulkActions.php:176
+msgid "Requesting the current payment status is unsupported by %s."
+msgstr ""
+"Het opvragen van de huidige betalingsstatus wordt niet ondersteund door %s."
+
+#: classes/Admin/AdminPaymentPostType.php:129
+msgid "Payment status updated."
+msgstr "Betalingsstatus is bijgewerkt."
+
+#: classes/Admin/AdminPaymentPostType.php:182
+#: classes/Admin/AdminSubscriptionPostType.php:99
+msgid "Customer"
+msgstr "Klant"
+
+#: classes/Admin/AdminPaymentPostType.php:230
+#: classes/Admin/AdminSubscriptionPostType.php:134 classes/Plugin.php:765
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: classes/Admin/AdminPaymentPostType.php:254
+#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:83
+msgid "Recurring payment"
+msgstr "Terugkerende betaling"
+
+#: classes/Admin/AdminPaymentPostType.php:260
+msgid "First of recurring payment"
+msgstr "Eerste van terugkerende betaling"
+
+#: classes/Admin/AdminPaymentPostType.php:292
+#: classes/Admin/AdminSubscriptionPostType.php:173
+msgid "%1$s for %2$s %3$s"
+msgstr "%1$s voor %2$s %3$s"
+
+#: classes/Admin/AdminPaymentPostType.php:400
+#: classes/Admin/AdminSubscriptionPostType.php:297
+msgid "Notes"
+msgstr "Notities"
+
+#: classes/Admin/AdminPaymentPostType.php:550
+#: classes/Admin/AdminPaymentPostType.php:556
+msgid "Payment updated."
+msgstr "Betaling bijgewerkt."
+
+#. translators: %s: date and time of the revision
+#: classes/Admin/AdminPaymentPostType.php:559
+msgid "Payment restored to revision from %s."
+msgstr "Betaling hersteld naar revisie van %s."
+
+#: classes/Admin/AdminPaymentPostType.php:561
+msgid "Payment published."
+msgstr "Betaling gepubliceerd."
+
+#: classes/Admin/AdminPaymentPostType.php:563
+msgid "Payment saved."
+msgstr "Betaling opgeslagen."
+
+#: classes/Admin/AdminPaymentPostType.php:565
+msgid "Payment submitted."
+msgstr "Betaling geplaatst."
+
+#: classes/Admin/AdminPaymentPostType.php:567
+msgid "Payment scheduled for: %s."
+msgstr "Betaling ingepland voor: %s."
+
+#: classes/Admin/AdminPaymentPostType.php:569
+msgid "Payment draft updated."
+msgstr "Concept betaling bijgewerkt."
 
 #: classes/Admin/AdminReports.php:158
 msgid "Number succesfull payments"
@@ -1468,68 +1634,9 @@ msgstr "Standaardpagina's instellen"
 msgid "— Select a page —"
 msgstr "— Selecteer een pagina —"
 
-#: classes/Admin/GatewayPostType.php:65
-msgid "Variant"
-msgstr "Variant"
-
-#: classes/Admin/GatewayPostType.php:172
-msgid "Default"
-msgstr "Standaard"
-
-#: classes/Admin/GatewayPostType.php:207
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:57
-#: vendor/wp-pay-extensions/charitable/src/Gateway.php:61
-#: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:96
-#: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:110
-#: vendor/wp-pay-extensions/event-espresso-legacy/src/Extension.php:250
-#: vendor/wp-pay-extensions/give/src/Gateway.php:74
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:49
-#: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:99
-#: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:251
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:105
-#: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:123
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:639
-#: vendor/wp-pay-extensions/membership/src/Admin.php:46
-#: vendor/wp-pay-extensions/membership/src/ViewSettings.php:80
-#: vendor/wp-pay-extensions/s2member/src/Settings.php:41
-#: vendor/wp-pay-extensions/woocommerce/src/Gateway.php:161
-#: vendor/wp-pay-extensions/wp-e-commerce/src/Gateway.php:105
-#: views/eshop/settings-meta-box.php:26
-msgid "Configuration"
-msgstr "Configuratie"
-
-#: classes/Admin/GatewayPostType.php:361 classes/Admin/PaymentPostType.php:533
-msgid "M j, Y @ H:i"
-msgstr "j F Y H:i"
-
-#: classes/Admin/GatewayPostType.php:365 classes/Admin/GatewayPostType.php:371
-msgid "Configuration updated."
-msgstr "Configuratie bijgewerkt."
-
-#. translators: %s: date and time of the revision.
-#: classes/Admin/GatewayPostType.php:374
-msgid "Configuration restored to revision from %s."
-msgstr "Configuratie hersteld naar revisie van %s."
-
-#: classes/Admin/GatewayPostType.php:376
-msgid "Configuration published."
-msgstr "Configuratie gepubliceerd."
-
-#: classes/Admin/GatewayPostType.php:378
-msgid "Configuration saved."
-msgstr "Configuratie opgeslagen."
-
-#: classes/Admin/GatewayPostType.php:380
-msgid "Configuration submitted."
-msgstr "Configuratie geplaatst."
-
-#: classes/Admin/GatewayPostType.php:382
-msgid "Configuration scheduled for: %s."
-msgstr "Configuratie ingepland voor: %s."
-
-#: classes/Admin/GatewayPostType.php:384
-msgid "Configuration draft updated."
-msgstr "Concept configuratie bijgewerkt."
+#: classes/Admin/AdminSubscriptionPostType.php:101
+msgid "Recurrence"
+msgstr "Herhaling"
 
 #: classes/Admin/GatewaySettings.php:69
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:83
@@ -1544,6 +1651,8 @@ msgid ""
 "Overview of supported payment methods. A green checkmark icon indicates that "
 "the payment method seems to be activated for your account."
 msgstr ""
+"Overzicht van ondersteunde betaalmethodes. Een groen vinkje geeft aan dat de "
+"betaalmethode is geactiveerd voor je account."
 
 #: classes/Admin/GatewaySettings.php:95
 msgid "Mode"
@@ -1553,108 +1662,15 @@ msgstr "Modus"
 msgid "Live"
 msgstr "Live"
 
-#: classes/Admin/Install.php:146
+#: classes/Admin/Install.php:151
 msgid "Payer"
 msgstr "Betaler"
-
-#: classes/Admin/PaymentBulkActions.php:67
-msgid "Check Payment Status"
-msgstr "Controleer betalingsstatus"
-
-#: classes/Admin/PaymentBulkActions.php:141
-msgid "%s payment updated."
-msgid_plural "%s payments updated."
-msgstr[0] "%s betaling bijgewerkt."
-msgstr[1] "%s betalingen bijgewerkt."
-
-#: classes/Admin/PaymentBulkActions.php:155
-msgid ""
-"%s payment is not updated because it already has a final payment status."
-msgid_plural ""
-"%s payments are not updated because they already have a final payment status."
-msgstr[0] ""
-"%s betaling is niet bijgewerkt, omdat deze reeds een definitieve "
-"betalingsstatus heeft."
-msgstr[1] ""
-"%s betalingen zijn niet bijgewerkt, omdat deze reeds een definitieve "
-"betalingsstatus hebben."
-
-#: classes/Admin/PaymentBulkActions.php:176
-msgid "Requesting the current payment status is unsupported by %s."
-msgstr ""
-"Het opvragen van de huidige betalingsstatus wordt niet ondersteund door %s."
-
-#: classes/Admin/PaymentPostType.php:116
-msgid "Payment status updated."
-msgstr "Betalingsstatus is bijgewerkt."
-
-#: classes/Admin/PaymentPostType.php:169
-#: classes/Admin/SubscriptionPostType.php:84
-msgid "Customer"
-msgstr "Klant"
-
-#: classes/Admin/PaymentPostType.php:217
-#: classes/Admin/SubscriptionPostType.php:119 classes/Plugin.php:760
-msgid "Unknown"
-msgstr "Onbekend"
-
-#: classes/Admin/PaymentPostType.php:241
-#: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:83
-msgid "Recurring payment"
-msgstr "Terugkerende betaling"
-
-#: classes/Admin/PaymentPostType.php:247
-msgid "First of recurring payment"
-msgstr "Eerste van terugkerende betaling"
-
-#: classes/Admin/PaymentPostType.php:279
-#: classes/Admin/SubscriptionPostType.php:158
-msgid "%1$s for %2$s %3$s"
-msgstr "%1$s voor %2$s %3$s"
-
-#: classes/Admin/PaymentPostType.php:387
-#: classes/Admin/SubscriptionPostType.php:282
-msgid "Notes"
-msgstr "Notities"
-
-#: classes/Admin/PaymentPostType.php:537 classes/Admin/PaymentPostType.php:543
-msgid "Payment updated."
-msgstr "Betaling bijgewerkt."
-
-#. translators: %s: date and time of the revision
-#: classes/Admin/PaymentPostType.php:546
-msgid "Payment restored to revision from %s."
-msgstr "Betaling hersteld naar revisie van %s."
-
-#: classes/Admin/PaymentPostType.php:548
-msgid "Payment published."
-msgstr "Betaling gepubliceerd."
-
-#: classes/Admin/PaymentPostType.php:550
-msgid "Payment saved."
-msgstr "Betaling opgeslagen."
-
-#: classes/Admin/PaymentPostType.php:552
-msgid "Payment submitted."
-msgstr "Betaling geplaatst."
-
-#: classes/Admin/PaymentPostType.php:554
-msgid "Payment scheduled for: %s."
-msgstr "Betaling ingepland voor: %s."
-
-#: classes/Admin/PaymentPostType.php:556
-msgid "Payment draft updated."
-msgstr "Concept betaling bijgewerkt."
-
-#: classes/Admin/SubscriptionPostType.php:86
-msgid "Recurrence"
-msgstr "Herhaling"
 
 #: classes/DateTime.php:43
 msgid "D j M Y \\a\\t H:i"
 msgstr "D j M Y \\o\\m H:i"
 
-#: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:66
+#: classes/Forms/FormPostType.php:87 classes/Forms/FormShortcode.php:73
 #: classes/Forms/FormsModule.php:91
 msgid "Payment Form"
 msgstr "Betalingsformulier"
@@ -1728,24 +1744,24 @@ msgstr "Formulier opties"
 msgid "Shortcode:"
 msgstr "Shortcode:"
 
-#: classes/Forms/FormProcessor.php:135
+#: classes/Forms/FormProcessor.php:144
 msgid "Please enter your first name"
 msgstr "Voer een geldige voornaam in"
 
-#: classes/Forms/FormProcessor.php:142
+#: classes/Forms/FormProcessor.php:151
 msgid "Please enter a valid email address"
 msgstr "Voer een geldig e-mailadres in"
 
-#: classes/Forms/FormShortcode.php:77
+#: classes/Forms/FormShortcode.php:84
 msgid "Select Payment Form"
 msgstr "Selecteer betalingsformulier"
 
-#: classes/Forms/PaymentFormData.php:59
+#: classes/Forms/PaymentFormData.php:52
 msgid "Payment Form %s"
 msgstr "Betalingsformulier %s"
 
 #. translators: %s: source id
-#: classes/Forms/PaymentFormData.php:97
+#: classes/Forms/PaymentFormData.php:90
 #: vendor/wp-pay-extensions/easy-digital-downloads/src/Extension.php:171
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:296
 msgid "Payment %s"
@@ -1906,11 +1922,15 @@ msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 msgid "Test %s"
 msgstr "Test %s"
 
-#: classes/Payments/PaymentsModule.php:137
+#: classes/Payments/PaymentsModule.php:140
 msgid "Payment status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Betalingsstatus gewijzigd van “%1$s” naar “%2$s”."
 
-#: classes/Plugin.php:457
+#: classes/Payments/PaymentsModule.php:147
+msgid "Payment created with status \"%1$s\"."
+msgstr "Betaling aangemaakt met status \"%1$s\"."
+
+#: classes/Plugin.php:462
 msgid ""
 "Something went wrong with the payment. Please try again later or pay another "
 "way."
@@ -1918,35 +1938,35 @@ msgstr ""
 "Betalen is nu niet mogelijk. Probeer het later nogmaals of betaal op een "
 "andere manier."
 
-#: classes/Plugin.php:479
+#: classes/Plugin.php:484
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Plugin.php:653
+#: classes/Plugin.php:658
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Plugin.php:756
+#: classes/Plugin.php:761
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Plugin.php:757
+#: classes/Plugin.php:762
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Plugin.php:758
+#: classes/Plugin.php:763
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:438
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Plugin.php:759 templates/form.php:177
+#: classes/Plugin.php:764 templates/form.php:177
 #: vendor/wp-pay-extensions/give/src/Gateway.php:132
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:439
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:257
 msgid "Error"
 msgstr "Fout"
 
-#: classes/Subscriptions/Subscription.php:693
+#: classes/Subscriptions/Subscription.php:702
 msgid "Subscription changed"
 msgstr "Abonnement gewijzigd"
 
@@ -2004,12 +2024,17 @@ msgstr[1] "Actief <span class=\"count\">(% s)</span>"
 msgid "Subscription for %s"
 msgstr "Abonnement voor %s"
 
-#: classes/Subscriptions/SubscriptionsModule.php:547
+#: classes/Subscriptions/SubscriptionsModule.php:546
 msgid "Subscription status changed from \"%1$s\" to \"%2$s\"."
 msgstr "Abonnement status gewijzigd van “%1$s” naar “%2$s”."
 
+#: classes/Subscriptions/SubscriptionsModule.php:553
+#, fuzzy
+msgid "Subscription created with status \"%1$s\"."
+msgstr "Abonnement geactiveerd door %s"
+
 #. translators: 1: received responce code, 2: required response code
-#: classes/Util.php:51 vendor/wp-pay/core/src/Util.php:51
+#: classes/Util.php:50 vendor/wp-pay/core/src/Util.php:50
 msgid ""
 "The response code (<code>%1$s<code>) was incorrect, required response code "
 "<code>%2$s</code>."
@@ -2017,35 +2042,35 @@ msgstr ""
 "De antwoord code (<code>%1$s<code>) was onjuist, veriste antwoorde code "
 "<code>%2$s</code>."
 
-#: classes/Util.php:77 vendor/wp-pay/core/src/Util.php:81
+#: classes/Util.php:76 vendor/wp-pay/core/src/Util.php:80
 msgid "Could not load the XML string."
 msgstr "Kon de XML tekst niet inladen."
 
-#: classes/Util.php:209
+#: classes/Util.php:191
 msgid "Every %s day"
 msgid_plural "Every %s days"
 msgstr[0] "Elke dag"
 msgstr[1] "Elke %s dagen"
 
-#: classes/Util.php:213
+#: classes/Util.php:195
 msgid "Every %s week"
 msgid_plural "Every %s weeks"
 msgstr[0] "Elke week"
 msgstr[1] "Elke %s weken"
 
-#: classes/Util.php:217
+#: classes/Util.php:199
 msgid "Every %s month"
 msgid_plural "Every %s months"
 msgstr[0] "Elke maand"
 msgstr[1] "Elke %s maanden"
 
-#: classes/Util.php:221
+#: classes/Util.php:203
 msgid "Every %s year"
 msgid_plural "Every %s years"
 msgstr[0] "Elk jaar"
 msgstr[1] "Elke %s jaar"
 
-#: classes/Util.php:259
+#: classes/Util.php:241
 msgid "%s time"
 msgid_plural "%s times"
 msgstr[0] "%s keer"
@@ -2461,7 +2486,7 @@ msgstr "Event Espresso"
 
 #. translators: %s: payment source id
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:306
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:220
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:266
 msgid "Transaction %s"
 msgstr "Transactie %s"
 
@@ -2969,7 +2994,7 @@ msgstr "Offertes en facturen versturen met Moneybird"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:356
 msgid "Uploading files to Dropbox"
-msgstr ""
+msgstr "Bestanden uploaden naar Dropbox"
 
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:368
 msgid "Sending data to Zapier"
@@ -3155,11 +3180,11 @@ msgid "Update user role"
 msgstr "Gebruikersrol bijwerken"
 
 #. translators: %s: Pronamic Pay version number, i.e. 4.7.0
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:30
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:24
 msgid "Pronamic Pay v%s"
 msgstr "Pronamic Pay v%s"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:38
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:32
 msgid ""
 "Thank you for updating! This new version of Pronamic Pay changes how you "
 "manage your payment feeds."
@@ -3167,22 +3192,22 @@ msgstr ""
 "Bedankt voor het bijwerken! Deze nieuwe versie van Pronamic iDEAL verandert "
 "de manier waarop je betalingsfeeds beheert."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:44
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:38
 msgid "Manage pay feeds contextually"
 msgstr "Beheer betalingsfeeds in context"
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:46
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:40
 msgid ""
 "Pay feeds are now accessed via the Pay sub-menu within the Form Settings."
 msgstr ""
 "Betalingsfeeds zijn nu bereikbaar via het submenu Betalen in de instellingen "
 "van het formulier."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:55
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:49
 msgid "I understand this change, hide this message."
 msgstr "Ik begrijp deze wijziging, verberg deze melding."
 
-#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:58
+#: vendor/wp-pay-extensions/gravityforms/views/html-admin-temporary-feeds-page.php:52
 msgid "Please wait…"
 msgstr "Even geduld…"
 
@@ -3273,15 +3298,39 @@ msgstr "In afwachting van iDEAL-betaling."
 msgid "Order %s"
 msgstr "Bestelling %s"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:210
+#. translators: %s: MemberPress
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:233
+msgid "%s subscription deleted."
+msgstr "%s abonnement verwijderd."
+
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:234
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:256
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:420
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:495
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:560
 msgid "MemberPress"
 msgstr "MemberPress"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:235
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:281
 msgid "MemberPress Transaction"
 msgstr "MemberPress transactie"
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:596
+#. translators: %s: MemberPress
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:419
+msgid "%s subscription on hold."
+msgstr "%s abonnement in de wacht."
+
+#. translators: %s: MemberPress
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:494
+msgid "%s subscription reactivated."
+msgstr "%s abonnement gereactiveerd."
+
+#. translators: %s: MemberPress
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:559
+msgid "%s subscription cancelled."
+msgstr "%s abonnement geannuleerd"
+
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:743
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
 "your purchase until you either enable JavaScript in your browser, or switch "
@@ -4913,23 +4962,23 @@ msgstr ""
 "Layout code zoals vermeld in het TargetPay dashboard op de pagina \"Mijn "
 "account » Subaccounts\"."
 
-#: views/error.php:19 views/error.php:36 views/error.php:65
+#: views/error.php:19 views/error.php:36
 msgid "Code"
 msgstr "Code"
 
-#: views/error.php:22 views/error.php:39 views/error.php:68
+#: views/error.php:22 views/error.php:39
 msgid "Message"
 msgstr "Bericht"
 
-#: views/error.php:42 views/error.php:71
+#: views/error.php:42
 msgid "Detail"
 msgstr "Detail"
 
-#: views/error.php:45 views/error.php:74
+#: views/error.php:45
 msgid "Suggested Action"
 msgstr "Voorgestelde actie"
 
-#: views/error.php:48 views/error.php:77
+#: views/error.php:48
 msgid "Consumer Message"
 msgstr "Consumenten bericht"
 
@@ -4995,7 +5044,7 @@ msgctxt "Recurring payment"
 msgid "Frequency"
 msgstr "Frequentie"
 
-#: classes/Util.php:256
+#: classes/Util.php:238
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:635
 msgctxt "Recurring payment"
 msgid "Unlimited"
@@ -5017,44 +5066,44 @@ msgctxt "slug"
 msgid "payment-forms"
 msgstr "betalingsformulieren"
 
-#: classes/Payments/PaymentPostType.php:90 classes/Plugin.php:424
+#: classes/Payments/PaymentPostType.php:90 classes/Plugin.php:429
 msgctxt "Payment status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Payments/PaymentPostType.php:101 classes/Plugin.php:425
+#: classes/Payments/PaymentPostType.php:101 classes/Plugin.php:430
 msgctxt "Payment status"
 msgid "Processing"
 msgstr "In verwerking"
 
-#: classes/Payments/PaymentPostType.php:112 classes/Plugin.php:426
+#: classes/Payments/PaymentPostType.php:112 classes/Plugin.php:431
 msgctxt "Payment status"
 msgid "On Hold"
 msgstr "In de wacht"
 
-#: classes/Payments/PaymentPostType.php:123 classes/Plugin.php:427
+#: classes/Payments/PaymentPostType.php:123 classes/Plugin.php:432
 msgctxt "Payment status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Payments/PaymentPostType.php:134 classes/Plugin.php:428
+#: classes/Payments/PaymentPostType.php:134 classes/Plugin.php:433
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:78
 msgctxt "Payment status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Payments/PaymentPostType.php:145 classes/Plugin.php:429
+#: classes/Payments/PaymentPostType.php:145 classes/Plugin.php:434
 msgctxt "Payment status"
 msgid "Refunded"
 msgstr "Terugbetaald"
 
-#: classes/Payments/PaymentPostType.php:156 classes/Plugin.php:430
+#: classes/Payments/PaymentPostType.php:156 classes/Plugin.php:435
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:86
 msgctxt "Payment status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Payments/PaymentPostType.php:167 classes/Plugin.php:431
+#: classes/Payments/PaymentPostType.php:167 classes/Plugin.php:436
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:82
 msgctxt "Payment status"
 msgid "Expired"
@@ -5065,37 +5114,37 @@ msgctxt "Payment title date format parsed by `date_i18n`."
 msgid "@todo"
 msgstr ""
 
-#: classes/Plugin.php:442 classes/Subscriptions/SubscriptionPostType.php:89
+#: classes/Plugin.php:447 classes/Subscriptions/SubscriptionPostType.php:89
 msgctxt "Subscription status"
 msgid "Pending"
 msgstr "In afwachting"
 
-#: classes/Plugin.php:443 classes/Subscriptions/SubscriptionPostType.php:100
+#: classes/Plugin.php:448 classes/Subscriptions/SubscriptionPostType.php:100
 msgctxt "Subscription status"
 msgid "Cancelled"
 msgstr "Geannuleerd"
 
-#: classes/Plugin.php:444 classes/Subscriptions/SubscriptionPostType.php:111
+#: classes/Plugin.php:449 classes/Subscriptions/SubscriptionPostType.php:111
 msgctxt "Subscription status"
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Plugin.php:445 classes/Subscriptions/SubscriptionPostType.php:122
+#: classes/Plugin.php:450 classes/Subscriptions/SubscriptionPostType.php:122
 msgctxt "Subscription status"
 msgid "Failed"
 msgstr "Mislukt"
 
-#: classes/Plugin.php:446 classes/Subscriptions/SubscriptionPostType.php:133
+#: classes/Plugin.php:451 classes/Subscriptions/SubscriptionPostType.php:133
 msgctxt "Subscription status"
 msgid "Active"
 msgstr "Actief"
 
-#: classes/Plugin.php:447 classes/Subscriptions/SubscriptionPostType.php:144
+#: classes/Plugin.php:452 classes/Subscriptions/SubscriptionPostType.php:144
 msgctxt "Subscription status"
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:49
+#: classes/Subscriptions/SubscriptionsDataStoreCPT.php:51
 msgctxt "Subscription title date format parsed by `date_i18n`."
 msgid "@todo"
 msgstr ""
@@ -7610,12 +7659,6 @@ msgstr "Shop ID"
 #, fuzzy
 #~ msgid "ID #%1$s: %2$s"
 #~ msgstr "%1$s om %2$s"
-
-#, fuzzy
-#~ msgid "%s user deleted."
-#~ msgid_plural "%s users deleted."
-#~ msgstr[0] "%s (verouderd)"
-#~ msgstr[1] "%s (verouderd)"
 
 #, fuzzy
 #~ msgid "Widget %s"
