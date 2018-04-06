@@ -152,6 +152,10 @@
 
 								<?php wp_reset_postdata(); ?>
 
+							<?php else : ?>
+
+								<p><?php esc_html_e( 'No pending payments found', 'pronamic_ideal' ); ?>.</p>
+
 							<?php endif; ?>
 						</div>
 					</div>
