@@ -57,10 +57,10 @@
 
 				$timestamp = wp_next_scheduled( 'pronamic_pay_license_check' );
 
-				if ( $timestamp ) {
-					$timestamp = get_date_from_gmt( date( 'Y-m-d H:i:s', $timestamp ), 'U' );
+				if ( false !== $timestamp ) {
+					$date = new \Pronamic\WordPress\Pay\DateTime( '@' . $timestamp, new DateTimeZone( 'UTC' ) );
 
-					echo esc_html( date_i18n( 'D j M Y H:i:s', $timestamp ) );
+					echo esc_html( $date->format_i18n() );
 				} else {
 					esc_html_e( 'Not scheduled', 'pronamic_ideal' );
 				}
