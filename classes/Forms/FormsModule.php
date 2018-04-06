@@ -22,6 +22,13 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class FormsModule {
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Constructs and initalize a forms module object.
 	 *
 	 * @param Plugin $plugin Plugin.
@@ -30,7 +37,7 @@ class FormsModule {
 		$this->plugin = $plugin;
 
 		// Form Post Type.
-		$this->form_post_type = new FormPostType();
+		$this->form_post_type = new FormPostType( $plugin );
 
 		// Processor.
 		$this->processor = new FormProcessor( $plugin );

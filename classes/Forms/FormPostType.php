@@ -10,6 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Pay\Plugin;
+use WP_Post;
+
 /**
  * Form Post Type
  *
@@ -47,9 +50,20 @@ class FormPostType {
 	const AMOUNT_METHOD_CHOICES_AND_INPUT = 'choices_and_input';
 
 	/**
-	 * Constructs and initializes an admin form post type object.
+	 * Plugin.
+	 *
+	 * @var Plugin
 	 */
-	public function __construct() {
+	private $plugin;
+
+	/**
+	 * Constructs and initializes an admin form post type object.
+	 *
+	 * @param Plugin $plugin Plugin.
+	 */
+	public function __construct( $plugin ) {
+		$this->plugin = $plugin;
+
 		/**
 		 * Priotiry of the initial post types function should be set to < 10.
 		 *
@@ -267,7 +281,7 @@ class FormPostType {
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function meta_box_form_options( $post ) {
-		include \Pronamic\WordPress\Pay\Plugin::$dirname . '/admin/meta-box-form-options.php';
+		include plugin_dir_path( $this->plugin->get_file() ) . '/admin/meta-box-form-options.php';
 	}
 
 	/**

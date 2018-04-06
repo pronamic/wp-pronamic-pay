@@ -85,7 +85,7 @@ class FormProcessor {
 
 		$error = $gateway->get_error();
 
-		if ( $error instanceof WP_Error ) ) {
+		if ( $error instanceof WP_Error ) {
 			Plugin::render_errors( $error );
 
 			exit;
