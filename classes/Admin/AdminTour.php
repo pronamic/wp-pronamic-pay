@@ -21,6 +21,13 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminTour {
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Constructs and initializes an pointers object.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-includes/js/wp-pointer.js

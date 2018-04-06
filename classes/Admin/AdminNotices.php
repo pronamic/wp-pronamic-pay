@@ -21,6 +21,13 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminNotices {
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Constructs and initializes an notices object.
 	 *
 	 * @see https://github.com/woothemes/woocommerce/blob/2.4.3/includes/admin/class-wc-admin-notices.php

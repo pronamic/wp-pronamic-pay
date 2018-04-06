@@ -21,6 +21,13 @@ use Pronamic\WordPress\Pay\Plugin;
  */
 class AdminModule {
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	private $plugin;
+
+	/**
 	 * Constructs and initalize an admin object.
 	 *
 	 * @param Plugin $plugin Plugin.
