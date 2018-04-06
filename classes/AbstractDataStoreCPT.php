@@ -38,6 +38,20 @@ abstract class AbstractDataStoreCPT {
 	}
 
 	/**
+	 * Get MySQL UTC datetime of the specified date.
+	 *
+	 * @param \DateTime $date The date.
+	 * @return string
+	 */
+	protected function get_mysql_utc_date( \DateTime $date ) {
+		$date = clone $date;
+
+		$date->setTimezone( new DateTimeZone( 'UTC' ) );
+
+		return $date->format( DateTime::MYSQL );
+	}
+
+	/**
 	 * Get meta for the specified post ID and key.
 	 *
 	 * @param int    $id  Post ID.
@@ -91,7 +105,7 @@ abstract class AbstractDataStoreCPT {
 		}
 
 		if ( $value instanceof \DateTime ) {
-			$value = $value->format( DateTime::MYSQL );
+			$value = $this->get_mysql_utc_date( $value );
 		}
 
 		$meta_key = $this->get_meta_key( $key );
