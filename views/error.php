@@ -28,7 +28,7 @@ if ( is_wp_error( $error ) ) : ?>
 			if ( 'ideal_advanced_v3_error' === $code ) {
 				$ideal_error = $error->get_error_data( $code );
 
-				if ( $ideal_error instanceof Pronamic_Gateways_IDealAdvancedV3_Error ) :
+				if ( $ideal_error instanceof \Pronamic\WordPress\Pay\Gateways\IDealAdvancedV3\Error ) :
 
 					?>
 
