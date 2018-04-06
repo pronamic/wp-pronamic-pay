@@ -102,9 +102,7 @@ $subscription = get_pronamic_subscription( $post_id );
 
 			$start_date = $subscription->get_start_date();
 
-			if ( $start_date ) {
-				echo esc_html( $start_date->format_i18n() );
-			}
+			echo empty( $start_date ) ? '—' : esc_html( $start_date->format_i18n() );
 
 			?>
 		</td>
