@@ -284,7 +284,7 @@ class AdminGatewayPostType {
 		$data = filter_input_array( INPUT_POST, $definition );
 
 		if ( ! empty( $data['_pronamic_gateway_id'] ) ) {
-			$integrations = $this->admin->plugin->gateway_integrations;
+			$integrations = $this->plugin->gateway_integrations;
 
 			if ( isset( $integrations[ $data['_pronamic_gateway_id'] ] ) ) {
 				$integration = $integrations[ $data['_pronamic_gateway_id'] ];
