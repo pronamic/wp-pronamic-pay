@@ -74,7 +74,7 @@ $payments = $subscription->get_payments();
 						<?php echo empty( $payment->start_date ) ? '—' : esc_html( $payment->start_date->format_i18n() ); ?>
 					</td>
 					<td>
-						<?php echo empty( $payment->end_date ) ? '—' : esc_html( $payment->start_date->format_i18n() ); ?>
+						<?php echo empty( $payment->end_date ) ? '—' : esc_html( $payment->end_date->format_i18n() ); ?>
 					</td>
 				</tr>
 
