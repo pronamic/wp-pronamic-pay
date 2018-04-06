@@ -724,7 +724,7 @@ class Plugin {
 					// First payment.
 					// Cancel subscription to prevent unwanted recurring payments in the future,
 					// when a valid customer ID might be set for the user.
-					$subscription->update_status( Core\Statuses::CANCELLED );
+					$subscription->set_status( Core\Statuses::CANCELLED );
 				} else {
 					$subscription->set_status( Core\Statuses::FAILURE );
 				}
