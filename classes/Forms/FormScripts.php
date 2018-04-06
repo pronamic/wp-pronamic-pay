@@ -54,7 +54,7 @@ class FormScripts {
 		$post = get_post();
 
 		if (
-			is_object( $post ) && has_shortcode( $post->post_content, 'pronamic_payment_form' )
+			has_shortcode( get_post_field( 'post_content', $post ), 'pronamic_payment_form' )
 				||
 			is_singular( 'pronamic_pay_form' )
 		) {
