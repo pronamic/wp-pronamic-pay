@@ -73,7 +73,7 @@ class PaymentFormData extends PaymentData {
 	 * Get items.
 	 *
 	 * @see Pronamic_Pay_PaymentDataInterface::get_items()
-	 * @return Pronamic_IDeal_Items
+	 * @return Items
 	 */
 	public function get_items() {
 		// Items.
