@@ -90,7 +90,7 @@ class AdminGatewayPostType {
 	public function custom_columns( $column, $post_id ) {
 		$id = get_post_meta( $post_id, '_pronamic_gateway_id', true );
 
-		$integrations = $this->admin->plugin->gateway_integrations;
+		$integrations = $this->plugin->gateway_integrations;
 
 		if ( isset( $integrations[ $id ] ) ) {
 			$integration = $integrations[ $id ];
