@@ -10,7 +10,6 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use DateTime;
 use SimpleXMLElement;
 use WP_Error;
 
