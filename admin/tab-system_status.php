@@ -71,7 +71,7 @@
 	</tbody>
 </table>
 
-<table class="pronamic-pay-table pronamic-pay-status-table widefat">
+<table class="pronamic-pay-table pronamic-pay-status-table widefat striped">
 	<thead>
 		<tr>
 			<th colspan="3"><?php esc_html_e( 'WordPress Environment', 'pronamic_ideal' ); ?></th>
@@ -90,7 +90,7 @@
 				✓
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Home URL', 'pronamic_ideal' ); ?>
 			</th>
@@ -120,7 +120,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
@@ -164,7 +164,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'WP Memory Limit', 'pronamic_ideal' ); ?>
 			</th>
@@ -220,7 +220,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
@@ -256,7 +256,7 @@
 				✓
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'OpenSSL', 'pronamic_ideal' ); ?>
 			</th>
@@ -309,7 +309,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Travis CI build status', 'pronamic_ideal' ); ?>
 			</th>
