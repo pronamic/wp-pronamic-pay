@@ -15,7 +15,7 @@ $states = Plugin::get_payment_states();
 ?>
 <div class="pronamic-pay-inner">
 	<p>
-		<label for="pronamic-payment-status">Status:</span>&nbsp;</label>
+		<label for="pronamic-payment-status">Status:&nbsp;</label>
 		<select id="pronamic-payment-status" name="post_status" class="medium-text">
 			<?php
 
