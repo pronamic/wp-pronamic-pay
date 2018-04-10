@@ -397,6 +397,15 @@ class Payment {
 	}
 
 	/**
+	 * Save payment.
+	 *
+	 * @return void
+	 */
+	public function save() {
+		pronamic_pay_plugin()->payments_data_store->update( $this );
+	}
+
+	/**
 	 * Add a note to this payment.
 	 *
 	 * @param string $note The note to add.

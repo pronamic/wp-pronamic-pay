@@ -344,7 +344,7 @@ class SubscriptionsModule {
 			$payment->start_date     = $start_date;
 			$payment->end_date       = $next_date;
 
-			$this->plugin->payments_data_store->update( $payment );
+			$payment->save();
 		}
 	}
 

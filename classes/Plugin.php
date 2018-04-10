@@ -215,7 +215,7 @@ class Plugin {
 		}
 
 		// Update payment in data store.
-		pronamic_pay_plugin()->payments_data_store->update( $payment );
+		$payment->save();
 
 		// Maybe redirect.
 		if ( defined( 'DOING_CRON' ) && ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) ) {
@@ -740,7 +740,7 @@ class Plugin {
 			}
 		}
 
-		$pronamic_ideal->payments_data_store->update( $payment );
+		$payment->save();
 
 		if ( $gateway->supports( 'payment_status_request' ) ) {
 			Payments\StatusChecker::schedule_event( $payment );
