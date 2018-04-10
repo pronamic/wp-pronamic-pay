@@ -708,6 +708,16 @@ class Plugin {
 
 		$pronamic_ideal->payments_data_store->create( $payment );
 
+		// Prevent payment start at gateway if amount is empty.
+		$amount = $payment->get_amount();
+
+		if ( empty( $amount ) ) {
+			// Keep track of free payments to update during shutdown.
+			pronamic_pay_plugin()->payments_module->free[] = $payment->get_id();
+
+			return $payment;
+		}
+
 		// Start payment at the gateway.
 		$result = $gateway->start( $payment );
 

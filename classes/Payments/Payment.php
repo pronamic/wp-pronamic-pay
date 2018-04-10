@@ -630,13 +630,21 @@ class Payment {
 	 * @return string
 	 */
 	public function get_action_url() {
-		if ( '' === $this->get_amount() || 0.0 === $this->get_amount() ) {
+		$action_url = $this->action_url;
+
+		$amount = $this->get_amount();
+
+		if ( empty( $amount ) ) {
+			$status = $this->get_status();
+
 			$this->set_status( Statuses::SUCCESS );
 
-			return $this->get_return_redirect_url();
+			$action_url = $this->get_return_redirect_url();
+
+			$this->set_status( $status );
 		}
 
-		return $this->action_url;
+		return $action_url;
 	}
 
 	/**
