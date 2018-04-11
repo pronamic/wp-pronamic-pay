@@ -10,8 +10,9 @@
 
 namespace Pronamic\WordPress\Pay\Admin;
 
-use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Payments\Payment;
+use Pronamic\WordPress\Pay\Payments\PaymentPostType;
+use Pronamic\WordPress\Pay\Plugin;
 use WP_Post;
 use WP_Query;
 
@@ -93,7 +94,7 @@ class AdminPaymentPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( \Pronamic\WordPress\Pay\Plugin::get_payment_states() );
+				$vars['post_status'] = array_keys( PaymentPostType::get_payment_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
@@ -123,7 +124,7 @@ class AdminPaymentPostType {
 		if ( filter_has_var( INPUT_GET, 'pronamic_pay_check_status' ) && check_admin_referer( 'pronamic_payment_check_status_' . $post_id ) ) {
 			$payment = get_pronamic_payment( $post_id );
 
-			\Pronamic\WordPress\Pay\Plugin::update_payment( $payment, false );
+			Plugin::update_payment( $payment, false );
 
 			$this->admin_notices[] = array(
 				'type'    => 'info',

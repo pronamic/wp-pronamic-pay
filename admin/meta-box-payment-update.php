@@ -9,8 +9,9 @@
  */
 
 use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 
-$states = Plugin::get_payment_states();
+$states = PaymentPostType::get_payment_states();
 
 ?>
 <div class="pronamic-pay-inner">

@@ -420,40 +420,6 @@ class Plugin {
 	}
 
 	/**
-	 * Get payment states.
-	 *
-	 * @return array
-	 */
-	public static function get_payment_states() {
-		return array(
-			'payment_pending'    => _x( 'Pending', 'Payment status', 'pronamic_ideal' ),
-			'payment_processing' => _x( 'Processing', 'Payment status', 'pronamic_ideal' ),
-			'payment_on_hold'    => _x( 'On Hold', 'Payment status', 'pronamic_ideal' ),
-			'payment_completed'  => _x( 'Completed', 'Payment status', 'pronamic_ideal' ),
-			'payment_cancelled'  => _x( 'Cancelled', 'Payment status', 'pronamic_ideal' ),
-			'payment_refunded'   => _x( 'Refunded', 'Payment status', 'pronamic_ideal' ),
-			'payment_failed'     => _x( 'Failed', 'Payment status', 'pronamic_ideal' ),
-			'payment_expired'    => _x( 'Expired', 'Payment status', 'pronamic_ideal' ),
-		);
-	}
-
-	/**
-	 * Get subscription states.
-	 *
-	 * @return array
-	 */
-	public static function get_subscription_states() {
-		return array(
-			'subscr_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
-			'subscr_cancelled' => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
-			'subscr_expired'   => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
-			'subscr_failed'    => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
-			'subscr_active'    => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
-			'subscr_completed' => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
-		);
-	}
-
-	/**
 	 * Get default error message.
 	 *
 	 * @return string

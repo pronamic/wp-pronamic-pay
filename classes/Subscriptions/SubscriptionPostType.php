@@ -78,6 +78,22 @@ class SubscriptionPostType {
 	}
 
 	/**
+	 * Get subscription states.
+	 *
+	 * @return array
+	 */
+	public static function get_states() {
+		return array(
+			'subscr_pending'   => _x( 'Pending', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_cancelled' => _x( 'Cancelled', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_expired'   => _x( 'Expired', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_failed'    => _x( 'Failed', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_active'    => _x( 'Active', 'Subscription status', 'pronamic_ideal' ),
+			'subscr_completed' => _x( 'Completed', 'Subscription status', 'pronamic_ideal' ),
+		);
+	}
+
+	/**
 	 * Register our custom post statuses, used for order status.
 	 */
 	public function register_post_status() {

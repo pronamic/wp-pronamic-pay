@@ -8,9 +8,9 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 
-$states = Plugin::get_subscription_states();
+$states = SubscriptionPostType::get_states();
 
 ?>
 <div class="pronamic-pay-inner">

@@ -12,6 +12,7 @@ namespace Pronamic\WordPress\Pay\Admin;
 
 use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 use WP_Post;
 
 /**
@@ -72,7 +73,7 @@ class AdminSubscriptionPostType {
 
 		if ( self::POST_TYPE === $screen->post_type ) {
 			if ( ! isset( $vars['post_status'] ) ) {
-				$vars['post_status'] = array_keys( \Pronamic\WordPress\Pay\Plugin::get_subscription_states() );
+				$vars['post_status'] = array_keys( SubscriptionPostType::get_states() );
 
 				$vars['post_status'][] = 'publish';
 			}
