@@ -364,6 +364,20 @@ class Payment {
 	public $end_date;
 
 	/**
+	 * User agent.
+	 *
+	 * @var string
+	 */
+	public $user_agent;
+
+	/**
+	 * User IP address.
+	 *
+	 * @var string
+	 */
+	public $user_ip;
+
+	/**
 	 * Construct and initialize payment object.
 	 *
 	 * @param integer $post_id A payment post ID or null.
