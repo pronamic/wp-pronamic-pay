@@ -104,16 +104,26 @@ class StatusChecker {
 			return;
 		}
 
-		// Limit number tries.
-		if ( $number_tries >= 4 ) {
-			return;
-		}
-
 		// http://pronamic.nl/wp-content/uploads/2011/12/iDEAL_Advanced_PHP_EN_V2.2.pdf (page 19)
 		// - No status request after a final status has been received for a transaction.
 		if ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) {
+			// Add note.
+			$note = sprintf(
+				__( 'Payment status check at gateway by %s.', 'pronamic_ideal' ),
+				__( 'Pronamic Pay', 'pronamic_ideal' )
+			);
+
+			$payment->add_note( $note );
+
+			// Update payment.
 			Plugin::update_payment( $payment );
 
+			// Limit number tries.
+			if ( 4 === $number_tries ) {
+				return;
+			}
+
+			// Schedule check if no final status has been received.
 			if ( empty( $payment->status ) || Statuses::OPEN === $payment->status ) {
 				$time = time();
 
@@ -123,7 +133,7 @@ class StatusChecker {
 					$time + $seconds, 'pronamic_ideal_check_transaction_status', array(
 						'payment_id'   => $payment->get_id(),
 						'seconds'      => $seconds,
-						'number_tries' => $number_tries + 1,
+						'number_tries' => ++$number_tries,
 					)
 				);
 			}
