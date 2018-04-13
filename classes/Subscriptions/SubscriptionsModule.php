@@ -19,6 +19,7 @@ use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
+use Pronamic\WordPress\Pay\Util;
 use WP_CLI;
 use WP_Query;
 
@@ -183,14 +184,52 @@ class SubscriptionsModule {
 					// Payment method input HTML.
 					$gateway->set_payment_method( $subscription->payment_method );
 
-					$input_html = $gateway->get_input_html();
+					// Format subscription length.
+					$length = $subscription->get_interval() . ' ';
 
-					$html = '<form method="post">
-								<h1>' . __( 'Subscription Renewal', 'pronamic_ideal' ) . '</h1>
-								<p>' . sprintf( __( 'The subscription epxires at %s', 'pronamic_ideal' ), $subscription->get_expiry_date()->format_i18n() ) . '</p>
-								<p>' . $input_html . '</p>
-								<p><input type="submit" value="' . __( 'Pay Now', 'pronamic_ideal' ) . '" /></p>
-							 </form>';
+					switch ( $subscription->get_interval_period() ) {
+						case 'D':
+							$length .= _n( 'day', 'days', $subscription->get_interval(), 'pronamic_ideal' );
+
+							break;
+						case 'W':
+							$length .= _n( 'week', 'weeks', $subscription->get_interval(), 'pronamic_ideal' );
+
+							break;
+						case 'M':
+							$length .= _n( 'month', 'months', $subscription->get_interval(), 'pronamic_ideal' );
+
+							break;
+						case 'Y':
+							$length .= _n( 'year', 'years', $subscription->get_interval(), 'pronamic_ideal' );
+
+							break;
+					}
+
+					$form_inner = sprintf(
+						'<h1>%14s</h1> <p>%2$s</p> <hr /> <p><strong>%3$s:</strong> %4$s</p> <p><strong>%5$s:</strong> %6$s</p>',
+						esc_html__( 'Subscription Renewal', 'pronamic_ideal' ),
+						sprintf(
+							__( 'The subscription epxires at %s.', 'pronamic_ideal' ),
+							$subscription->get_expiry_date()->format_i18n()
+						),
+						esc_html__( 'Subscription length', 'pronamic_ideal' ),
+						esc_html( $length ),
+						esc_html__( 'Amount', 'pronamic_ideal' ),
+						Util::format_price( $subscription->get_amount(), $subscription->get_currency() )
+					);
+
+					$form_inner .= $gateway->get_input_html();
+
+					$form_inner .= sprintf(
+						'<p><input class="pronamic-pay-btn" type="submit" name="pay" value="%s" /></p>',
+						__( 'Pay', 'pronamic_ideal' )
+					);
+
+					$html = sprintf(
+						'<form id="pronamic_ideal_form" name="pronamic_ideal_form" method="post">%s</form>',
+						$form_inner
+					);
 				}
 
 				require Plugin::$dirname . '/views/subscription-renew.php';
