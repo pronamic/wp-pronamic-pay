@@ -246,24 +246,34 @@ class SubscriptionsModule {
 	 * @param boolean      $renewal      Flag for renewal payment.
 	 */
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = null ) {
-		// If next payment date is after the subscription end date unset the next payment date.
-		if ( isset( $subscription->end_date, $subscription->next_payment ) && $subscription->end_date <= $subscription->next_payment ) {
-			$subscription->next_payment = null;
-		}
+		if ( null === $renewal ) {
+			// If next payment date is after the subscription end date unset the next payment date.
+			if ( isset( $subscription->end_date, $subscription->next_payment ) && $subscription->end_date <= $subscription->next_payment ) {
+				$subscription->next_payment = null;
+			}
 
-		// If there is no next payment date change the subscription status to completed.
-		if ( empty( $subscription->next_payment ) ) {
-			$subscription->status      = Statuses::COMPLETED;
-			$subscription->expiry_date = $subscription->end_date;
+			// If there is no next payment date change the subscription status to completed.
+			if ( empty( $subscription->next_payment ) ) {
+				$subscription->status      = Statuses::COMPLETED;
+				$subscription->expiry_date = $subscription->end_date;
 
-			$subscription->save();
+				$subscription->save();
 
-			// @todo
-			return;
+				// @todo
+				return;
+			}
+
+			if ( ! $gateway->supports( 'recurring' ) ) {
+				return;
+			}
 		}
 
 		// Calculate payment start and end dates.
-		$start_date = clone $subscription->next_payment;
+		$start_date = new DateTime();
+
+		if ( ! empty( $subscription->next_payment ) ) {
+			$start_date = clone $subscription->next_payment;
+		}
 
 		$end_date = clone $start_date;
 		$end_date->add( $subscription->get_date_interval() );
