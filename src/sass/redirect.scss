@@ -37,6 +37,32 @@ body {
 	}
 }
 
+hr {
+	width: 60%;
+	height: 1px;
+
+	margin: 2em auto;
+
+	border: none;
+	background: $gray-light;
+}
+
+#pronamic_ideal_form {
+	label {
+		display: block;
+
+		font-weight: bold;
+
+		margin-bottom: .5em;
+	}
+
+	p {
+		.pronamic-pay-btn {
+			margin-top: .5em;
+		}
+	}
+}
+
 .pronamic-pay-btn {
 	background: $wp-button-primary-background-focus-color;
 
