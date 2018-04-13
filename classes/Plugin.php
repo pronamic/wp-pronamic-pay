@@ -690,28 +690,6 @@ class Plugin {
 		// Start payment at the gateway.
 		$result = $gateway->start( $payment );
 
-		// If result is false the payment failed to start.
-		if ( false === $result ) {
-			// If payment failed to start we directly update the payment status to 'failure'.
-			$payment->set_status( Core\Statuses::FAILURE );
-
-			// Check if there is a subscription attached to the payment.
-			$subscription = $payment->get_subscription();
-
-			if ( $subscription ) {
-				if ( ! $payment->get_recurring() ) {
-					// First payment.
-					// Cancel subscription to prevent unwanted recurring payments in the future,
-					// when a valid customer ID might be set for the user.
-					$subscription->set_status( Core\Statuses::CANCELLED );
-				} else {
-					$subscription->set_status( Core\Statuses::FAILURE );
-				}
-
-				$subscription->save();
-			}
-		}
-
 		// Add gateway errors as payment notes.
 		if ( $gateway->has_error() ) {
 			foreach ( $gateway->error->get_error_codes() as $code ) {
@@ -728,6 +706,24 @@ class Plugin {
 
 		// Save payment.
 		$payment->save();
+
+		// Update subscription status for failed payments.
+		if ( false === $result && $payment->get_subscription() ) {
+			// Reload payment, so subscription is available.
+			$payment = new Payment( $payment->get_id() );
+
+			$subscription = $payment->get_subscription();
+
+			if ( 'first' === $payment->recurring_type ) {
+				// First payment - cancel subscription to prevent unwanted recurring payments
+				// in the future, when a valid customer ID might be set for the user.
+				$subscription->set_status( Statuses::CANCELLED );
+			} else {
+				$subscription->set_status( Statuses::FAILURE );
+			}
+
+			$subscription->save();
+		}
 
 		// Schedule payment status check.
 		if ( $gateway->supports( 'payment_status_request' ) ) {
