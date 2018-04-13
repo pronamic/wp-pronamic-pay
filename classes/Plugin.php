@@ -16,6 +16,7 @@ use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentDataInterface;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
+use Pronamic\WordPress\Pay\Payments\StatusChecker;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 use WP_Query;
 
@@ -711,17 +712,26 @@ class Plugin {
 			}
 		}
 
-		// Check if the gateway has an error.
+		// Add gateway errors as payment notes.
 		if ( $gateway->has_error() ) {
 			foreach ( $gateway->error->get_error_codes() as $code ) {
 				$payment->add_note( sprintf( '%s: %s', $code, $gateway->error->get_error_message( $code ) ) );
 			}
 		}
 
+		// Set payment status.
+		if ( false === $result ) {
+			$payment->set_status( Statuses::FAILURE );
+		} else {
+			$payment->set_status( Statuses::OPEN );
+		}
+
+		// Save payment.
 		$payment->save();
 
+		// Schedule payment status check.
 		if ( $gateway->supports( 'payment_status_request' ) ) {
-			Payments\StatusChecker::schedule_event( $payment );
+			StatusChecker::schedule_event( $payment );
 		}
 
 		return $payment;
