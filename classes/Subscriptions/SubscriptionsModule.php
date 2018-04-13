@@ -609,6 +609,14 @@ class SubscriptionsModule {
 				delete_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week' );
 			}
 
+			// Add renewal notice payment note.
+			$note = sprintf(
+				__( 'Subscription renewal due on %s.', 'pronamic_ideal' ),
+				$expiry_date->format_i18n()
+			);
+
+			$subscription->add_note( $note );
+
 			// Send renewal notice.
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
