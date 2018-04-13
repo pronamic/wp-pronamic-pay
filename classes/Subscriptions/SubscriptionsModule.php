@@ -680,21 +680,28 @@ class SubscriptionsModule {
 
 			$gateway = Plugin::get_gateway( $subscription->config_id );
 
-			// Check if gateway supports recurring payments.
-			if ( ! $gateway->supports( 'recurring' ) ) {
-				$subscription->status = Statuses::EXPIRED;
-
-				$subscription->save();
-
-				continue;
-			}
-
 			// Start payment.
 			$payment = $this->start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
 				// Update payment.
 				Plugin::update_payment( $payment, false );
+			}
+
+			// Expire manual renewal subscriptions.
+			if ( ! $gateway->supports( 'recurring' ) ) {
+				$now = new DateTime();
+
+				if ( Statuses::COMPLETED !== $subscription->status && isset( $subscription->expiry_date ) && $subscription->expiry_date <= $now ) {
+					$subscription->status = Statuses::EXPIRED;
+
+					$subscription->save();
+
+					// Delete next payment date so it won't get used as start date
+					// of the new payment period when manually renewing and to keep
+					// the subscription out of updating subscription payments (this method).
+					$subscription->set_meta( 'next_payment', null );
+				}
 			}
 		}
 	}
