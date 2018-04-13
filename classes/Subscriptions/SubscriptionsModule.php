@@ -597,11 +597,11 @@ class SubscriptionsModule {
 
 			if ( $sent_date_string ) {
 				$first_date = clone $expiry_date;
-				$first_date->sub( $interval );
+				$first_date->sub( $subscription->get_date_interval() );
 
 				$sent_date = new DateTime( $sent_date_string, new DateTimeZone( 'UTC' ) );
 
-				if ( $sent_date > $first_date ) {
+				if ( $sent_date >= $first_date || $expiry_date < $subscription->get_next_payment_date() ) {
 					// Prevent renewal notices from being sent more than once.
 					continue;
 				}
@@ -609,14 +609,22 @@ class SubscriptionsModule {
 				delete_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week' );
 			}
 
+			// Send renewal notice.
 			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
 
-			update_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', $start_date->format( DateTime::MYSQL ) );
+			// Update renewal notice sent date meta.
+			$renewal_sent_date = clone $start_date;
+
+			$renewal_sent_date->setTime( $expiry_date->format( 'H' ), $expiry_date->format( 'i' ), $expiry_date->format( 's' ) );
+
+			update_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', $renewal_sent_date->format( DateTime::MYSQL ) );
 		}
 	}
 
 	/**
 	 * Update subscription payments.
+	 *
+	 * @param bool $cli_test Whether or not this a CLI test.
 	 */
 	public function update_subscription_payments( $cli_test = false ) {
 		$this->send_subscription_renewal_notices();
