@@ -438,6 +438,8 @@ class Plugin {
 	public static function get_config_select_options( $payment_method = null ) {
 		$args = array(
 			'post_type' => 'pronamic_gateway',
+			'orderby'   => 'post_title',
+			'order'     => 'ASC',
 			'nopaging'  => true,
 		);
 
