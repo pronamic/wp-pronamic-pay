@@ -13,15 +13,15 @@ global $pronamic_pay_providers;
 $pronamic_pay_providers = array(
 	'abnamro'           => array(
 		'name' => 'ABN AMRO',
-		'url'  => 'http://abnamro.nl/',
+		'url'  => 'https://www.abnamro.nl/',
 	),
 	'buckaroo'          => array(
 		'name' => 'Buckaroo',
-		'url'  => 'http://www.buckaroo.nl/',
+		'url'  => 'https://www.buckaroo.nl/',
 	),
 	'deutschebank'      => array(
 		'name' => 'Deutsche Bank',
-		'url'  => 'http://deutschebank.nl/',
+		'url'  => 'https://deutschebank.nl/',
 	),
 	'dutchpaymentgroup' => array(
 		'name' => 'Dutch Payment Group',
@@ -34,7 +34,7 @@ $pronamic_pay_providers = array(
 	),
 	'ems'               => array(
 		'name' => 'European Merchant Services',
-		'url'  => 'https://emscard.nl/',
+		'url'  => 'https://emspay.nl/',
 	),
 	'fibonacciorange'   => array(
 		'name' => 'Fibonacci ORANGE',
@@ -42,27 +42,28 @@ $pronamic_pay_providers = array(
 	),
 	'icepay'            => array(
 		'name' => 'ICEPAY',
-		'url'  => 'http://www.icepay.nl/',
+		'url'  => 'https://icepay.nl/',
 	),
 	'ideal-simulator'   => array(
 		'name' => 'iDEAL Simulator',
-		'url'  => 'http://ideal-simulator.nl/',
+		'url'  => 'https://www.ideal-simulator.nl/',
 	),
 	'ing'               => array(
 		'name' => 'ING',
-		'url'  => 'http://ing.nl/',
+		'url'  => 'https://www.ing.nl/',
 	),
 	'mollie'            => array(
 		'name' => 'Mollie',
-		'url'  => 'http://www.mollie.nl/',
+		'url'  => 'https://www.mollie.nl/',
 	),
 	'multisafepay'      => array(
 		'name' => 'MultiSafepay',
-		'url'  => 'http://www.multisafepay.com/',
+		'url'  => 'https://www.multisafepay.com/',
+	),
 	),
 	'ogone'             => array(
 		'name' => 'Ingenico/Ogone',
-		'url'  => 'http://payment-services.ingenico.com/',
+		'url'  => 'https://payment-services.ingenico.com/',
 	),
 	'pay_nl'            => array(
 		'name' => 'Pay.nl',
@@ -78,11 +79,11 @@ $pronamic_pay_providers = array(
 	),
 	'rabobank'          => array(
 		'name' => 'Rabobank',
-		'url'  => 'http://rabobank.nl/',
+		'url'  => 'https://www.rabobank.nl/',
 	),
 	'sisow'             => array(
 		'name'          => 'Sisow',
-		'url'           => 'http://sisow.nl/',
+		'url'           => 'https://www.sisow.nl/',
 		'affiliate_url' => 'https://www.sisow.nl/Sisow/iDeal/Aanmelden.aspx?r=120872',
 	),
 	'targetpay'         => array(
