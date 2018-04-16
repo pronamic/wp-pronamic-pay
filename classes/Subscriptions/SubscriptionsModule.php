@@ -12,6 +12,7 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateInterval;
 use DatePeriod;
+use Pronamic\WordPress\Pay\Core\Server;
 use Pronamic\WordPress\Pay\DateTime;
 use Pronamic\WordPress\Pay\DateTimeZone;
 use Pronamic\WordPress\Pay\Plugin;
@@ -96,6 +97,30 @@ class SubscriptionsModule {
 			return;
 		}
 
+		// @see https://github.com/woothemes/woocommerce/blob/2.3.11/includes/class-wc-cache-helper.php
+		// @see https://www.w3-edge.com/products/w3-total-cache/
+		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+			define( 'DONOTCACHEPAGE', true );
+		}
+
+		if ( ! defined( 'DONOTCACHEDB' ) ) {
+			define( 'DONOTCACHEDB', true );
+		}
+
+		if ( ! defined( 'DONOTMINIFY' ) ) {
+			define( 'DONOTMINIFY', true );
+		}
+
+		if ( ! defined( 'DONOTCDN' ) ) {
+			define( 'DONOTCDN', true );
+		}
+
+		if ( ! defined( 'DONOTCACHEOBJECT' ) ) {
+			define( 'DONOTCACHEOBJECT', true );
+		}
+
+		nocache_headers();
+
 		$subscription_id = filter_input( INPUT_GET, 'subscription', FILTER_SANITIZE_STRING );
 		$subscription    = get_pronamic_subscription( $subscription_id );
 
@@ -130,16 +155,45 @@ class SubscriptionsModule {
 			case 'renew':
 				$gateway = Plugin::get_gateway( $subscription->config_id );
 
-				if ( Statuses::SUCCESS !== $subscription->get_status() ) {
-					$payment = $this->start_recurring( $subscription, $gateway, true );
+				$html = null;
 
-					if ( ! $gateway->has_error() ) {
-						// Redirect.
+				if ( ! $gateway ) {
+					$html = __( 'The subscription can not be renewed.', 'pronamic_ideal' );
+				} elseif ( $gateway->supports( 'recurring' ) && Statuses::ACTIVE === $subscription->get_status() ) {
+					$html = __( 'The subscription is already active.', 'pronamic_ideal' );
+				} else {
+					if ( 'POST' === Server::get( 'REQUEST_METHOD' ) ) {
+						$renewal = array(
+							'issuer' => filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING ),
+						);
+
+						$payment = $this->start_recurring( $subscription, $gateway, $renewal );
+
+						$error = $gateway->get_error();
+
+						if ( $gateway->has_error() && is_wp_error( $error ) ) {
+							Plugin::render_errors( $error );
+
+							exit;
+						}
+
 						$gateway->redirect( $payment );
 					}
+
+					// Payment method input HTML.
+					$gateway->set_payment_method( $subscription->payment_method );
+
+					$input_html = $gateway->get_input_html();
+
+					$html = '<form method="post">
+								<h1>' . __( 'Subscription Renewal', 'pronamic_ideal' ) . '</h1>
+								<p>' . sprintf( __( 'The subscription epxires at %s', 'pronamic_ideal' ), $subscription->get_expiry_date()->format_i18n() ) . '</p>
+								<p>' . $input_html . '</p>
+								<p><input type="submit" value="' . __( 'Pay Now', 'pronamic_ideal' ) . '" /></p>
+							 </form>';
 				}
 
-				wp_redirect( home_url() );
+				require Plugin::$dirname . '/views/subscription-renew.php';
 
 				exit;
 		}
@@ -152,7 +206,7 @@ class SubscriptionsModule {
 	 * @param Gateway      $gateway      The gateway to start the recurring payment at.
 	 * @param boolean      $renewal      Flag for renewal payment.
 	 */
-	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = false ) {
+	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = null ) {
 		// If next payment date is after the subscription end date unset the next payment date.
 		if ( isset( $subscription->end_date, $subscription->next_payment ) && $subscription->end_date <= $subscription->next_payment ) {
 			$subscription->next_payment = null;
@@ -202,7 +256,13 @@ class SubscriptionsModule {
 		$payment->start_date       = $start_date;
 		$payment->end_date         = $end_date;
 		$payment->recurring_type   = 'recurring';
-		$payment->recurring        = ! $renewal;
+		$payment->recurring        = true;
+
+		// Handle renewals.
+		if ( is_array( $renewal ) ) {
+			$payment->recurring = false;
+			$payment->issuer    = $renewal['issuer'];
+		}
 
 		// Start payment.
 		$payment = Plugin::start_payment( $payment, $gateway );
@@ -389,102 +449,6 @@ class SubscriptionsModule {
 	}
 
 	/**
-	 * Update subscription payments.
-	 */
-	public function update_subscription_payments() {
-		$this->send_subscription_renewal_notices();
-
-		// Don't create payments for sources which schedule payments.
-		$sources = array(
-			'woocommerce',
-		);
-
-		$args = array(
-			'post_type'   => 'pronamic_pay_subscr',
-			'nopaging'    => true,
-			'orderby'     => 'post_date',
-			'order'       => 'ASC',
-			'post_status' => array(
-				'subscr_pending',
-				'subscr_expired',
-				'subscr_failed',
-				'subscr_active',
-			),
-			'meta_query'  => array(
-				array(
-					'key'     => '_pronamic_subscription_source',
-					'compare' => 'NOT IN',
-					'value'   => $sources,
-				),
-				array(
-					'key'     => '_pronamic_subscription_next_payment',
-					'compare' => '<=',
-					'value'   => current_time( 'mysql', true ),
-					'type'    => 'DATETIME',
-				),
-			),
-		);
-
-		$query = new WP_Query( $args );
-
-		foreach ( $query->posts as $post ) {
-			$subscription = new Subscription( $post->ID );
-
-			$gateway = Plugin::get_gateway( $subscription->config_id );
-
-			$payment = $this->start_recurring( $subscription, $gateway );
-
-			if ( $payment ) {
-				Plugin::update_payment( $payment, false );
-			}
-		}
-	}
-
-	/**
-	 * Send renewal notices.
-	 *
-	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L652-L712
-	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L715-L746
-	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/classes/class-sl-emails.php#L41-L126
-	 */
-	public function send_subscription_renewal_notices() {
-		$interval = new DateInterval( 'P1W' ); // 1 week
-
-		$start_date = new DateTime( 'midnight', new DateTimeZone( 'UTC' ) );
-
-		$end_date = clone $start_date;
-		$end_date->add( $interval );
-
-		$expiring_subscription_posts = $this->get_expiring_subscription_posts( $start_date, $end_date );
-
-		foreach ( $expiring_subscription_posts as $post ) {
-			$subscription = new Subscription( $post->ID );
-
-			$expiry_date = $subscription->get_expiry_date();
-
-			$sent_date_string = get_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', true );
-
-			if ( $sent_date_string ) {
-				$first_date = clone $expiry_date;
-				$first_date->sub( $interval );
-
-				$sent_date = new DateTime( $sent_date_string, new DateTimeZone( 'UTC' ) );
-
-				if ( $sent_date > $first_date ) {
-					// Prevent renewal notices from being sent more than once.
-					continue;
-				}
-
-				delete_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week' );
-			}
-
-			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
-
-			update_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', $start_date->format( DateTime::MYSQL ) );
-		}
-	}
-
-	/**
 	 * Payment status update.
 	 *
 	 * @param Payment $payment The status updated payment.
@@ -559,9 +523,55 @@ class SubscriptionsModule {
 	}
 
 	/**
-	 * CLI subscriptions test.
+	 * Send renewal notices.
+	 *
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L652-L712
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/license-renewals.php#L715-L746
+	 * @see https://github.com/wp-premium/edd-software-licensing/blob/3.5.23/includes/classes/class-sl-emails.php#L41-L126
 	 */
-	public function cli_subscriptions_test() {
+	public function send_subscription_renewal_notices() {
+		$interval = new DateInterval( 'P1W' ); // 1 week
+
+		$start_date = new DateTime( 'midnight', new DateTimeZone( 'UTC' ) );
+
+		$end_date = clone $start_date;
+		$end_date->add( $interval );
+
+		$expiring_subscription_posts = $this->get_expiring_subscription_posts( $start_date, $end_date );
+
+		foreach ( $expiring_subscription_posts as $post ) {
+			$subscription = new Subscription( $post->ID );
+
+			$expiry_date = $subscription->get_expiry_date();
+
+			$sent_date_string = get_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', true );
+
+			if ( $sent_date_string ) {
+				$first_date = clone $expiry_date;
+				$first_date->sub( $interval );
+
+				$sent_date = new DateTime( $sent_date_string, new DateTimeZone( 'UTC' ) );
+
+				if ( $sent_date > $first_date ) {
+					// Prevent renewal notices from being sent more than once.
+					continue;
+				}
+
+				delete_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week' );
+			}
+
+			do_action( 'pronamic_subscription_renewal_notice_' . $subscription->get_source(), $subscription );
+
+			update_post_meta( $post->ID, '_pronamic_subscription_renewal_sent_1week', $start_date->format( DateTime::MYSQL ) );
+		}
+	}
+
+	/**
+	 * Update subscription payments.
+	 */
+	public function update_subscription_payments( $cli_test = false ) {
+		$this->send_subscription_renewal_notices();
+
 		$args = array(
 			'post_type'   => 'pronamic_pay_subscr',
 			'nopaging'    => true,
@@ -585,21 +595,52 @@ class SubscriptionsModule {
 			),
 		);
 
+		if ( ! $cli_test ) {
+			$args['meta_query'][] = array(
+				'key'     => '_pronamic_subscription_next_payment',
+				'compare' => '<=',
+				'value'   => current_time( 'mysql', true ),
+				'type'    => 'DATETIME',
+			);
+		}
+
 		$query = new WP_Query( $args );
 
 		foreach ( $query->posts as $post ) {
-			WP_CLI::log( sprintf( 'Processing post `%d` - "%s"…', $post->ID, get_the_title( $post ) ) );
+			if ( $cli_test ) {
+				WP_CLI::log( sprintf( 'Processing post `%d` - "%s"…', $post->ID, get_the_title( $post ) ) );
+			}
 
 			$subscription = new Subscription( $post->ID );
 
 			$gateway = Plugin::get_gateway( $subscription->config_id );
 
+			// Check if gateway supports recurring payments.
+			if ( ! $gateway->supports( 'recurring' ) ) {
+				$subscription->status = Statuses::EXPIRED;
+
+				$subscription->save();
+
+				continue;
+			}
+
+			// Start payment.
 			$payment = $this->start_recurring( $subscription, $gateway );
 
 			if ( $payment ) {
+				// Update payment.
 				Plugin::update_payment( $payment, false );
 			}
 		}
+	}
+
+	/**
+	 * CLI subscriptions test.
+	 */
+	public function cli_subscriptions_test() {
+		$cli_test = true;
+
+		$this->update_subscription_payments( $cli_test );
 
 		WP_CLI::success( 'Pronamic Pay subscriptions test.' );
 	}
