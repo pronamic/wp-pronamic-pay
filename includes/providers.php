@@ -60,7 +60,6 @@ $pronamic_pay_providers = array(
 		'name' => 'MultiSafepay',
 		'url'  => 'https://www.multisafepay.com/',
 	),
-	),
 	'ogone'             => array(
 		'name' => 'Ingenico/Ogone',
 		'url'  => 'https://payment-services.ingenico.com/',
