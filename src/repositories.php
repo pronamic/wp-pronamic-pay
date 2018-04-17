@@ -20,6 +20,7 @@ $organisations = array(
 		'mollie',
 		'mollie-ideal',
 		'multisafepay',
+		'nocks',
 		'ogone',
 		'omnikassa',
 		'omnikassa-2',
