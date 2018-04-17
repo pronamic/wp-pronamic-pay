@@ -40,9 +40,9 @@ class UtilTest extends WP_UnitTestCase {
 			array( false, null, null ),
 			array( array(), null, null ),
 			array( new stdClass(), null, null ),
-			array( 0, null, '€ 0.00' ),
-			array( 123, null, '€ 123.00' ),
-			array( 123456, null, '€ 123,456.00' ),
+			array( 0, null, '€ 0,00' ),
+			array( 123, null, '€ 123,00' ),
+			array( 123456, null, '€ 123.456,00' ),
 		);
 	}
 }

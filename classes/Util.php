@@ -160,19 +160,33 @@ class Util {
 
 		$currency_symbol = $currency;
 
+		// Currencies.
 		switch ( $currency ) {
 			case 'EUR':
-				$currency_symbol = '€';
+				$currency_symbol  = '€';
+				$formatted_amount = number_format( $float, 2, ',', '.' );
+
 				break;
 			case 'USD':
-				$currency_symbol = '$';
+				$currency_symbol  = '$';
+				$formatted_amount = number_format( $float, 2, '.', ',' );
+
 				break;
+			case 'NLG':
+				$currency_symbol  = 'G';
+				$formatted_amount = number_format( $float, 4, '.', '' );
+
+				break;
+		}
+
+		if ( ! isset( $formatted_amount ) ) {
+			$formatted_amount = number_format_i18n( $float, 2 );
 		}
 
 		// @see https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods
 		$non_breaking_space = ' ';
 
-		return '' . $currency_symbol . $non_breaking_space . number_format_i18n( $float, 2 );
+		return '' . $currency_symbol . $non_breaking_space . $formatted_amount;
 	}
 
 	/**
