@@ -12,13 +12,13 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateInterval;
 use DatePeriod;
-use Pronamic\WordPress\Pay\Core\Server;
-use Pronamic\WordPress\Pay\DateTime;
-use Pronamic\WordPress\Pay\DateTimeZone;
-use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\Pay\Core\DateTimeZone;
 use Pronamic\WordPress\Pay\Core\Gateway;
+use Pronamic\WordPress\Pay\Core\Server;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
+use Pronamic\WordPress\Pay\Plugin;
 use Pronamic\WordPress\Pay\Util;
 use WP_CLI;
 use WP_Query;

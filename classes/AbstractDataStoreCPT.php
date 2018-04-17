@@ -10,6 +10,9 @@
 
 namespace Pronamic\WordPress\Pay;
 
+use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\Pay\Core\DateTimeZone;
+
 /**
  * Abstract Data Store Custom Post Type
  *

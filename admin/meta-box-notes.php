@@ -8,6 +8,9 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\Pay\Core\DateTimeZone;
+
 if ( ! isset( $notes ) ) {
 	return;
 }
@@ -39,7 +42,7 @@ if ( empty( $notes ) ) : ?>
 					<td>
 						<?php
 
-						$date = new Pronamic\WordPress\Pay\DateTime( $note->comment_date_gmt, new DateTimeZone( 'UTC' ) );
+						$date = new DateTime( $note->comment_date_gmt, new DateTimeZone( 'UTC' ) );
 
 						echo esc_html( $date->format_i18n() );
 

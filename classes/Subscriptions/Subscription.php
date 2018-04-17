@@ -11,10 +11,7 @@
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateInterval;
-use Pronamic\WordPress\Pay\DateTime;
-use Pronamic\WordPress\Pay\DateTimeZone;
-use Pronamic\WordPress\Pay\Plugin;
-use Pronamic\WordPress\Pay\Util;
+use Pronamic\WordPress\Pay\Core\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use WP_Post;
@@ -101,7 +98,7 @@ class Subscription {
 	 * The status of this subscription, for example 'Success'.
 	 *
 	 * @todo How to reference to a class constant?
-	 * @see  Pronamic\WordPress\Pay\Core\Statuses
+	 * @see  Statuses
 	 * @var  string
 	 */
 	public $status;

@@ -12,7 +12,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 
 use DateInterval;
 use DatePeriod;
-use DateTime;
+use Pronamic\WordPress\Pay\Core\DateTime;
 use Pronamic\WordPress\Pay\CreditCard;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Core\Util as Core_Util;

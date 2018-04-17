@@ -8,6 +8,9 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+use Pronamic\WordPress\Pay\Core\DateTime;
+use Pronamic\WordPress\Pay\Core\DateTimeZone;
+
 ?>
 <table class="pronamic-pay-table pronamic-pay-status-table widefat">
 	<thead>
@@ -58,7 +61,7 @@
 				$timestamp = wp_next_scheduled( 'pronamic_pay_license_check' );
 
 				if ( false !== $timestamp ) {
-					$date = new \Pronamic\WordPress\Pay\DateTime( '@' . $timestamp, new DateTimeZone( 'UTC' ) );
+					$date = new DateTime( '@' . $timestamp, new DateTimeZone( 'UTC' ) );
 
 					echo esc_html( $date->format_i18n() );
 				} else {
