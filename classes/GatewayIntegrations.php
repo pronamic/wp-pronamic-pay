@@ -212,6 +212,7 @@ class GatewayIntegrations {
 			new Gateways\MollieIDeal\Integration(),
 			$mollie_ideal_basic,
 			new Gateways\MultiSafepay\Connect\Integration(),
+			new Gateways\Nocks\Integration(),
 			new Gateways\Ingenico\DirectLink\Integration(),
 			new Gateways\Ingenico\OrderStandard\Integration(),
 			new Gateways\OmniKassa\Integration(),

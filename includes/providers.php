@@ -60,6 +60,10 @@ $pronamic_pay_providers = array(
 		'name' => 'MultiSafepay',
 		'url'  => 'https://www.multisafepay.com/',
 	),
+	'nocks'             => array(
+		'name' => 'Nocks',
+		'url'  => 'https://www.nocks.com/',
+	),
 	'ogone'             => array(
 		'name' => 'Ingenico/Ogone',
 		'url'  => 'https://payment-services.ingenico.com/',
