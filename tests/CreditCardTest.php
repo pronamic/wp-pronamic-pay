@@ -88,8 +88,8 @@ class CreditCardTest extends WP_UnitTestCase {
 	 */
 	public function expiration_dates_provider() {
 		return array(
-			array( '2018', '12', new DateTime( 'first day of December 2018' ) ),
-			array( 2018, 12, new DateTime( 'first day of December 2018' ) ),
+			array( '2018', '12', new \DateTime( 'first day of December 2018' ) ),
+			array( 2018, 12, new \DateTime( 'first day of December 2018' ) ),
 			array( '2018', null, null ),
 			array( null, null, null ),
 			array( false, false, null ),
