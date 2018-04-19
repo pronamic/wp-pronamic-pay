@@ -5,6 +5,10 @@ $project_dir      = dirname( __DIR__ );
 $repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
+	'pronamic'          => array(
+		'wp-datetime',
+		'wp-money',
+	),
 	'wp-pay'            => array(
 		'core',
 	),
