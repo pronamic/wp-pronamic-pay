@@ -118,7 +118,7 @@ class CreditCard {
 	 *
 	 * @see http://php.net/manual/en/datetime.formats.relative.php
 	 * @see http://php.net/manual/en/datetime.setdate.php
-	 * @return DateTime|null
+	 * @return \DateTime|null
 	 */
 	public function get_expiration_date() {
 		if ( empty( $this->expiration_year ) || empty( $this->expiration_month ) ) {
