@@ -10,7 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
-use Pronamic\WordPress\Pay\Currency;
+use Pronamic\WordPress\Money\Currency;
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\DateTime\DateTime;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
@@ -117,16 +118,9 @@ class Payment {
 	/**
 	 * The amount of this payment, for example 18.95.
 	 *
-	 * @var float
+	 * @var Money
 	 */
 	public $amount;
-
-	/**
-	 * The currency of this subscription, for example 'EUR' or 'USD'.
-	 *
-	 * @var string
-	 */
-	public $currency;
 
 	/**
 	 * The expiration period of this payment.
@@ -482,7 +476,7 @@ class Payment {
 	/**
 	 * Get the payment amount.
 	 *
-	 * @return float
+	 * @return Money
 	 */
 	public function get_amount() {
 		return $this->amount;
@@ -491,10 +485,10 @@ class Payment {
 	/**
 	 * Get the payment currency.
 	 *
-	 * @return string
+	 * @return Currency
 	 */
 	public function get_currency() {
-		return $this->currency;
+		return $this->get_amount()->get_currency();
 	}
 
 	/**
@@ -503,7 +497,7 @@ class Payment {
 	 * @return string|null
 	 */
 	public function get_currency_numeric_code() {
-		return Currency::transform_code_to_number( $this->get_currency() );
+		return $this->get_currency()->get_numeric_code();
 	}
 
 	/**
@@ -646,7 +640,7 @@ class Payment {
 	public function get_action_url() {
 		$action_url = $this->action_url;
 
-		$amount = $this->get_amount();
+		$amount = $this->get_amount()->get_amount();
 
 		if ( empty( $amount ) ) {
 			$status = $this->get_status();

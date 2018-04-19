@@ -216,7 +216,7 @@ class SubscriptionsModule {
 						esc_html__( 'Subscription length', 'pronamic_ideal' ),
 						esc_html( $length ),
 						esc_html__( 'Amount', 'pronamic_ideal' ),
-						Util::format_price( $subscription->get_amount(), $subscription->get_currency() )
+						esc_html( $subscription->get_amount()->format_i18n() )
 					);
 
 					$form_inner .= $gateway->get_input_html();

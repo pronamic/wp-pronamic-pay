@@ -10,8 +10,8 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\CreditCard;
-use Pronamic\WordPress\Pay\Currency;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 
 /**
@@ -102,10 +102,13 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	/**
 	 * Get amount.
 	 *
-	 * @return float
+	 * @return Money
 	 */
 	public function get_amount() {
-		return $this->get_items()->get_amount();
+		return new Money(
+			$this->get_items()->get_amount(),
+			$this->get_currency()
+		);
 	}
 
 	/**
@@ -220,7 +223,7 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 * @return string|null
 	 */
 	public function get_currency_numeric_code() {
-		return Currency::transform_code_to_number( $this->get_currency_alphabetic_code() );
+		return $this->get_amount();
 	}
 
 	/**
@@ -229,6 +232,8 @@ abstract class AbstractPaymentData implements PaymentDataInterface {
 	 * @return string
 	 */
 	public function get_currency() {
+		$currency = $this->get_amount();
+
 		return $this->get_currency_alphabetic_code();
 	}
 

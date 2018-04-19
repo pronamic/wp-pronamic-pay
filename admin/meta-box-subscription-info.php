@@ -69,10 +69,7 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			$currency = $subscription->get_currency();
-			$amount   = $subscription->get_amount();
-
-			echo esc_html( Util::format_price( $amount, $currency ) );
+			echo esc_html( $subscription->get_amount()->format_i18n() );
 
 			?>
 		</td>

@@ -11,6 +11,7 @@
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DatePeriod;
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
 use Pronamic\WordPress\DateTime\DateTime;
 use Pronamic\WordPress\DateTime\DateTimeZone;
@@ -173,7 +174,6 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$subscription->frequency       = $this->get_meta( $id, 'frequency' );
 		$subscription->interval        = $this->get_meta( $id, 'interval' );
 		$subscription->interval_period = $this->get_meta( $id, 'interval_period' );
-		$subscription->currency        = $this->get_meta( $id, 'currency' );
 		$subscription->amount          = $this->get_meta( $id, 'amount' );
 		$subscription->transaction_id  = $this->get_meta( $id, 'transaction_id' );
 		$subscription->status          = $this->get_meta( $id, 'status' );
@@ -181,6 +181,12 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$subscription->email           = $this->get_meta( $id, 'email' );
 		$subscription->customer_name   = $this->get_meta( $id, 'customer_name' );
 		$subscription->payment_method  = $this->get_meta( $id, 'payment_method' );
+
+		// Amount.
+		$subscription->amount = new Money(
+			$this->get_meta( $id, 'amount' ),
+			$this->get_meta( $id, 'currency' )
+		);
 
 		$first_payment = $subscription->get_first_payment();
 
@@ -256,8 +262,8 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'frequency', $subscription->frequency );
 		$this->update_meta( $id, 'interval', $subscription->interval );
 		$this->update_meta( $id, 'interval_period', $subscription->interval_period );
-		$this->update_meta( $id, 'currency', $subscription->currency );
-		$this->update_meta( $id, 'amount', $subscription->amount );
+		$this->update_meta( $id, 'currency', $subscription->get_amount()->get_currency()->get_alphabetic_code() );
+		$this->update_meta( $id, 'amount', $subscription->get_amount()->get_amount() );
 		$this->update_meta( $id, 'transaction_id', $subscription->transaction_id );
 		$this->update_meta( $id, 'description', $subscription->description );
 		$this->update_meta( $id, 'email', $subscription->email );

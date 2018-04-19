@@ -341,10 +341,7 @@ class AdminPaymentPostType {
 
 				break;
 			case 'pronamic_payment_amount':
-				$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
-				$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
-
-				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $amount, $currency ) );
+				echo esc_html( $payment->get_amount()->format_i18n() );
 
 				break;
 			case 'pronamic_payment_date':

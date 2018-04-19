@@ -12,6 +12,8 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DateInterval;
 use Pronamic\WordPress\DateTime\DateTime;
+use Pronamic\WordPress\Money\Currency;
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use WP_Post;
@@ -90,7 +92,7 @@ class Subscription {
 	/**
 	 * The amount of this subscription, for example 18.95.
 	 *
-	 * @var float
+	 * @var Money
 	 */
 	public $amount;
 
@@ -384,16 +386,16 @@ class Subscription {
 	/**
 	 * Get the currency of this subscription.
 	 *
-	 * @return string
+	 * @return Currency
 	 */
 	public function get_currency() {
-		return $this->currency;
+		return $this->get_amount()->get_currency();
 	}
 
 	/**
 	 * Get the amount of this subscription.
 	 *
-	 * @return float
+	 * @return Money
 	 */
 	public function get_amount() {
 		return $this->amount;

@@ -204,7 +204,7 @@ class Plugin {
 			return;
 		}
 
-		$amount = $payment->get_amount();
+		$amount = $payment->get_amount()->get_amount();
 
 		if ( empty( $amount ) ) {
 			$payment->set_status( Core\Statuses::SUCCESS );
@@ -386,9 +386,11 @@ class Plugin {
 	 */
 	public function plugins_loaded() {
 		// Load plugin text domain.
-		$rel_path = dirname( plugin_basename( self::$file ) ) . '/languages/';
+		$rel_path = dirname( plugin_basename( self::$file ) );
 
-		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path );
+		load_plugin_textdomain( 'pronamic_ideal', false, $rel_path . '/languages' );
+
+		load_plugin_textdomain( 'pronamic-money', false, $rel_path . '/vendor/pronamic/wp-money/languages' );
 
 		// Gateway Integrations.
 		$integrations = new GatewayIntegrations();
@@ -643,7 +645,6 @@ class Plugin {
 		$payment->config_id           = $config_id;
 		$payment->key                 = uniqid( 'pay_' );
 		$payment->order_id            = $data->get_order_id();
-		$payment->currency            = $data->get_currency();
 		$payment->amount              = $data->get_amount();
 		$payment->language            = $data->get_language();
 		$payment->locale              = $data->get_language_and_country();
@@ -692,7 +693,7 @@ class Plugin {
 		$pronamic_ideal->payments_data_store->create( $payment );
 
 		// Prevent payment start at gateway if amount is empty.
-		$amount = $payment->get_amount();
+		$amount = $payment->get_amount()->get_amount();
 
 		if ( empty( $amount ) ) {
 			// Keep track of free payments to update during shutdown.

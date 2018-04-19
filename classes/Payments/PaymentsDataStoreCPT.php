@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
 use Pronamic\WordPress\DateTime\DateTime;
 use Pronamic\WordPress\DateTime\DateTimeZone;
@@ -180,8 +181,6 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 
 		$payment->config_id           = $this->get_meta( $id, 'config_id' );
 		$payment->key                 = $this->get_meta( $id, 'key' );
-		$payment->amount              = (float) $this->get_meta( $id, 'amount' );
-		$payment->currency            = $this->get_meta( $id, 'currency' );
 		$payment->method              = $this->get_meta( $id, 'method' );
 		$payment->issuer              = $this->get_meta( $id, 'issuer' );
 		$payment->order_id            = $this->get_meta( $id, 'order_id' );
@@ -209,6 +208,12 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$payment->end_date            = $this->get_meta_date( $id, 'end_date' );
 		$payment->user_agent          = $this->get_meta( $id, 'user_agent' );
 		$payment->user_ip             = $this->get_meta( $id, 'user_ip' );
+
+		// Amount.
+		$payment->amount = new Money(
+			$this->get_meta( $id, 'amount' ),
+			$this->get_meta( $id, 'currency' )
+		);
 	}
 
 	/**
@@ -223,8 +228,8 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'config_id', $payment->config_id );
 		$this->update_meta( $id, 'key', $payment->key );
 		$this->update_meta( $id, 'order_id', $payment->order_id );
-		$this->update_meta( $id, 'currency', $payment->currency );
-		$this->update_meta( $id, 'amount', $payment->amount );
+		$this->update_meta( $id, 'currency', $payment->get_amount()->get_currency()->get_alphabetic_code() );
+		$this->update_meta( $id, 'amount', $payment->get_amount()->get_amount());
 		$this->update_meta( $id, 'method', $payment->method );
 		$this->update_meta( $id, 'issuer', $payment->issuer );
 		$this->update_meta( $id, 'expiration_period', null );

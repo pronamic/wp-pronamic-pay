@@ -209,10 +209,7 @@ class AdminSubscriptionPostType {
 
 				break;
 			case 'pronamic_subscription_amount':
-				$currency = get_post_meta( $post_id, '_pronamic_subscription_currency', true );
-				$amount   = get_post_meta( $post_id, '_pronamic_subscription_amount', true );
-
-				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $amount, $currency ) );
+				echo esc_html( $subscription->get_amount()->format_i18n() );
 
 				break;
 			case 'pronamic_subscription_interval':

@@ -65,7 +65,7 @@ class GoogleAnalyticsEcommerce {
 		}
 
 		// Ignore free orders.
-		$amount = $payment->get_amount();
+		$amount = $payment->get_amount()->get_amount();
 
 		if ( empty( $amount ) ) {
 			return;
@@ -119,7 +119,7 @@ class GoogleAnalyticsEcommerce {
 		$transaction = wp_parse_args(
 			array(
 				't'  => 'transaction',
-				'tr' => $payment->get_amount(),
+				'tr' => $payment->get_amount()->get_amount(),
 			), $defaults
 		);
 
@@ -140,7 +140,7 @@ class GoogleAnalyticsEcommerce {
 					$payment->get_source_description(),
 					$payment->get_source_id()
 				),
-				'ip' => $payment->get_amount(),
+				'ip' => $payment->get_amount()->get_amount(),
 				'iq' => 1,
 			), $defaults
 		);

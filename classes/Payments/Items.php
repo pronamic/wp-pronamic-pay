@@ -12,6 +12,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 
 use ArrayIterator;
 use IteratorAggregate;
+use Pronamic\WordPress\Money\Money;
 
 /**
  * Items
@@ -55,7 +56,7 @@ class Items implements IteratorAggregate {
 	/**
 	 * Calculate the total amount of all items.
 	 *
-	 * @return float
+	 * @return Money
 	 */
 	public function get_amount() {
 		$amount = 0;
@@ -64,6 +65,6 @@ class Items implements IteratorAggregate {
 			$amount += $item->get_amount();
 		}
 
-		return $amount;
+		return new Money( $amount );
 	}
 }
