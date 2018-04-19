@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c82992b1785bf896fa10d02af179ee3",
+    "content-hash": "eda764333fd059601b251ccd8f43e869",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -38,6 +38,97 @@
                 "payment"
             ],
             "time": "2015-02-16T11:12:49+00:00"
+        },
+        {
+            "name": "pronamic/wp-datetime",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/wp-datetime.git",
+                "reference": "73e6a35f928cb11a01f55852dfe407bb26cbcc92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/73e6a35f928cb11a01f55852dfe407bb26cbcc92",
+                "reference": "73e6a35f928cb11a01f55852dfe407bb26cbcc92",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3"
+            },
+            "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
+                "php-coveralls/php-coveralls": "^1.1",
+                "phpmd/phpmd": "^2.4",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1",
+                "wp-phpunit/wp-phpunit": "^4.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\DateTime\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "time": "2018-04-18T13:49:26+00:00"
+        },
+        {
+            "name": "pronamic/wp-money",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/wp-money.git",
+                "reference": "e0aeae484d5e25a06d2d6bc8946eb15539f22d2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/e0aeae484d5e25a06d2d6bc8946eb15539f22d2f",
+                "reference": "e0aeae484d5e25a06d2d6bc8946eb15539f22d2f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3"
+            },
+            "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
+                "koodimonni-language/fr_fr": "*",
+                "koodimonni-language/nl_nl": "*",
+                "php-coveralls/php-coveralls": "^1.1",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "vlucas/phpdotenv": "^2.0",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1",
+                "wp-phpunit/wp-phpunit": "^4.9"
+            },
+            "type": "library",
+            "extra": {
+                "dropin-paths": {
+                    "vendor/wp-phpunit/wp-phpunit/data/languages/": [
+                        "vendor:koodimonni-language"
+                    ],
+                    "vendor/wp-phpunit/wp-phpunit/data/languages/plugins/": [
+                        "vendor:koodimonni-plugin-language"
+                    ],
+                    "vendor/wp-phpunit/wp-phpunit/data/languages/themes/": [
+                        "vendor:koodimonni-theme-language"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Money\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "time": "2018-04-18T20:55:31+00:00"
         },
         {
             "name": "wp-pay-extensions/appthemes",
@@ -1537,12 +1628,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ideal-basic.git",
-                "reference": "3fae3326f1999074d915f3095af87acf4e348a5e"
+                "reference": "a029c7328354989d52d149a1faeeca5f5e2c9a1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/3fae3326f1999074d915f3095af87acf4e348a5e",
-                "reference": "3fae3326f1999074d915f3095af87acf4e348a5e",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ideal-basic/zipball/a029c7328354989d52d149a1faeeca5f5e2c9a1d",
+                "reference": "a029c7328354989d52d149a1faeeca5f5e2c9a1d",
                 "shasum": ""
             },
             "require": {
@@ -1594,7 +1685,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-04-17T14:51:24+00:00"
+            "time": "2018-04-18T10:23:02+00:00"
         },
         {
             "name": "wp-pay-gateways/ing-kassa-compleet",
@@ -1926,12 +2017,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/ogone.git",
-                "reference": "b4d150021c94085c5a78321a0fd640adffdf60b4"
+                "reference": "eb851351279f9425a3d1b74de53e36c4a3f13bf8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/b4d150021c94085c5a78321a0fd640adffdf60b4",
-                "reference": "b4d150021c94085c5a78321a0fd640adffdf60b4",
+                "url": "https://api.github.com/repos/wp-pay-gateways/ogone/zipball/eb851351279f9425a3d1b74de53e36c4a3f13bf8",
+                "reference": "eb851351279f9425a3d1b74de53e36c4a3f13bf8",
                 "shasum": ""
             },
             "require": {
@@ -1982,7 +2073,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-04-17T14:51:26+00:00"
+            "time": "2018-04-18T10:23:03+00:00"
         },
         {
             "name": "wp-pay-gateways/omnikassa",
@@ -3976,23 +4067,23 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.5",
+            "version": "1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
+                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
-                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
+                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
                 "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
-                "sebastian/comparator": "^1.1|^2.0",
+                "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
@@ -4035,7 +4126,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-19T10:16:54+00:00"
+            "time": "2018-04-18T13:57:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -6544,6 +6635,18 @@
     ],
     "aliases": [
         {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "pronamic/wp-datetime"
+        },
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "pronamic/wp-money"
+        },
+        {
             "alias": "1.4",
             "alias_normalized": "1.4.0.0",
             "version": "dev-develop",
@@ -6768,6 +6871,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "pronamic/wp-datetime": 20,
+        "pronamic/wp-money": 20,
         "wp-pay/core": 20,
         "wp-pay-gateways/common": 20,
         "wp-pay-gateways/buckaroo": 20,
