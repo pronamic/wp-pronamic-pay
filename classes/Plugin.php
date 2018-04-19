@@ -155,6 +155,9 @@ class Plugin {
 		// If WordPress is loaded check on returns and maybe redirect requests.
 		add_action( 'wp_loaded', array( $this, 'handle_returns' ) );
 		add_action( 'wp_loaded', array( $this, 'maybe_redirect' ) );
+
+		// Default date time format.
+		add_filter( 'pronamic_datetime_default_format', array( $this, 'datetime_format' ), 10, 1 );
 	}
 
 	/**
@@ -418,6 +421,17 @@ class Plugin {
 		}
 
 		return $locale;
+	}
+
+	/**
+	 * Default date time format.
+	 *
+	 * @param string $format Format.
+	 *
+	 * @return string|void
+	 */
+	public function datetime_format( $format ) {
+		return _x( 'D j M Y \a\t H:i', 'default datetime format', 'pronamic_ideal' );
 	}
 
 	/**
