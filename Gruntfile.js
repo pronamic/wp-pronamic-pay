@@ -119,6 +119,7 @@ module.exports = function( grunt ) {
 					domainPath: 'languages',
 					type: 'wp-plugin',
 					mainFile: 'pronamic-ideal.php',
+					exclude: [ 'vendor/pronamic/.*' ],
 					updatePoFiles: true,
 					updateTimestamp: false
 				}
