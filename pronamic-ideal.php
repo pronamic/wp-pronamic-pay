@@ -60,7 +60,7 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 /**
  * Autoload.
  */
-$loader = require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+$loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
 	define( 'PRONAMIC_PAY_DEBUG', false );
