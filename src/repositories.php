@@ -86,5 +86,15 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 			echo shell_exec( $command ), PHP_EOL;
 		}
+
+		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ) ) ) {
+			$command = sprintf( '%s %s', $argv[1], $argv[2] );
+		}
+
+		if ( null !== $command ) {
+			echo $command, PHP_EOL;
+
+			echo shell_exec( $command ), PHP_EOL;
+		}
 	}
 }
