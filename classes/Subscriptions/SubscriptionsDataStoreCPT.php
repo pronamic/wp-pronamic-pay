@@ -12,8 +12,8 @@ namespace Pronamic\WordPress\Pay\Subscriptions;
 
 use DatePeriod;
 use Pronamic\WordPress\Pay\AbstractDataStoreCPT;
-use Pronamic\WordPress\Pay\Core\DateTime;
-use Pronamic\WordPress\Pay\Core\DateTimeZone;
+use Pronamic\WordPress\DateTime\DateTime;
+use Pronamic\WordPress\DateTime\DateTimeZone;
 use Pronamic\WordPress\Pay\Core\Statuses;
 
 /**

@@ -8,8 +8,8 @@
  * @package   Pronamic\WordPress\Pay
  */
 
-use Pronamic\WordPress\Pay\Core\DateTime;
-use Pronamic\WordPress\Pay\Core\DateTimeZone;
+use Pronamic\WordPress\DateTime\DateTime;
+use Pronamic\WordPress\DateTime\DateTimeZone;
 
 if ( ! isset( $notes ) ) {
 	return;

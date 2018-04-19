@@ -125,7 +125,7 @@ class CreditCard {
 			return null;
 		}
 
-		$date = new DateTime();
+		$date = new \DateTime();
 
 		$date->setDate( $this->expiration_year, $this->expiration_month, 1 );
 		$date->setTime( 0, 0 );
