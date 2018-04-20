@@ -119,7 +119,17 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
  * @return Subscription
  */
 function get_pronamic_subscription( $post_id ) {
+	$subscription = null;
+
+	if ( null === $post_id ) {
+		return $subscription;
+	}
+
 	$subscription = new Subscription( $post_id );
+
+	if ( isset( $subscription->post ) && null === $subscription->post ) {
+		return null;
+	}
 
 	return $subscription;
 }
