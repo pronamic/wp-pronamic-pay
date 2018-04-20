@@ -380,7 +380,7 @@ class Payment {
 		$this->id     = $post_id;
 		$this->date   = new DateTime();
 		$this->meta   = array();
-		$this->amount = new Money( null, 'EUR' );
+		$this->amount = new Money();
 
 		if ( null !== $post_id ) {
 			pronamic_pay_plugin()->payments_data_store->read( $this );
