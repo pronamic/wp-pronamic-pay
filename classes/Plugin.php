@@ -499,7 +499,7 @@ class Plugin {
 	/**
 	 * Render errors.
 	 *
-	 * @param array $errors An array with errors to render.
+	 * @param array|WP_Error $errors An array with errors to render.
 	 */
 	public static function render_errors( $errors = array() ) {
 		if ( ! is_array( $errors ) ) {
