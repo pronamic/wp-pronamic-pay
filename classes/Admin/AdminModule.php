@@ -70,6 +70,13 @@ class AdminModule {
 	public $tour;
 
 	/**
+	 * Plugin installation.
+	 *
+	 * @var Install
+	 */
+	public $install;
+
+	/**
 	 * Constructs and initalize an admin object.
 	 *
 	 * @param Plugin $plugin Plugin.
