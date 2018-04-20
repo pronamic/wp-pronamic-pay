@@ -116,17 +116,17 @@ function get_pronamic_payment_by_transaction_id( $transaction_id, $entrance_code
  * Get subscription by the specified post ID.
  *
  * @param int $post_id A subscription post ID.
- * @return Subscription
+ * @return Subscription|null
  */
 function get_pronamic_subscription( $post_id ) {
 	if ( empty( $post_id ) ) {
-		return;
+		return null;
 	}
 
 	$subscription = new Subscription( $post_id );
 
 	if ( ! isset( $subscription->post ) ) {
-		return;
+		return null;
 	}
 
 	return $subscription;
