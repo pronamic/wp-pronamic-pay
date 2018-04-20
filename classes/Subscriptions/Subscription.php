@@ -274,9 +274,10 @@ class Subscription {
 	 * @param int $post_id A subscription post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
-		$this->id   = $post_id;
-		$this->date = new DateTime();
-		$this->meta = array();
+		$this->id     = $post_id;
+		$this->date   = new DateTime();
+		$this->meta   = array();
+		$this->amount = new Money( null, 'EUR' );
 
 		if ( null !== $post_id ) {
 			pronamic_pay_plugin()->subscriptions_data_store->read( $this );
@@ -389,7 +390,7 @@ class Subscription {
 	 * @return Currency
 	 */
 	public function get_currency() {
-		return $this->get_amount()->get_currency();
+		return $this->get_amount()->get_currency()->get_alphabetic_code();
 	}
 
 	/**

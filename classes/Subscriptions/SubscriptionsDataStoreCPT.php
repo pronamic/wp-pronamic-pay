@@ -174,7 +174,6 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$subscription->frequency       = $this->get_meta( $id, 'frequency' );
 		$subscription->interval        = $this->get_meta( $id, 'interval' );
 		$subscription->interval_period = $this->get_meta( $id, 'interval_period' );
-		$subscription->amount          = $this->get_meta( $id, 'amount' );
 		$subscription->transaction_id  = $this->get_meta( $id, 'transaction_id' );
 		$subscription->status          = $this->get_meta( $id, 'status' );
 		$subscription->description     = $this->get_meta( $id, 'description' );
@@ -262,7 +261,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'frequency', $subscription->frequency );
 		$this->update_meta( $id, 'interval', $subscription->interval );
 		$this->update_meta( $id, 'interval_period', $subscription->interval_period );
-		$this->update_meta( $id, 'currency', $subscription->get_amount()->get_currency()->get_alphabetic_code() );
+		$this->update_meta( $id, 'currency', $subscription->get_currency() );
 		$this->update_meta( $id, 'amount', $subscription->get_amount()->get_amount() );
 		$this->update_meta( $id, 'transaction_id', $subscription->transaction_id );
 		$this->update_meta( $id, 'description', $subscription->description );

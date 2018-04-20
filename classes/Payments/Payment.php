@@ -377,9 +377,10 @@ class Payment {
 	 * @param integer $post_id A payment post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
-		$this->id   = $post_id;
-		$this->date = new DateTime();
-		$this->meta = array();
+		$this->id     = $post_id;
+		$this->date   = new DateTime();
+		$this->meta   = array();
+		$this->amount = new Money( null, 'EUR' );
 
 		if ( null !== $post_id ) {
 			pronamic_pay_plugin()->payments_data_store->read( $this );
@@ -488,7 +489,7 @@ class Payment {
 	 * @return Currency
 	 */
 	public function get_currency() {
-		return $this->get_amount()->get_currency();
+		return $this->get_amount()->get_currency()->get_alphabetic_code();
 	}
 
 	/**
@@ -497,7 +498,7 @@ class Payment {
 	 * @return string|null
 	 */
 	public function get_currency_numeric_code() {
-		return $this->get_currency()->get_numeric_code();
+		return $this->get_amount()->get_currency()->get_numeric_code();
 	}
 
 	/**

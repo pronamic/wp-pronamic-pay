@@ -228,8 +228,8 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		$this->update_meta( $id, 'config_id', $payment->config_id );
 		$this->update_meta( $id, 'key', $payment->key );
 		$this->update_meta( $id, 'order_id', $payment->order_id );
-		$this->update_meta( $id, 'currency', $payment->get_amount()->get_currency()->get_alphabetic_code() );
-		$this->update_meta( $id, 'amount', $payment->get_amount()->get_amount());
+		$this->update_meta( $id, 'currency', $payment->get_currency() );
+		$this->update_meta( $id, 'amount', $payment->get_amount()->get_amount() );
 		$this->update_meta( $id, 'method', $payment->method );
 		$this->update_meta( $id, 'issuer', $payment->issuer );
 		$this->update_meta( $id, 'expiration_period', null );
