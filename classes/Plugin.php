@@ -81,6 +81,83 @@ class Plugin {
 	}
 
 	/**
+	 * Plugin settings.
+	 *
+	 * @var Settings
+	 */
+	public $settings;
+
+	/**
+	 * Payment data storing.
+	 *
+	 * @var Payments\PaymentsDataStoreCPT
+	 */
+	public $payments_data_store;
+
+	/**
+	 * Subscription data storing.
+	 *
+	 * @var Subscriptions\SubscriptionsDataStoreCPT
+	 */
+	public $subscriptions_data_store;
+
+	/**
+	 * Gateway post type.
+	 *
+	 * @var GatewayPostType
+	 */
+	public $gateway_post_type;
+
+	/**
+	 * Payment post type.
+	 *
+	 * @var PaymentPostType
+	 */
+	public $payment_post_type;
+
+	/**
+	 * Subscription post type.
+	 *
+	 * @var SubscriptionPostType
+	 */
+	public $subscription_post_type;
+
+	/**
+	 * Licence manager.
+	 *
+	 * @var LicenseManager
+	 */
+	public $license_manager;
+
+	/**
+	 * Forms module.
+	 *
+	 * @var Forms\FormsModule
+	 */
+	public $forms_module;
+
+	/**
+	 * Payments module.
+	 *
+	 * @var Payments\PaymentsModule
+	 */
+	public $payments_module;
+
+	/**
+	 * Subsciptions module.
+	 *
+	 * @var Subscriptions\SubscriptionsModule
+	 */
+	public $subscriptions_module;
+
+	/**
+	 * Google analytics ecommerce.
+	 *
+	 * @var GoogleAnalyticsEcommerce
+	 */
+	public $google_analytics_ecommerce;
+
+	/**
 	 * Construct and initialize an Pronamic Pay plugin object
 	 */
 	public function __construct() {
