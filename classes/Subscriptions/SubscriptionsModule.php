@@ -241,9 +241,9 @@ class SubscriptionsModule {
 	/**
 	 * Start a recurring payment at the specified gateway for the specified subscription.
 	 *
-	 * @param Subscription $subscription The subscription to start a recurring payment for.
-	 * @param Gateway      $gateway      The gateway to start the recurring payment at.
-	 * @param boolean      $renewal      Flag for renewal payment.
+	 * @param Subscription  $subscription The subscription to start a recurring payment for.
+	 * @param Gateway       $gateway      The gateway to start the recurring payment at.
+	 * @param boolean|array $renewal      Flag for renewal payment.
 	 */
 	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = null ) {
 		if ( null === $renewal ) {
