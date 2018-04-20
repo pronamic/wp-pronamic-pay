@@ -549,12 +549,12 @@ class SubscriptionsModule {
 	 *
 	 * @param Subscription $subscription The status updated subscription.
 	 * @param bool         $can_redirect Whether or not redirects should be performed.
-	 * @param string       $old_status   Old meta status.
+	 * @param string|null  $old_status   Old meta status.
 	 * @param string       $new_status   New meta status.
 	 *
 	 * @return void
 	 */
-	public function log_subscription_status_update( $subscription, $can_redirect, $old_status = null, $new_status ) {
+	public function log_subscription_status_update( $subscription, $can_redirect, $old_status, $new_status ) {
 		$note = sprintf(
 			__( 'Subscription status changed from "%1$s" to "%2$s".', 'pronamic_ideal' ),
 			esc_html( $this->plugin->subscriptions_data_store->get_meta_status_label( $old_status ) ),
