@@ -301,11 +301,11 @@ class SubscriptionsModule {
 		$payment->method           = $subscription->payment_method;
 		$payment->subscription     = $subscription;
 		$payment->subscription_id  = $subscription->get_id();
-		$payment->amount           = $subscription->amount;
 		$payment->start_date       = $start_date;
 		$payment->end_date         = $end_date;
 		$payment->recurring_type   = 'recurring';
 		$payment->recurring        = true;
+		$payment->set_amount( $subscription->get_amount() );
 
 		// Handle renewals.
 		if ( is_array( $renewal ) ) {
@@ -406,7 +406,6 @@ class SubscriptionsModule {
 		$subscription->interval        = $subscription_data->get_interval();
 		$subscription->interval_period = $subscription_data->get_interval_period();
 		$subscription->currency        = $subscription_data->get_currency();
-		$subscription->amount          = $subscription_data->get_amount();
 		$subscription->key             = uniqid( 'subscr_' );
 		$subscription->source          = $payment->source;
 		$subscription->source_id       = $payment->source_id;
@@ -415,6 +414,7 @@ class SubscriptionsModule {
 		$subscription->customer_name   = $payment->customer_name;
 		$subscription->payment_method  = $payment->method;
 		$subscription->status          = Statuses::OPEN;
+		$subscription->set_amount( $subscription_data->get_amount() );
 
 		// @todo
 		// Calculate dates

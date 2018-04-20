@@ -120,7 +120,7 @@ class Payment {
 	 *
 	 * @var Money
 	 */
-	public $amount;
+	protected $amount;
 
 	/**
 	 * The expiration period of this payment.
@@ -377,10 +377,11 @@ class Payment {
 	 * @param integer $post_id A payment post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
-		$this->id     = $post_id;
-		$this->date   = new DateTime();
-		$this->meta   = array();
-		$this->amount = new Money();
+		$this->id   = $post_id;
+		$this->date = new DateTime();
+		$this->meta = array();
+
+		$this->set_amount( new Money() );
 
 		if ( null !== $post_id ) {
 			pronamic_pay_plugin()->payments_data_store->read( $this );
@@ -481,6 +482,15 @@ class Payment {
 	 */
 	public function get_amount() {
 		return $this->amount;
+	}
+
+	/**
+	 * Set the payment amount.
+	 *
+	 * @param Money $amount Money object.
+	 */
+	public function set_amount( Money $amount ) {
+		$this->amount = $amount;
 	}
 
 	/**

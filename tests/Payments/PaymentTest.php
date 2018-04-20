@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Payments;
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\CreditCard;
 use stdClass;
 use WP_UnitTestCase;
@@ -45,6 +46,7 @@ class PaymentTest extends WP_UnitTestCase {
 
 	public function get_and_set_provider() {
 		return array(
+			array( 'set_amount',         'get_amount',         new Money( 89.95, 'EUR' ) ),
 			array( 'set_id',             'get_id',             uniqid()    ),
 			array( 'set_transaction_id', 'get_transaction_id', uniqid()    ),
 			array( 'set_status',         'get_status',         'completed' ),
@@ -90,8 +92,6 @@ class PaymentTest extends WP_UnitTestCase {
 	public function get_provider() {
 		return array(
 			array( 'order_id',            'get_order_id',            1234 ),
-			array( 'amount',              'get_amount',              89.95 ),
-			array( 'currency',            'get_currency',            'EUR' ),
 			array( 'method',              'get_method',              'ideal' ),
 			array( 'issuer',              'get_issuer',              'ideal_KNABNL2H' ),
 			array( 'language',            'get_language',            'nl' ),

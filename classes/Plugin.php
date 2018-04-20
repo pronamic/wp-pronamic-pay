@@ -722,7 +722,6 @@ class Plugin {
 		$payment->config_id           = $config_id;
 		$payment->key                 = uniqid( 'pay_' );
 		$payment->order_id            = $data->get_order_id();
-		$payment->amount              = $data->get_amount();
 		$payment->language            = $data->get_language();
 		$payment->locale              = $data->get_language_and_country();
 		$payment->entrance_code       = $data->get_entrance_code();
@@ -745,6 +744,7 @@ class Plugin {
 		$payment->recurring           = $data->get_recurring();
 		$payment->subscription        = $data->get_subscription();
 		$payment->subscription_id     = $data->get_subscription_id();
+		$payment->set_amount( $data->get_amount() );
 		$payment->set_credit_card( $data->get_credit_card() );
 
 		// User Agent (@see https://github.com/WordPress/WordPress/blob/4.9.4/wp-includes/comment.php#L1962-L1965).

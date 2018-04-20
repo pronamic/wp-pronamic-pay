@@ -182,10 +182,10 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 		$subscription->payment_method  = $this->get_meta( $id, 'payment_method' );
 
 		// Amount.
-		$subscription->amount = new Money(
+		$subscription->set_amount( new Money(
 			$this->get_meta( $id, 'amount' ),
 			$this->get_meta( $id, 'currency' )
-		);
+		) );
 
 		$first_payment = $subscription->get_first_payment();
 

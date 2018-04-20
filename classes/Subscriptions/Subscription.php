@@ -83,18 +83,11 @@ class Subscription {
 	public $description;
 
 	/**
-	 * The currency of this subscription, for example 'EUR' or 'USD'.
-	 *
-	 * @var string
-	 */
-	public $currency;
-
-	/**
 	 * The amount of this subscription, for example 18.95.
 	 *
 	 * @var Money
 	 */
-	public $amount;
+	protected $amount;
 
 	/**
 	 * The status of this subscription, for example 'Success'.
@@ -274,10 +267,11 @@ class Subscription {
 	 * @param int $post_id A subscription post ID or null.
 	 */
 	public function __construct( $post_id = null ) {
-		$this->id     = $post_id;
-		$this->date   = new DateTime();
-		$this->meta   = array();
-		$this->amount = new Money();
+		$this->id   = $post_id;
+		$this->date = new DateTime();
+		$this->meta = array();
+
+		$this->set_amount( new Money() );
 
 		if ( null !== $post_id ) {
 			pronamic_pay_plugin()->subscriptions_data_store->read( $this );
@@ -400,6 +394,17 @@ class Subscription {
 	 */
 	public function get_amount() {
 		return $this->amount;
+	}
+
+	/**
+	 * Set the amount of this subscription.
+	 *
+	 * @param Money $amount Money object.
+	 *
+	 * @return void
+	 */
+	public function set_amount( Money $amount ) {
+		$this->amount = $amount;
 	}
 
 	/**

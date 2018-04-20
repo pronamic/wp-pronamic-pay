@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Subscriptions;
 
+use Pronamic\WordPress\Money\Money;
 use WP_UnitTestCase;
 
 /**
@@ -43,6 +44,7 @@ class SubscriptionTest extends WP_UnitTestCase {
 
 	public function get_and_set_provider() {
 		return array(
+			array( 'set_amount',         'get_amount',         new Money( 89.95, 'EUR' ) ),
 			array( 'set_id',             'get_id',             uniqid()    ),
 			array( 'set_status',         'get_status',         'completed' ),
 			array( 'set_transaction_id', 'get_transaction_id', uniqid()    ),
@@ -62,6 +64,11 @@ class SubscriptionTest extends WP_UnitTestCase {
 		$this->assertEquals( $value, $subscription->$property );
 	}
 
+	/**
+	 * Set provider.
+	 *
+	 * @return array
+	 */
 	public function set_provider() {
 		return array(
 			array( 'set_consumer_name', 'consumer_name', 'John Doe' ),
@@ -83,6 +90,11 @@ class SubscriptionTest extends WP_UnitTestCase {
 		$this->assertEquals( $value, $subscription->$get_function() );
 	}
 
+	/**
+	 * Get provider.
+	 *
+	 * @return array
+	 */
 	public function get_provider() {
 		return array(
 			array( 'key',                 'get_key',             uniqid() ),
@@ -92,8 +104,6 @@ class SubscriptionTest extends WP_UnitTestCase {
 			array( 'interval',            'get_interval',        '1' ),
 			array( 'interval_period',     'get_interval_period', 'Y' ),
 			array( 'description',         'get_description',     'Lorem ipsum dolor sit amet, consectetur.' ),
-			array( 'currency',            'get_currency',        'EUR' ),
-			array( 'amount',              'get_amount',          89.95 ),
 		);
 	}
 
