@@ -14,7 +14,7 @@ use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 /**
  * Get payment by specified post ID.
  *
- * @param int $post_id A payment post ID.
+ * @param int|string $post_id A payment post ID.
  * @return Payment
  */
 function get_pronamic_payment( $post_id ) {
