@@ -28,6 +28,48 @@ class AdminModule {
 	private $plugin;
 
 	/**
+	 * Admin settings page.
+	 *
+	 * @var AdminSettings
+	 */
+	public $settings;
+
+	/**
+	 * Admin about page.
+	 *
+	 * @var AdminAboutPage
+	 */
+	public $about;
+
+	/**
+	 * Admin dashboard page.
+	 *
+	 * @var AdminDashboard
+	 */
+	public $dashboard;
+
+	/**
+	 * Admin notices page.
+	 *
+	 * @var AdminNotices
+	 */
+	public $notices;
+
+	/**
+	 * Admin reports page.
+	 *
+	 * @var AdminReports
+	 */
+	public $reports;
+
+	/**
+	 * Admin tour page.
+	 *
+	 * @var AdminTour
+	 */
+	public $tour;
+
+	/**
 	 * Constructs and initalize an admin object.
 	 *
 	 * @param Plugin $plugin Plugin.
