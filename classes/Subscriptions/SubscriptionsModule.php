@@ -447,6 +447,7 @@ class SubscriptionsModule {
 		$result = $this->plugin->subscriptions_data_store->create( $subscription );
 
 		if ( $result ) {
+			$payment->subscription    = $subscription;
 			$payment->subscription_id = $subscription->get_id();
 
 			$payment->recurring_type = Recurring::FIRST;
