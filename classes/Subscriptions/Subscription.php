@@ -273,7 +273,7 @@ class Subscription {
 
 		$this->set_amount( new Money() );
 
-		if ( null !== $post_id ) {
+		if ( ! empty( $post_id ) ) {
 			pronamic_pay_plugin()->subscriptions_data_store->read( $this );
 		}
 	}
