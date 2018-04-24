@@ -12,6 +12,7 @@ namespace Pronamic\WordPress\Pay;
 
 use Pronamic\WordPress\Pay\Core\Gateway;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Core\Recurring;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentDataInterface;
@@ -806,7 +807,7 @@ class Plugin {
 
 			$subscription = $payment->get_subscription();
 
-			if ( 'first' === $payment->recurring_type ) {
+			if ( Recurring::FIRST === $payment->recurring_type ) {
 				// First payment - cancel subscription to prevent unwanted recurring payments
 				// in the future, when a valid customer ID might be set for the user.
 				$subscription->set_status( Statuses::CANCELLED );

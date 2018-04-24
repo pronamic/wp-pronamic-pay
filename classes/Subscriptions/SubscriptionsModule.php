@@ -15,11 +15,11 @@ use DatePeriod;
 use Pronamic\WordPress\DateTime\DateTime;
 use Pronamic\WordPress\DateTime\DateTimeZone;
 use Pronamic\WordPress\Pay\Core\Gateway;
+use Pronamic\WordPress\Pay\Core\Recurring;
 use Pronamic\WordPress\Pay\Core\Server;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Plugin;
-use Pronamic\WordPress\Pay\Util;
 use WP_CLI;
 use WP_Query;
 
@@ -449,7 +449,7 @@ class SubscriptionsModule {
 		if ( $result ) {
 			$payment->subscription_id = $subscription->get_id();
 
-			$payment->recurring_type = 'first';
+			$payment->recurring_type = Recurring::FIRST;
 			$payment->start_date     = $start_date;
 			$payment->end_date       = $next_date;
 
