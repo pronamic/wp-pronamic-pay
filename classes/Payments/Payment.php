@@ -263,14 +263,6 @@ class Payment {
 	public $status;
 
 	/**
-	 * Status requests?
-	 *
-	 * @todo What is this?
-	 * @var ?
-	 */
-	public $status_requests;
-
-	/**
 	 * The email of the user who started this payment.
 	 *
 	 * @var string
