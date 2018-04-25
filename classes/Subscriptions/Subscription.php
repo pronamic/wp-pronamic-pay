@@ -526,7 +526,7 @@ class Subscription {
 	}
 
 	/**
-	 * Get source description.
+	 * Get source text.
 	 *
 	 * @return string
 	 */
@@ -537,6 +537,23 @@ class Subscription {
 
 		if ( $payment ) {
 			$text = $payment->get_source_text();
+		}
+
+		return $text;
+	}
+
+	/**
+	 * Get source description.
+	 *
+	 * @return string
+	 */
+	public function get_source_description() {
+		$text = $this->get_source();
+
+		$payment = $this->get_first_payment();
+
+		if ( $payment ) {
+			$text = $payment->get_source_description();
 		}
 
 		return $text;
