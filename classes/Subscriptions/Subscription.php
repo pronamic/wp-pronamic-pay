@@ -535,7 +535,7 @@ class Subscription {
 
 		$payment = $this->get_first_payment();
 
-		if ( $payment ) {
+		if ( null !== $payment ) {
 			$text = $payment->get_source_text();
 		}
 
@@ -623,7 +623,7 @@ class Subscription {
 	/**
 	 * Get the first payment of this subscription.
 	 *
-	 * @return Payment
+	 * @return Payment|null
 	 */
 	public function get_first_payment() {
 		$payments = $this->get_payments();
