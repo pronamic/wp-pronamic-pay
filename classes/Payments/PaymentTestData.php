@@ -204,12 +204,11 @@ class PaymentTestData extends PaymentData {
 		// Subscription.
 		$subscription = new Subscription();
 
-		$subscription->currency        = $this->get_currency();
 		$subscription->description     = $this->get_description();
-		$subscription->amount          = $this->get_amount();
 		$subscription->frequency       = $times;
 		$subscription->interval        = $interval;
 		$subscription->interval_period = Core_Util::to_period( $interval_period );
+		$subscription->set_amount( $this->get_amount() );
 
 		return $subscription;
 	}

@@ -289,7 +289,6 @@ class SubscriptionsModule {
 		$payment->source_id        = $subscription->source_id;
 		$payment->description      = $subscription->description;
 		$payment->order_id         = $subscription->order_id;
-		$payment->currency         = $subscription->currency;
 		$payment->email            = $subscription->email;
 		$payment->customer_name    = $subscription->customer_name;
 		$payment->address          = $subscription->address;
@@ -405,7 +404,6 @@ class SubscriptionsModule {
 		$subscription->frequency       = $subscription_data->get_frequency();
 		$subscription->interval        = $subscription_data->get_interval();
 		$subscription->interval_period = $subscription_data->get_interval_period();
-		$subscription->currency        = $subscription_data->get_currency();
 		$subscription->key             = uniqid( 'subscr_' );
 		$subscription->source          = $payment->source;
 		$subscription->source_id       = $payment->source_id;
