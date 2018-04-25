@@ -192,11 +192,7 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			printf(
-				'%s<br />%s', // WPCS: XSS ok.
-				esc_html( $subscription->get_source() ),
-				esc_html( $subscription->get_source_id() )
-			);
+			echo $subscription->get_source_text(); // WPCS: XSS ok.
 
 			?>
 		</td>

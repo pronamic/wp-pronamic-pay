@@ -530,17 +530,16 @@ class Subscription {
 	 *
 	 * @return string
 	 */
-	public function get_source_description() {
-		$description = $this->source;
+	public function get_source_text() {
+		$text = $this->get_source() . '<br />' . $this->get_source_id();
 
 		$payment = $this->get_first_payment();
 
 		if ( $payment ) {
-			$description = apply_filters( 'pronamic_payment_source_description', $description, $payment );
-			$description = apply_filters( 'pronamic_payment_source_description_' . $this->source, $description, $payment );
+			$text = $payment->get_source_text();
 		}
 
-		return $description;
+		return $text;
 	}
 
 	/**
