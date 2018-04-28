@@ -18,6 +18,7 @@ use Pronamic\WordPress\Pay\Payments\Payment;
 use Pronamic\WordPress\Pay\Payments\PaymentDataInterface;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Payments\StatusChecker;
+use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 use WP_Query;
 
@@ -755,6 +756,18 @@ class Plugin {
 		$payment->user_ip = isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : null;
 
 		return self::start_payment( $payment, $gateway );
+	}
+
+	/**
+	 * Start recurring payment.
+	 *
+	 * @param Subscription $subscription Subscription.
+	 * @param Gateway      $gateway      Gateway.
+	 *
+	 * @return Payment
+	 */
+	public static function start_recurring( Subscription $subscription, Gateway $gateway ) {
+		return pronamic_pay_plugin()->subscriptions_module->start_recurring( $subscription, $gateway );
 	}
 
 	/**
