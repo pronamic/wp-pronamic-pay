@@ -395,11 +395,11 @@ class Payment {
 	 */
 	public function add_note( $note ) {
 		$commentdata = array(
-			'comment_post_ID'      => $this->id,
-			'comment_content'      => $note,
-			'comment_type'         => 'payment_note',
-			'user_id'              => get_current_user_id(),
-			'comment_approved'     => true,
+			'comment_post_ID'  => $this->id,
+			'comment_content'  => $note,
+			'comment_type'     => 'payment_note',
+			'user_id'          => get_current_user_id(),
+			'comment_approved' => true,
 		);
 
 		$comment_id = wp_insert_comment( $commentdata );

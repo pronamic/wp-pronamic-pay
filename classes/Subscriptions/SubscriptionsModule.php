@@ -535,7 +535,12 @@ class SubscriptionsModule {
 	/**
 	 * Subscription status update.
 	 *
-	 * @param Subscription $subscription The status updated subscirption.
+	 * @param Subscription $subscription The status updated subscription.
+	 * @param bool         $can_redirect Whether or not redirects should be performed.
+	 * @param string       $old_status   Old meta status.
+	 * @param string       $new_status   New meta status.
+	 *
+	 * @return void
 	 */
 	public function log_subscription_status_update( $subscription, $can_redirect, $old_status, $new_status ) {
 		$subscription->add_note( sprintf(
