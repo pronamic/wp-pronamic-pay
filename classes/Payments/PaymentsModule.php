@@ -181,7 +181,7 @@ class PaymentsModule {
 	/**
 	 * Register privacy personal data exporter.
 	 *
-	 * @param $exporters
+	 * @param array $exporters Personal data exporters.
 	 *
 	 * @return array
 	 */
@@ -191,7 +191,7 @@ class PaymentsModule {
 		}
 
 		$exporters['pronamic-pay-payments'] = array(
-			'exporter_friendly_name' => __( 'Pronamic Pay', 'pronamic_ideal' ),
+			'exporter_friendly_name' => __( 'Pronamic Pay Payments', 'pronamic_ideal' ),
 			'callback'               => array( $this, 'privacy_export' ),
 		);
 

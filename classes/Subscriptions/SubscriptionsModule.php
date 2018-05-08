@@ -70,6 +70,9 @@ class SubscriptionsModule {
 		// Listen to subscription status changes so we can log these in a note.
 		add_action( 'pronamic_subscription_status_update', array( $this, 'log_subscription_status_update' ), 10, 4 );
 
+		// Privacy personal data exporter.
+		add_filter( 'wp_privacy_personal_data_exporters', array( $this, 'register_privacy_exporter' ), 10 );
+
 		// WordPress CLI.
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-woocommerce.php#L365-L369.
 		// @see https://github.com/woocommerce/woocommerce/blob/3.3.1/includes/class-wc-cli.php.
@@ -522,7 +525,6 @@ class SubscriptionsModule {
 				$status_update = Statuses::ACTIVE;
 
 				if ( isset( $subscription->expiry_date, $payment->end_date ) && $subscription->expiry_date < $payment->end_date ) {
-					// @todo payment end date or subscription expiry date + 1 interval?
 					$subscription->expiry_date = clone $payment->end_date;
 				}
 
@@ -574,7 +576,7 @@ class SubscriptionsModule {
 	/**
 	 * Register privacy personal data exporter.
 	 *
-	 * @param $exporters
+	 * @param array $exporters Personal data exporters.
 	 *
 	 * @return array
 	 */
@@ -583,8 +585,8 @@ class SubscriptionsModule {
 			return $exporters;
 		}
 
-		$exporters['pronamic-pay-payments'] = array(
-			'exporter_friendly_name' => __( 'Pronamic Pay', 'pronamic_ideal' ),
+		$exporters['pronamic-pay-subscriptions'] = array(
+			'exporter_friendly_name' => __( 'Pronamic Pay Subscriptions', 'pronamic_ideal' ),
 			'callback'               => array( $this, 'privacy_export' ),
 		);
 
