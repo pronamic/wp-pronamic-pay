@@ -65,6 +65,9 @@ class PaymentsModule {
 
 		// The 'pronamic_ideal_check_transaction_status' hook is scheduled to request the payment status.
 		add_action( 'pronamic_ideal_check_transaction_status', array( $status_checker, 'check_status' ), 10, 3 );
+
+		// Privacy personal data exporter.
+		add_filter( 'wp_privacy_personal_data_exporters', array( $this, 'register_privacy_exporter' ), 10 );
 	}
 
 	/**
@@ -173,5 +176,86 @@ class PaymentsModule {
 
 			Plugin::update_payment( $payment, $can_redirect );
 		}
+	}
+
+	/**
+	 * Register privacy personal data exporter.
+	 *
+	 * @param $exporters
+	 *
+	 * @return array
+	 */
+	public function register_privacy_exporter( $exporters ) {
+		if ( ! is_array( $exporters ) ) {
+			return $exporters;
+		}
+
+		$exporters['pronamic-pay-payments'] = array(
+			'exporter_friendly_name' => __( 'Pronamic Pay', 'pronamic_ideal' ),
+			'callback'               => array( $this, 'privacy_export' ),
+		);
+
+		return $exporters;
+	}
+
+	/**
+	 * Privacy personal data exporter.
+	 *
+	 * @param string $email_address Email address.
+	 * @param int    $page          Page.
+	 *
+	 * @return array
+	 */
+	public function privacy_export( $email_address, $page = 1 ) {
+		$items = array();
+
+		$meta_key_email = pronamic_pay_plugin()->payments_data_store->meta_key_prefix . 'email';
+
+		// Get payments.
+		$payments = get_pronamic_payments_by_meta( $meta_key_email, $email_address );
+
+		foreach ( $payments as $payment ) {
+			$data = array();
+
+			// Get payment meta.
+			$payment_meta = get_post_meta( $payment->get_id() );
+
+			foreach ( $payment_meta as $meta_key => $meta_value ) {
+				if ( '_pronamic_' !== substr( $meta_key, 0, 10 ) ) {
+					continue;
+				}
+
+				// Format value.
+				if ( 1 === count( $meta_value ) ) {
+					$meta_value = array_shift( $meta_value );
+				} else {
+					$meta_value = wp_json_encode( $meta_value );
+				}
+
+				// Add meta to export data.
+				$data[] = array(
+					'name'  => $meta_key,
+					'value' => $meta_value,
+				);
+			}
+
+			// Add item to export data.
+			if ( ! empty( $data ) ) {
+				$items[] = array(
+					'group_id'    => 'pronamic-payments',
+					'group_label' => __( 'Payments', 'pronamic_ideal' ),
+					'item_id'     => 'pronamic-payment-' . $payment->get_id(),
+					'data'        => $data,
+				);
+			}
+		}
+
+		$done = true;
+
+		// Return export data.
+		return array(
+			'data' => $items,
+			'done' => $done,
+		);
 	}
 }
