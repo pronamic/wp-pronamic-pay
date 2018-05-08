@@ -166,6 +166,41 @@ function get_pronamic_subscription_by_meta( $meta_key, $meta_value ) {
 }
 
 /**
+ * Get subscriptions by specified meta key and value.
+ *
+ * @param string $meta_key   The meta key to query for.
+ * @param string $meta_value The Meta value to query for.
+ * @return array
+ */
+function get_pronamic_subscriptions_by_meta( $meta_key, $meta_value ) {
+	global $wpdb;
+
+	$subscriptions = array();
+
+	$db_query = $wpdb->prepare( "
+		SELECT
+			post_id
+		FROM
+			$wpdb->postmeta
+		WHERE
+			meta_key = %s
+				AND
+			meta_value = %s
+		ORDER BY
+			meta_id ASC
+			;
+	", $meta_key, $meta_value );
+
+	$results = $wpdb->get_results( $db_query ); // WPCS: unprepared SQL ok.
+
+	foreach ( $results as $result ) {
+		$subscriptions[] = new Subscription( $result->post_id );
+	}
+
+	return $subscriptions;
+}
+
+/**
  * Bind the global providers and gateways together.
  */
 function bind_providers_and_gateways() {
