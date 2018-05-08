@@ -52,6 +52,7 @@ class FormsModule {
 		add_filter( 'the_content', array( $this, 'maybe_add_form_to_content' ) );
 
 		add_filter( 'pronamic_payment_source_text_payment_form', array( $this, 'source_text' ), 10, 2 );
+		add_filter( 'pronamic_payment_source_description_payment_form', array( $this, 'source_description' ), 10, 2 );
 	}
 
 	/**
@@ -102,6 +103,19 @@ class FormsModule {
 			get_edit_post_link( $payment->source_id ),
 			$payment->source_id
 		);
+
+		return $text;
+	}
+
+	/**
+	 * Source description filter.
+	 *
+	 * @param string  $text    The source text to filter.
+	 * @param Payment $payment The payment for the specified source text.
+	 * @return string
+	 */
+	public function source_description( $text, Payment $payment ) {
+		$text = __( 'Payment Form', 'pronamic_ideal' ) . '<br />';
 
 		return $text;
 	}
