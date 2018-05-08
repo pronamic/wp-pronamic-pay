@@ -522,6 +522,7 @@ class SubscriptionsModule {
 				$status_update = Statuses::ACTIVE;
 
 				if ( isset( $subscription->expiry_date, $payment->end_date ) && $subscription->expiry_date < $payment->end_date ) {
+					// @todo payment end date or subscription expiry date + 1 interval?
 					$subscription->expiry_date = clone $payment->end_date;
 				}
 
@@ -568,6 +569,87 @@ class SubscriptionsModule {
 		}
 
 		$subscription->add_note( $note );
+	}
+
+	/**
+	 * Register privacy personal data exporter.
+	 *
+	 * @param $exporters
+	 *
+	 * @return array
+	 */
+	public function register_privacy_exporter( $exporters ) {
+		if ( ! is_array( $exporters ) ) {
+			return $exporters;
+		}
+
+		$exporters['pronamic-pay-payments'] = array(
+			'exporter_friendly_name' => __( 'Pronamic Pay', 'pronamic_ideal' ),
+			'callback'               => array( $this, 'privacy_export' ),
+		);
+
+		return $exporters;
+	}
+
+	/**
+	 * Privacy personal data exporter.
+	 *
+	 * @param string $email_address Email address.
+	 * @param int    $page          Page.
+	 *
+	 * @return array
+	 */
+	public function privacy_export( $email_address, $page = 1 ) {
+		$items = array();
+
+		$meta_key_email = pronamic_pay_plugin()->subscriptions_data_store->meta_key_prefix . 'email';
+
+		// Get subscriptions.
+		$subscriptions = get_pronamic_subscriptions_by_meta( $meta_key_email, $email_address );
+
+		foreach ( $subscriptions as $subscription ) {
+			$data = array();
+
+			// Get subscription meta.
+			$subscription_meta = get_post_meta( $subscription->get_id() );
+
+			foreach ( $subscription_meta as $meta_key => $meta_value ) {
+				if ( '_pronamic_' !== substr( $meta_key, 0, 10 ) ) {
+					continue;
+				}
+
+				// Format value.
+				if ( 1 === count( $meta_value ) ) {
+					$meta_value = array_shift( $meta_value );
+				} else {
+					$meta_value = wp_json_encode( $meta_value );
+				}
+
+				// Add meta to export data.
+				$data[] = array(
+					'name'  => $meta_key,
+					'value' => $meta_value,
+				);
+			}
+
+			// Add item to export data.
+			if ( ! empty( $data ) ) {
+				$items[] = array(
+					'group_id'    => 'pronamic-subscriptions',
+					'group_label' => __( 'Subscriptions', 'pronamic_ideal' ),
+					'item_id'     => 'pronamic-subscription-' . $subscription->get_id(),
+					'data'        => $data,
+				);
+			}
+		}
+
+		$done = true;
+
+		// Return export data.
+		return array(
+			'data' => $items,
+			'done' => $done,
+		);
 	}
 
 	/**
