@@ -28,7 +28,7 @@ abstract class AbstractDataStoreCPT {
 	 *
 	 * @var string
 	 */
-	protected $meta_key_prefix = '';
+	public $meta_key_prefix = '';
 
 	/**
 	 * Get a prefixed meta key for the specified key.
