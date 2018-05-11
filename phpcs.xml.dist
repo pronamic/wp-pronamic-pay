@@ -7,6 +7,22 @@
 
 	<config name="testVersion" value="5.3-99.0" />
 
+	<exclude-pattern>assets/*</exclude-pattern>
+	<exclude-pattern>css/*</exclude-pattern>
+	<exclude-pattern>documentation/*</exclude-pattern>
+	<exclude-pattern>fonts/*</exclude-pattern>
+	<exclude-pattern>html/*</exclude-pattern>
+	<exclude-pattern>images/*</exclude-pattern>
+	<exclude-pattern>includes/updates/*</exclude-pattern>
+	<exclude-pattern>includes/xmlseclibs/*</exclude-pattern>
+	<exclude-pattern>js/*</exclude-pattern>
+	<exclude-pattern>languages/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>other/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>wordpress/*</exclude-pattern>
+	<exclude-pattern>wp-content/*</exclude-pattern>
+
 	<rule ref="PHPCompatibility" />
 
 	<rule ref="WordPress">
