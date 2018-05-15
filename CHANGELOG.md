@@ -11,15 +11,16 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ## [5.0.0] - 2018-04-05
 
 ### Changes
-- Updated WordPress pay ING Kassa Compleet library to version 1.0.8.
+- Switched to PHP namespaces.
+- Updated WordPress pay ING Kassa Compleet library to version 2.0.
   - Added support for Payconiq payment method.
   - Fixed payment redirect for bank transfer payment method.
-- Updated WordPress pay Gravity Forms library to version 1.6.8.
+- Updated WordPress pay Gravity Forms library to version 2.0.
   - Set Gravity Forms add-on capabilities `gravityforms_pronamic_pay` and  `gravityforms_pronamic_pay_uninstall`.
-- Updated WordPress pay Restrict Content Pro library to version 1.0.1.
+- Updated WordPress pay Restrict Content Pro library to version 2.0.
   - Add PayPal payment method.
   - Add Direct Debit (mandate via Sofort) payment method.
-- Updated WordPress pay WooCommerce library to version 1.2.9.
+- Updated WordPress pay WooCommerce library to version 2.0.
   - Add specific payment methods only if activated by configuration.
   - Add Direct Debit (mandate via Sofort) payment method.
 
