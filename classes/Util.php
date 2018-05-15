@@ -34,10 +34,6 @@ class Util {
 	public static function remote_get_body( $url, $required_response_code = 200, array $args = array() ) {
 		$result = wp_remote_request( $url, $args );
 
-		if ( ! is_array( $result ) ) {
-			return $result;
-		}
-
 		$response_code = wp_remote_retrieve_response_code( $result );
 
 		if ( $response_code === $required_response_code ) {
