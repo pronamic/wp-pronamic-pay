@@ -281,7 +281,7 @@ class Subscription {
 	/**
 	 * Get the ID of this subscription.
 	 *
-	 * @return string
+	 * @return int
 	 */
 	public function get_id() {
 		return $this->id;
@@ -290,7 +290,7 @@ class Subscription {
 	/**
 	 * Set the ID of this subscription.
 	 *
-	 * @param string $id The ID of this subscription.
+	 * @param int $id The ID of this subscription.
 	 */
 	public function set_id( $id ) {
 		$this->id = $id;

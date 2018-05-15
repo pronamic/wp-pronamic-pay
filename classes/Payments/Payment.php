@@ -384,7 +384,7 @@ class Payment {
 	/**
 	 * Get the ID of this payment.
 	 *
-	 * @return string
+	 * @return int
 	 */
 	public function get_id() {
 		return $this->id;
@@ -393,7 +393,7 @@ class Payment {
 	/**
 	 * Set the ID of this payment.
 	 *
-	 * @param string $id Unique ID.
+	 * @param int $id Unique ID.
 	 */
 	public function set_id( $id ) {
 		$this->id = $id;
