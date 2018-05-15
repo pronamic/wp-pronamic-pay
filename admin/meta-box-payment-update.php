@@ -13,7 +13,14 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 
 $states = PaymentPostType::get_payment_states();
 
+// WordPress by default doesn't allow `post_author` values of `0`, that's why we use a dash (`-`).
+// @see https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64
+$post_author = get_post_field( 'post_author' );
+$post_author = empty( $post_author ) ? '-' : $post_author;
+
 ?>
+<input type="hidden" name="post_author_override" value="<?php echo esc_attr( $post_author ); ?>" />
+
 <div class="pronamic-pay-inner">
 	<p>
 		<label for="pronamic-payment-status">Status:&nbsp;</label>
