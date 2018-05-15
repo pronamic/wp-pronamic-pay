@@ -512,7 +512,9 @@ class Plugin {
 	 * @return string|void
 	 */
 	public function datetime_format( $format ) {
-		return _x( 'D j M Y \a\t H:i', 'default datetime format', 'pronamic_ideal' );
+		$format = _x( 'D j M Y \a\t H:i', 'default datetime format', 'pronamic_ideal' );
+
+		return $format;
 	}
 
 	/**
