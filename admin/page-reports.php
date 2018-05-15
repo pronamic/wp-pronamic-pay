@@ -8,6 +8,7 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Util;
 
 ?>
@@ -34,7 +35,9 @@ use Pronamic\WordPress\Pay\Util;
 								echo '<strong>';
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
-									echo esc_html( Util::format_price( $serie->legendValue ) );
+									$money = new Money( $serie->legendValue, 'EUR' );
+
+									echo esc_html( $money->format_i18n() );
 								} else {
 									echo esc_html( $serie->legendValue );
 								}

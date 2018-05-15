@@ -10,6 +10,7 @@
 
 namespace Pronamic\WordPress\Pay\Forms;
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Plugin;
 use WP_Post;
 
@@ -244,7 +245,9 @@ class FormPostType {
 
 				$value = $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				echo esc_html( \Pronamic\WordPress\Pay\Util::format_price( $value ) );
+				$money = new Money( $value, 'EUR' );
+
+				echo esc_html( $money->format_i18n() );
 
 				break;
 			case 'pronamic_payment_form_shortcode':

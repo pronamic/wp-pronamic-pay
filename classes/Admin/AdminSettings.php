@@ -127,38 +127,6 @@ class AdminSettings {
 				)
 			);
 		}
-
-		// Settings - Currency.
-		add_settings_section(
-			'pronamic_pay_currency',
-			__( 'Currency', 'pronamic_ideal' ),
-			array( $this, 'settings_section' ),
-			'pronamic_pay'
-		);
-
-		add_settings_field(
-			'pronamic_pay_thousands_sep',
-			__( 'Thousands Seperator', 'pronamic_ideal' ),
-			array( $this, 'input_element' ),
-			'pronamic_pay',
-			'pronamic_pay_currency',
-			array(
-				'label_for' => 'pronamic_pay_thousands_sep',
-				'classes'   => 'tiny-text',
-			)
-		);
-
-		add_settings_field(
-			'pronamic_pay_decimal_sep',
-			__( 'Decimal Seperator', 'pronamic_ideal' ),
-			array( $this, 'input_element' ),
-			'pronamic_pay',
-			'pronamic_pay_currency',
-			array(
-				'label_for' => 'pronamic_pay_decimal_sep',
-				'classes'   => 'tiny-text',
-			)
-		);
 	}
 
 	/**

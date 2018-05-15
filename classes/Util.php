@@ -135,57 +135,6 @@ class Util {
 	}
 
 	/**
-	 * Format price.
-	 *
-	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-formatting-functions.php#L306-L347
-	 * @see https://github.com/woothemes/woocommerce/blob/v2.2.3/includes/wc-core-functions.php#L299-L376
-	 *
-	 * @param float  $amount   The amount to format.
-	 * @param string $currency The currency code for the currency symbol.
-	 *
-	 * @return string
-	 */
-	public static function format_price( $amount, $currency = null ) {
-		$float = filter_var( $amount, FILTER_VALIDATE_FLOAT );
-
-		if ( false === $float ) {
-			return;
-		}
-
-		$currency = ( null === $currency ) ? 'EUR' : $currency;
-
-		$currency_symbol = $currency;
-
-		// Currencies.
-		switch ( $currency ) {
-			case 'EUR':
-				$currency_symbol  = '€';
-				$formatted_amount = number_format( $float, 2, ',', '.' );
-
-				break;
-			case 'USD':
-				$currency_symbol  = '$';
-				$formatted_amount = number_format( $float, 2, '.', ',' );
-
-				break;
-			case 'NLG':
-				$currency_symbol  = 'G';
-				$formatted_amount = number_format( $float, 4, '.', '' );
-
-				break;
-		}
-
-		if ( ! isset( $formatted_amount ) ) {
-			$formatted_amount = number_format_i18n( $float, 2 );
-		}
-
-		// @see https://en.wikipedia.org/wiki/Non-breaking_space#Keyboard_entry_methods
-		$non_breaking_space = ' ';
-
-		return '' . $currency_symbol . $non_breaking_space . $formatted_amount;
-	}
-
-	/**
 	 * Format interval.
 	 *
 	 * @param int    $interval The interval number.
