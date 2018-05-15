@@ -49,7 +49,7 @@ class SubscriptionsDataStoreCPT extends AbstractDataStoreCPT {
 				'post_date_gmt' => $this->get_mysql_utc_date( $subscription->date ),
 				'post_title'    => sprintf(
 					'Subscription – %s',
-					date_i18n( _x( '@todo', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
+					date_i18n( _x( 'M d, Y @ h:i A', 'Subscription title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
 				),
 				'post_status'   => empty( $post_status ) ? 'subscr_pending' : $post_status,
 				'post_author'   => $subscription->user_id,

@@ -51,7 +51,7 @@ class PaymentsDataStoreCPT extends AbstractDataStoreCPT {
 		if ( empty( $title ) ) {
 			$title = sprintf(
 				'Payment – %s',
-				date_i18n( _x( '@todo', 'Payment title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
+				date_i18n( _x( 'M d, Y @ h:i A', 'Payment title date format parsed by `date_i18n`.', 'pronamic_ideal' ) )
 			);
 		}
 
