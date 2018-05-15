@@ -125,21 +125,23 @@
 
 													$post_id = get_the_ID();
 
-													printf(
-														'<a href="%s">%s</a>',
-														esc_attr( get_edit_post_link( $post_id ) ),
-														esc_html( get_the_title( $post_id ) )
-													);
+													if ( false !== $post_id ) {
+														printf(
+															'<a href="%s">%s</a>',
+															esc_attr( get_edit_post_link( $post_id ) ),
+															esc_html( get_the_title( $post_id ) )
+														);
 
-													?>
-													<?php
+														?>
+														<?php
 
-													printf(
-														'<abbr title="%s">%s</abbr>',
-														/* translators: comment date format. See http://php.net/date */
-														esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $post_id ) ),
-														esc_html( get_the_time( get_option( 'date_format' ), $post_id ) )
-													);
+														printf(
+															'<abbr title="%s">%s</abbr>',
+															/* translators: comment date format. See http://php.net/date */
+															esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $post_id ) ),
+															esc_html( get_the_time( get_option( 'date_format' ), $post_id ) )
+														);
+													}
 
 													?>
 												</h4>
