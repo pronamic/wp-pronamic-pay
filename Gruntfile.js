@@ -1,4 +1,4 @@
-/* jshint node:true */
+/** jshint node:true */
 module.exports = function( grunt ) {
 	require( 'load-grunt-tasks' )( grunt );
 
@@ -26,7 +26,7 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// PHP Code Sniffer
+		// PHP Code Sniffer.
 		phpcs: {
 			core: {
 				src: [
@@ -47,7 +47,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// PHPUnit
+		// PHPUnit.
 		phpunit: {
 			options: {
 				bin: 'vendor/bin/phpunit'
@@ -57,7 +57,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// JSHint
+		// JSHint.
 		jshint: {
 			options: grunt.file.readJSON( '.jshintrc' ),
 			grunt: [ 'Gruntfile.js' ],
@@ -66,7 +66,7 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// Sass Lint
+		// Sass Lint.
 		sasslint: {
 			options: {
 				configFile: '.sass-lint.yml'
@@ -76,7 +76,7 @@ module.exports = function( grunt ) {
 			]
 		},
 		
-		// Check textdomain errors
+		// Check textdomain errors.
 		checktextdomain: {
 			options:{
 				text_domain: 'pronamic_ideal',
@@ -111,7 +111,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Make POT
+		// Make POT.
 		makepot: {
 			target: {
 				options: {
@@ -126,7 +126,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Imagemin
+		// Imagemin.
 		imagemin: {
 			build: {
 				files: [
@@ -140,39 +140,39 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Shell
+		// Shell.
 		shell: {
-			// Check versions
+			// Check versions.
 			check_versions: {
 				command: 'php src/check-versions.php'
 			},
 
-			// PlantUML
+			// PlantUML.
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
 			},
 
-			// WordPress test environment
+			// WordPress test environment.
 			test: {
 				command: 'bash tests/setup.sh'
 			},
 
-			// Generate readme.txt
+			// Generate readme.txt.
 			readme_txt: {
 				command: 'php src/readme-txt/readme.php > readme.txt'
 			},
 
-			// Generate README.md
+			// Generate README.md.
 			readme_md: {
 				command: 'php src/readme-md/README.php > README.md'
 			},
 
-			// Generate CHANGELOG.md
+			// Generate CHANGELOG.md.
 			changelog_md: {
 				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'
 			},
 
-			// Composer
+			// Composer.
 			deploy: {
 				command: [
 					'cd deploy/latest',
@@ -181,11 +181,11 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Copy
+		// Copy.
 		copy: {
 			scripts: {
 				files: [
-					{ // JS
+					{ // JS.
 						expand: true,
 						cwd: 'src/js/',
 						src: '**',
@@ -195,7 +195,7 @@ module.exports = function( grunt ) {
 			},
 			assets: {
 				files: [
-					{ // Flot - http://www.flotcharts.org/
+					{ // Flot - http://www.flotcharts.org/.
 						expand: true,
 						cwd: 'node_modules/flot/',
 						src: [
@@ -205,13 +205,13 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
-					{ // accounting.js - http://openexchangerates.github.io/accounting.js/
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js/.
 						expand: true,
 						cwd: 'node_modules/accounting/',
 						src: 'accounting.js',
 						dest: 'assets/accounting'
 					},
-					{ // Tippy.js - https://atomiks.github.io/tippyjs/
+					{ // Tippy.js - https://atomiks.github.io/tippyjs/.
 						expand: true,
 						cwd: 'node_modules/tippy.js/dist',
 						src: 'tippy.all.js',
@@ -221,7 +221,7 @@ module.exports = function( grunt ) {
 			},
 			other: {
 				files: [
-					{ // extensions.json
+					{ // extensions.json.
 						expand: true,
 						cwd: 'src/',
 						src: [
@@ -268,7 +268,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Composer
+		// Composer.
 		composer : {
 			options : {
 
@@ -280,7 +280,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// SASS
+		// SASS.
 		sass: {
 			options: {
 				style: 'expanded'
@@ -296,7 +296,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// PostCSS
+		// PostCSS.
 		postcss: {
 			options: {
 				map: false
@@ -335,27 +335,27 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Uglify
+		// Uglify.
 		uglify: {
 			scripts: {
 				files: {
-					// Pronamic Pay
+					// Pronamic Pay.
 					'js/admin.min.js': 'src/js/admin.js',
 					'js/admin-reports.min.js': 'src/js/admin-reports.js',
 					'js/admin-tour.min.js': 'src/js/admin-tour.js',
-					// Accounting
+					// Accounting.
 					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
-					// Flot
+					// Flot.
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// Tippy.js
+					// Tippy.js.
 					'assets/tippy.js/tippy.all.min.js': 'assets/tippy.js/tippy.all.js'
 				}
 			}
 		},
 
-		// Clean
+		// Clean.
 		clean: {
 			assets: {
 				src: [
@@ -392,7 +392,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Compress
+		// Compress.
 		compress: {
 			deploy: {
 				options: {
@@ -405,7 +405,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Git checkout
+		// Git checkout.
 		gitcheckout: {
 			tag: {
 				options: {
@@ -419,7 +419,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// S3
+		// S3.
 		aws_s3: {
 			options: {
 				region: 'eu-central-1'
@@ -440,7 +440,7 @@ module.exports = function( grunt ) {
 			}
 		},
 		
-		// WordPress deploy
+		// WordPress deploy.
 		rt_wp_deploy: {
 			app: {
 				options: {

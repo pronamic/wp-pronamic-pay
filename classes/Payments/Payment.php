@@ -13,6 +13,7 @@ namespace Pronamic\WordPress\Pay\Payments;
 use Pronamic\WordPress\Money\Currency;
 use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\DateTime\DateTime;
+use Pronamic\WordPress\Pay\CreditCard;
 use Pronamic\WordPress\Pay\Core\Statuses;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use WP_Post;
@@ -49,7 +50,7 @@ class Payment {
 	/**
 	 * The unique ID of this payment.
 	 *
-	 * @var string
+	 * @var int
 	 */
 	protected $id;
 
@@ -294,7 +295,7 @@ class Payment {
 	 * Subscription ID.
 	 *
 	 * @todo Is this required?
-	 * @var string
+	 * @var int
 	 */
 	public $subscription_id;
 
@@ -956,7 +957,7 @@ class Payment {
 	/**
 	 * Get payment subscription ID.
 	 *
-	 * @return string
+	 * @return int
 	 */
 	public function get_subscription_id() {
 		return $this->subscription_id;

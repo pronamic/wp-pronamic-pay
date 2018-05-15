@@ -25,7 +25,7 @@ class Subscription {
 	/**
 	 * The ID of this subscription.
 	 *
-	 * @var string
+	 * @var int
 	 */
 	protected $id;
 
