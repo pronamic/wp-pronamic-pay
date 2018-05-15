@@ -158,7 +158,7 @@ class FormPostType {
 	 * Custom columns.
 	 *
 	 * @param string $column  Column.
-	 * @param string $post_id Post ID.
+	 * @param int    $post_id Post ID.
 	 */
 	public function custom_columns( $column, $post_id ) {
 		global $post;
