@@ -20,6 +20,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Payments\StatusChecker;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
+use WP_Error;
 use WP_Query;
 
 /**
