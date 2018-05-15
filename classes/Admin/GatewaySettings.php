@@ -59,6 +59,10 @@ class GatewaySettings {
 		// Payment methods section.
 		$config_id = get_the_ID();
 
+		if ( empty( $config_id ) ) {
+			return $sections;
+		}
+
 		$gateway = Plugin::get_gateway( $config_id );
 
 		if ( $gateway ) {
