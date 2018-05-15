@@ -14,7 +14,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 $states = PaymentPostType::get_payment_states();
 
 // WordPress by default doesn't allow `post_author` values of `0`, that's why we use a dash (`-`).
-// @see https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64
+// @see https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64.
 $post_author = get_post_field( 'post_author' );
 $post_author = empty( $post_author ) ? '-' : $post_author;
 
