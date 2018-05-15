@@ -45,8 +45,6 @@ class Settings {
 	 * @see https://github.com/WordPress/WordPress/blob/4.7/wp-includes/option.php#L1715-L1847
 	 */
 	public function init() {
-		global $wp_locale;
-
 		register_setting(
 			'pronamic_pay', 'pronamic_pay_license_key', array(
 				'type'              => 'string',
