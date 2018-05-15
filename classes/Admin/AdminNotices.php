@@ -105,7 +105,11 @@ class AdminNotices {
 	 * @param string $name Name.
 	 */
 	public function add_notice( $name ) {
-		$notices = array_unique( array_merge( get_option( 'pronamic_pay_admin_notices', array() ), array( $name ) ) );
+		$notices = get_option( 'pronamic_pay_admin_notices', array() );
+
+		$notices = is_array( $notices ) ? $notices : array();
+
+		$notices = array_unique( array_merge( $notices, array( $name ) ) );
 
 		update_option( 'pronamic_pay_admin_notices', $notices );
 	}
@@ -116,7 +120,11 @@ class AdminNotices {
 	 * @param string $name Name.
 	 */
 	public static function remove_notice( $name ) {
-		$notices = array_diff( get_option( 'pronamic_pay_admin_notices', array() ), array( $name ) );
+		$notices = get_option( 'pronamic_pay_admin_notices', array() );
+
+		$notices = is_array( $notices ) ? $notices : array();
+
+		$notices = array_diff( $notices, array( $name ) );
 
 		update_option( 'pronamic_pay_admin_notices', $notices );
 	}
