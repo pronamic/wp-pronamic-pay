@@ -16,7 +16,7 @@ function render_changes( $changes, $level = 0 ) {
 		}
 	} elseif ( is_object( $changes ) ) {
 		if ( isset( $changes->name ) ) {
-			// Changes group
+			// Changes group.
 			echo "\r\n";
 			echo '### ', $changes->name, "\r\n";
 

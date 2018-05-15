@@ -8,6 +8,8 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+namespace Pronamic\WordPress\Pay;
+
 use Pronamic\WordPress\DateTime\DateTime;
 use Pronamic\WordPress\DateTime\DateTimeZone;
 
