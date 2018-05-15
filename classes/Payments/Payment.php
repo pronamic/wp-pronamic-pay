@@ -606,7 +606,17 @@ class Payment {
 	 * @param string $value Meta value.
 	 */
 	public function set_meta( $key, $value ) {
-		$this->meta[ $key ] = $value;
+		$key = '_pronamic_payment_' . $key;
+
+		if ( $value instanceof DateTime ) {
+			$value = $value->format( 'Y-m-d H:i:s' );
+		}
+
+		if ( empty( $value ) ) {
+			return delete_post_meta( $this->id, $key );
+		}
+
+		return update_post_meta( $this->id, $key, $value );
 	}
 
 	/**
