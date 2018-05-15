@@ -61,8 +61,10 @@ class AdminReports {
 			array( $this, 'page_reports' )
 		);
 
-		// @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/admin-header.php#L82-L87.
-		add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
+		if ( false !== $hook_suffix ) {
+			// @see https://github.com/WordPress/WordPress/blob/4.2.4/wp-admin/admin-header.php#L82-L87.
+			add_action( 'admin_print_styles-' . $hook_suffix, array( $this, 'admin_css' ) );
+		}
 	}
 
 	/**
