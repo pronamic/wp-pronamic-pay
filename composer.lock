@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "badc6320dd9f43961ecbc36091f43c47",
+    "content-hash": "b5bd94620e109cd79ff11ee41516d891",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -952,6 +952,70 @@
                 "wp"
             ],
             "time": "2018-05-14T08:33:34+00:00"
+        },
+        {
+            "name": "wp-pay-extensions/ninjaforms",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-pay-extensions/ninjaforms.git",
+                "reference": "622cc13051d474798848816ce6823a3c0e59c3fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ninjaforms/zipball/622cc13051d474798848816ce6823a3c0e59c3fd",
+                "reference": "622cc13051d474798848816ce6823a3c0e59c3fd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
+                "php-coveralls/php-coveralls": "^1.0",
+                "phpdocumentor/phpdocumentor": "^2.9",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "phpunit/phpunit-selenium": "^2.0",
+                "squizlabs/php_codesniffer": "^3.2",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^0.14.1",
+                "wp-phpunit/wp-phpunit": "^4.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\Pay\\Extensions\\NinjaForms\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Pronamic",
+                    "email": "info@pronamic.eu",
+                    "homepage": "http://www.pronamic.eu/",
+                    "role": "Company"
+                },
+                {
+                    "name": "Ruben Droogh",
+                    "homepage": "http://www.rubendroogh.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Ninja Forms driver for the WordPress payment processing library.",
+            "keywords": [
+                "Forms",
+                "extension",
+                "ninja",
+                "pay",
+                "pronamic",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2018-05-16T13:07:33+00:00"
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
@@ -6642,9 +6706,18 @@
             "time": "2013-12-19T11:40:00+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "dev-develop",
+            "package": "wp-pay-extensions/ninjaforms"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay-extensions/ninjaforms": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

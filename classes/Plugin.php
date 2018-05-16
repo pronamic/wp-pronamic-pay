@@ -184,6 +184,7 @@ class Plugin {
 		Extensions\MemberPress\Extension::bootstrap();
 		Extensions\FormidableForms\Extension::bootstrap();
 		Extensions\RestrictContentPro\Extension::bootstrap();
+		Extensions\NinjaForms\Extension::bootstrap();
 
 		// Settings.
 		$this->settings = new Settings( $this );
