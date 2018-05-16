@@ -281,7 +281,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 5.0.0 - 2018-04-05 =
+= 5.0.0 - 2018-05-16 =
 *	Switched to PHP namespaces.
 *	Updated WordPress pay ING Kassa Compleet library to version 2.0.
 	*	Added support for Payconiq payment method.
