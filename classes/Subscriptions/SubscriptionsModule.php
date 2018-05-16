@@ -591,10 +591,6 @@ class SubscriptionsModule {
 	 * @return array
 	 */
 	public function register_privacy_exporter( $exporters ) {
-		if ( ! is_array( $exporters ) ) {
-			return $exporters;
-		}
-
 		$exporters['pronamic-pay-subscriptions'] = array(
 			'exporter_friendly_name' => __( 'Pronamic Pay Subscriptions', 'pronamic_ideal' ),
 			'callback'               => array( $this, 'privacy_export' ),
