@@ -37,7 +37,7 @@ class Plugin {
 	 *
 	 * @var string
 	 */
-	private $version = '5.0.0';
+	private $version = '5.0.1';
 
 	/**
 	 * The root file of this WordPress plugin
