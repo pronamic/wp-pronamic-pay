@@ -523,7 +523,7 @@ class Subscription {
 	public function set_meta( $key, $value = false ) {
 		$key = '_pronamic_subscription_' . $key;
 
-		if ( $value instanceof DateTime ) {
+		if ( $value instanceof \DateTime ) {
 			$value = $value->format( 'Y-m-d H:i:s' );
 		}
 

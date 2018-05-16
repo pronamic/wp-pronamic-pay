@@ -600,15 +600,17 @@ class Payment {
 	}
 
 	/**
-	 * Set meta value at the specified key.
+	 * Set meta data.
 	 *
-	 * @param string $key   Meta key.
-	 * @param string $value Meta value.
+	 * @param  string $key   A meta key.
+	 * @param  mixed  $value A meta value.
+	 *
+	 * @return boolean        True on successful update, false on failure.
 	 */
 	public function set_meta( $key, $value ) {
 		$key = '_pronamic_payment_' . $key;
 
-		if ( $value instanceof DateTime ) {
+		if ( $value instanceof \DateTime ) {
 			$value = $value->format( 'Y-m-d H:i:s' );
 		}
 
