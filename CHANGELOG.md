@@ -8,7 +8,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changes
 
-## [5.0.0] - 2018-04-05
+## [5.0.1] - 2018-05-16
+
+### Fixed
+- Updated WordPress pay iDEAL Advanced v3 library to version 2.0.1.
+  - Fixed "Fatal error: Uncaught Error: Call to a member function get_amount() on float".
+
+## [5.0.0] - 2018-05-16
 
 ### Changes
 - Switched to PHP namespaces.
@@ -1712,7 +1718,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.1...HEAD
+[5.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.7.0...5.0.0
 [4.7.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.6.0...4.7.0
 [4.6.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.5.5...4.6.0
