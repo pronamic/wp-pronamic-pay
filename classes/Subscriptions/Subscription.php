@@ -306,6 +306,15 @@ class Subscription {
 	}
 
 	/**
+	 * Get the config ID of this subscription.
+	 *
+	 * @return string
+	 */
+	public function get_config_id() {
+		return $this->config_id;
+	}
+
+	/**
 	 * Get the source identifier of this subscription, for example: 'woocommerce', 'gravityforms', etc.
 	 *
 	 * @return string

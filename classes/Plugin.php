@@ -19,6 +19,7 @@ use Pronamic\WordPress\Pay\Payments\PaymentDataInterface;
 use Pronamic\WordPress\Pay\Payments\PaymentPostType;
 use Pronamic\WordPress\Pay\Payments\StatusChecker;
 use Pronamic\WordPress\Pay\Subscriptions\Subscription;
+use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPaymentData;
 use Pronamic\WordPress\Pay\Subscriptions\SubscriptionPostType;
 use WP_Error;
 use WP_Query;
@@ -764,13 +765,14 @@ class Plugin {
 	/**
 	 * Start recurring payment.
 	 *
-	 * @param Subscription $subscription Subscription.
-	 * @param Gateway      $gateway      Gateway.
+	 * @param Subscription            $subscription Subscription.
+	 * @param Gateway                 $gateway      Gateway.
+	 * @param SubscriptionPaymentData $data         The subscription payment data.
 	 *
 	 * @return Payment
 	 */
-	public static function start_recurring( Subscription $subscription, Gateway $gateway ) {
-		return pronamic_pay_plugin()->subscriptions_module->start_recurring( $subscription, $gateway );
+	public static function start_recurring( Subscription $subscription, Gateway $gateway, $data = null ) {
+		return pronamic_pay_plugin()->subscriptions_module->start_recurring( $subscription, $gateway, $data );
 	}
 
 	/**

@@ -167,11 +167,11 @@ class SubscriptionsModule {
 					$html = __( 'The subscription is already active.', 'pronamic_ideal' );
 				} else {
 					if ( 'POST' === Server::get( 'REQUEST_METHOD' ) ) {
-						$renewal = array(
-							'issuer' => filter_input( INPUT_POST, 'pronamic_ideal_issuer_id', FILTER_SANITIZE_STRING ),
-						);
+						$data = new SubscriptionPaymentData( $subscription );
 
-						$payment = $this->start_recurring( $subscription, $gateway, $renewal );
+						$data->set_recurring( false );
+
+						$payment = $this->start_recurring( $subscription, $gateway, $data );
 
 						$error = $gateway->get_error();
 
@@ -244,12 +244,16 @@ class SubscriptionsModule {
 	/**
 	 * Start a recurring payment at the specified gateway for the specified subscription.
 	 *
-	 * @param Subscription  $subscription The subscription to start a recurring payment for.
-	 * @param Gateway       $gateway      The gateway to start the recurring payment at.
-	 * @param boolean|array $renewal      Flag for renewal payment.
+	 * @param Subscription            $subscription The subscription to start a recurring payment for.
+	 * @param Gateway                 $gateway      The gateway to start the recurring payment at.
+	 * @param SubscriptionPaymentData $data         The subscription payment data.
 	 */
-	public function start_recurring( Subscription $subscription, Gateway $gateway, $renewal = null ) {
-		if ( null === $renewal ) {
+	public function start_recurring( Subscription $subscription, Gateway $gateway, $data = null ) {
+		if ( null === $data ) {
+			$data = new SubscriptionPaymentData( $subscription );
+		}
+
+		if ( false === $data->get_recurring() ) {
 			// If next payment date is after the subscription end date unset the next payment date.
 			if ( isset( $subscription->end_date, $subscription->next_payment ) && $subscription->end_date <= $subscription->next_payment ) {
 				$subscription->next_payment = null;
@@ -286,33 +290,39 @@ class SubscriptionsModule {
 		// Create follow up payment.
 		$payment = new Payment();
 
-		$payment->config_id        = $subscription->config_id;
-		$payment->user_id          = $subscription->user_id;
-		$payment->source           = $subscription->source;
-		$payment->source_id        = $subscription->source_id;
-		$payment->description      = $subscription->description;
-		$payment->order_id         = $subscription->order_id;
-		$payment->email            = $subscription->email;
-		$payment->customer_name    = $subscription->customer_name;
-		$payment->address          = $subscription->address;
-		$payment->address          = $subscription->address;
-		$payment->city             = $subscription->city;
-		$payment->zip              = $subscription->zip;
-		$payment->country          = $subscription->country;
-		$payment->telephone_number = $subscription->telephone_number;
-		$payment->method           = $subscription->payment_method;
+		// Payment method.
+		if ( method_exists( $data, 'get_payment_method' ) ) {
+			$payment_method = $data->get_payment_method();
+		} else {
+			$payment_method = $subscription->payment_method;
+		}
+
+		$payment->config_id        = $subscription->get_config_id();
+		$payment->user_id          = $data->get_user_id();
+		$payment->source           = $data->get_source();
+		$payment->source_id        = $data->get_source_id();
+		$payment->description      = $data->get_description();
+		$payment->order_id         = $data->get_order_id();
+		$payment->email            = $data->get_email();
+		$payment->customer_name    = $data->get_customer_name();
+		$payment->address          = $data->get_address();
+		$payment->city             = $data->get_city();
+		$payment->zip              = $data->get_zip();
+		$payment->country          = $data->get_country();
+		$payment->telephone_number = $data->get_telephone_number();
+		$payment->method           = $payment_method;
 		$payment->subscription     = $subscription;
 		$payment->subscription_id  = $subscription->get_id();
 		$payment->start_date       = $start_date;
 		$payment->end_date         = $end_date;
 		$payment->recurring_type   = 'recurring';
 		$payment->recurring        = true;
-		$payment->set_amount( $subscription->get_amount() );
+		$payment->set_amount( $data->get_amount() );
 
 		// Handle renewals.
-		if ( is_array( $renewal ) ) {
+		if ( false === $data->get_recurring() ) {
 			$payment->recurring = false;
-			$payment->issuer    = $renewal['issuer'];
+			$payment->issuer    = $data->get_issuer_id();
 		}
 
 		// Start payment.
