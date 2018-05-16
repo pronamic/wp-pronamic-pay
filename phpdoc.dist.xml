@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<phpdocumentor>
+    <parser>
+        <default-package-name>Pronamic\WordPress\Pay</default-package-name>
+        <target>build/api-cache</target>
+    </parser>
+
+    <transformer>
+        <target>build/api</target>
+    </transformer>
+
+    <files>
+        <directory>classes</directory>
+    </files>
+</phpdocumentor>

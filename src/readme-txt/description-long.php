@@ -13,8 +13,8 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 
 = Support WordPress e-commerce plugins =
 
-<?php include 'extensions.php'; ?>
+<?php require 'extensions.php'; ?>
 
 = Support payment providers =
 
-<?php include 'gateways.php'; ?>
+<?php require 'gateways.php'; ?>

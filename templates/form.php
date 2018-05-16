@@ -2,6 +2,10 @@
 
 global $pronamic_pay_errors;
 
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Util;
+
 $config_id = get_post_meta( $id, '_pronamic_payment_form_config_id', true );
 
 $button_text = get_post_meta( $id, '_pronamic_payment_form_button_text', true );
@@ -11,11 +15,11 @@ $amount_method  = get_post_meta( $id, '_pronamic_payment_form_amount_method', tr
 $amount_choices = get_post_meta( $id, '_pronamic_payment_form_amount_choices', true );
 
 $methods_with_choices = array(
-	Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_ONLY,
-	Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
+	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_ONLY,
+	\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT,
 );
 
-$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+$gateway = Plugin::get_gateway( $config_id );
 
 $amount_value = '';
 
@@ -66,7 +70,7 @@ if ( $gateway ) : ?>
 
 							<?php endforeach; ?>
 
-							<?php if ( Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
+							<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT === $amount_method ) : ?>
 
 								<div>
 									<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount-other" name="pronamic_pay_amount" type="radio" required="required" value="other" />
@@ -80,7 +84,7 @@ if ( $gateway ) : ?>
 
 					<?php endif; ?>
 
-					<?php if ( Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
+					<?php if ( \Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY === $amount_method ) : ?>
 
 						<span class="pronamic-pay-currency-symbol pronamic-pay-currency-position-before">€</span>
 						<input class="pronamic-pay-amount-input pronamic-pay-input" id="pronamic-pay-amount" name="pronamic_pay_amount" type="text" placeholder="" autocomplete="off" value="<?php echo esc_attr( $amount_value ); ?>" />
@@ -127,7 +131,7 @@ if ( $gateway ) : ?>
 
 			if ( $gateway->payment_method_is_required() ) {
 
-				$gateway->set_payment_method( Pronamic_WP_Pay_PaymentMethods::IDEAL );
+				$gateway->set_payment_method( PaymentMethods::IDEAL );
 
 			}
 
@@ -151,7 +155,7 @@ if ( $gateway ) : ?>
 							<?php if ( 'select' === $field['type'] ) : ?>
 
 								<select id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>">
-									<?php echo Pronamic_WP_HTML_Helper::select_options_grouped( $field['choices'] ); ?>
+									<?php echo Util::select_options_grouped( $field['choices'] ); ?>
 								</select>
 
 							<?php endif; ?>

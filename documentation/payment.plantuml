@@ -1,0 +1,80 @@
+@startuml
+
+namespace Pronamic\WordPress\Pay {
+	class Payment {
+		#id : string
+		..
+		#source : string
+		#source_id : string
+		..
+		#currency : string
+		#amount : float
+		#payment_method : string
+		..
+		#ip_address : string
+		#user_agent: string
+		#language : string
+		#locale : string
+		..
+		#first_name : string
+		#last_name : string
+		#email : string
+		..
+		#gender : string
+		#birth_date : \DateTime
+		..
+		#iban : string
+		#bic : string
+		.. billing ..
+		#billing_first_name : string
+		#billing_last_name : string
+		#billing_email : string
+		#billing_company : string
+		#billing_coc : string
+		#billing_address_1 : string
+		#billing_address_2 : string
+		#billing_zip : string
+		#billing_city : string
+		#billing_country : string
+		#billing_country_code : string
+		#billing_phone : string
+		.. shipping ..
+		#shipping_first_name : string
+		#shipping_last_name : string
+		#shipping_email : string
+		#shipping_company : string
+		#shipping_address_1 : string
+		#shipping_address_2 : string
+		#shipping_zip : string
+		#shipping_city : string
+		#shipping_country : string
+		#shipping_country_code : string
+		#shipping_phone : string
+		--
+		+get_items() : array
+	}
+
+	class PaymentItem {
+		#id : string
+		#sku : string
+		#name : string
+		#description : string
+		#quantity : int
+		#price : float
+		#currency : string
+		#tax : float
+		#tax_class : string
+		#tax_percentage : float
+		#shipping : float
+		#type : string
+		#url : string
+		#image_url : string
+		#status : string
+		#stock : ?
+		#discount : float
+	}
+
+	Payment o-- "0..*" PaymentItem
+}
+
+@enduml

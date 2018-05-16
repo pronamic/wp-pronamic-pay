@@ -16,7 +16,7 @@ function render_changes( $changes, $level = 0 ) {
 		}
 	} elseif ( is_object( $changes ) ) {
 		if ( isset( $changes->name ) ) {
-			// Changes group
+			// Changes group.
 			echo "\r\n";
 			echo '### ', $changes->name, "\r\n";
 
@@ -63,9 +63,9 @@ foreach ( $collection as $log ) {
 		$prev = $collection->getInnerIterator()->current();
 
 		if ( 'Unreleased' === $log->version ) {
-			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";     
+			echo '[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', 'HEAD', "\r\n";
 		} else {
-			echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";     
+			echo '[', $log->version, ']: https://github.com/pronamic/wp-pronamic-ideal/compare/', $prev->version, '...', $log->version, "\r\n";
 		}
 	}
 }

@@ -1,12 +1,22 @@
 <?php
+/**
+ * Redirect via HTML
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 global $pronamic_ideal;
+
+use Pronamic\WordPress\Pay\Plugin;
 
 $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 wp_register_style(
 	'pronamic-pay-redirect',
-	plugins_url( 'css/redirect' . $min . '.css', Pronamic_WP_Pay_Plugin::$file ),
+	plugins_url( 'css/redirect' . $min . '.css', Plugin::$file ),
 	array(),
 	$pronamic_ideal->get_version()
 );
@@ -26,7 +36,12 @@ wp_register_style(
 	<?php
 
 	$auto_submit = true;
-	$onload      = $auto_submit ? 'document.forms[0].submit();' : '';
+
+	if ( PRONAMIC_PAY_DEBUG ) {
+		$auto_submit = false;
+	}
+
+	$onload = $auto_submit ? 'document.forms[0].submit();' : '';
 
 	?>
 

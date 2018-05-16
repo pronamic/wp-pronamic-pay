@@ -37,6 +37,8 @@
 				} );
 			}
 
+			$element.find( '.setting-' + obj.selectedVariant.val() ).show();
+
 			// Set name of first tab item to name of selected provider
 			var providerName = obj.selectedVariant.text().split( ' - ' )[0].replace( / \(.*\)/, '' );
 
@@ -252,6 +254,14 @@
 			if ( '' !== method ) {
 				$element.find( '.pronamic-pay-test-payment-method' ).hide().filter( '.' + method ).show();
 			}
+
+			// Hide subscription options for unsupported payment methods.
+			if ( 1 === elements.paymentMethods.find( 'option:selected' ).data( 'is-recurring' ) ) {
+				$( '#pronamic-pay-test-subscription' ).parents( 'tr' ).show();
+			} else {
+				$( '#pronamic-pay-test-subscription' ).parents( 'tr' ).hide();
+				$( '#pronamic-pay-test-subscription' ).prop( 'checked', false ).trigger( 'change' );
+			}
 		};
 
 		// Function calls
@@ -365,6 +375,9 @@
 		$( '.pronamic-pay-tabs' ).pronamicPayTabs();
 
 		// Tooltip
-		tippy( '.pronamic-pay-tip' );
+		tippy( '.pronamic-pay-tip', {
+			arrow: true,
+			theme: 'pronamic-pay'
+		} );
 	} );
 } )( jQuery );

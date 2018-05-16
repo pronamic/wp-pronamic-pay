@@ -1,3 +1,19 @@
+<?php
+/**
+ * Tab System Status
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+namespace Pronamic\WordPress\Pay;
+
+use Pronamic\WordPress\DateTime\DateTime;
+use Pronamic\WordPress\DateTime\DateTimeZone;
+
+?>
 <table class="pronamic-pay-table pronamic-pay-status-table widefat">
 	<thead>
 		<tr>
@@ -28,7 +44,7 @@
 						esc_html_e( 'Site Inactive', 'pronamic_ideal' );
 
 						break;
-					default :
+					default:
 						echo esc_html( $status );
 
 						break;
@@ -46,10 +62,10 @@
 
 				$timestamp = wp_next_scheduled( 'pronamic_pay_license_check' );
 
-				if ( $timestamp ) {
-					$timestamp = get_date_from_gmt( date( 'Y-m-d H:i:s', $timestamp ), 'U' );
+				if ( false !== $timestamp ) {
+					$date = new DateTime( '@' . $timestamp, new DateTimeZone( 'UTC' ) );
 
-					echo esc_html( date_i18n( 'D j M Y H:i:s', $timestamp ) );
+					echo esc_html( $date->format_i18n() );
 				} else {
 					esc_html_e( 'Not scheduled', 'pronamic_ideal' );
 				}
@@ -60,7 +76,7 @@
 	</tbody>
 </table>
 
-<table class="pronamic-pay-table pronamic-pay-status-table widefat">
+<table class="pronamic-pay-table pronamic-pay-status-table widefat striped">
 	<thead>
 		<tr>
 			<th colspan="3"><?php esc_html_e( 'WordPress Environment', 'pronamic_ideal' ); ?></th>
@@ -79,7 +95,7 @@
 				✓
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Home URL', 'pronamic_ideal' ); ?>
 			</th>
@@ -109,7 +125,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'MySQL Version', 'pronamic_ideal' ); ?>
 			</th>
@@ -153,7 +169,7 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'WP Memory Limit', 'pronamic_ideal' ); ?>
 			</th>
@@ -209,13 +225,12 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Time', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
-				<?php echo esc_html( date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ) ); ?><br />
-				<?php echo esc_html( date( Pronamic_IDeal_IDeal::DATE_FORMAT ) ); ?>
+				<?php echo esc_html( date( __( 'Y/m/d g:i:s A', 'pronamic_ideal' ) ) ); ?>
 			</td>
 			<td>
 				✓
@@ -246,7 +261,7 @@
 				✓
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'OpenSSL', 'pronamic_ideal' ); ?>
 			</th>
@@ -299,16 +314,14 @@
 				?>
 			</td>
 		</tr>
-		<tr class="alternate">
+		<tr>
 			<th scope="row">
 				<?php esc_html_e( 'Travis CI build status', 'pronamic_ideal' ); ?>
 			</th>
 			<td>
 				<?php
 
-				global $pronamic_pay_version;
-
-				$url = add_query_arg( 'branch', $pronamic_pay_version, 'https://travis-ci.org/pronamic/wp-pronamic-ideal.png' );
+				$url = add_query_arg( 'branch', $this->plugin->get_version(), 'https://travis-ci.org/pronamic/wp-pronamic-ideal.png' );
 
 				?>
 				<a href="https://travis-ci.org/pronamic/wp-pronamic-ideal">

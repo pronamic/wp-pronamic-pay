@@ -1,30 +1,38 @@
 <?php
-/*
-Plugin Name: Pronamic Pay
-Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
-Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
-
-Version: 4.7.0
-Requires at least: 4.7
-
-Author: Pronamic
-Author URI: https://www.pronamic.eu/
-
-Text Domain: pronamic_ideal
-Domain Path: /languages/
-
-License: GPL
-
-GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
-*/
+/**
+ * Plugin Name: Pronamic Pay
+ * Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
+ * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
+ *
+ * Version: 5.0.0
+ * Requires at least: 4.7
+ *
+ * Author: Pronamic
+ * Author URI: https://www.pronamic.eu/
+ *
+ * Text Domain: pronamic_ideal
+ * Domain Path: /languages/
+ *
+ * License: GPL-3.0-or-later
+ *
+ * GitHub URI: https://github.com/pronamic/wp-pronamic-ideal
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 /**
- * Dependency-checking
+ * Dependency-checking.
  */
 function pronamic_pay_deactivate() {
 	deactivate_plugins( plugin_basename( __FILE__ ) );
 }
 
+/**
+ * Function to block activation of the plugin.
+ */
 function pronamic_pay_block_activation() {
 	$message = sprintf(
 		/* translators: 1: http://www.wpupdatephp.com/update/, 2: _blank */
@@ -50,13 +58,49 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 }
 
 /**
- * Autoload
+ * Autoload.
  */
-require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+$loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+
+if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
+	define( 'PRONAMIC_PAY_DEBUG', false );
+}
+
+if ( PRONAMIC_PAY_DEBUG ) {
+	foreach ( glob( __DIR__ . '/repositories/*/*/composer.json' ) as $file ) {
+		$content = file_get_contents( $file );
+
+		$object = json_decode( $content );
+
+		if ( isset( $object->autoload ) ) {
+			foreach ( $object->autoload as $type => $map ) {
+				if ( 'psr-4' === $type ) {
+					foreach ( $map as $prefix => $path ) {
+						$loader->addPsr4( $prefix, dirname( $file ) . '/' . $path, true );
+					}
+				}
+			}
+		}
+	}
+}
 
 /**
- * Bootstrap
+ * Bootstrap.
+ */
+\Pronamic\WordPress\Pay\Plugin::instance( __FILE__ );
+
+/**
+ * Pronamic Pay plugin.
+ *
+ * @return \Pronamic\WordPress\Pay\Plugin
+ */
+function pronamic_pay_plugin() {
+	return \Pronamic\WordPress\Pay\Plugin::instance();
+}
+
+/**
+ * Backward compatibility.
  */
 global $pronamic_ideal;
 
-$pronamic_ideal = Pronamic_WP_Pay_Plugin::bootstrap( __FILE__ );
+$pronamic_ideal = pronamic_pay_plugin();

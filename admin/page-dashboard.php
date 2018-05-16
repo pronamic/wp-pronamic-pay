@@ -1,5 +1,18 @@
+<?php
+/**
+ * Page Dashboard
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <div class="wrap">
-	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<hr class="wp-header-end">
 
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder columns-2">
@@ -21,10 +34,14 @@
 								printf(
 									'<a href="%s" class="button-secondary">%s</a>',
 									esc_attr(
-										wp_nonce_url( add_query_arg( array(
-											'page'                     => 'pronamic_ideal',
-											'pronamic_pay_ignore_tour'  => '0',
-										) ), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce' )
+										wp_nonce_url(
+											add_query_arg(
+												array(
+													'page' => 'pronamic_ideal',
+													'pronamic_pay_ignore_tour' => '0',
+												)
+											), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce'
+										)
 									),
 									esc_html__( 'Start tour', 'pronamic_ideal' )
 								);
@@ -34,10 +51,12 @@
 								printf(
 									'<a href="%s" class="button-secondary">%s</a>',
 									esc_attr(
-										add_query_arg( array(
-											'page' => 'pronamic-pay-about',
-											'tab'  => 'new',
-										) )
+										add_query_arg(
+											array(
+												'page' => 'pronamic-pay-about',
+												'tab'  => 'new',
+											)
+										)
 									),
 									esc_html__( 'What is new', 'pronamic_ideal' )
 								);
@@ -47,12 +66,14 @@
 								printf(
 									'<a href="%s" class="button-secondary">%s</a>',
 									esc_attr(
-										add_query_arg( array(
-											'page' => 'pronamic-pay-about',
-											'tab'  => 'getting-started',
-										) )
+										add_query_arg(
+											array(
+												'page' => 'pronamic-pay-about',
+												'tab'  => 'getting-started',
+											)
+										)
 									),
-									esc_html__( 'Getting Started', 'pronamic_ideal' )
+									esc_html__( 'Getting started', 'pronamic_ideal' )
 								);
 
 								echo ' ';
@@ -60,9 +81,11 @@
 								printf(
 									'<a href="%s" class="button-secondary">%s</a>',
 									esc_attr(
-										add_query_arg( array(
-											'page' => 'pronamic_pay_tools',
-										) )
+										add_query_arg(
+											array(
+												'page' => 'pronamic_pay_tools',
+											)
+										)
 									),
 									esc_html__( 'System Status', 'pronamic_ideal' )
 								);
@@ -79,11 +102,13 @@
 						<div class="inside">
 							<?php
 
-							$query = new WP_Query( array(
-								'post_type'      => 'pronamic_payment',
-								'post_status'    => 'payment_pending',
-								'posts_per_page' => 5,
-							) );
+							$query = new WP_Query(
+								array(
+									'post_type'      => 'pronamic_payment',
+									'post_status'    => 'payment_pending',
+									'posts_per_page' => 5,
+								)
+							);
 
 							if ( $query->have_posts() ) :
 
@@ -98,22 +123,25 @@
 												<h4>
 													<?php
 
-													$post = get_post();
+													$post_id = get_the_ID();
 
-													printf(
-														'<a href="%s">%s</a>',
-														esc_attr( get_edit_post_link( $post ) ),
-														esc_html( get_the_title( $post ) )
-													);
+													if ( false !== $post_id ) {
+														printf(
+															'<a href="%s">%s</a>',
+															esc_attr( get_edit_post_link( $post_id ) ),
+															esc_html( get_the_title( $post_id ) )
+														);
 
-													?>
-													<?php
+														?>
+														<?php
 
-													printf( '<abbr title="%s">%s</abbr>',
-														/* translators: comment date format. See http://php.net/date */
-														esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $post ) ),
-														esc_html( get_the_time( get_option( 'date_format' ), $post ) )
-													);
+														printf(
+															'<abbr title="%s">%s</abbr>',
+															/* translators: comment date format. See http://php.net/date */
+															esc_attr( get_the_time( __( 'c', 'pronamic_ideal' ), $post_id ) ),
+															esc_html( get_the_time( get_option( 'date_format' ), $post_id ) )
+														);
+													}
 
 													?>
 												</h4>
@@ -125,6 +153,10 @@
 								</div>
 
 								<?php wp_reset_postdata(); ?>
+
+							<?php else : ?>
+
+								<p><?php esc_html_e( 'No pending payments found.', 'pronamic_ideal' ); ?></p>
 
 							<?php endif; ?>
 						</div>
@@ -140,12 +172,14 @@
 						<div class="inside">
 							<?php
 
-							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
-								'link'  => __( 'http://www.pronamic.eu/', 'pronamic_ideal' ),
-								'url'   => 'http://feeds.feedburner.com/pronamic',
-								'title' => __( 'Pronamic News', 'pronamic_ideal' ),
-								'items' => 5,
-							) );
+							wp_widget_rss_output(
+								'http://feeds.feedburner.com/pronamic', array(
+									'link'  => __( 'http://www.pronamic.eu/', 'pronamic_ideal' ),
+									'url'   => 'http://feeds.feedburner.com/pronamic',
+									'title' => __( 'Pronamic News', 'pronamic_ideal' ),
+									'items' => 5,
+								)
+							);
 
 							?>
 						</div>
@@ -157,5 +191,5 @@
 		</div>
 	</div>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

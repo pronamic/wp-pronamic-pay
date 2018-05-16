@@ -1,6 +1,6 @@
 <?php
 
-$data  = file_get_contents( __DIR__ . '/../providers.json' );
+$data = file_get_contents( __DIR__ . '/../providers.json' );
 $data = json_decode( $data );
 
 $providers = array();

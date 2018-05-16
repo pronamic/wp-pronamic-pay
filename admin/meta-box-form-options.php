@@ -1,5 +1,16 @@
-<?php wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' ); ?>
+<?php
+/**
+ * Meta Box Form Options
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
+wp_nonce_field( 'pronamic_pay_save_form_options', 'pronamic_pay_nonce' );
+
+?>
 <table class="form-table">
 	<tr>
 		<th scope="row">
@@ -12,10 +23,12 @@
 
 			$config_id = get_post_meta( $post->ID, '_pronamic_payment_form_config_id', true );
 
-			Pronamic_WP_Pay_Admin::dropdown_configs( array(
-				'name'     => '_pronamic_payment_form_config_id',
-				'selected' => $config_id,
-			) );
+			\Pronamic\WordPress\Pay\Admin\AdminModule::dropdown_configs(
+				array(
+					'name'     => '_pronamic_payment_form_config_id',
+					'selected' => $config_id,
+				)
+			);
 
 			?>
 		</td>
@@ -45,9 +58,9 @@
 				$amount_method = get_post_meta( $post->ID, '_pronamic_payment_form_amount_method', true );
 
 				$options = array(
-					Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_INPUT_ONLY      => __( 'Show as input field', 'pronamic_ideal' ),
-					Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_ONLY      => __( 'Show as choices', 'pronamic_ideal' ),
-					Pronamic_WP_Pay_Admin_FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT => __( 'Show as choices with input field', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_INPUT_ONLY        => __( 'Show as input field', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_ONLY      => __( 'Show as choices', 'pronamic_ideal' ),
+					\Pronamic\WordPress\Pay\Forms\FormPostType::AMOUNT_METHOD_CHOICES_AND_INPUT => __( 'Show as choices with input field', 'pronamic_ideal' ),
 				);
 
 				foreach ( $options as $value => $name ) {
@@ -70,12 +83,12 @@
 
 			$choices = get_post_meta( $post->ID, '_pronamic_payment_form_amount_choices', true );
 
-			// Start with an empty field
+			// Start with an empty field.
 			if ( empty( $choices ) ) {
 				$choices = array( '' );
 			}
 
-			// Add empty input field
+			// Add empty input field.
 			$choices[] = '';
 
 			foreach ( $choices as $i => $amount ) {

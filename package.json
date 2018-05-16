@@ -1,6 +1,6 @@
 {
   "name": "pronamic-ideal",
-  "version": "4.7.0",
+  "version": "5.0.0",
   "description": "The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.",
   "repository": {
     "type": "git",
@@ -23,42 +23,48 @@
       "url": "http://www.remcotolsma.nl/"
     }
   ],
-  "license": "GPL-3.0",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/pronamic/wp-pronamic-ideal/issues",
     "email": "support@pronamic.nl"
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-ideal",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "accounting": "^0.4.1",
-    "flot": "^0.8.0-alpha",
-    "jquery": "^3.2.1",
-    "tippy.js": "^2.0.4"
+    "flot": "git+https://github.com/flot/flot.git#v0.8.3",
+    "jquery": "^3.3.1",
+    "tippy.js": "^2.5.2"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-autoprefixer": "^3.0.4",
+    "autoprefixer": "^8.5.0",
+    "cssnano": "^3.10.0",
+    "grunt": "^1.0.2",
     "grunt-aws-s3": "^2.0.0",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-composer": "^0.4.5",
     "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-compress": "^1.4.3",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-git": "^1.0.9",
     "grunt-phpcs": "^0.4.0",
     "grunt-phplint": "0.1.0",
     "grunt-phpunit": "^0.3.6",
+    "grunt-postcss": "^0.9.0",
     "grunt-rt-wp-deploy": "^0.1.2",
     "grunt-sass-lint": "^0.2.4",
     "grunt-shell": "^2.1.0",
     "grunt-webfont": "^1.7.1",
-    "grunt-wp-i18n": "^1.0.1",
-    "load-grunt-tasks": "^3.5.2"
+    "grunt-wp-i18n": "^1.0.2",
+    "load-grunt-tasks": "^4.0.0",
+    "postcss-eol": "0.0.8"
   },
   "private": true
 }

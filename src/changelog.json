@@ -3,7 +3,49 @@
 		"version": "Unreleased",
 		"changes": [
 			{
-				
+				"name": "Changes",
+				"changes": [
+
+				]
+			}
+		]
+	},
+	{
+		"version": "5.0.0",
+		"date": "2018-04-05",
+		"changes": [
+			{
+				"name": "Changes",
+				"changes": [
+					"Switched to PHP namespaces.",
+					{
+						"description": "Updated WordPress pay ING Kassa Compleet library to version 2.0.",
+						"changes": [
+							"Added support for Payconiq payment method.",
+							"Fixed payment redirect for bank transfer payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Gravity Forms library to version 2.0.",
+						"changes": [
+							"Set Gravity Forms add-on capabilities `gravityforms_pronamic_pay` and  `gravityforms_pronamic_pay_uninstall`."
+						]
+					},
+					{
+						"description": "Updated WordPress pay Restrict Content Pro library to version 2.0.",
+						"changes": [
+							"Add PayPal payment method.",
+							"Add Direct Debit (mandate via Sofort) payment method."
+						]
+					},
+					{
+						"description": "Updated WordPress pay WooCommerce library to version 2.0.",
+						"changes": [
+							"Add specific payment methods only if activated by configuration.",
+							"Add Direct Debit (mandate via Sofort) payment method."
+						]
+					}
+				]
 			}
 		]
 	},

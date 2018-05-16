@@ -5,44 +5,31 @@ $project_dir      = dirname( __DIR__ );
 $repositories_dir = $project_dir . '/repositories';
 
 $organisations = array(
+	'pronamic'          => array(
+		'wp-datetime',
+		'wp-money',
+	),
 	'wp-pay'            => array(
 		'core',
 	),
 	'wp-pay-gateways'   => array(
 		'common',
-		'abnamro-ideal-easy',
-		'abnamro-ideal-only-kassa',
-		'abnamro-ideal-zelfbouw-v3',
-		'abnamro-internetkassa',
 		'buckaroo',
-		'deutschebank-ideal-expert-v3',
-		'deutschebank-ideal-via-ogone',
-		'easy-ideal',
 		'ems-e-commerce',
-		'fibonacciorange',
 		'icepay',
 		'ideal',
 		'ideal-advanced-v3',
 		'ideal-basic',
-		'ideal-simulator-ideal-advanced-v3',
-		'ideal-simulator-ideal-basic',
-		'ing-ideal-advanced-v3',
-		'ing-ideal-basic',
 		'ing-kassa-compleet',
 		'mollie',
 		'mollie-ideal',
-		'mollie-ideal-basic',
 		'multisafepay',
+		'nocks',
 		'ogone',
 		'omnikassa',
 		'omnikassa-2',
 		'pay-nl',
-		'paytor',
-		'postcode-ideal',
-		'qantani-mollie',
-		'rabobank-ideal-professional-v3',
 		'sisow',
-		'sisow-ideal-basic',
 		'targetpay',
 	),
 	'wp-pay-extensions' => array(
@@ -83,7 +70,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 
 		if ( ! is_dir( $git_dir ) ) {
 			`git clone $git_url $git_dir`;
-		} 
+		}
 
 		// Git flow
 		chdir( $git_dir );
@@ -100,21 +87,14 @@ foreach ( $organisations as $organisation => $repositories ) {
 			echo shell_exec( $command ), PHP_EOL;
 		}
 
-		chdir( $working_dir );
+		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ) ) ) {
+			$command = sprintf( '%s %s', $argv[1], $argv[2] );
+		}
 
-		$target = $project_dir . '/repositories/' . $organisation . '/' . $repository;
-		$link   = $project_dir . '/vendor/' . $organisation . '/' . $repository;
+		if ( null !== $command ) {
+			echo $command, PHP_EOL;
 
-		$command = sprintf( 'rm -rf %s', escapeshellarg( $link ) );
-
-		echo $command, PHP_EOL;
-
-		echo shell_exec( $command ), PHP_EOL;
-
-		$command = sprintf( 'ln -s %s %s', escapeshellarg( $target ), escapeshellarg( $link ) );
-
-		echo $command, PHP_EOL;
-
-		echo shell_exec( $command ), PHP_EOL;
+			echo shell_exec( $command ), PHP_EOL;
+		}
 	}
 }

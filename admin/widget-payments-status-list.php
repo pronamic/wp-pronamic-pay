@@ -1,3 +1,14 @@
+<?php
+/**
+ * Widget Payment Status List
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <div class="pronamic-pay-status-widget">
 	<ul class="pronamic-pay-status-list">
 
@@ -9,7 +20,7 @@
 
 					$count = isset( $counts->$status ) ? $counts->$status : 0;
 
-					printf( //xss ok
+					printf( // WPCS: XSS ok.
 						$label,
 						'<strong>' . sprintf(
 							esc_html( _n( '%s payment', '%s payments', $count, 'pronamic_ideal' ) ),

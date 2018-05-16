@@ -1,6 +1,18 @@
 <?php
+/**
+ * Meta Box Subscription Payments
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 $post_id = get_the_ID();
+
+if ( empty( $post_id ) ) {
+	return;
+}
 
 $post_type = get_post_type( $post_id );
 
@@ -20,12 +32,14 @@ $payments = $subscription->get_payments();
 		<thead>
 			<tr>
 				<th scope="col">
-					<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-status" data-tip="<?php esc_attr_e( 'Status', 'pronamic_ideal' ); ?>"><?php esc_html_e( 'Status', 'pronamic_ideal' ); ?></span>
+					<span class="pronamic-pay-tip pronamic-pay-icon pronamic-pay-status" title="<?php esc_attr_e( 'Status', 'pronamic_ideal' ); ?>"><?php esc_html_e( 'Status', 'pronamic_ideal' ); ?></span>
 				</th>
 				<th scope="col"><?php esc_html_e( 'Payment', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Transaction', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?></th>
 				<th scope="col"><?php esc_html_e( 'Date', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Start Date', 'pronamic_ideal' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?></th>
 			</tr>
 		</thead>
 
@@ -55,6 +69,12 @@ $payments = $subscription->get_payments();
 					</td>
 					<td>
 						<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_date', $payment_id ); ?>
+					</td>
+					<td>
+						<?php echo empty( $payment->start_date ) ? '—' : esc_html( $payment->start_date->format_i18n() ); ?>
+					</td>
+					<td>
+						<?php echo empty( $payment->end_date ) ? '—' : esc_html( $payment->end_date->format_i18n() ); ?>
 					</td>
 				</tr>
 

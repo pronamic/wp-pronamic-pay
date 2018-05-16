@@ -1,3 +1,14 @@
+<?php
+/**
+ * Pronamic
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <h2><?php esc_html_e( 'Follow Pronamic', 'pronamic_ideal' ); ?></h2>
 
 <div style="margin: 1em 0;">

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Uninstall
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
@@ -10,97 +18,90 @@ if ( '1' !== get_option( 'pronamic_pay_uninstall_clear_data', false ) ) {
 	return;
 }
 
-//////////////////////////////////////////////////
-// Delete tables
-//////////////////////////////////////////////////
-
+// Delete tables.
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_ideal_configurations" );
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}pronamic_ideal_payments" );
 $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}rg_ideal_feeds" );
 
-//////////////////////////////////////////////////
-// Delete posts
-//////////////////////////////////////////////////
-
+// Delete posts.
 $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_gateway';" );
 $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_payment';" );
 $wpdb->query( "DELETE FROM wp_posts WHERE post_type = 'pronamic_pay_gf';" );
 
 $wpdb->query( 'DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );' );
 
-//////////////////////////////////////////////////
-// Delete general options
-//////////////////////////////////////////////////
-
+// Delete general options.
 delete_option( 'pronamic_pay_version' );
 delete_option( 'pronamic_pay_db_version' );
 
-//////////////////////////////////////////////////
-// Delete extension options
-//////////////////////////////////////////////////
+/**
+ * Delete extension options.
+ */
 
-// Event Espresso
+// Event Espresso.
 delete_option( 'pronamic_pay_ideal_event_espreso_config_id' );
 
-// Gravity Forms
-// There are options for Gravity Forms
+// Gravity Forms.
+// There are options for Gravity Forms.
+delete_option( '' );
 
-// Jigoshop
-// Set default Jigoshop variables, load them form the WordPress options
+// Jigoshop.
+// Set default Jigoshop variables, load them form the WordPress options.
 delete_option( 'pronamic_pay_ideal_jigoshop_enabled' );
 delete_option( 'pronamic_pay_ideal_jigoshop_title' );
 delete_option( 'pronamic_pay_ideal_jigoshop_description' );
 delete_option( 'pronamic_pay_ideal_jigoshop_config_id' );
 
-// Membership
+// Membership.
 delete_option( 'pronamic_pay_ideal_membership_config_id' );
 
-// s2Member®
+// s2Member®.
 delete_option( 'pronamic_pay_ideal_s2member_config_id' );
 
-// Shopp
-// Shopp options are stored in the Shopp meta table, we don't touch this
+// Shopp.
+// Shopp options are stored in the Shopp meta table, we don't touch this.
+delete_option( '' );
 
-// WooCommerce
+// WooCommerce.
 delete_option( 'woocommerce_pronamic_pay_ideal_settings' );
 
-// WP e-Commerce
+// WP e-Commerce.
 delete_option( 'pronamic_pay_ideal_wpsc_config_id' );
 
-// ClassiPress
+// ClassiPress.
 delete_option( '' );
 
-// JobRoller
+// JobRoller.
 delete_option( '' );
 
-//////////////////////////////////////////////////
-// Delete legacy options
-//////////////////////////////////////////////////
+/**
+ * Delete legacy options.
+ */
 
-// General
+// General.
 delete_option( 'pronamic_ideal_version' );
 delete_option( 'pronamic_ideal_key' );
 delete_option( 'gf_ideal_version' );
 
-// Event Espresso
+// Event Espresso.
 delete_option( 'pronamic_ideal_event_espresso_configuration_id' );
 
-// Jigoshop
+// Jigoshop.
 delete_option( 'jigoshop_pronamic_ideal_enabled' );
 delete_option( 'jigoshop_pronamic_ideal_title' );
 delete_option( 'jigoshop_pronamic_ideal_description' );
 delete_option( 'jigoshop_pronamic_ideal_configuration_id' );
 
-// Membership
+// Membership.
 delete_option( 'pronamic_ideal_membership_enabled' );
 delete_option( 'pronamic_ideal_membership_chosen_configuration' );
 
-// s2Member®
+// s2Member®.
 delete_option( 'pronamic_ideal_s2member_enabled' );
 delete_option( 'pronamic_ideal_s2member_chosen_configuration' );
 
-// WooCommerce
+// WooCommerce.
 delete_option( 'woocommerce_pronamic_ideal_settings' );
 
-// WP e-Commerce
+// WP e-Commerce.
 delete_option( 'pronamic_ideal_wpsc_configuration_id' );

@@ -1,4 +1,14 @@
 <?php
+/**
+ * Meta Box Gateway Config
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+use Pronamic\WordPress\Pay\Util;
 
 $sections = $this->admin->gateway_settings->get_sections();
 $fields   = $this->admin->gateway_settings->get_fields();
@@ -15,7 +25,7 @@ foreach ( $fields as $id => $field ) {
 	$sections_fields[ $section ][ $id ] = $field;
 }
 
-// Sections
+// Sections.
 $variant_id = get_post_meta( get_the_ID(), '_pronamic_gateway_id', true );
 
 $options = array();
@@ -44,11 +54,11 @@ bind_providers_and_gateways();
 							printf( '<optgroup label="%s">', esc_attr( $provider['name'] ) );
 
 							foreach ( $provider['integrations'] as $integration ) {
-								$id      = $integration->get_id();
-								$name    = $integration->get_name();
-								$classes = array();
+								$id          = $integration->get_id();
+								$name        = $integration->get_name();
+								$classes     = array();
 								$description = '';
-								$links   = array();
+								$links       = array();
 
 								if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 									$classes[] = 'deprecated';
@@ -60,11 +70,12 @@ bind_providers_and_gateways();
 									}
 								}
 
-								// Dashboard links
+								// Dashboard links.
 								$dashboards = $integration->get_dashboard_url();
 
 								if ( 1 === count( $dashboards ) ) {
-									$links[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+									$links[] = sprintf(
+										'<a href="%s" title="%s">%2$s</a>',
 										esc_attr( $dashboards[0] ),
 										__( 'Dashboard', 'pronamic_ideal' )
 									);
@@ -72,21 +83,24 @@ bind_providers_and_gateways();
 									$dashboard_urls = array();
 
 									foreach ( $dashboards as $dashboard_name => $dashboard_url ) {
-										$dashboard_urls[] = sprintf( '<a href="%s" title="%s">%2$s</a>',
+										$dashboard_urls[] = sprintf(
+											'<a href="%s" title="%s">%2$s</a>',
 											esc_attr( $dashboard_url ),
 											esc_html( ucfirst( $dashboard_name ) )
 										);
 									}
 
-									$links[] = sprintf( '%s: %s',
+									$links[] = sprintf(
+										'%s: %s',
 										__( 'Dashboards', 'pronamic_ideal' ),
 										strtolower( implode( ', ', $dashboard_urls ) )
 									);
 								}
 
-								// Product link
+								// Product link.
 								if ( $integration->get_product_url() ) {
-									$links[] = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+									$links[] = sprintf(
+										'<a href="%s" target="_blank" title="%s">%2$s</a>',
 										$integration->get_product_url(),
 										__( 'Product information', 'pronamic_ideal' )
 									);
@@ -195,7 +209,7 @@ bind_providers_and_gateways();
 
 							<?php if ( 'html' !== $field['type'] ) { ?>
 
-							<th scope="col">
+							<th scope="row">
 								<label for="<?php echo esc_attr( $id ); ?>">
 									<?php echo esc_html( $field['title'] ); ?>
 								</label>
@@ -217,7 +231,7 @@ bind_providers_and_gateways();
 							<td <?php if ( 'html' === $field['type'] ) : ?>colspan="2"<?php endif; ?>>
 								<?php
 
-								$attributes = array();
+								$attributes         = array();
 								$attributes['id']   = $id;
 								$attributes['name'] = $id;
 
@@ -257,30 +271,34 @@ bind_providers_and_gateways();
 									$value = $field['value'];
 								}
 
-								// Set default
+								// Set default.
 								if ( empty( $value ) && isset( $field['default'] ) ) {
 									$value = $field['default'];
 								}
 
 								switch ( $field['type'] ) {
-									case 'text' :
-									case 'password' :
+									case 'text':
+									case 'password':
 										$attributes['type']  = $field['type'];
 										$attributes['value'] = $value;
 
 										printf(
 											'<input %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreStart
+											Util::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;
-									case 'checkbox' :
+									case 'checkbox':
 										$attributes['type']  = $field['type'];
 										$attributes['value'] = '1';
 
 										printf(
 											'<input %s %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreStart
+											Util::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreEnd
 											checked( $value, true, false )
 										);
 
@@ -293,35 +311,41 @@ bind_providers_and_gateways();
 										);
 
 										break;
-									case 'textarea' :
+									case 'textarea':
 										$attributes['rows'] = 4;
 										$attributes['cols'] = 65;
 
 										printf(
 											'<textarea %s />%s</textarea>',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreStart
+											Util::array_to_html_attributes( $attributes ),
+											// @codingStandardsIgnoreEnd
 											esc_textarea( $value )
 										);
 
 										break;
-									case 'file' :
-										$attributes['type']  = 'file';
+									case 'file':
+										$attributes['type'] = 'file';
 
 										printf(
 											'<input %s />',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreStart
+											Util::array_to_html_attributes( $attributes )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;
-									case 'select' :
+									case 'select':
 										printf(
 											'<select %s>%s</select>',
-											Pronamic_WP_HTML_Helper::array_to_html_attributes( $attributes ),
-											Pronamic_WP_HTML_Helper::select_options_grouped( $field['options'], $value )
+											// @codingStandardsIgnoreStart
+											Util::array_to_html_attributes( $attributes ),
+											Util::select_options_grouped( $field['options'], $value )
+											// @codingStandardsIgnoreEnd
 										);
 
 										break;
-									case 'optgroup' :
+									case 'optgroup':
 										printf( '<fieldset>' );
 										printf( '<legend class="screen-reader-text">%s</legend>', esc_html( $field['title'] ) );
 
@@ -349,11 +373,11 @@ bind_providers_and_gateways();
 										);
 									}
 
-									echo $field['html']; //xss ok
+									echo $field['html']; // WPCS: XSS ok.
 								}
 
 								if ( isset( $field['description'] ) ) {
-									printf( //xss ok
+									printf( // WPCS: XSS ok.
 										'<p class="pronamic-pay-description description">%s</p>',
 										$field['description']
 									);

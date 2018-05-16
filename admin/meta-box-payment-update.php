@@ -1,11 +1,29 @@
 <?php
+/**
+ * Meta Box Payment Update
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
-$states = Pronamic_WP_Pay_Plugin::get_payment_states();
+use Pronamic\WordPress\Pay\Plugin;
+use Pronamic\WordPress\Pay\Payments\PaymentPostType;
+
+$states = PaymentPostType::get_payment_states();
+
+// WordPress by default doesn't allow `post_author` values of `0`, that's why we use a dash (`-`).
+// @see https://github.com/WordPress/WordPress/blob/4.9.5/wp-admin/includes/post.php#L56-L64.
+$post_author = get_post_field( 'post_author' );
+$post_author = empty( $post_author ) ? '-' : $post_author;
 
 ?>
+<input type="hidden" name="post_author_override" value="<?php echo esc_attr( $post_author ); ?>" />
+
 <div class="pronamic-pay-inner">
 	<p>
-		<label for="pronamic-payment-status">Status:</span>&nbsp;</label>
+		<label for="pronamic-payment-status">Status:&nbsp;</label>
 		<select id="pronamic-payment-status" name="post_status" class="medium-text">
 			<?php
 
@@ -29,17 +47,18 @@ $states = Pronamic_WP_Pay_Plugin::get_payment_states();
 	 */
 	$config_id = get_post_meta( $post->ID, '_pronamic_payment_config_id', true );
 
-	$gateway = Pronamic_WP_Pay_Plugin::get_gateway( $config_id );
+	$gateway = Plugin::get_gateway( $config_id );
 
 	if ( $gateway && $gateway->supports( 'payment_status_request' ) ) {
 		// Only show button if gateway exists and status check is supported.
-
 		$check_status_nonce_url = wp_nonce_url(
-			add_query_arg( array(
-				'post'                      => $post->ID,
-				'action'                    => 'edit',
-				'pronamic_pay_check_status' => true,
-			), admin_url( 'post.php' ) ),
+			add_query_arg(
+				array(
+					'post'                      => $post->ID,
+					'action'                    => 'edit',
+					'pronamic_pay_check_status' => true,
+				), admin_url( 'post.php' )
+			),
 			'pronamic_payment_check_status_' . $post->ID
 		);
 

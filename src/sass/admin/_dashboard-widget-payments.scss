@@ -14,9 +14,9 @@
 	overflow: hidden;
 
 	li {
-		@include box-sizing(border-box);
-
 		border-top: 1px solid $wp-postbox-handle-border-color;
+
+		box-sizing: border-box;
 
 		color: $gray;
 

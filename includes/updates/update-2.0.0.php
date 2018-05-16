@@ -1,4 +1,12 @@
 <?php
+/**
+ * Update 2.0.0
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 /**
  * Execute changes made in Pronamic Pay 2.0.0
@@ -46,9 +54,9 @@ DELETE FROM wp_postmeta WHERE post_id NOT IN ( SELECT ID FROM wp_posts );
 
 */
 
-//////////////////////////////////////////////////
-// Configs
-//////////////////////////////////////////////////
+/**
+ * Configs
+ */
 
 global $pronamic_ideal;
 
@@ -94,17 +102,11 @@ while ( $have_configs ) {
 	foreach ( $configs as $config ) {
 		$title = sprintf( __( 'Configuration %d', 'pronamic_ideal' ), $config->id );
 
-		$integration = $pronamic_ideal->get_integration( $config->variant_id );
-
-		if ( $integration ) {
-			$title = $integration->get_name();
-		}
-
 		// Post
 		$post = array(
-			'post_title'    => $title,
-			'post_type'     => 'pronamic_gateway',
-			'post_status'   => 'publish',
+			'post_title'  => $title,
+			'post_type'   => 'pronamic_gateway',
+			'post_status' => 'publish',
 		);
 
 		$post_id = wp_insert_post( $post );
@@ -160,23 +162,23 @@ while ( $have_configs ) {
 			}
 
 			// Buckaroo
-			$meta['buckaroo_website_key']    = @$config_meta->buckarooWebsiteKey;
-			$meta['buckaroo_secret_key']     = @$config_meta->buckarooSecretKey;
+			$meta['buckaroo_website_key'] = @$config_meta->buckarooWebsiteKey;
+			$meta['buckaroo_secret_key']  = @$config_meta->buckarooSecretKey;
 
 			// Icepay
-			$meta['icepay_merchant_id']      = @$config_meta->icepayMerchantId;
-			$meta['icepay_secret_code']      = @$config_meta->icepaySecretCode;
+			$meta['icepay_merchant_id'] = @$config_meta->icepayMerchantId;
+			$meta['icepay_secret_code'] = @$config_meta->icepaySecretCode;
 
 			// Mollie
-			$meta['mollie_partner_id']       = @$config_meta->molliePartnerId;
-			$meta['mollie_profile_key']      = @$config_meta->mollieProfileKey;
+			$meta['mollie_partner_id']  = @$config_meta->molliePartnerId;
+			$meta['mollie_profile_key'] = @$config_meta->mollieProfileKey;
 
 			// Sisow
-			$meta['sisow_merchant_id']       = @$config_meta->sisowMerchantId;
-			$meta['sisow_merchant_key']      = @$config_meta->sisowMerchantKey;
+			$meta['sisow_merchant_id']  = @$config_meta->sisowMerchantId;
+			$meta['sisow_merchant_key'] = @$config_meta->sisowMerchantKey;
 
 			// TargetPay
-			$meta['targetpay_layout_code']   = @$config_meta->targetPayLayoutCode;
+			$meta['targetpay_layout_code'] = @$config_meta->targetPayLayoutCode;
 
 			// Qantani
 			$meta['qantani_merchant_id']     = @$config_meta->qantani_merchant_id;
@@ -191,13 +193,13 @@ while ( $have_configs ) {
 			$meta['ogone_password']            = @$config_meta->ogone_password;
 
 			// Other
-			$meta['country']                 = @$config_meta->country;
-			$meta['state_or_province']       = @$config_meta->stateOrProvince;
-			$meta['locality']                = @$config_meta->locality;
-			$meta['organization']            = @$config_meta->organization;
-			$meta['organization_unit']       = @$config_meta->organizationUnit;
-			$meta['common_name']             = @$config_meta->commonName;
-			$meta['email']                   = @$config_meta->eMailAddress;
+			$meta['country']           = @$config_meta->country;
+			$meta['state_or_province'] = @$config_meta->stateOrProvince;
+			$meta['locality']          = @$config_meta->locality;
+			$meta['organization']      = @$config_meta->organization;
+			$meta['organization_unit'] = @$config_meta->organizationUnit;
+			$meta['common_name']       = @$config_meta->commonName;
+			$meta['email']             = @$config_meta->eMailAddress;
 
 			foreach ( $meta as $key => $value ) {
 				if ( ! empty( $value ) ) {
@@ -210,10 +212,9 @@ while ( $have_configs ) {
 	}
 }
 
-//////////////////////////////////////////////////
-// Config IDs map
-//////////////////////////////////////////////////
-
+/**
+ * Config IDs map
+ */
 $query = "
 	SELECT
 		id,
@@ -231,10 +232,9 @@ foreach ( $config_ids as $config_id ) {
 	$config_ids_map[ $config_id->id ] = $config_id->post_id;
 }
 
-//////////////////////////////////////////////////
-// Gravity Forms payment feeds
-//////////////////////////////////////////////////
-
+/**
+ * Gravity Forms payment feeds
+ */
 $feeds_table = $wpdb->prefix . 'rg_ideal_feeds';
 
 $sql = "CREATE TABLE $feeds_table (
@@ -274,9 +274,9 @@ while ( $have_feeds ) {
 	foreach ( $feeds as $feed ) {
 		// Post
 		$post = array(
-			'post_title'    => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
-			'post_type'     => 'pronamic_pay_gf',
-			'post_status'   => 'publish',
+			'post_title'  => sprintf( __( 'Payment Form %d', 'pronamic_ideal' ), $feed->id ),
+			'post_type'   => 'pronamic_pay_gf',
+			'post_status' => 'publish',
 		);
 
 		$post_id = wp_insert_post( $post );
@@ -335,10 +335,9 @@ while ( $have_feeds ) {
 	}
 }
 
-//////////////////////////////////////////////////
-// Payments
-//////////////////////////////////////////////////
-
+/**
+ * Payments.
+ */
 $payments_table = $wpdb->prefix . 'pronamic_ideal_payments';
 
 $sql = "CREATE TABLE $payments_table (
@@ -369,10 +368,7 @@ $sql = "CREATE TABLE $payments_table (
 
 dbDelta( $sql );
 
-// Query
-
-// We convert the payments in groups of 100 so not everything will load
-// in memory at once
+// We convert the payments in groups of 100 so not everything will load in memory at once.
 $query = "
 	SELECT
 		*

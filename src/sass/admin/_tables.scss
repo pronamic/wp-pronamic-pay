@@ -11,6 +11,16 @@
 			color: $gray;
 		}
 	}
+
+	td {
+		p {
+			margin: 0 0 1em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 // Table in postbox
@@ -35,6 +45,20 @@
 .form-table {
 	.even {
 		background: $wp-striped-table-background-color;
+	}
+}
+
+#pronamic_payment {
+	.form-table {
+		td {
+			a {
+				display: inline-block;
+				overflow: hidden;
+				width: 350px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
 	}
 }
 

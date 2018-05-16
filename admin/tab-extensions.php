@@ -1,4 +1,14 @@
-<h2><?php esc_html_e( 'Supported extensions', 'pronamic_ideal' ); ?></h2>
+<?php
+/**
+ * Tab Extensions
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?><h2><?php esc_html_e( 'Supported extensions', 'pronamic_ideal' ); ?></h2>
 
 <?php
 
@@ -7,7 +17,7 @@ $extensions = json_decode( $data );
 
 ?>
 
-<table class="wp-list-table widefat">
+<table class="wp-list-table widefat striped">
 	<thead>
 		<tr>
 			<th scope="col">
@@ -27,17 +37,9 @@ $extensions = json_decode( $data );
 
 	<tbody>
 
-		<?php
+		<?php foreach ( $extensions as $extension ) : ?>
 
-		$alternate = false;
-
-		foreach ( $extensions as $extension ) :
-
-		?>
-
-			<?php $alternate = ! $alternate; ?>
-
-			<tr<?php if ( $alternate ) : ?> class="alternate"<?php endif; ?>>
+			<tr>
 				<td>
 					<a href="<?php echo esc_attr( $extension->url ); ?>" target="_blank">
 						<?php echo esc_html( $extension->name ); ?>

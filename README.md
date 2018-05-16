@@ -4,9 +4,16 @@
 [![WordPress](https://img.shields.io/wordpress/plugin/dt/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
 [![WordPress rating](https://img.shields.io/wordpress/plugin/r/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
 [![WordPress](https://img.shields.io/wordpress/v/pronamic-ideal.svg)](https://www.pronamic.eu/plugins/pronamic-ideal/)
+[![WP compatibility](https://plugintests.com/plugins/pronamic-ideal/wp-badge.svg)](https://plugintests.com/plugins/pronamic-ideal/latest-report)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/wp-pay/core.svg)]()
 [![Build Status](https://travis-ci.org/pronamic/wp-pronamic-ideal.svg?branch=develop)](https://travis-ci.org/pronamic/wp-pronamic-ideal)
+[![Coverage Status](https://coveralls.io/repos/github/pronamic/wp-pronamic-ideal/badge.svg?branch=develop)](https://coveralls.io/github/pronamic/wp-pronamic-ideal?branch=develop)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/?branch=develop)
+[![Code Coverage](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/?branch=develop)
+[![Build Status](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/build-status/develop)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
+[![codecov](https://codecov.io/gh/pronamic/wp-pronamic-ideal/branch/develop/graph/badge.svg)](https://codecov.io/gh/pronamic/wp-pronamic-ideal)
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -15,32 +22,33 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 
 | Provider | Name |
 | -------- | ---- |
-| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Easy |
-| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Only Kassa |
-| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - v3 |
-| [ABN AMRO](http://abnamro.nl/) | ABN AMRO - Internetkassa |
-| [Buckaroo](http://www.buckaroo.nl/) | Buckaroo - HTML |
-| [Deutsche Bank](http://deutschebank.nl/) | Deutsche Bank - iDEAL via Ogone |
-| [Deutsche Bank](http://deutschebank.nl/) | Deutsche Bank - iDEAL Expert - v3 |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Easy |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Only Kassa |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - iDEAL Zelfbouw - v3 |
+| [ABN AMRO](https://www.abnamro.nl/) | ABN AMRO - Internetkassa |
+| [Buckaroo](https://www.buckaroo.nl/) | Buckaroo - HTML |
+| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL via Ogone |
+| [Deutsche Bank](https://deutschebank.nl/) | Deutsche Bank - iDEAL Expert - v3 |
 | [Easy iDeal](http://www.easy-ideal.com/) | Easy iDeal - iDEAL |
-| [European Merchant Services](http://www.emscard.nl/) | EMS - e-Commerce |
+| [European Merchant Services](https://emspay.nl/) | EMS - e-Commerce |
 | [Fibonacci ORANGE](http://www.fibonacciorange.nl/) | Fibonacci ORANGE |
-| [ICEPAY](http://www.icepay.nl/) | ICEPAY |
-| [iDEAL Simulator](http://ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3 |
-| [ING](http://ing.nl/) | ING - iDEAL Basic |
-| [ING](http://ing.nl/) | ING - iDEAL Advanced - v3 |
-| [ING](http://ing.nl/) | ING - Kassa Compleet |
-| [Mollie](http://www.mollie.nl/) | Mollie |
-| [MultiSafepay](http://www.multisafepay.com/) | MultiSafepay - Connect |
-| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - Easy |
-| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
-| [Ingenico/Ogone](http://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
+| [ICEPAY](https://icepay.nl/) | ICEPAY |
+| [iDEAL Simulator](https://www.ideal-simulator.nl/) | iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3 |
+| [ING](https://www.ing.nl/) | ING - iDEAL Basic |
+| [ING](https://www.ing.nl/) | ING - iDEAL Advanced - v3 |
+| [ING](https://www.ing.nl/) | ING - Kassa Compleet |
+| [Mollie](https://www.mollie.nl/) | Mollie |
+| [MultiSafepay](https://www.multisafepay.com/) | MultiSafepay - Connect |
+| [Nocks](https://www.nocks.com/) | Nocks |
+| [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - Easy |
+| [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - DirectLink |
+| [Ingenico/Ogone](https://payment-services.ingenico.com/) | Ingenico/Ogone - OrderStandard |
 | [Pay.nl](https://www.pay.nl/) | Pay.nl |
 | [Paytor](http://www.paytor.com/) | Paytor |
 | [Postcode.nl](https://www.postcode.nl/) | Postcode iDEAL |
-| [Rabobank](http://rabobank.nl/) | Rabobank - OmniKassa |
-| [Rabobank](http://rabobank.nl/) | Rabobank - iDEAL Professional - v3 |
-| [Sisow](http://sisow.nl/) | Sisow |
+| [Rabobank](https://www.rabobank.nl/) | Rabobank - OmniKassa |
+| [Rabobank](https://www.rabobank.nl/) | Rabobank - iDEAL Professional - v3 |
+| [Sisow](https://www.sisow.nl/) | Sisow |
 | [TargetPay](https://www.targetpay.com/) | TargetPay - iDEAL |
 | [Qantani](https://www.qantani.com/) | Qantani (new platform) |
 
@@ -110,13 +118,5 @@ results in OmniKassa data that no longer matches the signature.
 
 ## Links
 
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
-*	[Online styleguide van iDEAL](http://huisstijl.idealdesk.com/) 
-*	[iDEAL Professional - SSL Certificaten](http://www.ideal-simulator.nl/ideal-professional-ssl-certificaten.html)
-*	[Node.js wrapper for Ogone DirectLink](https://github.com/mlegenhausen/node-ogone-directlink)
-*	[Markdown's Syntax Documentation][markdown syntax]
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-		"Markdown is what the parser uses to process much of the readme file"
-
+*	[Pronamic](https://www.pronamic.eu/)
+*	[Remco Tolsma](https://www.remcotolsma.nl/)

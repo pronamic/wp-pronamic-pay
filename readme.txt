@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: ideal, bank, payment, gravity forms, forms, payment, woocommerce, recurring-payments, shopp, rabobank, friesland bank, ing, mollie, omnikassa, wpsc, wpecommerce, commerce, e-commerce, cart
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source=wp-plugin-readme-txt
 Requires at least: 4.7
-Tested up to: 4.9
+Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: 4.7.0
+Stable tag: 5.0.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -169,35 +169,37 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 
 = Support payment providers =
 
-*	[ABN AMRO](http://abnamro.nl/)
+*	[ABN AMRO](https://www.abnamro.nl/)
 	*	ABN AMRO - iDEAL Easy
 	*	ABN AMRO - iDEAL Only Kassa
 	*	ABN AMRO - iDEAL Zelfbouw - v3
 	*	ABN AMRO - Internetkassa
-*	[Buckaroo](http://www.buckaroo.nl/)
+*	[Buckaroo](https://www.buckaroo.nl/)
 	*	Buckaroo - HTML
-*	[Deutsche Bank](http://deutschebank.nl/)
+*	[Deutsche Bank](https://deutschebank.nl/)
 	*	Deutsche Bank - iDEAL via Ogone
 	*	Deutsche Bank - iDEAL Expert - v3
 *	[Easy iDeal](http://www.easy-ideal.com/)
 	*	Easy iDeal - iDEAL
-*	[European Merchant Services](http://www.emscard.nl/)
+*	[European Merchant Services](https://emspay.nl/)
 	*	EMS - e-Commerce
 *	[Fibonacci ORANGE](http://www.fibonacciorange.nl/)
 	*	Fibonacci ORANGE
-*	[ICEPAY](http://www.icepay.nl/)
+*	[ICEPAY](https://icepay.nl/)
 	*	ICEPAY
-*	[iDEAL Simulator](http://ideal-simulator.nl/)
+*	[iDEAL Simulator](https://www.ideal-simulator.nl/)
 	*	iDEAL Simulator - iDEAL Professional / Advanced / Zelfbouw - v3
-*	[ING](http://ing.nl/)
+*	[ING](https://www.ing.nl/)
 	*	ING - iDEAL Basic
 	*	ING - iDEAL Advanced - v3
 	*	ING - Kassa Compleet
-*	[Mollie](http://www.mollie.nl/)
+*	[Mollie](https://www.mollie.nl/)
 	*	Mollie
-*	[MultiSafepay](http://www.multisafepay.com/)
+*	[MultiSafepay](https://www.multisafepay.com/)
 	*	MultiSafepay - Connect
-*	[Ingenico/Ogone](http://payment-services.ingenico.com/)
+*	[Nocks](https://www.nocks.com/)
+	*	Nocks
+*	[Ingenico/Ogone](https://payment-services.ingenico.com/)
 	*	Ingenico/Ogone - Easy
 	*	Ingenico/Ogone - DirectLink
 	*	Ingenico/Ogone - OrderStandard
@@ -207,10 +209,10 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	Paytor
 *	[Postcode.nl](https://www.postcode.nl/)
 	*	Postcode iDEAL
-*	[Rabobank](http://rabobank.nl/)
+*	[Rabobank](https://www.rabobank.nl/)
 	*	Rabobank - OmniKassa
 	*	Rabobank - iDEAL Professional - v3
-*	[Sisow](http://sisow.nl/)
+*	[Sisow](https://www.sisow.nl/)
 	*	Sisow
 *	[TargetPay](https://www.targetpay.com/)
 	*	TargetPay - iDEAL
@@ -278,6 +280,20 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.0.0 - 2018-04-05 =
+*	Switched to PHP namespaces.
+*	Updated WordPress pay ING Kassa Compleet library to version 2.0.
+	*	Added support for Payconiq payment method.
+	*	Fixed payment redirect for bank transfer payment method.
+*	Updated WordPress pay Gravity Forms library to version 2.0.
+	*	Set Gravity Forms add-on capabilities `gravityforms_pronamic_pay` and  `gravityforms_pronamic_pay_uninstall`.
+*	Updated WordPress pay Restrict Content Pro library to version 2.0.
+	*	Add PayPal payment method.
+	*	Add Direct Debit (mandate via Sofort) payment method.
+*	Updated WordPress pay WooCommerce library to version 2.0.
+	*	Add specific payment methods only if activated by configuration.
+	*	Add Direct Debit (mandate via Sofort) payment method.
 
 = 4.7.0 - 2017-12-12 =
 *	Added WordPress pay OmniKassa 2.0 library version 1.0.0.
@@ -1855,13 +1871,5 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Links ==
 
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
-*	[Online styleguide van iDEAL](http://huisstijl.idealdesk.com/) 
-*	[iDEAL Professional - SSL Certificaten](http://www.ideal-simulator.nl/ideal-professional-ssl-certificaten.html)
-*	[Node.js wrapper for Ogone DirectLink](https://github.com/mlegenhausen/node-ogone-directlink)
-*	[Markdown's Syntax Documentation][markdown syntax]
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-		"Markdown is what the parser uses to process much of the readme file"
-
+*	[Pronamic](https://www.pronamic.eu/)
+*	[Remco Tolsma](https://www.remcotolsma.nl/)

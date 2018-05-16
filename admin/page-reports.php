@@ -1,5 +1,21 @@
+<?php
+/**
+ * Page Reports
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+use Pronamic\WordPress\Money\Money;
+use Pronamic\WordPress\Pay\Util;
+
+?>
 <div class="wrap">
-	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<hr class="wp-header-end">
 
 	<div id="poststuff">
 		<div class="postbox">
@@ -19,7 +35,9 @@
 								echo '<strong>';
 
 								if ( isset( $serie->tooltipFormatter ) && 'money' === $serie->tooltipFormatter ) {
-									echo esc_html( Pronamic_WP_Util::format_price( $serie->legendValue ) );
+									$money = new Money( $serie->legendValue, 'EUR' );
+
+									echo esc_html( $money->format_i18n() );
 								} else {
 									echo esc_html( $serie->legendValue );
 								}
@@ -41,5 +59,5 @@
 		</div>
 	</div>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

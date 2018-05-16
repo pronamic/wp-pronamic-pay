@@ -1,3 +1,14 @@
+<?php
+/**
+ * Tab Gateways
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+?>
 <h2><?php esc_html_e( 'Supported Payment Gateways', 'pronamic_ideal' ); ?></h2>
 
 <?php
@@ -29,11 +40,11 @@ bind_providers_and_gateways();
 			if ( isset( $provider['integrations'] ) && is_array( $provider['integrations'] ) ) :
 
 				foreach ( $provider['integrations'] as $integration ) :
-					$name    = $integration->get_name();
+					$name = $integration->get_name();
 
 					$name = explode( ' - ', $name );
 
-					// Provider
+					// Provider.
 					if ( count( $name ) > 1 ) :
 						$provider = array_shift( $name );
 					else :
@@ -46,27 +57,29 @@ bind_providers_and_gateways();
 						$provider = '';
 					else :
 						$current_provider = $integration->provider;
+
 						$alternate = ! $alternate;
 					endif;
 
 					$name = implode( '', $name );
 
-					// Deprecated notice
+					// Deprecated notice.
 					if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 						$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 					}
 
-					// Product link
+					// Product link.
 					$site = '';
 
 					if ( $integration->get_product_url() ) {
-						$site = sprintf( '<a href="%s" target="_blank" title="%s">%2$s</a>',
+						$site = sprintf(
+							'<a href="%s" target="_blank" title="%s">%2$s</a>',
 							$integration->get_product_url(),
 							__( 'Site', 'pronamic_ideal' )
 						);
 					}
 
-					printf( //xss ok
+					printf( // WPCS: XSS ok.
 						'<tr%s>
 							<td>%s</td>
 							<td>%s</td>

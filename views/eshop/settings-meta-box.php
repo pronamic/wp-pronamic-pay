@@ -1,4 +1,12 @@
 <?php
+/**
+ * EShop settings meta box
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 global $eshop_metabox_plugin, $eshopoptions;
 
@@ -20,7 +28,7 @@ global $eshop_metabox_plugin, $eshopoptions;
 
 	<?php
 
-	Pronamic_WP_Pay_Admin::dropdown_configs( array(
+	\Pronamic\WordPress\Pay\Admin\AdminModule::dropdown_configs( array(
 		'name'     => 'eshop_pronamic_ideal_config_id',
 		'selected' => @$eshopoptions['pronamic_ideal']['config_id'],
 	) );

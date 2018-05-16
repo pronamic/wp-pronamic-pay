@@ -1,6 +1,21 @@
 <?php
+/**
+ * Meta Box Payment Info
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
+
+if ( empty( $post_id ) ) {
+	return;
+}
 
 $post_type = 'pronamic_payment';
 
@@ -13,7 +28,7 @@ $payment = get_pronamic_payment( $post_id );
 			<?php esc_html_e( 'Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php the_time( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ) ); ?>
+			<?php echo esc_html( $payment->date->format_i18n() ); ?>
 		</td>
 	</tr>
 	<tr>
@@ -39,10 +54,7 @@ $payment = get_pronamic_payment( $post_id );
 		<td>
 			<?php
 
-			$currency = get_post_meta( $post_id, '_pronamic_payment_currency', true );
-			$amount   = get_post_meta( $post_id, '_pronamic_payment_amount', true );
-
-			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+			echo esc_html( $payment->get_amount()->format_i18n() );
 
 			?>
 		</td>
@@ -57,6 +69,14 @@ $payment = get_pronamic_payment( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php edit_post_link( get_the_title( $payment->config_id ), '', '', $payment->config_id ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
@@ -64,7 +84,7 @@ $payment = get_pronamic_payment( $post_id );
 
 			$method = $payment->get_meta( 'method' );
 
-			$name = Pronamic_WP_Pay_PaymentMethods::get_name( $method );
+			$name = PaymentMethods::get_name( $method );
 
 			echo esc_html( $name );
 
@@ -274,6 +294,27 @@ $payment = get_pronamic_payment( $post_id );
 			</th>
 			<td>
 				<?php echo esc_html( get_post_meta( $payment->get_id(), '_pronamic_payment_membership_subscription_id', true ) ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( PRONAMIC_PAY_DEBUG ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'User Agent', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $payment->user_agent ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'IP Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $payment->user_ip ); ?>
 			</td>
 		</tr>
 

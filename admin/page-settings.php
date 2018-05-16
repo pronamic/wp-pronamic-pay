@@ -1,4 +1,12 @@
 <?php
+/**
+ * Page Settings
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
 
 if ( filter_has_var( INPUT_GET, 'message' ) ) {
 	$message_id = filter_input( INPUT_GET, 'message', FILTER_SANITIZE_STRING );
@@ -17,7 +25,9 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 ?>
 
 <div class="wrap pronamic-pay-settings">
-	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+	<h1 class="wp-heading-inline"><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<hr class="wp-header-end">
 
 	<form action="options.php" method="post">
 		<?php wp_nonce_field( 'pronamic_pay_settings', 'pronamic_pay_nonce' ); ?>
@@ -29,5 +39,5 @@ if ( filter_has_var( INPUT_GET, 'message' ) ) {
 		<?php submit_button(); ?>
 	</form>
 
-	<?php include 'pronamic.php'; ?>
+	<?php require 'pronamic.php'; ?>
 </div>

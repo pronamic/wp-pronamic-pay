@@ -1,12 +1,21 @@
+/*!
+* Tippy.js v2.5.2
+* (c) 2017-2018 atomiks
+* MIT
+*/
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
 	(global.tippy = factory());
 }(this, (function () { 'use strict';
 
-var styles = ".tippy-touch{cursor:pointer!important}.tippy-notransition{-webkit-transition:none!important;transition:none!important}.tippy-popper{max-width:350px;-webkit-perspective:700px;perspective:700px;z-index:9999;outline:0;-webkit-transition-timing-function:cubic-bezier(.165,.84,.44,1);transition-timing-function:cubic-bezier(.165,.84,.44,1);pointer-events:none}.tippy-popper[data-html]{max-width:96%;max-width:calc(100% - 20px)}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{width:23px;height:23px;fill:#333;bottom:-15px;margin:0 6px}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;bottom:-7px;margin:0 9px}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 100%;transform-origin:0 100%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(5.5) translate(-50%,25%);transform:scale(5.5) translate(-50%,25%);opacity:1}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,25%);transform:scale(1) translate(-50%,25%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) rotateX(0);transform:translateY(-10px) rotateX(0)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(90deg);transform:translateY(0) rotateX(90deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{width:23px;height:23px;fill:#333;top:-15px;margin:0 6px}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{-webkit-transform:rotate(0);transform:rotate(0)}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;top:-7px;margin:0 9px}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -100%;transform-origin:0 -100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(5.5) translate(-50%,-125%);transform:scale(5.5) translate(-50%,-125%);opacity:1}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,-125%);transform:scale(1) translate(-50%,-125%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) rotateX(0);transform:translateY(10px) rotateX(0)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(-90deg);transform:translateY(0) rotateX(-90deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:30% 0 0 30%}.tippy-popper[x-placement^=left] .tippy-roundarrow{width:23px;height:23px;fill:#333;right:-15px;margin:4px 0}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;right:-7px;margin:6px 0}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:100% 0;transform-origin:100% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(5.5) translate(33%,-50%);transform:scale(5.5) translate(33%,-50%);opacity:1}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(33%,-50%);transform:scale(1.5) translate(33%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) rotateY(0);transform:translateX(-10px) rotateY(0)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(-90deg);transform:translateX(0) rotateY(-90deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 30% 30% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{width:23px;height:23px;fill:#333;left:-15px;margin:4px 0}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;left:-7px;margin:6px 0}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-100% 0;transform-origin:-100% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(5.5) translate(-133%,-50%);transform:scale(5.5) translate(-133%,-50%);opacity:1}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(-133%,-50%);transform:scale(1.5) translate(-133%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) rotateY(0);transform:translateX(10px) rotateY(0)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(90deg);transform:translateX(0) rotateY(90deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-tooltip{position:relative;color:#fff;border-radius:4px;font-size:.9rem;padding:.3rem .6rem;text-align:center;will-change:transform;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#333}.tippy-tooltip[data-size=small]{padding:.2rem .4rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.4rem .8rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent}.tippy-tooltip[data-animatefill] .tippy-content{-webkit-transition:-webkit-clip-path cubic-bezier(.46,.1,.52,.98);transition:-webkit-clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98),-webkit-clip-path cubic-bezier(.46,.1,.52,.98)}.tippy-tooltip[data-interactive]{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{-webkit-transition-timing-function:cubic-bezier(.53,2,.36,.85);transition-timing-function:cubic-bezier(.53,2,.36,.85)}.tippy-tooltip[data-inertia][data-state=hidden]{-webkit-transition-timing-function:ease;transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-backdrop{position:absolute;will-change:transform;background-color:#333;border-radius:50%;width:26%;left:50%;top:50%;z-index:-1;-webkit-transition:all cubic-bezier(.46,.1,.52,.98);transition:all cubic-bezier(.46,.1,.52,.98)}.tippy-backdrop:after{content:\"\";float:left;padding-top:100%}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(100% 100% at 50% 50%);clip-path:ellipse(100% 100% at 50% 50%)}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(5% 50% at 50% 50%);clip-path:ellipse(5% 50% at 50% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 0 50%);clip-path:ellipse(135% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(25% 100% at 0 50%);clip-path:ellipse(25% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 100% 50%);clip-path:ellipse(135% 100% at 100% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(25% 100% at 100% 50%);clip-path:ellipse(25% 100% at 100% 50%)}@media (max-width:360px){.tippy-popper{max-width:96%;max-width:calc(100% - 20px)}}";
+var styles = ".tippy-touch{cursor:pointer!important}.tippy-notransition{transition:none!important}.tippy-popper{max-width:350px;-webkit-perspective:700px;perspective:700px;z-index:9999;outline:0;transition-timing-function:cubic-bezier(.165,.84,.44,1);pointer-events:none;line-height:1.4}.tippy-popper[data-html]{max-width:96%;max-width:calc(100% - 20px)}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-8px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;bottom:-7px;margin:0 6px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 90%;transform-origin:0 90%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,25%);transform:scale(6) translate(-50%,25%);opacity:1}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,25%);transform:scale(1) translate(-50%,25%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) rotateX(0);transform:translateY(-10px) rotateX(0)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(90deg);transform:translateY(0) rotateX(90deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-8px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(0);transform:rotate(0)}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:7px solid #333;border-right:7px solid transparent;border-left:7px solid transparent;top:-7px;margin:0 6px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -90%;transform-origin:0 -90%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-50%,-125%);transform:scale(6) translate(-50%,-125%);opacity:1}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1) translate(-50%,-125%);transform:scale(1) translate(-50%,-125%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) rotateX(0);transform:translateY(10px) rotateX(0)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) rotateX(-90deg);transform:translateY(0) rotateX(-90deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(0) scale(0);transform:translateY(0) scale(0)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-16px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:100% 0;transform-origin:100% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(40%,-50%);transform:scale(6) translate(40%,-50%);opacity:1}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(40%,-50%);transform:scale(1.5) translate(40%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) rotateY(0);transform:translateX(-10px) rotateY(0)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(-90deg);transform:translateX(0) rotateY(-90deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-16px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:7px solid #333;border-top:7px solid transparent;border-bottom:7px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-100% 0;transform-origin:-100% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(6) translate(-140%,-50%);transform:scale(6) translate(-140%,-50%);opacity:1}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(1.5) translate(-140%,-50%);transform:scale(1.5) translate(-140%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) rotateY(0);transform:translateX(10px) rotateY(0)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) rotateY(90deg);transform:translateX(0) rotateY(90deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{opacity:1;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{opacity:1;-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(0) scale(0);transform:translateX(0) scale(0)}.tippy-tooltip{position:relative;color:#fff;border-radius:4px;font-size:.9rem;padding:.3rem .6rem;text-align:center;will-change:transform;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#333}.tippy-tooltip[data-size=small]{padding:.2rem .4rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.4rem .8rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent}.tippy-tooltip[data-animatefill] .tippy-content{transition:-webkit-clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98);transition:clip-path cubic-bezier(.46,.1,.52,.98),-webkit-clip-path cubic-bezier(.46,.1,.52,.98)}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.53,2,.36,.85)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:24px;height:8px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;will-change:transform;background-color:#333;border-radius:50%;width:26%;left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:\"\";float:left;padding-top:100%}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(100% 100% at 50% 50%);clip-path:ellipse(100% 100% at 50% 50%)}body:not(.tippy-touch) .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(5% 50% at 50% 50%);clip-path:ellipse(5% 50% at 50% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 0 50%);clip-path:ellipse(135% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=right] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(40% 100% at 0 50%);clip-path:ellipse(40% 100% at 0 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=visible] .tippy-content{-webkit-clip-path:ellipse(135% 100% at 100% 50%);clip-path:ellipse(135% 100% at 100% 50%)}body:not(.tippy-touch) .tippy-popper[x-placement=left] .tippy-tooltip[data-animatefill][data-state=hidden] .tippy-content{-webkit-clip-path:ellipse(40% 100% at 100% 50%);clip-path:ellipse(40% 100% at 100% 50%)}@media (max-width:360px){.tippy-popper{max-width:96%;max-width:calc(100% - 20px)}}";
+
+var version = "2.5.2";
 
 var isBrowser = typeof window !== 'undefined';
+
+var isIE = isBrowser && /MSIE |Trident\//.test(navigator.userAgent);
 
 var browser = {};
 
@@ -17,7 +26,6 @@ if (isBrowser) {
   browser.dynamicInputDetection = true;
   browser.iOS = /iPhone|iPad|iPod/.test(navigator.platform) && !window.MSStream;
   browser.onUserInputChange = function () {};
-  browser._eventListenersBound = false;
 }
 
 /**
@@ -31,12 +39,11 @@ var selectors = {
   ARROW: '.tippy-arrow',
   ROUND_ARROW: '.tippy-roundarrow',
   REFERENCE: '[data-tippy]'
+};
 
-  /**
-   * The default options applied to each instance
-   */
-};var defaults = {
+var defaults = {
   placement: 'top',
+  livePlacement: true,
   trigger: 'mouseenter focus',
   animation: 'shift-away',
   html: false,
@@ -68,6 +75,8 @@ var selectors = {
   arrowType: 'sharp',
   arrowTransform: '',
   maxWidth: '',
+  target: null,
+  allowTitleHTML: true,
   popperOptions: {},
   createPopperInstanceOnInit: false,
   onShow: function onShow() {},
@@ -88,7 +97,16 @@ var defaultsKeys = browser.supported && Object.keys(defaults);
  * @return {Boolean}
  */
 function isObjectLiteral(value) {
-  return Object.prototype.toString.call(value) === '[object Object]';
+  return {}.toString.call(value) === '[object Object]';
+}
+
+/**
+ * Ponyfill for Array.from
+ * @param {*} value
+ * @return {Array}
+ */
+function toArray(value) {
+  return [].slice.call(value);
 }
 
 /**
@@ -102,7 +120,7 @@ function getArrayOfElements(selector) {
   }
 
   if (selector instanceof NodeList) {
-    return [].slice.call(selector);
+    return toArray(selector);
   }
 
   if (Array.isArray(selector)) {
@@ -110,10 +128,47 @@ function getArrayOfElements(selector) {
   }
 
   try {
-    return [].slice.call(document.querySelectorAll(selector));
+    return toArray(document.querySelectorAll(selector));
   } catch (_) {
     return [];
   }
+}
+
+/**
+ * Polyfills needed props/methods for a virtual reference object
+ * NOTE: in v3.0 this will be pure
+ * @param {Object} reference
+ */
+function polyfillVirtualReferenceProps(reference) {
+  reference.refObj = true;
+  reference.attributes = reference.attributes || {};
+  reference.setAttribute = function (key, val) {
+    reference.attributes[key] = val;
+  };
+  reference.getAttribute = function (key) {
+    return reference.attributes[key];
+  };
+  reference.removeAttribute = function (key) {
+    delete reference.attributes[key];
+  };
+  reference.hasAttribute = function (key) {
+    return key in reference.attributes;
+  };
+  reference.addEventListener = function () {};
+  reference.removeEventListener = function () {};
+  reference.classList = {
+    classNames: {},
+    add: function add(key) {
+      return reference.classList.classNames[key] = true;
+    },
+    remove: function remove(key) {
+      delete reference.classList.classNames[key];
+      return true;
+    },
+    contains: function contains(key) {
+      return key in reference.classList.classNames;
+    }
+  };
 }
 
 /**
@@ -122,18 +177,26 @@ function getArrayOfElements(selector) {
  * @return {String} - browser supported prefixed property
  */
 function prefix(property) {
-  var prefixes = [false, 'webkit'];
+  var prefixes = ['', 'webkit'];
   var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
 
   for (var i = 0; i < prefixes.length; i++) {
     var _prefix = prefixes[i];
-    var prefixedProp = _prefix ? '' + _prefix + upperProp : property;
+    var prefixedProp = _prefix ? _prefix + upperProp : property;
     if (typeof document.body.style[prefixedProp] !== 'undefined') {
       return prefixedProp;
     }
   }
 
   return null;
+}
+
+/**
+ * Creates a div element
+ * @return {Element}
+ */
+function div() {
+  return document.createElement('div');
 }
 
 /**
@@ -144,90 +207,78 @@ function prefix(property) {
  * @return {Element} - the popper element
  */
 function createPopperElement(id, title, options) {
-  var placement = options.placement,
-      distance = options.distance,
-      arrow = options.arrow,
-      arrowType = options.arrowType,
-      arrowTransform = options.arrowTransform,
-      animateFill = options.animateFill,
-      inertia = options.inertia,
-      animation = options.animation,
-      size = options.size,
-      theme = options.theme,
-      html = options.html,
-      zIndex = options.zIndex,
-      interactive = options.interactive,
-      maxWidth = options.maxWidth;
-
-
-  var popper = document.createElement('div');
+  var popper = div();
   popper.setAttribute('class', 'tippy-popper');
   popper.setAttribute('role', 'tooltip');
   popper.setAttribute('id', 'tippy-' + id);
-  popper.style.zIndex = zIndex;
-  popper.style.maxWidth = maxWidth;
+  popper.style.zIndex = options.zIndex;
+  popper.style.maxWidth = options.maxWidth;
 
-  var tooltip = document.createElement('div');
+  var tooltip = div();
   tooltip.setAttribute('class', 'tippy-tooltip');
-  tooltip.setAttribute('data-size', size);
-  tooltip.setAttribute('data-animation', animation);
+  tooltip.setAttribute('data-size', options.size);
+  tooltip.setAttribute('data-animation', options.animation);
   tooltip.setAttribute('data-state', 'hidden');
-
-  theme.split(' ').forEach(function (t) {
+  options.theme.split(' ').forEach(function (t) {
     tooltip.classList.add(t + '-theme');
   });
 
-  if (arrow) {
-    var _arrow = document.createElement('div');
-    _arrow.style[prefix('transform')] = arrowTransform;
+  var content = div();
+  content.setAttribute('class', 'tippy-content');
 
-    if (arrowType === 'round') {
-      _arrow.classList.add('tippy-roundarrow');
-      _arrow.innerHTML = '\n      <svg width="100%" height="100%" viewBox="0 0 64 20" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">\n        <g transform="matrix(1.04009,0,0,1.45139,-1.26297,-65.9145)">\n          <path d="M1.214,59.185C1.214,59.185 12.868,59.992 21.5,51.55C29.887,43.347 33.898,43.308 42.5,51.55C51.352,60.031 62.747,59.185 62.747,59.185L1.214,59.185Z"/>\n        </g>\n      </svg>';
+  if (options.arrow) {
+    var arrow = div();
+    arrow.style[prefix('transform')] = options.arrowTransform;
+
+    if (options.arrowType === 'round') {
+      arrow.classList.add('tippy-roundarrow');
+      arrow.innerHTML = '<svg viewBox="0 0 24 8" xmlns="http://www.w3.org/2000/svg"><path d="M3 8s2.021-.015 5.253-4.218C9.584 2.051 10.797 1.007 12 1c1.203-.007 2.416 1.035 3.761 2.782C19.012 8.005 21 8 21 8H3z"/></svg>';
     } else {
-      _arrow.classList.add('tippy-arrow');
+      arrow.classList.add('tippy-arrow');
     }
 
-    tooltip.appendChild(_arrow);
+    tooltip.appendChild(arrow);
   }
 
-  if (animateFill) {
+  if (options.animateFill) {
     // Create animateFill circle element for animation
     tooltip.setAttribute('data-animatefill', '');
-    var circle = document.createElement('div');
-    circle.setAttribute('data-state', 'hidden');
-    circle.classList.add('tippy-backdrop');
-    tooltip.appendChild(circle);
+    var backdrop = div();
+    backdrop.classList.add('tippy-backdrop');
+    backdrop.setAttribute('data-state', 'hidden');
+    tooltip.appendChild(backdrop);
   }
 
-  if (inertia) {
+  if (options.inertia) {
     // Change transition timing function cubic bezier
     tooltip.setAttribute('data-inertia', '');
   }
 
-  if (interactive) {
+  if (options.interactive) {
     tooltip.setAttribute('data-interactive', '');
   }
 
-  var content = document.createElement('div');
-  content.setAttribute('class', 'tippy-content');
-
+  var html = options.html;
   if (html) {
     var templateId = void 0;
 
     if (html instanceof Element) {
       content.appendChild(html);
-      templateId = '#' + html.id || 'tippy-html-template';
+      templateId = '#' + (html.id || 'tippy-html-template');
     } else {
-      content.innerHTML = document.querySelector(html).innerHTML;
+      // trick linters: https://github.com/atomiks/tippyjs/issues/197
+      content[true && 'innerHTML'] = document.querySelector(html)[true && 'innerHTML'];
       templateId = html;
     }
 
     popper.setAttribute('data-html', '');
-    interactive && popper.setAttribute('tabindex', '-1');
     tooltip.setAttribute('data-template-id', templateId);
+
+    if (options.interactive) {
+      popper.setAttribute('tabindex', '-1');
+    }
   } else {
-    content.innerHTML = title;
+    content[options.allowTitleHTML ? 'innerHTML' : 'textContent'] = title;
   }
 
   tooltip.appendChild(content);
@@ -241,49 +292,54 @@ function createPopperElement(id, title, options) {
  * @param {String} eventType - the custom event specified in the `trigger` setting
  * @param {Element} reference
  * @param {Object} handlers - the handlers for each event
- * @param {Boolean} touchHold
+ * @param {Object} options
  * @return {Array} - array of listener objects
  */
-function createTrigger(eventType, reference, handlers, touchHold) {
+function createTrigger(eventType, reference, handlers, options) {
+  var onTrigger = handlers.onTrigger,
+      onMouseLeave = handlers.onMouseLeave,
+      onBlur = handlers.onBlur,
+      onDelegateShow = handlers.onDelegateShow,
+      onDelegateHide = handlers.onDelegateHide;
+
   var listeners = [];
 
   if (eventType === 'manual') return listeners;
 
-  // Show
-  reference.addEventListener(eventType, handlers.handleTrigger);
-  listeners.push({
-    event: eventType,
-    handler: handlers.handleTrigger
-  });
+  var on = function on(eventType, handler) {
+    reference.addEventListener(eventType, handler);
+    listeners.push({ event: eventType, handler: handler });
+  };
 
-  // Hide
-  if (eventType === 'mouseenter') {
-    if (browser.supportsTouch && touchHold) {
-      reference.addEventListener('touchstart', handlers.handleTrigger);
-      listeners.push({
-        event: 'touchstart',
-        handler: handlers.handleTrigger
-      });
-      reference.addEventListener('touchend', handlers.handleMouseleave);
-      listeners.push({
-        event: 'touchend',
-        handler: handlers.handleMouseleave
-      });
+  if (!options.target) {
+    on(eventType, onTrigger);
+
+    if (browser.supportsTouch && options.touchHold) {
+      on('touchstart', onTrigger);
+      on('touchend', onMouseLeave);
     }
-
-    reference.addEventListener('mouseleave', handlers.handleMouseleave);
-    listeners.push({
-      event: 'mouseleave',
-      handler: handlers.handleMouseleave
-    });
-  }
-
-  if (eventType === 'focus') {
-    reference.addEventListener('blur', handlers.handleBlur);
-    listeners.push({
-      event: 'blur',
-      handler: handlers.handleBlur
-    });
+    if (eventType === 'mouseenter') {
+      on('mouseleave', onMouseLeave);
+    }
+    if (eventType === 'focus') {
+      on(isIE ? 'focusout' : 'blur', onBlur);
+    }
+  } else {
+    if (browser.supportsTouch && options.touchHold) {
+      on('touchstart', onDelegateShow);
+      on('touchend', onDelegateHide);
+    }
+    if (eventType === 'mouseenter') {
+      on('mouseover', onDelegateShow);
+      on('mouseout', onDelegateHide);
+    }
+    if (eventType === 'focus') {
+      on('focusin', onDelegateShow);
+      on('focusout', onDelegateHide);
+    }
+    if (eventType === 'click') {
+      on('click', onDelegateShow);
+    }
   }
 
   return listeners;
@@ -353,7 +409,7 @@ function getIndividualOptions(reference, instanceOptions) {
     }
 
     // Convert array strings to actual arrays
-    if (typeof val === 'string' && val.trim().charAt(0) === '[') {
+    if (key !== 'target' && typeof val === 'string' && val.trim().charAt(0) === '[') {
       val = JSON.parse(val);
     }
 
@@ -394,10 +450,14 @@ function evaluateOptions(reference, options) {
  * @return {Object}
  */
 function getInnerElements(popper) {
+  var select = function select(s) {
+    return popper.querySelector(s);
+  };
   return {
-    tooltip: popper.querySelector(selectors.TOOLTIP),
-    backdrop: popper.querySelector(selectors.BACKDROP),
-    content: popper.querySelector(selectors.CONTENT)
+    tooltip: select(selectors.TOOLTIP),
+    backdrop: select(selectors.BACKDROP),
+    content: select(selectors.CONTENT),
+    arrow: select(selectors.ARROW) || select(selectors.ROUND_ARROW)
   };
 }
 
@@ -417,7 +477,7 @@ function removeTitle(el) {
 
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.12.9
+ * @version 1.14.3
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -440,6 +500,7 @@ function removeTitle(el) {
  * SOFTWARE.
  */
 var isBrowser$1 = typeof window !== 'undefined' && typeof document !== 'undefined';
+
 var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
 var timeoutDuration = 0;
 for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
@@ -559,11 +620,31 @@ function getScrollParent(element) {
       overflowX = _getStyleComputedProp.overflowX,
       overflowY = _getStyleComputedProp.overflowY;
 
-  if (/(auto|scroll)/.test(overflow + overflowY + overflowX)) {
+  if (/(auto|scroll|overlay)/.test(overflow + overflowY + overflowX)) {
     return element;
   }
 
   return getScrollParent(getParentNode(element));
+}
+
+var isIE11 = isBrowser$1 && !!(window.MSInputMethodContext && document.documentMode);
+var isIE10 = isBrowser$1 && /MSIE 10/.test(navigator.userAgent);
+
+/**
+ * Determines if the browser is Internet Explorer
+ * @method
+ * @memberof Popper.Utils
+ * @param {Number} version to check
+ * @returns {Boolean} isIE
+ */
+function isIE$1(version) {
+  if (version === 11) {
+    return isIE11;
+  }
+  if (version === 10) {
+    return isIE10;
+  }
+  return isIE11 || isIE10;
 }
 
 /**
@@ -574,16 +655,23 @@ function getScrollParent(element) {
  * @returns {Element} offset parent
  */
 function getOffsetParent(element) {
+  if (!element) {
+    return document.documentElement;
+  }
+
+  var noOffsetParent = isIE$1(10) ? document.body : null;
+
   // NOTE: 1 DOM access here
-  var offsetParent = element && element.offsetParent;
+  var offsetParent = element.offsetParent;
+  // Skip hidden elements which don't have an offsetParent
+  while (offsetParent === noOffsetParent && element.nextElementSibling) {
+    offsetParent = (element = element.nextElementSibling).offsetParent;
+  }
+
   var nodeName = offsetParent && offsetParent.nodeName;
 
   if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
-    if (element) {
-      return element.ownerDocument.documentElement;
-    }
-
-    return document.documentElement;
+    return element ? element.ownerDocument.documentElement : document.documentElement;
   }
 
   // .offsetParent will return the closest TD or TABLE in case
@@ -725,29 +813,14 @@ function getBordersSize(styles, axis) {
   return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
 }
 
-/**
- * Tells if you are running Internet Explorer 10
- * @method
- * @memberof Popper.Utils
- * @returns {Boolean} isIE10
- */
-var isIE10 = undefined;
-
-var isIE10$1 = function isIE10$1() {
-  if (isIE10 === undefined) {
-    isIE10 = navigator.appVersion.indexOf('MSIE 10') !== -1;
-  }
-  return isIE10;
-};
-
 function getSize(axis, body, html, computedStyle) {
-  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE10$1() ? html['offset' + axis] + computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')] + computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')] : 0);
+  return Math.max(body['offset' + axis], body['scroll' + axis], html['client' + axis], html['offset' + axis], html['scroll' + axis], isIE$1(10) ? html['offset' + axis] + computedStyle['margin' + (axis === 'Height' ? 'Top' : 'Left')] + computedStyle['margin' + (axis === 'Height' ? 'Bottom' : 'Right')] : 0);
 }
 
 function getWindowSizes() {
   var body = document.body;
   var html = document.documentElement;
-  var computedStyle = isIE10$1() && getComputedStyle(html);
+  var computedStyle = isIE$1(10) && getComputedStyle(html);
 
   return {
     height: getSize('Height', body, html, computedStyle),
@@ -835,8 +908,8 @@ function getBoundingClientRect(element) {
   // IE10 10 FIX: Please, don't ask, the element isn't
   // considered in DOM in some circumstances...
   // This isn't reproducible in IE10 compatibility mode of IE11
-  if (isIE10$1()) {
-    try {
+  try {
+    if (isIE$1(10)) {
       rect = element.getBoundingClientRect();
       var scrollTop = getScroll(element, 'top');
       var scrollLeft = getScroll(element, 'left');
@@ -844,10 +917,10 @@ function getBoundingClientRect(element) {
       rect.left += scrollLeft;
       rect.bottom += scrollTop;
       rect.right += scrollLeft;
-    } catch (err) {}
-  } else {
-    rect = element.getBoundingClientRect();
-  }
+    } else {
+      rect = element.getBoundingClientRect();
+    }
+  } catch (e) {}
 
   var result = {
     left: rect.left,
@@ -879,7 +952,9 @@ function getBoundingClientRect(element) {
 }
 
 function getOffsetRectRelativeToArbitraryNode(children, parent) {
-  var isIE10 = isIE10$1();
+  var fixedPosition = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+  var isIE10 = isIE$1(10);
   var isHTML = parent.nodeName === 'HTML';
   var childrenRect = getBoundingClientRect(children);
   var parentRect = getBoundingClientRect(parent);
@@ -889,6 +964,11 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
   var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
 
+  // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+  if (fixedPosition && parent.nodeName === 'HTML') {
+    parentRect.top = Math.max(parentRect.top, 0);
+    parentRect.left = Math.max(parentRect.left, 0);
+  }
   var offsets = getClientRect({
     top: childrenRect.top - parentRect.top - borderTopWidth,
     left: childrenRect.left - parentRect.left - borderLeftWidth,
@@ -916,7 +996,7 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
     offsets.marginLeft = marginLeft;
   }
 
-  if (isIE10 ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+  if (isIE10 && !fixedPosition ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
     offsets = includeScroll(offsets, parent);
   }
 
@@ -924,13 +1004,15 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
 }
 
 function getViewportOffsetRectRelativeToArtbitraryNode(element) {
+  var excludeScroll = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
   var html = element.ownerDocument.documentElement;
   var relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
   var width = Math.max(html.clientWidth, window.innerWidth || 0);
   var height = Math.max(html.clientHeight, window.innerHeight || 0);
 
-  var scrollTop = getScroll(html);
-  var scrollLeft = getScroll(html, 'left');
+  var scrollTop = !excludeScroll ? getScroll(html) : 0;
+  var scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
 
   var offset = {
     top: scrollTop - relativeOffset.top + relativeOffset.marginTop,
@@ -962,6 +1044,26 @@ function isFixed(element) {
 }
 
 /**
+ * Finds the first parent of an element that has a transformed property defined
+ * @method
+ * @memberof Popper.Utils
+ * @argument {Element} element
+ * @returns {Element} first transformed parent or documentElement
+ */
+
+function getFixedPositionOffsetParent(element) {
+  // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+  if (!element || !element.parentElement || isIE$1()) {
+    return document.documentElement;
+  }
+  var el = element.parentElement;
+  while (el && getStyleComputedProperty(el, 'transform') === 'none') {
+    el = el.parentElement;
+  }
+  return el || document.documentElement;
+}
+
+/**
  * Computed the boundaries limits and return them
  * @method
  * @memberof Popper.Utils
@@ -969,16 +1071,20 @@ function isFixed(element) {
  * @param {HTMLElement} reference
  * @param {number} padding
  * @param {HTMLElement} boundariesElement - Element used to define the boundaries
+ * @param {Boolean} fixedPosition - Is in fixed position mode
  * @returns {Object} Coordinates of the boundaries
  */
 function getBoundaries(popper, reference, padding, boundariesElement) {
+  var fixedPosition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
+
   // NOTE: 1 DOM access here
+
   var boundaries = { top: 0, left: 0 };
-  var offsetParent = findCommonOffsetParent(popper, reference);
+  var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
 
   // Handle viewport case
   if (boundariesElement === 'viewport') {
-    boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent);
+    boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
   } else {
     // Handle other cases based on DOM element used as boundaries
     var boundariesNode = void 0;
@@ -993,7 +1099,7 @@ function getBoundaries(popper, reference, padding, boundariesElement) {
       boundariesNode = boundariesElement;
     }
 
-    var offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent);
+    var offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent, fixedPosition);
 
     // In case of HTML, we need a different computation
     if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
@@ -1094,11 +1200,14 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
  * @param {Object} state
  * @param {Element} popper - the popper element
  * @param {Element} reference - the reference element (the popper will be relative to this)
+ * @param {Element} fixedPosition - is in fixed position mode
  * @returns {Object} An object containing the offsets which will be applied to the popper
  */
 function getReferenceOffsets(state, popper, reference) {
-  var commonOffsetParent = findCommonOffsetParent(popper, reference);
-  return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent);
+  var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+
+  var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+  return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
 }
 
 /**
@@ -1271,7 +1380,7 @@ function update() {
   };
 
   // compute reference element offsets
-  data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference);
+  data.offsets.reference = getReferenceOffsets(this.state, this.popper, this.reference, this.options.positionFixed);
 
   // compute auto placement, store placement inside the data object,
   // modifiers will be able to edit `placement` if needed
@@ -1281,9 +1390,12 @@ function update() {
   // store the computed placement inside `originalPlacement`
   data.originalPlacement = data.placement;
 
+  data.positionFixed = this.options.positionFixed;
+
   // compute the popper offsets
   data.offsets.popper = getPopperOffsets(this.popper, data.offsets.reference, data.placement);
-  data.offsets.popper.position = 'absolute';
+
+  data.offsets.popper.position = this.options.positionFixed ? 'fixed' : 'absolute';
 
   // run the modifiers
   data = runModifiers(this.modifiers, data);
@@ -1323,7 +1435,7 @@ function getSupportedPropertyName(property) {
   var prefixes = [false, 'ms', 'Webkit', 'Moz', 'O'];
   var upperProp = property.charAt(0).toUpperCase() + property.slice(1);
 
-  for (var i = 0; i < prefixes.length - 1; i++) {
+  for (var i = 0; i < prefixes.length; i++) {
     var prefix = prefixes[i];
     var toCheck = prefix ? '' + prefix + upperProp : property;
     if (typeof document.body.style[toCheck] !== 'undefined') {
@@ -1344,9 +1456,12 @@ function destroy() {
   // touch DOM only if `applyStyle` modifier is enabled
   if (isModifierEnabled(this.modifiers, 'applyStyle')) {
     this.popper.removeAttribute('x-placement');
-    this.popper.style.left = '';
     this.popper.style.position = '';
     this.popper.style.top = '';
+    this.popper.style.left = '';
+    this.popper.style.right = '';
+    this.popper.style.bottom = '';
+    this.popper.style.willChange = '';
     this.popper.style[getSupportedPropertyName('transform')] = '';
   }
 
@@ -1534,12 +1649,12 @@ function applyStyle(data) {
  * @method
  * @memberof Popper.modifiers
  * @param {HTMLElement} reference - The reference element used to position the popper
- * @param {HTMLElement} popper - The HTML element used as popper.
+ * @param {HTMLElement} popper - The HTML element used as popper
  * @param {Object} options - Popper.js options
  */
 function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
   // compute reference element offsets
-  var referenceOffsets = getReferenceOffsets(state, popper, reference);
+  var referenceOffsets = getReferenceOffsets(state, popper, reference, options.positionFixed);
 
   // compute auto placement, store placement inside the data object,
   // modifiers will be able to edit `placement` if needed
@@ -1550,7 +1665,7 @@ function applyStyleOnLoad(reference, popper, options, modifierOptions, state) {
 
   // Apply `position` to popper before anything else because
   // without the position applied we can't guarantee correct computations
-  setStyles(popper, { position: 'absolute' });
+  setStyles(popper, { position: options.positionFixed ? 'fixed' : 'absolute' });
 
   return options;
 }
@@ -1585,11 +1700,13 @@ function computeStyle(data, options) {
     position: popper.position
   };
 
-  // floor sides to avoid blurry text
+  // Avoid blurry text by using full pixel integers.
+  // For pixel-perfect positioning, top/bottom prefers rounded
+  // values, while left/right prefers floored values.
   var offsets = {
     left: Math.floor(popper.left),
-    top: Math.floor(popper.top),
-    bottom: Math.floor(popper.bottom),
+    top: Math.round(popper.top),
+    bottom: Math.round(popper.bottom),
     right: Math.floor(popper.right)
   };
 
@@ -1853,7 +1970,7 @@ function flip(data, options) {
     return data;
   }
 
-  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement);
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, options.boundariesElement, data.positionFixed);
 
   var placement = data.placement.split('-')[0];
   var placementOpposite = getOppositePlacement(placement);
@@ -2145,7 +2262,27 @@ function preventOverflow(data, options) {
     boundariesElement = getOffsetParent(boundariesElement);
   }
 
-  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement);
+  // NOTE: DOM access here
+  // resets the popper's position so that the document size can be calculated excluding
+  // the size of the popper element itself
+  var transformProp = getSupportedPropertyName('transform');
+  var popperStyles = data.instance.popper.style; // assignment to help minification
+  var top = popperStyles.top,
+      left = popperStyles.left,
+      transform = popperStyles[transformProp];
+
+  popperStyles.top = '';
+  popperStyles.left = '';
+  popperStyles[transformProp] = '';
+
+  var boundaries = getBoundaries(data.instance.popper, data.instance.reference, options.padding, boundariesElement, data.positionFixed);
+
+  // NOTE: DOM access here
+  // restores the original style properties after the offsets have been computed
+  popperStyles.top = top;
+  popperStyles.left = left;
+  popperStyles[transformProp] = transform;
+
   options.boundaries = boundaries;
 
   var order = options.priority;
@@ -2643,6 +2780,12 @@ var Defaults = {
   placement: 'bottom',
 
   /**
+   * Set this to true if you want popper to position it self in 'fixed' mode
+   * @prop {Boolean} positionFixed=false
+   */
+  positionFixed: false,
+
+  /**
    * Whether events (resize, scroll) are initially enabled
    * @prop {Boolean} eventsEnabled=true
    */
@@ -2845,6 +2988,42 @@ Popper.placements = placements;
 Popper.Defaults = Defaults;
 
 /**
+ * Triggers document reflow.
+ * Use void because some minifiers or engines think simply accessing the property
+ * is unnecessary.
+ * @param {Element} popper
+ */
+function reflow(popper) {
+  void popper.offsetHeight;
+}
+
+/**
+ * Wrapper util for popper position updating.
+ * Updates the popper's position and invokes the callback on update.
+ * Hackish workaround until Popper 2.0's update() becomes sync.
+ * @param {Popper} popperInstance
+ * @param {Function} callback: to run once popper's position was updated
+ * @param {Boolean} updateAlreadyCalled: was scheduleUpdate() already called?
+ */
+function updatePopperPosition(popperInstance, callback, updateAlreadyCalled) {
+  var popper = popperInstance.popper,
+      options = popperInstance.options;
+
+  var onCreate = options.onCreate;
+  var onUpdate = options.onUpdate;
+
+  options.onCreate = options.onUpdate = function () {
+    reflow(popper), callback && callback(), onUpdate();
+    options.onCreate = onCreate;
+    options.onUpdate = onUpdate;
+  };
+
+  if (!updateAlreadyCalled) {
+    popperInstance.scheduleUpdate();
+  }
+}
+
+/**
  * Returns the core placement ('top', 'bottom', 'left', 'right') of a popper
  * @param {Element} popper
  * @return {String}
@@ -2991,17 +3170,6 @@ function computeArrowTransform(popper, arrow, arrowTransform) {
 }
 
 /**
- * Determines if an element is visible in the viewport
- * @param {Element} el
- * @return {Boolean}
- */
-function elementIsInViewport(el) {
-  var rect = el.getBoundingClientRect();
-
-  return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
-}
-
-/**
  * Returns the distance taking into account the default distance due to
  * the transform: translate setting in CSS
  * @param {Number} distance
@@ -3017,7 +3185,7 @@ function getOffsetDistanceInPx(distance) {
  */
 function defer(fn) {
   requestAnimationFrame(function () {
-    setTimeout(fn, 0);
+    setTimeout(fn, 1);
   });
 }
 
@@ -3028,7 +3196,7 @@ if (isBrowser) {
   matches = e.matches || e.matchesSelector || e.webkitMatchesSelector || e.mozMatchesSelector || e.msMatchesSelector || function (s) {
     var matches = (this.document || this.ownerDocument).querySelectorAll(s);
     var i = matches.length;
-    while (--i >= 0 && matches.item(i) !== this) {}
+    while (--i >= 0 && matches.item(i) !== this) {} // eslint-disable-line no-empty
     return i > -1;
   };
 }
@@ -3056,13 +3224,13 @@ function closest(element, parentSelector) {
 }
 
 /**
- * Returns duration taking into account the option being either a number or array
- * @param {Number} duration
+ * Returns the value taking into account the value being either a number or array
+ * @param {Number|Array} value
  * @param {Number} index
  * @return {Number}
  */
-function getDuration(duration, index) {
-  return Array.isArray(duration) ? duration[index] : duration;
+function getValue(value, index) {
+  return Array.isArray(value) ? value[index] : value;
 }
 
 /**
@@ -3078,30 +3246,40 @@ function setVisibilityState(els, type) {
 }
 
 /**
- * Ponyfill for Array.prototype.find
- * @param {Array} arr
- * @param {Function} fn
- * @return item in the array
- */
-
-/**
- * Applies the transition duration to each element
+ * Sets the transition property to each element
  * @param {Element[]} els - Array of elements
- * @param {Number} duration
+ * @param {String} value
  */
-function applyTransitionDuration(els, duration) {
-  els.forEach(function (el) {
-    if (!el) return;
-    el.style[prefix('transitionDuration')] = duration + 'ms';
+function applyTransitionDuration(els, value) {
+  els.filter(Boolean).forEach(function (el) {
+    el.style[prefix('transitionDuration')] = value + 'ms';
   });
 }
+
+/**
+ * Focuses an element while preventing a scroll jump if it's not entirely within the viewport
+ * @param {Element} el
+ */
+function focus(el) {
+  var x = window.scrollX || window.pageXOffset;
+  var y = window.scrollY || window.pageYOffset;
+  el.focus();
+  scroll(x, y);
+}
+
+var key = {};
+var store = function store(data) {
+  return function (k) {
+    return k === key && data;
+  };
+};
 
 var Tippy = function () {
   function Tippy(config) {
     classCallCheck(this, Tippy);
 
-    for (var key in config) {
-      this[key] = config[key];
+    for (var _key in config) {
+      this[_key] = config[_key];
     }
 
     this.state = {
@@ -3110,9 +3288,9 @@ var Tippy = function () {
       enabled: true
     };
 
-    this._internal = {
+    this._ = store({
       mutationObservers: []
-    };
+    });
   }
 
   /**
@@ -3163,36 +3341,48 @@ var Tippy = function () {
           backdrop = _getInnerElements.backdrop,
           content = _getInnerElements.content;
 
+      // If the `dynamicTitle` option is true, the instance is allowed
+      // to be created with an empty title. Make sure that the tooltip
+      // content is not empty before showing it
+
+
+      if (options.dynamicTitle && !reference.getAttribute('data-original-title')) return;
+
+      // Do not show tooltip if reference contains 'disabled' attribute. FF fix for #221
+      if (reference.hasAttribute('disabled')) return;
+
       // Destroy tooltip if the reference element is no longer on the DOM
-
-
       if (!reference.refObj && !document.documentElement.contains(reference)) {
         this.destroy();
         return;
       }
 
-      options.onShow.call(popper);
+      options.onShow.call(popper, this);
 
-      duration = getDuration(duration !== undefined ? duration : options.duration, 0);
+      duration = getValue(duration !== undefined ? duration : options.duration, 0);
 
       // Prevent a transition when popper changes position
       applyTransitionDuration([popper, tooltip, backdrop], 0);
 
-      _mount.call(this);
-
       popper.style.visibility = 'visible';
       this.state.visible = true;
 
-      // Popper#update is async, requiring us to defer this code. Popper 2.0 will make it sync.
-      defer(function () {
-        // ~20ms can elapse before this defer callback is run, so the hide() method
-        // may have been invoked -- check if the popper is still visible and cancel
-        // this callback if not
+      _mount.call(this, function () {
         if (!_this.state.visible) return;
 
-        if (!options.followCursor || browser.usingTouch) {
-          _this.popperInstance.update();
-          applyTransitionDuration([popper], options.updateDuration);
+        if (!_hasFollowCursorBehavior.call(_this)) {
+          // FIX: Arrow will sometimes not be positioned correctly. Force another update.
+          _this.popperInstance.scheduleUpdate();
+        }
+
+        // Set initial position near the cursor
+        if (_hasFollowCursorBehavior.call(_this)) {
+          _this.popperInstance.disableEventListeners();
+          var delay = getValue(options.delay, 0);
+          var lastTriggerEvent = _this._(key).lastTriggerEvent;
+          if (lastTriggerEvent) {
+            _this._(key).followCursorListener(delay && _this._(key).lastMouseMoveEvent ? _this._(key).lastMouseMoveEvent : lastTriggerEvent);
+          }
         }
 
         // Re-apply transition durations
@@ -3218,10 +3408,12 @@ var Tippy = function () {
           }
 
           if (options.interactive) {
-            popper.focus();
+            focus(popper);
           }
 
-          options.onShown.call(popper);
+          reference.setAttribute('aria-describedby', 'tippy-' + _this.id);
+
+          options.onShown.call(popper, _this);
         });
       });
     }
@@ -3249,9 +3441,9 @@ var Tippy = function () {
           backdrop = _getInnerElements2.backdrop,
           content = _getInnerElements2.content;
 
-      options.onHide.call(popper);
+      options.onHide.call(popper, this);
 
-      duration = getDuration(duration !== undefined ? duration : options.duration, 1);
+      duration = getValue(duration !== undefined ? duration : options.duration, 1);
 
       if (!options.updateDuration) {
         tooltip.classList.remove('tippy-notransition');
@@ -3268,9 +3460,11 @@ var Tippy = function () {
 
       setVisibilityState([tooltip, backdrop], 'hidden');
 
-      if (options.interactive && options.trigger.indexOf('click') > -1 && elementIsInViewport(reference)) {
-        reference.focus();
+      if (options.interactive && options.trigger.indexOf('click') > -1) {
+        focus(reference);
       }
+
+      this.popperInstance.disableEventListeners();
 
       /*
       * This call is deferred because sometimes when the tooltip is still transitioning in but hide()
@@ -3282,16 +3476,23 @@ var Tippy = function () {
         _onTransitionEnd.call(_this2, duration, function () {
           if (_this2.state.visible || !options.appendTo.contains(popper)) return;
 
-          _this2.popperInstance.disableEventListeners();
-          document.removeEventListener('mousemove', _this2._internal.followCursorListener);
+          if (!_this2._(key).isPreparingToShow) {
+            document.removeEventListener('mousemove', _this2._(key).followCursorListener);
+            _this2._(key).lastMouseMoveEvent = null;
+          }
+
+          reference.removeAttribute('aria-describedby');
+
           options.appendTo.removeChild(popper);
-          options.onHidden.call(popper);
+
+          options.onHidden.call(popper, _this2);
         });
       });
     }
 
     /**
-     * Destroys the tooltip
+     * Destroys the tooltip instance
+     * @param {Boolean} destroyTargetInstances - relevant only when destroying delegates
      * @memberof Tippy
      * @public
      */
@@ -3300,6 +3501,8 @@ var Tippy = function () {
     key: 'destroy',
     value: function destroy() {
       var _this3 = this;
+
+      var destroyTargetInstances = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
       if (this.state.destroyed) return;
 
@@ -3313,17 +3516,28 @@ var Tippy = function () {
       });
 
       // Restore title
-      this.reference.setAttribute('title', this.reference.getAttribute('data-original-title'));
+      if (this.title) {
+        this.reference.setAttribute('title', this.title);
+      }
 
-      delete this.reference._tippy;['data-original-title', 'data-tippy', 'aria-describedby'].forEach(function (attr) {
+      delete this.reference._tippy;
+
+      var attributes = ['data-original-title', 'data-tippy', 'data-tippy-delegate'];
+      attributes.forEach(function (attr) {
         _this3.reference.removeAttribute(attr);
       });
+
+      if (this.options.target && destroyTargetInstances) {
+        toArray(this.reference.querySelectorAll(this.options.target)).forEach(function (child) {
+          return child._tippy && child._tippy.destroy();
+        });
+      }
 
       if (this.popperInstance) {
         this.popperInstance.destroy();
       }
 
-      this._internal.mutationObservers.forEach(function (observer) {
+      this._(key).mutationObservers.forEach(function (observer) {
         observer.disconnect();
       });
 
@@ -3342,30 +3556,82 @@ var Tippy = function () {
  */
 
 /**
+ * Determines if the tooltip instance has followCursor behavior
+ * @return {Boolean}
+ * @memberof Tippy
+ * @private
+ */
+function _hasFollowCursorBehavior() {
+  var lastTriggerEvent = this._(key).lastTriggerEvent;
+  return this.options.followCursor && !browser.usingTouch && lastTriggerEvent && lastTriggerEvent.type !== 'focus';
+}
+
+/**
+ * Creates the Tippy instance for the child target of the delegate container
+ * @param {Event} event
+ * @memberof Tippy
+ * @private
+ */
+function _createDelegateChildTippy(event) {
+  var targetEl = closest(event.target, this.options.target);
+  if (targetEl && !targetEl._tippy) {
+    var title = targetEl.getAttribute('title') || this.title;
+    if (title) {
+      targetEl.setAttribute('title', title);
+      tippy(targetEl, _extends({}, this.options, { target: null }));
+      _enter.call(targetEl._tippy, event);
+    }
+  }
+}
+
+/**
  * Method used by event listeners to invoke the show method, taking into account delays and
  * the `wait` option
  * @param {Event} event
  * @memberof Tippy
  * @private
  */
-
-
 function _enter(event) {
   var _this4 = this;
+
+  var options = this.options;
+
 
   _clearDelayTimeouts.call(this);
 
   if (this.state.visible) return;
 
-  if (this.options.wait) {
-    this.options.wait.call(this.popper, this.show.bind(this), event);
+  // Is a delegate, create Tippy instance for the child target
+  if (options.target) {
+    _createDelegateChildTippy.call(this, event);
     return;
   }
 
-  var delay = Array.isArray(this.options.delay) ? this.options.delay[0] : this.options.delay;
+  this._(key).isPreparingToShow = true;
+
+  if (options.wait) {
+    options.wait.call(this.popper, this.show.bind(this), event);
+    return;
+  }
+
+  // If the tooltip has a delay, we need to be listening to the mousemove as soon as the trigger
+  // event is fired so that it's in the correct position upon mount.
+  if (_hasFollowCursorBehavior.call(this)) {
+    if (!this._(key).followCursorListener) {
+      _setFollowCursorListener.call(this);
+    }
+
+    var _getInnerElements3 = getInnerElements(this.popper),
+        arrow = _getInnerElements3.arrow;
+
+    if (arrow) arrow.style.margin = '0';
+    document.addEventListener('mousemove', this._(key).followCursorListener);
+  }
+
+  var delay = getValue(options.delay, 0);
 
   if (delay) {
-    this._internal.showTimeout = setTimeout(function () {
+    this._(key).showTimeout = setTimeout(function () {
       _this4.show();
     }, delay);
   } else {
@@ -3385,12 +3651,15 @@ function _leave() {
 
   if (!this.state.visible) return;
 
-  var delay = Array.isArray(this.options.delay) ? this.options.delay[1] : this.options.delay;
+  this._(key).isPreparingToShow = false;
+
+  var delay = getValue(this.options.delay, 1);
 
   if (delay) {
-    this._internal.hideTimeout = setTimeout(function () {
-      if (!_this5.state.visible) return;
-      _this5.hide();
+    this._(key).hideTimeout = setTimeout(function () {
+      if (_this5.state.visible) {
+        _this5.hide();
+      }
     }, delay);
   } else {
     this.hide();
@@ -3406,14 +3675,14 @@ function _leave() {
 function _getEventListeners() {
   var _this6 = this;
 
-  var handleTrigger = function handleTrigger(event) {
-    if (_this6.state.disabled) return;
+  var onTrigger = function onTrigger(event) {
+    if (!_this6.state.enabled) return;
 
-    var shouldStopEvent = browser.supportsTouch && browser.usingTouch && (event.type === 'mouseenter' || event.type === 'focus');
+    var shouldStopEvent = browser.supportsTouch && browser.usingTouch && ['mouseenter', 'mouseover', 'focus'].indexOf(event.type) > -1;
 
     if (shouldStopEvent && _this6.options.touchHold) return;
 
-    _this6._internal.lastTriggerEvent = event;
+    _this6._(key).lastTriggerEvent = event;
 
     // Toggle show/hide when clicking click-triggered tooltips
     if (event.type === 'click' && _this6.options.hideOnClick !== 'persistent' && _this6.state.visible) {
@@ -3428,14 +3697,13 @@ function _getEventListeners() {
     }
   };
 
-  var handleMouseleave = function handleMouseleave(event) {
-    if (event.type === 'mouseleave' && browser.supportsTouch && browser.usingTouch && _this6.options.touchHold) return;
+  var onMouseLeave = function onMouseLeave(event) {
+    if (['mouseleave', 'mouseout'].indexOf(event.type) > -1 && browser.supportsTouch && browser.usingTouch && _this6.options.touchHold) return;
 
     if (_this6.options.interactive) {
       var hide = _leave.bind(_this6);
 
-      // Temporarily handle mousemove to check if the mouse left somewhere other than the popper
-      var handleMousemove = function handleMousemove(event) {
+      var onMouseMove = function onMouseMove(event) {
         var referenceCursorIsOver = closest(event.target, selectors.REFERENCE);
         var cursorIsOverPopper = closest(event.target, selectors.POPPER) === _this6.popper;
         var cursorIsOverReference = referenceCursorIsOver === _this6.reference;
@@ -3444,28 +3712,49 @@ function _getEventListeners() {
 
         if (cursorIsOutsideInteractiveBorder(event, _this6.popper, _this6.options)) {
           document.body.removeEventListener('mouseleave', hide);
-          document.removeEventListener('mousemove', handleMousemove);
-          _leave.call(_this6);
+          document.removeEventListener('mousemove', onMouseMove);
+
+          _leave.call(_this6, onMouseMove);
         }
       };
+
       document.body.addEventListener('mouseleave', hide);
-      document.addEventListener('mousemove', handleMousemove);
+      document.addEventListener('mousemove', onMouseMove);
       return;
     }
 
     _leave.call(_this6);
   };
 
-  var handleBlur = function handleBlur(event) {
-    if (!event.relatedTarget || browser.usingTouch) return;
-    if (closest(event.relatedTarget, selectors.POPPER)) return;
+  var onBlur = function onBlur(event) {
+    if (event.target !== _this6.reference || browser.usingTouch) return;
+
+    if (_this6.options.interactive) {
+      if (!event.relatedTarget) return;
+      if (closest(event.relatedTarget, selectors.POPPER)) return;
+    }
+
     _leave.call(_this6);
   };
 
+  var onDelegateShow = function onDelegateShow(event) {
+    if (closest(event.target, _this6.options.target)) {
+      _enter.call(_this6, event);
+    }
+  };
+
+  var onDelegateHide = function onDelegateHide(event) {
+    if (closest(event.target, _this6.options.target)) {
+      _leave.call(_this6);
+    }
+  };
+
   return {
-    handleTrigger: handleTrigger,
-    handleMouseleave: handleMouseleave,
-    handleBlur: handleBlur
+    onTrigger: onTrigger,
+    onMouseLeave: onMouseLeave,
+    onBlur: onBlur,
+    onDelegateShow: onDelegateShow,
+    onDelegateHide: onDelegateHide
   };
 }
 
@@ -3482,8 +3771,8 @@ function _createPopperInstance() {
       reference = this.reference,
       options = this.options;
 
-  var _getInnerElements3 = getInnerElements(popper),
-      tooltip = _getInnerElements3.tooltip;
+  var _getInnerElements4 = getInnerElements(popper),
+      tooltip = _getInnerElements4.tooltip;
 
   var popperOptions = options.popperOptions;
 
@@ -3530,12 +3819,7 @@ function _createPopperInstance() {
   _addMutationObserver.call(this, {
     target: popper,
     callback: function callback() {
-      var styles = popper.style;
-      styles[prefix('transitionDuration')] = '0ms';
       _this7.popperInstance.update();
-      defer(function () {
-        styles[prefix('transitionDuration')] = options.updateDuration + 'ms';
-      });
     },
     options: {
       childList: true,
@@ -3548,40 +3832,41 @@ function _createPopperInstance() {
 }
 
 /**
- * Appends the popper element to the DOM
+ * Appends the popper element to the DOM, updating or creating the popper instance
+ * @param {Function} callback
  * @memberof Tippy
  * @private
  */
-function _mount() {
-  var _this8 = this;
+function _mount(callback) {
+  var options = this.options;
 
-  var popper = this.popper;
-
-
-  if (this.options.appendTo.contains(popper)) return;
-  this.options.appendTo.appendChild(popper);
 
   if (!this.popperInstance) {
     this.popperInstance = _createPopperInstance.call(this);
+    if (!options.livePlacement) {
+      this.popperInstance.disableEventListeners();
+    }
   } else {
-    popper.style[prefix('transform')] = null;
-    this.popperInstance.update();
-
-    if (!this.options.followCursor || browser.usingTouch) {
+    this.popperInstance.scheduleUpdate();
+    if (options.livePlacement && !_hasFollowCursorBehavior.call(this)) {
       this.popperInstance.enableEventListeners();
     }
   }
 
-  // Since touch is determined dynamically, followCursor is set on mount
-  if (this.options.followCursor && !browser.usingTouch) {
-    if (!this._internal.followCursorListener) {
-      _setFollowCursorListener.call(this);
-    }
-    document.addEventListener('mousemove', this._internal.followCursorListener);
-    this.popperInstance.disableEventListeners();
-    defer(function () {
-      _this8._internal.followCursorListener(_this8._internal.lastTriggerEvent);
-    });
+  // If the instance previously had followCursor behavior, it will be positioned incorrectly
+  // if triggered by `focus` afterwards - update the reference back to the real DOM element
+  if (!_hasFollowCursorBehavior.call(this)) {
+    var _getInnerElements5 = getInnerElements(this.popper),
+        arrow = _getInnerElements5.arrow;
+
+    if (arrow) arrow.style.margin = '';
+    this.popperInstance.reference = this.reference;
+  }
+
+  updatePopperPosition(this.popperInstance, callback, true);
+
+  if (!options.appendTo.contains(this.popper)) {
+    options.appendTo.appendChild(this.popper);
   }
 }
 
@@ -3591,74 +3876,45 @@ function _mount() {
  * @private
  */
 function _clearDelayTimeouts() {
-  clearTimeout(this._internal.showTimeout);
-  clearTimeout(this._internal.hideTimeout);
+  var _ref = this._(key),
+      showTimeout = _ref.showTimeout,
+      hideTimeout = _ref.hideTimeout;
+
+  clearTimeout(showTimeout);
+  clearTimeout(hideTimeout);
 }
 
 /**
- * Sets a mousemove event listener function for `followCursor` option
- * @return {Function} the event listener
+ * Sets the mousemove event listener function for `followCursor` option
  * @memberof Tippy
  * @private
  */
 function _setFollowCursorListener() {
-  var _this9 = this;
+  var _this8 = this;
 
-  this._internal.followCursorListener = function (e) {
-    // Ignore if the tooltip was triggered by `focus`
-    if (_this9._internal.lastTriggerEvent && _this9._internal.lastTriggerEvent.type === 'focus') return;
+  this._(key).followCursorListener = function (event) {
+    var _$lastMouseMoveEvent = _this8._(key).lastMouseMoveEvent = event,
+        clientX = _$lastMouseMoveEvent.clientX,
+        clientY = _$lastMouseMoveEvent.clientY;
 
-    var popper = _this9.popper,
-        offset = _this9.options.offset;
+    if (!_this8.popperInstance) return;
 
+    _this8.popperInstance.reference = {
+      getBoundingClientRect: function getBoundingClientRect() {
+        return {
+          width: 0,
+          height: 0,
+          top: clientY,
+          left: clientX,
+          right: clientX,
+          bottom: clientY
+        };
+      },
+      clientWidth: 0,
+      clientHeight: 0
+    };
 
-    var placement = getPopperPlacement(popper);
-    var halfPopperWidth = Math.round(popper.offsetWidth / 2);
-    var halfPopperHeight = Math.round(popper.offsetHeight / 2);
-    var viewportPadding = 5;
-    var pageWidth = document.documentElement.offsetWidth || document.body.offsetWidth;
-
-    var pageX = e.pageX,
-        pageY = e.pageY;
-
-
-    var x = void 0,
-        y = void 0;
-
-    switch (placement) {
-      case 'top':
-        x = pageX - halfPopperWidth + offset;
-        y = pageY - 2 * halfPopperHeight;
-        break;
-      case 'bottom':
-        x = pageX - halfPopperWidth + offset;
-        y = pageY + 10;
-        break;
-      case 'left':
-        x = pageX - 2 * halfPopperWidth;
-        y = pageY - halfPopperHeight + offset;
-        break;
-      case 'right':
-        x = pageX + 5;
-        y = pageY - halfPopperHeight + offset;
-        break;
-    }
-
-    var isRightOverflowing = pageX + viewportPadding + halfPopperWidth + offset > pageWidth;
-    var isLeftOverflowing = pageX - viewportPadding - halfPopperWidth + offset < 0;
-
-    // Prevent left/right overflow
-    if (placement === 'top' || placement === 'bottom') {
-      if (isRightOverflowing) {
-        x = pageWidth - viewportPadding - 2 * halfPopperWidth;
-      }
-
-      if (isLeftOverflowing) {
-        x = viewportPadding;
-      }
-    }
-
-    popper.style[prefix('transform')] = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+    _this8.popperInstance.scheduleUpdate();
   };
 }
 
@@ -3668,32 +3924,31 @@ function _setFollowCursorListener() {
  * @private
  */
 function _makeSticky() {
-  var _this10 = this;
+  var _this9 = this;
 
   var applyTransitionDuration$$1 = function applyTransitionDuration$$1() {
-    _this10.popper.style[prefix('transitionDuration')] = _this10.options.updateDuration + 'ms';
+    _this9.popper.style[prefix('transitionDuration')] = _this9.options.updateDuration + 'ms';
   };
 
   var removeTransitionDuration = function removeTransitionDuration() {
-    _this10.popper.style[prefix('transitionDuration')] = '';
+    _this9.popper.style[prefix('transitionDuration')] = '';
   };
 
   var updatePosition = function updatePosition() {
-    if (_this10.popperInstance) {
-      _this10.popperInstance.scheduleUpdate();
+    if (_this9.popperInstance) {
+      _this9.popperInstance.update();
     }
 
     applyTransitionDuration$$1();
 
-    if (_this10.state.visible) {
+    if (_this9.state.visible) {
       requestAnimationFrame(updatePosition);
     } else {
       removeTransitionDuration();
     }
   };
 
-  // Wait until the popper's position has been updated initially
-  defer(updatePosition);
+  updatePosition();
 }
 
 /**
@@ -3702,16 +3957,17 @@ function _makeSticky() {
  * @memberof Tippy
  * @private
  */
-function _addMutationObserver(_ref) {
-  var target = _ref.target,
-      callback = _ref.callback,
-      options = _ref.options;
+function _addMutationObserver(_ref2) {
+  var target = _ref2.target,
+      callback = _ref2.callback,
+      options = _ref2.options;
 
   if (!window.MutationObserver) return;
 
   var observer = new MutationObserver(callback);
   observer.observe(target, options);
-  this._internal.mutationObservers.push(observer);
+
+  this._(key).mutationObservers.push(observer);
 }
 
 /**
@@ -3727,8 +3983,8 @@ function _onTransitionEnd(duration, callback) {
     return callback();
   }
 
-  var _getInnerElements4 = getInnerElements(this.popper),
-      tooltip = _getInnerElements4.tooltip;
+  var _getInnerElements6 = getInnerElements(this.popper),
+      tooltip = _getInnerElements6.tooltip;
 
   var toggleListeners = function toggleListeners(action, listener) {
     if (!listener) return;
@@ -3742,10 +3998,10 @@ function _onTransitionEnd(duration, callback) {
     }
   };
 
-  toggleListeners('remove', this._internal.transitionendListener);
+  toggleListeners('remove', this._(key).transitionendListener);
   toggleListeners('add', listener);
 
-  this._internal.transitionendListener = listener;
+  this._(key).transitionendListener = listener;
 }
 
 var idCounter = 1;
@@ -3762,18 +4018,19 @@ function createTooltips(els, config) {
 
     var options = evaluateOptions(reference, config.performance ? config : getIndividualOptions(reference, config));
 
-    var html = options.html,
-        trigger = options.trigger,
-        touchHold = options.touchHold,
-        dynamicTitle = options.dynamicTitle,
-        createPopperInstanceOnInit = options.createPopperInstanceOnInit;
-
-
     var title = reference.getAttribute('title');
-    if (!title && !html) return acc;
 
-    reference.setAttribute('data-tippy', '');
-    reference.setAttribute('aria-describedby', 'tippy-' + id);
+    // Don't create an instance when:
+    // * the `title` attribute is falsy (null or empty string), and
+    // * it's not a delegate for tooltips, and
+    // * there is no html template specified, and
+    // * `dynamicTitle` option is false
+    if (!title && !options.target && !options.html && !options.dynamicTitle) {
+      return acc;
+    }
+
+    // Delegates should be highlighted as different
+    reference.setAttribute(options.target ? 'data-tippy-delegate' : 'data-tippy', '');
 
     removeTitle(reference);
 
@@ -3783,18 +4040,23 @@ function createTooltips(els, config) {
       id: id,
       reference: reference,
       popper: popper,
-      options: options
+      options: options,
+      title: title,
+      popperInstance: null
     });
 
-    tippy.popperInstance = createPopperInstanceOnInit ? _createPopperInstance.call(tippy) : null;
+    if (options.createPopperInstanceOnInit) {
+      tippy.popperInstance = _createPopperInstance.call(tippy);
+      tippy.popperInstance.disableEventListeners();
+    }
 
     var listeners = _getEventListeners.call(tippy);
-    tippy.listeners = trigger.trim().split(' ').reduce(function (acc, eventType) {
-      return acc.concat(createTrigger(eventType, reference, listeners, touchHold));
+    tippy.listeners = options.trigger.trim().split(' ').reduce(function (acc, eventType) {
+      return acc.concat(createTrigger(eventType, reference, listeners, options));
     }, []);
 
     // Update tooltip content whenever the title attribute on the reference changes
-    if (dynamicTitle) {
+    if (options.dynamicTitle) {
       _addMutationObserver.call(tippy, {
         target: reference,
         callback: function callback() {
@@ -3803,7 +4065,7 @@ function createTooltips(els, config) {
 
           var title = reference.getAttribute('title');
           if (title) {
-            content.innerHTML = title;
+            content[options.allowTitleHTML ? 'innerHTML' : 'textContent'] = tippy.title = title;
             removeTitle(reference);
           }
         },
@@ -3816,6 +4078,7 @@ function createTooltips(els, config) {
 
     // Shortcuts
     reference._tippy = tippy;
+    popper._tippy = tippy;
     popper._reference = reference;
 
     acc.push(tippy);
@@ -3831,10 +4094,12 @@ function createTooltips(els, config) {
  * @param {Tippy} excludeTippy - tippy to exclude if needed
  */
 function hideAllPoppers(excludeTippy) {
-  var poppers = [].slice.call(document.querySelectorAll(selectors.POPPER));
+  var poppers = toArray(document.querySelectorAll(selectors.POPPER));
 
   poppers.forEach(function (popper) {
-    var tippy = popper._reference._tippy;
+    var tippy = popper._tippy;
+    if (!tippy) return;
+
     var options = tippy.options;
 
 
@@ -3848,7 +4113,7 @@ function hideAllPoppers(excludeTippy) {
  * Adds the needed event listeners
  */
 function bindEventListeners() {
-  var touchHandler = function touchHandler() {
+  var onDocumentTouch = function onDocumentTouch() {
     if (browser.usingTouch) return;
 
     browser.usingTouch = true;
@@ -3858,13 +4123,13 @@ function bindEventListeners() {
     }
 
     if (browser.dynamicInputDetection && window.performance) {
-      document.addEventListener('mousemove', mousemoveHandler);
+      document.addEventListener('mousemove', onDocumentMouseMove);
     }
 
     browser.onUserInputChange('touch');
   };
 
-  var mousemoveHandler = function () {
+  var onDocumentMouseMove = function () {
     var time = void 0;
 
     return function () {
@@ -3873,7 +4138,7 @@ function bindEventListeners() {
       // Chrome 60+ is 1 mousemove per animation frame, use 20ms time difference
       if (now - time < 20) {
         browser.usingTouch = false;
-        document.removeEventListener('mousemove', mousemoveHandler);
+        document.removeEventListener('mousemove', onDocumentMouseMove);
         if (!browser.iOS) {
           document.body.classList.remove('tippy-touch');
         }
@@ -3884,7 +4149,7 @@ function bindEventListeners() {
     };
   }();
 
-  var clickHandler = function clickHandler(event) {
+  var onDocumentClick = function onDocumentClick(event) {
     // Simulated events dispatched on the document
     if (!(event.target instanceof Element)) {
       return hideAllPoppers();
@@ -3893,26 +4158,30 @@ function bindEventListeners() {
     var reference = closest(event.target, selectors.REFERENCE);
     var popper = closest(event.target, selectors.POPPER);
 
-    if (popper && popper._reference._tippy.options.interactive) return;
+    if (popper && popper._tippy && popper._tippy.options.interactive) {
+      return;
+    }
 
-    if (reference) {
+    if (reference && reference._tippy) {
       var options = reference._tippy.options;
 
-      // Hide all poppers except the one belonging to the element that was clicked IF
-      // `multiple` is false AND they are a touch user, OR
-      // `multiple` is false AND it's triggered by a click
+      var isClickTrigger = options.trigger.indexOf('click') > -1;
+      var isMultiple = options.multiple;
 
-      if (!options.multiple && browser.usingTouch || !options.multiple && options.trigger.indexOf('click') > -1) {
+      // Hide all poppers except the one belonging to the element that was clicked
+      if (!isMultiple && browser.usingTouch || !isMultiple && isClickTrigger) {
         return hideAllPoppers(reference._tippy);
       }
 
-      if (options.hideOnClick !== true || options.trigger.indexOf('click') > -1) return;
+      if (options.hideOnClick !== true || isClickTrigger) {
+        return;
+      }
     }
 
     hideAllPoppers();
   };
 
-  var blurHandler = function blurHandler(event) {
+  var onWindowBlur = function onWindowBlur() {
     var _document = document,
         el = _document.activeElement;
 
@@ -3921,72 +4190,72 @@ function bindEventListeners() {
     }
   };
 
-  document.addEventListener('click', clickHandler);
-  document.addEventListener('touchstart', touchHandler);
-  window.addEventListener('blur', blurHandler);
+  var onWindowResize = function onWindowResize() {
+    toArray(document.querySelectorAll(selectors.POPPER)).forEach(function (popper) {
+      var tippyInstance = popper._tippy;
+      if (tippyInstance && !tippyInstance.options.livePlacement) {
+        tippyInstance.popperInstance.scheduleUpdate();
+      }
+    });
+  };
+
+  document.addEventListener('click', onDocumentClick);
+  document.addEventListener('touchstart', onDocumentTouch);
+  window.addEventListener('blur', onWindowBlur);
+  window.addEventListener('resize', onWindowResize);
 
   if (!browser.supportsTouch && (navigator.maxTouchPoints || navigator.msMaxTouchPoints)) {
-    document.addEventListener('pointerdown', touchHandler);
+    document.addEventListener('pointerdown', onDocumentTouch);
   }
 }
 
+var eventListenersBound = false;
+
 /**
- * Instantiates tooltips
+ * Exported module
  * @param {String|Element|Element[]|NodeList|Object} selector
  * @param {Object} options
+ * @param {Boolean} one - create one tooltip
  * @return {Object}
  */
-function tippy$1(selector, options) {
-  if (browser.supported && !browser._eventListenersBound) {
+function tippy(selector, options, one) {
+  if (browser.supported && !eventListenersBound) {
     bindEventListeners();
-    browser._eventListenersBound = true;
+    eventListenersBound = true;
   }
 
   if (isObjectLiteral(selector)) {
-    selector.refObj = true;
-    selector.attributes = selector.attributes || {};
-    selector.setAttribute = function (key, val) {
-      selector.attributes[key] = val;
-    };
-    selector.getAttribute = function (key) {
-      return selector.attributes[key];
-    };
-    selector.removeAttribute = function (key) {
-      delete selector.attributes[key];
-    };
-    selector.addEventListener = function () {};
-    selector.removeEventListener = function () {};
-    selector.classList = {
-      classNames: {},
-      add: function add(key) {
-        return selector.classList.classNames[key] = true;
-      },
-      remove: function remove(key) {
-        delete selector.classList.classNames[key];
-        return true;
-      },
-      contains: function contains(key) {
-        return !!selector.classList.classNames[key];
-      }
-    };
+    polyfillVirtualReferenceProps(selector);
   }
 
   options = _extends({}, defaults, options);
 
+  var references = getArrayOfElements(selector);
+  var firstReference = references[0];
+
   return {
     selector: selector,
     options: options,
-    tooltips: browser.supported ? createTooltips(getArrayOfElements(selector), options) : [],
+    tooltips: browser.supported ? createTooltips(one && firstReference ? [firstReference] : references, options) : [],
     destroyAll: function destroyAll() {
       this.tooltips.forEach(function (tooltip) {
         return tooltip.destroy();
       });
+      this.tooltips = [];
     }
   };
 }
 
-tippy$1.browser = browser;
-tippy$1.defaults = defaults;
+tippy.version = version;
+tippy.browser = browser;
+tippy.defaults = defaults;
+tippy.one = function (selector, options) {
+  return tippy(selector, options, true).tooltips[0];
+};
+tippy.disableAnimations = function () {
+  defaults.updateDuration = defaults.duration = 0;
+  defaults.animateFill = false;
+};
 
 /**
  * Injects CSS styles to document head
@@ -4011,6 +4280,6 @@ function injectCSS() {
 
 injectCSS(styles);
 
-return tippy$1;
+return tippy;
 
 })));

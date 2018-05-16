@@ -1,5 +1,16 @@
 <?php
 /**
+ * Page About
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+use Pronamic\WordPress\Pay\Plugin;
+
+/**
  * Page about
  */
 
@@ -67,7 +78,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 	<?php
 
-	$file = plugin_dir_path( Pronamic_WP_Pay_Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
+	$file = plugin_dir_path( Plugin::$file ) . 'admin/tab-' . $current_tab . '.php';
 
 	if ( is_readable( $file ) ) {
 		include $file;

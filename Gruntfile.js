@@ -16,7 +16,8 @@ module.exports = function( grunt ) {
 				'!node_modules/**',
 				'!repositories/**',
 				'!vendor/**',
-				'!wp-content/**'
+				'!wp-content/**',
+				'!wordpress/**'
 			],
 			wp_pay: [
 				'vendor/wp-pay/**/*.php',
@@ -25,21 +26,18 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// PHP Code Sniffer
+		// PHP Code Sniffer.
 		phpcs: {
-			application: {
+			core: {
 				src: [
-					'**/*.php',
-					'!build/**',
-					'!deploy/**',
+					'admin/**/*.php',
+					'classes/**/*.php',
+					'includes/**/*.php',
+					'!includes/updates/**',
 					'!includes/xmlseclibs/**',
-					'!node_modules/**',
-					'!src/changelog-md/**',
-					'!src/general/**',
-					'!src/readme-md/**',
-					'!src/readme-txt/**',
-					'!vendor/**',
-					'!wp-content/**'
+					'views/**/*.php',
+					'pronamic-ideal.php',
+					'uninstall.php'
 				]
 			},
 			options: {
@@ -49,7 +47,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// PHPUnit
+		// PHPUnit.
 		phpunit: {
 			options: {
 				bin: 'vendor/bin/phpunit'
@@ -59,7 +57,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// JSHint
+		// JSHint.
 		jshint: {
 			options: grunt.file.readJSON( '.jshintrc' ),
 			grunt: [ 'Gruntfile.js' ],
@@ -68,7 +66,7 @@ module.exports = function( grunt ) {
 			]
 		},
 
-		// Sass Lint
+		// Sass Lint.
 		sasslint: {
 			options: {
 				configFile: '.sass-lint.yml'
@@ -78,7 +76,7 @@ module.exports = function( grunt ) {
 			]
 		},
 		
-		// Check textdomain errors
+		// Check textdomain errors.
 		checktextdomain: {
 			options:{
 				text_domain: 'pronamic_ideal',
@@ -106,13 +104,14 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
+					'!wordpress/**',
 					'!wp-content/**'
 				],
 				expand: true
 			}
 		},
 
-		// Make POT
+		// Make POT.
 		makepot: {
 			target: {
 				options: {
@@ -120,13 +119,14 @@ module.exports = function( grunt ) {
 					domainPath: 'languages',
 					type: 'wp-plugin',
 					mainFile: 'pronamic-ideal.php',
+					exclude: [ 'vendor/pronamic/.*' ],
 					updatePoFiles: true,
 					updateTimestamp: false
 				}
 			}
 		},
 
-		// Imagemin
+		// Imagemin.
 		imagemin: {
 			build: {
 				files: [
@@ -140,40 +140,39 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Shell
+		// Shell.
 		shell: {
-
-			// Check versions
+			// Check versions.
 			check_versions: {
 				command: 'php src/check-versions.php'
 			},
 
-			// PlantUML
+			// PlantUML.
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
 			},
 
-			// WordPress test environment
+			// WordPress test environment.
 			test: {
 				command: 'bash tests/setup.sh'
 			},
 
-			// Generate readme.txt
+			// Generate readme.txt.
 			readme_txt: {
 				command: 'php src/readme-txt/readme.php > readme.txt'
 			},
 
-			// Generate README.md
+			// Generate README.md.
 			readme_md: {
 				command: 'php src/readme-md/README.php > README.md'
 			},
 
-			// Generate CHANGELOG.md
+			// Generate CHANGELOG.md.
 			changelog_md: {
 				command: 'php src/changelog-md/CHANGELOG.php > CHANGELOG.md'
 			},
 
-			// Composer
+			// Composer.
 			deploy: {
 				command: [
 					'cd deploy/latest',
@@ -182,21 +181,11 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Copy
+		// Copy.
 		copy: {
-			styles: {
-				files: [
-					{ // CSS
-						expand: true,
-						cwd: 'src/css/',
-						src: '**',
-						dest: 'css/'
-					}
-				]
-			},
 			scripts: {
 				files: [
-					{ // JS
+					{ // JS.
 						expand: true,
 						cwd: 'src/js/',
 						src: '**',
@@ -206,7 +195,7 @@ module.exports = function( grunt ) {
 			},
 			assets: {
 				files: [
-					{ // Flot - http://www.flotcharts.org/
+					{ // Flot - http://www.flotcharts.org/.
 						expand: true,
 						cwd: 'node_modules/flot/',
 						src: [
@@ -216,13 +205,13 @@ module.exports = function( grunt ) {
 						],
 						dest: 'assets/flot'
 					},
-					{ // accounting.js - http://openexchangerates.github.io/accounting.js/
+					{ // accounting.js - http://openexchangerates.github.io/accounting.js/.
 						expand: true,
 						cwd: 'node_modules/accounting/',
 						src: 'accounting.js',
 						dest: 'assets/accounting'
 					},
-					{ // Tippy.js - https://atomiks.github.io/tippyjs/
+					{ // Tippy.js - https://atomiks.github.io/tippyjs/.
 						expand: true,
 						cwd: 'node_modules/tippy.js/dist',
 						src: 'tippy.all.js',
@@ -232,7 +221,7 @@ module.exports = function( grunt ) {
 			},
 			other: {
 				files: [
-					{ // extensions.json
+					{ // extensions.json.
 						expand: true,
 						cwd: 'src/',
 						src: [
@@ -250,6 +239,7 @@ module.exports = function( grunt ) {
 					'!Gruntfile.js',
 					'!package.json',
 					'!package-lock.json',
+					'!phpdoc.dist.xml',
 					'!phpunit.xml',
 					'!phpunit.xml.dist',
 					'!phpcs.xml.dist',
@@ -265,6 +255,7 @@ module.exports = function( grunt ) {
 					'!src/**',
 					'!tests/**',
 					'!vendor/**',
+					'!wordpress/**',
 					'!wp-content/**'
 				],
 				dest: 'deploy/latest/'
@@ -277,7 +268,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Composer
+		// Composer.
 		composer : {
 			options : {
 
@@ -289,60 +280,82 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Compass
-		compass: {
-			build: {
-				options: {
-					sassDir: 'src/sass',
-					cssDir: 'src/css'
-				}
-			}
-		},
-
-		// Autoprefixer
-		autoprefixer: {
+		// SASS.
+		sass: {
 			options: {
-		 		browsers: [ 'last 2 version', 'ie 8', 'ie 9' ]
+				style: 'expanded'
 			},
-			admin: {
-				src: 'src/css/admin.css'
+			build: {
+				files: [ {
+					expand: true,
+					cwd: 'src/sass',
+					src: '*.scss',
+					dest: 'src/css',
+					ext: '.css'
+				} ]
 			}
 		},
 
-		// CSS min
-		cssmin: {
-			styles: {
-				files: {
-					// Pronamic Pay
-					'css/admin.min.css': 'src/css/admin.css',
-					'css/admin-about.min.css': 'src/css/admin-about.css',
-					'css/admin-tour.min.css': 'src/css/admin-tour.css',
-					'css/forms.min.css': 'src/css/forms.css'
-				}
+		// PostCSS.
+		postcss: {
+			options: {
+				map: false
+			},
+			prefix: {
+				options: {
+					processors: [
+						require( 'autoprefixer' )(),
+						require( 'postcss-eol' )()
+					]
+				},
+				files: [ {
+					expand: true,
+					cwd: 'src/css/',
+					src: '*.css',
+					dest: 'css/'
+				} ]
+			},
+			min: {
+				options: {
+					processors: [
+						require( 'cssnano' )(),
+						require( 'postcss-eol' )()
+					]
+				},
+				files: [ {
+					expand: true,
+					cwd: 'css/',
+					src: [
+						'*.css',
+						'!*.min.css'
+					],
+					dest: 'css/',
+					ext: '.min.css'
+				} ]
 			}
 		},
 
-		// Uglify
+		// Uglify.
 		uglify: {
 			scripts: {
 				files: {
-					// Pronamic Pay
+					// Pronamic Pay.
 					'js/admin.min.js': 'src/js/admin.js',
 					'js/admin-reports.min.js': 'src/js/admin-reports.js',
 					'js/admin-tour.min.js': 'src/js/admin-tour.js',
-					// Accounting
+					// Accounting.
 					'assets/accounting/accounting.min.js': 'assets/accounting/accounting.js',
-					// Flot
+					// Flot.
 					'assets/flot/jquery.flot.min.js': 'assets/flot/jquery.flot.js',
 					'assets/flot/jquery.flot.resize.min.js': 'assets/flot/jquery.flot.resize.js',
 					'assets/flot/jquery.flot.time.min.js': 'assets/flot/jquery.flot.time.js',
-					// Tippy.js
+					// Tippy.js.
 					'assets/tippy.js/tippy.all.min.js': 'assets/tippy.js/tippy.all.js'
 				}
 			}
 		},
 
-		// Clean
+		// Clean.
 		clean: {
 			assets: {
 				src: [
@@ -358,6 +371,7 @@ module.exports = function( grunt ) {
 			deploy_composer: {
 				src: [
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
+					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',
 					'deploy/latest/vendor/wp-pay*/*/tests/**',
 					'deploy/latest/vendor/wp-pay*/*/.gitignore',
@@ -366,6 +380,7 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/wp-pay*/*/package.json',
 					'deploy/latest/vendor/wp-pay*/*/package-lock.json',
 					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
+					'deploy/latest/vendor/wp-pay*/*/phpcs.xml.dist',
 					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
 					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
 				]
@@ -377,7 +392,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Compress
+		// Compress.
 		compress: {
 			deploy: {
 				options: {
@@ -390,7 +405,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// Git checkout
+		// Git checkout.
 		gitcheckout: {
 			tag: {
 				options: {
@@ -404,7 +419,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
-		// S3
+		// S3.
 		aws_s3: {
 			options: {
 				region: 'eu-central-1'
@@ -425,7 +440,7 @@ module.exports = function( grunt ) {
 			}
 		},
 		
-		// WordPress deploy
+		// WordPress deploy.
 		rt_wp_deploy: {
 			app: {
 				options: {
@@ -463,9 +478,9 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task(s).
-	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpunit', 'shell:check_versions' ] );
-	grunt.registerTask( 'assets', [ 'sasslint', 'compass', 'autoprefixer', 'copy:styles', 'copy:scripts', 'copy:assets', 'copy:other' ] );
-	grunt.registerTask( 'min', [ 'cssmin', 'uglify', 'imagemin' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'phpunit', 'shell:check_versions' ] );
+	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
+	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
 	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
 

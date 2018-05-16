@@ -1,6 +1,22 @@
 <?php
+/**
+ * Meta Box Subscription Info
+ *
+ * @author    Pronamic <info@pronamic.eu>
+ * @copyright 2005-2018 Pronamic
+ * @license   GPL-3.0-or-later
+ * @package   Pronamic\WordPress\Pay
+ */
+
+use Pronamic\WordPress\Pay\Core\PaymentMethods;
+use Pronamic\WordPress\Pay\Core\Statuses;
+use Pronamic\WordPress\Pay\Util;
 
 $post_id = get_the_ID();
+
+if ( empty( $post_id ) ) {
+	return;
+}
 
 $subscription = get_pronamic_subscription( $post_id );
 
@@ -32,15 +48,28 @@ $subscription = get_pronamic_subscription( $post_id );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php edit_post_link( get_the_title( $subscription->config_id ), '', '', $subscription->config_id ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<?php esc_html_e( 'Payment Method', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo esc_html( PaymentMethods::get_name( $subscription->payment_method ) ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Amount', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$currency = $subscription->get_currency();
-			$amount   = $subscription->get_amount();
-
-			echo esc_html( Pronamic_WP_Util::format_price( $amount, $currency ) );
+			echo esc_html( $subscription->get_amount()->format_i18n() );
 
 			?>
 		</td>
@@ -50,7 +79,7 @@ $subscription = get_pronamic_subscription( $post_id );
 			<?php echo esc_html_x( 'Interval', 'Recurring payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo esc_html( Pronamic_WP_Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) ); ?>
+			<?php echo esc_html( Util::format_interval( $subscription->get_interval(), $subscription->get_interval_period() ) ); ?>
 		</td>
 	</tr>
 	<tr>
@@ -58,85 +87,84 @@ $subscription = get_pronamic_subscription( $post_id );
 			<?php echo esc_html_x( 'Frequency', 'Recurring payment', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
-			<?php echo esc_html( Pronamic_WP_Util::format_frequency( $subscription->get_frequency() ) ); ?>
+			<?php echo esc_html( Util::format_frequency( $subscription->get_frequency() ) ); ?>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'First payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Start Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$first_date = get_date_from_gmt( $subscription->get_first_payment_date()->format( 'Y-m-d H:i:s' ) );
+			$start_date = $subscription->get_start_date();
 
-			echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $first_date ) ) );
+			echo empty( $start_date ) ? '—' : esc_html( $start_date->format_i18n() );
 
 			?>
 		</td>
 	</tr>
+
+	<?php
+
+	$frequency = $subscription->get_frequency();
+
+	// Show end date if frequency is limited.
+	if ( ! empty( $frequency ) ) :
+
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'End Date', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$end_date = $subscription->get_end_date();
+
+				echo empty( $end_date ) ? '—' : esc_html( $end_date->format_i18n() );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php
+
+	// Show next payment date if subscription is not cancelled or completed.
+	if ( ! in_array( $subscription->get_status(), array( Statuses::CANCELLED, Statuses::COMPLETED ), true ) ) :
+
+	?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Next Payment Date', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$next_payment = $subscription->get_next_payment_date();
+
+				echo empty( $next_payment ) ? '—' : esc_html( $next_payment->format_i18n() );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'Next payment', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Expiry Date', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			$next_payment = $subscription->get_next_payment_date();
-
-			if ( $next_payment ) {
-				$next_date = get_date_from_gmt( $next_payment->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $next_date ) ) );
-			} else {
-				echo esc_html( __( 'None', 'pronamic_ideal' ) );
-			}
-
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Final payment', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
-
-			$final_payment = $subscription->get_final_payment_date();
-
-			if ( $final_payment ) {
-				$final_date = get_date_from_gmt( $final_payment->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $final_date ) ) );
-			}
-
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Current period', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
-
-			$start_date  = $subscription->get_start_date();
 			$expiry_date = $subscription->get_expiry_date();
 
-			if ( $start_date && $expiry_date ) {
-				$start_date  = get_date_from_gmt( $start_date->format( 'Y-m-d H:i:s' ) );
-				$expiry_date = get_date_from_gmt( $expiry_date->format( 'Y-m-d H:i:s' ) );
-
-				echo esc_html( sprintf(
-					'%s – %s',
-					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $start_date ) ),
-					date_i18n( __( 'l jS \o\f F Y, h:ia', 'pronamic_ideal' ), strtotime( $expiry_date ) )
-				) );
-			}
-
-			if ( Pronamic_WP_Pay_Statuses::COMPLETED === $subscription->get_status() ) {
-				echo esc_html( sprintf( __( 'None (subscription completed)', 'pronamic_ideal' ) ) );
-			}
+			echo empty( $expiry_date ) ? '—' : esc_html( $expiry_date->format_i18n() );
 
 			?>
 		</td>
@@ -164,17 +192,7 @@ $subscription = get_pronamic_subscription( $post_id );
 		<td>
 			<?php
 
-			$first_payment = $subscription->get_first_payment();
-
-			if ( $first_payment ) {
-				echo $first_payment->get_source_text(); //xss ok
-			} else {
-				printf(
-					'%s<br />%s', //xss ok
-					esc_html( $subscription->get_source() ),
-					esc_html( $subscription->get_source_id() )
-				);
-			}
+			echo $subscription->get_source_text(); // WPCS: XSS ok.
 
 			?>
 		</td>

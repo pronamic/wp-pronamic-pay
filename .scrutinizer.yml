@@ -1,0 +1,17 @@
+filter:
+  excluded_paths:
+    # Exclude `assets` folder, it only contains external libraries.
+    - 'assets/*'
+    # Exclude the external `xmlseclibs.php` library.
+    - 'includes/xmlseclibs/*'
+    # Exclude the `js` folder, it is a copy of `src/js`.
+    - 'js/*'
+    # Exclude minified JavaScript files.
+    - '*.min.js'
+
+checks:
+  php:
+    coding_standard:
+      name: WordPress
+    code_rating: true
+    duplication: true
