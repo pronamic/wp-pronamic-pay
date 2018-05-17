@@ -57,7 +57,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.4.decaf
 	*	**Tested up to:** 4.4.4.decaf
-*	[Formidable Forms](https://formidablepro.com/)
+*	[Formidable Forms](https://formidableforms.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
 	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
 	*	**Requires at least:** 2.0.22
