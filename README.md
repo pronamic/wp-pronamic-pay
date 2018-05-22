@@ -63,7 +63,7 @@ The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card
 | [Event Espresso 3 Lite](http://eventespresso.com/) |  | [WordPress.org](http://wordpress.org/plugins/event-espresso-free/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `3.1.29.1.L` | `3.1.35.L` |
 | [Event Espresso 4](http://eventespresso.com/) |  |  | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.7.p` | `4.9.7.p` |
 | [Event Espresso 4 Decaf](http://eventespresso.com/) |  | [WordPress.org](https://wordpress.org/plugins/event-espresso-decaf/) | [GitHub](https://github.com/eventespresso/event-espresso-core) | `4.4.4.decaf` | `4.4.4.decaf` |
-| [Formidable Forms](https://formidablepro.com/) |  | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `2.0.22` |
+| [Formidable Forms](https://formidableforms.com/) |  | [WordPress.org](https://wordpress.org/plugins/formidable/) | [GitHub](https://github.com/Strategy11/formidable-forms) | `2.0.22` | `2.0.22` |
 | [Give](https://givewp.com/) |  | [WordPress.org](https://wordpress.org/plugins/give/) | [GitHub](https://github.com/WordImpress/Give) | `1.3.6` | `1.5.2` |
 | [Gravity Forms](http://www.gravityforms.com/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityforms) | `1.6` | `2.2.1.2` |
 | [Gravity Forms AWeber Add-On](http://www.gravityforms.com/add-ons/aweber/) | [Rocketgenius](http://www.rocketgenius.com/) |  | [GitHub](https://github.com/gravityforms/gravityformsaweber) | `1.4.2` | `1.4.2` |
