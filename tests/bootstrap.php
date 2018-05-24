@@ -12,6 +12,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 require_once getenv( 'WP_PHPUNIT__DIR' ) . '/includes/functions.php';
 
+/**
+ * Manually load plugin.
+ */
 function _manually_load_plugin() {
 	require dirname( __FILE__ ) . '/../pronamic-ideal.php';
 }

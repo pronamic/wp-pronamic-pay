@@ -3,6 +3,12 @@
 $data      = file_get_contents( __DIR__ . '/../changelog.json' );
 $changelog = json_decode( $data );
 
+/**
+ * Render changes.
+ *
+ * @param string|array|object $changes Changes.
+ * @param int                 $level   Indentation level.
+ */
 function render_changes( $changes, $level = 0 ) {
 	$indent = $level * 1;
 
@@ -14,9 +20,7 @@ function render_changes( $changes, $level = 0 ) {
 		}
 	} elseif ( is_object( $changes ) ) {
 		if ( isset( $changes->name ) ) {
-			// Changes group
-			//echo '### ', $changes->name, "\r\n";
-
+			// Changes group.
 			if ( isset( $changes->changes ) ) {
 				render_changes( $changes->changes, $level );
 			}

@@ -60,8 +60,12 @@
 		<exclude-pattern>/admin/tab-*.php</exclude-pattern>
 	</rule>
 
-	<rule ref="PHPCompatibility.PHP.NewConstants.sort_flag_caseFound">
-		<exclude-pattern>/classes/Admin/GatewaySettings.php</exclude-pattern>
+	<rule ref="Internal.NoCodeFound">
+		<exclude-pattern>/src/*.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_shell_exec">
+		<exclude-pattern>/src/repositories.php</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize">
@@ -74,5 +78,9 @@
 
 	<rule ref="WordPress.VIP.RestrictedVariables.cache_constraints___SERVER__REMOTE_ADDR__">
 		<exclude-pattern>/classes/Plugin.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.XSS.EscapeOutput.OutputNotEscaped">
+		<exclude-pattern>/src/*.php</exclude-pattern>
 	</rule>
 </ruleset>

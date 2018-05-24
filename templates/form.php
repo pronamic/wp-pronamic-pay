@@ -155,7 +155,11 @@ if ( $gateway ) : ?>
 							<?php if ( 'select' === $field['type'] ) : ?>
 
 								<select id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>">
-									<?php echo Util::select_options_grouped( $field['choices'] ); ?>
+									<?php
+
+									echo Util::select_options_grouped( $field['choices'] ); // WPCS: XSS ok.
+
+									?>
 								</select>
 
 							<?php endif; ?>
