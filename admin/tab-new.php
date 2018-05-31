@@ -15,32 +15,50 @@ if ( ! defined( 'WPINC' ) ) {
 ?>
 <div class="feature-section two-col">
 	<div class="col">
-		<h3><?php esc_html_e( 'Rabobank OmniKassa 2.0', 'pronamic_ideal' ); ?></h3>
+		<h3><?php esc_html_e( 'Recurring payments for MemberPress', 'pronamic_ideal' ); ?></h3>
 
 		<p>
 			<?php
 
-esc_html_e(
-	'Rabobank has introduced a new version of the OmniKassa payment platform. Pronamic Pay
-now supports the new OmniKassa. To receive payments with your OmniKassa 2.0 account, create a new configuration via Pay »
-Configurations and update the configuration in the payment method settings.', 'pronamic_ideal'
-);
+			esc_html_e(
+				'We do our best to bring recurring payments support to as many plugins as possible. After plugins such
+as Gravity Forms and WooCommerce Subscriptions, this functionality can now also be used with MemberPress. The plugin
+provides the ability to offer memberships to your visitors and the subscription amount can now be charged automatically.
+Recurring payments are only supported with payment provider Mollie for now.', 'pronamic_ideal'
+			);
 
 			?>
 		</p>
 	</div>
 
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-omnikassa-2_0.jpg" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2018/05/pronamic-pay-memberpress-recurring.jpg" />
 	</div>
 </div>
 
-
 <div class="feature-section two-col">
 	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-subscriptions-dates.jpg" />
+		<img src="https://www.pronamic.nl/wp-content/uploads/2018/05/pronamic-pay-google-analytics-ecommerce-tracking.jpg" />
 	</div>
 
+	<div class="col">
+		<h3><?php esc_html_e( 'Google Analytics e-commerce tracking', 'pronamic_ideal' ); ?></h3>
+
+		<p>
+			<?php
+
+			esc_html_e(
+				'It is now possible to set a Google Analytics tracking ID in the plugin settings. A
+completed payment will automatically be send to Google (in live mode). The payment will be linked to
+the session of the visitor, which allows you to use visitor revenue in Google Analytics reports.', 'pronamic_ideal'
+			);
+
+			?>
+		</p>
+	</div>
+</div>
+
+<div class="feature-section two-col">
 	<div class="col">
 		<h3><?php esc_html_e( 'Better subscriptions', 'pronamic_ideal' ); ?></h3>
 
@@ -56,9 +74,17 @@ Subscriptions is now supported for example, and payment dates information has be
 			?>
 		</p>
 	</div>
+
+	<div class="col">
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-subscriptions-dates.jpg" />
+	</div>
 </div>
 
 <div class="feature-section two-col">
+	<div class="col">
+		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-restrictcontentpro.jpg" />
+	</div>
+
 	<div class="col">
 		<h3><?php esc_html_e( 'Restrict Content Pro', 'pronamic_ideal' ); ?></h3>
 
@@ -75,63 +101,9 @@ supported with s2Member (new shortcodes can be created with the included generat
 			?>
 		</p>
 	</div>
-
-	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-restrictcontentpro.jpg" />
-	</div>
 </div>
 
 <div class="feature-section two-col">
-	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2017/12/pronamic-pay-gravityforms-delay-actions.jpg" />
-	</div>
-
-	<div class="col">
-		<h3><?php esc_html_e( 'Gravity Forms + Moneybird', 'pronamic_ideal' ); ?></h3>
-
-		<p>
-			<?php
-
-esc_html_e(
-	'The Gravity Forms Moneybird Add-On plugin makes it possible to send invoices and estimates through a
-Moneybird account for Gravity Forms entries. With this version of Pronamic Pay it is possible to delay the creation of
-invoices and estimates until the payment has been received. Delaying these actions is now also possible for the Sliced
-Invoices plugin.', 'pronamic_ideal'
-);
-
-			?>
-		</p>
-	</div>
-</div>
-
-<div class="feature-section two-col">
-	<div class="col">
-		<h3><?php esc_html_e( 'Check status of pending payments', 'pronamic_ideal' ); ?></h3>
-
-		<p>
-			<?php
-
-esc_html_e(
-	'We always put a lot of effort in under the hood improvements to make automatic payment status updates as
-reliable as possible, but it might still occur that the payment status is pending for a prolonged period of time. With
-supported payment providers, you can now manually check the payment status. The number of pending payments is
-mentioned in the admin menu item badge.', 'pronamic_ideal'
-);
-
-			?>
-		</p>
-	</div>
-
-	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-betalingsstatus-controleren.png" />
-	</div>
-</div>
-
-<div class="feature-section two-col">
-	<div class="col">
-		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-vernieuwd-betalingsoverzicht.png" />
-	</div>
-
 	<div class="col">
 		<h3><?php esc_html_e( 'Refreshed payments overview', 'pronamic_ideal' ); ?></h3>
 
@@ -146,5 +118,9 @@ to make the overview a lot cleaner and easier to use. Additional columns can be 
 
 			?>
 		</p>
+	</div>
+
+	<div class="col">
+		<img src="https://www.pronamic.nl/wp-content/uploads/2016/10/Pronamic-iDEAL-vernieuwd-betalingsoverzicht.png" />
 	</div>
 </div>
