@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic iDEAL\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-05-16 07:36:23+00:00\n"
-"PO-Revision-Date: 2018-05-16 09:36+0200\n"
+"POT-Creation-Date: 2018-05-17 09:59:12+00:00\n"
+"PO-Revision-Date: 2018-05-17 12:25+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -1482,7 +1482,7 @@ msgid "Customer"
 msgstr "Klant"
 
 #: classes/Admin/AdminPaymentPostType.php:232
-#: classes/Admin/AdminSubscriptionPostType.php:135 classes/Plugin.php:860
+#: classes/Admin/AdminSubscriptionPostType.php:135 classes/Plugin.php:861
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -1625,6 +1625,7 @@ msgstr "Herhaling"
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:88
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:153
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:284
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentMethodsField.php:76
 msgid "Payment Methods"
 msgstr "Betaalmethoden"
 
@@ -1916,7 +1917,7 @@ msgstr "Pronamic Pay betalingen"
 msgid "Payment status check at gateway by %s."
 msgstr "Status opvragen bij betalingsprovider door %s."
 
-#: classes/Plugin.php:528
+#: classes/Plugin.php:529
 msgid ""
 "Something went wrong with the payment. Please try again later or pay another "
 "way."
@@ -1924,28 +1925,28 @@ msgstr ""
 "Betalen is nu niet mogelijk. Probeer het later nogmaals of betaal op een "
 "andere manier."
 
-#: classes/Plugin.php:552
+#: classes/Plugin.php:553
 msgid "— Select Configuration —"
 msgstr "— Selecteer configuratie —"
 
-#: classes/Plugin.php:726
+#: classes/Plugin.php:727
 msgid "Payment for %s"
 msgstr "Betaling voor %s"
 
-#: classes/Plugin.php:856
+#: classes/Plugin.php:857
 msgid "Completed"
 msgstr "Voltooid"
 
-#: classes/Plugin.php:857
+#: classes/Plugin.php:858
 msgid "Canceled"
 msgstr "Geannuleerd"
 
-#: classes/Plugin.php:858
+#: classes/Plugin.php:859
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:451
 msgid "Expired"
 msgstr "Verlopen"
 
-#: classes/Plugin.php:859 templates/form.php:177
+#: classes/Plugin.php:860 templates/form.php:177
 #: vendor/wp-pay-extensions/give/src/Gateway.php:132
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:452
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:257
@@ -2597,8 +2598,10 @@ msgstr "Formidable Forms"
 
 #. translators: %s: payment source id
 #. translators: %s: source id
+#. translators: %s: payment source id
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:200
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:245
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:126
 msgid "Entry #%s"
 msgstr "Inzending #%s"
 
@@ -2642,6 +2645,7 @@ msgid "— Select Field —"
 msgstr "— Selecteer veld —"
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:58
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:145
 msgid "Payment method"
 msgstr "Betaalmethode"
 
@@ -2649,6 +2653,7 @@ msgstr "Betaalmethode"
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:50
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:250
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:151
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:114
 msgid "Transaction Description"
 msgstr "Transactiebeschrijving"
 
@@ -2716,6 +2721,7 @@ msgid "Transaction Id"
 msgstr "Transactie ID"
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:154
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:129
 msgid "Payment Amount"
 msgstr "Te betalen bedrag"
 
@@ -3426,6 +3432,26 @@ msgstr "Standaard: <code>%s</code>"
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:106
 msgid "Button description"
 msgstr "Button beschrijving"
+
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:116
+msgid "Ninja Forms"
+msgstr "Ninja Forms"
+
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:141
+msgid "Ninja Forms Entry"
+msgstr "Ninja Forms inzending"
+
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:133
+msgid ""
+"Select the correct field using the icon on the right, or enter a fixed "
+"amount."
+msgstr ""
+"Selecteer het juiste veld met behulp van het pictogram aan de rechterkant, "
+"of voer een vast bedrag in."
+
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:149
+msgid "Use the special \"Payment Methods\" field for this."
+msgstr "Gebruik het “Betaalmethodes” veld hiervoor."
 
 #. translators: %s: Restrict Content Pro
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:227
@@ -5248,7 +5274,7 @@ msgctxt "Payment title date format parsed by `date_i18n`."
 msgid "M d, Y @ h:i A"
 msgstr "j M Y @ H:i"
 
-#: classes/Plugin.php:517
+#: classes/Plugin.php:518
 msgctxt "default datetime format"
 msgid "D j M Y \\a\\t H:i"
 msgstr "D j M Y \\o\\m H:i"

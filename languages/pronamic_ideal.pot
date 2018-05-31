@@ -2,9 +2,9 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Pay 5.0.0\n"
+"Project-Id-Version: Pronamic Pay 5.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-05-16 07:42:11+00:00\n"
+"POT-Creation-Date: 2018-05-17 09:59:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1331,7 +1331,7 @@ msgid "Customer"
 msgstr ""
 
 #: classes/Admin/AdminPaymentPostType.php:232
-#: classes/Admin/AdminSubscriptionPostType.php:135 classes/Plugin.php:860
+#: classes/Admin/AdminSubscriptionPostType.php:135 classes/Plugin.php:861
 msgid "Unknown"
 msgstr ""
 
@@ -1470,6 +1470,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:88
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:153
 #: vendor/wp-pay-extensions/formidable-forms/src/PaymentMethodSelectFieldType.php:284
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentMethodsField.php:76
 msgid "Payment Methods"
 msgstr ""
 
@@ -1759,34 +1760,34 @@ msgstr ""
 msgid "Payment status check at gateway by %s."
 msgstr ""
 
-#: classes/Plugin.php:528
+#: classes/Plugin.php:529
 msgid ""
 "Something went wrong with the payment. Please try again later or pay "
 "another way."
 msgstr ""
 
-#: classes/Plugin.php:552
+#: classes/Plugin.php:553
 msgid "— Select Configuration —"
 msgstr ""
 
-#: classes/Plugin.php:726
+#: classes/Plugin.php:727
 msgid "Payment for %s"
 msgstr ""
 
-#: classes/Plugin.php:856
+#: classes/Plugin.php:857
 msgid "Completed"
 msgstr ""
 
-#: classes/Plugin.php:857
+#: classes/Plugin.php:858
 msgid "Canceled"
 msgstr ""
 
-#: classes/Plugin.php:858
+#: classes/Plugin.php:859
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:451
 msgid "Expired"
 msgstr ""
 
-#: classes/Plugin.php:859 templates/form.php:177
+#: classes/Plugin.php:860 templates/form.php:177
 #: vendor/wp-pay-extensions/give/src/Gateway.php:132
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:452
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:257
@@ -2423,8 +2424,10 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/src/Extension.php:200
 #: vendor/wp-pay-extensions/gravityforms/src/Extension.php:245
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:126
 #. translators: %s: payment source id
 #. translators: %s: source id
+#. translators: %s: payment source id
 msgid "Entry #%s"
 msgstr ""
 
@@ -2468,6 +2471,7 @@ msgid "— Select Field —"
 msgstr ""
 
 #: vendor/wp-pay-extensions/formidable-forms/views/payment-settings.php:58
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:145
 msgid "Payment method"
 msgstr ""
 
@@ -2475,6 +2479,7 @@ msgstr ""
 #: vendor/wp-pay-extensions/gravityforms/src/AdminPaymentFormPostType.php:50
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:250
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:151
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:114
 msgid "Transaction Description"
 msgstr ""
 
@@ -2535,6 +2540,7 @@ msgid "Transaction Id"
 msgstr ""
 
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:154
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:129
 msgid "Payment Amount"
 msgstr ""
 
@@ -3210,6 +3216,24 @@ msgstr ""
 
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:106
 msgid "Button description"
+msgstr ""
+
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:116
+msgid "Ninja Forms"
+msgstr ""
+
+#: vendor/wp-pay-extensions/ninjaforms/src/Extension.php:141
+msgid "Ninja Forms Entry"
+msgstr ""
+
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:133
+msgid ""
+"Select the correct field using the icon on the right, or enter a fixed "
+"amount."
+msgstr ""
+
+#: vendor/wp-pay-extensions/ninjaforms/src/PaymentAction.php:149
+msgid "Use the special \"Payment Methods\" field for this."
 msgstr ""
 
 #: vendor/wp-pay-extensions/restrict-content-pro/src/Extension.php:227
@@ -4894,7 +4918,7 @@ msgctxt "Payment title date format parsed by `date_i18n`."
 msgid "M d, Y @ h:i A"
 msgstr ""
 
-#: classes/Plugin.php:517
+#: classes/Plugin.php:518
 msgctxt "default datetime format"
 msgid "D j M Y \\a\\t H:i"
 msgstr ""
