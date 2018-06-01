@@ -282,6 +282,11 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 5.1.0 - 2018-06-04 =
+*	MemberPress - Improved support for MemberPress.
+*	AppThems - Improve Hirebee theme compatibility.
+*	Gravity Forms - Fixed using merge tag as order ID.
+*	Membership - Fixed fatal error "Uncaught Exception: DateInterval::__construct(): Unknown or bad format (P)".
+*	Mollie - Fixed setting issuer for iDEAL payment method.
 
 = 5.0.1 - 2018-05-16 =
 *	Updated WordPress pay iDEAL Advanced v3 library to version 2.0.1.

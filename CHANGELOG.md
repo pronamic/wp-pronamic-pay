@@ -10,6 +10,15 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [5.1.0] - 2018-06-04
 
+### Added
+- MemberPress - Improved support for MemberPress.
+
+### Fixed
+- AppThems - Improve Hirebee theme compatibility.
+- Gravity Forms - Fixed using merge tag as order ID.
+- Membership - Fixed fatal error "Uncaught Exception: DateInterval::__construct(): Unknown or bad format (P)".
+- Mollie - Fixed setting issuer for iDEAL payment method.
+
 ## [5.0.1] - 2018-05-16
 
 ### Fixed
