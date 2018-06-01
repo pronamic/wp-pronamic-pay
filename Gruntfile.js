@@ -31,10 +31,8 @@ module.exports = function( grunt ) {
 			core: {
 				src: [
 					'admin/**/*.php',
-					'classes/**/*.php',
 					'includes/**/*.php',
 					'!includes/updates/**',
-					'!includes/xmlseclibs/**',
 					'views/**/*.php',
 					'pronamic-ideal.php',
 					'uninstall.php'
