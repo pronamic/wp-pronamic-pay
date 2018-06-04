@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Pay 4.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-ideal\n"
-"POT-Creation-Date: 2018-05-31 07:49:04+00:00\n"
+"POT-Creation-Date: 2018-06-04 08:20:12+00:00\n"
 "PO-Revision-Date: 2018-05-31 12:01+0200\n"
 "Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: German\n"
@@ -336,7 +336,7 @@ msgid "Update"
 msgstr "Aktualisieren"
 
 #: admin/meta-box-subscription-info.php:30
-#: vendor/wp-pay/core/src/Subscriptions/Subscription.php:753
+#: vendor/wp-pay/core/src/Subscriptions/Subscription.php:758
 msgid "l jS \\o\\f F Y, h:ia"
 msgstr "l j. F Y, H:i"
 
@@ -1314,7 +1314,7 @@ msgid "Default"
 msgstr "Standard"
 
 #: vendor/wp-pay/core/src/Admin/AdminGatewayPostType.php:211
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:57
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:58
 #: vendor/wp-pay-extensions/charitable/src/Gateway.php:61
 #: vendor/wp-pay-extensions/event-espresso/src/IDealGateway.php:96
 #: vendor/wp-pay-extensions/event-espresso/src/PaymentMethod.php:110
@@ -1325,7 +1325,7 @@ msgstr "Standard"
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:251
 #: vendor/wp-pay-extensions/gravityforms/views/html-admin-feed-settings.php:105
 #: vendor/wp-pay-extensions/jigoshop/src/IDealGateway.php:123
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:786
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:798
 #: vendor/wp-pay-extensions/membership/src/Admin.php:46
 #: vendor/wp-pay-extensions/membership/src/ViewSettings.php:80
 #: vendor/wp-pay-extensions/s2member/src/Settings.php:41
@@ -1441,12 +1441,12 @@ msgid "<p>The payment status is unknown.</p>"
 msgstr "<p>Der Status der Zahlung ist unbekannt.</p>"
 
 #: vendor/wp-pay/core/src/Admin/AdminModule.php:526
-#: vendor/wp-pay/core/src/Core/Gateway.php:659
+#: vendor/wp-pay/core/src/Core/Gateway.php:652
 #: vendor/wp-pay/core/src/Subscriptions/SubscriptionsModule.php:230
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:127
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:128
 #: vendor/wp-pay-extensions/gravityforms/src/Admin.php:107
 #: vendor/wp-pay-extensions/gravityforms/src/PaymentAddOn.php:67
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:737
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:747
 #: vendor/wp-pay-extensions/membership/src/Gateway.php:315
 #: vendor/wp-pay-extensions/membership/src/ViewButton.php:95
 #: vendor/wp-pay-extensions/s2member/src/Shortcodes.php:79
@@ -1762,12 +1762,11 @@ msgstr "Kreditkarte"
 msgid "Direct Debit"
 msgstr "Lastschrift"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:557
+#: vendor/wp-pay/core/src/Core/Gateway.php:550
 #: vendor/wp-pay-gateways/buckaroo/src/Gateway.php:84
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:157
 #: vendor/wp-pay-gateways/ideal-advanced-v3/src/Gateway.php:89
 #: vendor/wp-pay-gateways/ing-kassa-compleet/src/Gateway.php:74
-#: vendor/wp-pay-gateways/mollie/src/Gateway.php:95
 #: vendor/wp-pay-gateways/mollie-ideal/src/Gateway.php:71
 #: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:115
 #: vendor/wp-pay-gateways/pay-nl/src/Gateway.php:73
@@ -1776,7 +1775,7 @@ msgstr "Lastschrift"
 msgid "Choose your bank"
 msgstr "Wählen Sie Ihre Bank"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:572
+#: vendor/wp-pay/core/src/Core/Gateway.php:565
 #: vendor/wp-pay-gateways/icepay/src/Gateway.php:166
 #: vendor/wp-pay-gateways/multisafepay/src/Connect/Gateway.php:125
 msgid "Choose your credit card issuer"
@@ -2198,7 +2197,7 @@ msgstr "Storniert"
 msgid "Expired"
 msgstr "Abgelaufen"
 
-#: vendor/wp-pay/core/src/Subscriptions/Subscription.php:744
+#: vendor/wp-pay/core/src/Subscriptions/Subscription.php:749
 msgid "Subscription changed"
 msgstr "Abonnement geändert"
 
@@ -2376,7 +2375,7 @@ msgstr "AppThemes Bestellung"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:66
+#: vendor/wp-pay-extensions/appthemes/src/Gateway.php:67
 msgid "General Information"
 msgstr "Allgemeine Informationen"
 
@@ -2580,7 +2579,7 @@ msgstr "Event Espresso"
 
 #. translators: %s: payment source id
 #: vendor/wp-pay-extensions/event-espresso/src/Extension.php:306
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:266
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:280
 msgid "Transaction %s"
 msgstr "Transaktion %s"
 
@@ -3396,41 +3395,53 @@ msgid "Order %s"
 msgstr "Bestellung %s"
 
 #. translators: %s: MemberPress
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:233
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:247
 msgid "%s subscription deleted."
 msgstr "%s Abonnement gelöscht."
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:234
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:256
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:420
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:495
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:560
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:248
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:270
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:295
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:427
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:502
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:567
 msgid "MemberPress"
 msgstr "MemberPress"
 
-#: vendor/wp-pay-extensions/memberpress/src/Extension.php:281
+#. translators: %s: payment source id
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:304
+#, fuzzy
+msgid "Subscription %s"
+msgstr "Abonnements"
+
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:319
 msgid "MemberPress Transaction"
 msgstr "MemberPress Transaktion"
 
+#: vendor/wp-pay-extensions/memberpress/src/Extension.php:331
+#, fuzzy
+msgid "MemberPress Subscription"
+msgstr "MemberPress Transaktion"
+
 #. translators: %s: MemberPress
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:419
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:426
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:281
 msgid "%s subscription on hold."
 msgstr "%s Abonnement in Wartestellung."
 
 #. translators: %s: MemberPress
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:494
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:501
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:309
 msgid "%s subscription reactivated."
 msgstr "%s Abonnement wurde erneut aktiviert."
 
 #. translators: %s: MemberPress
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:559
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:566
 #: vendor/wp-pay-extensions/woocommerce/src/Extension.php:342
 msgid "%s subscription cancelled."
 msgstr "%s Abonnement gekündigt."
 
-#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:743
+#: vendor/wp-pay-extensions/memberpress/src/Gateway.php:753
 msgid ""
 "JavaScript is disabled in your browser. You will not be able to complete "
 "your purchase until you either enable JavaScript in your browser, or switch "
@@ -5241,13 +5252,13 @@ msgctxt "Recurring payment"
 msgid "times"
 msgstr "mal"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:420
+#: vendor/wp-pay/core/src/Core/Gateway.php:413
 #: vendor/wp-pay-extensions/s2member/views/html-admin-page-buttons-generator.php:133
 msgctxt "Payment method field"
 msgid "All available methods"
 msgstr "Alle verfügbaren Methoden"
 
-#: vendor/wp-pay/core/src/Core/Gateway.php:422
+#: vendor/wp-pay/core/src/Core/Gateway.php:415
 msgctxt "Payment method field"
 msgid "Other"
 msgstr "Andere"
