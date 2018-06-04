@@ -43,6 +43,7 @@ before_install:
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then export PATH=$HOME/.yarn/bin:$PATH; fi
+  - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).

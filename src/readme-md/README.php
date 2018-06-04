@@ -20,27 +20,27 @@ header( 'Content-Type: text/plain' );
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/pronamic/wp-pronamic-ideal/badges/code-intelligence.svg?b=develop)](https://scrutinizer-ci.com/code-intelligence)
 [![codecov](https://codecov.io/gh/pronamic/wp-pronamic-ideal/branch/develop/graph/badge.svg)](https://codecov.io/gh/pronamic/wp-pronamic-ideal)
 
-<?php include __DIR__ . '/../general/description-short.php'; ?>
+<?php require __DIR__ . '/../general/description-short.php'; ?>
 
 
 ## Gateways
 
-<?php include 'gateways.php'; ?>
+<?php require 'gateways.php'; ?>
 
 
 ## Extensions
 
-<?php include 'extensions.php'; ?>
+<?php require 'extensions.php'; ?>
 
 
 ## Installation
 
-<?php include 'installation.php'; ?>
+<?php require 'installation.php'; ?>
 
 
-<?php include 'other-notes.php'; ?>
+<?php require 'other-notes.php'; ?>
 
 
 ## Links
 
-<?php include __DIR__ . '/../general/links.php'; ?>
+<?php require __DIR__ . '/../general/links.php'; ?>

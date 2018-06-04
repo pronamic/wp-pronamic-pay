@@ -31,10 +31,8 @@ module.exports = function( grunt ) {
 			core: {
 				src: [
 					'admin/**/*.php',
-					'classes/**/*.php',
 					'includes/**/*.php',
 					'!includes/updates/**',
-					'!includes/xmlseclibs/**',
 					'views/**/*.php',
 					'pronamic-ideal.php',
 					'uninstall.php'
@@ -370,6 +368,19 @@ module.exports = function( grunt ) {
 			},
 			deploy_composer: {
 				src: [
+					'deploy/latest/vendor/pronamic/*/bin/**',
+					'deploy/latest/vendor/pronamic/*/documentation',
+					'deploy/latest/vendor/pronamic/*/test/**',
+					'deploy/latest/vendor/pronamic/*/tests/**',
+					'deploy/latest/vendor/pronamic/*/.gitignore',
+					'deploy/latest/vendor/pronamic/*/.travis.yml',
+					'deploy/latest/vendor/pronamic/*/Gruntfile.js',
+					'deploy/latest/vendor/pronamic/*/package.json',
+					'deploy/latest/vendor/pronamic/*/package-lock.json',
+					'deploy/latest/vendor/pronamic/*/phpcs.ruleset.xml',
+					'deploy/latest/vendor/pronamic/*/phpcs.xml.dist',
+					'deploy/latest/vendor/pronamic/*/phpmd.ruleset.xml',
+					'deploy/latest/vendor/pronamic/*/phpunit.xml.dist',
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
 					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',

@@ -14,7 +14,7 @@ $data = file_get_contents( $root_dir . '/package.json' );
 $pkg  = json_decode( $data );
 
 // Check readme.txt
-// @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/functions.php#L4810-L4868
+// @link https://github.com/WordPress/WordPress/blob/4.9/wp-includes/functions.php#L4810-L4868 Documentation retrieving metadata from a file.
 $filename = 'readme.txt';
 
 $readme_txt_lines = file( $root_dir . '/' . $filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES );
@@ -33,9 +33,9 @@ printf( 'Found "%s" in file "%s".', $search_string, $filename );
 
 echo PHP_EOL;
 
-// Check plugin file
-// @see https://codex.wordpress.org/File_Header
-// @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/functions.php#L4810-L4868
+// Check plugin file.
+// @link https://codex.wordpress.org/File_Header Plugin and theme file headers documentation.
+// @link https://github.com/WordPress/WordPress/blob/4.9/wp-includes/functions.php#L4810-L4868 Documentation retrieving metadata from a file.
 $filename = 'pronamic-ideal.php';
 
 $plugin_file = file_get_contents( $root_dir . '/' . $filename );
@@ -78,7 +78,7 @@ printf( 'Found "%s" in file "%s".', $search_string, $filename );
 
 echo PHP_EOL;
 
-// Check plugin class
+// Check plugin class.
 $plugin_class_reflection = new ReflectionClass( '\Pronamic\WordPress\Pay\Plugin' );
 
 $default_properties = $plugin_class_reflection->getDefaultProperties();

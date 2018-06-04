@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: 5.0.1
+Stable tag: 5.1.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -57,7 +57,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.4.decaf
 	*	**Tested up to:** 4.4.4.decaf
-*	[Formidable Forms](https://formidablepro.com/)
+*	[Formidable Forms](https://formidableforms.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
 	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
 	*	**Requires at least:** 2.0.22
@@ -280,6 +280,13 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.1.0 - 2018-06-04 =
+*	MemberPress - Improved support for MemberPress.
+*	AppThems - Improve Hirebee theme compatibility.
+*	Gravity Forms - Fixed using merge tag as order ID.
+*	Membership - Fixed fatal error "Uncaught Exception: DateInterval::__construct(): Unknown or bad format (P)".
+*	Mollie - Fixed setting issuer for iDEAL payment method.
 
 = 5.0.1 - 2018-05-16 =
 *	Updated WordPress pay iDEAL Advanced v3 library to version 2.0.1.

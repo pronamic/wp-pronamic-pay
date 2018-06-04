@@ -74,17 +74,7 @@ if ( $subscription ) : ?>
 			<td>
 				<?php
 
-				$payment = $subscription->get_first_payment();
-
-				if ( $payment ) {
-					echo $payment->get_source_text(); // WPCS: XSS ok.
-				} else {
-					printf(
-						'%s<br />%s', // WPCS: XSS ok.
-						esc_html( $subscription->get_source() ),
-						esc_html( $subscription->get_source_id() )
-					);
-				}
+				echo $subscription->get_source_text(); // WPCS: XSS ok.
 
 				?>
 			</td>
