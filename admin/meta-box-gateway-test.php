@@ -38,6 +38,10 @@ $payment_methods = $gateway->get_payment_method_field_options( true );
 $inputs = array();
 
 foreach ( $payment_methods as $payment_method => $method_name ) {
+	if ( 0 === $payment_method ) {
+		$payment_method = null;
+	}
+
 	$gateway->set_payment_method( $payment_method );
 
 	// Payment method input HTML.
