@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "badc6320dd9f43961ecbc36091f43c47",
+    "content-hash": "eea50a1040a557d7a53a3e791d380363",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -2407,16 +2407,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.0.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "95e3849e166e1ffd65e0e3f2289acc8e6fbb3185"
+                "reference": "f6b28d9573f80f49f5b1a329e8f87ff4fcd23048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/95e3849e166e1ffd65e0e3f2289acc8e6fbb3185",
-                "reference": "95e3849e166e1ffd65e0e3f2289acc8e6fbb3185",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/f6b28d9573f80f49f5b1a329e8f87ff4fcd23048",
+                "reference": "f6b28d9573f80f49f5b1a329e8f87ff4fcd23048",
                 "shasum": ""
             },
             "require": {
@@ -2472,7 +2472,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-06-01T13:40:32+00:00"
+            "time": "2018-06-20T14:19:40+00:00"
         }
     ],
     "packages-dev": [
@@ -6654,9 +6654,18 @@
             "time": "2013-12-19T11:40:00+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "2.0.1",
+            "alias_normalized": "2.0.1.0",
+            "version": "dev-develop",
+            "package": "wp-pay/core"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wp-pay/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
