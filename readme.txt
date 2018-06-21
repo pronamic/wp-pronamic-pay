@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: 5.1.0
+Stable tag: 5.2.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -280,6 +280,9 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.2.0 - 2018-06-21 =
+*	Added support for WordPress core privacy export and erasure feature.
 
 = 5.1.0 - 2018-06-04 =
 *	MemberPress - Improved support for MemberPress.
