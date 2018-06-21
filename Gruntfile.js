@@ -369,6 +369,7 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/pronamic/*/tests/**',
 					'deploy/latest/vendor/pronamic/*/.gitignore',
 					'deploy/latest/vendor/pronamic/*/.travis.yml',
+					'deploy/latest/vendor/pronamic/*/composer.lock',
 					'deploy/latest/vendor/pronamic/*/Gruntfile.js',
 					'deploy/latest/vendor/pronamic/*/package.json',
 					'deploy/latest/vendor/pronamic/*/package-lock.json',
@@ -376,19 +377,22 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/pronamic/*/phpcs.xml.dist',
 					'deploy/latest/vendor/pronamic/*/phpmd.ruleset.xml',
 					'deploy/latest/vendor/pronamic/*/phpunit.xml.dist',
+					'deploy/latest/vendor/pronamic/*/yarn.lock',
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
 					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',
 					'deploy/latest/vendor/wp-pay*/*/tests/**',
 					'deploy/latest/vendor/wp-pay*/*/.gitignore',
 					'deploy/latest/vendor/wp-pay*/*/.travis.yml',
+					'deploy/latest/vendor/wp-pay*/*/composer.lock',
 					'deploy/latest/vendor/wp-pay*/*/Gruntfile.js',
 					'deploy/latest/vendor/wp-pay*/*/package.json',
 					'deploy/latest/vendor/wp-pay*/*/package-lock.json',
 					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
 					'deploy/latest/vendor/wp-pay*/*/phpcs.xml.dist',
 					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
-					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
+					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist',
+					'deploy/latest/vendor/wp-pay*/*/yarn.lock'
 				]
 			},
 			deploy_wp_content: {
