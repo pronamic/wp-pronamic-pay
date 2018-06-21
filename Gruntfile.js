@@ -381,6 +381,7 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/pronamic/*/phpcs.xml.dist',
 					'deploy/latest/vendor/pronamic/*/phpmd.ruleset.xml',
 					'deploy/latest/vendor/pronamic/*/phpunit.xml.dist',
+					'deploy/latest/vendor/pronamic/*/yarn.lock',
 					'deploy/latest/vendor/wp-pay*/*/bin/**',
 					'deploy/latest/vendor/wp-pay*/*/documentation',
 					'deploy/latest/vendor/wp-pay*/*/test/**',
@@ -393,7 +394,8 @@ module.exports = function( grunt ) {
 					'deploy/latest/vendor/wp-pay*/*/phpcs.ruleset.xml',
 					'deploy/latest/vendor/wp-pay*/*/phpcs.xml.dist',
 					'deploy/latest/vendor/wp-pay*/*/phpmd.ruleset.xml',
-					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist'
+					'deploy/latest/vendor/wp-pay*/*/phpunit.xml.dist',
+					'deploy/latest/vendor/wp-pay*/*/yarn.lock'
 				]
 			},
 			deploy_wp_content: {
