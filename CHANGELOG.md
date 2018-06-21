@@ -13,6 +13,9 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 ### Added
 - Added support for WordPress core privacy export and erasure feature.
 
+### Changed
+- Updated Tippy.js library to version 2.5.3.
+
 ## [5.1.0] - 2018-06-04
 
 ### Added

@@ -283,6 +283,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 = 5.2.0 - 2018-06-21 =
 *	Added support for WordPress core privacy export and erasure feature.
+*	Updated Tippy.js library to version 2.5.3.
 
 = 5.1.0 - 2018-06-04 =
 *	MemberPress - Improved support for MemberPress.
