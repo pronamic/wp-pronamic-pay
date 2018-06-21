@@ -8,6 +8,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changes
 
+## [5.2.0] - 2018-06-21
+
+### Added
+- Added support for WordPress core privacy export and erasure feature.
+
+### Changed
+- Updated Tippy.js library to version 2.5.3.
+
 ## [5.1.0] - 2018-06-04
 
 ### Added
@@ -1729,7 +1737,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.1.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.2.0...HEAD
+[5.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.1.0...5.2.0
 [5.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.1...5.1.0
 [5.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/4.7.0...5.0.0

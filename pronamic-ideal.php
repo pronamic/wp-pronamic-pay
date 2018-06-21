@@ -4,7 +4,7 @@
  * Plugin URI: https://www.pronamic.eu/plugins/pronamic-ideal/
  * Description: The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
  *
- * Version: 5.1.0
+ * Version: 5.2.0
  * Requires at least: 4.7
  *
  * Author: Pronamic
@@ -87,7 +87,30 @@ if ( PRONAMIC_PAY_DEBUG ) {
 /**
  * Bootstrap.
  */
-\Pronamic\WordPress\Pay\Plugin::instance( __FILE__ );
+\Pronamic\WordPress\Pay\Plugin::instance( array(
+	'file'       => __FILE__,
+	'version'    => '5.2.0',
+	'extensions' => array(
+		'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\Shopp\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\Jigoshop\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\ClassiPress\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\AppThemes\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\S2Member\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\Membership\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\IThemesExchange\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::bootstrap',
+	),
+) );
 
 /**
  * Pronamic Pay plugin.
