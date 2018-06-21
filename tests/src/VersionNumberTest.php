@@ -10,7 +10,6 @@
 
 namespace Pronamic\WordPress\Pay;
 
-use stdClass;
 use WP_UnitTestCase;
 
 /**
