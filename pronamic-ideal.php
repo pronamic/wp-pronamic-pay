@@ -90,7 +90,7 @@ if ( PRONAMIC_PAY_DEBUG ) {
 \Pronamic\WordPress\Pay\Plugin::instance( array(
 	'file'       => __FILE__,
 	'version'    => '5.2.0',
-	'gateways'   => pronamic_pay_gateway_integrations(),
+	'gateways'   => \Pronamic\WordPress\Pay\pronamic_pay_gateway_integrations(),
 	'extensions' => array(
 		'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
 		'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
