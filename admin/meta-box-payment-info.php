@@ -21,6 +21,8 @@ $post_type = 'pronamic_payment';
 
 $payment = get_pronamic_payment( $post_id );
 
+$purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
+
 ?>
 <table class="form-table">
 	<tr>
@@ -67,6 +69,20 @@ $payment = get_pronamic_payment( $post_id );
 			<?php do_action( 'manage_' . $post_type . '_posts_custom_column', 'pronamic_payment_transaction', $post_id ); ?>
 		</td>
 	</tr>
+
+	<?php if ( $purchase_id ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Purchase ID', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php echo esc_html( $purchase_id ); ?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Gateway', 'pronamic_ideal' ); ?>
