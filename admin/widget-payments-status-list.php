@@ -23,6 +23,7 @@
 					printf( // WPCS: XSS ok.
 						$label,
 						'<strong>' . sprintf(
+							/* translators: %s: Number payments */
 							esc_html( _n( '%s payment', '%s payments', $count, 'pronamic_ideal' ) ),
 							esc_html( number_format_i18n( $count ) )
 						) . '</strong>'

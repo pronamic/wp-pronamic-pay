@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72b098efe460fa4d6826814172805643",
+    "content-hash": "2e72e227c650a38df7afae46d8bd64a1",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -41,55 +41,16 @@
         },
         {
             "name": "pronamic/wp-datetime",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/wp-datetime.git",
-                "reference": "807265df543b60079377d5c0ff5ed10564f73914"
+                "reference": "747d9dde227acd4fce8cbb318aa5832f055c2206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/807265df543b60079377d5c0ff5ed10564f73914",
-                "reference": "807265df543b60079377d5c0ff5ed10564f73914",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "johnpbloch/wordpress": "^4.9",
-                "php-coveralls/php-coveralls": "^1.1",
-                "phpmd/phpmd": "^2.4",
-                "phpunit/phpunit": "^4.8",
-                "vlucas/phpdotenv": "^2.0",
-                "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^0.14.1",
-                "wp-phpunit/wp-phpunit": "^4.9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Pronamic\\WordPress\\DateTime\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "time": "2018-05-11T12:27:26+00:00"
-        },
-        {
-            "name": "pronamic/wp-money",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pronamic/wp-money.git",
-                "reference": "d4e4a10885ffb4b9ca715a6a9c54f344c93c756c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/d4e4a10885ffb4b9ca715a6a9c54f344c93c756c",
-                "reference": "d4e4a10885ffb4b9ca715a6a9c54f344c93c756c",
+                "url": "https://api.github.com/repos/pronamic/wp-datetime/zipball/747d9dde227acd4fce8cbb318aa5832f055c2206",
+                "reference": "747d9dde227acd4fce8cbb318aa5832f055c2206",
                 "shasum": ""
             },
             "require": {
@@ -105,23 +66,52 @@
                 "phpunit/phpunit": "^4.8",
                 "vlucas/phpdotenv": "^2.0",
                 "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^0.14.1",
+                "wp-coding-standards/wpcs": "^1.0",
                 "wp-phpunit/wp-phpunit": "^4.9"
             },
             "type": "library",
-            "extra": {
-                "dropin-paths": {
-                    "vendor/wp-phpunit/wp-phpunit/data/languages/": [
-                        "vendor:koodimonni-language"
-                    ],
-                    "vendor/wp-phpunit/wp-phpunit/data/languages/plugins/": [
-                        "vendor:koodimonni-plugin-language"
-                    ],
-                    "vendor/wp-phpunit/wp-phpunit/data/languages/themes/": [
-                        "vendor:koodimonni-theme-language"
-                    ]
+            "autoload": {
+                "psr-4": {
+                    "Pronamic\\WordPress\\DateTime\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "time": "2018-08-16T09:54:42+00:00"
+        },
+        {
+            "name": "pronamic/wp-money",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pronamic/wp-money.git",
+                "reference": "92b9ebd3bbed47aaa59b73fdf13f1c23a1684479"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pronamic/wp-money/zipball/92b9ebd3bbed47aaa59b73fdf13f1c23a1684479",
+                "reference": "92b9ebd3bbed47aaa59b73fdf13f1c23a1684479",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
+                "koodimonni-language/de_de": "*",
+                "koodimonni-language/fr_fr": "*",
+                "koodimonni-language/nl_nl": "*",
+                "php-coveralls/php-coveralls": "^1.1",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
+                "vlucas/phpdotenv": "^2.0",
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^1.0",
+                "wp-phpunit/wp-phpunit": "^4.9"
+            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Money\\": "src"
@@ -131,7 +121,7 @@
             "license": [
                 "GPL-3.0-or-later"
             ],
-            "time": "2018-05-11T12:44:22+00:00"
+            "time": "2018-08-16T09:03:49+00:00"
         },
         {
             "name": "wp-pay-extensions/appthemes",
@@ -642,16 +632,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "f9eac6db40d978026e0488ef5a85ff5bc8d0ce72"
+                "reference": "5ebfa611519d45f92252ae50437dfdc5578f1641"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/f9eac6db40d978026e0488ef5a85ff5bc8d0ce72",
-                "reference": "f9eac6db40d978026e0488ef5a85ff5bc8d0ce72",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/5ebfa611519d45f92252ae50437dfdc5578f1641",
+                "reference": "5ebfa611519d45f92252ae50437dfdc5578f1641",
                 "shasum": ""
             },
             "require": {
@@ -659,21 +649,21 @@
                 "wp-pay/core": "^2.0"
             },
             "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
                 "php-coveralls/php-coveralls": "^1.0",
-                "phpmd/phpmd": "^2.2.3",
-                "phpunit/phpunit": "^4.5",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^2.7",
-                "wimg/php-compatibility": "^8.0",
-                "wp-coding-standards/wpcs": "^0.14.0"
+                "wimg/php-compatibility": "^8.1",
+                "wp-coding-standards/wpcs": "^1.0",
+                "wp-phpunit/wp-phpunit": "^4.9",
+                "wp-premium/gravityforms": "^2.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Pronamic\\WordPress\\Pay\\Extensions\\GravityForms\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -703,7 +693,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-06-01T13:17:33+00:00"
+            "time": "2018-08-16T13:07:31+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -1766,16 +1756,16 @@
         },
         {
             "name": "wp-pay-gateways/mollie",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/mollie.git",
-                "reference": "d648647e9e48531b0ea4eab23ddcc0e456939036"
+                "reference": "1c1fa746f53b5e5256f1f80c9ee65ccb1d81e94a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/d648647e9e48531b0ea4eab23ddcc0e456939036",
-                "reference": "d648647e9e48531b0ea4eab23ddcc0e456939036",
+                "url": "https://api.github.com/repos/wp-pay-gateways/mollie/zipball/1c1fa746f53b5e5256f1f80c9ee65ccb1d81e94a",
+                "reference": "1c1fa746f53b5e5256f1f80c9ee65ccb1d81e94a",
                 "shasum": ""
             },
             "require": {
@@ -1789,7 +1779,7 @@
                 "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wimg/php-compatibility": "^8.0",
-                "wp-coding-standards/wpcs": "^0.14.0"
+                "wp-coding-standards/wpcs": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -1825,7 +1815,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-07-06T11:45:16+00:00"
+            "time": "2018-08-15T12:45:55+00:00"
         },
         {
             "name": "wp-pay-gateways/mollie-ideal",
@@ -2152,16 +2142,16 @@
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "0ad053328693f42a1b38fd38c1afb5b4bf110b50"
+                "reference": "b8e26c294c73758311d9f99c17f4820828f6db4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/0ad053328693f42a1b38fd38c1afb5b4bf110b50",
-                "reference": "0ad053328693f42a1b38fd38c1afb5b4bf110b50",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/b8e26c294c73758311d9f99c17f4820828f6db4d",
+                "reference": "b8e26c294c73758311d9f99c17f4820828f6db4d",
                 "shasum": ""
             },
             "require": {
@@ -2175,7 +2165,7 @@
                 "phpunit/phpunit": "^4.5",
                 "squizlabs/php_codesniffer": "^2.7",
                 "wimg/php-compatibility": "^8.0",
-                "wp-coding-standards/wpcs": "^0.14.0"
+                "wp-coding-standards/wpcs": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -2211,7 +2201,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-05-11T11:30:13+00:00"
+            "time": "2018-08-15T13:53:36+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -2407,16 +2397,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "213b43db4bde7e82451730bf9f0bf2dea2e425c5"
+                "reference": "521a0a61faedb51f341a2365954ac167d985491e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/213b43db4bde7e82451730bf9f0bf2dea2e425c5",
-                "reference": "213b43db4bde7e82451730bf9f0bf2dea2e425c5",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/521a0a61faedb51f341a2365954ac167d985491e",
+                "reference": "521a0a61faedb51f341a2365954ac167d985491e",
                 "shasum": ""
             },
             "require": {
@@ -2472,7 +2462,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-08-02T11:59:23+00:00"
+            "time": "2018-06-21T13:09:07+00:00"
         }
     ],
     "packages-dev": [
@@ -5970,24 +5960,27 @@
         },
         {
             "name": "wp-coding-standards/wpcs",
-            "version": "0.14.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "cf6b310caad735816caef7573295f8a534374706"
+                "reference": "539c6d74e6207daa22b7ea754d6f103e9abb2755"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/cf6b310caad735816caef7573295f8a534374706",
-                "reference": "cf6b310caad735816caef7573295f8a534374706",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/539c6d74e6207daa22b7ea754d6f103e9abb2755",
+                "reference": "539c6d74e6207daa22b7ea754d6f103e9abb2755",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3",
                 "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
             },
+            "require-dev": {
+                "phpcompatibility/php-compatibility": "*"
+            },
             "suggest": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
             },
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
@@ -6006,7 +5999,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2018-02-16T01:57:48+00:00"
+            "time": "2018-07-25T18:10:35+00:00"
         },
         {
             "name": "wp-phpunit/wp-phpunit",
@@ -6714,18 +6707,9 @@
             "time": "2013-12-19T11:40:00+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "2.0.1",
-            "alias_normalized": "2.0.1.0",
-            "version": "dev-develop",
-            "package": "wp-pay/core"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-pay/core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -190,6 +190,7 @@ use Pronamic\WordPress\DateTime\DateTimeZone;
 				} else {
 					echo wp_kses(
 						sprintf(
+							/* translators: %s: WordPress Codex link */
 							__( 'We recommend setting memory to at least 64MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'pronamic_ideal' ),
 							esc_attr( 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' )
 						),
@@ -374,6 +375,7 @@ if ( ! $data ) {
 
 				echo wp_kses(
 					sprintf(
+						/* translators: %s: iDEAL-status.nl link */
 						__( 'monitored by <a href="%s" target="_blank">iDEAL-status.nl</a>', 'pronamic_ideal' ),
 						'http://www.ideal-status.nl/'
 					),

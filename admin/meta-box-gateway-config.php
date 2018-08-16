@@ -63,6 +63,7 @@ bind_providers_and_gateways();
 								if ( isset( $integration->deprecated ) && $integration->deprecated ) {
 									$classes[] = 'deprecated';
 
+									/* translators: %s: Integration name */
 									$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 
 									if ( $variant_id !== $id ) {

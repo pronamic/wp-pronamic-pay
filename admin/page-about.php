@@ -27,6 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 
 		printf(
+			/* translators: %s: Plugin version number */
 			esc_html__( 'Thanks for installing Pronamic Pay. Version %s is more powerful, stable and secure than ever before. We hope you enjoy using it.', 'pronamic_ideal' ),
 			esc_html( $this->plugin->get_version() )
 		);
@@ -38,6 +39,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php
 
 		printf(
+			/* translators: %s: Plugin version number */
 			esc_html__( 'Version: %s', 'pronamic_ideal' ),
 			esc_html( $this->plugin->get_version() )
 		);

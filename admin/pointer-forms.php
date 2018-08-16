@@ -18,8 +18,9 @@
 
 	echo wp_kses(
 		sprintf(
+			/* translators: 1: Gravity Forms link, 2: _blank */
 			__( 'For more advanced payment forms we advice you to use the <a href="%1$s" target="%2$s">“Gravity Forms” plugin</a>.', 'pronamic_ideal' ),
-			esc_attr( 'https://www.e-junkie.com/ecom/gb.php?cl=54585&c=ib&aff=226579' ),
+			esc_attr( 'https://www.pronamic.nl/go/gravity-forms/' ),
 			esc_attr( '_blank' )
 		),
 		array(
