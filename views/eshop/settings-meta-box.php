@@ -28,9 +28,15 @@ global $eshop_metabox_plugin, $eshopoptions;
 
 	<?php
 
+	$selected = null;
+
+	if ( isset( $eshopoptions, $eshopoptions['pronamic_ideal'], $eshopoptions['pronamic_ideal']['config_id'] ) ) {
+		$selected = $eshopoptions['pronamic_ideal']['config_id'];
+	}
+
 	\Pronamic\WordPress\Pay\Admin\AdminModule::dropdown_configs( array(
 		'name'     => 'eshop_pronamic_ideal_config_id',
-		'selected' => @$eshopoptions['pronamic_ideal']['config_id'],
+		'selected' => $selected,
 	) );
 
 	?>

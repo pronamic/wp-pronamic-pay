@@ -25,18 +25,12 @@
 	<rule ref="PHPCompatibility" />
 
 	<rule ref="WordPress">
-		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
-
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
 		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching" />
-
-		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
-		<exclude name="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar" />
 
 		<exclude name="WordPress.Files.FileName" />
 
 		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents" />
-		<exclude name="WordPress.WP.AlternativeFunctions.file_system_read_file_get_contents" />
 	</rule>
 
 	<rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
@@ -47,12 +41,20 @@
 		<exclude-pattern>src/*.php</exclude-pattern>
 	</rule>
 
+	<rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+		<exclude-pattern>admin/*.php</exclude-pattern>
+	</rule>
+
 	<rule ref="WordPress.DB.DirectDatabaseQuery.SchemaChange">
 		<exclude-pattern>uninstall.php</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.NamingConventions.ValidHookName.UseUnderscores">
 		<exclude-pattern>admin/page-dashboard.php</exclude-pattern>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar">
+		<exclude-pattern>admin/page-reports.php</exclude-pattern>
 	</rule>
 
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.system_calls_shell_exec">
