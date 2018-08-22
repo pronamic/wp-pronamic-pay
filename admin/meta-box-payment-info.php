@@ -43,6 +43,14 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 	</tr>
 	<tr>
 		<th scope="row">
+			<?php esc_html_e( 'Order ID', 'pronamic_ideal' ); ?>
+		</th>
+		<td>
+			<?php echo esc_html( get_post_meta( $post_id, '_pronamic_payment_order_id', true ) ); ?>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
 			<?php esc_html_e( 'Description', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
