@@ -75,16 +75,14 @@ foreach ( $organisations as $organisation => $repositories ) {
 		// Git flow.
 		chdir( $git_dir );
 
+		$command = null;
+
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
-			echo shell_exec( 'git checkout develop' );
+			$command = 'git checkout develop';
 		}
 
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
 			$command = 'git pull';
-
-			echo $command, PHP_EOL;
-
-			echo shell_exec( $command ), PHP_EOL;
 		}
 
 		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ), true ) ) {
