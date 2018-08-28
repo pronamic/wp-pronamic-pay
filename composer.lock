@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f157de9d67d89c4affb877aa0d5f3b75",
+    "content-hash": "2bf6a8084d896ce5995538551fb28ed2",
     "packages": [
         {
             "name": "icepay/icepay",
@@ -442,16 +442,16 @@
         },
         {
             "name": "wp-pay-extensions/event-espresso",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/event-espresso.git",
-                "reference": "55c2757647baf792cf54abb52b695a292478e818"
+                "reference": "39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/55c2757647baf792cf54abb52b695a292478e818",
-                "reference": "55c2757647baf792cf54abb52b695a292478e818",
+                "url": "https://api.github.com/repos/wp-pay-extensions/event-espresso/zipball/39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff",
+                "reference": "39ac109af983eb0fafdfaf266b57f9aa3ad5e0ff",
                 "shasum": ""
             },
             "require": {
@@ -459,12 +459,14 @@
                 "wp-pay/core": "^2.0"
             },
             "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
                 "squizlabs/php_codesniffer": "^2.9",
                 "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^0.14.1"
+                "wp-coding-standards/wpcs": "^1.0",
+                "wp-phpunit/wp-phpunit": "^4.9"
             },
             "type": "library",
             "autoload": {
@@ -503,7 +505,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-05-14T08:08:30+00:00"
+            "time": "2018-08-28T17:37:13+00:00"
         },
         {
             "name": "wp-pay-extensions/event-espresso-legacy",
@@ -698,16 +700,16 @@
         },
         {
             "name": "wp-pay-extensions/gravityforms",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/gravityforms.git",
-                "reference": "5ebfa611519d45f92252ae50437dfdc5578f1641"
+                "reference": "5a4a036cc6f8b6d86994d80428998368f591a9b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/5ebfa611519d45f92252ae50437dfdc5578f1641",
-                "reference": "5ebfa611519d45f92252ae50437dfdc5578f1641",
+                "url": "https://api.github.com/repos/wp-pay-extensions/gravityforms/zipball/5a4a036cc6f8b6d86994d80428998368f591a9b4",
+                "reference": "5a4a036cc6f8b6d86994d80428998368f591a9b4",
                 "shasum": ""
             },
             "require": {
@@ -759,7 +761,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-08-16T13:07:31+00:00"
+            "time": "2018-08-28T17:46:08+00:00"
         },
         {
             "name": "wp-pay-extensions/ithemes-exchange",
@@ -2208,16 +2210,16 @@
         },
         {
             "name": "wp-pay-gateways/omnikassa-2",
-            "version": "dev-develop",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-gateways/omnikassa-2.git",
-                "reference": "631983ef631d8064b28f2b0d9439ec7f6a7f5782"
+                "reference": "2f113f3771f653d06ddfc62b091b6ec3abd9b853"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/631983ef631d8064b28f2b0d9439ec7f6a7f5782",
-                "reference": "631983ef631d8064b28f2b0d9439ec7f6a7f5782",
+                "url": "https://api.github.com/repos/wp-pay-gateways/omnikassa-2/zipball/2f113f3771f653d06ddfc62b091b6ec3abd9b853",
+                "reference": "2f113f3771f653d06ddfc62b091b6ec3abd9b853",
                 "shasum": ""
             },
             "require": {
@@ -2270,7 +2272,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-08-22T13:37:48+00:00"
+            "time": "2018-08-28T14:11:37+00:00"
         },
         {
             "name": "wp-pay-gateways/pay-nl",
@@ -2466,16 +2468,16 @@
         },
         {
             "name": "wp-pay/core",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay/core.git",
-                "reference": "58d809909e1d646184aea513902353a27dac2f3e"
+                "reference": "178f16dcd55b0a7c0fb3743278aeea9fee8cca08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay/core/zipball/58d809909e1d646184aea513902353a27dac2f3e",
-                "reference": "58d809909e1d646184aea513902353a27dac2f3e",
+                "url": "https://api.github.com/repos/wp-pay/core/zipball/178f16dcd55b0a7c0fb3743278aeea9fee8cca08",
+                "reference": "178f16dcd55b0a7c0fb3743278aeea9fee8cca08",
                 "shasum": ""
             },
             "require": {
@@ -2531,7 +2533,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-08-16T09:57:58+00:00"
+            "time": "2018-08-28T17:31:48+00:00"
         }
     ],
     "packages-dev": [
@@ -4546,18 +4548,9 @@
             "time": "2018-07-06T07:56:42+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "2.0.10",
-            "alias_normalized": "2.0.10.0",
-            "version": "dev-develop",
-            "package": "wp-pay-gateways/omnikassa-2"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wp-pay-gateways/omnikassa-2": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
