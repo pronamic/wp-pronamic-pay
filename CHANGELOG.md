@@ -6,7 +6,44 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [Unreleased][unreleased]
 
-### Changes
+### Changed
+
+## [5.3.0] - 2018-08-28
+
+### Changed
+- Updated WordPress pay core library to version 2.0.3.
+  - New payments with amount equal to 0 (or empty) will now directly get the completed status.
+  - Use PHP BCMath library for money calculations when available.
+  - Use pronamic/wp-money library to parse money strings.
+  - Added Maestro to list of payment methods.
+- Updated WordPress pay OmniKassa 2 library to version 2.0.2.
+  - Improved webhook handler functions and logging.
+  - Improved return URL request handler functions and logging.
+  - Store OmniKassa 2.0 merchant order ID in the payment.
+- Updated WordPress pay Gravity Forms library to version 2.0.2.
+  - Added support for synchronized subscription payment dates.
+  - Changed Entry ID prefix field to a Order ID field.
+  - Set conditional logic dependency for fields used in payment feed conditions.
+  - Added Pronamic subscription amount merge tag `{pronamic_subscription_amount}`.
+  - Added support for duplicating payment feeds.
+  - Added custom display mode field setting.
+  - Improved handel delay actions support.
+  - Removed support for "Gravity Forms User Registration Add-On" version < 3.0.
+  - The `add_pending_payment` action is no longer triggered for entries without pending payments.
+- Updated WordPress pay Easy Digital Downloads library to version 2.0.1.
+  - Added fallback to the default Pronamic Pay configuration ID.
+  - Prefixed the Pronamic gateways with 'Pronamic - '.
+  - Added new payment URL for Easy Digital Downloads version 3.0+.
+- Updated WordPress pay Restrict Content Pro library to version 2.0.2.
+  - Improved subscription upgrades.
+- Updated WordPress pay Mollie library to version 2.0.4.
+  - Do not allow .local TLD in webhook URL.
+  - Added missing `failed` status.
+  - Improved the way we create and handle Mollie customers.
+- Updated Pronamic WordPress DateTime library to version 1.0.1.
+  - Improved support for timezones.
+- Updated Pronamic WordPress Money library to version 1.1.0.
+  - Added a money parser class.
 
 ## [5.2.0] - 2018-06-21
 
@@ -35,7 +72,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [5.0.0] - 2018-05-16
 
-### Changes
+### Changed
 - Switched to PHP namespaces.
 - Updated WordPress pay ING Kassa Compleet library to version 2.0.
   - Added support for Payconiq payment method.
@@ -55,7 +92,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Added WordPress pay OmniKassa 2.0 library version 1.0.0.
 - Added WordPress pay Restrict Content Pro library version 1.0.0.
 
-### Changes
+### Changed
 - Updated WordPress pay Buckaroo library to version 1.2.9.
   - Added support for PayPal payment method.
 - Updated WordPress pay ICEPAY library to version 1.3.1.
@@ -127,7 +164,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.6.0] - 2017-05-01
 
-### Changes
+### Changed
 - Changed plugin name from 'Pronamic iDEAL' to 'Pronamic Pay'.
 - Use the new bulk actions WordPress 4.7 filter and remove the edit bulk option.
 - Use new register WordPress 4.7 setting feature.
@@ -148,14 +185,14 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.5.5] - 2017-04-18
 
-### Changes
+### Changed
 - Don't use global post for WP_Query posts traversal, fix for WooCommerce save order empty address details.
 - Updated WordPress pay WooCommerce library to version 1.2.6.
   - Improved support for WooCommerce 3.0.
 
 ## [4.5.4] - 2017-04-11
 
-### Changes
+### Changed
 - Added PayPal config select options.
 - Added Sisow to credit card and Sofort config select options.
 - Updated WordPress pay Buckaroo library to version 1.2.7.
@@ -177,7 +214,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.5.3] - 2017-03-15
 
-### Changes
+### Changed
 - Fixed subscription title link in meta payment subscription.
 - Removed amount input `required` attribute with choices.
 - Added credit card methods to payment.
@@ -218,7 +255,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.5.2] - 2017-02-13
 
-### Changes
+### Changed
 - Updated WordPress pay Gravity Forms library to version 1.6.2.
   - No longer check on the payment feed post ID, a empty payment feed post ID is allowed when creating new payment feeds.
   - Auto enable new payment feeds.
@@ -227,13 +264,13 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.5.1] - 2017-02-09
 
-### Changes
+### Changed
 - Updated WordPress pay Gravity Forms library to version 1.6.1.
   - Only check admin referer for payment feeds and not when saving/testing configurations.
 
 ## [4.5.0] - 2017-02-08
 
-### Changes
+### Changed
 - Updated WordPress pay core library to version 1.3.11.
   - Added new constant for the KBC/CBC Payment Button payment method.
   - Added new constant for the Belfius Direct Net payment method.
@@ -305,7 +342,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
   - Added new constant for the Maestro payment method.
 - Added custom post updated messages for payment post type.
 
-### Changes
+### Changed
 - Improved and simplified SASS/CSS for WordPress admin elements.
 - Changed Mastercard icon.
 - Improved support for setting default gateway on WP-CLI.
@@ -338,7 +375,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ## [4.4.3] - 2016-11-02
 
-### Changes
+### Changed
 - Updated WordPress pay MultiSafepay library to version 2.0.0.
 
 ## [4.4.2] - 2016-11-02
@@ -1737,7 +1774,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.2.0...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.3.0...HEAD
+[5.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.2.0...5.3.0
 [5.2.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.1.0...5.2.0
 [5.1.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.1...5.1.0
 [5.0.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.0.0...5.0.1

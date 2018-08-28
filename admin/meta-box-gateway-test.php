@@ -240,6 +240,7 @@ require Plugin::$dirname . '/views/errors.php';
 
 						echo wp_kses(
 							sprintf(
+								/* translators: %s: Input field for number times */
 								__( 'After %s times', 'pronamic_ideal' ),
 								sprintf( '<input type="number" name="pronamic_pay_ends_on_count" value="%s" min="1" />', esc_attr( '' ) )
 							),
@@ -258,6 +259,7 @@ require Plugin::$dirname . '/views/errors.php';
 
 						echo wp_kses(
 							sprintf(
+								/* translators: %s: Input field for end date */
 								__( 'On %s', 'pronamic_ideal' ),
 								sprintf( '<input type="date" id="pronamic_pay_ends_on_date" name="pronamic_pay_ends_on_date" value="%s" />', esc_attr( '' ) )
 							),
