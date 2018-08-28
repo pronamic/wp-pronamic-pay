@@ -281,7 +281,7 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 == Changelog ==
 
-= 5.3.0 - 2018-06-21 =
+= 5.3.0 - 2018-08-28 =
 *	Updated WordPress pay core library to version 2.0.3.
 	*	New payments with amount equal to 0 (or empty) will now directly get the completed status.
 	*	Use PHP BCMath library for money calculations when available.
