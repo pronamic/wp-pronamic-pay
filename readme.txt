@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: 5.0.1
+Stable tag: 5.3.0
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -57,7 +57,7 @@ Pronamic Pay is the best plugin available to accept payments through iDEAL in Wo
 	*	**GitHub:** [https://github.com/eventespresso/event-espresso-core](https://github.com/eventespresso/event-espresso-core)
 	*	**Requires at least:** 4.4.4.decaf
 	*	**Tested up to:** 4.4.4.decaf
-*	[Formidable Forms](https://formidablepro.com/)
+*	[Formidable Forms](https://formidableforms.com/)
 	*	**WordPress.org:** [https://wordpress.org/plugins/formidable/](https://wordpress.org/plugins/formidable/)
 	*	**GitHub:** [https://github.com/Strategy11/formidable-forms](https://github.com/Strategy11/formidable-forms)
 	*	**Requires at least:** 2.0.22
@@ -280,6 +280,52 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.3.0 - 2018-08-28 =
+*	Updated WordPress pay core library to version 2.0.3.
+	*	New payments with amount equal to 0 (or empty) will now directly get the completed status.
+	*	Use PHP BCMath library for money calculations when available.
+	*	Use pronamic/wp-money library to parse money strings.
+	*	Added Maestro to list of payment methods.
+*	Updated WordPress pay OmniKassa 2 library to version 2.0.2.
+	*	Improved webhook handler functions and logging.
+	*	Improved return URL request handler functions and logging.
+	*	Store OmniKassa 2.0 merchant order ID in the payment.
+*	Updated WordPress pay Gravity Forms library to version 2.0.2.
+	*	Added support for synchronized subscription payment dates.
+	*	Changed Entry ID prefix field to a Order ID field.
+	*	Set conditional logic dependency for fields used in payment feed conditions.
+	*	Added Pronamic subscription amount merge tag `{pronamic_subscription_amount}`.
+	*	Added support for duplicating payment feeds.
+	*	Added custom display mode field setting.
+	*	Improved handel delay actions support.
+	*	Removed support for "Gravity Forms User Registration Add-On" version < 3.0.
+	*	The `add_pending_payment` action is no longer triggered for entries without pending payments.
+*	Updated WordPress pay Easy Digital Downloads library to version 2.0.1.
+	*	Added fallback to the default Pronamic Pay configuration ID.
+	*	Prefixed the Pronamic gateways with 'Pronamic - '.
+	*	Added new payment URL for Easy Digital Downloads version 3.0+.
+*	Updated WordPress pay Restrict Content Pro library to version 2.0.2.
+	*	Improved subscription upgrades.
+*	Updated WordPress pay Mollie library to version 2.0.4.
+	*	Do not allow .local TLD in webhook URL.
+	*	Added missing `failed` status.
+	*	Improved the way we create and handle Mollie customers.
+*	Updated Pronamic WordPress DateTime library to version 1.0.1.
+	*	Improved support for timezones.
+*	Updated Pronamic WordPress Money library to version 1.1.0.
+	*	Added a money parser class.
+
+= 5.2.0 - 2018-06-21 =
+*	Added support for WordPress core privacy export and erasure feature.
+*	Updated Tippy.js library to version 2.5.3.
+
+= 5.1.0 - 2018-06-04 =
+*	MemberPress - Improved support for MemberPress.
+*	AppThems - Improve Hirebee theme compatibility.
+*	Gravity Forms - Fixed using merge tag as order ID.
+*	Membership - Fixed fatal error "Uncaught Exception: DateInterval::__construct(): Unknown or bad format (P)".
+*	Mollie - Fixed setting issuer for iDEAL payment method.
 
 = 5.0.1 - 2018-05-16 =
 *	Updated WordPress pay iDEAL Advanced v3 library to version 2.0.1.

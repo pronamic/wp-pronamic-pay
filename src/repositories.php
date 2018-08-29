@@ -70,25 +70,23 @@ foreach ( $organisations as $organisation => $repositories ) {
 		$git_dir = $repositories_dir . '/' . $organisation . '/' . $repository;
 
 		if ( ! is_dir( $git_dir ) ) {
-			`git clone $git_url $git_dir`;
+			echo shell_exec( 'git clone ' . $git_url . ' ' . $git_dir );
 		}
 
-		// Git flow
+		// Git flow.
 		chdir( $git_dir );
 
+		$command = null;
+
 		if ( isset( $argv[1] ) && 'develop' === $argv[1] ) {
-			`git checkout develop`;
+			$command = 'git checkout develop';
 		}
 
 		if ( isset( $argv[1] ) && 'pull' === $argv[1] ) {
 			$command = 'git pull';
-
-			echo $command, PHP_EOL;
-
-			echo shell_exec( $command ), PHP_EOL;
 		}
 
-		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ) ) ) {
+		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ), true ) ) {
 			$command = sprintf( '%s %s', $argv[1], $argv[2] );
 		}
 

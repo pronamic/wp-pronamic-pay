@@ -29,6 +29,7 @@ matrix:
       env: WP_VERSION=4.7 WP_MULTISITE=1 COVERAGE=1 GRUNT=1
   fast_finish: true
   allow_failures:
+    - php: hhvm
     - php: nightly
 
 cache:
@@ -43,6 +44,7 @@ before_install:
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then curl -o- -L https://yarnpkg.com/install.sh | bash; fi
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then export PATH=$HOME/.yarn/bin:$PATH; fi
+  - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).

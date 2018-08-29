@@ -31,23 +31,15 @@
 		}
 	],
 	"autoload": {
-		"psr-4": {
-			"Pronamic\\WordPress\\Pay\\": "classes"
-		},
 		"files": [
-			"includes/functions.php",
-			"includes/providers.php",
-			"includes/xmlseclibs/xmlseclibs-ing.php"
+			"includes/gateways.php",
+			"includes/providers.php"
 		]
 	},
 	"repositories": [
 		{
 			"type": "composer",
 			"url": "https://wpackagist.org/"
-		},
-		{
-			"type": "vcs",
-			"url":  "git@github.com:wp-pay-gateways/nocks.git"
 		}
 	],
 	"config": {
@@ -88,11 +80,11 @@
 		"wp-pay-extensions/charitable": "^2.0",
 		"wp-pay-extensions/classipress": "^2.0",
 		"wp-pay-extensions/easy-digital-downloads": "^2.0",
-		"wp-pay-extensions/event-espresso": "^2.0",
+		"wp-pay-extensions/event-espresso": "^2.1",
 		"wp-pay-extensions/event-espresso-legacy": "^2.0",
 		"wp-pay-extensions/formidable-forms": "^2.0",
 		"wp-pay-extensions/give": "^2.0",
-		"wp-pay-extensions/gravityforms": "^2.0",
+		"wp-pay-extensions/gravityforms": "^2.1",
 		"wp-pay-extensions/ithemes-exchange": "^2.0",
 		"wp-pay-extensions/jigoshop": "^2.0",
 		"wp-pay-extensions/memberpress": "^2.0",
@@ -110,9 +102,8 @@
 		"phpunit/phpunit": "^4.8",
 		"phpunit/phpunit-selenium": "^2.0",
 		"squizlabs/php_codesniffer": "^2.9",
-		"wp-coding-standards/wpcs": "^0.14.1",
+		"wp-coding-standards/wpcs": "^1.0",
 		"wimg/php-compatibility": "^8.1",
-		"phpdocumentor/phpdocumentor": "^2.9",
 		"johnpbloch/wordpress": "^4.9",
 		"wp-phpunit/wp-phpunit": "^4.9"
 	}

@@ -65,6 +65,7 @@ bind_providers_and_gateways();
 
 					// Deprecated notice.
 					if ( isset( $integration->deprecated ) && $integration->deprecated ) {
+						/* translators: %s: Integration name */
 						$name = sprintf( __( '%s (obsoleted)', 'pronamic_ideal' ), $name );
 					}
 
