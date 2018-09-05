@@ -110,6 +110,7 @@ if ( PRONAMIC_PAY_DEBUG ) {
 		'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
 		'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
 		'\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::bootstrap',
+		'\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::bootstrap',
 	),
 ) );
 

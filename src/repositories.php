@@ -46,6 +46,7 @@ $organisations = array(
 		'jigoshop',
 		'memberpress',
 		'membership',
+		'ninjaforms',
 		'restrict-content-pro',
 		's2member',
 		'shopp',
