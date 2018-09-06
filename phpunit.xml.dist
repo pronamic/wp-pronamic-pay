@@ -16,9 +16,9 @@
 
     <filter>
         <whitelist>
-            <directory>./admin/*</directory>
-            <directory>./includes/*</directory>
-            <directory>./src/*</directory>
+            <directory suffix=".php">./admin</directory>
+            <directory suffix=".php">./includes</directory>
+            <directory suffix=".php">./src</directory>
         </whitelist>
     </filter>
 
