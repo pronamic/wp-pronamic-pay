@@ -33,14 +33,15 @@ matrix:
     - php: nightly
 
 cache:
-  yarn: true
   directories:
     - node_modules
     - vendor
     - $HOME/.composer/cache
 
 before_install:
+  # Install latest version of Node.js (https://github.com/creationix/nvm).
   - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
+  # Create database for PHPUnit tests.
   - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
 
 install:
