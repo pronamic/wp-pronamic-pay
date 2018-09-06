@@ -40,6 +40,7 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
+  - if [ "${TRAVIS_DIST_PRECISE}" == "1" ]; then nvm install node; fi
   - mysql -e 'CREATE DATABASE wp_phpunit_tests;'
 
 install:
