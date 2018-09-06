@@ -48,7 +48,7 @@ before_install:
 
 install:
   # Install Grunt command line interface (https://github.com/gruntjs/grunt-cli).
-  - npm global add grunt-cli
+  - npm install -g grunt-cli
   # Install Node.js packages.
   - npm install
   # Update Composer itself to the latest version (https://getcomposer.org/doc/03-cli.md#self-update-selfupdate-).
