@@ -1021,12 +1021,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-pay-extensions/ninjaforms.git",
-                "reference": "594ca7ae2cdecb982bfc151814b7ad097a205b28"
+                "reference": "c8551b3d1085e26129fa0ec2c08b53ad727fc09b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-pay-extensions/ninjaforms/zipball/594ca7ae2cdecb982bfc151814b7ad097a205b28",
-                "reference": "594ca7ae2cdecb982bfc151814b7ad097a205b28",
+                "url": "https://api.github.com/repos/wp-pay-extensions/ninjaforms/zipball/c8551b3d1085e26129fa0ec2c08b53ad727fc09b",
+                "reference": "c8551b3d1085e26129fa0ec2c08b53ad727fc09b",
                 "shasum": ""
             },
             "require": {
@@ -1034,12 +1034,15 @@
                 "wp-pay/core": "^2.0"
             },
             "require-dev": {
+                "johnpbloch/wordpress": "^4.9",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
-                "squizlabs/php_codesniffer": "^2.7",
+                "squizlabs/php_codesniffer": "^2.9",
                 "wimg/php-compatibility": "^8.1",
-                "wp-coding-standards/wpcs": "^0.14.1"
+                "wp-coding-standards/wpcs": "^1.0",
+                "wp-phpunit/wp-phpunit": "^4.9",
+                "wpninjas/ninja-forms": "3.3.14.1"
             },
             "type": "library",
             "autoload": {
@@ -1074,7 +1077,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2018-06-01T10:13:19+00:00"
+            "time": "2018-09-05T08:39:37+00:00"
         },
         {
             "name": "wp-pay-extensions/restrict-content-pro",
