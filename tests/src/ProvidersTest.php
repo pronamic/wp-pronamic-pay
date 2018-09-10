@@ -11,13 +11,12 @@
 namespace Pronamic\WordPress\Pay;
 
 /**
- * Providers test.
+ * Plugin payment providers test.
  *
- * @author Reüel van der Steege
- * @version 1.0.0
+ * @author  Reüel van der Steege
+ * @version 5.4.0
+ * @since   5.4.0
  */
-namespace Pronamic\WordPress\Pay;
-
 class ProvidersTest extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Setup.
