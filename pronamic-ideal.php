@@ -115,15 +115,6 @@ if ( PRONAMIC_PAY_DEBUG ) {
 ) );
 
 /**
- * Pronamic Pay plugin.
- *
- * @return \Pronamic\WordPress\Pay\Plugin
- */
-function pronamic_pay_plugin() {
-	return \Pronamic\WordPress\Pay\Plugin::instance();
-}
-
-/**
  * Backward compatibility.
  */
 global $pronamic_ideal;
