@@ -60,11 +60,27 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 /**
  * Autoload.
  */
-$loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-
 if ( ! defined( 'PRONAMIC_PAY_DEBUG' ) ) {
 	define( 'PRONAMIC_PAY_DEBUG', false );
 }
+
+if ( PRONAMIC_PAY_DEBUG ) {
+	foreach ( glob( __DIR__ . '/repositories/wp-pay/*/vendor/composer/autoload_files.php' ) as $file ) {
+		$files = require $file;
+
+		foreach ( $files as $identifier => $path ) {
+			if ( ! empty( $GLOBALS['__composer_autoload_files'][ $identifier ] ) ) {
+				continue;
+			}
+
+			require $path;
+
+			$GLOBALS['__composer_autoload_files'][ $identifier ] = true;
+		}
+	}
+}
+
+$loader = require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 if ( PRONAMIC_PAY_DEBUG ) {
 	foreach ( glob( __DIR__ . '/repositories/*/*/composer.json' ) as $file ) {
@@ -72,13 +88,17 @@ if ( PRONAMIC_PAY_DEBUG ) {
 
 		$object = json_decode( $content );
 
-		if ( isset( $object->autoload ) ) {
-			foreach ( $object->autoload as $type => $map ) {
-				if ( 'psr-4' === $type ) {
-					foreach ( $map as $prefix => $path ) {
-						$loader->addPsr4( $prefix, dirname( $file ) . '/' . $path, true );
-					}
-				}
+		if ( ! isset( $object->autoload ) ) {
+			continue;
+		}
+
+		foreach ( $object->autoload as $type => $map ) {
+			if ( 'psr-4' !== $type ) {
+				continue;
+			}
+
+			foreach ( $map as $prefix => $path ) {
+				$loader->addPsr4( $prefix, dirname( $file ) . '/' . $path, true );
 			}
 		}
 	}
