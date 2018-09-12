@@ -41,12 +41,17 @@ function pronamic_pay_block_activation() {
 		esc_attr( '_blank' )
 	);
 
-	wp_die( wp_kses( $message, array(
-		'a' => array(
-			'href'   => true,
-			'target' => true,
-		),
-	) ) );
+	wp_die(
+		wp_kses(
+			$message,
+			array(
+				'a' => array(
+					'href'   => true,
+					'target' => true,
+				),
+			)
+		)
+	);
 }
 
 if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
@@ -107,32 +112,34 @@ if ( PRONAMIC_PAY_DEBUG ) {
 /**
  * Bootstrap.
  */
-\Pronamic\WordPress\Pay\Plugin::instance( array(
-	'file'       => __FILE__,
-	'version'    => '5.3.0',
-	'gateways'   => \Pronamic\WordPress\Pay\pronamic_pay_gateway_integrations(),
-	'extensions' => array(
-		'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\Shopp\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\Jigoshop\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\ClassiPress\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\AppThemes\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\S2Member\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\Membership\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\IThemesExchange\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::bootstrap',
-		'\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::bootstrap',
-	),
-) );
+\Pronamic\WordPress\Pay\Plugin::instance(
+	array(
+		'file'       => __FILE__,
+		'version'    => '5.3.0',
+		'gateways'   => \Pronamic\WordPress\Pay\pronamic_pay_gateway_integrations(),
+		'extensions' => array(
+			'\Pronamic\WordPress\Pay\Extensions\Charitable\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\Give\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\WooCommerce\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\GravityForms\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\Shopp\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\Jigoshop\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\WPeCommerce\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\ClassiPress\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\EventEspressoLegacy\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\EventEspresso\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\AppThemes\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\S2Member\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\Membership\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\EasyDigitalDownloads\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\IThemesExchange\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\MemberPress\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\FormidableForms\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\RestrictContentPro\Extension::bootstrap',
+			'\Pronamic\WordPress\Pay\Extensions\NinjaForms\Extension::bootstrap',
+		),
+	)
+);
 
 /**
  * Backward compatibility.

@@ -57,7 +57,8 @@ $post_author = empty( $post_author ) ? '-' : $post_author;
 					'post'                      => $post->ID,
 					'action'                    => 'edit',
 					'pronamic_pay_check_status' => true,
-				), admin_url( 'post.php' )
+				),
+				admin_url( 'post.php' )
 			),
 			'pronamic_payment_check_status_' . $post->ID
 		);
