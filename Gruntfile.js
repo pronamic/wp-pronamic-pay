@@ -190,7 +190,7 @@ module.exports = function( grunt ) {
 				files: [
 					{ // Flot - http://www.flotcharts.org/.
 						expand: true,
-						cwd: 'node_modules/flot/',
+						cwd: 'node_modules/Flot/',
 						src: [
 							'jquery.flot.js',
 							'jquery.flot.time.js',
