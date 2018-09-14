@@ -282,6 +282,20 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 == Changelog ==
 
 = 5.4.0 - 2018-09-12 =
+*	Added support for Ninja Forms.
+*	Updated WordPress pay core library from 2.0.4 to version 2.0.6.
+	*	Set default status of new payments to 'Open'.
+	*	Improved support for local float values.
+*	Updated Pronamic WordPress DateTime library from 1.0.1 to version 1.0.2.
+	*	Fixed issue on PHP 5.6 or lower with empty timezone in `create_from_format` function calls.
+*	Updated WordPress pay Gravity Forms library from 2.1.1 to version 2.1.2.
+	*	Improved support for addons with delayed payment integration support.
+	*	Improved support for delayed Gravity Flow workflows.
+*	Updated WordPress pay MemberPress library from 2.0.1 to version 2.0.3.
+	*	Create a 'confirmed' 'subscription_confirmation' transaction for a grace period of 15 days.
+	*	Added error message on registration form for failed payment.
+*	Updated WordPress pay Restrict Content Pro library from 2.0.2 to version 2.1.0.
+	*	Complete rewrite of library.
 
 = 5.3.0 - 2018-08-28 =
 *	Updated WordPress pay core library to version 2.0.3.
