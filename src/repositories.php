@@ -46,6 +46,7 @@ $organisations = array(
 		'jigoshop',
 		'memberpress',
 		'membership',
+		'ninjaforms',
 		'restrict-content-pro',
 		's2member',
 		'shopp',
@@ -85,7 +86,7 @@ foreach ( $organisations as $organisation => $repositories ) {
 			$command = 'git pull';
 		}
 
-		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'yarn' ), true ) ) {
+		if ( isset( $argv[1], $argv[2] ) && in_array( $argv[1], array( 'git', 'composer', 'npm' ), true ) ) {
 			$command = sprintf( '%s %s', $argv[1], $argv[2] );
 		}
 

@@ -24,7 +24,8 @@ if ( ! defined( 'WPINC' ) ) {
 				'We do our best to bring recurring payments support to as many plugins as possible. After plugins such
 as Gravity Forms and WooCommerce Subscriptions, this functionality can now also be used with MemberPress. The plugin
 provides the ability to offer memberships to your visitors and the subscription amount can now be charged automatically.
-Recurring payments are only supported with payment provider Mollie for now.', 'pronamic_ideal'
+Recurring payments are only supported with payment provider Mollie for now.',
+				'pronamic_ideal'
 			);
 
 			?>
@@ -50,7 +51,8 @@ Recurring payments are only supported with payment provider Mollie for now.', 'p
 			esc_html_e(
 				'It is now possible to set a Google Analytics tracking ID in the plugin settings. A
 completed payment will automatically be send to Google (in live mode). The payment will be linked to
-the session of the visitor, which allows you to use visitor revenue in Google Analytics reports.', 'pronamic_ideal'
+the session of the visitor, which allows you to use visitor revenue in Google Analytics reports.',
+				'pronamic_ideal'
 			);
 
 			?>
@@ -68,7 +70,8 @@ the session of the visitor, which allows you to use visitor revenue in Google An
 esc_html_e(
 	'Pronamic Pay includes support for subscriptions to receive recurring payments. This version includes
 improvements based on user feedback. Switching between subscriptions with WooCommerce
-Subscriptions is now supported for example, and payment dates information has been extended and is more reliable.', 'pronamic_ideal'
+Subscriptions is now supported for example, and payment dates information has been extended and is more reliable.',
+	'pronamic_ideal'
 );
 
 			?>
@@ -95,7 +98,8 @@ Subscriptions is now supported for example, and payment dates information has be
 				'Restrict Content Pro lets you sell memberships to provide access to your content. In this
 version of Pronamic Pay we introduce support for this plugin. Recurring payments can be used, so subscription payments
 are processed automatically when they are due for renewal. Recurring payments are now also
-supported with s2Member (new shortcodes can be created with the included generator).', 'pronamic_ideal'
+supported with s2Member (new shortcodes can be created with the included generator).',
+				'pronamic_ideal'
 			);
 
 			?>
@@ -113,7 +117,8 @@ supported with s2Member (new shortcodes can be created with the included generat
 esc_html_e(
 	'The payments list got a visual refresh. Most noticeable are the new status icons and updated default columns
 to make the overview a lot cleaner and easier to use. Additional columns can be displayed by enabling them in the
-"Screen Options" at the right top of the page.', 'pronamic_ideal'
+"Screen Options" at the right top of the page.',
+	'pronamic_ideal'
 );
 
 			?>

@@ -149,7 +149,9 @@
 													'page' => 'pronamic_ideal',
 													'pronamic_pay_ignore_tour' => '0',
 												)
-											), 'pronamic_pay_ignore_tour', 'pronamic_pay_nonce'
+											),
+											'pronamic_pay_ignore_tour',
+											'pronamic_pay_nonce'
 										)
 									),
 									esc_html__( 'Start tour', 'pronamic_ideal' )
@@ -212,7 +214,8 @@
 							<?php
 
 							wp_widget_rss_output(
-								'http://feeds.feedburner.com/pronamic', array(
+								'http://feeds.feedburner.com/pronamic',
+								array(
 									'link'  => __( 'http://www.pronamic.eu/', 'pronamic_ideal' ),
 									'url'   => 'http://feeds.feedburner.com/pronamic',
 									'title' => __( 'Pronamic News', 'pronamic_ideal' ),

@@ -17,7 +17,9 @@ $update_link = wp_nonce_url(
 			'pronamic_pay_update_db' => true,
 		),
 		admin_url( 'admin.php' )
-	), 'pronamic_pay_update_db', 'pronamic_pay_nonce'
+	),
+	'pronamic_pay_update_db',
+	'pronamic_pay_nonce'
 );
 
 ?>

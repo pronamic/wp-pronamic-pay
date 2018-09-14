@@ -37,7 +37,8 @@ $current_tab = empty( $current_tab ) ? key( $tabs ) : $current_tab;
 				array(
 					'page' => 'pronamic_pay_tools',
 					'tab'  => $tab,
-				), admin_url( 'admin.php' )
+				),
+				admin_url( 'admin.php' )
 			);
 
 			printf(
