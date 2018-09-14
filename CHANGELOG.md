@@ -8,7 +8,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
-## [5.4.0] - 2018-09-12
+## [5.4.0] - 2018-09-14
 
 ### Added
 - Added support for Ninja Forms.
@@ -17,6 +17,7 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Updated WordPress pay core library from 2.0.4 to version 2.0.6.
   - Set default status of new payments to 'Open'.
   - Improved support for local float values.
+  - Updated Tippy.js from version 2.5.4 to 2.6.0.
 - Updated Pronamic WordPress DateTime library from 1.0.1 to version 1.0.2.
   - Fixed issue on PHP 5.6 or lower with empty timezone in `create_from_format` function calls.
 - Updated WordPress pay Gravity Forms library from 2.1.1 to version 2.1.2.
