@@ -82,23 +82,56 @@ jQuery( document ).ready( function( $ ) {
 		}
 	);
 
-	var tooltip = $( '<div class="pronamic-pay-chart-tooltip"></div>' ).appendTo( 'body' );
+	var tippyInstance = false;
+	var dataIndex     = false;
+	var seriesIndex   = false;
 
 	container.bind( 'plothover', function( event, pos, item ) {
-		if ( item ) {
-			var text = item.datapoint[1].toFixed( 2 );
-
-			if ( item.series.tooltipFormatter && 'money' === item.series.tooltipFormatter ) {
-				text = accounting.formatMoney( item.datapoint[1], '€ ', 2, '.', ',' );
+		if ( ! item || item.dataIndex != dataIndex || item.seriesIndex != seriesIndex ) {
+			if ( tippyInstance ) {
+				tippyInstance.destroy();
 			}
 
-			tooltip.html( text ).css( {
-				top: item.pageY - 16,
-				left: item.pageX + 20
-			} ).fadeIn( 200 );
-		} else {
-			tooltip.fadeOut( 100 );
+			tippyInstance = false;
 		}
-	});
 
+		if ( ! item ) {
+			return;
+		}
+
+		if ( tippyInstance ) {
+			return;
+		}
+
+		var text = item.datapoint[1].toFixed( 2 );
+
+		if ( item.series.tooltipFormatter && 'money' === item.series.tooltipFormatter ) {
+			text = accounting.formatMoney( item.datapoint[1], '€ ', 2, '.', ',' );
+		}
+
+		tippyInstance = tippy.one( {
+			attributes: {
+				title: text
+			},
+			getBoundingClientRect: function() {
+				return {
+					width: 0,
+					height: 0,
+					top: item.pageY - window.pageYOffset,
+					left: item.pageX - window.pageXOffset,
+					right: item.pageX - window.pageXOffset,
+					bottom: item.pageY - window.pageYOffset
+				};
+			},
+			clientHeight: 0,
+			clientWidth: 0
+		}, {
+			placement: 'right'
+		} );
+
+		dataIndex   = item.dataIndex;
+		seriesIndex = item.seriesIndex;
+
+		tippyInstance.show();
+	} );
 } );
