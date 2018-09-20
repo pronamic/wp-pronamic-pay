@@ -576,6 +576,113 @@ $sources = array(
 			</tbody>
 		</table>
 
+		<h2>Links</h2>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Title</th>
+					<th scope="col">URL</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>
+						vCard Format Specification
+					</td>
+					<td>
+						<a href="https://tools.ietf.org/html/rfc6350">https://tools.ietf.org/html/rfc6350</a>						
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						Developer Guide - Geocoding API - Google Developers
+					</td>
+					<td>
+						<a href="https://developers.google.com/maps/documentation/geocoding/intro">https://developers.google.com/maps/documentation/geocoding/intro</a>						
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						addressing
+					</td>
+					<td>
+						<a href="https://github.com/commerceguys/addressing">https://github.com/commerceguys/addressing</a>						
+					</td>
+					<td>
+						A PHP 5.5+ addressing library, powered by CLDR and Google's address data.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Address Parser
+					</td>
+					<td>
+						<a href="https://github.com/treehouselabs/address-parser">https://github.com/treehouselabs/address-parser</a>						
+					</td>
+					<td>
+						A dutch address parser
+					</td>
+				</tr>
+				<tr>
+					<td>
+						libpostal
+					</td>
+					<td>
+						<a href="https://github.com/openvenues/libpostal">https://github.com/openvenues/libpostal</a>						
+					</td>
+					<td>
+						A C library for parsing/normalizing street addresses around the world. Powered by statistical NLP and open geo data.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						schema.org - PostalAddress
+					</td>
+					<td>
+						<a href="https://github.com/commerceguys/addressing">https://schema.org/PostalAddress</a>						
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						schema.org - GeoCoordinates
+					</td>
+					<td>
+						<a href="https://schema.org/GeoCoordinates">https://schema.org/GeoCoordinates</a>						
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>
+						Pay.nl - SDK - Helper::splitAddress
+					</td>
+					<td>
+						<a href="https://github.com/paynl/sdk/blob/v1.5.5/src/Helper.php#L168-L201">https://github.com/paynl/sdk/blob/v1.5.5/src/Helper.php#L168-L201</a>						
+					</td>
+					<td>
+						Try to split an address into street and housenumber<br />
+						This is not guaranteed to always return a correct answer
+					</td>
+				</tr>
+				<tr>
+					<td>
+						AddressSplitting
+					</td>
+					<td>
+						<a href="https://github.com/VIISON/AddressSplitting">https://github.com/VIISON/AddressSplitting</a>						
+					</td>
+					<td>
+						Tries to split an address line into street name, house number and other additional information like building, apartment information etc.
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
