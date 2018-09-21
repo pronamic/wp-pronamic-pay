@@ -247,6 +247,45 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			?>
 		</td>
 	</tr>
+
+	<?php if ( null !== $payment->get_billing_address() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Billing Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$address = $payment->get_billing_address();
+
+				echo nl2br( (string) $address );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( null !== $payment->get_shipping_address() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Shipping Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				$address = $payment->get_shipping_address();
+
+				echo nl2br( (string) $address );
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Source', 'pronamic_ideal' ); ?>
