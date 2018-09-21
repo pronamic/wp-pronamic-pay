@@ -140,6 +140,15 @@ module.exports = function( grunt ) {
 
 		// Shell.
 		shell: {
+			// Make POT.
+			makepot: {
+				command: 'wp pronamic i18n make-pot . languages/pronamic_ideal.pot --slug="pronamic-ideal"'
+			},
+
+			msgmerge: {
+				command: 'find languages/*.po -type f -exec msgmerge --update {} languages/pronamic_ideal.pot \\;'
+			},
+
 			// PlantUML.
 			plantuml: {
 				command: 'plantuml ./documentation/*.plantuml'
@@ -489,7 +498,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'assets', [ 'sasslint', 'sass', 'postcss', 'copy:scripts', 'copy:assets', 'copy:other' ] );
 	grunt.registerTask( 'min', [ 'uglify', 'imagemin' ] );
 	grunt.registerTask( 'plantuml', [ 'shell:plantuml' ] );
-	grunt.registerTask( 'pot', [ 'build_latest', 'makepot', 'copy:pot_to_dev' ] );
+	grunt.registerTask( 'pot', [ 'shell:makepot', 'shell:msgmerge' ] );
 
 	grunt.registerTask( 'build_docs', [
 		'shell:readme_txt',
