@@ -1,5 +1,6 @@
 /* global pronamicPayAdminReports */
 /* global accounting */
+/* global tippy */
 jQuery( document ).ready( function( $ ) {
 	var container = $( '#chart1' );
 
@@ -87,7 +88,7 @@ jQuery( document ).ready( function( $ ) {
 	var seriesIndex   = false;
 
 	container.bind( 'plothover', function( event, pos, item ) {
-		if ( ! item || item.dataIndex != dataIndex || item.seriesIndex != seriesIndex ) {
+		if ( ! item || item.dataIndex !== dataIndex || item.seriesIndex !== seriesIndex ) {
 			if ( tippyInstance ) {
 				tippyInstance.destroy();
 			}

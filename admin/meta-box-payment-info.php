@@ -259,7 +259,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 				$address = $payment->get_billing_address();
 
-				echo nl2br( (string) $address );
+				echo nl2br( esc_html( (string) $address ) );
 
 				?>
 			</td>
@@ -278,7 +278,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 
 				$address = $payment->get_shipping_address();
 
-				echo nl2br( (string) $address );
+				echo nl2br( esc_html( (string) $address ) );
 
 				?>
 			</td>
