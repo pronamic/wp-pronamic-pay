@@ -8,6 +8,7 @@
  * @package   Pronamic\WordPress\Pay
  */
 
+use Pronamic\WordPress\Money\Money;
 use Pronamic\WordPress\Pay\Core\PaymentMethods;
 
 $post_id = get_the_ID();
@@ -192,42 +193,112 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			?>
 		</td>
 	</tr>
+
+	<?php if ( 0 !== $payment->get_order_items()->count() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Order Items', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<table>
+					<thead>
+						<tr>
+							<th><?php esc_html_e( 'Item ID', 'pronamic_ideal' ); ?></th>
+							<th><?php esc_html_e( 'Description', 'pronamic_ideal' ); ?></th>
+							<th><?php esc_html_e( 'Quantity', 'pronamic_ideal' ); ?></th>
+							<th><?php esc_html_e( 'Price', 'pronamic_ideal' ); ?></th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<?php foreach ( $payment->get_order_items() as $item ) : ?>
+
+							<?php
+
+							$amount = new Money( $item->get_price(), $payment->get_currency() );
+
+							?>
+
+							<tr>
+								<td><?php echo esc_html( $item->get_id() ); ?></td>
+								<td><?php echo esc_html( $item->get_description() ); ?></td>
+								<td><?php echo esc_html( $item->get_quantity() ); ?></td>
+								<td><?php echo esc_html( $amount->format_i18n() ); ?></td>
+							</tr>
+
+						<?php endforeach; ?>
+
+					</tbody>
+				</table>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
-			<?php esc_html_e( 'First Name', 'pronamic_ideal' ); ?>
+			<?php esc_html_e( 'Contact', 'pronamic_ideal' ); ?>
 		</th>
 		<td>
 			<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_first_name', true ) );
+			echo wp_kses(
+				nl2br( $payment->get_contact() ),
+				array(
+					'br' => array(),
+				)
+			);
 
 			?>
 		</td>
 	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Last Name', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_last_name', true ) );
+	<?php if ( null !== $payment->get_billing_address()->get_json() ) : ?>
 
-			?>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			<?php esc_html_e( 'Email', 'pronamic_ideal' ); ?>
-		</th>
-		<td>
-			<?php
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Billing Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
 
-			echo esc_html( get_post_meta( $post_id, '_pronamic_payment_email', true ) );
+				echo wp_kses(
+					nl2br( $payment->get_billing_address() ),
+					array(
+						'br' => array(),
+					)
+				);
 
-			?>
-		</td>
-	</tr>
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
+	<?php if ( null !== $payment->get_shipping_address()->get_json() ) : ?>
+
+		<tr>
+			<th scope="row">
+				<?php esc_html_e( 'Shipping Address', 'pronamic_ideal' ); ?>
+			</th>
+			<td>
+				<?php
+
+				echo wp_kses(
+					nl2br( $payment->get_shipping_address() ),
+					array(
+						'br' => array(),
+					)
+				);
+
+				?>
+			</td>
+		</tr>
+
+	<?php endif; ?>
+
 	<tr>
 		<th scope="row">
 			<?php esc_html_e( 'Consumer', 'pronamic_ideal' ); ?>
