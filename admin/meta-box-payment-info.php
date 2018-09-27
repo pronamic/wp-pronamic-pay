@@ -245,7 +245,7 @@ $purchase_id = get_post_meta( $post_id, '_pronamic_payment_purchase_id', true );
 			<?php
 
 			echo wp_kses(
-				nl2br( $payment->get_contact() ),
+				nl2br( $payment->get_customer() ),
 				array(
 					'br' => array(),
 				)
