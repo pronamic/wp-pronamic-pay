@@ -8,6 +8,12 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 
 ### Changed
 
+## [5.4.2] - 2018-09-28
+
+### Fixed
+- Updated WordPress pay OmniKassa 2 library from 2.0.3 to version 2.0.4.
+  - 
+
 ## [5.4.1] - 2018-09-17
 
 ### Fixed
@@ -1801,7 +1807,8 @@ This projects adheres to [Semantic Versioning](http://semver.org/) and [Keep a C
 - Improved the feeds repository and the feed model
 - Initial release
 
-[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...HEAD
+[unreleased]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.2...HEAD
+[5.4.2]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.1...5.4.2
 [5.4.1]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.4.0...5.4.1
 [5.4.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.3.0...5.4.0
 [5.3.0]: https://github.com/pronamic/wp-pronamic-ideal/compare/5.2.0...5.3.0

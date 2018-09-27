@@ -5,7 +5,7 @@ Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-ideal&source
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.3
-Stable tag: 5.4.1
+Stable tag: 5.4.2
 
 The Pronamic Pay plugin adds payment methods like iDEAL, Bancontact, credit card and more to your WordPress site for a variety of payment providers.
 
@@ -280,6 +280,10 @@ The [WordPress HTTPS](https://wordpress.org/plugins/wordpress-https/) can confli
 
 
 == Changelog ==
+
+= 5.4.2 - 2018-09-28 =
+*	Updated WordPress pay OmniKassa 2 library from 2.0.3 to version 2.0.4.
+	*	
 
 = 5.4.1 - 2018-09-17 =
 *	Updated WordPress pay OmniKassa 2 library from 2.0.2 to version 2.0.3.
