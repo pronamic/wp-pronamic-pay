@@ -32,7 +32,7 @@
 
 					
 						<th scope="col">
-							Klarna <a href="https://developers.klarna.com/en/nl/kpm/checkout-api#address-structure"><i class="fas fa-info-circle"></i></a>						</th>
+							Klarna <a href="https://developers.klarna.com/api/#payments-api-create-a-new-order"><i class="fas fa-info-circle"></i></a>						</th>
 
 					
 						<th scope="col">
@@ -285,7 +285,7 @@
 
 						
 							<td>
-															</td>
+								<code>reference</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Article number, SKU or similar. Max length is 64 characters."></i> 							</td>
 
 						
 							<td>
@@ -451,7 +451,7 @@
 
 						
 							<td>
-															</td>
+								<code>name</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Descriptive item name."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i> 							</td>
 
 						
 							<td>
@@ -700,7 +700,7 @@
 
 						
 							<td>
-															</td>
+								<code>quantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Non-negative. The item quantity."></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i> 							</td>
 
 						
 							<td>
@@ -761,6 +761,89 @@
 						
 							<td>
 								<code>orderQuantity</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The number of the item ordered. If the property is not set, assume the quantity is one."></i> 							</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Quantity Unit						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>quantity_unit</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Unit used to describe the quantity, e.g. kg, pcs... If defined has to be 1-8 characters."></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
 
 						
 							<td>
@@ -838,6 +921,89 @@ public function get_item_total( $item, $inc_tax = false, $round = true )"></i> <
 						
 							<td>
 								<code>price</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The price of a cart line item."></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Unit Price						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>unit_price</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Minor units. Includes tax, excludes discount. (max value: 100000000)"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
 
 						
 							<td>
@@ -998,6 +1164,255 @@ public function get_item_total( $item, $inc_tax = false, $round = true )"></i> <
 								<code>total</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Calculate line total - useful for gateways.
 wc_format_decimal( $order->get_line_total( $item ), 2 )
 public function get_line_total( $item, $inc_tax = false, $round = true )"></i> <a href="https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/api/legacy/v1/class-wc-api-orders.php#L182"><i class="fas fa-info-circle"></i></a> <a href="https://github.com/woocommerce/woocommerce/blob/3.4.5/includes/abstracts/abstract-wc-order.php#L1559-L1579"><i class="fas fa-info-circle"></i></a>							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Total Amount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>total_amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Includes tax and discount. Must match (quantity unit_price) - total_discount_amount within ±quantity. (max value: 100000000)"></i> <i class="fas fa-circle" data-toggle="tooltip" data-placement="top" title="Required"></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Total Discount Amount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>total_discount_amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Non-negative minor units. Includes tax."></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Total Tax Amount						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>total_tax_amount</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Must be within ±1 of total_amount - total_amount 10000 / (10000 + tax_rate). Negative when type is discount."></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
 
 						
 							<td>
@@ -1702,7 +2117,7 @@ public function get_line_subtotal( $item, $inc_tax = false, $round = true )"></i
 
 						
 							<td>
-															</td>
+								<code>tax_rate</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Non-negative. In percent, two implicit decimals. I.e 2500 = 25%."></i> 							</td>
 
 						
 							<td>
@@ -2117,7 +2532,15 @@ public function get_line_subtotal( $item, $inc_tax = false, $round = true )"></i
 
 						
 							<td>
-															</td>
+								<code>type</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Order line type. Possible values:
+physical
+discount
+shipping_fee
+sales_tax
+digital
+gift_card
+store_credit
+surcharge"></i> 							</td>
 
 						
 							<td>
@@ -2283,7 +2706,7 @@ public function get_line_subtotal( $item, $inc_tax = false, $round = true )"></i
 
 						
 							<td>
-															</td>
+								<code>image_url</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="URL to an image that can be later embedded in communications between Klarna and the customer. (max 1024 characters)"></i> 							</td>
 
 						
 							<td>
@@ -2826,6 +3249,89 @@ public function get_line_subtotal( $item, $inc_tax = false, $round = true )"></i
 						
 							<td>
 								<code>product_id</code> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+											</tr>
+
+				
+					<tr>
+						<th scope="row">
+							Product URL						</th>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+								<code>product_url</code> <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="URL to an image that can be later embedded in communications between Klarna and the customer. (max 1024 characters)"></i> 							</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
+
+						
+							<td>
+															</td>
 
 						
 							<td>

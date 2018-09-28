@@ -3,30 +3,35 @@
 $matrix = array();
 
 $components = array(
-	'id'             => 'ID',
-	'number'         => 'Number',
-	'reference'      => 'Reference',
-	'sku'            => array(
+	'id'                    => 'ID',
+	'number'                => 'Number',
+	'reference'             => 'Reference',
+	'sku'                   => array(
 		'label' => 'SKU',
 		'link'  => 'https://en.wikipedia.org/wiki/Stock_keeping_unit',
 	),
-	'name'           => 'Name',
-	'label'          => 'Label',
-	'description'    => 'Description',
-	'quantity'       => 'Quantity',
-	'price'          => 'Price',
-	'net_price'      => 'Net Price',
-	'total'          => 'Total',
-	'subtotal'       => 'Subtotal',
-	'net_total'      => 'Net Total',
-	'amount'         => 'Amount',
-	'currency'       => 'Currency',
-	'tax'            => 'Tax',
-	'tax_amount'     => 'Tax Amount',
-	'tax_class'      => 'Tax Class',
-	'tax_percentage' => 'Tax Percentage',
-	'tax_rate'       => 'Tax Rate',
-	'vat'            => array(
+	'name'                  => 'Name',
+	'label'                 => 'Label',
+	'description'           => 'Description',
+	'quantity'              => 'Quantity',
+	'quantity_unit'         => 'Quantity Unit',
+	'price'                 => 'Price',
+	'unit_price'            => 'Unit Price',
+	'net_price'             => 'Net Price',
+	'total'                 => 'Total',
+	'total_amount'          => 'Total Amount',
+	'total_discount_amount' => 'Total Discount Amount',
+	'total_tax_amount'      => 'Total Tax Amount',
+	'subtotal'              => 'Subtotal',
+	'net_total'             => 'Net Total',
+	'amount'                => 'Amount',
+	'currency'              => 'Currency',
+	'tax'                   => 'Tax',
+	'tax_amount'            => 'Tax Amount',
+	'tax_class'             => 'Tax Class',
+	'tax_percentage'        => 'Tax Percentage',
+	'tax_rate'              => 'Tax Rate',
+	'vat'                   => array(
 		'label' => 'VAT',
 		'link'  => 'https://euvatrates.com/rates.json',
 	),
@@ -38,17 +43,18 @@ $components = array(
 		'label' => 'VAT Category',
 		'link'  => 'https://euvatrates.com/rates.json',
 	),
-	'shipping'       => 'Shipping',
-	'type'           => 'Type',
-	'url'            => 'URL',
-	'image_url'      => 'Image URL',
-	'status'         => 'Status',
-	'stock'          => 'Stock',
-	'discount'       => 'Discount',
-	'pending'        => 'Pending',
-	'category'       => 'Category',
-	'discount'       => 'Discount',
-	'product_id'     => 'Product ID',
+	'shipping'             => 'Shipping',
+	'type'                 => 'Type',
+	'url'                  => 'URL',
+	'image_url'            => 'Image URL',
+	'status'               => 'Status',
+	'stock'                => 'Stock',
+	'discount'             => 'Discount',
+	'pending'              => 'Pending',
+	'category'             => 'Category',
+	'discount'             => 'Discount',
+	'product_id'           => 'Product ID',
+	'product_url'          => 'Product URL',
 );
 
 $sources = array(
@@ -68,9 +74,68 @@ $sources = array(
 	),
 	'klarna' => array(
 		'label'      => 'Klarna',
-		'link'       => 'https://developers.klarna.com/en/nl/kpm/checkout-api#address-structure',
+		'link'       => 'https://developers.klarna.com/api/#payments-api-create-a-new-order',
 		'components' => array(
-
+			'type'  => array(
+				'name'        => 'type',
+				'description' => 'Order line type. Possible values:
+physical
+discount
+shipping_fee
+sales_tax
+digital
+gift_card
+store_credit
+surcharge',
+			),
+			'reference'  => array(
+				'name'        => 'reference',
+				'description' => 'Article number, SKU or similar. Max length is 64 characters.',
+			),
+			'name'  => array(
+				'name'        => 'name',
+				'description' => 'Descriptive item name.',
+				'required'    => true,
+			),
+			'quantity'  => array(
+				'name'        => 'quantity',
+				'description' => 'Non-negative. The item quantity.',
+				'required'    => true,
+			),
+			'quantity_unit'  => array(
+				'name'        => 'quantity_unit',
+				'description' => 'Unit used to describe the quantity, e.g. kg, pcs... If defined has to be 1-8 characters.',
+			),
+			'unit_price'  => array(
+				'name'        => 'unit_price',
+				'description' => 'Minor units. Includes tax, excludes discount. (max value: 100000000)',
+				'required'    => true,
+			),
+			'tax_rate'  => array(
+				'name'        => 'tax_rate',
+				'description' => 'Non-negative. In percent, two implicit decimals. I.e 2500 = 25%.',
+			),
+			'total_amount'  => array(
+				'name'        => 'total_amount',
+				'description' => 'Includes tax and discount. Must match (quantity unit_price) - total_discount_amount within ±quantity. (max value: 100000000)',
+				'required'    => true,
+			),
+			'total_discount_amount' => array(
+				'name'        => 'total_discount_amount',
+				'description' => 'Non-negative minor units. Includes tax.',
+			),
+			'total_tax_amount'  => array(
+				'name'        => 'total_tax_amount',
+				'description' => 'Must be within ±1 of total_amount - total_amount 10000 / (10000 + tax_rate). Negative when type is discount.',
+			),
+			'product_url'  => array(
+				'name'        => 'product_url',
+				'description' => 'URL to an image that can be later embedded in communications between Klarna and the customer. (max 1024 characters)',
+			),
+			'image_url'  => array(
+				'name'        => 'image_url',
+				'description' => 'URL to an image that can be later embedded in communications between Klarna and the customer. (max 1024 characters)',
+			),
 		),
 	),
 	'mollie' => array(
