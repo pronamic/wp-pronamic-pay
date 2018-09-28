@@ -18,6 +18,8 @@ $components = array(
 	'price'                 => 'Price',
 	'unit_price'            => 'Unit Price',
 	'net_price'             => 'Net Price',
+	'item_price'            => 'Item Price',
+	'item_tax'              => 'Item Tax',
 	'total'                 => 'Total',
 	'total_amount'          => 'Total Amount',
 	'total_discount_amount' => 'Total Discount Amount',
@@ -55,6 +57,7 @@ $components = array(
 	'discount'             => 'Discount',
 	'product_id'           => 'Product ID',
 	'product_url'          => 'Product URL',
+	'price_id'             => 'Price ID',
 );
 
 $sources = array(
@@ -285,9 +288,60 @@ surcharge',
 	),
 	'easy-digital-downloads' => array(
 		'label'      => 'Easy Digital Downloads',
-		'link'       => 'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/reporting/class-export-payments.php',
+		'links'      => array(
+			'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/reporting/class-export-payments.php',
+			'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L388-L396',
+		),
 		'components' => array(
-
+			'id'  => array(
+				'name'        => 'item_id',
+				'description' => '$cart_item[\'id\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L389',
+				),
+			),
+			'price'  => array(
+				'name'        => 'price',
+				'description' => '$cart_item[\'price\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L390',
+				),
+			),
+			'item_price'  => array(
+				'name'        => 'item_price',
+				'description' => '$cart_item[\'item_price\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L391',
+				),
+			),
+			'subtotal'  => array(
+				'name'        => 'subtotal',
+				'description' => '$cart_item[\'subtotal\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L392',
+				),
+			),
+			'item_tax'  => array(
+				'name'        => 'item_tax',
+				'description' => '$cart_item[\'item_tax\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L393',
+				),
+			),
+			'price_id'  => array(
+				'name'        => 'price_id',
+				'description' => '$cart_item[\'price_id\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L394',
+				),
+			),
+			'quantity'  => array(
+				'name'        => 'quantity',
+				'description' => '$cart_item[\'quantity\']',
+				'links'       => array(
+					'https://github.com/easydigitaldownloads/easy-digital-downloads/blob/2.9.7/includes/admin/payments/view-order-details.php#L395',
+				),
+			),
 		),
 	),
 	'gravityforms' => array(
